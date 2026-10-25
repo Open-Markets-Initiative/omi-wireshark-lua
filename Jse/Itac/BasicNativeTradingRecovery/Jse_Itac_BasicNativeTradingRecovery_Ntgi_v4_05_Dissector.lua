@@ -310,15 +310,13 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type.size = 1
 
 -- Display: Cross Type
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type.display = function(value)
-  if value == 5 then
-    return "Cross Type: Internal Cross (5)"
-  end
-  if value == 50 then
-    return "Cross Type: Internal Cross Price Adjustable (50)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type.labels = {
+  [5] = "Cross Type: Internal Cross (5)",
+  [50] = "Cross Type: Internal Cross Price Adjustable (50)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -454,15 +452,13 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction.size = 1
 
 -- Display: Execution Instruction
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction.display = function(value)
-  if value == 0 then
-    return "Execution Instruction: None (0)"
-  end
-  if value == 2 then
-    return "Execution Instruction: Include In Eod Volume Auction Uncross (2)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction.labels = {
+  [0] = "Execution Instruction: None (0)",
+  [2] = "Execution Instruction: Include In Eod Volume Auction Uncross (2)",
+}
 
-  return "Execution Instruction: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction.labels[value] or "Execution Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Execution Instruction
@@ -484,42 +480,22 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_type = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_type.size = 1
 
 -- Display: Execution Type
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_type.display = function(value)
-  if value == "0" then
-    return "Execution Type: New (0)"
-  end
-  if value == "4" then
-    return "Execution Type: Cancelled (4)"
-  end
-  if value == "5" then
-    return "Execution Type: Amended Modified (5)"
-  end
-  if value == "8" then
-    return "Execution Type: Rejected (8)"
-  end
-  if value == "9" then
-    return "Execution Type: Suspended (9)"
-  end
-  if value == "C" then
-    return "Execution Type: Expired (C)"
-  end
-  if value == "F" then
-    return "Execution Type: Trade (F)"
-  end
-  if value == "G" then
-    return "Execution Type: Trade Correct (G)"
-  end
-  if value == "H" then
-    return "Execution Type: Trade Cancel (H)"
-  end
-  if value == "D" then
-    return "Execution Type: Restated (D)"
-  end
-  if value == "L" then
-    return "Execution Type: Triggered (L)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_type.labels = {
+  ["0"] = "Execution Type: New (0)",
+  ["4"] = "Execution Type: Cancelled (4)",
+  ["5"] = "Execution Type: Amended Modified (5)",
+  ["8"] = "Execution Type: Rejected (8)",
+  ["9"] = "Execution Type: Suspended (9)",
+  ["C"] = "Execution Type: Expired (C)",
+  ["F"] = "Execution Type: Trade (F)",
+  ["G"] = "Execution Type: Trade Correct (G)",
+  ["H"] = "Execution Type: Trade Cancel (H)",
+  ["D"] = "Execution Type: Restated (D)",
+  ["L"] = "Execution Type: Triggered (L)",
+}
 
-  return "Execution Type: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_type.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_type.labels[value] or "Execution Type: Unknown("..value..")"
 end
 
 -- Dissect: Execution Type
@@ -658,15 +634,13 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request.size = 1
 
 -- Display: Is Market Ops Request
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request.display = function(value)
-  if value == 0 then
-    return "Is Market Ops Request: No (0)"
-  end
-  if value == 1 then
-    return "Is Market Ops Request: Yes (1)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request.labels = {
+  [0] = "Is Market Ops Request: No (0)",
+  [1] = "Is Market Ops Request: Yes (1)",
+}
 
-  return "Is Market Ops Request: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request.labels[value] or "Is Market Ops Request: Unknown("..value..")"
 end
 
 -- Dissect: Is Market Ops Request
@@ -711,21 +685,15 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator.size = 1
 
 -- Display: Liquidity Indicator
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator.display = function(value)
-  if value == 0 then
-    return "Liquidity Indicator: Unset (0)"
-  end
-  if value == 1 then
-    return "Liquidity Indicator: Added Liquidity (1)"
-  end
-  if value == 2 then
-    return "Liquidity Indicator: Removed Liquidity (2)"
-  end
-  if value == 4 then
-    return "Liquidity Indicator: Auction (4)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator.labels = {
+  [0] = "Liquidity Indicator: Unset (0)",
+  [1] = "Liquidity Indicator: Added Liquidity (1)",
+  [2] = "Liquidity Indicator: Removed Liquidity (2)",
+  [4] = "Liquidity Indicator: Auction (4)",
+}
 
-  return "Liquidity Indicator: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator.labels[value] or "Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Indicator
@@ -747,15 +715,13 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status.size = 1
 
 -- Display: Mass Cancel Status
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Status: Rejected (0)"
-  end
-  if value == 7 then
-    return "Mass Cancel Status: Accepted (7)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status.labels = {
+  [0] = "Mass Cancel Status: Rejected (0)",
+  [7] = "Mass Cancel Status: Accepted (7)",
+}
 
-  return "Mass Cancel Status: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status.labels[value] or "Mass Cancel Status: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Status
@@ -800,51 +766,25 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.message_type = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.message_type.size = 1
 
 -- Display: Message Type
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Logon Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Logon Response Message (B)"
-  end
-  if value == "5" then
-    return "Message Type: Logout Message (5)"
-  end
-  if value == "0" then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == "3" then
-    return "Message Type: Reject Message (3)"
-  end
-  if value == "M" then
-    return "Message Type: Missed Message Request Message (M)"
-  end
-  if value == "N" then
-    return "Message Type: Missed Message Request Ack Message (N)"
-  end
-  if value == "P" then
-    return "Message Type: Transmission Complete Message (P)"
-  end
-  if value == "n" then
-    return "Message Type: System Status Message (n)"
-  end
-  if value == "8" then
-    return "Message Type: Execution Report Message (8)"
-  end
-  if value == "9" then
-    return "Message Type: Order Cancel Reject Message (9)"
-  end
-  if value == "r" then
-    return "Message Type: Order Mass Cancel Report Message (r)"
-  end
-  if value == "Z" then
-    return "Message Type: News Message (Z)"
-  end
-  if value == "j" then
-    return "Message Type: Business Reject Message (j)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.message_type.labels = {
+  ["A"] = "Message Type: Logon Message (A)",
+  ["B"] = "Message Type: Logon Response Message (B)",
+  ["5"] = "Message Type: Logout Message (5)",
+  ["0"] = "Message Type: Heartbeat Message (0)",
+  ["3"] = "Message Type: Reject Message (3)",
+  ["M"] = "Message Type: Missed Message Request Message (M)",
+  ["N"] = "Message Type: Missed Message Request Ack Message (N)",
+  ["P"] = "Message Type: Transmission Complete Message (P)",
+  ["n"] = "Message Type: System Status Message (n)",
+  ["8"] = "Message Type: Execution Report Message (8)",
+  ["9"] = "Message Type: Order Cancel Reject Message (9)",
+  ["r"] = "Message Type: Order Mass Cancel Report Message (r)",
+  ["Z"] = "Message Type: News Message (Z)",
+  ["j"] = "Message Type: Business Reject Message (j)",
+}
 
-  return "Message Type: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.message_type.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -866,21 +806,15 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status.size = 1
 
 -- Display: Missed Message Status
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status.display = function(value)
-  if value == 0 then
-    return "Missed Message Status: Request Accepted Successful (0)"
-  end
-  if value == 1 then
-    return "Missed Message Status: Request Limit Reached (1)"
-  end
-  if value == 2 then
-    return "Missed Message Status: Invalid Partition Id (2)"
-  end
-  if value == 3 then
-    return "Missed Message Status: Service Unavailable (3)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status.labels = {
+  [0] = "Missed Message Status: Request Accepted Successful (0)",
+  [1] = "Missed Message Status: Request Limit Reached (1)",
+  [2] = "Missed Message Status: Invalid Partition Id (2)",
+  [3] = "Missed Message Status: Service Unavailable (3)",
+}
 
-  return "Missed Message Status: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status.labels[value] or "Missed Message Status: Unknown("..value..")"
 end
 
 -- Dissect: Missed Message Status
@@ -941,12 +875,12 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book.size = 1
 
 -- Display: Order Book
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book.display = function(value)
-  if value == 1 then
-    return "Order Book: Regular (1)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book.labels = {
+  [1] = "Order Book: Regular (1)",
+}
 
-  return "Order Book: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book.labels[value] or "Order Book: Unknown("..value..")"
 end
 
 -- Dissect: Order Book
@@ -1007,30 +941,18 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status.size = 1
 
 -- Display: Order Status
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status.display = function(value)
-  if value == 0 then
-    return "Order Status: New (0)"
-  end
-  if value == 1 then
-    return "Order Status: Partially Filled (1)"
-  end
-  if value == 2 then
-    return "Order Status: Filled (2)"
-  end
-  if value == 4 then
-    return "Order Status: Cancelled (4)"
-  end
-  if value == 6 then
-    return "Order Status: Expired (6)"
-  end
-  if value == 8 then
-    return "Order Status: Rejected (8)"
-  end
-  if value == 9 then
-    return "Order Status: Suspended (9)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status.labels = {
+  [0] = "Order Status: New (0)",
+  [1] = "Order Status: Partially Filled (1)",
+  [2] = "Order Status: Filled (2)",
+  [4] = "Order Status: Cancelled (4)",
+  [6] = "Order Status: Expired (6)",
+  [8] = "Order Status: Rejected (8)",
+  [9] = "Order Status: Suspended (9)",
+}
 
-  return "Order Status: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status.labels[value] or "Order Status: Unknown("..value..")"
 end
 
 -- Dissect: Order Status
@@ -1424,15 +1346,13 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.side = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.side.size = 1
 
 -- Display: Side
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
 
-  return "Side: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.side.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1477,18 +1397,14 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status.size = 1
 
 -- Display: System Status
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status.display = function(value)
-  if value == 1 then
-    return "System Status: Recovery Service Resumed (1)"
-  end
-  if value == 2 then
-    return "System Status: Recovery Service Unavailable (2)"
-  end
-  if value == 3 then
-    return "System Status: Partition Suspended (3)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status.labels = {
+  [1] = "System Status: Recovery Service Resumed (1)",
+  [2] = "System Status: Recovery Service Unavailable (2)",
+  [3] = "System Status: Partition Suspended (3)",
+}
 
-  return "System Status: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -1634,18 +1550,14 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status.size = 1
 
 -- Display: Transmission Status
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status.display = function(value)
-  if value == 0 then
-    return "Transmission Status: All Messages Transmitted (0)"
-  end
-  if value == 1 then
-    return "Transmission Status: Message Limit Reached (1)"
-  end
-  if value == 3 then
-    return "Transmission Status: Service Unavailable (3)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status.labels = {
+  [0] = "Transmission Status: All Messages Transmitted (0)",
+  [1] = "Transmission Status: Message Limit Reached (1)",
+  [3] = "Transmission Status: Service Unavailable (3)",
+}
 
-  return "Transmission Status: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status.labels[value] or "Transmission Status: Unknown("..value..")"
 end
 
 -- Dissect: Transmission Status
@@ -1667,21 +1579,15 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade.size = 1
 
 -- Display: Type Of Trade
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade.display = function(value)
-  if value == 0 then
-    return "Type Of Trade: Visible (0)"
-  end
-  if value == 1 then
-    return "Type Of Trade: Hidden (1)"
-  end
-  if value == 2 then
-    return "Type Of Trade: Not Specified (2)"
-  end
-  if value == 3 then
-    return "Type Of Trade: Pegged (3)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade.labels = {
+  [0] = "Type Of Trade: Visible (0)",
+  [1] = "Type Of Trade: Hidden (1)",
+  [2] = "Type Of Trade: Not Specified (2)",
+  [3] = "Type Of Trade: Pegged (3)",
+}
 
-  return "Type Of Trade: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade.labels[value] or "Type Of Trade: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Trade
@@ -1742,18 +1648,14 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.urgency = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.urgency.size = 1
 
 -- Display: Urgency
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.urgency.display = function(value)
-  if value == "0" then
-    return "Urgency: Regular (0)"
-  end
-  if value == "1" then
-    return "Urgency: High Priority (1)"
-  end
-  if value == "2" then
-    return "Urgency: Low Priority (2)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.urgency.labels = {
+  ["0"] = "Urgency: Regular (0)",
+  ["1"] = "Urgency: High Priority (1)",
+  ["2"] = "Urgency: Low Priority (2)",
+}
 
-  return "Urgency: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.urgency.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.urgency.labels[value] or "Urgency: Unknown("..value..")"
 end
 
 -- Dissect: Urgency
@@ -1814,18 +1716,14 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator = {}
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator.size = 1
 
 -- Display: Working Indicator
-jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator.display = function(value)
-  if value == 0 then
-    return "Working Indicator: Unset (0)"
-  end
-  if value == 1 then
-    return "Working Indicator: Order Is Being Worked (1)"
-  end
-  if value == 2 then
-    return "Working Indicator: Order Is Not Currently In A Working State (2)"
-  end
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator.labels = {
+  [0] = "Working Indicator: Unset (0)",
+  [1] = "Working Indicator: Order Is Being Worked (1)",
+  [2] = "Working Indicator: Order Is Not Currently In A Working State (2)",
+}
 
-  return "Working Indicator: Unknown("..value..")"
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator.display = function(value)
+  return jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator.labels[value] or "Working Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Working Indicator
@@ -2784,62 +2682,27 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload = {}
 
 -- Dissect: Payload
+jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload.dispatch = {
+  ["A"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.logon_message.dissect,
+  ["B"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.logon_response_message.dissect,
+  ["5"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.logout_message.dissect,
+  ["0"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.heartbeat_message.dissect,
+  ["3"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.reject_message.dissect,
+  ["M"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_request_message.dissect,
+  ["N"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_request_ack_message.dissect,
+  ["P"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_complete_message.dissect,
+  ["n"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status_message.dissect,
+  ["8"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_report_message.dissect,
+  ["9"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_cancel_reject_message.dissect,
+  ["r"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_mass_cancel_report_message.dissect,
+  ["Z"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.news_message.dissect,
+  ["j"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.business_reject_message.dissect,
+}
+
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon Message
-  if message_type == "A" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response Message
-  if message_type == "B" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if message_type == "5" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == "0" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if message_type == "3" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Missed Message Request Message
-  if message_type == "M" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Missed Message Request Ack Message
-  if message_type == "N" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_request_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transmission Complete Message
-  if message_type == "P" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Status Message
-  if message_type == "n" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Message
-  if message_type == "8" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject Message
-  if message_type == "9" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Cancel Report Message
-  if message_type == "r" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_mass_cancel_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Message
-  if message_type == "Z" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.news_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Business Reject Message
-  if message_type == "j" then
-    return jse_itac_basicnativetradingrecovery_ntgi_v4_05.business_reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

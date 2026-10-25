@@ -320,45 +320,23 @@ jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason.display = function(value)
-  if value == 1 then
-    return "Cancel Reason: Canceled By User (1)"
-  end
-  if value == 4 then
-    return "Cancel Reason: Order Inactivated (4)"
-  end
-  if value == 9 then
-    return "Cancel Reason: Canceled By System (9)"
-  end
-  if value == 10 then
-    return "Cancel Reason: Canceled By Proxy (10)"
-  end
-  if value == 15 then
-    return "Cancel Reason: Canceled By System Limit Change (15)"
-  end
-  if value == 19 then
-    return "Cancel Reason: Deleted By Time Validity Expiration (19)"
-  end
-  if value == 20 then
-    return "Cancel Reason: Canceled Due To Iss (20)"
-  end
-  if value == 21 then
-    return "Cancel Reason: Inactivated Due To Iss (21)"
-  end
-  if value == 34 then
-    return "Cancel Reason: Canceled After Auction (34)"
-  end
-  if value == 41 then
-    return "Cancel Reason: Canceled By System Delta Protection (41)"
-  end
-  if value == 42 then
-    return "Cancel Reason: Canceled By System Quantity Protection (42)"
-  end
-  if value == 43 then
-    return "Cancel Reason: Self Trade Prevention (43)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason.labels = {
+  [1] = "Cancel Reason: Canceled By User (1)",
+  [4] = "Cancel Reason: Order Inactivated (4)",
+  [9] = "Cancel Reason: Canceled By System (9)",
+  [10] = "Cancel Reason: Canceled By Proxy (10)",
+  [15] = "Cancel Reason: Canceled By System Limit Change (15)",
+  [19] = "Cancel Reason: Deleted By Time Validity Expiration (19)",
+  [20] = "Cancel Reason: Canceled Due To Iss (20)",
+  [21] = "Cancel Reason: Inactivated Due To Iss (21)",
+  [34] = "Cancel Reason: Canceled After Auction (34)",
+  [41] = "Cancel Reason: Canceled By System Delta Protection (41)",
+  [42] = "Cancel Reason: Canceled By System Quantity Protection (42)",
+  [43] = "Cancel Reason: Self Trade Prevention (43)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -403,24 +381,16 @@ jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -488,18 +458,14 @@ jpx_osederivatives_geniuminet_ouch_v5_0.deal_source = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.deal_source.size = 1
 
 -- Display: Deal Source
-jpx_osederivatives_geniuminet_ouch_v5_0.deal_source.display = function(value)
-  if value == 1 then
-    return "Deal Source: System Matched (1)"
-  end
-  if value == 7 then
-    return "Deal Source: Combination Matched (7)"
-  end
-  if value == 20 then
-    return "Deal Source: Auction End Deal (20)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.deal_source.labels = {
+  [1] = "Deal Source: System Matched (1)",
+  [7] = "Deal Source: Combination Matched (7)",
+  [20] = "Deal Source: Auction End Deal (20)",
+}
 
-  return "Deal Source: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.deal_source.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.deal_source.labels[value] or "Deal Source: Unknown("..value..")"
 end
 
 -- Dissect: Deal Source
@@ -609,24 +575,16 @@ jpx_osederivatives_geniuminet_ouch_v5_0.open_close = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.open_close.size = 1
 
 -- Display: Open Close
-jpx_osederivatives_geniuminet_ouch_v5_0.open_close.display = function(value)
-  if value == 0 then
-    return "Open Close: No Change (0)"
-  end
-  if value == 1 then
-    return "Open Close: Open (1)"
-  end
-  if value == 2 then
-    return "Open Close: Close Net (2)"
-  end
-  if value == 3 then
-    return "Open Close: Mandatory Close (3)"
-  end
-  if value == 4 then
-    return "Open Close: Default (4)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.open_close.labels = {
+  [0] = "Open Close: No Change (0)",
+  [1] = "Open Close: Open (1)",
+  [2] = "Open Close: Close Net (2)",
+  [3] = "Open Close: Mandatory Close (3)",
+  [4] = "Open Close: Default (4)",
+}
 
-  return "Open Close: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.open_close.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.open_close.labels[value] or "Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Open Close
@@ -694,15 +652,13 @@ jpx_osederivatives_geniuminet_ouch_v5_0.order_state = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.order_state.size = 1
 
 -- Display: Order State
-jpx_osederivatives_geniuminet_ouch_v5_0.order_state.display = function(value)
-  if value == 1 then
-    return "Order State: On Book (1)"
-  end
-  if value == 2 then
-    return "Order State: Not On Book (2)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.order_state.labels = {
+  [1] = "Order State: On Book (1)",
+  [2] = "Order State: Not On Book (2)",
+}
 
-  return "Order State: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.order_state.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -868,528 +824,184 @@ jpx_osederivatives_geniuminet_ouch_v5_0.reject_code = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.size = 4
 
 -- Display: Reject Code
-jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.display = function(value)
-  if value == -800014 then
-    return "Reject Code: De Can Not Cancel (-800014)"
-  end
-  if value == -800002 then
-    return "Reject Code: De Duplicate Token (-800002)"
-  end
-  if value == -800016 then
-    return "Reject Code: De Invalid Mass Cancel Scope (-800016)"
-  end
-  if value == -800006 then
-    return "Reject Code: De Invalid Orderbook (-800006)"
-  end
-  if value == -800012 then
-    return "Reject Code: De Invalid Order Number (-800012)"
-  end
-  if value == -800008 then
-    return "Reject Code: De Invalid Side (-800008)"
-  end
-  if value == -800010 then
-    return "Reject Code: De Invalid Tif (-800010)"
-  end
-  if value == -800018 then
-    return "Reject Code: De Invalid Underlying (-800018)"
-  end
-  if value == -800015 then
-    return "Reject Code: De Throttling (-800015)"
-  end
-  if value == -800004 then
-    return "Reject Code: De Unknown Token (-800004)"
-  end
-  if value == -110210 then
-    return "Reject Code: Gen Cdc Aex Full (-110210)"
-  end
-  if value == -110244 then
-    return "Reject Code: Gen Cdc Asc Full (-110244)"
-  end
-  if value == -110262 then
-    return "Reject Code: Gen Cdc Cac Full (-110262)"
-  end
-  if value == -110235 then
-    return "Reject Code: Gen Cdc Cbs Not Ready (-110235)"
-  end
-  if value == -110196 then
-    return "Reject Code: Gen Cdc Cbx Full (-110196)"
-  end
-  if value == -110204 then
-    return "Reject Code: Gen Cdc Ccr Full (-110204)"
-  end
-  if value == -110186 then
-    return "Reject Code: Gen Cdc Cib Full (-110186)"
-  end
-  if value == -110019 then
-    return "Reject Code: Gen Cdc Cli Notfou (-110019)"
-  end
-  if value == -110118 then
-    return "Reject Code: Gen Cdc Cog Full (-110118)"
-  end
-  if value == -110242 then
-    return "Reject Code: Gen Cdc Cpa Full (-110242)"
-  end
-  if value == -110194 then
-    return "Reject Code: Gen Cdc Crf Full (-110194)"
-  end
-  if value == -110202 then
-    return "Reject Code: Gen Cdc Cro Full (-110202)"
-  end
-  if value == -110274 then
-    return "Reject Code: Gen Cdc Crp Full (-110274)"
-  end
-  if value == -110165 then
-    return "Reject Code: Gen Cdc Crsclose (-110165)"
-  end
-  if value == -110212 then
-    return "Reject Code: Gen Cdc Csa Full (-110212)"
-  end
-  if value == -110282 then
-    return "Reject Code: Gen Cdc Cse Full (-110282)"
-  end
-  if value == -110081 then
-    return "Reject Code: Gen Cdc Cst Susp (-110081)"
-  end
-  if value == -110218 then
-    return "Reject Code: Gen Cdc Cup Full (-110218)"
-  end
-  if value == -110264 then
-    return "Reject Code: Gen Cdc Cur Full (-110264)"
-  end
-  if value == -110136 then
-    return "Reject Code: Gen Cdc Des Full (-110136)"
-  end
-  if value == -110146 then
-    return "Reject Code: Gen Cdc Dgr Full (-110146)"
-  end
-  if value == -110148 then
-    return "Reject Code: Gen Cdc Dhb Full (-110148)"
-  end
-  if value == -110268 then
-    return "Reject Code: Gen Cdc Dio Full (-110268)"
-  end
-  if value == -110232 then
-    return "Reject Code: Gen Cdc Ecb Full (-110232)"
-  end
-  if value == -110126 then
-    return "Reject Code: Gen Cdc Edg Full (-110126)"
-  end
-  if value == -110222 then
-    return "Reject Code: Gen Cdc Edl Full (-110222)"
-  end
-  if value == -110138 then
-    return "Reject Code: Gen Cdc Eid Full (-110138)"
-  end
-  if value == -110142 then
-    return "Reject Code: Gen Cdc Exc Full (-110142)"
-  end
-  if value == -110120 then
-    return "Reject Code: Gen Cdc Fml Full (-110120)"
-  end
-  if value == -110132 then
-    return "Reject Code: Gen Cdc Fov Full (-110132)"
-  end
-  if value == -110284 then
-    return "Reject Code: Gen Cdc Hse Full (-110284)"
-  end
-  if value == -110061 then
-    return "Reject Code: Gen Cdc Ill Commodity (-110061)"
-  end
-  if value == -110220 then
-    return "Reject Code: Gen Cdc Ing Full (-110220)"
-  end
-  if value == -110023 then
-    return "Reject Code: Gen Cdc Int Closed (-110023)"
-  end
-  if value == -110167 then
-    return "Reject Code: Gen Cdc Invopenclose (-110167)"
-  end
-  if value == -110171 then
-    return "Reject Code: Gen Cdc Invuser (-110171)"
-  end
-  if value == -110157 then
-    return "Reject Code: Gen Cdc Inv Block (-110157)"
-  end
-  if value == -110163 then
-    return "Reject Code: Gen Cdc Inv Open Close Req (-110163)"
-  end
-  if value == -110161 then
-    return "Reject Code: Gen Cdc Inv Premium (-110161)"
-  end
-  if value == -110159 then
-    return "Reject Code: Gen Cdc Inv Quantity (-110159)"
-  end
-  if value == -110206 then
-    return "Reject Code: Gen Cdc Ixv Full (-110206)"
-  end
-  if value == -110011 then
-    return "Reject Code: Gen Cdc Liu Notfou (-110011)"
-  end
-  if value == -110013 then
-    return "Reject Code: Gen Cdc Ltt Notfou (-110013)"
-  end
-  if value == -110169 then
-    return "Reject Code: Gen Cdc Match Validity (-110169)"
-  end
-  if value == -110201 then
-    return "Reject Code: Gen Cdc Max Mem Quantity (-110201)"
-  end
-  if value == -110173 then
-    return "Reject Code: Gen Cdc Max Quantity (-110173)"
-  end
-  if value == -110002 then
-    return "Reject Code: Gen Cdc Mem Full (-110002)"
-  end
-  if value == -110175 then
-    return "Reject Code: Gen Cdc Min Of Sil (-110175)"
-  end
-  if value == -110278 then
-    return "Reject Code: Gen Cdc Mpm Full (-110278)"
-  end
-  if value == -110276 then
-    return "Reject Code: Gen Cdc Mpr Full (-110276)"
-  end
-  if value == -110116 then
-    return "Reject Code: Gen Cdc Msu Full (-110116)"
-  end
-  if value == -110247 then
-    return "Reject Code: Gen Cdc Not Traded (-110247)"
-  end
-  if value == -110193 then
-    return "Reject Code: Gen Cdc No Hedge Price (-110193)"
-  end
-  if value == -110190 then
-    return "Reject Code: Gen Cdc Ntd Full (-110190)"
-  end
-  if value == -110236 then
-    return "Reject Code: Gen Cdc Oat Full (-110236)"
-  end
-  if value == -110122 then
-    return "Reject Code: Gen Cdc Obk Full (-110122)"
-  end
-  if value == -110114 then
-    return "Reject Code: Gen Cdc Obl Full (-110114)"
-  end
-  if value == -110115 then
-    return "Reject Code: Gen Cdc Obl Notfou (-110115)"
-  end
-  if value == -110255 then
-    return "Reject Code: Gen Cdc Only In Eq Cbo (-110255)"
-  end
-  if value == -110266 then
-    return "Reject Code: Gen Cdc Opp Full (-110266)"
-  end
-  if value == -110130 then
-    return "Reject Code: Gen Cdc Pdp Full (-110130)"
-  end
-  if value == -110252 then
-    return "Reject Code: Gen Cdc Pid Full (-110252)"
-  end
-  if value == -110216 then
-    return "Reject Code: Gen Cdc Pod Full (-110216)"
-  end
-  if value == -110152 then
-    return "Reject Code: Gen Cdc Prl Full (-110152)"
-  end
-  if value == -110270 then
-    return "Reject Code: Gen Cdc Rpt Full (-110270)"
-  end
-  if value == -110272 then
-    return "Reject Code: Gen Cdc Rtm Full (-110272)"
-  end
-  if value == -110214 then
-    return "Reject Code: Gen Cdc Sec Full (-110214)"
-  end
-  if value == -110155 then
-    return "Reject Code: Gen Cdc Series Stopped (-110155)"
-  end
-  if value == -110188 then
-    return "Reject Code: Gen Cdc Sid Full (-110188)"
-  end
-  if value == -110128 then
-    return "Reject Code: Gen Cdc Spg Full (-110128)"
-  end
-  if value == -110224 then
-    return "Reject Code: Gen Cdc Spl Full (-110224)"
-  end
-  if value == -110230 then
-    return "Reject Code: Gen Cdc Sss Full (-110230)"
-  end
-  if value == -110150 then
-    return "Reject Code: Gen Cdc Sst Full (-110150)"
-  end
-  if value == -110257 then
-    return "Reject Code: Gen Cdc Trc Ins Notfound (-110257)"
-  end
-  if value == -110259 then
-    return "Reject Code: Gen Cdc Trc Sst Notfound (-110259)"
-  end
-  if value == -110261 then
-    return "Reject Code: Gen Cdc Trc Ust Notfound (-110261)"
-  end
-  if value == -110134 then
-    return "Reject Code: Gen Cdc Tse Full (-110134)"
-  end
-  if value == -110124 then
-    return "Reject Code: Gen Cdc Tsr Full (-110124)"
-  end
-  if value == -110077 then
-    return "Reject Code: Gen Cdc Usr Susp (-110077)"
-  end
-  if value == -110140 then
-    return "Reject Code: Gen Cdc Ust Full (-110140)"
-  end
-  if value == -110208 then
-    return "Reject Code: Gen Cdc Vbs Full (-110208)"
-  end
-  if value == -110144 then
-    return "Reject Code: Gen Cdc Vds Full (-110144)"
-  end
-  if value == -110226 then
-    return "Reject Code: Gen Cdc Vsp Full (-110226)"
-  end
-  if value == -110198 then
-    return "Reject Code: Gen Cdc Wkp Full (-110198)"
-  end
-  if value == -197004 then
-    return "Reject Code: Gen Shr Dvpcancellednocancel (-197004)"
-  end
-  if value == -197000 then
-    return "Reject Code: Gen Shr Dvpcompletednocancel (-197000)"
-  end
-  if value == -197002 then
-    return "Reject Code: Gen Shr Dvprecallednocancel (-197002)"
-  end
-  if value == -197014 then
-    return "Reject Code: Gen Shr Fixedincomepricetype (-197014)"
-  end
-  if value == -197012 then
-    return "Reject Code: Gen Shr Fixedincomeproduct (-197012)"
-  end
-  if value == -197008 then
-    return "Reject Code: Gen Shr Illegalargument (-197008)"
-  end
-  if value == -197022 then
-    return "Reject Code: Gen Shr Interror (-197022)"
-  end
-  if value == -197006 then
-    return "Reject Code: Gen Shr Invfixedincometype (-197006)"
-  end
-  if value == -197026 then
-    return "Reject Code: Gen Shr Invinsid (-197026)"
-  end
-  if value == -197010 then
-    return "Reject Code: Gen Shr Invpremiumunit (-197010)"
-  end
-  if value == -197016 then
-    return "Reject Code: Gen Shr Invseries (-197016)"
-  end
-  if value == -197020 then
-    return "Reject Code: Gen Shr Nottmseries (-197020)"
-  end
-  if value == -197018 then
-    return "Reject Code: Gen Shr Nottmtemplate (-197018)"
-  end
-  if value == -197024 then
-    return "Reject Code: Gen Shr Seriesmismatch (-197024)"
-  end
-  if value == -140001 then
-    return "Reject Code: Oc Brx Not All (-140001)"
-  end
-  if value == -140006 then
-    return "Reject Code: Oc Error (-140006)"
-  end
-  if value == -140008 then
-    return "Reject Code: Oc Fatal (-140008)"
-  end
-  if value == -140010 then
-    return "Reject Code: Oc Invargs (-140010)"
-  end
-  if value == -140012 then
-    return "Reject Code: Oc Invchn Type (-140012)"
-  end
-  if value == -140074 then
-    return "Reject Code: Oc Tx Notsamclu (-140074)"
-  end
-  if value == -140076 then
-    return "Reject Code: Oc Tx Notsamnod (-140076)"
-  end
-  if value == -140070 then
-    return "Reject Code: Oc Tx Not Open (-140070)"
-  end
-  if value == -140078 then
-    return "Reject Code: Oc Tx Nrsegsdif (-140078)"
-  end
-  if value == -140080 then
-    return "Reject Code: Oc Tx Outst Evtsdwn (-140080)"
-  end
-  if value == -140082 then
-    return "Reject Code: Oc Tx Reqabort (-140082)"
-  end
-  if value == -140084 then
-    return "Reject Code: Oc Tx Reqcallun (-140084)"
-  end
-  if value == -140085 then
-    return "Reject Code: Oc Tx Shutcall (-140085)"
-  end
-  if value == -140087 then
-    return "Reject Code: Oc Tx Shutdown (-140087)"
-  end
-  if value == -140092 then
-    return "Reject Code: Oc Tx Toomansha (-140092)"
-  end
-  if value == -140094 then
-    return "Reject Code: Oc Tx Truncate (-140094)"
-  end
-  if value == -140098 then
-    return "Reject Code: Oc Tx Uppleslow (-140098)"
-  end
-  if value == -510192 then
-    return "Reject Code: Info Abortnomatch (-510192)"
-  end
-  if value == -510190 then
-    return "Reject Code: Info Abortstateready (-510190)"
-  end
-  if value == -510228 then
-    return "Reject Code: Info Abortstateundo (-510228)"
-  end
-  if value == -510080 then
-    return "Reject Code: Info Badseg (-510080)"
-  end
-  if value == -510270 then
-    return "Reject Code: Info Bdcsem (-510270)"
-  end
-  if value == -510268 then
-    return "Reject Code: Info Bdcsyn (-510268)"
-  end
-  if value == -510224 then
-    return "Reject Code: Info Calcrulenotaplund (-510224)"
-  end
-  if value == -510206 then
-    return "Reject Code: Info Colfailnosource (-510206)"
-  end
-  if value == -510194 then
-    return "Reject Code: Info Datalckbysignal (-510194)"
-  end
-  if value == -510214 then
-    return "Reject Code: Info Dirtyfuture (-510214)"
-  end
-  if value == -510218 then
-    return "Reject Code: Info Dirtymoney (-510218)"
-  end
-  if value == -510216 then
-    return "Reject Code: Info Dirtywi (-510216)"
-  end
-  if value == -510348 then
-    return "Reject Code: Info Emergsplocked (-510348)"
-  end
-  if value == -510272 then
-    return "Reject Code: Info Errorcode (-510272)"
-  end
-  if value == -510186 then
-    return "Reject Code: Info Funcnotsup (-510186)"
-  end
-  if value == -510284 then
-    return "Reject Code: Info Hisdatenotalwd (-510284)"
-  end
-  if value == -510308 then
-    return "Reject Code: Info Indexcalcfail (-510308)"
-  end
-  if value == -510312 then
-    return "Reject Code: Info Indexindiceslogfail (-510312)"
-  end
-  if value == -510310 then
-    return "Reject Code: Info Indexjournalfail (-510310)"
-  end
-  if value == -510300 then
-    return "Reject Code: Info Indexvalidfail (-510300)"
-  end
-  if value == -510220 then
-    return "Reject Code: Info Indicativepricetype (-510220)"
-  end
-  if value == -510280 then
-    return "Reject Code: Info Insnotallowed (-510280)"
-  end
-  if value == -510332 then
-    return "Reject Code: Info Spgenericerror (-510332)"
-  end
-  if value == -510326 then
-    return "Reject Code: Info Spinvalgo (-510326)"
-  end
-  if value == -510328 then
-    return "Reject Code: Info Spinvalgoforprod (-510328)"
-  end
-  if value == -510346 then
-    return "Reject Code: Info Spinvalgoparam (-510346)"
-  end
-  if value == -510330 then
-    return "Reject Code: Info Spinvaslocked (-510330)"
-  end
-  if value == -510340 then
-    return "Reject Code: Info Spinvclearingdate (-510340)"
-  end
-  if value == -510322 then
-    return "Reject Code: Info Spinvforalg (-510322)"
-  end
-  if value == -510320 then
-    return "Reject Code: Info Spinvfortheoalg (-510320)"
-  end
-  if value == -510334 then
-    return "Reject Code: Info Spinvmanuallyflag (-510334)"
-  end
-  if value == -510350 then
-    return "Reject Code: Info Spinvsource (-510350)"
-  end
-  if value == -510352 then
-    return "Reject Code: Info Spmixderupp (-510352)"
-  end
-  if value == -510336 then
-    return "Reject Code: Info Spmixfutopt (-510336)"
-  end
-  if value == -510338 then
-    return "Reject Code: Info Spnotallopt (-510338)"
-  end
-  if value == -510354 then
-    return "Reject Code: Info Spnoupperlp (-510354)"
-  end
-  if value == -510344 then
-    return "Reject Code: Info Spoptexpandmaxlimit (-510344)"
-  end
-  if value == -510342 then
-    return "Reject Code: Info Spruleoutofrange (-510342)"
-  end
-  if value == -510358 then
-    return "Reject Code: Info Spsavecalcinprog (-510358)"
-  end
-  if value == -510360 then
-    return "Reject Code: Info Spsavelck (-510360)"
-  end
-  if value == -510362 then
-    return "Reject Code: Info Spsavenewcday (-510362)"
-  end
-  if value == -510324 then
-    return "Reject Code: Info Sptomanymatches (-510324)"
-  end
-  if value == -510317 then
-    return "Reject Code: Info Strtruncated (-510317)"
-  end
-  if value == -510234 then
-    return "Reject Code: Info Subitemdropped (-510234)"
-  end
-  if value == -510079 then
-    return "Reject Code: Info Todaynotavail (-510079)"
-  end
-  if value == -510370 then
-    return "Reject Code: Info Txdupitem (-510370)"
-  end
-  if value == -510144 then
-    return "Reject Code: Info Unknownoper (-510144)"
-  end
-  if value == -510368 then
-    return "Reject Code: Info Wrongchildstate (-510368)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.labels = {
+  [-800014] = "Reject Code: De Can Not Cancel (-800014)",
+  [-800002] = "Reject Code: De Duplicate Token (-800002)",
+  [-800016] = "Reject Code: De Invalid Mass Cancel Scope (-800016)",
+  [-800006] = "Reject Code: De Invalid Orderbook (-800006)",
+  [-800012] = "Reject Code: De Invalid Order Number (-800012)",
+  [-800008] = "Reject Code: De Invalid Side (-800008)",
+  [-800010] = "Reject Code: De Invalid Tif (-800010)",
+  [-800018] = "Reject Code: De Invalid Underlying (-800018)",
+  [-800015] = "Reject Code: De Throttling (-800015)",
+  [-800004] = "Reject Code: De Unknown Token (-800004)",
+  [-110210] = "Reject Code: Gen Cdc Aex Full (-110210)",
+  [-110244] = "Reject Code: Gen Cdc Asc Full (-110244)",
+  [-110262] = "Reject Code: Gen Cdc Cac Full (-110262)",
+  [-110235] = "Reject Code: Gen Cdc Cbs Not Ready (-110235)",
+  [-110196] = "Reject Code: Gen Cdc Cbx Full (-110196)",
+  [-110204] = "Reject Code: Gen Cdc Ccr Full (-110204)",
+  [-110186] = "Reject Code: Gen Cdc Cib Full (-110186)",
+  [-110019] = "Reject Code: Gen Cdc Cli Notfou (-110019)",
+  [-110118] = "Reject Code: Gen Cdc Cog Full (-110118)",
+  [-110242] = "Reject Code: Gen Cdc Cpa Full (-110242)",
+  [-110194] = "Reject Code: Gen Cdc Crf Full (-110194)",
+  [-110202] = "Reject Code: Gen Cdc Cro Full (-110202)",
+  [-110274] = "Reject Code: Gen Cdc Crp Full (-110274)",
+  [-110165] = "Reject Code: Gen Cdc Crsclose (-110165)",
+  [-110212] = "Reject Code: Gen Cdc Csa Full (-110212)",
+  [-110282] = "Reject Code: Gen Cdc Cse Full (-110282)",
+  [-110081] = "Reject Code: Gen Cdc Cst Susp (-110081)",
+  [-110218] = "Reject Code: Gen Cdc Cup Full (-110218)",
+  [-110264] = "Reject Code: Gen Cdc Cur Full (-110264)",
+  [-110136] = "Reject Code: Gen Cdc Des Full (-110136)",
+  [-110146] = "Reject Code: Gen Cdc Dgr Full (-110146)",
+  [-110148] = "Reject Code: Gen Cdc Dhb Full (-110148)",
+  [-110268] = "Reject Code: Gen Cdc Dio Full (-110268)",
+  [-110232] = "Reject Code: Gen Cdc Ecb Full (-110232)",
+  [-110126] = "Reject Code: Gen Cdc Edg Full (-110126)",
+  [-110222] = "Reject Code: Gen Cdc Edl Full (-110222)",
+  [-110138] = "Reject Code: Gen Cdc Eid Full (-110138)",
+  [-110142] = "Reject Code: Gen Cdc Exc Full (-110142)",
+  [-110120] = "Reject Code: Gen Cdc Fml Full (-110120)",
+  [-110132] = "Reject Code: Gen Cdc Fov Full (-110132)",
+  [-110284] = "Reject Code: Gen Cdc Hse Full (-110284)",
+  [-110061] = "Reject Code: Gen Cdc Ill Commodity (-110061)",
+  [-110220] = "Reject Code: Gen Cdc Ing Full (-110220)",
+  [-110023] = "Reject Code: Gen Cdc Int Closed (-110023)",
+  [-110167] = "Reject Code: Gen Cdc Invopenclose (-110167)",
+  [-110171] = "Reject Code: Gen Cdc Invuser (-110171)",
+  [-110157] = "Reject Code: Gen Cdc Inv Block (-110157)",
+  [-110163] = "Reject Code: Gen Cdc Inv Open Close Req (-110163)",
+  [-110161] = "Reject Code: Gen Cdc Inv Premium (-110161)",
+  [-110159] = "Reject Code: Gen Cdc Inv Quantity (-110159)",
+  [-110206] = "Reject Code: Gen Cdc Ixv Full (-110206)",
+  [-110011] = "Reject Code: Gen Cdc Liu Notfou (-110011)",
+  [-110013] = "Reject Code: Gen Cdc Ltt Notfou (-110013)",
+  [-110169] = "Reject Code: Gen Cdc Match Validity (-110169)",
+  [-110201] = "Reject Code: Gen Cdc Max Mem Quantity (-110201)",
+  [-110173] = "Reject Code: Gen Cdc Max Quantity (-110173)",
+  [-110002] = "Reject Code: Gen Cdc Mem Full (-110002)",
+  [-110175] = "Reject Code: Gen Cdc Min Of Sil (-110175)",
+  [-110278] = "Reject Code: Gen Cdc Mpm Full (-110278)",
+  [-110276] = "Reject Code: Gen Cdc Mpr Full (-110276)",
+  [-110116] = "Reject Code: Gen Cdc Msu Full (-110116)",
+  [-110247] = "Reject Code: Gen Cdc Not Traded (-110247)",
+  [-110193] = "Reject Code: Gen Cdc No Hedge Price (-110193)",
+  [-110190] = "Reject Code: Gen Cdc Ntd Full (-110190)",
+  [-110236] = "Reject Code: Gen Cdc Oat Full (-110236)",
+  [-110122] = "Reject Code: Gen Cdc Obk Full (-110122)",
+  [-110114] = "Reject Code: Gen Cdc Obl Full (-110114)",
+  [-110115] = "Reject Code: Gen Cdc Obl Notfou (-110115)",
+  [-110255] = "Reject Code: Gen Cdc Only In Eq Cbo (-110255)",
+  [-110266] = "Reject Code: Gen Cdc Opp Full (-110266)",
+  [-110130] = "Reject Code: Gen Cdc Pdp Full (-110130)",
+  [-110252] = "Reject Code: Gen Cdc Pid Full (-110252)",
+  [-110216] = "Reject Code: Gen Cdc Pod Full (-110216)",
+  [-110152] = "Reject Code: Gen Cdc Prl Full (-110152)",
+  [-110270] = "Reject Code: Gen Cdc Rpt Full (-110270)",
+  [-110272] = "Reject Code: Gen Cdc Rtm Full (-110272)",
+  [-110214] = "Reject Code: Gen Cdc Sec Full (-110214)",
+  [-110155] = "Reject Code: Gen Cdc Series Stopped (-110155)",
+  [-110188] = "Reject Code: Gen Cdc Sid Full (-110188)",
+  [-110128] = "Reject Code: Gen Cdc Spg Full (-110128)",
+  [-110224] = "Reject Code: Gen Cdc Spl Full (-110224)",
+  [-110230] = "Reject Code: Gen Cdc Sss Full (-110230)",
+  [-110150] = "Reject Code: Gen Cdc Sst Full (-110150)",
+  [-110257] = "Reject Code: Gen Cdc Trc Ins Notfound (-110257)",
+  [-110259] = "Reject Code: Gen Cdc Trc Sst Notfound (-110259)",
+  [-110261] = "Reject Code: Gen Cdc Trc Ust Notfound (-110261)",
+  [-110134] = "Reject Code: Gen Cdc Tse Full (-110134)",
+  [-110124] = "Reject Code: Gen Cdc Tsr Full (-110124)",
+  [-110077] = "Reject Code: Gen Cdc Usr Susp (-110077)",
+  [-110140] = "Reject Code: Gen Cdc Ust Full (-110140)",
+  [-110208] = "Reject Code: Gen Cdc Vbs Full (-110208)",
+  [-110144] = "Reject Code: Gen Cdc Vds Full (-110144)",
+  [-110226] = "Reject Code: Gen Cdc Vsp Full (-110226)",
+  [-110198] = "Reject Code: Gen Cdc Wkp Full (-110198)",
+  [-197004] = "Reject Code: Gen Shr Dvpcancellednocancel (-197004)",
+  [-197000] = "Reject Code: Gen Shr Dvpcompletednocancel (-197000)",
+  [-197002] = "Reject Code: Gen Shr Dvprecallednocancel (-197002)",
+  [-197014] = "Reject Code: Gen Shr Fixedincomepricetype (-197014)",
+  [-197012] = "Reject Code: Gen Shr Fixedincomeproduct (-197012)",
+  [-197008] = "Reject Code: Gen Shr Illegalargument (-197008)",
+  [-197022] = "Reject Code: Gen Shr Interror (-197022)",
+  [-197006] = "Reject Code: Gen Shr Invfixedincometype (-197006)",
+  [-197026] = "Reject Code: Gen Shr Invinsid (-197026)",
+  [-197010] = "Reject Code: Gen Shr Invpremiumunit (-197010)",
+  [-197016] = "Reject Code: Gen Shr Invseries (-197016)",
+  [-197020] = "Reject Code: Gen Shr Nottmseries (-197020)",
+  [-197018] = "Reject Code: Gen Shr Nottmtemplate (-197018)",
+  [-197024] = "Reject Code: Gen Shr Seriesmismatch (-197024)",
+  [-140001] = "Reject Code: Oc Brx Not All (-140001)",
+  [-140006] = "Reject Code: Oc Error (-140006)",
+  [-140008] = "Reject Code: Oc Fatal (-140008)",
+  [-140010] = "Reject Code: Oc Invargs (-140010)",
+  [-140012] = "Reject Code: Oc Invchn Type (-140012)",
+  [-140074] = "Reject Code: Oc Tx Notsamclu (-140074)",
+  [-140076] = "Reject Code: Oc Tx Notsamnod (-140076)",
+  [-140070] = "Reject Code: Oc Tx Not Open (-140070)",
+  [-140078] = "Reject Code: Oc Tx Nrsegsdif (-140078)",
+  [-140080] = "Reject Code: Oc Tx Outst Evtsdwn (-140080)",
+  [-140082] = "Reject Code: Oc Tx Reqabort (-140082)",
+  [-140084] = "Reject Code: Oc Tx Reqcallun (-140084)",
+  [-140085] = "Reject Code: Oc Tx Shutcall (-140085)",
+  [-140087] = "Reject Code: Oc Tx Shutdown (-140087)",
+  [-140092] = "Reject Code: Oc Tx Toomansha (-140092)",
+  [-140094] = "Reject Code: Oc Tx Truncate (-140094)",
+  [-140098] = "Reject Code: Oc Tx Uppleslow (-140098)",
+  [-510192] = "Reject Code: Info Abortnomatch (-510192)",
+  [-510190] = "Reject Code: Info Abortstateready (-510190)",
+  [-510228] = "Reject Code: Info Abortstateundo (-510228)",
+  [-510080] = "Reject Code: Info Badseg (-510080)",
+  [-510270] = "Reject Code: Info Bdcsem (-510270)",
+  [-510268] = "Reject Code: Info Bdcsyn (-510268)",
+  [-510224] = "Reject Code: Info Calcrulenotaplund (-510224)",
+  [-510206] = "Reject Code: Info Colfailnosource (-510206)",
+  [-510194] = "Reject Code: Info Datalckbysignal (-510194)",
+  [-510214] = "Reject Code: Info Dirtyfuture (-510214)",
+  [-510218] = "Reject Code: Info Dirtymoney (-510218)",
+  [-510216] = "Reject Code: Info Dirtywi (-510216)",
+  [-510348] = "Reject Code: Info Emergsplocked (-510348)",
+  [-510272] = "Reject Code: Info Errorcode (-510272)",
+  [-510186] = "Reject Code: Info Funcnotsup (-510186)",
+  [-510284] = "Reject Code: Info Hisdatenotalwd (-510284)",
+  [-510308] = "Reject Code: Info Indexcalcfail (-510308)",
+  [-510312] = "Reject Code: Info Indexindiceslogfail (-510312)",
+  [-510310] = "Reject Code: Info Indexjournalfail (-510310)",
+  [-510300] = "Reject Code: Info Indexvalidfail (-510300)",
+  [-510220] = "Reject Code: Info Indicativepricetype (-510220)",
+  [-510280] = "Reject Code: Info Insnotallowed (-510280)",
+  [-510332] = "Reject Code: Info Spgenericerror (-510332)",
+  [-510326] = "Reject Code: Info Spinvalgo (-510326)",
+  [-510328] = "Reject Code: Info Spinvalgoforprod (-510328)",
+  [-510346] = "Reject Code: Info Spinvalgoparam (-510346)",
+  [-510330] = "Reject Code: Info Spinvaslocked (-510330)",
+  [-510340] = "Reject Code: Info Spinvclearingdate (-510340)",
+  [-510322] = "Reject Code: Info Spinvforalg (-510322)",
+  [-510320] = "Reject Code: Info Spinvfortheoalg (-510320)",
+  [-510334] = "Reject Code: Info Spinvmanuallyflag (-510334)",
+  [-510350] = "Reject Code: Info Spinvsource (-510350)",
+  [-510352] = "Reject Code: Info Spmixderupp (-510352)",
+  [-510336] = "Reject Code: Info Spmixfutopt (-510336)",
+  [-510338] = "Reject Code: Info Spnotallopt (-510338)",
+  [-510354] = "Reject Code: Info Spnoupperlp (-510354)",
+  [-510344] = "Reject Code: Info Spoptexpandmaxlimit (-510344)",
+  [-510342] = "Reject Code: Info Spruleoutofrange (-510342)",
+  [-510358] = "Reject Code: Info Spsavecalcinprog (-510358)",
+  [-510360] = "Reject Code: Info Spsavelck (-510360)",
+  [-510362] = "Reject Code: Info Spsavenewcday (-510362)",
+  [-510324] = "Reject Code: Info Sptomanymatches (-510324)",
+  [-510317] = "Reject Code: Info Strtruncated (-510317)",
+  [-510234] = "Reject Code: Info Subitemdropped (-510234)",
+  [-510079] = "Reject Code: Info Todaynotavail (-510079)",
+  [-510370] = "Reject Code: Info Txdupitem (-510370)",
+  [-510144] = "Reject Code: Info Unknownoper (-510144)",
+  [-510368] = "Reject Code: Info Wrongchildstate (-510368)",
+}
 
-  return "Reject Code: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.reject_code.labels[value] or "Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Code
@@ -1411,15 +1023,13 @@ jpx_osederivatives_geniuminet_ouch_v5_0.reject_reason_code = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-jpx_osederivatives_geniuminet_ouch_v5_0.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.reject_reason_code.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1518,12 +1128,12 @@ jpx_osederivatives_geniuminet_ouch_v5_0.scope = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.scope.size = 1
 
 -- Display: Scope
-jpx_osederivatives_geniuminet_ouch_v5_0.scope.display = function(value)
-  if value == 1 then
-    return "Scope: Participant (1)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.scope.labels = {
+  [1] = "Scope: Participant (1)",
+}
 
-  return "Scope: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.scope.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.scope.labels[value] or "Scope: Unknown("..value..")"
 end
 
 -- Dissect: Scope
@@ -1545,27 +1155,17 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type.display = function(value)
-  if value == "A" then
-    return "Sequenced Message Type: Order Accepted (A)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Mass Cancel Accepted (M)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Order Rejected (J)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replaced (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Order Canceled (C)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed (E)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type.labels = {
+  ["A"] = "Sequenced Message Type: Order Accepted (A)",
+  ["M"] = "Sequenced Message Type: Mass Cancel Accepted (M)",
+  ["J"] = "Sequenced Message Type: Order Rejected (J)",
+  ["U"] = "Sequenced Message Type: Order Replaced (U)",
+  ["C"] = "Sequenced Message Type: Order Canceled (C)",
+  ["E"] = "Sequenced Message Type: Order Executed (E)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1587,27 +1187,17 @@ jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1629,15 +1219,13 @@ jpx_osederivatives_geniuminet_ouch_v5_0.side = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.side.size = 1
 
 -- Display: Side
-jpx_osederivatives_geniuminet_ouch_v5_0.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.side.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1682,18 +1270,14 @@ jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.size = 1
 
 -- Display: Time In Force
-jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 3 then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fill Or Kill (4)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.labels = {
+  [0] = "Time In Force: Day (0)",
+  [3] = "Time In Force: Immediate Or Cancel (3)",
+  [4] = "Time In Force: Fill Or Kill (4)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -1814,27 +1398,17 @@ jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order (O)"
-  end
-  if value == "P" then
-    return "Unsequenced Message Type: Enter Mm Order (P)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order (X)"
-  end
-  if value == "Y" then
-    return "Unsequenced Message Type: Cancel By Order Id (Y)"
-  end
-  if value == "M" then
-    return "Unsequenced Message Type: Mass Cancel (M)"
-  end
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order (O)",
+  ["P"] = "Unsequenced Message Type: Enter Mm Order (P)",
+  ["U"] = "Unsequenced Message Type: Replace Order (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order (X)",
+  ["Y"] = "Unsequenced Message Type: Cancel By Order Id (Y)",
+  ["M"] = "Unsequenced Message Type: Mass Cancel (M)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.display = function(value)
+  return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2319,30 +1893,19 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dispatch = {
+  ["A"] = jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.dissect,
+  ["M"] = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.dissect,
+  ["J"] = jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.dissect,
+  ["U"] = jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.dissect,
+  ["C"] = jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.dissect,
+  ["E"] = jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.dissect,
+}
+
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Order Accepted
-  if sequenced_message_type == "A" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Accepted
-  if sequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected
-  if sequenced_message_type == "J" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_rejected.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced
-  if sequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_replaced.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled
-  if sequenced_message_type == "C" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_canceled.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed
-  if sequenced_message_type == "E" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2585,30 +2148,19 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.server_payload = {}
 
 -- Dissect: Server Payload
+jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dispatch = {
+  ["+"] = jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect,
+  ["A"] = jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.dissect,
+  ["J"] = jpx_osederivatives_geniuminet_ouch_v5_0.login_rejected_packet.dissect,
+  ["S"] = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.dissect,
+  ["H"] = jpx_osederivatives_geniuminet_ouch_v5_0.server_heartbeat.dissect,
+  ["Z"] = jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session.dissect,
+}
+
 jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3156,30 +2708,19 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dispatch = {
+  ["O"] = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect,
+  ["P"] = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect,
+  ["U"] = jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect,
+  ["X"] = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect,
+  ["Y"] = jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect,
+  ["M"] = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect,
+}
+
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order
-  if unsequenced_message_type == "O" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enter Mm Order
-  if unsequenced_message_type == "P" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order
-  if unsequenced_message_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.replace_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order
-  if unsequenced_message_type == "X" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel By Order Id
-  if unsequenced_message_type == "Y" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.cancel_by_order_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel
-  if unsequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3294,26 +2835,18 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.client_payload = {}
 
 -- Dissect: Client Payload
+jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dispatch = {
+  ["+"] = jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect,
+  ["L"] = jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect,
+  ["U"] = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect,
+  ["R"] = jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.dissect,
+  ["O"] = jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect,
+}
+
 jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

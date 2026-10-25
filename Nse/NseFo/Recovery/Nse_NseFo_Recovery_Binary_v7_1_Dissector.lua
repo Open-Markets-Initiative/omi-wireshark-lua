@@ -153,12 +153,12 @@ nse_nsefo_recovery_binary_v7_1.client_message_type = {}
 nse_nsefo_recovery_binary_v7_1.client_message_type.size = 1
 
 -- Display: Client Message Type
-nse_nsefo_recovery_binary_v7_1.client_message_type.display = function(value)
-  if value == "R" then
-    return "Client Message Type: Tick Data Recovery Request Message (R)"
-  end
+nse_nsefo_recovery_binary_v7_1.client_message_type.labels = {
+  ["R"] = "Client Message Type: Tick Data Recovery Request Message (R)",
+}
 
-  return "Client Message Type: Unknown("..value..")"
+nse_nsefo_recovery_binary_v7_1.client_message_type.display = function(value)
+  return nse_nsefo_recovery_binary_v7_1.client_message_type.labels[value] or "Client Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Message Type
@@ -249,42 +249,22 @@ nse_nsefo_recovery_binary_v7_1.message_type = {}
 nse_nsefo_recovery_binary_v7_1.message_type.size = 1
 
 -- Display: Message Type
-nse_nsefo_recovery_binary_v7_1.message_type.display = function(value)
-  if value == "N" then
-    return "Message Type: New Order Message (N)"
-  end
-  if value == "M" then
-    return "Message Type: Order Modification Message (M)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancellation Message (X)"
-  end
-  if value == "T" then
-    return "Message Type: Trade Message (T)"
-  end
-  if value == "G" then
-    return "Message Type: New Spread Order Message (G)"
-  end
-  if value == "H" then
-    return "Message Type: Spread Order Modification Message (H)"
-  end
-  if value == "J" then
-    return "Message Type: Spread Order Cancellation Message (J)"
-  end
-  if value == "K" then
-    return "Message Type: Spread Trade Message (K)"
-  end
-  if value == "C" then
-    return "Message Type: Trade Cancel Message (C)"
-  end
-  if value == "Z" then
-    return "Message Type: Heartbeat Message (Z)"
-  end
-  if value == "Y" then
-    return "Message Type: Tick Data Recovery Response Message (Y)"
-  end
+nse_nsefo_recovery_binary_v7_1.message_type.labels = {
+  ["N"] = "Message Type: New Order Message (N)",
+  ["M"] = "Message Type: Order Modification Message (M)",
+  ["X"] = "Message Type: Order Cancellation Message (X)",
+  ["T"] = "Message Type: Trade Message (T)",
+  ["G"] = "Message Type: New Spread Order Message (G)",
+  ["H"] = "Message Type: Spread Order Modification Message (H)",
+  ["J"] = "Message Type: Spread Order Cancellation Message (J)",
+  ["K"] = "Message Type: Spread Trade Message (K)",
+  ["C"] = "Message Type: Trade Cancel Message (C)",
+  ["Z"] = "Message Type: Heartbeat Message (Z)",
+  ["Y"] = "Message Type: Tick Data Recovery Response Message (Y)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nse_nsefo_recovery_binary_v7_1.message_type.display = function(value)
+  return nse_nsefo_recovery_binary_v7_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -329,15 +309,13 @@ nse_nsefo_recovery_binary_v7_1.order_type = {}
 nse_nsefo_recovery_binary_v7_1.order_type.size = 1
 
 -- Display: Order Type
-nse_nsefo_recovery_binary_v7_1.order_type.display = function(value)
-  if value == "B" then
-    return "Order Type: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Order Type: Sell Order (S)"
-  end
+nse_nsefo_recovery_binary_v7_1.order_type.labels = {
+  ["B"] = "Order Type: Buy Order (B)",
+  ["S"] = "Order Type: Sell Order (S)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nse_nsefo_recovery_binary_v7_1.order_type.display = function(value)
+  return nse_nsefo_recovery_binary_v7_1.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -411,15 +389,13 @@ nse_nsefo_recovery_binary_v7_1.request_status = {}
 nse_nsefo_recovery_binary_v7_1.request_status.size = 1
 
 -- Display: Request Status
-nse_nsefo_recovery_binary_v7_1.request_status.display = function(value)
-  if value == "S" then
-    return "Request Status: Success (S)"
-  end
-  if value == "E" then
-    return "Request Status: Error (E)"
-  end
+nse_nsefo_recovery_binary_v7_1.request_status.labels = {
+  ["S"] = "Request Status: Success (S)",
+  ["E"] = "Request Status: Error (E)",
+}
 
-  return "Request Status: Unknown("..value..")"
+nse_nsefo_recovery_binary_v7_1.request_status.display = function(value)
+  return nse_nsefo_recovery_binary_v7_1.request_status.labels[value] or "Request Status: Unknown("..value..")"
 end
 
 -- Dissect: Request Status
@@ -682,10 +658,14 @@ end
 nse_nsefo_recovery_binary_v7_1.client_payload = {}
 
 -- Dissect: Client Payload
+nse_nsefo_recovery_binary_v7_1.client_payload.dispatch = {
+  ["R"] = nse_nsefo_recovery_binary_v7_1.tick_data_recovery_request_message.dissect,
+}
+
 nse_nsefo_recovery_binary_v7_1.client_payload.dissect = function(buffer, offset, packet, parent, client_message_type)
-  -- Dissect Tick Data Recovery Request Message
-  if client_message_type == "R" then
-    return nse_nsefo_recovery_binary_v7_1.tick_data_recovery_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_recovery_binary_v7_1.client_payload.dispatch[client_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1388,50 +1368,24 @@ end
 nse_nsefo_recovery_binary_v7_1.payload = {}
 
 -- Dissect: Payload
+nse_nsefo_recovery_binary_v7_1.payload.dispatch = {
+  ["N"] = nse_nsefo_recovery_binary_v7_1.new_order_message.dissect,
+  ["M"] = nse_nsefo_recovery_binary_v7_1.order_modification_message.dissect,
+  ["X"] = nse_nsefo_recovery_binary_v7_1.order_cancellation_message.dissect,
+  ["T"] = nse_nsefo_recovery_binary_v7_1.trade_message.dissect,
+  ["G"] = nse_nsefo_recovery_binary_v7_1.new_spread_order_message.dissect,
+  ["H"] = nse_nsefo_recovery_binary_v7_1.spread_order_modification_message.dissect,
+  ["J"] = nse_nsefo_recovery_binary_v7_1.spread_order_cancellation_message.dissect,
+  ["K"] = nse_nsefo_recovery_binary_v7_1.spread_trade_message.dissect,
+  ["C"] = nse_nsefo_recovery_binary_v7_1.trade_cancel_message.dissect,
+  ["Z"] = nse_nsefo_recovery_binary_v7_1.heartbeat_message.dissect,
+  ["Y"] = nse_nsefo_recovery_binary_v7_1.tick_data_recovery_response_message.dissect,
+}
+
 nse_nsefo_recovery_binary_v7_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect New Order Message
-  if message_type == "N" then
-    return nse_nsefo_recovery_binary_v7_1.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modification Message
-  if message_type == "M" then
-    return nse_nsefo_recovery_binary_v7_1.order_modification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Message
-  if message_type == "X" then
-    return nse_nsefo_recovery_binary_v7_1.order_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "T" then
-    return nse_nsefo_recovery_binary_v7_1.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Spread Order Message
-  if message_type == "G" then
-    return nse_nsefo_recovery_binary_v7_1.new_spread_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Modification Message
-  if message_type == "H" then
-    return nse_nsefo_recovery_binary_v7_1.spread_order_modification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Cancellation Message
-  if message_type == "J" then
-    return nse_nsefo_recovery_binary_v7_1.spread_order_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Trade Message
-  if message_type == "K" then
-    return nse_nsefo_recovery_binary_v7_1.spread_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == "C" then
-    return nse_nsefo_recovery_binary_v7_1.trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == "Z" then
-    return nse_nsefo_recovery_binary_v7_1.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Data Recovery Response Message
-  if message_type == "Y" then
-    return nse_nsefo_recovery_binary_v7_1.tick_data_recovery_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_recovery_binary_v7_1.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

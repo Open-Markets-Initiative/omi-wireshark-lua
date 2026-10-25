@@ -280,36 +280,20 @@ nyse_options_streamprotocol_pillarstream_v1_1_7.msg_type = {}
 nyse_options_streamprotocol_pillarstream_v1_1_7.msg_type.size = 2
 
 -- Display: Msg Type
-nyse_options_streamprotocol_pillarstream_v1_1_7.msg_type.display = function(value)
-  if value == 0x0201 then
-    return "Msg Type: Login (0x0201)"
-  end
-  if value == 0x0202 then
-    return "Msg Type: Login Response (0x0202)"
-  end
-  if value == 0x0203 then
-    return "Msg Type: Stream Avail (0x0203)"
-  end
-  if value == 0x0204 then
-    return "Msg Type: Heartbeat (0x0204)"
-  end
-  if value == 0x0205 then
-    return "Msg Type: Open (0x0205)"
-  end
-  if value == 0x0206 then
-    return "Msg Type: Open Response (0x0206)"
-  end
-  if value == 0x0207 then
-    return "Msg Type: Close (0x0207)"
-  end
-  if value == 0x0208 then
-    return "Msg Type: Close Response (0x0208)"
-  end
-  if value == 0x0905 then
-    return "Msg Type: Seq Msg (0x0905)"
-  end
+nyse_options_streamprotocol_pillarstream_v1_1_7.msg_type.labels = {
+  [0x0201] = "Msg Type: Login (0x0201)",
+  [0x0202] = "Msg Type: Login Response (0x0202)",
+  [0x0203] = "Msg Type: Stream Avail (0x0203)",
+  [0x0204] = "Msg Type: Heartbeat (0x0204)",
+  [0x0205] = "Msg Type: Open (0x0205)",
+  [0x0206] = "Msg Type: Open Response (0x0206)",
+  [0x0207] = "Msg Type: Close (0x0207)",
+  [0x0208] = "Msg Type: Close Response (0x0208)",
+  [0x0905] = "Msg Type: Seq Msg (0x0905)",
+}
 
-  return "Msg Type: Unknown("..string.format("0x%04X", value)..")"
+nyse_options_streamprotocol_pillarstream_v1_1_7.msg_type.display = function(value)
+  return nyse_options_streamprotocol_pillarstream_v1_1_7.msg_type.labels[value] or "Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Msg Type
@@ -550,57 +534,27 @@ nyse_options_streamprotocol_pillarstream_v1_1_7.status = {}
 nyse_options_streamprotocol_pillarstream_v1_1_7.status.size = 1
 
 -- Display: Status
-nyse_options_streamprotocol_pillarstream_v1_1_7.status.display = function(value)
-  if value == 0 then
-    return "Status: Request Processed Successfully (0)"
-  end
-  if value == 18 then
-    return "Status: Not Logged In (18)"
-  end
-  if value == 24 then
-    return "Status: Invalid Login Details (24)"
-  end
-  if value == 27 then
-    return "Status: Already Logged In (27)"
-  end
-  if value == 28 then
-    return "Status: Heartbeat Timeout (28)"
-  end
-  if value == 29 then
-    return "Status: Login Timed Out (29)"
-  end
-  if value == 33 then
-    return "Status: Invalid Message (33)"
-  end
-  if value == 54 then
-    return "Status: No Stream Permission (54)"
-  end
-  if value == 81 then
-    return "Status: Invalid Protocol Version (81)"
-  end
-  if value == 82 then
-    return "Status: Message Out Of Sequence (82)"
-  end
-  if value == 84 then
-    return "Status: Invalid Stream (84)"
-  end
-  if value == 85 then
-    return "Status: Stream Not Open (85)"
-  end
-  if value == 86 then
-    return "Status: Invalid Timestamp (86)"
-  end
-  if value == 89 then
-    return "Status: Denial Of Service (89)"
-  end
-  if value == 90 then
-    return "Status: Write Permission Revoked (90)"
-  end
-  if value == 93 then
-    return "Status: Invalid Multimessage (93)"
-  end
+nyse_options_streamprotocol_pillarstream_v1_1_7.status.labels = {
+  [0] = "Status: Request Processed Successfully (0)",
+  [18] = "Status: Not Logged In (18)",
+  [24] = "Status: Invalid Login Details (24)",
+  [27] = "Status: Already Logged In (27)",
+  [28] = "Status: Heartbeat Timeout (28)",
+  [29] = "Status: Login Timed Out (29)",
+  [33] = "Status: Invalid Message (33)",
+  [54] = "Status: No Stream Permission (54)",
+  [81] = "Status: Invalid Protocol Version (81)",
+  [82] = "Status: Message Out Of Sequence (82)",
+  [84] = "Status: Invalid Stream (84)",
+  [85] = "Status: Stream Not Open (85)",
+  [86] = "Status: Invalid Timestamp (86)",
+  [89] = "Status: Denial Of Service (89)",
+  [90] = "Status: Write Permission Revoked (90)",
+  [93] = "Status: Invalid Multimessage (93)",
+}
 
-  return "Status: Unknown("..value..")"
+nyse_options_streamprotocol_pillarstream_v1_1_7.status.display = function(value)
+  return nyse_options_streamprotocol_pillarstream_v1_1_7.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -1276,30 +1230,19 @@ end
 nyse_options_streamprotocol_pillarstream_v1_1_7.server_message = {}
 
 -- Dissect: Server Message
+nyse_options_streamprotocol_pillarstream_v1_1_7.server_message.dispatch = {
+  [0x0202] = nyse_options_streamprotocol_pillarstream_v1_1_7.login_response.dissect,
+  [0x0203] = nyse_options_streamprotocol_pillarstream_v1_1_7.stream_avail.dissect,
+  [0x0204] = nyse_options_streamprotocol_pillarstream_v1_1_7.heartbeat.dissect,
+  [0x0206] = nyse_options_streamprotocol_pillarstream_v1_1_7.open_response.dissect,
+  [0x0208] = nyse_options_streamprotocol_pillarstream_v1_1_7.close_response.dissect,
+  [0x0905] = nyse_options_streamprotocol_pillarstream_v1_1_7.server_seq_msg.dissect,
+}
+
 nyse_options_streamprotocol_pillarstream_v1_1_7.server_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Login Response
-  if msg_type == 0x0202 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Avail
-  if msg_type == 0x0203 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.stream_avail.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if msg_type == 0x0204 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Response
-  if msg_type == 0x0206 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.open_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Close Response
-  if msg_type == 0x0208 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.close_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Seq Msg
-  if msg_type == 0x0905 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.server_seq_msg.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_options_streamprotocol_pillarstream_v1_1_7.server_message.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1581,26 +1524,18 @@ end
 nyse_options_streamprotocol_pillarstream_v1_1_7.client_message = {}
 
 -- Dissect: Client Message
+nyse_options_streamprotocol_pillarstream_v1_1_7.client_message.dispatch = {
+  [0x0201] = nyse_options_streamprotocol_pillarstream_v1_1_7.login_message.dissect,
+  [0x0204] = nyse_options_streamprotocol_pillarstream_v1_1_7.heartbeat.dissect,
+  [0x0205] = nyse_options_streamprotocol_pillarstream_v1_1_7.open.dissect,
+  [0x0207] = nyse_options_streamprotocol_pillarstream_v1_1_7.close.dissect,
+  [0x0905] = nyse_options_streamprotocol_pillarstream_v1_1_7.client_seq_msg.dissect,
+}
+
 nyse_options_streamprotocol_pillarstream_v1_1_7.client_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Login Message
-  if msg_type == 0x0201 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if msg_type == 0x0204 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open
-  if msg_type == 0x0205 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.open.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Close
-  if msg_type == 0x0207 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.close.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Seq Msg
-  if msg_type == 0x0905 then
-    return nyse_options_streamprotocol_pillarstream_v1_1_7.client_seq_msg.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_options_streamprotocol_pillarstream_v1_1_7.client_message.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

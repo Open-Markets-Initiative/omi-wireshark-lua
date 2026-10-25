@@ -561,21 +561,15 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.auction_type = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.auction_type.size = 1
 
 -- Display: Auction Type
-nasdaq_nomoptions_itto_itch_v4_0_2025.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening (O)"
-  end
-  if value == "R" then
-    return "Auction Type: Reopening (R)"
-  end
-  if value == "P" then
-    return "Auction Type: Price Improvement (P)"
-  end
-  if value == "I" then
-    return "Auction Type: Exposure (I)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.auction_type.labels = {
+  ["O"] = "Auction Type: Opening (O)",
+  ["R"] = "Auction Type: Reopening (R)",
+  ["P"] = "Auction Type: Price Improvement (P)",
+  ["I"] = "Auction Type: Exposure (I)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.auction_type.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -747,15 +741,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.buy_sell_indicator = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_nomoptions_itto_itch_v4_0_2025.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.buy_sell_indicator.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -800,18 +792,14 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.change_reason = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.change_reason.size = 1
 
 -- Display: Change Reason
-nasdaq_nomoptions_itto_itch_v4_0_2025.change_reason.display = function(value)
-  if value == "U" then
-    return "Change Reason: User (U)"
-  end
-  if value == "R" then
-    return "Change Reason: Reprice (R)"
-  end
-  if value == "S" then
-    return "Change Reason: Suspend (S)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.change_reason.labels = {
+  ["U"] = "Change Reason: User (U)",
+  ["R"] = "Change Reason: Reprice (R)",
+  ["S"] = "Change Reason: Suspend (S)",
+}
 
-  return "Change Reason: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.change_reason.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.change_reason.labels[value] or "Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Change Reason
@@ -833,24 +821,16 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.client_packet_type = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nomoptions_itto_itch_v4_0_2025.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.client_packet_type.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -895,15 +875,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.cross_type = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nomoptions_itto_itch_v4_0_2025.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Nasdaq Opening Reopening (O)"
-  end
-  if value == "P" then
-    return "Cross Type: Price Improvement (P)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.cross_type.labels = {
+  ["O"] = "Cross Type: Nasdaq Opening Reopening (O)",
+  ["P"] = "Cross Type: Price Improvement (P)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.cross_type.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -925,21 +903,15 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.current_trading_state = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_nomoptions_itto_itch_v4_0_2025.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
-  if value == "B" then
-    return "Current Trading State: Buy Side Trading Suspended (B)"
-  end
-  if value == "S" then
-    return "Current Trading State: Sell Side Trading Suspended (S)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt (H)",
+  ["T"] = "Current Trading State: Trading (T)",
+  ["B"] = "Current Trading State: Buy Side Trading Suspended (B)",
+  ["S"] = "Current Trading State: Sell Side Trading Suspended (S)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.current_trading_state.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -961,24 +933,16 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.customer_firm_indicator = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.customer_firm_indicator.size = 1
 
 -- Display: Customer Firm Indicator
-nasdaq_nomoptions_itto_itch_v4_0_2025.customer_firm_indicator.display = function(value)
-  if value == "C" then
-    return "Customer Firm Indicator: Customer (C)"
-  end
-  if value == "F" then
-    return "Customer Firm Indicator: Firm Joint (F)"
-  end
-  if value == "M" then
-    return "Customer Firm Indicator: Onfloor (M)"
-  end
-  if value == "P" then
-    return "Customer Firm Indicator: Professional (P)"
-  end
-  if value == "B" then
-    return "Customer Firm Indicator: Broker Dealer Non Registered (B)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.customer_firm_indicator.labels = {
+  ["C"] = "Customer Firm Indicator: Customer (C)",
+  ["F"] = "Customer Firm Indicator: Firm Joint (F)",
+  ["M"] = "Customer Firm Indicator: Onfloor (M)",
+  ["P"] = "Customer Firm Indicator: Professional (P)",
+  ["B"] = "Customer Firm Indicator: Broker Dealer Non Registered (B)",
+}
 
-  return "Customer Firm Indicator: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.customer_firm_indicator.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.customer_firm_indicator.labels[value] or "Customer Firm Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Firm Indicator
@@ -1042,30 +1006,18 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.event_code = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nomoptions_itto_itch_v4_0_2025.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: End Of Normal Hours Processing (N)"
-  end
-  if value == "L" then
-    return "Event Code: End Of Late Hours Processing (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.event_code.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1208,15 +1160,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.imbalance_direction = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_nomoptions_itto_itch_v4_0_2025.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell (S)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.imbalance_direction.labels = {
+  ["B"] = "Imbalance Direction: Buy (B)",
+  ["S"] = "Imbalance Direction: Sell (S)",
+}
 
-  return "Imbalance Direction: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.imbalance_direction.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.imbalance_direction.labels[value] or "Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Direction
@@ -1290,15 +1240,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.market_side = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.market_side.size = 1
 
 -- Display: Market Side
-nasdaq_nomoptions_itto_itch_v4_0_2025.market_side.display = function(value)
-  if value == "B" then
-    return "Market Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Market Side: Sell (S)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.market_side.labels = {
+  ["B"] = "Market Side: Buy (B)",
+  ["S"] = "Market Side: Sell (S)",
+}
 
-  return "Market Side: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.market_side.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.market_side.labels[value] or "Market Side: Unknown("..value..")"
 end
 
 -- Dissect: Market Side
@@ -1389,75 +1337,33 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.message_type = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nomoptions_itto_itch_v4_0_2025.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Options Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Security Open Message (O)"
-  end
-  if value == "a" then
-    return "Message Type: Add Order Message Short Message Form (a)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message Long Form Message (A)"
-  end
-  if value == "j" then
-    return "Message Type: Add Quote Message Short Form Message (j)"
-  end
-  if value == "J" then
-    return "Message Type: Add Quote Message Long Form Message (J)"
-  end
-  if value == "E" then
-    return "Message Type: Single Side Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Single Side Executed With Price Message (C)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "u" then
-    return "Message Type: Single Side Replace Message Short Form (u)"
-  end
-  if value == "U" then
-    return "Message Type: Single Side Replace Message Long Form (U)"
-  end
-  if value == "D" then
-    return "Message Type: Single Side Delete Message (D)"
-  end
-  if value == "G" then
-    return "Message Type: Single Side Change Message (G)"
-  end
-  if value == "k" then
-    return "Message Type: Quote Replace Message Short Form (k)"
-  end
-  if value == "K" then
-    return "Message Type: Quote Replace Message Long Form (K)"
-  end
-  if value == "Y" then
-    return "Message Type: Quote Delete Message (Y)"
-  end
-  if value == "P" then
-    return "Message Type: Options Trade Messages Non Auction (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Options Cross Trade Message (Q)"
-  end
-  if value == "B" then
-    return "Message Type: Broken Trade Order Executed Message (B)"
-  end
-  if value == "I" then
-    return "Message Type: Noii Message (I)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Options Directory Message (R)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["O"] = "Message Type: Security Open Message (O)",
+  ["a"] = "Message Type: Add Order Message Short Message Form (a)",
+  ["A"] = "Message Type: Add Order Message Long Form Message (A)",
+  ["j"] = "Message Type: Add Quote Message Short Form Message (j)",
+  ["J"] = "Message Type: Add Quote Message Long Form Message (J)",
+  ["E"] = "Message Type: Single Side Executed Message (E)",
+  ["C"] = "Message Type: Single Side Executed With Price Message (C)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["u"] = "Message Type: Single Side Replace Message Short Form (u)",
+  ["U"] = "Message Type: Single Side Replace Message Long Form (U)",
+  ["D"] = "Message Type: Single Side Delete Message (D)",
+  ["G"] = "Message Type: Single Side Change Message (G)",
+  ["k"] = "Message Type: Quote Replace Message Short Form (k)",
+  ["K"] = "Message Type: Quote Replace Message Long Form (K)",
+  ["Y"] = "Message Type: Quote Delete Message (Y)",
+  ["P"] = "Message Type: Options Trade Messages Non Auction (P)",
+  ["Q"] = "Message Type: Options Cross Trade Message (Q)",
+  ["B"] = "Message Type: Broken Trade Order Executed Message (B)",
+  ["I"] = "Message Type: Noii Message (I)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.message_type.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1479,18 +1385,14 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.mpv = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_nomoptions_itto_itch_v4_0_2025.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Pilot (P)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.mpv.labels = {
+  ["E"] = "Mpv: Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.mpv.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -1535,15 +1437,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.open_state = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.open_state.size = 1
 
 -- Display: Open State
-nasdaq_nomoptions_itto_itch_v4_0_2025.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed (N)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.open_state.labels = {
+  ["Y"] = "Open State: Open (Y)",
+  ["N"] = "Open State: Closed (N)",
+}
 
-  return "Open State: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.open_state.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.open_state.labels[value] or "Open State: Unknown("..value..")"
 end
 
 -- Dissect: Open State
@@ -1588,15 +1488,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.option_type = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_nomoptions_itto_itch_v4_0_2025.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.option_type.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1618,15 +1516,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.options_closing_type = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.options_closing_type.size = 1
 
 -- Display: Options Closing Type
-nasdaq_nomoptions_itto_itch_v4_0_2025.options_closing_type.display = function(value)
-  if value == "N" then
-    return "Options Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Options Closing Type: Late (L)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.options_closing_type.labels = {
+  ["N"] = "Options Closing Type: Normal (N)",
+  ["L"] = "Options Closing Type: Late (L)",
+}
 
-  return "Options Closing Type: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.options_closing_type.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.options_closing_type.labels[value] or "Options Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Options Closing Type
@@ -1867,15 +1763,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.printable = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.printable.size = 1
 
 -- Display: Printable
-nasdaq_nomoptions_itto_itch_v4_0_2025.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Nonprintable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.printable.labels = {
+  ["N"] = "Printable: Nonprintable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.printable.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1920,15 +1814,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.reject_reason_code = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nomoptions_itto_itch_v4_0_2025.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.reject_reason_code.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2073,78 +1965,34 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message_type = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Options Directory Message (R)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Sequenced Message Type: Security Open Message (O)"
-  end
-  if value == "a" then
-    return "Sequenced Message Type: Add Order Message Short Message Form (a)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Add Order Message Long Form Message (A)"
-  end
-  if value == "j" then
-    return "Sequenced Message Type: Add Quote Message Short Form Message (j)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Add Quote Message Long Form Message (J)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Single Side Executed Message (E)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Single Side Executed With Price Message (C)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Order Cancel Message (X)"
-  end
-  if value == "u" then
-    return "Sequenced Message Type: Single Side Replace Message Short Form (u)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Single Side Replace Message Long Form (U)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Single Side Delete Message (D)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Single Side Change Message (G)"
-  end
-  if value == "k" then
-    return "Sequenced Message Type: Quote Replace Message Short Form (k)"
-  end
-  if value == "K" then
-    return "Sequenced Message Type: Quote Replace Message Long Form (K)"
-  end
-  if value == "Y" then
-    return "Sequenced Message Type: Quote Delete Message (Y)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Options Trade Messages Non Auction (P)"
-  end
-  if value == "Q" then
-    return "Sequenced Message Type: Options Cross Trade Message (Q)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Broken Trade Order Executed Message (B)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Noii Message (I)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: End Of Replay Sequence Message (M)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["R"] = "Sequenced Message Type: Options Directory Message (R)",
+  ["H"] = "Sequenced Message Type: Trading Action Message (H)",
+  ["O"] = "Sequenced Message Type: Security Open Message (O)",
+  ["a"] = "Sequenced Message Type: Add Order Message Short Message Form (a)",
+  ["A"] = "Sequenced Message Type: Add Order Message Long Form Message (A)",
+  ["j"] = "Sequenced Message Type: Add Quote Message Short Form Message (j)",
+  ["J"] = "Sequenced Message Type: Add Quote Message Long Form Message (J)",
+  ["E"] = "Sequenced Message Type: Single Side Executed Message (E)",
+  ["C"] = "Sequenced Message Type: Single Side Executed With Price Message (C)",
+  ["X"] = "Sequenced Message Type: Order Cancel Message (X)",
+  ["u"] = "Sequenced Message Type: Single Side Replace Message Short Form (u)",
+  ["U"] = "Sequenced Message Type: Single Side Replace Message Long Form (U)",
+  ["D"] = "Sequenced Message Type: Single Side Delete Message (D)",
+  ["G"] = "Sequenced Message Type: Single Side Change Message (G)",
+  ["k"] = "Sequenced Message Type: Quote Replace Message Short Form (k)",
+  ["K"] = "Sequenced Message Type: Quote Replace Message Long Form (K)",
+  ["Y"] = "Sequenced Message Type: Quote Delete Message (Y)",
+  ["P"] = "Sequenced Message Type: Options Trade Messages Non Auction (P)",
+  ["Q"] = "Sequenced Message Type: Options Cross Trade Message (Q)",
+  ["B"] = "Sequenced Message Type: Broken Trade Order Executed Message (B)",
+  ["I"] = "Sequenced Message Type: Noii Message (I)",
+  ["M"] = "Sequenced Message Type: End Of Replay Sequence Message (M)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message_type.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -2166,27 +2014,17 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet_type = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet_type.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2336,15 +2174,13 @@ nasdaq_nomoptions_itto_itch_v4_0_2025.tradable = {}
 nasdaq_nomoptions_itto_itch_v4_0_2025.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_nomoptions_itto_itch_v4_0_2025.tradable.display = function(value)
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
-  if value == "Y" then
-    return "Tradable: Is Tradable (Y)"
-  end
+nasdaq_nomoptions_itto_itch_v4_0_2025.tradable.labels = {
+  ["N"] = "Tradable: Not Tradable (N)",
+  ["Y"] = "Tradable: Is Tradable (Y)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_nomoptions_itto_itch_v4_0_2025.tradable.display = function(value)
+  return nasdaq_nomoptions_itto_itch_v4_0_2025.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -3898,94 +3734,35 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_2025.udp_payload = {}
 
 -- Dissect: Udp Payload
+nasdaq_nomoptions_itto_itch_v4_0_2025.udp_payload.dispatch = {
+  ["S"] = nasdaq_nomoptions_itto_itch_v4_0_2025.system_event_message.dissect,
+  ["R"] = nasdaq_nomoptions_itto_itch_v4_0_2025.options_directory_message.dissect,
+  ["H"] = nasdaq_nomoptions_itto_itch_v4_0_2025.trading_action_message.dissect,
+  ["O"] = nasdaq_nomoptions_itto_itch_v4_0_2025.security_open_message.dissect,
+  ["a"] = nasdaq_nomoptions_itto_itch_v4_0_2025.add_order_message_short_message_form.dissect,
+  ["A"] = nasdaq_nomoptions_itto_itch_v4_0_2025.add_order_message_long_form_message.dissect,
+  ["j"] = nasdaq_nomoptions_itto_itch_v4_0_2025.add_quote_message_short_form_message.dissect,
+  ["J"] = nasdaq_nomoptions_itto_itch_v4_0_2025.add_quote_message_long_form_message.dissect,
+  ["E"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_executed_message.dissect,
+  ["C"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_executed_with_price_message.dissect,
+  ["X"] = nasdaq_nomoptions_itto_itch_v4_0_2025.order_cancel_message.dissect,
+  ["u"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_replace_message_short_form.dissect,
+  ["U"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_replace_message_long_form.dissect,
+  ["D"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_delete_message.dissect,
+  ["G"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_change_message.dissect,
+  ["k"] = nasdaq_nomoptions_itto_itch_v4_0_2025.quote_replace_message_short_form.dissect,
+  ["K"] = nasdaq_nomoptions_itto_itch_v4_0_2025.quote_replace_message_long_form.dissect,
+  ["Y"] = nasdaq_nomoptions_itto_itch_v4_0_2025.quote_delete_message.dissect,
+  ["P"] = nasdaq_nomoptions_itto_itch_v4_0_2025.options_trade_messages_non_auction.dissect,
+  ["Q"] = nasdaq_nomoptions_itto_itch_v4_0_2025.options_cross_trade_message.dissect,
+  ["B"] = nasdaq_nomoptions_itto_itch_v4_0_2025.broken_trade_order_executed_message.dissect,
+  ["I"] = nasdaq_nomoptions_itto_itch_v4_0_2025.noii_message.dissect,
+}
+
 nasdaq_nomoptions_itto_itch_v4_0_2025.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if message_type == "R" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Message
-  if message_type == "O" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.security_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message Short Message Form
-  if message_type == "a" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.add_order_message_short_message_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message Long Form Message
-  if message_type == "A" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.add_order_message_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Message Short Form Message
-  if message_type == "j" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.add_quote_message_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Message Long Form Message
-  if message_type == "J" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.add_quote_message_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed Message
-  if message_type == "E" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Message Short Form
-  if message_type == "u" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_replace_message_short_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Message Long Form
-  if message_type == "U" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_replace_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Delete Message
-  if message_type == "D" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Change Message
-  if message_type == "G" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Message Short Form
-  if message_type == "k" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.quote_replace_message_short_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Message Long Form
-  if message_type == "K" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.quote_replace_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Delete Message
-  if message_type == "Y" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.quote_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Trade Messages Non Auction
-  if message_type == "P" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.options_trade_messages_non_auction.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.options_cross_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Order Executed Message
-  if message_type == "B" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.broken_trade_order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Noii Message
-  if message_type == "I" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.noii_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_itto_itch_v4_0_2025.udp_payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4141,14 +3918,15 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_2025.messages = {}
 
 -- Dissect: Messages
+nasdaq_nomoptions_itto_itch_v4_0_2025.messages.dispatch = {
+  [0] = nasdaq_nomoptions_itto_itch_v4_0_2025.heartbeat.dissect,
+  [65535] = nasdaq_nomoptions_itto_itch_v4_0_2025.end_of_session.dissect,
+}
+
 nasdaq_nomoptions_itto_itch_v4_0_2025.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_itto_itch_v4_0_2025.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
@@ -4318,98 +4096,36 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nomoptions_itto_itch_v4_0_2025.system_event_message.dissect,
+  ["R"] = nasdaq_nomoptions_itto_itch_v4_0_2025.options_directory_message.dissect,
+  ["H"] = nasdaq_nomoptions_itto_itch_v4_0_2025.trading_action_message.dissect,
+  ["O"] = nasdaq_nomoptions_itto_itch_v4_0_2025.security_open_message.dissect,
+  ["a"] = nasdaq_nomoptions_itto_itch_v4_0_2025.add_order_message_short_message_form.dissect,
+  ["A"] = nasdaq_nomoptions_itto_itch_v4_0_2025.add_order_message_long_form_message.dissect,
+  ["j"] = nasdaq_nomoptions_itto_itch_v4_0_2025.add_quote_message_short_form_message.dissect,
+  ["J"] = nasdaq_nomoptions_itto_itch_v4_0_2025.add_quote_message_long_form_message.dissect,
+  ["E"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_executed_message.dissect,
+  ["C"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_executed_with_price_message.dissect,
+  ["X"] = nasdaq_nomoptions_itto_itch_v4_0_2025.order_cancel_message.dissect,
+  ["u"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_replace_message_short_form.dissect,
+  ["U"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_replace_message_long_form.dissect,
+  ["D"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_delete_message.dissect,
+  ["G"] = nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_change_message.dissect,
+  ["k"] = nasdaq_nomoptions_itto_itch_v4_0_2025.quote_replace_message_short_form.dissect,
+  ["K"] = nasdaq_nomoptions_itto_itch_v4_0_2025.quote_replace_message_long_form.dissect,
+  ["Y"] = nasdaq_nomoptions_itto_itch_v4_0_2025.quote_delete_message.dissect,
+  ["P"] = nasdaq_nomoptions_itto_itch_v4_0_2025.options_trade_messages_non_auction.dissect,
+  ["Q"] = nasdaq_nomoptions_itto_itch_v4_0_2025.options_cross_trade_message.dissect,
+  ["B"] = nasdaq_nomoptions_itto_itch_v4_0_2025.broken_trade_order_executed_message.dissect,
+  ["I"] = nasdaq_nomoptions_itto_itch_v4_0_2025.noii_message.dissect,
+  ["M"] = nasdaq_nomoptions_itto_itch_v4_0_2025.end_of_replay_sequence_message.dissect,
+}
+
 nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if sequenced_message_type == "R" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Message
-  if sequenced_message_type == "O" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.security_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message Short Message Form
-  if sequenced_message_type == "a" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.add_order_message_short_message_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message Long Form Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.add_order_message_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Message Short Form Message
-  if sequenced_message_type == "j" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.add_quote_message_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Message Long Form Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.add_quote_message_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed Message
-  if sequenced_message_type == "E" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed With Price Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if sequenced_message_type == "X" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Message Short Form
-  if sequenced_message_type == "u" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_replace_message_short_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Message Long Form
-  if sequenced_message_type == "U" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_replace_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Delete Message
-  if sequenced_message_type == "D" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Change Message
-  if sequenced_message_type == "G" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.single_side_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Message Short Form
-  if sequenced_message_type == "k" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.quote_replace_message_short_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Message Long Form
-  if sequenced_message_type == "K" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.quote_replace_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Delete Message
-  if sequenced_message_type == "Y" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.quote_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Trade Messages Non Auction
-  if sequenced_message_type == "P" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.options_trade_messages_non_auction.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Cross Trade Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.options_cross_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Order Executed Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.broken_trade_order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Noii Message
-  if sequenced_message_type == "I" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.noii_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Replay Sequence Message
-  if sequenced_message_type == "M" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.end_of_replay_sequence_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4652,30 +4368,19 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_2025.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nomoptions_itto_itch_v4_0_2025.server_payload.dispatch = {
+  ["+"] = nasdaq_nomoptions_itto_itch_v4_0_2025.debug_packet.dissect,
+  ["A"] = nasdaq_nomoptions_itto_itch_v4_0_2025.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nomoptions_itto_itch_v4_0_2025.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nomoptions_itto_itch_v4_0_2025.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_nomoptions_itto_itch_v4_0_2025.end_of_session_packet.dissect,
+}
+
 nasdaq_nomoptions_itto_itch_v4_0_2025.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_itto_itch_v4_0_2025.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4986,26 +4691,18 @@ end
 nasdaq_nomoptions_itto_itch_v4_0_2025.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nomoptions_itto_itch_v4_0_2025.client_payload.dispatch = {
+  ["+"] = nasdaq_nomoptions_itto_itch_v4_0_2025.debug_packet.dissect,
+  ["L"] = nasdaq_nomoptions_itto_itch_v4_0_2025.login_request_packet.dissect,
+  ["U"] = nasdaq_nomoptions_itto_itch_v4_0_2025.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nomoptions_itto_itch_v4_0_2025.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_nomoptions_itto_itch_v4_0_2025.logout_request_packet.dissect,
+}
+
 nasdaq_nomoptions_itto_itch_v4_0_2025.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_nomoptions_itto_itch_v4_0_2025.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_itto_itch_v4_0_2025.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

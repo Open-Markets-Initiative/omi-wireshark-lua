@@ -572,18 +572,14 @@ nse_nsefo_broadcast_nnfbcast_v9_50.action_code = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.action_code.size = 3
 
 -- Display: Action Code
-nse_nsefo_broadcast_nnfbcast_v9_50.action_code.display = function(value)
-  if value == "SYS" then
-    return "Action Code: System (SYS)"
-  end
-  if value == "LIS" then
-    return "Action Code: Listing (LIS)"
-  end
-  if value == "MWL" then
-    return "Action Code: Market Wide Oi Limit Message (MWL)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.action_code.labels = {
+  ["SYS"] = "Action Code: System (SYS)",
+  ["LIS"] = "Action Code: Listing (LIS)",
+  ["MWL"] = "Action Code: Market Wide Oi Limit Message (MWL)",
+}
 
-  return "Action Code: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.action_code.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.action_code.labels[value] or "Action Code: Unknown("..value..")"
 end
 
 -- Dissect: Action Code
@@ -772,24 +768,16 @@ nse_nsefo_broadcast_nnfbcast_v9_50.auction_status = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.auction_status.size = 2
 
 -- Display: Auction Status
-nse_nsefo_broadcast_nnfbcast_v9_50.auction_status.display = function(value)
-  if value == 0 then
-    return "Auction Status: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Auction Status: Open (1)"
-  end
-  if value == 2 then
-    return "Auction Status: Closed (2)"
-  end
-  if value == 3 then
-    return "Auction Status: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Auction Status: Postclose (4)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.auction_status.labels = {
+  [0] = "Auction Status: Pre Open (0)",
+  [1] = "Auction Status: Open (1)",
+  [2] = "Auction Status: Closed (2)",
+  [3] = "Auction Status: Pre Open Ended (3)",
+  [4] = "Auction Status: Postclose (4)",
+}
 
-  return "Auction Status: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.auction_status.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.auction_status.labels[value] or "Auction Status: Unknown("..value..")"
 end
 
 -- Dissect: Auction Status
@@ -1076,30 +1064,18 @@ nse_nsefo_broadcast_nnfbcast_v9_50.book_type = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.book_type.size = 2
 
 -- Display: Book Type
-nse_nsefo_broadcast_nnfbcast_v9_50.book_type.display = function(value)
-  if value == 1 then
-    return "Book Type: Regular Lot Order (1)"
-  end
-  if value == 2 then
-    return "Book Type: Special Terms Order (2)"
-  end
-  if value == 3 then
-    return "Book Type: Stop Loss Mit Order (3)"
-  end
-  if value == 4 then
-    return "Book Type: Negotiated Order (4)"
-  end
-  if value == 5 then
-    return "Book Type: Odd Lot Order (5)"
-  end
-  if value == 6 then
-    return "Book Type: Spot Order (6)"
-  end
-  if value == 7 then
-    return "Book Type: Auction Order (7)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.book_type.labels = {
+  [1] = "Book Type: Regular Lot Order (1)",
+  [2] = "Book Type: Special Terms Order (2)",
+  [3] = "Book Type: Stop Loss Mit Order (3)",
+  [4] = "Book Type: Negotiated Order (4)",
+  [5] = "Book Type: Odd Lot Order (5)",
+  [6] = "Book Type: Spot Order (6)",
+  [7] = "Book Type: Auction Order (7)",
+}
 
-  return "Book Type: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.book_type.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.book_type.labels[value] or "Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Book Type
@@ -1651,15 +1627,13 @@ nse_nsefo_broadcast_nnfbcast_v9_50.delete_flag = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.delete_flag.size = 1
 
 -- Display: Delete Flag
-nse_nsefo_broadcast_nnfbcast_v9_50.delete_flag.display = function(value)
-  if value == "Y" then
-    return "Delete Flag: Deleted (Y)"
-  end
-  if value == "N" then
-    return "Delete Flag: Not Deleted (N)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.delete_flag.labels = {
+  ["Y"] = "Delete Flag: Deleted (Y)",
+  ["N"] = "Delete Flag: Not Deleted (N)",
+}
 
-  return "Delete Flag: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.delete_flag.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.delete_flag.labels[value] or "Delete Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delete Flag
@@ -2875,21 +2849,15 @@ nse_nsefo_broadcast_nnfbcast_v9_50.market_type = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.market_type.size = 2
 
 -- Display: Market Type
-nse_nsefo_broadcast_nnfbcast_v9_50.market_type.display = function(value)
-  if value == 1 then
-    return "Market Type: Normal Market (1)"
-  end
-  if value == 2 then
-    return "Market Type: Odd Lot Market (2)"
-  end
-  if value == 3 then
-    return "Market Type: Spot Market (3)"
-  end
-  if value == 4 then
-    return "Market Type: Auction Market (4)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.market_type.labels = {
+  [1] = "Market Type: Normal Market (1)",
+  [2] = "Market Type: Odd Lot Market (2)",
+  [3] = "Market Type: Spot Market (3)",
+  [4] = "Market Type: Auction Market (4)",
+}
 
-  return "Market Type: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.market_type.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.market_type.labels[value] or "Market Type: Unknown("..value..")"
 end
 
 -- Dissect: Market Type
@@ -3589,18 +3557,14 @@ nse_nsefo_broadcast_nnfbcast_v9_50.option_type = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.option_type.size = 2
 
 -- Display: Option Type
-nse_nsefo_broadcast_nnfbcast_v9_50.option_type.display = function(value)
-  if value == "CE" then
-    return "Option Type: Call Option (CE)"
-  end
-  if value == "PE" then
-    return "Option Type: Put Option (PE)"
-  end
-  if value == "XX" then
-    return "Option Type: Futures Contract (XX)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.option_type.labels = {
+  ["CE"] = "Option Type: Call Option (CE)",
+  ["PE"] = "Option Type: Put Option (PE)",
+  ["XX"] = "Option Type: Futures Contract (XX)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.option_type.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -3668,15 +3632,13 @@ nse_nsefo_broadcast_nnfbcast_v9_50.participant_status = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.participant_status.size = 1
 
 -- Display: Participant Status
-nse_nsefo_broadcast_nnfbcast_v9_50.participant_status.display = function(value)
-  if value == "S" then
-    return "Participant Status: Suspended (S)"
-  end
-  if value == "A" then
-    return "Participant Status: Active (A)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.participant_status.labels = {
+  ["S"] = "Participant Status: Suspended (S)",
+  ["A"] = "Participant Status: Active (A)",
+}
 
-  return "Participant Status: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.participant_status.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.participant_status.labels[value] or "Participant Status: Unknown("..value..")"
 end
 
 -- Dissect: Participant Status
@@ -3744,18 +3706,14 @@ nse_nsefo_broadcast_nnfbcast_v9_50.permitted_to_trade = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.permitted_to_trade.size = 2
 
 -- Display: Permitted To Trade
-nse_nsefo_broadcast_nnfbcast_v9_50.permitted_to_trade.display = function(value)
-  if value == 0 then
-    return "Permitted To Trade: Listed But Not Permitted To Trade (0)"
-  end
-  if value == 1 then
-    return "Permitted To Trade: Permitted To Trade (1)"
-  end
-  if value == 2 then
-    return "Permitted To Trade: Bse Listed (2)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.permitted_to_trade.labels = {
+  [0] = "Permitted To Trade: Listed But Not Permitted To Trade (0)",
+  [1] = "Permitted To Trade: Permitted To Trade (1)",
+  [2] = "Permitted To Trade: Bse Listed (2)",
+}
 
-  return "Permitted To Trade: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.permitted_to_trade.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.permitted_to_trade.labels[value] or "Permitted To Trade: Unknown("..value..")"
 end
 
 -- Dissect: Permitted To Trade
@@ -4232,27 +4190,17 @@ nse_nsefo_broadcast_nnfbcast_v9_50.status = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.status.size = 2
 
 -- Display: Status
-nse_nsefo_broadcast_nnfbcast_v9_50.status.display = function(value)
-  if value == 1 then
-    return "Status: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Status: Open (2)"
-  end
-  if value == 3 then
-    return "Status: Suspended (3)"
-  end
-  if value == 4 then
-    return "Status: Pre Open Extended (4)"
-  end
-  if value == 5 then
-    return "Status: Stock Open With Market (5)"
-  end
-  if value == 6 then
-    return "Status: Price Discovery (6)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.status.labels = {
+  [1] = "Status: Pre Open (1)",
+  [2] = "Status: Open (2)",
+  [3] = "Status: Suspended (3)",
+  [4] = "Status: Pre Open Extended (4)",
+  [5] = "Status: Stock Open With Market (5)",
+  [6] = "Status: Price Discovery (6)",
+}
 
-  return "Status: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.status.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -4792,24 +4740,16 @@ nse_nsefo_broadcast_nnfbcast_v9_50.trading_status = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.trading_status.size = 2
 
 -- Display: Trading Status
-nse_nsefo_broadcast_nnfbcast_v9_50.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Preopen (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Open (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Suspended (3)"
-  end
-  if value == 4 then
-    return "Trading Status: Preopen Extended (4)"
-  end
-  if value == 6 then
-    return "Trading Status: Price Discovery (6)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.trading_status.labels = {
+  [1] = "Trading Status: Preopen (1)",
+  [2] = "Trading Status: Open (2)",
+  [3] = "Trading Status: Suspended (3)",
+  [4] = "Trading Status: Preopen Extended (4)",
+  [6] = "Trading Status: Price Discovery (6)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.trading_status.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -4831,78 +4771,34 @@ nse_nsefo_broadcast_nnfbcast_v9_50.transaction_code = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.transaction_code.size = 2
 
 -- Display: Transaction Code
-nse_nsefo_broadcast_nnfbcast_v9_50.transaction_code.display = function(value)
-  if value == 6501 then
-    return "Transaction Code: Broadcast Journal Vct Message (6501)"
-  end
-  if value == 6013 then
-    return "Transaction Code: Security Open Price Message (6013)"
-  end
-  if value == 7305 then
-    return "Transaction Code: Security Master Change Message (7305)"
-  end
-  if value == 7324 then
-    return "Transaction Code: Instrument Master Change Message (7324)"
-  end
-  if value == 7306 then
-    return "Transaction Code: Participant Master Change Message (7306)"
-  end
-  if value == 7320 then
-    return "Transaction Code: Security Status Change Message (7320)"
-  end
-  if value == 7200 then
-    return "Transaction Code: Market By Order And Market By Price Message (7200)"
-  end
-  if value == 7208 then
-    return "Transaction Code: Only Market By Price Message (7208)"
-  end
-  if value == 17208 then
-    return "Transaction Code: Enhanced Only Market By Price Message (17208)"
-  end
-  if value == 7202 then
-    return "Transaction Code: Ticker And Market Index Message (7202)"
-  end
-  if value == 17202 then
-    return "Transaction Code: Enhanced Ticker And Market Index Message (17202)"
-  end
-  if value == 7201 then
-    return "Transaction Code: Market Watch Round Robin Message (7201)"
-  end
-  if value == 17201 then
-    return "Transaction Code: Enhanced Market Watch Round Robin Message (17201)"
-  end
-  if value == 7207 then
-    return "Transaction Code: Indices Message (7207)"
-  end
-  if value == 7203 then
-    return "Transaction Code: Industry Index Update Message (7203)"
-  end
-  if value == 7211 then
-    return "Transaction Code: Spread Market By Price Delta Message (7211)"
-  end
-  if value == 17211 then
-    return "Transaction Code: Enhanced Spread Market By Price Delta Message (17211)"
-  end
-  if value == 7130 then
-    return "Transaction Code: Asset Open Interest Message (7130)"
-  end
-  if value == 17130 then
-    return "Transaction Code: Enhanced Asset Open Interest Message (17130)"
-  end
-  if value == 7220 then
-    return "Transaction Code: Limit Price Protection Range Message (7220)"
-  end
-  if value == 7338 then
-    return "Transaction Code: Cas Reference Price Message (7338)"
-  end
-  if value == 9010 then
-    return "Transaction Code: Turnover Exceeded Message (9010)"
-  end
-  if value == 9011 then
-    return "Transaction Code: Turnover Exceeded Message (9011)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.transaction_code.labels = {
+  [6501] = "Transaction Code: Broadcast Journal Vct Message (6501)",
+  [6013] = "Transaction Code: Security Open Price Message (6013)",
+  [7305] = "Transaction Code: Security Master Change Message (7305)",
+  [7324] = "Transaction Code: Instrument Master Change Message (7324)",
+  [7306] = "Transaction Code: Participant Master Change Message (7306)",
+  [7320] = "Transaction Code: Security Status Change Message (7320)",
+  [7200] = "Transaction Code: Market By Order And Market By Price Message (7200)",
+  [7208] = "Transaction Code: Only Market By Price Message (7208)",
+  [17208] = "Transaction Code: Enhanced Only Market By Price Message (17208)",
+  [7202] = "Transaction Code: Ticker And Market Index Message (7202)",
+  [17202] = "Transaction Code: Enhanced Ticker And Market Index Message (17202)",
+  [7201] = "Transaction Code: Market Watch Round Robin Message (7201)",
+  [17201] = "Transaction Code: Enhanced Market Watch Round Robin Message (17201)",
+  [7207] = "Transaction Code: Indices Message (7207)",
+  [7203] = "Transaction Code: Industry Index Update Message (7203)",
+  [7211] = "Transaction Code: Spread Market By Price Delta Message (7211)",
+  [17211] = "Transaction Code: Enhanced Spread Market By Price Delta Message (17211)",
+  [7130] = "Transaction Code: Asset Open Interest Message (7130)",
+  [17130] = "Transaction Code: Enhanced Asset Open Interest Message (17130)",
+  [7220] = "Transaction Code: Limit Price Protection Range Message (7220)",
+  [7338] = "Transaction Code: Cas Reference Price Message (7338)",
+  [9010] = "Transaction Code: Turnover Exceeded Message (9010)",
+  [9011] = "Transaction Code: Turnover Exceeded Message (9011)",
+}
 
-  return "Transaction Code: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.transaction_code.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.transaction_code.labels[value] or "Transaction Code: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Code
@@ -5062,15 +4958,13 @@ nse_nsefo_broadcast_nnfbcast_v9_50.warning_type = {}
 nse_nsefo_broadcast_nnfbcast_v9_50.warning_type.size = 2
 
 -- Display: Warning Type
-nse_nsefo_broadcast_nnfbcast_v9_50.warning_type.display = function(value)
-  if value == 1 then
-    return "Warning Type: Turnover Limit About To Exceed (1)"
-  end
-  if value == 2 then
-    return "Warning Type: Turnover Limit Exceeded (2)"
-  end
+nse_nsefo_broadcast_nnfbcast_v9_50.warning_type.labels = {
+  [1] = "Warning Type: Turnover Limit About To Exceed (1)",
+  [2] = "Warning Type: Turnover Limit Exceeded (2)",
+}
 
-  return "Warning Type: Unknown("..value..")"
+nse_nsefo_broadcast_nnfbcast_v9_50.warning_type.display = function(value)
+  return nse_nsefo_broadcast_nnfbcast_v9_50.warning_type.labels[value] or "Warning Type: Unknown("..value..")"
 end
 
 -- Dissect: Warning Type
@@ -5424,14 +5318,15 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.turnover_payload = {}
 
 -- Dissect: Turnover Payload
+nse_nsefo_broadcast_nnfbcast_v9_50.turnover_payload.dispatch = {
+  [98] = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_limit_exceeded_body.dissect,
+  [320] = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_vct_messages_body.dissect,
+}
+
 nse_nsefo_broadcast_nnfbcast_v9_50.turnover_payload.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect Turnover Limit Exceeded Body
-  if message_length == 98 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.turnover_limit_exceeded_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Turnover Vct Messages Body
-  if message_length == 320 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.turnover_vct_messages_body.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_payload.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -9010,98 +8905,36 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.message_payload = {}
 
 -- Dissect: Message Payload
+nse_nsefo_broadcast_nnfbcast_v9_50.message_payload.dispatch = {
+  [6501] = nse_nsefo_broadcast_nnfbcast_v9_50.broadcast_journal_vct_message.dissect,
+  [6013] = nse_nsefo_broadcast_nnfbcast_v9_50.security_open_price_message.dissect,
+  [7305] = nse_nsefo_broadcast_nnfbcast_v9_50.security_master_change_message.dissect,
+  [7324] = nse_nsefo_broadcast_nnfbcast_v9_50.instrument_master_change_message.dissect,
+  [7306] = nse_nsefo_broadcast_nnfbcast_v9_50.participant_master_change_message.dissect,
+  [7320] = nse_nsefo_broadcast_nnfbcast_v9_50.security_status_change_message.dissect,
+  [7200] = nse_nsefo_broadcast_nnfbcast_v9_50.market_by_order_and_market_by_price_message.dissect,
+  [7208] = nse_nsefo_broadcast_nnfbcast_v9_50.only_market_by_price_message.dissect,
+  [17208] = nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_only_market_by_price_message.dissect,
+  [7202] = nse_nsefo_broadcast_nnfbcast_v9_50.ticker_and_market_index_message.dissect,
+  [17202] = nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_ticker_and_market_index_message.dissect,
+  [7201] = nse_nsefo_broadcast_nnfbcast_v9_50.market_watch_round_robin_message.dissect,
+  [17201] = nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_market_watch_round_robin_message.dissect,
+  [7207] = nse_nsefo_broadcast_nnfbcast_v9_50.indices_message.dissect,
+  [7203] = nse_nsefo_broadcast_nnfbcast_v9_50.industry_index_update_message.dissect,
+  [7211] = nse_nsefo_broadcast_nnfbcast_v9_50.spread_market_by_price_delta_message.dissect,
+  [17211] = nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_spread_market_by_price_delta_message.dissect,
+  [7130] = nse_nsefo_broadcast_nnfbcast_v9_50.asset_open_interest_message.dissect,
+  [17130] = nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_asset_open_interest_message.dissect,
+  [7220] = nse_nsefo_broadcast_nnfbcast_v9_50.limit_price_protection_range_message.dissect,
+  [7338] = nse_nsefo_broadcast_nnfbcast_v9_50.cas_reference_price_message.dissect,
+  [9010] = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_exceeded_message.dissect,
+  [9011] = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_exceeded_message.dissect,
+}
+
 nse_nsefo_broadcast_nnfbcast_v9_50.message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Broadcast Journal Vct Message
-  if transaction_code == 6501 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.broadcast_journal_vct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Price Message
-  if transaction_code == 6013 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.security_open_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Master Change Message
-  if transaction_code == 7305 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.security_master_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Master Change Message
-  if transaction_code == 7324 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.instrument_master_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant Master Change Message
-  if transaction_code == 7306 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.participant_master_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Change Message
-  if transaction_code == 7320 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.security_status_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market By Order And Market By Price Message
-  if transaction_code == 7200 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.market_by_order_and_market_by_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Only Market By Price Message
-  if transaction_code == 7208 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.only_market_by_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Only Market By Price Message
-  if transaction_code == 17208 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_only_market_by_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ticker And Market Index Message
-  if transaction_code == 7202 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.ticker_and_market_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Ticker And Market Index Message
-  if transaction_code == 17202 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_ticker_and_market_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Watch Round Robin Message
-  if transaction_code == 7201 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.market_watch_round_robin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Market Watch Round Robin Message
-  if transaction_code == 17201 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_market_watch_round_robin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indices Message
-  if transaction_code == 7207 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.indices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Industry Index Update Message
-  if transaction_code == 7203 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.industry_index_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Market By Price Delta Message
-  if transaction_code == 7211 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.spread_market_by_price_delta_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Spread Market By Price Delta Message
-  if transaction_code == 17211 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_spread_market_by_price_delta_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Asset Open Interest Message
-  if transaction_code == 7130 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.asset_open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Asset Open Interest Message
-  if transaction_code == 17130 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_asset_open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Price Protection Range Message
-  if transaction_code == 7220 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.limit_price_protection_range_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cas Reference Price Message
-  if transaction_code == 7338 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.cas_reference_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Turnover Exceeded Message
-  if transaction_code == 9010 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.turnover_exceeded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Turnover Exceeded Message
-  if transaction_code == 9011 then
-    return nse_nsefo_broadcast_nnfbcast_v9_50.turnover_exceeded_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_broadcast_nnfbcast_v9_50.message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -218,15 +218,13 @@ memx_memxoptions_riskcontrol_sbe_v1_3.allow_iso_orders = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.allow_iso_orders.size = 1
 
 -- Display: Allow Iso Orders
-memx_memxoptions_riskcontrol_sbe_v1_3.allow_iso_orders.display = function(value)
-  if value == 0 then
-    return "Allow Iso Orders: False (0)"
-  end
-  if value == 1 then
-    return "Allow Iso Orders: True (1)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.allow_iso_orders.labels = {
+  [0] = "Allow Iso Orders: False (0)",
+  [1] = "Allow Iso Orders: True (1)",
+}
 
-  return "Allow Iso Orders: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.allow_iso_orders.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.allow_iso_orders.labels[value] or "Allow Iso Orders: Unknown("..value..")"
 end
 
 -- Dissect: Allow Iso Orders
@@ -248,15 +246,13 @@ memx_memxoptions_riskcontrol_sbe_v1_3.allow_orders = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.allow_orders.size = 1
 
 -- Display: Allow Orders
-memx_memxoptions_riskcontrol_sbe_v1_3.allow_orders.display = function(value)
-  if value == 0 then
-    return "Allow Orders: False (0)"
-  end
-  if value == 1 then
-    return "Allow Orders: True (1)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.allow_orders.labels = {
+  [0] = "Allow Orders: False (0)",
+  [1] = "Allow Orders: True (1)",
+}
 
-  return "Allow Orders: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.allow_orders.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.allow_orders.labels[value] or "Allow Orders: Unknown("..value..")"
 end
 
 -- Dissect: Allow Orders
@@ -684,21 +680,15 @@ memx_memxoptions_riskcontrol_sbe_v1_3.login_reject_code = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.login_reject_code.size = 1
 
 -- Display: Login Reject Code
-memx_memxoptions_riskcontrol_sbe_v1_3.login_reject_code.display = function(value)
-  if value == "T" then
-    return "Login Reject Code: Malformed Token (T)"
-  end
-  if value == "U" then
-    return "Login Reject Code: Token Type Unsupported (U)"
-  end
-  if value == "V" then
-    return "Login Reject Code: Token Type Invalid (V)"
-  end
-  if value == "A" then
-    return "Login Reject Code: Authorization Failed (A)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.login_reject_code.labels = {
+  ["T"] = "Login Reject Code: Malformed Token (T)",
+  ["U"] = "Login Reject Code: Token Type Unsupported (U)",
+  ["V"] = "Login Reject Code: Token Type Invalid (V)",
+  ["A"] = "Login Reject Code: Authorization Failed (A)",
+}
 
-  return "Login Reject Code: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.login_reject_code.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.login_reject_code.labels[value] or "Login Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Login Reject Code
@@ -881,60 +871,28 @@ memx_memxoptions_riskcontrol_sbe_v1_3.message_type = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
-memx_memxoptions_riskcontrol_sbe_v1_3.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat (0)"
-  end
-  if value == 100 then
-    return "Message Type: Login Request (100)"
-  end
-  if value == 101 then
-    return "Message Type: Replay Request (101)"
-  end
-  if value == 102 then
-    return "Message Type: Replay All Request (102)"
-  end
-  if value == 103 then
-    return "Message Type: Stream Request (103)"
-  end
-  if value == 104 then
-    return "Message Type: Unsequenced Message (104)"
-  end
-  if value == 1 then
-    return "Message Type: Login Accepted (1)"
-  end
-  if value == 2 then
-    return "Message Type: Login Rejected (2)"
-  end
-  if value == 3 then
-    return "Message Type: Start Of Session (3)"
-  end
-  if value == 4 then
-    return "Message Type: End Of Session (4)"
-  end
-  if value == 5 then
-    return "Message Type: Replay Begin (5)"
-  end
-  if value == 6 then
-    return "Message Type: Replay Rejected (6)"
-  end
-  if value == 7 then
-    return "Message Type: Replay Complete (7)"
-  end
-  if value == 8 then
-    return "Message Type: Stream Begin (8)"
-  end
-  if value == 9 then
-    return "Message Type: Stream Rejected (9)"
-  end
-  if value == 10 then
-    return "Message Type: Stream Complete (10)"
-  end
-  if value == 11 then
-    return "Message Type: Sequenced Message (11)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.message_type.labels = {
+  [0] = "Message Type: Heartbeat (0)",
+  [100] = "Message Type: Login Request (100)",
+  [101] = "Message Type: Replay Request (101)",
+  [102] = "Message Type: Replay All Request (102)",
+  [103] = "Message Type: Stream Request (103)",
+  [104] = "Message Type: Unsequenced Message (104)",
+  [1] = "Message Type: Login Accepted (1)",
+  [2] = "Message Type: Login Rejected (2)",
+  [3] = "Message Type: Start Of Session (3)",
+  [4] = "Message Type: End Of Session (4)",
+  [5] = "Message Type: Replay Begin (5)",
+  [6] = "Message Type: Replay Rejected (6)",
+  [7] = "Message Type: Replay Complete (7)",
+  [8] = "Message Type: Stream Begin (8)",
+  [9] = "Message Type: Stream Rejected (9)",
+  [10] = "Message Type: Stream Complete (10)",
+  [11] = "Message Type: Sequenced Message (11)",
+}
 
-  return "Message Type: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.message_type.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1179,153 +1137,59 @@ memx_memxoptions_riskcontrol_sbe_v1_3.reject_reason = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.reject_reason.size = 2
 
 -- Display: Reject Reason
-memx_memxoptions_riskcontrol_sbe_v1_3.reject_reason.display = function(value)
-  if value == 0 then
-    return "Reject Reason: Other (0)"
-  end
-  if value == 1 then
-    return "Reject Reason: Missing Cl Ord Id (1)"
-  end
-  if value == 2 then
-    return "Reject Reason: Invalid Cl Ord Id (2)"
-  end
-  if value == 3 then
-    return "Reject Reason: Duplicate Cl Ord Id (3)"
-  end
-  if value == 4 then
-    return "Reject Reason: Missing Time Period (4)"
-  end
-  if value == 5 then
-    return "Reject Reason: Invalid Time Period (5)"
-  end
-  if value == 6 then
-    return "Reject Reason: Missing Risk Group Id (6)"
-  end
-  if value == 7 then
-    return "Reject Reason: Invalid Risk Group Id (7)"
-  end
-  if value == 8 then
-    return "Reject Reason: Missing Underlier (8)"
-  end
-  if value == 9 then
-    return "Reject Reason: Invalid Underlier (9)"
-  end
-  if value == 10 then
-    return "Reject Reason: Missing Efid (10)"
-  end
-  if value == 11 then
-    return "Reject Reason: Invalid Efid (11)"
-  end
-  if value == 12 then
-    return "Reject Reason: Missing Threshold (12)"
-  end
-  if value == 13 then
-    return "Reject Reason: Invalid Threshold (13)"
-  end
-  if value == 14 then
-    return "Reject Reason: Missing Quantity (14)"
-  end
-  if value == 15 then
-    return "Reject Reason: Invalid Quantity (15)"
-  end
-  if value == 16 then
-    return "Reject Reason: Missing Breach Id (16)"
-  end
-  if value == 17 then
-    return "Reject Reason: Invalid Breach Id (17)"
-  end
-  if value == 18 then
-    return "Reject Reason: Missing Volume (18)"
-  end
-  if value == 19 then
-    return "Reject Reason: Invalid Volume (19)"
-  end
-  if value == 20 then
-    return "Reject Reason: Missing Period In Milli Seconds (20)"
-  end
-  if value == 21 then
-    return "Reject Reason: Invalid Period In Milli Seconds (21)"
-  end
-  if value == 22 then
-    return "Reject Reason: Missing Price In Dollars (22)"
-  end
-  if value == 23 then
-    return "Reject Reason: Invalid Price In Dollars (23)"
-  end
-  if value == 24 then
-    return "Reject Reason: Missing Total Executions (24)"
-  end
-  if value == 25 then
-    return "Reject Reason: Invalid Total Executions (25)"
-  end
-  if value == 26 then
-    return "Reject Reason: Missing Percent (26)"
-  end
-  if value == 27 then
-    return "Reject Reason: Invalid Percent (27)"
-  end
-  if value == 28 then
-    return "Reject Reason: Missing Count (28)"
-  end
-  if value == 29 then
-    return "Reject Reason: Invalid Count (29)"
-  end
-  if value == 30 then
-    return "Reject Reason: Missing Allow Iso Orders (30)"
-  end
-  if value == 31 then
-    return "Reject Reason: Invalid Allow Iso Orders (31)"
-  end
-  if value == 32 then
-    return "Reject Reason: Missing Allow Orders (32)"
-  end
-  if value == 33 then
-    return "Reject Reason: Invalid Allow Orders (33)"
-  end
-  if value == 34 then
-    return "Reject Reason: Missing Max Notional In Dollars (34)"
-  end
-  if value == 35 then
-    return "Reject Reason: Invalid Max Notional In Dollars (35)"
-  end
-  if value == 36 then
-    return "Reject Reason: Missing Max Contracts (36)"
-  end
-  if value == 37 then
-    return "Reject Reason: Invalid Max Contracts (37)"
-  end
-  if value == 38 then
-    return "Reject Reason: Over Confirm (38)"
-  end
-  if value == 39 then
-    return "Reject Reason: Invalid Risk Combination (39)"
-  end
-  if value == 40 then
-    return "Reject Reason: Unknown Risk Rule (40)"
-  end
-  if value == 41 then
-    return "Reject Reason: Missing Max Dup Orders (41)"
-  end
-  if value == 42 then
-    return "Reject Reason: Invalid Max Dup Orders (42)"
-  end
-  if value == 43 then
-    return "Reject Reason: Missing Max Order Msgs (43)"
-  end
-  if value == 44 then
-    return "Reject Reason: Invalid Max Order Msgs (44)"
-  end
-  if value == 45 then
-    return "Reject Reason: Breach In Progress (45)"
-  end
-  if value == 100 then
-    return "Reject Reason: Exchange Closed (100)"
-  end
-  if value == 65535 then
-    return "Reject Reason: Null Value (65535)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.reject_reason.labels = {
+  [0] = "Reject Reason: Other (0)",
+  [1] = "Reject Reason: Missing Cl Ord Id (1)",
+  [2] = "Reject Reason: Invalid Cl Ord Id (2)",
+  [3] = "Reject Reason: Duplicate Cl Ord Id (3)",
+  [4] = "Reject Reason: Missing Time Period (4)",
+  [5] = "Reject Reason: Invalid Time Period (5)",
+  [6] = "Reject Reason: Missing Risk Group Id (6)",
+  [7] = "Reject Reason: Invalid Risk Group Id (7)",
+  [8] = "Reject Reason: Missing Underlier (8)",
+  [9] = "Reject Reason: Invalid Underlier (9)",
+  [10] = "Reject Reason: Missing Efid (10)",
+  [11] = "Reject Reason: Invalid Efid (11)",
+  [12] = "Reject Reason: Missing Threshold (12)",
+  [13] = "Reject Reason: Invalid Threshold (13)",
+  [14] = "Reject Reason: Missing Quantity (14)",
+  [15] = "Reject Reason: Invalid Quantity (15)",
+  [16] = "Reject Reason: Missing Breach Id (16)",
+  [17] = "Reject Reason: Invalid Breach Id (17)",
+  [18] = "Reject Reason: Missing Volume (18)",
+  [19] = "Reject Reason: Invalid Volume (19)",
+  [20] = "Reject Reason: Missing Period In Milli Seconds (20)",
+  [21] = "Reject Reason: Invalid Period In Milli Seconds (21)",
+  [22] = "Reject Reason: Missing Price In Dollars (22)",
+  [23] = "Reject Reason: Invalid Price In Dollars (23)",
+  [24] = "Reject Reason: Missing Total Executions (24)",
+  [25] = "Reject Reason: Invalid Total Executions (25)",
+  [26] = "Reject Reason: Missing Percent (26)",
+  [27] = "Reject Reason: Invalid Percent (27)",
+  [28] = "Reject Reason: Missing Count (28)",
+  [29] = "Reject Reason: Invalid Count (29)",
+  [30] = "Reject Reason: Missing Allow Iso Orders (30)",
+  [31] = "Reject Reason: Invalid Allow Iso Orders (31)",
+  [32] = "Reject Reason: Missing Allow Orders (32)",
+  [33] = "Reject Reason: Invalid Allow Orders (33)",
+  [34] = "Reject Reason: Missing Max Notional In Dollars (34)",
+  [35] = "Reject Reason: Invalid Max Notional In Dollars (35)",
+  [36] = "Reject Reason: Missing Max Contracts (36)",
+  [37] = "Reject Reason: Invalid Max Contracts (37)",
+  [38] = "Reject Reason: Over Confirm (38)",
+  [39] = "Reject Reason: Invalid Risk Combination (39)",
+  [40] = "Reject Reason: Unknown Risk Rule (40)",
+  [41] = "Reject Reason: Missing Max Dup Orders (41)",
+  [42] = "Reject Reason: Invalid Max Dup Orders (42)",
+  [43] = "Reject Reason: Missing Max Order Msgs (43)",
+  [44] = "Reject Reason: Invalid Max Order Msgs (44)",
+  [45] = "Reject Reason: Breach In Progress (45)",
+  [100] = "Reject Reason: Exchange Closed (100)",
+  [65535] = "Reject Reason: Null Value (65535)",
+}
 
-  return "Reject Reason: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.reject_reason.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.reject_reason.labels[value] or "Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason
@@ -1347,21 +1211,15 @@ memx_memxoptions_riskcontrol_sbe_v1_3.replay_reject_code = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.replay_reject_code.size = 1
 
 -- Display: Replay Reject Code
-memx_memxoptions_riskcontrol_sbe_v1_3.replay_reject_code.display = function(value)
-  if value == "R" then
-    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
-  end
-  if value == "A" then
-    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
-  end
-  if value == "P" then
-    return "Replay Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Replay Reject Code: Sequence Number Out Of Range (S)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.replay_reject_code.labels = {
+  ["R"] = "Replay Reject Code: Replay Requests Are Not Allowed (R)",
+  ["A"] = "Replay Reject Code: Replay All Requests Are Not Allowed (A)",
+  ["P"] = "Replay Reject Code: Not The Active Session (P)",
+  ["S"] = "Replay Reject Code: Sequence Number Out Of Range (S)",
+}
 
-  return "Replay Reject Code: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.replay_reject_code.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.replay_reject_code.labels[value] or "Replay Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Replay Reject Code
@@ -1411,57 +1269,27 @@ memx_memxoptions_riskcontrol_sbe_v1_3.risk_type = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.risk_type.size = 1
 
 -- Display: Risk Type
-memx_memxoptions_riskcontrol_sbe_v1_3.risk_type.display = function(value)
-  if value == 1 then
-    return "Risk Type: Contract Volume (1)"
-  end
-  if value == 2 then
-    return "Risk Type: Notional Executed (2)"
-  end
-  if value == 3 then
-    return "Risk Type: Total Trades Executed (3)"
-  end
-  if value == 4 then
-    return "Risk Type: Percent Executed (4)"
-  end
-  if value == 5 then
-    return "Risk Type: Number Of Breaches (5)"
-  end
-  if value == 6 then
-    return "Risk Type: Allow Iso Orders (6)"
-  end
-  if value == 7 then
-    return "Risk Type: Allow Orders In Crossed Market (7)"
-  end
-  if value == 8 then
-    return "Risk Type: Max Notional (8)"
-  end
-  if value == 9 then
-    return "Risk Type: Max Contracts (9)"
-  end
-  if value == 10 then
-    return "Risk Type: Gross Notional (10)"
-  end
-  if value == 11 then
-    return "Risk Type: Market Order Gross Notional (11)"
-  end
-  if value == 12 then
-    return "Risk Type: Net Notional (12)"
-  end
-  if value == 13 then
-    return "Risk Type: Market Order Net Notional (13)"
-  end
-  if value == 14 then
-    return "Risk Type: Duplicate Order (14)"
-  end
-  if value == 15 then
-    return "Risk Type: Order Rate (15)"
-  end
-  if value == 254 then
-    return "Risk Type: Triggered Breach (254)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.risk_type.labels = {
+  [1] = "Risk Type: Contract Volume (1)",
+  [2] = "Risk Type: Notional Executed (2)",
+  [3] = "Risk Type: Total Trades Executed (3)",
+  [4] = "Risk Type: Percent Executed (4)",
+  [5] = "Risk Type: Number Of Breaches (5)",
+  [6] = "Risk Type: Allow Iso Orders (6)",
+  [7] = "Risk Type: Allow Orders In Crossed Market (7)",
+  [8] = "Risk Type: Max Notional (8)",
+  [9] = "Risk Type: Max Contracts (9)",
+  [10] = "Risk Type: Gross Notional (10)",
+  [11] = "Risk Type: Market Order Gross Notional (11)",
+  [12] = "Risk Type: Net Notional (12)",
+  [13] = "Risk Type: Market Order Net Notional (13)",
+  [14] = "Risk Type: Duplicate Order (14)",
+  [15] = "Risk Type: Order Rate (15)",
+  [254] = "Risk Type: Triggered Breach (254)",
+}
 
-  return "Risk Type: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.risk_type.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.risk_type.labels[value] or "Risk Type: Unknown("..value..")"
 end
 
 -- Dissect: Risk Type
@@ -1483,57 +1311,27 @@ memx_memxoptions_riskcontrol_sbe_v1_3.rule_type = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.rule_type.size = 1
 
 -- Display: Rule Type
-memx_memxoptions_riskcontrol_sbe_v1_3.rule_type.display = function(value)
-  if value == 1 then
-    return "Rule Type: Contract Volume (1)"
-  end
-  if value == 2 then
-    return "Rule Type: Notional Executed (2)"
-  end
-  if value == 3 then
-    return "Rule Type: Total Trades Executed (3)"
-  end
-  if value == 4 then
-    return "Rule Type: Percent Executed (4)"
-  end
-  if value == 5 then
-    return "Rule Type: Number Of Breaches (5)"
-  end
-  if value == 6 then
-    return "Rule Type: Allow Iso Orders (6)"
-  end
-  if value == 7 then
-    return "Rule Type: Allow Orders In Crossed Market (7)"
-  end
-  if value == 8 then
-    return "Rule Type: Max Notional (8)"
-  end
-  if value == 9 then
-    return "Rule Type: Max Contracts (9)"
-  end
-  if value == 10 then
-    return "Rule Type: Gross Notional (10)"
-  end
-  if value == 11 then
-    return "Rule Type: Market Order Gross Notional (11)"
-  end
-  if value == 12 then
-    return "Rule Type: Net Notional (12)"
-  end
-  if value == 13 then
-    return "Rule Type: Market Order Net Notional (13)"
-  end
-  if value == 14 then
-    return "Rule Type: Duplicate Order (14)"
-  end
-  if value == 15 then
-    return "Rule Type: Order Rate (15)"
-  end
-  if value == 254 then
-    return "Rule Type: Triggered Breach (254)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.rule_type.labels = {
+  [1] = "Rule Type: Contract Volume (1)",
+  [2] = "Rule Type: Notional Executed (2)",
+  [3] = "Rule Type: Total Trades Executed (3)",
+  [4] = "Rule Type: Percent Executed (4)",
+  [5] = "Rule Type: Number Of Breaches (5)",
+  [6] = "Rule Type: Allow Iso Orders (6)",
+  [7] = "Rule Type: Allow Orders In Crossed Market (7)",
+  [8] = "Rule Type: Max Notional (8)",
+  [9] = "Rule Type: Max Contracts (9)",
+  [10] = "Rule Type: Gross Notional (10)",
+  [11] = "Rule Type: Market Order Gross Notional (11)",
+  [12] = "Rule Type: Net Notional (12)",
+  [13] = "Rule Type: Market Order Net Notional (13)",
+  [14] = "Rule Type: Duplicate Order (14)",
+  [15] = "Rule Type: Order Rate (15)",
+  [254] = "Rule Type: Triggered Breach (254)",
+}
 
-  return "Rule Type: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.rule_type.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.rule_type.labels[value] or "Rule Type: Unknown("..value..")"
 end
 
 -- Dissect: Rule Type
@@ -1704,18 +1502,14 @@ memx_memxoptions_riskcontrol_sbe_v1_3.stream_reject_code = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.stream_reject_code.size = 1
 
 -- Display: Stream Reject Code
-memx_memxoptions_riskcontrol_sbe_v1_3.stream_reject_code.display = function(value)
-  if value == "R" then
-    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
-  end
-  if value == "P" then
-    return "Stream Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Stream Reject Code: Sequence Number Out Of Range (S)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.stream_reject_code.labels = {
+  ["R"] = "Stream Reject Code: Stream Requests Are Not Allowed (R)",
+  ["P"] = "Stream Reject Code: Not The Active Session (P)",
+  ["S"] = "Stream Reject Code: Sequence Number Out Of Range (S)",
+}
 
-  return "Stream Reject Code: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.stream_reject_code.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.stream_reject_code.labels[value] or "Stream Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Stream Reject Code
@@ -1737,18 +1531,14 @@ memx_memxoptions_riskcontrol_sbe_v1_3.supported_request_mode = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.supported_request_mode.size = 1
 
 -- Display: Supported Request Mode
-memx_memxoptions_riskcontrol_sbe_v1_3.supported_request_mode.display = function(value)
-  if value == "S" then
-    return "Supported Request Mode: Stream (S)"
-  end
-  if value == "R" then
-    return "Supported Request Mode: Replay (R)"
-  end
-  if value == "T" then
-    return "Supported Request Mode: Snapshot Mode (T)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.supported_request_mode.labels = {
+  ["S"] = "Supported Request Mode: Stream (S)",
+  ["R"] = "Supported Request Mode: Replay (R)",
+  ["T"] = "Supported Request Mode: Snapshot Mode (T)",
+}
 
-  return "Supported Request Mode: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.supported_request_mode.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.supported_request_mode.labels[value] or "Supported Request Mode: Unknown("..value..")"
 end
 
 -- Dissect: Supported Request Mode
@@ -1770,156 +1560,60 @@ memx_memxoptions_riskcontrol_sbe_v1_3.template_id = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.template_id.size = 1
 
 -- Display: Template Id
-memx_memxoptions_riskcontrol_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Risk Settings Query Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Active Risk Threshold Change Req Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Active Risk Acknowledgement Req Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Cp Volume Threshold Change Req Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Cp Executed Notional Threshold Change Req Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Cp Total Executions Threshold Change Req Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Cp Percent Outstanding Contracts Threshold Change Req Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Cp Breach Count Threshold Change Req Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Manual Cp Breach Trigger Req Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Cp Clear Breach Req Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Single Order Allow Iso Orders Change Req Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Single Order Allow Orders In Crossed Market Change Req Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Single Order Max Notional Change Req Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Single Order Max Contracts Change Req Message (14)"
-  end
-  if value == 18 then
-    return "Template Id: Cp Gross Notional Threshold Change Req Message (18)"
-  end
-  if value == 19 then
-    return "Template Id: Cp Market Order Gross Notional Threshold Change Req Message (19)"
-  end
-  if value == 20 then
-    return "Template Id: Cp Net Notional Threshold Change Req Message (20)"
-  end
-  if value == 21 then
-    return "Template Id: Cp Market Order Net Notional Threshold Change Req Message (21)"
-  end
-  if value == 22 then
-    return "Template Id: Cp Duplicate Order Threshold Change Req Message (22)"
-  end
-  if value == 23 then
-    return "Template Id: Cp Order Rate Threshold Change Req Message (23)"
-  end
-  if value == 30 then
-    return "Template Id: Active Risk Threshold State Message (30)"
-  end
-  if value == 31 then
-    return "Template Id: Active Risk Threshold Change Rej Message (31)"
-  end
-  if value == 32 then
-    return "Template Id: Active Risk Acknowledged Message (32)"
-  end
-  if value == 33 then
-    return "Template Id: Active Risk Acknowledge Rej Message (33)"
-  end
-  if value == 34 then
-    return "Template Id: Active Risk Quantity Update Notification Message (34)"
-  end
-  if value == 35 then
-    return "Template Id: Cp Volume Threshold State Message (35)"
-  end
-  if value == 36 then
-    return "Template Id: Cp Executed Notional Threshold State Message (36)"
-  end
-  if value == 37 then
-    return "Template Id: Cp Total Executions Threshold State Message (37)"
-  end
-  if value == 38 then
-    return "Template Id: Cp Percent Outstanding Contracts Threshold State Message (38)"
-  end
-  if value == 39 then
-    return "Template Id: Cp Breach Count Threshold State Message (39)"
-  end
-  if value == 40 then
-    return "Template Id: Manual Cp Breach Trigger Pending Message (40)"
-  end
-  if value == 41 then
-    return "Template Id: Manual Cp Breach Trigger Done Message (41)"
-  end
-  if value == 42 then
-    return "Template Id: Risk Threshold Update Rej Message (42)"
-  end
-  if value == 43 then
-    return "Template Id: Passive Risk Threshold Notification Message (43)"
-  end
-  if value == 44 then
-    return "Template Id: Single Order Allow Iso Orders State Message (44)"
-  end
-  if value == 45 then
-    return "Template Id: Single Order Allow Orders In Crossed Market State Message (45)"
-  end
-  if value == 46 then
-    return "Template Id: Single Order Max Notional Threshold State Message (46)"
-  end
-  if value == 47 then
-    return "Template Id: Single Order Max Contracts Threshold State Message (47)"
-  end
-  if value == 48 then
-    return "Template Id: Risk Settings Query Done Message (48)"
-  end
-  if value == 49 then
-    return "Template Id: Risk Settings Query Rej Message (49)"
-  end
-  if value == 50 then
-    return "Template Id: Manual Cp Breach Trigger Rej Message (50)"
-  end
-  if value == 51 then
-    return "Template Id: Breach Clear Rej Message (51)"
-  end
-  if value == 52 then
-    return "Template Id: Breach Cleared Message (52)"
-  end
-  if value == 60 then
-    return "Template Id: Cp Gross Notional Threshold State Message (60)"
-  end
-  if value == 61 then
-    return "Template Id: Cp Market Order Gross Notional Threshold State Message (61)"
-  end
-  if value == 62 then
-    return "Template Id: Cp Net Notional Threshold State Message (62)"
-  end
-  if value == 63 then
-    return "Template Id: Cp Market Order Net Notional Threshold State Message (63)"
-  end
-  if value == 64 then
-    return "Template Id: Cp Duplicate Order Threshold State Message (64)"
-  end
-  if value == 65 then
-    return "Template Id: Cp Order Rate Threshold State Message (65)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.template_id.labels = {
+  [1] = "Template Id: Risk Settings Query Message (1)",
+  [2] = "Template Id: Active Risk Threshold Change Req Message (2)",
+  [3] = "Template Id: Active Risk Acknowledgement Req Message (3)",
+  [4] = "Template Id: Cp Volume Threshold Change Req Message (4)",
+  [5] = "Template Id: Cp Executed Notional Threshold Change Req Message (5)",
+  [6] = "Template Id: Cp Total Executions Threshold Change Req Message (6)",
+  [7] = "Template Id: Cp Percent Outstanding Contracts Threshold Change Req Message (7)",
+  [8] = "Template Id: Cp Breach Count Threshold Change Req Message (8)",
+  [9] = "Template Id: Manual Cp Breach Trigger Req Message (9)",
+  [10] = "Template Id: Cp Clear Breach Req Message (10)",
+  [11] = "Template Id: Single Order Allow Iso Orders Change Req Message (11)",
+  [12] = "Template Id: Single Order Allow Orders In Crossed Market Change Req Message (12)",
+  [13] = "Template Id: Single Order Max Notional Change Req Message (13)",
+  [14] = "Template Id: Single Order Max Contracts Change Req Message (14)",
+  [18] = "Template Id: Cp Gross Notional Threshold Change Req Message (18)",
+  [19] = "Template Id: Cp Market Order Gross Notional Threshold Change Req Message (19)",
+  [20] = "Template Id: Cp Net Notional Threshold Change Req Message (20)",
+  [21] = "Template Id: Cp Market Order Net Notional Threshold Change Req Message (21)",
+  [22] = "Template Id: Cp Duplicate Order Threshold Change Req Message (22)",
+  [23] = "Template Id: Cp Order Rate Threshold Change Req Message (23)",
+  [30] = "Template Id: Active Risk Threshold State Message (30)",
+  [31] = "Template Id: Active Risk Threshold Change Rej Message (31)",
+  [32] = "Template Id: Active Risk Acknowledged Message (32)",
+  [33] = "Template Id: Active Risk Acknowledge Rej Message (33)",
+  [34] = "Template Id: Active Risk Quantity Update Notification Message (34)",
+  [35] = "Template Id: Cp Volume Threshold State Message (35)",
+  [36] = "Template Id: Cp Executed Notional Threshold State Message (36)",
+  [37] = "Template Id: Cp Total Executions Threshold State Message (37)",
+  [38] = "Template Id: Cp Percent Outstanding Contracts Threshold State Message (38)",
+  [39] = "Template Id: Cp Breach Count Threshold State Message (39)",
+  [40] = "Template Id: Manual Cp Breach Trigger Pending Message (40)",
+  [41] = "Template Id: Manual Cp Breach Trigger Done Message (41)",
+  [42] = "Template Id: Risk Threshold Update Rej Message (42)",
+  [43] = "Template Id: Passive Risk Threshold Notification Message (43)",
+  [44] = "Template Id: Single Order Allow Iso Orders State Message (44)",
+  [45] = "Template Id: Single Order Allow Orders In Crossed Market State Message (45)",
+  [46] = "Template Id: Single Order Max Notional Threshold State Message (46)",
+  [47] = "Template Id: Single Order Max Contracts Threshold State Message (47)",
+  [48] = "Template Id: Risk Settings Query Done Message (48)",
+  [49] = "Template Id: Risk Settings Query Rej Message (49)",
+  [50] = "Template Id: Manual Cp Breach Trigger Rej Message (50)",
+  [51] = "Template Id: Breach Clear Rej Message (51)",
+  [52] = "Template Id: Breach Cleared Message (52)",
+  [60] = "Template Id: Cp Gross Notional Threshold State Message (60)",
+  [61] = "Template Id: Cp Market Order Gross Notional Threshold State Message (61)",
+  [62] = "Template Id: Cp Net Notional Threshold State Message (62)",
+  [63] = "Template Id: Cp Market Order Net Notional Threshold State Message (63)",
+  [64] = "Template Id: Cp Duplicate Order Threshold State Message (64)",
+  [65] = "Template Id: Cp Order Rate Threshold State Message (65)",
+}
 
-  return "Template Id: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.template_id.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2304,15 +1998,13 @@ memx_memxoptions_riskcontrol_sbe_v1_3.use_order_price_in_dup_check = {}
 memx_memxoptions_riskcontrol_sbe_v1_3.use_order_price_in_dup_check.size = 1
 
 -- Display: Use Order Price In Dup Check
-memx_memxoptions_riskcontrol_sbe_v1_3.use_order_price_in_dup_check.display = function(value)
-  if value == 0 then
-    return "Use Order Price In Dup Check: False (0)"
-  end
-  if value == 1 then
-    return "Use Order Price In Dup Check: True (1)"
-  end
+memx_memxoptions_riskcontrol_sbe_v1_3.use_order_price_in_dup_check.labels = {
+  [0] = "Use Order Price In Dup Check: False (0)",
+  [1] = "Use Order Price In Dup Check: True (1)",
+}
 
-  return "Use Order Price In Dup Check: Unknown("..value..")"
+memx_memxoptions_riskcontrol_sbe_v1_3.use_order_price_in_dup_check.display = function(value)
+  return memx_memxoptions_riskcontrol_sbe_v1_3.use_order_price_in_dup_check.labels[value] or "Use Order Price In Dup Check: Unknown("..value..")"
 end
 
 -- Dissect: Use Order Price In Dup Check
@@ -4051,122 +3743,42 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_3.server_payload = {}
 
 -- Dissect: Server Payload
+memx_memxoptions_riskcontrol_sbe_v1_3.server_payload.dispatch = {
+  [30] = memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_state_message.dissect,
+  [31] = memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_rej_message.dissect,
+  [32] = memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_acknowledged_message.dissect,
+  [33] = memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_acknowledge_rej_message.dissect,
+  [34] = memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_quantity_update_notification_message.dissect,
+  [35] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_volume_threshold_state_message.dissect,
+  [36] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_executed_notional_threshold_state_message.dissect,
+  [37] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_total_executions_threshold_state_message.dissect,
+  [38] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_percent_outstanding_contracts_threshold_state_message.dissect,
+  [39] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_breach_count_threshold_state_message.dissect,
+  [40] = memx_memxoptions_riskcontrol_sbe_v1_3.manual_cp_breach_trigger_pending_message.dissect,
+  [41] = memx_memxoptions_riskcontrol_sbe_v1_3.manual_cp_breach_trigger_done_message.dissect,
+  [42] = memx_memxoptions_riskcontrol_sbe_v1_3.risk_threshold_update_rej_message.dissect,
+  [43] = memx_memxoptions_riskcontrol_sbe_v1_3.passive_risk_threshold_notification_message.dissect,
+  [44] = memx_memxoptions_riskcontrol_sbe_v1_3.single_order_allow_iso_orders_state_message.dissect,
+  [45] = memx_memxoptions_riskcontrol_sbe_v1_3.single_order_allow_orders_in_crossed_market_state_message.dissect,
+  [46] = memx_memxoptions_riskcontrol_sbe_v1_3.single_order_max_notional_threshold_state_message.dissect,
+  [47] = memx_memxoptions_riskcontrol_sbe_v1_3.single_order_max_contracts_threshold_state_message.dissect,
+  [48] = memx_memxoptions_riskcontrol_sbe_v1_3.risk_settings_query_done_message.dissect,
+  [49] = memx_memxoptions_riskcontrol_sbe_v1_3.risk_settings_query_rej_message.dissect,
+  [50] = memx_memxoptions_riskcontrol_sbe_v1_3.manual_cp_breach_trigger_rej_message.dissect,
+  [51] = memx_memxoptions_riskcontrol_sbe_v1_3.breach_clear_rej_message.dissect,
+  [52] = memx_memxoptions_riskcontrol_sbe_v1_3.breach_cleared_message.dissect,
+  [60] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_gross_notional_threshold_state_message.dissect,
+  [61] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_market_order_gross_notional_threshold_state_message.dissect,
+  [62] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_net_notional_threshold_state_message.dissect,
+  [63] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_market_order_net_notional_threshold_state_message.dissect,
+  [64] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_duplicate_order_threshold_state_message.dissect,
+  [65] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_order_rate_threshold_state_message.dissect,
+}
+
 memx_memxoptions_riskcontrol_sbe_v1_3.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Active Risk Threshold State Message
-  if template_id == 30 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Threshold Change Rej Message
-  if template_id == 31 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_rej_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Acknowledged Message
-  if template_id == 32 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_acknowledged_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Acknowledge Rej Message
-  if template_id == 33 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_acknowledge_rej_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Quantity Update Notification Message
-  if template_id == 34 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_quantity_update_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Volume Threshold State Message
-  if template_id == 35 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_volume_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Executed Notional Threshold State Message
-  if template_id == 36 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_executed_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Total Executions Threshold State Message
-  if template_id == 37 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_total_executions_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Percent Outstanding Contracts Threshold State Message
-  if template_id == 38 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_percent_outstanding_contracts_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Breach Count Threshold State Message
-  if template_id == 39 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_breach_count_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Manual Cp Breach Trigger Pending Message
-  if template_id == 40 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.manual_cp_breach_trigger_pending_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Manual Cp Breach Trigger Done Message
-  if template_id == 41 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.manual_cp_breach_trigger_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Threshold Update Rej Message
-  if template_id == 42 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.risk_threshold_update_rej_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Passive Risk Threshold Notification Message
-  if template_id == 43 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.passive_risk_threshold_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Allow Iso Orders State Message
-  if template_id == 44 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.single_order_allow_iso_orders_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Allow Orders In Crossed Market State Message
-  if template_id == 45 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.single_order_allow_orders_in_crossed_market_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Max Notional Threshold State Message
-  if template_id == 46 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.single_order_max_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Max Contracts Threshold State Message
-  if template_id == 47 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.single_order_max_contracts_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Settings Query Done Message
-  if template_id == 48 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.risk_settings_query_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Settings Query Rej Message
-  if template_id == 49 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.risk_settings_query_rej_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Manual Cp Breach Trigger Rej Message
-  if template_id == 50 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.manual_cp_breach_trigger_rej_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Breach Clear Rej Message
-  if template_id == 51 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.breach_clear_rej_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Breach Cleared Message
-  if template_id == 52 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.breach_cleared_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Gross Notional Threshold State Message
-  if template_id == 60 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_gross_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Market Order Gross Notional Threshold State Message
-  if template_id == 61 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_market_order_gross_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Net Notional Threshold State Message
-  if template_id == 62 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_net_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Market Order Net Notional Threshold State Message
-  if template_id == 63 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_market_order_net_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Duplicate Order Threshold State Message
-  if template_id == 64 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_duplicate_order_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Order Rate Threshold State Message
-  if template_id == 65 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_order_rate_threshold_state_message.dissect(buffer, offset, packet, parent)
+  local dissect = memx_memxoptions_riskcontrol_sbe_v1_3.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4697,46 +4309,23 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_3.server_data = {}
 
 -- Dissect: Server Data
+memx_memxoptions_riskcontrol_sbe_v1_3.server_data.dispatch = {
+  [1] = memx_memxoptions_riskcontrol_sbe_v1_3.login_accepted_message.dissect,
+  [2] = memx_memxoptions_riskcontrol_sbe_v1_3.login_rejected_message.dissect,
+  [3] = memx_memxoptions_riskcontrol_sbe_v1_3.start_of_session_message.dissect,
+  [5] = memx_memxoptions_riskcontrol_sbe_v1_3.replay_begin_message.dissect,
+  [6] = memx_memxoptions_riskcontrol_sbe_v1_3.replay_rejected_message.dissect,
+  [7] = memx_memxoptions_riskcontrol_sbe_v1_3.replay_complete_message.dissect,
+  [8] = memx_memxoptions_riskcontrol_sbe_v1_3.stream_begin_message.dissect,
+  [9] = memx_memxoptions_riskcontrol_sbe_v1_3.stream_rejected_message.dissect,
+  [10] = memx_memxoptions_riskcontrol_sbe_v1_3.stream_complete_message.dissect,
+  [11] = memx_memxoptions_riskcontrol_sbe_v1_3.sequenced_message.dissect,
+}
+
 memx_memxoptions_riskcontrol_sbe_v1_3.server_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Accepted Message
-  if message_type == 1 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == 2 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session Message
-  if message_type == 3 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.start_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Begin Message
-  if message_type == 5 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Rejected Message
-  if message_type == 6 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete Message
-  if message_type == 7 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Begin Message
-  if message_type == 8 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Rejected Message
-  if message_type == 9 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Complete Message
-  if message_type == 10 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 11 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = memx_memxoptions_riskcontrol_sbe_v1_3.server_data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5926,86 +5515,33 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_3.client_payload = {}
 
 -- Dissect: Client Payload
+memx_memxoptions_riskcontrol_sbe_v1_3.client_payload.dispatch = {
+  [1] = memx_memxoptions_riskcontrol_sbe_v1_3.risk_settings_query_message.dissect,
+  [2] = memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_req_message.dissect,
+  [3] = memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_acknowledgement_req_message.dissect,
+  [4] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_volume_threshold_change_req_message.dissect,
+  [5] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_executed_notional_threshold_change_req_message.dissect,
+  [6] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_total_executions_threshold_change_req_message.dissect,
+  [7] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_percent_outstanding_contracts_threshold_change_req_message.dissect,
+  [8] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_breach_count_threshold_change_req_message.dissect,
+  [9] = memx_memxoptions_riskcontrol_sbe_v1_3.manual_cp_breach_trigger_req_message.dissect,
+  [10] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_clear_breach_req_message.dissect,
+  [11] = memx_memxoptions_riskcontrol_sbe_v1_3.single_order_allow_iso_orders_change_req_message.dissect,
+  [12] = memx_memxoptions_riskcontrol_sbe_v1_3.single_order_allow_orders_in_crossed_market_change_req_message.dissect,
+  [13] = memx_memxoptions_riskcontrol_sbe_v1_3.single_order_max_notional_change_req_message.dissect,
+  [14] = memx_memxoptions_riskcontrol_sbe_v1_3.single_order_max_contracts_change_req_message.dissect,
+  [18] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_gross_notional_threshold_change_req_message.dissect,
+  [19] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_market_order_gross_notional_threshold_change_req_message.dissect,
+  [20] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_net_notional_threshold_change_req_message.dissect,
+  [21] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_market_order_net_notional_threshold_change_req_message.dissect,
+  [22] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_duplicate_order_threshold_change_req_message.dissect,
+  [23] = memx_memxoptions_riskcontrol_sbe_v1_3.cp_order_rate_threshold_change_req_message.dissect,
+}
+
 memx_memxoptions_riskcontrol_sbe_v1_3.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Risk Settings Query Message
-  if template_id == 1 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.risk_settings_query_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Threshold Change Req Message
-  if template_id == 2 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Acknowledgement Req Message
-  if template_id == 3 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_acknowledgement_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Volume Threshold Change Req Message
-  if template_id == 4 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_volume_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Executed Notional Threshold Change Req Message
-  if template_id == 5 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_executed_notional_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Total Executions Threshold Change Req Message
-  if template_id == 6 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_total_executions_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Percent Outstanding Contracts Threshold Change Req Message
-  if template_id == 7 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_percent_outstanding_contracts_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Breach Count Threshold Change Req Message
-  if template_id == 8 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_breach_count_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Manual Cp Breach Trigger Req Message
-  if template_id == 9 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.manual_cp_breach_trigger_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Clear Breach Req Message
-  if template_id == 10 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_clear_breach_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Allow Iso Orders Change Req Message
-  if template_id == 11 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.single_order_allow_iso_orders_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Allow Orders In Crossed Market Change Req Message
-  if template_id == 12 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.single_order_allow_orders_in_crossed_market_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Max Notional Change Req Message
-  if template_id == 13 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.single_order_max_notional_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Max Contracts Change Req Message
-  if template_id == 14 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.single_order_max_contracts_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Gross Notional Threshold Change Req Message
-  if template_id == 18 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_gross_notional_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Market Order Gross Notional Threshold Change Req Message
-  if template_id == 19 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_market_order_gross_notional_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Net Notional Threshold Change Req Message
-  if template_id == 20 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_net_notional_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Market Order Net Notional Threshold Change Req Message
-  if template_id == 21 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_market_order_net_notional_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Duplicate Order Threshold Change Req Message
-  if template_id == 22 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_duplicate_order_threshold_change_req_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Order Rate Threshold Change Req Message
-  if template_id == 23 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.cp_order_rate_threshold_change_req_message.dissect(buffer, offset, packet, parent)
+  local dissect = memx_memxoptions_riskcontrol_sbe_v1_3.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6292,26 +5828,18 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_3.client_data = {}
 
 -- Dissect: Client Data
+memx_memxoptions_riskcontrol_sbe_v1_3.client_data.dispatch = {
+  [100] = memx_memxoptions_riskcontrol_sbe_v1_3.login_request_message.dissect,
+  [101] = memx_memxoptions_riskcontrol_sbe_v1_3.replay_request_message.dissect,
+  [102] = memx_memxoptions_riskcontrol_sbe_v1_3.replay_all_request_message.dissect,
+  [103] = memx_memxoptions_riskcontrol_sbe_v1_3.stream_request_message.dissect,
+  [104] = memx_memxoptions_riskcontrol_sbe_v1_3.unsequenced_message.dissect,
+}
+
 memx_memxoptions_riskcontrol_sbe_v1_3.client_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 100 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Message
-  if message_type == 101 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay All Request Message
-  if message_type == 102 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.replay_all_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Request Message
-  if message_type == 103 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.stream_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Message
-  if message_type == 104 then
-    return memx_memxoptions_riskcontrol_sbe_v1_3.unsequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = memx_memxoptions_riskcontrol_sbe_v1_3.client_data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

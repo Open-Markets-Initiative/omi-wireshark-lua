@@ -569,42 +569,22 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.delivery_flag = {}
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Pillar Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.delivery_flag.display = function(value)
+  return nyse_arcaoptions_complexfeed_pillar_v1_0_d.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -946,30 +926,18 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id = {}
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id.size = 2
 
 -- Display: Market Id
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Equities (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Chicago (11)"
-  end
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id.labels = {
+  [1] = "Market Id: Nyse Equities (1)",
+  [3] = "Market Id: Nyse Arca Equities (3)",
+  [4] = "Market Id: Nyse Arca Options (4)",
+  [8] = "Market Id: Nyse American Options (8)",
+  [9] = "Market Id: Nyse American Equities (9)",
+  [10] = "Market Id: Nyse National Equities (10)",
+  [11] = "Market Id: Nyse Chicago (11)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id.display = function(value)
+  return nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -1105,63 +1073,29 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_type = {}
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_type.size = 2
 
 -- Display: Message Type
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 50 then
-    return "Message Type: Outright Series Index Mapping Message (50)"
-  end
-  if value == 51 then
-    return "Message Type: Options Status Message (51)"
-  end
-  if value == 60 then
-    return "Message Type: Complex Series Index Mapping Message (60)"
-  end
-  if value == 340 then
-    return "Message Type: Options Quote Message (340)"
-  end
-  if value == 320 then
-    return "Message Type: Options Trade Message (320)"
-  end
-  if value == 307 then
-    return "Message Type: Series Rfq Message (307)"
-  end
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [2] = "Message Type: Time Reference Message (2)",
+  [3] = "Message Type: Symbol Index Mapping Message (3)",
+  [10] = "Message Type: Retransmission Request Message (10)",
+  [11] = "Message Type: Request Response Message (11)",
+  [12] = "Message Type: Heartbeat Response Message (12)",
+  [13] = "Message Type: Symbol Index Mapping Request Message (13)",
+  [15] = "Message Type: Refresh Request Message (15)",
+  [31] = "Message Type: Message Unavailable Message (31)",
+  [32] = "Message Type: Symbol Clear Message (32)",
+  [34] = "Message Type: Security Status Message (34)",
+  [35] = "Message Type: Refresh Header Message (35)",
+  [50] = "Message Type: Outright Series Index Mapping Message (50)",
+  [51] = "Message Type: Options Status Message (51)",
+  [60] = "Message Type: Complex Series Index Mapping Message (60)",
+  [340] = "Message Type: Options Quote Message (340)",
+  [320] = "Message Type: Options Trade Message (320)",
+  [307] = "Message Type: Series Rfq Message (307)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_type.display = function(value)
+  return nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1475,18 +1409,14 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_resolution = {}
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_resolution.labels = {
+  [0] = "Price Resolution: All Penny (0)",
+  [1] = "Price Resolution: Penny Nickel (1)",
+  [5] = "Price Resolution: Nickel Dime (5)",
+}
 
-  return "Price Resolution: Unknown("..value..")"
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_resolution.display = function(value)
+  return nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_resolution.labels[value] or "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1508,18 +1438,14 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_scale_code = {}
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_scale_code.size = 1
 
 -- Display: Price Scale Code
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_scale_code.display = function(value)
-  if value == 6 then
-    return "Price Scale Code: Low Priced Securities (6)"
-  end
-  if value == 4 then
-    return "Price Scale Code: Medium Priced Securities (4)"
-  end
-  if value == 3 then
-    return "Price Scale Code: High Priced Securities (3)"
-  end
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_scale_code.labels = {
+  [6] = "Price Scale Code: Low Priced Securities (6)",
+  [4] = "Price Scale Code: Medium Priced Securities (4)",
+  [3] = "Price Scale Code: High Priced Securities (3)",
+}
 
-  return "Price Scale Code: Unknown("..value..")"
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_scale_code.display = function(value)
+  return nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_scale_code.labels[value] or "Price Scale Code: Unknown("..value..")"
 end
 
 -- Dissect: Price Scale Code
@@ -1564,15 +1490,13 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.put_or_call = {}
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.put_or_call.size = 1
 
 -- Display: Put Or Call
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.put_or_call.labels = {
+  [0] = "Put Or Call: Put (0)",
+  [1] = "Put Or Call: Call (1)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.put_or_call.display = function(value)
+  return nyse_arcaoptions_complexfeed_pillar_v1_0_d.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -2258,18 +2182,14 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_type = {}
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_type.size = 1
 
 -- Display: Series Type
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_type.display = function(value)
-  if value == 0 then
-    return "Series Type: Standard (0)"
-  end
-  if value == 1 then
-    return "Series Type: Flex (1)"
-  end
-  if value == 2 then
-    return "Series Type: Flex Percentage (2)"
-  end
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_type.labels = {
+  [0] = "Series Type: Standard (0)",
+  [1] = "Series Type: Flex (1)",
+  [2] = "Series Type: Flex Percentage (2)",
+}
 
-  return "Series Type: Unknown("..value..")"
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_type.display = function(value)
+  return nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_type.labels[value] or "Series Type: Unknown("..value..")"
 end
 
 -- Dissect: Series Type
@@ -4418,78 +4338,31 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.payload = {}
 
 -- Dissect: Payload
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.payload.dispatch = {
+  [1] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence_number_reset_message.dissect,
+  [2] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.time_reference_message.dissect,
+  [3] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index_mapping_message.dissect,
+  [10] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.retransmission_request_message.dissect,
+  [11] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.request_response_message.dissect,
+  [12] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat_response_message.dissect,
+  [13] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index_mapping_request_message.dissect,
+  [15] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.refresh_request_message.dissect,
+  [31] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_unavailable_message.dissect,
+  [32] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_clear_message.dissect,
+  [34] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.security_status_message.dissect,
+  [35] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.refresh_header_message.dissect,
+  [50] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.outright_series_index_mapping_message.dissect,
+  [51] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_status_message.dissect,
+  [60] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.dissect,
+  [340] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_quote_message.dissect,
+  [320] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_trade_message.dissect,
+  [307] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_rfq_message.dissect,
+}
+
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Reference Message
-  if message_type == 2 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 10 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 11 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.request_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Request Message
-  if message_type == 15 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if message_type == 31 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Clear Message
-  if message_type == 32 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 34 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Header Message
-  if message_type == 35 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.refresh_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Series Index Mapping Message
-  if message_type == 50 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.outright_series_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Status Message
-  if message_type == 51 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Series Index Mapping Message
-  if message_type == 60 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Quote Message
-  if message_type == 340 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Trade Message
-  if message_type == 320 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Rfq Message
-  if message_type == 307 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_rfq_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_arcaoptions_complexfeed_pillar_v1_0_d.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4628,10 +4501,14 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages = {}
 
 -- Dissect: Messages
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages.dispatch = {
+  [1] = nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat.dissect,
+}
+
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
-  -- Dissect Heartbeat
-  if delivery_flag == 1 then
-    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages.dispatch[delivery_flag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

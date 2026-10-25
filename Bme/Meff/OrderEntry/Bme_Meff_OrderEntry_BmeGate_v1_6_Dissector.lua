@@ -460,15 +460,13 @@ bme_meff_orderentry_bmegate_v1_6.adjustments_rule = {}
 bme_meff_orderentry_bmegate_v1_6.adjustments_rule.size = 1
 
 -- Display: Adjustments Rule
-bme_meff_orderentry_bmegate_v1_6.adjustments_rule.display = function(value)
-  if value == "E" then
-    return "Adjustments Rule: Extraordinary Dividend Adjustments Only (E)"
-  end
-  if value == "T" then
-    return "Adjustments Rule: Total (T)"
-  end
+bme_meff_orderentry_bmegate_v1_6.adjustments_rule.labels = {
+  ["E"] = "Adjustments Rule: Extraordinary Dividend Adjustments Only (E)",
+  ["T"] = "Adjustments Rule: Total (T)",
+}
 
-  return "Adjustments Rule: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.adjustments_rule.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.adjustments_rule.labels[value] or "Adjustments Rule: Unknown("..value..")"
 end
 
 -- Dissect: Adjustments Rule
@@ -805,45 +803,23 @@ bme_meff_orderentry_bmegate_v1_6.amended_trade_type = {}
 bme_meff_orderentry_bmegate_v1_6.amended_trade_type.size = 1
 
 -- Display: Amended Trade Type
-bme_meff_orderentry_bmegate_v1_6.amended_trade_type.display = function(value)
-  if value == "H" then
-    return "Amended Trade Type: Cross Trade During Trading Hours (H)"
-  end
-  if value == "L" then
-    return "Amended Trade Type: Delta (L)"
-  end
-  if value == "M" then
-    return "Amended Trade Type: Market (M)"
-  end
-  if value == "R" then
-    return "Amended Trade Type: Strategy Trades Time Spread Futures And Strategies (R)"
-  end
-  if value == "S" then
-    return "Amended Trade Type: Components Of Trade R (S)"
-  end
-  if value == "W" then
-    return "Amended Trade Type: Trade Amendment (W)"
-  end
-  if value == "X" then
-    return "Amended Trade Type: Countertrade (X)"
-  end
-  if value == "3" then
-    return "Amended Trade Type: Rfq (3)"
-  end
-  if value == "4" then
-    return "Amended Trade Type: Rfq X Rolling (4)"
-  end
-  if value == "6" then
-    return "Amended Trade Type: Rfq X Rolling During Auction (6)"
-  end
-  if value == "8" then
-    return "Amended Trade Type: Rfq X Rolling Amendment (8)"
-  end
-  if value == "9" then
-    return "Amended Trade Type: Rfq X Rolling During Auction Amendment (9)"
-  end
+bme_meff_orderentry_bmegate_v1_6.amended_trade_type.labels = {
+  ["H"] = "Amended Trade Type: Cross Trade During Trading Hours (H)",
+  ["L"] = "Amended Trade Type: Delta (L)",
+  ["M"] = "Amended Trade Type: Market (M)",
+  ["R"] = "Amended Trade Type: Strategy Trades Time Spread Futures And Strategies (R)",
+  ["S"] = "Amended Trade Type: Components Of Trade R (S)",
+  ["W"] = "Amended Trade Type: Trade Amendment (W)",
+  ["X"] = "Amended Trade Type: Countertrade (X)",
+  ["3"] = "Amended Trade Type: Rfq (3)",
+  ["4"] = "Amended Trade Type: Rfq X Rolling (4)",
+  ["6"] = "Amended Trade Type: Rfq X Rolling During Auction (6)",
+  ["8"] = "Amended Trade Type: Rfq X Rolling Amendment (8)",
+  ["9"] = "Amended Trade Type: Rfq X Rolling During Auction Amendment (9)",
+}
 
-  return "Amended Trade Type: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.amended_trade_type.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.amended_trade_type.labels[value] or "Amended Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Amended Trade Type
@@ -1214,27 +1190,17 @@ bme_meff_orderentry_bmegate_v1_6.business_reject_reason = {}
 bme_meff_orderentry_bmegate_v1_6.business_reject_reason.size = 1
 
 -- Display: Business Reject Reason
-bme_meff_orderentry_bmegate_v1_6.business_reject_reason.display = function(value)
-  if value == 0 then
-    return "Business Reject Reason: Other (0)"
-  end
-  if value == 3 then
-    return "Business Reject Reason: Unsupported Message Type (3)"
-  end
-  if value == 30 then
-    return "Business Reject Reason: Invalid Client Data Id (30)"
-  end
-  if value == 31 then
-    return "Business Reject Reason: Sponsored Access (31)"
-  end
-  if value == 32 then
-    return "Business Reject Reason: Quote Operation Rejected (32)"
-  end
-  if value == 33 then
-    return "Business Reject Reason: Invalid Security (33)"
-  end
+bme_meff_orderentry_bmegate_v1_6.business_reject_reason.labels = {
+  [0] = "Business Reject Reason: Other (0)",
+  [3] = "Business Reject Reason: Unsupported Message Type (3)",
+  [30] = "Business Reject Reason: Invalid Client Data Id (30)",
+  [31] = "Business Reject Reason: Sponsored Access (31)",
+  [32] = "Business Reject Reason: Quote Operation Rejected (32)",
+  [33] = "Business Reject Reason: Invalid Security (33)",
+}
 
-  return "Business Reject Reason: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.business_reject_reason.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.business_reject_reason.labels[value] or "Business Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Business Reject Reason
@@ -1443,135 +1409,53 @@ bme_meff_orderentry_bmegate_v1_6.cfi_code = {}
 bme_meff_orderentry_bmegate_v1_6.cfi_code.size = 6
 
 -- Display: Cfi Code
-bme_meff_orderentry_bmegate_v1_6.cfi_code.display = function(value)
-  if value == "FFICSX" then
-    return "Cfi Code: Standard Financial Future On An Index Cash Settlement (FFICSX)"
-  end
-  if value == "FFICNX" then
-    return "Cfi Code: Nonstandardized Financial Future On An Index Cash Settlement (FFICNX)"
-  end
-  if value == "KEXXXX" then
-    return "Cfi Code: Strategies (KEXXXX)"
-  end
-  if value == "OCEFCS" then
-    return "Cfi Code: Standardized European Call Option On An Index Cash Settlement (OCEFCS)"
-  end
-  if value == "OCEFCN" then
-    return "Cfi Code: Nonstandardized European Call Option On An Index Cash Settlement (OCEFCN)"
-  end
-  if value == "OPEFCS" then
-    return "Cfi Code: Standardized European Put Option On An Index Cash Settlement (OPEFCS)"
-  end
-  if value == "OPEFCN" then
-    return "Cfi Code: Nonstandardized European Put Option On An Index Cash Settlement (OPEFCN)"
-  end
-  if value == "TIECPX" then
-    return "Cfi Code: Referential Instrument (TIECPX)"
-  end
-  if value == "FFSPSX" then
-    return "Cfi Code: Standardized Financial Future On Stocks Physical Delivery (FFSPSX)"
-  end
-  if value == "FFSPNX" then
-    return "Cfi Code: Nonstandardized Financial Future On Stocks Physical Delivery (FFSPNX)"
-  end
-  if value == "FFSCSX" then
-    return "Cfi Code: Standardized Financial Future On Stocks Cash Settlement (FFSCSX)"
-  end
-  if value == "FFSCNX" then
-    return "Cfi Code: Nonstandardized Financial Future On Stocks Cash Settlement (FFSCNX)"
-  end
-  if value == "FFVCSX" then
-    return "Cfi Code: Standardized Financial Future On Dividends Cash Settlement (FFVCSX)"
-  end
-  if value == "FFVCNX" then
-    return "Cfi Code: Nonstandardized Financial Future On Dividends Cash Settlement (FFVCNX)"
-  end
-  if value == "OCASPS" then
-    return "Cfi Code: Standardized American Call Option On Stocks Physical Delivery (OCASPS)"
-  end
-  if value == "OCASPN" then
-    return "Cfi Code: Nonstandardized American Call Option On Stocks Physical Delivery (OCASPN)"
-  end
-  if value == "OPASPS" then
-    return "Cfi Code: Standardized American Put Option On Stocks Physical Delivery (OPASPS)"
-  end
-  if value == "OPASPN" then
-    return "Cfi Code: Nonstandardized American Put Option On Stocks Physical Delivery (OPASPN)"
-  end
-  if value == "OCESPS" then
-    return "Cfi Code: Standardized European Call Option On Stocks Physical Delivery (OCESPS)"
-  end
-  if value == "OCESPN" then
-    return "Cfi Code: Nonstandardized European Call Option On Stocks Physical Delivery (OCESPN)"
-  end
-  if value == "OPESPS" then
-    return "Cfi Code: Standardized European Put Option On Stocks Physical Delivery (OPESPS)"
-  end
-  if value == "OPESPN" then
-    return "Cfi Code: Nonstandardized European Put Option On Stocks Physical Delivery (OPESPN)"
-  end
-  if value == "OCESCS" then
-    return "Cfi Code: Standardized European Call Option On Stocks Cash Settlement (OCESCS)"
-  end
-  if value == "OCESCN" then
-    return "Cfi Code: Nonstandardized European Call Option On Stocks Cash Settlement (OCESCN)"
-  end
-  if value == "OPESCS" then
-    return "Cfi Code: Standardized European Put Option On Stocks Cash Settlement (OPESCS)"
-  end
-  if value == "OPESCN" then
-    return "Cfi Code: Nonstandardized European Put Option On Stocks Cash Settlement (OPESCN)"
-  end
-  if value == "ESXXXX" then
-    return "Cfi Code: Stocks Cash (ESXXXX)"
-  end
-  if value == "TDSXXX" then
-    return "Cfi Code: Referential Instrument Dividend (TDSXXX)"
-  end
-  if value == "FFDPSX" then
-    return "Cfi Code: Standardized Financial Future On Fixed Income Physical Delivery (FFDPSX)"
-  end
-  if value == "FFDCSX" then
-    return "Cfi Code: Standardized Financial Future On Fixed Income Cash Settlement (FFDCSX)"
-  end
-  if value == "KMXXXX" then
-    return "Cfi Code: Timespread Of Futures On Fixed Income Physical Delivery (KMXXXX)"
-  end
-  if value == "OCEDPS" then
-    return "Cfi Code: Standardized European Call Option On Fixed Income Physical Delivery (OCEDPS)"
-  end
-  if value == "OPEDPS" then
-    return "Cfi Code: Standardized European Put Option On Fixed Income Physical Delivery (OPEDPS)"
-  end
-  if value == "OCEDPN" then
-    return "Cfi Code: Nonstandardized European Call Option On Fixed Income Physical Delivery (OCEDPN)"
-  end
-  if value == "OPEDPN" then
-    return "Cfi Code: Nonstandardized European Put Option On Fixed Income Physical Delivery (OPEDPN)"
-  end
-  if value == "OCEDCS" then
-    return "Cfi Code: Standardized European Call Option On Fixed Income Cash Settlement (OCEDCS)"
-  end
-  if value == "OPEDCS" then
-    return "Cfi Code: Standardized European Put Option On Fixed Income Cash Settlement (OPEDCS)"
-  end
-  if value == "OCEDCN" then
-    return "Cfi Code: Nonstandardized European Call Option On Fixed Income Cash Settlement (OCEDCN)"
-  end
-  if value == "OPEDCN" then
-    return "Cfi Code: Nonstandardized European Put Option On Fixed Income Cash Settlement (OPEDCN)"
-  end
-  if value == "FFCCSX" then
-    return "Cfi Code: Standardized Financial Future Currency Cash Settlement (FFCCSX)"
-  end
-  if value == "IFXXXP" then
-    return "Cfi Code: Currency Spot (IFXXXP)"
-  end
-  if value == "FCHCSX" then
-    return "Cfi Code: Standardized Yearly Future On Energy Cash Settlement (FCHCSX)"
-  end
+bme_meff_orderentry_bmegate_v1_6.cfi_code.labels = {
+  ["FFICSX"] = "Cfi Code: Standard Financial Future On An Index Cash Settlement (FFICSX)",
+  ["FFICNX"] = "Cfi Code: Nonstandardized Financial Future On An Index Cash Settlement (FFICNX)",
+  ["KEXXXX"] = "Cfi Code: Strategies (KEXXXX)",
+  ["OCEFCS"] = "Cfi Code: Standardized European Call Option On An Index Cash Settlement (OCEFCS)",
+  ["OCEFCN"] = "Cfi Code: Nonstandardized European Call Option On An Index Cash Settlement (OCEFCN)",
+  ["OPEFCS"] = "Cfi Code: Standardized European Put Option On An Index Cash Settlement (OPEFCS)",
+  ["OPEFCN"] = "Cfi Code: Nonstandardized European Put Option On An Index Cash Settlement (OPEFCN)",
+  ["TIECPX"] = "Cfi Code: Referential Instrument (TIECPX)",
+  ["FFSPSX"] = "Cfi Code: Standardized Financial Future On Stocks Physical Delivery (FFSPSX)",
+  ["FFSPNX"] = "Cfi Code: Nonstandardized Financial Future On Stocks Physical Delivery (FFSPNX)",
+  ["FFSCSX"] = "Cfi Code: Standardized Financial Future On Stocks Cash Settlement (FFSCSX)",
+  ["FFSCNX"] = "Cfi Code: Nonstandardized Financial Future On Stocks Cash Settlement (FFSCNX)",
+  ["FFVCSX"] = "Cfi Code: Standardized Financial Future On Dividends Cash Settlement (FFVCSX)",
+  ["FFVCNX"] = "Cfi Code: Nonstandardized Financial Future On Dividends Cash Settlement (FFVCNX)",
+  ["OCASPS"] = "Cfi Code: Standardized American Call Option On Stocks Physical Delivery (OCASPS)",
+  ["OCASPN"] = "Cfi Code: Nonstandardized American Call Option On Stocks Physical Delivery (OCASPN)",
+  ["OPASPS"] = "Cfi Code: Standardized American Put Option On Stocks Physical Delivery (OPASPS)",
+  ["OPASPN"] = "Cfi Code: Nonstandardized American Put Option On Stocks Physical Delivery (OPASPN)",
+  ["OCESPS"] = "Cfi Code: Standardized European Call Option On Stocks Physical Delivery (OCESPS)",
+  ["OCESPN"] = "Cfi Code: Nonstandardized European Call Option On Stocks Physical Delivery (OCESPN)",
+  ["OPESPS"] = "Cfi Code: Standardized European Put Option On Stocks Physical Delivery (OPESPS)",
+  ["OPESPN"] = "Cfi Code: Nonstandardized European Put Option On Stocks Physical Delivery (OPESPN)",
+  ["OCESCS"] = "Cfi Code: Standardized European Call Option On Stocks Cash Settlement (OCESCS)",
+  ["OCESCN"] = "Cfi Code: Nonstandardized European Call Option On Stocks Cash Settlement (OCESCN)",
+  ["OPESCS"] = "Cfi Code: Standardized European Put Option On Stocks Cash Settlement (OPESCS)",
+  ["OPESCN"] = "Cfi Code: Nonstandardized European Put Option On Stocks Cash Settlement (OPESCN)",
+  ["ESXXXX"] = "Cfi Code: Stocks Cash (ESXXXX)",
+  ["TDSXXX"] = "Cfi Code: Referential Instrument Dividend (TDSXXX)",
+  ["FFDPSX"] = "Cfi Code: Standardized Financial Future On Fixed Income Physical Delivery (FFDPSX)",
+  ["FFDCSX"] = "Cfi Code: Standardized Financial Future On Fixed Income Cash Settlement (FFDCSX)",
+  ["KMXXXX"] = "Cfi Code: Timespread Of Futures On Fixed Income Physical Delivery (KMXXXX)",
+  ["OCEDPS"] = "Cfi Code: Standardized European Call Option On Fixed Income Physical Delivery (OCEDPS)",
+  ["OPEDPS"] = "Cfi Code: Standardized European Put Option On Fixed Income Physical Delivery (OPEDPS)",
+  ["OCEDPN"] = "Cfi Code: Nonstandardized European Call Option On Fixed Income Physical Delivery (OCEDPN)",
+  ["OPEDPN"] = "Cfi Code: Nonstandardized European Put Option On Fixed Income Physical Delivery (OPEDPN)",
+  ["OCEDCS"] = "Cfi Code: Standardized European Call Option On Fixed Income Cash Settlement (OCEDCS)",
+  ["OPEDCS"] = "Cfi Code: Standardized European Put Option On Fixed Income Cash Settlement (OPEDCS)",
+  ["OCEDCN"] = "Cfi Code: Nonstandardized European Call Option On Fixed Income Cash Settlement (OCEDCN)",
+  ["OPEDCN"] = "Cfi Code: Nonstandardized European Put Option On Fixed Income Cash Settlement (OPEDCN)",
+  ["FFCCSX"] = "Cfi Code: Standardized Financial Future Currency Cash Settlement (FFCCSX)",
+  ["IFXXXP"] = "Cfi Code: Currency Spot (IFXXXP)",
+  ["FCHCSX"] = "Cfi Code: Standardized Yearly Future On Energy Cash Settlement (FCHCSX)",
+}
 
-  return "Cfi Code: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.cfi_code.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.cfi_code.labels[value] or "Cfi Code: Unknown("..value..")"
 end
 
 -- Dissect: Cfi Code
@@ -1745,18 +1629,14 @@ bme_meff_orderentry_bmegate_v1_6.commodity_derivative_indicator = {}
 bme_meff_orderentry_bmegate_v1_6.commodity_derivative_indicator.size = 1
 
 -- Display: Commodity Derivative Indicator
-bme_meff_orderentry_bmegate_v1_6.commodity_derivative_indicator.display = function(value)
-  if value == "S" then
-    return "Commodity Derivative Indicator: Commodity Derivative (S)"
-  end
-  if value == "N" then
-    return "Commodity Derivative Indicator: Non Derivative (N)"
-  end
-  if value == "D" then
-    return "Commodity Derivative Indicator: Derivative (D)"
-  end
+bme_meff_orderentry_bmegate_v1_6.commodity_derivative_indicator.labels = {
+  ["S"] = "Commodity Derivative Indicator: Commodity Derivative (S)",
+  ["N"] = "Commodity Derivative Indicator: Non Derivative (N)",
+  ["D"] = "Commodity Derivative Indicator: Derivative (D)",
+}
 
-  return "Commodity Derivative Indicator: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.commodity_derivative_indicator.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.commodity_derivative_indicator.labels[value] or "Commodity Derivative Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Commodity Derivative Indicator
@@ -1892,120 +1772,48 @@ bme_meff_orderentry_bmegate_v1_6.cxl_rej_reason = {}
 bme_meff_orderentry_bmegate_v1_6.cxl_rej_reason.size = 1
 
 -- Display: Cxl Rej Reason
-bme_meff_orderentry_bmegate_v1_6.cxl_rej_reason.display = function(value)
-  if value == "1" then
-    return "Cxl Rej Reason: By Trader (1)"
-  end
-  if value == "3" then
-    return "Cxl Rej Reason: By Supervisor (3)"
-  end
-  if value == "4" then
-    return "Cxl Rej Reason: Volume Modification Incorrect New Volume Total Volume Filled (4)"
-  end
-  if value == "5" then
-    return "Cxl Rej Reason: Not Executed Immediately (5)"
-  end
-  if value == "6" then
-    return "Cxl Rej Reason: Security Not Current Or Not Tradeable For This Member (6)"
-  end
-  if value == "7" then
-    return "Cxl Rej Reason: By Limits (7)"
-  end
-  if value == "8" then
-    return "Cxl Rej Reason: Cancelled By Market Status (8)"
-  end
-  if value == "9" then
-    return "Cxl Rej Reason: Invalid Data (9)"
-  end
-  if value == "B" then
-    return "Cxl Rej Reason: Price Filters (B)"
-  end
-  if value == "C" then
-    return "Cxl Rej Reason: Volume Filters (C)"
-  end
-  if value == "D" then
-    return "Cxl Rej Reason: Clearing Member Status (D)"
-  end
-  if value == "E" then
-    return "Cxl Rej Reason: Disconnection Of The Client Application (E)"
-  end
-  if value == "F" then
-    return "Cxl Rej Reason: Quote Parameters Missing (F)"
-  end
-  if value == "G" then
-    return "Cxl Rej Reason: By Permissions (G)"
-  end
-  if value == "H" then
-    return "Cxl Rej Reason: Quote Or Cl Ord Id Incorrect (H)"
-  end
-  if value == "I" then
-    return "Cxl Rej Reason: Delta Protection Number Of Contracts (I)"
-  end
-  if value == "J" then
-    return "Cxl Rej Reason: Delta Protection Maximum Absolute Delta (J)"
-  end
-  if value == "K" then
-    return "Cxl Rej Reason: Delta Protection Máximum Accumulate Delta (K)"
-  end
-  if value == "O" then
-    return "Cxl Rej Reason: By Volatility Auction Filters (O)"
-  end
-  if value == "Q" then
-    return "Cxl Rej Reason: Quote Cancelled By Substitution (Q)"
-  end
-  if value == "W" then
-    return "Cxl Rej Reason: Not Prices For Processing The Order (W)"
-  end
-  if value == "X" then
-    return "Cxl Rej Reason: By End Of Validity Of The Order (X)"
-  end
-  if value == "Z" then
-    return "Cxl Rej Reason: Other (Z)"
-  end
-  if value == "b" then
-    return "Cxl Rej Reason: By Minimum Trading Volume (b)"
-  end
-  if value == "c" then
-    return "Cxl Rej Reason: Price Not According To The Size Typology (c)"
-  end
-  if value == "d" then
-    return "Cxl Rej Reason: The Order Volumemust Be A Multiple Of The Trading Lot Size (d)"
-  end
-  if value == "e" then
-    return "Cxl Rej Reason: Order Rejected For Triggering Auction (e)"
-  end
-  if value == "g" then
-    return "Cxl Rej Reason: Incorrect Price Or Triggered Price (g)"
-  end
-  if value == "h" then
-    return "Cxl Rej Reason: Incorrect Volume (h)"
-  end
-  if value == "i" then
-    return "Cxl Rej Reason: Incorrect Date (i)"
-  end
-  if value == "k" then
-    return "Cxl Rej Reason: By Contract Status (k)"
-  end
-  if value == "l" then
-    return "Cxl Rej Reason: By Intraday Futures Trading Limit (l)"
-  end
-  if value == "m" then
-    return "Cxl Rej Reason: Kill Button (m)"
-  end
-  if value == "n" then
-    return "Cxl Rej Reason: By Hft Filter Limit Maximum Number Of Contracts Matched (n)"
-  end
-  if value == "o" then
-    return "Cxl Rej Reason: By Selfmatch Prevention (o)"
-  end
-  if value == "p" then
-    return "Cxl Rej Reason: Auction Price Order Cancelled At The End Of The Auction (p)"
-  end
-  if value == "x" then
-    return "Cxl Rej Reason: Invalid Ork Fields (x)"
-  end
+bme_meff_orderentry_bmegate_v1_6.cxl_rej_reason.labels = {
+  ["1"] = "Cxl Rej Reason: By Trader (1)",
+  ["3"] = "Cxl Rej Reason: By Supervisor (3)",
+  ["4"] = "Cxl Rej Reason: Volume Modification Incorrect New Volume Total Volume Filled (4)",
+  ["5"] = "Cxl Rej Reason: Not Executed Immediately (5)",
+  ["6"] = "Cxl Rej Reason: Security Not Current Or Not Tradeable For This Member (6)",
+  ["7"] = "Cxl Rej Reason: By Limits (7)",
+  ["8"] = "Cxl Rej Reason: Cancelled By Market Status (8)",
+  ["9"] = "Cxl Rej Reason: Invalid Data (9)",
+  ["B"] = "Cxl Rej Reason: Price Filters (B)",
+  ["C"] = "Cxl Rej Reason: Volume Filters (C)",
+  ["D"] = "Cxl Rej Reason: Clearing Member Status (D)",
+  ["E"] = "Cxl Rej Reason: Disconnection Of The Client Application (E)",
+  ["F"] = "Cxl Rej Reason: Quote Parameters Missing (F)",
+  ["G"] = "Cxl Rej Reason: By Permissions (G)",
+  ["H"] = "Cxl Rej Reason: Quote Or Cl Ord Id Incorrect (H)",
+  ["I"] = "Cxl Rej Reason: Delta Protection Number Of Contracts (I)",
+  ["J"] = "Cxl Rej Reason: Delta Protection Maximum Absolute Delta (J)",
+  ["K"] = "Cxl Rej Reason: Delta Protection Máximum Accumulate Delta (K)",
+  ["O"] = "Cxl Rej Reason: By Volatility Auction Filters (O)",
+  ["Q"] = "Cxl Rej Reason: Quote Cancelled By Substitution (Q)",
+  ["W"] = "Cxl Rej Reason: Not Prices For Processing The Order (W)",
+  ["X"] = "Cxl Rej Reason: By End Of Validity Of The Order (X)",
+  ["Z"] = "Cxl Rej Reason: Other (Z)",
+  ["b"] = "Cxl Rej Reason: By Minimum Trading Volume (b)",
+  ["c"] = "Cxl Rej Reason: Price Not According To The Size Typology (c)",
+  ["d"] = "Cxl Rej Reason: The Order Volumemust Be A Multiple Of The Trading Lot Size (d)",
+  ["e"] = "Cxl Rej Reason: Order Rejected For Triggering Auction (e)",
+  ["g"] = "Cxl Rej Reason: Incorrect Price Or Triggered Price (g)",
+  ["h"] = "Cxl Rej Reason: Incorrect Volume (h)",
+  ["i"] = "Cxl Rej Reason: Incorrect Date (i)",
+  ["k"] = "Cxl Rej Reason: By Contract Status (k)",
+  ["l"] = "Cxl Rej Reason: By Intraday Futures Trading Limit (l)",
+  ["m"] = "Cxl Rej Reason: Kill Button (m)",
+  ["n"] = "Cxl Rej Reason: By Hft Filter Limit Maximum Number Of Contracts Matched (n)",
+  ["o"] = "Cxl Rej Reason: By Selfmatch Prevention (o)",
+  ["p"] = "Cxl Rej Reason: Auction Price Order Cancelled At The End Of The Auction (p)",
+  ["x"] = "Cxl Rej Reason: Invalid Ork Fields (x)",
+}
 
-  return "Cxl Rej Reason: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.cxl_rej_reason.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.cxl_rej_reason.labels[value] or "Cxl Rej Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cxl Rej Reason
@@ -2027,15 +1835,13 @@ bme_meff_orderentry_bmegate_v1_6.cxl_rej_response_to = {}
 bme_meff_orderentry_bmegate_v1_6.cxl_rej_response_to.size = 1
 
 -- Display: Cxl Rej Response To
-bme_meff_orderentry_bmegate_v1_6.cxl_rej_response_to.display = function(value)
-  if value == "1" then
-    return "Cxl Rej Response To: Simple Order Modification (1)"
-  end
-  if value == "2" then
-    return "Cxl Rej Response To: Order Cancellation Request (2)"
-  end
+bme_meff_orderentry_bmegate_v1_6.cxl_rej_response_to.labels = {
+  ["1"] = "Cxl Rej Response To: Simple Order Modification (1)",
+  ["2"] = "Cxl Rej Response To: Order Cancellation Request (2)",
+}
 
-  return "Cxl Rej Response To: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.cxl_rej_response_to.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.cxl_rej_response_to.labels[value] or "Cxl Rej Response To: Unknown("..value..")"
 end
 
 -- Dissect: Cxl Rej Response To
@@ -2057,78 +1863,34 @@ bme_meff_orderentry_bmegate_v1_6.data_code = {}
 bme_meff_orderentry_bmegate_v1_6.data_code.size = 1
 
 -- Display: Data Code
-bme_meff_orderentry_bmegate_v1_6.data_code.display = function(value)
-  if value == "D" then
-    return "Data Code: Average Price (D)"
-  end
-  if value == "d" then
-    return "Data Code: Previous Forward Price (d)"
-  end
-  if value == "E" then
-    return "Data Code: Published Cash Amount (E)"
-  end
-  if value == "e" then
-    return "Data Code: Order Modality Cash Amount (e)"
-  end
-  if value == "f" then
-    return "Data Code: End Of Session Indicator (f)"
-  end
-  if value == "G" then
-    return "Data Code: First (G)"
-  end
-  if value == "H" then
-    return "Data Code: High (H)"
-  end
-  if value == "h" then
-    return "Data Code: Maximum Bid (h)"
-  end
-  if value == "J" then
-    return "Data Code: Not Published Volume (J)"
-  end
-  if value == "M" then
-    return "Data Code: Last (M)"
-  end
-  if value == "N" then
-    return "Data Code: Number Of Trades (N)"
-  end
-  if value == "Q" then
-    return "Data Code: Previous Closing Price (Q)"
-  end
-  if value == "R" then
-    return "Data Code: Opening Volatility (R)"
-  end
-  if value == "V" then
-    return "Data Code: Published Volume (V)"
-  end
-  if value == "v" then
-    return "Data Code: Published Volume Order Modality (v)"
-  end
-  if value == "W" then
-    return "Data Code: Volume Of Last Trade (W)"
-  end
-  if value == "Z" then
-    return "Data Code: Low (Z)"
-  end
-  if value == "z" then
-    return "Data Code: Minimum Ask (z)"
-  end
-  if value == "j" then
-    return "Data Code: Closing Price (j)"
-  end
-  if value == "k" then
-    return "Data Code: Closing Yield (k)"
-  end
-  if value == "l" then
-    return "Data Code: Volatility (l)"
-  end
-  if value == "m" then
-    return "Data Code: Delta (m)"
-  end
-  if value == "n" then
-    return "Data Code: Forward Price (n)"
-  end
+bme_meff_orderentry_bmegate_v1_6.data_code.labels = {
+  ["D"] = "Data Code: Average Price (D)",
+  ["d"] = "Data Code: Previous Forward Price (d)",
+  ["E"] = "Data Code: Published Cash Amount (E)",
+  ["e"] = "Data Code: Order Modality Cash Amount (e)",
+  ["f"] = "Data Code: End Of Session Indicator (f)",
+  ["G"] = "Data Code: First (G)",
+  ["H"] = "Data Code: High (H)",
+  ["h"] = "Data Code: Maximum Bid (h)",
+  ["J"] = "Data Code: Not Published Volume (J)",
+  ["M"] = "Data Code: Last (M)",
+  ["N"] = "Data Code: Number Of Trades (N)",
+  ["Q"] = "Data Code: Previous Closing Price (Q)",
+  ["R"] = "Data Code: Opening Volatility (R)",
+  ["V"] = "Data Code: Published Volume (V)",
+  ["v"] = "Data Code: Published Volume Order Modality (v)",
+  ["W"] = "Data Code: Volume Of Last Trade (W)",
+  ["Z"] = "Data Code: Low (Z)",
+  ["z"] = "Data Code: Minimum Ask (z)",
+  ["j"] = "Data Code: Closing Price (j)",
+  ["k"] = "Data Code: Closing Yield (k)",
+  ["l"] = "Data Code: Volatility (l)",
+  ["m"] = "Data Code: Delta (m)",
+  ["n"] = "Data Code: Forward Price (n)",
+}
 
-  return "Data Code: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.data_code.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.data_code.labels[value] or "Data Code: Unknown("..value..")"
 end
 
 -- Dissect: Data Code
@@ -2395,36 +2157,20 @@ bme_meff_orderentry_bmegate_v1_6.designation = {}
 bme_meff_orderentry_bmegate_v1_6.designation.size = 1
 
 -- Display: Designation
-bme_meff_orderentry_bmegate_v1_6.designation.display = function(value)
-  if value == "1" then
-    return "Designation: Trade During Open Market (1)"
-  end
-  if value == "2" then
-    return "Designation: Trade During Opening Auction (2)"
-  end
-  if value == "3" then
-    return "Designation: Trade During Closing Auction (3)"
-  end
-  if value == "4" then
-    return "Designation: Trade During Volatility Auction (4)"
-  end
-  if value == "5" then
-    return "Designation: Trade During Manual Auction (5)"
-  end
-  if value == "6" then
-    return "Designation: Trade During Opening Auction Extension (6)"
-  end
-  if value == "7" then
-    return "Designation: Trade During Closing Auction Extension (7)"
-  end
-  if value == "8" then
-    return "Designation: Trade During Tal Period (8)"
-  end
-  if value == "C" then
-    return "Designation: Trade In Spain At Mid Dark Book (C)"
-  end
+bme_meff_orderentry_bmegate_v1_6.designation.labels = {
+  ["1"] = "Designation: Trade During Open Market (1)",
+  ["2"] = "Designation: Trade During Opening Auction (2)",
+  ["3"] = "Designation: Trade During Closing Auction (3)",
+  ["4"] = "Designation: Trade During Volatility Auction (4)",
+  ["5"] = "Designation: Trade During Manual Auction (5)",
+  ["6"] = "Designation: Trade During Opening Auction Extension (6)",
+  ["7"] = "Designation: Trade During Closing Auction Extension (7)",
+  ["8"] = "Designation: Trade During Tal Period (8)",
+  ["C"] = "Designation: Trade In Spain At Mid Dark Book (C)",
+}
 
-  return "Designation: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.designation.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.designation.labels[value] or "Designation: Unknown("..value..")"
 end
 
 -- Dissect: Designation
@@ -2639,54 +2385,26 @@ bme_meff_orderentry_bmegate_v1_6.exec_type = {}
 bme_meff_orderentry_bmegate_v1_6.exec_type.size = 1
 
 -- Display: Exec Type
-bme_meff_orderentry_bmegate_v1_6.exec_type.display = function(value)
-  if value == "A" then
-    return "Exec Type: New Order Confirmation (A)"
-  end
-  if value == "B" then
-    return "Exec Type: Order Cancellation (B)"
-  end
-  if value == "C" then
-    return "Exec Type: Order Refresh Due To Change Of Book (C)"
-  end
-  if value == "M" then
-    return "Exec Type: Order Modification (M)"
-  end
-  if value == "G" then
-    return "Exec Type: Order Modification Deleting Intermediated Member (G)"
-  end
-  if value == "F" then
-    return "Exec Type: Order Modification Changing Intermediated Member (F)"
-  end
-  if value == "R" then
-    return "Exec Type: Order Refresh (R)"
-  end
-  if value == "D" then
-    return "Exec Type: Stop Order Triggered Attheclose Order Activation (D)"
-  end
-  if value == "8" then
-    return "Exec Type: Order Rejection (8)"
-  end
-  if value == "N" then
-    return "Exec Type: Order Pending Validation (N)"
-  end
-  if value == "P" then
-    return "Exec Type: Order Modification Pending Validation (P)"
-  end
-  if value == "V" then
-    return "Exec Type: Order Refresh Due To New Display Qty (V)"
-  end
-  if value == "I" then
-    return "Exec Type: Beginning Of Day Order Refresh (I)"
-  end
-  if value == "X" then
-    return "Exec Type: Expired Order (X)"
-  end
-  if value == "W" then
-    return "Exec Type: Order Status (W)"
-  end
+bme_meff_orderentry_bmegate_v1_6.exec_type.labels = {
+  ["A"] = "Exec Type: New Order Confirmation (A)",
+  ["B"] = "Exec Type: Order Cancellation (B)",
+  ["C"] = "Exec Type: Order Refresh Due To Change Of Book (C)",
+  ["M"] = "Exec Type: Order Modification (M)",
+  ["G"] = "Exec Type: Order Modification Deleting Intermediated Member (G)",
+  ["F"] = "Exec Type: Order Modification Changing Intermediated Member (F)",
+  ["R"] = "Exec Type: Order Refresh (R)",
+  ["D"] = "Exec Type: Stop Order Triggered Attheclose Order Activation (D)",
+  ["8"] = "Exec Type: Order Rejection (8)",
+  ["N"] = "Exec Type: Order Pending Validation (N)",
+  ["P"] = "Exec Type: Order Modification Pending Validation (P)",
+  ["V"] = "Exec Type: Order Refresh Due To New Display Qty (V)",
+  ["I"] = "Exec Type: Beginning Of Day Order Refresh (I)",
+  ["X"] = "Exec Type: Expired Order (X)",
+  ["W"] = "Exec Type: Order Status (W)",
+}
 
-  return "Exec Type: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.exec_type.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.exec_type.labels[value] or "Exec Type: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type
@@ -2708,30 +2426,18 @@ bme_meff_orderentry_bmegate_v1_6.exec_type_2 = {}
 bme_meff_orderentry_bmegate_v1_6.exec_type_2.size = 1
 
 -- Display: Exec Type 2
-bme_meff_orderentry_bmegate_v1_6.exec_type_2.display = function(value)
-  if value == "A" then
-    return "Exec Type 2: New Order Confirmation (A)"
-  end
-  if value == "B" then
-    return "Exec Type 2: Order Cancellation (B)"
-  end
-  if value == "M" then
-    return "Exec Type 2: Order Modification (M)"
-  end
-  if value == "R" then
-    return "Exec Type 2: Order Refresh (R)"
-  end
-  if value == "8" then
-    return "Exec Type 2: Order Rejection (8)"
-  end
-  if value == "X" then
-    return "Exec Type 2: Expired Order (X)"
-  end
-  if value == "W" then
-    return "Exec Type 2: Order Status (W)"
-  end
+bme_meff_orderentry_bmegate_v1_6.exec_type_2.labels = {
+  ["A"] = "Exec Type 2: New Order Confirmation (A)",
+  ["B"] = "Exec Type 2: Order Cancellation (B)",
+  ["M"] = "Exec Type 2: Order Modification (M)",
+  ["R"] = "Exec Type 2: Order Refresh (R)",
+  ["8"] = "Exec Type 2: Order Rejection (8)",
+  ["X"] = "Exec Type 2: Expired Order (X)",
+  ["W"] = "Exec Type 2: Order Status (W)",
+}
 
-  return "Exec Type 2: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.exec_type_2.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.exec_type_2.labels[value] or "Exec Type 2: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type 2
@@ -2799,18 +2505,14 @@ bme_meff_orderentry_bmegate_v1_6.exercise_style = {}
 bme_meff_orderentry_bmegate_v1_6.exercise_style.size = 1
 
 -- Display: Exercise Style
-bme_meff_orderentry_bmegate_v1_6.exercise_style.display = function(value)
-  if value == "A" then
-    return "Exercise Style: American (A)"
-  end
-  if value == "E" then
-    return "Exercise Style: European (E)"
-  end
-  if value == "V" then
-    return "Exercise Style: European Automatic (V)"
-  end
+bme_meff_orderentry_bmegate_v1_6.exercise_style.labels = {
+  ["A"] = "Exercise Style: American (A)",
+  ["E"] = "Exercise Style: European (E)",
+  ["V"] = "Exercise Style: European Automatic (V)",
+}
 
-  return "Exercise Style: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.exercise_style.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.exercise_style.labels[value] or "Exercise Style: Unknown("..value..")"
 end
 
 -- Dissect: Exercise Style
@@ -2933,153 +2635,59 @@ bme_meff_orderentry_bmegate_v1_6.family_code = {}
 bme_meff_orderentry_bmegate_v1_6.family_code.size = 5
 
 -- Display: Family Code
-bme_meff_orderentry_bmegate_v1_6.family_code.display = function(value)
-  if value == "EIBXO" then
-    return "Family Code: Strategies Options Mini Ibex 35 (EIBXO)"
-  end
-  if value == "ESTCF" then
-    return "Family Code: Strategies Single Stock Futures (ESTCF)"
-  end
-  if value == "ESTCO" then
-    return "Family Code: Strategies Single Stock Options (ESTCO)"
-  end
-  if value == "ESTXX" then
-    return "Family Code: Strategies Futures And Swaps Energy (ESTXX)"
-  end
-  if value == "FBONO" then
-    return "Family Code: Bono E 10 Futures Rf (FBONO)"
-  end
-  if value == "FENGM" then
-    return "Family Code: Fut Energy Monthly (FENGM)"
-  end
-  if value == "FENGQ" then
-    return "Family Code: Fut Energy Quarterly (FENGQ)"
-  end
-  if value == "FENGW" then
-    return "Family Code: Fut Energy Weekly (FENGW)"
-  end
-  if value == "FENGY" then
-    return "Family Code: Fut Energy Annual (FENGY)"
-  end
-  if value == "FEROL" then
-    return "Family Code: Rolling Spot Futures On Stocks (FEROL)"
-  end
-  if value == "FIBX" then
-    return "Family Code: Futures Ibex 35 (FIBX)"
-  end
-  if value == "FIBXC" then
-    return "Family Code: Futures Micro Ibex 35 (FIBXC)"
-  end
-  if value == "FIBXD" then
-    return "Family Code: Futures Ibex Impacto Div (FIBXD)"
-  end
-  if value == "FIBXM" then
-    return "Family Code: Futures Mini Ibex 35 (FIBXM)"
-  end
-  if value == "FIBXS" then
-    return "Family Code: Sector Futures Ibex 35 (FIBXS)"
-  end
-  if value == "FIROL" then
-    return "Family Code: Rolling Spot Futures On Indexes (FIROL)"
-  end
-  if value == "FSTCD" then
-    return "Family Code: Futures S Div Acc (FSTCD)"
-  end
-  if value == "FSTCE" then
-    return "Family Code: Twenty Five Stock Dividend Futures (FSTCE)"
-  end
-  if value == "FSTCK" then
-    return "Family Code: Futures S Acciones (FSTCK)"
-  end
-  if value == "FXRL1" then
-    return "Family Code: Rolling Spot Futures On Currencies 1 (FXRL1)"
-  end
-  if value == "FXRL2" then
-    return "Family Code: Rolling Spot Futures On Currencies 2 (FXRL2)"
-  end
-  if value == "FXRL3" then
-    return "Family Code: Rolling Spot Futures On Currencies 3 (FXRL3)"
-  end
-  if value == "OIBXM" then
-    return "Family Code: Options Mini Ibex 35 (OIBXM)"
-  end
-  if value == "OSTCK" then
-    return "Family Code: Single Stock Options (OSTCK)"
-  end
-  if value == "SENGD" then
-    return "Family Code: Swaps Ener Daily (SENGD)"
-  end
-  if value == "SENGM" then
-    return "Family Code: Swaps Ener Monthly (SENGM)"
-  end
-  if value == "SENGQ" then
-    return "Family Code: Swaps Ener Quarterly (SENGQ)"
-  end
-  if value == "SENGW" then
-    return "Family Code: Swaps Ener Weekly (SENGW)"
-  end
-  if value == "SENGY" then
-    return "Family Code: Swaps Ener Annual (SENGY)"
-  end
-  if value == "TBONO" then
-    return "Family Code: Bono E 10 Timespread Rf (TBONO)"
-  end
-  if value == "TIBX" then
-    return "Family Code: Timespread Ibex 35 (TIBX)"
-  end
-  if value == "TIBXD" then
-    return "Family Code: Timespread Ibex Impacto Div (TIBXD)"
-  end
-  if value == "TIBXM" then
-    return "Family Code: Timespread Mini Ibex 35 (TIBXM)"
-  end
-  if value == "TSTCD" then
-    return "Family Code: Timespread On Stock Dividens (TSTCD)"
-  end
-  if value == "TSTCK" then
-    return "Family Code: Timespread Single Stock (TSTCK)"
-  end
-  if value == "TIBXS" then
-    return "Family Code: Time Spread On Ibex Sector (TIBXS)"
-  end
-  if value == "TIBXC" then
-    return "Family Code: Timespread On Micro Ibex 35 (TIBXC)"
-  end
-  if value == "00001" then
-    return "Family Code: Ibex (00001)"
-  end
-  if value == "00002" then
-    return "Family Code: Latibex (00002)"
-  end
-  if value == "00003" then
-    return "Family Code: Ftse (00003)"
-  end
-  if value == "00004" then
-    return "Family Code: Strategies On Stocks (00004)"
-  end
-  if value == "00005" then
-    return "Family Code: Ma B (00005)"
-  end
-  if value == "00006" then
-    return "Family Code: Strategies On Derivatives (00006)"
-  end
-  if value == "00007" then
-    return "Family Code: Fixed Income (00007)"
-  end
-  if value == "00101" then
-    return "Family Code: Barcelona (00101)"
-  end
-  if value == "00102" then
-    return "Family Code: Bilbao (00102)"
-  end
-  if value == "00103" then
-    return "Family Code: Madrid (00103)"
-  end
-  if value == "00104" then
-    return "Family Code: Valencia (00104)"
-  end
+bme_meff_orderentry_bmegate_v1_6.family_code.labels = {
+  ["EIBXO"] = "Family Code: Strategies Options Mini Ibex 35 (EIBXO)",
+  ["ESTCF"] = "Family Code: Strategies Single Stock Futures (ESTCF)",
+  ["ESTCO"] = "Family Code: Strategies Single Stock Options (ESTCO)",
+  ["ESTXX"] = "Family Code: Strategies Futures And Swaps Energy (ESTXX)",
+  ["FBONO"] = "Family Code: Bono E 10 Futures Rf (FBONO)",
+  ["FENGM"] = "Family Code: Fut Energy Monthly (FENGM)",
+  ["FENGQ"] = "Family Code: Fut Energy Quarterly (FENGQ)",
+  ["FENGW"] = "Family Code: Fut Energy Weekly (FENGW)",
+  ["FENGY"] = "Family Code: Fut Energy Annual (FENGY)",
+  ["FEROL"] = "Family Code: Rolling Spot Futures On Stocks (FEROL)",
+  ["FIBX"] = "Family Code: Futures Ibex 35 (FIBX)",
+  ["FIBXC"] = "Family Code: Futures Micro Ibex 35 (FIBXC)",
+  ["FIBXD"] = "Family Code: Futures Ibex Impacto Div (FIBXD)",
+  ["FIBXM"] = "Family Code: Futures Mini Ibex 35 (FIBXM)",
+  ["FIBXS"] = "Family Code: Sector Futures Ibex 35 (FIBXS)",
+  ["FIROL"] = "Family Code: Rolling Spot Futures On Indexes (FIROL)",
+  ["FSTCD"] = "Family Code: Futures S Div Acc (FSTCD)",
+  ["FSTCE"] = "Family Code: Twenty Five Stock Dividend Futures (FSTCE)",
+  ["FSTCK"] = "Family Code: Futures S Acciones (FSTCK)",
+  ["FXRL1"] = "Family Code: Rolling Spot Futures On Currencies 1 (FXRL1)",
+  ["FXRL2"] = "Family Code: Rolling Spot Futures On Currencies 2 (FXRL2)",
+  ["FXRL3"] = "Family Code: Rolling Spot Futures On Currencies 3 (FXRL3)",
+  ["OIBXM"] = "Family Code: Options Mini Ibex 35 (OIBXM)",
+  ["OSTCK"] = "Family Code: Single Stock Options (OSTCK)",
+  ["SENGD"] = "Family Code: Swaps Ener Daily (SENGD)",
+  ["SENGM"] = "Family Code: Swaps Ener Monthly (SENGM)",
+  ["SENGQ"] = "Family Code: Swaps Ener Quarterly (SENGQ)",
+  ["SENGW"] = "Family Code: Swaps Ener Weekly (SENGW)",
+  ["SENGY"] = "Family Code: Swaps Ener Annual (SENGY)",
+  ["TBONO"] = "Family Code: Bono E 10 Timespread Rf (TBONO)",
+  ["TIBX"] = "Family Code: Timespread Ibex 35 (TIBX)",
+  ["TIBXD"] = "Family Code: Timespread Ibex Impacto Div (TIBXD)",
+  ["TIBXM"] = "Family Code: Timespread Mini Ibex 35 (TIBXM)",
+  ["TSTCD"] = "Family Code: Timespread On Stock Dividens (TSTCD)",
+  ["TSTCK"] = "Family Code: Timespread Single Stock (TSTCK)",
+  ["TIBXS"] = "Family Code: Time Spread On Ibex Sector (TIBXS)",
+  ["TIBXC"] = "Family Code: Timespread On Micro Ibex 35 (TIBXC)",
+  ["00001"] = "Family Code: Ibex (00001)",
+  ["00002"] = "Family Code: Latibex (00002)",
+  ["00003"] = "Family Code: Ftse (00003)",
+  ["00004"] = "Family Code: Strategies On Stocks (00004)",
+  ["00005"] = "Family Code: Ma B (00005)",
+  ["00006"] = "Family Code: Strategies On Derivatives (00006)",
+  ["00007"] = "Family Code: Fixed Income (00007)",
+  ["00101"] = "Family Code: Barcelona (00101)",
+  ["00102"] = "Family Code: Bilbao (00102)",
+  ["00103"] = "Family Code: Madrid (00103)",
+  ["00104"] = "Family Code: Valencia (00104)",
+}
 
-  return "Family Code: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.family_code.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.family_code.labels[value] or "Family Code: Unknown("..value..")"
 end
 
 -- Dissect: Family Code
@@ -3229,15 +2837,13 @@ bme_meff_orderentry_bmegate_v1_6.flexible_indicator = {}
 bme_meff_orderentry_bmegate_v1_6.flexible_indicator.size = 1
 
 -- Display: Flexible Indicator
-bme_meff_orderentry_bmegate_v1_6.flexible_indicator.display = function(value)
-  if value == "Y" then
-    return "Flexible Indicator: Flexible (Y)"
-  end
-  if value == "N" then
-    return "Flexible Indicator: Standard (N)"
-  end
+bme_meff_orderentry_bmegate_v1_6.flexible_indicator.labels = {
+  ["Y"] = "Flexible Indicator: Flexible (Y)",
+  ["N"] = "Flexible Indicator: Standard (N)",
+}
 
-  return "Flexible Indicator: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.flexible_indicator.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.flexible_indicator.labels[value] or "Flexible Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Flexible Indicator
@@ -3486,15 +3092,13 @@ bme_meff_orderentry_bmegate_v1_6.ioi_qlty_ind = {}
 bme_meff_orderentry_bmegate_v1_6.ioi_qlty_ind.size = 1
 
 -- Display: Ioi Qlty Ind
-bme_meff_orderentry_bmegate_v1_6.ioi_qlty_ind.display = function(value)
-  if value == "H" then
-    return "Ioi Qlty Ind: High Rfq Requested (H)"
-  end
-  if value == "M" then
-    return "Ioi Qlty Ind: Medium Order Requested (M)"
-  end
+bme_meff_orderentry_bmegate_v1_6.ioi_qlty_ind.labels = {
+  ["H"] = "Ioi Qlty Ind: High Rfq Requested (H)",
+  ["M"] = "Ioi Qlty Ind: Medium Order Requested (M)",
+}
 
-  return "Ioi Qlty Ind: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.ioi_qlty_ind.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.ioi_qlty_ind.labels[value] or "Ioi Qlty Ind: Unknown("..value..")"
 end
 
 -- Dissect: Ioi Qlty Ind
@@ -3539,18 +3143,14 @@ bme_meff_orderentry_bmegate_v1_6.ioi_trans_type = {}
 bme_meff_orderentry_bmegate_v1_6.ioi_trans_type.size = 1
 
 -- Display: Ioi Trans Type
-bme_meff_orderentry_bmegate_v1_6.ioi_trans_type.display = function(value)
-  if value == "N" then
-    return "Ioi Trans Type: New (N)"
-  end
-  if value == "C" then
-    return "Ioi Trans Type: Cancel (C)"
-  end
-  if value == "R" then
-    return "Ioi Trans Type: Replace (R)"
-  end
+bme_meff_orderentry_bmegate_v1_6.ioi_trans_type.labels = {
+  ["N"] = "Ioi Trans Type: New (N)",
+  ["C"] = "Ioi Trans Type: Cancel (C)",
+  ["R"] = "Ioi Trans Type: Replace (R)",
+}
 
-  return "Ioi Trans Type: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.ioi_trans_type.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.ioi_trans_type.labels[value] or "Ioi Trans Type: Unknown("..value..")"
 end
 
 -- Dissect: Ioi Trans Type
@@ -3657,18 +3257,14 @@ bme_meff_orderentry_bmegate_v1_6.last_capacity = {}
 bme_meff_orderentry_bmegate_v1_6.last_capacity.size = 1
 
 -- Display: Last Capacity
-bme_meff_orderentry_bmegate_v1_6.last_capacity.display = function(value)
-  if value == "D" then
-    return "Last Capacity: Dealing On Own Account (D)"
-  end
-  if value == "M" then
-    return "Last Capacity: Matched Principal (M)"
-  end
-  if value == "A" then
-    return "Last Capacity: Any Other Trading Capacity Blanco (A)"
-  end
+bme_meff_orderentry_bmegate_v1_6.last_capacity.labels = {
+  ["D"] = "Last Capacity: Dealing On Own Account (D)",
+  ["M"] = "Last Capacity: Matched Principal (M)",
+  ["A"] = "Last Capacity: Any Other Trading Capacity Blanco (A)",
+}
 
-  return "Last Capacity: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.last_capacity.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.last_capacity.labels[value] or "Last Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Last Capacity
@@ -3690,18 +3286,14 @@ bme_meff_orderentry_bmegate_v1_6.last_capacity_2 = {}
 bme_meff_orderentry_bmegate_v1_6.last_capacity_2.size = 1
 
 -- Display: Last Capacity 2
-bme_meff_orderentry_bmegate_v1_6.last_capacity_2.display = function(value)
-  if value == "D" then
-    return "Last Capacity 2: Dealing On Own Account (D)"
-  end
-  if value == "M" then
-    return "Last Capacity 2: Matched Principal (M)"
-  end
-  if value == "A" then
-    return "Last Capacity 2: Any Other Trading Capacity Blanco (A)"
-  end
+bme_meff_orderentry_bmegate_v1_6.last_capacity_2.labels = {
+  ["D"] = "Last Capacity 2: Dealing On Own Account (D)",
+  ["M"] = "Last Capacity 2: Matched Principal (M)",
+  ["A"] = "Last Capacity 2: Any Other Trading Capacity Blanco (A)",
+}
 
-  return "Last Capacity 2: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.last_capacity_2.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.last_capacity_2.labels[value] or "Last Capacity 2: Unknown("..value..")"
 end
 
 -- Dissect: Last Capacity 2
@@ -4091,15 +3683,13 @@ bme_meff_orderentry_bmegate_v1_6.leg_side_1 = {}
 bme_meff_orderentry_bmegate_v1_6.leg_side_1.size = 1
 
 -- Display: Leg Side 1
-bme_meff_orderentry_bmegate_v1_6.leg_side_1.display = function(value)
-  if value == "1" then
-    return "Leg Side 1: Buy (1)"
-  end
-  if value == "2" then
-    return "Leg Side 1: Sell (2)"
-  end
+bme_meff_orderentry_bmegate_v1_6.leg_side_1.labels = {
+  ["1"] = "Leg Side 1: Buy (1)",
+  ["2"] = "Leg Side 1: Sell (2)",
+}
 
-  return "Leg Side 1: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.leg_side_1.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.leg_side_1.labels[value] or "Leg Side 1: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side 1
@@ -4121,15 +3711,13 @@ bme_meff_orderentry_bmegate_v1_6.leg_side_2 = {}
 bme_meff_orderentry_bmegate_v1_6.leg_side_2.size = 1
 
 -- Display: Leg Side 2
-bme_meff_orderentry_bmegate_v1_6.leg_side_2.display = function(value)
-  if value == "1" then
-    return "Leg Side 2: Buy (1)"
-  end
-  if value == "2" then
-    return "Leg Side 2: Sell (2)"
-  end
+bme_meff_orderentry_bmegate_v1_6.leg_side_2.labels = {
+  ["1"] = "Leg Side 2: Buy (1)",
+  ["2"] = "Leg Side 2: Sell (2)",
+}
 
-  return "Leg Side 2: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.leg_side_2.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.leg_side_2.labels[value] or "Leg Side 2: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side 2
@@ -4151,15 +3739,13 @@ bme_meff_orderentry_bmegate_v1_6.leg_side_3 = {}
 bme_meff_orderentry_bmegate_v1_6.leg_side_3.size = 1
 
 -- Display: Leg Side 3
-bme_meff_orderentry_bmegate_v1_6.leg_side_3.display = function(value)
-  if value == "1" then
-    return "Leg Side 3: Buy (1)"
-  end
-  if value == "2" then
-    return "Leg Side 3: Sell (2)"
-  end
+bme_meff_orderentry_bmegate_v1_6.leg_side_3.labels = {
+  ["1"] = "Leg Side 3: Buy (1)",
+  ["2"] = "Leg Side 3: Sell (2)",
+}
 
-  return "Leg Side 3: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.leg_side_3.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.leg_side_3.labels[value] or "Leg Side 3: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side 3
@@ -4181,15 +3767,13 @@ bme_meff_orderentry_bmegate_v1_6.leg_side_4 = {}
 bme_meff_orderentry_bmegate_v1_6.leg_side_4.size = 1
 
 -- Display: Leg Side 4
-bme_meff_orderentry_bmegate_v1_6.leg_side_4.display = function(value)
-  if value == "1" then
-    return "Leg Side 4: Buy (1)"
-  end
-  if value == "2" then
-    return "Leg Side 4: Sell (2)"
-  end
+bme_meff_orderentry_bmegate_v1_6.leg_side_4.labels = {
+  ["1"] = "Leg Side 4: Buy (1)",
+  ["2"] = "Leg Side 4: Sell (2)",
+}
 
-  return "Leg Side 4: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.leg_side_4.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.leg_side_4.labels[value] or "Leg Side 4: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side 4
@@ -4211,15 +3795,13 @@ bme_meff_orderentry_bmegate_v1_6.leg_side_5 = {}
 bme_meff_orderentry_bmegate_v1_6.leg_side_5.size = 1
 
 -- Display: Leg Side 5
-bme_meff_orderentry_bmegate_v1_6.leg_side_5.display = function(value)
-  if value == "1" then
-    return "Leg Side 5: Buy (1)"
-  end
-  if value == "2" then
-    return "Leg Side 5: Sell (2)"
-  end
+bme_meff_orderentry_bmegate_v1_6.leg_side_5.labels = {
+  ["1"] = "Leg Side 5: Buy (1)",
+  ["2"] = "Leg Side 5: Sell (2)",
+}
 
-  return "Leg Side 5: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.leg_side_5.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.leg_side_5.labels[value] or "Leg Side 5: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side 5
@@ -4593,33 +4175,19 @@ bme_meff_orderentry_bmegate_v1_6.logout_reason = {}
 bme_meff_orderentry_bmegate_v1_6.logout_reason.size = 1
 
 -- Display: Logout Reason
-bme_meff_orderentry_bmegate_v1_6.logout_reason.display = function(value)
-  if value == 0 then
-    return "Logout Reason: Termination After A Solicited Logout Request (0)"
-  end
-  if value == 1 then
-    return "Logout Reason: End Of Session Termination In Recovery Server End Of Recovery Snapshot (1)"
-  end
-  if value == 2 then
-    return "Logout Reason: Timeout Connection Lost (2)"
-  end
-  if value == 3 then
-    return "Logout Reason: Lack Of Heartbeat (3)"
-  end
-  if value == 16 then
-    return "Logout Reason: Invalid Username Or Password (16)"
-  end
-  if value == 17 then
-    return "Logout Reason: Invalid Expected Sequence Number (17)"
-  end
-  if value == 18 then
-    return "Logout Reason: Invalid Protocol Version (18)"
-  end
-  if value == 19 then
-    return "Logout Reason: New Connection From User (19)"
-  end
+bme_meff_orderentry_bmegate_v1_6.logout_reason.labels = {
+  [0] = "Logout Reason: Termination After A Solicited Logout Request (0)",
+  [1] = "Logout Reason: End Of Session Termination In Recovery Server End Of Recovery Snapshot (1)",
+  [2] = "Logout Reason: Timeout Connection Lost (2)",
+  [3] = "Logout Reason: Lack Of Heartbeat (3)",
+  [16] = "Logout Reason: Invalid Username Or Password (16)",
+  [17] = "Logout Reason: Invalid Expected Sequence Number (17)",
+  [18] = "Logout Reason: Invalid Protocol Version (18)",
+  [19] = "Logout Reason: New Connection From User (19)",
+}
 
-  return "Logout Reason: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.logout_reason.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.logout_reason.labels[value] or "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -4670,12 +4238,12 @@ bme_meff_orderentry_bmegate_v1_6.market_id = {}
 bme_meff_orderentry_bmegate_v1_6.market_id.size = 4
 
 -- Display: Market Id
-bme_meff_orderentry_bmegate_v1_6.market_id.display = function(value)
-  if value == "BMEX" then
-    return "Market Id: BMEX (BMEX)"
-  end
+bme_meff_orderentry_bmegate_v1_6.market_id.labels = {
+  ["BMEX"] = "Market Id: BMEX (BMEX)",
+}
 
-  return "Market Id: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.market_id.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -4708,18 +4276,14 @@ bme_meff_orderentry_bmegate_v1_6.market_mechanism = {}
 bme_meff_orderentry_bmegate_v1_6.market_mechanism.size = 1
 
 -- Display: Market Mechanism
-bme_meff_orderentry_bmegate_v1_6.market_mechanism.display = function(value)
-  if value == "0" then
-    return "Market Mechanism: Central Limit Order Book (0)"
-  end
-  if value == "1" then
-    return "Market Mechanism: Off Book Messaging Trading (1)"
-  end
-  if value == "6" then
-    return "Market Mechanism: Request For Quotes (6)"
-  end
+bme_meff_orderentry_bmegate_v1_6.market_mechanism.labels = {
+  ["0"] = "Market Mechanism: Central Limit Order Book (0)",
+  ["1"] = "Market Mechanism: Off Book Messaging Trading (1)",
+  ["6"] = "Market Mechanism: Request For Quotes (6)",
+}
 
-  return "Market Mechanism: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.market_mechanism.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.market_mechanism.labels[value] or "Market Mechanism: Unknown("..value..")"
 end
 
 -- Dissect: Market Mechanism
@@ -4741,18 +4305,14 @@ bme_meff_orderentry_bmegate_v1_6.market_segment_id = {}
 bme_meff_orderentry_bmegate_v1_6.market_segment_id.size = 4
 
 -- Display: Market Segment Id
-bme_meff_orderentry_bmegate_v1_6.market_segment_id.display = function(value)
-  if value == "XMRV" then
-    return "Market Segment Id: Meff Financial Derivatives (XMRV)"
-  end
-  if value == "XMPW" then
-    return "Market Segment Id: Meff Energy Derivatives (XMPW)"
-  end
-  if value == "XMFX" then
-    return "Market Segment Id: Meff Fx Financial Derivatives (XMFX)"
-  end
+bme_meff_orderentry_bmegate_v1_6.market_segment_id.labels = {
+  ["XMRV"] = "Market Segment Id: Meff Financial Derivatives (XMRV)",
+  ["XMPW"] = "Market Segment Id: Meff Energy Derivatives (XMPW)",
+  ["XMFX"] = "Market Segment Id: Meff Fx Financial Derivatives (XMFX)",
+}
 
-  return "Market Segment Id: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.market_segment_id.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.market_segment_id.labels[value] or "Market Segment Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Segment Id
@@ -4785,18 +4345,14 @@ bme_meff_orderentry_bmegate_v1_6.mass_cancel_reject_reason = {}
 bme_meff_orderentry_bmegate_v1_6.mass_cancel_reject_reason.size = 1
 
 -- Display: Mass Cancel Reject Reason
-bme_meff_orderentry_bmegate_v1_6.mass_cancel_reject_reason.display = function(value)
-  if value == "G" then
-    return "Mass Cancel Reject Reason: No Permission (G)"
-  end
-  if value == "8" then
-    return "Mass Cancel Reject Reason: Cancelled Because Of Market State (8)"
-  end
-  if value == "9" then
-    return "Mass Cancel Reject Reason: Invalid Data (9)"
-  end
+bme_meff_orderentry_bmegate_v1_6.mass_cancel_reject_reason.labels = {
+  ["G"] = "Mass Cancel Reject Reason: No Permission (G)",
+  ["8"] = "Mass Cancel Reject Reason: Cancelled Because Of Market State (8)",
+  ["9"] = "Mass Cancel Reject Reason: Invalid Data (9)",
+}
 
-  return "Mass Cancel Reject Reason: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.mass_cancel_reject_reason.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.mass_cancel_reject_reason.labels[value] or "Mass Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Reject Reason
@@ -4903,21 +4459,15 @@ bme_meff_orderentry_bmegate_v1_6.maturity_month_year_increment_units = {}
 bme_meff_orderentry_bmegate_v1_6.maturity_month_year_increment_units.size = 1
 
 -- Display: Maturity Month Year Increment Units
-bme_meff_orderentry_bmegate_v1_6.maturity_month_year_increment_units.display = function(value)
-  if value == "0" then
-    return "Maturity Month Year Increment Units: Months (0)"
-  end
-  if value == "1" then
-    return "Maturity Month Year Increment Units: Days (1)"
-  end
-  if value == "2" then
-    return "Maturity Month Year Increment Units: Weeks (2)"
-  end
-  if value == "3" then
-    return "Maturity Month Year Increment Units: Years (3)"
-  end
+bme_meff_orderentry_bmegate_v1_6.maturity_month_year_increment_units.labels = {
+  ["0"] = "Maturity Month Year Increment Units: Months (0)",
+  ["1"] = "Maturity Month Year Increment Units: Days (1)",
+  ["2"] = "Maturity Month Year Increment Units: Weeks (2)",
+  ["3"] = "Maturity Month Year Increment Units: Years (3)",
+}
 
-  return "Maturity Month Year Increment Units: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.maturity_month_year_increment_units.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.maturity_month_year_increment_units.labels[value] or "Maturity Month Year Increment Units: Unknown("..value..")"
 end
 
 -- Dissect: Maturity Month Year Increment Units
@@ -5069,138 +4619,54 @@ bme_meff_orderentry_bmegate_v1_6.message_type = {}
 bme_meff_orderentry_bmegate_v1_6.message_type.size = 1
 
 -- Display: Message Type
-bme_meff_orderentry_bmegate_v1_6.message_type.display = function(value)
-  if value == 0x08 then
-    return "Message Type: Logon Response Message (0x08)"
-  end
-  if value == 0x0B then
-    return "Message Type: Logout Response Message (0x0B)"
-  end
-  if value == 0x30 then
-    return "Message Type: Heartbeat Message (0x30)"
-  end
-  if value == 0x0A then
-    return "Message Type: Network Status Message (0x0A)"
-  end
-  if value == 0x41 then
-    return "Message Type: Logon Message (0x41)"
-  end
-  if value == 0x35 then
-    return "Message Type: Logout Message (0x35)"
-  end
-  if value == 0x0D then
-    return "Message Type: Reject Message (0x0D)"
-  end
-  if value == 0x68 then
-    return "Message Type: Trading Session Status Message (0x68)"
-  end
-  if value == 0x42 then
-    return "Message Type: News Message (0x42)"
-  end
-  if value == 0x78 then
-    return "Message Type: Security List Cancellation Report Message (0x78)"
-  end
-  if value == 0x84 then
-    return "Message Type: Statistics Message (0x84)"
-  end
-  if value == 0x79 then
-    return "Message Type: Security List Message (0x79)"
-  end
-  if value == 0x80 then
-    return "Message Type: Security List Update Report Message (0x80)"
-  end
-  if value == 0x66 then
-    return "Message Type: Security Status Message (0x66)"
-  end
-  if value == 0x89 then
-    return "Message Type: Family Status Message (0x89)"
-  end
-  if value == 0x01 then
-    return "Message Type: Order Cancellation Market Member Message (0x01)"
-  end
-  if value == 0x05 then
-    return "Message Type: Quote Cancellation Market Member Message (0x05)"
-  end
-  if value == 0x36 then
-    return "Message Type: Indication Of Interest Message (0x36)"
-  end
-  if value == 0x6F then
-    return "Message Type: Order And Quote Client Data Message (0x6F)"
-  end
-  if value == 0x86 then
-    return "Message Type: Delta Protection Parameters Message (0x86)"
-  end
-  if value == 0x44 then
-    return "Message Type: Simple New Order Message (0x44)"
-  end
-  if value == 0x45 then
-    return "Message Type: Simple New Order With Client Data Message (0x45)"
-  end
-  if value == 0x47 then
-    return "Message Type: Simple Order Modification Message (0x47)"
-  end
-  if value == 0x48 then
-    return "Message Type: Simple Order Modification With Client Data Message (0x48)"
-  end
-  if value == 0x46 then
-    return "Message Type: Order Cancellation Request Message (0x46)"
-  end
-  if value == 0x53 then
-    return "Message Type: New Quote Message (0x53)"
-  end
-  if value == 0x61 then
-    return "Message Type: Quote Modification Request Message (0x61)"
-  end
-  if value == 0x5A then
-    return "Message Type: Quote Cancellation Request Message (0x5A)"
-  end
-  if value == 0x71 then
-    return "Message Type: Mass Orderquote Cancellation Message (0x71)"
-  end
-  if value == 0x87 then
-    return "Message Type: Order And Quote Client Data Parameters Ack Nack Message (0x87)"
-  end
-  if value == 0x88 then
-    return "Message Type: Delta Protection Parameters Ack Nack Message (0x88)"
-  end
-  if value == 0x02 then
-    return "Message Type: Simple Order Status Message (0x02)"
-  end
-  if value == 0x06 then
-    return "Message Type: Quote Status Message (0x06)"
-  end
-  if value == 0x39 then
-    return "Message Type: Order Cancel Reject Message (0x39)"
-  end
-  if value == 0x72 then
-    return "Message Type: Mass Orderquote Cancellation Completion Message (0x72)"
-  end
-  if value == 0x73 then
-    return "Message Type: Mass Orderquote Cancellation Reject Message (0x73)"
-  end
-  if value == 0x6A then
-    return "Message Type: Business Message Reject Message (0x6A)"
-  end
-  if value == 0x17 then
-    return "Message Type: Execution Private Information 2 Legs Message (0x17)"
-  end
-  if value == 0x1A then
-    return "Message Type: Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message (0x1A)"
-  end
-  if value == 0x1C then
-    return "Message Type: Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message (0x1C)"
-  end
-  if value == 0x1E then
-    return "Message Type: Trade Trade Amendment Or Cancellation 2 Legs Private Information Message (0x1E)"
-  end
-  if value == 0x12 then
-    return "Message Type: Execution Private Information 1 Leg Buy Order Entry Message (0x12)"
-  end
-  if value == 0x14 then
-    return "Message Type: Execution Private Information 1 Leg Sell Order Entry Message (0x14)"
-  end
+bme_meff_orderentry_bmegate_v1_6.message_type.labels = {
+  [0x08] = "Message Type: Logon Response Message (0x08)",
+  [0x0B] = "Message Type: Logout Response Message (0x0B)",
+  [0x30] = "Message Type: Heartbeat Message (0x30)",
+  [0x0A] = "Message Type: Network Status Message (0x0A)",
+  [0x41] = "Message Type: Logon Message (0x41)",
+  [0x35] = "Message Type: Logout Message (0x35)",
+  [0x0D] = "Message Type: Reject Message (0x0D)",
+  [0x68] = "Message Type: Trading Session Status Message (0x68)",
+  [0x42] = "Message Type: News Message (0x42)",
+  [0x78] = "Message Type: Security List Cancellation Report Message (0x78)",
+  [0x84] = "Message Type: Statistics Message (0x84)",
+  [0x79] = "Message Type: Security List Message (0x79)",
+  [0x80] = "Message Type: Security List Update Report Message (0x80)",
+  [0x66] = "Message Type: Security Status Message (0x66)",
+  [0x89] = "Message Type: Family Status Message (0x89)",
+  [0x01] = "Message Type: Order Cancellation Market Member Message (0x01)",
+  [0x05] = "Message Type: Quote Cancellation Market Member Message (0x05)",
+  [0x36] = "Message Type: Indication Of Interest Message (0x36)",
+  [0x6F] = "Message Type: Order And Quote Client Data Message (0x6F)",
+  [0x86] = "Message Type: Delta Protection Parameters Message (0x86)",
+  [0x44] = "Message Type: Simple New Order Message (0x44)",
+  [0x45] = "Message Type: Simple New Order With Client Data Message (0x45)",
+  [0x47] = "Message Type: Simple Order Modification Message (0x47)",
+  [0x48] = "Message Type: Simple Order Modification With Client Data Message (0x48)",
+  [0x46] = "Message Type: Order Cancellation Request Message (0x46)",
+  [0x53] = "Message Type: New Quote Message (0x53)",
+  [0x61] = "Message Type: Quote Modification Request Message (0x61)",
+  [0x5A] = "Message Type: Quote Cancellation Request Message (0x5A)",
+  [0x71] = "Message Type: Mass Orderquote Cancellation Message (0x71)",
+  [0x87] = "Message Type: Order And Quote Client Data Parameters Ack Nack Message (0x87)",
+  [0x88] = "Message Type: Delta Protection Parameters Ack Nack Message (0x88)",
+  [0x02] = "Message Type: Simple Order Status Message (0x02)",
+  [0x06] = "Message Type: Quote Status Message (0x06)",
+  [0x39] = "Message Type: Order Cancel Reject Message (0x39)",
+  [0x72] = "Message Type: Mass Orderquote Cancellation Completion Message (0x72)",
+  [0x73] = "Message Type: Mass Orderquote Cancellation Reject Message (0x73)",
+  [0x6A] = "Message Type: Business Message Reject Message (0x6A)",
+  [0x17] = "Message Type: Execution Private Information 2 Legs Message (0x17)",
+  [0x1A] = "Message Type: Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message (0x1A)",
+  [0x1C] = "Message Type: Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message (0x1C)",
+  [0x1E] = "Message Type: Trade Trade Amendment Or Cancellation 2 Legs Private Information Message (0x1E)",
+  [0x12] = "Message Type: Execution Private Information 1 Leg Buy Order Entry Message (0x12)",
+  [0x14] = "Message Type: Execution Private Information 1 Leg Sell Order Entry Message (0x14)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+bme_meff_orderentry_bmegate_v1_6.message_type.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -5320,21 +4786,15 @@ bme_meff_orderentry_bmegate_v1_6.network_status_value = {}
 bme_meff_orderentry_bmegate_v1_6.network_status_value.size = 1
 
 -- Display: Network Status Value
-bme_meff_orderentry_bmegate_v1_6.network_status_value.display = function(value)
-  if value == 1 then
-    return "Network Status Value: Connected (1)"
-  end
-  if value == 2 then
-    return "Network Status Value: Not Connected Down Expected Up (2)"
-  end
-  if value == 3 then
-    return "Network Status Value: Not Connected Down Expected Down (3)"
-  end
-  if value == 4 then
-    return "Network Status Value: In Process (4)"
-  end
+bme_meff_orderentry_bmegate_v1_6.network_status_value.labels = {
+  [1] = "Network Status Value: Connected (1)",
+  [2] = "Network Status Value: Not Connected Down Expected Up (2)",
+  [3] = "Network Status Value: Not Connected Down Expected Down (3)",
+  [4] = "Network Status Value: In Process (4)",
+}
 
-  return "Network Status Value: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.network_status_value.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.network_status_value.labels[value] or "Network Status Value: Unknown("..value..")"
 end
 
 -- Dissect: Network Status Value
@@ -5395,24 +4855,16 @@ bme_meff_orderentry_bmegate_v1_6.non_availability_reason = {}
 bme_meff_orderentry_bmegate_v1_6.non_availability_reason.size = 1
 
 -- Display: Non Availability Reason
-bme_meff_orderentry_bmegate_v1_6.non_availability_reason.display = function(value)
-  if value == 0 then
-    return "Non Availability Reason: Not Halted (0)"
-  end
-  if value == 100 then
-    return "Non Availability Reason: Halted By Regulator (100)"
-  end
-  if value == 101 then
-    return "Non Availability Reason: Halted By Market Surveillance (101)"
-  end
-  if value == 102 then
-    return "Non Availability Reason: Knockout (102)"
-  end
-  if value == 103 then
-    return "Non Availability Reason: Knockin Pending (103)"
-  end
+bme_meff_orderentry_bmegate_v1_6.non_availability_reason.labels = {
+  [0] = "Non Availability Reason: Not Halted (0)",
+  [100] = "Non Availability Reason: Halted By Regulator (100)",
+  [101] = "Non Availability Reason: Halted By Market Surveillance (101)",
+  [102] = "Non Availability Reason: Knockout (102)",
+  [103] = "Non Availability Reason: Knockin Pending (103)",
+}
 
-  return "Non Availability Reason: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.non_availability_reason.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.non_availability_reason.labels[value] or "Non Availability Reason: Unknown("..value..")"
 end
 
 -- Dissect: Non Availability Reason
@@ -5480,153 +4932,59 @@ bme_meff_orderentry_bmegate_v1_6.ord_rej_reason = {}
 bme_meff_orderentry_bmegate_v1_6.ord_rej_reason.size = 1
 
 -- Display: Ord Rej Reason
-bme_meff_orderentry_bmegate_v1_6.ord_rej_reason.display = function(value)
-  if value == "1" then
-    return "Ord Rej Reason: By Trader (1)"
-  end
-  if value == "3" then
-    return "Ord Rej Reason: By Supervisor (3)"
-  end
-  if value == "4" then
-    return "Ord Rej Reason: Volume Modification Incorrect New Volume Total Volume Filled (4)"
-  end
-  if value == "5" then
-    return "Ord Rej Reason: Not Executed Immediately (5)"
-  end
-  if value == "6" then
-    return "Ord Rej Reason: Security Not Current Or Not Tradeable For This Member (6)"
-  end
-  if value == "7" then
-    return "Ord Rej Reason: By Limits (7)"
-  end
-  if value == "8" then
-    return "Ord Rej Reason: Cancelled By Market Status (8)"
-  end
-  if value == "9" then
-    return "Ord Rej Reason: Invalid Data (9)"
-  end
-  if value == "B" then
-    return "Ord Rej Reason: Price Filters (B)"
-  end
-  if value == "C" then
-    return "Ord Rej Reason: Volume Filters (C)"
-  end
-  if value == "D" then
-    return "Ord Rej Reason: Clearing Member Status (D)"
-  end
-  if value == "E" then
-    return "Ord Rej Reason: Disconnection Of The Client Application (E)"
-  end
-  if value == "F" then
-    return "Ord Rej Reason: Quote Parameters Missing (F)"
-  end
-  if value == "G" then
-    return "Ord Rej Reason: By Permissions (G)"
-  end
-  if value == "H" then
-    return "Ord Rej Reason: Quote Or Cl Ord Id Incorrect (H)"
-  end
-  if value == "I" then
-    return "Ord Rej Reason: Delta Protection Number Of Contracts (I)"
-  end
-  if value == "J" then
-    return "Ord Rej Reason: Delta Protection Maximum Absolute Delta (J)"
-  end
-  if value == "K" then
-    return "Ord Rej Reason: Delta Protection Máximum Accumulate Delta (K)"
-  end
-  if value == "O" then
-    return "Ord Rej Reason: By Volatility Auction Filters (O)"
-  end
-  if value == "Q" then
-    return "Ord Rej Reason: Quote Cancelled By Substitution (Q)"
-  end
-  if value == "W" then
-    return "Ord Rej Reason: Not Prices For Processing The Order (W)"
-  end
-  if value == "X" then
-    return "Ord Rej Reason: By End Of Validity Of The Order (X)"
-  end
-  if value == "Z" then
-    return "Ord Rej Reason: Other (Z)"
-  end
-  if value == "b" then
-    return "Ord Rej Reason: By Minimum Trading Volume (b)"
-  end
-  if value == "c" then
-    return "Ord Rej Reason: Price Not According To The Size Typology (c)"
-  end
-  if value == "d" then
-    return "Ord Rej Reason: The Order Volumemust Be A Multiple Of The Trading Lot Size (d)"
-  end
-  if value == "e" then
-    return "Ord Rej Reason: Order Rejected For Triggering Auction (e)"
-  end
-  if value == "g" then
-    return "Ord Rej Reason: Incorrect Price Or Triggered Price (g)"
-  end
-  if value == "h" then
-    return "Ord Rej Reason: Incorrect Volume (h)"
-  end
-  if value == "i" then
-    return "Ord Rej Reason: Incorrect Date (i)"
-  end
-  if value == "k" then
-    return "Ord Rej Reason: By Contract Status (k)"
-  end
-  if value == "l" then
-    return "Ord Rej Reason: By Intraday Futures Trading Limit (l)"
-  end
-  if value == "m" then
-    return "Ord Rej Reason: Kill Button (m)"
-  end
-  if value == "n" then
-    return "Ord Rej Reason: By Hft Filter Limit Maximum Number Of Contracts Matched (n)"
-  end
-  if value == "o" then
-    return "Ord Rej Reason: By Selfmatch Prevention (o)"
-  end
-  if value == "p" then
-    return "Ord Rej Reason: Auction Price Order Cancelled At The End Of The Auction (p)"
-  end
-  if value == "x" then
-    return "Ord Rej Reason: Invalid Ork Fields (x)"
-  end
-  if value == "L" then
-    return "Ord Rej Reason: Priority Change Due To Change In Price (L)"
-  end
-  if value == "M" then
-    return "Ord Rej Reason: Priority Change Due To Volume Increase (M)"
-  end
-  if value == "N" then
-    return "Ord Rej Reason: Priority Change Due To New Client Account Capacity (N)"
-  end
-  if value == "P" then
-    return "Ord Rej Reason: Priority Change Due To Both Price Change And Volume Increase (P)"
-  end
-  if value == "R" then
-    return "Ord Rej Reason: Priority Change Due To Both Price And Client Account (R)"
-  end
-  if value == "S" then
-    return "Ord Rej Reason: Priority Change Due To Both Volume Increase And Client Account (S)"
-  end
-  if value == "T" then
-    return "Ord Rej Reason: Modification Without Priority Change (T)"
-  end
-  if value == "U" then
-    return "Ord Rej Reason: Stop Order Triggered At The Close Order Activation (U)"
-  end
-  if value == "V" then
-    return "Ord Rej Reason: Not A Member Of Pit (V)"
-  end
-  if value == "Y" then
-    return "Ord Rej Reason: New Volume Shown (Y)"
-  end
-  if value == "q" then
-    return "Ord Rej Reason: Not Executed Due To Exceded Volume Cap (q)"
-  end
+bme_meff_orderentry_bmegate_v1_6.ord_rej_reason.labels = {
+  ["1"] = "Ord Rej Reason: By Trader (1)",
+  ["3"] = "Ord Rej Reason: By Supervisor (3)",
+  ["4"] = "Ord Rej Reason: Volume Modification Incorrect New Volume Total Volume Filled (4)",
+  ["5"] = "Ord Rej Reason: Not Executed Immediately (5)",
+  ["6"] = "Ord Rej Reason: Security Not Current Or Not Tradeable For This Member (6)",
+  ["7"] = "Ord Rej Reason: By Limits (7)",
+  ["8"] = "Ord Rej Reason: Cancelled By Market Status (8)",
+  ["9"] = "Ord Rej Reason: Invalid Data (9)",
+  ["B"] = "Ord Rej Reason: Price Filters (B)",
+  ["C"] = "Ord Rej Reason: Volume Filters (C)",
+  ["D"] = "Ord Rej Reason: Clearing Member Status (D)",
+  ["E"] = "Ord Rej Reason: Disconnection Of The Client Application (E)",
+  ["F"] = "Ord Rej Reason: Quote Parameters Missing (F)",
+  ["G"] = "Ord Rej Reason: By Permissions (G)",
+  ["H"] = "Ord Rej Reason: Quote Or Cl Ord Id Incorrect (H)",
+  ["I"] = "Ord Rej Reason: Delta Protection Number Of Contracts (I)",
+  ["J"] = "Ord Rej Reason: Delta Protection Maximum Absolute Delta (J)",
+  ["K"] = "Ord Rej Reason: Delta Protection Máximum Accumulate Delta (K)",
+  ["O"] = "Ord Rej Reason: By Volatility Auction Filters (O)",
+  ["Q"] = "Ord Rej Reason: Quote Cancelled By Substitution (Q)",
+  ["W"] = "Ord Rej Reason: Not Prices For Processing The Order (W)",
+  ["X"] = "Ord Rej Reason: By End Of Validity Of The Order (X)",
+  ["Z"] = "Ord Rej Reason: Other (Z)",
+  ["b"] = "Ord Rej Reason: By Minimum Trading Volume (b)",
+  ["c"] = "Ord Rej Reason: Price Not According To The Size Typology (c)",
+  ["d"] = "Ord Rej Reason: The Order Volumemust Be A Multiple Of The Trading Lot Size (d)",
+  ["e"] = "Ord Rej Reason: Order Rejected For Triggering Auction (e)",
+  ["g"] = "Ord Rej Reason: Incorrect Price Or Triggered Price (g)",
+  ["h"] = "Ord Rej Reason: Incorrect Volume (h)",
+  ["i"] = "Ord Rej Reason: Incorrect Date (i)",
+  ["k"] = "Ord Rej Reason: By Contract Status (k)",
+  ["l"] = "Ord Rej Reason: By Intraday Futures Trading Limit (l)",
+  ["m"] = "Ord Rej Reason: Kill Button (m)",
+  ["n"] = "Ord Rej Reason: By Hft Filter Limit Maximum Number Of Contracts Matched (n)",
+  ["o"] = "Ord Rej Reason: By Selfmatch Prevention (o)",
+  ["p"] = "Ord Rej Reason: Auction Price Order Cancelled At The End Of The Auction (p)",
+  ["x"] = "Ord Rej Reason: Invalid Ork Fields (x)",
+  ["L"] = "Ord Rej Reason: Priority Change Due To Change In Price (L)",
+  ["M"] = "Ord Rej Reason: Priority Change Due To Volume Increase (M)",
+  ["N"] = "Ord Rej Reason: Priority Change Due To New Client Account Capacity (N)",
+  ["P"] = "Ord Rej Reason: Priority Change Due To Both Price Change And Volume Increase (P)",
+  ["R"] = "Ord Rej Reason: Priority Change Due To Both Price And Client Account (R)",
+  ["S"] = "Ord Rej Reason: Priority Change Due To Both Volume Increase And Client Account (S)",
+  ["T"] = "Ord Rej Reason: Modification Without Priority Change (T)",
+  ["U"] = "Ord Rej Reason: Stop Order Triggered At The Close Order Activation (U)",
+  ["V"] = "Ord Rej Reason: Not A Member Of Pit (V)",
+  ["Y"] = "Ord Rej Reason: New Volume Shown (Y)",
+  ["q"] = "Ord Rej Reason: Not Executed Due To Exceded Volume Cap (q)",
+}
 
-  return "Ord Rej Reason: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.ord_rej_reason.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.ord_rej_reason.labels[value] or "Ord Rej Reason: Unknown("..value..")"
 end
 
 -- Dissect: Ord Rej Reason
@@ -5648,153 +5006,59 @@ bme_meff_orderentry_bmegate_v1_6.ord_rej_reason_2 = {}
 bme_meff_orderentry_bmegate_v1_6.ord_rej_reason_2.size = 1
 
 -- Display: Ord Rej Reason 2
-bme_meff_orderentry_bmegate_v1_6.ord_rej_reason_2.display = function(value)
-  if value == "1" then
-    return "Ord Rej Reason 2: By Trader (1)"
-  end
-  if value == "3" then
-    return "Ord Rej Reason 2: By Supervisor (3)"
-  end
-  if value == "4" then
-    return "Ord Rej Reason 2: Volume Modification Incorrect New Volume Total Volume Filled (4)"
-  end
-  if value == "5" then
-    return "Ord Rej Reason 2: Not Executed Immediately (5)"
-  end
-  if value == "6" then
-    return "Ord Rej Reason 2: Security Not Current Or Not Tradeable For This Member (6)"
-  end
-  if value == "7" then
-    return "Ord Rej Reason 2: By Limits (7)"
-  end
-  if value == "8" then
-    return "Ord Rej Reason 2: Cancelled By Market Status (8)"
-  end
-  if value == "9" then
-    return "Ord Rej Reason 2: Invalid Data (9)"
-  end
-  if value == "B" then
-    return "Ord Rej Reason 2: Price Filters (B)"
-  end
-  if value == "C" then
-    return "Ord Rej Reason 2: Volume Filters (C)"
-  end
-  if value == "D" then
-    return "Ord Rej Reason 2: Clearing Member Status (D)"
-  end
-  if value == "E" then
-    return "Ord Rej Reason 2: Disconnection Of The Client Application (E)"
-  end
-  if value == "F" then
-    return "Ord Rej Reason 2: Quote Parameters Missing (F)"
-  end
-  if value == "G" then
-    return "Ord Rej Reason 2: By Permissions (G)"
-  end
-  if value == "H" then
-    return "Ord Rej Reason 2: Quote Or Cl Ord Id Incorrect (H)"
-  end
-  if value == "I" then
-    return "Ord Rej Reason 2: Delta Protection Number Of Contracts (I)"
-  end
-  if value == "J" then
-    return "Ord Rej Reason 2: Delta Protection Maximum Absolute Delta (J)"
-  end
-  if value == "K" then
-    return "Ord Rej Reason 2: Delta Protection Máximum Accumulate Delta (K)"
-  end
-  if value == "O" then
-    return "Ord Rej Reason 2: By Volatility Auction Filters (O)"
-  end
-  if value == "Q" then
-    return "Ord Rej Reason 2: Quote Cancelled By Substitution (Q)"
-  end
-  if value == "W" then
-    return "Ord Rej Reason 2: Not Prices For Processing The Order (W)"
-  end
-  if value == "X" then
-    return "Ord Rej Reason 2: By End Of Validity Of The Order (X)"
-  end
-  if value == "Z" then
-    return "Ord Rej Reason 2: Other (Z)"
-  end
-  if value == "b" then
-    return "Ord Rej Reason 2: By Minimum Trading Volume (b)"
-  end
-  if value == "c" then
-    return "Ord Rej Reason 2: Price Not According To The Size Typology (c)"
-  end
-  if value == "d" then
-    return "Ord Rej Reason 2: The Order Volumemust Be A Multiple Of The Trading Lot Size (d)"
-  end
-  if value == "e" then
-    return "Ord Rej Reason 2: Order Rejected For Triggering Auction (e)"
-  end
-  if value == "g" then
-    return "Ord Rej Reason 2: Incorrect Price Or Triggered Price (g)"
-  end
-  if value == "h" then
-    return "Ord Rej Reason 2: Incorrect Volume (h)"
-  end
-  if value == "i" then
-    return "Ord Rej Reason 2: Incorrect Date (i)"
-  end
-  if value == "k" then
-    return "Ord Rej Reason 2: By Contract Status (k)"
-  end
-  if value == "l" then
-    return "Ord Rej Reason 2: By Intraday Futures Trading Limit (l)"
-  end
-  if value == "m" then
-    return "Ord Rej Reason 2: Kill Button (m)"
-  end
-  if value == "n" then
-    return "Ord Rej Reason 2: By Hft Filter Limit Maximum Number Of Contracts Matched (n)"
-  end
-  if value == "o" then
-    return "Ord Rej Reason 2: By Selfmatch Prevention (o)"
-  end
-  if value == "p" then
-    return "Ord Rej Reason 2: Auction Price Order Cancelled At The End Of The Auction (p)"
-  end
-  if value == "x" then
-    return "Ord Rej Reason 2: Invalid Ork Fields (x)"
-  end
-  if value == "L" then
-    return "Ord Rej Reason 2: Priority Change Due To Change In Price (L)"
-  end
-  if value == "M" then
-    return "Ord Rej Reason 2: Priority Change Due To Volume Increase (M)"
-  end
-  if value == "N" then
-    return "Ord Rej Reason 2: Priority Change Due To New Client Account Capacity (N)"
-  end
-  if value == "P" then
-    return "Ord Rej Reason 2: Priority Change Due To Both Price Change And Volume Increase (P)"
-  end
-  if value == "R" then
-    return "Ord Rej Reason 2: Priority Change Due To Both Price And Client Account (R)"
-  end
-  if value == "S" then
-    return "Ord Rej Reason 2: Priority Change Due To Both Volume Increase And Client Account (S)"
-  end
-  if value == "T" then
-    return "Ord Rej Reason 2: Modification Without Priority Change (T)"
-  end
-  if value == "U" then
-    return "Ord Rej Reason 2: Stop Order Triggered At The Close Order Activation (U)"
-  end
-  if value == "V" then
-    return "Ord Rej Reason 2: Not A Member Of Pit (V)"
-  end
-  if value == "Y" then
-    return "Ord Rej Reason 2: New Volume Shown (Y)"
-  end
-  if value == "q" then
-    return "Ord Rej Reason 2: Not Executed Due To Exceded Volume Cap (q)"
-  end
+bme_meff_orderentry_bmegate_v1_6.ord_rej_reason_2.labels = {
+  ["1"] = "Ord Rej Reason 2: By Trader (1)",
+  ["3"] = "Ord Rej Reason 2: By Supervisor (3)",
+  ["4"] = "Ord Rej Reason 2: Volume Modification Incorrect New Volume Total Volume Filled (4)",
+  ["5"] = "Ord Rej Reason 2: Not Executed Immediately (5)",
+  ["6"] = "Ord Rej Reason 2: Security Not Current Or Not Tradeable For This Member (6)",
+  ["7"] = "Ord Rej Reason 2: By Limits (7)",
+  ["8"] = "Ord Rej Reason 2: Cancelled By Market Status (8)",
+  ["9"] = "Ord Rej Reason 2: Invalid Data (9)",
+  ["B"] = "Ord Rej Reason 2: Price Filters (B)",
+  ["C"] = "Ord Rej Reason 2: Volume Filters (C)",
+  ["D"] = "Ord Rej Reason 2: Clearing Member Status (D)",
+  ["E"] = "Ord Rej Reason 2: Disconnection Of The Client Application (E)",
+  ["F"] = "Ord Rej Reason 2: Quote Parameters Missing (F)",
+  ["G"] = "Ord Rej Reason 2: By Permissions (G)",
+  ["H"] = "Ord Rej Reason 2: Quote Or Cl Ord Id Incorrect (H)",
+  ["I"] = "Ord Rej Reason 2: Delta Protection Number Of Contracts (I)",
+  ["J"] = "Ord Rej Reason 2: Delta Protection Maximum Absolute Delta (J)",
+  ["K"] = "Ord Rej Reason 2: Delta Protection Máximum Accumulate Delta (K)",
+  ["O"] = "Ord Rej Reason 2: By Volatility Auction Filters (O)",
+  ["Q"] = "Ord Rej Reason 2: Quote Cancelled By Substitution (Q)",
+  ["W"] = "Ord Rej Reason 2: Not Prices For Processing The Order (W)",
+  ["X"] = "Ord Rej Reason 2: By End Of Validity Of The Order (X)",
+  ["Z"] = "Ord Rej Reason 2: Other (Z)",
+  ["b"] = "Ord Rej Reason 2: By Minimum Trading Volume (b)",
+  ["c"] = "Ord Rej Reason 2: Price Not According To The Size Typology (c)",
+  ["d"] = "Ord Rej Reason 2: The Order Volumemust Be A Multiple Of The Trading Lot Size (d)",
+  ["e"] = "Ord Rej Reason 2: Order Rejected For Triggering Auction (e)",
+  ["g"] = "Ord Rej Reason 2: Incorrect Price Or Triggered Price (g)",
+  ["h"] = "Ord Rej Reason 2: Incorrect Volume (h)",
+  ["i"] = "Ord Rej Reason 2: Incorrect Date (i)",
+  ["k"] = "Ord Rej Reason 2: By Contract Status (k)",
+  ["l"] = "Ord Rej Reason 2: By Intraday Futures Trading Limit (l)",
+  ["m"] = "Ord Rej Reason 2: Kill Button (m)",
+  ["n"] = "Ord Rej Reason 2: By Hft Filter Limit Maximum Number Of Contracts Matched (n)",
+  ["o"] = "Ord Rej Reason 2: By Selfmatch Prevention (o)",
+  ["p"] = "Ord Rej Reason 2: Auction Price Order Cancelled At The End Of The Auction (p)",
+  ["x"] = "Ord Rej Reason 2: Invalid Ork Fields (x)",
+  ["L"] = "Ord Rej Reason 2: Priority Change Due To Change In Price (L)",
+  ["M"] = "Ord Rej Reason 2: Priority Change Due To Volume Increase (M)",
+  ["N"] = "Ord Rej Reason 2: Priority Change Due To New Client Account Capacity (N)",
+  ["P"] = "Ord Rej Reason 2: Priority Change Due To Both Price Change And Volume Increase (P)",
+  ["R"] = "Ord Rej Reason 2: Priority Change Due To Both Price And Client Account (R)",
+  ["S"] = "Ord Rej Reason 2: Priority Change Due To Both Volume Increase And Client Account (S)",
+  ["T"] = "Ord Rej Reason 2: Modification Without Priority Change (T)",
+  ["U"] = "Ord Rej Reason 2: Stop Order Triggered At The Close Order Activation (U)",
+  ["V"] = "Ord Rej Reason 2: Not A Member Of Pit (V)",
+  ["Y"] = "Ord Rej Reason 2: New Volume Shown (Y)",
+  ["q"] = "Ord Rej Reason 2: Not Executed Due To Exceded Volume Cap (q)",
+}
 
-  return "Ord Rej Reason 2: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.ord_rej_reason_2.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.ord_rej_reason_2.labels[value] or "Ord Rej Reason 2: Unknown("..value..")"
 end
 
 -- Dissect: Ord Rej Reason 2
@@ -5816,36 +5080,20 @@ bme_meff_orderentry_bmegate_v1_6.ord_status = {}
 bme_meff_orderentry_bmegate_v1_6.ord_status.size = 1
 
 -- Display: Ord Status
-bme_meff_orderentry_bmegate_v1_6.ord_status.display = function(value)
-  if value == "0" then
-    return "Ord Status: Pending No Volume Filled (0)"
-  end
-  if value == "8" then
-    return "Ord Status: Rejected (8)"
-  end
-  if value == "1" then
-    return "Ord Status: Parcially Filled (1)"
-  end
-  if value == "2" then
-    return "Ord Status: Totally Filled (2)"
-  end
-  if value == "4" then
-    return "Ord Status: Cancelled Not Filled (4)"
-  end
-  if value == "P" then
-    return "Ord Status: Cancelled Partially Filled (P)"
-  end
-  if value == "A" then
-    return "Ord Status: Nonworking Order Pending Validation (A)"
-  end
-  if value == "S" then
-    return "Ord Status: Nonworking Order Pending Activation (S)"
-  end
-  if value == "C" then
-    return "Ord Status: Expired (C)"
-  end
+bme_meff_orderentry_bmegate_v1_6.ord_status.labels = {
+  ["0"] = "Ord Status: Pending No Volume Filled (0)",
+  ["8"] = "Ord Status: Rejected (8)",
+  ["1"] = "Ord Status: Parcially Filled (1)",
+  ["2"] = "Ord Status: Totally Filled (2)",
+  ["4"] = "Ord Status: Cancelled Not Filled (4)",
+  ["P"] = "Ord Status: Cancelled Partially Filled (P)",
+  ["A"] = "Ord Status: Nonworking Order Pending Validation (A)",
+  ["S"] = "Ord Status: Nonworking Order Pending Activation (S)",
+  ["C"] = "Ord Status: Expired (C)",
+}
 
-  return "Ord Status: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.ord_status.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.ord_status.labels[value] or "Ord Status: Unknown("..value..")"
 end
 
 -- Dissect: Ord Status
@@ -5867,33 +5115,19 @@ bme_meff_orderentry_bmegate_v1_6.ord_status_2 = {}
 bme_meff_orderentry_bmegate_v1_6.ord_status_2.size = 1
 
 -- Display: Ord Status 2
-bme_meff_orderentry_bmegate_v1_6.ord_status_2.display = function(value)
-  if value == "0" then
-    return "Ord Status 2: Pending No Volume Filled (0)"
-  end
-  if value == "8" then
-    return "Ord Status 2: Rejected (8)"
-  end
-  if value == "1" then
-    return "Ord Status 2: Parcially Filled (1)"
-  end
-  if value == "2" then
-    return "Ord Status 2: Totally Filled (2)"
-  end
-  if value == "4" then
-    return "Ord Status 2: Cancelled Not Filled (4)"
-  end
-  if value == "P" then
-    return "Ord Status 2: Cancelled Partially Filled (P)"
-  end
-  if value == "A" then
-    return "Ord Status 2: Nonworking Order Pending Validation (A)"
-  end
-  if value == "S" then
-    return "Ord Status 2: Nonworking Order Pending Activation (S)"
-  end
+bme_meff_orderentry_bmegate_v1_6.ord_status_2.labels = {
+  ["0"] = "Ord Status 2: Pending No Volume Filled (0)",
+  ["8"] = "Ord Status 2: Rejected (8)",
+  ["1"] = "Ord Status 2: Parcially Filled (1)",
+  ["2"] = "Ord Status 2: Totally Filled (2)",
+  ["4"] = "Ord Status 2: Cancelled Not Filled (4)",
+  ["P"] = "Ord Status 2: Cancelled Partially Filled (P)",
+  ["A"] = "Ord Status 2: Nonworking Order Pending Validation (A)",
+  ["S"] = "Ord Status 2: Nonworking Order Pending Activation (S)",
+}
 
-  return "Ord Status 2: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.ord_status_2.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.ord_status_2.labels[value] or "Ord Status 2: Unknown("..value..")"
 end
 
 -- Dissect: Ord Status 2
@@ -5984,18 +5218,14 @@ bme_meff_orderentry_bmegate_v1_6.order_or_quote_cancel = {}
 bme_meff_orderentry_bmegate_v1_6.order_or_quote_cancel.size = 1
 
 -- Display: Order Or Quote Cancel
-bme_meff_orderentry_bmegate_v1_6.order_or_quote_cancel.display = function(value)
-  if value == "N" then
-    return "Order Or Quote Cancel: Orders Only (N)"
-  end
-  if value == "Q" then
-    return "Order Or Quote Cancel: Quotes Only (Q)"
-  end
-  if value == "T" then
-    return "Order Or Quote Cancel: Total Cancellation Orders And Quotes (T)"
-  end
+bme_meff_orderentry_bmegate_v1_6.order_or_quote_cancel.labels = {
+  ["N"] = "Order Or Quote Cancel: Orders Only (N)",
+  ["Q"] = "Order Or Quote Cancel: Quotes Only (Q)",
+  ["T"] = "Order Or Quote Cancel: Total Cancellation Orders And Quotes (T)",
+}
 
-  return "Order Or Quote Cancel: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.order_or_quote_cancel.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.order_or_quote_cancel.labels[value] or "Order Or Quote Cancel: Unknown("..value..")"
 end
 
 -- Dissect: Order Or Quote Cancel
@@ -6148,15 +5378,13 @@ bme_meff_orderentry_bmegate_v1_6.persistence = {}
 bme_meff_orderentry_bmegate_v1_6.persistence.size = 1
 
 -- Display: Persistence
-bme_meff_orderentry_bmegate_v1_6.persistence.display = function(value)
-  if value == "C" then
-    return "Persistence: Cancel On Disconnection (C)"
-  end
-  if value == "P" then
-    return "Persistence: Persist On Disconnection (P)"
-  end
+bme_meff_orderentry_bmegate_v1_6.persistence.labels = {
+  ["C"] = "Persistence: Cancel On Disconnection (C)",
+  ["P"] = "Persistence: Persist On Disconnection (P)",
+}
 
-  return "Persistence: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.persistence.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.persistence.labels[value] or "Persistence: Unknown("..value..")"
 end
 
 -- Dissect: Persistence
@@ -6178,15 +5406,13 @@ bme_meff_orderentry_bmegate_v1_6.persistence_2 = {}
 bme_meff_orderentry_bmegate_v1_6.persistence_2.size = 1
 
 -- Display: Persistence 2
-bme_meff_orderentry_bmegate_v1_6.persistence_2.display = function(value)
-  if value == "C" then
-    return "Persistence 2: Cancel On Disconnection (C)"
-  end
-  if value == "P" then
-    return "Persistence 2: Persist On Disconnection (P)"
-  end
+bme_meff_orderentry_bmegate_v1_6.persistence_2.labels = {
+  ["C"] = "Persistence 2: Cancel On Disconnection (C)",
+  ["P"] = "Persistence 2: Persist On Disconnection (P)",
+}
 
-  return "Persistence 2: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.persistence_2.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.persistence_2.labels[value] or "Persistence 2: Unknown("..value..")"
 end
 
 -- Dissect: Persistence 2
@@ -6416,24 +5642,16 @@ bme_meff_orderentry_bmegate_v1_6.protocol_version = {}
 bme_meff_orderentry_bmegate_v1_6.protocol_version.size = 6
 
 -- Display: Protocol Version
-bme_meff_orderentry_bmegate_v1_6.protocol_version.display = function(value)
-  if value == "BBP001" then
-    return "Protocol Version: BBP001 (BBP001)"
-  end
-  if value == "BP1.3D" then
-    return "Protocol Version: BP13D (BP1.3D)"
-  end
-  if value == "BP1.4D" then
-    return "Protocol Version: BP14D (BP1.4D)"
-  end
-  if value == "BP1.5D" then
-    return "Protocol Version: BP15D (BP1.5D)"
-  end
-  if value == "BP1.6D" then
-    return "Protocol Version: BP16D (BP1.6D)"
-  end
+bme_meff_orderentry_bmegate_v1_6.protocol_version.labels = {
+  ["BBP001"] = "Protocol Version: BBP001 (BBP001)",
+  ["BP1.3D"] = "Protocol Version: BP13D (BP1.3D)",
+  ["BP1.4D"] = "Protocol Version: BP14D (BP1.4D)",
+  ["BP1.5D"] = "Protocol Version: BP15D (BP1.5D)",
+  ["BP1.6D"] = "Protocol Version: BP16D (BP1.6D)",
+}
 
-  return "Protocol Version: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.protocol_version.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.protocol_version.labels[value] or "Protocol Version: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Version
@@ -6490,18 +5708,14 @@ bme_meff_orderentry_bmegate_v1_6.put_or_call = {}
 bme_meff_orderentry_bmegate_v1_6.put_or_call.size = 1
 
 -- Display: Put Or Call
-bme_meff_orderentry_bmegate_v1_6.put_or_call.display = function(value)
-  if value == "C" then
-    return "Put Or Call: Call (C)"
-  end
-  if value == "P" then
-    return "Put Or Call: Put (P)"
-  end
-  if value == "O" then
-    return "Put Or Call: Other (O)"
-  end
+bme_meff_orderentry_bmegate_v1_6.put_or_call.labels = {
+  ["C"] = "Put Or Call: Call (C)",
+  ["P"] = "Put Or Call: Put (P)",
+  ["O"] = "Put Or Call: Other (O)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.put_or_call.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -7271,108 +6485,44 @@ bme_meff_orderentry_bmegate_v1_6.security_sub_type = {}
 bme_meff_orderentry_bmegate_v1_6.security_sub_type.size = 12
 
 -- Display: Security Sub Type
-bme_meff_orderentry_bmegate_v1_6.security_sub_type.display = function(value)
-  if value == "BER" then
-    return "Security Sub Type: Put Spread (BER)"
-  end
-  if value == "BER +U" then
-    return "Security Sub Type: Put Spread Plus U (BER +U)"
-  end
-  if value == "BLT" then
-    return "Security Sub Type: Call Calendar (BLT)"
-  end
-  if value == "BLT +U" then
-    return "Security Sub Type: Call Calendar Plus U (BLT +U)"
-  end
-  if value == "BLT –U" then
-    return "Security Sub Type: Call Calendar Minus U (BLT –U)"
-  end
-  if value == "BRT" then
-    return "Security Sub Type: Put Calendar (BRT)"
-  end
-  if value == "BRT +U" then
-    return "Security Sub Type: Put Calendar Plus U (BRT +U)"
-  end
-  if value == "BRT –U" then
-    return "Security Sub Type: Put Calendar Minus U (BRT –U)"
-  end
-  if value == "BUL" then
-    return "Security Sub Type: Call Spread (BUL)"
-  end
-  if value == "BUL –U" then
-    return "Security Sub Type: Call Spread Minus U (BUL –U)"
-  end
-  if value == "CALL-U" then
-    return "Security Sub Type: Call Minus U (CALL-U)"
-  end
-  if value == "FUT –U" then
-    return "Security Sub Type: Future Minus U (FUT –U)"
-  end
-  if value == "PUT +U" then
-    return "Security Sub Type: Put Plus U (PUT +U)"
-  end
-  if value == "RBER" then
-    return "Security Sub Type: Ratio 2x1 Put Spread (RBER)"
-  end
-  if value == "RBER+U" then
-    return "Security Sub Type: Ratio 2x1 Put Spread Plus U (RBER+U)"
-  end
-  if value == "RBER-U" then
-    return "Security Sub Type: Ratio 2x1 Put Spread Minus U (RBER-U)"
-  end
-  if value == "RBUL" then
-    return "Security Sub Type: Ratio 2x1 Call Spread (RBUL)"
-  end
-  if value == "RBUL+U" then
-    return "Security Sub Type: Ratio 2x1 Call Spread Plus U (RBUL+U)"
-  end
-  if value == "RBUL-U" then
-    return "Security Sub Type: Ratio 2x1 Call Spread Minus U (RBUL-U)"
-  end
-  if value == "RSK" then
-    return "Security Sub Type: Risky (RSK)"
-  end
-  if value == "RSK –U" then
-    return "Security Sub Type: Risky Minus U (RSK –U)"
-  end
-  if value == "STD" then
-    return "Security Sub Type: Straddle (STD)"
-  end
-  if value == "STD +U" then
-    return "Security Sub Type: Straddle Plus U (STD +U)"
-  end
-  if value == "STD –U" then
-    return "Security Sub Type: Straddle Minus U (STD –U)"
-  end
-  if value == "STG" then
-    return "Security Sub Type: Strangle (STG)"
-  end
-  if value == "STG +U" then
-    return "Security Sub Type: Strangle Plus U (STG +U)"
-  end
-  if value == "STG -U" then
-    return "Security Sub Type: Strangle Minus U (STG -U)"
-  end
-  if value == "SYNT" then
-    return "Security Sub Type: Synthetic (SYNT)"
-  end
-  if value == "SYNT-U" then
-    return "Security Sub Type: Synthetic Minus U (SYNT-U)"
-  end
-  if value == "OPEN" then
-    return "Security Sub Type: Open Strategy (OPEN)"
-  end
-  if value == "OPEN+U" then
-    return "Security Sub Type: Open Strategy Plus U (OPEN+U)"
-  end
-  if value == "OPEN-U" then
-    return "Security Sub Type: Open Strategy Minus U (OPEN-U)"
-  end
-  if value == "ROLL" then
-    return "Security Sub Type: Time Spread (ROLL)"
-  end
+bme_meff_orderentry_bmegate_v1_6.security_sub_type.labels = {
+  ["BER"] = "Security Sub Type: Put Spread (BER)",
+  ["BER +U"] = "Security Sub Type: Put Spread Plus U (BER +U)",
+  ["BLT"] = "Security Sub Type: Call Calendar (BLT)",
+  ["BLT +U"] = "Security Sub Type: Call Calendar Plus U (BLT +U)",
+  ["BLT –U"] = "Security Sub Type: Call Calendar Minus U (BLT –U)",
+  ["BRT"] = "Security Sub Type: Put Calendar (BRT)",
+  ["BRT +U"] = "Security Sub Type: Put Calendar Plus U (BRT +U)",
+  ["BRT –U"] = "Security Sub Type: Put Calendar Minus U (BRT –U)",
+  ["BUL"] = "Security Sub Type: Call Spread (BUL)",
+  ["BUL –U"] = "Security Sub Type: Call Spread Minus U (BUL –U)",
+  ["CALL-U"] = "Security Sub Type: Call Minus U (CALL-U)",
+  ["FUT –U"] = "Security Sub Type: Future Minus U (FUT –U)",
+  ["PUT +U"] = "Security Sub Type: Put Plus U (PUT +U)",
+  ["RBER"] = "Security Sub Type: Ratio 2x1 Put Spread (RBER)",
+  ["RBER+U"] = "Security Sub Type: Ratio 2x1 Put Spread Plus U (RBER+U)",
+  ["RBER-U"] = "Security Sub Type: Ratio 2x1 Put Spread Minus U (RBER-U)",
+  ["RBUL"] = "Security Sub Type: Ratio 2x1 Call Spread (RBUL)",
+  ["RBUL+U"] = "Security Sub Type: Ratio 2x1 Call Spread Plus U (RBUL+U)",
+  ["RBUL-U"] = "Security Sub Type: Ratio 2x1 Call Spread Minus U (RBUL-U)",
+  ["RSK"] = "Security Sub Type: Risky (RSK)",
+  ["RSK –U"] = "Security Sub Type: Risky Minus U (RSK –U)",
+  ["STD"] = "Security Sub Type: Straddle (STD)",
+  ["STD +U"] = "Security Sub Type: Straddle Plus U (STD +U)",
+  ["STD –U"] = "Security Sub Type: Straddle Minus U (STD –U)",
+  ["STG"] = "Security Sub Type: Strangle (STG)",
+  ["STG +U"] = "Security Sub Type: Strangle Plus U (STG +U)",
+  ["STG -U"] = "Security Sub Type: Strangle Minus U (STG -U)",
+  ["SYNT"] = "Security Sub Type: Synthetic (SYNT)",
+  ["SYNT-U"] = "Security Sub Type: Synthetic Minus U (SYNT-U)",
+  ["OPEN"] = "Security Sub Type: Open Strategy (OPEN)",
+  ["OPEN+U"] = "Security Sub Type: Open Strategy Plus U (OPEN+U)",
+  ["OPEN-U"] = "Security Sub Type: Open Strategy Minus U (OPEN-U)",
+  ["ROLL"] = "Security Sub Type: Time Spread (ROLL)",
+}
 
-  return "Security Sub Type: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.security_sub_type.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.security_sub_type.labels[value] or "Security Sub Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Sub Type
@@ -7405,33 +6555,19 @@ bme_meff_orderentry_bmegate_v1_6.security_trading_status = {}
 bme_meff_orderentry_bmegate_v1_6.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-bme_meff_orderentry_bmegate_v1_6.security_trading_status.display = function(value)
-  if value == 17 then
-    return "Security Trading Status: Ready To Trade (17)"
-  end
-  if value == 18 then
-    return "Security Trading Status: Not Available For Trading (18)"
-  end
-  if value == 19 then
-    return "Security Trading Status: Not Traded On This Segment (19)"
-  end
-  if value == 20 then
-    return "Security Trading Status: Unknown Or Invalid (20)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Pre Open (21)"
-  end
-  if value == 26 then
-    return "Security Trading Status: Postclose Ready To Trade In Tal (26)"
-  end
-  if value == 23 then
-    return "Security Trading Status: Fast Market (23)"
-  end
-  if value == 100 then
-    return "Security Trading Status: Extraordinary Market Conditions (100)"
-  end
+bme_meff_orderentry_bmegate_v1_6.security_trading_status.labels = {
+  [17] = "Security Trading Status: Ready To Trade (17)",
+  [18] = "Security Trading Status: Not Available For Trading (18)",
+  [19] = "Security Trading Status: Not Traded On This Segment (19)",
+  [20] = "Security Trading Status: Unknown Or Invalid (20)",
+  [21] = "Security Trading Status: Pre Open (21)",
+  [26] = "Security Trading Status: Postclose Ready To Trade In Tal (26)",
+  [23] = "Security Trading Status: Fast Market (23)",
+  [100] = "Security Trading Status: Extraordinary Market Conditions (100)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.security_trading_status.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -7453,30 +6589,18 @@ bme_meff_orderentry_bmegate_v1_6.security_type = {}
 bme_meff_orderentry_bmegate_v1_6.security_type.size = 2
 
 -- Display: Security Type
-bme_meff_orderentry_bmegate_v1_6.security_type.display = function(value)
-  if value == "E" then
-    return "Security Type: Strategy (E)"
-  end
-  if value == "F" then
-    return "Security Type: Future (F)"
-  end
-  if value == "O" then
-    return "Security Type: Option (O)"
-  end
-  if value == "R" then
-    return "Security Type: Time Spread (R)"
-  end
-  if value == "W" then
-    return "Security Type: Swap (W)"
-  end
-  if value == "X" then
-    return "Security Type: Other (X)"
-  end
-  if value == "G" then
-    return "Security Type: X Rolling (G)"
-  end
+bme_meff_orderentry_bmegate_v1_6.security_type.labels = {
+  ["E"] = "Security Type: Strategy (E)",
+  ["F"] = "Security Type: Future (F)",
+  ["O"] = "Security Type: Option (O)",
+  ["R"] = "Security Type: Time Spread (R)",
+  ["W"] = "Security Type: Swap (W)",
+  ["X"] = "Security Type: Other (X)",
+  ["G"] = "Security Type: X Rolling (G)",
+}
 
-  return "Security Type: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.security_type.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -7735,24 +6859,16 @@ bme_meff_orderentry_bmegate_v1_6.session_reject_reason = {}
 bme_meff_orderentry_bmegate_v1_6.session_reject_reason.size = 1
 
 -- Display: Session Reject Reason
-bme_meff_orderentry_bmegate_v1_6.session_reject_reason.display = function(value)
-  if value == 11 then
-    return "Session Reject Reason: Invalid Msg Type (11)"
-  end
-  if value == 30 then
-    return "Session Reject Reason: Wrong Message Size (30)"
-  end
-  if value == 31 then
-    return "Session Reject Reason: Throttle Limit Exceeded (31)"
-  end
-  if value == 33 then
-    return "Session Reject Reason: Invalid Client Session Status (33)"
-  end
-  if value == 99 then
-    return "Session Reject Reason: Other (99)"
-  end
+bme_meff_orderentry_bmegate_v1_6.session_reject_reason.labels = {
+  [11] = "Session Reject Reason: Invalid Msg Type (11)",
+  [30] = "Session Reject Reason: Wrong Message Size (30)",
+  [31] = "Session Reject Reason: Throttle Limit Exceeded (31)",
+  [33] = "Session Reject Reason: Invalid Client Session Status (33)",
+  [99] = "Session Reject Reason: Other (99)",
+}
 
-  return "Session Reject Reason: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.session_reject_reason.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.session_reject_reason.labels[value] or "Session Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Reject Reason
@@ -7774,15 +6890,13 @@ bme_meff_orderentry_bmegate_v1_6.settl_method = {}
 bme_meff_orderentry_bmegate_v1_6.settl_method.size = 1
 
 -- Display: Settl Method
-bme_meff_orderentry_bmegate_v1_6.settl_method.display = function(value)
-  if value == "C" then
-    return "Settl Method: Cash (C)"
-  end
-  if value == "P" then
-    return "Settl Method: Physical (P)"
-  end
+bme_meff_orderentry_bmegate_v1_6.settl_method.labels = {
+  ["C"] = "Settl Method: Cash (C)",
+  ["P"] = "Settl Method: Physical (P)",
+}
 
-  return "Settl Method: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.settl_method.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.settl_method.labels[value] or "Settl Method: Unknown("..value..")"
 end
 
 -- Dissect: Settl Method
@@ -8323,15 +7437,13 @@ bme_meff_orderentry_bmegate_v1_6.test_production_ind = {}
 bme_meff_orderentry_bmegate_v1_6.test_production_ind.size = 1
 
 -- Display: Test Production Ind
-bme_meff_orderentry_bmegate_v1_6.test_production_ind.display = function(value)
-  if value == "T" then
-    return "Test Production Ind: Test (T)"
-  end
-  if value == "P" then
-    return "Test Production Ind: Production (P)"
-  end
+bme_meff_orderentry_bmegate_v1_6.test_production_ind.labels = {
+  ["T"] = "Test Production Ind: Test (T)",
+  ["P"] = "Test Production Ind: Production (P)",
+}
 
-  return "Test Production Ind: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.test_production_ind.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.test_production_ind.labels[value] or "Test Production Ind: Unknown("..value..")"
 end
 
 -- Dissect: Test Production Ind
@@ -8431,21 +7543,15 @@ bme_meff_orderentry_bmegate_v1_6.time_in_force = {}
 bme_meff_orderentry_bmegate_v1_6.time_in_force.size = 1
 
 -- Display: Time In Force
-bme_meff_orderentry_bmegate_v1_6.time_in_force.display = function(value)
-  if value == "0" then
-    return "Time In Force: Day (0)"
-  end
-  if value == "2" then
-    return "Time In Force: At Opening (2)"
-  end
-  if value == "3" then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-  if value == "4" then
-    return "Time In Force: Fill Or Kill (4)"
-  end
+bme_meff_orderentry_bmegate_v1_6.time_in_force.labels = {
+  ["0"] = "Time In Force: Day (0)",
+  ["2"] = "Time In Force: At Opening (2)",
+  ["3"] = "Time In Force: Immediate Or Cancel (3)",
+  ["4"] = "Time In Force: Fill Or Kill (4)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.time_in_force.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -8467,27 +7573,17 @@ bme_meff_orderentry_bmegate_v1_6.trad_ses_status = {}
 bme_meff_orderentry_bmegate_v1_6.trad_ses_status.size = 1
 
 -- Display: Trad Ses Status
-bme_meff_orderentry_bmegate_v1_6.trad_ses_status.display = function(value)
-  if value == 1 then
-    return "Trad Ses Status: Halted (1)"
-  end
-  if value == 2 then
-    return "Trad Ses Status: Open (2)"
-  end
-  if value == 3 then
-    return "Trad Ses Status: Closed (3)"
-  end
-  if value == 4 then
-    return "Trad Ses Status: Pre Open Not Started (4)"
-  end
-  if value == 5 then
-    return "Trad Ses Status: Pre Close (5)"
-  end
-  if value == 6 then
-    return "Trad Ses Status: Request Rejected (6)"
-  end
+bme_meff_orderentry_bmegate_v1_6.trad_ses_status.labels = {
+  [1] = "Trad Ses Status: Halted (1)",
+  [2] = "Trad Ses Status: Open (2)",
+  [3] = "Trad Ses Status: Closed (3)",
+  [4] = "Trad Ses Status: Pre Open Not Started (4)",
+  [5] = "Trad Ses Status: Pre Close (5)",
+  [6] = "Trad Ses Status: Request Rejected (6)",
+}
 
-  return "Trad Ses Status: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.trad_ses_status.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.trad_ses_status.labels[value] or "Trad Ses Status: Unknown("..value..")"
 end
 
 -- Dissect: Trad Ses Status
@@ -8586,45 +7682,23 @@ bme_meff_orderentry_bmegate_v1_6.trade_type = {}
 bme_meff_orderentry_bmegate_v1_6.trade_type.size = 1
 
 -- Display: Trade Type
-bme_meff_orderentry_bmegate_v1_6.trade_type.display = function(value)
-  if value == "H" then
-    return "Trade Type: Cross Trade During Trading Hours (H)"
-  end
-  if value == "L" then
-    return "Trade Type: Delta (L)"
-  end
-  if value == "M" then
-    return "Trade Type: Market (M)"
-  end
-  if value == "R" then
-    return "Trade Type: Strategy Trades Time Spread Futures And Strategies (R)"
-  end
-  if value == "S" then
-    return "Trade Type: Components Of Trade R (S)"
-  end
-  if value == "W" then
-    return "Trade Type: Trade Amendment (W)"
-  end
-  if value == "X" then
-    return "Trade Type: Countertrade (X)"
-  end
-  if value == "3" then
-    return "Trade Type: Rfq (3)"
-  end
-  if value == "4" then
-    return "Trade Type: Rfq X Rolling (4)"
-  end
-  if value == "6" then
-    return "Trade Type: Rfq X Rolling During Auction (6)"
-  end
-  if value == "8" then
-    return "Trade Type: Rfq X Rolling Amendment (8)"
-  end
-  if value == "9" then
-    return "Trade Type: Rfq X Rolling During Auction Amendment (9)"
-  end
+bme_meff_orderentry_bmegate_v1_6.trade_type.labels = {
+  ["H"] = "Trade Type: Cross Trade During Trading Hours (H)",
+  ["L"] = "Trade Type: Delta (L)",
+  ["M"] = "Trade Type: Market (M)",
+  ["R"] = "Trade Type: Strategy Trades Time Spread Futures And Strategies (R)",
+  ["S"] = "Trade Type: Components Of Trade R (S)",
+  ["W"] = "Trade Type: Trade Amendment (W)",
+  ["X"] = "Trade Type: Countertrade (X)",
+  ["3"] = "Trade Type: Rfq (3)",
+  ["4"] = "Trade Type: Rfq X Rolling (4)",
+  ["6"] = "Trade Type: Rfq X Rolling During Auction (6)",
+  ["8"] = "Trade Type: Rfq X Rolling Amendment (8)",
+  ["9"] = "Trade Type: Rfq X Rolling During Auction Amendment (9)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.trade_type.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -8757,42 +7831,22 @@ bme_meff_orderentry_bmegate_v1_6.trading_session_id = {}
 bme_meff_orderentry_bmegate_v1_6.trading_session_id.size = 1
 
 -- Display: Trading Session Id
-bme_meff_orderentry_bmegate_v1_6.trading_session_id.display = function(value)
-  if value == 100 then
-    return "Trading Session Id: Continuous Trading (100)"
-  end
-  if value == 102 then
-    return "Trading Session Id: Block Trades (102)"
-  end
-  if value == 105 then
-    return "Trading Session Id: Normal Hours (105)"
-  end
-  if value == 106 then
-    return "Trading Session Id: Delta And Basis Trade (106)"
-  end
-  if value == 107 then
-    return "Trading Session Id: Bono Hours (107)"
-  end
-  if value == 108 then
-    return "Trading Session Id: Cross Trades Normal Hours (108)"
-  end
-  if value == 109 then
-    return "Trading Session Id: Cross Trades Bono Hours (109)"
-  end
-  if value == 115 then
-    return "Trading Session Id: Rfq Ibex Futures Hours (115)"
-  end
-  if value == 116 then
-    return "Trading Session Id: Rfq Normal Hours (116)"
-  end
-  if value == 117 then
-    return "Trading Session Id: Rfq Bono Hours (117)"
-  end
-  if value == 118 then
-    return "Trading Session Id: X Rolling On Stocks (118)"
-  end
+bme_meff_orderentry_bmegate_v1_6.trading_session_id.labels = {
+  [100] = "Trading Session Id: Continuous Trading (100)",
+  [102] = "Trading Session Id: Block Trades (102)",
+  [105] = "Trading Session Id: Normal Hours (105)",
+  [106] = "Trading Session Id: Delta And Basis Trade (106)",
+  [107] = "Trading Session Id: Bono Hours (107)",
+  [108] = "Trading Session Id: Cross Trades Normal Hours (108)",
+  [109] = "Trading Session Id: Cross Trades Bono Hours (109)",
+  [115] = "Trading Session Id: Rfq Ibex Futures Hours (115)",
+  [116] = "Trading Session Id: Rfq Normal Hours (116)",
+  [117] = "Trading Session Id: Rfq Bono Hours (117)",
+  [118] = "Trading Session Id: X Rolling On Stocks (118)",
+}
 
-  return "Trading Session Id: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.trading_session_id.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.trading_session_id.labels[value] or "Trading Session Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Id
@@ -8814,39 +7868,21 @@ bme_meff_orderentry_bmegate_v1_6.trading_session_sub_id = {}
 bme_meff_orderentry_bmegate_v1_6.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
-bme_meff_orderentry_bmegate_v1_6.trading_session_sub_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Sub Id: Pre Trading Not Started (1)"
-  end
-  if value == 2 then
-    return "Trading Session Sub Id: Scheduled Opening Auction (2)"
-  end
-  if value == 3 then
-    return "Trading Session Sub Id: Continuous Trading (3)"
-  end
-  if value == 4 then
-    return "Trading Session Sub Id: Scheduled Closing Auction (4)"
-  end
-  if value == 5 then
-    return "Trading Session Sub Id: Post Trading (5)"
-  end
-  if value == 6 then
-    return "Trading Session Sub Id: Scheduled Intraday Auction (6)"
-  end
-  if value == 9 then
-    return "Trading Session Sub Id: Unscheduled Intraday Auction (9)"
-  end
-  if value == 202 then
-    return "Trading Session Sub Id: Not Started (202)"
-  end
-  if value == 203 then
-    return "Trading Session Sub Id: Open (203)"
-  end
-  if value == 204 then
-    return "Trading Session Sub Id: Closed (204)"
-  end
+bme_meff_orderentry_bmegate_v1_6.trading_session_sub_id.labels = {
+  [1] = "Trading Session Sub Id: Pre Trading Not Started (1)",
+  [2] = "Trading Session Sub Id: Scheduled Opening Auction (2)",
+  [3] = "Trading Session Sub Id: Continuous Trading (3)",
+  [4] = "Trading Session Sub Id: Scheduled Closing Auction (4)",
+  [5] = "Trading Session Sub Id: Post Trading (5)",
+  [6] = "Trading Session Sub Id: Scheduled Intraday Auction (6)",
+  [9] = "Trading Session Sub Id: Unscheduled Intraday Auction (9)",
+  [202] = "Trading Session Sub Id: Not Started (202)",
+  [203] = "Trading Session Sub Id: Open (203)",
+  [204] = "Trading Session Sub Id: Closed (204)",
+}
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.trading_session_sub_id.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.trading_session_sub_id.labels[value] or "Trading Session Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Sub Id
@@ -9273,21 +8309,15 @@ bme_meff_orderentry_bmegate_v1_6.x_rolling_closing_type = {}
 bme_meff_orderentry_bmegate_v1_6.x_rolling_closing_type.size = 1
 
 -- Display: X Rolling Closing Type
-bme_meff_orderentry_bmegate_v1_6.x_rolling_closing_type.display = function(value)
-  if value == "M" then
-    return "X Rolling Closing Type: Market (M)"
-  end
-  if value == "1" then
-    return "X Rolling Closing Type: By Buyer (1)"
-  end
-  if value == "2" then
-    return "X Rolling Closing Type: By Seller (2)"
-  end
-  if value == "A" then
-    return "X Rolling Closing Type: By Both (A)"
-  end
+bme_meff_orderentry_bmegate_v1_6.x_rolling_closing_type.labels = {
+  ["M"] = "X Rolling Closing Type: Market (M)",
+  ["1"] = "X Rolling Closing Type: By Buyer (1)",
+  ["2"] = "X Rolling Closing Type: By Seller (2)",
+  ["A"] = "X Rolling Closing Type: By Both (A)",
+}
 
-  return "X Rolling Closing Type: Unknown("..value..")"
+bme_meff_orderentry_bmegate_v1_6.x_rolling_closing_type.display = function(value)
+  return bme_meff_orderentry_bmegate_v1_6.x_rolling_closing_type.labels[value] or "X Rolling Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: X Rolling Closing Type
@@ -14178,178 +13208,56 @@ end
 bme_meff_orderentry_bmegate_v1_6.payload = {}
 
 -- Dissect: Payload
+bme_meff_orderentry_bmegate_v1_6.payload.dispatch = {
+  [0x08] = bme_meff_orderentry_bmegate_v1_6.logon_response_message.dissect,
+  [0x0B] = bme_meff_orderentry_bmegate_v1_6.logout_response_message.dissect,
+  [0x30] = bme_meff_orderentry_bmegate_v1_6.heartbeat_message.dissect,
+  [0x0A] = bme_meff_orderentry_bmegate_v1_6.network_status_message.dissect,
+  [0x41] = bme_meff_orderentry_bmegate_v1_6.logon_message.dissect,
+  [0x35] = bme_meff_orderentry_bmegate_v1_6.logout_message.dissect,
+  [0x0D] = bme_meff_orderentry_bmegate_v1_6.reject_message.dissect,
+  [0x68] = bme_meff_orderentry_bmegate_v1_6.trading_session_status_message.dissect,
+  [0x42] = bme_meff_orderentry_bmegate_v1_6.news_message.dissect,
+  [0x78] = bme_meff_orderentry_bmegate_v1_6.security_list_cancellation_report_message.dissect,
+  [0x84] = bme_meff_orderentry_bmegate_v1_6.statistics_message.dissect,
+  [0x79] = bme_meff_orderentry_bmegate_v1_6.security_list_message.dissect,
+  [0x80] = bme_meff_orderentry_bmegate_v1_6.security_list_update_report_message.dissect,
+  [0x66] = bme_meff_orderentry_bmegate_v1_6.security_status_message.dissect,
+  [0x89] = bme_meff_orderentry_bmegate_v1_6.family_status_message.dissect,
+  [0x01] = bme_meff_orderentry_bmegate_v1_6.order_cancellation_market_member_message.dissect,
+  [0x05] = bme_meff_orderentry_bmegate_v1_6.quote_cancellation_market_member_message.dissect,
+  [0x36] = bme_meff_orderentry_bmegate_v1_6.indication_of_interest_message.dissect,
+  [0x6F] = bme_meff_orderentry_bmegate_v1_6.order_and_quote_client_data_message.dissect,
+  [0x86] = bme_meff_orderentry_bmegate_v1_6.delta_protection_parameters_message.dissect,
+  [0x44] = bme_meff_orderentry_bmegate_v1_6.simple_new_order_message.dissect,
+  [0x45] = bme_meff_orderentry_bmegate_v1_6.simple_new_order_with_client_data_message.dissect,
+  [0x47] = bme_meff_orderentry_bmegate_v1_6.simple_order_modification_message.dissect,
+  [0x48] = bme_meff_orderentry_bmegate_v1_6.simple_order_modification_with_client_data_message.dissect,
+  [0x46] = bme_meff_orderentry_bmegate_v1_6.order_cancellation_request_message.dissect,
+  [0x53] = bme_meff_orderentry_bmegate_v1_6.new_quote_message.dissect,
+  [0x61] = bme_meff_orderentry_bmegate_v1_6.quote_modification_request_message.dissect,
+  [0x5A] = bme_meff_orderentry_bmegate_v1_6.quote_cancellation_request_message.dissect,
+  [0x71] = bme_meff_orderentry_bmegate_v1_6.mass_orderquote_cancellation_message.dissect,
+  [0x87] = bme_meff_orderentry_bmegate_v1_6.order_and_quote_client_data_parameters_ack_nack_message.dissect,
+  [0x88] = bme_meff_orderentry_bmegate_v1_6.delta_protection_parameters_ack_nack_message.dissect,
+  [0x02] = bme_meff_orderentry_bmegate_v1_6.simple_order_status_message.dissect,
+  [0x06] = bme_meff_orderentry_bmegate_v1_6.quote_status_message.dissect,
+  [0x39] = bme_meff_orderentry_bmegate_v1_6.order_cancel_reject_message.dissect,
+  [0x72] = bme_meff_orderentry_bmegate_v1_6.mass_orderquote_cancellation_completion_message.dissect,
+  [0x73] = bme_meff_orderentry_bmegate_v1_6.mass_orderquote_cancellation_reject_message.dissect,
+  [0x6A] = bme_meff_orderentry_bmegate_v1_6.business_message_reject_message.dissect,
+  [0x17] = bme_meff_orderentry_bmegate_v1_6.execution_private_information_2_legs_message.dissect,
+  [0x1A] = bme_meff_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg_buy_private_information_message.dissect,
+  [0x1C] = bme_meff_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg_sell_private_information_message.dissect,
+  [0x1E] = bme_meff_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_2_legs_private_information_message.dissect,
+  [0x12] = bme_meff_orderentry_bmegate_v1_6.execution_private_information_1_leg_buy_order_entry_message.dissect,
+  [0x14] = bme_meff_orderentry_bmegate_v1_6.execution_private_information_1_leg_sell_order_entry_message.dissect,
+}
+
 bme_meff_orderentry_bmegate_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon Response Message
-  if message_type == 0x08 then
-    return bme_meff_orderentry_bmegate_v1_6.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if message_type == 0x0B then
-    return bme_meff_orderentry_bmegate_v1_6.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == 0x30 then
-    return bme_meff_orderentry_bmegate_v1_6.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Network Status Message
-  if message_type == 0x0A then
-    return bme_meff_orderentry_bmegate_v1_6.network_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Message
-  if message_type == 0x41 then
-    return bme_meff_orderentry_bmegate_v1_6.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if message_type == 0x35 then
-    return bme_meff_orderentry_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if message_type == 0x0D then
-    return bme_meff_orderentry_bmegate_v1_6.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if message_type == 0x68 then
-    return bme_meff_orderentry_bmegate_v1_6.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Message
-  if message_type == 0x42 then
-    return bme_meff_orderentry_bmegate_v1_6.news_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Cancellation Report Message
-  if message_type == 0x78 then
-    return bme_meff_orderentry_bmegate_v1_6.security_list_cancellation_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if message_type == 0x84 then
-    return bme_meff_orderentry_bmegate_v1_6.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Message
-  if message_type == 0x79 then
-    return bme_meff_orderentry_bmegate_v1_6.security_list_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Update Report Message
-  if message_type == 0x80 then
-    return bme_meff_orderentry_bmegate_v1_6.security_list_update_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 0x66 then
-    return bme_meff_orderentry_bmegate_v1_6.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Family Status Message
-  if message_type == 0x89 then
-    return bme_meff_orderentry_bmegate_v1_6.family_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Market Member Message
-  if message_type == 0x01 then
-    return bme_meff_orderentry_bmegate_v1_6.order_cancellation_market_member_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancellation Market Member Message
-  if message_type == 0x05 then
-    return bme_meff_orderentry_bmegate_v1_6.quote_cancellation_market_member_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indication Of Interest Message
-  if message_type == 0x36 then
-    return bme_meff_orderentry_bmegate_v1_6.indication_of_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order And Quote Client Data Message
-  if message_type == 0x6F then
-    return bme_meff_orderentry_bmegate_v1_6.order_and_quote_client_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delta Protection Parameters Message
-  if message_type == 0x86 then
-    return bme_meff_orderentry_bmegate_v1_6.delta_protection_parameters_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple New Order Message
-  if message_type == 0x44 then
-    return bme_meff_orderentry_bmegate_v1_6.simple_new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple New Order With Client Data Message
-  if message_type == 0x45 then
-    return bme_meff_orderentry_bmegate_v1_6.simple_new_order_with_client_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Order Modification Message
-  if message_type == 0x47 then
-    return bme_meff_orderentry_bmegate_v1_6.simple_order_modification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Order Modification With Client Data Message
-  if message_type == 0x48 then
-    return bme_meff_orderentry_bmegate_v1_6.simple_order_modification_with_client_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Request Message
-  if message_type == 0x46 then
-    return bme_meff_orderentry_bmegate_v1_6.order_cancellation_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Quote Message
-  if message_type == 0x53 then
-    return bme_meff_orderentry_bmegate_v1_6.new_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Modification Request Message
-  if message_type == 0x61 then
-    return bme_meff_orderentry_bmegate_v1_6.quote_modification_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancellation Request Message
-  if message_type == 0x5A then
-    return bme_meff_orderentry_bmegate_v1_6.quote_cancellation_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Orderquote Cancellation Message
-  if message_type == 0x71 then
-    return bme_meff_orderentry_bmegate_v1_6.mass_orderquote_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order And Quote Client Data Parameters Ack Nack Message
-  if message_type == 0x87 then
-    return bme_meff_orderentry_bmegate_v1_6.order_and_quote_client_data_parameters_ack_nack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delta Protection Parameters Ack Nack Message
-  if message_type == 0x88 then
-    return bme_meff_orderentry_bmegate_v1_6.delta_protection_parameters_ack_nack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Order Status Message
-  if message_type == 0x02 then
-    return bme_meff_orderentry_bmegate_v1_6.simple_order_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Status Message
-  if message_type == 0x06 then
-    return bme_meff_orderentry_bmegate_v1_6.quote_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject Message
-  if message_type == 0x39 then
-    return bme_meff_orderentry_bmegate_v1_6.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Orderquote Cancellation Completion Message
-  if message_type == 0x72 then
-    return bme_meff_orderentry_bmegate_v1_6.mass_orderquote_cancellation_completion_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Orderquote Cancellation Reject Message
-  if message_type == 0x73 then
-    return bme_meff_orderentry_bmegate_v1_6.mass_orderquote_cancellation_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Business Message Reject Message
-  if message_type == 0x6A then
-    return bme_meff_orderentry_bmegate_v1_6.business_message_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Private Information 2 Legs Message
-  if message_type == 0x17 then
-    return bme_meff_orderentry_bmegate_v1_6.execution_private_information_2_legs_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message
-  if message_type == 0x1A then
-    return bme_meff_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg_buy_private_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message
-  if message_type == 0x1C then
-    return bme_meff_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_1_leg_sell_private_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Trade Amendment Or Cancellation 2 Legs Private Information Message
-  if message_type == 0x1E then
-    return bme_meff_orderentry_bmegate_v1_6.trade_trade_amendment_or_cancellation_2_legs_private_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Private Information 1 Leg Buy Order Entry Message
-  if message_type == 0x12 then
-    return bme_meff_orderentry_bmegate_v1_6.execution_private_information_1_leg_buy_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Private Information 1 Leg Sell Order Entry Message
-  if message_type == 0x14 then
-    return bme_meff_orderentry_bmegate_v1_6.execution_private_information_1_leg_sell_order_entry_message.dissect(buffer, offset, packet, parent)
+  local dissect = bme_meff_orderentry_bmegate_v1_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -132,12 +132,12 @@ nse_nsecm_snapshot_binary_v7_1.client_message_type = {}
 nse_nsecm_snapshot_binary_v7_1.client_message_type.size = 1
 
 -- Display: Client Message Type
-nse_nsecm_snapshot_binary_v7_1.client_message_type.display = function(value)
-  if value == "O" then
-    return "Client Message Type: Order Book Snapshot Recovery Request Message (O)"
-  end
+nse_nsecm_snapshot_binary_v7_1.client_message_type.labels = {
+  ["O"] = "Client Message Type: Order Book Snapshot Recovery Request Message (O)",
+}
 
-  return "Client Message Type: Unknown("..value..")"
+nse_nsecm_snapshot_binary_v7_1.client_message_type.display = function(value)
+  return nse_nsecm_snapshot_binary_v7_1.client_message_type.labels[value] or "Client Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Message Type
@@ -228,15 +228,13 @@ nse_nsecm_snapshot_binary_v7_1.message_type = {}
 nse_nsecm_snapshot_binary_v7_1.message_type.size = 1
 
 -- Display: Message Type
-nse_nsecm_snapshot_binary_v7_1.message_type.display = function(value)
-  if value == "N" then
-    return "Message Type: New Order Message (N)"
-  end
-  if value == "G" then
-    return "Message Type: New Spread Order Message (G)"
-  end
+nse_nsecm_snapshot_binary_v7_1.message_type.labels = {
+  ["N"] = "Message Type: New Order Message (N)",
+  ["G"] = "Message Type: New Spread Order Message (G)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nse_nsecm_snapshot_binary_v7_1.message_type.display = function(value)
+  return nse_nsecm_snapshot_binary_v7_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -304,15 +302,13 @@ nse_nsecm_snapshot_binary_v7_1.order_type = {}
 nse_nsecm_snapshot_binary_v7_1.order_type.size = 1
 
 -- Display: Order Type
-nse_nsecm_snapshot_binary_v7_1.order_type.display = function(value)
-  if value == "B" then
-    return "Order Type: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Order Type: Sell Order (S)"
-  end
+nse_nsecm_snapshot_binary_v7_1.order_type.labels = {
+  ["B"] = "Order Type: Buy Order (B)",
+  ["S"] = "Order Type: Sell Order (S)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nse_nsecm_snapshot_binary_v7_1.order_type.display = function(value)
+  return nse_nsecm_snapshot_binary_v7_1.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -386,15 +382,13 @@ nse_nsecm_snapshot_binary_v7_1.request_status = {}
 nse_nsecm_snapshot_binary_v7_1.request_status.size = 1
 
 -- Display: Request Status
-nse_nsecm_snapshot_binary_v7_1.request_status.display = function(value)
-  if value == "S" then
-    return "Request Status: Success (S)"
-  end
-  if value == "E" then
-    return "Request Status: Error (E)"
-  end
+nse_nsecm_snapshot_binary_v7_1.request_status.labels = {
+  ["S"] = "Request Status: Success (S)",
+  ["E"] = "Request Status: Error (E)",
+}
 
-  return "Request Status: Unknown("..value..")"
+nse_nsecm_snapshot_binary_v7_1.request_status.display = function(value)
+  return nse_nsecm_snapshot_binary_v7_1.request_status.labels[value] or "Request Status: Unknown("..value..")"
 end
 
 -- Dissect: Request Status
@@ -416,12 +410,12 @@ nse_nsecm_snapshot_binary_v7_1.response_message_type = {}
 nse_nsecm_snapshot_binary_v7_1.response_message_type.size = 1
 
 -- Display: Response Message Type
-nse_nsecm_snapshot_binary_v7_1.response_message_type.display = function(value)
-  if value == "B" then
-    return "Response Message Type: Order Book Snapshot Recovery Response Message (B)"
-  end
+nse_nsecm_snapshot_binary_v7_1.response_message_type.labels = {
+  ["B"] = "Response Message Type: Order Book Snapshot Recovery Response Message (B)",
+}
 
-  return "Response Message Type: Unknown("..value..")"
+nse_nsecm_snapshot_binary_v7_1.response_message_type.display = function(value)
+  return nse_nsecm_snapshot_binary_v7_1.response_message_type.labels[value] or "Response Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Response Message Type
@@ -582,12 +576,12 @@ nse_nsecm_snapshot_binary_v7_1.trans_code = {}
 nse_nsecm_snapshot_binary_v7_1.trans_code.size = 2
 
 -- Display: Trans Code
-nse_nsecm_snapshot_binary_v7_1.trans_code.display = function(value)
-  if value == 10501 then
-    return "Trans Code: Order Book Snapshot (10501)"
-  end
+nse_nsecm_snapshot_binary_v7_1.trans_code.labels = {
+  [10501] = "Trans Code: Order Book Snapshot (10501)",
+}
 
-  return "Trans Code: Unknown("..value..")"
+nse_nsecm_snapshot_binary_v7_1.trans_code.display = function(value)
+  return nse_nsecm_snapshot_binary_v7_1.trans_code.labels[value] or "Trans Code: Unknown("..value..")"
 end
 
 -- Dissect: Trans Code
@@ -651,10 +645,14 @@ end
 nse_nsecm_snapshot_binary_v7_1.response_payload = {}
 
 -- Dissect: Response Payload
+nse_nsecm_snapshot_binary_v7_1.response_payload.dispatch = {
+  ["B"] = nse_nsecm_snapshot_binary_v7_1.order_book_snapshot_recovery_response_message.dissect,
+}
+
 nse_nsecm_snapshot_binary_v7_1.response_payload.dissect = function(buffer, offset, packet, parent, response_message_type)
-  -- Dissect Order Book Snapshot Recovery Response Message
-  if response_message_type == "B" then
-    return nse_nsecm_snapshot_binary_v7_1.order_book_snapshot_recovery_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecm_snapshot_binary_v7_1.response_payload.dispatch[response_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -836,10 +834,14 @@ end
 nse_nsecm_snapshot_binary_v7_1.client_payload = {}
 
 -- Dissect: Client Payload
+nse_nsecm_snapshot_binary_v7_1.client_payload.dispatch = {
+  ["O"] = nse_nsecm_snapshot_binary_v7_1.order_book_snapshot_recovery_request_message.dissect,
+}
+
 nse_nsecm_snapshot_binary_v7_1.client_payload.dissect = function(buffer, offset, packet, parent, client_message_type)
-  -- Dissect Order Book Snapshot Recovery Request Message
-  if client_message_type == "O" then
-    return nse_nsecm_snapshot_binary_v7_1.order_book_snapshot_recovery_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecm_snapshot_binary_v7_1.client_payload.dispatch[client_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1042,14 +1044,15 @@ end
 nse_nsecm_snapshot_binary_v7_1.payload = {}
 
 -- Dissect: Payload
+nse_nsecm_snapshot_binary_v7_1.payload.dispatch = {
+  ["N"] = nse_nsecm_snapshot_binary_v7_1.new_order_message.dissect,
+  ["G"] = nse_nsecm_snapshot_binary_v7_1.new_spread_order_message.dissect,
+}
+
 nse_nsecm_snapshot_binary_v7_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect New Order Message
-  if message_type == "N" then
-    return nse_nsecm_snapshot_binary_v7_1.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Spread Order Message
-  if message_type == "G" then
-    return nse_nsecm_snapshot_binary_v7_1.new_spread_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecm_snapshot_binary_v7_1.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

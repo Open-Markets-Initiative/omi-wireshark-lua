@@ -327,21 +327,15 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type.size = 1
 
 -- Display: Mach Packet Type
-miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type.display = function(value)
-  if value == 0 then
-    return "Mach Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Mach Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Mach Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Mach Packet Type: Application Message (3)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type.labels = {
+  [0] = "Mach Packet Type: Heartbeat (0)",
+  [1] = "Mach Packet Type: Start Of Session (1)",
+  [2] = "Mach Packet Type: End Of Session (2)",
+  [3] = "Mach Packet Type: Application Message (3)",
+}
 
-  return "Mach Packet Type: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type.labels[value] or "Mach Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Mach Packet Type
@@ -363,21 +357,15 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.market_state = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.size = 1
 
 -- Display: Market State
-miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.display = function(value)
-  if value == 1 then
-    return "Market State: Pre Opening (1)"
-  end
-  if value == 2 then
-    return "Market State: Early Trading (2)"
-  end
-  if value == 3 then
-    return "Market State: Regular Trading (3)"
-  end
-  if value == 4 then
-    return "Market State: After Hours Trading (4)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.labels = {
+  [1] = "Market State: Pre Opening (1)",
+  [2] = "Market State: Early Trading (2)",
+  [3] = "Market State: Regular Trading (3)",
+  [4] = "Market State: After Hours Trading (4)",
+}
 
-  return "Market State: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.labels[value] or "Market State: Unknown("..value..")"
 end
 
 -- Dissect: Market State
@@ -399,42 +387,22 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.message_type = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.size = 1
 
 -- Display: Message Type
-miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.display = function(value)
-  if value == 49 then
-    return "Message Type: System Time Message (49)"
-  end
-  if value == 1 then
-    return "Message Type: Symbol Update Message (1)"
-  end
-  if value == 83 then
-    return "Message Type: System State Message (83)"
-  end
-  if value == 4 then
-    return "Message Type: Security Trading Status Notification Message (4)"
-  end
-  if value == 5 then
-    return "Message Type: Symbol Clear Message (5)"
-  end
-  if value == 20 then
-    return "Message Type: Add Order Message (20)"
-  end
-  if value == 21 then
-    return "Message Type: Modify Order Message (21)"
-  end
-  if value == 23 then
-    return "Message Type: Delete Order Message (23)"
-  end
-  if value == 24 then
-    return "Message Type: Order Execution Message (24)"
-  end
-  if value == 10 then
-    return "Message Type: Trade Message (10)"
-  end
-  if value == 11 then
-    return "Message Type: Trade Cancel Message (11)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.labels = {
+  [49] = "Message Type: System Time Message (49)",
+  [1] = "Message Type: Symbol Update Message (1)",
+  [83] = "Message Type: System State Message (83)",
+  [4] = "Message Type: Security Trading Status Notification Message (4)",
+  [5] = "Message Type: Symbol Clear Message (5)",
+  [20] = "Message Type: Add Order Message (20)",
+  [21] = "Message Type: Modify Order Message (21)",
+  [23] = "Message Type: Delete Order Message (23)",
+  [24] = "Message Type: Order Execution Message (24)",
+  [10] = "Message Type: Trade Message (10)",
+  [11] = "Message Type: Trade Cancel Message (11)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -525,15 +493,13 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.order_side = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.order_side.size = 1
 
 -- Display: Order Side
-miax_pearlequities_depthofmarket_mach_v1_3_a.order_side.display = function(value)
-  if value == "B" then
-    return "Order Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Side: Sell (S)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.order_side.labels = {
+  ["B"] = "Order Side: Buy (B)",
+  ["S"] = "Order Side: Sell (S)",
+}
 
-  return "Order Side: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.order_side.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.order_side.labels[value] or "Order Side: Unknown("..value..")"
 end
 
 -- Dissect: Order Side
@@ -584,63 +550,29 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.primary_market_code = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.primary_market_code.size = 1
 
 -- Display: Primary Market Code
-miax_pearlequities_depthofmarket_mach_v1_3_a.primary_market_code.display = function(value)
-  if value == "A" then
-    return "Primary Market Code: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Primary Market Code: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Primary Market Code: Nyse National (C)"
-  end
-  if value == "H" then
-    return "Primary Market Code: Miax Pearl Equities (H)"
-  end
-  if value == "I" then
-    return "Primary Market Code: Nasdaq Ise (I)"
-  end
-  if value == "J" then
-    return "Primary Market Code: Cboe Edga Exchange (J)"
-  end
-  if value == "K" then
-    return "Primary Market Code: Cboe Edgx Exchange (K)"
-  end
-  if value == "L" then
-    return "Primary Market Code: Long Term Stock Exchange (L)"
-  end
-  if value == "M" then
-    return "Primary Market Code: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Primary Market Code: New York Stock Exchange (N)"
-  end
-  if value == "P" then
-    return "Primary Market Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Primary Market Code: Nasdaq (Q)"
-  end
-  if value == "U" then
-    return "Primary Market Code: Members Exchange (U)"
-  end
-  if value == "V" then
-    return "Primary Market Code: Investors Exchange (V)"
-  end
-  if value == "W" then
-    return "Primary Market Code: Cboe Stock Exchange (W)"
-  end
-  if value == "X" then
-    return "Primary Market Code: Nasdaq Phlx (X)"
-  end
-  if value == "Y" then
-    return "Primary Market Code: Cboe Byx Exchange (Y)"
-  end
-  if value == "Z" then
-    return "Primary Market Code: Cboe Bzx Exchange (Z)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.primary_market_code.labels = {
+  ["A"] = "Primary Market Code: Nyse American (A)",
+  ["B"] = "Primary Market Code: Nasdaq Bx (B)",
+  ["C"] = "Primary Market Code: Nyse National (C)",
+  ["H"] = "Primary Market Code: Miax Pearl Equities (H)",
+  ["I"] = "Primary Market Code: Nasdaq Ise (I)",
+  ["J"] = "Primary Market Code: Cboe Edga Exchange (J)",
+  ["K"] = "Primary Market Code: Cboe Edgx Exchange (K)",
+  ["L"] = "Primary Market Code: Long Term Stock Exchange (L)",
+  ["M"] = "Primary Market Code: Nyse Chicago (M)",
+  ["N"] = "Primary Market Code: New York Stock Exchange (N)",
+  ["P"] = "Primary Market Code: Nyse Arca (P)",
+  ["Q"] = "Primary Market Code: Nasdaq (Q)",
+  ["U"] = "Primary Market Code: Members Exchange (U)",
+  ["V"] = "Primary Market Code: Investors Exchange (V)",
+  ["W"] = "Primary Market Code: Cboe Stock Exchange (W)",
+  ["X"] = "Primary Market Code: Nasdaq Phlx (X)",
+  ["Y"] = "Primary Market Code: Cboe Byx Exchange (Y)",
+  ["Z"] = "Primary Market Code: Cboe Bzx Exchange (Z)",
+}
 
-  return "Primary Market Code: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.primary_market_code.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.primary_market_code.labels[value] or "Primary Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Primary Market Code
@@ -791,15 +723,13 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.short_sale_restriction = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
-miax_pearlequities_depthofmarket_mach_v1_3_a.short_sale_restriction.display = function(value)
-  if value == "Y" then
-    return "Short Sale Restriction: Ssr In Effect (Y)"
-  end
-  if value == "N" then
-    return "Short Sale Restriction: Ssr Not In Effect (N)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.short_sale_restriction.labels = {
+  ["Y"] = "Short Sale Restriction: Ssr In Effect (Y)",
+  ["N"] = "Short Sale Restriction: Ssr Not In Effect (N)",
+}
 
-  return "Short Sale Restriction: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.short_sale_restriction.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.short_sale_restriction.labels[value] or "Short Sale Restriction: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction
@@ -890,21 +820,15 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.system_status = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.size = 1
 
 -- Display: System Status
-miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of System Hours (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of System Hours (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Of Test Session (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of Test Session (2)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.labels = {
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -926,15 +850,13 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.size = 1
 
 -- Display: Test Security Indicator
-miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.display = function(value)
-  if value == "Y" then
-    return "Test Security Indicator: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Security Indicator: No (N)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.labels = {
+  ["Y"] = "Test Security Indicator: Yes (Y)",
+  ["N"] = "Test Security Indicator: No (N)",
+}
 
-  return "Test Security Indicator: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.test_security_indicator.labels[value] or "Test Security Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Test Security Indicator
@@ -1002,24 +924,16 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status = {}
 miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.size = 1
 
 -- Display: Trading Status
-miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Trading (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Halt (3)"
-  end
-  if value == 4 then
-    return "Trading Status: Operational Halt (4)"
-  end
-  if value == 5 then
-    return "Trading Status: Closed (5)"
-  end
+miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.labels = {
+  [1] = "Trading Status: Pre Open (1)",
+  [2] = "Trading Status: Trading (2)",
+  [3] = "Trading Status: Halt (3)",
+  [4] = "Trading Status: Operational Halt (4)",
+  [5] = "Trading Status: Closed (5)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.display = function(value)
+  return miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1850,50 +1764,24 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.data = {}
 
 -- Dissect: Data
+miax_pearlequities_depthofmarket_mach_v1_3_a.data.dispatch = {
+  [49] = miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.dissect,
+  [1] = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.dissect,
+  [83] = miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.dissect,
+  [4] = miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.dissect,
+  [5] = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.dissect,
+  [20] = miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.dissect,
+  [21] = miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.dissect,
+  [23] = miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.dissect,
+  [24] = miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.dissect,
+  [10] = miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.dissect,
+  [11] = miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.dissect,
+}
+
 miax_pearlequities_depthofmarket_mach_v1_3_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Time Message
-  if message_type == 49 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Update Message
-  if message_type == 1 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Message
-  if message_type == 83 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.system_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Status Notification Message
-  if message_type == 4 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.security_trading_status_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Clear Message
-  if message_type == 5 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 20 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 21 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 23 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if message_type == 24 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 10 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == 11 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_pearlequities_depthofmarket_mach_v1_3_a.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2007,22 +1895,17 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.payload = {}
 
 -- Dissect: Payload
+miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dispatch = {
+  [0] = miax_pearlequities_depthofmarket_mach_v1_3_a.heartbeat.dissect,
+  [1] = miax_pearlequities_depthofmarket_mach_v1_3_a.start_of_session.dissect,
+  [2] = miax_pearlequities_depthofmarket_mach_v1_3_a.end_of_session.dissect,
+  [3] = miax_pearlequities_depthofmarket_mach_v1_3_a.application_message.dissect,
+}
+
 miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, mach_packet_type)
-  -- Dissect Heartbeat
-  if mach_packet_type == 0 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if mach_packet_type == 1 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if mach_packet_type == 2 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Message
-  if mach_packet_type == 3 then
-    return miax_pearlequities_depthofmarket_mach_v1_3_a.application_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dispatch[mach_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

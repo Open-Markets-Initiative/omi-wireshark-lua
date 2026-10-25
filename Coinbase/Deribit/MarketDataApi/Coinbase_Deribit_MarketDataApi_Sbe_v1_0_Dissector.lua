@@ -1380,21 +1380,15 @@ coinbase_deribit_marketdataapi_sbe_v1_0.reason = {}
 coinbase_deribit_marketdataapi_sbe_v1_0.reason.size = 1
 
 -- Display: Reason
-coinbase_deribit_marketdataapi_sbe_v1_0.reason.display = function(value)
-  if value == 1 then
-    return "Reason: Seq Too Low (1)"
-  end
-  if value == 2 then
-    return "Reason: Seq Too High (2)"
-  end
-  if value == 3 then
-    return "Reason: Rate Limit Exceeded (3)"
-  end
-  if value == 4 then
-    return "Reason: Other Error (4)"
-  end
+coinbase_deribit_marketdataapi_sbe_v1_0.reason.labels = {
+  [1] = "Reason: Seq Too Low (1)",
+  [2] = "Reason: Seq Too High (2)",
+  [3] = "Reason: Rate Limit Exceeded (3)",
+  [4] = "Reason: Other Error (4)",
+}
 
-  return "Reason: Unknown("..value..")"
+coinbase_deribit_marketdataapi_sbe_v1_0.reason.display = function(value)
+  return coinbase_deribit_marketdataapi_sbe_v1_0.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1571,27 +1565,17 @@ coinbase_deribit_marketdataapi_sbe_v1_0.status = {}
 coinbase_deribit_marketdataapi_sbe_v1_0.status.size = 1
 
 -- Display: Status
-coinbase_deribit_marketdataapi_sbe_v1_0.status.display = function(value)
-  if value == 0 then
-    return "Status: Open (0)"
-  end
-  if value == 1 then
-    return "Status: Inactive (1)"
-  end
-  if value == 2 then
-    return "Status: Settlement (2)"
-  end
-  if value == 3 then
-    return "Status: Delivered (3)"
-  end
-  if value == 4 then
-    return "Status: Locked (4)"
-  end
-  if value == 5 then
-    return "Status: Halted (5)"
-  end
+coinbase_deribit_marketdataapi_sbe_v1_0.status.labels = {
+  [0] = "Status: Open (0)",
+  [1] = "Status: Inactive (1)",
+  [2] = "Status: Settlement (2)",
+  [3] = "Status: Delivered (3)",
+  [4] = "Status: Locked (4)",
+  [5] = "Status: Halted (5)",
+}
 
-  return "Status: Unknown("..value..")"
+coinbase_deribit_marketdataapi_sbe_v1_0.status.display = function(value)
+  return coinbase_deribit_marketdataapi_sbe_v1_0.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -1675,66 +1659,30 @@ coinbase_deribit_marketdataapi_sbe_v1_0.template_id = {}
 coinbase_deribit_marketdataapi_sbe_v1_0.template_id.size = 2
 
 -- Display: Template Id
-coinbase_deribit_marketdataapi_sbe_v1_0.template_id.display = function(value)
-  if value == 10 then
-    return "Template Id: Instrument Definition Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Index Definition Message (11)"
-  end
-  if value == 14 then
-    return "Template Id: Instrument Info Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Instrument Ref Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Instrument Status Update Message (16)"
-  end
-  if value == 20 then
-    return "Template Id: Bid Put Message (20)"
-  end
-  if value == 21 then
-    return "Template Id: Ask Put Message (21)"
-  end
-  if value == 22 then
-    return "Template Id: Bid Qty Reduced Message (22)"
-  end
-  if value == 23 then
-    return "Template Id: Ask Qty Reduced Message (23)"
-  end
-  if value == 24 then
-    return "Template Id: Bid Delete Message (24)"
-  end
-  if value == 25 then
-    return "Template Id: Ask Delete Message (25)"
-  end
-  if value == 30 then
-    return "Template Id: Trade Summary Message (30)"
-  end
-  if value == 31 then
-    return "Template Id: Trade Message (31)"
-  end
-  if value == 33 then
-    return "Template Id: Block Trade Message (33)"
-  end
-  if value == 100 then
-    return "Template Id: Snapshot Header Message (100)"
-  end
-  if value == 101 then
-    return "Template Id: Snapshot Trailer Message (101)"
-  end
-  if value == 119 then
-    return "Template Id: End Of Cycle Message (119)"
-  end
-  if value == 200 then
-    return "Template Id: Retransmit Request Message (200)"
-  end
-  if value == 202 then
-    return "Template Id: Retransmit Reject Message (202)"
-  end
+coinbase_deribit_marketdataapi_sbe_v1_0.template_id.labels = {
+  [10] = "Template Id: Instrument Definition Message (10)",
+  [11] = "Template Id: Index Definition Message (11)",
+  [14] = "Template Id: Instrument Info Message (14)",
+  [15] = "Template Id: Instrument Ref Message (15)",
+  [16] = "Template Id: Instrument Status Update Message (16)",
+  [20] = "Template Id: Bid Put Message (20)",
+  [21] = "Template Id: Ask Put Message (21)",
+  [22] = "Template Id: Bid Qty Reduced Message (22)",
+  [23] = "Template Id: Ask Qty Reduced Message (23)",
+  [24] = "Template Id: Bid Delete Message (24)",
+  [25] = "Template Id: Ask Delete Message (25)",
+  [30] = "Template Id: Trade Summary Message (30)",
+  [31] = "Template Id: Trade Message (31)",
+  [33] = "Template Id: Block Trade Message (33)",
+  [100] = "Template Id: Snapshot Header Message (100)",
+  [101] = "Template Id: Snapshot Trailer Message (101)",
+  [119] = "Template Id: End Of Cycle Message (119)",
+  [200] = "Template Id: Retransmit Request Message (200)",
+  [202] = "Template Id: Retransmit Reject Message (202)",
+}
 
-  return "Template Id: Unknown("..value..")"
+coinbase_deribit_marketdataapi_sbe_v1_0.template_id.display = function(value)
+  return coinbase_deribit_marketdataapi_sbe_v1_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1883,27 +1831,17 @@ coinbase_deribit_marketdataapi_sbe_v1_0.trading_status = {}
 coinbase_deribit_marketdataapi_sbe_v1_0.trading_status.size = 1
 
 -- Display: Trading Status
-coinbase_deribit_marketdataapi_sbe_v1_0.trading_status.display = function(value)
-  if value == 0 then
-    return "Trading Status: Open (0)"
-  end
-  if value == 1 then
-    return "Trading Status: Inactive (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Settlement (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Delivered (3)"
-  end
-  if value == 4 then
-    return "Trading Status: Locked (4)"
-  end
-  if value == 5 then
-    return "Trading Status: Halted (5)"
-  end
+coinbase_deribit_marketdataapi_sbe_v1_0.trading_status.labels = {
+  [0] = "Trading Status: Open (0)",
+  [1] = "Trading Status: Inactive (1)",
+  [2] = "Trading Status: Settlement (2)",
+  [3] = "Trading Status: Delivered (3)",
+  [4] = "Trading Status: Locked (4)",
+  [5] = "Trading Status: Halted (5)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+coinbase_deribit_marketdataapi_sbe_v1_0.trading_status.display = function(value)
+  return coinbase_deribit_marketdataapi_sbe_v1_0.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1956,27 +1894,17 @@ coinbase_deribit_marketdataapi_sbe_v1_0.type = {}
 coinbase_deribit_marketdataapi_sbe_v1_0.type.size = 1
 
 -- Display: Type
-coinbase_deribit_marketdataapi_sbe_v1_0.type.display = function(value)
-  if value == 0 then
-    return "Type: Perp Future (0)"
-  end
-  if value == 1 then
-    return "Type: Option (1)"
-  end
-  if value == 2 then
-    return "Type: Spot (2)"
-  end
-  if value == 3 then
-    return "Type: Future Combo (3)"
-  end
-  if value == 4 then
-    return "Type: Option Combo (4)"
-  end
-  if value == 5 then
-    return "Type: Dated Future (5)"
-  end
+coinbase_deribit_marketdataapi_sbe_v1_0.type.labels = {
+  [0] = "Type: Perp Future (0)",
+  [1] = "Type: Option (1)",
+  [2] = "Type: Spot (2)",
+  [3] = "Type: Future Combo (3)",
+  [4] = "Type: Option Combo (4)",
+  [5] = "Type: Dated Future (5)",
+}
 
-  return "Type: Unknown("..value..")"
+coinbase_deribit_marketdataapi_sbe_v1_0.type.display = function(value)
+  return coinbase_deribit_marketdataapi_sbe_v1_0.type.labels[value] or "Type: Unknown("..value..")"
 end
 
 -- Dissect: Type
@@ -3510,82 +3438,32 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.payload = {}
 
 -- Dissect: Payload
+coinbase_deribit_marketdataapi_sbe_v1_0.payload.dispatch = {
+  [10] = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message.dissect,
+  [11] = coinbase_deribit_marketdataapi_sbe_v1_0.index_definition_message.dissect,
+  [14] = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_info_message.dissect,
+  [15] = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_ref_message.dissect,
+  [16] = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_status_update_message.dissect,
+  [20] = coinbase_deribit_marketdataapi_sbe_v1_0.bid_put_message.dissect,
+  [21] = coinbase_deribit_marketdataapi_sbe_v1_0.ask_put_message.dissect,
+  [22] = coinbase_deribit_marketdataapi_sbe_v1_0.bid_qty_reduced_message.dissect,
+  [23] = coinbase_deribit_marketdataapi_sbe_v1_0.ask_qty_reduced_message.dissect,
+  [24] = coinbase_deribit_marketdataapi_sbe_v1_0.bid_delete_message.dissect,
+  [25] = coinbase_deribit_marketdataapi_sbe_v1_0.ask_delete_message.dissect,
+  [30] = coinbase_deribit_marketdataapi_sbe_v1_0.trade_summary_message.dissect,
+  [31] = coinbase_deribit_marketdataapi_sbe_v1_0.trade_message.dissect,
+  [33] = coinbase_deribit_marketdataapi_sbe_v1_0.block_trade_message.dissect,
+  [100] = coinbase_deribit_marketdataapi_sbe_v1_0.snapshot_header_message.dissect,
+  [101] = coinbase_deribit_marketdataapi_sbe_v1_0.snapshot_trailer_message.dissect,
+  [119] = coinbase_deribit_marketdataapi_sbe_v1_0.end_of_cycle_message.dissect,
+  [200] = coinbase_deribit_marketdataapi_sbe_v1_0.retransmit_request_message.dissect,
+  [202] = coinbase_deribit_marketdataapi_sbe_v1_0.retransmit_reject_message.dissect,
+}
+
 coinbase_deribit_marketdataapi_sbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Instrument Definition Message
-  if template_id == 10 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Definition Message
-  if template_id == 11 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.index_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info Message
-  if template_id == 14 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.instrument_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Ref Message
-  if template_id == 15 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.instrument_ref_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Update Message
-  if template_id == 16 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.instrument_status_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Put Message
-  if template_id == 20 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.bid_put_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Put Message
-  if template_id == 21 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.ask_put_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Qty Reduced Message
-  if template_id == 22 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.bid_qty_reduced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Qty Reduced Message
-  if template_id == 23 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.ask_qty_reduced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Delete Message
-  if template_id == 24 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.bid_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Delete Message
-  if template_id == 25 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.ask_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Summary Message
-  if template_id == 30 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.trade_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if template_id == 31 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Block Trade Message
-  if template_id == 33 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.block_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Header Message
-  if template_id == 100 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.snapshot_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Trailer Message
-  if template_id == 101 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.snapshot_trailer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Cycle Message
-  if template_id == 119 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.end_of_cycle_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Request Message
-  if template_id == 200 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.retransmit_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Reject Message
-  if template_id == 202 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.retransmit_reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = coinbase_deribit_marketdataapi_sbe_v1_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3794,10 +3672,14 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.md_messages = {}
 
 -- Dissect: Md Messages
+coinbase_deribit_marketdataapi_sbe_v1_0.md_messages.dispatch = {
+  [0] = coinbase_deribit_marketdataapi_sbe_v1_0.empty_packet.dissect,
+}
+
 coinbase_deribit_marketdataapi_sbe_v1_0.md_messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Empty Packet
-  if message_count == 0 then
-    return coinbase_deribit_marketdataapi_sbe_v1_0.empty_packet.dissect(buffer, offset, packet, parent)
+  local dissect = coinbase_deribit_marketdataapi_sbe_v1_0.md_messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Md Message

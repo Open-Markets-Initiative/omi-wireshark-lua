@@ -90,27 +90,17 @@ cixats_cixaspen_rerequest_aspen_v1_1.feed_identifier = {}
 cixats_cixaspen_rerequest_aspen_v1_1.feed_identifier.size = 1
 
 -- Display: Feed Identifier
-cixats_cixaspen_rerequest_aspen_v1_1.feed_identifier.display = function(value)
-  if value == "A" then
-    return "Feed Identifier: Aspen (A)"
-  end
-  if value == "V" then
-    return "Feed Identifier: Aspen Vert (V)"
-  end
-  if value == "M" then
-    return "Feed Identifier: Midpoint (M)"
-  end
-  if value == "B" then
-    return "Feed Identifier: Aspen Uat (B)"
-  end
-  if value == "W" then
-    return "Feed Identifier: Aspen Vert Uat (W)"
-  end
-  if value == "N" then
-    return "Feed Identifier: Midpoint Uat (N)"
-  end
+cixats_cixaspen_rerequest_aspen_v1_1.feed_identifier.labels = {
+  ["A"] = "Feed Identifier: Aspen (A)",
+  ["V"] = "Feed Identifier: Aspen Vert (V)",
+  ["M"] = "Feed Identifier: Midpoint (M)",
+  ["B"] = "Feed Identifier: Aspen Uat (B)",
+  ["W"] = "Feed Identifier: Aspen Vert Uat (W)",
+  ["N"] = "Feed Identifier: Midpoint Uat (N)",
+}
 
-  return "Feed Identifier: Unknown("..value..")"
+cixats_cixaspen_rerequest_aspen_v1_1.feed_identifier.display = function(value)
+  return cixats_cixaspen_rerequest_aspen_v1_1.feed_identifier.labels[value] or "Feed Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Feed Identifier

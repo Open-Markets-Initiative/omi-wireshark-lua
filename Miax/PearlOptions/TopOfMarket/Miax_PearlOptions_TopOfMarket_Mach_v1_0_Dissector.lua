@@ -212,15 +212,13 @@ miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl = {}
 miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl.size = 1
 
 -- Display: Active On Pearl
-miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl.display = function(value)
-  if value == "A" then
-    return "Active On Pearl: Active Tradable (A)"
-  end
-  if value == "I" then
-    return "Active On Pearl: Inactive Not Tradable (I)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl.labels = {
+  ["A"] = "Active On Pearl: Active Tradable (A)",
+  ["I"] = "Active On Pearl: Inactive Not Tradable (I)",
+}
 
-  return "Active On Pearl: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.active_on_pearl.labels[value] or "Active On Pearl: Unknown("..value..")"
 end
 
 -- Dissect: Active On Pearl
@@ -242,24 +240,16 @@ miax_pearloptions_topofmarket_mach_v1_0.bid_condition = {}
 miax_pearloptions_topofmarket_mach_v1_0.bid_condition.size = 1
 
 -- Display: Bid Condition
-miax_pearloptions_topofmarket_mach_v1_0.bid_condition.display = function(value)
-  if value == "A" then
-    return "Bid Condition: Regular (A)"
-  end
-  if value == "B" then
-    return "Bid Condition: Quote Contains Public Customer Interest (B)"
-  end
-  if value == "C" then
-    return "Bid Condition: Quote Is Not Firm (C)"
-  end
-  if value == "R" then
-    return "Bid Condition: Reserved For Future Use (R)"
-  end
-  if value == "T" then
-    return "Bid Condition: Trading Halt (T)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.bid_condition.labels = {
+  ["A"] = "Bid Condition: Regular (A)",
+  ["B"] = "Bid Condition: Quote Contains Public Customer Interest (B)",
+  ["C"] = "Bid Condition: Quote Is Not Firm (C)",
+  ["R"] = "Bid Condition: Reserved For Future Use (R)",
+  ["T"] = "Bid Condition: Trading Halt (T)",
+}
 
-  return "Bid Condition: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.bid_condition.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.bid_condition.labels[value] or "Bid Condition: Unknown("..value..")"
 end
 
 -- Dissect: Bid Condition
@@ -356,15 +346,13 @@ miax_pearloptions_topofmarket_mach_v1_0.call_or_put = {}
 miax_pearloptions_topofmarket_mach_v1_0.call_or_put.size = 1
 
 -- Display: Call Or Put
-miax_pearloptions_topofmarket_mach_v1_0.call_or_put.display = function(value)
-  if value == "C" then
-    return "Call Or Put: Call (C)"
-  end
-  if value == "P" then
-    return "Call Or Put: Put (P)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.call_or_put.labels = {
+  ["C"] = "Call Or Put: Call (C)",
+  ["P"] = "Call Or Put: Put (P)",
+}
 
-  return "Call Or Put: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.call_or_put.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.call_or_put.labels[value] or "Call Or Put: Unknown("..value..")"
 end
 
 -- Dissect: Call Or Put
@@ -432,15 +420,13 @@ miax_pearloptions_topofmarket_mach_v1_0.event_reason = {}
 miax_pearloptions_topofmarket_mach_v1_0.event_reason.size = 1
 
 -- Display: Event Reason
-miax_pearloptions_topofmarket_mach_v1_0.event_reason.display = function(value)
-  if value == "A" then
-    return "Event Reason: Resulted From Automaticmarket Driven Event (A)"
-  end
-  if value == "M" then
-    return "Event Reason: Manually Initiated (M)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.event_reason.labels = {
+  ["A"] = "Event Reason: Resulted From Automaticmarket Driven Event (A)",
+  ["M"] = "Event Reason: Manually Initiated (M)",
+}
 
-  return "Event Reason: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.event_reason.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.event_reason.labels[value] or "Event Reason: Unknown("..value..")"
 end
 
 -- Dissect: Event Reason
@@ -531,18 +517,14 @@ miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator
 miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator.size = 1
 
 -- Display: Liquidity Acceptance Increment Indicator
-miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Liquidity Acceptance Increment Indicator: Penny 001 (P)"
-  end
-  if value == "N" then
-    return "Liquidity Acceptance Increment Indicator: Penny 001 (N)"
-  end
-  if value == "D" then
-    return "Liquidity Acceptance Increment Indicator: Nickel 005 (D)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator.labels = {
+  ["P"] = "Liquidity Acceptance Increment Indicator: Penny 001 (P)",
+  ["N"] = "Liquidity Acceptance Increment Indicator: Penny 001 (N)",
+  ["D"] = "Liquidity Acceptance Increment Indicator: Nickel 005 (D)",
+}
 
-  return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.liquidity_acceptance_increment_indicator.labels[value] or "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Acceptance Increment Indicator
@@ -564,15 +546,13 @@ miax_pearloptions_topofmarket_mach_v1_0.long_term_option = {}
 miax_pearloptions_topofmarket_mach_v1_0.long_term_option.size = 1
 
 -- Display: Long Term Option
-miax_pearloptions_topofmarket_mach_v1_0.long_term_option.display = function(value)
-  if value == "Y" then
-    return "Long Term Option: Far Month (Y)"
-  end
-  if value == "N" then
-    return "Long Term Option: Near Month (N)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.long_term_option.labels = {
+  ["Y"] = "Long Term Option: Far Month (Y)",
+  ["N"] = "Long Term Option: Near Month (N)",
+}
 
-  return "Long Term Option: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.long_term_option.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.long_term_option.labels[value] or "Long Term Option: Unknown("..value..")"
 end
 
 -- Dissect: Long Term Option
@@ -594,45 +574,23 @@ miax_pearloptions_topofmarket_mach_v1_0.message_type = {}
 miax_pearloptions_topofmarket_mach_v1_0.message_type.size = 1
 
 -- Display: Message Type
-miax_pearloptions_topofmarket_mach_v1_0.message_type.display = function(value)
-  if value == "1" then
-    return "Message Type: System Time Message (1)"
-  end
-  if value == "P" then
-    return "Message Type: Series Update Message (P)"
-  end
-  if value == "S" then
-    return "Message Type: System State Message (S)"
-  end
-  if value == "B" then
-    return "Message Type: Compact Top Of Market Bid Message (B)"
-  end
-  if value == "O" then
-    return "Message Type: Compact Top Of Market Best Offer Message (O)"
-  end
-  if value == "W" then
-    return "Message Type: Wide Top Of Market Best Bid Message (W)"
-  end
-  if value == "A" then
-    return "Message Type: Wide Top Of Market Best Offer Message (A)"
-  end
-  if value == "d" then
-    return "Message Type: Compact Double Sided Top Of Market Message (d)"
-  end
-  if value == "D" then
-    return "Message Type: Wide Double Sided Top Of Market Message (D)"
-  end
-  if value == "T" then
-    return "Message Type: Last Sale Message (T)"
-  end
-  if value == "X" then
-    return "Message Type: Trade Cancel Message (X)"
-  end
-  if value == "H" then
-    return "Message Type: Underlying Trading Status Notification (H)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.message_type.labels = {
+  ["1"] = "Message Type: System Time Message (1)",
+  ["P"] = "Message Type: Series Update Message (P)",
+  ["S"] = "Message Type: System State Message (S)",
+  ["B"] = "Message Type: Compact Top Of Market Bid Message (B)",
+  ["O"] = "Message Type: Compact Top Of Market Best Offer Message (O)",
+  ["W"] = "Message Type: Wide Top Of Market Best Bid Message (W)",
+  ["A"] = "Message Type: Wide Top Of Market Best Offer Message (A)",
+  ["d"] = "Message Type: Compact Double Sided Top Of Market Message (d)",
+  ["D"] = "Message Type: Wide Double Sided Top Of Market Message (D)",
+  ["T"] = "Message Type: Last Sale Message (T)",
+  ["X"] = "Message Type: Trade Cancel Message (X)",
+  ["H"] = "Message Type: Underlying Trading Status Notification (H)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.message_type.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -677,24 +635,16 @@ miax_pearloptions_topofmarket_mach_v1_0.offer_condition = {}
 miax_pearloptions_topofmarket_mach_v1_0.offer_condition.size = 1
 
 -- Display: Offer Condition
-miax_pearloptions_topofmarket_mach_v1_0.offer_condition.display = function(value)
-  if value == "A" then
-    return "Offer Condition: Regular (A)"
-  end
-  if value == "B" then
-    return "Offer Condition: Quote Contains Public Customer Interest (B)"
-  end
-  if value == "C" then
-    return "Offer Condition: Quote Is Not Firm (C)"
-  end
-  if value == "R" then
-    return "Offer Condition: Reserved For Future Use (R)"
-  end
-  if value == "T" then
-    return "Offer Condition: Trading Halt (T)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.offer_condition.labels = {
+  ["A"] = "Offer Condition: Regular (A)",
+  ["B"] = "Offer Condition: Quote Contains Public Customer Interest (B)",
+  ["C"] = "Offer Condition: Quote Is Not Firm (C)",
+  ["R"] = "Offer Condition: Reserved For Future Use (R)",
+  ["T"] = "Offer Condition: Trading Halt (T)",
+}
 
-  return "Offer Condition: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.offer_condition.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.offer_condition.labels[value] or "Offer Condition: Unknown("..value..")"
 end
 
 -- Dissect: Offer Condition
@@ -814,60 +764,28 @@ miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code = {}
 miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code.size = 1
 
 -- Display: Opening Underlying Market Code
-miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code.display = function(value)
-  if value == "A" then
-    return "Opening Underlying Market Code: Nyse Amex (A)"
-  end
-  if value == "B" then
-    return "Opening Underlying Market Code: Nasdaq Omx Bx (B)"
-  end
-  if value == "C" then
-    return "Opening Underlying Market Code: National Stock (C)"
-  end
-  if value == "D" then
-    return "Opening Underlying Market Code: Finra Adf (D)"
-  end
-  if value == "E" then
-    return "Opening Underlying Market Code: Market Independent (E)"
-  end
-  if value == "I" then
-    return "Opening Underlying Market Code: International Securities (I)"
-  end
-  if value == "J" then
-    return "Opening Underlying Market Code: Edga Exchange (J)"
-  end
-  if value == "K" then
-    return "Opening Underlying Market Code: Edgx Exchange (K)"
-  end
-  if value == "M" then
-    return "Opening Underlying Market Code: Chicago Stock (M)"
-  end
-  if value == "N" then
-    return "Opening Underlying Market Code: Nyse Euronext (N)"
-  end
-  if value == "P" then
-    return "Opening Underlying Market Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Opening Underlying Market Code: Nasdaq Omx (Q)"
-  end
-  if value == "T" then
-    return "Opening Underlying Market Code: Nasdaq Omx (T)"
-  end
-  if value == "V" then
-    return "Opening Underlying Market Code: Iex (V)"
-  end
-  if value == "X" then
-    return "Opening Underlying Market Code: Nasdaq Omx Phlx (X)"
-  end
-  if value == "Y" then
-    return "Opening Underlying Market Code: Bats Y Exchange (Y)"
-  end
-  if value == "Z" then
-    return "Opening Underlying Market Code: Bats Exchange (Z)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code.labels = {
+  ["A"] = "Opening Underlying Market Code: Nyse Amex (A)",
+  ["B"] = "Opening Underlying Market Code: Nasdaq Omx Bx (B)",
+  ["C"] = "Opening Underlying Market Code: National Stock (C)",
+  ["D"] = "Opening Underlying Market Code: Finra Adf (D)",
+  ["E"] = "Opening Underlying Market Code: Market Independent (E)",
+  ["I"] = "Opening Underlying Market Code: International Securities (I)",
+  ["J"] = "Opening Underlying Market Code: Edga Exchange (J)",
+  ["K"] = "Opening Underlying Market Code: Edgx Exchange (K)",
+  ["M"] = "Opening Underlying Market Code: Chicago Stock (M)",
+  ["N"] = "Opening Underlying Market Code: Nyse Euronext (N)",
+  ["P"] = "Opening Underlying Market Code: Nyse Arca (P)",
+  ["Q"] = "Opening Underlying Market Code: Nasdaq Omx (Q)",
+  ["T"] = "Opening Underlying Market Code: Nasdaq Omx (T)",
+  ["V"] = "Opening Underlying Market Code: Iex (V)",
+  ["X"] = "Opening Underlying Market Code: Nasdaq Omx Phlx (X)",
+  ["Y"] = "Opening Underlying Market Code: Bats Y Exchange (Y)",
+  ["Z"] = "Opening Underlying Market Code: Bats Exchange (Z)",
+}
 
-  return "Opening Underlying Market Code: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.opening_underlying_market_code.labels[value] or "Opening Underlying Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Opening Underlying Market Code
@@ -912,21 +830,15 @@ miax_pearloptions_topofmarket_mach_v1_0.packet_type = {}
 miax_pearloptions_topofmarket_mach_v1_0.packet_type.size = 1
 
 -- Display: Packet Type
-miax_pearloptions_topofmarket_mach_v1_0.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.packet_type.labels = {
+  [0] = "Packet Type: Heartbeat (0)",
+  [1] = "Packet Type: Start Of Session (1)",
+  [2] = "Packet Type: End Of Session (2)",
+  [3] = "Packet Type: Application Message (3)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.packet_type.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -948,24 +860,16 @@ miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition = {}
 miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.size = 1
 
 -- Display: Pbbo Condition
-miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.display = function(value)
-  if value == "A" then
-    return "Pbbo Condition: Regular (A)"
-  end
-  if value == "B" then
-    return "Pbbo Condition: Quote Contains Public Customer Interest (B)"
-  end
-  if value == "C" then
-    return "Pbbo Condition: Quote Is Not Firm (C)"
-  end
-  if value == "R" then
-    return "Pbbo Condition: Reserved For Future Use (R)"
-  end
-  if value == "T" then
-    return "Pbbo Condition: Trading Halt (T)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.labels = {
+  ["A"] = "Pbbo Condition: Regular (A)",
+  ["B"] = "Pbbo Condition: Quote Contains Public Customer Interest (B)",
+  ["C"] = "Pbbo Condition: Quote Is Not Firm (C)",
+  ["R"] = "Pbbo Condition: Reserved For Future Use (R)",
+  ["T"] = "Pbbo Condition: Trading Halt (T)",
+}
 
-  return "Pbbo Condition: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.pbbo_condition.labels[value] or "Pbbo Condition: Unknown("..value..")"
 end
 
 -- Dissect: Pbbo Condition
@@ -1062,18 +966,14 @@ miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator = 
 miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.size = 1
 
 -- Display: Pearl Bbo Posting Increment Indicator
-miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Pearl Bbo Posting Increment Indicator: Penny 001 (P)"
-  end
-  if value == "N" then
-    return "Pearl Bbo Posting Increment Indicator: Penny 001 (N)"
-  end
-  if value == "D" then
-    return "Pearl Bbo Posting Increment Indicator: Nickel 005 (D)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.labels = {
+  ["P"] = "Pearl Bbo Posting Increment Indicator: Penny 001 (P)",
+  ["N"] = "Pearl Bbo Posting Increment Indicator: Penny 001 (N)",
+  ["D"] = "Pearl Bbo Posting Increment Indicator: Nickel 005 (D)",
+}
 
-  return "Pearl Bbo Posting Increment Indicator: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.pearl_bbo_posting_increment_indicator.labels[value] or "Pearl Bbo Posting Increment Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Pearl Bbo Posting Increment Indicator
@@ -1187,15 +1087,13 @@ miax_pearloptions_topofmarket_mach_v1_0.restricted_option = {}
 miax_pearloptions_topofmarket_mach_v1_0.restricted_option.size = 1
 
 -- Display: Restricted Option
-miax_pearloptions_topofmarket_mach_v1_0.restricted_option.display = function(value)
-  if value == "Y" then
-    return "Restricted Option: Position Closing Orders Only (Y)"
-  end
-  if value == "N" then
-    return "Restricted Option: Open And Close Positions (N)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.restricted_option.labels = {
+  ["Y"] = "Restricted Option: Position Closing Orders Only (Y)",
+  ["N"] = "Restricted Option: Open And Close Positions (N)",
+}
 
-  return "Restricted Option: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.restricted_option.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.restricted_option.labels[value] or "Restricted Option: Unknown("..value..")"
 end
 
 -- Dissect: Restricted Option
@@ -1375,21 +1273,15 @@ miax_pearloptions_topofmarket_mach_v1_0.system_status = {}
 miax_pearloptions_topofmarket_mach_v1_0.system_status.size = 1
 
 -- Display: System Status
-miax_pearloptions_topofmarket_mach_v1_0.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start (S)"
-  end
-  if value == "C" then
-    return "System Status: End (C)"
-  end
-  if value == "1" then
-    return "System Status: Start (1)"
-  end
-  if value == "2" then
-    return "System Status: End (2)"
-  end
+miax_pearloptions_topofmarket_mach_v1_0.system_status.labels = {
+  ["S"] = "System Status: Start (S)",
+  ["C"] = "System Status: End (C)",
+  ["1"] = "System Status: Start (1)",
+  ["2"] = "System Status: End (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_pearloptions_topofmarket_mach_v1_0.system_status.display = function(value)
+  return miax_pearloptions_topofmarket_mach_v1_0.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -2753,54 +2645,25 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.data = {}
 
 -- Dissect: Data
+miax_pearloptions_topofmarket_mach_v1_0.data.dispatch = {
+  ["1"] = miax_pearloptions_topofmarket_mach_v1_0.system_time_message.dissect,
+  ["P"] = miax_pearloptions_topofmarket_mach_v1_0.series_update_message.dissect,
+  ["S"] = miax_pearloptions_topofmarket_mach_v1_0.system_state_message.dissect,
+  ["B"] = miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.dissect,
+  ["O"] = miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.dissect,
+  ["W"] = miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.dissect,
+  ["A"] = miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.dissect,
+  ["d"] = miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.dissect,
+  ["D"] = miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.dissect,
+  ["T"] = miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.dissect,
+  ["X"] = miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.dissect,
+  ["H"] = miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.dissect,
+}
+
 miax_pearloptions_topofmarket_mach_v1_0.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Time Message
-  if message_type == "1" then
-    return miax_pearloptions_topofmarket_mach_v1_0.system_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Update Message
-  if message_type == "P" then
-    return miax_pearloptions_topofmarket_mach_v1_0.series_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Message
-  if message_type == "S" then
-    return miax_pearloptions_topofmarket_mach_v1_0.system_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Compact Top Of Market Bid Message
-  if message_type == "B" then
-    return miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Compact Top Of Market Best Offer Message
-  if message_type == "O" then
-    return miax_pearloptions_topofmarket_mach_v1_0.compact_top_of_market_best_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wide Top Of Market Best Bid Message
-  if message_type == "W" then
-    return miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wide Top Of Market Best Offer Message
-  if message_type == "A" then
-    return miax_pearloptions_topofmarket_mach_v1_0.wide_top_of_market_best_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Compact Double Sided Top Of Market Message
-  if message_type == "d" then
-    return miax_pearloptions_topofmarket_mach_v1_0.compact_double_sided_top_of_market_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wide Double Sided Top Of Market Message
-  if message_type == "D" then
-    return miax_pearloptions_topofmarket_mach_v1_0.wide_double_sided_top_of_market_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Sale Message
-  if message_type == "T" then
-    return miax_pearloptions_topofmarket_mach_v1_0.last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == "X" then
-    return miax_pearloptions_topofmarket_mach_v1_0.trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Trading Status Notification
-  if message_type == "H" then
-    return miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.dissect(buffer, offset, packet, parent)
+  local dissect = miax_pearloptions_topofmarket_mach_v1_0.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2863,22 +2726,17 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.payload = {}
 
 -- Dissect: Payload
+miax_pearloptions_topofmarket_mach_v1_0.payload.dispatch = {
+  [3] = miax_pearloptions_topofmarket_mach_v1_0.application_message.dissect,
+  [0] = miax_pearloptions_topofmarket_mach_v1_0.heartbeat.dissect,
+  [1] = miax_pearloptions_topofmarket_mach_v1_0.start_of_session.dissect,
+  [2] = miax_pearloptions_topofmarket_mach_v1_0.end_of_session.dissect,
+}
+
 miax_pearloptions_topofmarket_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Application Message
-  if packet_type == 3 then
-    return miax_pearloptions_topofmarket_mach_v1_0.application_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if packet_type == 0 then
-    return miax_pearloptions_topofmarket_mach_v1_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if packet_type == 1 then
-    return miax_pearloptions_topofmarket_mach_v1_0.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if packet_type == 2 then
-    return miax_pearloptions_topofmarket_mach_v1_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = miax_pearloptions_topofmarket_mach_v1_0.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -300,24 +300,16 @@ iex_iexequities_tops_snap_v1_6.auction_type = {}
 iex_iexequities_tops_snap_v1_6.auction_type.size = 1
 
 -- Display: Auction Type
-iex_iexequities_tops_snap_v1_6.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "I" then
-    return "Auction Type: Ipo Auction (I)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction (H)"
-  end
-  if value == "V" then
-    return "Auction Type: Volatility Auction (V)"
-  end
+iex_iexequities_tops_snap_v1_6.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["I"] = "Auction Type: Ipo Auction (I)",
+  ["H"] = "Auction Type: Halt Auction (H)",
+  ["V"] = "Auction Type: Volatility Auction (V)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.auction_type.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -597,42 +589,22 @@ iex_iexequities_tops_snap_v1_6.iex_tp_message_type = {}
 iex_iexequities_tops_snap_v1_6.iex_tp_message_type.size = 1
 
 -- Display: Iex Tp Message Type
-iex_iexequities_tops_snap_v1_6.iex_tp_message_type.display = function(value)
-  if value == "S" then
-    return "Iex Tp Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Iex Tp Message Type: Security Directory Message (D)"
-  end
-  if value == "H" then
-    return "Iex Tp Message Type: Trading Status Message (H)"
-  end
-  if value == "I" then
-    return "Iex Tp Message Type: Retail Liquidity Indicator Message (I)"
-  end
-  if value == "O" then
-    return "Iex Tp Message Type: Operational Halt Status Message (O)"
-  end
-  if value == "P" then
-    return "Iex Tp Message Type: Short Sale Price Test Status Message (P)"
-  end
-  if value == "Q" then
-    return "Iex Tp Message Type: Quote Update Message (Q)"
-  end
-  if value == "T" then
-    return "Iex Tp Message Type: Trade Report Message (T)"
-  end
-  if value == "X" then
-    return "Iex Tp Message Type: Official Price Message (X)"
-  end
-  if value == "B" then
-    return "Iex Tp Message Type: Trade Break Message (B)"
-  end
-  if value == "A" then
-    return "Iex Tp Message Type: Auction Information Message (A)"
-  end
+iex_iexequities_tops_snap_v1_6.iex_tp_message_type.labels = {
+  ["S"] = "Iex Tp Message Type: System Event Message (S)",
+  ["D"] = "Iex Tp Message Type: Security Directory Message (D)",
+  ["H"] = "Iex Tp Message Type: Trading Status Message (H)",
+  ["I"] = "Iex Tp Message Type: Retail Liquidity Indicator Message (I)",
+  ["O"] = "Iex Tp Message Type: Operational Halt Status Message (O)",
+  ["P"] = "Iex Tp Message Type: Short Sale Price Test Status Message (P)",
+  ["Q"] = "Iex Tp Message Type: Quote Update Message (Q)",
+  ["T"] = "Iex Tp Message Type: Trade Report Message (T)",
+  ["X"] = "Iex Tp Message Type: Official Price Message (X)",
+  ["B"] = "Iex Tp Message Type: Trade Break Message (B)",
+  ["A"] = "Iex Tp Message Type: Auction Information Message (A)",
+}
 
-  return "Iex Tp Message Type: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.iex_tp_message_type.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.iex_tp_message_type.labels[value] or "Iex Tp Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Iex Tp Message Type
@@ -677,18 +649,14 @@ iex_iexequities_tops_snap_v1_6.imbalance_side = {}
 iex_iexequities_tops_snap_v1_6.imbalance_side.size = 1
 
 -- Display: Imbalance Side
-iex_iexequities_tops_snap_v1_6.imbalance_side.display = function(value)
-  if value == "B" then
-    return "Imbalance Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Imbalance Side: Sell (S)"
-  end
-  if value == "N" then
-    return "Imbalance Side: None (N)"
-  end
+iex_iexequities_tops_snap_v1_6.imbalance_side.labels = {
+  ["B"] = "Imbalance Side: Buy (B)",
+  ["S"] = "Imbalance Side: Sell (S)",
+  ["N"] = "Imbalance Side: None (N)",
+}
 
-  return "Imbalance Side: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.imbalance_side.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.imbalance_side.labels[value] or "Imbalance Side: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Side
@@ -768,18 +736,14 @@ iex_iexequities_tops_snap_v1_6.luld_tier = {}
 iex_iexequities_tops_snap_v1_6.luld_tier.size = 1
 
 -- Display: Luld Tier
-iex_iexequities_tops_snap_v1_6.luld_tier.display = function(value)
-  if value == 0 then
-    return "Luld Tier: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Luld Tier: Tier 1 Nms Stock (1)"
-  end
-  if value == 2 then
-    return "Luld Tier: Tier 2 Nms Stock (2)"
-  end
+iex_iexequities_tops_snap_v1_6.luld_tier.labels = {
+  [0] = "Luld Tier: Not Applicable (0)",
+  [1] = "Luld Tier: Tier 1 Nms Stock (1)",
+  [2] = "Luld Tier: Tier 2 Nms Stock (2)",
+}
 
-  return "Luld Tier: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.luld_tier.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.luld_tier.labels[value] or "Luld Tier: Unknown("..value..")"
 end
 
 -- Dissect: Luld Tier
@@ -870,24 +834,16 @@ iex_iexequities_tops_snap_v1_6.message_type = {}
 iex_iexequities_tops_snap_v1_6.message_type.size = 1
 
 -- Display: Message Type
-iex_iexequities_tops_snap_v1_6.message_type.display = function(value)
-  if value == "r" then
-    return "Message Type: Snapshot Request Message (r)"
-  end
-  if value == "e" then
-    return "Message Type: Error Response Message (e)"
-  end
-  if value == "s" then
-    return "Message Type: Snapshot Start Message (s)"
-  end
-  if value == "d" then
-    return "Message Type: Snapshot Data Message (d)"
-  end
-  if value == "x" then
-    return "Message Type: Snapshot End Message (x)"
-  end
+iex_iexequities_tops_snap_v1_6.message_type.labels = {
+  ["r"] = "Message Type: Snapshot Request Message (r)",
+  ["e"] = "Message Type: Error Response Message (e)",
+  ["s"] = "Message Type: Snapshot Start Message (s)",
+  ["d"] = "Message Type: Snapshot Data Message (d)",
+  ["x"] = "Message Type: Snapshot End Message (x)",
+}
 
-  return "Message Type: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.message_type.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -961,15 +917,13 @@ iex_iexequities_tops_snap_v1_6.operational_halt_status = {}
 iex_iexequities_tops_snap_v1_6.operational_halt_status.size = 1
 
 -- Display: Operational Halt Status
-iex_iexequities_tops_snap_v1_6.operational_halt_status.display = function(value)
-  if value == "O" then
-    return "Operational Halt Status: Iex Specific Operational Trading Halt (O)"
-  end
-  if value == "N" then
-    return "Operational Halt Status: Not Operationally Halted On Iex (N)"
-  end
+iex_iexequities_tops_snap_v1_6.operational_halt_status.labels = {
+  ["O"] = "Operational Halt Status: Iex Specific Operational Trading Halt (O)",
+  ["N"] = "Operational Halt Status: Not Operationally Halted On Iex (N)",
+}
 
-  return "Operational Halt Status: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.operational_halt_status.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.operational_halt_status.labels[value] or "Operational Halt Status: Unknown("..value..")"
 end
 
 -- Dissect: Operational Halt Status
@@ -1066,15 +1020,13 @@ iex_iexequities_tops_snap_v1_6.price_type = {}
 iex_iexequities_tops_snap_v1_6.price_type.size = 1
 
 -- Display: Price Type
-iex_iexequities_tops_snap_v1_6.price_type.display = function(value)
-  if value == "Q" then
-    return "Price Type: Iex Official Opening Price (Q)"
-  end
-  if value == "M" then
-    return "Price Type: Iex Official Closing Price (M)"
-  end
+iex_iexequities_tops_snap_v1_6.price_type.labels = {
+  ["Q"] = "Price Type: Iex Official Opening Price (Q)",
+  ["M"] = "Price Type: Iex Official Closing Price (M)",
+}
 
-  return "Price Type: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.price_type.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -1148,30 +1100,18 @@ iex_iexequities_tops_snap_v1_6.reject_reason_code = {}
 iex_iexequities_tops_snap_v1_6.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-iex_iexequities_tops_snap_v1_6.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Authentication Failure (A)"
-  end
-  if value == "C" then
-    return "Reject Reason Code: Incorrect Channel Id (C)"
-  end
-  if value == "E" then
-    return "Reject Reason Code: Snapshot Request Already Active (E)"
-  end
-  if value == "Q" then
-    return "Reject Reason Code: Quota Exceeded (Q)"
-  end
-  if value == "R" then
-    return "Reject Reason Code: Snapshot Not Yet Available (R)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Incorrect Session Id (S)"
-  end
-  if value == "U" then
-    return "Reject Reason Code: Unknown Message (U)"
-  end
+iex_iexequities_tops_snap_v1_6.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Authentication Failure (A)",
+  ["C"] = "Reject Reason Code: Incorrect Channel Id (C)",
+  ["E"] = "Reject Reason Code: Snapshot Request Already Active (E)",
+  ["Q"] = "Reject Reason Code: Quota Exceeded (Q)",
+  ["R"] = "Reject Reason Code: Snapshot Not Yet Available (R)",
+  ["S"] = "Reject Reason Code: Incorrect Session Id (S)",
+  ["U"] = "Reject Reason Code: Unknown Message (U)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.reject_reason_code.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1346,15 +1286,13 @@ iex_iexequities_tops_snap_v1_6.short_sale_price_test_status = {}
 iex_iexequities_tops_snap_v1_6.short_sale_price_test_status.size = 1
 
 -- Display: Short Sale Price Test Status
-iex_iexequities_tops_snap_v1_6.short_sale_price_test_status.display = function(value)
-  if value == 0 then
-    return "Short Sale Price Test Status: Not In Effect (0)"
-  end
-  if value == 1 then
-    return "Short Sale Price Test Status: In Effect (1)"
-  end
+iex_iexequities_tops_snap_v1_6.short_sale_price_test_status.labels = {
+  [0] = "Short Sale Price Test Status: Not In Effect (0)",
+  [1] = "Short Sale Price Test Status: In Effect (1)",
+}
 
-  return "Short Sale Price Test Status: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.short_sale_price_test_status.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.short_sale_price_test_status.labels[value] or "Short Sale Price Test Status: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Price Test Status
@@ -1491,27 +1429,17 @@ iex_iexequities_tops_snap_v1_6.system_event = {}
 iex_iexequities_tops_snap_v1_6.system_event.size = 1
 
 -- Display: System Event
-iex_iexequities_tops_snap_v1_6.system_event.display = function(value)
-  if value == "O" then
-    return "System Event: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "System Event: Start Of System Hours (S)"
-  end
-  if value == "R" then
-    return "System Event: Start Of Regular Market Hours (R)"
-  end
-  if value == "M" then
-    return "System Event: End Of Regular Market Hours (M)"
-  end
-  if value == "E" then
-    return "System Event: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "System Event: End Of Messages (C)"
-  end
+iex_iexequities_tops_snap_v1_6.system_event.labels = {
+  ["O"] = "System Event: Start Of Messages (O)",
+  ["S"] = "System Event: Start Of System Hours (S)",
+  ["R"] = "System Event: Start Of Regular Market Hours (R)",
+  ["M"] = "System Event: End Of Regular Market Hours (M)",
+  ["E"] = "System Event: End Of System Hours (E)",
+  ["C"] = "System Event: End Of Messages (C)",
+}
 
-  return "System Event: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.system_event.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.system_event.labels[value] or "System Event: Unknown("..value..")"
 end
 
 -- Dissect: System Event
@@ -1580,21 +1508,15 @@ iex_iexequities_tops_snap_v1_6.trading_status = {}
 iex_iexequities_tops_snap_v1_6.trading_status.size = 1
 
 -- Display: Trading Status
-iex_iexequities_tops_snap_v1_6.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Trading Halted Across All Us Equity Markets (H)"
-  end
-  if value == "O" then
-    return "Trading Status: Trading Halt Released Into An Order Acceptance Period On Iex (O)"
-  end
-  if value == "P" then
-    return "Trading Status: Trading Paused And Order Acceptance Period On Iex (P)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading On Iex (T)"
-  end
+iex_iexequities_tops_snap_v1_6.trading_status.labels = {
+  ["H"] = "Trading Status: Trading Halted Across All Us Equity Markets (H)",
+  ["O"] = "Trading Status: Trading Halt Released Into An Order Acceptance Period On Iex (O)",
+  ["P"] = "Trading Status: Trading Paused And Order Acceptance Period On Iex (P)",
+  ["T"] = "Trading Status: Trading On Iex (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+iex_iexequities_tops_snap_v1_6.trading_status.display = function(value)
+  return iex_iexequities_tops_snap_v1_6.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2520,50 +2442,24 @@ end
 iex_iexequities_tops_snap_v1_6.iex_tp_message_data = {}
 
 -- Dissect: Iex Tp Message Data
+iex_iexequities_tops_snap_v1_6.iex_tp_message_data.dispatch = {
+  ["S"] = iex_iexequities_tops_snap_v1_6.system_event_message.dissect,
+  ["D"] = iex_iexequities_tops_snap_v1_6.security_directory_message.dissect,
+  ["H"] = iex_iexequities_tops_snap_v1_6.trading_status_message.dissect,
+  ["I"] = iex_iexequities_tops_snap_v1_6.retail_liquidity_indicator_message.dissect,
+  ["O"] = iex_iexequities_tops_snap_v1_6.operational_halt_status_message.dissect,
+  ["P"] = iex_iexequities_tops_snap_v1_6.short_sale_price_test_status_message.dissect,
+  ["Q"] = iex_iexequities_tops_snap_v1_6.quote_update_message.dissect,
+  ["T"] = iex_iexequities_tops_snap_v1_6.trade_report_message.dissect,
+  ["X"] = iex_iexequities_tops_snap_v1_6.official_price_message.dissect,
+  ["B"] = iex_iexequities_tops_snap_v1_6.trade_break_message.dissect,
+  ["A"] = iex_iexequities_tops_snap_v1_6.auction_information_message.dissect,
+}
+
 iex_iexequities_tops_snap_v1_6.iex_tp_message_data.dissect = function(buffer, offset, packet, parent, iex_tp_message_type)
-  -- Dissect System Event Message
-  if iex_tp_message_type == "S" then
-    return iex_iexequities_tops_snap_v1_6.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Directory Message
-  if iex_tp_message_type == "D" then
-    return iex_iexequities_tops_snap_v1_6.security_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if iex_tp_message_type == "H" then
-    return iex_iexequities_tops_snap_v1_6.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retail Liquidity Indicator Message
-  if iex_tp_message_type == "I" then
-    return iex_iexequities_tops_snap_v1_6.retail_liquidity_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Operational Halt Status Message
-  if iex_tp_message_type == "O" then
-    return iex_iexequities_tops_snap_v1_6.operational_halt_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Sale Price Test Status Message
-  if iex_tp_message_type == "P" then
-    return iex_iexequities_tops_snap_v1_6.short_sale_price_test_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Message
-  if iex_tp_message_type == "Q" then
-    return iex_iexequities_tops_snap_v1_6.quote_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if iex_tp_message_type == "T" then
-    return iex_iexequities_tops_snap_v1_6.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Official Price Message
-  if iex_tp_message_type == "X" then
-    return iex_iexequities_tops_snap_v1_6.official_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if iex_tp_message_type == "B" then
-    return iex_iexequities_tops_snap_v1_6.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Information Message
-  if iex_tp_message_type == "A" then
-    return iex_iexequities_tops_snap_v1_6.auction_information_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexequities_tops_snap_v1_6.iex_tp_message_data.dispatch[iex_tp_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2843,26 +2739,18 @@ end
 iex_iexequities_tops_snap_v1_6.message_data = {}
 
 -- Dissect: Message Data
+iex_iexequities_tops_snap_v1_6.message_data.dispatch = {
+  ["r"] = iex_iexequities_tops_snap_v1_6.snapshot_request_message.dissect,
+  ["e"] = iex_iexequities_tops_snap_v1_6.error_response_message.dissect,
+  ["s"] = iex_iexequities_tops_snap_v1_6.snapshot_start_message.dissect,
+  ["d"] = iex_iexequities_tops_snap_v1_6.snapshot_data_message.dissect,
+  ["x"] = iex_iexequities_tops_snap_v1_6.snapshot_end_message.dissect,
+}
+
 iex_iexequities_tops_snap_v1_6.message_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Snapshot Request Message
-  if message_type == "r" then
-    return iex_iexequities_tops_snap_v1_6.snapshot_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Error Response Message
-  if message_type == "e" then
-    return iex_iexequities_tops_snap_v1_6.error_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Start Message
-  if message_type == "s" then
-    return iex_iexequities_tops_snap_v1_6.snapshot_start_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Data Message
-  if message_type == "d" then
-    return iex_iexequities_tops_snap_v1_6.snapshot_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot End Message
-  if message_type == "x" then
-    return iex_iexequities_tops_snap_v1_6.snapshot_end_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexequities_tops_snap_v1_6.message_data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

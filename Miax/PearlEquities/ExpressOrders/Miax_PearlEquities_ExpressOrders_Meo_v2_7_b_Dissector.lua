@@ -301,21 +301,15 @@ miax_pearlequities_expressorders_meo_v2_7_b.action = {}
 miax_pearlequities_expressorders_meo_v2_7_b.action.size = 1
 
 -- Display: Action
-miax_pearlequities_expressorders_meo_v2_7_b.action.display = function(value)
-  if value == "B" then
-    return "Action: Block Only (B)"
-  end
-  if value == "M" then
-    return "Action: Mass Cancel Only (M)"
-  end
-  if value == "X" then
-    return "Action: Block And Mass Cancel (X)"
-  end
-  if value == "R" then
-    return "Action: Remove Blocking For The Specified Scope (R)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.action.labels = {
+  ["B"] = "Action: Block Only (B)",
+  ["M"] = "Action: Mass Cancel Only (M)",
+  ["X"] = "Action: Block And Mass Cancel (X)",
+  ["R"] = "Action: Remove Blocking For The Specified Scope (R)",
+}
 
-  return "Action: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.action.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -440,117 +434,47 @@ miax_pearlequities_expressorders_meo_v2_7_b.cancel_reason = {}
 miax_pearlequities_expressorders_meo_v2_7_b.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-miax_pearlequities_expressorders_meo_v2_7_b.cancel_reason.display = function(value)
-  if value == "A" then
-    return "Cancel Reason: Cancelled Due To Cumulative Risk Metrics (A)"
-  end
-  if value == "B" then
-    return "Cancel Reason: Reserved For Future Use (B)"
-  end
-  if value == "C" then
-    return "Cancel Reason: Time In Force Cancelled (C)"
-  end
-  if value == "D" then
-    return "Cancel Reason: Auto Cancel On Disconnect Acod (D)"
-  end
-  if value == "E" then
-    return "Cancel Reason: Post Only Order Is Lockingcrossing Miax (E)"
-  end
-  if value == "F" then
-    return "Cancel Reason: Auto Cancel On System Failure Acosf (F)"
-  end
-  if value == "G" then
-    return "Cancel Reason: Cancelled Due To Price Sliding Instruction (G)"
-  end
-  if value == "H" then
-    return "Cancel Reason: Cancelled By Helpdesk Or Over Miax Member (H)"
-  end
-  if value == "I" then
-    return "Cancel Reason: Order Expired (I)"
-  end
-  if value == "J" then
-    return "Cancel Reason: Symbol Trading Status Makes Pac Market (J)"
-  end
-  if value == "K" then
-    return "Cancel Reason: Trading Collar Protection (K)"
-  end
-  if value == "L" then
-    return "Cancel Reason: Sell Short Iso When Short Sale Price Test Is (L)"
-  end
-  if value == "M" then
-    return "Cancel Reason: Symbol Is Not Trading (M)"
-  end
-  if value == "N" then
-    return "Cancel Reason: Limit Order Price Protection (N)"
-  end
-  if value == "O" then
-    return "Cancel Reason: Route To Primary Listing Market Rejected (O)"
-  end
-  if value == "P" then
-    return "Cancel Reason: Cancelled By A Mass Cancel Request Over A Priority Purge Port (P)"
-  end
-  if value == "Q" then
-    return "Cancel Reason: Unexpected Cancel By Primary Listing Market (Q)"
-  end
-  if value == "R" then
-    return "Cancel Reason: Cancelled Due To Failed Price Improvement (R)"
-  end
-  if value == "S" then
-    return "Cancel Reason: Cancelled Due To Primary Auction Route (S)"
-  end
-  if value == "T" then
-    return "Cancel Reason: Cancelled Due To Order Rate Protection (T)"
-  end
-  if value == "U" then
-    return "Cancel Reason: Cancelled By User Through Order Entry Session (U)"
-  end
-  if value == "V" then
-    return "Cancel Reason: Invalid Pegged Order Price (V)"
-  end
-  if value == "W" then
-    return "Cancel Reason: Pac Order Cancelled As Security Is Halted (W)"
-  end
-  if value == "X" then
-    return "Cancel Reason: Not Applicable Used When Pending Cancel (X)"
-  end
-  if value == "Y" then
-    return "Cancel Reason: Primary Auction Order Is Cancelled Due To A (Y)"
-  end
-  if value == "0" then
-    return "Cancel Reason: Cancelled Due To Market Impact Collar (0)"
-  end
-  if value == "1" then
-    return "Cancel Reason: Cancel Newest Instruction (1)"
-  end
-  if value == "2" then
-    return "Cancel Reason: Cancel Oldest Instruction (2)"
-  end
-  if value == "3" then
-    return "Cancel Reason: Cancel Both Instruction (3)"
-  end
-  if value == "4" then
-    return "Cancel Reason: Decrement And Cancel Instruction (4)"
-  end
-  if value == "5" then
-    return "Cancel Reason: Cancelled Due To Drop Copy Acod Event (5)"
-  end
-  if value == "6" then
-    return "Cancel Reason: Cancelled Due To Drop Copy Acosf Event (6)"
-  end
-  if value == "7" then
-    return "Cancel Reason: Cancelled As Order Did Not Set Nbbo (7)"
-  end
-  if value == "8" then
-    return "Cancel Reason: Cancelled By User Through A Session Other (8)"
-  end
-  if value == "Z" then
-    return "Cancel Reason: Undefined Reason (Z)"
-  end
-  if value == "*" then
-    return "Cancel Reason: Downgraded From Older Version (*)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.cancel_reason.labels = {
+  ["A"] = "Cancel Reason: Cancelled Due To Cumulative Risk Metrics (A)",
+  ["B"] = "Cancel Reason: Reserved For Future Use (B)",
+  ["C"] = "Cancel Reason: Time In Force Cancelled (C)",
+  ["D"] = "Cancel Reason: Auto Cancel On Disconnect Acod (D)",
+  ["E"] = "Cancel Reason: Post Only Order Is Lockingcrossing Miax (E)",
+  ["F"] = "Cancel Reason: Auto Cancel On System Failure Acosf (F)",
+  ["G"] = "Cancel Reason: Cancelled Due To Price Sliding Instruction (G)",
+  ["H"] = "Cancel Reason: Cancelled By Helpdesk Or Over Miax Member (H)",
+  ["I"] = "Cancel Reason: Order Expired (I)",
+  ["J"] = "Cancel Reason: Symbol Trading Status Makes Pac Market (J)",
+  ["K"] = "Cancel Reason: Trading Collar Protection (K)",
+  ["L"] = "Cancel Reason: Sell Short Iso When Short Sale Price Test Is (L)",
+  ["M"] = "Cancel Reason: Symbol Is Not Trading (M)",
+  ["N"] = "Cancel Reason: Limit Order Price Protection (N)",
+  ["O"] = "Cancel Reason: Route To Primary Listing Market Rejected (O)",
+  ["P"] = "Cancel Reason: Cancelled By A Mass Cancel Request Over A Priority Purge Port (P)",
+  ["Q"] = "Cancel Reason: Unexpected Cancel By Primary Listing Market (Q)",
+  ["R"] = "Cancel Reason: Cancelled Due To Failed Price Improvement (R)",
+  ["S"] = "Cancel Reason: Cancelled Due To Primary Auction Route (S)",
+  ["T"] = "Cancel Reason: Cancelled Due To Order Rate Protection (T)",
+  ["U"] = "Cancel Reason: Cancelled By User Through Order Entry Session (U)",
+  ["V"] = "Cancel Reason: Invalid Pegged Order Price (V)",
+  ["W"] = "Cancel Reason: Pac Order Cancelled As Security Is Halted (W)",
+  ["X"] = "Cancel Reason: Not Applicable Used When Pending Cancel (X)",
+  ["Y"] = "Cancel Reason: Primary Auction Order Is Cancelled Due To A (Y)",
+  ["0"] = "Cancel Reason: Cancelled Due To Market Impact Collar (0)",
+  ["1"] = "Cancel Reason: Cancel Newest Instruction (1)",
+  ["2"] = "Cancel Reason: Cancel Oldest Instruction (2)",
+  ["3"] = "Cancel Reason: Cancel Both Instruction (3)",
+  ["4"] = "Cancel Reason: Decrement And Cancel Instruction (4)",
+  ["5"] = "Cancel Reason: Cancelled Due To Drop Copy Acod Event (5)",
+  ["6"] = "Cancel Reason: Cancelled Due To Drop Copy Acosf Event (6)",
+  ["7"] = "Cancel Reason: Cancelled As Order Did Not Set Nbbo (7)",
+  ["8"] = "Cancel Reason: Cancelled By User Through A Session Other (8)",
+  ["Z"] = "Cancel Reason: Undefined Reason (Z)",
+  ["*"] = "Cancel Reason: Downgraded From Older Version (*)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.cancel_reason.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -647,18 +571,14 @@ miax_pearlequities_expressorders_meo_v2_7_b.capacity = {}
 miax_pearlequities_expressorders_meo_v2_7_b.capacity.size = 1
 
 -- Display: Capacity
-miax_pearlequities_expressorders_meo_v2_7_b.capacity.display = function(value)
-  if value == "A" then
-    return "Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity: Principal (P)"
-  end
-  if value == "R" then
-    return "Capacity: Riskless Principal (R)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.capacity.labels = {
+  ["A"] = "Capacity: Agency (A)",
+  ["P"] = "Capacity: Principal (P)",
+  ["R"] = "Capacity: Riskless Principal (R)",
+}
 
-  return "Capacity: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.capacity.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -919,45 +839,23 @@ miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type = {}
 miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.size = 1
 
 -- Display: Esesm Packet Type
-miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.display = function(value)
-  if value == "s" then
-    return "Esesm Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Esesm Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Esesm Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Esesm Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Esesm Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Esesm Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Esesm Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Esesm Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Esesm Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Esesm Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Esesm Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Esesm Packet Type: Test Packet (T)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.labels = {
+  ["s"] = "Esesm Packet Type: Sequenced Data Packet (s)",
+  ["U"] = "Esesm Packet Type: Unsequenced Data Packet (U)",
+  ["l"] = "Esesm Packet Type: Login Request (l)",
+  ["r"] = "Esesm Packet Type: Login Response (r)",
+  ["c"] = "Esesm Packet Type: Synchronization Complete (c)",
+  ["a"] = "Esesm Packet Type: Retransmission Request (a)",
+  ["X"] = "Esesm Packet Type: Logout Request (X)",
+  ["G"] = "Esesm Packet Type: Goodbye Packet (G)",
+  ["u"] = "Esesm Packet Type: Trading Session Update (u)",
+  ["0"] = "Esesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Esesm Packet Type: Client Heartbeat (1)",
+  ["T"] = "Esesm Packet Type: Test Packet (T)",
+}
 
-  return "Esesm Packet Type: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.esesm_packet_type.labels[value] or "Esesm Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Esesm Packet Type
@@ -1002,66 +900,30 @@ miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center = {}
 miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center.size = 1
 
 -- Display: Executing Trading Center
-miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center.display = function(value)
-  if value == "A" then
-    return "Executing Trading Center: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Executing Trading Center: Nasdaq Texas (B)"
-  end
-  if value == "C" then
-    return "Executing Trading Center: Nyse National (C)"
-  end
-  if value == "F" then
-    return "Executing Trading Center: Texas Stock Exchange (F)"
-  end
-  if value == "G" then
-    return "Executing Trading Center: 24X Exchange (G)"
-  end
-  if value == "H" then
-    return "Executing Trading Center: Miax Pearl Equities (H)"
-  end
-  if value == "I" then
-    return "Executing Trading Center: Nasdaq Ise (I)"
-  end
-  if value == "J" then
-    return "Executing Trading Center: Cboe Edga Exchange (J)"
-  end
-  if value == "K" then
-    return "Executing Trading Center: Cboe Edgx Exchange (K)"
-  end
-  if value == "L" then
-    return "Executing Trading Center: Long Term Stock Exchange (L)"
-  end
-  if value == "M" then
-    return "Executing Trading Center: Nyse Texas (M)"
-  end
-  if value == "N" then
-    return "Executing Trading Center: New York Stock Exchange (N)"
-  end
-  if value == "P" then
-    return "Executing Trading Center: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Executing Trading Center: Nasdaq (Q)"
-  end
-  if value == "U" then
-    return "Executing Trading Center: Members Exchange (U)"
-  end
-  if value == "V" then
-    return "Executing Trading Center: Investors Exchange (V)"
-  end
-  if value == "X" then
-    return "Executing Trading Center: Nasdaq Phlx (X)"
-  end
-  if value == "Y" then
-    return "Executing Trading Center: Cboe Byx Exchange (Y)"
-  end
-  if value == "Z" then
-    return "Executing Trading Center: Cboe Bzx Exchange (Z)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center.labels = {
+  ["A"] = "Executing Trading Center: Nyse American (A)",
+  ["B"] = "Executing Trading Center: Nasdaq Texas (B)",
+  ["C"] = "Executing Trading Center: Nyse National (C)",
+  ["F"] = "Executing Trading Center: Texas Stock Exchange (F)",
+  ["G"] = "Executing Trading Center: 24X Exchange (G)",
+  ["H"] = "Executing Trading Center: Miax Pearl Equities (H)",
+  ["I"] = "Executing Trading Center: Nasdaq Ise (I)",
+  ["J"] = "Executing Trading Center: Cboe Edga Exchange (J)",
+  ["K"] = "Executing Trading Center: Cboe Edgx Exchange (K)",
+  ["L"] = "Executing Trading Center: Long Term Stock Exchange (L)",
+  ["M"] = "Executing Trading Center: Nyse Texas (M)",
+  ["N"] = "Executing Trading Center: New York Stock Exchange (N)",
+  ["P"] = "Executing Trading Center: Nyse Arca (P)",
+  ["Q"] = "Executing Trading Center: Nasdaq (Q)",
+  ["U"] = "Executing Trading Center: Members Exchange (U)",
+  ["V"] = "Executing Trading Center: Investors Exchange (V)",
+  ["X"] = "Executing Trading Center: Nasdaq Phlx (X)",
+  ["Y"] = "Executing Trading Center: Cboe Byx Exchange (Y)",
+  ["Z"] = "Executing Trading Center: Cboe Bzx Exchange (Z)",
+}
 
-  return "Executing Trading Center: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.executing_trading_center.labels[value] or "Executing Trading Center: Unknown("..value..")"
 end
 
 -- Dissect: Executing Trading Center
@@ -1748,24 +1610,16 @@ miax_pearlequities_expressorders_meo_v2_7_b.nbbo_indicator = {}
 miax_pearlequities_expressorders_meo_v2_7_b.nbbo_indicator.size = 1
 
 -- Display: Nbbo Indicator
-miax_pearlequities_expressorders_meo_v2_7_b.nbbo_indicator.display = function(value)
-  if value == "Y" then
-    return "Nbbo Indicator: Nbbo Setter (Y)"
-  end
-  if value == "F" then
-    return "Nbbo Indicator: Nbbo First Joiner (F)"
-  end
-  if value == "S" then
-    return "Nbbo Indicator: Nbbo Setter With Size (S)"
-  end
-  if value == "J" then
-    return "Nbbo Indicator: Nbbo First Joiner With Size (J)"
-  end
-  if value == "N" then
-    return "Nbbo Indicator: Not Applicable (N)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.nbbo_indicator.labels = {
+  ["Y"] = "Nbbo Indicator: Nbbo Setter (Y)",
+  ["F"] = "Nbbo Indicator: Nbbo First Joiner (F)",
+  ["S"] = "Nbbo Indicator: Nbbo Setter With Size (S)",
+  ["J"] = "Nbbo Indicator: Nbbo First Joiner With Size (J)",
+  ["N"] = "Nbbo Indicator: Not Applicable (N)",
+}
 
-  return "Nbbo Indicator: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.nbbo_indicator.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.nbbo_indicator.labels[value] or "Nbbo Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Nbbo Indicator
@@ -2155,27 +2009,17 @@ miax_pearlequities_expressorders_meo_v2_7_b.order_type = {}
 miax_pearlequities_expressorders_meo_v2_7_b.order_type.size = 1
 
 -- Display: Order Type
-miax_pearlequities_expressorders_meo_v2_7_b.order_type.display = function(value)
-  if value == "1" then
-    return "Order Type: Limit (1)"
-  end
-  if value == "2" then
-    return "Order Type: Market (2)"
-  end
-  if value == "M" then
-    return "Order Type: Midpoint Peg (M)"
-  end
-  if value == "m" then
-    return "Order Type: Midpoint Peg But Do Not Match When Nbbo Is Locked (m)"
-  end
-  if value == "R" then
-    return "Order Type: Primary Peg (R)"
-  end
-  if value == "r" then
-    return "Order Type: Primary Peg But Do Not Match When Nbbo Is Locked (r)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.order_type.labels = {
+  ["1"] = "Order Type: Limit (1)",
+  ["2"] = "Order Type: Market (2)",
+  ["M"] = "Order Type: Midpoint Peg (M)",
+  ["m"] = "Order Type: Midpoint Peg But Do Not Match When Nbbo Is Locked (m)",
+  ["R"] = "Order Type: Primary Peg (R)",
+  ["r"] = "Order Type: Primary Peg But Do Not Match When Nbbo Is Locked (r)",
+}
 
-  return "Order Type: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.order_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -2236,18 +2080,14 @@ miax_pearlequities_expressorders_meo_v2_7_b.original_order_capacity = {}
 miax_pearlequities_expressorders_meo_v2_7_b.original_order_capacity.size = 1
 
 -- Display: Original Order Capacity
-miax_pearlequities_expressorders_meo_v2_7_b.original_order_capacity.display = function(value)
-  if value == "A" then
-    return "Original Order Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Original Order Capacity: Principal (P)"
-  end
-  if value == "R" then
-    return "Original Order Capacity: Riskless Principal (R)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.original_order_capacity.labels = {
+  ["A"] = "Original Order Capacity: Agency (A)",
+  ["P"] = "Original Order Capacity: Principal (P)",
+  ["R"] = "Original Order Capacity: Riskless Principal (R)",
+}
 
-  return "Original Order Capacity: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.original_order_capacity.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.original_order_capacity.labels[value] or "Original Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Original Order Capacity
@@ -2423,24 +2263,16 @@ miax_pearlequities_expressorders_meo_v2_7_b.price_sliding_and_reprice_frequency 
 miax_pearlequities_expressorders_meo_v2_7_b.price_sliding_and_reprice_frequency.size = 1
 
 -- Display: Price Sliding And Reprice Frequency
-miax_pearlequities_expressorders_meo_v2_7_b.price_sliding_and_reprice_frequency.display = function(value)
-  if value == "D" then
-    return "Price Sliding And Reprice Frequency: Reprice Once (D)"
-  end
-  if value == "C" then
-    return "Price Sliding And Reprice Frequency: Reprice Once But Cancel If Crossed At Entry (C)"
-  end
-  if value == "M" then
-    return "Price Sliding And Reprice Frequency: Reprice Multiple Times (M)"
-  end
-  if value == "N" then
-    return "Price Sliding And Reprice Frequency: No Price Sliding (N)"
-  end
-  if value == "Q" then
-    return "Price Sliding And Reprice Frequency: Not Applicable (Q)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.price_sliding_and_reprice_frequency.labels = {
+  ["D"] = "Price Sliding And Reprice Frequency: Reprice Once (D)",
+  ["C"] = "Price Sliding And Reprice Frequency: Reprice Once But Cancel If Crossed At Entry (C)",
+  ["M"] = "Price Sliding And Reprice Frequency: Reprice Multiple Times (M)",
+  ["N"] = "Price Sliding And Reprice Frequency: No Price Sliding (N)",
+  ["Q"] = "Price Sliding And Reprice Frequency: Not Applicable (Q)",
+}
 
-  return "Price Sliding And Reprice Frequency: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.price_sliding_and_reprice_frequency.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.price_sliding_and_reprice_frequency.labels[value] or "Price Sliding And Reprice Frequency: Unknown("..value..")"
 end
 
 -- Dissect: Price Sliding And Reprice Frequency
@@ -2462,66 +2294,30 @@ miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code = {}
 miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code.size = 1
 
 -- Display: Primary Market Code
-miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code.display = function(value)
-  if value == "A" then
-    return "Primary Market Code: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Primary Market Code: Nasdaq Texas (B)"
-  end
-  if value == "C" then
-    return "Primary Market Code: Nyse National (C)"
-  end
-  if value == "F" then
-    return "Primary Market Code: Texas Stock Exchange (F)"
-  end
-  if value == "G" then
-    return "Primary Market Code: 24X Exchange (G)"
-  end
-  if value == "H" then
-    return "Primary Market Code: Miax Pearl Equities (H)"
-  end
-  if value == "I" then
-    return "Primary Market Code: Nasdaq Ise (I)"
-  end
-  if value == "J" then
-    return "Primary Market Code: Cboe Edga Exchange (J)"
-  end
-  if value == "K" then
-    return "Primary Market Code: Cboe Edgx Exchange (K)"
-  end
-  if value == "L" then
-    return "Primary Market Code: Long Term Stock Exchange (L)"
-  end
-  if value == "M" then
-    return "Primary Market Code: Nyse Texas (M)"
-  end
-  if value == "N" then
-    return "Primary Market Code: New York Stock Exchange (N)"
-  end
-  if value == "P" then
-    return "Primary Market Code: Nyse Arca (P)"
-  end
-  if value == "Q" then
-    return "Primary Market Code: Nasdaq (Q)"
-  end
-  if value == "U" then
-    return "Primary Market Code: Members Exchange (U)"
-  end
-  if value == "V" then
-    return "Primary Market Code: Investors Exchange (V)"
-  end
-  if value == "X" then
-    return "Primary Market Code: Nasdaq Phlx (X)"
-  end
-  if value == "Y" then
-    return "Primary Market Code: Cboe Byx Exchange (Y)"
-  end
-  if value == "Z" then
-    return "Primary Market Code: Cboe Bzx Exchange (Z)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code.labels = {
+  ["A"] = "Primary Market Code: Nyse American (A)",
+  ["B"] = "Primary Market Code: Nasdaq Texas (B)",
+  ["C"] = "Primary Market Code: Nyse National (C)",
+  ["F"] = "Primary Market Code: Texas Stock Exchange (F)",
+  ["G"] = "Primary Market Code: 24X Exchange (G)",
+  ["H"] = "Primary Market Code: Miax Pearl Equities (H)",
+  ["I"] = "Primary Market Code: Nasdaq Ise (I)",
+  ["J"] = "Primary Market Code: Cboe Edga Exchange (J)",
+  ["K"] = "Primary Market Code: Cboe Edgx Exchange (K)",
+  ["L"] = "Primary Market Code: Long Term Stock Exchange (L)",
+  ["M"] = "Primary Market Code: Nyse Texas (M)",
+  ["N"] = "Primary Market Code: New York Stock Exchange (N)",
+  ["P"] = "Primary Market Code: Nyse Arca (P)",
+  ["Q"] = "Primary Market Code: Nasdaq (Q)",
+  ["U"] = "Primary Market Code: Members Exchange (U)",
+  ["V"] = "Primary Market Code: Investors Exchange (V)",
+  ["X"] = "Primary Market Code: Nasdaq Phlx (X)",
+  ["Y"] = "Primary Market Code: Cboe Byx Exchange (Y)",
+  ["Z"] = "Primary Market Code: Cboe Bzx Exchange (Z)",
+}
 
-  return "Primary Market Code: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.primary_market_code.labels[value] or "Primary Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Primary Market Code
@@ -2796,12 +2592,12 @@ miax_pearlequities_expressorders_meo_v2_7_b.scope = {}
 miax_pearlequities_expressorders_meo_v2_7_b.scope.size = 1
 
 -- Display: Scope
-miax_pearlequities_expressorders_meo_v2_7_b.scope.display = function(value)
-  if value == "M" then
-    return "Scope: Purge All Orders For Specified Mpid (M)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.scope.labels = {
+  ["M"] = "Scope: Purge All Orders For Specified Mpid (M)",
+}
 
-  return "Scope: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.scope.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.scope.labels[value] or "Scope: Unknown("..value..")"
 end
 
 -- Dissect: Scope
@@ -2915,45 +2711,23 @@ miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message_type = {}
 miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message_type.size = 2
 
 -- Display: Sequenced Message Type
-miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message_type.display = function(value)
-  if value == "SU" then
-    return "Sequenced Message Type: Symbol Update Message (SU)"
-  end
-  if value == "NR" then
-    return "Sequenced Message Type: New Order Response Message (NR)"
-  end
-  if value == "MR" then
-    return "Sequenced Message Type: Modify Order Response Message (MR)"
-  end
-  if value == "CR" then
-    return "Sequenced Message Type: Cancel Order Response Message (CR)"
-  end
-  if value == "CQ" then
-    return "Sequenced Message Type: Cancel Order By Exchange Order Id Response Message (CQ)"
-  end
-  if value == "SN" then
-    return "Sequenced Message Type: System State Notification Message (SN)"
-  end
-  if value == "O1" then
-    return "Sequenced Message Type: New Order Notification Message (O1)"
-  end
-  if value == "MN" then
-    return "Sequenced Message Type: Modify Order Notification Message (MN)"
-  end
-  if value == "XN" then
-    return "Sequenced Message Type: Cancel Reduce Size Order Notification Message (XN)"
-  end
-  if value == "P1" then
-    return "Sequenced Message Type: Order Price Update Notification Message (P1)"
-  end
-  if value == "RA" then
-    return "Sequenced Message Type: Reserve Order Replenishment Notification Message (RA)"
-  end
-  if value == "E1" then
-    return "Sequenced Message Type: Execution Notification Message (E1)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message_type.labels = {
+  ["SU"] = "Sequenced Message Type: Symbol Update Message (SU)",
+  ["NR"] = "Sequenced Message Type: New Order Response Message (NR)",
+  ["MR"] = "Sequenced Message Type: Modify Order Response Message (MR)",
+  ["CR"] = "Sequenced Message Type: Cancel Order Response Message (CR)",
+  ["CQ"] = "Sequenced Message Type: Cancel Order By Exchange Order Id Response Message (CQ)",
+  ["SN"] = "Sequenced Message Type: System State Notification Message (SN)",
+  ["O1"] = "Sequenced Message Type: New Order Notification Message (O1)",
+  ["MN"] = "Sequenced Message Type: Modify Order Notification Message (MN)",
+  ["XN"] = "Sequenced Message Type: Cancel Reduce Size Order Notification Message (XN)",
+  ["P1"] = "Sequenced Message Type: Order Price Update Notification Message (P1)",
+  ["RA"] = "Sequenced Message Type: Reserve Order Replenishment Notification Message (RA)",
+  ["E1"] = "Sequenced Message Type: Execution Notification Message (E1)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -3090,21 +2864,15 @@ miax_pearlequities_expressorders_meo_v2_7_b.system_status = {}
 miax_pearlequities_expressorders_meo_v2_7_b.system_status.size = 1
 
 -- Display: System Status
-miax_pearlequities_expressorders_meo_v2_7_b.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of System Hours (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of System Hours (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Of Test Session (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of Test Session (2)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.system_status.labels = {
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.system_status.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -3126,15 +2894,13 @@ miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator = {}
 miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator.size = 1
 
 -- Display: Test Security Indicator
-miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator.display = function(value)
-  if value == "Y" then
-    return "Test Security Indicator: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Security Indicator: No (N)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator.labels = {
+  ["Y"] = "Test Security Indicator: Yes (Y)",
+  ["N"] = "Test Security Indicator: No (N)",
+}
 
-  return "Test Security Indicator: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.test_security_indicator.labels[value] or "Test Security Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Test Security Indicator
@@ -3198,27 +2964,17 @@ miax_pearlequities_expressorders_meo_v2_7_b.time_in_force = {}
 miax_pearlequities_expressorders_meo_v2_7_b.time_in_force.size = 1
 
 -- Display: Time In Force
-miax_pearlequities_expressorders_meo_v2_7_b.time_in_force.display = function(value)
-  if value == "R" then
-    return "Time In Force: Regular Hours Only (R)"
-  end
-  if value == "I" then
-    return "Time In Force: Immediate Or Cancel (I)"
-  end
-  if value == "D" then
-    return "Time In Force: Regular Hours Only (D)"
-  end
-  if value == "F" then
-    return "Time In Force: Fill Or Kill (F)"
-  end
-  if value == "T" then
-    return "Time In Force: Good Until Time (T)"
-  end
-  if value == "E" then
-    return "Time In Force: Good Until Extended Day (E)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.time_in_force.labels = {
+  ["R"] = "Time In Force: Regular Hours Only (R)",
+  ["I"] = "Time In Force: Immediate Or Cancel (I)",
+  ["D"] = "Time In Force: Regular Hours Only (D)",
+  ["F"] = "Time In Force: Fill Or Kill (F)",
+  ["T"] = "Time In Force: Good Until Time (T)",
+  ["E"] = "Time In Force: Good Until Extended Day (E)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.time_in_force.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -3263,18 +3019,14 @@ miax_pearlequities_expressorders_meo_v2_7_b.trade_status = {}
 miax_pearlequities_expressorders_meo_v2_7_b.trade_status.size = 1
 
 -- Display: Trade Status
-miax_pearlequities_expressorders_meo_v2_7_b.trade_status.display = function(value)
-  if value == "E" then
-    return "Trade Status: New Execution (E)"
-  end
-  if value == "C" then
-    return "Trade Status: Price Size Correction (C)"
-  end
-  if value == "X" then
-    return "Trade Status: Trade Cancellation (X)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.trade_status.labels = {
+  ["E"] = "Trade Status: New Execution (E)",
+  ["C"] = "Trade Status: Price Size Correction (C)",
+  ["X"] = "Trade Status: Trade Cancellation (X)",
+}
 
-  return "Trade Status: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.trade_status.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.trade_status.labels[value] or "Trade Status: Unknown("..value..")"
 end
 
 -- Dissect: Trade Status
@@ -3348,51 +3100,25 @@ miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message_type = {}
 miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message_type.size = 2
 
 -- Display: Unsequenced Message Type
-miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message_type.display = function(value)
-  if value == "N1" then
-    return "Unsequenced Message Type: New Order Request Message (N1)"
-  end
-  if value == "NR" then
-    return "Unsequenced Message Type: New Order Response Message (NR)"
-  end
-  if value == "M1" then
-    return "Unsequenced Message Type: Modify Order Request Message (M1)"
-  end
-  if value == "MR" then
-    return "Unsequenced Message Type: Modify Order Response Message (MR)"
-  end
-  if value == "CO" then
-    return "Unsequenced Message Type: Cancel Order Request Message (CO)"
-  end
-  if value == "CR" then
-    return "Unsequenced Message Type: Cancel Order Response Message (CR)"
-  end
-  if value == "CX" then
-    return "Unsequenced Message Type: Cancel Order By Exchange Order Id Request Message (CX)"
-  end
-  if value == "CQ" then
-    return "Unsequenced Message Type: Cancel Order By Exchange Order Id Response Message (CQ)"
-  end
-  if value == "XQ" then
-    return "Unsequenced Message Type: Mass Cancel Request Message (XQ)"
-  end
-  if value == "XR" then
-    return "Unsequenced Message Type: Mass Cancel Response Message (XR)"
-  end
-  if value == "XS" then
-    return "Unsequenced Message Type: Aggressive Side Purge Request Message (XS)"
-  end
-  if value == "SR" then
-    return "Unsequenced Message Type: Aggressive Side Purge Response Message (SR)"
-  end
-  if value == "RA" then
-    return "Unsequenced Message Type: Reserve Order Replenishment Notification Message (RA)"
-  end
-  if value == "E1" then
-    return "Unsequenced Message Type: Execution Notification Message (E1)"
-  end
+miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message_type.labels = {
+  ["N1"] = "Unsequenced Message Type: New Order Request Message (N1)",
+  ["NR"] = "Unsequenced Message Type: New Order Response Message (NR)",
+  ["M1"] = "Unsequenced Message Type: Modify Order Request Message (M1)",
+  ["MR"] = "Unsequenced Message Type: Modify Order Response Message (MR)",
+  ["CO"] = "Unsequenced Message Type: Cancel Order Request Message (CO)",
+  ["CR"] = "Unsequenced Message Type: Cancel Order Response Message (CR)",
+  ["CX"] = "Unsequenced Message Type: Cancel Order By Exchange Order Id Request Message (CX)",
+  ["CQ"] = "Unsequenced Message Type: Cancel Order By Exchange Order Id Response Message (CQ)",
+  ["XQ"] = "Unsequenced Message Type: Mass Cancel Request Message (XQ)",
+  ["XR"] = "Unsequenced Message Type: Mass Cancel Response Message (XR)",
+  ["XS"] = "Unsequenced Message Type: Aggressive Side Purge Request Message (XS)",
+  ["SR"] = "Unsequenced Message Type: Aggressive Side Purge Response Message (SR)",
+  ["RA"] = "Unsequenced Message Type: Reserve Order Replenishment Notification Message (RA)",
+  ["E1"] = "Unsequenced Message Type: Execution Notification Message (E1)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -5457,62 +5183,27 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message.dispatch = {
+  ["N1"] = miax_pearlequities_expressorders_meo_v2_7_b.new_order_request_message.dissect,
+  ["NR"] = miax_pearlequities_expressorders_meo_v2_7_b.new_order_response_message.dissect,
+  ["M1"] = miax_pearlequities_expressorders_meo_v2_7_b.modify_order_request_message.dissect,
+  ["MR"] = miax_pearlequities_expressorders_meo_v2_7_b.modify_order_response_message.dissect,
+  ["CO"] = miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_request_message.dissect,
+  ["CR"] = miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_response_message.dissect,
+  ["CX"] = miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_request_message.dissect,
+  ["CQ"] = miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_response_message.dissect,
+  ["XQ"] = miax_pearlequities_expressorders_meo_v2_7_b.mass_cancel_request_message.dissect,
+  ["XR"] = miax_pearlequities_expressorders_meo_v2_7_b.mass_cancel_response_message.dissect,
+  ["XS"] = miax_pearlequities_expressorders_meo_v2_7_b.aggressive_side_purge_request_message.dissect,
+  ["SR"] = miax_pearlequities_expressorders_meo_v2_7_b.aggressive_side_purge_response_message.dissect,
+  ["RA"] = miax_pearlequities_expressorders_meo_v2_7_b.reserve_order_replenishment_notification_message.dissect,
+  ["E1"] = miax_pearlequities_expressorders_meo_v2_7_b.execution_notification_message.dissect,
+}
+
 miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect New Order Request Message
-  if unsequenced_message_type == "N1" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.new_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response Message
-  if unsequenced_message_type == "NR" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.new_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Request Message
-  if unsequenced_message_type == "M1" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.modify_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response Message
-  if unsequenced_message_type == "MR" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.modify_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Request Message
-  if unsequenced_message_type == "CO" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Response Message
-  if unsequenced_message_type == "CR" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order By Exchange Order Id Request Message
-  if unsequenced_message_type == "CX" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order By Exchange Order Id Response Message
-  if unsequenced_message_type == "CQ" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Request Message
-  if unsequenced_message_type == "XQ" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.mass_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Response Message
-  if unsequenced_message_type == "XR" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.mass_cancel_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aggressive Side Purge Request Message
-  if unsequenced_message_type == "XS" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.aggressive_side_purge_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aggressive Side Purge Response Message
-  if unsequenced_message_type == "SR" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.aggressive_side_purge_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reserve Order Replenishment Notification Message
-  if unsequenced_message_type == "RA" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.reserve_order_replenishment_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Notification Message
-  if unsequenced_message_type == "E1" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.execution_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6111,54 +5802,25 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message.dispatch = {
+  ["SU"] = miax_pearlequities_expressorders_meo_v2_7_b.symbol_update_message.dissect,
+  ["NR"] = miax_pearlequities_expressorders_meo_v2_7_b.new_order_response_message.dissect,
+  ["MR"] = miax_pearlequities_expressorders_meo_v2_7_b.modify_order_response_message.dissect,
+  ["CR"] = miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_response_message.dissect,
+  ["CQ"] = miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_response_message.dissect,
+  ["SN"] = miax_pearlequities_expressorders_meo_v2_7_b.system_state_notification_message.dissect,
+  ["O1"] = miax_pearlequities_expressorders_meo_v2_7_b.new_order_notification_message.dissect,
+  ["MN"] = miax_pearlequities_expressorders_meo_v2_7_b.modify_order_notification_message.dissect,
+  ["XN"] = miax_pearlequities_expressorders_meo_v2_7_b.cancel_reduce_size_order_notification_message.dissect,
+  ["P1"] = miax_pearlequities_expressorders_meo_v2_7_b.order_price_update_notification_message.dissect,
+  ["RA"] = miax_pearlequities_expressorders_meo_v2_7_b.reserve_order_replenishment_notification_message.dissect,
+  ["E1"] = miax_pearlequities_expressorders_meo_v2_7_b.execution_notification_message.dissect,
+}
+
 miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Symbol Update Message
-  if sequenced_message_type == "SU" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.symbol_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response Message
-  if sequenced_message_type == "NR" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.new_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response Message
-  if sequenced_message_type == "MR" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.modify_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Response Message
-  if sequenced_message_type == "CR" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order By Exchange Order Id Response Message
-  if sequenced_message_type == "CQ" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.cancel_order_by_exchange_order_id_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Notification Message
-  if sequenced_message_type == "SN" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.system_state_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Notification Message
-  if sequenced_message_type == "O1" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.new_order_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Notification Message
-  if sequenced_message_type == "MN" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.modify_order_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Reduce Size Order Notification Message
-  if sequenced_message_type == "XN" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.cancel_reduce_size_order_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Price Update Notification Message
-  if sequenced_message_type == "P1" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.order_price_update_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reserve Order Replenishment Notification Message
-  if sequenced_message_type == "RA" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.reserve_order_replenishment_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Notification Message
-  if sequenced_message_type == "E1" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.execution_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_pearlequities_expressorders_meo_v2_7_b.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6227,54 +5889,25 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.esesm_payload = {}
 
 -- Dissect: Esesm Payload
+miax_pearlequities_expressorders_meo_v2_7_b.esesm_payload.dispatch = {
+  ["s"] = miax_pearlequities_expressorders_meo_v2_7_b.sequenced_data_packet.dissect,
+  ["U"] = miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_data_packet.dissect,
+  ["l"] = miax_pearlequities_expressorders_meo_v2_7_b.login_request.dissect,
+  ["r"] = miax_pearlequities_expressorders_meo_v2_7_b.login_response.dissect,
+  ["c"] = miax_pearlequities_expressorders_meo_v2_7_b.synchronization_complete.dissect,
+  ["a"] = miax_pearlequities_expressorders_meo_v2_7_b.retransmission_request.dissect,
+  ["X"] = miax_pearlequities_expressorders_meo_v2_7_b.logout_request.dissect,
+  ["G"] = miax_pearlequities_expressorders_meo_v2_7_b.goodbye_packet.dissect,
+  ["u"] = miax_pearlequities_expressorders_meo_v2_7_b.trading_session_update.dissect,
+  ["0"] = miax_pearlequities_expressorders_meo_v2_7_b.server_heartbeat.dissect,
+  ["1"] = miax_pearlequities_expressorders_meo_v2_7_b.client_heartbeat.dissect,
+  ["T"] = miax_pearlequities_expressorders_meo_v2_7_b.test_packet.dissect,
+}
+
 miax_pearlequities_expressorders_meo_v2_7_b.esesm_payload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
-  -- Dissect Sequenced Data Packet
-  if esesm_packet_type == "s" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if esesm_packet_type == "U" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if esesm_packet_type == "l" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if esesm_packet_type == "r" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if esesm_packet_type == "c" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if esesm_packet_type == "a" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if esesm_packet_type == "X" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if esesm_packet_type == "G" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Update
-  if esesm_packet_type == "u" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.trading_session_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if esesm_packet_type == "0" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if esesm_packet_type == "1" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Packet
-  if esesm_packet_type == "T" then
-    return miax_pearlequities_expressorders_meo_v2_7_b.test_packet.dissect(buffer, offset, packet, parent)
+  local dissect = miax_pearlequities_expressorders_meo_v2_7_b.esesm_payload.dispatch[esesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

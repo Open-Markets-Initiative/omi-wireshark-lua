@@ -536,33 +536,19 @@ nse_nsecm_orderentry_nnfdirect_v6_6.activity_type = {}
 nse_nsecm_orderentry_nnfdirect_v6_6.activity_type.size = 2
 
 -- Display: Activity Type
-nse_nsecm_orderentry_nnfdirect_v6_6.activity_type.display = function(value)
-  if value == "1" then
-    return "Activity Type: Original Order (1)"
-  end
-  if value == "2" then
-    return "Activity Type: Activity Trade (2)"
-  end
-  if value == "3" then
-    return "Activity Type: Activity Order Cancel (3)"
-  end
-  if value == "4" then
-    return "Activity Type: Activity Order Modify (4)"
-  end
-  if value == "5" then
-    return "Activity Type: Activity Trade Mod (5)"
-  end
-  if value == "6" then
-    return "Activity Type: Activity Trade Cxl 1 (6)"
-  end
-  if value == "7" then
-    return "Activity Type: Activity Trade Cxl 2 (7)"
-  end
-  if value == "8" then
-    return "Activity Type: Activity Batch Order Cancel (8)"
-  end
+nse_nsecm_orderentry_nnfdirect_v6_6.activity_type.labels = {
+  ["1"] = "Activity Type: Original Order (1)",
+  ["2"] = "Activity Type: Activity Trade (2)",
+  ["3"] = "Activity Type: Activity Order Cancel (3)",
+  ["4"] = "Activity Type: Activity Order Modify (4)",
+  ["5"] = "Activity Type: Activity Trade Mod (5)",
+  ["6"] = "Activity Type: Activity Trade Cxl 1 (6)",
+  ["7"] = "Activity Type: Activity Trade Cxl 2 (7)",
+  ["8"] = "Activity Type: Activity Batch Order Cancel (8)",
+}
 
-  return "Activity Type: Unknown("..value..")"
+nse_nsecm_orderentry_nnfdirect_v6_6.activity_type.display = function(value)
+  return nse_nsecm_orderentry_nnfdirect_v6_6.activity_type.labels[value] or "Activity Type: Unknown("..value..")"
 end
 
 -- Dissect: Activity Type
@@ -774,30 +760,18 @@ nse_nsecm_orderentry_nnfdirect_v6_6.auction_status = {}
 nse_nsecm_orderentry_nnfdirect_v6_6.auction_status.size = 2
 
 -- Display: Auction Status
-nse_nsecm_orderentry_nnfdirect_v6_6.auction_status.display = function(value)
-  if value == 1 then
-    return "Auction Status: Auction Pending Approval (1)"
-  end
-  if value == 2 then
-    return "Auction Status: Auction Pending (2)"
-  end
-  if value == 3 then
-    return "Auction Status: Open Competitor Period (3)"
-  end
-  if value == 4 then
-    return "Auction Status: Open Solicitor Period (4)"
-  end
-  if value == 5 then
-    return "Auction Status: Auction Matching (5)"
-  end
-  if value == 6 then
-    return "Auction Status: Auction Finished (6)"
-  end
-  if value == 7 then
-    return "Auction Status: Auction Cancelled (7)"
-  end
+nse_nsecm_orderentry_nnfdirect_v6_6.auction_status.labels = {
+  [1] = "Auction Status: Auction Pending Approval (1)",
+  [2] = "Auction Status: Auction Pending (2)",
+  [3] = "Auction Status: Open Competitor Period (3)",
+  [4] = "Auction Status: Open Solicitor Period (4)",
+  [5] = "Auction Status: Auction Matching (5)",
+  [6] = "Auction Status: Auction Finished (6)",
+  [7] = "Auction Status: Auction Cancelled (7)",
+}
 
-  return "Auction Status: Unknown("..value..")"
+nse_nsecm_orderentry_nnfdirect_v6_6.auction_status.display = function(value)
+  return nse_nsecm_orderentry_nnfdirect_v6_6.auction_status.labels[value] or "Auction Status: Unknown("..value..")"
 end
 
 -- Dissect: Auction Status
@@ -946,33 +920,19 @@ nse_nsecm_orderentry_nnfdirect_v6_6.book_type = {}
 nse_nsecm_orderentry_nnfdirect_v6_6.book_type.size = 2
 
 -- Display: Book Type
-nse_nsecm_orderentry_nnfdirect_v6_6.book_type.display = function(value)
-  if value == 1 then
-    return "Book Type: Regular Lot Order (1)"
-  end
-  if value == 2 then
-    return "Book Type: Special Terms Order (2)"
-  end
-  if value == 3 then
-    return "Book Type: Stop Loss Order (3)"
-  end
-  if value == 5 then
-    return "Book Type: Odd Lot Order (5)"
-  end
-  if value == 6 then
-    return "Book Type: Spot Order (6)"
-  end
-  if value == 7 then
-    return "Book Type: Auction Order (7)"
-  end
-  if value == 11 then
-    return "Book Type: Call Auction 1 (11)"
-  end
-  if value == 12 then
-    return "Book Type: Call Auction 2 (12)"
-  end
+nse_nsecm_orderentry_nnfdirect_v6_6.book_type.labels = {
+  [1] = "Book Type: Regular Lot Order (1)",
+  [2] = "Book Type: Special Terms Order (2)",
+  [3] = "Book Type: Stop Loss Order (3)",
+  [5] = "Book Type: Odd Lot Order (5)",
+  [6] = "Book Type: Spot Order (6)",
+  [7] = "Book Type: Auction Order (7)",
+  [11] = "Book Type: Call Auction 1 (11)",
+  [12] = "Book Type: Call Auction 2 (12)",
+}
 
-  return "Book Type: Unknown("..value..")"
+nse_nsecm_orderentry_nnfdirect_v6_6.book_type.display = function(value)
+  return nse_nsecm_orderentry_nnfdirect_v6_6.book_type.labels[value] or "Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Book Type
@@ -2733,27 +2693,17 @@ nse_nsecm_orderentry_nnfdirect_v6_6.market_type = {}
 nse_nsecm_orderentry_nnfdirect_v6_6.market_type.size = 2
 
 -- Display: Market Type
-nse_nsecm_orderentry_nnfdirect_v6_6.market_type.display = function(value)
-  if value == 1 then
-    return "Market Type: Normal Market (1)"
-  end
-  if value == 2 then
-    return "Market Type: Odd Lot Market (2)"
-  end
-  if value == 3 then
-    return "Market Type: Spot Market (3)"
-  end
-  if value == 4 then
-    return "Market Type: Auction Market (4)"
-  end
-  if value == 5 then
-    return "Market Type: Call Auction 1 Market (5)"
-  end
-  if value == 6 then
-    return "Market Type: Call Auction 2 Market (6)"
-  end
+nse_nsecm_orderentry_nnfdirect_v6_6.market_type.labels = {
+  [1] = "Market Type: Normal Market (1)",
+  [2] = "Market Type: Odd Lot Market (2)",
+  [3] = "Market Type: Spot Market (3)",
+  [4] = "Market Type: Auction Market (4)",
+  [5] = "Market Type: Call Auction 1 Market (5)",
+  [6] = "Market Type: Call Auction 2 Market (6)",
+}
 
-  return "Market Type: Unknown("..value..")"
+nse_nsecm_orderentry_nnfdirect_v6_6.market_type.display = function(value)
+  return nse_nsecm_orderentry_nnfdirect_v6_6.market_type.labels[value] or "Market Type: Unknown("..value..")"
 end
 
 -- Dissect: Market Type
@@ -4598,24 +4548,16 @@ nse_nsecm_orderentry_nnfdirect_v6_6.status = {}
 nse_nsecm_orderentry_nnfdirect_v6_6.status.size = 2
 
 -- Display: Status
-nse_nsecm_orderentry_nnfdirect_v6_6.status.display = function(value)
-  if value == 1 then
-    return "Status: Preopen (1)"
-  end
-  if value == 2 then
-    return "Status: Open (2)"
-  end
-  if value == 3 then
-    return "Status: Suspended (3)"
-  end
-  if value == 4 then
-    return "Status: Preopen Extended (4)"
-  end
-  if value == 6 then
-    return "Status: Price Discovery (6)"
-  end
+nse_nsecm_orderentry_nnfdirect_v6_6.status.labels = {
+  [1] = "Status: Preopen (1)",
+  [2] = "Status: Open (2)",
+  [3] = "Status: Suspended (3)",
+  [4] = "Status: Preopen Extended (4)",
+  [6] = "Status: Price Discovery (6)",
+}
 
-  return "Status: Unknown("..value..")"
+nse_nsecm_orderentry_nnfdirect_v6_6.status.display = function(value)
+  return nse_nsecm_orderentry_nnfdirect_v6_6.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -5005,222 +4947,82 @@ nse_nsecm_orderentry_nnfdirect_v6_6.transaction_code = {}
 nse_nsecm_orderentry_nnfdirect_v6_6.transaction_code.size = 2
 
 -- Display: Transaction Code
-nse_nsecm_orderentry_nnfdirect_v6_6.transaction_code.display = function(value)
-  if value == 18017 then
-    return "Transaction Code: Auction Inquiry Response Message (18017)"
-  end
-  if value == 5717 then
-    return "Transaction Code: Branch Order Value Limit Update Out Message (5717)"
-  end
-  if value == 5716 then
-    return "Transaction Code: Branch Order Value Limit Update In Message (5716)"
-  end
-  if value == 5790 then
-    return "Transaction Code: Cancel On Logout Status Request Message (5790)"
-  end
-  if value == 5791 then
-    return "Transaction Code: Cancel On Logout Status Response Message (5791)"
-  end
-  if value == 2302 then
-    return "Transaction Code: Error Response Message (2302)"
-  end
-  if value == 7000 then
-    return "Transaction Code: Message Download Request Message (7000)"
-  end
-  if value == 23008 then
-    return "Transaction Code: Secure Box Registration Request Message (23008)"
-  end
-  if value == 18016 then
-    return "Transaction Code: Auction Inquiry Request Message (18016)"
-  end
-  if value == 20322 then
-    return "Transaction Code: Box Sign Off Message (20322)"
-  end
-  if value == 23000 then
-    return "Transaction Code: Box Sign On Request Message (23000)"
-  end
-  if value == 23001 then
-    return "Transaction Code: Box Sign On Response Message (23001)"
-  end
-  if value == 2400 then
-    return "Transaction Code: Gateway Router Request Message (2400)"
-  end
-  if value == 2401 then
-    return "Transaction Code: Gateway Router Response Message (2401)"
-  end
-  if value == 5295 then
-    return "Transaction Code: Control Message To Trader Message (5295)"
-  end
-  if value == 2212 then
-    return "Transaction Code: Trade Confirmation Message (2212)"
-  end
-  if value == 2222 then
-    return "Transaction Code: Trade Confirmation Message (2222)"
-  end
-  if value == 2282 then
-    return "Transaction Code: Trade Confirmation Message (2282)"
-  end
-  if value == 2286 then
-    return "Transaction Code: Trade Confirmation Message (2286)"
-  end
-  if value == 2287 then
-    return "Transaction Code: Trade Confirmation Message (2287)"
-  end
-  if value == 2012 then
-    return "Transaction Code: Order Entry Out Message (2012)"
-  end
-  if value == 2042 then
-    return "Transaction Code: Order Entry Out Message (2042)"
-  end
-  if value == 2061 then
-    return "Transaction Code: Order Entry Out Message (2061)"
-  end
-  if value == 2072 then
-    return "Transaction Code: Order Entry Out Message (2072)"
-  end
-  if value == 2073 then
-    return "Transaction Code: Order Entry Out Message (2073)"
-  end
-  if value == 2074 then
-    return "Transaction Code: Order Entry Out Message (2074)"
-  end
-  if value == 2075 then
-    return "Transaction Code: Order Entry Out Message (2075)"
-  end
-  if value == 2170 then
-    return "Transaction Code: Order Entry Out Message (2170)"
-  end
-  if value == 2231 then
-    return "Transaction Code: Order Entry Out Message (2231)"
-  end
-  if value == 9002 then
-    return "Transaction Code: Order Entry Out Message (9002)"
-  end
-  if value == 2001 then
-    return "Transaction Code: Order Entry Short Message (2001)"
-  end
-  if value == 2071 then
-    return "Transaction Code: Order Entry Short Message (2071)"
-  end
-  if value == 2000 then
-    return "Transaction Code: Order Entry In Message (2000)"
-  end
-  if value == 2040 then
-    return "Transaction Code: Order Entry In Message (2040)"
-  end
-  if value == 2062 then
-    return "Transaction Code: Order Entry In Message (2062)"
-  end
-  if value == 2070 then
-    return "Transaction Code: Order Entry In Message (2070)"
-  end
-  if value == 5722 then
-    return "Transaction Code: Order Limit Update Out Message (5722)"
-  end
-  if value == 5721 then
-    return "Transaction Code: Order Limit Update In Message (5721)"
-  end
-  if value == 5739 then
-    return "Transaction Code: Password Reset Out Message (5739)"
-  end
-  if value == 5738 then
-    return "Transaction Code: Password Reset In Message (5738)"
-  end
-  if value == 18130 then
-    return "Transaction Code: Security Status Change Message (18130)"
-  end
-  if value == 18707 then
-    return "Transaction Code: Security Status Change Message (18707)"
-  end
-  if value == 18720 then
-    return "Transaction Code: Security Master Change Message (18720)"
-  end
-  if value == 5724 then
-    return "Transaction Code: Sign On Request Out Message (5724)"
-  end
-  if value == 2300 then
-    return "Transaction Code: Sign On Request In Message (2300)"
-  end
-  if value == 5723 then
-    return "Transaction Code: Sign On Request In Message (5723)"
-  end
-  if value == 2301 then
-    return "Transaction Code: Sign On Response Message (2301)"
-  end
-  if value == 1601 then
-    return "Transaction Code: System Information Message (1601)"
-  end
-  if value == 7321 then
-    return "Transaction Code: System Information Message (7321)"
-  end
-  if value == 2223 then
-    return "Transaction Code: Trade Inquiry Out Message (2223)"
-  end
-  if value == 5441 then
-    return "Transaction Code: Trade Inquiry Out Message (5441)"
-  end
-  if value == 5440 then
-    return "Transaction Code: Trade Inquiry In Message (5440)"
-  end
-  if value == 5445 then
-    return "Transaction Code: Trade Inquiry In Message (5445)"
-  end
-  if value == 7307 then
-    return "Transaction Code: Update Local Database Header Message (7307)"
-  end
-  if value == 7308 then
-    return "Transaction Code: Update Local Database Trailer Message (7308)"
-  end
-  if value == 7300 then
-    return "Transaction Code: Update Local Database Request Message (7300)"
-  end
-  if value == 5792 then
-    return "Transaction Code: Trade Modification Cancellation Status Request Message (5792)"
-  end
-  if value == 5575 then
-    return "Transaction Code: User Unlock Approval Rejection Message (5575)"
-  end
-  if value == 5579 then
-    return "Transaction Code: User Unlock Approval Rejection Message (5579)"
-  end
-  if value == 5424 then
-    return "Transaction Code: User Unlock Request Message (5424)"
-  end
-  if value == 5425 then
-    return "Transaction Code: User Unlock Requested Response Message (5425)"
-  end
-  if value == 5720 then
-    return "Transaction Code: User Order Value Limit Update Out Message (5720)"
-  end
-  if value == 5719 then
-    return "Transaction Code: User Order Value Limit Update In Message (5719)"
-  end
-  if value == 5793 then
-    return "Transaction Code: Trade Modification Cancellation Status Response Message (5793)"
-  end
-  if value == 2321 then
-    return "Transaction Code: Sign Off Confirmation Message (2321)"
-  end
-  if value == 7011 then
-    return "Transaction Code: Header Record Message (7011)"
-  end
-  if value == 7021 then
-    return "Transaction Code: Message Record Message (7021)"
-  end
-  if value == 7031 then
-    return "Transaction Code: Trailer Record Message (7031)"
-  end
-  if value == 1600 then
-    return "Transaction Code: System Information Request Message (1600)"
-  end
-  if value == 23009 then
-    return "Transaction Code: Secure Box Registration Response Message (23009)"
-  end
-  if value == 7304 then
-    return "Transaction Code: Update Local Database Data Message (7304)"
-  end
+nse_nsecm_orderentry_nnfdirect_v6_6.transaction_code.labels = {
+  [18017] = "Transaction Code: Auction Inquiry Response Message (18017)",
+  [5717] = "Transaction Code: Branch Order Value Limit Update Out Message (5717)",
+  [5716] = "Transaction Code: Branch Order Value Limit Update In Message (5716)",
+  [5790] = "Transaction Code: Cancel On Logout Status Request Message (5790)",
+  [5791] = "Transaction Code: Cancel On Logout Status Response Message (5791)",
+  [2302] = "Transaction Code: Error Response Message (2302)",
+  [7000] = "Transaction Code: Message Download Request Message (7000)",
+  [23008] = "Transaction Code: Secure Box Registration Request Message (23008)",
+  [18016] = "Transaction Code: Auction Inquiry Request Message (18016)",
+  [20322] = "Transaction Code: Box Sign Off Message (20322)",
+  [23000] = "Transaction Code: Box Sign On Request Message (23000)",
+  [23001] = "Transaction Code: Box Sign On Response Message (23001)",
+  [2400] = "Transaction Code: Gateway Router Request Message (2400)",
+  [2401] = "Transaction Code: Gateway Router Response Message (2401)",
+  [5295] = "Transaction Code: Control Message To Trader Message (5295)",
+  [2212] = "Transaction Code: Trade Confirmation Message (2212)",
+  [2222] = "Transaction Code: Trade Confirmation Message (2222)",
+  [2282] = "Transaction Code: Trade Confirmation Message (2282)",
+  [2286] = "Transaction Code: Trade Confirmation Message (2286)",
+  [2287] = "Transaction Code: Trade Confirmation Message (2287)",
+  [2012] = "Transaction Code: Order Entry Out Message (2012)",
+  [2042] = "Transaction Code: Order Entry Out Message (2042)",
+  [2061] = "Transaction Code: Order Entry Out Message (2061)",
+  [2072] = "Transaction Code: Order Entry Out Message (2072)",
+  [2073] = "Transaction Code: Order Entry Out Message (2073)",
+  [2074] = "Transaction Code: Order Entry Out Message (2074)",
+  [2075] = "Transaction Code: Order Entry Out Message (2075)",
+  [2170] = "Transaction Code: Order Entry Out Message (2170)",
+  [2231] = "Transaction Code: Order Entry Out Message (2231)",
+  [9002] = "Transaction Code: Order Entry Out Message (9002)",
+  [2001] = "Transaction Code: Order Entry Short Message (2001)",
+  [2071] = "Transaction Code: Order Entry Short Message (2071)",
+  [2000] = "Transaction Code: Order Entry In Message (2000)",
+  [2040] = "Transaction Code: Order Entry In Message (2040)",
+  [2062] = "Transaction Code: Order Entry In Message (2062)",
+  [2070] = "Transaction Code: Order Entry In Message (2070)",
+  [5722] = "Transaction Code: Order Limit Update Out Message (5722)",
+  [5721] = "Transaction Code: Order Limit Update In Message (5721)",
+  [5739] = "Transaction Code: Password Reset Out Message (5739)",
+  [5738] = "Transaction Code: Password Reset In Message (5738)",
+  [18130] = "Transaction Code: Security Status Change Message (18130)",
+  [18707] = "Transaction Code: Security Status Change Message (18707)",
+  [18720] = "Transaction Code: Security Master Change Message (18720)",
+  [5724] = "Transaction Code: Sign On Request Out Message (5724)",
+  [2300] = "Transaction Code: Sign On Request In Message (2300)",
+  [5723] = "Transaction Code: Sign On Request In Message (5723)",
+  [2301] = "Transaction Code: Sign On Response Message (2301)",
+  [1601] = "Transaction Code: System Information Message (1601)",
+  [7321] = "Transaction Code: System Information Message (7321)",
+  [2223] = "Transaction Code: Trade Inquiry Out Message (2223)",
+  [5441] = "Transaction Code: Trade Inquiry Out Message (5441)",
+  [5440] = "Transaction Code: Trade Inquiry In Message (5440)",
+  [5445] = "Transaction Code: Trade Inquiry In Message (5445)",
+  [7307] = "Transaction Code: Update Local Database Header Message (7307)",
+  [7308] = "Transaction Code: Update Local Database Trailer Message (7308)",
+  [7300] = "Transaction Code: Update Local Database Request Message (7300)",
+  [5792] = "Transaction Code: Trade Modification Cancellation Status Request Message (5792)",
+  [5575] = "Transaction Code: User Unlock Approval Rejection Message (5575)",
+  [5579] = "Transaction Code: User Unlock Approval Rejection Message (5579)",
+  [5424] = "Transaction Code: User Unlock Request Message (5424)",
+  [5425] = "Transaction Code: User Unlock Requested Response Message (5425)",
+  [5720] = "Transaction Code: User Order Value Limit Update Out Message (5720)",
+  [5719] = "Transaction Code: User Order Value Limit Update In Message (5719)",
+  [5793] = "Transaction Code: Trade Modification Cancellation Status Response Message (5793)",
+  [2321] = "Transaction Code: Sign Off Confirmation Message (2321)",
+  [7011] = "Transaction Code: Header Record Message (7011)",
+  [7021] = "Transaction Code: Message Record Message (7021)",
+  [7031] = "Transaction Code: Trailer Record Message (7031)",
+  [1600] = "Transaction Code: System Information Request Message (1600)",
+  [23009] = "Transaction Code: Secure Box Registration Response Message (23009)",
+  [7304] = "Transaction Code: Update Local Database Data Message (7304)",
+}
 
-  return "Transaction Code: Unknown("..value..")"
+nse_nsecm_orderentry_nnfdirect_v6_6.transaction_code.display = function(value)
+  return nse_nsecm_orderentry_nnfdirect_v6_6.transaction_code.labels[value] or "Transaction Code: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Code
@@ -8430,14 +8232,15 @@ end
 nse_nsecm_orderentry_nnfdirect_v6_6.cryptographic_payload = {}
 
 -- Dissect: Cryptographic Payload
+nse_nsecm_orderentry_nnfdirect_v6_6.cryptographic_payload.dispatch = {
+  [124] = nse_nsecm_orderentry_nnfdirect_v6_6.existing_encryption_tail.dissect,
+  [136] = nse_nsecm_orderentry_nnfdirect_v6_6.new_encryption_tail.dissect,
+}
+
 nse_nsecm_orderentry_nnfdirect_v6_6.cryptographic_payload.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect Existing Encryption Tail
-  if message_length == 124 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.existing_encryption_tail.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Encryption Tail
-  if message_length == 136 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.new_encryption_tail.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecm_orderentry_nnfdirect_v6_6.cryptographic_payload.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8990,202 +8793,62 @@ end
 nse_nsecm_orderentry_nnfdirect_v6_6.server_message_payload = {}
 
 -- Dissect: Server Message Payload
+nse_nsecm_orderentry_nnfdirect_v6_6.server_message_payload.dispatch = {
+  [18017] = nse_nsecm_orderentry_nnfdirect_v6_6.auction_inquiry_response_message.dissect,
+  [5717] = nse_nsecm_orderentry_nnfdirect_v6_6.branch_order_value_limit_update_out_message.dissect,
+  [5791] = nse_nsecm_orderentry_nnfdirect_v6_6.cancel_on_logout_status_response_message.dissect,
+  [2302] = nse_nsecm_orderentry_nnfdirect_v6_6.error_response_message.dissect,
+  [23008] = nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.dissect,
+  [23001] = nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_on_response_message.dissect,
+  [2401] = nse_nsecm_orderentry_nnfdirect_v6_6.gateway_router_response_message.dissect,
+  [5295] = nse_nsecm_orderentry_nnfdirect_v6_6.control_message_to_trader_message.dissect,
+  [2212] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect,
+  [2222] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect,
+  [2282] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect,
+  [2286] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect,
+  [2287] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect,
+  [2012] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2042] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2061] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2072] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2073] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2074] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2075] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2170] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2231] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [9002] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect,
+  [2001] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_short_message.dissect,
+  [2071] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_short_message.dissect,
+  [5722] = nse_nsecm_orderentry_nnfdirect_v6_6.order_limit_update_out_message.dissect,
+  [5739] = nse_nsecm_orderentry_nnfdirect_v6_6.password_reset_out_message.dissect,
+  [18130] = nse_nsecm_orderentry_nnfdirect_v6_6.security_status_change_message.dissect,
+  [18707] = nse_nsecm_orderentry_nnfdirect_v6_6.security_status_change_message.dissect,
+  [18720] = nse_nsecm_orderentry_nnfdirect_v6_6.security_master_change_message.dissect,
+  [5724] = nse_nsecm_orderentry_nnfdirect_v6_6.sign_on_request_out_message.dissect,
+  [2301] = nse_nsecm_orderentry_nnfdirect_v6_6.sign_on_response_message.dissect,
+  [1601] = nse_nsecm_orderentry_nnfdirect_v6_6.system_information_message.dissect,
+  [7321] = nse_nsecm_orderentry_nnfdirect_v6_6.system_information_message.dissect,
+  [2223] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_inquiry_out_message.dissect,
+  [5441] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_inquiry_out_message.dissect,
+  [7307] = nse_nsecm_orderentry_nnfdirect_v6_6.update_local_database_header_message.dissect,
+  [7308] = nse_nsecm_orderentry_nnfdirect_v6_6.update_local_database_trailer_message.dissect,
+  [5575] = nse_nsecm_orderentry_nnfdirect_v6_6.user_unlock_approval_rejection_message.dissect,
+  [5579] = nse_nsecm_orderentry_nnfdirect_v6_6.user_unlock_approval_rejection_message.dissect,
+  [5425] = nse_nsecm_orderentry_nnfdirect_v6_6.user_unlock_requested_response_message.dissect,
+  [5720] = nse_nsecm_orderentry_nnfdirect_v6_6.user_order_value_limit_update_out_message.dissect,
+  [5793] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_modification_cancellation_status_response_message.dissect,
+  [2321] = nse_nsecm_orderentry_nnfdirect_v6_6.sign_off_confirmation_message.dissect,
+  [7011] = nse_nsecm_orderentry_nnfdirect_v6_6.header_record_message.dissect,
+  [7021] = nse_nsecm_orderentry_nnfdirect_v6_6.message_record_message.dissect,
+  [7031] = nse_nsecm_orderentry_nnfdirect_v6_6.trailer_record_message.dissect,
+  [23009] = nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_response_message.dissect,
+  [7304] = nse_nsecm_orderentry_nnfdirect_v6_6.update_local_database_data_message.dissect,
+}
+
 nse_nsecm_orderentry_nnfdirect_v6_6.server_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Auction Inquiry Response Message
-  if transaction_code == 18017 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.auction_inquiry_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Branch Order Value Limit Update Out Message
-  if transaction_code == 5717 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.branch_order_value_limit_update_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel On Logout Status Response Message
-  if transaction_code == 5791 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.cancel_on_logout_status_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Error Response Message
-  if transaction_code == 2302 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.error_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secure Box Registration Request Message
-  if transaction_code == 23008 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign On Response Message
-  if transaction_code == 23001 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_on_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Router Response Message
-  if transaction_code == 2401 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.gateway_router_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message To Trader Message
-  if transaction_code == 5295 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.control_message_to_trader_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2212 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2222 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2282 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2286 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2287 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2012 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2042 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2061 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2072 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2073 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2074 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2075 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2170 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 2231 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Out Message
-  if transaction_code == 9002 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Short Message
-  if transaction_code == 2001 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Short Message
-  if transaction_code == 2071 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Limit Update Out Message
-  if transaction_code == 5722 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_limit_update_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Password Reset Out Message
-  if transaction_code == 5739 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.password_reset_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Change Message
-  if transaction_code == 18130 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.security_status_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Change Message
-  if transaction_code == 18707 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.security_status_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Master Change Message
-  if transaction_code == 18720 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.security_master_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign On Request Out Message
-  if transaction_code == 5724 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.sign_on_request_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign On Response Message
-  if transaction_code == 2301 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.sign_on_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Information Message
-  if transaction_code == 1601 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.system_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Information Message
-  if transaction_code == 7321 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.system_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Inquiry Out Message
-  if transaction_code == 2223 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_inquiry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Inquiry Out Message
-  if transaction_code == 5441 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_inquiry_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Header Message
-  if transaction_code == 7307 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.update_local_database_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Trailer Message
-  if transaction_code == 7308 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.update_local_database_trailer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Unlock Approval Rejection Message
-  if transaction_code == 5575 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.user_unlock_approval_rejection_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Unlock Approval Rejection Message
-  if transaction_code == 5579 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.user_unlock_approval_rejection_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Unlock Requested Response Message
-  if transaction_code == 5425 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.user_unlock_requested_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Order Value Limit Update Out Message
-  if transaction_code == 5720 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.user_order_value_limit_update_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Modification Cancellation Status Response Message
-  if transaction_code == 5793 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_modification_cancellation_status_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign Off Confirmation Message
-  if transaction_code == 2321 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.sign_off_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Header Record Message
-  if transaction_code == 7011 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.header_record_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Record Message
-  if transaction_code == 7021 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.message_record_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trailer Record Message
-  if transaction_code == 7031 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trailer_record_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secure Box Registration Response Message
-  if transaction_code == 23009 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Data Message
-  if transaction_code == 7304 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.update_local_database_data_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecm_orderentry_nnfdirect_v6_6.server_message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -10535,94 +10198,35 @@ end
 nse_nsecm_orderentry_nnfdirect_v6_6.client_message_payload = {}
 
 -- Dissect: Client Message Payload
+nse_nsecm_orderentry_nnfdirect_v6_6.client_message_payload.dispatch = {
+  [5716] = nse_nsecm_orderentry_nnfdirect_v6_6.branch_order_value_limit_update_in_message.dissect,
+  [5790] = nse_nsecm_orderentry_nnfdirect_v6_6.cancel_on_logout_status_request_message.dissect,
+  [7000] = nse_nsecm_orderentry_nnfdirect_v6_6.message_download_request_message.dissect,
+  [18016] = nse_nsecm_orderentry_nnfdirect_v6_6.auction_inquiry_request_message.dissect,
+  [20322] = nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_off_message.dissect,
+  [23000] = nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_on_request_message.dissect,
+  [2400] = nse_nsecm_orderentry_nnfdirect_v6_6.gateway_router_request_message.dissect,
+  [2000] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_in_message.dissect,
+  [2040] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_in_message.dissect,
+  [2062] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_in_message.dissect,
+  [2070] = nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_in_message.dissect,
+  [5721] = nse_nsecm_orderentry_nnfdirect_v6_6.order_limit_update_in_message.dissect,
+  [5738] = nse_nsecm_orderentry_nnfdirect_v6_6.password_reset_in_message.dissect,
+  [2300] = nse_nsecm_orderentry_nnfdirect_v6_6.sign_on_request_in_message.dissect,
+  [5723] = nse_nsecm_orderentry_nnfdirect_v6_6.sign_on_request_in_message.dissect,
+  [5440] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_inquiry_in_message.dissect,
+  [5445] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_inquiry_in_message.dissect,
+  [7300] = nse_nsecm_orderentry_nnfdirect_v6_6.update_local_database_request_message.dissect,
+  [5792] = nse_nsecm_orderentry_nnfdirect_v6_6.trade_modification_cancellation_status_request_message.dissect,
+  [5424] = nse_nsecm_orderentry_nnfdirect_v6_6.user_unlock_request_message.dissect,
+  [5719] = nse_nsecm_orderentry_nnfdirect_v6_6.user_order_value_limit_update_in_message.dissect,
+  [1600] = nse_nsecm_orderentry_nnfdirect_v6_6.system_information_request_message.dissect,
+}
+
 nse_nsecm_orderentry_nnfdirect_v6_6.client_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Branch Order Value Limit Update In Message
-  if transaction_code == 5716 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.branch_order_value_limit_update_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel On Logout Status Request Message
-  if transaction_code == 5790 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.cancel_on_logout_status_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Download Request Message
-  if transaction_code == 7000 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.message_download_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Inquiry Request Message
-  if transaction_code == 18016 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.auction_inquiry_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign Off Message
-  if transaction_code == 20322 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_off_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign On Request Message
-  if transaction_code == 23000 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_on_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Router Request Message
-  if transaction_code == 2400 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.gateway_router_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry In Message
-  if transaction_code == 2000 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry In Message
-  if transaction_code == 2040 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry In Message
-  if transaction_code == 2062 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry In Message
-  if transaction_code == 2070 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_entry_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Limit Update In Message
-  if transaction_code == 5721 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.order_limit_update_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Password Reset In Message
-  if transaction_code == 5738 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.password_reset_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign On Request In Message
-  if transaction_code == 2300 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.sign_on_request_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign On Request In Message
-  if transaction_code == 5723 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.sign_on_request_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Inquiry In Message
-  if transaction_code == 5440 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_inquiry_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Inquiry In Message
-  if transaction_code == 5445 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_inquiry_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Request Message
-  if transaction_code == 7300 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.update_local_database_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Modification Cancellation Status Request Message
-  if transaction_code == 5792 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.trade_modification_cancellation_status_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Unlock Request Message
-  if transaction_code == 5424 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.user_unlock_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Order Value Limit Update In Message
-  if transaction_code == 5719 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.user_order_value_limit_update_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Information Request Message
-  if transaction_code == 1600 then
-    return nse_nsecm_orderentry_nnfdirect_v6_6.system_information_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecm_orderentry_nnfdirect_v6_6.client_message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

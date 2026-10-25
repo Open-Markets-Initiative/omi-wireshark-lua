@@ -866,60 +866,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_fraction_indicator.size = 1
 
 -- Display: Ask Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Ask Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Ask Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Ask Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Ask Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Ask Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Ask Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Ask Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Ask Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Ask Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Ask Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Ask Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Ask Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Ask Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Ask Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Ask Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Ask Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Ask Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_fraction_indicator.labels = {
+  ["0"] = "Ask Price Fraction Indicator: Whole (0)",
+  ["1"] = "Ask Price Fraction Indicator: Ten (1)",
+  ["2"] = "Ask Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Ask Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Ask Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Ask Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Ask Price Fraction Indicator: Million (6)",
+  ["7"] = "Ask Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Ask Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Ask Price Fraction Indicator: Billion (9)",
+  ["A"] = "Ask Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Ask Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Ask Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Ask Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Ask Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Ask Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Ask Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Ask Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_fraction_indicator.labels[value] or "Ask Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Ask Price Fraction Indicator
@@ -1049,15 +1017,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_sign.size = 1
 
 -- Display: Ask Price Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_sign.display = function(value)
-  if value == "+" then
-    return "Ask Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Ask Price Sign: Negative (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_sign.labels = {
+  ["+"] = "Ask Price Sign: Positive (+)",
+  ["-"] = "Ask Price Sign: Negative (-)",
+}
 
-  return "Ask Price Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_sign.labels[value] or "Ask Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Ask Price Sign
@@ -1148,45 +1114,23 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.associated_product_delivery_month = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.associated_product_delivery_month.size = 1
 
 -- Display: Associated Product Delivery Month
-tmx_mx_solatcpretransmission_hsvf_v1_11.associated_product_delivery_month.display = function(value)
-  if value == "F" then
-    return "Associated Product Delivery Month: January (F)"
-  end
-  if value == "G" then
-    return "Associated Product Delivery Month: February (G)"
-  end
-  if value == "H" then
-    return "Associated Product Delivery Month: March (H)"
-  end
-  if value == "J" then
-    return "Associated Product Delivery Month: April (J)"
-  end
-  if value == "K" then
-    return "Associated Product Delivery Month: May (K)"
-  end
-  if value == "M" then
-    return "Associated Product Delivery Month: June (M)"
-  end
-  if value == "N" then
-    return "Associated Product Delivery Month: July (N)"
-  end
-  if value == "Q" then
-    return "Associated Product Delivery Month: August (Q)"
-  end
-  if value == "U" then
-    return "Associated Product Delivery Month: September (U)"
-  end
-  if value == "V" then
-    return "Associated Product Delivery Month: October (V)"
-  end
-  if value == "X" then
-    return "Associated Product Delivery Month: November (X)"
-  end
-  if value == "Z" then
-    return "Associated Product Delivery Month: December (Z)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.associated_product_delivery_month.labels = {
+  ["F"] = "Associated Product Delivery Month: January (F)",
+  ["G"] = "Associated Product Delivery Month: February (G)",
+  ["H"] = "Associated Product Delivery Month: March (H)",
+  ["J"] = "Associated Product Delivery Month: April (J)",
+  ["K"] = "Associated Product Delivery Month: May (K)",
+  ["M"] = "Associated Product Delivery Month: June (M)",
+  ["N"] = "Associated Product Delivery Month: July (N)",
+  ["Q"] = "Associated Product Delivery Month: August (Q)",
+  ["U"] = "Associated Product Delivery Month: September (U)",
+  ["V"] = "Associated Product Delivery Month: October (V)",
+  ["X"] = "Associated Product Delivery Month: November (X)",
+  ["Z"] = "Associated Product Delivery Month: December (Z)",
+}
 
-  return "Associated Product Delivery Month: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.associated_product_delivery_month.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.associated_product_delivery_month.labels[value] or "Associated Product Delivery Month: Unknown("..value..")"
 end
 
 -- Dissect: Associated Product Delivery Month
@@ -1293,60 +1237,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_fraction_indicator.size = 1
 
 -- Display: Bid Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Bid Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Bid Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Bid Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Bid Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Bid Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Bid Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Bid Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Bid Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Bid Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Bid Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Bid Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Bid Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Bid Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Bid Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Bid Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Bid Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Bid Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_fraction_indicator.labels = {
+  ["0"] = "Bid Price Fraction Indicator: Whole (0)",
+  ["1"] = "Bid Price Fraction Indicator: Ten (1)",
+  ["2"] = "Bid Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Bid Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Bid Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Bid Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Bid Price Fraction Indicator: Million (6)",
+  ["7"] = "Bid Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Bid Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Bid Price Fraction Indicator: Billion (9)",
+  ["A"] = "Bid Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Bid Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Bid Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Bid Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Bid Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Bid Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Bid Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Bid Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_fraction_indicator.labels[value] or "Bid Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bid Price Fraction Indicator
@@ -1422,15 +1334,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_sign.size = 1
 
 -- Display: Bid Price Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_sign.display = function(value)
-  if value == "+" then
-    return "Bid Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Bid Price Sign: Negative (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_sign.labels = {
+  ["+"] = "Bid Price Sign: Positive (+)",
+  ["-"] = "Bid Price Sign: Negative (-)",
+}
 
-  return "Bid Price Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_sign.labels[value] or "Bid Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Bid Price Sign
@@ -1521,15 +1431,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin_type = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin_type.size = 1
 
 -- Display: Bulletin Type
-tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin_type.display = function(value)
-  if value == "1" then
-    return "Bulletin Type: Regular Text Bulletin (1)"
-  end
-  if value == "2" then
-    return "Bulletin Type: Special Text Bulletin (2)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin_type.labels = {
+  ["1"] = "Bulletin Type: Regular Text Bulletin (1)",
+  ["2"] = "Bulletin Type: Special Text Bulletin (2)",
+}
 
-  return "Bulletin Type: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin_type.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin_type.labels[value] or "Bulletin Type: Unknown("..value..")"
 end
 
 -- Dissect: Bulletin Type
@@ -1551,15 +1459,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.call_put_code = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.call_put_code.size = 1
 
 -- Display: Call Put Code
-tmx_mx_solatcpretransmission_hsvf_v1_11.call_put_code.display = function(value)
-  if value == "C" then
-    return "Call Put Code: Call (C)"
-  end
-  if value == "P" then
-    return "Call Put Code: Put (P)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.call_put_code.labels = {
+  ["C"] = "Call Put Code: Call (C)",
+  ["P"] = "Call Put Code: Put (P)",
+}
 
-  return "Call Put Code: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.call_put_code.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.call_put_code.labels[value] or "Call Put Code: Unknown("..value..")"
 end
 
 -- Dissect: Call Put Code
@@ -1608,18 +1514,14 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_type = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_type.size = 2
 
 -- Display: Client Message Type
-tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_type.display = function(value)
-  if value == "LI" then
-    return "Client Message Type: Login Message (LI)"
-  end
-  if value == "LO" then
-    return "Client Message Type: Logout Message (LO)"
-  end
-  if value == "RT" then
-    return "Client Message Type: Retransmission Request Message (RT)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_type.labels = {
+  ["LI"] = "Client Message Type: Login Message (LI)",
+  ["LO"] = "Client Message Type: Logout Message (LO)",
+  ["RT"] = "Client Message Type: Retransmission Request Message (RT)",
+}
 
-  return "Client Message Type: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_type.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_type.labels[value] or "Client Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Message Type
@@ -1641,15 +1543,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.continue_marker = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.continue_marker.size = 1
 
 -- Display: Continue Marker
-tmx_mx_solatcpretransmission_hsvf_v1_11.continue_marker.display = function(value)
-  if value == 0 then
-    return "Continue Marker: Bulletin Continues In Next Record (0)"
-  end
-  if value == 1 then
-    return "Continue Marker: Bulletin Ended (1)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.continue_marker.labels = {
+  [0] = "Continue Marker: Bulletin Continues In Next Record (0)",
+  [1] = "Continue Marker: Bulletin Ended (1)",
+}
 
-  return "Continue Marker: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.continue_marker.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.continue_marker.labels[value] or "Continue Marker: Unknown("..value..")"
 end
 
 -- Dissect: Continue Marker
@@ -1679,45 +1579,23 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.contract_month_code = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.contract_month_code.size = 1
 
 -- Display: Contract Month Code
-tmx_mx_solatcpretransmission_hsvf_v1_11.contract_month_code.display = function(value)
-  if value == "F" then
-    return "Contract Month Code: January (F)"
-  end
-  if value == "G" then
-    return "Contract Month Code: February (G)"
-  end
-  if value == "H" then
-    return "Contract Month Code: March (H)"
-  end
-  if value == "J" then
-    return "Contract Month Code: April (J)"
-  end
-  if value == "K" then
-    return "Contract Month Code: May (K)"
-  end
-  if value == "M" then
-    return "Contract Month Code: June (M)"
-  end
-  if value == "N" then
-    return "Contract Month Code: July (N)"
-  end
-  if value == "Q" then
-    return "Contract Month Code: August (Q)"
-  end
-  if value == "U" then
-    return "Contract Month Code: September (U)"
-  end
-  if value == "V" then
-    return "Contract Month Code: October (V)"
-  end
-  if value == "X" then
-    return "Contract Month Code: November (X)"
-  end
-  if value == "Z" then
-    return "Contract Month Code: December (Z)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.contract_month_code.labels = {
+  ["F"] = "Contract Month Code: January (F)",
+  ["G"] = "Contract Month Code: February (G)",
+  ["H"] = "Contract Month Code: March (H)",
+  ["J"] = "Contract Month Code: April (J)",
+  ["K"] = "Contract Month Code: May (K)",
+  ["M"] = "Contract Month Code: June (M)",
+  ["N"] = "Contract Month Code: July (N)",
+  ["Q"] = "Contract Month Code: August (Q)",
+  ["U"] = "Contract Month Code: September (U)",
+  ["V"] = "Contract Month Code: October (V)",
+  ["X"] = "Contract Month Code: November (X)",
+  ["Z"] = "Contract Month Code: December (Z)",
+}
 
-  return "Contract Month Code: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.contract_month_code.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.contract_month_code.labels[value] or "Contract Month Code: Unknown("..value..")"
 end
 
 -- Dissect: Contract Month Code
@@ -1803,18 +1681,14 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.day_count_convention = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.day_count_convention.size = 1
 
 -- Display: Day Count Convention
-tmx_mx_solatcpretransmission_hsvf_v1_11.day_count_convention.display = function(value)
-  if value == "A" then
-    return "Day Count Convention: Act 365 (A)"
-  end
-  if value == "B" then
-    return "Day Count Convention: Act 360 (B)"
-  end
-  if value == "C" then
-    return "Day Count Convention: Thirty 360 (C)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.day_count_convention.labels = {
+  ["A"] = "Day Count Convention: Act 365 (A)",
+  ["B"] = "Day Count Convention: Act 360 (B)",
+  ["C"] = "Day Count Convention: Thirty 360 (C)",
+}
 
-  return "Day Count Convention: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.day_count_convention.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.day_count_convention.labels[value] or "Day Count Convention: Unknown("..value..")"
 end
 
 -- Dissect: Day Count Convention
@@ -1867,45 +1741,23 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_month = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_month.size = 1
 
 -- Display: Delivery Month
-tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_month.display = function(value)
-  if value == "F" then
-    return "Delivery Month: January (F)"
-  end
-  if value == "G" then
-    return "Delivery Month: February (G)"
-  end
-  if value == "H" then
-    return "Delivery Month: March (H)"
-  end
-  if value == "J" then
-    return "Delivery Month: April (J)"
-  end
-  if value == "K" then
-    return "Delivery Month: May (K)"
-  end
-  if value == "M" then
-    return "Delivery Month: June (M)"
-  end
-  if value == "N" then
-    return "Delivery Month: July (N)"
-  end
-  if value == "Q" then
-    return "Delivery Month: August (Q)"
-  end
-  if value == "U" then
-    return "Delivery Month: September (U)"
-  end
-  if value == "V" then
-    return "Delivery Month: October (V)"
-  end
-  if value == "X" then
-    return "Delivery Month: November (X)"
-  end
-  if value == "Z" then
-    return "Delivery Month: December (Z)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_month.labels = {
+  ["F"] = "Delivery Month: January (F)",
+  ["G"] = "Delivery Month: February (G)",
+  ["H"] = "Delivery Month: March (H)",
+  ["J"] = "Delivery Month: April (J)",
+  ["K"] = "Delivery Month: May (K)",
+  ["M"] = "Delivery Month: June (M)",
+  ["N"] = "Delivery Month: July (N)",
+  ["Q"] = "Delivery Month: August (Q)",
+  ["U"] = "Delivery Month: September (U)",
+  ["V"] = "Delivery Month: October (V)",
+  ["X"] = "Delivery Month: November (X)",
+  ["Z"] = "Delivery Month: December (Z)",
+}
 
-  return "Delivery Month: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_month.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_month.labels[value] or "Delivery Month: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Month
@@ -1950,15 +1802,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_type = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_type.size = 1
 
 -- Display: Delivery Type
-tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_type.display = function(value)
-  if value == "C" then
-    return "Delivery Type: Cash (C)"
-  end
-  if value == "P" then
-    return "Delivery Type: Physical (P)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_type.labels = {
+  ["C"] = "Delivery Type: Cash (C)",
+  ["P"] = "Delivery Type: Physical (P)",
+}
 
-  return "Delivery Type: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_type.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.delivery_type.labels[value] or "Delivery Type: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Type
@@ -2100,45 +1950,23 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.error_code = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.error_code.size = 4
 
 -- Display: Error Code
-tmx_mx_solatcpretransmission_hsvf_v1_11.error_code.display = function(value)
-  if value == 0001 then
-    return "Error Code: Unknown Message Type (0001)"
-  end
-  if value == 0002 then
-    return "Error Code: Invalid Message Length (0002)"
-  end
-  if value == 0003 then
-    return "Error Code: Invalid Characters (0003)"
-  end
-  if value == 0100 then
-    return "Error Code: Invalid Protocol Version (0100)"
-  end
-  if value == 0101 then
-    return "Error Code: Already Logged In (0101)"
-  end
-  if value == 0102 then
-    return "Error Code: Not Logged In (0102)"
-  end
-  if value == 0103 then
-    return "Error Code: Invalid Line Name (0103)"
-  end
-  if value == 0104 then
-    return "Error Code: Maximum Number Of Retransmission Request Reached (0104)"
-  end
-  if value == 0105 then
-    return "Error Code: Invalid Sequence Number (0105)"
-  end
-  if value == 0106 then
-    return "Error Code: Continuous Feed Request In Progress (0106)"
-  end
-  if value == 0107 then
-    return "Error Code: Cannot Process Legacy Mode Command Tcp Mode Already In Use (0107)"
-  end
-  if value == 0108 then
-    return "Error Code: Cannot Process Tcp Mode Command Legacy Mode Already In Use (0108)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.error_code.labels = {
+  [0001] = "Error Code: Unknown Message Type (0001)",
+  [0002] = "Error Code: Invalid Message Length (0002)",
+  [0003] = "Error Code: Invalid Characters (0003)",
+  [0100] = "Error Code: Invalid Protocol Version (0100)",
+  [0101] = "Error Code: Already Logged In (0101)",
+  [0102] = "Error Code: Not Logged In (0102)",
+  [0103] = "Error Code: Invalid Line Name (0103)",
+  [0104] = "Error Code: Maximum Number Of Retransmission Request Reached (0104)",
+  [0105] = "Error Code: Invalid Sequence Number (0105)",
+  [0106] = "Error Code: Continuous Feed Request In Progress (0106)",
+  [0107] = "Error Code: Cannot Process Legacy Mode Command Tcp Mode Already In Use (0107)",
+  [0108] = "Error Code: Cannot Process Tcp Mode Command Legacy Mode Already In Use (0108)",
+}
 
-  return "Error Code: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.error_code.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.error_code.labels[value] or "Error Code: Unknown("..value..")"
 end
 
 -- Dissect: Error Code
@@ -2191,12 +2019,12 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.exchange_id = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.exchange_id.size = 1
 
 -- Display: Exchange Id
-tmx_mx_solatcpretransmission_hsvf_v1_11.exchange_id.display = function(value)
-  if value == "Q" then
-    return "Exchange Id: Montreal (Q)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.exchange_id.labels = {
+  ["Q"] = "Exchange Id: Montreal (Q)",
+}
 
-  return "Exchange Id: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.exchange_id.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.exchange_id.labels[value] or "Exchange Id: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Id
@@ -2249,81 +2077,35 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month.size = 1
 
 -- Display: Expiry Month
-tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month.display = function(value)
-  if value == "A" then
-    return "Expiry Month: January Call (A)"
-  end
-  if value == "B" then
-    return "Expiry Month: February Call (B)"
-  end
-  if value == "C" then
-    return "Expiry Month: March Call (C)"
-  end
-  if value == "D" then
-    return "Expiry Month: April Call (D)"
-  end
-  if value == "E" then
-    return "Expiry Month: May Call (E)"
-  end
-  if value == "F" then
-    return "Expiry Month: June Call (F)"
-  end
-  if value == "G" then
-    return "Expiry Month: July Call (G)"
-  end
-  if value == "H" then
-    return "Expiry Month: August Call (H)"
-  end
-  if value == "I" then
-    return "Expiry Month: September Call (I)"
-  end
-  if value == "J" then
-    return "Expiry Month: October Call (J)"
-  end
-  if value == "K" then
-    return "Expiry Month: November Call (K)"
-  end
-  if value == "L" then
-    return "Expiry Month: December Call (L)"
-  end
-  if value == "M" then
-    return "Expiry Month: January Put (M)"
-  end
-  if value == "N" then
-    return "Expiry Month: February Put (N)"
-  end
-  if value == "O" then
-    return "Expiry Month: March Put (O)"
-  end
-  if value == "P" then
-    return "Expiry Month: April Put (P)"
-  end
-  if value == "Q" then
-    return "Expiry Month: May Put (Q)"
-  end
-  if value == "R" then
-    return "Expiry Month: June Put (R)"
-  end
-  if value == "S" then
-    return "Expiry Month: July Put (S)"
-  end
-  if value == "T" then
-    return "Expiry Month: August Put (T)"
-  end
-  if value == "U" then
-    return "Expiry Month: September Put (U)"
-  end
-  if value == "V" then
-    return "Expiry Month: October Put (V)"
-  end
-  if value == "W" then
-    return "Expiry Month: November Put (W)"
-  end
-  if value == "X" then
-    return "Expiry Month: December Put (X)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month.labels = {
+  ["A"] = "Expiry Month: January Call (A)",
+  ["B"] = "Expiry Month: February Call (B)",
+  ["C"] = "Expiry Month: March Call (C)",
+  ["D"] = "Expiry Month: April Call (D)",
+  ["E"] = "Expiry Month: May Call (E)",
+  ["F"] = "Expiry Month: June Call (F)",
+  ["G"] = "Expiry Month: July Call (G)",
+  ["H"] = "Expiry Month: August Call (H)",
+  ["I"] = "Expiry Month: September Call (I)",
+  ["J"] = "Expiry Month: October Call (J)",
+  ["K"] = "Expiry Month: November Call (K)",
+  ["L"] = "Expiry Month: December Call (L)",
+  ["M"] = "Expiry Month: January Put (M)",
+  ["N"] = "Expiry Month: February Put (N)",
+  ["O"] = "Expiry Month: March Put (O)",
+  ["P"] = "Expiry Month: April Put (P)",
+  ["Q"] = "Expiry Month: May Put (Q)",
+  ["R"] = "Expiry Month: June Put (R)",
+  ["S"] = "Expiry Month: July Put (S)",
+  ["T"] = "Expiry Month: August Put (T)",
+  ["U"] = "Expiry Month: September Put (U)",
+  ["V"] = "Expiry Month: October Put (V)",
+  ["W"] = "Expiry Month: November Put (W)",
+  ["X"] = "Expiry Month: December Put (X)",
+}
 
-  return "Expiry Month: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month.labels[value] or "Expiry Month: Unknown("..value..")"
 end
 
 -- Dissect: Expiry Month
@@ -2345,45 +2127,23 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month_swap_future = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month_swap_future.size = 1
 
 -- Display: Expiry Month Swap Future
-tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month_swap_future.display = function(value)
-  if value == "F" then
-    return "Expiry Month Swap Future: January (F)"
-  end
-  if value == "G" then
-    return "Expiry Month Swap Future: February (G)"
-  end
-  if value == "H" then
-    return "Expiry Month Swap Future: March (H)"
-  end
-  if value == "J" then
-    return "Expiry Month Swap Future: April (J)"
-  end
-  if value == "K" then
-    return "Expiry Month Swap Future: May (K)"
-  end
-  if value == "M" then
-    return "Expiry Month Swap Future: June (M)"
-  end
-  if value == "N" then
-    return "Expiry Month Swap Future: July (N)"
-  end
-  if value == "Q" then
-    return "Expiry Month Swap Future: August (Q)"
-  end
-  if value == "U" then
-    return "Expiry Month Swap Future: September (U)"
-  end
-  if value == "V" then
-    return "Expiry Month Swap Future: October (V)"
-  end
-  if value == "X" then
-    return "Expiry Month Swap Future: November (X)"
-  end
-  if value == "Z" then
-    return "Expiry Month Swap Future: December (Z)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month_swap_future.labels = {
+  ["F"] = "Expiry Month Swap Future: January (F)",
+  ["G"] = "Expiry Month Swap Future: February (G)",
+  ["H"] = "Expiry Month Swap Future: March (H)",
+  ["J"] = "Expiry Month Swap Future: April (J)",
+  ["K"] = "Expiry Month Swap Future: May (K)",
+  ["M"] = "Expiry Month Swap Future: June (M)",
+  ["N"] = "Expiry Month Swap Future: July (N)",
+  ["Q"] = "Expiry Month Swap Future: August (Q)",
+  ["U"] = "Expiry Month Swap Future: September (U)",
+  ["V"] = "Expiry Month Swap Future: October (V)",
+  ["X"] = "Expiry Month Swap Future: November (X)",
+  ["Z"] = "Expiry Month Swap Future: December (Z)",
+}
 
-  return "Expiry Month Swap Future: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month_swap_future.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.expiry_month_swap_future.labels[value] or "Expiry Month Swap Future: Unknown("..value..")"
 end
 
 -- Dissect: Expiry Month Swap Future
@@ -2467,60 +2227,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_fraction_indicator.size = 1
 
 -- Display: External Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "External Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "External Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "External Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "External Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "External Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "External Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "External Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "External Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "External Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "External Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "External Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "External Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "External Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "External Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "External Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "External Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "External Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_fraction_indicator.labels = {
+  ["0"] = "External Price Fraction Indicator: Whole (0)",
+  ["1"] = "External Price Fraction Indicator: Ten (1)",
+  ["2"] = "External Price Fraction Indicator: Hundred (2)",
+  ["3"] = "External Price Fraction Indicator: Thousand (3)",
+  ["4"] = "External Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "External Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "External Price Fraction Indicator: Million (6)",
+  ["7"] = "External Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "External Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "External Price Fraction Indicator: Billion (9)",
+  ["A"] = "External Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "External Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "External Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "External Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "External Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "External Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "External Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "External Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_fraction_indicator.labels[value] or "External Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: External Price Fraction Indicator
@@ -2719,60 +2447,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_indicator.size = 1
 
 -- Display: Fixed Rate Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Fixed Rate Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Fixed Rate Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Fixed Rate Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Fixed Rate Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Fixed Rate Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Fixed Rate Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Fixed Rate Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Fixed Rate Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Fixed Rate Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Fixed Rate Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Fixed Rate Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Fixed Rate Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Fixed Rate Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Fixed Rate Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Fixed Rate Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Fixed Rate Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Fixed Rate Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_indicator.labels = {
+  ["0"] = "Fixed Rate Fraction Indicator: Whole (0)",
+  ["1"] = "Fixed Rate Fraction Indicator: Ten (1)",
+  ["2"] = "Fixed Rate Fraction Indicator: Hundred (2)",
+  ["3"] = "Fixed Rate Fraction Indicator: Thousand (3)",
+  ["4"] = "Fixed Rate Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Fixed Rate Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Fixed Rate Fraction Indicator: Million (6)",
+  ["7"] = "Fixed Rate Fraction Indicator: Ten Million (7)",
+  ["8"] = "Fixed Rate Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Fixed Rate Fraction Indicator: Billion (9)",
+  ["A"] = "Fixed Rate Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Fixed Rate Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Fixed Rate Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Fixed Rate Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Fixed Rate Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Fixed Rate Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Fixed Rate Fraction Indicator: Negative Million (G)",
+}
 
-  return "Fixed Rate Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_indicator.labels[value] or "Fixed Rate Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Fixed Rate Fraction Indicator
@@ -2899,60 +2595,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_indicator.size = 1
 
 -- Display: High Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "High Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "High Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "High Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "High Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "High Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "High Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "High Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "High Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "High Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "High Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "High Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "High Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "High Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "High Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "High Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "High Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "High Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_indicator.labels = {
+  ["0"] = "High Price Fraction Indicator: Whole (0)",
+  ["1"] = "High Price Fraction Indicator: Ten (1)",
+  ["2"] = "High Price Fraction Indicator: Hundred (2)",
+  ["3"] = "High Price Fraction Indicator: Thousand (3)",
+  ["4"] = "High Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "High Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "High Price Fraction Indicator: Million (6)",
+  ["7"] = "High Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "High Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "High Price Fraction Indicator: Billion (9)",
+  ["A"] = "High Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "High Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "High Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "High Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "High Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "High Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "High Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "High Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_indicator.labels[value] or "High Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: High Price Fraction Indicator
@@ -2974,15 +2638,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_sign.size = 1
 
 -- Display: High Price Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_sign.display = function(value)
-  if value == "+" then
-    return "High Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "High Price Sign: Negative (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_sign.labels = {
+  ["+"] = "High Price Sign: Positive (+)",
+  ["-"] = "High Price Sign: Negative (-)",
+}
 
-  return "High Price Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_sign.labels[value] or "High Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: High Price Sign
@@ -3035,60 +2697,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_fraction_indicator = {
 tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_fraction_indicator.size = 1
 
 -- Display: Historical Coupon Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Historical Coupon Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Historical Coupon Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Historical Coupon Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Historical Coupon Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Historical Coupon Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Historical Coupon Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Historical Coupon Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Historical Coupon Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Historical Coupon Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Historical Coupon Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Historical Coupon Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Historical Coupon Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Historical Coupon Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Historical Coupon Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Historical Coupon Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Historical Coupon Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Historical Coupon Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_fraction_indicator.labels = {
+  ["0"] = "Historical Coupon Fraction Indicator: Whole (0)",
+  ["1"] = "Historical Coupon Fraction Indicator: Ten (1)",
+  ["2"] = "Historical Coupon Fraction Indicator: Hundred (2)",
+  ["3"] = "Historical Coupon Fraction Indicator: Thousand (3)",
+  ["4"] = "Historical Coupon Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Historical Coupon Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Historical Coupon Fraction Indicator: Million (6)",
+  ["7"] = "Historical Coupon Fraction Indicator: Ten Million (7)",
+  ["8"] = "Historical Coupon Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Historical Coupon Fraction Indicator: Billion (9)",
+  ["A"] = "Historical Coupon Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Historical Coupon Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Historical Coupon Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Historical Coupon Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Historical Coupon Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Historical Coupon Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Historical Coupon Fraction Indicator: Negative Million (G)",
+}
 
-  return "Historical Coupon Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_fraction_indicator.labels[value] or "Historical Coupon Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Historical Coupon Fraction Indicator
@@ -3351,60 +2981,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_indicator.size = 1
 
 -- Display: Last Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Last Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Last Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Last Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Last Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Last Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Last Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Last Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Last Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Last Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Last Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Last Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Last Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Last Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Last Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Last Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Last Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Last Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_indicator.labels = {
+  ["0"] = "Last Price Fraction Indicator: Whole (0)",
+  ["1"] = "Last Price Fraction Indicator: Ten (1)",
+  ["2"] = "Last Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Last Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Last Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Last Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Last Price Fraction Indicator: Million (6)",
+  ["7"] = "Last Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Last Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Last Price Fraction Indicator: Billion (9)",
+  ["A"] = "Last Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Last Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Last Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Last Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Last Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Last Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Last Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Last Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_indicator.labels[value] or "Last Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Last Price Fraction Indicator
@@ -3426,15 +3024,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_sign.size = 1
 
 -- Display: Last Price Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_sign.display = function(value)
-  if value == "+" then
-    return "Last Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Last Price Sign: Negative (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_sign.labels = {
+  ["+"] = "Last Price Sign: Positive (+)",
+  ["-"] = "Last Price Sign: Negative (-)",
+}
 
-  return "Last Price Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_sign.labels[value] or "Last Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Last Price Sign
@@ -3487,15 +3083,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.leg_ratio_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.leg_ratio_sign.size = 1
 
 -- Display: Leg Ratio Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.leg_ratio_sign.display = function(value)
-  if value == "+" then
-    return "Leg Ratio Sign: Buy Of The Underlying (+)"
-  end
-  if value == "-" then
-    return "Leg Ratio Sign: Sell Of The Underlying (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.leg_ratio_sign.labels = {
+  ["+"] = "Leg Ratio Sign: Buy Of The Underlying (+)",
+  ["-"] = "Leg Ratio Sign: Sell Of The Underlying (-)",
+}
 
-  return "Leg Ratio Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.leg_ratio_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.leg_ratio_sign.labels[value] or "Leg Ratio Sign: Unknown("..value..")"
 end
 
 -- Dissect: Leg Ratio Sign
@@ -3540,27 +3134,17 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.level = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.level.size = 1
 
 -- Display: Level
-tmx_mx_solatcpretransmission_hsvf_v1_11.level.display = function(value)
-  if value == "1" then
-    return "Level: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Level: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Level: Level 3 (3)"
-  end
-  if value == "4" then
-    return "Level: Level 4 (4)"
-  end
-  if value == "5" then
-    return "Level: Level 5 (5)"
-  end
-  if value == "A" then
-    return "Level: Implied (A)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.level.labels = {
+  ["1"] = "Level: Level 1 (1)",
+  ["2"] = "Level: Level 2 (2)",
+  ["3"] = "Level: Level 3 (3)",
+  ["4"] = "Level: Level 4 (4)",
+  ["5"] = "Level: Level 5 (5)",
+  ["A"] = "Level: Implied (A)",
+}
 
-  return "Level: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.level.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.level.labels[value] or "Level: Unknown("..value..")"
 end
 
 -- Dissect: Level
@@ -3582,27 +3166,17 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.level_of_market_depth = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.level_of_market_depth.size = 1
 
 -- Display: Level Of Market Depth
-tmx_mx_solatcpretransmission_hsvf_v1_11.level_of_market_depth.display = function(value)
-  if value == "1" then
-    return "Level Of Market Depth: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Level Of Market Depth: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Level Of Market Depth: Level 3 (3)"
-  end
-  if value == "4" then
-    return "Level Of Market Depth: Level 4 (4)"
-  end
-  if value == "5" then
-    return "Level Of Market Depth: Level 5 (5)"
-  end
-  if value == "A" then
-    return "Level Of Market Depth: Implied (A)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.level_of_market_depth.labels = {
+  ["1"] = "Level Of Market Depth: Level 1 (1)",
+  ["2"] = "Level Of Market Depth: Level 2 (2)",
+  ["3"] = "Level Of Market Depth: Level 3 (3)",
+  ["4"] = "Level Of Market Depth: Level 4 (4)",
+  ["5"] = "Level Of Market Depth: Level 5 (5)",
+  ["A"] = "Level Of Market Depth: Implied (A)",
+}
 
-  return "Level Of Market Depth: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.level_of_market_depth.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.level_of_market_depth.labels[value] or "Level Of Market Depth: Unknown("..value..")"
 end
 
 -- Dissect: Level Of Market Depth
@@ -3624,21 +3198,15 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.line = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.line.size = 2
 
 -- Display: Line
-tmx_mx_solatcpretransmission_hsvf_v1_11.line.display = function(value)
-  if value == "O1" then
-    return "Line: O 1 (O1)"
-  end
-  if value == "O2" then
-    return "Line: O 2 (O2)"
-  end
-  if value == "F1" then
-    return "Line: F 1 (F1)"
-  end
-  if value == "F2" then
-    return "Line: F 2 (F2)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.line.labels = {
+  ["O1"] = "Line: O 1 (O1)",
+  ["O2"] = "Line: O 2 (O2)",
+  ["F1"] = "Line: F 1 (F1)",
+  ["F2"] = "Line: F 2 (F2)",
+}
 
-  return "Line: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.line.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.line.labels[value] or "Line: Unknown("..value..")"
 end
 
 -- Dissect: Line
@@ -3722,60 +3290,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_indicator.size = 1
 
 -- Display: Low Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Low Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Low Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Low Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Low Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Low Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Low Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Low Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Low Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Low Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Low Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Low Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Low Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Low Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Low Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Low Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Low Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Low Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_indicator.labels = {
+  ["0"] = "Low Price Fraction Indicator: Whole (0)",
+  ["1"] = "Low Price Fraction Indicator: Ten (1)",
+  ["2"] = "Low Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Low Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Low Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Low Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Low Price Fraction Indicator: Million (6)",
+  ["7"] = "Low Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Low Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Low Price Fraction Indicator: Billion (9)",
+  ["A"] = "Low Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Low Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Low Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Low Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Low Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Low Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Low Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Low Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_indicator.labels[value] or "Low Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Low Price Fraction Indicator
@@ -3797,15 +3333,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_sign.size = 1
 
 -- Display: Low Price Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_sign.display = function(value)
-  if value == "+" then
-    return "Low Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Low Price Sign: Negative (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_sign.labels = {
+  ["+"] = "Low Price Sign: Positive (+)",
+  ["-"] = "Low Price Sign: Negative (-)",
+}
 
-  return "Low Price Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_sign.labels[value] or "Low Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Low Price Sign
@@ -3989,60 +3523,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_fraction_indicat
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_fraction_indicator.size = 1
 
 -- Display: Maximum Threshold Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Maximum Threshold Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Maximum Threshold Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Maximum Threshold Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Maximum Threshold Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Maximum Threshold Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Maximum Threshold Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Maximum Threshold Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Maximum Threshold Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Maximum Threshold Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Maximum Threshold Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_fraction_indicator.labels = {
+  ["0"] = "Maximum Threshold Price Fraction Indicator: Whole (0)",
+  ["1"] = "Maximum Threshold Price Fraction Indicator: Ten (1)",
+  ["2"] = "Maximum Threshold Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Maximum Threshold Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Maximum Threshold Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Maximum Threshold Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Maximum Threshold Price Fraction Indicator: Million (6)",
+  ["7"] = "Maximum Threshold Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Maximum Threshold Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Maximum Threshold Price Fraction Indicator: Billion (9)",
+  ["A"] = "Maximum Threshold Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Maximum Threshold Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Maximum Threshold Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Maximum Threshold Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Maximum Threshold Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Maximum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Maximum Threshold Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Maximum Threshold Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_fraction_indicator.labels[value] or "Maximum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Maximum Threshold Price Fraction Indicator
@@ -4126,201 +3628,75 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.message_type = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.message_type.size = 2
 
 -- Display: Message Type
-tmx_mx_solatcpretransmission_hsvf_v1_11.message_type.display = function(value)
-  if value == "C" then
-    return "Message Type: Option Trade Message (C)"
-  end
-  if value == "CB" then
-    return "Message Type: Future Options Trade Message (CB)"
-  end
-  if value == "CF" then
-    return "Message Type: Futures Trade Message (CF)"
-  end
-  if value == "CS" then
-    return "Message Type: Strategy Trade Message (CS)"
-  end
-  if value == "CW" then
-    return "Message Type: Swap Future Trade Message (CW)"
-  end
-  if value == "D" then
-    return "Message Type: Option Rfq Message (D)"
-  end
-  if value == "DB" then
-    return "Message Type: Future Options Rfq Message (DB)"
-  end
-  if value == "DF" then
-    return "Message Type: Futures Rfq Message (DF)"
-  end
-  if value == "DS" then
-    return "Message Type: Strategy Rfq Message (DS)"
-  end
-  if value == "DW" then
-    return "Message Type: Swap Future Rfq Message (DW)"
-  end
-  if value == "E" then
-    return "Message Type: Instrument Schedule Notice Option Message (E)"
-  end
-  if value == "EB" then
-    return "Message Type: Instrument Schedule Notice Futures Option Message (EB)"
-  end
-  if value == "EF" then
-    return "Message Type: Instrument Schedule Notice Future Message (EF)"
-  end
-  if value == "ES" then
-    return "Message Type: Instrument Schedule Notice Strategy Message (ES)"
-  end
-  if value == "EW" then
-    return "Message Type: Instrument Schedule Notice Swap Future Message (EW)"
-  end
-  if value == "F" then
-    return "Message Type: Option Quote Message (F)"
-  end
-  if value == "FB" then
-    return "Message Type: Future Options Quote Message (FB)"
-  end
-  if value == "FF" then
-    return "Message Type: Futures Quote Message (FF)"
-  end
-  if value == "FS" then
-    return "Message Type: Strategy Quote Message (FS)"
-  end
-  if value == "FW" then
-    return "Message Type: Swap Future Quote Message (FW)"
-  end
-  if value == "H" then
-    return "Message Type: Option Market Depth Message (H)"
-  end
-  if value == "HB" then
-    return "Message Type: Future Options Market Depth Message (HB)"
-  end
-  if value == "HF" then
-    return "Message Type: Futures Market Depth Message (HF)"
-  end
-  if value == "HS" then
-    return "Message Type: Strategy Market Depth Message (HS)"
-  end
-  if value == "HW" then
-    return "Message Type: Swap Future Market Depth Message (HW)"
-  end
-  if value == "I" then
-    return "Message Type: Option Trade Cancellation Message (I)"
-  end
-  if value == "IB" then
-    return "Message Type: Future Options Trade Cancellation Message (IB)"
-  end
-  if value == "IF" then
-    return "Message Type: Futures Trade Cancellation Message (IF)"
-  end
-  if value == "IS" then
-    return "Message Type: Strategy Trade Cancellation Message (IS)"
-  end
-  if value == "IW" then
-    return "Message Type: Swap Future Trade Cancellation Message (IW)"
-  end
-  if value == "J" then
-    return "Message Type: Option Instrument Keys Message (J)"
-  end
-  if value == "JB" then
-    return "Message Type: Future Options Instrument Keys Message (JB)"
-  end
-  if value == "JE" then
-    return "Message Type: Underlying Instrument Keys Message (JE)"
-  end
-  if value == "JF" then
-    return "Message Type: Futures Instrument Keys Message (JF)"
-  end
-  if value == "JS" then
-    return "Message Type: Strategy Instrument Keys Message (JS)"
-  end
-  if value == "JW" then
-    return "Message Type: Swap Future Instrument Keys Message (JW)"
-  end
-  if value == "N" then
-    return "Message Type: Option Summary Message (N)"
-  end
-  if value == "NB" then
-    return "Message Type: Future Options Summary Message (NB)"
-  end
-  if value == "NF" then
-    return "Message Type: Futures Summary Message (NF)"
-  end
-  if value == "NS" then
-    return "Message Type: Strategy Summary Message (NS)"
-  end
-  if value == "NW" then
-    return "Message Type: Swap Future Summary Message (NW)"
-  end
-  if value == "Q" then
-    return "Message Type: Beginning Of Options Summary Message (Q)"
-  end
-  if value == "QB" then
-    return "Message Type: Beginning Of Future Options Summary Message (QB)"
-  end
-  if value == "QF" then
-    return "Message Type: Beginning Of Futures Summary Message (QF)"
-  end
-  if value == "QS" then
-    return "Message Type: Beginning Of Strategy Summary Message (QS)"
-  end
-  if value == "QW" then
-    return "Message Type: Swap Future Beginning Of Summary Message (QW)"
-  end
-  if value == "X" then
-    return "Message Type: Option Trade Correction Message (X)"
-  end
-  if value == "XB" then
-    return "Message Type: Future Options Trade Correction Message (XB)"
-  end
-  if value == "XF" then
-    return "Message Type: Futures Trade Correction Message (XF)"
-  end
-  if value == "XS" then
-    return "Message Type: Strategy Trade Correction Message (XS)"
-  end
-  if value == "XW" then
-    return "Message Type: Swap Future Trade Correction Message (XW)"
-  end
-  if value == "GR" then
-    return "Message Type: Group Status Message (GR)"
-  end
-  if value == "GS" then
-    return "Message Type: Group Status Strategies Message (GS)"
-  end
-  if value == "L" then
-    return "Message Type: Bulletins Message (L)"
-  end
-  if value == "S" then
-    return "Message Type: End Of Sales Message (S)"
-  end
-  if value == "TT" then
-    return "Message Type: Tick Table Message (TT)"
-  end
-  if value == "U" then
-    return "Message Type: End Of Transmission Message (U)"
-  end
-  if value == "V" then
-    return "Message Type: Circuit Assurance Message (V)"
-  end
-  if value == "Z" then
-    return "Message Type: Timebeat Message (Z)"
-  end
-  if value == "KI" then
-    return "Message Type: Login Acknowledgement Message (KI)"
-  end
-  if value == "KO" then
-    return "Message Type: Logout Acknowledgement Message (KO)"
-  end
-  if value == "RB" then
-    return "Message Type: Retransmission Begin Message (RB)"
-  end
-  if value == "RE" then
-    return "Message Type: Retransmission End Message (RE)"
-  end
-  if value == "ER" then
-    return "Message Type: Error Message (ER)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.message_type.labels = {
+  ["C"] = "Message Type: Option Trade Message (C)",
+  ["CB"] = "Message Type: Future Options Trade Message (CB)",
+  ["CF"] = "Message Type: Futures Trade Message (CF)",
+  ["CS"] = "Message Type: Strategy Trade Message (CS)",
+  ["CW"] = "Message Type: Swap Future Trade Message (CW)",
+  ["D"] = "Message Type: Option Rfq Message (D)",
+  ["DB"] = "Message Type: Future Options Rfq Message (DB)",
+  ["DF"] = "Message Type: Futures Rfq Message (DF)",
+  ["DS"] = "Message Type: Strategy Rfq Message (DS)",
+  ["DW"] = "Message Type: Swap Future Rfq Message (DW)",
+  ["E"] = "Message Type: Instrument Schedule Notice Option Message (E)",
+  ["EB"] = "Message Type: Instrument Schedule Notice Futures Option Message (EB)",
+  ["EF"] = "Message Type: Instrument Schedule Notice Future Message (EF)",
+  ["ES"] = "Message Type: Instrument Schedule Notice Strategy Message (ES)",
+  ["EW"] = "Message Type: Instrument Schedule Notice Swap Future Message (EW)",
+  ["F"] = "Message Type: Option Quote Message (F)",
+  ["FB"] = "Message Type: Future Options Quote Message (FB)",
+  ["FF"] = "Message Type: Futures Quote Message (FF)",
+  ["FS"] = "Message Type: Strategy Quote Message (FS)",
+  ["FW"] = "Message Type: Swap Future Quote Message (FW)",
+  ["H"] = "Message Type: Option Market Depth Message (H)",
+  ["HB"] = "Message Type: Future Options Market Depth Message (HB)",
+  ["HF"] = "Message Type: Futures Market Depth Message (HF)",
+  ["HS"] = "Message Type: Strategy Market Depth Message (HS)",
+  ["HW"] = "Message Type: Swap Future Market Depth Message (HW)",
+  ["I"] = "Message Type: Option Trade Cancellation Message (I)",
+  ["IB"] = "Message Type: Future Options Trade Cancellation Message (IB)",
+  ["IF"] = "Message Type: Futures Trade Cancellation Message (IF)",
+  ["IS"] = "Message Type: Strategy Trade Cancellation Message (IS)",
+  ["IW"] = "Message Type: Swap Future Trade Cancellation Message (IW)",
+  ["J"] = "Message Type: Option Instrument Keys Message (J)",
+  ["JB"] = "Message Type: Future Options Instrument Keys Message (JB)",
+  ["JE"] = "Message Type: Underlying Instrument Keys Message (JE)",
+  ["JF"] = "Message Type: Futures Instrument Keys Message (JF)",
+  ["JS"] = "Message Type: Strategy Instrument Keys Message (JS)",
+  ["JW"] = "Message Type: Swap Future Instrument Keys Message (JW)",
+  ["N"] = "Message Type: Option Summary Message (N)",
+  ["NB"] = "Message Type: Future Options Summary Message (NB)",
+  ["NF"] = "Message Type: Futures Summary Message (NF)",
+  ["NS"] = "Message Type: Strategy Summary Message (NS)",
+  ["NW"] = "Message Type: Swap Future Summary Message (NW)",
+  ["Q"] = "Message Type: Beginning Of Options Summary Message (Q)",
+  ["QB"] = "Message Type: Beginning Of Future Options Summary Message (QB)",
+  ["QF"] = "Message Type: Beginning Of Futures Summary Message (QF)",
+  ["QS"] = "Message Type: Beginning Of Strategy Summary Message (QS)",
+  ["QW"] = "Message Type: Swap Future Beginning Of Summary Message (QW)",
+  ["X"] = "Message Type: Option Trade Correction Message (X)",
+  ["XB"] = "Message Type: Future Options Trade Correction Message (XB)",
+  ["XF"] = "Message Type: Futures Trade Correction Message (XF)",
+  ["XS"] = "Message Type: Strategy Trade Correction Message (XS)",
+  ["XW"] = "Message Type: Swap Future Trade Correction Message (XW)",
+  ["GR"] = "Message Type: Group Status Message (GR)",
+  ["GS"] = "Message Type: Group Status Strategies Message (GS)",
+  ["L"] = "Message Type: Bulletins Message (L)",
+  ["S"] = "Message Type: End Of Sales Message (S)",
+  ["TT"] = "Message Type: Tick Table Message (TT)",
+  ["U"] = "Message Type: End Of Transmission Message (U)",
+  ["V"] = "Message Type: Circuit Assurance Message (V)",
+  ["Z"] = "Message Type: Timebeat Message (Z)",
+  ["KI"] = "Message Type: Login Acknowledgement Message (KI)",
+  ["KO"] = "Message Type: Logout Acknowledgement Message (KO)",
+  ["RB"] = "Message Type: Retransmission Begin Message (RB)",
+  ["RE"] = "Message Type: Retransmission End Message (RE)",
+  ["ER"] = "Message Type: Error Message (ER)",
+}
 
-  return "Message Type: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.message_type.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -4373,60 +3749,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_indicator.size = 1
 
 -- Display: Min Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Min Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Min Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Min Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Min Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Min Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Min Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Min Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Min Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Min Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Min Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Min Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Min Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Min Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Min Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Min Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Min Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Min Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_indicator.labels = {
+  ["0"] = "Min Price Fraction Indicator: Whole (0)",
+  ["1"] = "Min Price Fraction Indicator: Ten (1)",
+  ["2"] = "Min Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Min Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Min Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Min Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Min Price Fraction Indicator: Million (6)",
+  ["7"] = "Min Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Min Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Min Price Fraction Indicator: Billion (9)",
+  ["A"] = "Min Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Min Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Min Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Min Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Min Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Min Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Min Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Min Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_indicator.labels[value] or "Min Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Min Price Fraction Indicator
@@ -4471,60 +3815,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_fraction_indicat
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_fraction_indicator.size = 1
 
 -- Display: Minimum Threshold Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Minimum Threshold Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Minimum Threshold Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Minimum Threshold Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Minimum Threshold Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Minimum Threshold Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Minimum Threshold Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Minimum Threshold Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Minimum Threshold Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Minimum Threshold Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Minimum Threshold Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_fraction_indicator.labels = {
+  ["0"] = "Minimum Threshold Price Fraction Indicator: Whole (0)",
+  ["1"] = "Minimum Threshold Price Fraction Indicator: Ten (1)",
+  ["2"] = "Minimum Threshold Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Minimum Threshold Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Minimum Threshold Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Minimum Threshold Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Minimum Threshold Price Fraction Indicator: Million (6)",
+  ["7"] = "Minimum Threshold Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Minimum Threshold Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Minimum Threshold Price Fraction Indicator: Billion (9)",
+  ["A"] = "Minimum Threshold Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Minimum Threshold Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Minimum Threshold Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Minimum Threshold Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Minimum Threshold Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Minimum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Minimum Threshold Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Minimum Threshold Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_fraction_indicator.labels[value] or "Minimum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Minimum Threshold Price Fraction Indicator
@@ -4639,60 +3951,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_indicator.size = 1
 
 -- Display: Net Change Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Net Change Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Net Change Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Net Change Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Net Change Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Net Change Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Net Change Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Net Change Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Net Change Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Net Change Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Net Change Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Net Change Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Net Change Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Net Change Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Net Change Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Net Change Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Net Change Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Net Change Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_indicator.labels = {
+  ["0"] = "Net Change Fraction Indicator: Whole (0)",
+  ["1"] = "Net Change Fraction Indicator: Ten (1)",
+  ["2"] = "Net Change Fraction Indicator: Hundred (2)",
+  ["3"] = "Net Change Fraction Indicator: Thousand (3)",
+  ["4"] = "Net Change Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Net Change Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Net Change Fraction Indicator: Million (6)",
+  ["7"] = "Net Change Fraction Indicator: Ten Million (7)",
+  ["8"] = "Net Change Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Net Change Fraction Indicator: Billion (9)",
+  ["A"] = "Net Change Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Net Change Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Net Change Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Net Change Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Net Change Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Net Change Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Net Change Fraction Indicator: Negative Million (G)",
+}
 
-  return "Net Change Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_indicator.labels[value] or "Net Change Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Fraction Indicator
@@ -4714,15 +3994,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_sign.size = 1
 
 -- Display: Net Change Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_sign.display = function(value)
-  if value == "+" then
-    return "Net Change Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Net Change Sign: Negative (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_sign.labels = {
+  ["+"] = "Net Change Sign: Positive (+)",
+  ["-"] = "Net Change Sign: Negative (-)",
+}
 
-  return "Net Change Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_sign.labels[value] or "Net Change Sign: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Sign
@@ -4775,60 +4053,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_fraction_indicator = {
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_fraction_indicator.size = 1
 
 -- Display: Net Present Value Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Net Present Value Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Net Present Value Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Net Present Value Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Net Present Value Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Net Present Value Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Net Present Value Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Net Present Value Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Net Present Value Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Net Present Value Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Net Present Value Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Net Present Value Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Net Present Value Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Net Present Value Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Net Present Value Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Net Present Value Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Net Present Value Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Net Present Value Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_fraction_indicator.labels = {
+  ["0"] = "Net Present Value Fraction Indicator: Whole (0)",
+  ["1"] = "Net Present Value Fraction Indicator: Ten (1)",
+  ["2"] = "Net Present Value Fraction Indicator: Hundred (2)",
+  ["3"] = "Net Present Value Fraction Indicator: Thousand (3)",
+  ["4"] = "Net Present Value Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Net Present Value Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Net Present Value Fraction Indicator: Million (6)",
+  ["7"] = "Net Present Value Fraction Indicator: Ten Million (7)",
+  ["8"] = "Net Present Value Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Net Present Value Fraction Indicator: Billion (9)",
+  ["A"] = "Net Present Value Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Net Present Value Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Net Present Value Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Net Present Value Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Net Present Value Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Net Present Value Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Net Present Value Fraction Indicator: Negative Million (G)",
+}
 
-  return "Net Present Value Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_fraction_indicator.labels[value] or "Net Present Value Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Net Present Value Fraction Indicator
@@ -4935,60 +4181,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_faction_indica
 tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_faction_indicator.size = 1
 
 -- Display: Notional Principal Amount Faction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_faction_indicator.display = function(value)
-  if value == "0" then
-    return "Notional Principal Amount Faction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Notional Principal Amount Faction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Notional Principal Amount Faction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Notional Principal Amount Faction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Notional Principal Amount Faction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Notional Principal Amount Faction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Notional Principal Amount Faction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Notional Principal Amount Faction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Notional Principal Amount Faction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Notional Principal Amount Faction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Notional Principal Amount Faction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Notional Principal Amount Faction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Notional Principal Amount Faction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Notional Principal Amount Faction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Notional Principal Amount Faction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Notional Principal Amount Faction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Notional Principal Amount Faction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_faction_indicator.labels = {
+  ["0"] = "Notional Principal Amount Faction Indicator: Whole (0)",
+  ["1"] = "Notional Principal Amount Faction Indicator: Ten (1)",
+  ["2"] = "Notional Principal Amount Faction Indicator: Hundred (2)",
+  ["3"] = "Notional Principal Amount Faction Indicator: Thousand (3)",
+  ["4"] = "Notional Principal Amount Faction Indicator: Ten Thousand (4)",
+  ["5"] = "Notional Principal Amount Faction Indicator: Hundred Thousand (5)",
+  ["6"] = "Notional Principal Amount Faction Indicator: Million (6)",
+  ["7"] = "Notional Principal Amount Faction Indicator: Ten Million (7)",
+  ["8"] = "Notional Principal Amount Faction Indicator: Hundred Million (8)",
+  ["9"] = "Notional Principal Amount Faction Indicator: Billion (9)",
+  ["A"] = "Notional Principal Amount Faction Indicator: Negative Whole (A)",
+  ["B"] = "Notional Principal Amount Faction Indicator: Negative Ten (B)",
+  ["C"] = "Notional Principal Amount Faction Indicator: Negative Hundred (C)",
+  ["D"] = "Notional Principal Amount Faction Indicator: Negative Thousand (D)",
+  ["E"] = "Notional Principal Amount Faction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Notional Principal Amount Faction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Notional Principal Amount Faction Indicator: Negative Million (G)",
+}
 
-  return "Notional Principal Amount Faction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_faction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_faction_indicator.labels[value] or "Notional Principal Amount Faction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Notional Principal Amount Faction Indicator
@@ -5241,60 +4455,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_indicator.size = 1
 
 -- Display: Open Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Open Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Open Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Open Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Open Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Open Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Open Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Open Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Open Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Open Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Open Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Open Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Open Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Open Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Open Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Open Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Open Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Open Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_indicator.labels = {
+  ["0"] = "Open Price Fraction Indicator: Whole (0)",
+  ["1"] = "Open Price Fraction Indicator: Ten (1)",
+  ["2"] = "Open Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Open Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Open Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Open Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Open Price Fraction Indicator: Million (6)",
+  ["7"] = "Open Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Open Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Open Price Fraction Indicator: Billion (9)",
+  ["A"] = "Open Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Open Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Open Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Open Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Open Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Open Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Open Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Open Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_indicator.labels[value] or "Open Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Open Price Fraction Indicator
@@ -5316,15 +4498,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_sign.size = 1
 
 -- Display: Open Price Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_sign.display = function(value)
-  if value == "+" then
-    return "Open Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Open Price Sign: Negative (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_sign.labels = {
+  ["+"] = "Open Price Sign: Positive (+)",
+  ["-"] = "Open Price Sign: Negative (-)",
+}
 
-  return "Open Price Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_sign.labels[value] or "Open Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Open Price Sign
@@ -5377,60 +4557,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_indicator.size = 1
 
 -- Display: Opening Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Opening Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Opening Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Opening Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Opening Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Opening Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Opening Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Opening Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Opening Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Opening Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Opening Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Opening Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Opening Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Opening Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Opening Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Opening Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Opening Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Opening Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_indicator.labels = {
+  ["0"] = "Opening Price Fraction Indicator: Whole (0)",
+  ["1"] = "Opening Price Fraction Indicator: Ten (1)",
+  ["2"] = "Opening Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Opening Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Opening Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Opening Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Opening Price Fraction Indicator: Million (6)",
+  ["7"] = "Opening Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Opening Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Opening Price Fraction Indicator: Billion (9)",
+  ["A"] = "Opening Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Opening Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Opening Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Opening Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Opening Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Opening Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Opening Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Opening Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_indicator.labels[value] or "Opening Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Opening Price Fraction Indicator
@@ -5452,39 +4600,21 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.option_marker = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.option_marker.size = 2
 
 -- Display: Option Marker
-tmx_mx_solatcpretransmission_hsvf_v1_11.option_marker.display = function(value)
-  if value == "B" then
-    return "Option Marker: Trading In British Pound (B)"
-  end
-  if value == "C" then
-    return "Option Marker: Trading In Canadian Dollar (C)"
-  end
-  if value == "D" then
-    return "Option Marker: Danish Krone (D)"
-  end
-  if value == "E" then
-    return "Option Marker: Trading In Swiss Franc (E)"
-  end
-  if value == "F" then
-    return "Option Marker: Trading In Euro (F)"
-  end
-  if value == "N" then
-    return "Option Marker: Norwegian Krone (N)"
-  end
-  if value == "S" then
-    return "Option Marker: Swedish Krona (S)"
-  end
-  if value == "U" then
-    return "Option Marker: Trading In Us Dollar (U)"
-  end
-  if value == "Y" then
-    return "Option Marker: Trading In Japanese Yen (Y)"
-  end
-  if value == "X" then
-    return "Option Marker: British Pence (X)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.option_marker.labels = {
+  ["B"] = "Option Marker: Trading In British Pound (B)",
+  ["C"] = "Option Marker: Trading In Canadian Dollar (C)",
+  ["D"] = "Option Marker: Danish Krone (D)",
+  ["E"] = "Option Marker: Trading In Swiss Franc (E)",
+  ["F"] = "Option Marker: Trading In Euro (F)",
+  ["N"] = "Option Marker: Norwegian Krone (N)",
+  ["S"] = "Option Marker: Swedish Krona (S)",
+  ["U"] = "Option Marker: Trading In Us Dollar (U)",
+  ["Y"] = "Option Marker: Trading In Japanese Yen (Y)",
+  ["X"] = "Option Marker: British Pence (X)",
+}
 
-  return "Option Marker: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.option_marker.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.option_marker.labels[value] or "Option Marker: Unknown("..value..")"
 end
 
 -- Dissect: Option Marker
@@ -5506,15 +4636,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.option_type = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.option_type.size = 1
 
 -- Display: Option Type
-tmx_mx_solatcpretransmission_hsvf_v1_11.option_type.display = function(value)
-  if value == "A" then
-    return "Option Type: American (A)"
-  end
-  if value == "E" then
-    return "Option Type: European (E)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.option_type.labels = {
+  ["A"] = "Option Type: American (A)",
+  ["E"] = "Option Type: European (E)",
+}
 
-  return "Option Type: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.option_type.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -5536,24 +4664,16 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.payment_frequency = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.payment_frequency.size = 2
 
 -- Display: Payment Frequency
-tmx_mx_solatcpretransmission_hsvf_v1_11.payment_frequency.display = function(value)
-  if value == "2W" then
-    return "Payment Frequency: Two Weeks (2W)"
-  end
-  if value == "1M" then
-    return "Payment Frequency: One Month (1M)"
-  end
-  if value == "3M" then
-    return "Payment Frequency: Three Months (3M)"
-  end
-  if value == "6M" then
-    return "Payment Frequency: Six Months (6M)"
-  end
-  if value == "1Y" then
-    return "Payment Frequency: One Year (1Y)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.payment_frequency.labels = {
+  ["2W"] = "Payment Frequency: Two Weeks (2W)",
+  ["1M"] = "Payment Frequency: One Month (1M)",
+  ["3M"] = "Payment Frequency: Three Months (3M)",
+  ["6M"] = "Payment Frequency: Six Months (6M)",
+  ["1Y"] = "Payment Frequency: One Year (1Y)",
+}
 
-  return "Payment Frequency: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.payment_frequency.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.payment_frequency.labels[value] or "Payment Frequency: Unknown("..value..")"
 end
 
 -- Dissect: Payment Frequency
@@ -5633,60 +4753,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_indicator =
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_indicator.size = 1
 
 -- Display: Previous Reset Rate Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Previous Reset Rate Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Previous Reset Rate Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Previous Reset Rate Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Previous Reset Rate Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Previous Reset Rate Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Previous Reset Rate Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Previous Reset Rate Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Previous Reset Rate Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Previous Reset Rate Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Previous Reset Rate Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Previous Reset Rate Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Previous Reset Rate Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Previous Reset Rate Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Previous Reset Rate Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Previous Reset Rate Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Previous Reset Rate Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Previous Reset Rate Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_indicator.labels = {
+  ["0"] = "Previous Reset Rate Fraction Indicator: Whole (0)",
+  ["1"] = "Previous Reset Rate Fraction Indicator: Ten (1)",
+  ["2"] = "Previous Reset Rate Fraction Indicator: Hundred (2)",
+  ["3"] = "Previous Reset Rate Fraction Indicator: Thousand (3)",
+  ["4"] = "Previous Reset Rate Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Previous Reset Rate Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Previous Reset Rate Fraction Indicator: Million (6)",
+  ["7"] = "Previous Reset Rate Fraction Indicator: Ten Million (7)",
+  ["8"] = "Previous Reset Rate Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Previous Reset Rate Fraction Indicator: Billion (9)",
+  ["A"] = "Previous Reset Rate Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Previous Reset Rate Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Previous Reset Rate Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Previous Reset Rate Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Previous Reset Rate Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Previous Reset Rate Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Previous Reset Rate Fraction Indicator: Negative Million (G)",
+}
 
-  return "Previous Reset Rate Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_indicator.labels[value] or "Previous Reset Rate Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Previous Reset Rate Fraction Indicator
@@ -5739,60 +4827,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_indicator =
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_indicator.size = 1
 
 -- Display: Previous Settlement Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Previous Settlement Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Previous Settlement Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Previous Settlement Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Previous Settlement Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Previous Settlement Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Previous Settlement Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Previous Settlement Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Previous Settlement Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Previous Settlement Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Previous Settlement Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Previous Settlement Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Previous Settlement Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Previous Settlement Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Previous Settlement Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Previous Settlement Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Previous Settlement Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Previous Settlement Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_indicator.labels = {
+  ["0"] = "Previous Settlement Fraction Indicator: Whole (0)",
+  ["1"] = "Previous Settlement Fraction Indicator: Ten (1)",
+  ["2"] = "Previous Settlement Fraction Indicator: Hundred (2)",
+  ["3"] = "Previous Settlement Fraction Indicator: Thousand (3)",
+  ["4"] = "Previous Settlement Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Previous Settlement Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Previous Settlement Fraction Indicator: Million (6)",
+  ["7"] = "Previous Settlement Fraction Indicator: Ten Million (7)",
+  ["8"] = "Previous Settlement Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Previous Settlement Fraction Indicator: Billion (9)",
+  ["A"] = "Previous Settlement Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Previous Settlement Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Previous Settlement Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Previous Settlement Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Previous Settlement Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Previous Settlement Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Previous Settlement Fraction Indicator: Negative Million (G)",
+}
 
-  return "Previous Settlement Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_indicator.labels[value] or "Previous Settlement Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Previous Settlement Fraction Indicator
@@ -5845,60 +4901,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_indic
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_indicator.size = 1
 
 -- Display: Previous Settlement Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Previous Settlement Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Previous Settlement Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Previous Settlement Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Previous Settlement Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Previous Settlement Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Previous Settlement Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Previous Settlement Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Previous Settlement Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Previous Settlement Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Previous Settlement Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Previous Settlement Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Previous Settlement Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Previous Settlement Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Previous Settlement Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Previous Settlement Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Previous Settlement Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Previous Settlement Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_indicator.labels = {
+  ["0"] = "Previous Settlement Price Fraction Indicator: Whole (0)",
+  ["1"] = "Previous Settlement Price Fraction Indicator: Ten (1)",
+  ["2"] = "Previous Settlement Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Previous Settlement Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Previous Settlement Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Previous Settlement Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Previous Settlement Price Fraction Indicator: Million (6)",
+  ["7"] = "Previous Settlement Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Previous Settlement Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Previous Settlement Price Fraction Indicator: Billion (9)",
+  ["A"] = "Previous Settlement Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Previous Settlement Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Previous Settlement Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Previous Settlement Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Previous Settlement Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Previous Settlement Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Previous Settlement Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Previous Settlement Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_indicator.labels[value] or "Previous Settlement Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Previous Settlement Price Fraction Indicator
@@ -5982,60 +5006,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_fraction_indica
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_fraction_indicator.size = 1
 
 -- Display: Price Alignment Interest Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Price Alignment Interest Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Price Alignment Interest Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Price Alignment Interest Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Price Alignment Interest Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Price Alignment Interest Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Price Alignment Interest Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Price Alignment Interest Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Price Alignment Interest Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Price Alignment Interest Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Price Alignment Interest Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Price Alignment Interest Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Price Alignment Interest Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Price Alignment Interest Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Price Alignment Interest Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Price Alignment Interest Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Price Alignment Interest Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Price Alignment Interest Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_fraction_indicator.labels = {
+  ["0"] = "Price Alignment Interest Fraction Indicator: Whole (0)",
+  ["1"] = "Price Alignment Interest Fraction Indicator: Ten (1)",
+  ["2"] = "Price Alignment Interest Fraction Indicator: Hundred (2)",
+  ["3"] = "Price Alignment Interest Fraction Indicator: Thousand (3)",
+  ["4"] = "Price Alignment Interest Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Price Alignment Interest Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Price Alignment Interest Fraction Indicator: Million (6)",
+  ["7"] = "Price Alignment Interest Fraction Indicator: Ten Million (7)",
+  ["8"] = "Price Alignment Interest Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Price Alignment Interest Fraction Indicator: Billion (9)",
+  ["A"] = "Price Alignment Interest Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Price Alignment Interest Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Price Alignment Interest Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Price Alignment Interest Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Price Alignment Interest Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Price Alignment Interest Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Price Alignment Interest Fraction Indicator: Negative Million (G)",
+}
 
-  return "Price Alignment Interest Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_fraction_indicator.labels[value] or "Price Alignment Interest Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Price Alignment Interest Fraction Indicator
@@ -6057,60 +5049,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_indicator.size = 1
 
 -- Display: Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_indicator.labels = {
+  ["0"] = "Price Fraction Indicator: Whole (0)",
+  ["1"] = "Price Fraction Indicator: Ten (1)",
+  ["2"] = "Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Price Fraction Indicator: Million (6)",
+  ["7"] = "Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Price Fraction Indicator: Billion (9)",
+  ["A"] = "Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_indicator.labels[value] or "Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Price Fraction Indicator
@@ -6225,15 +5185,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.protocol = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.protocol.size = 2
 
 -- Display: Protocol
-tmx_mx_solatcpretransmission_hsvf_v1_11.protocol.display = function(value)
-  if value == "D4" then
-    return "Protocol: D 4 (D4)"
-  end
-  if value == "D5" then
-    return "Protocol: D 5 (D5)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.protocol.labels = {
+  ["D4"] = "Protocol: D 4 (D4)",
+  ["D5"] = "Protocol: D 5 (D5)",
+}
 
-  return "Protocol: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.protocol.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.protocol.labels[value] or "Protocol: Unknown("..value..")"
 end
 
 -- Dissect: Protocol
@@ -7704,21 +6662,15 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.reason = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.reason.size = 1
 
 -- Display: Reason
-tmx_mx_solatcpretransmission_hsvf_v1_11.reason.display = function(value)
-  if value == "S" then
-    return "Reason: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Reason: End Of Day (E)"
-  end
-  if value == "U" then
-    return "Reason: Instrument New Or Update (U)"
-  end
-  if value == "C" then
-    return "Reason: Trade Cancellation (C)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.reason.labels = {
+  ["S"] = "Reason: Start Of Day (S)",
+  ["E"] = "Reason: End Of Day (E)",
+  ["U"] = "Reason: Instrument New Or Update (U)",
+  ["C"] = "Reason: Trade Cancellation (C)",
+}
 
-  return "Reason: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.reason.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -7763,18 +6715,14 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.requested_market_side = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.requested_market_side.size = 1
 
 -- Display: Requested Market Side
-tmx_mx_solatcpretransmission_hsvf_v1_11.requested_market_side.display = function(value)
-  if value == "B" then
-    return "Requested Market Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Requested Market Side: Sell (S)"
-  end
-  if value == "2" then
-    return "Requested Market Side: Both (2)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.requested_market_side.labels = {
+  ["B"] = "Requested Market Side: Buy (B)",
+  ["S"] = "Requested Market Side: Sell (S)",
+  ["2"] = "Requested Market Side: Both (2)",
+}
 
-  return "Requested Market Side: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.requested_market_side.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.requested_market_side.labels[value] or "Requested Market Side: Unknown("..value..")"
 end
 
 -- Dissect: Requested Market Side
@@ -7842,24 +6790,16 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.reset_frequency = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.reset_frequency.size = 2
 
 -- Display: Reset Frequency
-tmx_mx_solatcpretransmission_hsvf_v1_11.reset_frequency.display = function(value)
-  if value == "2W" then
-    return "Reset Frequency: Two Weeks (2W)"
-  end
-  if value == "1M" then
-    return "Reset Frequency: One Month (1M)"
-  end
-  if value == "3M" then
-    return "Reset Frequency: Three Months (3M)"
-  end
-  if value == "6M" then
-    return "Reset Frequency: Six Months (6M)"
-  end
-  if value == "1Y" then
-    return "Reset Frequency: One Year (1Y)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.reset_frequency.labels = {
+  ["2W"] = "Reset Frequency: Two Weeks (2W)",
+  ["1M"] = "Reset Frequency: One Month (1M)",
+  ["3M"] = "Reset Frequency: Three Months (3M)",
+  ["6M"] = "Reset Frequency: Six Months (6M)",
+  ["1Y"] = "Reset Frequency: One Year (1Y)",
+}
 
-  return "Reset Frequency: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.reset_frequency.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.reset_frequency.labels[value] or "Reset Frequency: Unknown("..value..")"
 end
 
 -- Dissect: Reset Frequency
@@ -8122,60 +7062,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_indicator.size = 1
 
 -- Display: Settlement Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Settlement Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Settlement Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Settlement Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Settlement Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Settlement Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Settlement Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Settlement Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Settlement Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Settlement Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Settlement Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Settlement Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Settlement Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Settlement Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Settlement Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Settlement Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Settlement Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Settlement Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_indicator.labels = {
+  ["0"] = "Settlement Price Fraction Indicator: Whole (0)",
+  ["1"] = "Settlement Price Fraction Indicator: Ten (1)",
+  ["2"] = "Settlement Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Settlement Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Settlement Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Settlement Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Settlement Price Fraction Indicator: Million (6)",
+  ["7"] = "Settlement Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Settlement Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Settlement Price Fraction Indicator: Billion (9)",
+  ["A"] = "Settlement Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Settlement Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Settlement Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Settlement Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Settlement Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Settlement Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Settlement Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Settlement Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_indicator.labels[value] or "Settlement Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Price Fraction Indicator
@@ -8251,15 +7159,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_allow_implied = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_allow_implied.size = 1
 
 -- Display: Strategy Allow Implied
-tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_allow_implied.display = function(value)
-  if value == "Y" then
-    return "Strategy Allow Implied: Yes (Y)"
-  end
-  if value == "N" then
-    return "Strategy Allow Implied: No (N)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_allow_implied.labels = {
+  ["Y"] = "Strategy Allow Implied: Yes (Y)",
+  ["N"] = "Strategy Allow Implied: No (N)",
+}
 
-  return "Strategy Allow Implied: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_allow_implied.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_allow_implied.labels[value] or "Strategy Allow Implied: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Allow Implied
@@ -8337,60 +7243,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_fraction_indicator.size = 1
 
 -- Display: Strike Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Strike Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Strike Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Strike Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Strike Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Strike Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Strike Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Strike Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Strike Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Strike Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Strike Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Strike Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Strike Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Strike Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Strike Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Strike Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Strike Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Strike Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_fraction_indicator.labels = {
+  ["0"] = "Strike Price Fraction Indicator: Whole (0)",
+  ["1"] = "Strike Price Fraction Indicator: Ten (1)",
+  ["2"] = "Strike Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Strike Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Strike Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Strike Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Strike Price Fraction Indicator: Million (6)",
+  ["7"] = "Strike Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Strike Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Strike Price Fraction Indicator: Billion (9)",
+  ["A"] = "Strike Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Strike Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Strike Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Strike Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Strike Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Strike Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Strike Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Strike Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_fraction_indicator.labels[value] or "Strike Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Fraction Indicator
@@ -8528,15 +7402,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.tick = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick.size = 1
 
 -- Display: Tick
-tmx_mx_solatcpretransmission_hsvf_v1_11.tick.display = function(value)
-  if value == "+" then
-    return "Tick: Uptick (+)"
-  end
-  if value == "-" then
-    return "Tick: Downtick (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick.labels = {
+  ["+"] = "Tick: Uptick (+)",
+  ["-"] = "Tick: Downtick (-)",
+}
 
-  return "Tick: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.tick.labels[value] or "Tick: Unknown("..value..")"
 end
 
 -- Dissect: Tick
@@ -8558,60 +7430,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_fraction_indicator.size = 1
 
 -- Display: Tick Increment Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Tick Increment Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Tick Increment Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Tick Increment Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Tick Increment Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Tick Increment Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Tick Increment Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Tick Increment Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Tick Increment Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Tick Increment Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Tick Increment Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Tick Increment Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Tick Increment Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Tick Increment Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Tick Increment Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Tick Increment Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Tick Increment Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Tick Increment Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_fraction_indicator.labels = {
+  ["0"] = "Tick Increment Fraction Indicator: Whole (0)",
+  ["1"] = "Tick Increment Fraction Indicator: Ten (1)",
+  ["2"] = "Tick Increment Fraction Indicator: Hundred (2)",
+  ["3"] = "Tick Increment Fraction Indicator: Thousand (3)",
+  ["4"] = "Tick Increment Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Tick Increment Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Tick Increment Fraction Indicator: Million (6)",
+  ["7"] = "Tick Increment Fraction Indicator: Ten Million (7)",
+  ["8"] = "Tick Increment Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Tick Increment Fraction Indicator: Billion (9)",
+  ["A"] = "Tick Increment Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Tick Increment Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Tick Increment Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Tick Increment Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Tick Increment Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Tick Increment Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Tick Increment Fraction Indicator: Negative Million (G)",
+}
 
-  return "Tick Increment Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_fraction_indicator.labels[value] or "Tick Increment Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Tick Increment Fraction Indicator
@@ -8718,60 +7558,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_indicator.size = 1
 
 -- Display: Tick Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Tick Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Tick Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Tick Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Tick Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Tick Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Tick Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Tick Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Tick Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Tick Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Tick Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Tick Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Tick Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Tick Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Tick Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Tick Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Tick Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Tick Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_indicator.labels = {
+  ["0"] = "Tick Price Fraction Indicator: Whole (0)",
+  ["1"] = "Tick Price Fraction Indicator: Ten (1)",
+  ["2"] = "Tick Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Tick Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Tick Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Tick Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Tick Price Fraction Indicator: Million (6)",
+  ["7"] = "Tick Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Tick Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Tick Price Fraction Indicator: Billion (9)",
+  ["A"] = "Tick Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Tick Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Tick Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Tick Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Tick Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Tick Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Tick Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Tick Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_indicator.labels[value] or "Tick Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Tick Price Fraction Indicator
@@ -8870,60 +7678,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_indicator.size = 1
 
 -- Display: Tick Value Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Tick Value Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Tick Value Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Tick Value Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Tick Value Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Tick Value Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Tick Value Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Tick Value Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Tick Value Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Tick Value Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Tick Value Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Tick Value Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Tick Value Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Tick Value Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Tick Value Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Tick Value Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Tick Value Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Tick Value Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_indicator.labels = {
+  ["0"] = "Tick Value Fraction Indicator: Whole (0)",
+  ["1"] = "Tick Value Fraction Indicator: Ten (1)",
+  ["2"] = "Tick Value Fraction Indicator: Hundred (2)",
+  ["3"] = "Tick Value Fraction Indicator: Thousand (3)",
+  ["4"] = "Tick Value Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Tick Value Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Tick Value Fraction Indicator: Million (6)",
+  ["7"] = "Tick Value Fraction Indicator: Ten Million (7)",
+  ["8"] = "Tick Value Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Tick Value Fraction Indicator: Billion (9)",
+  ["A"] = "Tick Value Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Tick Value Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Tick Value Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Tick Value Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Tick Value Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Tick Value Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Tick Value Fraction Indicator: Negative Million (G)",
+}
 
-  return "Tick Value Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_indicator.labels[value] or "Tick Value Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Tick Value Fraction Indicator
@@ -9080,60 +7856,28 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_indicator = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_indicator.size = 1
 
 -- Display: Trade Price Fraction Indicator
-tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Trade Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Trade Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Trade Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Trade Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Trade Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Trade Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Trade Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Trade Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Trade Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Trade Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Trade Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Trade Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Trade Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Trade Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Trade Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Trade Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Trade Price Fraction Indicator: Negative Million (G)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_indicator.labels = {
+  ["0"] = "Trade Price Fraction Indicator: Whole (0)",
+  ["1"] = "Trade Price Fraction Indicator: Ten (1)",
+  ["2"] = "Trade Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Trade Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Trade Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Trade Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Trade Price Fraction Indicator: Million (6)",
+  ["7"] = "Trade Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Trade Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Trade Price Fraction Indicator: Billion (9)",
+  ["A"] = "Trade Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Trade Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Trade Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Trade Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Trade Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Trade Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Trade Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Trade Price Fraction Indicator: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_indicator.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_indicator.labels[value] or "Trade Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Price Fraction Indicator
@@ -9155,15 +7899,13 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_sign = {}
 tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_sign.size = 1
 
 -- Display: Trade Price Sign
-tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_sign.display = function(value)
-  if value == "+" then
-    return "Trade Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Trade Price Sign: Negative (-)"
-  end
+tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_sign.labels = {
+  ["+"] = "Trade Price Sign: Positive (+)",
+  ["-"] = "Trade Price Sign: Negative (-)",
+}
 
-  return "Trade Price Sign: Unknown("..value..")"
+tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_sign.display = function(value)
+  return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_sign.labels[value] or "Trade Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Trade Price Sign
@@ -12028,34 +10770,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair = {}
 
 -- Dissect: Tick Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair.dissect = function(buffer, offset, packet, parent, tick_price_fraction_indicator)
-  -- Dissect Tick Price Negative Whole Pair
-  if tick_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Ten Pair
-  if tick_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Hundred Pair
-  if tick_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Thousand Pair
-  if tick_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Ten Thousand Pair
-  if tick_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Hundred Thousand Pair
-  if tick_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Million Pair
-  if tick_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair.dispatch[tick_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Tick Price Numeric Pair
@@ -12418,34 +11146,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair = {}
 
 -- Dissect: Min Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair.dissect = function(buffer, offset, packet, parent, min_price_fraction_indicator)
-  -- Dissect Min Price Negative Whole Pair
-  if min_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Ten Pair
-  if min_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Hundred Pair
-  if min_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Thousand Pair
-  if min_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Ten Thousand Pair
-  if min_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Hundred Thousand Pair
-  if min_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Million Pair
-  if min_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair.dispatch[min_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Min Price Numeric Pair
@@ -12730,14 +11444,15 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin = {}
 
 -- Dissect: Bulletin
+tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin.dispatch = {
+  ["1"] = tmx_mx_solatcpretransmission_hsvf_v1_11.regular_text_bulletin.dissect,
+  ["2"] = tmx_mx_solatcpretransmission_hsvf_v1_11.special_text_bulletin.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin.dissect = function(buffer, offset, packet, parent, bulletin_type)
-  -- Dissect Regular Text Bulletin
-  if bulletin_type == "1" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.regular_text_bulletin.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Special Text Bulletin
-  if bulletin_type == "2" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.special_text_bulletin.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin.dispatch[bulletin_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -13253,34 +11968,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fraction_pair = {}
 
 -- Dissect: Net Change Futures Trade Message Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Futures Trade Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Futures Trade Message Numeric Pair
@@ -13643,34 +12344,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair = {}
 
 -- Dissect: Trade Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair.dissect = function(buffer, offset, packet, parent, trade_price_fraction_indicator)
-  -- Dissect Trade Price Negative Whole Pair
-  if trade_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Ten Pair
-  if trade_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Hundred Pair
-  if trade_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Thousand Pair
-  if trade_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Ten Thousand Pair
-  if trade_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Hundred Thousand Pair
-  if trade_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Million Pair
-  if trade_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair.dispatch[trade_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Trade Price Numeric Pair
@@ -14033,34 +12720,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair = {}
 
 -- Dissect: Fixed Rate Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair.dissect = function(buffer, offset, packet, parent, fixed_rate_fraction_indicator)
-  -- Dissect Fixed Rate Negative Whole Pair
-  if fixed_rate_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixed Rate Negative Ten Pair
-  if fixed_rate_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixed Rate Negative Hundred Pair
-  if fixed_rate_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixed Rate Negative Thousand Pair
-  if fixed_rate_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixed Rate Negative Ten Thousand Pair
-  if fixed_rate_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixed Rate Negative Hundred Thousand Pair
-  if fixed_rate_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixed Rate Negative Million Pair
-  if fixed_rate_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair.dispatch[fixed_rate_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Fixed Rate Numeric Pair
@@ -14551,34 +13224,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair = {}
 
 -- Dissect: Net Change Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Numeric Pair
@@ -15165,34 +13824,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair = {}
 
 -- Dissect: Net Change Future Options Trade Message Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Future Options Trade Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Future Options Trade Message Numeric Pair
@@ -15555,34 +14200,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair = {}
 
 -- Dissect: Strike Price Instrument Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
-  -- Dissect Strike Price Instrument Negative Whole Pair
-  if strike_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Instrument Negative Ten Pair
-  if strike_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Instrument Negative Hundred Pair
-  if strike_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Instrument Negative Thousand Pair
-  if strike_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Instrument Negative Ten Thousand Pair
-  if strike_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Instrument Negative Hundred Thousand Pair
-  if strike_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Instrument Negative Million Pair
-  if strike_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair.dispatch[strike_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Strike Price Instrument Numeric Pair
@@ -16431,34 +15062,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair = {}
 
 -- Dissect: Previous Reset Rate Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_reset_rate_fraction_indicator)
-  -- Dissect Previous Reset Rate Negative Whole Pair
-  if previous_reset_rate_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Reset Rate Negative Ten Pair
-  if previous_reset_rate_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Reset Rate Negative Hundred Pair
-  if previous_reset_rate_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Reset Rate Negative Thousand Pair
-  if previous_reset_rate_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Reset Rate Negative Ten Thousand Pair
-  if previous_reset_rate_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Reset Rate Negative Hundred Thousand Pair
-  if previous_reset_rate_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Reset Rate Negative Million Pair
-  if previous_reset_rate_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair.dispatch[previous_reset_rate_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Previous Reset Rate Numeric Pair
@@ -16821,34 +15438,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair = {}
 
 -- Dissect: Previous Settlement Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_settlement_price_fraction_indicator)
-  -- Dissect Previous Settlement Price Negative Whole Pair
-  if previous_settlement_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Ten Pair
-  if previous_settlement_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Hundred Pair
-  if previous_settlement_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Thousand Pair
-  if previous_settlement_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Ten Thousand Pair
-  if previous_settlement_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Hundred Thousand Pair
-  if previous_settlement_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Million Pair
-  if previous_settlement_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair.dispatch[previous_settlement_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Previous Settlement Price Numeric Pair
@@ -17211,34 +15814,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair = {}
 
 -- Dissect: Net Change Swap Future Summary Message Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Swap Future Summary Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Swap Future Summary Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Swap Future Summary Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Swap Future Summary Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Swap Future Summary Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Swap Future Summary Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Swap Future Summary Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Swap Future Summary Message Numeric Pair
@@ -17601,34 +16190,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair = {}
 
 -- Dissect: Price Alignment Interest C Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair.dissect = function(buffer, offset, packet, parent, price_alignment_interest_fraction_indicator)
-  -- Dissect Price Alignment Interest C Negative Whole Pair
-  if price_alignment_interest_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Alignment Interest C Negative Ten Pair
-  if price_alignment_interest_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Alignment Interest C Negative Hundred Pair
-  if price_alignment_interest_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Alignment Interest C Negative Thousand Pair
-  if price_alignment_interest_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Alignment Interest C Negative Ten Thousand Pair
-  if price_alignment_interest_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Alignment Interest C Negative Hundred Thousand Pair
-  if price_alignment_interest_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Alignment Interest C Negative Million Pair
-  if price_alignment_interest_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair.dispatch[price_alignment_interest_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Price Alignment Interest C Numeric Pair
@@ -17991,34 +16566,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair = {}
 
 -- Dissect: Historical Coupon B Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair.dissect = function(buffer, offset, packet, parent, historical_coupon_fraction_indicator)
-  -- Dissect Historical Coupon B Negative Whole Pair
-  if historical_coupon_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Historical Coupon B Negative Ten Pair
-  if historical_coupon_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Historical Coupon B Negative Hundred Pair
-  if historical_coupon_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Historical Coupon B Negative Thousand Pair
-  if historical_coupon_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Historical Coupon B Negative Ten Thousand Pair
-  if historical_coupon_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Historical Coupon B Negative Hundred Thousand Pair
-  if historical_coupon_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Historical Coupon B Negative Million Pair
-  if historical_coupon_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair.dispatch[historical_coupon_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Historical Coupon B Numeric Pair
@@ -18381,34 +16942,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair = {}
 
 -- Dissect: Net Present Value A Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair.dissect = function(buffer, offset, packet, parent, net_present_value_fraction_indicator)
-  -- Dissect Net Present Value A Negative Whole Pair
-  if net_present_value_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Present Value A Negative Ten Pair
-  if net_present_value_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Present Value A Negative Hundred Pair
-  if net_present_value_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Present Value A Negative Thousand Pair
-  if net_present_value_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Present Value A Negative Ten Thousand Pair
-  if net_present_value_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Present Value A Negative Hundred Thousand Pair
-  if net_present_value_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Present Value A Negative Million Pair
-  if net_present_value_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair.dispatch[net_present_value_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Present Value A Numeric Pair
@@ -18771,34 +17318,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair = {}
 
 -- Dissect: Settlement Price Future Options Summary Message Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, settlement_price_fraction_indicator)
-  -- Dissect Settlement Price Future Options Summary Message Negative Whole Pair
-  if settlement_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Ten Pair
-  if settlement_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Hundred Pair
-  if settlement_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Thousand Pair
-  if settlement_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Ten Thousand Pair
-  if settlement_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Hundred Thousand Pair
-  if settlement_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Million Pair
-  if settlement_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.dispatch[settlement_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Settlement Price Future Options Summary Message Numeric Pair
@@ -19161,34 +17694,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair = {}
 
 -- Dissect: Low Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair.dissect = function(buffer, offset, packet, parent, low_price_fraction_indicator)
-  -- Dissect Low Price Negative Whole Pair
-  if low_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Ten Pair
-  if low_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Hundred Pair
-  if low_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Thousand Pair
-  if low_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Ten Thousand Pair
-  if low_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Hundred Thousand Pair
-  if low_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Million Pair
-  if low_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair.dispatch[low_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Low Price Numeric Pair
@@ -19551,34 +18070,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair = {}
 
 -- Dissect: High Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair.dissect = function(buffer, offset, packet, parent, high_price_fraction_indicator)
-  -- Dissect High Price Negative Whole Pair
-  if high_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Ten Pair
-  if high_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Hundred Pair
-  if high_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Thousand Pair
-  if high_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Ten Thousand Pair
-  if high_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Hundred Thousand Pair
-  if high_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Million Pair
-  if high_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair.dispatch[high_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect High Price Numeric Pair
@@ -19941,34 +18446,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair = {}
 
 -- Dissect: Open Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair.dissect = function(buffer, offset, packet, parent, open_price_fraction_indicator)
-  -- Dissect Open Price Negative Whole Pair
-  if open_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Ten Pair
-  if open_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Hundred Pair
-  if open_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Thousand Pair
-  if open_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Ten Thousand Pair
-  if open_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Hundred Thousand Pair
-  if open_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Million Pair
-  if open_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair.dispatch[open_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Open Price Numeric Pair
@@ -20331,34 +18822,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair = {}
 
 -- Dissect: Last Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair.dissect = function(buffer, offset, packet, parent, last_price_fraction_indicator)
-  -- Dissect Last Price Negative Whole Pair
-  if last_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Ten Pair
-  if last_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Hundred Pair
-  if last_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Thousand Pair
-  if last_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Ten Thousand Pair
-  if last_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Hundred Thousand Pair
-  if last_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Million Pair
-  if last_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair.dispatch[last_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Last Price Numeric Pair
@@ -20721,34 +19198,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair = {}
 
 -- Dissect: Ask Price Summary Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent, ask_price_fraction_indicator)
-  -- Dissect Ask Price Summary Negative Whole Pair
-  if ask_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Ten Pair
-  if ask_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Hundred Pair
-  if ask_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Thousand Pair
-  if ask_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Ten Thousand Pair
-  if ask_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Hundred Thousand Pair
-  if ask_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Million Pair
-  if ask_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair.dispatch[ask_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Ask Price Summary Numeric Pair
@@ -21111,34 +19574,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair = {}
 
 -- Dissect: Bid Price Summary Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent, bid_price_fraction_indicator)
-  -- Dissect Bid Price Summary Negative Whole Pair
-  if bid_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Ten Pair
-  if bid_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Hundred Pair
-  if bid_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Thousand Pair
-  if bid_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Ten Thousand Pair
-  if bid_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Hundred Thousand Pair
-  if bid_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Million Pair
-  if bid_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair.dispatch[bid_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Bid Price Summary Numeric Pair
@@ -21809,34 +20258,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_fraction_pair = {}
 
 -- Dissect: Net Change Strategy Summary Message Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Strategy Summary Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Strategy Summary Message Numeric Pair
@@ -22395,34 +20830,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair = {}
 
 -- Dissect: External Price At Source Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair.dissect = function(buffer, offset, packet, parent, external_price_fraction_indicator)
-  -- Dissect External Price At Source Negative Whole Pair
-  if external_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Ten Pair
-  if external_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Hundred Pair
-  if external_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Thousand Pair
-  if external_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Ten Thousand Pair
-  if external_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Hundred Thousand Pair
-  if external_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Million Pair
-  if external_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair.dispatch[external_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect External Price At Source Numeric Pair
@@ -22785,34 +21206,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair = {}
 
 -- Dissect: Previous Settlement Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_settlement_fraction_indicator)
-  -- Dissect Previous Settlement Negative Whole Pair
-  if previous_settlement_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Ten Pair
-  if previous_settlement_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Hundred Pair
-  if previous_settlement_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Thousand Pair
-  if previous_settlement_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Ten Thousand Pair
-  if previous_settlement_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Hundred Thousand Pair
-  if previous_settlement_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Million Pair
-  if previous_settlement_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair.dispatch[previous_settlement_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Previous Settlement Numeric Pair
@@ -23175,34 +21582,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fraction_pair = {}
 
 -- Dissect: Net Change Futures Summary Message Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Futures Summary Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Futures Summary Message Numeric Pair
@@ -23770,34 +22163,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair = {}
 
 -- Dissect: Opening Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair.dissect = function(buffer, offset, packet, parent, opening_price_fraction_indicator)
-  -- Dissect Opening Price Negative Whole Pair
-  if opening_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Ten Pair
-  if opening_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Hundred Pair
-  if opening_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Thousand Pair
-  if opening_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Ten Thousand Pair
-  if opening_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Hundred Thousand Pair
-  if opening_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Million Pair
-  if opening_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair.dispatch[opening_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Opening Price Numeric Pair
@@ -24160,34 +22539,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair = {}
 
 -- Dissect: Net Change Future Options Summary Message Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Future Options Summary Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Future Options Summary Message Numeric Pair
@@ -24550,34 +22915,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair = {}
 
 -- Dissect: Last Price Future Options Summary Message Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, last_price_fraction_indicator)
-  -- Dissect Last Price Future Options Summary Message Negative Whole Pair
-  if last_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Future Options Summary Message Negative Ten Pair
-  if last_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Future Options Summary Message Negative Hundred Pair
-  if last_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Future Options Summary Message Negative Thousand Pair
-  if last_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Future Options Summary Message Negative Ten Thousand Pair
-  if last_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Future Options Summary Message Negative Hundred Thousand Pair
-  if last_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Future Options Summary Message Negative Million Pair
-  if last_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair.dispatch[last_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Last Price Future Options Summary Message Numeric Pair
@@ -25175,34 +23526,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair = {}
 
 -- Dissect: Settlement Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent, settlement_price_fraction_indicator)
-  -- Dissect Settlement Price Negative Whole Pair
-  if settlement_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Ten Pair
-  if settlement_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Hundred Pair
-  if settlement_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Thousand Pair
-  if settlement_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Ten Thousand Pair
-  if settlement_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Hundred Thousand Pair
-  if settlement_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Million Pair
-  if settlement_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair.dispatch[settlement_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Settlement Price Numeric Pair
@@ -25790,34 +24127,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair = {}
 
 -- Dissect: Notional Principal Amount Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair.dissect = function(buffer, offset, packet, parent, notional_principal_amount_faction_indicator)
-  -- Dissect Notional Principal Amount Negative Whole Pair
-  if notional_principal_amount_faction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Notional Principal Amount Negative Ten Pair
-  if notional_principal_amount_faction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Notional Principal Amount Negative Hundred Pair
-  if notional_principal_amount_faction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Notional Principal Amount Negative Thousand Pair
-  if notional_principal_amount_faction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Notional Principal Amount Negative Ten Thousand Pair
-  if notional_principal_amount_faction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Notional Principal Amount Negative Hundred Thousand Pair
-  if notional_principal_amount_faction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Notional Principal Amount Negative Million Pair
-  if notional_principal_amount_faction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair.dispatch[notional_principal_amount_faction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Notional Principal Amount Numeric Pair
@@ -26180,34 +24503,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair = {}
 
 -- Dissect: Tick Value Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair.dissect = function(buffer, offset, packet, parent, tick_value_fraction_indicator)
-  -- Dissect Tick Value Negative Whole Pair
-  if tick_value_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Ten Pair
-  if tick_value_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Hundred Pair
-  if tick_value_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Thousand Pair
-  if tick_value_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Ten Thousand Pair
-  if tick_value_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Hundred Thousand Pair
-  if tick_value_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Million Pair
-  if tick_value_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair.dispatch[tick_value_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Tick Value Numeric Pair
@@ -26614,74 +24923,30 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment = {}
 
 -- Dissect: Tick Increment
+tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment.dispatch = {
+  ["0"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["1"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["2"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["3"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["4"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["5"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["6"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["7"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["8"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["9"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment.dissect = function(buffer, offset, packet, parent, tick_increment_fraction_indicator)
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "0" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "1" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "2" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "3" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "4" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "5" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "6" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "7" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "8" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "9" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Whole Pair
-  if tick_increment_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Ten Pair
-  if tick_increment_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Hundred Pair
-  if tick_increment_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Thousand Pair
-  if tick_increment_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Ten Thousand Pair
-  if tick_increment_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Hundred Thousand Pair
-  if tick_increment_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Million Pair
-  if tick_increment_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment.dispatch[tick_increment_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Tick Increment Raw Pair
@@ -27044,34 +25309,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction_pair = {}
 
 -- Dissect: Minimum Threshold Price Options Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
-  -- Dissect Minimum Threshold Price Options Negative Whole Pair
-  if minimum_threshold_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Ten Pair
-  if minimum_threshold_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Hundred Pair
-  if minimum_threshold_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Ten Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Hundred Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Million Pair
-  if minimum_threshold_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Minimum Threshold Price Options Numeric Pair
@@ -27434,34 +25685,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction_pair = {}
 
 -- Dissect: Maximum Threshold Price Options Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
-  -- Dissect Maximum Threshold Price Options Negative Whole Pair
-  if maximum_threshold_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Ten Pair
-  if maximum_threshold_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Hundred Pair
-  if maximum_threshold_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Ten Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Hundred Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Million Pair
-  if maximum_threshold_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Maximum Threshold Price Options Numeric Pair
@@ -28193,34 +26430,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair = {}
 
 -- Dissect: Minimum Threshold Price Futures Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
-  -- Dissect Minimum Threshold Price Futures Negative Whole Pair
-  if minimum_threshold_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Ten Pair
-  if minimum_threshold_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Hundred Pair
-  if minimum_threshold_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Ten Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Hundred Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Million Pair
-  if minimum_threshold_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Minimum Threshold Price Futures Numeric Pair
@@ -28583,34 +26806,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair = {}
 
 -- Dissect: Maximum Threshold Price Futures Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
-  -- Dissect Maximum Threshold Price Futures Negative Whole Pair
-  if maximum_threshold_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Ten Pair
-  if maximum_threshold_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Hundred Pair
-  if maximum_threshold_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Ten Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Hundred Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Million Pair
-  if maximum_threshold_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Maximum Threshold Price Futures Numeric Pair
@@ -29873,34 +28082,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair = {}
 
 -- Dissect: Price Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair.dissect = function(buffer, offset, packet, parent, price_fraction_indicator)
-  -- Dissect Price Negative Whole Pair
-  if price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Ten Pair
-  if price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Hundred Pair
-  if price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Thousand Pair
-  if price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Ten Thousand Pair
-  if price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Hundred Thousand Pair
-  if price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Million Pair
-  if price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair.dispatch[price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Price Numeric Pair
@@ -35935,34 +34130,20 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pair = {}
 
 -- Dissect: Strike Price Schedule Notice Fraction Pair
+tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_million_pair.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
-  -- Dissect Strike Price Schedule Notice Negative Whole Pair
-  if strike_price_fraction_indicator == "A" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Ten Pair
-  if strike_price_fraction_indicator == "B" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Hundred Pair
-  if strike_price_fraction_indicator == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Thousand Pair
-  if strike_price_fraction_indicator == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Ten Thousand Pair
-  if strike_price_fraction_indicator == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Hundred Thousand Pair
-  if strike_price_fraction_indicator == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Million Pair
-  if strike_price_fraction_indicator == "G" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.dispatch[strike_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Strike Price Schedule Notice Numeric Pair
@@ -37091,242 +35272,72 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.message_body = {}
 
 -- Dissect: Message Body
+tmx_mx_solatcpretransmission_hsvf_v1_11.message_body.dispatch = {
+  ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_trade_message.dissect,
+  ["CB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_trade_message.dissect,
+  ["CF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.futures_trade_message.dissect,
+  ["CS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_trade_message.dissect,
+  ["CW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_trade_message.dissect,
+  ["D"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_rfq_message.dissect,
+  ["DB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_rfq_message.dissect,
+  ["DF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.futures_rfq_message.dissect,
+  ["DS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_rfq_message.dissect,
+  ["DW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_rfq_message.dissect,
+  ["E"] = tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_option_message.dissect,
+  ["EB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_futures_option_message.dissect,
+  ["EF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_future_message.dissect,
+  ["ES"] = tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_strategy_message.dissect,
+  ["EW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_swap_future_message.dissect,
+  ["F"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_quote_message.dissect,
+  ["FB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_quote_message.dissect,
+  ["FF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.futures_quote_message.dissect,
+  ["FS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_quote_message.dissect,
+  ["FW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_quote_message.dissect,
+  ["H"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_market_depth_message.dissect,
+  ["HB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_market_depth_message.dissect,
+  ["HF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.futures_market_depth_message.dissect,
+  ["HS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_market_depth_message.dissect,
+  ["HW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_market_depth_message.dissect,
+  ["I"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_trade_cancellation_message.dissect,
+  ["IB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_trade_cancellation_message.dissect,
+  ["IF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.futures_trade_cancellation_message.dissect,
+  ["IS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_trade_cancellation_message.dissect,
+  ["IW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_trade_cancellation_message.dissect,
+  ["J"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_instrument_keys_message.dissect,
+  ["JB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_instrument_keys_message.dissect,
+  ["JE"] = tmx_mx_solatcpretransmission_hsvf_v1_11.underlying_instrument_keys_message.dissect,
+  ["JF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.futures_instrument_keys_message.dissect,
+  ["JS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_instrument_keys_message.dissect,
+  ["JW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_instrument_keys_message.dissect,
+  ["N"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_summary_message.dissect,
+  ["NB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_summary_message.dissect,
+  ["NF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.futures_summary_message.dissect,
+  ["NS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_summary_message.dissect,
+  ["NW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_summary_message.dissect,
+  ["Q"] = tmx_mx_solatcpretransmission_hsvf_v1_11.beginning_of_options_summary_message.dissect,
+  ["QB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.beginning_of_future_options_summary_message.dissect,
+  ["QF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.beginning_of_futures_summary_message.dissect,
+  ["QS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.beginning_of_strategy_summary_message.dissect,
+  ["QW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_beginning_of_summary_message.dissect,
+  ["X"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_trade_correction_message.dissect,
+  ["XB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_trade_correction_message.dissect,
+  ["XF"] = tmx_mx_solatcpretransmission_hsvf_v1_11.futures_trade_correction_message.dissect,
+  ["XS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_trade_correction_message.dissect,
+  ["XW"] = tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_trade_correction_message.dissect,
+  ["GR"] = tmx_mx_solatcpretransmission_hsvf_v1_11.group_status_message.dissect,
+  ["GS"] = tmx_mx_solatcpretransmission_hsvf_v1_11.group_status_strategies_message.dissect,
+  ["L"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bulletins_message.dissect,
+  ["S"] = tmx_mx_solatcpretransmission_hsvf_v1_11.end_of_sales_message.dissect,
+  ["TT"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_table_message.dissect,
+  ["U"] = tmx_mx_solatcpretransmission_hsvf_v1_11.end_of_transmission_message.dissect,
+  ["V"] = tmx_mx_solatcpretransmission_hsvf_v1_11.circuit_assurance_message.dissect,
+  ["Z"] = tmx_mx_solatcpretransmission_hsvf_v1_11.timebeat_message.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Option Trade Message
-  if message_type == "C" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.option_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Trade Message
-  if message_type == "CB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Trade Message
-  if message_type == "CF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.futures_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trade Message
-  if message_type == "CS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Trade Message
-  if message_type == "CW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Rfq Message
-  if message_type == "D" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.option_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Rfq Message
-  if message_type == "DB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Rfq Message
-  if message_type == "DF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.futures_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Rfq Message
-  if message_type == "DS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Rfq Message
-  if message_type == "DW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Option Message
-  if message_type == "E" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_option_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Futures Option Message
-  if message_type == "EB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_futures_option_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Future Message
-  if message_type == "EF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_future_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Strategy Message
-  if message_type == "ES" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_strategy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Swap Future Message
-  if message_type == "EW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.instrument_schedule_notice_swap_future_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Quote Message
-  if message_type == "F" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.option_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Quote Message
-  if message_type == "FB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Quote Message
-  if message_type == "FF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.futures_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Quote Message
-  if message_type == "FS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Quote Message
-  if message_type == "FW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Market Depth Message
-  if message_type == "H" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.option_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Market Depth Message
-  if message_type == "HB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Market Depth Message
-  if message_type == "HF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.futures_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Market Depth Message
-  if message_type == "HS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Market Depth Message
-  if message_type == "HW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Trade Cancellation Message
-  if message_type == "I" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.option_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Trade Cancellation Message
-  if message_type == "IB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Trade Cancellation Message
-  if message_type == "IF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.futures_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trade Cancellation Message
-  if message_type == "IS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Trade Cancellation Message
-  if message_type == "IW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Instrument Keys Message
-  if message_type == "J" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.option_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Instrument Keys Message
-  if message_type == "JB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Instrument Keys Message
-  if message_type == "JE" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.underlying_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Instrument Keys Message
-  if message_type == "JF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.futures_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Instrument Keys Message
-  if message_type == "JS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Instrument Keys Message
-  if message_type == "JW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Summary Message
-  if message_type == "N" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.option_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Summary Message
-  if message_type == "NB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Summary Message
-  if message_type == "NF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.futures_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Summary Message
-  if message_type == "NS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Summary Message
-  if message_type == "NW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Options Summary Message
-  if message_type == "Q" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.beginning_of_options_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Future Options Summary Message
-  if message_type == "QB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.beginning_of_future_options_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Futures Summary Message
-  if message_type == "QF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.beginning_of_futures_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Strategy Summary Message
-  if message_type == "QS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.beginning_of_strategy_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Beginning Of Summary Message
-  if message_type == "QW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_beginning_of_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Trade Correction Message
-  if message_type == "X" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.option_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Trade Correction Message
-  if message_type == "XB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Trade Correction Message
-  if message_type == "XF" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.futures_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trade Correction Message
-  if message_type == "XS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.strategy_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Swap Future Trade Correction Message
-  if message_type == "XW" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.swap_future_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Status Message
-  if message_type == "GR" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.group_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Status Strategies Message
-  if message_type == "GS" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.group_status_strategies_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulletins Message
-  if message_type == "L" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.bulletins_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Sales Message
-  if message_type == "S" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.end_of_sales_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Table Message
-  if message_type == "TT" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.tick_table_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Transmission Message
-  if message_type == "U" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.end_of_transmission_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Circuit Assurance Message
-  if message_type == "V" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.circuit_assurance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Timebeat Message
-  if message_type == "Z" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.timebeat_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -37499,26 +35510,18 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.server_message = {}
 
 -- Dissect: Server Message
+tmx_mx_solatcpretransmission_hsvf_v1_11.server_message.dispatch = {
+  ["KI"] = tmx_mx_solatcpretransmission_hsvf_v1_11.login_acknowledgement_message.dissect,
+  ["KO"] = tmx_mx_solatcpretransmission_hsvf_v1_11.logout_acknowledgement_message.dissect,
+  ["RB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.retransmission_begin_message.dissect,
+  ["RE"] = tmx_mx_solatcpretransmission_hsvf_v1_11.retransmission_end_message.dissect,
+  ["ER"] = tmx_mx_solatcpretransmission_hsvf_v1_11.error_message.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.server_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Acknowledgement Message
-  if message_type == "KI" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.login_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Acknowledgement Message
-  if message_type == "KO" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.logout_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Begin Message
-  if message_type == "RB" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.retransmission_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission End Message
-  if message_type == "RE" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.retransmission_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Error Message
-  if message_type == "ER" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.error_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.server_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Retransmitted Message
@@ -37802,18 +35805,16 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_body = {}
 
 -- Dissect: Client Message Body
+tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_body.dispatch = {
+  ["LI"] = tmx_mx_solatcpretransmission_hsvf_v1_11.login_message.dissect,
+  ["LO"] = tmx_mx_solatcpretransmission_hsvf_v1_11.logout_message.dissect,
+  ["RT"] = tmx_mx_solatcpretransmission_hsvf_v1_11.retransmission_request_message.dissect,
+}
+
 tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_body.dissect = function(buffer, offset, packet, parent, client_message_type)
-  -- Dissect Login Message
-  if client_message_type == "LI" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if client_message_type == "LO" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if client_message_type == "RT" then
-    return tmx_mx_solatcpretransmission_hsvf_v1_11.retransmission_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_body.dispatch[client_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

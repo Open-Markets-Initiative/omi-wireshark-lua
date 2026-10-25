@@ -277,21 +277,15 @@ txse_txseequities_bale_rake_v1_0.auction_type = {}
 txse_txseequities_bale_rake_v1_0.auction_type.size = 1
 
 -- Display: Auction Type
-txse_txseequities_bale_rake_v1_0.auction_type.display = function(value)
-  if value == 1 then
-    return "Auction Type: Opening (1)"
-  end
-  if value == 2 then
-    return "Auction Type: Closing (2)"
-  end
-  if value == 3 then
-    return "Auction Type: Halt (3)"
-  end
-  if value == 4 then
-    return "Auction Type: Ipo (4)"
-  end
+txse_txseequities_bale_rake_v1_0.auction_type.labels = {
+  [1] = "Auction Type: Opening (1)",
+  [2] = "Auction Type: Closing (2)",
+  [3] = "Auction Type: Halt (3)",
+  [4] = "Auction Type: Ipo (4)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.auction_type.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -411,18 +405,14 @@ txse_txseequities_bale_rake_v1_0.excess_auction_side = {}
 txse_txseequities_bale_rake_v1_0.excess_auction_side.size = 1
 
 -- Display: Excess Auction Side
-txse_txseequities_bale_rake_v1_0.excess_auction_side.display = function(value)
-  if value == 0 then
-    return "Excess Auction Side: Equal (0)"
-  end
-  if value == 1 then
-    return "Excess Auction Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Excess Auction Side: Sell (2)"
-  end
+txse_txseequities_bale_rake_v1_0.excess_auction_side.labels = {
+  [0] = "Excess Auction Side: Equal (0)",
+  [1] = "Excess Auction Side: Buy (1)",
+  [2] = "Excess Auction Side: Sell (2)",
+}
 
-  return "Excess Auction Side: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.excess_auction_side.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.excess_auction_side.labels[value] or "Excess Auction Side: Unknown("..value..")"
 end
 
 -- Dissect: Excess Auction Side
@@ -565,24 +555,16 @@ txse_txseequities_bale_rake_v1_0.market_hours_state = {}
 txse_txseequities_bale_rake_v1_0.market_hours_state.size = 1
 
 -- Display: Market Hours State
-txse_txseequities_bale_rake_v1_0.market_hours_state.display = function(value)
-  if value == 0 then
-    return "Market Hours State: Closed Before Hours (0)"
-  end
-  if value == 1 then
-    return "Market Hours State: Early Session (1)"
-  end
-  if value == 2 then
-    return "Market Hours State: Regular Session (2)"
-  end
-  if value == 3 then
-    return "Market Hours State: After Hours Session (3)"
-  end
-  if value == 4 then
-    return "Market Hours State: Closed After Hours (4)"
-  end
+txse_txseequities_bale_rake_v1_0.market_hours_state.labels = {
+  [0] = "Market Hours State: Closed Before Hours (0)",
+  [1] = "Market Hours State: Early Session (1)",
+  [2] = "Market Hours State: Regular Session (2)",
+  [3] = "Market Hours State: After Hours Session (3)",
+  [4] = "Market Hours State: Closed After Hours (4)",
+}
 
-  return "Market Hours State: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.market_hours_state.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.market_hours_state.labels[value] or "Market Hours State: Unknown("..value..")"
 end
 
 -- Dissect: Market Hours State
@@ -696,33 +678,19 @@ txse_txseequities_bale_rake_v1_0.message_type = {}
 txse_txseequities_bale_rake_v1_0.message_type.size = 1
 
 -- Display: Message Type
-txse_txseequities_bale_rake_v1_0.message_type.display = function(value)
-  if value == 105 then
-    return "Message Type: Trading Session Status Message (105)"
-  end
-  if value == 115 then
-    return "Message Type: Define Symbol Message (115)"
-  end
-  if value == 121 then
-    return "Message Type: Symbol Status Message (121)"
-  end
-  if value == 120 then
-    return "Message Type: Trade Message (120)"
-  end
-  if value == 113 then
-    return "Message Type: Top Of Book Message (113)"
-  end
-  if value == 117 then
-    return "Message Type: Auction Preamble Message (117)"
-  end
-  if value == 118 then
-    return "Message Type: Auction Band Window Message (118)"
-  end
-  if value == 110 then
-    return "Message Type: Auction Print Message (110)"
-  end
+txse_txseequities_bale_rake_v1_0.message_type.labels = {
+  [105] = "Message Type: Trading Session Status Message (105)",
+  [115] = "Message Type: Define Symbol Message (115)",
+  [121] = "Message Type: Symbol Status Message (121)",
+  [120] = "Message Type: Trade Message (120)",
+  [113] = "Message Type: Top Of Book Message (113)",
+  [117] = "Message Type: Auction Preamble Message (117)",
+  [118] = "Message Type: Auction Band Window Message (118)",
+  [110] = "Message Type: Auction Print Message (110)",
+}
 
-  return "Message Type: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.message_type.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -744,27 +712,17 @@ txse_txseequities_bale_rake_v1_0.packet_type = {}
 txse_txseequities_bale_rake_v1_0.packet_type.size = 1
 
 -- Display: Packet Type
-txse_txseequities_bale_rake_v1_0.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Sequenced Data (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Heartbeat (1)"
-  end
-  if value == 2 then
-    return "Packet Type: Start Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: End Of Session (3)"
-  end
-  if value == 4 then
-    return "Packet Type: Gap Fill Request (4)"
-  end
-  if value == 5 then
-    return "Packet Type: Gap Fill Response (5)"
-  end
+txse_txseequities_bale_rake_v1_0.packet_type.labels = {
+  [0] = "Packet Type: Sequenced Data (0)",
+  [1] = "Packet Type: Heartbeat (1)",
+  [2] = "Packet Type: Start Of Session (2)",
+  [3] = "Packet Type: End Of Session (3)",
+  [4] = "Packet Type: Gap Fill Request (4)",
+  [5] = "Packet Type: Gap Fill Response (5)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.packet_type.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -953,18 +911,14 @@ txse_txseequities_bale_rake_v1_0.session_trading_state = {}
 txse_txseequities_bale_rake_v1_0.session_trading_state.size = 1
 
 -- Display: Session Trading State
-txse_txseequities_bale_rake_v1_0.session_trading_state.display = function(value)
-  if value == 0 then
-    return "Session Trading State: Closed (0)"
-  end
-  if value == 1 then
-    return "Session Trading State: Trading (1)"
-  end
-  if value == 2 then
-    return "Session Trading State: Halted (2)"
-  end
+txse_txseequities_bale_rake_v1_0.session_trading_state.labels = {
+  [0] = "Session Trading State: Closed (0)",
+  [1] = "Session Trading State: Trading (1)",
+  [2] = "Session Trading State: Halted (2)",
+}
 
-  return "Session Trading State: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.session_trading_state.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.session_trading_state.labels[value] or "Session Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Session Trading State
@@ -986,24 +940,16 @@ txse_txseequities_bale_rake_v1_0.short_sale_restriction_state = {}
 txse_txseequities_bale_rake_v1_0.short_sale_restriction_state.size = 1
 
 -- Display: Short Sale Restriction State
-txse_txseequities_bale_rake_v1_0.short_sale_restriction_state.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction State: None (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction State: Activated (1)"
-  end
-  if value == 2 then
-    return "Short Sale Restriction State: Continued (2)"
-  end
-  if value == 3 then
-    return "Short Sale Restriction State: Deactivated (3)"
-  end
-  if value == 4 then
-    return "Short Sale Restriction State: In Effect (4)"
-  end
+txse_txseequities_bale_rake_v1_0.short_sale_restriction_state.labels = {
+  [0] = "Short Sale Restriction State: None (0)",
+  [1] = "Short Sale Restriction State: Activated (1)",
+  [2] = "Short Sale Restriction State: Continued (2)",
+  [3] = "Short Sale Restriction State: Deactivated (3)",
+  [4] = "Short Sale Restriction State: In Effect (4)",
+}
 
-  return "Short Sale Restriction State: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.short_sale_restriction_state.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.short_sale_restriction_state.labels[value] or "Short Sale Restriction State: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction State
@@ -1117,12 +1063,12 @@ txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason = {}
 txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason.size = 1
 
 -- Display: Symbol Status Operational Halt Reason
-txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason.display = function(value)
-  if value == 0 then
-    return "Symbol Status Operational Halt Reason: Administrative (0)"
-  end
+txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason.labels = {
+  [0] = "Symbol Status Operational Halt Reason: Administrative (0)",
+}
 
-  return "Symbol Status Operational Halt Reason: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason.labels[value] or "Symbol Status Operational Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Status Operational Halt Reason
@@ -1144,126 +1090,50 @@ txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason = {}
 txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.size = 1
 
 -- Display: Symbol Status Regulatory Halt Reason
-txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.display = function(value)
-  if value == 0 then
-    return "Symbol Status Regulatory Halt Reason: Reason Not Available (0)"
-  end
-  if value == 1 then
-    return "Symbol Status Regulatory Halt Reason: News Pending (1)"
-  end
-  if value == 2 then
-    return "Symbol Status Regulatory Halt Reason: News Dissemination (2)"
-  end
-  if value == 3 then
-    return "Symbol Status Regulatory Halt Reason: Info Requested (3)"
-  end
-  if value == 4 then
-    return "Symbol Status Regulatory Halt Reason: Order Imbalance (4)"
-  end
-  if value == 5 then
-    return "Symbol Status Regulatory Halt Reason: Extraordinary Market Activity (5)"
-  end
-  if value == 6 then
-    return "Symbol Status Regulatory Halt Reason: Luld Pause (6)"
-  end
-  if value == 7 then
-    return "Symbol Status Regulatory Halt Reason: Non Compliance (7)"
-  end
-  if value == 8 then
-    return "Symbol Status Regulatory Halt Reason: Filings Not Current (8)"
-  end
-  if value == 9 then
-    return "Symbol Status Regulatory Halt Reason: Sec Suspension (9)"
-  end
-  if value == 10 then
-    return "Symbol Status Regulatory Halt Reason: Regulatory Concern (10)"
-  end
-  if value == 11 then
-    return "Symbol Status Regulatory Halt Reason: Sub Penny Trading (11)"
-  end
-  if value == 12 then
-    return "Symbol Status Regulatory Halt Reason: Etf (12)"
-  end
-  if value == 13 then
-    return "Symbol Status Regulatory Halt Reason: Ipo Not Trading (13)"
-  end
-  if value == 14 then
-    return "Symbol Status Regulatory Halt Reason: Corporate Action (14)"
-  end
-  if value == 15 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker L 1 (15)"
-  end
-  if value == 16 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker L 2 (16)"
-  end
-  if value == 17 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker L 3 (17)"
-  end
-  if value == 18 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker Carryover (18)"
-  end
-  if value == 19 then
-    return "Symbol Status Regulatory Halt Reason: Merger Effective (19)"
-  end
-  if value == 20 then
-    return "Symbol Status Regulatory Halt Reason: New Security Offering (20)"
-  end
-  if value == 21 then
-    return "Symbol Status Regulatory Halt Reason: Indicative Value Not Available (21)"
-  end
-  if value == 22 then
-    return "Symbol Status Regulatory Halt Reason: Quotation Not Available (22)"
-  end
-  if value == 23 then
-    return "Symbol Status Regulatory Halt Reason: Single Stock Trading Pause (23)"
-  end
-  if value == 24 then
-    return "Symbol Status Regulatory Halt Reason: Operational (24)"
-  end
-  if value == 25 then
-    return "Symbol Status Regulatory Halt Reason: Luld Pause Straddle (25)"
-  end
-  if value == 26 then
-    return "Symbol Status Regulatory Halt Reason: News Resumption Times (26)"
-  end
-  if value == 27 then
-    return "Symbol Status Regulatory Halt Reason: Single Stock Trading Pause Quoting (27)"
-  end
-  if value == 28 then
-    return "Symbol Status Regulatory Halt Reason: Qualifications Issues Resolved (28)"
-  end
-  if value == 29 then
-    return "Symbol Status Regulatory Halt Reason: Filing Requirements Satisfied (29)"
-  end
-  if value == 30 then
-    return "Symbol Status Regulatory Halt Reason: Issuer News Not Forthcoming (30)"
-  end
-  if value == 31 then
-    return "Symbol Status Regulatory Halt Reason: Qualifications Halt Ended (31)"
-  end
-  if value == 32 then
-    return "Symbol Status Regulatory Halt Reason: Qualifications Halt Concluded (32)"
-  end
-  if value == 33 then
-    return "Symbol Status Regulatory Halt Reason: Regulatory Authority Halt Concluded (33)"
-  end
-  if value == 34 then
-    return "Symbol Status Regulatory Halt Reason: New Issue Available (34)"
-  end
-  if value == 35 then
-    return "Symbol Status Regulatory Halt Reason: Issue Available (35)"
-  end
-  if value == 36 then
-    return "Symbol Status Regulatory Halt Reason: Ipo Quotation Released (36)"
-  end
-  if value == 37 then
-    return "Symbol Status Regulatory Halt Reason: Ipo Positioning Window Extension (37)"
-  end
-  if value == 38 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker Quotation Resumption (38)"
-  end
+txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.labels = {
+  [0] = "Symbol Status Regulatory Halt Reason: Reason Not Available (0)",
+  [1] = "Symbol Status Regulatory Halt Reason: News Pending (1)",
+  [2] = "Symbol Status Regulatory Halt Reason: News Dissemination (2)",
+  [3] = "Symbol Status Regulatory Halt Reason: Info Requested (3)",
+  [4] = "Symbol Status Regulatory Halt Reason: Order Imbalance (4)",
+  [5] = "Symbol Status Regulatory Halt Reason: Extraordinary Market Activity (5)",
+  [6] = "Symbol Status Regulatory Halt Reason: Luld Pause (6)",
+  [7] = "Symbol Status Regulatory Halt Reason: Non Compliance (7)",
+  [8] = "Symbol Status Regulatory Halt Reason: Filings Not Current (8)",
+  [9] = "Symbol Status Regulatory Halt Reason: Sec Suspension (9)",
+  [10] = "Symbol Status Regulatory Halt Reason: Regulatory Concern (10)",
+  [11] = "Symbol Status Regulatory Halt Reason: Sub Penny Trading (11)",
+  [12] = "Symbol Status Regulatory Halt Reason: Etf (12)",
+  [13] = "Symbol Status Regulatory Halt Reason: Ipo Not Trading (13)",
+  [14] = "Symbol Status Regulatory Halt Reason: Corporate Action (14)",
+  [15] = "Symbol Status Regulatory Halt Reason: Circuit Breaker L 1 (15)",
+  [16] = "Symbol Status Regulatory Halt Reason: Circuit Breaker L 2 (16)",
+  [17] = "Symbol Status Regulatory Halt Reason: Circuit Breaker L 3 (17)",
+  [18] = "Symbol Status Regulatory Halt Reason: Circuit Breaker Carryover (18)",
+  [19] = "Symbol Status Regulatory Halt Reason: Merger Effective (19)",
+  [20] = "Symbol Status Regulatory Halt Reason: New Security Offering (20)",
+  [21] = "Symbol Status Regulatory Halt Reason: Indicative Value Not Available (21)",
+  [22] = "Symbol Status Regulatory Halt Reason: Quotation Not Available (22)",
+  [23] = "Symbol Status Regulatory Halt Reason: Single Stock Trading Pause (23)",
+  [24] = "Symbol Status Regulatory Halt Reason: Operational (24)",
+  [25] = "Symbol Status Regulatory Halt Reason: Luld Pause Straddle (25)",
+  [26] = "Symbol Status Regulatory Halt Reason: News Resumption Times (26)",
+  [27] = "Symbol Status Regulatory Halt Reason: Single Stock Trading Pause Quoting (27)",
+  [28] = "Symbol Status Regulatory Halt Reason: Qualifications Issues Resolved (28)",
+  [29] = "Symbol Status Regulatory Halt Reason: Filing Requirements Satisfied (29)",
+  [30] = "Symbol Status Regulatory Halt Reason: Issuer News Not Forthcoming (30)",
+  [31] = "Symbol Status Regulatory Halt Reason: Qualifications Halt Ended (31)",
+  [32] = "Symbol Status Regulatory Halt Reason: Qualifications Halt Concluded (32)",
+  [33] = "Symbol Status Regulatory Halt Reason: Regulatory Authority Halt Concluded (33)",
+  [34] = "Symbol Status Regulatory Halt Reason: New Issue Available (34)",
+  [35] = "Symbol Status Regulatory Halt Reason: Issue Available (35)",
+  [36] = "Symbol Status Regulatory Halt Reason: Ipo Quotation Released (36)",
+  [37] = "Symbol Status Regulatory Halt Reason: Ipo Positioning Window Extension (37)",
+  [38] = "Symbol Status Regulatory Halt Reason: Circuit Breaker Quotation Resumption (38)",
+}
 
-  return "Symbol Status Regulatory Halt Reason: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.labels[value] or "Symbol Status Regulatory Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Status Regulatory Halt Reason
@@ -1285,18 +1155,14 @@ txse_txseequities_bale_rake_v1_0.symbol_trading_state = {}
 txse_txseequities_bale_rake_v1_0.symbol_trading_state.size = 1
 
 -- Display: Symbol Trading State
-txse_txseequities_bale_rake_v1_0.symbol_trading_state.display = function(value)
-  if value == 1 then
-    return "Symbol Trading State: Trading (1)"
-  end
-  if value == 2 then
-    return "Symbol Trading State: Halted (2)"
-  end
-  if value == 3 then
-    return "Symbol Trading State: Resume Pending (3)"
-  end
+txse_txseequities_bale_rake_v1_0.symbol_trading_state.labels = {
+  [1] = "Symbol Trading State: Trading (1)",
+  [2] = "Symbol Trading State: Halted (2)",
+  [3] = "Symbol Trading State: Resume Pending (3)",
+}
 
-  return "Symbol Trading State: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.symbol_trading_state.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.symbol_trading_state.labels[value] or "Symbol Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Trading State
@@ -1318,15 +1184,13 @@ txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason = {}
 txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason.size = 1
 
 -- Display: Trade Through Exemption Reason
-txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason.display = function(value)
-  if value == 0 then
-    return "Trade Through Exemption Reason: None (0)"
-  end
-  if value == 1 then
-    return "Trade Through Exemption Reason: Intermarket Sweep (1)"
-  end
+txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason.labels = {
+  [0] = "Trade Through Exemption Reason: None (0)",
+  [1] = "Trade Through Exemption Reason: Intermarket Sweep (1)",
+}
 
-  return "Trade Through Exemption Reason: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason.labels[value] or "Trade Through Exemption Reason: Unknown("..value..")"
 end
 
 -- Dissect: Trade Through Exemption Reason
@@ -1348,12 +1212,12 @@ txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason 
 txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason.size = 1
 
 -- Display: Trading Session Status Operational Halt Reason
-txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason.display = function(value)
-  if value == 0 then
-    return "Trading Session Status Operational Halt Reason: Administrative (0)"
-  end
+txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason.labels = {
+  [0] = "Trading Session Status Operational Halt Reason: Administrative (0)",
+}
 
-  return "Trading Session Status Operational Halt Reason: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason.labels[value] or "Trading Session Status Operational Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Status Operational Halt Reason
@@ -1375,126 +1239,50 @@ txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason =
 txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.size = 1
 
 -- Display: Trading Session Status Regulatory Halt Reason
-txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.display = function(value)
-  if value == 0 then
-    return "Trading Session Status Regulatory Halt Reason: Reason Not Available (0)"
-  end
-  if value == 1 then
-    return "Trading Session Status Regulatory Halt Reason: News Pending (1)"
-  end
-  if value == 2 then
-    return "Trading Session Status Regulatory Halt Reason: News Dissemination (2)"
-  end
-  if value == 3 then
-    return "Trading Session Status Regulatory Halt Reason: Info Requested (3)"
-  end
-  if value == 4 then
-    return "Trading Session Status Regulatory Halt Reason: Order Imbalance (4)"
-  end
-  if value == 5 then
-    return "Trading Session Status Regulatory Halt Reason: Extraordinary Market Activity (5)"
-  end
-  if value == 6 then
-    return "Trading Session Status Regulatory Halt Reason: Luld Pause (6)"
-  end
-  if value == 7 then
-    return "Trading Session Status Regulatory Halt Reason: Non Compliance (7)"
-  end
-  if value == 8 then
-    return "Trading Session Status Regulatory Halt Reason: Filings Not Current (8)"
-  end
-  if value == 9 then
-    return "Trading Session Status Regulatory Halt Reason: Sec Suspension (9)"
-  end
-  if value == 10 then
-    return "Trading Session Status Regulatory Halt Reason: Regulatory Concern (10)"
-  end
-  if value == 11 then
-    return "Trading Session Status Regulatory Halt Reason: Sub Penny Trading (11)"
-  end
-  if value == 12 then
-    return "Trading Session Status Regulatory Halt Reason: Etf (12)"
-  end
-  if value == 13 then
-    return "Trading Session Status Regulatory Halt Reason: Ipo Not Trading (13)"
-  end
-  if value == 14 then
-    return "Trading Session Status Regulatory Halt Reason: Corporate Action (14)"
-  end
-  if value == 15 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 1 (15)"
-  end
-  if value == 16 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 2 (16)"
-  end
-  if value == 17 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 3 (17)"
-  end
-  if value == 18 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker Carryover (18)"
-  end
-  if value == 19 then
-    return "Trading Session Status Regulatory Halt Reason: Merger Effective (19)"
-  end
-  if value == 20 then
-    return "Trading Session Status Regulatory Halt Reason: New Security Offering (20)"
-  end
-  if value == 21 then
-    return "Trading Session Status Regulatory Halt Reason: Indicative Value Not Available (21)"
-  end
-  if value == 22 then
-    return "Trading Session Status Regulatory Halt Reason: Quotation Not Available (22)"
-  end
-  if value == 23 then
-    return "Trading Session Status Regulatory Halt Reason: Single Stock Trading Pause (23)"
-  end
-  if value == 24 then
-    return "Trading Session Status Regulatory Halt Reason: Operational (24)"
-  end
-  if value == 25 then
-    return "Trading Session Status Regulatory Halt Reason: Luld Pause Straddle (25)"
-  end
-  if value == 26 then
-    return "Trading Session Status Regulatory Halt Reason: News Resumption Times (26)"
-  end
-  if value == 27 then
-    return "Trading Session Status Regulatory Halt Reason: Single Stock Trading Pause Quoting (27)"
-  end
-  if value == 28 then
-    return "Trading Session Status Regulatory Halt Reason: Qualifications Issues Resolved (28)"
-  end
-  if value == 29 then
-    return "Trading Session Status Regulatory Halt Reason: Filing Requirements Satisfied (29)"
-  end
-  if value == 30 then
-    return "Trading Session Status Regulatory Halt Reason: Issuer News Not Forthcoming (30)"
-  end
-  if value == 31 then
-    return "Trading Session Status Regulatory Halt Reason: Qualifications Halt Ended (31)"
-  end
-  if value == 32 then
-    return "Trading Session Status Regulatory Halt Reason: Qualifications Halt Concluded (32)"
-  end
-  if value == 33 then
-    return "Trading Session Status Regulatory Halt Reason: Regulatory Authority Halt Concluded (33)"
-  end
-  if value == 34 then
-    return "Trading Session Status Regulatory Halt Reason: New Issue Available (34)"
-  end
-  if value == 35 then
-    return "Trading Session Status Regulatory Halt Reason: Issue Available (35)"
-  end
-  if value == 36 then
-    return "Trading Session Status Regulatory Halt Reason: Ipo Quotation Released (36)"
-  end
-  if value == 37 then
-    return "Trading Session Status Regulatory Halt Reason: Ipo Positioning Window Extension (37)"
-  end
-  if value == 38 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker Quotation Resumption (38)"
-  end
+txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.labels = {
+  [0] = "Trading Session Status Regulatory Halt Reason: Reason Not Available (0)",
+  [1] = "Trading Session Status Regulatory Halt Reason: News Pending (1)",
+  [2] = "Trading Session Status Regulatory Halt Reason: News Dissemination (2)",
+  [3] = "Trading Session Status Regulatory Halt Reason: Info Requested (3)",
+  [4] = "Trading Session Status Regulatory Halt Reason: Order Imbalance (4)",
+  [5] = "Trading Session Status Regulatory Halt Reason: Extraordinary Market Activity (5)",
+  [6] = "Trading Session Status Regulatory Halt Reason: Luld Pause (6)",
+  [7] = "Trading Session Status Regulatory Halt Reason: Non Compliance (7)",
+  [8] = "Trading Session Status Regulatory Halt Reason: Filings Not Current (8)",
+  [9] = "Trading Session Status Regulatory Halt Reason: Sec Suspension (9)",
+  [10] = "Trading Session Status Regulatory Halt Reason: Regulatory Concern (10)",
+  [11] = "Trading Session Status Regulatory Halt Reason: Sub Penny Trading (11)",
+  [12] = "Trading Session Status Regulatory Halt Reason: Etf (12)",
+  [13] = "Trading Session Status Regulatory Halt Reason: Ipo Not Trading (13)",
+  [14] = "Trading Session Status Regulatory Halt Reason: Corporate Action (14)",
+  [15] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 1 (15)",
+  [16] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 2 (16)",
+  [17] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 3 (17)",
+  [18] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker Carryover (18)",
+  [19] = "Trading Session Status Regulatory Halt Reason: Merger Effective (19)",
+  [20] = "Trading Session Status Regulatory Halt Reason: New Security Offering (20)",
+  [21] = "Trading Session Status Regulatory Halt Reason: Indicative Value Not Available (21)",
+  [22] = "Trading Session Status Regulatory Halt Reason: Quotation Not Available (22)",
+  [23] = "Trading Session Status Regulatory Halt Reason: Single Stock Trading Pause (23)",
+  [24] = "Trading Session Status Regulatory Halt Reason: Operational (24)",
+  [25] = "Trading Session Status Regulatory Halt Reason: Luld Pause Straddle (25)",
+  [26] = "Trading Session Status Regulatory Halt Reason: News Resumption Times (26)",
+  [27] = "Trading Session Status Regulatory Halt Reason: Single Stock Trading Pause Quoting (27)",
+  [28] = "Trading Session Status Regulatory Halt Reason: Qualifications Issues Resolved (28)",
+  [29] = "Trading Session Status Regulatory Halt Reason: Filing Requirements Satisfied (29)",
+  [30] = "Trading Session Status Regulatory Halt Reason: Issuer News Not Forthcoming (30)",
+  [31] = "Trading Session Status Regulatory Halt Reason: Qualifications Halt Ended (31)",
+  [32] = "Trading Session Status Regulatory Halt Reason: Qualifications Halt Concluded (32)",
+  [33] = "Trading Session Status Regulatory Halt Reason: Regulatory Authority Halt Concluded (33)",
+  [34] = "Trading Session Status Regulatory Halt Reason: New Issue Available (34)",
+  [35] = "Trading Session Status Regulatory Halt Reason: Issue Available (35)",
+  [36] = "Trading Session Status Regulatory Halt Reason: Ipo Quotation Released (36)",
+  [37] = "Trading Session Status Regulatory Halt Reason: Ipo Positioning Window Extension (37)",
+  [38] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker Quotation Resumption (38)",
+}
 
-  return "Trading Session Status Regulatory Halt Reason: Unknown("..value..")"
+txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.display = function(value)
+  return txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.labels[value] or "Trading Session Status Regulatory Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Status Regulatory Halt Reason
@@ -2295,38 +2083,21 @@ end
 txse_txseequities_bale_rake_v1_0.payload = {}
 
 -- Dissect: Payload
+txse_txseequities_bale_rake_v1_0.payload.dispatch = {
+  [105] = txse_txseequities_bale_rake_v1_0.trading_session_status_message.dissect,
+  [115] = txse_txseequities_bale_rake_v1_0.define_symbol_message.dissect,
+  [121] = txse_txseequities_bale_rake_v1_0.symbol_status_message.dissect,
+  [120] = txse_txseequities_bale_rake_v1_0.trade_message.dissect,
+  [113] = txse_txseequities_bale_rake_v1_0.top_of_book_message.dissect,
+  [117] = txse_txseequities_bale_rake_v1_0.auction_preamble_message.dissect,
+  [118] = txse_txseequities_bale_rake_v1_0.auction_band_window_message.dissect,
+  [110] = txse_txseequities_bale_rake_v1_0.auction_print_message.dissect,
+}
+
 txse_txseequities_bale_rake_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Trading Session Status Message
-  if message_type == 105 then
-    return txse_txseequities_bale_rake_v1_0.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Define Symbol Message
-  if message_type == 115 then
-    return txse_txseequities_bale_rake_v1_0.define_symbol_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Status Message
-  if message_type == 121 then
-    return txse_txseequities_bale_rake_v1_0.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 120 then
-    return txse_txseequities_bale_rake_v1_0.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book Message
-  if message_type == 113 then
-    return txse_txseequities_bale_rake_v1_0.top_of_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Preamble Message
-  if message_type == 117 then
-    return txse_txseequities_bale_rake_v1_0.auction_preamble_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Band Window Message
-  if message_type == 118 then
-    return txse_txseequities_bale_rake_v1_0.auction_band_window_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Print Message
-  if message_type == 110 then
-    return txse_txseequities_bale_rake_v1_0.auction_print_message.dissect(buffer, offset, packet, parent)
+  local dissect = txse_txseequities_bale_rake_v1_0.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

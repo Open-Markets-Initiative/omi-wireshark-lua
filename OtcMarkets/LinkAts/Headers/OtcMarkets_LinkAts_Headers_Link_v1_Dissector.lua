@@ -387,10 +387,14 @@ end
 otcmarkets_linkats_headers_link_v1.message_block = {}
 
 -- Dissect: Message Block
+otcmarkets_linkats_headers_link_v1.message_block.dispatch = {
+  [1] = otcmarkets_linkats_headers_link_v1.heartbeat_packet.dissect,
+}
+
 otcmarkets_linkats_headers_link_v1.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
-  -- Dissect Heartbeat Packet
-  if bit.band(packet_flag, 0x01) == 1 then
-    return otcmarkets_linkats_headers_link_v1.heartbeat_packet.dissect(buffer, offset, packet, parent)
+  local dissect = otcmarkets_linkats_headers_link_v1.message_block.dispatch[bit.band(packet_flag, 0x01)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

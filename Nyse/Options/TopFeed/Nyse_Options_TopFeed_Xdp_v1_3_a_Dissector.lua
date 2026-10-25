@@ -526,27 +526,17 @@ nyse_options_topfeed_xdp_v1_3_a.delivery_flag = {}
 nyse_options_topfeed_xdp_v1_3_a.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_options_topfeed_xdp_v1_3_a.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Contains Original And Refresh Msgs (2)"
-  end
-  if value == 3 then
-    return "Delivery Flag: Contains Only Refresh Messages (3)"
-  end
-  if value == 10 then
-    return "Delivery Flag: XDP Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Contains Only Original Messages (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
+nyse_options_topfeed_xdp_v1_3_a.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [2] = "Delivery Flag: Contains Original And Refresh Msgs (2)",
+  [3] = "Delivery Flag: Contains Only Refresh Messages (3)",
+  [10] = "Delivery Flag: XDP Failover (10)",
+  [11] = "Delivery Flag: Contains Only Original Messages (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_options_topfeed_xdp_v1_3_a.delivery_flag.display = function(value)
+  return nyse_options_topfeed_xdp_v1_3_a.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -774,36 +764,20 @@ nyse_options_topfeed_xdp_v1_3_a.market_id = {}
 nyse_options_topfeed_xdp_v1_3_a.market_id.size = 2
 
 -- Display: Market Id
-nyse_options_topfeed_xdp_v1_3_a.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Cash (1)"
-  end
-  if value == 2 then
-    return "Market Id: Europe Cash (2)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Cash (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Arca Bonds (5)"
-  end
-  if value == 6 then
-    return "Market Id: Arca Edge (6)"
-  end
-  if value == 7 then
-    return "Market Id: Liffe (7)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse Mkt Cash (9)"
-  end
+nyse_options_topfeed_xdp_v1_3_a.market_id.labels = {
+  [1] = "Market Id: Nyse Cash (1)",
+  [2] = "Market Id: Europe Cash (2)",
+  [3] = "Market Id: Nyse Arca Cash (3)",
+  [4] = "Market Id: Nyse Arca Options (4)",
+  [5] = "Market Id: Nyse Arca Bonds (5)",
+  [6] = "Market Id: Arca Edge (6)",
+  [7] = "Market Id: Liffe (7)",
+  [8] = "Market Id: Nyse American Options (8)",
+  [9] = "Market Id: Nyse Mkt Cash (9)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_options_topfeed_xdp_v1_3_a.market_id.display = function(value)
+  return nyse_options_topfeed_xdp_v1_3_a.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -979,60 +953,28 @@ nyse_options_topfeed_xdp_v1_3_a.message_type = {}
 nyse_options_topfeed_xdp_v1_3_a.message_type.size = 2
 
 -- Display: Message Type
-nyse_options_topfeed_xdp_v1_3_a.message_type.display = function(value)
-  if value == 401 then
-    return "Message Type: Outright Quote Message (401)"
-  end
-  if value == 407 then
-    return "Message Type: Outright Trade Message (407)"
-  end
-  if value == 409 then
-    return "Message Type: Outright Trade Cancel Message (409)"
-  end
-  if value == 411 then
-    return "Message Type: Outright Trade Correction Message (411)"
-  end
-  if value == 413 then
-    return "Message Type: Outright Imbalance Message (413)"
-  end
-  if value == 415 then
-    return "Message Type: Outright Crossing Rfq Message (415)"
-  end
-  if value == 471 then
-    return "Message Type: Outright Bold Rfq Message (471)"
-  end
-  if value == 417 then
-    return "Message Type: Outright Summary Message (417)"
-  end
-  if value == 419 then
-    return "Message Type: Underlying Status Message (419)"
-  end
-  if value == 421 then
-    return "Message Type: Outright Series Status Message (421)"
-  end
-  if value == 501 then
-    return "Message Type: Refresh Outright Quote Message (501)"
-  end
-  if value == 507 then
-    return "Message Type: Refresh Outright Trade Message (507)"
-  end
-  if value == 509 then
-    return "Message Type: Refresh Outright Imbalance Message (509)"
-  end
-  if value == 435 then
-    return "Message Type: Underlying Index Mapping Message (435)"
-  end
-  if value == 437 then
-    return "Message Type: Series Index Mapping Message (437)"
-  end
-  if value == 455 then
-    return "Message Type: Stream Id Message (455)"
-  end
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
+nyse_options_topfeed_xdp_v1_3_a.message_type.labels = {
+  [401] = "Message Type: Outright Quote Message (401)",
+  [407] = "Message Type: Outright Trade Message (407)",
+  [409] = "Message Type: Outright Trade Cancel Message (409)",
+  [411] = "Message Type: Outright Trade Correction Message (411)",
+  [413] = "Message Type: Outright Imbalance Message (413)",
+  [415] = "Message Type: Outright Crossing Rfq Message (415)",
+  [471] = "Message Type: Outright Bold Rfq Message (471)",
+  [417] = "Message Type: Outright Summary Message (417)",
+  [419] = "Message Type: Underlying Status Message (419)",
+  [421] = "Message Type: Outright Series Status Message (421)",
+  [501] = "Message Type: Refresh Outright Quote Message (501)",
+  [507] = "Message Type: Refresh Outright Trade Message (507)",
+  [509] = "Message Type: Refresh Outright Imbalance Message (509)",
+  [435] = "Message Type: Underlying Index Mapping Message (435)",
+  [437] = "Message Type: Series Index Mapping Message (437)",
+  [455] = "Message Type: Stream Id Message (455)",
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_options_topfeed_xdp_v1_3_a.message_type.display = function(value)
+  return nyse_options_topfeed_xdp_v1_3_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1254,18 +1196,14 @@ nyse_options_topfeed_xdp_v1_3_a.price_resolution = {}
 nyse_options_topfeed_xdp_v1_3_a.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_options_topfeed_xdp_v1_3_a.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
+nyse_options_topfeed_xdp_v1_3_a.price_resolution.labels = {
+  [0] = "Price Resolution: All Penny (0)",
+  [1] = "Price Resolution: Penny Nickel (1)",
+  [5] = "Price Resolution: Nickel Dime (5)",
+}
 
-  return "Price Resolution: Unknown("..value..")"
+nyse_options_topfeed_xdp_v1_3_a.price_resolution.display = function(value)
+  return nyse_options_topfeed_xdp_v1_3_a.price_resolution.labels[value] or "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1333,15 +1271,13 @@ nyse_options_topfeed_xdp_v1_3_a.put_or_call = {}
 nyse_options_topfeed_xdp_v1_3_a.put_or_call.size = 1
 
 -- Display: Put Or Call
-nyse_options_topfeed_xdp_v1_3_a.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
+nyse_options_topfeed_xdp_v1_3_a.put_or_call.labels = {
+  [0] = "Put Or Call: Put (0)",
+  [1] = "Put Or Call: Call (1)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+nyse_options_topfeed_xdp_v1_3_a.put_or_call.display = function(value)
+  return nyse_options_topfeed_xdp_v1_3_a.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -3527,74 +3463,30 @@ end
 nyse_options_topfeed_xdp_v1_3_a.payload = {}
 
 -- Dissect: Payload
+nyse_options_topfeed_xdp_v1_3_a.payload.dispatch = {
+  [401] = nyse_options_topfeed_xdp_v1_3_a.outright_quote_message.dissect,
+  [407] = nyse_options_topfeed_xdp_v1_3_a.outright_trade_message.dissect,
+  [409] = nyse_options_topfeed_xdp_v1_3_a.outright_trade_cancel_message.dissect,
+  [411] = nyse_options_topfeed_xdp_v1_3_a.outright_trade_correction_message.dissect,
+  [413] = nyse_options_topfeed_xdp_v1_3_a.outright_imbalance_message.dissect,
+  [415] = nyse_options_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.dissect,
+  [471] = nyse_options_topfeed_xdp_v1_3_a.outright_bold_rfq_message.dissect,
+  [417] = nyse_options_topfeed_xdp_v1_3_a.outright_summary_message.dissect,
+  [419] = nyse_options_topfeed_xdp_v1_3_a.underlying_status_message.dissect,
+  [421] = nyse_options_topfeed_xdp_v1_3_a.outright_series_status_message.dissect,
+  [501] = nyse_options_topfeed_xdp_v1_3_a.refresh_outright_quote_message.dissect,
+  [507] = nyse_options_topfeed_xdp_v1_3_a.refresh_outright_trade_message.dissect,
+  [509] = nyse_options_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.dissect,
+  [435] = nyse_options_topfeed_xdp_v1_3_a.underlying_index_mapping_message.dissect,
+  [437] = nyse_options_topfeed_xdp_v1_3_a.series_index_mapping_message.dissect,
+  [455] = nyse_options_topfeed_xdp_v1_3_a.stream_id_message.dissect,
+  [1] = nyse_options_topfeed_xdp_v1_3_a.sequence_number_reset_message.dissect,
+}
+
 nyse_options_topfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Outright Quote Message
-  if message_type == 401 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Trade Message
-  if message_type == 407 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Trade Cancel Message
-  if message_type == 409 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Trade Correction Message
-  if message_type == 411 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Imbalance Message
-  if message_type == 413 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Crossing Rfq Message
-  if message_type == 415 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Bold Rfq Message
-  if message_type == 471 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_bold_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Summary Message
-  if message_type == 417 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Status Message
-  if message_type == 419 then
-    return nyse_options_topfeed_xdp_v1_3_a.underlying_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Series Status Message
-  if message_type == 421 then
-    return nyse_options_topfeed_xdp_v1_3_a.outright_series_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Outright Quote Message
-  if message_type == 501 then
-    return nyse_options_topfeed_xdp_v1_3_a.refresh_outright_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Outright Trade Message
-  if message_type == 507 then
-    return nyse_options_topfeed_xdp_v1_3_a.refresh_outright_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Outright Imbalance Message
-  if message_type == 509 then
-    return nyse_options_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Index Mapping Message
-  if message_type == 435 then
-    return nyse_options_topfeed_xdp_v1_3_a.underlying_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Index Mapping Message
-  if message_type == 437 then
-    return nyse_options_topfeed_xdp_v1_3_a.series_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Id Message
-  if message_type == 455 then
-    return nyse_options_topfeed_xdp_v1_3_a.stream_id_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_options_topfeed_xdp_v1_3_a.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_options_topfeed_xdp_v1_3_a.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

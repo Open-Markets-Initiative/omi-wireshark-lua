@@ -177,21 +177,15 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.auction_status = {}
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.auction_status.size = 1
 
 -- Display: Auction Status
-nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.auction_status.display = function(value)
-  if value == 0 then
-    return "Auction Status: Will Run Open Close (0)"
-  end
-  if value == 1 then
-    return "Auction Status: Will Run Interest (1)"
-  end
-  if value == 2 then
-    return "Auction Status: Will Not Run Imbalance (2)"
-  end
-  if value == 3 then
-    return "Auction Status: Will Not Run Transition To Closing (3)"
-  end
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.auction_status.labels = {
+  [0] = "Auction Status: Will Run Open Close (0)",
+  [1] = "Auction Status: Will Run Interest (1)",
+  [2] = "Auction Status: Will Not Run Imbalance (2)",
+  [3] = "Auction Status: Will Not Run Transition To Closing (3)",
+}
 
-  return "Auction Status: Unknown("..value..")"
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.auction_status.display = function(value)
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.auction_status.labels[value] or "Auction Status: Unknown("..value..")"
 end
 
 -- Dissect: Auction Status
@@ -403,42 +397,22 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.delivery_flag = {}
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Xdp Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Xdp Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.delivery_flag.display = function(value)
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -519,15 +493,13 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.freeze_status = {}
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.freeze_status.size = 1
 
 -- Display: Freeze Status
-nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.freeze_status.display = function(value)
-  if value == 0 then
-    return "Freeze Status: No Imbalance Freeze (0)"
-  end
-  if value == 1 then
-    return "Freeze Status: Imbalance Freeze (1)"
-  end
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.freeze_status.labels = {
+  [0] = "Freeze Status: No Imbalance Freeze (0)",
+  [1] = "Freeze Status: Imbalance Freeze (1)",
+}
 
-  return "Freeze Status: Unknown("..value..")"
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.freeze_status.display = function(value)
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.freeze_status.labels[value] or "Freeze Status: Unknown("..value..")"
 end
 
 -- Dissect: Freeze Status
@@ -874,45 +846,23 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_type = {}
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_type.size = 2
 
 -- Display: Message Type
-nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 105 then
-    return "Message Type: Imbalance Message (105)"
-  end
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [3] = "Message Type: Symbol Index Mapping Message (3)",
+  [10] = "Message Type: Retransmission Request Message (10)",
+  [11] = "Message Type: Request Response Message (11)",
+  [12] = "Message Type: Heartbeat Response Message (12)",
+  [13] = "Message Type: Symbol Index Mapping Request Message (13)",
+  [15] = "Message Type: Refresh Request Message (15)",
+  [31] = "Message Type: Message Unavailable Message (31)",
+  [32] = "Message Type: Symbol Clear Message (32)",
+  [34] = "Message Type: Security Status Message (34)",
+  [35] = "Message Type: Refresh Header Message (35)",
+  [105] = "Message Type: Imbalance Message (105)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_type.display = function(value)
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -2882,54 +2832,25 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload = {}
 
 -- Dissect: Payload
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload.dispatch = {
+  [1] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.sequence_number_reset_message.dissect,
+  [3] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_message.dissect,
+  [10] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.retransmission_request_message.dissect,
+  [11] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.request_response_message.dissect,
+  [12] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.heartbeat_response_message.dissect,
+  [13] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_request_message.dissect,
+  [15] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.refresh_request_message.dissect,
+  [31] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_unavailable_message.dissect,
+  [32] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.symbol_clear_message.dissect,
+  [34] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.security_status_message.dissect,
+  [35] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.refresh_header_message.dissect,
+  [105] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.imbalance_message.dissect,
+}
+
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 10 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 11 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.request_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.heartbeat_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Request Message
-  if message_type == 15 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if message_type == 31 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Clear Message
-  if message_type == 32 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 34 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Header Message
-  if message_type == 35 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.refresh_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Imbalance Message
-  if message_type == 105 then
-    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.imbalance_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

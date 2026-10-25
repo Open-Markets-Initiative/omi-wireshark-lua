@@ -305,15 +305,13 @@ finra_trace_btds_dfi_v2_1.action = {}
 finra_trace_btds_dfi_v2_1.action.size = 1
 
 -- Display: Action
-finra_trace_btds_dfi_v2_1.action.display = function(value)
-  if value == "H" then
-    return "Action: Trading Halt (H)"
-  end
-  if value == "R" then
-    return "Action: Trading Resumption (R)"
-  end
+finra_trace_btds_dfi_v2_1.action.labels = {
+  ["H"] = "Action: Trading Halt (H)",
+  ["R"] = "Action: Trading Resumption (R)",
+}
 
-  return "Action: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.action.display = function(value)
+  return finra_trace_btds_dfi_v2_1.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -335,39 +333,21 @@ finra_trace_btds_dfi_v2_1.administrative_message_type = {}
 finra_trace_btds_dfi_v2_1.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
-finra_trace_btds_dfi_v2_1.administrative_message_type.display = function(value)
-  if value == "E" then
-    return "Administrative Message Type: Daily Trade Summary Message (E)"
-  end
-  if value == "H" then
-    return "Administrative Message Type: Trading Halt Message (H)"
-  end
-  if value == "A" then
-    return "Administrative Message Type: General Administrative Message (A)"
-  end
-  if value == "1" then
-    return "Administrative Message Type: Market Breadth Message (1)"
-  end
-  if value == "2" then
-    return "Administrative Message Type: Market Sentiment All Securities Message (2)"
-  end
-  if value == "3" then
-    return "Administrative Message Type: Market Sentiment Investment Grade Message (3)"
-  end
-  if value == "4" then
-    return "Administrative Message Type: Market Sentiment High Yield Message (4)"
-  end
-  if value == "5" then
-    return "Administrative Message Type: Market Sentiment Convertible Bonds Message (5)"
-  end
-  if value == "6" then
-    return "Administrative Message Type: Market Sentiment Church Bonds Message (6)"
-  end
-  if value == "7" then
-    return "Administrative Message Type: Market Sentiment Equity Linked Notes Message (7)"
-  end
+finra_trace_btds_dfi_v2_1.administrative_message_type.labels = {
+  ["E"] = "Administrative Message Type: Daily Trade Summary Message (E)",
+  ["H"] = "Administrative Message Type: Trading Halt Message (H)",
+  ["A"] = "Administrative Message Type: General Administrative Message (A)",
+  ["1"] = "Administrative Message Type: Market Breadth Message (1)",
+  ["2"] = "Administrative Message Type: Market Sentiment All Securities Message (2)",
+  ["3"] = "Administrative Message Type: Market Sentiment Investment Grade Message (3)",
+  ["4"] = "Administrative Message Type: Market Sentiment High Yield Message (4)",
+  ["5"] = "Administrative Message Type: Market Sentiment Convertible Bonds Message (5)",
+  ["6"] = "Administrative Message Type: Market Sentiment Church Bonds Message (6)",
+  ["7"] = "Administrative Message Type: Market Sentiment Equity Linked Notes Message (7)",
+}
 
-  return "Administrative Message Type: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.administrative_message_type.display = function(value)
+  return finra_trace_btds_dfi_v2_1.administrative_message_type.labels[value] or "Administrative Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Administrative Message Type
@@ -599,33 +579,19 @@ finra_trace_btds_dfi_v2_1.change_indicator = {}
 finra_trace_btds_dfi_v2_1.change_indicator.size = 1
 
 -- Display: Change Indicator
-finra_trace_btds_dfi_v2_1.change_indicator.display = function(value)
-  if value == 0 then
-    return "Change Indicator: No Price Yield Changed (0)"
-  end
-  if value == 1 then
-    return "Change Indicator: Last Price Yield Changed (1)"
-  end
-  if value == 2 then
-    return "Change Indicator: Low Price Yield Changed (2)"
-  end
-  if value == 3 then
-    return "Change Indicator: Last Price Yield And Low Price Yield Changed (3)"
-  end
-  if value == 4 then
-    return "Change Indicator: High Price Yield Changed (4)"
-  end
-  if value == 5 then
-    return "Change Indicator: Last Price Yield And High Price Yield Changed (5)"
-  end
-  if value == 6 then
-    return "Change Indicator: High Price Yield And Low Price Yield Changed (6)"
-  end
-  if value == 7 then
-    return "Change Indicator: All Prices Yields Changed (7)"
-  end
+finra_trace_btds_dfi_v2_1.change_indicator.labels = {
+  [0] = "Change Indicator: No Price Yield Changed (0)",
+  [1] = "Change Indicator: Last Price Yield Changed (1)",
+  [2] = "Change Indicator: Low Price Yield Changed (2)",
+  [3] = "Change Indicator: Last Price Yield And Low Price Yield Changed (3)",
+  [4] = "Change Indicator: High Price Yield Changed (4)",
+  [5] = "Change Indicator: Last Price Yield And High Price Yield Changed (5)",
+  [6] = "Change Indicator: High Price Yield And Low Price Yield Changed (6)",
+  [7] = "Change Indicator: All Prices Yields Changed (7)",
+}
 
-  return "Change Indicator: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.change_indicator.display = function(value)
+  return finra_trace_btds_dfi_v2_1.change_indicator.labels[value] or "Change Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Change Indicator
@@ -685,21 +651,15 @@ finra_trace_btds_dfi_v2_1.contra_party_type = {}
 finra_trace_btds_dfi_v2_1.contra_party_type.size = 1
 
 -- Display: Contra Party Type
-finra_trace_btds_dfi_v2_1.contra_party_type.display = function(value)
-  if value == "D" then
-    return "Contra Party Type: Contra Party Is A Broker Dealer (D)"
-  end
-  if value == "C" then
-    return "Contra Party Type: Contra Party Is A Customer Non Finra Member (C)"
-  end
-  if value == "A" then
-    return "Contra Party Type: Contra Party Is A Nonmember Affiliate (A)"
-  end
-  if value == "T" then
-    return "Contra Party Type: Contra Party Is An Alternative Trading System Ats (T)"
-  end
+finra_trace_btds_dfi_v2_1.contra_party_type.labels = {
+  ["D"] = "Contra Party Type: Contra Party Is A Broker Dealer (D)",
+  ["C"] = "Contra Party Type: Contra Party Is A Customer Non Finra Member (C)",
+  ["A"] = "Contra Party Type: Contra Party Is A Nonmember Affiliate (A)",
+  ["T"] = "Contra Party Type: Contra Party Is An Alternative Trading System Ats (T)",
+}
 
-  return "Contra Party Type: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.contra_party_type.display = function(value)
+  return finra_trace_btds_dfi_v2_1.contra_party_type.labels[value] or "Contra Party Type: Unknown("..value..")"
 end
 
 -- Dissect: Contra Party Type
@@ -721,27 +681,17 @@ finra_trace_btds_dfi_v2_1.control_message_type = {}
 finra_trace_btds_dfi_v2_1.control_message_type.size = 1
 
 -- Display: Control Message Type
-finra_trace_btds_dfi_v2_1.control_message_type.display = function(value)
-  if value == "I" then
-    return "Control Message Type: Start Of Day Message (I)"
-  end
-  if value == "J" then
-    return "Control Message Type: End Of Day Message (J)"
-  end
-  if value == "O" then
-    return "Control Message Type: Market Session Open Message (O)"
-  end
-  if value == "C" then
-    return "Control Message Type: Market Session Close Message (C)"
-  end
-  if value == "X" then
-    return "Control Message Type: End Of Trade Reporting Message (X)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Transmissions Message (Z)"
-  end
+finra_trace_btds_dfi_v2_1.control_message_type.labels = {
+  ["I"] = "Control Message Type: Start Of Day Message (I)",
+  ["J"] = "Control Message Type: End Of Day Message (J)",
+  ["O"] = "Control Message Type: Market Session Open Message (O)",
+  ["C"] = "Control Message Type: Market Session Close Message (C)",
+  ["X"] = "Control Message Type: End Of Trade Reporting Message (X)",
+  ["Z"] = "Control Message Type: End Of Transmissions Message (Z)",
+}
 
-  return "Control Message Type: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.control_message_type.display = function(value)
+  return finra_trace_btds_dfi_v2_1.control_message_type.labels[value] or "Control Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Control Message Type
@@ -1505,27 +1455,17 @@ finra_trace_btds_dfi_v2_1.halt_reason = {}
 finra_trace_btds_dfi_v2_1.halt_reason.size = 4
 
 -- Display: Halt Reason
-finra_trace_btds_dfi_v2_1.halt_reason.display = function(value)
-  if value == "T.1" then
-    return "Halt Reason: Halt News Pending (T.1)"
-  end
-  if value == "T.2" then
-    return "Halt Reason: Halt News Released (T.2)"
-  end
-  if value == "T.3" then
-    return "Halt Reason: Halt News And Resumption Times (T.3)"
-  end
-  if value == "T.12" then
-    return "Halt Reason: Halt Additional Information Requested By Finra (T.12)"
-  end
-  if value == "H.10" then
-    return "Halt Reason: Halt Sec Trading Suspension (H.10)"
-  end
-  if value == "H.11" then
-    return "Halt Reason: Halt Regulatory Concerns (H.11)"
-  end
+finra_trace_btds_dfi_v2_1.halt_reason.labels = {
+  ["T.1"] = "Halt Reason: Halt News Pending (T.1)",
+  ["T.2"] = "Halt Reason: Halt News Released (T.2)",
+  ["T.3"] = "Halt Reason: Halt News And Resumption Times (T.3)",
+  ["T.12"] = "Halt Reason: Halt Additional Information Requested By Finra (T.12)",
+  ["H.10"] = "Halt Reason: Halt Sec Trading Suspension (H.10)",
+  ["H.11"] = "Halt Reason: Halt Regulatory Concerns (H.11)",
+}
 
-  return "Halt Reason: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.halt_reason.display = function(value)
+  return finra_trace_btds_dfi_v2_1.halt_reason.labels[value] or "Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Halt Reason
@@ -1984,12 +1924,12 @@ finra_trace_btds_dfi_v2_1.market_center_originator_id = {}
 finra_trace_btds_dfi_v2_1.market_center_originator_id.size = 1
 
 -- Display: Market Center Originator Id
-finra_trace_btds_dfi_v2_1.market_center_originator_id.display = function(value)
-  if value == "O" then
-    return "Market Center Originator Id: Over The Counter (O)"
-  end
+finra_trace_btds_dfi_v2_1.market_center_originator_id.labels = {
+  ["O"] = "Market Center Originator Id: Over The Counter (O)",
+}
 
-  return "Market Center Originator Id: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.market_center_originator_id.display = function(value)
+  return finra_trace_btds_dfi_v2_1.market_center_originator_id.labels[value] or "Market Center Originator Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Center Originator Id
@@ -2011,18 +1951,14 @@ finra_trace_btds_dfi_v2_1.message_category = {}
 finra_trace_btds_dfi_v2_1.message_category.size = 1
 
 -- Display: Message Category
-finra_trace_btds_dfi_v2_1.message_category.display = function(value)
-  if value == "T" then
-    return "Message Category: Trade (T)"
-  end
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
+finra_trace_btds_dfi_v2_1.message_category.labels = {
+  ["T"] = "Message Category: Trade (T)",
+  ["A"] = "Message Category: Administrative (A)",
+  ["C"] = "Message Category: Control (C)",
+}
 
-  return "Message Category: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.message_category.display = function(value)
+  return finra_trace_btds_dfi_v2_1.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -2205,15 +2141,13 @@ finra_trace_btds_dfi_v2_1.quantity_indicator = {}
 finra_trace_btds_dfi_v2_1.quantity_indicator.size = 1
 
 -- Display: Quantity Indicator
-finra_trace_btds_dfi_v2_1.quantity_indicator.display = function(value)
-  if value == "A" then
-    return "Quantity Indicator: Actual (A)"
-  end
-  if value == "E" then
-    return "Quantity Indicator: Estimated (E)"
-  end
+finra_trace_btds_dfi_v2_1.quantity_indicator.labels = {
+  ["A"] = "Quantity Indicator: Actual (A)",
+  ["E"] = "Quantity Indicator: Estimated (E)",
+}
 
-  return "Quantity Indicator: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.quantity_indicator.display = function(value)
+  return finra_trace_btds_dfi_v2_1.quantity_indicator.labels[value] or "Quantity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Quantity Indicator
@@ -2271,18 +2205,14 @@ finra_trace_btds_dfi_v2_1.report_function = {}
 finra_trace_btds_dfi_v2_1.report_function.size = 1
 
 -- Display: Report Function
-finra_trace_btds_dfi_v2_1.report_function.display = function(value)
-  if value == "C" then
-    return "Report Function: Cancel (C)"
-  end
-  if value == "E" then
-    return "Report Function: Error (E)"
-  end
-  if value == "N" then
-    return "Report Function: Correction (N)"
-  end
+finra_trace_btds_dfi_v2_1.report_function.labels = {
+  ["C"] = "Report Function: Cancel (C)",
+  ["E"] = "Report Function: Error (E)",
+  ["N"] = "Report Function: Correction (N)",
+}
 
-  return "Report Function: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.report_function.display = function(value)
+  return finra_trace_btds_dfi_v2_1.report_function.labels[value] or "Report Function: Unknown("..value..")"
 end
 
 -- Dissect: Report Function
@@ -2304,15 +2234,13 @@ finra_trace_btds_dfi_v2_1.reporting_party_type = {}
 finra_trace_btds_dfi_v2_1.reporting_party_type.size = 1
 
 -- Display: Reporting Party Type
-finra_trace_btds_dfi_v2_1.reporting_party_type.display = function(value)
-  if value == "D" then
-    return "Reporting Party Type: Reporting Party Is A Broker Dealer (D)"
-  end
-  if value == "T" then
-    return "Reporting Party Type: Reporting Party Is An Alternative Trading System Ats (T)"
-  end
+finra_trace_btds_dfi_v2_1.reporting_party_type.labels = {
+  ["D"] = "Reporting Party Type: Reporting Party Is A Broker Dealer (D)",
+  ["T"] = "Reporting Party Type: Reporting Party Is An Alternative Trading System Ats (T)",
+}
 
-  return "Reporting Party Type: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.reporting_party_type.display = function(value)
+  return finra_trace_btds_dfi_v2_1.reporting_party_type.labels[value] or "Reporting Party Type: Unknown("..value..")"
 end
 
 -- Dissect: Reporting Party Type
@@ -2480,15 +2408,13 @@ finra_trace_btds_dfi_v2_1.side = {}
 finra_trace_btds_dfi_v2_1.side.size = 1
 
 -- Display: Side
-finra_trace_btds_dfi_v2_1.side.display = function(value)
-  if value == "B" then
-    return "Side: Reporting Party Bought From Contra Party (B)"
-  end
-  if value == "S" then
-    return "Side: Reporting Party Sold To Contra Party (S)"
-  end
+finra_trace_btds_dfi_v2_1.side.labels = {
+  ["B"] = "Side: Reporting Party Bought From Contra Party (B)",
+  ["S"] = "Side: Reporting Party Sold To Contra Party (S)",
+}
 
-  return "Side: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.side.display = function(value)
+  return finra_trace_btds_dfi_v2_1.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2540,18 +2466,14 @@ finra_trace_btds_dfi_v2_1.sub_product_type = {}
 finra_trace_btds_dfi_v2_1.sub_product_type.size = 5
 
 -- Display: Sub Product Type
-finra_trace_btds_dfi_v2_1.sub_product_type.display = function(value)
-  if value == "CORP" then
-    return "Sub Product Type: Corporate Bond (CORP)"
-  end
-  if value == "ELN" then
-    return "Sub Product Type: Equity Linked Note (ELN)"
-  end
-  if value == "CHRC" then
-    return "Sub Product Type: Church Bond (CHRC)"
-  end
+finra_trace_btds_dfi_v2_1.sub_product_type.labels = {
+  ["CORP"] = "Sub Product Type: Corporate Bond (CORP)",
+  ["ELN"] = "Sub Product Type: Equity Linked Note (ELN)",
+  ["CHRC"] = "Sub Product Type: Church Bond (CHRC)",
+}
 
-  return "Sub Product Type: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.sub_product_type.display = function(value)
+  return finra_trace_btds_dfi_v2_1.sub_product_type.labels[value] or "Sub Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Sub Product Type
@@ -3390,18 +3312,14 @@ finra_trace_btds_dfi_v2_1.trade_message_type = {}
 finra_trace_btds_dfi_v2_1.trade_message_type.size = 1
 
 -- Display: Trade Message Type
-finra_trace_btds_dfi_v2_1.trade_message_type.display = function(value)
-  if value == "M" then
-    return "Trade Message Type: Trade Report Message (M)"
-  end
-  if value == "N" then
-    return "Trade Message Type: Trade Cancel Message (N)"
-  end
-  if value == "O" then
-    return "Trade Message Type: Trade Correction Message (O)"
-  end
+finra_trace_btds_dfi_v2_1.trade_message_type.labels = {
+  ["M"] = "Trade Message Type: Trade Report Message (M)",
+  ["N"] = "Trade Message Type: Trade Cancel Message (N)",
+  ["O"] = "Trade Message Type: Trade Correction Message (O)",
+}
 
-  return "Trade Message Type: Unknown("..value..")"
+finra_trace_btds_dfi_v2_1.trade_message_type.display = function(value)
+  return finra_trace_btds_dfi_v2_1.trade_message_type.labels[value] or "Trade Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Message Type
@@ -4033,30 +3951,19 @@ end
 finra_trace_btds_dfi_v2_1.control_message_payload = {}
 
 -- Dissect: Control Message Payload
+finra_trace_btds_dfi_v2_1.control_message_payload.dispatch = {
+  ["I"] = finra_trace_btds_dfi_v2_1.start_of_day_message.dissect,
+  ["J"] = finra_trace_btds_dfi_v2_1.end_of_day_message.dissect,
+  ["O"] = finra_trace_btds_dfi_v2_1.market_session_open_message.dissect,
+  ["C"] = finra_trace_btds_dfi_v2_1.market_session_close_message.dissect,
+  ["X"] = finra_trace_btds_dfi_v2_1.end_of_trade_reporting_message.dissect,
+  ["Z"] = finra_trace_btds_dfi_v2_1.end_of_transmissions_message.dissect,
+}
+
 finra_trace_btds_dfi_v2_1.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Dissect Start Of Day Message
-  if control_message_type == "I" then
-    return finra_trace_btds_dfi_v2_1.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if control_message_type == "J" then
-    return finra_trace_btds_dfi_v2_1.end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Open Message
-  if control_message_type == "O" then
-    return finra_trace_btds_dfi_v2_1.market_session_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Close Message
-  if control_message_type == "C" then
-    return finra_trace_btds_dfi_v2_1.market_session_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Trade Reporting Message
-  if control_message_type == "X" then
-    return finra_trace_btds_dfi_v2_1.end_of_trade_reporting_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Transmissions Message
-  if control_message_type == "Z" then
-    return finra_trace_btds_dfi_v2_1.end_of_transmissions_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_trace_btds_dfi_v2_1.control_message_payload.dispatch[control_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4996,46 +4903,23 @@ end
 finra_trace_btds_dfi_v2_1.administrative_message_payload = {}
 
 -- Dissect: Administrative Message Payload
+finra_trace_btds_dfi_v2_1.administrative_message_payload.dispatch = {
+  ["E"] = finra_trace_btds_dfi_v2_1.daily_trade_summary_message.dissect,
+  ["H"] = finra_trace_btds_dfi_v2_1.trading_halt_message.dissect,
+  ["A"] = finra_trace_btds_dfi_v2_1.general_administrative_message.dissect,
+  ["1"] = finra_trace_btds_dfi_v2_1.market_breadth_message.dissect,
+  ["2"] = finra_trace_btds_dfi_v2_1.market_sentiment_all_securities_message.dissect,
+  ["3"] = finra_trace_btds_dfi_v2_1.market_sentiment_investment_grade_message.dissect,
+  ["4"] = finra_trace_btds_dfi_v2_1.market_sentiment_high_yield_message.dissect,
+  ["5"] = finra_trace_btds_dfi_v2_1.market_sentiment_convertible_bonds_message.dissect,
+  ["6"] = finra_trace_btds_dfi_v2_1.market_sentiment_church_bonds_message.dissect,
+  ["7"] = finra_trace_btds_dfi_v2_1.market_sentiment_equity_linked_notes_message.dissect,
+}
+
 finra_trace_btds_dfi_v2_1.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect Daily Trade Summary Message
-  if administrative_message_type == "E" then
-    return finra_trace_btds_dfi_v2_1.daily_trade_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Halt Message
-  if administrative_message_type == "H" then
-    return finra_trace_btds_dfi_v2_1.trading_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect General Administrative Message
-  if administrative_message_type == "A" then
-    return finra_trace_btds_dfi_v2_1.general_administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Breadth Message
-  if administrative_message_type == "1" then
-    return finra_trace_btds_dfi_v2_1.market_breadth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Sentiment All Securities Message
-  if administrative_message_type == "2" then
-    return finra_trace_btds_dfi_v2_1.market_sentiment_all_securities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Sentiment Investment Grade Message
-  if administrative_message_type == "3" then
-    return finra_trace_btds_dfi_v2_1.market_sentiment_investment_grade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Sentiment High Yield Message
-  if administrative_message_type == "4" then
-    return finra_trace_btds_dfi_v2_1.market_sentiment_high_yield_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Sentiment Convertible Bonds Message
-  if administrative_message_type == "5" then
-    return finra_trace_btds_dfi_v2_1.market_sentiment_convertible_bonds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Sentiment Church Bonds Message
-  if administrative_message_type == "6" then
-    return finra_trace_btds_dfi_v2_1.market_sentiment_church_bonds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Sentiment Equity Linked Notes Message
-  if administrative_message_type == "7" then
-    return finra_trace_btds_dfi_v2_1.market_sentiment_equity_linked_notes_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_trace_btds_dfi_v2_1.administrative_message_payload.dispatch[administrative_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5842,18 +5726,16 @@ end
 finra_trace_btds_dfi_v2_1.trade_message_payload = {}
 
 -- Dissect: Trade Message Payload
+finra_trace_btds_dfi_v2_1.trade_message_payload.dispatch = {
+  ["M"] = finra_trace_btds_dfi_v2_1.trade_report_message.dissect,
+  ["N"] = finra_trace_btds_dfi_v2_1.trade_cancel_message.dissect,
+  ["O"] = finra_trace_btds_dfi_v2_1.trade_correction_message.dissect,
+}
+
 finra_trace_btds_dfi_v2_1.trade_message_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  -- Dissect Trade Report Message
-  if trade_message_type == "M" then
-    return finra_trace_btds_dfi_v2_1.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if trade_message_type == "N" then
-    return finra_trace_btds_dfi_v2_1.trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if trade_message_type == "O" then
-    return finra_trace_btds_dfi_v2_1.trade_correction_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_trace_btds_dfi_v2_1.trade_message_payload.dispatch[trade_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5916,18 +5798,16 @@ end
 finra_trace_btds_dfi_v2_1.payload = {}
 
 -- Dissect: Payload
+finra_trace_btds_dfi_v2_1.payload.dispatch = {
+  ["T"] = finra_trace_btds_dfi_v2_1.trade_message.dissect,
+  ["A"] = finra_trace_btds_dfi_v2_1.administrative_message.dissect,
+  ["C"] = finra_trace_btds_dfi_v2_1.control_message.dissect,
+}
+
 finra_trace_btds_dfi_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Trade Message
-  if message_category == "T" then
-    return finra_trace_btds_dfi_v2_1.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Administrative Message
-  if message_category == "A" then
-    return finra_trace_btds_dfi_v2_1.administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if message_category == "C" then
-    return finra_trace_btds_dfi_v2_1.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_trace_btds_dfi_v2_1.payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

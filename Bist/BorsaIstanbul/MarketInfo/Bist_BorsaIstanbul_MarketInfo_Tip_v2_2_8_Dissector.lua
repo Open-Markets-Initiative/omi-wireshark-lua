@@ -10819,24 +10819,16 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.client_packet_type = {}
 bist_borsaistanbul_marketinfo_tip_v2_2_8.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-bist_borsaistanbul_marketinfo_tip_v2_2_8.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+bist_borsaistanbul_marketinfo_tip_v2_2_8.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+bist_borsaistanbul_marketinfo_tip_v2_2_8.client_packet_type.display = function(value)
+  return bist_borsaistanbul_marketinfo_tip_v2_2_8.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -10923,15 +10915,13 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.reject_reason_code = {}
 bist_borsaistanbul_marketinfo_tip_v2_2_8.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-bist_borsaistanbul_marketinfo_tip_v2_2_8.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+bist_borsaistanbul_marketinfo_tip_v2_2_8.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+bist_borsaistanbul_marketinfo_tip_v2_2_8.reject_reason_code.display = function(value)
+  return bist_borsaistanbul_marketinfo_tip_v2_2_8.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -11049,27 +11039,17 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.server_packet_type = {}
 bist_borsaistanbul_marketinfo_tip_v2_2_8.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-bist_borsaistanbul_marketinfo_tip_v2_2_8.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+bist_borsaistanbul_marketinfo_tip_v2_2_8.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+bist_borsaistanbul_marketinfo_tip_v2_2_8.server_packet_type.display = function(value)
+  return bist_borsaistanbul_marketinfo_tip_v2_2_8.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -11369,30 +11349,19 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload = {}
 
 -- Dissect: Server Payload
+bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload.dispatch = {
+  ["+"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.debug_packet.dissect,
+  ["A"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.login_accepted_packet.dissect,
+  ["J"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.login_rejected_packet.dissect,
+  ["S"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.sequenced_data_packet.dissect,
+  ["H"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.server_heartbeat.dissect,
+  ["Z"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.end_of_session.dissect,
+}
+
 bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -11703,26 +11672,18 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload = {}
 
 -- Dissect: Client Payload
+bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload.dispatch = {
+  ["+"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.debug_packet.dissect,
+  ["L"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.login_request_packet.dissect,
+  ["U"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.unsequenced_data_packet.dissect,
+  ["R"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.client_heartbeat.dissect,
+  ["O"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.logout_request.dissect,
+}
+
 bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return bist_borsaistanbul_marketinfo_tip_v2_2_8.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

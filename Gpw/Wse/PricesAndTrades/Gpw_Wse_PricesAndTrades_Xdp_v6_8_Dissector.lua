@@ -247,15 +247,13 @@ gpw_wse_pricesandtrades_xdp_v6_8.closing_price_rule = {}
 gpw_wse_pricesandtrades_xdp_v6_8.closing_price_rule.size = 2
 
 -- Display: Closing Price Rule
-gpw_wse_pricesandtrades_xdp_v6_8.closing_price_rule.display = function(value)
-  if value == 1 then
-    return "Closing Price Rule: Ltp Last Traded Price (1)"
-  end
-  if value == 2 then
-    return "Closing Price Rule: Vwap Volume Weighted Average Price Not Provided For Derivatives (2)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.closing_price_rule.labels = {
+  [1] = "Closing Price Rule: Ltp Last Traded Price (1)",
+  [2] = "Closing Price Rule: Vwap Volume Weighted Average Price Not Provided For Derivatives (2)",
+}
 
-  return "Closing Price Rule: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.closing_price_rule.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.closing_price_rule.labels[value] or "Closing Price Rule: Unknown("..value..")"
 end
 
 -- Dissect: Closing Price Rule
@@ -300,24 +298,16 @@ gpw_wse_pricesandtrades_xdp_v6_8.delivery_flag = {}
 gpw_wse_pricesandtrades_xdp_v6_8.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-gpw_wse_pricesandtrades_xdp_v6_8.delivery_flag.display = function(value)
-  if value == 0 then
-    return "Delivery Flag: Real Time Message Uncompressed (0)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Retransmission Message Uncompressed (2)"
-  end
-  if value == 16 then
-    return "Delivery Flag: Real Time Message Zlib Compressed (16)"
-  end
-  if value == 17 then
-    return "Delivery Flag: Refresh Message Zlib Compressed (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Retransmission Message Compressed (18)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.delivery_flag.labels = {
+  [0] = "Delivery Flag: Real Time Message Uncompressed (0)",
+  [2] = "Delivery Flag: Retransmission Message Uncompressed (2)",
+  [16] = "Delivery Flag: Real Time Message Zlib Compressed (16)",
+  [17] = "Delivery Flag: Refresh Message Zlib Compressed (17)",
+  [18] = "Delivery Flag: Retransmission Message Compressed (18)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.delivery_flag.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -431,15 +421,13 @@ gpw_wse_pricesandtrades_xdp_v6_8.instrument_valuation_price = {}
 gpw_wse_pricesandtrades_xdp_v6_8.instrument_valuation_price.size = 1
 
 -- Display: Instrument Valuation Price
-gpw_wse_pricesandtrades_xdp_v6_8.instrument_valuation_price.display = function(value)
-  if value == "0" then
-    return "Instrument Valuation Price: Not A Valuation Price (0)"
-  end
-  if value == "1" then
-    return "Instrument Valuation Price: Valuation Price (1)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.instrument_valuation_price.labels = {
+  ["0"] = "Instrument Valuation Price: Not A Valuation Price (0)",
+  ["1"] = "Instrument Valuation Price: Valuation Price (1)",
+}
 
-  return "Instrument Valuation Price: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.instrument_valuation_price.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.instrument_valuation_price.labels[value] or "Instrument Valuation Price: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Valuation Price
@@ -484,15 +472,13 @@ gpw_wse_pricesandtrades_xdp_v6_8.last_trade_indicator = {}
 gpw_wse_pricesandtrades_xdp_v6_8.last_trade_indicator.size = 1
 
 -- Display: Last Trade Indicator
-gpw_wse_pricesandtrades_xdp_v6_8.last_trade_indicator.display = function(value)
-  if value == "0" then
-    return "Last Trade Indicator: Not Last Of A Series Of Trade At The Same Price (0)"
-  end
-  if value == "1" then
-    return "Last Trade Indicator: Last Of A Series Of Trade At The Same Price And (1)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.last_trade_indicator.labels = {
+  ["0"] = "Last Trade Indicator: Not Last Of A Series Of Trade At The Same Price (0)",
+  ["1"] = "Last Trade Indicator: Last Of A Series Of Trade At The Same Price And (1)",
+}
 
-  return "Last Trade Indicator: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.last_trade_indicator.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.last_trade_indicator.labels[value] or "Last Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Last Trade Indicator
@@ -560,24 +546,16 @@ gpw_wse_pricesandtrades_xdp_v6_8.message_type = {}
 gpw_wse_pricesandtrades_xdp_v6_8.message_type.size = 2
 
 -- Display: Message Type
-gpw_wse_pricesandtrades_xdp_v6_8.message_type.display = function(value)
-  if value == 240 then
-    return "Message Type: Trade Full Information Message (240)"
-  end
-  if value == 241 then
-    return "Message Type: Price Update Message (241)"
-  end
-  if value == 243 then
-    return "Message Type: Trade Publication Message (243)"
-  end
-  if value == 245 then
-    return "Message Type: Auction Summary Message (245)"
-  end
-  if value == 247 then
-    return "Message Type: Vwap Closing Price Message (247)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.message_type.labels = {
+  [240] = "Message Type: Trade Full Information Message (240)",
+  [241] = "Message Type: Price Update Message (241)",
+  [243] = "Message Type: Trade Publication Message (243)",
+  [245] = "Message Type: Auction Summary Message (245)",
+  [247] = "Message Type: Vwap Closing Price Message (247)",
+}
 
-  return "Message Type: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.message_type.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1069,12 +1047,12 @@ gpw_wse_pricesandtrades_xdp_v6_8.packet_type = {}
 gpw_wse_pricesandtrades_xdp_v6_8.packet_type.size = 2
 
 -- Display: Packet Type
-gpw_wse_pricesandtrades_xdp_v6_8.packet_type.display = function(value)
-  if value == 501 then
-    return "Packet Type: Market Data Messages (501)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.packet_type.labels = {
+  [501] = "Packet Type: Market Data Messages (501)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.packet_type.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -1418,15 +1396,13 @@ gpw_wse_pricesandtrades_xdp_v6_8.sending_indicator = {}
 gpw_wse_pricesandtrades_xdp_v6_8.sending_indicator.size = 2
 
 -- Display: Sending Indicator
-gpw_wse_pricesandtrades_xdp_v6_8.sending_indicator.display = function(value)
-  if value == 1 then
-    return "Sending Indicator: Real Time Not Used For Wse (1)"
-  end
-  if value == 2 then
-    return "Sending Indicator: Batch Mode (2)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.sending_indicator.labels = {
+  [1] = "Sending Indicator: Real Time Not Used For Wse (1)",
+  [2] = "Sending Indicator: Batch Mode (2)",
+}
 
-  return "Sending Indicator: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.sending_indicator.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.sending_indicator.labels[value] or "Sending Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Sending Indicator
@@ -1583,18 +1559,14 @@ gpw_wse_pricesandtrades_xdp_v6_8.system_id = {}
 gpw_wse_pricesandtrades_xdp_v6_8.system_id.size = 4
 
 -- Display: System Id
-gpw_wse_pricesandtrades_xdp_v6_8.system_id.display = function(value)
-  if value == 1 then
-    return "System Id: All Non Utp Systems (1)"
-  end
-  if value == 11 then
-    return "System Id: Utp Trading Unit 1 (11)"
-  end
-  if value == 12 then
-    return "System Id: Utp Trading Unit 2 (12)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.system_id.labels = {
+  [1] = "System Id: All Non Utp Systems (1)",
+  [11] = "System Id: Utp Trading Unit 1 (11)",
+  [12] = "System Id: Utp Trading Unit 2 (12)",
+}
 
-  return "System Id: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.system_id.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.system_id.labels[value] or "System Id: Unknown("..value..")"
 end
 
 -- Dissect: System Id
@@ -1639,18 +1611,14 @@ gpw_wse_pricesandtrades_xdp_v6_8.tick_direction = {}
 gpw_wse_pricesandtrades_xdp_v6_8.tick_direction.size = 1
 
 -- Display: Tick Direction
-gpw_wse_pricesandtrades_xdp_v6_8.tick_direction.display = function(value)
-  if value == "+" then
-    return "Tick Direction: Positive Rising (+)"
-  end
-  if value == "-" then
-    return "Tick Direction: Negative Falling (-)"
-  end
-  if value == "0" then
-    return "Tick Direction: No Variation Unchanged Or Data Field Not Significant Used For Trade Cancellation (0)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.tick_direction.labels = {
+  ["+"] = "Tick Direction: Positive Rising (+)",
+  ["-"] = "Tick Direction: Negative Falling (-)",
+  ["0"] = "Tick Direction: No Variation Unchanged Or Data Field Not Significant Used For Trade Cancellation (0)",
+}
 
-  return "Tick Direction: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.tick_direction.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.tick_direction.labels[value] or "Tick Direction: Unknown("..value..")"
 end
 
 -- Dissect: Tick Direction
@@ -1695,27 +1663,17 @@ gpw_wse_pricesandtrades_xdp_v6_8.trade_origin = {}
 gpw_wse_pricesandtrades_xdp_v6_8.trade_origin.size = 1
 
 -- Display: Trade Origin
-gpw_wse_pricesandtrades_xdp_v6_8.trade_origin.display = function(value)
-  if value == "B" then
-    return "Trade Origin: Orders From The Book (B)"
-  end
-  if value == "O" then
-    return "Trade Origin: Block Trade (O)"
-  end
-  if value == "I" then
-    return "Trade Origin: Ipo Trade (I)"
-  end
-  if value == "T" then
-    return "Trade Origin: Tender Offer Trade (T)"
-  end
-  if value == "S" then
-    return "Trade Origin: Biso Trade (S)"
-  end
-  if value == "R" then
-    return "Trade Origin: Trade Reporting For Future Use (R)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.trade_origin.labels = {
+  ["B"] = "Trade Origin: Orders From The Book (B)",
+  ["O"] = "Trade Origin: Block Trade (O)",
+  ["I"] = "Trade Origin: Ipo Trade (I)",
+  ["T"] = "Trade Origin: Tender Offer Trade (T)",
+  ["S"] = "Trade Origin: Biso Trade (S)",
+  ["R"] = "Trade Origin: Trade Reporting For Future Use (R)",
+}
 
-  return "Trade Origin: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.trade_origin.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.trade_origin.labels[value] or "Trade Origin: Unknown("..value..")"
 end
 
 -- Dissect: Trade Origin
@@ -1806,15 +1764,13 @@ gpw_wse_pricesandtrades_xdp_v6_8.type_of_last_price = {}
 gpw_wse_pricesandtrades_xdp_v6_8.type_of_last_price.size = 2
 
 -- Display: Type Of Last Price
-gpw_wse_pricesandtrades_xdp_v6_8.type_of_last_price.display = function(value)
-  if value == 4 then
-    return "Type Of Last Price: 1st traded price (4)"
-  end
-  if value == 7 then
-    return "Type Of Last Price: N Th Traded Price Resume After Unhalting Of The Instrument (7)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.type_of_last_price.labels = {
+  [4] = "Type Of Last Price: 1st traded price (4)",
+  [7] = "Type Of Last Price: N Th Traded Price Resume After Unhalting Of The Instrument (7)",
+}
 
-  return "Type Of Last Price: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.type_of_last_price.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.type_of_last_price.labels[value] or "Type Of Last Price: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Last Price
@@ -1836,36 +1792,20 @@ gpw_wse_pricesandtrades_xdp_v6_8.type_of_price = {}
 gpw_wse_pricesandtrades_xdp_v6_8.type_of_price.size = 2
 
 -- Display: Type Of Price
-gpw_wse_pricesandtrades_xdp_v6_8.type_of_price.display = function(value)
-  if value == 2 then
-    return "Type Of Price: Bid Price (2)"
-  end
-  if value == 3 then
-    return "Type Of Price: Ask Price (3)"
-  end
-  if value == 30 then
-    return "Type Of Price: First Traded Price Of The Day (30)"
-  end
-  if value == 33 then
-    return "Type Of Price: New Last Price (33)"
-  end
-  if value == 34 then
-    return "Type Of Price: New Previous Days Closing Price The Last Adjusted Closing Price Or Lp Midpoint (34)"
-  end
-  if value == 35 then
-    return "Type Of Price: Daily Settlement Price (35)"
-  end
-  if value == 36 then
-    return "Type Of Price: Final Settlement Price (36)"
-  end
-  if value == 37 then
-    return "Type Of Price: Theoretical Price (37)"
-  end
-  if value == 51 then
-    return "Type Of Price: Alternative Indicative Price Aip (51)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.type_of_price.labels = {
+  [2] = "Type Of Price: Bid Price (2)",
+  [3] = "Type Of Price: Ask Price (3)",
+  [30] = "Type Of Price: First Traded Price Of The Day (30)",
+  [33] = "Type Of Price: New Last Price (33)",
+  [34] = "Type Of Price: New Previous Days Closing Price The Last Adjusted Closing Price Or Lp Midpoint (34)",
+  [35] = "Type Of Price: Daily Settlement Price (35)",
+  [36] = "Type Of Price: Final Settlement Price (36)",
+  [37] = "Type Of Price: Theoretical Price (37)",
+  [51] = "Type Of Price: Alternative Indicative Price Aip (51)",
+}
 
-  return "Type Of Price: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.type_of_price.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.type_of_price.labels[value] or "Type Of Price: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Price
@@ -1887,24 +1827,16 @@ gpw_wse_pricesandtrades_xdp_v6_8.type_of_trade = {}
 gpw_wse_pricesandtrades_xdp_v6_8.type_of_trade.size = 1
 
 -- Display: Type Of Trade
-gpw_wse_pricesandtrades_xdp_v6_8.type_of_trade.display = function(value)
-  if value == "0" then
-    return "Type Of Trade: Trade Does Not Stem From A Cross Order (0)"
-  end
-  if value == "1" then
-    return "Type Of Trade: Trade Stems From A Cross Order (1)"
-  end
-  if value == "4" then
-    return "Type Of Trade: Valuation Trade (4)"
-  end
-  if value == "5" then
-    return "Type Of Trade: Internalized Trade (5)"
-  end
-  if value == "6" then
-    return "Type Of Trade: Internalized Cross Trade (6)"
-  end
+gpw_wse_pricesandtrades_xdp_v6_8.type_of_trade.labels = {
+  ["0"] = "Type Of Trade: Trade Does Not Stem From A Cross Order (0)",
+  ["1"] = "Type Of Trade: Trade Stems From A Cross Order (1)",
+  ["4"] = "Type Of Trade: Valuation Trade (4)",
+  ["5"] = "Type Of Trade: Internalized Trade (5)",
+  ["6"] = "Type Of Trade: Internalized Cross Trade (6)",
+}
 
-  return "Type Of Trade: Unknown("..value..")"
+gpw_wse_pricesandtrades_xdp_v6_8.type_of_trade.display = function(value)
+  return gpw_wse_pricesandtrades_xdp_v6_8.type_of_trade.labels[value] or "Type Of Trade: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Trade
@@ -2668,26 +2600,18 @@ end
 gpw_wse_pricesandtrades_xdp_v6_8.payload = {}
 
 -- Dissect: Payload
+gpw_wse_pricesandtrades_xdp_v6_8.payload.dispatch = {
+  [240] = gpw_wse_pricesandtrades_xdp_v6_8.trade_full_information_message.dissect,
+  [241] = gpw_wse_pricesandtrades_xdp_v6_8.price_update_message.dissect,
+  [243] = gpw_wse_pricesandtrades_xdp_v6_8.trade_publication_message.dissect,
+  [245] = gpw_wse_pricesandtrades_xdp_v6_8.auction_summary_message.dissect,
+  [247] = gpw_wse_pricesandtrades_xdp_v6_8.vwap_closing_price_message.dissect,
+}
+
 gpw_wse_pricesandtrades_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Trade Full Information Message
-  if message_type == 240 then
-    return gpw_wse_pricesandtrades_xdp_v6_8.trade_full_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Update Message
-  if message_type == 241 then
-    return gpw_wse_pricesandtrades_xdp_v6_8.price_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Publication Message
-  if message_type == 243 then
-    return gpw_wse_pricesandtrades_xdp_v6_8.trade_publication_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 245 then
-    return gpw_wse_pricesandtrades_xdp_v6_8.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Vwap Closing Price Message
-  if message_type == 247 then
-    return gpw_wse_pricesandtrades_xdp_v6_8.vwap_closing_price_message.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_wse_pricesandtrades_xdp_v6_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

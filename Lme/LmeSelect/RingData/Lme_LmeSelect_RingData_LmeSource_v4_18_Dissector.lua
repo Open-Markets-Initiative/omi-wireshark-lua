@@ -193,15 +193,13 @@ lme_lmeselect_ringdata_lmesource_v4_18.cancellation_reason = {}
 lme_lmeselect_ringdata_lmesource_v4_18.cancellation_reason.size = 2
 
 -- Display: Cancellation Reason
-lme_lmeselect_ringdata_lmesource_v4_18.cancellation_reason.display = function(value)
-  if value == "WD" then
-    return "Cancellation Reason: Withdrawn (WD)"
-  end
-  if value == "DL" then
-    return "Cancellation Reason: Deleted (DL)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.cancellation_reason.labels = {
+  ["WD"] = "Cancellation Reason: Withdrawn (WD)",
+  ["DL"] = "Cancellation Reason: Deleted (DL)",
+}
 
-  return "Cancellation Reason: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.cancellation_reason.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.cancellation_reason.labels[value] or "Cancellation Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancellation Reason
@@ -246,15 +244,13 @@ lme_lmeselect_ringdata_lmesource_v4_18.indicative_price_type = {}
 lme_lmeselect_ringdata_lmesource_v4_18.indicative_price_type.size = 1
 
 -- Display: Indicative Price Type
-lme_lmeselect_ringdata_lmesource_v4_18.indicative_price_type.display = function(value)
-  if value == 0 then
-    return "Indicative Price Type: Indicative Trade Price (0)"
-  end
-  if value == 1 then
-    return "Indicative Price Type: Indicative Trade Price Deleted (1)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.indicative_price_type.labels = {
+  [0] = "Indicative Price Type: Indicative Trade Price (0)",
+  [1] = "Indicative Price Type: Indicative Trade Price Deleted (1)",
+}
 
-  return "Indicative Price Type: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.indicative_price_type.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.indicative_price_type.labels[value] or "Indicative Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Indicative Price Type
@@ -305,15 +301,13 @@ lme_lmeselect_ringdata_lmesource_v4_18.leg_buy_sell = {}
 lme_lmeselect_ringdata_lmesource_v4_18.leg_buy_sell.size = 1
 
 -- Display: Leg Buy Sell
-lme_lmeselect_ringdata_lmesource_v4_18.leg_buy_sell.display = function(value)
-  if value == "B" then
-    return "Leg Buy Sell: Buy (B)"
-  end
-  if value == "S" then
-    return "Leg Buy Sell: Sell (S)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.leg_buy_sell.labels = {
+  ["B"] = "Leg Buy Sell: Buy (B)",
+  ["S"] = "Leg Buy Sell: Sell (S)",
+}
 
-  return "Leg Buy Sell: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.leg_buy_sell.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.leg_buy_sell.labels[value] or "Leg Buy Sell: Unknown("..value..")"
 end
 
 -- Dissect: Leg Buy Sell
@@ -543,24 +537,16 @@ lme_lmeselect_ringdata_lmesource_v4_18.msg_type = {}
 lme_lmeselect_ringdata_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_ringdata_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 310 then
-    return "Msg Type: Market State Product Message (310)"
-  end
-  if value == 328 then
-    return "Msg Type: Market Data Order Message (328)"
-  end
-  if value == 340 then
-    return "Msg Type: Indicative Trade Price Message (340)"
-  end
-  if value == 341 then
-    return "Msg Type: Market Data Trade Message (341)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [310] = "Msg Type: Market State Product Message (310)",
+  [328] = "Msg Type: Market Data Order Message (328)",
+  [340] = "Msg Type: Indicative Trade Price Message (340)",
+  [341] = "Msg Type: Market Data Trade Message (341)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -736,39 +722,21 @@ lme_lmeselect_ringdata_lmesource_v4_18.ring_session = {}
 lme_lmeselect_ringdata_lmesource_v4_18.ring_session.size = 2
 
 -- Display: Ring Session
-lme_lmeselect_ringdata_lmesource_v4_18.ring_session.display = function(value)
-  if value == "R1" then
-    return "Ring Session: First Morning Ring (R1)"
-  end
-  if value == "R2" then
-    return "Ring Session: Second Morning Ring (R2)"
-  end
-  if value == "R3" then
-    return "Ring Session: First Afternoon Ring (R3)"
-  end
-  if value == "K1" then
-    return "Ring Session: Morning Kerb Session (K1)"
-  end
-  if value == "K2" then
-    return "Ring Session: Afternoon Kerb Session (K2)"
-  end
-  if value == "C1" then
-    return "Ring Session: Basis Ring 1 (C1)"
-  end
-  if value == "C2" then
-    return "Ring Session: Basis Ring 2 (C2)"
-  end
-  if value == "C3" then
-    return "Ring Session: Basis Ring 3 (C3)"
-  end
-  if value == "D1" then
-    return "Ring Session: Basis Kerb 1 (D1)"
-  end
-  if value == "D2" then
-    return "Ring Session: Basis Kerb 2 (D2)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.ring_session.labels = {
+  ["R1"] = "Ring Session: First Morning Ring (R1)",
+  ["R2"] = "Ring Session: Second Morning Ring (R2)",
+  ["R3"] = "Ring Session: First Afternoon Ring (R3)",
+  ["K1"] = "Ring Session: Morning Kerb Session (K1)",
+  ["K2"] = "Ring Session: Afternoon Kerb Session (K2)",
+  ["C1"] = "Ring Session: Basis Ring 1 (C1)",
+  ["C2"] = "Ring Session: Basis Ring 2 (C2)",
+  ["C3"] = "Ring Session: Basis Ring 3 (C3)",
+  ["D1"] = "Ring Session: Basis Kerb 1 (D1)",
+  ["D2"] = "Ring Session: Basis Kerb 2 (D2)",
+}
 
-  return "Ring Session: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.ring_session.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.ring_session.labels[value] or "Ring Session: Unknown("..value..")"
 end
 
 -- Dissect: Ring Session
@@ -860,24 +828,16 @@ lme_lmeselect_ringdata_lmesource_v4_18.sub_type_of_trade = {}
 lme_lmeselect_ringdata_lmesource_v4_18.sub_type_of_trade.size = 1
 
 -- Display: Sub Type Of Trade
-lme_lmeselect_ringdata_lmesource_v4_18.sub_type_of_trade.display = function(value)
-  if value == 1 then
-    return "Sub Type Of Trade: The Trade Resulted From An Explicit Order (1)"
-  end
-  if value == 2 then
-    return "Sub Type Of Trade: The Trade Resulted From Uncrossing (2)"
-  end
-  if value == 7 then
-    return "Sub Type Of Trade: The Trade Resulted From An Implied Order (7)"
-  end
-  if value == 8 then
-    return "Sub Type Of Trade: The Trade Resulted From Two Implied Orders Matching (8)"
-  end
-  if value == 9 then
-    return "Sub Type Of Trade: The Trade Resulted From An Off Book Cross Trade (9)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.sub_type_of_trade.labels = {
+  [1] = "Sub Type Of Trade: The Trade Resulted From An Explicit Order (1)",
+  [2] = "Sub Type Of Trade: The Trade Resulted From Uncrossing (2)",
+  [7] = "Sub Type Of Trade: The Trade Resulted From An Implied Order (7)",
+  [8] = "Sub Type Of Trade: The Trade Resulted From Two Implied Orders Matching (8)",
+  [9] = "Sub Type Of Trade: The Trade Resulted From An Off Book Cross Trade (9)",
+}
 
-  return "Sub Type Of Trade: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.sub_type_of_trade.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.sub_type_of_trade.labels[value] or "Sub Type Of Trade: Unknown("..value..")"
 end
 
 -- Dissect: Sub Type Of Trade
@@ -979,15 +939,13 @@ lme_lmeselect_ringdata_lmesource_v4_18.trade_cancel_flag = {}
 lme_lmeselect_ringdata_lmesource_v4_18.trade_cancel_flag.size = 1
 
 -- Display: Trade Cancel Flag
-lme_lmeselect_ringdata_lmesource_v4_18.trade_cancel_flag.display = function(value)
-  if value == 0 then
-    return "Trade Cancel Flag: False (0)"
-  end
-  if value == 1 then
-    return "Trade Cancel Flag: True (1)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.trade_cancel_flag.labels = {
+  [0] = "Trade Cancel Flag: False (0)",
+  [1] = "Trade Cancel Flag: True (1)",
+}
 
-  return "Trade Cancel Flag: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.trade_cancel_flag.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.trade_cancel_flag.labels[value] or "Trade Cancel Flag: Unknown("..value..")"
 end
 
 -- Dissect: Trade Cancel Flag
@@ -1009,24 +967,16 @@ lme_lmeselect_ringdata_lmesource_v4_18.trading_state = {}
 lme_lmeselect_ringdata_lmesource_v4_18.trading_state.size = 1
 
 -- Display: Trading State
-lme_lmeselect_ringdata_lmesource_v4_18.trading_state.display = function(value)
-  if value == 1 then
-    return "Trading State: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Trading State: Open (2)"
-  end
-  if value == 3 then
-    return "Trading State: Post Trade (3)"
-  end
-  if value == 4 then
-    return "Trading State: Close (4)"
-  end
-  if value == 6 then
-    return "Trading State: Technical Halt (6)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.trading_state.labels = {
+  [1] = "Trading State: Pre Open (1)",
+  [2] = "Trading State: Open (2)",
+  [3] = "Trading State: Post Trade (3)",
+  [4] = "Trading State: Close (4)",
+  [6] = "Trading State: Technical Halt (6)",
+}
 
-  return "Trading State: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.trading_state.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1048,18 +998,14 @@ lme_lmeselect_ringdata_lmesource_v4_18.trading_venue = {}
 lme_lmeselect_ringdata_lmesource_v4_18.trading_venue.size = 2
 
 -- Display: Trading Venue
-lme_lmeselect_ringdata_lmesource_v4_18.trading_venue.display = function(value)
-  if value == "EL" then
-    return "Trading Venue: Electronic (EL)"
-  end
-  if value == "RK" then
-    return "Trading Venue: Ring (RK)"
-  end
-  if value == "IO" then
-    return "Trading Venue: Inter Office (IO)"
-  end
+lme_lmeselect_ringdata_lmesource_v4_18.trading_venue.labels = {
+  ["EL"] = "Trading Venue: Electronic (EL)",
+  ["RK"] = "Trading Venue: Ring (RK)",
+  ["IO"] = "Trading Venue: Inter Office (IO)",
+}
 
-  return "Trading Venue: Unknown("..value..")"
+lme_lmeselect_ringdata_lmesource_v4_18.trading_venue.display = function(value)
+  return lme_lmeselect_ringdata_lmesource_v4_18.trading_venue.labels[value] or "Trading Venue: Unknown("..value..")"
 end
 
 -- Dissect: Trading Venue
@@ -1607,26 +1553,18 @@ end
 lme_lmeselect_ringdata_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_ringdata_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_ringdata_lmesource_v4_18.sequence_reset_message.dissect,
+  [310] = lme_lmeselect_ringdata_lmesource_v4_18.market_state_product_message.dissect,
+  [328] = lme_lmeselect_ringdata_lmesource_v4_18.market_data_order_message.dissect,
+  [340] = lme_lmeselect_ringdata_lmesource_v4_18.indicative_trade_price_message.dissect,
+  [341] = lme_lmeselect_ringdata_lmesource_v4_18.market_data_trade_message.dissect,
+}
+
 lme_lmeselect_ringdata_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_ringdata_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Product Message
-  if msg_type == 310 then
-    return lme_lmeselect_ringdata_lmesource_v4_18.market_state_product_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Data Order Message
-  if msg_type == 328 then
-    return lme_lmeselect_ringdata_lmesource_v4_18.market_data_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Trade Price Message
-  if msg_type == 340 then
-    return lme_lmeselect_ringdata_lmesource_v4_18.indicative_trade_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Data Trade Message
-  if msg_type == 341 then
-    return lme_lmeselect_ringdata_lmesource_v4_18.market_data_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_ringdata_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

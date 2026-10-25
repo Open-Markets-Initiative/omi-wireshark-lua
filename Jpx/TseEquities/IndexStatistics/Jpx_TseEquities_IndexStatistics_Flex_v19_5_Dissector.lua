@@ -559,36 +559,20 @@ jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification = {}
 jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.size = 2
 
 -- Display: Control Medium Classification
-jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.display = function(value)
-  if value == "00" then
-    return "Control Medium Classification: Communication Control (00)"
-  end
-  if value == "02" then
-    return "Control Medium Classification: Issue Information Control (02)"
-  end
-  if value == "04" then
-    return "Control Medium Classification: Allday Information Control (04)"
-  end
-  if value == "05" then
-    return "Control Medium Classification: Health Check Control (05)"
-  end
-  if value == "06" then
-    return "Control Medium Classification: Stock Base Price Information Control (06)"
-  end
-  if value == "07" then
-    return "Control Medium Classification: CB Base Price Information Control (07)"
-  end
-  if value == "08" then
-    return "Control Medium Classification: Multicast Group Number Information Control (08)"
-  end
-  if value == "09" then
-    return "Control Medium Classification: Backup Information Control (09)"
-  end
-  if value == "90" then
-    return "Control Medium Classification: TCP Transmission Control (90)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.labels = {
+  ["00"] = "Control Medium Classification: Communication Control (00)",
+  ["02"] = "Control Medium Classification: Issue Information Control (02)",
+  ["04"] = "Control Medium Classification: Allday Information Control (04)",
+  ["05"] = "Control Medium Classification: Health Check Control (05)",
+  ["06"] = "Control Medium Classification: Stock Base Price Information Control (06)",
+  ["07"] = "Control Medium Classification: CB Base Price Information Control (07)",
+  ["08"] = "Control Medium Classification: Multicast Group Number Information Control (08)",
+  ["09"] = "Control Medium Classification: Backup Information Control (09)",
+  ["90"] = "Control Medium Classification: TCP Transmission Control (90)",
+}
 
-  return "Control Medium Classification: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.labels[value] or "Control Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Control Medium Classification
@@ -978,12 +962,12 @@ jpx_tseequities_indexstatistics_flex_v19_5.index_medium_classification = {}
 jpx_tseequities_indexstatistics_flex_v19_5.index_medium_classification.size = 2
 
 -- Display: Index Medium Classification
-jpx_tseequities_indexstatistics_flex_v19_5.index_medium_classification.display = function(value)
-  if value == "00" then
-    return "Index Medium Classification: Index Message (00)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.index_medium_classification.labels = {
+  ["00"] = "Index Medium Classification: Index Message (00)",
+}
 
-  return "Index Medium Classification: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.index_medium_classification.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.index_medium_classification.labels[value] or "Index Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Index Medium Classification
@@ -1005,297 +989,107 @@ jpx_tseequities_indexstatistics_flex_v19_5.index_type = {}
 jpx_tseequities_indexstatistics_flex_v19_5.index_type.size = 4
 
 -- Display: Index Type
-jpx_tseequities_indexstatistics_flex_v19_5.index_type.display = function(value)
-  if value == "0000" then
-    return "Index Type: Tokyo Stock Price Index Topix (0000)"
-  end
-  if value == "0002" then
-    return "Index Type: Large Type (0002)"
-  end
-  if value == "0003" then
-    return "Index Type: Medium Type (0003)"
-  end
-  if value == "0004" then
-    return "Index Type: Small Type (0004)"
-  end
-  if value == "0028" then
-    return "Index Type: Topix Core 30 (0028)"
-  end
-  if value == "0029" then
-    return "Index Type: Topix Large 70 (0029)"
-  end
-  if value == "002A" then
-    return "Index Type: Topix 100 (002A)"
-  end
-  if value == "002B" then
-    return "Index Type: Topix Mid 400 (002B)"
-  end
-  if value == "002C" then
-    return "Index Type: Topix 500 (002C)"
-  end
-  if value == "002D" then
-    return "Index Type: Topix Small (002D)"
-  end
-  if value == "002E" then
-    return "Index Type: Topix 1000 (002E)"
-  end
-  if value == "002F" then
-    return "Index Type: Topix Small 500 (002F)"
-  end
-  if value == "0040" then
-    return "Index Type: Fishery Agriculture Forestry (0040)"
-  end
-  if value == "0041" then
-    return "Index Type: Mining (0041)"
-  end
-  if value == "0042" then
-    return "Index Type: Construction (0042)"
-  end
-  if value == "0043" then
-    return "Index Type: Foods (0043)"
-  end
-  if value == "0044" then
-    return "Index Type: Textiles Apparels (0044)"
-  end
-  if value == "0045" then
-    return "Index Type: Pulp Paper (0045)"
-  end
-  if value == "0046" then
-    return "Index Type: Chemicals (0046)"
-  end
-  if value == "0047" then
-    return "Index Type: Pharmaceutical (0047)"
-  end
-  if value == "0048" then
-    return "Index Type: Oil Coal Products (0048)"
-  end
-  if value == "0049" then
-    return "Index Type: Rubber Products (0049)"
-  end
-  if value == "004A" then
-    return "Index Type: Glass Ceramics Products (004A)"
-  end
-  if value == "004B" then
-    return "Index Type: Iron Steel (004B)"
-  end
-  if value == "004C" then
-    return "Index Type: Nonferrous Metals (004C)"
-  end
-  if value == "004D" then
-    return "Index Type: Metal Products (004D)"
-  end
-  if value == "004E" then
-    return "Index Type: Machinery (004E)"
-  end
-  if value == "004F" then
-    return "Index Type: Electric Appliances (004F)"
-  end
-  if value == "0050" then
-    return "Index Type: Transportation Equipment (0050)"
-  end
-  if value == "0051" then
-    return "Index Type: Precision Instruments (0051)"
-  end
-  if value == "0052" then
-    return "Index Type: Other Products (0052)"
-  end
-  if value == "0053" then
-    return "Index Type: Electric Power Gas (0053)"
-  end
-  if value == "0054" then
-    return "Index Type: Land Transportation (0054)"
-  end
-  if value == "0055" then
-    return "Index Type: Marine Transportation (0055)"
-  end
-  if value == "0056" then
-    return "Index Type: Air Transportation (0056)"
-  end
-  if value == "0057" then
-    return "Index Type: Warehousing Harbor Transportation Services (0057)"
-  end
-  if value == "0058" then
-    return "Index Type: Information Communication (0058)"
-  end
-  if value == "0059" then
-    return "Index Type: Wholesale Trade (0059)"
-  end
-  if value == "005A" then
-    return "Index Type: Retail Trade (005A)"
-  end
-  if value == "005B" then
-    return "Index Type: Banks (005B)"
-  end
-  if value == "005C" then
-    return "Index Type: Securities Commodity Futures (005C)"
-  end
-  if value == "005D" then
-    return "Index Type: Insurance (005D)"
-  end
-  if value == "005E" then
-    return "Index Type: Other Financing Business (005E)"
-  end
-  if value == "005F" then
-    return "Index Type: Real Estate (005F)"
-  end
-  if value == "0060" then
-    return "Index Type: Services (0060)"
-  end
-  if value == "0070" then
-    return "Index Type: Tse Growth Market 250 Index (0070)"
-  end
-  if value == "0075" then
-    return "Index Type: Reit General (0075)"
-  end
-  if value == "0080" then
-    return "Index Type: Topix 17 Foods (0080)"
-  end
-  if value == "0081" then
-    return "Index Type: Topix 17 Energy Resources (0081)"
-  end
-  if value == "0082" then
-    return "Index Type: Topix 17 Construction Materials (0082)"
-  end
-  if value == "0083" then
-    return "Index Type: Topix 17 Raw Materials Chemicals (0083)"
-  end
-  if value == "0084" then
-    return "Index Type: Topix 17 Pharmaceutical (0084)"
-  end
-  if value == "0085" then
-    return "Index Type: Topix 17 Automobiles Transportation Equipment (0085)"
-  end
-  if value == "0086" then
-    return "Index Type: Topix 17 Steel Nonferrous Metals (0086)"
-  end
-  if value == "0087" then
-    return "Index Type: Topix 17 Machinery (0087)"
-  end
-  if value == "0088" then
-    return "Index Type: Topix 17 Electric Appliances Precision Instruments (0088)"
-  end
-  if value == "0089" then
-    return "Index Type: Topix 17 It Services Others (0089)"
-  end
-  if value == "008A" then
-    return "Index Type: Topix 17 Electric Power Gas (008A)"
-  end
-  if value == "008B" then
-    return "Index Type: Topix 17 Transportation Logistics (008B)"
-  end
-  if value == "008C" then
-    return "Index Type: Topix 17 Commercial Wholesale Trade (008C)"
-  end
-  if value == "008D" then
-    return "Index Type: Topix 17 Retail Trade (008D)"
-  end
-  if value == "008E" then
-    return "Index Type: Topix 17 Banks (008E)"
-  end
-  if value == "008F" then
-    return "Index Type: Topix 17 Financials Ex Banks (008F)"
-  end
-  if value == "0090" then
-    return "Index Type: Topix 17 Real Estate (0090)"
-  end
-  if value == "0099" then
-    return "Index Type: Tokyo Stock Exchange Infrastructure Funds Index (0099)"
-  end
-  if value == "0500" then
-    return "Index Type: Tokyo Stock Exchange Prime Market Index (0500)"
-  end
-  if value == "0501" then
-    return "Index Type: Tokyo Stock Exchange Standard Market Index (0501)"
-  end
-  if value == "0502" then
-    return "Index Type: Tokyo Stock Exchange Growth Market Index (0502)"
-  end
-  if value == "0503" then
-    return "Index Type: Jpx Prime 150 Index (0503)"
-  end
-  if value == "0504" then
-    return "Index Type: Jpx Start Up Acceleration 100 Index (0504)"
-  end
-  if value == "8000" then
-    return "Index Type: Ex Topix (8000)"
-  end
-  if value == "8100" then
-    return "Index Type: Topix Value (8100)"
-  end
-  if value == "812C" then
-    return "Index Type: Topix 500 Value (812C)"
-  end
-  if value == "812D" then
-    return "Index Type: Topix Small Value (812D)"
-  end
-  if value == "8200" then
-    return "Index Type: Topix Growth (8200)"
-  end
-  if value == "822C" then
-    return "Index Type: Topix 500 Growth (822C)"
-  end
-  if value == "822D" then
-    return "Index Type: Topix Small Growth (822D)"
-  end
-  if value == "8500" then
-    return "Index Type: Tokyo Stock Exchange Dividend Focus 100 Index (8500)"
-  end
-  if value == "8501" then
-    return "Index Type: Tokyo Stock Exchange Reit Office Index (8501)"
-  end
-  if value == "8502" then
-    return "Index Type: Tokyo Stock Exchange Reit Residential Index (8502)"
-  end
-  if value == "8503" then
-    return "Index Type: Tokyo Stock Exchange Reit Retail Logistics Others Index (8503)"
-  end
-  if value == "8506" then
-    return "Index Type: Topix Ex Financials (8506)"
-  end
-  if value == "8507" then
-    return "Index Type: Jpx Nikkei Index 400 (8507)"
-  end
-  if value == "8508" then
-    return "Index Type: Jpx Nikkei Mid And Small Cap Index (8508)"
-  end
-  if value == "8509" then
-    return "Index Type: Jpx Nikkei Index Human Capital 100 (8509)"
-  end
-  if value == "8801" then
-    return "Index Type: Tse Growth Market Core Index (8801)"
-  end
-  if value == "8802" then
-    return "Index Type: Tse Standard Market Top 20 Index (8802)"
-  end
-  if value == "1000" then
-    return "Index Type: Topix Leveraged 2 X Index (1000)"
-  end
-  if value == "1001" then
-    return "Index Type: Topix Inverse 1 X Index (1001)"
-  end
-  if value == "1002" then
-    return "Index Type: Topix Double Inverse 2 X Index (1002)"
-  end
-  if value == "1003" then
-    return "Index Type: Jpx Nikkei 400 Leveraged 2 X Index (1003)"
-  end
-  if value == "1004" then
-    return "Index Type: Jpx Nikkei 400 Inverse 1 X Index (1004)"
-  end
-  if value == "1005" then
-    return "Index Type: Jpx Nikkei 400 Double Inverse 2 X Index (1005)"
-  end
-  if value == "1006" then
-    return "Index Type: Tokyo Stock Exchange Reit Inverse 1 X Index (1006)"
-  end
-  if value == "1007" then
-    return "Index Type: Tokyo Stock Exchange Reit Leveraged 2 X Index (1007)"
-  end
-  if value == "1008" then
-    return "Index Type: Tokyo Stock Exchange Reit Double Inverse 2 X Index (1008)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.index_type.labels = {
+  ["0000"] = "Index Type: Tokyo Stock Price Index Topix (0000)",
+  ["0002"] = "Index Type: Large Type (0002)",
+  ["0003"] = "Index Type: Medium Type (0003)",
+  ["0004"] = "Index Type: Small Type (0004)",
+  ["0028"] = "Index Type: Topix Core 30 (0028)",
+  ["0029"] = "Index Type: Topix Large 70 (0029)",
+  ["002A"] = "Index Type: Topix 100 (002A)",
+  ["002B"] = "Index Type: Topix Mid 400 (002B)",
+  ["002C"] = "Index Type: Topix 500 (002C)",
+  ["002D"] = "Index Type: Topix Small (002D)",
+  ["002E"] = "Index Type: Topix 1000 (002E)",
+  ["002F"] = "Index Type: Topix Small 500 (002F)",
+  ["0040"] = "Index Type: Fishery Agriculture Forestry (0040)",
+  ["0041"] = "Index Type: Mining (0041)",
+  ["0042"] = "Index Type: Construction (0042)",
+  ["0043"] = "Index Type: Foods (0043)",
+  ["0044"] = "Index Type: Textiles Apparels (0044)",
+  ["0045"] = "Index Type: Pulp Paper (0045)",
+  ["0046"] = "Index Type: Chemicals (0046)",
+  ["0047"] = "Index Type: Pharmaceutical (0047)",
+  ["0048"] = "Index Type: Oil Coal Products (0048)",
+  ["0049"] = "Index Type: Rubber Products (0049)",
+  ["004A"] = "Index Type: Glass Ceramics Products (004A)",
+  ["004B"] = "Index Type: Iron Steel (004B)",
+  ["004C"] = "Index Type: Nonferrous Metals (004C)",
+  ["004D"] = "Index Type: Metal Products (004D)",
+  ["004E"] = "Index Type: Machinery (004E)",
+  ["004F"] = "Index Type: Electric Appliances (004F)",
+  ["0050"] = "Index Type: Transportation Equipment (0050)",
+  ["0051"] = "Index Type: Precision Instruments (0051)",
+  ["0052"] = "Index Type: Other Products (0052)",
+  ["0053"] = "Index Type: Electric Power Gas (0053)",
+  ["0054"] = "Index Type: Land Transportation (0054)",
+  ["0055"] = "Index Type: Marine Transportation (0055)",
+  ["0056"] = "Index Type: Air Transportation (0056)",
+  ["0057"] = "Index Type: Warehousing Harbor Transportation Services (0057)",
+  ["0058"] = "Index Type: Information Communication (0058)",
+  ["0059"] = "Index Type: Wholesale Trade (0059)",
+  ["005A"] = "Index Type: Retail Trade (005A)",
+  ["005B"] = "Index Type: Banks (005B)",
+  ["005C"] = "Index Type: Securities Commodity Futures (005C)",
+  ["005D"] = "Index Type: Insurance (005D)",
+  ["005E"] = "Index Type: Other Financing Business (005E)",
+  ["005F"] = "Index Type: Real Estate (005F)",
+  ["0060"] = "Index Type: Services (0060)",
+  ["0070"] = "Index Type: Tse Growth Market 250 Index (0070)",
+  ["0075"] = "Index Type: Reit General (0075)",
+  ["0080"] = "Index Type: Topix 17 Foods (0080)",
+  ["0081"] = "Index Type: Topix 17 Energy Resources (0081)",
+  ["0082"] = "Index Type: Topix 17 Construction Materials (0082)",
+  ["0083"] = "Index Type: Topix 17 Raw Materials Chemicals (0083)",
+  ["0084"] = "Index Type: Topix 17 Pharmaceutical (0084)",
+  ["0085"] = "Index Type: Topix 17 Automobiles Transportation Equipment (0085)",
+  ["0086"] = "Index Type: Topix 17 Steel Nonferrous Metals (0086)",
+  ["0087"] = "Index Type: Topix 17 Machinery (0087)",
+  ["0088"] = "Index Type: Topix 17 Electric Appliances Precision Instruments (0088)",
+  ["0089"] = "Index Type: Topix 17 It Services Others (0089)",
+  ["008A"] = "Index Type: Topix 17 Electric Power Gas (008A)",
+  ["008B"] = "Index Type: Topix 17 Transportation Logistics (008B)",
+  ["008C"] = "Index Type: Topix 17 Commercial Wholesale Trade (008C)",
+  ["008D"] = "Index Type: Topix 17 Retail Trade (008D)",
+  ["008E"] = "Index Type: Topix 17 Banks (008E)",
+  ["008F"] = "Index Type: Topix 17 Financials Ex Banks (008F)",
+  ["0090"] = "Index Type: Topix 17 Real Estate (0090)",
+  ["0099"] = "Index Type: Tokyo Stock Exchange Infrastructure Funds Index (0099)",
+  ["0500"] = "Index Type: Tokyo Stock Exchange Prime Market Index (0500)",
+  ["0501"] = "Index Type: Tokyo Stock Exchange Standard Market Index (0501)",
+  ["0502"] = "Index Type: Tokyo Stock Exchange Growth Market Index (0502)",
+  ["0503"] = "Index Type: Jpx Prime 150 Index (0503)",
+  ["0504"] = "Index Type: Jpx Start Up Acceleration 100 Index (0504)",
+  ["8000"] = "Index Type: Ex Topix (8000)",
+  ["8100"] = "Index Type: Topix Value (8100)",
+  ["812C"] = "Index Type: Topix 500 Value (812C)",
+  ["812D"] = "Index Type: Topix Small Value (812D)",
+  ["8200"] = "Index Type: Topix Growth (8200)",
+  ["822C"] = "Index Type: Topix 500 Growth (822C)",
+  ["822D"] = "Index Type: Topix Small Growth (822D)",
+  ["8500"] = "Index Type: Tokyo Stock Exchange Dividend Focus 100 Index (8500)",
+  ["8501"] = "Index Type: Tokyo Stock Exchange Reit Office Index (8501)",
+  ["8502"] = "Index Type: Tokyo Stock Exchange Reit Residential Index (8502)",
+  ["8503"] = "Index Type: Tokyo Stock Exchange Reit Retail Logistics Others Index (8503)",
+  ["8506"] = "Index Type: Topix Ex Financials (8506)",
+  ["8507"] = "Index Type: Jpx Nikkei Index 400 (8507)",
+  ["8508"] = "Index Type: Jpx Nikkei Mid And Small Cap Index (8508)",
+  ["8509"] = "Index Type: Jpx Nikkei Index Human Capital 100 (8509)",
+  ["8801"] = "Index Type: Tse Growth Market Core Index (8801)",
+  ["8802"] = "Index Type: Tse Standard Market Top 20 Index (8802)",
+  ["1000"] = "Index Type: Topix Leveraged 2 X Index (1000)",
+  ["1001"] = "Index Type: Topix Inverse 1 X Index (1001)",
+  ["1002"] = "Index Type: Topix Double Inverse 2 X Index (1002)",
+  ["1003"] = "Index Type: Jpx Nikkei 400 Leveraged 2 X Index (1003)",
+  ["1004"] = "Index Type: Jpx Nikkei 400 Inverse 1 X Index (1004)",
+  ["1005"] = "Index Type: Jpx Nikkei 400 Double Inverse 2 X Index (1005)",
+  ["1006"] = "Index Type: Tokyo Stock Exchange Reit Inverse 1 X Index (1006)",
+  ["1007"] = "Index Type: Tokyo Stock Exchange Reit Leveraged 2 X Index (1007)",
+  ["1008"] = "Index Type: Tokyo Stock Exchange Reit Double Inverse 2 X Index (1008)",
+}
 
-  return "Index Type: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.index_type.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.index_type.labels[value] or "Index Type: Unknown("..value..")"
 end
 
 -- Dissect: Index Type
@@ -1355,111 +1149,45 @@ jpx_tseequities_indexstatistics_flex_v19_5.industry_code = {}
 jpx_tseequities_indexstatistics_flex_v19_5.industry_code.size = 4
 
 -- Display: Industry Code
-jpx_tseequities_indexstatistics_flex_v19_5.industry_code.display = function(value)
-  if value == "0050" then
-    return "Industry Code: Fishery Agriculture Forestry (0050)"
-  end
-  if value == "1050" then
-    return "Industry Code: Mining (1050)"
-  end
-  if value == "2050" then
-    return "Industry Code: Construction (2050)"
-  end
-  if value == "3050" then
-    return "Industry Code: Foods (3050)"
-  end
-  if value == "3100" then
-    return "Industry Code: Textiles Apparels (3100)"
-  end
-  if value == "3150" then
-    return "Industry Code: Pulp Paper (3150)"
-  end
-  if value == "3200" then
-    return "Industry Code: Chemicals (3200)"
-  end
-  if value == "3250" then
-    return "Industry Code: Pharmaceuticals (3250)"
-  end
-  if value == "3300" then
-    return "Industry Code: Oil Coal Products (3300)"
-  end
-  if value == "3350" then
-    return "Industry Code: Rubber Products (3350)"
-  end
-  if value == "3400" then
-    return "Industry Code: Glass Ceramics Products (3400)"
-  end
-  if value == "3450" then
-    return "Industry Code: Iron Steel (3450)"
-  end
-  if value == "3500" then
-    return "Industry Code: Nonferrous Metals (3500)"
-  end
-  if value == "3550" then
-    return "Industry Code: Metal Products (3550)"
-  end
-  if value == "3600" then
-    return "Industry Code: Machinery (3600)"
-  end
-  if value == "3650" then
-    return "Industry Code: Electric Appliances (3650)"
-  end
-  if value == "3700" then
-    return "Industry Code: Transportation Equipment (3700)"
-  end
-  if value == "3750" then
-    return "Industry Code: Precision Instruments (3750)"
-  end
-  if value == "3800" then
-    return "Industry Code: Other Products (3800)"
-  end
-  if value == "4050" then
-    return "Industry Code: Electric Power Gas (4050)"
-  end
-  if value == "5050" then
-    return "Industry Code: Land Transportation (5050)"
-  end
-  if value == "5100" then
-    return "Industry Code: Marine Transportation (5100)"
-  end
-  if value == "5150" then
-    return "Industry Code: Air Transportation (5150)"
-  end
-  if value == "5200" then
-    return "Industry Code: Warehouse Harbor Transportation Services (5200)"
-  end
-  if value == "5250" then
-    return "Industry Code: Information Communication (5250)"
-  end
-  if value == "6050" then
-    return "Industry Code: Wholesale Trade (6050)"
-  end
-  if value == "6100" then
-    return "Industry Code: Retail Trade (6100)"
-  end
-  if value == "7050" then
-    return "Industry Code: Banks (7050)"
-  end
-  if value == "7100" then
-    return "Industry Code: Securities Commodity Futures (7100)"
-  end
-  if value == "7150" then
-    return "Industry Code: Insurance (7150)"
-  end
-  if value == "7200" then
-    return "Industry Code: Other Financing Business (7200)"
-  end
-  if value == "8050" then
-    return "Industry Code: Real Estate (8050)"
-  end
-  if value == "9050" then
-    return "Industry Code: Services (9050)"
-  end
-  if value == "9999" then
-    return "Industry Code: Others (9999)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.industry_code.labels = {
+  ["0050"] = "Industry Code: Fishery Agriculture Forestry (0050)",
+  ["1050"] = "Industry Code: Mining (1050)",
+  ["2050"] = "Industry Code: Construction (2050)",
+  ["3050"] = "Industry Code: Foods (3050)",
+  ["3100"] = "Industry Code: Textiles Apparels (3100)",
+  ["3150"] = "Industry Code: Pulp Paper (3150)",
+  ["3200"] = "Industry Code: Chemicals (3200)",
+  ["3250"] = "Industry Code: Pharmaceuticals (3250)",
+  ["3300"] = "Industry Code: Oil Coal Products (3300)",
+  ["3350"] = "Industry Code: Rubber Products (3350)",
+  ["3400"] = "Industry Code: Glass Ceramics Products (3400)",
+  ["3450"] = "Industry Code: Iron Steel (3450)",
+  ["3500"] = "Industry Code: Nonferrous Metals (3500)",
+  ["3550"] = "Industry Code: Metal Products (3550)",
+  ["3600"] = "Industry Code: Machinery (3600)",
+  ["3650"] = "Industry Code: Electric Appliances (3650)",
+  ["3700"] = "Industry Code: Transportation Equipment (3700)",
+  ["3750"] = "Industry Code: Precision Instruments (3750)",
+  ["3800"] = "Industry Code: Other Products (3800)",
+  ["4050"] = "Industry Code: Electric Power Gas (4050)",
+  ["5050"] = "Industry Code: Land Transportation (5050)",
+  ["5100"] = "Industry Code: Marine Transportation (5100)",
+  ["5150"] = "Industry Code: Air Transportation (5150)",
+  ["5200"] = "Industry Code: Warehouse Harbor Transportation Services (5200)",
+  ["5250"] = "Industry Code: Information Communication (5250)",
+  ["6050"] = "Industry Code: Wholesale Trade (6050)",
+  ["6100"] = "Industry Code: Retail Trade (6100)",
+  ["7050"] = "Industry Code: Banks (7050)",
+  ["7100"] = "Industry Code: Securities Commodity Futures (7100)",
+  ["7150"] = "Industry Code: Insurance (7150)",
+  ["7200"] = "Industry Code: Other Financing Business (7200)",
+  ["8050"] = "Industry Code: Real Estate (8050)",
+  ["9050"] = "Industry Code: Services (9050)",
+  ["9999"] = "Industry Code: Others (9999)",
+}
 
-  return "Industry Code: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.industry_code.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.industry_code.labels[value] or "Industry Code: Unknown("..value..")"
 end
 
 -- Dissect: Industry Code
@@ -1481,15 +1209,13 @@ jpx_tseequities_indexstatistics_flex_v19_5.issue_basic_medium_classification = {
 jpx_tseequities_indexstatistics_flex_v19_5.issue_basic_medium_classification.size = 2
 
 -- Display: Issue Basic Medium Classification
-jpx_tseequities_indexstatistics_flex_v19_5.issue_basic_medium_classification.display = function(value)
-  if value == "00" then
-    return "Issue Basic Medium Classification: Regular (00)"
-  end
-  if value == "01" then
-    return "Issue Basic Medium Classification: Special (01)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.issue_basic_medium_classification.labels = {
+  ["00"] = "Issue Basic Medium Classification: Regular (00)",
+  ["01"] = "Issue Basic Medium Classification: Special (01)",
+}
 
-  return "Issue Basic Medium Classification: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.issue_basic_medium_classification.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.issue_basic_medium_classification.labels[value] or "Issue Basic Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Basic Medium Classification
@@ -1511,30 +1237,18 @@ jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code = {}
 jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code.size = 4
 
 -- Display: Issue Classification Code
-jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code.display = function(value)
-  if value == "0111" then
-    return "Issue Classification Code: Prime Market Domestic Stock (0111)"
-  end
-  if value == "0112" then
-    return "Issue Classification Code: Standard Market Domestic Stock (0112)"
-  end
-  if value == "0113" then
-    return "Issue Classification Code: Foreign Stock (0113)"
-  end
-  if value == "0114" then
-    return "Issue Classification Code: Growth Market Domestic Stock (0114)"
-  end
-  if value == "0122" then
-    return "Issue Classification Code: Tokyo Pro Market Domestic Stock (0122)"
-  end
-  if value == "0211" then
-    return "Issue Classification Code: Cb (0211)"
-  end
-  if value == "0214" then
-    return "Issue Classification Code: Exchangeable Bond (0214)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code.labels = {
+  ["0111"] = "Issue Classification Code: Prime Market Domestic Stock (0111)",
+  ["0112"] = "Issue Classification Code: Standard Market Domestic Stock (0112)",
+  ["0113"] = "Issue Classification Code: Foreign Stock (0113)",
+  ["0114"] = "Issue Classification Code: Growth Market Domestic Stock (0114)",
+  ["0122"] = "Issue Classification Code: Tokyo Pro Market Domestic Stock (0122)",
+  ["0211"] = "Issue Classification Code: Cb (0211)",
+  ["0214"] = "Issue Classification Code: Exchangeable Bond (0214)",
+}
 
-  return "Issue Classification Code: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_code.labels[value] or "Issue Classification Code: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification Code
@@ -1556,15 +1270,13 @@ jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_large_classifica
 jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_large_classification.size = 2
 
 -- Display: Issue Classification Large Classification
-jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_large_classification.display = function(value)
-  if value == "01" then
-    return "Issue Classification Large Classification: Stockrelated (01)"
-  end
-  if value == "02" then
-    return "Issue Classification Large Classification: Cbrelated (02)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_large_classification.labels = {
+  ["01"] = "Issue Classification Large Classification: Stockrelated (01)",
+  ["02"] = "Issue Classification Large Classification: Cbrelated (02)",
+}
 
-  return "Issue Classification Large Classification: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_large_classification.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.issue_classification_large_classification.labels[value] or "Issue Classification Large Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification Large Classification
@@ -1609,18 +1321,14 @@ jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification 
 jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification.size = 2
 
 -- Display: Issue Realtime Medium Classification
-jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification.display = function(value)
-  if value == "00" then
-    return "Issue Realtime Medium Classification: New (00)"
-  end
-  if value == "01" then
-    return "Issue Realtime Medium Classification: Backup (01)"
-  end
-  if value == "02" then
-    return "Issue Realtime Medium Classification: Allday (02)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification.labels = {
+  ["00"] = "Issue Realtime Medium Classification: New (00)",
+  ["01"] = "Issue Realtime Medium Classification: Backup (01)",
+  ["02"] = "Issue Realtime Medium Classification: Allday (02)",
+}
 
-  return "Issue Realtime Medium Classification: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification.labels[value] or "Issue Realtime Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Realtime Medium Classification
@@ -1665,24 +1373,16 @@ jpx_tseequities_indexstatistics_flex_v19_5.message_type_large_classification = {
 jpx_tseequities_indexstatistics_flex_v19_5.message_type_large_classification.size = 1
 
 -- Display: Message Type Large Classification
-jpx_tseequities_indexstatistics_flex_v19_5.message_type_large_classification.display = function(value)
-  if value == "1" then
-    return "Message Type Large Classification: Issue Realtime Message (1)"
-  end
-  if value == "2" then
-    return "Message Type Large Classification: Statistics Message (2)"
-  end
-  if value == "3" then
-    return "Message Type Large Classification: Index Message (3)"
-  end
-  if value == "4" then
-    return "Message Type Large Classification: Issue Basic Message (4)"
-  end
-  if value == "9" then
-    return "Message Type Large Classification: Control Message (9)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.message_type_large_classification.labels = {
+  ["1"] = "Message Type Large Classification: Issue Realtime Message (1)",
+  ["2"] = "Message Type Large Classification: Statistics Message (2)",
+  ["3"] = "Message Type Large Classification: Index Message (3)",
+  ["4"] = "Message Type Large Classification: Issue Basic Message (4)",
+  ["9"] = "Message Type Large Classification: Control Message (9)",
+}
 
-  return "Message Type Large Classification: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.message_type_large_classification.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.message_type_large_classification.labels[value] or "Message Type Large Classification: Unknown("..value..")"
 end
 
 -- Dissect: Message Type Large Classification
@@ -1765,15 +1465,13 @@ jpx_tseequities_indexstatistics_flex_v19_5.net_change_distinction = {}
 jpx_tseequities_indexstatistics_flex_v19_5.net_change_distinction.size = 1
 
 -- Display: Net Change Distinction
-jpx_tseequities_indexstatistics_flex_v19_5.net_change_distinction.display = function(value)
-  if value == "1" then
-    return "Net Change Distinction: Up (1)"
-  end
-  if value == "2" then
-    return "Net Change Distinction: Down (2)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.net_change_distinction.labels = {
+  ["1"] = "Net Change Distinction: Up (1)",
+  ["2"] = "Net Change Distinction: Down (2)",
+}
 
-  return "Net Change Distinction: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.net_change_distinction.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.net_change_distinction.labels[value] or "Net Change Distinction: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Distinction
@@ -2331,15 +2029,13 @@ jpx_tseequities_indexstatistics_flex_v19_5.separation_of_tag = {}
 jpx_tseequities_indexstatistics_flex_v19_5.separation_of_tag.size = 1
 
 -- Display: Separation Of Tag
-jpx_tseequities_indexstatistics_flex_v19_5.separation_of_tag.display = function(value)
-  if value == 19 then
-    return "Separation Of Tag: Separation Between Tag (19)"
-  end
-  if value == 17 then
-    return "Separation Of Tag: End Of Message (17)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.separation_of_tag.labels = {
+  [19] = "Separation Of Tag: Separation Between Tag (19)",
+  [17] = "Separation Of Tag: End Of Message (17)",
+}
 
-  return "Separation Of Tag: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.separation_of_tag.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.separation_of_tag.labels[value] or "Separation Of Tag: Unknown("..value..")"
 end
 
 -- Dissect: Separation Of Tag
@@ -2613,30 +2309,18 @@ jpx_tseequities_indexstatistics_flex_v19_5.sq_type = {}
 jpx_tseequities_indexstatistics_flex_v19_5.sq_type.size = 4
 
 -- Display: Sq Type
-jpx_tseequities_indexstatistics_flex_v19_5.sq_type.display = function(value)
-  if value == "0000" then
-    return "Sq Type: Tse Stock Index Topix (0000)"
-  end
-  if value == "0028" then
-    return "Sq Type: Topix Core 30 (0028)"
-  end
-  if value == "005B" then
-    return "Sq Type: Banking (005B)"
-  end
-  if value == "0070" then
-    return "Sq Type: Tse Growth Market 250 Index (0070)"
-  end
-  if value == "0075" then
-    return "Sq Type: Tse Reit Index (0075)"
-  end
-  if value == "0503" then
-    return "Sq Type: Jpx Prime 150 Index (0503)"
-  end
-  if value == "8507" then
-    return "Sq Type: Jpx Nikkei Index 400 (8507)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.sq_type.labels = {
+  ["0000"] = "Sq Type: Tse Stock Index Topix (0000)",
+  ["0028"] = "Sq Type: Topix Core 30 (0028)",
+  ["005B"] = "Sq Type: Banking (005B)",
+  ["0070"] = "Sq Type: Tse Growth Market 250 Index (0070)",
+  ["0075"] = "Sq Type: Tse Reit Index (0075)",
+  ["0503"] = "Sq Type: Jpx Prime 150 Index (0503)",
+  ["8507"] = "Sq Type: Jpx Nikkei Index 400 (8507)",
+}
 
-  return "Sq Type: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.sq_type.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.sq_type.labels[value] or "Sq Type: Unknown("..value..")"
 end
 
 -- Dissect: Sq Type
@@ -2753,12 +2437,12 @@ jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification = {}
 jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification.size = 2
 
 -- Display: Statistics Medium Classification
-jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification.display = function(value)
-  if value == "00" then
-    return "Statistics Medium Classification: Statistics Message (00)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification.labels = {
+  ["00"] = "Statistics Medium Classification: Statistics Message (00)",
+}
 
-  return "Statistics Medium Classification: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification.labels[value] or "Statistics Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Statistics Medium Classification
@@ -2849,66 +2533,30 @@ jpx_tseequities_indexstatistics_flex_v19_5.tag_id = {}
 jpx_tseequities_indexstatistics_flex_v19_5.tag_id.size = 2
 
 -- Display: Tag ID
-jpx_tseequities_indexstatistics_flex_v19_5.tag_id.display = function(value)
-  if value == "MV" then
-    return "Tag ID: Market Value Message (MV)"
-  end
-  if value == "YS" then
-    return "Tag ID: Simple Yield Message (YS)"
-  end
-  if value == "YW" then
-    return "Tag ID: Weighted Yield Message (YW)"
-  end
-  if value == "AP" then
-    return "Tag ID: Simple Stock Price Average Message (AP)"
-  end
-  if value == "AW" then
-    return "Tag ID: Weighted Stock Price Average Message (AW)"
-  end
-  if value == "AT" then
-    return "Tag ID: Simple Stock Price Average By Industry Message (AT)"
-  end
-  if value == "IY" then
-    return "Tag ID: Japanese Yen Cb Indicator Message (IY)"
-  end
-  if value == "NC" then
-    return "Tag ID: Number Of Gainers Decliners Message (NC)"
-  end
-  if value == "TV" then
-    return "Tag ID: Estimated Total Trading Volume Message (TV)"
-  end
-  if value == "TA" then
-    return "Tag ID: Estimated Total Turnover Message (TA)"
-  end
-  if value == "VS" then
-    return "Tag ID: Vwap By Market Message (VS)"
-  end
-  if value == "RO" then
-    return "Tag ID: Ranking By Trading Volume Message (RO)"
-  end
-  if value == "RA" then
-    return "Tag ID: Ranking By Turnover Message (RA)"
-  end
-  if value == "RC" then
-    return "Tag ID: Ranking By Net Change Message (RC)"
-  end
-  if value == "RP" then
-    return "Tag ID: Ranking By Net Change Rate Message (RP)"
-  end
-  if value == "TS" then
-    return "Tag ID: ToSTNeT Statistics Message (TS)"
-  end
-  if value == "4I" then
-    return "Tag ID: Index Open High Low And Closing Prices Message (4I)"
-  end
-  if value == "SQ" then
-    return "Tag ID: Special Quotation Message (SQ)"
-  end
-  if value == "LC" then
-    return "Tag ID: Control Message (LC)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.tag_id.labels = {
+  ["MV"] = "Tag ID: Market Value Message (MV)",
+  ["YS"] = "Tag ID: Simple Yield Message (YS)",
+  ["YW"] = "Tag ID: Weighted Yield Message (YW)",
+  ["AP"] = "Tag ID: Simple Stock Price Average Message (AP)",
+  ["AW"] = "Tag ID: Weighted Stock Price Average Message (AW)",
+  ["AT"] = "Tag ID: Simple Stock Price Average By Industry Message (AT)",
+  ["IY"] = "Tag ID: Japanese Yen Cb Indicator Message (IY)",
+  ["NC"] = "Tag ID: Number Of Gainers Decliners Message (NC)",
+  ["TV"] = "Tag ID: Estimated Total Trading Volume Message (TV)",
+  ["TA"] = "Tag ID: Estimated Total Turnover Message (TA)",
+  ["VS"] = "Tag ID: Vwap By Market Message (VS)",
+  ["RO"] = "Tag ID: Ranking By Trading Volume Message (RO)",
+  ["RA"] = "Tag ID: Ranking By Turnover Message (RA)",
+  ["RC"] = "Tag ID: Ranking By Net Change Message (RC)",
+  ["RP"] = "Tag ID: Ranking By Net Change Rate Message (RP)",
+  ["TS"] = "Tag ID: ToSTNeT Statistics Message (TS)",
+  ["4I"] = "Tag ID: Index Open High Low And Closing Prices Message (4I)",
+  ["SQ"] = "Tag ID: Special Quotation Message (SQ)",
+  ["LC"] = "Tag ID: Control Message (LC)",
+}
 
-  return "Tag ID: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.tag_id.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.tag_id.labels[value] or "Tag ID: Unknown("..value..")"
 end
 
 -- Dissect: Tag ID
@@ -2930,15 +2578,13 @@ jpx_tseequities_indexstatistics_flex_v19_5.test_mode_flag = {}
 jpx_tseequities_indexstatistics_flex_v19_5.test_mode_flag.size = 1
 
 -- Display: Test Mode Flag
-jpx_tseequities_indexstatistics_flex_v19_5.test_mode_flag.display = function(value)
-  if value == "1" then
-    return "Test Mode Flag: Real Operation (1)"
-  end
-  if value == "2" then
-    return "Test Mode Flag: Test Operation (2)"
-  end
+jpx_tseequities_indexstatistics_flex_v19_5.test_mode_flag.labels = {
+  ["1"] = "Test Mode Flag: Real Operation (1)",
+  ["2"] = "Test Mode Flag: Test Operation (2)",
+}
 
-  return "Test Mode Flag: Unknown("..value..")"
+jpx_tseequities_indexstatistics_flex_v19_5.test_mode_flag.display = function(value)
+  return jpx_tseequities_indexstatistics_flex_v19_5.test_mode_flag.labels[value] or "Test Mode Flag: Unknown("..value..")"
 end
 
 -- Dissect: Test Mode Flag
@@ -6636,82 +6282,32 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.payload = {}
 
 -- Dissect: Payload
+jpx_tseequities_indexstatistics_flex_v19_5.payload.dispatch = {
+  ["MV"] = jpx_tseequities_indexstatistics_flex_v19_5.market_value_message.dissect,
+  ["YS"] = jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_message.dissect,
+  ["YW"] = jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_message.dissect,
+  ["AP"] = jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_message.dissect,
+  ["AW"] = jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_message.dissect,
+  ["AT"] = jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_by_industry_message.dissect,
+  ["IY"] = jpx_tseequities_indexstatistics_flex_v19_5.japanese_yen_cb_indicator_message.dissect,
+  ["NC"] = jpx_tseequities_indexstatistics_flex_v19_5.number_of_gainers_decliners_message.dissect,
+  ["TV"] = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_message.dissect,
+  ["TA"] = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_message.dissect,
+  ["VS"] = jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_message.dissect,
+  ["RO"] = jpx_tseequities_indexstatistics_flex_v19_5.ranking_by_trading_volume_message.dissect,
+  ["RA"] = jpx_tseequities_indexstatistics_flex_v19_5.ranking_by_turnover_message.dissect,
+  ["RC"] = jpx_tseequities_indexstatistics_flex_v19_5.ranking_by_net_change_message.dissect,
+  ["RP"] = jpx_tseequities_indexstatistics_flex_v19_5.ranking_by_net_change_rate_message.dissect,
+  ["TS"] = jpx_tseequities_indexstatistics_flex_v19_5.tostnet_statistics_message.dissect,
+  ["4I"] = jpx_tseequities_indexstatistics_flex_v19_5.index_open_high_low_and_closing_prices_message.dissect,
+  ["SQ"] = jpx_tseequities_indexstatistics_flex_v19_5.special_quotation_message.dissect,
+  ["LC"] = jpx_tseequities_indexstatistics_flex_v19_5.control_message.dissect,
+}
+
 jpx_tseequities_indexstatistics_flex_v19_5.payload.dissect = function(buffer, offset, packet, parent, tag_id)
-  -- Dissect Market Value Message
-  if tag_id == "MV" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.market_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Yield Message
-  if tag_id == "YS" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Weighted Yield Message
-  if tag_id == "YW" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Stock Price Average Message
-  if tag_id == "AP" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Weighted Stock Price Average Message
-  if tag_id == "AW" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Stock Price Average By Industry Message
-  if tag_id == "AT" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_by_industry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Japanese Yen Cb Indicator Message
-  if tag_id == "IY" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.japanese_yen_cb_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Number Of Gainers Decliners Message
-  if tag_id == "NC" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.number_of_gainers_decliners_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Estimated Total Trading Volume Message
-  if tag_id == "TV" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Estimated Total Turnover Message
-  if tag_id == "TA" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Vwap By Market Message
-  if tag_id == "VS" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ranking By Trading Volume Message
-  if tag_id == "RO" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.ranking_by_trading_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ranking By Turnover Message
-  if tag_id == "RA" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.ranking_by_turnover_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ranking By Net Change Message
-  if tag_id == "RC" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.ranking_by_net_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ranking By Net Change Rate Message
-  if tag_id == "RP" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.ranking_by_net_change_rate_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect ToSTNeT Statistics Message
-  if tag_id == "TS" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.tostnet_statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Open High Low And Closing Prices Message
-  if tag_id == "4I" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.index_open_high_low_and_closing_prices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Special Quotation Message
-  if tag_id == "SQ" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.special_quotation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if tag_id == "LC" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_indexstatistics_flex_v19_5.payload.dispatch[tag_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6944,26 +6540,18 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification = {}
 
 -- Dissect: Message Type Medium Classification
+jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification.dispatch = {
+  ["1"] = jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification.dissect,
+  ["2"] = jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification.dissect,
+  ["3"] = jpx_tseequities_indexstatistics_flex_v19_5.index_medium_classification.dissect,
+  ["4"] = jpx_tseequities_indexstatistics_flex_v19_5.issue_basic_medium_classification.dissect,
+  ["9"] = jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.dissect,
+}
+
 jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification.dissect = function(buffer, offset, packet, parent, message_type_large_classification)
-  -- Dissect Issue Realtime Medium Classification
-  if message_type_large_classification == "1" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Medium Classification
-  if message_type_large_classification == "2" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Medium Classification
-  if message_type_large_classification == "3" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.index_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Basic Medium Classification
-  if message_type_large_classification == "4" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.issue_basic_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Medium Classification
-  if message_type_large_classification == "9" then
-    return jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification.dispatch[message_type_large_classification]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

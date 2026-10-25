@@ -397,24 +397,16 @@ biva_bivaequities_totalview_glimpse_v1_12.client_packet_type = {}
 biva_bivaequities_totalview_glimpse_v1_12.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-biva_bivaequities_totalview_glimpse_v1_12.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.client_packet_type.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -436,15 +428,13 @@ biva_bivaequities_totalview_glimpse_v1_12.cross_type = {}
 biva_bivaequities_totalview_glimpse_v1_12.cross_type.size = 1
 
 -- Display: Cross Type
-biva_bivaequities_totalview_glimpse_v1_12.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Preopening Session (O)"
-  end
-  if value == "I" then
-    return "Cross Type: Intraday Auction (I)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.cross_type.labels = {
+  ["O"] = "Cross Type: Preopening Session (O)",
+  ["I"] = "Cross Type: Intraday Auction (I)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.cross_type.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -554,39 +544,21 @@ biva_bivaequities_totalview_glimpse_v1_12.event_code = {}
 biva_bivaequities_totalview_glimpse_v1_12.event_code.size = 1
 
 -- Display: Event Code
-biva_bivaequities_totalview_glimpse_v1_12.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "V" then
-    return "Event Code: Scheduled Auction Starts (V)"
-  end
-  if value == "U" then
-    return "Event Code: Scheduled Auction Closes (U)"
-  end
-  if value == "P" then
-    return "Event Code: Start Of Post Close Session (P)"
-  end
-  if value == "T" then
-    return "Event Code: End Of Post Close Session (T)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["V"] = "Event Code: Scheduled Auction Starts (V)",
+  ["U"] = "Event Code: Scheduled Auction Closes (U)",
+  ["P"] = "Event Code: Start Of Post Close Session (P)",
+  ["T"] = "Event Code: End Of Post Close Session (T)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.event_code.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -700,15 +672,13 @@ biva_bivaequities_totalview_glimpse_v1_12.listing_type = {}
 biva_bivaequities_totalview_glimpse_v1_12.listing_type.size = 1
 
 -- Display: Listing Type
-biva_bivaequities_totalview_glimpse_v1_12.listing_type.display = function(value)
-  if value == "R" then
-    return "Listing Type: Regular Securities (R)"
-  end
-  if value == "S" then
-    return "Listing Type: Sub Rm Securities (S)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.listing_type.labels = {
+  ["R"] = "Listing Type: Regular Securities (R)",
+  ["S"] = "Listing Type: Sub Rm Securities (S)",
+}
 
-  return "Listing Type: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.listing_type.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.listing_type.labels[value] or "Listing Type: Unknown("..value..")"
 end
 
 -- Dissect: Listing Type
@@ -799,15 +769,13 @@ biva_bivaequities_totalview_glimpse_v1_12.order_verb = {}
 biva_bivaequities_totalview_glimpse_v1_12.order_verb.size = 1
 
 -- Display: Order Verb
-biva_bivaequities_totalview_glimpse_v1_12.order_verb.display = function(value)
-  if value == "B" then
-    return "Order Verb: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Verb: Sell (S)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.order_verb.labels = {
+  ["B"] = "Order Verb: Buy (B)",
+  ["S"] = "Order Verb: Sell (S)",
+}
 
-  return "Order Verb: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.order_verb.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.order_verb.labels[value] or "Order Verb: Unknown("..value..")"
 end
 
 -- Dissect: Order Verb
@@ -1059,21 +1027,15 @@ biva_bivaequities_totalview_glimpse_v1_12.price_type = {}
 biva_bivaequities_totalview_glimpse_v1_12.price_type.size = 1
 
 -- Display: Price Type
-biva_bivaequities_totalview_glimpse_v1_12.price_type.display = function(value)
-  if value == "C" then
-    return "Price Type: Close Price (C)"
-  end
-  if value == "R" then
-    return "Price Type: Reference Price (R)"
-  end
-  if value == "I" then
-    return "Price Type: Inav (I)"
-  end
-  if value == "V" then
-    return "Price Type: Vwap Or Ppp (V)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.price_type.labels = {
+  ["C"] = "Price Type: Close Price (C)",
+  ["R"] = "Price Type: Reference Price (R)",
+  ["I"] = "Price Type: Inav (I)",
+  ["V"] = "Price Type: Vwap Or Ppp (V)",
+}
 
-  return "Price Type: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.price_type.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -1283,15 +1245,13 @@ biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code = {}
 biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1446,42 +1406,22 @@ biva_bivaequities_totalview_glimpse_v1_12.sequenced_message_type = {}
 biva_bivaequities_totalview_glimpse_v1_12.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-biva_bivaequities_totalview_glimpse_v1_12.sequenced_message_type.display = function(value)
-  if value == "T" then
-    return "Sequenced Message Type: Time Stamp Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Sequenced Message Type: Price Tick Size Message (L)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Quantity Tick Size Message (M)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Orderbook Directory Message (R)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Participant Directory Message (F)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Orderbook Trading Action Message (H)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Orderbook Reference Price Message (X)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Add Order Message (A)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Indicative Price Quantity Message (I)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Glimpse Snapshot Message (G)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.sequenced_message_type.labels = {
+  ["T"] = "Sequenced Message Type: Time Stamp Seconds Message (T)",
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["L"] = "Sequenced Message Type: Price Tick Size Message (L)",
+  ["M"] = "Sequenced Message Type: Quantity Tick Size Message (M)",
+  ["R"] = "Sequenced Message Type: Orderbook Directory Message (R)",
+  ["F"] = "Sequenced Message Type: Participant Directory Message (F)",
+  ["H"] = "Sequenced Message Type: Orderbook Trading Action Message (H)",
+  ["X"] = "Sequenced Message Type: Orderbook Reference Price Message (X)",
+  ["A"] = "Sequenced Message Type: Add Order Message (A)",
+  ["I"] = "Sequenced Message Type: Indicative Price Quantity Message (I)",
+  ["G"] = "Sequenced Message Type: Glimpse Snapshot Message (G)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.sequenced_message_type.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1503,27 +1443,17 @@ biva_bivaequities_totalview_glimpse_v1_12.server_packet_type = {}
 biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1614,45 +1544,23 @@ biva_bivaequities_totalview_glimpse_v1_12.trading_action_reason = {}
 biva_bivaequities_totalview_glimpse_v1_12.trading_action_reason.size = 1
 
 -- Display: Trading Action Reason
-biva_bivaequities_totalview_glimpse_v1_12.trading_action_reason.display = function(value)
-  if value == "N" then
-    return "Trading Action Reason: Normal Trading (N)"
-  end
-  if value == "H" then
-    return "Trading Action Reason: Volatility Auction (H)"
-  end
-  if value == "A" then
-    return "Trading Action Reason: Continuous Auction Start (A)"
-  end
-  if value == "B" then
-    return "Trading Action Reason: Continuous Auction End (B)"
-  end
-  if value == "Q" then
-    return "Trading Action Reason: News Pending (Q)"
-  end
-  if value == "S" then
-    return "Trading Action Reason: Static Price Band Breach (S)"
-  end
-  if value == "M" then
-    return "Trading Action Reason: Market Surveillance Suspension (M)"
-  end
-  if value == "O" then
-    return "Trading Action Reason: Suspension By Market Of Origin (O)"
-  end
-  if value == "C" then
-    return "Trading Action Reason: Non Compliance (C)"
-  end
-  if value == "I" then
-    return "Trading Action Reason: Start Of Indication Of Interest (I)"
-  end
-  if value == "E" then
-    return "Trading Action Reason: Expired Security Is Unavailable For Trading (E)"
-  end
-  if value == "L" then
-    return "Trading Action Reason: Not Yet Available For Trading (L)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.trading_action_reason.labels = {
+  ["N"] = "Trading Action Reason: Normal Trading (N)",
+  ["H"] = "Trading Action Reason: Volatility Auction (H)",
+  ["A"] = "Trading Action Reason: Continuous Auction Start (A)",
+  ["B"] = "Trading Action Reason: Continuous Auction End (B)",
+  ["Q"] = "Trading Action Reason: News Pending (Q)",
+  ["S"] = "Trading Action Reason: Static Price Band Breach (S)",
+  ["M"] = "Trading Action Reason: Market Surveillance Suspension (M)",
+  ["O"] = "Trading Action Reason: Suspension By Market Of Origin (O)",
+  ["C"] = "Trading Action Reason: Non Compliance (C)",
+  ["I"] = "Trading Action Reason: Start Of Indication Of Interest (I)",
+  ["E"] = "Trading Action Reason: Expired Security Is Unavailable For Trading (E)",
+  ["L"] = "Trading Action Reason: Not Yet Available For Trading (L)",
+}
 
-  return "Trading Action Reason: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.trading_action_reason.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.trading_action_reason.labels[value] or "Trading Action Reason: Unknown("..value..")"
 end
 
 -- Dissect: Trading Action Reason
@@ -1674,15 +1582,13 @@ biva_bivaequities_totalview_glimpse_v1_12.trading_state = {}
 biva_bivaequities_totalview_glimpse_v1_12.trading_state.size = 1
 
 -- Display: Trading State
-biva_bivaequities_totalview_glimpse_v1_12.trading_state.display = function(value)
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
-  if value == "V" then
-    return "Trading State: Suspended (V)"
-  end
+biva_bivaequities_totalview_glimpse_v1_12.trading_state.labels = {
+  ["T"] = "Trading State: Trading (T)",
+  ["V"] = "Trading State: Suspended (V)",
+}
 
-  return "Trading State: Unknown("..value..")"
+biva_bivaequities_totalview_glimpse_v1_12.trading_state.display = function(value)
+  return biva_bivaequities_totalview_glimpse_v1_12.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -2522,50 +2428,24 @@ end
 biva_bivaequities_totalview_glimpse_v1_12.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+biva_bivaequities_totalview_glimpse_v1_12.sequenced_message.dispatch = {
+  ["T"] = biva_bivaequities_totalview_glimpse_v1_12.time_stamp_seconds_message.dissect,
+  ["S"] = biva_bivaequities_totalview_glimpse_v1_12.system_event_message.dissect,
+  ["L"] = biva_bivaequities_totalview_glimpse_v1_12.price_tick_size_message.dissect,
+  ["M"] = biva_bivaequities_totalview_glimpse_v1_12.quantity_tick_size_message.dissect,
+  ["R"] = biva_bivaequities_totalview_glimpse_v1_12.orderbook_directory_message.dissect,
+  ["F"] = biva_bivaequities_totalview_glimpse_v1_12.participant_directory_message.dissect,
+  ["H"] = biva_bivaequities_totalview_glimpse_v1_12.orderbook_trading_action_message.dissect,
+  ["X"] = biva_bivaequities_totalview_glimpse_v1_12.orderbook_reference_price_message.dissect,
+  ["A"] = biva_bivaequities_totalview_glimpse_v1_12.add_order_message.dissect,
+  ["I"] = biva_bivaequities_totalview_glimpse_v1_12.indicative_price_quantity_message.dissect,
+  ["G"] = biva_bivaequities_totalview_glimpse_v1_12.glimpse_snapshot_message.dissect,
+}
+
 biva_bivaequities_totalview_glimpse_v1_12.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Time Stamp Seconds Message
-  if sequenced_message_type == "T" then
-    return biva_bivaequities_totalview_glimpse_v1_12.time_stamp_seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return biva_bivaequities_totalview_glimpse_v1_12.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Tick Size Message
-  if sequenced_message_type == "L" then
-    return biva_bivaequities_totalview_glimpse_v1_12.price_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quantity Tick Size Message
-  if sequenced_message_type == "M" then
-    return biva_bivaequities_totalview_glimpse_v1_12.quantity_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Directory Message
-  if sequenced_message_type == "R" then
-    return biva_bivaequities_totalview_glimpse_v1_12.orderbook_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant Directory Message
-  if sequenced_message_type == "F" then
-    return biva_bivaequities_totalview_glimpse_v1_12.participant_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Trading Action Message
-  if sequenced_message_type == "H" then
-    return biva_bivaequities_totalview_glimpse_v1_12.orderbook_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Reference Price Message
-  if sequenced_message_type == "X" then
-    return biva_bivaequities_totalview_glimpse_v1_12.orderbook_reference_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if sequenced_message_type == "A" then
-    return biva_bivaequities_totalview_glimpse_v1_12.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Price Quantity Message
-  if sequenced_message_type == "I" then
-    return biva_bivaequities_totalview_glimpse_v1_12.indicative_price_quantity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Glimpse Snapshot Message
-  if sequenced_message_type == "G" then
-    return biva_bivaequities_totalview_glimpse_v1_12.glimpse_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_totalview_glimpse_v1_12.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2808,30 +2688,19 @@ end
 biva_bivaequities_totalview_glimpse_v1_12.server_payload = {}
 
 -- Dissect: Server Payload
+biva_bivaequities_totalview_glimpse_v1_12.server_payload.dispatch = {
+  ["+"] = biva_bivaequities_totalview_glimpse_v1_12.debug_packet.dissect,
+  ["A"] = biva_bivaequities_totalview_glimpse_v1_12.login_accepted_packet.dissect,
+  ["J"] = biva_bivaequities_totalview_glimpse_v1_12.login_rejected_packet.dissect,
+  ["S"] = biva_bivaequities_totalview_glimpse_v1_12.sequenced_data_packet.dissect,
+  ["H"] = biva_bivaequities_totalview_glimpse_v1_12.server_heartbeat.dissect,
+  ["Z"] = biva_bivaequities_totalview_glimpse_v1_12.end_of_session.dissect,
+}
+
 biva_bivaequities_totalview_glimpse_v1_12.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return biva_bivaequities_totalview_glimpse_v1_12.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return biva_bivaequities_totalview_glimpse_v1_12.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return biva_bivaequities_totalview_glimpse_v1_12.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return biva_bivaequities_totalview_glimpse_v1_12.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return biva_bivaequities_totalview_glimpse_v1_12.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return biva_bivaequities_totalview_glimpse_v1_12.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_totalview_glimpse_v1_12.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3144,26 +3013,18 @@ end
 biva_bivaequities_totalview_glimpse_v1_12.client_payload = {}
 
 -- Dissect: Client Payload
+biva_bivaequities_totalview_glimpse_v1_12.client_payload.dispatch = {
+  ["+"] = biva_bivaequities_totalview_glimpse_v1_12.debug_packet.dissect,
+  ["L"] = biva_bivaequities_totalview_glimpse_v1_12.login_request_packet.dissect,
+  ["U"] = biva_bivaequities_totalview_glimpse_v1_12.unsequenced_data_packet.dissect,
+  ["R"] = biva_bivaequities_totalview_glimpse_v1_12.client_heartbeat.dissect,
+  ["O"] = biva_bivaequities_totalview_glimpse_v1_12.logout_request.dissect,
+}
+
 biva_bivaequities_totalview_glimpse_v1_12.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return biva_bivaequities_totalview_glimpse_v1_12.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return biva_bivaequities_totalview_glimpse_v1_12.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return biva_bivaequities_totalview_glimpse_v1_12.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return biva_bivaequities_totalview_glimpse_v1_12.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return biva_bivaequities_totalview_glimpse_v1_12.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_totalview_glimpse_v1_12.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

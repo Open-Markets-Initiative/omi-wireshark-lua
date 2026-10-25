@@ -200,18 +200,14 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.ack_required_poss_dup = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.ack_required_poss_dup.size = 1
 
 -- Display: Ack Required Poss Dup
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.ack_required_poss_dup.display = function(value)
-  if value == "0" then
-    return "Ack Required Poss Dup: Unused (0)"
-  end
-  if value == "A" then
-    return "Ack Required Poss Dup: Ack Required (A)"
-  end
-  if value == "D" then
-    return "Ack Required Poss Dup: Poss Dup (D)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.ack_required_poss_dup.labels = {
+  ["0"] = "Ack Required Poss Dup: Unused (0)",
+  ["A"] = "Ack Required Poss Dup: Ack Required (A)",
+  ["D"] = "Ack Required Poss Dup: Poss Dup (D)",
+}
 
-  return "Ack Required Poss Dup: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.ack_required_poss_dup.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.ack_required_poss_dup.labels[value] or "Ack Required Poss Dup: Unknown("..value..")"
 end
 
 -- Dissect: Ack Required Poss Dup
@@ -502,15 +498,13 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.bypass = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.bypass.size = 1
 
 -- Display: Bypass
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.bypass.display = function(value)
-  if value == "Y" then
-    return "Bypass: The Order Is A Bypass (Y)"
-  end
-  if value == "N" then
-    return "Bypass: The Order Is Not A Bypass (N)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.bypass.labels = {
+  ["Y"] = "Bypass: The Order Is A Bypass (Y)",
+  ["N"] = "Bypass: The Order Is Not A Bypass (N)",
+}
 
-  return "Bypass: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.bypass.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.bypass.labels[value] or "Bypass: Unknown("..value..")"
 end
 
 -- Dissect: Bypass
@@ -642,15 +636,13 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.currency = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.currency.size = 1
 
 -- Display: Currency
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.currency.display = function(value)
-  if value == "U" then
-    return "Currency: Usd (U)"
-  end
-  if value == "C" then
-    return "Currency: Cad (C)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.currency.labels = {
+  ["U"] = "Currency: Usd (U)",
+  ["C"] = "Currency: Cad (C)",
+}
 
-  return "Currency: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.currency.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -896,15 +888,13 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_conditional = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_conditional.size = 1
 
 -- Display: Is Conditional
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_conditional.display = function(value)
-  if value == "Y" then
-    return "Is Conditional: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Conditional: No (N)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_conditional.labels = {
+  ["Y"] = "Is Conditional: Yes (Y)",
+  ["N"] = "Is Conditional: No (N)",
+}
 
-  return "Is Conditional: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_conditional.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_conditional.labels[value] or "Is Conditional: Unknown("..value..")"
 end
 
 -- Dissect: Is Conditional
@@ -926,15 +916,13 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_dark = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_dark.size = 1
 
 -- Display: Is Dark
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_dark.display = function(value)
-  if value == "Y" then
-    return "Is Dark: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Dark: No (N)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_dark.labels = {
+  ["Y"] = "Is Dark: Yes (Y)",
+  ["N"] = "Is Dark: No (N)",
+}
 
-  return "Is Dark: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_dark.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_dark.labels[value] or "Is Dark: Unknown("..value..")"
 end
 
 -- Dissect: Is Dark
@@ -956,15 +944,13 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_mid_only = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_mid_only.size = 1
 
 -- Display: Is Mid Only
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_mid_only.display = function(value)
-  if value == "Y" then
-    return "Is Mid Only: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Mid Only: No (N)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_mid_only.labels = {
+  ["Y"] = "Is Mid Only: Yes (Y)",
+  ["N"] = "Is Mid Only: No (N)",
+}
 
-  return "Is Mid Only: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_mid_only.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.is_mid_only.labels[value] or "Is Mid Only: Unknown("..value..")"
 end
 
 -- Dissect: Is Mid Only
@@ -1025,30 +1011,18 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.listing_market = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.listing_market.size = 1
 
 -- Display: Listing Market
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsx Venture (V)"
-  end
-  if value == "N" then
-    return "Listing Market: Tsx Na Vex (N)"
-  end
-  if value == "Q" then
-    return "Listing Market: Nasdaq (Q)"
-  end
-  if value == "S" then
-    return "Listing Market: Nyse (S)"
-  end
-  if value == "M" then
-    return "Listing Market: Nyse Mkt (M)"
-  end
-  if value == "X" then
-    return "Listing Market: No Market (X)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.listing_market.labels = {
+  ["T"] = "Listing Market: Tsx (T)",
+  ["V"] = "Listing Market: Tsx Venture (V)",
+  ["N"] = "Listing Market: Tsx Na Vex (N)",
+  ["Q"] = "Listing Market: Nasdaq (Q)",
+  ["S"] = "Listing Market: Nyse (S)",
+  ["M"] = "Listing Market: Nyse Mkt (M)",
+  ["X"] = "Listing Market: No Market (X)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.listing_market.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -1154,15 +1128,13 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.moc_eligible = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.moc_eligible.size = 1
 
 -- Display: Moc Eligible
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.moc_eligible.display = function(value)
-  if value == "Y" then
-    return "Moc Eligible: Yes (Y)"
-  end
-  if value == "N" then
-    return "Moc Eligible: No (N)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.moc_eligible.labels = {
+  ["Y"] = "Moc Eligible: Yes (Y)",
+  ["N"] = "Moc Eligible: No (N)",
+}
 
-  return "Moc Eligible: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.moc_eligible.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.moc_eligible.labels[value] or "Moc Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Moc Eligible
@@ -1207,30 +1179,18 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.msg_type = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.msg_type.size = 1
 
 -- Display: Msg Type
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.msg_type.display = function(value)
-  if value == "0" then
-    return "Msg Type: Heartbeat (0)"
-  end
-  if value == "J" then
-    return "Msg Type: Symbol Status Message (J)"
-  end
-  if value == "s" then
-    return "Msg Type: Trade Report Message (s)"
-  end
-  if value == "t" then
-    return "Msg Type: Trade Cancelled Message (t)"
-  end
-  if value == "u" then
-    return "Msg Type: Moc Imbalance Message (u)"
-  end
-  if value == "v" then
-    return "Msg Type: Stock Status Message (v)"
-  end
-  if value == "w" then
-    return "Msg Type: Quote Message (w)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.msg_type.labels = {
+  ["0"] = "Msg Type: Heartbeat (0)",
+  ["J"] = "Msg Type: Symbol Status Message (J)",
+  ["s"] = "Msg Type: Trade Report Message (s)",
+  ["t"] = "Msg Type: Trade Cancelled Message (t)",
+  ["u"] = "Msg Type: Moc Imbalance Message (u)",
+  ["v"] = "Msg Type: Stock Status Message (v)",
+  ["w"] = "Msg Type: Quote Message (w)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.msg_type.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -1337,15 +1297,13 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.opening_trade = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.opening_trade.size = 1
 
 -- Display: Opening Trade
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.opening_trade.display = function(value)
-  if value == "Y" then
-    return "Opening Trade: Yes (Y)"
-  end
-  if value == "N" then
-    return "Opening Trade: No (N)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.opening_trade.labels = {
+  ["Y"] = "Opening Trade: Yes (Y)",
+  ["N"] = "Opening Trade: No (N)",
+}
 
-  return "Opening Trade: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.opening_trade.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.opening_trade.labels[value] or "Opening Trade: Unknown("..value..")"
 end
 
 -- Dissect: Opening Trade
@@ -1473,27 +1431,17 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.product_type = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.product_type.size = 1
 
 -- Display: Product Type
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.product_type.display = function(value)
-  if value == "B" then
-    return "Product Type: Debenture (B)"
-  end
-  if value == "E" then
-    return "Product Type: Equity (E)"
-  end
-  if value == "M" then
-    return "Product Type: Mutual Fund (M)"
-  end
-  if value == "F" then
-    return "Product Type: Etf (F)"
-  end
-  if value == "U" then
-    return "Product Type: Us Equity (U)"
-  end
-  if value == "O" then
-    return "Product Type: Bond (O)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.product_type.labels = {
+  ["B"] = "Product Type: Debenture (B)",
+  ["E"] = "Product Type: Equity (E)",
+  ["M"] = "Product Type: Mutual Fund (M)",
+  ["F"] = "Product Type: Etf (F)",
+  ["U"] = "Product Type: Us Equity (U)",
+  ["O"] = "Product Type: Bond (O)",
+}
 
-  return "Product Type: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.product_type.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -1801,21 +1749,15 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.source_id = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.source_id.size = 1
 
 -- Display: Source Id
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.source_id.display = function(value)
-  if value == "0" then
-    return "Source Id: Non Source Related (0)"
-  end
-  if value == "Q" then
-    return "Source Id: TSX (Q)"
-  end
-  if value == "V" then
-    return "Source Id: TSX Venture (V)"
-  end
-  if value == "A" then
-    return "Source Id: Alpha (A)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.source_id.labels = {
+  ["0"] = "Source Id: Non Source Related (0)",
+  ["Q"] = "Source Id: TSX (Q)",
+  ["V"] = "Source Id: TSX Venture (V)",
+  ["A"] = "Source Id: Alpha (A)",
+}
 
-  return "Source Id: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.source_id.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.source_id.labels[value] or "Source Id: Unknown("..value..")"
 end
 
 -- Dissect: Source Id
@@ -1892,33 +1834,19 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.stock_state = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.stock_state.size = 2
 
 -- Display: Stock State
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.stock_state.display = function(value)
-  if value == "AR" then
-    return "Stock State: Authorized Delayed (AR)"
-  end
-  if value == "IR" then
-    return "Stock State: Inhibited Delayed (IR)"
-  end
-  if value == "AS" then
-    return "Stock State: Authorized Halted (AS)"
-  end
-  if value == "IS" then
-    return "Stock State: Inhibited Halted (IS)"
-  end
-  if value == "AE" then
-    return "Stock State: Authorized Price Movement Delayed (AE)"
-  end
-  if value == "IE" then
-    return "Stock State: Inhibited Price Movement Delayed (IE)"
-  end
-  if value == "A" then
-    return "Stock State: Authorized (A)"
-  end
-  if value == "I" then
-    return "Stock State: Inhibited (I)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.stock_state.labels = {
+  ["AR"] = "Stock State: Authorized Delayed (AR)",
+  ["IR"] = "Stock State: Inhibited Delayed (IR)",
+  ["AS"] = "Stock State: Authorized Halted (AS)",
+  ["IS"] = "Stock State: Inhibited Halted (IS)",
+  ["AE"] = "Stock State: Authorized Price Movement Delayed (AE)",
+  ["IE"] = "Stock State: Inhibited Price Movement Delayed (IE)",
+  ["A"] = "Stock State: Authorized (A)",
+  ["I"] = "Stock State: Inhibited (I)",
+}
 
-  return "Stock State: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.stock_state.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.stock_state.labels[value] or "Stock State: Unknown("..value..")"
 end
 
 -- Dissect: Stock State
@@ -1986,15 +1914,13 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_6.test_symbol = {}
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.test_symbol.size = 1
 
 -- Display: Test Symbol
-tmx_tsx_quantumfeedlevel1_xmt_v2_6.test_symbol.display = function(value)
-  if value == "Y" then
-    return "Test Symbol: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Symbol: No (N)"
-  end
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.test_symbol.labels = {
+  ["Y"] = "Test Symbol: Yes (Y)",
+  ["N"] = "Test Symbol: No (N)",
+}
 
-  return "Test Symbol: Unknown("..value..")"
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.test_symbol.display = function(value)
+  return tmx_tsx_quantumfeedlevel1_xmt_v2_6.test_symbol.labels[value] or "Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Test Symbol
@@ -2703,30 +2629,19 @@ end
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.business_message = {}
 
 -- Dissect: Business Message
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.business_message.dispatch = {
+  ["J"] = tmx_tsx_quantumfeedlevel1_xmt_v2_6.symbol_status_message.dissect,
+  ["s"] = tmx_tsx_quantumfeedlevel1_xmt_v2_6.trade_report_message.dissect,
+  ["t"] = tmx_tsx_quantumfeedlevel1_xmt_v2_6.trade_cancelled_message.dissect,
+  ["u"] = tmx_tsx_quantumfeedlevel1_xmt_v2_6.moc_imbalance_message.dissect,
+  ["v"] = tmx_tsx_quantumfeedlevel1_xmt_v2_6.stock_status_message.dissect,
+  ["w"] = tmx_tsx_quantumfeedlevel1_xmt_v2_6.quote_message.dissect,
+}
+
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Symbol Status Message
-  if msg_type == "J" then
-    return tmx_tsx_quantumfeedlevel1_xmt_v2_6.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if msg_type == "s" then
-    return tmx_tsx_quantumfeedlevel1_xmt_v2_6.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancelled Message
-  if msg_type == "t" then
-    return tmx_tsx_quantumfeedlevel1_xmt_v2_6.trade_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Moc Imbalance Message
-  if msg_type == "u" then
-    return tmx_tsx_quantumfeedlevel1_xmt_v2_6.moc_imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Status Message
-  if msg_type == "v" then
-    return tmx_tsx_quantumfeedlevel1_xmt_v2_6.stock_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Message
-  if msg_type == "w" then
-    return tmx_tsx_quantumfeedlevel1_xmt_v2_6.quote_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsx_quantumfeedlevel1_xmt_v2_6.business_message.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3113,10 +3028,14 @@ end
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.packet_body = {}
 
 -- Dissect: Packet Body
+tmx_tsx_quantumfeedlevel1_xmt_v2_6.packet_body.dispatch = {
+  ["0"] = tmx_tsx_quantumfeedlevel1_xmt_v2_6.heartbeat_body.dissect,
+}
+
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.packet_body.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Heartbeat Body
-  if msg_type == "0" then
-    return tmx_tsx_quantumfeedlevel1_xmt_v2_6.heartbeat_body.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsx_quantumfeedlevel1_xmt_v2_6.packet_body.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Business Bodies

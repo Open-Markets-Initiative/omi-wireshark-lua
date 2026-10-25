@@ -266,12 +266,12 @@ cboe_cboeeurope_latencyfeed_pitch_v1_4.measurement_type = {}
 cboe_cboeeurope_latencyfeed_pitch_v1_4.measurement_type.size = 1
 
 -- Display: Measurement Type
-cboe_cboeeurope_latencyfeed_pitch_v1_4.measurement_type.display = function(value)
-  if value == 0 then
-    return "Measurement Type: Order To Quote (0)"
-  end
+cboe_cboeeurope_latencyfeed_pitch_v1_4.measurement_type.labels = {
+  [0] = "Measurement Type: Order To Quote (0)",
+}
 
-  return "Measurement Type: Unknown("..value..")"
+cboe_cboeeurope_latencyfeed_pitch_v1_4.measurement_type.display = function(value)
+  return cboe_cboeeurope_latencyfeed_pitch_v1_4.measurement_type.labels[value] or "Measurement Type: Unknown("..value..")"
 end
 
 -- Dissect: Measurement Type
@@ -339,12 +339,12 @@ cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type = {}
 cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.size = 1
 
 -- Display: Message Type
-cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.display = function(value)
-  if value == 0x90 then
-    return "Message Type: Latency Stat Message (0x90)"
-  end
+cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.labels = {
+  [0x90] = "Message Type: Latency Stat Message (0x90)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.display = function(value)
+  return cboe_cboeeurope_latencyfeed_pitch_v1_4.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -748,10 +748,14 @@ end
 cboe_cboeeurope_latencyfeed_pitch_v1_4.payload = {}
 
 -- Dissect: Payload
+cboe_cboeeurope_latencyfeed_pitch_v1_4.payload.dispatch = {
+  [0x90] = cboe_cboeeurope_latencyfeed_pitch_v1_4.latency_stat_message.dissect,
+}
+
 cboe_cboeeurope_latencyfeed_pitch_v1_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Latency Stat Message
-  if message_type == 0x90 then
-    return cboe_cboeeurope_latencyfeed_pitch_v1_4.latency_stat_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cboeeurope_latencyfeed_pitch_v1_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -890,10 +894,14 @@ end
 cboe_cboeeurope_latencyfeed_pitch_v1_4.messages = {}
 
 -- Dissect: Messages
+cboe_cboeeurope_latencyfeed_pitch_v1_4.messages.dispatch = {
+  [0] = cboe_cboeeurope_latencyfeed_pitch_v1_4.heartbeat.dissect,
+}
+
 cboe_cboeeurope_latencyfeed_pitch_v1_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_cboeeurope_latencyfeed_pitch_v1_4.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cboeeurope_latencyfeed_pitch_v1_4.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

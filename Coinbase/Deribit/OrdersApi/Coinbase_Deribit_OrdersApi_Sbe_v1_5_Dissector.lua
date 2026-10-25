@@ -395,105 +395,43 @@ coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason.size = 1
 
 -- Display: Ask Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason.display = function(value)
-  if value == 0 then
-    return "Ask Reject Reason: System Error (0)"
-  end
-  if value == 1 then
-    return "Ask Reject Reason: Invalid Instrument (1)"
-  end
-  if value == 2 then
-    return "Ask Reject Reason: Invalid Field (2)"
-  end
-  if value == 3 then
-    return "Ask Reject Reason: Insufficient Margin (3)"
-  end
-  if value == 4 then
-    return "Ask Reject Reason: Duplicate Client Order Id (4)"
-  end
-  if value == 5 then
-    return "Ask Reject Reason: Invalid Quantity (5)"
-  end
-  if value == 6 then
-    return "Ask Reject Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Ask Reject Reason: Not Allowed By Market State (7)"
-  end
-  if value == 8 then
-    return "Ask Reject Reason: Post Only (8)"
-  end
-  if value == 9 then
-    return "Ask Reject Reason: Too Many Open Orders (9)"
-  end
-  if value == 10 then
-    return "Ask Reject Reason: Permission Error (10)"
-  end
-  if value == 11 then
-    return "Ask Reject Reason: Portfolio Not Found (11)"
-  end
-  if value == 12 then
-    return "Ask Reject Reason: Order Not Found (12)"
-  end
-  if value == 13 then
-    return "Ask Reject Reason: Mmp Not Configured (13)"
-  end
-  if value == 14 then
-    return "Ask Reject Reason: Mmp Max Quote Qty Exceeded (14)"
-  end
-  if value == 15 then
-    return "Ask Reject Reason: Mmp Group Frozen (15)"
-  end
-  if value == 16 then
-    return "Ask Reject Reason: Invalid Margin Mode (16)"
-  end
-  if value == 17 then
-    return "Ask Reject Reason: In Liquidation (17)"
-  end
-  if value == 18 then
-    return "Ask Reject Reason: Risk Check Timed Out (18)"
-  end
-  if value == 19 then
-    return "Ask Reject Reason: Too Many Pending Replaces (19)"
-  end
-  if value == 20 then
-    return "Ask Reject Reason: Iceberg Not Allowed (20)"
-  end
-  if value == 21 then
-    return "Ask Reject Reason: Invalid Allocations (21)"
-  end
-  if value == 22 then
-    return "Ask Reject Reason: Price Too High (22)"
-  end
-  if value == 23 then
-    return "Ask Reject Reason: Price Too Low (23)"
-  end
-  if value == 24 then
-    return "Ask Reject Reason: Price Band Unavailable (24)"
-  end
-  if value == 25 then
-    return "Ask Reject Reason: Rate Limit (25)"
-  end
-  if value == 26 then
-    return "Ask Reject Reason: Portfolio Locked (26)"
-  end
-  if value == 27 then
-    return "Ask Reject Reason: Position Limit Exceeded (27)"
-  end
-  if value == 28 then
-    return "Ask Reject Reason: Order Size Limit Exceeded (28)"
-  end
-  if value == 29 then
-    return "Ask Reject Reason: Member Speed Bump Limit Exceeded (29)"
-  end
-  if value == 30 then
-    return "Ask Reject Reason: Mmp Min Freeze Time Not Elapsed (30)"
-  end
-  if value == 31 then
-    return "Ask Reject Reason: Cancel Only (31)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason.labels = {
+  [0] = "Ask Reject Reason: System Error (0)",
+  [1] = "Ask Reject Reason: Invalid Instrument (1)",
+  [2] = "Ask Reject Reason: Invalid Field (2)",
+  [3] = "Ask Reject Reason: Insufficient Margin (3)",
+  [4] = "Ask Reject Reason: Duplicate Client Order Id (4)",
+  [5] = "Ask Reject Reason: Invalid Quantity (5)",
+  [6] = "Ask Reject Reason: Invalid Price (6)",
+  [7] = "Ask Reject Reason: Not Allowed By Market State (7)",
+  [8] = "Ask Reject Reason: Post Only (8)",
+  [9] = "Ask Reject Reason: Too Many Open Orders (9)",
+  [10] = "Ask Reject Reason: Permission Error (10)",
+  [11] = "Ask Reject Reason: Portfolio Not Found (11)",
+  [12] = "Ask Reject Reason: Order Not Found (12)",
+  [13] = "Ask Reject Reason: Mmp Not Configured (13)",
+  [14] = "Ask Reject Reason: Mmp Max Quote Qty Exceeded (14)",
+  [15] = "Ask Reject Reason: Mmp Group Frozen (15)",
+  [16] = "Ask Reject Reason: Invalid Margin Mode (16)",
+  [17] = "Ask Reject Reason: In Liquidation (17)",
+  [18] = "Ask Reject Reason: Risk Check Timed Out (18)",
+  [19] = "Ask Reject Reason: Too Many Pending Replaces (19)",
+  [20] = "Ask Reject Reason: Iceberg Not Allowed (20)",
+  [21] = "Ask Reject Reason: Invalid Allocations (21)",
+  [22] = "Ask Reject Reason: Price Too High (22)",
+  [23] = "Ask Reject Reason: Price Too Low (23)",
+  [24] = "Ask Reject Reason: Price Band Unavailable (24)",
+  [25] = "Ask Reject Reason: Rate Limit (25)",
+  [26] = "Ask Reject Reason: Portfolio Locked (26)",
+  [27] = "Ask Reject Reason: Position Limit Exceeded (27)",
+  [28] = "Ask Reject Reason: Order Size Limit Exceeded (28)",
+  [29] = "Ask Reject Reason: Member Speed Bump Limit Exceeded (29)",
+  [30] = "Ask Reject Reason: Mmp Min Freeze Time Not Elapsed (30)",
+  [31] = "Ask Reject Reason: Cancel Only (31)",
+}
 
-  return "Ask Reject Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason.labels[value] or "Ask Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Ask Reject Reason
@@ -515,36 +453,20 @@ coinbase_deribit_ordersapi_sbe_v1_5.ask_status = {}
 coinbase_deribit_ordersapi_sbe_v1_5.ask_status.size = 1
 
 -- Display: Ask Status
-coinbase_deribit_ordersapi_sbe_v1_5.ask_status.display = function(value)
-  if value == 0 then
-    return "Ask Status: Inactive (0)"
-  end
-  if value == 1 then
-    return "Ask Status: Unmodified (1)"
-  end
-  if value == 2 then
-    return "Ask Status: Qty Reduced (2)"
-  end
-  if value == 3 then
-    return "Ask Status: Updated (3)"
-  end
-  if value == 4 then
-    return "Ask Status: Filled (4)"
-  end
-  if value == 5 then
-    return "Ask Status: Canceled By Request (5)"
-  end
-  if value == 6 then
-    return "Ask Status: Canceled By Mmp (6)"
-  end
-  if value == 7 then
-    return "Ask Status: Canceled By Self Match (7)"
-  end
-  if value == 8 then
-    return "Ask Status: Speed Bumped (8)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.ask_status.labels = {
+  [0] = "Ask Status: Inactive (0)",
+  [1] = "Ask Status: Unmodified (1)",
+  [2] = "Ask Status: Qty Reduced (2)",
+  [3] = "Ask Status: Updated (3)",
+  [4] = "Ask Status: Filled (4)",
+  [5] = "Ask Status: Canceled By Request (5)",
+  [6] = "Ask Status: Canceled By Mmp (6)",
+  [7] = "Ask Status: Canceled By Self Match (7)",
+  [8] = "Ask Status: Speed Bumped (8)",
+}
 
-  return "Ask Status: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.ask_status.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.ask_status.labels[value] or "Ask Status: Unknown("..value..")"
 end
 
 -- Dissect: Ask Status
@@ -657,105 +579,43 @@ coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason.size = 1
 
 -- Display: Bid Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason.display = function(value)
-  if value == 0 then
-    return "Bid Reject Reason: System Error (0)"
-  end
-  if value == 1 then
-    return "Bid Reject Reason: Invalid Instrument (1)"
-  end
-  if value == 2 then
-    return "Bid Reject Reason: Invalid Field (2)"
-  end
-  if value == 3 then
-    return "Bid Reject Reason: Insufficient Margin (3)"
-  end
-  if value == 4 then
-    return "Bid Reject Reason: Duplicate Client Order Id (4)"
-  end
-  if value == 5 then
-    return "Bid Reject Reason: Invalid Quantity (5)"
-  end
-  if value == 6 then
-    return "Bid Reject Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Bid Reject Reason: Not Allowed By Market State (7)"
-  end
-  if value == 8 then
-    return "Bid Reject Reason: Post Only (8)"
-  end
-  if value == 9 then
-    return "Bid Reject Reason: Too Many Open Orders (9)"
-  end
-  if value == 10 then
-    return "Bid Reject Reason: Permission Error (10)"
-  end
-  if value == 11 then
-    return "Bid Reject Reason: Portfolio Not Found (11)"
-  end
-  if value == 12 then
-    return "Bid Reject Reason: Order Not Found (12)"
-  end
-  if value == 13 then
-    return "Bid Reject Reason: Mmp Not Configured (13)"
-  end
-  if value == 14 then
-    return "Bid Reject Reason: Mmp Max Quote Qty Exceeded (14)"
-  end
-  if value == 15 then
-    return "Bid Reject Reason: Mmp Group Frozen (15)"
-  end
-  if value == 16 then
-    return "Bid Reject Reason: Invalid Margin Mode (16)"
-  end
-  if value == 17 then
-    return "Bid Reject Reason: In Liquidation (17)"
-  end
-  if value == 18 then
-    return "Bid Reject Reason: Risk Check Timed Out (18)"
-  end
-  if value == 19 then
-    return "Bid Reject Reason: Too Many Pending Replaces (19)"
-  end
-  if value == 20 then
-    return "Bid Reject Reason: Iceberg Not Allowed (20)"
-  end
-  if value == 21 then
-    return "Bid Reject Reason: Invalid Allocations (21)"
-  end
-  if value == 22 then
-    return "Bid Reject Reason: Price Too High (22)"
-  end
-  if value == 23 then
-    return "Bid Reject Reason: Price Too Low (23)"
-  end
-  if value == 24 then
-    return "Bid Reject Reason: Price Band Unavailable (24)"
-  end
-  if value == 25 then
-    return "Bid Reject Reason: Rate Limit (25)"
-  end
-  if value == 26 then
-    return "Bid Reject Reason: Portfolio Locked (26)"
-  end
-  if value == 27 then
-    return "Bid Reject Reason: Position Limit Exceeded (27)"
-  end
-  if value == 28 then
-    return "Bid Reject Reason: Order Size Limit Exceeded (28)"
-  end
-  if value == 29 then
-    return "Bid Reject Reason: Member Speed Bump Limit Exceeded (29)"
-  end
-  if value == 30 then
-    return "Bid Reject Reason: Mmp Min Freeze Time Not Elapsed (30)"
-  end
-  if value == 31 then
-    return "Bid Reject Reason: Cancel Only (31)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason.labels = {
+  [0] = "Bid Reject Reason: System Error (0)",
+  [1] = "Bid Reject Reason: Invalid Instrument (1)",
+  [2] = "Bid Reject Reason: Invalid Field (2)",
+  [3] = "Bid Reject Reason: Insufficient Margin (3)",
+  [4] = "Bid Reject Reason: Duplicate Client Order Id (4)",
+  [5] = "Bid Reject Reason: Invalid Quantity (5)",
+  [6] = "Bid Reject Reason: Invalid Price (6)",
+  [7] = "Bid Reject Reason: Not Allowed By Market State (7)",
+  [8] = "Bid Reject Reason: Post Only (8)",
+  [9] = "Bid Reject Reason: Too Many Open Orders (9)",
+  [10] = "Bid Reject Reason: Permission Error (10)",
+  [11] = "Bid Reject Reason: Portfolio Not Found (11)",
+  [12] = "Bid Reject Reason: Order Not Found (12)",
+  [13] = "Bid Reject Reason: Mmp Not Configured (13)",
+  [14] = "Bid Reject Reason: Mmp Max Quote Qty Exceeded (14)",
+  [15] = "Bid Reject Reason: Mmp Group Frozen (15)",
+  [16] = "Bid Reject Reason: Invalid Margin Mode (16)",
+  [17] = "Bid Reject Reason: In Liquidation (17)",
+  [18] = "Bid Reject Reason: Risk Check Timed Out (18)",
+  [19] = "Bid Reject Reason: Too Many Pending Replaces (19)",
+  [20] = "Bid Reject Reason: Iceberg Not Allowed (20)",
+  [21] = "Bid Reject Reason: Invalid Allocations (21)",
+  [22] = "Bid Reject Reason: Price Too High (22)",
+  [23] = "Bid Reject Reason: Price Too Low (23)",
+  [24] = "Bid Reject Reason: Price Band Unavailable (24)",
+  [25] = "Bid Reject Reason: Rate Limit (25)",
+  [26] = "Bid Reject Reason: Portfolio Locked (26)",
+  [27] = "Bid Reject Reason: Position Limit Exceeded (27)",
+  [28] = "Bid Reject Reason: Order Size Limit Exceeded (28)",
+  [29] = "Bid Reject Reason: Member Speed Bump Limit Exceeded (29)",
+  [30] = "Bid Reject Reason: Mmp Min Freeze Time Not Elapsed (30)",
+  [31] = "Bid Reject Reason: Cancel Only (31)",
+}
 
-  return "Bid Reject Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason.labels[value] or "Bid Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Bid Reject Reason
@@ -777,36 +637,20 @@ coinbase_deribit_ordersapi_sbe_v1_5.bid_status = {}
 coinbase_deribit_ordersapi_sbe_v1_5.bid_status.size = 1
 
 -- Display: Bid Status
-coinbase_deribit_ordersapi_sbe_v1_5.bid_status.display = function(value)
-  if value == 0 then
-    return "Bid Status: Inactive (0)"
-  end
-  if value == 1 then
-    return "Bid Status: Unmodified (1)"
-  end
-  if value == 2 then
-    return "Bid Status: Qty Reduced (2)"
-  end
-  if value == 3 then
-    return "Bid Status: Updated (3)"
-  end
-  if value == 4 then
-    return "Bid Status: Filled (4)"
-  end
-  if value == 5 then
-    return "Bid Status: Canceled By Request (5)"
-  end
-  if value == 6 then
-    return "Bid Status: Canceled By Mmp (6)"
-  end
-  if value == 7 then
-    return "Bid Status: Canceled By Self Match (7)"
-  end
-  if value == 8 then
-    return "Bid Status: Speed Bumped (8)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.bid_status.labels = {
+  [0] = "Bid Status: Inactive (0)",
+  [1] = "Bid Status: Unmodified (1)",
+  [2] = "Bid Status: Qty Reduced (2)",
+  [3] = "Bid Status: Updated (3)",
+  [4] = "Bid Status: Filled (4)",
+  [5] = "Bid Status: Canceled By Request (5)",
+  [6] = "Bid Status: Canceled By Mmp (6)",
+  [7] = "Bid Status: Canceled By Self Match (7)",
+  [8] = "Bid Status: Speed Bumped (8)",
+}
 
-  return "Bid Status: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.bid_status.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.bid_status.labels[value] or "Bid Status: Unknown("..value..")"
 end
 
 -- Dissect: Bid Status
@@ -851,63 +695,29 @@ coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.display = function(value)
-  if value == 0 then
-    return "Cancel Reason: Unknown (0)"
-  end
-  if value == 1 then
-    return "Cancel Reason: Self Match Prevention (1)"
-  end
-  if value == 2 then
-    return "Cancel Reason: Time In Force (2)"
-  end
-  if value == 3 then
-    return "Cancel Reason: Admin (3)"
-  end
-  if value == 4 then
-    return "Cancel Reason: Mm Protection (4)"
-  end
-  if value == 5 then
-    return "Cancel Reason: Liquidation (5)"
-  end
-  if value == 6 then
-    return "Cancel Reason: Market State Transition (6)"
-  end
-  if value == 7 then
-    return "Cancel Reason: Client Disconnect (7)"
-  end
-  if value == 8 then
-    return "Cancel Reason: Reduce Only (8)"
-  end
-  if value == 9 then
-    return "Cancel Reason: Delivered (9)"
-  end
-  if value == 10 then
-    return "Cancel Reason: Settlement (10)"
-  end
-  if value == 11 then
-    return "Cancel Reason: Book Deactivated (11)"
-  end
-  if value == 12 then
-    return "Cancel Reason: By Request (12)"
-  end
-  if value == 13 then
-    return "Cancel Reason: Risk Check Timed Out (13)"
-  end
-  if value == 14 then
-    return "Cancel Reason: Mmp Group Deleted (14)"
-  end
-  if value == 15 then
-    return "Cancel Reason: Portfolio Locked (15)"
-  end
-  if value == 16 then
-    return "Cancel Reason: Post Only (16)"
-  end
-  if value == 17 then
-    return "Cancel Reason: Qty Tick Size Rescale (17)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.labels = {
+  [0] = "Cancel Reason: Unknown (0)",
+  [1] = "Cancel Reason: Self Match Prevention (1)",
+  [2] = "Cancel Reason: Time In Force (2)",
+  [3] = "Cancel Reason: Admin (3)",
+  [4] = "Cancel Reason: Mm Protection (4)",
+  [5] = "Cancel Reason: Liquidation (5)",
+  [6] = "Cancel Reason: Market State Transition (6)",
+  [7] = "Cancel Reason: Client Disconnect (7)",
+  [8] = "Cancel Reason: Reduce Only (8)",
+  [9] = "Cancel Reason: Delivered (9)",
+  [10] = "Cancel Reason: Settlement (10)",
+  [11] = "Cancel Reason: Book Deactivated (11)",
+  [12] = "Cancel Reason: By Request (12)",
+  [13] = "Cancel Reason: Risk Check Timed Out (13)",
+  [14] = "Cancel Reason: Mmp Group Deleted (14)",
+  [15] = "Cancel Reason: Portfolio Locked (15)",
+  [16] = "Cancel Reason: Post Only (16)",
+  [17] = "Cancel Reason: Qty Tick Size Rescale (17)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -1405,18 +1215,14 @@ coinbase_deribit_ordersapi_sbe_v1_5.leg_side = {}
 coinbase_deribit_ordersapi_sbe_v1_5.leg_side.size = 1
 
 -- Display: Leg Side
-coinbase_deribit_ordersapi_sbe_v1_5.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 0 then
-    return "Leg Side: Both (0)"
-  end
-  if value == -1 then
-    return "Leg Side: Sell (-1)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.leg_side.labels = {
+  [1] = "Leg Side: Buy (1)",
+  [0] = "Leg Side: Both (0)",
+  [-1] = "Leg Side: Sell (-1)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.leg_side.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -1721,27 +1527,17 @@ coinbase_deribit_ordersapi_sbe_v1_5.product_type = {}
 coinbase_deribit_ordersapi_sbe_v1_5.product_type.size = 1
 
 -- Display: Product Type
-coinbase_deribit_ordersapi_sbe_v1_5.product_type.display = function(value)
-  if value == 0 then
-    return "Product Type: All (0)"
-  end
-  if value == 1 then
-    return "Product Type: Options (1)"
-  end
-  if value == 2 then
-    return "Product Type: Futures (2)"
-  end
-  if value == 3 then
-    return "Product Type: Combo Futures (3)"
-  end
-  if value == 4 then
-    return "Product Type: Combo Options (4)"
-  end
-  if value == 5 then
-    return "Product Type: Spot (5)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.product_type.labels = {
+  [0] = "Product Type: All (0)",
+  [1] = "Product Type: Options (1)",
+  [2] = "Product Type: Futures (2)",
+  [3] = "Product Type: Combo Futures (3)",
+  [4] = "Product Type: Combo Options (4)",
+  [5] = "Product Type: Spot (5)",
+}
 
-  return "Product Type: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.product_type.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -1832,36 +1628,20 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_cancel_order_reject_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.reason_cancel_order_reject_reason.size = 1
 
 -- Display: Reason Cancel Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_5.reason_cancel_order_reject_reason.display = function(value)
-  if value == 0 then
-    return "Reason Cancel Order Reject Reason: Error (0)"
-  end
-  if value == 1 then
-    return "Reason Cancel Order Reject Reason: Unknown Order (1)"
-  end
-  if value == 2 then
-    return "Reason Cancel Order Reject Reason: Client Permission Error (2)"
-  end
-  if value == 3 then
-    return "Reason Cancel Order Reject Reason: Not Allowed By Market State (3)"
-  end
-  if value == 4 then
-    return "Reason Cancel Order Reject Reason: Cancel Pending (4)"
-  end
-  if value == 5 then
-    return "Reason Cancel Order Reject Reason: In Liquidation (5)"
-  end
-  if value == 6 then
-    return "Reason Cancel Order Reject Reason: Invalid Instrument (6)"
-  end
-  if value == 7 then
-    return "Reason Cancel Order Reject Reason: Time In Force (7)"
-  end
-  if value == 8 then
-    return "Reason Cancel Order Reject Reason: Speed Bump Converted To Ioc (8)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.reason_cancel_order_reject_reason.labels = {
+  [0] = "Reason Cancel Order Reject Reason: Error (0)",
+  [1] = "Reason Cancel Order Reject Reason: Unknown Order (1)",
+  [2] = "Reason Cancel Order Reject Reason: Client Permission Error (2)",
+  [3] = "Reason Cancel Order Reject Reason: Not Allowed By Market State (3)",
+  [4] = "Reason Cancel Order Reject Reason: Cancel Pending (4)",
+  [5] = "Reason Cancel Order Reject Reason: In Liquidation (5)",
+  [6] = "Reason Cancel Order Reject Reason: Invalid Instrument (6)",
+  [7] = "Reason Cancel Order Reject Reason: Time In Force (7)",
+  [8] = "Reason Cancel Order Reject Reason: Speed Bump Converted To Ioc (8)",
+}
 
-  return "Reason Cancel Order Reject Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.reason_cancel_order_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.reason_cancel_order_reject_reason.labels[value] or "Reason Cancel Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Cancel Order Reject Reason
@@ -1925,21 +1705,15 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_cancel_reject_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_cancel_reject_reason.size = 1
 
 -- Display: Reason Mass Cancel Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_cancel_reject_reason.display = function(value)
-  if value == 0 then
-    return "Reason Mass Cancel Reject Reason: Error (0)"
-  end
-  if value == 1 then
-    return "Reason Mass Cancel Reject Reason: Invalid Mmp Group (1)"
-  end
-  if value == 2 then
-    return "Reason Mass Cancel Reject Reason: Client Permission Error (2)"
-  end
-  if value == 3 then
-    return "Reason Mass Cancel Reject Reason: Not Allowed By Market State (3)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_cancel_reject_reason.labels = {
+  [0] = "Reason Mass Cancel Reject Reason: Error (0)",
+  [1] = "Reason Mass Cancel Reject Reason: Invalid Mmp Group (1)",
+  [2] = "Reason Mass Cancel Reject Reason: Client Permission Error (2)",
+  [3] = "Reason Mass Cancel Reject Reason: Not Allowed By Market State (3)",
+}
 
-  return "Reason Mass Cancel Reject Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_cancel_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_cancel_reject_reason.labels[value] or "Reason Mass Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Mass Cancel Reject Reason
@@ -1961,39 +1735,21 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_quote_reject_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_quote_reject_reason.size = 1
 
 -- Display: Reason Mass Quote Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_quote_reject_reason.display = function(value)
-  if value == 0 then
-    return "Reason Mass Quote Reject Reason: System Error (0)"
-  end
-  if value == 1 then
-    return "Reason Mass Quote Reject Reason: Invalid Mmp Group (1)"
-  end
-  if value == 2 then
-    return "Reason Mass Quote Reject Reason: Mmp Group Disabled (2)"
-  end
-  if value == 3 then
-    return "Reason Mass Quote Reject Reason: Mmp Group Frozen (3)"
-  end
-  if value == 4 then
-    return "Reason Mass Quote Reject Reason: Too Many Quotes (4)"
-  end
-  if value == 5 then
-    return "Reason Mass Quote Reject Reason: Invalid Instrument (5)"
-  end
-  if value == 6 then
-    return "Reason Mass Quote Reject Reason: Rate Limit (6)"
-  end
-  if value == 7 then
-    return "Reason Mass Quote Reject Reason: Portfolio Locked (7)"
-  end
-  if value == 8 then
-    return "Reason Mass Quote Reject Reason: Duplicate Instrument (8)"
-  end
-  if value == 9 then
-    return "Reason Mass Quote Reject Reason: Mmp Min Freeze Time Not Elapsed (9)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_quote_reject_reason.labels = {
+  [0] = "Reason Mass Quote Reject Reason: System Error (0)",
+  [1] = "Reason Mass Quote Reject Reason: Invalid Mmp Group (1)",
+  [2] = "Reason Mass Quote Reject Reason: Mmp Group Disabled (2)",
+  [3] = "Reason Mass Quote Reject Reason: Mmp Group Frozen (3)",
+  [4] = "Reason Mass Quote Reject Reason: Too Many Quotes (4)",
+  [5] = "Reason Mass Quote Reject Reason: Invalid Instrument (5)",
+  [6] = "Reason Mass Quote Reject Reason: Rate Limit (6)",
+  [7] = "Reason Mass Quote Reject Reason: Portfolio Locked (7)",
+  [8] = "Reason Mass Quote Reject Reason: Duplicate Instrument (8)",
+  [9] = "Reason Mass Quote Reject Reason: Mmp Min Freeze Time Not Elapsed (9)",
+}
 
-  return "Reason Mass Quote Reject Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_quote_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_quote_reject_reason.labels[value] or "Reason Mass Quote Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Mass Quote Reject Reason
@@ -2015,15 +1771,13 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_mmp_status_reject_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.reason_mmp_status_reject_reason.size = 1
 
 -- Display: Reason Mmp Status Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_5.reason_mmp_status_reject_reason.display = function(value)
-  if value == 0 then
-    return "Reason Mmp Status Reject Reason: System Error (0)"
-  end
-  if value == 1 then
-    return "Reason Mmp Status Reject Reason: Invalid Mmp Group (1)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.reason_mmp_status_reject_reason.labels = {
+  [0] = "Reason Mmp Status Reject Reason: System Error (0)",
+  [1] = "Reason Mmp Status Reject Reason: Invalid Mmp Group (1)",
+}
 
-  return "Reason Mmp Status Reject Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.reason_mmp_status_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.reason_mmp_status_reject_reason.labels[value] or "Reason Mmp Status Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Mmp Status Reject Reason
@@ -2045,105 +1799,43 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason.size = 1
 
 -- Display: Reason Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason.display = function(value)
-  if value == 0 then
-    return "Reason Order Reject Reason: System Error (0)"
-  end
-  if value == 1 then
-    return "Reason Order Reject Reason: Invalid Instrument (1)"
-  end
-  if value == 2 then
-    return "Reason Order Reject Reason: Invalid Field (2)"
-  end
-  if value == 3 then
-    return "Reason Order Reject Reason: Insufficient Margin (3)"
-  end
-  if value == 4 then
-    return "Reason Order Reject Reason: Duplicate Client Order Id (4)"
-  end
-  if value == 5 then
-    return "Reason Order Reject Reason: Invalid Quantity (5)"
-  end
-  if value == 6 then
-    return "Reason Order Reject Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Reason Order Reject Reason: Not Allowed By Market State (7)"
-  end
-  if value == 8 then
-    return "Reason Order Reject Reason: Post Only (8)"
-  end
-  if value == 9 then
-    return "Reason Order Reject Reason: Too Many Open Orders (9)"
-  end
-  if value == 10 then
-    return "Reason Order Reject Reason: Permission Error (10)"
-  end
-  if value == 11 then
-    return "Reason Order Reject Reason: Portfolio Not Found (11)"
-  end
-  if value == 12 then
-    return "Reason Order Reject Reason: Order Not Found (12)"
-  end
-  if value == 13 then
-    return "Reason Order Reject Reason: Mmp Not Configured (13)"
-  end
-  if value == 14 then
-    return "Reason Order Reject Reason: Mmp Max Quote Qty Exceeded (14)"
-  end
-  if value == 15 then
-    return "Reason Order Reject Reason: Mmp Group Frozen (15)"
-  end
-  if value == 16 then
-    return "Reason Order Reject Reason: Invalid Margin Mode (16)"
-  end
-  if value == 17 then
-    return "Reason Order Reject Reason: In Liquidation (17)"
-  end
-  if value == 18 then
-    return "Reason Order Reject Reason: Risk Check Timed Out (18)"
-  end
-  if value == 19 then
-    return "Reason Order Reject Reason: Too Many Pending Replaces (19)"
-  end
-  if value == 20 then
-    return "Reason Order Reject Reason: Iceberg Not Allowed (20)"
-  end
-  if value == 21 then
-    return "Reason Order Reject Reason: Invalid Allocations (21)"
-  end
-  if value == 22 then
-    return "Reason Order Reject Reason: Price Too High (22)"
-  end
-  if value == 23 then
-    return "Reason Order Reject Reason: Price Too Low (23)"
-  end
-  if value == 24 then
-    return "Reason Order Reject Reason: Price Band Unavailable (24)"
-  end
-  if value == 25 then
-    return "Reason Order Reject Reason: Rate Limit (25)"
-  end
-  if value == 26 then
-    return "Reason Order Reject Reason: Portfolio Locked (26)"
-  end
-  if value == 27 then
-    return "Reason Order Reject Reason: Position Limit Exceeded (27)"
-  end
-  if value == 28 then
-    return "Reason Order Reject Reason: Order Size Limit Exceeded (28)"
-  end
-  if value == 29 then
-    return "Reason Order Reject Reason: Member Speed Bump Limit Exceeded (29)"
-  end
-  if value == 30 then
-    return "Reason Order Reject Reason: Mmp Min Freeze Time Not Elapsed (30)"
-  end
-  if value == 31 then
-    return "Reason Order Reject Reason: Cancel Only (31)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason.labels = {
+  [0] = "Reason Order Reject Reason: System Error (0)",
+  [1] = "Reason Order Reject Reason: Invalid Instrument (1)",
+  [2] = "Reason Order Reject Reason: Invalid Field (2)",
+  [3] = "Reason Order Reject Reason: Insufficient Margin (3)",
+  [4] = "Reason Order Reject Reason: Duplicate Client Order Id (4)",
+  [5] = "Reason Order Reject Reason: Invalid Quantity (5)",
+  [6] = "Reason Order Reject Reason: Invalid Price (6)",
+  [7] = "Reason Order Reject Reason: Not Allowed By Market State (7)",
+  [8] = "Reason Order Reject Reason: Post Only (8)",
+  [9] = "Reason Order Reject Reason: Too Many Open Orders (9)",
+  [10] = "Reason Order Reject Reason: Permission Error (10)",
+  [11] = "Reason Order Reject Reason: Portfolio Not Found (11)",
+  [12] = "Reason Order Reject Reason: Order Not Found (12)",
+  [13] = "Reason Order Reject Reason: Mmp Not Configured (13)",
+  [14] = "Reason Order Reject Reason: Mmp Max Quote Qty Exceeded (14)",
+  [15] = "Reason Order Reject Reason: Mmp Group Frozen (15)",
+  [16] = "Reason Order Reject Reason: Invalid Margin Mode (16)",
+  [17] = "Reason Order Reject Reason: In Liquidation (17)",
+  [18] = "Reason Order Reject Reason: Risk Check Timed Out (18)",
+  [19] = "Reason Order Reject Reason: Too Many Pending Replaces (19)",
+  [20] = "Reason Order Reject Reason: Iceberg Not Allowed (20)",
+  [21] = "Reason Order Reject Reason: Invalid Allocations (21)",
+  [22] = "Reason Order Reject Reason: Price Too High (22)",
+  [23] = "Reason Order Reject Reason: Price Too Low (23)",
+  [24] = "Reason Order Reject Reason: Price Band Unavailable (24)",
+  [25] = "Reason Order Reject Reason: Rate Limit (25)",
+  [26] = "Reason Order Reject Reason: Portfolio Locked (26)",
+  [27] = "Reason Order Reject Reason: Position Limit Exceeded (27)",
+  [28] = "Reason Order Reject Reason: Order Size Limit Exceeded (28)",
+  [29] = "Reason Order Reject Reason: Member Speed Bump Limit Exceeded (29)",
+  [30] = "Reason Order Reject Reason: Mmp Min Freeze Time Not Elapsed (30)",
+  [31] = "Reason Order Reject Reason: Cancel Only (31)",
+}
 
-  return "Reason Order Reject Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason.labels[value] or "Reason Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Order Reject Reason
@@ -2165,27 +1857,17 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason.size = 1
 
 -- Display: Reason Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason.display = function(value)
-  if value == 1 then
-    return "Reason Reject Reason: Invalid Schema Id (1)"
-  end
-  if value == 2 then
-    return "Reason Reject Reason: Invalid Template Id (2)"
-  end
-  if value == 3 then
-    return "Reason Reject Reason: Invalid Block Length (3)"
-  end
-  if value == 4 then
-    return "Reason Reject Reason: Invalid Field Value (4)"
-  end
-  if value == 5 then
-    return "Reason Reject Reason: Message Disabled (5)"
-  end
-  if value == 6 then
-    return "Reason Reject Reason: Gateway Not Active (6)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason.labels = {
+  [1] = "Reason Reject Reason: Invalid Schema Id (1)",
+  [2] = "Reason Reject Reason: Invalid Template Id (2)",
+  [3] = "Reason Reject Reason: Invalid Block Length (3)",
+  [4] = "Reason Reject Reason: Invalid Field Value (4)",
+  [5] = "Reason Reject Reason: Message Disabled (5)",
+  [6] = "Reason Reject Reason: Gateway Not Active (6)",
+}
 
-  return "Reason Reject Reason: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason.labels[value] or "Reason Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Reject Reason
@@ -2254,15 +1936,13 @@ coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num = {}
 coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num.size = 1
 
 -- Display: Reset Seq Num
-coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num.display = function(value)
-  if value == 0 then
-    return "Reset Seq Num: False (0)"
-  end
-  if value == 1 then
-    return "Reset Seq Num: True (1)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num.labels = {
+  [0] = "Reset Seq Num: False (0)",
+  [1] = "Reset Seq Num: True (1)",
+}
 
-  return "Reset Seq Num: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num.labels[value] or "Reset Seq Num: Unknown("..value..")"
 end
 
 -- Dissect: Reset Seq Num
@@ -2374,15 +2054,13 @@ coinbase_deribit_ordersapi_sbe_v1_5.self_trading_mode = {}
 coinbase_deribit_ordersapi_sbe_v1_5.self_trading_mode.size = 1
 
 -- Display: Self Trading Mode
-coinbase_deribit_ordersapi_sbe_v1_5.self_trading_mode.display = function(value)
-  if value == 0 then
-    return "Self Trading Mode: Cancel Taker (0)"
-  end
-  if value == 1 then
-    return "Self Trading Mode: Cancel Maker (1)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.self_trading_mode.labels = {
+  [0] = "Self Trading Mode: Cancel Taker (0)",
+  [1] = "Self Trading Mode: Cancel Maker (1)",
+}
 
-  return "Self Trading Mode: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.self_trading_mode.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.self_trading_mode.labels[value] or "Self Trading Mode: Unknown("..value..")"
 end
 
 -- Dissect: Self Trading Mode
@@ -2451,15 +2129,13 @@ coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect = {}
 coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.size = 1
 
 -- Display: Session Cancel On Disconnect
-coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.display = function(value)
-  if value == 0 then
-    return "Session Cancel On Disconnect: False (0)"
-  end
-  if value == 1 then
-    return "Session Cancel On Disconnect: True (1)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.labels = {
+  [0] = "Session Cancel On Disconnect: False (0)",
+  [1] = "Session Cancel On Disconnect: True (1)",
+}
 
-  return "Session Cancel On Disconnect: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.labels[value] or "Session Cancel On Disconnect: Unknown("..value..")"
 end
 
 -- Dissect: Session Cancel On Disconnect
@@ -2481,18 +2157,14 @@ coinbase_deribit_ordersapi_sbe_v1_5.side = {}
 coinbase_deribit_ordersapi_sbe_v1_5.side.size = 1
 
 -- Display: Side
-coinbase_deribit_ordersapi_sbe_v1_5.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 0 then
-    return "Side: Both (0)"
-  end
-  if value == -1 then
-    return "Side: Sell (-1)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.side.labels = {
+  [1] = "Side: Buy (1)",
+  [0] = "Side: Both (0)",
+  [-1] = "Side: Sell (-1)",
+}
 
-  return "Side: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.side.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2514,21 +2186,15 @@ coinbase_deribit_ordersapi_sbe_v1_5.status = {}
 coinbase_deribit_ordersapi_sbe_v1_5.status.size = 1
 
 -- Display: Status
-coinbase_deribit_ordersapi_sbe_v1_5.status.display = function(value)
-  if value == 1 then
-    return "Status: Active (1)"
-  end
-  if value == 2 then
-    return "Status: Filled (2)"
-  end
-  if value == 3 then
-    return "Status: Canceled (3)"
-  end
-  if value == 4 then
-    return "Status: Queued (4)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.status.labels = {
+  [1] = "Status: Active (1)",
+  [2] = "Status: Filled (2)",
+  [3] = "Status: Canceled (3)",
+  [4] = "Status: Queued (4)",
+}
 
-  return "Status: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.status.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -2550,129 +2216,51 @@ coinbase_deribit_ordersapi_sbe_v1_5.template_id = {}
 coinbase_deribit_ordersapi_sbe_v1_5.template_id.size = 2
 
 -- Display: Template Id
-coinbase_deribit_ordersapi_sbe_v1_5.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Logon Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Logon Conf Message (2)"
-  end
-  if value == 4 then
-    return "Template Id: Logout Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Logged Out Message (5)"
-  end
-  if value == 10 then
-    return "Template Id: Heartbeat Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Test Request Message (11)"
-  end
-  if value == 20 then
-    return "Template Id: Resend Request Message (20)"
-  end
-  if value == 21 then
-    return "Template Id: Gap Fill Message (21)"
-  end
-  if value == 30 then
-    return "Template Id: Reject Message (30)"
-  end
-  if value == 100 then
-    return "Template Id: New Order Request Message (100)"
-  end
-  if value == 110 then
-    return "Template Id: Amend Order Request Message (110)"
-  end
-  if value == 120 then
-    return "Template Id: Cancel Order Request Message (120)"
-  end
-  if value == 125 then
-    return "Template Id: Cancel Order By Id Request Message (125)"
-  end
-  if value == 130 then
-    return "Template Id: Mass Quote Request Message (130)"
-  end
-  if value == 140 then
-    return "Template Id: Mass Cancel Request Message (140)"
-  end
-  if value == 145 then
-    return "Template Id: Mass Quote Cancel Request Message (145)"
-  end
-  if value == 155 then
-    return "Template Id: Get Mass Quote Mmp Status Request Message (155)"
-  end
-  if value == 156 then
-    return "Template Id: Get Orders Mmp Status Request Message (156)"
-  end
-  if value == 200 then
-    return "Template Id: New Order Response Message (200)"
-  end
-  if value == 202 then
-    return "Template Id: New Order Reject Message (202)"
-  end
-  if value == 210 then
-    return "Template Id: Amend Order Response Message (210)"
-  end
-  if value == 212 then
-    return "Template Id: Amend Order Reject Message (212)"
-  end
-  if value == 220 then
-    return "Template Id: Cancel Order Response Message (220)"
-  end
-  if value == 222 then
-    return "Template Id: Cancel Order Reject Message (222)"
-  end
-  if value == 230 then
-    return "Template Id: Mass Quote Response Message (230)"
-  end
-  if value == 232 then
-    return "Template Id: Mass Quote Reject Message (232)"
-  end
-  if value == 240 then
-    return "Template Id: Mass Cancel Response Message (240)"
-  end
-  if value == 242 then
-    return "Template Id: Mass Cancel Reject Message (242)"
-  end
-  if value == 280 then
-    return "Template Id: Get Mass Quote Mmp Status Response Message (280)"
-  end
-  if value == 281 then
-    return "Template Id: Get Mass Quote Mmp Status Reject Message (281)"
-  end
-  if value == 282 then
-    return "Template Id: Get Orders Mmp Status Response Message (282)"
-  end
-  if value == 283 then
-    return "Template Id: Get Orders Mmp Status Reject Message (283)"
-  end
-  if value == 300 then
-    return "Template Id: Order Filled Message (300)"
-  end
-  if value == 310 then
-    return "Template Id: Orders Canceled Message (310)"
-  end
-  if value == 312 then
-    return "Template Id: Order Placed Message (312)"
-  end
-  if value == 314 then
-    return "Template Id: Mass Quote Orders Placed Message (314)"
-  end
-  if value == 320 then
-    return "Template Id: Mass Quote Mmp Triggered Message (320)"
-  end
-  if value == 322 then
-    return "Template Id: Orders Mmp Triggered Message (322)"
-  end
-  if value == 324 then
-    return "Template Id: Mass Quote Mmp Unfrozen Message (324)"
-  end
-  if value == 326 then
-    return "Template Id: Orders Mmp Unfrozen Message (326)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.template_id.labels = {
+  [1] = "Template Id: Logon Message (1)",
+  [2] = "Template Id: Logon Conf Message (2)",
+  [4] = "Template Id: Logout Message (4)",
+  [5] = "Template Id: Logged Out Message (5)",
+  [10] = "Template Id: Heartbeat Message (10)",
+  [11] = "Template Id: Test Request Message (11)",
+  [20] = "Template Id: Resend Request Message (20)",
+  [21] = "Template Id: Gap Fill Message (21)",
+  [30] = "Template Id: Reject Message (30)",
+  [100] = "Template Id: New Order Request Message (100)",
+  [110] = "Template Id: Amend Order Request Message (110)",
+  [120] = "Template Id: Cancel Order Request Message (120)",
+  [125] = "Template Id: Cancel Order By Id Request Message (125)",
+  [130] = "Template Id: Mass Quote Request Message (130)",
+  [140] = "Template Id: Mass Cancel Request Message (140)",
+  [145] = "Template Id: Mass Quote Cancel Request Message (145)",
+  [155] = "Template Id: Get Mass Quote Mmp Status Request Message (155)",
+  [156] = "Template Id: Get Orders Mmp Status Request Message (156)",
+  [200] = "Template Id: New Order Response Message (200)",
+  [202] = "Template Id: New Order Reject Message (202)",
+  [210] = "Template Id: Amend Order Response Message (210)",
+  [212] = "Template Id: Amend Order Reject Message (212)",
+  [220] = "Template Id: Cancel Order Response Message (220)",
+  [222] = "Template Id: Cancel Order Reject Message (222)",
+  [230] = "Template Id: Mass Quote Response Message (230)",
+  [232] = "Template Id: Mass Quote Reject Message (232)",
+  [240] = "Template Id: Mass Cancel Response Message (240)",
+  [242] = "Template Id: Mass Cancel Reject Message (242)",
+  [280] = "Template Id: Get Mass Quote Mmp Status Response Message (280)",
+  [281] = "Template Id: Get Mass Quote Mmp Status Reject Message (281)",
+  [282] = "Template Id: Get Orders Mmp Status Response Message (282)",
+  [283] = "Template Id: Get Orders Mmp Status Reject Message (283)",
+  [300] = "Template Id: Order Filled Message (300)",
+  [310] = "Template Id: Orders Canceled Message (310)",
+  [312] = "Template Id: Order Placed Message (312)",
+  [314] = "Template Id: Mass Quote Orders Placed Message (314)",
+  [320] = "Template Id: Mass Quote Mmp Triggered Message (320)",
+  [322] = "Template Id: Orders Mmp Triggered Message (322)",
+  [324] = "Template Id: Mass Quote Mmp Unfrozen Message (324)",
+  [326] = "Template Id: Orders Mmp Unfrozen Message (326)",
+}
 
-  return "Template Id: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.template_id.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2787,18 +2375,14 @@ coinbase_deribit_ordersapi_sbe_v1_5.trigger = {}
 coinbase_deribit_ordersapi_sbe_v1_5.trigger.size = 1
 
 -- Display: Trigger
-coinbase_deribit_ordersapi_sbe_v1_5.trigger.display = function(value)
-  if value == 0 then
-    return "Trigger: Quantity (0)"
-  end
-  if value == 1 then
-    return "Trigger: Delta (1)"
-  end
-  if value == 2 then
-    return "Trigger: Vega (2)"
-  end
+coinbase_deribit_ordersapi_sbe_v1_5.trigger.labels = {
+  [0] = "Trigger: Quantity (0)",
+  [1] = "Trigger: Delta (1)",
+  [2] = "Trigger: Vega (2)",
+}
 
-  return "Trigger: Unknown("..value..")"
+coinbase_deribit_ordersapi_sbe_v1_5.trigger.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.trigger.labels[value] or "Trigger: Unknown("..value..")"
 end
 
 -- Dissect: Trigger
@@ -8521,166 +8105,53 @@ end
 coinbase_deribit_ordersapi_sbe_v1_5.payload = {}
 
 -- Dissect: Payload
+coinbase_deribit_ordersapi_sbe_v1_5.payload.dispatch = {
+  [1] = coinbase_deribit_ordersapi_sbe_v1_5.logon_message.dissect,
+  [2] = coinbase_deribit_ordersapi_sbe_v1_5.logon_conf_message.dissect,
+  [4] = coinbase_deribit_ordersapi_sbe_v1_5.logout_message.dissect,
+  [5] = coinbase_deribit_ordersapi_sbe_v1_5.logged_out_message.dissect,
+  [10] = coinbase_deribit_ordersapi_sbe_v1_5.heartbeat_message.dissect,
+  [11] = coinbase_deribit_ordersapi_sbe_v1_5.test_request_message.dissect,
+  [20] = coinbase_deribit_ordersapi_sbe_v1_5.resend_request_message.dissect,
+  [21] = coinbase_deribit_ordersapi_sbe_v1_5.gap_fill_message.dissect,
+  [30] = coinbase_deribit_ordersapi_sbe_v1_5.reject_message.dissect,
+  [100] = coinbase_deribit_ordersapi_sbe_v1_5.new_order_request_message.dissect,
+  [110] = coinbase_deribit_ordersapi_sbe_v1_5.amend_order_request_message.dissect,
+  [120] = coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_request_message.dissect,
+  [125] = coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_by_id_request_message.dissect,
+  [130] = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message.dissect,
+  [140] = coinbase_deribit_ordersapi_sbe_v1_5.mass_cancel_request_message.dissect,
+  [145] = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_cancel_request_message.dissect,
+  [155] = coinbase_deribit_ordersapi_sbe_v1_5.get_mass_quote_mmp_status_request_message.dissect,
+  [156] = coinbase_deribit_ordersapi_sbe_v1_5.get_orders_mmp_status_request_message.dissect,
+  [200] = coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message.dissect,
+  [202] = coinbase_deribit_ordersapi_sbe_v1_5.new_order_reject_message.dissect,
+  [210] = coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message.dissect,
+  [212] = coinbase_deribit_ordersapi_sbe_v1_5.amend_order_reject_message.dissect,
+  [220] = coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_response_message.dissect,
+  [222] = coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_reject_message.dissect,
+  [230] = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message.dissect,
+  [232] = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_reject_message.dissect,
+  [240] = coinbase_deribit_ordersapi_sbe_v1_5.mass_cancel_response_message.dissect,
+  [242] = coinbase_deribit_ordersapi_sbe_v1_5.mass_cancel_reject_message.dissect,
+  [280] = coinbase_deribit_ordersapi_sbe_v1_5.get_mass_quote_mmp_status_response_message.dissect,
+  [281] = coinbase_deribit_ordersapi_sbe_v1_5.get_mass_quote_mmp_status_reject_message.dissect,
+  [282] = coinbase_deribit_ordersapi_sbe_v1_5.get_orders_mmp_status_response_message.dissect,
+  [283] = coinbase_deribit_ordersapi_sbe_v1_5.get_orders_mmp_status_reject_message.dissect,
+  [300] = coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message.dissect,
+  [310] = coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message.dissect,
+  [312] = coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message.dissect,
+  [314] = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message.dissect,
+  [320] = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_mmp_triggered_message.dissect,
+  [322] = coinbase_deribit_ordersapi_sbe_v1_5.orders_mmp_triggered_message.dissect,
+  [324] = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_mmp_unfrozen_message.dissect,
+  [326] = coinbase_deribit_ordersapi_sbe_v1_5.orders_mmp_unfrozen_message.dissect,
+}
+
 coinbase_deribit_ordersapi_sbe_v1_5.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Logon Message
-  if template_id == 1 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Conf Message
-  if template_id == 2 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.logon_conf_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if template_id == 4 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logged Out Message
-  if template_id == 5 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.logged_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if template_id == 10 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Request Message
-  if template_id == 11 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.test_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Resend Request Message
-  if template_id == 20 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.resend_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Fill Message
-  if template_id == 21 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.gap_fill_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if template_id == 30 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Request Message
-  if template_id == 100 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.new_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Amend Order Request Message
-  if template_id == 110 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.amend_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Request Message
-  if template_id == 120 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order By Id Request Message
-  if template_id == 125 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_by_id_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Request Message
-  if template_id == 130 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Request Message
-  if template_id == 140 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Cancel Request Message
-  if template_id == 145 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Get Mass Quote Mmp Status Request Message
-  if template_id == 155 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.get_mass_quote_mmp_status_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Get Orders Mmp Status Request Message
-  if template_id == 156 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.get_orders_mmp_status_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response Message
-  if template_id == 200 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Reject Message
-  if template_id == 202 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.new_order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Amend Order Response Message
-  if template_id == 210 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Amend Order Reject Message
-  if template_id == 212 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.amend_order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Response Message
-  if template_id == 220 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Reject Message
-  if template_id == 222 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Response Message
-  if template_id == 230 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Reject Message
-  if template_id == 232 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Response Message
-  if template_id == 240 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_cancel_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Reject Message
-  if template_id == 242 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Get Mass Quote Mmp Status Response Message
-  if template_id == 280 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.get_mass_quote_mmp_status_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Get Mass Quote Mmp Status Reject Message
-  if template_id == 281 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.get_mass_quote_mmp_status_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Get Orders Mmp Status Response Message
-  if template_id == 282 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.get_orders_mmp_status_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Get Orders Mmp Status Reject Message
-  if template_id == 283 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.get_orders_mmp_status_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Filled Message
-  if template_id == 300 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orders Canceled Message
-  if template_id == 310 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Placed Message
-  if template_id == 312 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Orders Placed Message
-  if template_id == 314 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Mmp Triggered Message
-  if template_id == 320 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_mmp_triggered_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orders Mmp Triggered Message
-  if template_id == 322 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.orders_mmp_triggered_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Mmp Unfrozen Message
-  if template_id == 324 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_mmp_unfrozen_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orders Mmp Unfrozen Message
-  if template_id == 326 then
-    return coinbase_deribit_ordersapi_sbe_v1_5.orders_mmp_unfrozen_message.dissect(buffer, offset, packet, parent)
+  local dissect = coinbase_deribit_ordersapi_sbe_v1_5.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

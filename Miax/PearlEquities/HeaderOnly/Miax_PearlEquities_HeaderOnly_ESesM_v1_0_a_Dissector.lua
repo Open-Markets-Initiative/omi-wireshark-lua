@@ -210,45 +210,23 @@ miax_pearlequities_headeronly_esesm_v1_0_a.esesm_packet_type = {}
 miax_pearlequities_headeronly_esesm_v1_0_a.esesm_packet_type.size = 1
 
 -- Display: Esesm Packet Type
-miax_pearlequities_headeronly_esesm_v1_0_a.esesm_packet_type.display = function(value)
-  if value == "s" then
-    return "Esesm Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Esesm Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Esesm Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Esesm Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Esesm Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Esesm Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Esesm Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Esesm Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Esesm Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Esesm Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Esesm Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Esesm Packet Type: Test Packet (T)"
-  end
+miax_pearlequities_headeronly_esesm_v1_0_a.esesm_packet_type.labels = {
+  ["s"] = "Esesm Packet Type: Sequenced Data Packet (s)",
+  ["U"] = "Esesm Packet Type: Unsequenced Data Packet (U)",
+  ["l"] = "Esesm Packet Type: Login Request (l)",
+  ["r"] = "Esesm Packet Type: Login Response (r)",
+  ["c"] = "Esesm Packet Type: Synchronization Complete (c)",
+  ["a"] = "Esesm Packet Type: Retransmission Request (a)",
+  ["X"] = "Esesm Packet Type: Logout Request (X)",
+  ["G"] = "Esesm Packet Type: Goodbye Packet (G)",
+  ["u"] = "Esesm Packet Type: Trading Session Update (u)",
+  ["0"] = "Esesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Esesm Packet Type: Client Heartbeat (1)",
+  ["T"] = "Esesm Packet Type: Test Packet (T)",
+}
 
-  return "Esesm Packet Type: Unknown("..value..")"
+miax_pearlequities_headeronly_esesm_v1_0_a.esesm_packet_type.display = function(value)
+  return miax_pearlequities_headeronly_esesm_v1_0_a.esesm_packet_type.labels[value] or "Esesm Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Esesm Packet Type
@@ -1361,54 +1339,25 @@ end
 miax_pearlequities_headeronly_esesm_v1_0_a.esesm_payload = {}
 
 -- Dissect: Esesm Payload
+miax_pearlequities_headeronly_esesm_v1_0_a.esesm_payload.dispatch = {
+  ["s"] = miax_pearlequities_headeronly_esesm_v1_0_a.sequenced_data_packet.dissect,
+  ["U"] = miax_pearlequities_headeronly_esesm_v1_0_a.unsequenced_data_packet.dissect,
+  ["l"] = miax_pearlequities_headeronly_esesm_v1_0_a.login_request.dissect,
+  ["r"] = miax_pearlequities_headeronly_esesm_v1_0_a.login_response.dissect,
+  ["c"] = miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.dissect,
+  ["a"] = miax_pearlequities_headeronly_esesm_v1_0_a.retransmission_request.dissect,
+  ["X"] = miax_pearlequities_headeronly_esesm_v1_0_a.logout_request.dissect,
+  ["G"] = miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_packet.dissect,
+  ["u"] = miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.dissect,
+  ["0"] = miax_pearlequities_headeronly_esesm_v1_0_a.server_heartbeat.dissect,
+  ["1"] = miax_pearlequities_headeronly_esesm_v1_0_a.client_heartbeat.dissect,
+  ["T"] = miax_pearlequities_headeronly_esesm_v1_0_a.test_packet.dissect,
+}
+
 miax_pearlequities_headeronly_esesm_v1_0_a.esesm_payload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
-  -- Dissect Sequenced Data Packet
-  if esesm_packet_type == "s" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if esesm_packet_type == "U" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if esesm_packet_type == "l" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if esesm_packet_type == "r" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if esesm_packet_type == "c" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if esesm_packet_type == "a" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if esesm_packet_type == "X" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if esesm_packet_type == "G" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Update
-  if esesm_packet_type == "u" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if esesm_packet_type == "0" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if esesm_packet_type == "1" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Packet
-  if esesm_packet_type == "T" then
-    return miax_pearlequities_headeronly_esesm_v1_0_a.test_packet.dissect(buffer, offset, packet, parent)
+  local dissect = miax_pearlequities_headeronly_esesm_v1_0_a.esesm_payload.dispatch[esesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

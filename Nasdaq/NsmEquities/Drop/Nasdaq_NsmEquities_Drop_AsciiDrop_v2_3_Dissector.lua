@@ -251,21 +251,15 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.bbo_weighting_indicator = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.bbo_weighting_indicator.size = 1
 
 -- Display: Bbo Weighting Indicator
-nasdaq_nsmequities_drop_asciidrop_v2_3.bbo_weighting_indicator.display = function(value)
-  if value == "0" then
-    return "Bbo Weighting Indicator: Zero To Point Two Percent (0)"
-  end
-  if value == "1" then
-    return "Bbo Weighting Indicator: Point Two To One Percent (1)"
-  end
-  if value == "2" then
-    return "Bbo Weighting Indicator: One To Two Percent (2)"
-  end
-  if value == "3" then
-    return "Bbo Weighting Indicator: Greater Than Two Percent (3)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.bbo_weighting_indicator.labels = {
+  ["0"] = "Bbo Weighting Indicator: Zero To Point Two Percent (0)",
+  ["1"] = "Bbo Weighting Indicator: Point Two To One Percent (1)",
+  ["2"] = "Bbo Weighting Indicator: One To Two Percent (2)",
+  ["3"] = "Bbo Weighting Indicator: Greater Than Two Percent (3)",
+}
 
-  return "Bbo Weighting Indicator: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.bbo_weighting_indicator.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.bbo_weighting_indicator.labels[value] or "Bbo Weighting Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bbo Weighting Indicator
@@ -287,21 +281,15 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.buy_sell = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.buy_sell.size = 1
 
 -- Display: Buy Sell
-nasdaq_nsmequities_drop_asciidrop_v2_3.buy_sell.display = function(value)
-  if value == "B" then
-    return "Buy Sell: Bought (B)"
-  end
-  if value == "S" then
-    return "Buy Sell: Sold (S)"
-  end
-  if value == "T" then
-    return "Buy Sell: Sold Short (T)"
-  end
-  if value == "E" then
-    return "Buy Sell: Sold Short Exempt (E)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.buy_sell.labels = {
+  ["B"] = "Buy Sell: Bought (B)",
+  ["S"] = "Buy Sell: Sold (S)",
+  ["T"] = "Buy Sell: Sold Short (T)",
+  ["E"] = "Buy Sell: Sold Short Exempt (E)",
+}
 
-  return "Buy Sell: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.buy_sell.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.buy_sell.labels[value] or "Buy Sell: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell
@@ -323,33 +311,19 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.cancel_reason = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-nasdaq_nsmequities_drop_asciidrop_v2_3.cancel_reason.display = function(value)
-  if value == "U" then
-    return "Cancel Reason: User Cancel (U)"
-  end
-  if value == "I" then
-    return "Cancel Reason: Ioc Cancel (I)"
-  end
-  if value == "T" then
-    return "Cancel Reason: Timeout (T)"
-  end
-  if value == "S" then
-    return "Cancel Reason: Supervisory Cancel (S)"
-  end
-  if value == "D" then
-    return "Cancel Reason: Regulatory Cancel (D)"
-  end
-  if value == "Q" then
-    return "Cancel Reason: Self Match Prevention (Q)"
-  end
-  if value == "Z" then
-    return "Cancel Reason: System Cancel (Z)"
-  end
-  if value == "C" then
-    return "Cancel Reason: Cross Cancel (C)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.cancel_reason.labels = {
+  ["U"] = "Cancel Reason: User Cancel (U)",
+  ["I"] = "Cancel Reason: Ioc Cancel (I)",
+  ["T"] = "Cancel Reason: Timeout (T)",
+  ["S"] = "Cancel Reason: Supervisory Cancel (S)",
+  ["D"] = "Cancel Reason: Regulatory Cancel (D)",
+  ["Q"] = "Cancel Reason: Self Match Prevention (Q)",
+  ["Z"] = "Cancel Reason: System Cancel (Z)",
+  ["C"] = "Cancel Reason: Cross Cancel (C)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.cancel_reason.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -371,18 +345,14 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.capacity = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.capacity.size = 1
 
 -- Display: Capacity
-nasdaq_nsmequities_drop_asciidrop_v2_3.capacity.display = function(value)
-  if value == "A" then
-    return "Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity: Principal (P)"
-  end
-  if value == "R" then
-    return "Capacity: Riskless (R)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.capacity.labels = {
+  ["A"] = "Capacity: Agency (A)",
+  ["P"] = "Capacity: Principal (P)",
+  ["R"] = "Capacity: Riskless (R)",
+}
 
-  return "Capacity: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.capacity.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -404,12 +374,12 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.clearing_code = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.clearing_code.size = 1
 
 -- Display: Clearing Code
-nasdaq_nsmequities_drop_asciidrop_v2_3.clearing_code.display = function(value)
-  if value == "Q" then
-    return "Clearing Code: Qsr (Q)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.clearing_code.labels = {
+  ["Q"] = "Clearing Code: Qsr (Q)",
+}
 
-  return "Clearing Code: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.clearing_code.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.clearing_code.labels[value] or "Clearing Code: Unknown("..value..")"
 end
 
 -- Dissect: Clearing Code
@@ -431,24 +401,16 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.client_packet_type = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nsmequities_drop_asciidrop_v2_3.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Client Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Client Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Client Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Client Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Client Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.client_packet_type.labels = {
+  ["+"] = "Client Packet Type: Debug Packet (+)",
+  ["L"] = "Client Packet Type: Login Request Packet (L)",
+  ["U"] = "Client Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Client Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Client Packet Type: Logout Request Packet (O)",
+}
 
-  return "Client Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.client_packet_type.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.client_packet_type.labels[value] or "Client Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -539,15 +501,13 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.iso_flag = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.iso_flag.size = 1
 
 -- Display: Iso Flag
-nasdaq_nsmequities_drop_asciidrop_v2_3.iso_flag.display = function(value)
-  if value == "Y" then
-    return "Iso Flag: Eligible (Y)"
-  end
-  if value == "N" then
-    return "Iso Flag: Not Eligible (N)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.iso_flag.labels = {
+  ["Y"] = "Iso Flag: Eligible (Y)",
+  ["N"] = "Iso Flag: Not Eligible (N)",
+}
 
-  return "Iso Flag: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.iso_flag.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.iso_flag.labels[value] or "Iso Flag: Unknown("..value..")"
 end
 
 -- Dissect: Iso Flag
@@ -569,120 +529,48 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.liquidity_code = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.liquidity_code.size = 1
 
 -- Display: Liquidity Code
-nasdaq_nsmequities_drop_asciidrop_v2_3.liquidity_code.display = function(value)
-  if value == "A" then
-    return "Liquidity Code: Added (A)"
-  end
-  if value == "R" then
-    return "Liquidity Code: Removed (R)"
-  end
-  if value == "X" then
-    return "Liquidity Code: Routed (X)"
-  end
-  if value == "D" then
-    return "Liquidity Code: Dot (D)"
-  end
-  if value == "F" then
-    return "Liquidity Code: Opening Trade On Nyse (F)"
-  end
-  if value == "G" then
-    return "Liquidity Code: On Close Order On Nyse (G)"
-  end
-  if value == "O" then
-    return "Liquidity Code: Opening Cross (O)"
-  end
-  if value == "M" then
-    return "Liquidity Code: Opening Cross Imbalanceonly (M)"
-  end
-  if value == "C" then
-    return "Liquidity Code: Closing Cross (C)"
-  end
-  if value == "L" then
-    return "Liquidity Code: Closing Cross Imbalanceonly (L)"
-  end
-  if value == "H" then
-    return "Liquidity Code: Halt Ipo Cross (H)"
-  end
-  if value == "K" then
-    return "Liquidity Code: Halt Cross (K)"
-  end
-  if value == "J" then
-    return "Liquidity Code: Nondisplayed Adding Liquidity (J)"
-  end
-  if value == "Y" then
-    return "Liquidity Code: Re Routed By Nyse (Y)"
-  end
-  if value == "S" then
-    return "Liquidity Code: Odd Lot Execution On Nyse (S)"
-  end
-  if value == "U" then
-    return "Liquidity Code: Added Liquidity On Nyse (U)"
-  end
-  if value == "B" then
-    return "Liquidity Code: Routed To Bx (B)"
-  end
-  if value == "E" then
-    return "Liquidity Code: Nyse Other (E)"
-  end
-  if value == "P" then
-    return "Liquidity Code: Routed To Psx (P)"
-  end
-  if value == "T" then
-    return "Liquidity Code: Opening Trade On Arca (T)"
-  end
-  if value == "Z" then
-    return "Liquidity Code: On Close Order On Arca (Z)"
-  end
-  if value == "W" then
-    return "Liquidity Code: Added Postonly Not Currently Available (W)"
-  end
-  if value == "m" then
-    return "Liquidity Code: Removed Liquidity At A Midpoint (m)"
-  end
-  if value == "k" then
-    return "Liquidity Code: Added Liquidity Via A Midpoint Order (k)"
-  end
-  if value == "0" then
-    return "Liquidity Code: Supplemental Order Execution (0)"
-  end
-  if value == "7" then
-    return "Liquidity Code: Displayed Liquidityadding Order Improves The Nbbo (7)"
-  end
-  if value == "8" then
-    return "Liquidity Code: Displayed Liquidityadding Order Sets The Qbbo While Joining The Nbbo (8)"
-  end
-  if value == "d" then
-    return "Liquidity Code: Retail Designated Execution That Removed Liquidity Not Currently Available (d)"
-  end
-  if value == "e" then
-    return "Liquidity Code: Retail Designated Execution That Added Displayed Liquidity (e)"
-  end
-  if value == "f" then
-    return "Liquidity Code: Retail Designated Execution That Added Nondisplayed Liquidity Not Currently Available (f)"
-  end
-  if value == "j" then
-    return "Liquidity Code: Rpi Order That Provides Liquidity (j)"
-  end
-  if value == "r" then
-    return "Liquidity Code: Retail Order That Removes Rpi Liquidity (r)"
-  end
-  if value == "t" then
-    return "Liquidity Code: Retail Order That Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)"
-  end
-  if value == "4" then
-    return "Liquidity Code: Added Displayed Liquidity In A Select Symbol (4)"
-  end
-  if value == "5" then
-    return "Liquidity Code: Added Nondisplayed Liquidity In A Select Symbol (5)"
-  end
-  if value == "6" then
-    return "Liquidity Code: Liquidity Removing Order In A Select Symbol (6)"
-  end
-  if value == "g" then
-    return "Liquidity Code: Added Nondisplayed Midpoint Liquidity In A Select Symbol (g)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.liquidity_code.labels = {
+  ["A"] = "Liquidity Code: Added (A)",
+  ["R"] = "Liquidity Code: Removed (R)",
+  ["X"] = "Liquidity Code: Routed (X)",
+  ["D"] = "Liquidity Code: Dot (D)",
+  ["F"] = "Liquidity Code: Opening Trade On Nyse (F)",
+  ["G"] = "Liquidity Code: On Close Order On Nyse (G)",
+  ["O"] = "Liquidity Code: Opening Cross (O)",
+  ["M"] = "Liquidity Code: Opening Cross Imbalanceonly (M)",
+  ["C"] = "Liquidity Code: Closing Cross (C)",
+  ["L"] = "Liquidity Code: Closing Cross Imbalanceonly (L)",
+  ["H"] = "Liquidity Code: Halt Ipo Cross (H)",
+  ["K"] = "Liquidity Code: Halt Cross (K)",
+  ["J"] = "Liquidity Code: Nondisplayed Adding Liquidity (J)",
+  ["Y"] = "Liquidity Code: Re Routed By Nyse (Y)",
+  ["S"] = "Liquidity Code: Odd Lot Execution On Nyse (S)",
+  ["U"] = "Liquidity Code: Added Liquidity On Nyse (U)",
+  ["B"] = "Liquidity Code: Routed To Bx (B)",
+  ["E"] = "Liquidity Code: Nyse Other (E)",
+  ["P"] = "Liquidity Code: Routed To Psx (P)",
+  ["T"] = "Liquidity Code: Opening Trade On Arca (T)",
+  ["Z"] = "Liquidity Code: On Close Order On Arca (Z)",
+  ["W"] = "Liquidity Code: Added Postonly Not Currently Available (W)",
+  ["m"] = "Liquidity Code: Removed Liquidity At A Midpoint (m)",
+  ["k"] = "Liquidity Code: Added Liquidity Via A Midpoint Order (k)",
+  ["0"] = "Liquidity Code: Supplemental Order Execution (0)",
+  ["7"] = "Liquidity Code: Displayed Liquidityadding Order Improves The Nbbo (7)",
+  ["8"] = "Liquidity Code: Displayed Liquidityadding Order Sets The Qbbo While Joining The Nbbo (8)",
+  ["d"] = "Liquidity Code: Retail Designated Execution That Removed Liquidity Not Currently Available (d)",
+  ["e"] = "Liquidity Code: Retail Designated Execution That Added Displayed Liquidity (e)",
+  ["f"] = "Liquidity Code: Retail Designated Execution That Added Nondisplayed Liquidity Not Currently Available (f)",
+  ["j"] = "Liquidity Code: Rpi Order That Provides Liquidity (j)",
+  ["r"] = "Liquidity Code: Retail Order That Removes Rpi Liquidity (r)",
+  ["t"] = "Liquidity Code: Retail Order That Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)",
+  ["4"] = "Liquidity Code: Added Displayed Liquidity In A Select Symbol (4)",
+  ["5"] = "Liquidity Code: Added Nondisplayed Liquidity In A Select Symbol (5)",
+  ["6"] = "Liquidity Code: Liquidity Removing Order In A Select Symbol (6)",
+  ["g"] = "Liquidity Code: Added Nondisplayed Midpoint Liquidity In A Select Symbol (g)",
+}
 
-  return "Liquidity Code: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.liquidity_code.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.liquidity_code.labels[value] or "Liquidity Code: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Code
@@ -735,33 +623,19 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.message_type = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nsmequities_drop_asciidrop_v2_3.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: New Order Accepted Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Existing Order Executed Message (E)"
-  end
-  if value == "X" then
-    return "Message Type: Existing Order Canceled Message (X)"
-  end
-  if value == "B" then
-    return "Message Type: Previous Execution Broken Message (B)"
-  end
-  if value == "U" then
-    return "Message Type: Existing Order Replaced Message (U)"
-  end
-  if value == "M" then
-    return "Message Type: Existing Order Modified Message (M)"
-  end
-  if value == "Y" then
-    return "Message Type: Existing Order Cancelled Aiq Message (Y)"
-  end
-  if value == "C" then
-    return "Message Type: Trade Correction Message (C)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.message_type.labels = {
+  ["A"] = "Message Type: New Order Accepted Message (A)",
+  ["E"] = "Message Type: Existing Order Executed Message (E)",
+  ["X"] = "Message Type: Existing Order Canceled Message (X)",
+  ["B"] = "Message Type: Previous Execution Broken Message (B)",
+  ["U"] = "Message Type: Existing Order Replaced Message (U)",
+  ["M"] = "Message Type: Existing Order Modified Message (M)",
+  ["Y"] = "Message Type: Existing Order Cancelled Aiq Message (Y)",
+  ["C"] = "Message Type: Trade Correction Message (C)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.message_type.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1036,24 +910,16 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.server_packet_type = {}
 nasdaq_nsmequities_drop_asciidrop_v2_3.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nsmequities_drop_asciidrop_v2_3.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Server Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Server Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Server Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Server Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Server Packet Type: Server Heartbeat Packet (H)"
-  end
+nasdaq_nsmequities_drop_asciidrop_v2_3.server_packet_type.labels = {
+  ["+"] = "Server Packet Type: Debug Packet (+)",
+  ["A"] = "Server Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Server Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Server Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Server Packet Type: Server Heartbeat Packet (H)",
+}
 
-  return "Server Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_drop_asciidrop_v2_3.server_packet_type.display = function(value)
+  return nasdaq_nsmequities_drop_asciidrop_v2_3.server_packet_type.labels[value] or "Server Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2736,38 +2602,21 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message.dispatch = {
+  ["A"] = nasdaq_nsmequities_drop_asciidrop_v2_3.new_order_accepted_message.dissect,
+  ["E"] = nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_executed_message.dissect,
+  ["X"] = nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_canceled_message.dissect,
+  ["B"] = nasdaq_nsmequities_drop_asciidrop_v2_3.previous_execution_broken_message.dissect,
+  ["U"] = nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_replaced_message.dissect,
+  ["M"] = nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_modified_message.dissect,
+  ["Y"] = nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_cancelled_aiq_message.dissect,
+  ["C"] = nasdaq_nsmequities_drop_asciidrop_v2_3.trade_correction_message.dissect,
+}
+
 nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect New Order Accepted Message
-  if message_type == "A" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.new_order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Existing Order Executed Message
-  if message_type == "E" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Existing Order Canceled Message
-  if message_type == "X" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Execution Broken Message
-  if message_type == "B" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.previous_execution_broken_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Existing Order Replaced Message
-  if message_type == "U" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Existing Order Modified Message
-  if message_type == "M" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Existing Order Cancelled Aiq Message
-  if message_type == "Y" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_cancelled_aiq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == "C" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.trade_correction_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3014,22 +2863,17 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_drop_asciidrop_v2_3.debug_packet.dissect,
+  ["A"] = nasdaq_nsmequities_drop_asciidrop_v2_3.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nsmequities_drop_asciidrop_v2_3.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_data_packet.dissect,
+}
+
 nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3289,18 +3133,16 @@ end
 nasdaq_nsmequities_drop_asciidrop_v2_3.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nsmequities_drop_asciidrop_v2_3.client_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_drop_asciidrop_v2_3.debug_packet.dissect,
+  ["L"] = nasdaq_nsmequities_drop_asciidrop_v2_3.login_request_packet.dissect,
+  ["U"] = nasdaq_nsmequities_drop_asciidrop_v2_3.unsequenced_data_packet.dissect,
+}
+
 nasdaq_nsmequities_drop_asciidrop_v2_3.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nsmequities_drop_asciidrop_v2_3.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_drop_asciidrop_v2_3.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

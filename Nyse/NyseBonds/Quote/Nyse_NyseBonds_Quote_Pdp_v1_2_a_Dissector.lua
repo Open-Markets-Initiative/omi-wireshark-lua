@@ -507,27 +507,17 @@ nyse_nysebonds_quote_pdp_v1_2_a.msg_type = {}
 nyse_nysebonds_quote_pdp_v1_2_a.msg_type.size = 2
 
 -- Display: Msg Type
-nyse_nysebonds_quote_pdp_v1_2_a.msg_type.display = function(value)
-  if value == 1 then
-    return "Msg Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Msg Type: Heartbeat Message (2)"
-  end
-  if value == 5 then
-    return "Msg Type: Message Unavailable Message (5)"
-  end
-  if value == 23 then
-    return "Msg Type: Refresh Quote Message (23)"
-  end
-  if value == 26 then
-    return "Msg Type: Symbol Index Mapping Message (26)"
-  end
-  if value == 141 then
-    return "Msg Type: Quote Message (141)"
-  end
+nyse_nysebonds_quote_pdp_v1_2_a.msg_type.labels = {
+  [1] = "Msg Type: Sequence Number Reset Message (1)",
+  [2] = "Msg Type: Heartbeat Message (2)",
+  [5] = "Msg Type: Message Unavailable Message (5)",
+  [23] = "Msg Type: Refresh Quote Message (23)",
+  [26] = "Msg Type: Symbol Index Mapping Message (26)",
+  [141] = "Msg Type: Quote Message (141)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+nyse_nysebonds_quote_pdp_v1_2_a.msg_type.display = function(value)
+  return nyse_nysebonds_quote_pdp_v1_2_a.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -925,42 +915,22 @@ nyse_nysebonds_quote_pdp_v1_2_a.trading_action = {}
 nyse_nysebonds_quote_pdp_v1_2_a.trading_action.size = 1
 
 -- Display: Trading Action
-nyse_nysebonds_quote_pdp_v1_2_a.trading_action.display = function(value)
-  if value == 1 then
-    return "Trading Action: Called (1)"
-  end
-  if value == 2 then
-    return "Trading Action: Delisted (2)"
-  end
-  if value == 3 then
-    return "Trading Action: Exinterest (3)"
-  end
-  if value == 4 then
-    return "Trading Action: Missed An Interest Payment (4)"
-  end
-  if value == 5 then
-    return "Trading Action: Bankrupt (5)"
-  end
-  if value == 6 then
-    return "Trading Action: Late Filing (6)"
-  end
-  if value == 7 then
-    return "Trading Action: Below Listing Standards (7)"
-  end
-  if value == 8 then
-    return "Trading Action: Late Filing And Below Listing Standards (8)"
-  end
-  if value == 9 then
-    return "Trading Action: Bankrupt And Late Filing (9)"
-  end
-  if value == 10 then
-    return "Trading Action: Bankrupt And Below Listing Standards (10)"
-  end
-  if value == 11 then
-    return "Trading Action: Bankrupt Below Listing Standards And Late Filing (11)"
-  end
+nyse_nysebonds_quote_pdp_v1_2_a.trading_action.labels = {
+  [1] = "Trading Action: Called (1)",
+  [2] = "Trading Action: Delisted (2)",
+  [3] = "Trading Action: Exinterest (3)",
+  [4] = "Trading Action: Missed An Interest Payment (4)",
+  [5] = "Trading Action: Bankrupt (5)",
+  [6] = "Trading Action: Late Filing (6)",
+  [7] = "Trading Action: Below Listing Standards (7)",
+  [8] = "Trading Action: Late Filing And Below Listing Standards (8)",
+  [9] = "Trading Action: Bankrupt And Late Filing (9)",
+  [10] = "Trading Action: Bankrupt And Below Listing Standards (10)",
+  [11] = "Trading Action: Bankrupt Below Listing Standards And Late Filing (11)",
+}
 
-  return "Trading Action: Unknown("..value..")"
+nyse_nysebonds_quote_pdp_v1_2_a.trading_action.display = function(value)
+  return nyse_nysebonds_quote_pdp_v1_2_a.trading_action.labels[value] or "Trading Action: Unknown("..value..")"
 end
 
 -- Dissect: Trading Action
@@ -1329,30 +1299,19 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.payload = {}
 
 -- Dissect: Payload
+nyse_nysebonds_quote_pdp_v1_2_a.payload.dispatch = {
+  [1] = nyse_nysebonds_quote_pdp_v1_2_a.sequence_number_reset_message.dissect,
+  [2] = nyse_nysebonds_quote_pdp_v1_2_a.heartbeat_message.dissect,
+  [5] = nyse_nysebonds_quote_pdp_v1_2_a.message_unavailable_message.dissect,
+  [23] = nyse_nysebonds_quote_pdp_v1_2_a.refresh_quote_message.dissect,
+  [26] = nyse_nysebonds_quote_pdp_v1_2_a.symbol_index_mapping_message.dissect,
+  [141] = nyse_nysebonds_quote_pdp_v1_2_a.quote_message.dissect,
+}
+
 nyse_nysebonds_quote_pdp_v1_2_a.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Number Reset Message
-  if msg_type == 1 then
-    return nyse_nysebonds_quote_pdp_v1_2_a.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if msg_type == 2 then
-    return nyse_nysebonds_quote_pdp_v1_2_a.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if msg_type == 5 then
-    return nyse_nysebonds_quote_pdp_v1_2_a.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Quote Message
-  if msg_type == 23 then
-    return nyse_nysebonds_quote_pdp_v1_2_a.refresh_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if msg_type == 26 then
-    return nyse_nysebonds_quote_pdp_v1_2_a.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Message
-  if msg_type == 141 then
-    return nyse_nysebonds_quote_pdp_v1_2_a.quote_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nysebonds_quote_pdp_v1_2_a.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

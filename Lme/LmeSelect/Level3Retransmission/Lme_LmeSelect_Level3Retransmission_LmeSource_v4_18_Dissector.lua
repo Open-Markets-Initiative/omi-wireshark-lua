@@ -579,15 +579,13 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.leg_buy_sell = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.leg_buy_sell.size = 1
 
 -- Display: Leg Buy Sell
-lme_lmeselect_level3retransmission_lmesource_v4_18.leg_buy_sell.display = function(value)
-  if value == "B" then
-    return "Leg Buy Sell: Buy (B)"
-  end
-  if value == "S" then
-    return "Leg Buy Sell: Sell (S)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.leg_buy_sell.labels = {
+  ["B"] = "Leg Buy Sell: Buy (B)",
+  ["S"] = "Leg Buy Sell: Sell (S)",
+}
 
-  return "Leg Buy Sell: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.leg_buy_sell.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.leg_buy_sell.labels[value] or "Leg Buy Sell: Unknown("..value..")"
 end
 
 -- Dissect: Leg Buy Sell
@@ -776,54 +774,26 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.msg_type = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_level3retransmission_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 311 then
-    return "Msg Type: Market State Contract Message (311)"
-  end
-  if value == 312 then
-    return "Msg Type: Market State Instrument Message (312)"
-  end
-  if value == 320 then
-    return "Msg Type: Indicative Opening Price Message (320)"
-  end
-  if value == 329 then
-    return "Msg Type: Quote Request Message (329)"
-  end
-  if value == 327 then
-    return "Msg Type: Order Book Clear Message (327)"
-  end
-  if value == 330 then
-    return "Msg Type: Cross Request Message (330)"
-  end
-  if value == 323 then
-    return "Msg Type: Order Add Message (323)"
-  end
-  if value == 324 then
-    return "Msg Type: Order Amend Message (324)"
-  end
-  if value == 325 then
-    return "Msg Type: Order Cancel Message (325)"
-  end
-  if value == 326 then
-    return "Msg Type: Order Executed Message (326)"
-  end
-  if value == 101 then
-    return "Msg Type: Logon Message (101)"
-  end
-  if value == 102 then
-    return "Msg Type: Logon Response Message (102)"
-  end
-  if value == 201 then
-    return "Msg Type: Retransmission Request Message (201)"
-  end
-  if value == 202 then
-    return "Msg Type: Retransmission Response Message (202)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [311] = "Msg Type: Market State Contract Message (311)",
+  [312] = "Msg Type: Market State Instrument Message (312)",
+  [320] = "Msg Type: Indicative Opening Price Message (320)",
+  [329] = "Msg Type: Quote Request Message (329)",
+  [327] = "Msg Type: Order Book Clear Message (327)",
+  [330] = "Msg Type: Cross Request Message (330)",
+  [323] = "Msg Type: Order Add Message (323)",
+  [324] = "Msg Type: Order Amend Message (324)",
+  [325] = "Msg Type: Order Cancel Message (325)",
+  [326] = "Msg Type: Order Executed Message (326)",
+  [101] = "Msg Type: Logon Message (101)",
+  [102] = "Msg Type: Logon Response Message (102)",
+  [201] = "Msg Type: Retransmission Request Message (201)",
+  [202] = "Msg Type: Retransmission Response Message (202)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -981,15 +951,13 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.quote_request_type = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.quote_request_type.size = 1
 
 -- Display: Quote Request Type
-lme_lmeselect_level3retransmission_lmesource_v4_18.quote_request_type.display = function(value)
-  if value == 1 then
-    return "Quote Request Type: Manual A Single Quote Request (1)"
-  end
-  if value == 2 then
-    return "Quote Request Type: Auto A Streaming Quote Request (2)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.quote_request_type.labels = {
+  [1] = "Quote Request Type: Manual A Single Quote Request (1)",
+  [2] = "Quote Request Type: Auto A Streaming Quote Request (2)",
+}
 
-  return "Quote Request Type: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.quote_request_type.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.quote_request_type.labels[value] or "Quote Request Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Request Type
@@ -1011,24 +979,16 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.retrans_status = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.retrans_status.size = 1
 
 -- Display: Retrans Status
-lme_lmeselect_level3retransmission_lmesource_v4_18.retrans_status.display = function(value)
-  if value == 0 then
-    return "Retrans Status: Request Accepted (0)"
-  end
-  if value == 1 then
-    return "Retrans Status: Unknown Or Unauthorized Channel Id (1)"
-  end
-  if value == 2 then
-    return "Retrans Status: Messages Not Available (2)"
-  end
-  if value == 100 then
-    return "Retrans Status: Exceeds Maximum Sequence Range (100)"
-  end
-  if value == 101 then
-    return "Retrans Status: Exceeds Maximum Requests In A Day (101)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.retrans_status.labels = {
+  [0] = "Retrans Status: Request Accepted (0)",
+  [1] = "Retrans Status: Unknown Or Unauthorized Channel Id (1)",
+  [2] = "Retrans Status: Messages Not Available (2)",
+  [100] = "Retrans Status: Exceeds Maximum Sequence Range (100)",
+  [101] = "Retrans Status: Exceeds Maximum Requests In A Day (101)",
+}
 
-  return "Retrans Status: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.retrans_status.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.retrans_status.labels[value] or "Retrans Status: Unknown("..value..")"
 end
 
 -- Dissect: Retrans Status
@@ -1097,18 +1057,14 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.session_status = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.session_status.size = 1
 
 -- Display: Session Status
-lme_lmeselect_level3retransmission_lmesource_v4_18.session_status.display = function(value)
-  if value == 0 then
-    return "Session Status: Session Active (0)"
-  end
-  if value == 5 then
-    return "Session Status: Invalid Username Or Ip Address (5)"
-  end
-  if value == 100 then
-    return "Session Status: User Already Connected (100)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.session_status.labels = {
+  [0] = "Session Status: Session Active (0)",
+  [5] = "Session Status: Invalid Username Or Ip Address (5)",
+  [100] = "Session Status: User Already Connected (100)",
+}
 
-  return "Session Status: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.session_status.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.session_status.labels[value] or "Session Status: Unknown("..value..")"
 end
 
 -- Dissect: Session Status
@@ -1177,24 +1133,16 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.sub_type_of_trade = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.sub_type_of_trade.size = 1
 
 -- Display: Sub Type Of Trade
-lme_lmeselect_level3retransmission_lmesource_v4_18.sub_type_of_trade.display = function(value)
-  if value == 1 then
-    return "Sub Type Of Trade: The Trade Resulted From An Explicit Order (1)"
-  end
-  if value == 2 then
-    return "Sub Type Of Trade: The Trade Resulted From Uncrossing (2)"
-  end
-  if value == 7 then
-    return "Sub Type Of Trade: The Trade Resulted From An Implied Order (7)"
-  end
-  if value == 8 then
-    return "Sub Type Of Trade: The Trade Resulted From Two Implied Orders Matching (8)"
-  end
-  if value == 9 then
-    return "Sub Type Of Trade: The Trade Resulted From An Off Book Cross Trade (9)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.sub_type_of_trade.labels = {
+  [1] = "Sub Type Of Trade: The Trade Resulted From An Explicit Order (1)",
+  [2] = "Sub Type Of Trade: The Trade Resulted From Uncrossing (2)",
+  [7] = "Sub Type Of Trade: The Trade Resulted From An Implied Order (7)",
+  [8] = "Sub Type Of Trade: The Trade Resulted From Two Implied Orders Matching (8)",
+  [9] = "Sub Type Of Trade: The Trade Resulted From An Off Book Cross Trade (9)",
+}
 
-  return "Sub Type Of Trade: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.sub_type_of_trade.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.sub_type_of_trade.labels[value] or "Sub Type Of Trade: Unknown("..value..")"
 end
 
 -- Dissect: Sub Type Of Trade
@@ -1333,15 +1281,13 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.timetable_control_type = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.timetable_control_type.size = 1
 
 -- Display: Timetable Control Type
-lme_lmeselect_level3retransmission_lmesource_v4_18.timetable_control_type.display = function(value)
-  if value == "A" then
-    return "Timetable Control Type: Automatic The Default Trading Schedule (A)"
-  end
-  if value == "M" then
-    return "Timetable Control Type: Manual A Temporary Trading Schedule (M)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.timetable_control_type.labels = {
+  ["A"] = "Timetable Control Type: Automatic The Default Trading Schedule (A)",
+  ["M"] = "Timetable Control Type: Manual A Temporary Trading Schedule (M)",
+}
 
-  return "Timetable Control Type: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.timetable_control_type.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.timetable_control_type.labels[value] or "Timetable Control Type: Unknown("..value..")"
 end
 
 -- Dissect: Timetable Control Type
@@ -1386,15 +1332,13 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.trade_buy_sell = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.trade_buy_sell.size = 1
 
 -- Display: Trade Buy Sell
-lme_lmeselect_level3retransmission_lmesource_v4_18.trade_buy_sell.display = function(value)
-  if value == "B" then
-    return "Trade Buy Sell: Buy (B)"
-  end
-  if value == "S" then
-    return "Trade Buy Sell: Sell (S)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.trade_buy_sell.labels = {
+  ["B"] = "Trade Buy Sell: Buy (B)",
+  ["S"] = "Trade Buy Sell: Sell (S)",
+}
 
-  return "Trade Buy Sell: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.trade_buy_sell.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.trade_buy_sell.labels[value] or "Trade Buy Sell: Unknown("..value..")"
 end
 
 -- Dissect: Trade Buy Sell
@@ -1416,15 +1360,13 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.trade_cancel_flag = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.trade_cancel_flag.size = 1
 
 -- Display: Trade Cancel Flag
-lme_lmeselect_level3retransmission_lmesource_v4_18.trade_cancel_flag.display = function(value)
-  if value == 0 then
-    return "Trade Cancel Flag: False (0)"
-  end
-  if value == 1 then
-    return "Trade Cancel Flag: True (1)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.trade_cancel_flag.labels = {
+  [0] = "Trade Cancel Flag: False (0)",
+  [1] = "Trade Cancel Flag: True (1)",
+}
 
-  return "Trade Cancel Flag: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.trade_cancel_flag.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.trade_cancel_flag.labels[value] or "Trade Cancel Flag: Unknown("..value..")"
 end
 
 -- Dissect: Trade Cancel Flag
@@ -1446,24 +1388,16 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.trading_state = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.trading_state.size = 1
 
 -- Display: Trading State
-lme_lmeselect_level3retransmission_lmesource_v4_18.trading_state.display = function(value)
-  if value == 1 then
-    return "Trading State: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Trading State: Open (2)"
-  end
-  if value == 3 then
-    return "Trading State: Post Trade (3)"
-  end
-  if value == 4 then
-    return "Trading State: Close (4)"
-  end
-  if value == 6 then
-    return "Trading State: Technical Halt (6)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.trading_state.labels = {
+  [1] = "Trading State: Pre Open (1)",
+  [2] = "Trading State: Open (2)",
+  [3] = "Trading State: Post Trade (3)",
+  [4] = "Trading State: Close (4)",
+  [6] = "Trading State: Technical Halt (6)",
+}
 
-  return "Trading State: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.trading_state.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1518,18 +1452,14 @@ lme_lmeselect_level3retransmission_lmesource_v4_18.trading_venue = {}
 lme_lmeselect_level3retransmission_lmesource_v4_18.trading_venue.size = 2
 
 -- Display: Trading Venue
-lme_lmeselect_level3retransmission_lmesource_v4_18.trading_venue.display = function(value)
-  if value == "EL" then
-    return "Trading Venue: Electronic (EL)"
-  end
-  if value == "RK" then
-    return "Trading Venue: Ring (RK)"
-  end
-  if value == "IO" then
-    return "Trading Venue: Inter Office (IO)"
-  end
+lme_lmeselect_level3retransmission_lmesource_v4_18.trading_venue.labels = {
+  ["EL"] = "Trading Venue: Electronic (EL)",
+  ["RK"] = "Trading Venue: Ring (RK)",
+  ["IO"] = "Trading Venue: Inter Office (IO)",
+}
 
-  return "Trading Venue: Unknown("..value..")"
+lme_lmeselect_level3retransmission_lmesource_v4_18.trading_venue.display = function(value)
+  return lme_lmeselect_level3retransmission_lmesource_v4_18.trading_venue.labels[value] or "Trading Venue: Unknown("..value..")"
 end
 
 -- Dissect: Trading Venue
@@ -2638,66 +2568,28 @@ end
 lme_lmeselect_level3retransmission_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_level3retransmission_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_level3retransmission_lmesource_v4_18.sequence_reset_message.dissect,
+  [311] = lme_lmeselect_level3retransmission_lmesource_v4_18.market_state_contract_message.dissect,
+  [312] = lme_lmeselect_level3retransmission_lmesource_v4_18.market_state_instrument_message.dissect,
+  [320] = lme_lmeselect_level3retransmission_lmesource_v4_18.indicative_opening_price_message.dissect,
+  [329] = lme_lmeselect_level3retransmission_lmesource_v4_18.quote_request_message.dissect,
+  [327] = lme_lmeselect_level3retransmission_lmesource_v4_18.order_book_clear_message.dissect,
+  [330] = lme_lmeselect_level3retransmission_lmesource_v4_18.cross_request_message.dissect,
+  [323] = lme_lmeselect_level3retransmission_lmesource_v4_18.order_add_message.dissect,
+  [324] = lme_lmeselect_level3retransmission_lmesource_v4_18.order_amend_message.dissect,
+  [325] = lme_lmeselect_level3retransmission_lmesource_v4_18.order_cancel_message.dissect,
+  [326] = lme_lmeselect_level3retransmission_lmesource_v4_18.order_executed_message.dissect,
+  [101] = lme_lmeselect_level3retransmission_lmesource_v4_18.logon_message.dissect,
+  [102] = lme_lmeselect_level3retransmission_lmesource_v4_18.logon_response_message.dissect,
+  [201] = lme_lmeselect_level3retransmission_lmesource_v4_18.retransmission_request_message.dissect,
+  [202] = lme_lmeselect_level3retransmission_lmesource_v4_18.retransmission_response_message.dissect,
+}
+
 lme_lmeselect_level3retransmission_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Contract Message
-  if msg_type == 311 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.market_state_contract_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Instrument Message
-  if msg_type == 312 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.market_state_instrument_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Opening Price Message
-  if msg_type == 320 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.indicative_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Message
-  if msg_type == 329 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Clear Message
-  if msg_type == 327 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.order_book_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Request Message
-  if msg_type == 330 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.cross_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Message
-  if msg_type == 323 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.order_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Amend Message
-  if msg_type == 324 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.order_amend_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if msg_type == 325 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if msg_type == 326 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Message
-  if msg_type == 101 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response Message
-  if msg_type == 102 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if msg_type == 201 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Response Message
-  if msg_type == 202 then
-    return lme_lmeselect_level3retransmission_lmesource_v4_18.retransmission_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_level3retransmission_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

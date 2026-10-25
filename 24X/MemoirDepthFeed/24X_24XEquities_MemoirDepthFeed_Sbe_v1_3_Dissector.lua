@@ -267,15 +267,13 @@ n24x_24xequities_memoirdepthfeed_sbe_v1_3.is_test_symbol = {}
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
-n24x_24xequities_memoirdepthfeed_sbe_v1_3.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.is_test_symbol.labels = {
+  [0] = "Is Test Symbol: False (0)",
+  [1] = "Is Test Symbol: True (1)",
+}
 
-  return "Is Test Symbol: Unknown("..value..")"
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.is_test_symbol.display = function(value)
+  return n24x_24xequities_memoirdepthfeed_sbe_v1_3.is_test_symbol.labels[value] or "Is Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Is Test Symbol
@@ -343,18 +341,14 @@ n24x_24xequities_memoirdepthfeed_sbe_v1_3.message_type = {}
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
-n24x_24xequities_memoirdepthfeed_sbe_v1_3.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.message_type.labels = {
+  [0] = "Message Type: Heartbeat Message (0)",
+  [1] = "Message Type: Session Shutdown Message (1)",
+  [2] = "Message Type: Sequenced Message (2)",
+}
 
-  return "Message Type: Unknown("..value..")"
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.message_type.display = function(value)
+  return n24x_24xequities_memoirdepthfeed_sbe_v1_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -769,15 +763,13 @@ n24x_24xequities_memoirdepthfeed_sbe_v1_3.short_sale_restriction = {}
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
-n24x_24xequities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction: False (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction: True (1)"
-  end
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.labels = {
+  [0] = "Short Sale Restriction: False (0)",
+  [1] = "Short Sale Restriction: True (1)",
+}
 
-  return "Short Sale Restriction: Unknown("..value..")"
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.display = function(value)
+  return n24x_24xequities_memoirdepthfeed_sbe_v1_3.short_sale_restriction.labels[value] or "Short Sale Restriction: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction
@@ -920,48 +912,24 @@ n24x_24xequities_memoirdepthfeed_sbe_v1_3.template_id = {}
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.template_id.size = 1
 
 -- Display: Template Id
-n24x_24xequities_memoirdepthfeed_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Reg Sho Restriction Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Security Trading Status Message (3)"
-  end
-  if value == 5 then
-    return "Template Id: Trading Session Status Message (5)"
-  end
-  if value == 10 then
-    return "Template Id: Order Added Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Order Deleted Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Order Reduced Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Order Executed Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Trade Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Broken Trade Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Corrected Trade Message (16)"
-  end
-  if value == 18 then
-    return "Template Id: Clear Book Message (18)"
-  end
-  if value == 100 then
-    return "Template Id: Snapshot Complete Message (100)"
-  end
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.template_id.labels = {
+  [1] = "Template Id: Instrument Directory Message (1)",
+  [2] = "Template Id: Reg Sho Restriction Message (2)",
+  [3] = "Template Id: Security Trading Status Message (3)",
+  [5] = "Template Id: Trading Session Status Message (5)",
+  [10] = "Template Id: Order Added Message (10)",
+  [11] = "Template Id: Order Deleted Message (11)",
+  [12] = "Template Id: Order Reduced Message (12)",
+  [13] = "Template Id: Order Executed Message (13)",
+  [14] = "Template Id: Trade Message (14)",
+  [15] = "Template Id: Broken Trade Message (15)",
+  [16] = "Template Id: Corrected Trade Message (16)",
+  [18] = "Template Id: Clear Book Message (18)",
+  [100] = "Template Id: Snapshot Complete Message (100)",
+}
 
-  return "Template Id: Unknown("..value..")"
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.template_id.display = function(value)
+  return n24x_24xequities_memoirdepthfeed_sbe_v1_3.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1804,58 +1772,26 @@ end
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.payload = {}
 
 -- Dissect: Payload
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.payload.dispatch = {
+  [1] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.dissect,
+  [2] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.dissect,
+  [3] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.security_trading_status_message.dissect,
+  [5] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.trading_session_status_message.dissect,
+  [10] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.order_added_message.dissect,
+  [11] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.order_deleted_message.dissect,
+  [12] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.order_reduced_message.dissect,
+  [13] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.order_executed_message.dissect,
+  [14] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.trade_message.dissect,
+  [15] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.broken_trade_message.dissect,
+  [16] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.corrected_trade_message.dissect,
+  [18] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.clear_book_message.dissect,
+  [100] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.dissect,
+}
+
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Instrument Directory Message
-  if template_id == 1 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Restriction Message
-  if template_id == 2 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Status Message
-  if template_id == 3 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.security_trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if template_id == 5 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added Message
-  if template_id == 10 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.order_added_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Deleted Message
-  if template_id == 11 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Reduced Message
-  if template_id == 12 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.order_reduced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if template_id == 13 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if template_id == 14 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if template_id == 15 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Corrected Trade Message
-  if template_id == 16 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.corrected_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clear Book Message
-  if template_id == 18 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.clear_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Complete Message
-  if template_id == 100 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.dissect(buffer, offset, packet, parent)
+  local dissect = n24x_24xequities_memoirdepthfeed_sbe_v1_3.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2111,18 +2047,16 @@ end
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
+n24x_24xequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dispatch = {
+  [0] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.heartbeat.dissect,
+  [1] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.session_shutdown.dissect,
+  [2] = n24x_24xequities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect,
+}
+
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Heartbeat
-  if message_type == 0 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Shutdown
-  if message_type == 1 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.session_shutdown.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 2 then
-    return n24x_24xequities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = n24x_24xequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

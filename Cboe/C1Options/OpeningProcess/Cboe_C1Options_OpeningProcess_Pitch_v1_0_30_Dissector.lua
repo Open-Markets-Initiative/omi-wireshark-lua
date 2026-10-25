@@ -226,21 +226,15 @@ cboe_c1options_openingprocess_pitch_v1_0_30.auction_type = {}
 cboe_c1options_openingprocess_pitch_v1_0_30.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_c1options_openingprocess_pitch_v1_0_30.auction_type.display = function(value)
-  if value == "G" then
-    return "Auction Type: Gth Opening (G)"
-  end
-  if value == "O" then
-    return "Auction Type: Rth Opening (O)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Re Opening (H)"
-  end
-  if value == "V" then
-    return "Auction Type: Volatility Opening (V)"
-  end
+cboe_c1options_openingprocess_pitch_v1_0_30.auction_type.labels = {
+  ["G"] = "Auction Type: Gth Opening (G)",
+  ["O"] = "Auction Type: Rth Opening (O)",
+  ["H"] = "Auction Type: Halt Re Opening (H)",
+  ["V"] = "Auction Type: Volatility Opening (V)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_c1options_openingprocess_pitch_v1_0_30.auction_type.display = function(value)
+  return cboe_c1options_openingprocess_pitch_v1_0_30.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -516,36 +510,20 @@ cboe_c1options_openingprocess_pitch_v1_0_30.message_type = {}
 cboe_c1options_openingprocess_pitch_v1_0_30.message_type.size = 1
 
 -- Display: Message Type
-cboe_c1options_openingprocess_pitch_v1_0_30.message_type.display = function(value)
-  if value == 0xB1 then
-    return "Message Type: Time Reference Message (0xB1)"
-  end
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Options Auction Update Message (0xD1)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0xD2 then
-    return "Message Type: Width Update Message (0xD2)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
-  if value == 0x9D then
-    return "Message Type: Soq Strike Range Update Message (0x9D)"
-  end
-  if value == 0x9E then
-    return "Message Type: Constituent Symbol Mapping Message (0x9E)"
-  end
+cboe_c1options_openingprocess_pitch_v1_0_30.message_type.labels = {
+  [0xB1] = "Message Type: Time Reference Message (0xB1)",
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0xD1] = "Message Type: Options Auction Update Message (0xD1)",
+  [0x96] = "Message Type: Auction Summary Message (0x96)",
+  [0xD2] = "Message Type: Width Update Message (0xD2)",
+  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+  [0x9D] = "Message Type: Soq Strike Range Update Message (0x9D)",
+  [0x9E] = "Message Type: Constituent Symbol Mapping Message (0x9E)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_c1options_openingprocess_pitch_v1_0_30.message_type.display = function(value)
+  return cboe_c1options_openingprocess_pitch_v1_0_30.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -633,24 +611,16 @@ cboe_c1options_openingprocess_pitch_v1_0_30.opening_condition = {}
 cboe_c1options_openingprocess_pitch_v1_0_30.opening_condition.size = 1
 
 -- Display: Opening Condition
-cboe_c1options_openingprocess_pitch_v1_0_30.opening_condition.display = function(value)
-  if value == "O" then
-    return "Opening Condition: Would Open (O)"
-  end
-  if value == "Q" then
-    return "Opening Condition: Need Quote To Open (Q)"
-  end
-  if value == "B" then
-    return "Opening Condition: Need More Buyers (B)"
-  end
-  if value == "S" then
-    return "Opening Condition: Need More Sellers (S)"
-  end
-  if value == "C" then
-    return "Opening Condition: Crossed Composite Market (C)"
-  end
+cboe_c1options_openingprocess_pitch_v1_0_30.opening_condition.labels = {
+  ["O"] = "Opening Condition: Would Open (O)",
+  ["Q"] = "Opening Condition: Need Quote To Open (Q)",
+  ["B"] = "Opening Condition: Need More Buyers (B)",
+  ["S"] = "Opening Condition: Need More Sellers (S)",
+  ["C"] = "Opening Condition: Crossed Composite Market (C)",
+}
 
-  return "Opening Condition: Unknown("..value..")"
+cboe_c1options_openingprocess_pitch_v1_0_30.opening_condition.display = function(value)
+  return cboe_c1options_openingprocess_pitch_v1_0_30.opening_condition.labels[value] or "Opening Condition: Unknown("..value..")"
 end
 
 -- Dissect: Opening Condition
@@ -868,15 +838,13 @@ cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition = {}
 cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.display = function(value)
+  return cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -1075,15 +1043,13 @@ cboe_c1options_openingprocess_pitch_v1_0_30.width_type = {}
 cboe_c1options_openingprocess_pitch_v1_0_30.width_type.size = 1
 
 -- Display: Width Type
-cboe_c1options_openingprocess_pitch_v1_0_30.width_type.display = function(value)
-  if value == "R" then
-    return "Width Type: Regular (R)"
-  end
-  if value == "V" then
-    return "Width Type: Volatility (V)"
-  end
+cboe_c1options_openingprocess_pitch_v1_0_30.width_type.labels = {
+  ["R"] = "Width Type: Regular (R)",
+  ["V"] = "Width Type: Volatility (V)",
+}
 
-  return "Width Type: Unknown("..value..")"
+cboe_c1options_openingprocess_pitch_v1_0_30.width_type.display = function(value)
+  return cboe_c1options_openingprocess_pitch_v1_0_30.width_type.labels[value] or "Width Type: Unknown("..value..")"
 end
 
 -- Dissect: Width Type
@@ -1647,42 +1613,22 @@ end
 cboe_c1options_openingprocess_pitch_v1_0_30.payload = {}
 
 -- Dissect: Payload
+cboe_c1options_openingprocess_pitch_v1_0_30.payload.dispatch = {
+  [0xB1] = cboe_c1options_openingprocess_pitch_v1_0_30.time_reference_message.dissect,
+  [0x20] = cboe_c1options_openingprocess_pitch_v1_0_30.time_message.dissect,
+  [0xD1] = cboe_c1options_openingprocess_pitch_v1_0_30.options_auction_update_message.dissect,
+  [0x96] = cboe_c1options_openingprocess_pitch_v1_0_30.auction_summary_message.dissect,
+  [0xD2] = cboe_c1options_openingprocess_pitch_v1_0_30.width_update_message.dissect,
+  [0x2E] = cboe_c1options_openingprocess_pitch_v1_0_30.symbol_mapping_message.dissect,
+  [0x2D] = cboe_c1options_openingprocess_pitch_v1_0_30.end_of_session_message.dissect,
+  [0x9D] = cboe_c1options_openingprocess_pitch_v1_0_30.soq_strike_range_update_message.dissect,
+  [0x9E] = cboe_c1options_openingprocess_pitch_v1_0_30.constituent_symbol_mapping_message.dissect,
+}
+
 cboe_c1options_openingprocess_pitch_v1_0_30.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Reference Message
-  if message_type == 0xB1 then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.options_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Width Update Message
-  if message_type == 0xD2 then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.width_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.end_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Soq Strike Range Update Message
-  if message_type == 0x9D then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.soq_strike_range_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Constituent Symbol Mapping Message
-  if message_type == 0x9E then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.constituent_symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c1options_openingprocess_pitch_v1_0_30.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1821,10 +1767,14 @@ end
 cboe_c1options_openingprocess_pitch_v1_0_30.messages = {}
 
 -- Dissect: Messages
+cboe_c1options_openingprocess_pitch_v1_0_30.messages.dispatch = {
+  [0] = cboe_c1options_openingprocess_pitch_v1_0_30.heartbeat.dissect,
+}
+
 cboe_c1options_openingprocess_pitch_v1_0_30.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_c1options_openingprocess_pitch_v1_0_30.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c1options_openingprocess_pitch_v1_0_30.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

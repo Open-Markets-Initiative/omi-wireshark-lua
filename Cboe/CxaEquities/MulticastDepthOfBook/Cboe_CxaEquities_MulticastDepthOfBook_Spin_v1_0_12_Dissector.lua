@@ -131,18 +131,14 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.auction_type = {}
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Intraday Auction (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction Re Opening (H)"
-  end
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Intraday Auction (O)",
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["H"] = "Auction Type: Halt Auction Re Opening (H)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.auction_type.display = function(value)
+  return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -262,21 +258,15 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_response_status = {}
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorised Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_response_status.labels = {
+  ["A"] = "Login Response Status: Login Accepted (A)",
+  ["N"] = "Login Response Status: Not Authorised Invalid Username Password (N)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_response_status.display = function(value)
+  return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -298,24 +288,16 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.market_id_code = {}
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.market_id_code.size = 4
 
 -- Display: Market Id Code
-cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.market_id_code.display = function(value)
-  if value == "XASX" then
-    return "Market Id Code: Asx Symbols (XASX)"
-  end
-  if value == "CXAW" then
-    return "Market Id Code: Cxa Warrants (CXAW)"
-  end
-  if value == "CXAE" then
-    return "Market Id Code: Cxa Etf (CXAE)"
-  end
-  if value == "CXAQ" then
-    return "Market Id Code: Cxa Qmf (CXAQ)"
-  end
-  if value == "CXAL" then
-    return "Market Id Code: Cxa Listed (CXAL)"
-  end
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.market_id_code.labels = {
+  ["XASX"] = "Market Id Code: Asx Symbols (XASX)",
+  ["CXAW"] = "Market Id Code: Cxa Warrants (CXAW)",
+  ["CXAE"] = "Market Id Code: Cxa Etf (CXAE)",
+  ["CXAQ"] = "Market Id Code: Cxa Qmf (CXAQ)",
+  ["CXAL"] = "Market Id Code: Cxa Listed (CXAL)",
+}
 
-  return "Market Id Code: Unknown("..value..")"
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.market_id_code.display = function(value)
+  return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.market_id_code.labels[value] or "Market Id Code: Unknown("..value..")"
 end
 
 -- Dissect: Market Id Code
@@ -383,39 +365,21 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.message_type = {}
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.message_type.size = 1
 
 -- Display: Message Type
-cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x80 then
-    return "Message Type: Spin Image Available Message (0x80)"
-  end
-  if value == 0x81 then
-    return "Message Type: Spin Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Spin Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Spin Finished Message (0x83)"
-  end
-  if value == 0x3B then
-    return "Message Type: Trading Status Message (0x3B)"
-  end
-  if value == 0x37 then
-    return "Message Type: Add Order Message (0x37)"
-  end
-  if value == 0xE3 then
-    return "Message Type: Calculated Value Message (0xE3)"
-  end
-  if value == 0x59 then
-    return "Message Type: Auction Update Message (0x59)"
-  end
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.message_type.labels = {
+  [0x01] = "Message Type: Login Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x80] = "Message Type: Spin Image Available Message (0x80)",
+  [0x81] = "Message Type: Spin Request Message (0x81)",
+  [0x82] = "Message Type: Spin Response Message (0x82)",
+  [0x83] = "Message Type: Spin Finished Message (0x83)",
+  [0x3B] = "Message Type: Trading Status Message (0x3B)",
+  [0x37] = "Message Type: Add Order Message (0x37)",
+  [0xE3] = "Message Type: Calculated Value Message (0xE3)",
+  [0x59] = "Message Type: Auction Update Message (0x59)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.message_type.display = function(value)
+  return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -673,15 +637,13 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.side_indicator = {}
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.side_indicator.display = function(value)
+  return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -703,18 +665,14 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_response_status = {}
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_response_status.size = 1
 
 -- Display: Spin Response Status
-cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_response_status.display = function(value)
-  if value == "A" then
-    return "Spin Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)"
-  end
-  if value == "S" then
-    return "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_response_status.labels = {
+  ["A"] = "Spin Response Status: Accepted (A)",
+  ["O"] = "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)",
+  ["S"] = "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Spin Response Status: Unknown("..value..")"
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_response_status.display = function(value)
+  return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_response_status.labels[value] or "Spin Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Spin Response Status
@@ -782,36 +740,20 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.trading_status = {}
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.trading_status.display = function(value)
-  if value == "C" then
-    return "Trading Status: Closed (C)"
-  end
-  if value == "A" then
-    return "Trading Status: Premarket (A)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
-  if value == "M" then
-    return "Trading Status: Moc Trading (M)"
-  end
-  if value == "P" then
-    return "Trading Status: Postmarket (P)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "S" then
-    return "Trading Status: Trading Suspended (S)"
-  end
-  if value == "O" then
-    return "Trading Status: Pre Open (O)"
-  end
-  if value == "E" then
-    return "Trading Status: Pre Close (E)"
-  end
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.trading_status.labels = {
+  ["C"] = "Trading Status: Closed (C)",
+  ["A"] = "Trading Status: Premarket (A)",
+  ["T"] = "Trading Status: Trading (T)",
+  ["M"] = "Trading Status: Moc Trading (M)",
+  ["P"] = "Trading Status: Postmarket (P)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["S"] = "Trading Status: Trading Suspended (S)",
+  ["O"] = "Trading Status: Pre Open (O)",
+  ["E"] = "Trading Status: Pre Close (E)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.trading_status.display = function(value)
+  return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -908,21 +850,15 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.value_category = {}
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.value_category.size = 1
 
 -- Display: Value Category
-cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.value_category.display = function(value)
-  if value == "1" then
-    return "Value Category: Closing Price (1)"
-  end
-  if value == "2" then
-    return "Value Category: I Nav Values Etf (2)"
-  end
-  if value == "3" then
-    return "Value Category: Index Values (3)"
-  end
-  if value == "4" then
-    return "Value Category: Eod Nav From Issuer (4)"
-  end
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.value_category.labels = {
+  ["1"] = "Value Category: Closing Price (1)",
+  ["2"] = "Value Category: I Nav Values Etf (2)",
+  ["3"] = "Value Category: Index Values (3)",
+  ["4"] = "Value Category: Eod Nav From Issuer (4)",
+}
 
-  return "Value Category: Unknown("..value..")"
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.value_category.display = function(value)
+  return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.value_category.labels[value] or "Value Category: Unknown("..value..")"
 end
 
 -- Dissect: Value Category
@@ -1473,46 +1409,23 @@ end
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.payload = {}
 
 -- Dissect: Payload
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.payload.dispatch = {
+  [0x01] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_message.dissect,
+  [0x02] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_response_message.dissect,
+  [0x80] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_image_available_message.dissect,
+  [0x81] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_request_message.dissect,
+  [0x82] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_response_message.dissect,
+  [0x83] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_finished_message.dissect,
+  [0x3B] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.trading_status_message.dissect,
+  [0x37] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.add_order_message.dissect,
+  [0xE3] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.calculated_value_message.dissect,
+  [0x59] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.auction_update_message.dissect,
+}
+
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Message
-  if message_type == 0x01 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Image Available Message
-  if message_type == 0x80 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_image_available_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 0x81 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 0x82 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Finished Message
-  if message_type == 0x83 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.spin_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x3B then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 0x37 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Calculated Value Message
-  if message_type == 0xE3 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.calculated_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Update Message
-  if message_type == 0x59 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.auction_update_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1645,10 +1558,14 @@ end
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.messages = {}
 
 -- Dissect: Messages
+cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.messages.dispatch = {
+  [0] = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.heartbeat.dissect,
+}
+
 cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

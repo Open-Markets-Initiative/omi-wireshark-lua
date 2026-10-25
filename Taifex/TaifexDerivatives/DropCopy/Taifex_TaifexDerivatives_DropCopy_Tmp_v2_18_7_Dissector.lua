@@ -224,21 +224,15 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.apcode = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.apcode.size = 1
 
 -- Display: Apcode
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.apcode.display = function(value)
-  if value == 4 then
-    return "Apcode: Fcm Order Transaction (4)"
-  end
-  if value == 6 then
-    return "Apcode: Fcm Condensed Version Order Transaction (6)"
-  end
-  if value == 7 then
-    return "Apcode: Tmpdc Session (7)"
-  end
-  if value == 8 then
-    return "Apcode: Clearing Member Order Transaction Report (8)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.apcode.labels = {
+  [4] = "Apcode: Fcm Order Transaction (4)",
+  [6] = "Apcode: Fcm Condensed Version Order Transaction (6)",
+  [7] = "Apcode: Tmpdc Session (7)",
+  [8] = "Apcode: Clearing Member Order Transaction Report (8)",
+}
 
-  return "Apcode: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.apcode.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.apcode.labels[value] or "Apcode: Unknown("..value..")"
 end
 
 -- Dissect: Apcode
@@ -375,27 +369,17 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.combop = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.combop.size = 1
 
 -- Display: Combop
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.combop.display = function(value)
-  if value == 0 then
-    return "Combop: Single Order (0)"
-  end
-  if value == 1 then
-    return "Combop: Price Spread (1)"
-  end
-  if value == 2 then
-    return "Combop: Time Spread (2)"
-  end
-  if value == 3 then
-    return "Combop: Straddle (3)"
-  end
-  if value == 4 then
-    return "Combop: Strangle (4)"
-  end
-  if value == 5 then
-    return "Combop: Conversion And Reversals (5)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.combop.labels = {
+  [0] = "Combop: Single Order (0)",
+  [1] = "Combop: Price Spread (1)",
+  [2] = "Combop: Time Spread (2)",
+  [3] = "Combop: Straddle (3)",
+  [4] = "Combop: Strangle (4)",
+  [5] = "Combop: Conversion And Reversals (5)",
+}
 
-  return "Combop: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.combop.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.combop.labels[value] or "Combop: Unknown("..value..")"
 end
 
 -- Dissect: Combop
@@ -440,12 +424,12 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.encrypt_method = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.encrypt_method.size = 1
 
 -- Display: Encrypt Method
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.encrypt_method.display = function(value)
-  if value == 0 then
-    return "Encrypt Method: Unencrypted (0)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.encrypt_method.labels = {
+  [0] = "Encrypt Method: Unencrypted (0)",
+}
 
-  return "Encrypt Method: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.encrypt_method.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.encrypt_method.labels[value] or "Encrypt Method: Unknown("..value..")"
 end
 
 -- Dissect: Encrypt Method
@@ -538,33 +522,19 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.exec_type = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.exec_type.size = 1
 
 -- Display: Exec Type
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.exec_type.display = function(value)
-  if value == "0" then
-    return "Exec Type: New (0)"
-  end
-  if value == "4" then
-    return "Exec Type: Cancel (4)"
-  end
-  if value == "5" then
-    return "Exec Type: Decrease (5)"
-  end
-  if value == "6" then
-    return "Exec Type: New And Execution Report (6)"
-  end
-  if value == "F" then
-    return "Exec Type: Execution Report (F)"
-  end
-  if value == "I" then
-    return "Exec Type: Query (I)"
-  end
-  if value == "M" then
-    return "Exec Type: Modify Price Replying To The Modifying Line (M)"
-  end
-  if value == "m" then
-    return "Exec Type: Modify Price Replying To The Original Line (m)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.exec_type.labels = {
+  ["0"] = "Exec Type: New (0)",
+  ["4"] = "Exec Type: Cancel (4)",
+  ["5"] = "Exec Type: Decrease (5)",
+  ["6"] = "Exec Type: New And Execution Report (6)",
+  ["F"] = "Exec Type: Execution Report (F)",
+  ["I"] = "Exec Type: Query (I)",
+  ["M"] = "Exec Type: Modify Price Replying To The Modifying Line (M)",
+  ["m"] = "Exec Type: Modify Price Replying To The Original Line (m)",
+}
 
-  return "Exec Type: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.exec_type.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.exec_type.labels[value] or "Exec Type: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type
@@ -886,18 +856,14 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_81 = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_81.size = 1
 
 -- Display: Legside Uint 81
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_81.display = function(value)
-  if value == 0 then
-    return "Legside Uint 81: Single Order (0)"
-  end
-  if value == 1 then
-    return "Legside Uint 81: Buy (1)"
-  end
-  if value == 2 then
-    return "Legside Uint 81: Sell (2)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_81.labels = {
+  [0] = "Legside Uint 81: Single Order (0)",
+  [1] = "Legside Uint 81: Buy (1)",
+  [2] = "Legside Uint 81: Sell (2)",
+}
 
-  return "Legside Uint 81: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_81.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_81.labels[value] or "Legside Uint 81: Unknown("..value..")"
 end
 
 -- Dissect: Legside Uint 81
@@ -919,18 +885,14 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_822 = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_822.size = 1
 
 -- Display: Legside Uint 822
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_822.display = function(value)
-  if value == 0 then
-    return "Legside Uint 822: Single Order (0)"
-  end
-  if value == 1 then
-    return "Legside Uint 822: Buy (1)"
-  end
-  if value == 2 then
-    return "Legside Uint 822: Sell (2)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_822.labels = {
+  [0] = "Legside Uint 822: Single Order (0)",
+  [1] = "Legside Uint 822: Buy (1)",
+  [2] = "Legside Uint 822: Sell (2)",
+}
 
-  return "Legside Uint 822: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_822.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.legside_uint_822.labels[value] or "Legside Uint 822: Unknown("..value..")"
 end
 
 -- Dissect: Legside Uint 822
@@ -975,69 +937,31 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.message_type = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.message_type.size = 1
 
 -- Display: Message Type
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.message_type.display = function(value)
-  if value == 10 then
-    return "Message Type: Wake Up Call Message (10)"
-  end
-  if value == 20 then
-    return "Message Type: Wake Up Call Confirmed Message (20)"
-  end
-  if value == 30 then
-    return "Message Type: Logon Notice Message (30)"
-  end
-  if value == 230 then
-    return "Message Type: Final Sequential Number Notification For Group Message (230)"
-  end
-  if value == 40 then
-    return "Message Type: Request Logon Message (40)"
-  end
-  if value == 50 then
-    return "Message Type: Activate Application System Message (50)"
-  end
-  if value == 60 then
-    return "Message Type: Activate Application System Confirmed Message (60)"
-  end
-  if value == 70 then
-    return "Message Type: Logout Message (70)"
-  end
-  if value == 80 then
-    return "Message Type: Logout Confirmed Message (80)"
-  end
-  if value == 104 then
-    return "Message Type: Confirm Connection Message (104)"
-  end
-  if value == 105 then
-    return "Message Type: Connection Confirmed Message (105)"
-  end
-  if value == 102 then
-    return "Message Type: Order Status Report Message (102)"
-  end
-  if value == 132 then
-    return "Message Type: Order Status Report Long Format Message (132)"
-  end
-  if value == 103 then
-    return "Message Type: Error Report Message (103)"
-  end
-  if value == 202 then
-    return "Message Type: Flex Order Status Report Message (202)"
-  end
-  if value == 203 then
-    return "Message Type: Flex Error Report Message (203)"
-  end
-  if value == 115 then
-    return "Message Type: Drop Copy Initiate Operation Message (115)"
-  end
-  if value == 116 then
-    return "Message Type: Drop Copy Initiate Operation Confirmed Message (116)"
-  end
-  if value == 215 then
-    return "Message Type: Flex Drop Copy Initiate Operation Message (215)"
-  end
-  if value == 216 then
-    return "Message Type: Flex Drop Copy Initiate Operation Confirmed Message (216)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.message_type.labels = {
+  [10] = "Message Type: Wake Up Call Message (10)",
+  [20] = "Message Type: Wake Up Call Confirmed Message (20)",
+  [30] = "Message Type: Logon Notice Message (30)",
+  [230] = "Message Type: Final Sequential Number Notification For Group Message (230)",
+  [40] = "Message Type: Request Logon Message (40)",
+  [50] = "Message Type: Activate Application System Message (50)",
+  [60] = "Message Type: Activate Application System Confirmed Message (60)",
+  [70] = "Message Type: Logout Message (70)",
+  [80] = "Message Type: Logout Confirmed Message (80)",
+  [104] = "Message Type: Confirm Connection Message (104)",
+  [105] = "Message Type: Connection Confirmed Message (105)",
+  [102] = "Message Type: Order Status Report Message (102)",
+  [132] = "Message Type: Order Status Report Long Format Message (132)",
+  [103] = "Message Type: Error Report Message (103)",
+  [202] = "Message Type: Flex Order Status Report Message (202)",
+  [203] = "Message Type: Flex Error Report Message (203)",
+  [115] = "Message Type: Drop Copy Initiate Operation Message (115)",
+  [116] = "Message Type: Drop Copy Initiate Operation Confirmed Message (116)",
+  [215] = "Message Type: Flex Drop Copy Initiate Operation Message (215)",
+  [216] = "Message Type: Flex Drop Copy Initiate Operation Confirmed Message (216)",
+}
 
-  return "Message Type: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.message_type.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1128,27 +1052,17 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.msg_type_ext = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.msg_type_ext.size = 1
 
 -- Display: Msg Type Ext
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.msg_type_ext.display = function(value)
-  if value == 0 then
-    return "Msg Type Ext: Same Product As The Original Order Input (0)"
-  end
-  if value == 1 then
-    return "Msg Type Ext: Single Leg Order With A Numeric Product Serial Number (1)"
-  end
-  if value == 2 then
-    return "Msg Type Ext: Single Leg Order With A Textual Product Symbol (2)"
-  end
-  if value == 3 then
-    return "Msg Type Ext: Multi Leg Order With A Numeric Product Serial Number (3)"
-  end
-  if value == 4 then
-    return "Msg Type Ext: Multi Leg Order With A Textual Product Symbol (4)"
-  end
-  if value == 255 then
-    return "Msg Type Ext: Unexpected Error Record (255)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.msg_type_ext.labels = {
+  [0] = "Msg Type Ext: Same Product As The Original Order Input (0)",
+  [1] = "Msg Type Ext: Single Leg Order With A Numeric Product Serial Number (1)",
+  [2] = "Msg Type Ext: Single Leg Order With A Textual Product Symbol (2)",
+  [3] = "Msg Type Ext: Multi Leg Order With A Numeric Product Serial Number (3)",
+  [4] = "Msg Type Ext: Multi Leg Order With A Textual Product Symbol (4)",
+  [255] = "Msg Type Ext: Unexpected Error Record (255)",
+}
 
-  return "Msg Type Ext: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.msg_type_ext.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.msg_type_ext.labels[value] or "Msg Type Ext: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type Ext
@@ -1239,18 +1153,14 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.ord_type = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.ord_type.size = 1
 
 -- Display: Ord Type
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.ord_type.display = function(value)
-  if value == 1 then
-    return "Ord Type: Market (1)"
-  end
-  if value == 2 then
-    return "Ord Type: Limit (2)"
-  end
-  if value == 3 then
-    return "Ord Type: Market With Protection (3)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.ord_type.labels = {
+  [1] = "Ord Type: Market (1)",
+  [2] = "Ord Type: Limit (2)",
+  [3] = "Ord Type: Market With Protection (3)",
+}
 
-  return "Ord Type: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.ord_type.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.ord_type.labels[value] or "Ord Type: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type
@@ -1341,15 +1251,13 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.partid = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.partid.size = 1
 
 -- Display: Partid
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.partid.display = function(value)
-  if value == 102 then
-    return "Partid: Flex Options Regular Market Hours (102)"
-  end
-  if value == 202 then
-    return "Partid: Flex Futures Regular Market Hours (202)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.partid.labels = {
+  [102] = "Partid: Flex Options Regular Market Hours (102)",
+  [202] = "Partid: Flex Futures Regular Market Hours (202)",
+}
 
-  return "Partid: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.partid.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.partid.labels[value] or "Partid: Unknown("..value..")"
 end
 
 -- Dissect: Partid
@@ -1371,27 +1279,17 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.position_effect = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.position_effect.size = 1
 
 -- Display: Position Effect
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.position_effect.display = function(value)
-  if value == "O" then
-    return "Position Effect: Open (O)"
-  end
-  if value == "C" then
-    return "Position Effect: Close (C)"
-  end
-  if value == "D" then
-    return "Position Effect: Daytrade (D)"
-  end
-  if value == "A" then
-    return "Position Effect: Open And Specified Position Offsets (A)"
-  end
-  if value == "7" then
-    return "Position Effect: Offset By Fcm (7)"
-  end
-  if value == "9" then
-    return "Position Effect: Market Maker Quote (9)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.position_effect.labels = {
+  ["O"] = "Position Effect: Open (O)",
+  ["C"] = "Position Effect: Close (C)",
+  ["D"] = "Position Effect: Daytrade (D)",
+  ["A"] = "Position Effect: Open And Specified Position Offsets (A)",
+  ["7"] = "Position Effect: Offset By Fcm (7)",
+  ["9"] = "Position Effect: Market Maker Quote (9)",
+}
 
-  return "Position Effect: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.position_effect.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.position_effect.labels[value] or "Position Effect: Unknown("..value..")"
 end
 
 -- Dissect: Position Effect
@@ -1482,18 +1380,14 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.protocoltype = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.protocoltype.size = 1
 
 -- Display: Protocoltype
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.protocoltype.display = function(value)
-  if value == 0 then
-    return "Protocoltype: Reserved (0)"
-  end
-  if value == 1 then
-    return "Protocoltype: Tmp (1)"
-  end
-  if value == 2 then
-    return "Protocoltype: Fix (2)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.protocoltype.labels = {
+  [0] = "Protocoltype: Reserved (0)",
+  [1] = "Protocoltype: Tmp (1)",
+  [2] = "Protocoltype: Fix (2)",
+}
 
-  return "Protocoltype: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.protocoltype.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.protocoltype.labels[value] or "Protocoltype: Unknown("..value..")"
 end
 
 -- Dissect: Protocoltype
@@ -1883,15 +1777,13 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.side = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.side.size = 1
 
 -- Display: Side
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
 
-  return "Side: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.side.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1936,417 +1828,147 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_162 = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_162.size = 2
 
 -- Display: Statuscode Uint 162
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_162.display = function(value)
-  if value == 0 then
-    return "Statuscode Uint 162: Succeed (0)"
-  end
-  if value == 1 then
-    return "Statuscode Uint 162: Trading Time Over (1)"
-  end
-  if value == 2 then
-    return "Statuscode Uint 162: Order Acceptance Not Yet Started Or Trading Halt (2)"
-  end
-  if value == 3 then
-    return "Statuscode Uint 162: Price Quote Not Yet Accepted (3)"
-  end
-  if value == 4 then
-    return "Statuscode Uint 162: In Processing No Order Accepted For The Time Being (4)"
-  end
-  if value == 5 then
-    return "Statuscode Uint 162: No Such Order No (5)"
-  end
-  if value == 6 then
-    return "Statuscode Uint 162: Order Or Quote Filled (6)"
-  end
-  if value == 7 then
-    return "Statuscode Uint 162: Order Or Quote Cancelled (7)"
-  end
-  if value == 8 then
-    return "Statuscode Uint 162: Stop Order (8)"
-  end
-  if value == 9 then
-    return "Statuscode Uint 162: Order Limit (9)"
-  end
-  if value == 10 then
-    return "Statuscode Uint 162: Order Not In The Book (10)"
-  end
-  if value == 11 then
-    return "Statuscode Uint 162: Exec Type Error (11)"
-  end
-  if value == 12 then
-    return "Statuscode Uint 162: Broker Id Error (12)"
-  end
-  if value == 13 then
-    return "Statuscode Uint 162: Branch No Error (13)"
-  end
-  if value == 14 then
-    return "Statuscode Uint 162: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)"
-  end
-  if value == 15 then
-    return "Statuscode Uint 162: Investor Id Code Error (15)"
-  end
-  if value == 16 then
-    return "Statuscode Uint 162: Reject Delete Or Modify Order During Noncancel Period (16)"
-  end
-  if value == 17 then
-    return "Statuscode Uint 162: Duplicate Order No Or Quote No (17)"
-  end
-  if value == 18 then
-    return "Statuscode Uint 162: Order No Or Quote No Error (18)"
-  end
-  if value == 19 then
-    return "Statuscode Uint 162: The Same Side Order Not Exist (19)"
-  end
-  if value == 20 then
-    return "Statuscode Uint 162: Product Id Error (20)"
-  end
-  if value == 21 then
-    return "Statuscode Uint 162: Exceeding Risefall Limit (21)"
-  end
-  if value == 22 then
-    return "Statuscode Uint 162: Order Quantity Error (22)"
-  end
-  if value == 23 then
-    return "Statuscode Uint 162: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)"
-  end
-  if value == 24 then
-    return "Statuscode Uint 162: Buysell Error (24)"
-  end
-  if value == 25 then
-    return "Statuscode Uint 162: Ord Type Error (25)"
-  end
-  if value == 26 then
-    return "Statuscode Uint 162: Order Type And Price Not Matched (26)"
-  end
-  if value == 27 then
-    return "Statuscode Uint 162: Time In Force Error (27)"
-  end
-  if value == 28 then
-    return "Statuscode Uint 162: Position Effect Error (28)"
-  end
-  if value == 29 then
-    return "Statuscode Uint 162: Price And Tick Size Not Matched (29)"
-  end
-  if value == 30 then
-    return "Statuscode Uint 162: Product Expired (30)"
-  end
-  if value == 31 then
-    return "Statuscode Uint 162: Broker Id Product Group And Market Makers Account No Inconsistent (31)"
-  end
-  if value == 32 then
-    return "Statuscode Uint 162: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)"
-  end
-  if value == 33 then
-    return "Statuscode Uint 162: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)"
-  end
-  if value == 34 then
-    return "Statuscode Uint 162: Bid Price Exceeding Ask Price (34)"
-  end
-  if value == 35 then
-    return "Statuscode Uint 162: Remaining Quantity Of The Unmodified Side Is Zero (35)"
-  end
-  if value == 36 then
-    return "Statuscode Uint 162: The Unfilled Part Of The Oneway Quote Is Less Than The Minimum Quantity Limit (36)"
-  end
-  if value == 37 then
-    return "Statuscode Uint 162: Price Inquiry Already Present (37)"
-  end
-  if value == 38 then
-    return "Statuscode Uint 162: Market Orderand Mwp Does Not Accept Rod (38)"
-  end
-  if value == 39 then
-    return "Statuscode Uint 162: Decrease Quantity Error (39)"
-  end
-  if value == 40 then
-    return "Statuscode Uint 162: Price Error Singleside Quote Order Modification (40)"
-  end
-  if value == 41 then
-    return "Statuscode Uint 162: Settlement Month Error (41)"
-  end
-  if value == 42 then
-    return "Statuscode Uint 162: Strike Price Error (42)"
-  end
-  if value == 43 then
-    return "Statuscode Uint 162: Clearing Member Id Error (43)"
-  end
-  if value == 44 then
-    return "Statuscode Uint 162: Ordersource Error (44)"
-  end
-  if value == 45 then
-    return "Statuscode Uint 162: Infosource Error (45)"
-  end
-  if value == 46 then
-    return "Statuscode Uint 162: Disable Kill Switch Operation Error (46)"
-  end
-  if value == 47 then
-    return "Statuscode Uint 162: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)"
-  end
-  if value == 48 then
-    return "Statuscode Uint 162: Dynamic Price Banding Limit Price Disclosure (48)"
-  end
-  if value == 51 then
-    return "Statuscode Uint 162: Fok Not Filled And Deleted By System (51)"
-  end
-  if value == 52 then
-    return "Statuscode Uint 162: Ioc Is Partially Filled (52)"
-  end
-  if value == 53 then
-    return "Statuscode Uint 162: Ioc Not Filled And Deleted By System (53)"
-  end
-  if value == 54 then
-    return "Statuscode Uint 162: Delete The Order Because Of Cod (54)"
-  end
-  if value == 61 then
-    return "Statuscode Uint 162: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)"
-  end
-  if value == 62 then
-    return "Statuscode Uint 162: Product Id Of Canceldecrease Order Not Matching Original Order (62)"
-  end
-  if value == 63 then
-    return "Statuscode Uint 162: Modify Price Of Ioc Order Not Allowed (63)"
-  end
-  if value == 64 then
-    return "Statuscode Uint 162: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)"
-  end
-  if value == 65 then
-    return "Statuscode Uint 162: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)"
-  end
-  if value == 77 then
-    return "Statuscode Uint 162: No Such Contract (77)"
-  end
-  if value == 78 then
-    return "Statuscode Uint 162: Order Of This Contract Is Restricted For This Accountcode (78)"
-  end
-  if value == 79 then
-    return "Statuscode Uint 162: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)"
-  end
-  if value == 80 then
-    return "Statuscode Uint 162: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)"
-  end
-  if value == 89 then
-    return "Statuscode Uint 162: Too Many Errors (89)"
-  end
-  if value == 91 then
-    return "Statuscode Uint 162: Message Time Out (91)"
-  end
-  if value == 92 then
-    return "Statuscode Uint 162: Message Length Error (92)"
-  end
-  if value == 93 then
-    return "Statuscode Uint 162: Message Format Error (93)"
-  end
-  if value == 99 then
-    return "Statuscode Uint 162: Major Error (99)"
-  end
-  if value == 110 then
-    return "Statuscode Uint 162: Illegal File Code (110)"
-  end
-  if value == 113 then
-    return "Statuscode Uint 162: Wrong File Request Range (113)"
-  end
-  if value == 114 then
-    return "Statuscode Uint 162: File Is Not Ready (114)"
-  end
-  if value == 117 then
-    return "Statuscode Uint 162: File Is Ready But Empty (117)"
-  end
-  if value == 120 then
-    return "Statuscode Uint 162: File Not Found For Broker (120)"
-  end
-  if value == 121 then
-    return "Statuscode Uint 162: Illegal Time To Get File (121)"
-  end
-  if value == 150 then
-    return "Statuscode Uint 162: Fcmuniqueid Or Serial No Duplicate (150)"
-  end
-  if value == 151 then
-    return "Statuscode Uint 162: Product Can Not Block Trade (151)"
-  end
-  if value == 152 then
-    return "Statuscode Uint 162: Block Trade Order Quantity Error (152)"
-  end
-  if value == 153 then
-    return "Statuscode Uint 162: Invalid Prodcount (153)"
-  end
-  if value == 154 then
-    return "Statuscode Uint 162: Prodcount Is Not Match With The Number Of Legs In A Block Trade Order (154)"
-  end
-  if value == 155 then
-    return "Statuscode Uint 162: Invalid Fcmuniqueid Or Serial No (155)"
-  end
-  if value == 156 then
-    return "Statuscode Uint 162: Block Trade Id Duplicate (156)"
-  end
-  if value == 157 then
-    return "Statuscode Uint 162: Invalid Block Trade Id (157)"
-  end
-  if value == 158 then
-    return "Statuscode Uint 162: Invalid Participantfcmcount (158)"
-  end
-  if value == 159 then
-    return "Statuscode Uint 162: Participantfcmcount Is Not Consistent With Participantfcmid List (159)"
-  end
-  if value == 160 then
-    return "Statuscode Uint 162: Participantfcmid Error (160)"
-  end
-  if value == 161 then
-    return "Statuscode Uint 162: Invalid Prodcount (161)"
-  end
-  if value == 162 then
-    return "Statuscode Uint 162: Block Trade Id Does Not Exist (162)"
-  end
-  if value == 163 then
-    return "Statuscode Uint 162: Negotiated Block Trade Success (163)"
-  end
-  if value == 164 then
-    return "Statuscode Uint 162: Negotiated Block Trade Fail (164)"
-  end
-  if value == 165 then
-    return "Statuscode Uint 162: Negotiated Block Trade Calcelled (165)"
-  end
-  if value == 166 then
-    return "Statuscode Uint 162: Negotiated Block Trade Wait Fcm To Comfirm Order (166)"
-  end
-  if value == 167 then
-    return "Statuscode Uint 162: Fcmid Not Matching Represent Fcm (167)"
-  end
-  if value == 168 then
-    return "Statuscode Uint 162: Symboltype Error (168)"
-  end
-  if value == 169 then
-    return "Statuscode Uint 162: Invalid Ordercount Of Negotiated Block Trade Confirm Input (169)"
-  end
-  if value == 170 then
-    return "Statuscode Uint 162: Number Of Orders In B 31 Xb 31 Is Not Consistent With Ordercount Field (170)"
-  end
-  if value == 171 then
-    return "Statuscode Uint 162: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)"
-  end
-  if value == 172 then
-    return "Statuscode Uint 162: Investoracno Duplicate In Negotiated Block Trade Confirm Input (172)"
-  end
-  if value == 175 then
-    return "Statuscode Uint 162: Negotiated Block Trade Timed Out (175)"
-  end
-  if value == 176 then
-    return "Statuscode Uint 162: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)"
-  end
-  if value == 177 then
-    return "Statuscode Uint 162: Negotiated Block Trade Beyond The Position Limit (177)"
-  end
-  if value == 186 then
-    return "Statuscode Uint 162: Illegal Source Id (186)"
-  end
-  if value == 200 then
-    return "Statuscode Uint 162: Significant System Time Error (200)"
-  end
-  if value == 201 then
-    return "Statuscode Uint 162: Appendno Error (201)"
-  end
-  if value == 202 then
-    return "Statuscode Uint 162: Fcmid Error (202)"
-  end
-  if value == 203 then
-    return "Statuscode Uint 162: Apcode Error (203)"
-  end
-  if value == 204 then
-    return "Statuscode Uint 162: Keyvalue Error (204)"
-  end
-  if value == 205 then
-    return "Statuscode Uint 162: Sessionid Error (205)"
-  end
-  if value == 206 then
-    return "Statuscode Uint 162: Systemtype Error (206)"
-  end
-  if value == 207 then
-    return "Statuscode Uint 162: Msg Seq Num Error (207)"
-  end
-  if value == 208 then
-    return "Statuscode Uint 162: Targetid Error (208)"
-  end
-  if value == 209 then
-    return "Statuscode Uint 162: Flowgroupno Error (209)"
-  end
-  if value == 210 then
-    return "Statuscode Uint 162: Subscription Request Type Error (210)"
-  end
-  if value == 220 then
-    return "Statuscode Uint 162: Msg Type Ext Error (220)"
-  end
-  if value == 221 then
-    return "Statuscode Uint 162: Partid Error (221)"
-  end
-  if value == 240 then
-    return "Statuscode Uint 162: Session Exceeds The Flow Limit (240)"
-  end
-  if value == 241 then
-    return "Statuscode Uint 162: Session Exceeds Flow Limit Continuously And Is Locked (241)"
-  end
-  if value == 242 then
-    return "Statuscode Uint 162: Order Older Than Cancelordersec And Rejected (242)"
-  end
-  if value == 248 then
-    return "Statuscode Uint 162: Session Reach 80% Of The Flow Limit (248)"
-  end
-  if value == 249 then
-    return "Statuscode Uint 162: Session Reach 90% Of The Flow Limit (249)"
-  end
-  if value == 250 then
-    return "Statuscode Uint 162: Order Older Than Two Seconds (250)"
-  end
-  if value == 300 then
-    return "Statuscode Uint 162: The Flex Contract Has Been Resubmitted (300)"
-  end
-  if value == 301 then
-    return "Statuscode Uint 162: Open Interest For Today Undetermined (301)"
-  end
-  if value == 302 then
-    return "Statuscode Uint 162: The Flex Contract Is Listed For Trading (302)"
-  end
-  if value == 303 then
-    return "Statuscode Uint 162: Incorrect Expiration Date For The Flex Contract (303)"
-  end
-  if value == 304 then
-    return "Statuscode Uint 162: Duplicate Unique Id Of A Security Definition Request For The Flex Contract (304)"
-  end
-  if value == 305 then
-    return "Statuscode Uint 162: Exceeding The Flex Contract Limit (305)"
-  end
-  if value == 306 then
-    return "Statuscode Uint 162: No Record Of Successful Flex Contract Application Was Found (306)"
-  end
-  if value == 310 then
-    return "Statuscode Uint 162: Nonflexible Contract Application Period (310)"
-  end
-  if value == 311 then
-    return "Statuscode Uint 162: The Proprietary Trading Account Has Not Been Approved To Apply For Flex Contracts (311)"
-  end
-  if value == 312 then
-    return "Statuscode Uint 162: The Fcm Account Has Not Been Approved To Apply For Flex Contracts (312)"
-  end
-  if value == 313 then
-    return "Statuscode Uint 162: Incorrect Coverage Range For The Flex Contract (313)"
-  end
-  if value == 314 then
-    return "Statuscode Uint 162: Invalid Strikeprice For The Flex Contract (314)"
-  end
-  if value == 315 then
-    return "Statuscode Uint 162: Invalid Security Request Type For The Flex Contract (315)"
-  end
-  if value == 316 then
-    return "Statuscode Uint 162: Invalid Application Type For The Flex Contract (316)"
-  end
-  if value == 317 then
-    return "Statuscode Uint 162: Invalid Type For The Flex Contract (317)"
-  end
-  if value == 318 then
-    return "Statuscode Uint 162: Expirytype Error (318)"
-  end
-  if value == 319 then
-    return "Statuscode Uint 162: Callputcode Error (319)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_162.labels = {
+  [0] = "Statuscode Uint 162: Succeed (0)",
+  [1] = "Statuscode Uint 162: Trading Time Over (1)",
+  [2] = "Statuscode Uint 162: Order Acceptance Not Yet Started Or Trading Halt (2)",
+  [3] = "Statuscode Uint 162: Price Quote Not Yet Accepted (3)",
+  [4] = "Statuscode Uint 162: In Processing No Order Accepted For The Time Being (4)",
+  [5] = "Statuscode Uint 162: No Such Order No (5)",
+  [6] = "Statuscode Uint 162: Order Or Quote Filled (6)",
+  [7] = "Statuscode Uint 162: Order Or Quote Cancelled (7)",
+  [8] = "Statuscode Uint 162: Stop Order (8)",
+  [9] = "Statuscode Uint 162: Order Limit (9)",
+  [10] = "Statuscode Uint 162: Order Not In The Book (10)",
+  [11] = "Statuscode Uint 162: Exec Type Error (11)",
+  [12] = "Statuscode Uint 162: Broker Id Error (12)",
+  [13] = "Statuscode Uint 162: Branch No Error (13)",
+  [14] = "Statuscode Uint 162: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
+  [15] = "Statuscode Uint 162: Investor Id Code Error (15)",
+  [16] = "Statuscode Uint 162: Reject Delete Or Modify Order During Noncancel Period (16)",
+  [17] = "Statuscode Uint 162: Duplicate Order No Or Quote No (17)",
+  [18] = "Statuscode Uint 162: Order No Or Quote No Error (18)",
+  [19] = "Statuscode Uint 162: The Same Side Order Not Exist (19)",
+  [20] = "Statuscode Uint 162: Product Id Error (20)",
+  [21] = "Statuscode Uint 162: Exceeding Risefall Limit (21)",
+  [22] = "Statuscode Uint 162: Order Quantity Error (22)",
+  [23] = "Statuscode Uint 162: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
+  [24] = "Statuscode Uint 162: Buysell Error (24)",
+  [25] = "Statuscode Uint 162: Ord Type Error (25)",
+  [26] = "Statuscode Uint 162: Order Type And Price Not Matched (26)",
+  [27] = "Statuscode Uint 162: Time In Force Error (27)",
+  [28] = "Statuscode Uint 162: Position Effect Error (28)",
+  [29] = "Statuscode Uint 162: Price And Tick Size Not Matched (29)",
+  [30] = "Statuscode Uint 162: Product Expired (30)",
+  [31] = "Statuscode Uint 162: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
+  [32] = "Statuscode Uint 162: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
+  [33] = "Statuscode Uint 162: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
+  [34] = "Statuscode Uint 162: Bid Price Exceeding Ask Price (34)",
+  [35] = "Statuscode Uint 162: Remaining Quantity Of The Unmodified Side Is Zero (35)",
+  [36] = "Statuscode Uint 162: The Unfilled Part Of The Oneway Quote Is Less Than The Minimum Quantity Limit (36)",
+  [37] = "Statuscode Uint 162: Price Inquiry Already Present (37)",
+  [38] = "Statuscode Uint 162: Market Orderand Mwp Does Not Accept Rod (38)",
+  [39] = "Statuscode Uint 162: Decrease Quantity Error (39)",
+  [40] = "Statuscode Uint 162: Price Error Singleside Quote Order Modification (40)",
+  [41] = "Statuscode Uint 162: Settlement Month Error (41)",
+  [42] = "Statuscode Uint 162: Strike Price Error (42)",
+  [43] = "Statuscode Uint 162: Clearing Member Id Error (43)",
+  [44] = "Statuscode Uint 162: Ordersource Error (44)",
+  [45] = "Statuscode Uint 162: Infosource Error (45)",
+  [46] = "Statuscode Uint 162: Disable Kill Switch Operation Error (46)",
+  [47] = "Statuscode Uint 162: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
+  [48] = "Statuscode Uint 162: Dynamic Price Banding Limit Price Disclosure (48)",
+  [51] = "Statuscode Uint 162: Fok Not Filled And Deleted By System (51)",
+  [52] = "Statuscode Uint 162: Ioc Is Partially Filled (52)",
+  [53] = "Statuscode Uint 162: Ioc Not Filled And Deleted By System (53)",
+  [54] = "Statuscode Uint 162: Delete The Order Because Of Cod (54)",
+  [61] = "Statuscode Uint 162: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
+  [62] = "Statuscode Uint 162: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
+  [63] = "Statuscode Uint 162: Modify Price Of Ioc Order Not Allowed (63)",
+  [64] = "Statuscode Uint 162: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
+  [65] = "Statuscode Uint 162: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
+  [77] = "Statuscode Uint 162: No Such Contract (77)",
+  [78] = "Statuscode Uint 162: Order Of This Contract Is Restricted For This Accountcode (78)",
+  [79] = "Statuscode Uint 162: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
+  [80] = "Statuscode Uint 162: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
+  [89] = "Statuscode Uint 162: Too Many Errors (89)",
+  [91] = "Statuscode Uint 162: Message Time Out (91)",
+  [92] = "Statuscode Uint 162: Message Length Error (92)",
+  [93] = "Statuscode Uint 162: Message Format Error (93)",
+  [99] = "Statuscode Uint 162: Major Error (99)",
+  [110] = "Statuscode Uint 162: Illegal File Code (110)",
+  [113] = "Statuscode Uint 162: Wrong File Request Range (113)",
+  [114] = "Statuscode Uint 162: File Is Not Ready (114)",
+  [117] = "Statuscode Uint 162: File Is Ready But Empty (117)",
+  [120] = "Statuscode Uint 162: File Not Found For Broker (120)",
+  [121] = "Statuscode Uint 162: Illegal Time To Get File (121)",
+  [150] = "Statuscode Uint 162: Fcmuniqueid Or Serial No Duplicate (150)",
+  [151] = "Statuscode Uint 162: Product Can Not Block Trade (151)",
+  [152] = "Statuscode Uint 162: Block Trade Order Quantity Error (152)",
+  [153] = "Statuscode Uint 162: Invalid Prodcount (153)",
+  [154] = "Statuscode Uint 162: Prodcount Is Not Match With The Number Of Legs In A Block Trade Order (154)",
+  [155] = "Statuscode Uint 162: Invalid Fcmuniqueid Or Serial No (155)",
+  [156] = "Statuscode Uint 162: Block Trade Id Duplicate (156)",
+  [157] = "Statuscode Uint 162: Invalid Block Trade Id (157)",
+  [158] = "Statuscode Uint 162: Invalid Participantfcmcount (158)",
+  [159] = "Statuscode Uint 162: Participantfcmcount Is Not Consistent With Participantfcmid List (159)",
+  [160] = "Statuscode Uint 162: Participantfcmid Error (160)",
+  [161] = "Statuscode Uint 162: Invalid Prodcount (161)",
+  [162] = "Statuscode Uint 162: Block Trade Id Does Not Exist (162)",
+  [163] = "Statuscode Uint 162: Negotiated Block Trade Success (163)",
+  [164] = "Statuscode Uint 162: Negotiated Block Trade Fail (164)",
+  [165] = "Statuscode Uint 162: Negotiated Block Trade Calcelled (165)",
+  [166] = "Statuscode Uint 162: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
+  [167] = "Statuscode Uint 162: Fcmid Not Matching Represent Fcm (167)",
+  [168] = "Statuscode Uint 162: Symboltype Error (168)",
+  [169] = "Statuscode Uint 162: Invalid Ordercount Of Negotiated Block Trade Confirm Input (169)",
+  [170] = "Statuscode Uint 162: Number Of Orders In B 31 Xb 31 Is Not Consistent With Ordercount Field (170)",
+  [171] = "Statuscode Uint 162: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
+  [172] = "Statuscode Uint 162: Investoracno Duplicate In Negotiated Block Trade Confirm Input (172)",
+  [175] = "Statuscode Uint 162: Negotiated Block Trade Timed Out (175)",
+  [176] = "Statuscode Uint 162: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
+  [177] = "Statuscode Uint 162: Negotiated Block Trade Beyond The Position Limit (177)",
+  [186] = "Statuscode Uint 162: Illegal Source Id (186)",
+  [200] = "Statuscode Uint 162: Significant System Time Error (200)",
+  [201] = "Statuscode Uint 162: Appendno Error (201)",
+  [202] = "Statuscode Uint 162: Fcmid Error (202)",
+  [203] = "Statuscode Uint 162: Apcode Error (203)",
+  [204] = "Statuscode Uint 162: Keyvalue Error (204)",
+  [205] = "Statuscode Uint 162: Sessionid Error (205)",
+  [206] = "Statuscode Uint 162: Systemtype Error (206)",
+  [207] = "Statuscode Uint 162: Msg Seq Num Error (207)",
+  [208] = "Statuscode Uint 162: Targetid Error (208)",
+  [209] = "Statuscode Uint 162: Flowgroupno Error (209)",
+  [210] = "Statuscode Uint 162: Subscription Request Type Error (210)",
+  [220] = "Statuscode Uint 162: Msg Type Ext Error (220)",
+  [221] = "Statuscode Uint 162: Partid Error (221)",
+  [240] = "Statuscode Uint 162: Session Exceeds The Flow Limit (240)",
+  [241] = "Statuscode Uint 162: Session Exceeds Flow Limit Continuously And Is Locked (241)",
+  [242] = "Statuscode Uint 162: Order Older Than Cancelordersec And Rejected (242)",
+  [248] = "Statuscode Uint 162: Session Reach 80% Of The Flow Limit (248)",
+  [249] = "Statuscode Uint 162: Session Reach 90% Of The Flow Limit (249)",
+  [250] = "Statuscode Uint 162: Order Older Than Two Seconds (250)",
+  [300] = "Statuscode Uint 162: The Flex Contract Has Been Resubmitted (300)",
+  [301] = "Statuscode Uint 162: Open Interest For Today Undetermined (301)",
+  [302] = "Statuscode Uint 162: The Flex Contract Is Listed For Trading (302)",
+  [303] = "Statuscode Uint 162: Incorrect Expiration Date For The Flex Contract (303)",
+  [304] = "Statuscode Uint 162: Duplicate Unique Id Of A Security Definition Request For The Flex Contract (304)",
+  [305] = "Statuscode Uint 162: Exceeding The Flex Contract Limit (305)",
+  [306] = "Statuscode Uint 162: No Record Of Successful Flex Contract Application Was Found (306)",
+  [310] = "Statuscode Uint 162: Nonflexible Contract Application Period (310)",
+  [311] = "Statuscode Uint 162: The Proprietary Trading Account Has Not Been Approved To Apply For Flex Contracts (311)",
+  [312] = "Statuscode Uint 162: The Fcm Account Has Not Been Approved To Apply For Flex Contracts (312)",
+  [313] = "Statuscode Uint 162: Incorrect Coverage Range For The Flex Contract (313)",
+  [314] = "Statuscode Uint 162: Invalid Strikeprice For The Flex Contract (314)",
+  [315] = "Statuscode Uint 162: Invalid Security Request Type For The Flex Contract (315)",
+  [316] = "Statuscode Uint 162: Invalid Application Type For The Flex Contract (316)",
+  [317] = "Statuscode Uint 162: Invalid Type For The Flex Contract (317)",
+  [318] = "Statuscode Uint 162: Expirytype Error (318)",
+  [319] = "Statuscode Uint 162: Callputcode Error (319)",
+}
 
-  return "Statuscode Uint 162: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_162.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_162.labels[value] or "Statuscode Uint 162: Unknown("..value..")"
 end
 
 -- Dissect: Statuscode Uint 162
@@ -2368,366 +1990,130 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_81 = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_81.size = 1
 
 -- Display: Statuscode Uint 81
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_81.display = function(value)
-  if value == 0 then
-    return "Statuscode Uint 81: Succeed (0)"
-  end
-  if value == 1 then
-    return "Statuscode Uint 81: Trading Time Over (1)"
-  end
-  if value == 2 then
-    return "Statuscode Uint 81: Order Acceptance Not Yet Started Or Trading Halt (2)"
-  end
-  if value == 3 then
-    return "Statuscode Uint 81: Price Quote Not Yet Accepted (3)"
-  end
-  if value == 4 then
-    return "Statuscode Uint 81: In Processing No Order Accepted For The Time Being (4)"
-  end
-  if value == 5 then
-    return "Statuscode Uint 81: No Such Order No (5)"
-  end
-  if value == 6 then
-    return "Statuscode Uint 81: Order Or Quote Filled (6)"
-  end
-  if value == 7 then
-    return "Statuscode Uint 81: Order Or Quote Cancelled (7)"
-  end
-  if value == 8 then
-    return "Statuscode Uint 81: Stop Order (8)"
-  end
-  if value == 9 then
-    return "Statuscode Uint 81: Order Limit (9)"
-  end
-  if value == 10 then
-    return "Statuscode Uint 81: Order Not In The Book (10)"
-  end
-  if value == 11 then
-    return "Statuscode Uint 81: Exec Type Error (11)"
-  end
-  if value == 12 then
-    return "Statuscode Uint 81: Broker Id Error (12)"
-  end
-  if value == 13 then
-    return "Statuscode Uint 81: Branch No Error (13)"
-  end
-  if value == 14 then
-    return "Statuscode Uint 81: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)"
-  end
-  if value == 15 then
-    return "Statuscode Uint 81: Investor Id Code Error (15)"
-  end
-  if value == 16 then
-    return "Statuscode Uint 81: Reject Delete Or Modify Order During Noncancel Period (16)"
-  end
-  if value == 17 then
-    return "Statuscode Uint 81: Duplicate Order No Or Quote No (17)"
-  end
-  if value == 18 then
-    return "Statuscode Uint 81: Order No Or Quote No Error (18)"
-  end
-  if value == 19 then
-    return "Statuscode Uint 81: The Same Side Order Not Exist (19)"
-  end
-  if value == 20 then
-    return "Statuscode Uint 81: Product Id Error (20)"
-  end
-  if value == 21 then
-    return "Statuscode Uint 81: Exceeding Risefall Limit (21)"
-  end
-  if value == 22 then
-    return "Statuscode Uint 81: Order Quantity Error (22)"
-  end
-  if value == 23 then
-    return "Statuscode Uint 81: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)"
-  end
-  if value == 24 then
-    return "Statuscode Uint 81: Buysell Error (24)"
-  end
-  if value == 25 then
-    return "Statuscode Uint 81: Ord Type Error (25)"
-  end
-  if value == 26 then
-    return "Statuscode Uint 81: Order Type And Price Not Matched (26)"
-  end
-  if value == 27 then
-    return "Statuscode Uint 81: Time In Force Error (27)"
-  end
-  if value == 28 then
-    return "Statuscode Uint 81: Position Effect Error (28)"
-  end
-  if value == 29 then
-    return "Statuscode Uint 81: Price And Tick Size Not Matched (29)"
-  end
-  if value == 30 then
-    return "Statuscode Uint 81: Product Expired (30)"
-  end
-  if value == 31 then
-    return "Statuscode Uint 81: Broker Id Product Group And Market Makers Account No Inconsistent (31)"
-  end
-  if value == 32 then
-    return "Statuscode Uint 81: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)"
-  end
-  if value == 33 then
-    return "Statuscode Uint 81: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)"
-  end
-  if value == 34 then
-    return "Statuscode Uint 81: Bid Price Exceeding Ask Price (34)"
-  end
-  if value == 35 then
-    return "Statuscode Uint 81: Remaining Quantity Of The Unmodified Side Is Zero (35)"
-  end
-  if value == 36 then
-    return "Statuscode Uint 81: The Unfilled Part Of The Oneway Quote Is Less Than The Minimum Quantity Limit (36)"
-  end
-  if value == 37 then
-    return "Statuscode Uint 81: Price Inquiry Already Present (37)"
-  end
-  if value == 38 then
-    return "Statuscode Uint 81: Market Orderand Mwp Does Not Accept Rod (38)"
-  end
-  if value == 39 then
-    return "Statuscode Uint 81: Decrease Quantity Error (39)"
-  end
-  if value == 40 then
-    return "Statuscode Uint 81: Price Error Singleside Quote Order Modification (40)"
-  end
-  if value == 41 then
-    return "Statuscode Uint 81: Settlement Month Error (41)"
-  end
-  if value == 42 then
-    return "Statuscode Uint 81: Strike Price Error (42)"
-  end
-  if value == 43 then
-    return "Statuscode Uint 81: Clearing Member Id Error (43)"
-  end
-  if value == 44 then
-    return "Statuscode Uint 81: Ordersource Error (44)"
-  end
-  if value == 45 then
-    return "Statuscode Uint 81: Infosource Error (45)"
-  end
-  if value == 46 then
-    return "Statuscode Uint 81: Disable Kill Switch Operation Error (46)"
-  end
-  if value == 47 then
-    return "Statuscode Uint 81: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)"
-  end
-  if value == 48 then
-    return "Statuscode Uint 81: Dynamic Price Banding Limit Price Disclosure (48)"
-  end
-  if value == 51 then
-    return "Statuscode Uint 81: Fok Not Filled And Deleted By System (51)"
-  end
-  if value == 52 then
-    return "Statuscode Uint 81: Ioc Is Partially Filled (52)"
-  end
-  if value == 53 then
-    return "Statuscode Uint 81: Ioc Not Filled And Deleted By System (53)"
-  end
-  if value == 54 then
-    return "Statuscode Uint 81: Delete The Order Because Of Cod (54)"
-  end
-  if value == 61 then
-    return "Statuscode Uint 81: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)"
-  end
-  if value == 62 then
-    return "Statuscode Uint 81: Product Id Of Canceldecrease Order Not Matching Original Order (62)"
-  end
-  if value == 63 then
-    return "Statuscode Uint 81: Modify Price Of Ioc Order Not Allowed (63)"
-  end
-  if value == 64 then
-    return "Statuscode Uint 81: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)"
-  end
-  if value == 65 then
-    return "Statuscode Uint 81: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)"
-  end
-  if value == 77 then
-    return "Statuscode Uint 81: No Such Contract (77)"
-  end
-  if value == 78 then
-    return "Statuscode Uint 81: Order Of This Contract Is Restricted For This Accountcode (78)"
-  end
-  if value == 79 then
-    return "Statuscode Uint 81: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)"
-  end
-  if value == 80 then
-    return "Statuscode Uint 81: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)"
-  end
-  if value == 89 then
-    return "Statuscode Uint 81: Too Many Errors (89)"
-  end
-  if value == 91 then
-    return "Statuscode Uint 81: Message Time Out (91)"
-  end
-  if value == 92 then
-    return "Statuscode Uint 81: Message Length Error (92)"
-  end
-  if value == 93 then
-    return "Statuscode Uint 81: Message Format Error (93)"
-  end
-  if value == 99 then
-    return "Statuscode Uint 81: Major Error (99)"
-  end
-  if value == 110 then
-    return "Statuscode Uint 81: Illegal File Code (110)"
-  end
-  if value == 113 then
-    return "Statuscode Uint 81: Wrong File Request Range (113)"
-  end
-  if value == 114 then
-    return "Statuscode Uint 81: File Is Not Ready (114)"
-  end
-  if value == 117 then
-    return "Statuscode Uint 81: File Is Ready But Empty (117)"
-  end
-  if value == 120 then
-    return "Statuscode Uint 81: File Not Found For Broker (120)"
-  end
-  if value == 121 then
-    return "Statuscode Uint 81: Illegal Time To Get File (121)"
-  end
-  if value == 150 then
-    return "Statuscode Uint 81: Fcmuniqueid Or Serial No Duplicate (150)"
-  end
-  if value == 151 then
-    return "Statuscode Uint 81: Product Can Not Block Trade (151)"
-  end
-  if value == 152 then
-    return "Statuscode Uint 81: Block Trade Order Quantity Error (152)"
-  end
-  if value == 153 then
-    return "Statuscode Uint 81: Invalid Prodcount (153)"
-  end
-  if value == 154 then
-    return "Statuscode Uint 81: Prodcount Is Not Match With The Number Of Legs In A Block Trade Order (154)"
-  end
-  if value == 155 then
-    return "Statuscode Uint 81: Invalid Fcmuniqueid Or Serial No (155)"
-  end
-  if value == 156 then
-    return "Statuscode Uint 81: Block Trade Id Duplicate (156)"
-  end
-  if value == 157 then
-    return "Statuscode Uint 81: Invalid Block Trade Id (157)"
-  end
-  if value == 158 then
-    return "Statuscode Uint 81: Invalid Participantfcmcount (158)"
-  end
-  if value == 159 then
-    return "Statuscode Uint 81: Participantfcmcount Is Not Consistent With Participantfcmid List (159)"
-  end
-  if value == 160 then
-    return "Statuscode Uint 81: Participantfcmid Error (160)"
-  end
-  if value == 161 then
-    return "Statuscode Uint 81: Invalid Prodcount (161)"
-  end
-  if value == 162 then
-    return "Statuscode Uint 81: Block Trade Id Does Not Exist (162)"
-  end
-  if value == 163 then
-    return "Statuscode Uint 81: Negotiated Block Trade Success (163)"
-  end
-  if value == 164 then
-    return "Statuscode Uint 81: Negotiated Block Trade Fail (164)"
-  end
-  if value == 165 then
-    return "Statuscode Uint 81: Negotiated Block Trade Calcelled (165)"
-  end
-  if value == 166 then
-    return "Statuscode Uint 81: Negotiated Block Trade Wait Fcm To Comfirm Order (166)"
-  end
-  if value == 167 then
-    return "Statuscode Uint 81: Fcmid Not Matching Represent Fcm (167)"
-  end
-  if value == 168 then
-    return "Statuscode Uint 81: Symboltype Error (168)"
-  end
-  if value == 169 then
-    return "Statuscode Uint 81: Invalid Ordercount Of Negotiated Block Trade Confirm Input (169)"
-  end
-  if value == 170 then
-    return "Statuscode Uint 81: Number Of Orders In B 31 Xb 31 Is Not Consistent With Ordercount Field (170)"
-  end
-  if value == 171 then
-    return "Statuscode Uint 81: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)"
-  end
-  if value == 172 then
-    return "Statuscode Uint 81: Investoracno Duplicate In Negotiated Block Trade Confirm Input (172)"
-  end
-  if value == 175 then
-    return "Statuscode Uint 81: Negotiated Block Trade Timed Out (175)"
-  end
-  if value == 176 then
-    return "Statuscode Uint 81: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)"
-  end
-  if value == 177 then
-    return "Statuscode Uint 81: Negotiated Block Trade Beyond The Position Limit (177)"
-  end
-  if value == 186 then
-    return "Statuscode Uint 81: Illegal Source Id (186)"
-  end
-  if value == 200 then
-    return "Statuscode Uint 81: Significant System Time Error (200)"
-  end
-  if value == 201 then
-    return "Statuscode Uint 81: Appendno Error (201)"
-  end
-  if value == 202 then
-    return "Statuscode Uint 81: Fcmid Error (202)"
-  end
-  if value == 203 then
-    return "Statuscode Uint 81: Apcode Error (203)"
-  end
-  if value == 204 then
-    return "Statuscode Uint 81: Keyvalue Error (204)"
-  end
-  if value == 205 then
-    return "Statuscode Uint 81: Sessionid Error (205)"
-  end
-  if value == 206 then
-    return "Statuscode Uint 81: Systemtype Error (206)"
-  end
-  if value == 207 then
-    return "Statuscode Uint 81: Msg Seq Num Error (207)"
-  end
-  if value == 208 then
-    return "Statuscode Uint 81: Targetid Error (208)"
-  end
-  if value == 209 then
-    return "Statuscode Uint 81: Flowgroupno Error (209)"
-  end
-  if value == 210 then
-    return "Statuscode Uint 81: Subscription Request Type Error (210)"
-  end
-  if value == 220 then
-    return "Statuscode Uint 81: Msg Type Ext Error (220)"
-  end
-  if value == 221 then
-    return "Statuscode Uint 81: Partid Error (221)"
-  end
-  if value == 240 then
-    return "Statuscode Uint 81: Session Exceeds The Flow Limit (240)"
-  end
-  if value == 241 then
-    return "Statuscode Uint 81: Session Exceeds Flow Limit Continuously And Is Locked (241)"
-  end
-  if value == 242 then
-    return "Statuscode Uint 81: Order Older Than Cancelordersec And Rejected (242)"
-  end
-  if value == 248 then
-    return "Statuscode Uint 81: Session Reach 80% Of The Flow Limit (248)"
-  end
-  if value == 249 then
-    return "Statuscode Uint 81: Session Reach 90% Of The Flow Limit (249)"
-  end
-  if value == 250 then
-    return "Statuscode Uint 81: Order Older Than Two Seconds (250)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_81.labels = {
+  [0] = "Statuscode Uint 81: Succeed (0)",
+  [1] = "Statuscode Uint 81: Trading Time Over (1)",
+  [2] = "Statuscode Uint 81: Order Acceptance Not Yet Started Or Trading Halt (2)",
+  [3] = "Statuscode Uint 81: Price Quote Not Yet Accepted (3)",
+  [4] = "Statuscode Uint 81: In Processing No Order Accepted For The Time Being (4)",
+  [5] = "Statuscode Uint 81: No Such Order No (5)",
+  [6] = "Statuscode Uint 81: Order Or Quote Filled (6)",
+  [7] = "Statuscode Uint 81: Order Or Quote Cancelled (7)",
+  [8] = "Statuscode Uint 81: Stop Order (8)",
+  [9] = "Statuscode Uint 81: Order Limit (9)",
+  [10] = "Statuscode Uint 81: Order Not In The Book (10)",
+  [11] = "Statuscode Uint 81: Exec Type Error (11)",
+  [12] = "Statuscode Uint 81: Broker Id Error (12)",
+  [13] = "Statuscode Uint 81: Branch No Error (13)",
+  [14] = "Statuscode Uint 81: 1. Investor Acct No. error 2.The investor account is not opened in NBT. (14)",
+  [15] = "Statuscode Uint 81: Investor Id Code Error (15)",
+  [16] = "Statuscode Uint 81: Reject Delete Or Modify Order During Noncancel Period (16)",
+  [17] = "Statuscode Uint 81: Duplicate Order No Or Quote No (17)",
+  [18] = "Statuscode Uint 81: Order No Or Quote No Error (18)",
+  [19] = "Statuscode Uint 81: The Same Side Order Not Exist (19)",
+  [20] = "Statuscode Uint 81: Product Id Error (20)",
+  [21] = "Statuscode Uint 81: Exceeding Risefall Limit (21)",
+  [22] = "Statuscode Uint 81: Order Quantity Error (22)",
+  [23] = "Statuscode Uint 81: Price Inquiry Not Accepted Yet Or Price Is At Risefall Limit Price Inquiry Not Accepted (23)",
+  [24] = "Statuscode Uint 81: Buysell Error (24)",
+  [25] = "Statuscode Uint 81: Ord Type Error (25)",
+  [26] = "Statuscode Uint 81: Order Type And Price Not Matched (26)",
+  [27] = "Statuscode Uint 81: Time In Force Error (27)",
+  [28] = "Statuscode Uint 81: Position Effect Error (28)",
+  [29] = "Statuscode Uint 81: Price And Tick Size Not Matched (29)",
+  [30] = "Statuscode Uint 81: Product Expired (30)",
+  [31] = "Statuscode Uint 81: Broker Id Product Group And Market Makers Account No Inconsistent (31)",
+  [32] = "Statuscode Uint 81: Decrease Successful But Requested More Than The Decreasable Unfilled Part (32)",
+  [33] = "Statuscode Uint 81: Quoted Bidask Price May Not Exceed The Spread Limit Of The Product (33)",
+  [34] = "Statuscode Uint 81: Bid Price Exceeding Ask Price (34)",
+  [35] = "Statuscode Uint 81: Remaining Quantity Of The Unmodified Side Is Zero (35)",
+  [36] = "Statuscode Uint 81: The Unfilled Part Of The Oneway Quote Is Less Than The Minimum Quantity Limit (36)",
+  [37] = "Statuscode Uint 81: Price Inquiry Already Present (37)",
+  [38] = "Statuscode Uint 81: Market Orderand Mwp Does Not Accept Rod (38)",
+  [39] = "Statuscode Uint 81: Decrease Quantity Error (39)",
+  [40] = "Statuscode Uint 81: Price Error Singleside Quote Order Modification (40)",
+  [41] = "Statuscode Uint 81: Settlement Month Error (41)",
+  [42] = "Statuscode Uint 81: Strike Price Error (42)",
+  [43] = "Statuscode Uint 81: Clearing Member Id Error (43)",
+  [44] = "Statuscode Uint 81: Ordersource Error (44)",
+  [45] = "Statuscode Uint 81: Infosource Error (45)",
+  [46] = "Statuscode Uint 81: Disable Kill Switch Operation Error (46)",
+  [47] = "Statuscode Uint 81: Leaves Quantity Rejected At The Dynamic Price Banding Limit (47)",
+  [48] = "Statuscode Uint 81: Dynamic Price Banding Limit Price Disclosure (48)",
+  [51] = "Statuscode Uint 81: Fok Not Filled And Deleted By System (51)",
+  [52] = "Statuscode Uint 81: Ioc Is Partially Filled (52)",
+  [53] = "Statuscode Uint 81: Ioc Not Filled And Deleted By System (53)",
+  [54] = "Statuscode Uint 81: Delete The Order Because Of Cod (54)",
+  [61] = "Statuscode Uint 81: Buysell Code Of Canceldecrease Order Not Matching Original Order (61)",
+  [62] = "Statuscode Uint 81: Product Id Of Canceldecrease Order Not Matching Original Order (62)",
+  [63] = "Statuscode Uint 81: Modify Price Of Ioc Order Not Allowed (63)",
+  [64] = "Statuscode Uint 81: Order Partially Traded Modify To Market Fok Order Or Mwp Fok Order Is Not Allowed (64)",
+  [65] = "Statuscode Uint 81: Kill Switch In Operation The Order Execution Type Is Not Allowed (65)",
+  [77] = "Statuscode Uint 81: No Such Contract (77)",
+  [78] = "Statuscode Uint 81: Order Of This Contract Is Restricted For This Accountcode (78)",
+  [79] = "Statuscode Uint 81: Order Deleted Due To Trading Suspension Or Order Acceptance Before Collective Bidding (79)",
+  [80] = "Statuscode Uint 81: Fcm Is Not Yet Approved To Trade This Product Or Execute The Function (80)",
+  [89] = "Statuscode Uint 81: Too Many Errors (89)",
+  [91] = "Statuscode Uint 81: Message Time Out (91)",
+  [92] = "Statuscode Uint 81: Message Length Error (92)",
+  [93] = "Statuscode Uint 81: Message Format Error (93)",
+  [99] = "Statuscode Uint 81: Major Error (99)",
+  [110] = "Statuscode Uint 81: Illegal File Code (110)",
+  [113] = "Statuscode Uint 81: Wrong File Request Range (113)",
+  [114] = "Statuscode Uint 81: File Is Not Ready (114)",
+  [117] = "Statuscode Uint 81: File Is Ready But Empty (117)",
+  [120] = "Statuscode Uint 81: File Not Found For Broker (120)",
+  [121] = "Statuscode Uint 81: Illegal Time To Get File (121)",
+  [150] = "Statuscode Uint 81: Fcmuniqueid Or Serial No Duplicate (150)",
+  [151] = "Statuscode Uint 81: Product Can Not Block Trade (151)",
+  [152] = "Statuscode Uint 81: Block Trade Order Quantity Error (152)",
+  [153] = "Statuscode Uint 81: Invalid Prodcount (153)",
+  [154] = "Statuscode Uint 81: Prodcount Is Not Match With The Number Of Legs In A Block Trade Order (154)",
+  [155] = "Statuscode Uint 81: Invalid Fcmuniqueid Or Serial No (155)",
+  [156] = "Statuscode Uint 81: Block Trade Id Duplicate (156)",
+  [157] = "Statuscode Uint 81: Invalid Block Trade Id (157)",
+  [158] = "Statuscode Uint 81: Invalid Participantfcmcount (158)",
+  [159] = "Statuscode Uint 81: Participantfcmcount Is Not Consistent With Participantfcmid List (159)",
+  [160] = "Statuscode Uint 81: Participantfcmid Error (160)",
+  [161] = "Statuscode Uint 81: Invalid Prodcount (161)",
+  [162] = "Statuscode Uint 81: Block Trade Id Does Not Exist (162)",
+  [163] = "Statuscode Uint 81: Negotiated Block Trade Success (163)",
+  [164] = "Statuscode Uint 81: Negotiated Block Trade Fail (164)",
+  [165] = "Statuscode Uint 81: Negotiated Block Trade Calcelled (165)",
+  [166] = "Statuscode Uint 81: Negotiated Block Trade Wait Fcm To Comfirm Order (166)",
+  [167] = "Statuscode Uint 81: Fcmid Not Matching Represent Fcm (167)",
+  [168] = "Statuscode Uint 81: Symboltype Error (168)",
+  [169] = "Statuscode Uint 81: Invalid Ordercount Of Negotiated Block Trade Confirm Input (169)",
+  [170] = "Statuscode Uint 81: Number Of Orders In B 31 Xb 31 Is Not Consistent With Ordercount Field (170)",
+  [171] = "Statuscode Uint 81: Negotiated Block Trade Is Not In The Status Of Waiting For Confirm Input (171)",
+  [172] = "Statuscode Uint 81: Investoracno Duplicate In Negotiated Block Trade Confirm Input (172)",
+  [175] = "Statuscode Uint 81: Negotiated Block Trade Timed Out (175)",
+  [176] = "Statuscode Uint 81: The Confirm Input Data Is Not Consistent With B 21 Xb 21 Registered Data (176)",
+  [177] = "Statuscode Uint 81: Negotiated Block Trade Beyond The Position Limit (177)",
+  [186] = "Statuscode Uint 81: Illegal Source Id (186)",
+  [200] = "Statuscode Uint 81: Significant System Time Error (200)",
+  [201] = "Statuscode Uint 81: Appendno Error (201)",
+  [202] = "Statuscode Uint 81: Fcmid Error (202)",
+  [203] = "Statuscode Uint 81: Apcode Error (203)",
+  [204] = "Statuscode Uint 81: Keyvalue Error (204)",
+  [205] = "Statuscode Uint 81: Sessionid Error (205)",
+  [206] = "Statuscode Uint 81: Systemtype Error (206)",
+  [207] = "Statuscode Uint 81: Msg Seq Num Error (207)",
+  [208] = "Statuscode Uint 81: Targetid Error (208)",
+  [209] = "Statuscode Uint 81: Flowgroupno Error (209)",
+  [210] = "Statuscode Uint 81: Subscription Request Type Error (210)",
+  [220] = "Statuscode Uint 81: Msg Type Ext Error (220)",
+  [221] = "Statuscode Uint 81: Partid Error (221)",
+  [240] = "Statuscode Uint 81: Session Exceeds The Flow Limit (240)",
+  [241] = "Statuscode Uint 81: Session Exceeds Flow Limit Continuously And Is Locked (241)",
+  [242] = "Statuscode Uint 81: Order Older Than Cancelordersec And Rejected (242)",
+  [248] = "Statuscode Uint 81: Session Reach 80% Of The Flow Limit (248)",
+  [249] = "Statuscode Uint 81: Session Reach 90% Of The Flow Limit (249)",
+  [250] = "Statuscode Uint 81: Order Older Than Two Seconds (250)",
+}
 
-  return "Statuscode Uint 81: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_81.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.statuscode_uint_81.labels[value] or "Statuscode Uint 81: Unknown("..value..")"
 end
 
 -- Dissect: Statuscode Uint 81
@@ -2795,21 +2181,15 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltype = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltype.size = 1
 
 -- Display: Symboltype
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltype.display = function(value)
-  if value == 1 then
-    return "Symboltype: Numeric Product Id (1)"
-  end
-  if value == 2 then
-    return "Symboltype: Text Product Id (2)"
-  end
-  if value == 3 then
-    return "Symboltype: Numeric Product Id Long Format (3)"
-  end
-  if value == 4 then
-    return "Symboltype: Text Product Id Long Format (4)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltype.labels = {
+  [1] = "Symboltype: Numeric Product Id (1)",
+  [2] = "Symboltype: Text Product Id (2)",
+  [3] = "Symboltype: Numeric Product Id Long Format (3)",
+  [4] = "Symboltype: Text Product Id Long Format (4)",
+}
 
-  return "Symboltype: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltype.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltype.labels[value] or "Symboltype: Unknown("..value..")"
 end
 
 -- Dissect: Symboltype
@@ -2831,21 +2211,15 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.systemtype = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.systemtype.size = 1
 
 -- Display: Systemtype
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.systemtype.display = function(value)
-  if value == 10 then
-    return "Systemtype: Options Regular Market Hours (10)"
-  end
-  if value == 20 then
-    return "Systemtype: Futures Regular Market Hours (20)"
-  end
-  if value == 11 then
-    return "Systemtype: Options After Market Hours (11)"
-  end
-  if value == 21 then
-    return "Systemtype: Futures After Market Hours (21)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.systemtype.labels = {
+  [10] = "Systemtype: Options Regular Market Hours (10)",
+  [20] = "Systemtype: Futures Regular Market Hours (20)",
+  [11] = "Systemtype: Options After Market Hours (11)",
+  [21] = "Systemtype: Futures After Market Hours (21)",
+}
 
-  return "Systemtype: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.systemtype.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.systemtype.labels[value] or "Systemtype: Unknown("..value..")"
 end
 
 -- Dissect: Systemtype
@@ -2867,39 +2241,21 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.targetid = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.targetid.size = 1
 
 -- Display: Targetid
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.targetid.display = function(value)
-  if value == 3 then
-    return "Targetid: Execution Report Including Head Office And Branch Offices In R 02 Format (3)"
-  end
-  if value == 4 then
-    return "Targetid: Fcm (4)"
-  end
-  if value == 7 then
-    return "Targetid: Drop Copy In R 02 Format (7)"
-  end
-  if value == 8 then
-    return "Targetid: Clearing Member Order And Execution In R 02 Format (8)"
-  end
-  if value == 9 then
-    return "Targetid: Clearing Member Execution In R 02 Format (9)"
-  end
-  if value == 13 then
-    return "Targetid: Execution Report Including Head Office And Branch Offices In R 32 Format (13)"
-  end
-  if value == 17 then
-    return "Targetid: Drop Copy In R 32 Format (17)"
-  end
-  if value == 18 then
-    return "Targetid: Clearing Member Order And Execution In R 32 Format (18)"
-  end
-  if value == 19 then
-    return "Targetid: Clearing Member Execution In R 32 Format (19)"
-  end
-  if value == 23 then
-    return "Targetid: Execution Report Including Head Office And Branch Offices In R 06 Format (23)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.targetid.labels = {
+  [3] = "Targetid: Execution Report Including Head Office And Branch Offices In R 02 Format (3)",
+  [4] = "Targetid: Fcm (4)",
+  [7] = "Targetid: Drop Copy In R 02 Format (7)",
+  [8] = "Targetid: Clearing Member Order And Execution In R 02 Format (8)",
+  [9] = "Targetid: Clearing Member Execution In R 02 Format (9)",
+  [13] = "Targetid: Execution Report Including Head Office And Branch Offices In R 32 Format (13)",
+  [17] = "Targetid: Drop Copy In R 32 Format (17)",
+  [18] = "Targetid: Clearing Member Order And Execution In R 32 Format (18)",
+  [19] = "Targetid: Clearing Member Execution In R 32 Format (19)",
+  [23] = "Targetid: Execution Report Including Head Office And Branch Offices In R 06 Format (23)",
+}
 
-  return "Targetid: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.targetid.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.targetid.labels[value] or "Targetid: Unknown("..value..")"
 end
 
 -- Dissect: Targetid
@@ -2921,21 +2277,15 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.time_in_force = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.time_in_force.size = 1
 
 -- Display: Time In Force
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Rod (0)"
-  end
-  if value == 3 then
-    return "Time In Force: Ioc (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fok (4)"
-  end
-  if value == 8 then
-    return "Time In Force: Automatically Cancelled After A Period Of Time (8)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.time_in_force.labels = {
+  [0] = "Time In Force: Rod (0)",
+  [3] = "Time In Force: Ioc (3)",
+  [4] = "Time In Force: Fok (4)",
+  [8] = "Time In Force: Automatically Cancelled After A Period Of Time (8)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.time_in_force.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -3003,15 +2353,13 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.version = {}
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.version.size = 1
 
 -- Display: Version
-taifex_taifexderivatives_dropcopy_tmp_v2_18_7.version.display = function(value)
-  if value == 0 then
-    return "Version: Regular Trading (0)"
-  end
-  if value == 1 then
-    return "Version: Regular Trading And Flex Trading (1)"
-  end
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.version.labels = {
+  [0] = "Version: Regular Trading (0)",
+  [1] = "Version: Regular Trading And Flex Trading (1)",
+}
 
-  return "Version: Unknown("..value..")"
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.version.display = function(value)
+  return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.version.labels[value] or "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -3935,22 +3283,17 @@ end
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx = {}
 
 -- Dissect: Sym Flexproductx
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx.dispatch = {
+  [1] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symbolnumx.dissect,
+  [2] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltxtx.dissect,
+  [3] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.multilegnum.dissect,
+  [4] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.multilegtxt.dissect,
+}
+
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx.dissect = function(buffer, offset, packet, parent, msg_type_ext)
-  -- Dissect Symbolnumx
-  if msg_type_ext == 1 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symbolnumx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symboltxtx
-  if msg_type_ext == 2 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltxtx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multilegnum
-  if msg_type_ext == 3 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.multilegnum.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multilegtxt
-  if msg_type_ext == 4 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.multilegtxt.dissect(buffer, offset, packet, parent)
+  local dissect = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx.dispatch[msg_type_ext]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4459,14 +3802,15 @@ end
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_longsymbolx = {}
 
 -- Dissect: Sym Longsymbolx
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_longsymbolx.dispatch = {
+  [3] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.longsymbolnum.dissect,
+  [4] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.longsymboltext.dissect,
+}
+
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_longsymbolx.dissect = function(buffer, offset, packet, parent, symboltype)
-  -- Dissect Longsymbolnum
-  if symboltype == 3 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.longsymbolnum.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Longsymboltext
-  if symboltype == 4 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.longsymboltext.dissect(buffer, offset, packet, parent)
+  local dissect = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_longsymbolx.dispatch[symboltype]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4783,14 +4127,15 @@ end
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_symbolx = {}
 
 -- Dissect: Sym Symbolx
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_symbolx.dispatch = {
+  [1] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symbolnum.dissect,
+  [2] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltext.dissect,
+}
+
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_symbolx.dissect = function(buffer, offset, packet, parent, symboltype)
-  -- Dissect Symbolnum
-  if symboltype == 1 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symbolnum.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symboltext
-  if symboltype == 2 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltext.dissect(buffer, offset, packet, parent)
+  local dissect = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_symbolx.dispatch[symboltype]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5502,86 +4847,33 @@ end
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload = {}
 
 -- Dissect: Payload
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload.dispatch = {
+  [10] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.wake_up_call_message.dissect,
+  [20] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.wake_up_call_confirmed_message.dissect,
+  [30] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.logon_notice_message.dissect,
+  [230] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.final_sequential_number_notification_for_group_message.dissect,
+  [40] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.request_logon_message.dissect,
+  [50] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.activate_application_system_message.dissect,
+  [60] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.activate_application_system_confirmed_message.dissect,
+  [70] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.logout_message.dissect,
+  [80] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.logout_confirmed_message.dissect,
+  [104] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.confirm_connection_message.dissect,
+  [105] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.connection_confirmed_message.dissect,
+  [102] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.order_status_report_message.dissect,
+  [132] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.order_status_report_long_format_message.dissect,
+  [103] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.error_report_message.dissect,
+  [202] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_order_status_report_message.dissect,
+  [203] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_error_report_message.dissect,
+  [115] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.drop_copy_initiate_operation_message.dissect,
+  [116] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.drop_copy_initiate_operation_confirmed_message.dissect,
+  [215] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_drop_copy_initiate_operation_message.dissect,
+  [216] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_drop_copy_initiate_operation_confirmed_message.dissect,
+}
+
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Wake Up Call Message
-  if message_type == 10 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.wake_up_call_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wake Up Call Confirmed Message
-  if message_type == 20 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.wake_up_call_confirmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Notice Message
-  if message_type == 30 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.logon_notice_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Final Sequential Number Notification For Group Message
-  if message_type == 230 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.final_sequential_number_notification_for_group_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Logon Message
-  if message_type == 40 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.request_logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Activate Application System Message
-  if message_type == 50 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.activate_application_system_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Activate Application System Confirmed Message
-  if message_type == 60 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.activate_application_system_confirmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if message_type == 70 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Confirmed Message
-  if message_type == 80 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.logout_confirmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Confirm Connection Message
-  if message_type == 104 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.confirm_connection_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Connection Confirmed Message
-  if message_type == 105 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.connection_confirmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Status Report Message
-  if message_type == 102 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.order_status_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Status Report Long Format Message
-  if message_type == 132 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.order_status_report_long_format_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Error Report Message
-  if message_type == 103 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.error_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Flex Order Status Report Message
-  if message_type == 202 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_order_status_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Flex Error Report Message
-  if message_type == 203 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_error_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Drop Copy Initiate Operation Message
-  if message_type == 115 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.drop_copy_initiate_operation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Drop Copy Initiate Operation Confirmed Message
-  if message_type == 116 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.drop_copy_initiate_operation_confirmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Flex Drop Copy Initiate Operation Message
-  if message_type == 215 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_drop_copy_initiate_operation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Flex Drop Copy Initiate Operation Confirmed Message
-  if message_type == 216 then
-    return taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_drop_copy_initiate_operation_confirmed_message.dissect(buffer, offset, packet, parent)
+  local dissect = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

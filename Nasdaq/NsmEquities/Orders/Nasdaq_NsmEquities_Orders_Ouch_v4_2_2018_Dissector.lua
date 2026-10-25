@@ -365,21 +365,15 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.broken_trade_reason = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.broken_trade_reason.size = 1
 
 -- Display: Broken Trade Reason
-nasdaq_nsmequities_orders_ouch_v4_2_2018.broken_trade_reason.display = function(value)
-  if value == "E" then
-    return "Broken Trade Reason: Erroneous (E)"
-  end
-  if value == "C" then
-    return "Broken Trade Reason: Consent (C)"
-  end
-  if value == "S" then
-    return "Broken Trade Reason: Supervisory (S)"
-  end
-  if value == "X" then
-    return "Broken Trade Reason: External (X)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.broken_trade_reason.labels = {
+  ["E"] = "Broken Trade Reason: Erroneous (E)",
+  ["C"] = "Broken Trade Reason: Consent (C)",
+  ["S"] = "Broken Trade Reason: Supervisory (S)",
+  ["X"] = "Broken Trade Reason: External (X)",
+}
 
-  return "Broken Trade Reason: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.broken_trade_reason.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.broken_trade_reason.labels[value] or "Broken Trade Reason: Unknown("..value..")"
 end
 
 -- Dissect: Broken Trade Reason
@@ -401,21 +395,15 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.buy_sell_indicator = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_nsmequities_orders_ouch_v4_2_2018.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
-  if value == "T" then
-    return "Buy Sell Indicator: Sell Short (T)"
-  end
-  if value == "E" then
-    return "Buy Sell Indicator: Sell Short Exempt (E)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+  ["T"] = "Buy Sell Indicator: Sell Short (T)",
+  ["E"] = "Buy Sell Indicator: Sell Short Exempt (E)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.buy_sell_indicator.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -437,12 +425,12 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_order_reason = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_order_reason.size = 1
 
 -- Display: Cancel Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_order_reason.display = function(value)
-  if value == "Q" then
-    return "Cancel Order Reason: Self Match Prevention (Q)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_order_reason.labels = {
+  ["Q"] = "Cancel Order Reason: Self Match Prevention (Q)",
+}
 
-  return "Cancel Order Reason: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_order_reason.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_order_reason.labels[value] or "Cancel Order Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Order Reason
@@ -464,21 +452,15 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.capacity = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.capacity.size = 1
 
 -- Display: Capacity
-nasdaq_nsmequities_orders_ouch_v4_2_2018.capacity.display = function(value)
-  if value == "O" then
-    return "Capacity: Other (O)"
-  end
-  if value == "A" then
-    return "Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity: Principal (P)"
-  end
-  if value == "R" then
-    return "Capacity: Riskless (R)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.capacity.labels = {
+  ["O"] = "Capacity: Other (O)",
+  ["A"] = "Capacity: Agency (A)",
+  ["P"] = "Capacity: Principal (P)",
+  ["R"] = "Capacity: Riskless (R)",
+}
 
-  return "Capacity: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.capacity.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -500,24 +482,16 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.client_packet_type = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nsmequities_orders_ouch_v4_2_2018.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.client_packet_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -539,30 +513,18 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.cross_type = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nsmequities_orders_ouch_v4_2_2018.cross_type.display = function(value)
-  if value == "N" then
-    return "Cross Type: No Cross (N)"
-  end
-  if value == "O" then
-    return "Cross Type: Opening (O)"
-  end
-  if value == "C" then
-    return "Cross Type: Closing (C)"
-  end
-  if value == "H" then
-    return "Cross Type: Halt Ipo Cross (H)"
-  end
-  if value == "S" then
-    return "Cross Type: Supplemental (S)"
-  end
-  if value == "R" then
-    return "Cross Type: Retail (R)"
-  end
-  if value == "E" then
-    return "Cross Type: Extended (E)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.cross_type.labels = {
+  ["N"] = "Cross Type: No Cross (N)",
+  ["O"] = "Cross Type: Opening (O)",
+  ["C"] = "Cross Type: Closing (C)",
+  ["H"] = "Cross Type: Halt Ipo Cross (H)",
+  ["S"] = "Cross Type: Supplemental (S)",
+  ["R"] = "Cross Type: Retail (R)",
+  ["E"] = "Cross Type: Extended (E)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.cross_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -659,12 +621,12 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.display = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.display.size = 1
 
 -- Display: Display
-nasdaq_nsmequities_orders_ouch_v4_2_2018.display.display = function(value)
-  if value == "Y" then
-    return "Display: Anonymous Price (Y)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.display.labels = {
+  ["Y"] = "Display: Anonymous Price (Y)",
+}
 
-  return "Display: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.display.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.display.labels[value] or "Display: Unknown("..value..")"
 end
 
 -- Dissect: Display
@@ -686,15 +648,13 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.event_code = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_orders_ouch_v4_2_2018.event_code.display = function(value)
-  if value == "S" then
-    return "Event Code: Start Of Day— This Is Always The First Message Each Day (S)"
-  end
-  if value == "E" then
-    return "Event Code: End Of Day— This Indicates That Nasdaq Is Now Closed And Will Not Accept Any New Orders Or Replaces In This Session (E)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.event_code.labels = {
+  ["S"] = "Event Code: Start Of Day— This Is Always The First Message Each Day (S)",
+  ["E"] = "Event Code: End Of Day— This Indicates That Nasdaq Is Now Closed And Will Not Accept Any New Orders Or Replaces In This Session (E)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.event_code.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -814,18 +774,14 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.intermarket_sweep_eligibility = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.intermarket_sweep_eligibility.size = 1
 
 -- Display: Intermarket Sweep Eligibility
-nasdaq_nsmequities_orders_ouch_v4_2_2018.intermarket_sweep_eligibility.display = function(value)
-  if value == "Y" then
-    return "Intermarket Sweep Eligibility: Eligible (Y)"
-  end
-  if value == "N" then
-    return "Intermarket Sweep Eligibility: Not Eligible (N)"
-  end
-  if value == "y" then
-    return "Intermarket Sweep Eligibility: Tradeat (y)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.intermarket_sweep_eligibility.labels = {
+  ["Y"] = "Intermarket Sweep Eligibility: Eligible (Y)",
+  ["N"] = "Intermarket Sweep Eligibility: Not Eligible (N)",
+  ["y"] = "Intermarket Sweep Eligibility: Tradeat (y)",
+}
 
-  return "Intermarket Sweep Eligibility: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.intermarket_sweep_eligibility.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.intermarket_sweep_eligibility.labels[value] or "Intermarket Sweep Eligibility: Unknown("..value..")"
 end
 
 -- Dissect: Intermarket Sweep Eligibility
@@ -847,87 +803,37 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.liquidity_flag = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.liquidity_flag.size = 1
 
 -- Display: Liquidity Flag
-nasdaq_nsmequities_orders_ouch_v4_2_2018.liquidity_flag.display = function(value)
-  if value == "A" then
-    return "Liquidity Flag: Added (A)"
-  end
-  if value == "R" then
-    return "Liquidity Flag: Removed (R)"
-  end
-  if value == "O" then
-    return "Liquidity Flag: Opening (O)"
-  end
-  if value == "M" then
-    return "Liquidity Flag: Opening Cross (M)"
-  end
-  if value == "C" then
-    return "Liquidity Flag: Closing (C)"
-  end
-  if value == "L" then
-    return "Liquidity Flag: Closing Cross (L)"
-  end
-  if value == "H" then
-    return "Liquidity Flag: Halt Ipo (H)"
-  end
-  if value == "K" then
-    return "Liquidity Flag: Halt (K)"
-  end
-  if value == "J" then
-    return "Liquidity Flag: Nondisplayed (J)"
-  end
-  if value == "W" then
-    return "Liquidity Flag: Added Post Only (W)"
-  end
-  if value == "m" then
-    return "Liquidity Flag: Removed At Midpoint (m)"
-  end
-  if value == "k" then
-    return "Liquidity Flag: Added Via Midpoint (k)"
-  end
-  if value == "0" then
-    return "Liquidity Flag: Supplemental (0)"
-  end
-  if value == "7" then
-    return "Liquidity Flag: Improves Nbbo (7)"
-  end
-  if value == "8" then
-    return "Liquidity Flag: Sets Qbbo While Joining Nbbo (8)"
-  end
-  if value == "d" then
-    return "Liquidity Flag: Retail Designated Removed Liquidity (d)"
-  end
-  if value == "e" then
-    return "Liquidity Flag: Retail Designated Added Displayed Liquidity (e)"
-  end
-  if value == "f" then
-    return "Liquidity Flag: Retail Designated Added Non Displayed Liquidity (f)"
-  end
-  if value == "j" then
-    return "Liquidity Flag: Rpi Retail Price Improving (j)"
-  end
-  if value == "r" then
-    return "Liquidity Flag: Retail Order Removes Rpi Liquidity (r)"
-  end
-  if value == "t" then
-    return "Liquidity Flag: Retail Order Removes Other Price Improving Liquidity (t)"
-  end
-  if value == "4" then
-    return "Liquidity Flag: Added Displayed In Group A (4)"
-  end
-  if value == "5" then
-    return "Liquidity Flag: Added Non Displayed In Group A (5)"
-  end
-  if value == "6" then
-    return "Liquidity Flag: Removed In Group A (6)"
-  end
-  if value == "g" then
-    return "Liquidity Flag: Added Non Displayed Mid Point In Group A (g)"
-  end
-  if value == "n" then
-    return "Liquidity Flag: Midpoint (n)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.liquidity_flag.labels = {
+  ["A"] = "Liquidity Flag: Added (A)",
+  ["R"] = "Liquidity Flag: Removed (R)",
+  ["O"] = "Liquidity Flag: Opening (O)",
+  ["M"] = "Liquidity Flag: Opening Cross (M)",
+  ["C"] = "Liquidity Flag: Closing (C)",
+  ["L"] = "Liquidity Flag: Closing Cross (L)",
+  ["H"] = "Liquidity Flag: Halt Ipo (H)",
+  ["K"] = "Liquidity Flag: Halt (K)",
+  ["J"] = "Liquidity Flag: Nondisplayed (J)",
+  ["W"] = "Liquidity Flag: Added Post Only (W)",
+  ["m"] = "Liquidity Flag: Removed At Midpoint (m)",
+  ["k"] = "Liquidity Flag: Added Via Midpoint (k)",
+  ["0"] = "Liquidity Flag: Supplemental (0)",
+  ["7"] = "Liquidity Flag: Improves Nbbo (7)",
+  ["8"] = "Liquidity Flag: Sets Qbbo While Joining Nbbo (8)",
+  ["d"] = "Liquidity Flag: Retail Designated Removed Liquidity (d)",
+  ["e"] = "Liquidity Flag: Retail Designated Added Displayed Liquidity (e)",
+  ["f"] = "Liquidity Flag: Retail Designated Added Non Displayed Liquidity (f)",
+  ["j"] = "Liquidity Flag: Rpi Retail Price Improving (j)",
+  ["r"] = "Liquidity Flag: Retail Order Removes Rpi Liquidity (r)",
+  ["t"] = "Liquidity Flag: Retail Order Removes Other Price Improving Liquidity (t)",
+  ["4"] = "Liquidity Flag: Added Displayed In Group A (4)",
+  ["5"] = "Liquidity Flag: Added Non Displayed In Group A (5)",
+  ["6"] = "Liquidity Flag: Removed In Group A (6)",
+  ["g"] = "Liquidity Flag: Added Non Displayed Mid Point In Group A (g)",
+  ["n"] = "Liquidity Flag: Midpoint (n)",
+}
 
-  return "Liquidity Flag: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.liquidity_flag.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.liquidity_flag.labels[value] or "Liquidity Flag: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Flag
@@ -1018,15 +924,13 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.order_state = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.order_state.size = 1
 
 -- Display: Order State
-nasdaq_nsmequities_orders_ouch_v4_2_2018.order_state.display = function(value)
-  if value == "L" then
-    return "Order State: Order Live (L)"
-  end
-  if value == "D" then
-    return "Order State: Order Dead (D)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.order_state.labels = {
+  ["L"] = "Order State: Order Live (L)",
+  ["D"] = "Order State: Order Dead (D)",
+}
 
-  return "Order State: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.order_state.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -1192,12 +1096,12 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.reason = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.reason.size = 1
 
 -- Display: Reason
-nasdaq_nsmequities_orders_ouch_v4_2_2018.reason.display = function(value)
-  if value == "N" then
-    return "Reason: Adjusted To Nav (N)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.reason.labels = {
+  ["N"] = "Reason: Adjusted To Nav (N)",
+}
 
-  return "Reason: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.reason.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1248,12 +1152,12 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.reference_price_type = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.reference_price_type.size = 1
 
 -- Display: Reference Price Type
-nasdaq_nsmequities_orders_ouch_v4_2_2018.reference_price_type.display = function(value)
-  if value == "I" then
-    return "Reference Price Type: Intraday Indicative Value (I)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.reference_price_type.labels = {
+  ["I"] = "Reference Price Type: Intraday Indicative Value (I)",
+}
 
-  return "Reference Price Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.reference_price_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.reference_price_type.labels[value] or "Reference Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Reference Price Type
@@ -1275,15 +1179,13 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.reject_reason_code = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nsmequities_orders_ouch_v4_2_2018.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.reject_reason_code.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1305,99 +1207,41 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.rejected_order_reason = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.rejected_order_reason.size = 1
 
 -- Display: Rejected Order Reason
-nasdaq_nsmequities_orders_ouch_v4_2_2018.rejected_order_reason.display = function(value)
-  if value == "T" then
-    return "Rejected Order Reason: Test Mode (T)"
-  end
-  if value == "H" then
-    return "Rejected Order Reason: Halted (H)"
-  end
-  if value == "Z" then
-    return "Rejected Order Reason: Shares Exceeds Configured Safety Threshold (Z)"
-  end
-  if value == "S" then
-    return "Rejected Order Reason: Invalid Stock (S)"
-  end
-  if value == "D" then
-    return "Rejected Order Reason: Invalid Display Type (D)"
-  end
-  if value == "C" then
-    return "Rejected Order Reason: Nasdaq Is Closed (C)"
-  end
-  if value == "L" then
-    return "Rejected Order Reason: Requested Firm Not Authorized For Requested Clearing Type On This Account (L)"
-  end
-  if value == "M" then
-    return "Rejected Order Reason: Outside Of Permitted Times (M)"
-  end
-  if value == "R" then
-    return "Rejected Order Reason: This Order Is Not Allowed In This Type Of Cross (R)"
-  end
-  if value == "X" then
-    return "Rejected Order Reason: Invalid Price (X)"
-  end
-  if value == "N" then
-    return "Rejected Order Reason: Invalid Minimum (N)"
-  end
-  if value == "O" then
-    return "Rejected Order Reason: Other (O)"
-  end
-  if value == "W" then
-    return "Rejected Order Reason: Invalid Midpoint (W)"
-  end
-  if value == "o" then
-    return "Rejected Order Reason: There Is No Reference Price (o)"
-  end
-  if value == "q" then
-    return "Rejected Order Reason: Midpoint Peg Orders Are Not Accepted (q)"
-  end
-  if value == "u" then
-    return "Rejected Order Reason: Loc Order Priced More Aggressively (u)"
-  end
-  if value == "a" then
-    return "Rejected Order Reason: Reject (a)"
-  end
-  if value == "b" then
-    return "Rejected Order Reason: Easy To Borrow Etb (b)"
-  end
-  if value == "c" then
-    return "Rejected Order Reason: Restricted (c)"
-  end
-  if value == "d" then
-    return "Rejected Order Reason: Iso (d)"
-  end
-  if value == "e" then
-    return "Rejected Order Reason: Odd (e)"
-  end
-  if value == "f" then
-    return "Rejected Order Reason: Mid Point (f)"
-  end
-  if value == "g" then
-    return "Rejected Order Reason: Pre Market (g)"
-  end
-  if value == "h" then
-    return "Rejected Order Reason: Post Market (h)"
-  end
-  if value == "i" then
-    return "Rejected Order Reason: Short Sale (i)"
-  end
-  if value == "j" then
-    return "Rejected Order Reason: On Open (j)"
-  end
-  if value == "k" then
-    return "Rejected Order Reason: On Close (k)"
-  end
-  if value == "l" then
-    return "Rejected Order Reason: Two Sided (l)"
-  end
-  if value == "m" then
-    return "Rejected Order Reason: Exceeded Shares Limit (m)"
-  end
-  if value == "n" then
-    return "Rejected Order Reason: Exceeded Dollar Value Limit (n)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.rejected_order_reason.labels = {
+  ["T"] = "Rejected Order Reason: Test Mode (T)",
+  ["H"] = "Rejected Order Reason: Halted (H)",
+  ["Z"] = "Rejected Order Reason: Shares Exceeds Configured Safety Threshold (Z)",
+  ["S"] = "Rejected Order Reason: Invalid Stock (S)",
+  ["D"] = "Rejected Order Reason: Invalid Display Type (D)",
+  ["C"] = "Rejected Order Reason: Nasdaq Is Closed (C)",
+  ["L"] = "Rejected Order Reason: Requested Firm Not Authorized For Requested Clearing Type On This Account (L)",
+  ["M"] = "Rejected Order Reason: Outside Of Permitted Times (M)",
+  ["R"] = "Rejected Order Reason: This Order Is Not Allowed In This Type Of Cross (R)",
+  ["X"] = "Rejected Order Reason: Invalid Price (X)",
+  ["N"] = "Rejected Order Reason: Invalid Minimum (N)",
+  ["O"] = "Rejected Order Reason: Other (O)",
+  ["W"] = "Rejected Order Reason: Invalid Midpoint (W)",
+  ["o"] = "Rejected Order Reason: There Is No Reference Price (o)",
+  ["q"] = "Rejected Order Reason: Midpoint Peg Orders Are Not Accepted (q)",
+  ["u"] = "Rejected Order Reason: Loc Order Priced More Aggressively (u)",
+  ["a"] = "Rejected Order Reason: Reject (a)",
+  ["b"] = "Rejected Order Reason: Easy To Borrow Etb (b)",
+  ["c"] = "Rejected Order Reason: Restricted (c)",
+  ["d"] = "Rejected Order Reason: Iso (d)",
+  ["e"] = "Rejected Order Reason: Odd (e)",
+  ["f"] = "Rejected Order Reason: Mid Point (f)",
+  ["g"] = "Rejected Order Reason: Pre Market (g)",
+  ["h"] = "Rejected Order Reason: Post Market (h)",
+  ["i"] = "Rejected Order Reason: Short Sale (i)",
+  ["j"] = "Rejected Order Reason: On Open (j)",
+  ["k"] = "Rejected Order Reason: On Close (k)",
+  ["l"] = "Rejected Order Reason: Two Sided (l)",
+  ["m"] = "Rejected Order Reason: Exceeded Shares Limit (m)",
+  ["n"] = "Rejected Order Reason: Exceeded Dollar Value Limit (n)",
+}
 
-  return "Rejected Order Reason: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.rejected_order_reason.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.rejected_order_reason.labels[value] or "Rejected Order Reason: Unknown("..value..")"
 end
 
 -- Dissect: Rejected Order Reason
@@ -1496,54 +1340,26 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message_type = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Accepted Message (A)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Canceled Message (C)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Aiq Cancelled Message (D)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Executed Message (E)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Broken Trade Message (B)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Executed With Reference Price Message (G)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Trade Correction Message (F)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Rejected Order Message (J)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Cancel Pending Message (P)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Cancel Reject Message (I)"
-  end
-  if value == "T" then
-    return "Sequenced Message Type: Order Priority Update Message (T)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Order Modified Message (M)"
-  end
-  if value == "N" then
-    return "Sequenced Message Type: Sequenced Trade Now Message (N)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["A"] = "Sequenced Message Type: Accepted Message (A)",
+  ["U"] = "Sequenced Message Type: Replaced Message (U)",
+  ["C"] = "Sequenced Message Type: Canceled Message (C)",
+  ["D"] = "Sequenced Message Type: Aiq Cancelled Message (D)",
+  ["E"] = "Sequenced Message Type: Executed Message (E)",
+  ["B"] = "Sequenced Message Type: Broken Trade Message (B)",
+  ["G"] = "Sequenced Message Type: Executed With Reference Price Message (G)",
+  ["F"] = "Sequenced Message Type: Trade Correction Message (F)",
+  ["J"] = "Sequenced Message Type: Rejected Order Message (J)",
+  ["P"] = "Sequenced Message Type: Cancel Pending Message (P)",
+  ["I"] = "Sequenced Message Type: Cancel Reject Message (I)",
+  ["T"] = "Sequenced Message Type: Order Priority Update Message (T)",
+  ["M"] = "Sequenced Message Type: Order Modified Message (M)",
+  ["N"] = "Sequenced Message Type: Sequenced Trade Now Message (N)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1565,27 +1381,17 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.server_packet_type = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nsmequities_orders_ouch_v4_2_2018.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.server_packet_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1653,18 +1459,14 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.time_in_force = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.time_in_force.size = 4
 
 -- Display: Time In Force
-nasdaq_nsmequities_orders_ouch_v4_2_2018.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Immediate Or Cancel (0)"
-  end
-  if value == 99998 then
-    return "Time In Force: Market Hours (99998)"
-  end
-  if value == 99999 then
-    return "Time In Force: System Hours (99999)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.time_in_force.labels = {
+  [0] = "Time In Force: Immediate Or Cancel (0)",
+  [99998] = "Time In Force: Market Hours (99998)",
+  [99999] = "Time In Force: System Hours (99999)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.time_in_force.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -1709,24 +1511,16 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message_type = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
-  if value == "M" then
-    return "Unsequenced Message Type: Modify Order Message (M)"
-  end
-  if value == "N" then
-    return "Unsequenced Message Type: Trade Now Message (N)"
-  end
+nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order Message (O)",
+  ["U"] = "Unsequenced Message Type: Replace Order Message (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order Message (X)",
+  ["M"] = "Unsequenced Message Type: Modify Order Message (M)",
+  ["N"] = "Unsequenced Message Type: Trade Now Message (N)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2703,66 +2497,28 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.system_event_message.dissect,
+  ["A"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.accepted_message.dissect,
+  ["U"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.replaced_message.dissect,
+  ["C"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.canceled_message.dissect,
+  ["D"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.aiq_cancelled_message.dissect,
+  ["E"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.executed_message.dissect,
+  ["B"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.broken_trade_message.dissect,
+  ["G"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.executed_with_reference_price_message.dissect,
+  ["F"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.trade_correction_message.dissect,
+  ["J"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.rejected_order_message.dissect,
+  ["P"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_pending_message.dissect,
+  ["I"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_reject_message.dissect,
+  ["T"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.order_priority_update_message.dissect,
+  ["M"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.order_modified_message.dissect,
+  ["N"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_trade_now_message.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Accepted Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replaced Message
-  if sequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Canceled Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Cancelled Message
-  if sequenced_message_type == "D" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.aiq_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Executed Message
-  if sequenced_message_type == "E" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Executed With Reference Price Message
-  if sequenced_message_type == "G" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.executed_with_reference_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if sequenced_message_type == "F" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rejected Order Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.rejected_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Pending Message
-  if sequenced_message_type == "P" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_pending_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Reject Message
-  if sequenced_message_type == "I" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Priority Update Message
-  if sequenced_message_type == "T" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.order_priority_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Message
-  if sequenced_message_type == "M" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Trade Now Message
-  if sequenced_message_type == "N" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_trade_now_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3005,30 +2761,19 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.debug_packet.dissect,
+  ["A"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.server_heartbeat.dissect,
+  ["Z"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.end_of_session.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3516,26 +3261,18 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message.dispatch = {
+  ["O"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.enter_order_message.dissect,
+  ["U"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.replace_order_message.dissect,
+  ["X"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_order_message.dissect,
+  ["M"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.modify_order_message.dissect,
+  ["N"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.trade_now_message.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if unsequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if unsequenced_message_type == "M" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Now Message
-  if unsequenced_message_type == "N" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.trade_now_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3650,26 +3387,18 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.debug_packet.dissect,
+  ["L"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.login_request_packet.dissect,
+  ["U"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.client_heartbeat.dissect,
+  ["O"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.logout_request.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_nsmequities_orders_ouch_v4_2_2018.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

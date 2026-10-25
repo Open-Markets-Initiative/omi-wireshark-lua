@@ -260,42 +260,22 @@ nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.delivery_flag = {
 nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Pillar Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.delivery_flag.display = function(value)
+  return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -558,33 +538,19 @@ nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.market_id = {}
 nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.market_id.size = 2
 
 -- Display: Market Id
-nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Equities (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Texas Equities (11)"
-  end
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.market_id.labels = {
+  [1] = "Market Id: Nyse Equities (1)",
+  [3] = "Market Id: Nyse Arca Equities (3)",
+  [4] = "Market Id: Nyse Arca Options (4)",
+  [5] = "Market Id: Nyse Bonds (5)",
+  [8] = "Market Id: Nyse American Options (8)",
+  [9] = "Market Id: Nyse American Equities (9)",
+  [10] = "Market Id: Nyse National Equities (10)",
+  [11] = "Market Id: Nyse Texas Equities (11)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.market_id.display = function(value)
+  return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -681,27 +647,17 @@ nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.message_type = {}
 nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.message_type.size = 2
 
 -- Display: Message Type
-nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Source Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 223 then
-    return "Message Type: Stock Summary Message (223)"
-  end
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [2] = "Message Type: Source Time Reference Message (2)",
+  [3] = "Message Type: Symbol Index Mapping Message (3)",
+  [32] = "Message Type: Symbol Clear Message (32)",
+  [34] = "Message Type: Security Status Message (34)",
+  [223] = "Message Type: Stock Summary Message (223)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.message_type.display = function(value)
+  return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -953,18 +909,14 @@ nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.price_resolution 
 nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.price_resolution.labels = {
+  [0] = "Price Resolution: All Penny (0)",
+  [1] = "Price Resolution: Penny Nickel (1)",
+  [5] = "Price Resolution: Nickel Dime (5)",
+}
 
-  return "Price Resolution: Unknown("..value..")"
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.price_resolution.display = function(value)
+  return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.price_resolution.labels[value] or "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -2498,30 +2450,19 @@ end
 nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.payload = {}
 
 -- Dissect: Payload
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.payload.dispatch = {
+  [1] = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.sequence_number_reset_message.dissect,
+  [2] = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.source_time_reference_message.dissect,
+  [3] = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.symbol_index_mapping_message.dissect,
+  [32] = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.symbol_clear_message.dissect,
+  [34] = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.security_status_message.dissect,
+  [223] = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.stock_summary_message.dissect,
+}
+
 nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Source Time Reference Message
-  if message_type == 2 then
-    return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.source_time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Clear Message
-  if message_type == 32 then
-    return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 34 then
-    return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Summary Message
-  if message_type == 223 then
-    return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.stock_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2660,10 +2601,14 @@ end
 nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.messages = {}
 
 -- Dissect: Messages
+nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.messages.dispatch = {
+  [1] = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.heartbeat.dissect,
+}
+
 nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
-  -- Dissect Heartbeat
-  if delivery_flag == 1 then
-    return nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nationalequities_integratedfeedstocksummary_pillar_v2_5_g.messages.dispatch[delivery_flag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

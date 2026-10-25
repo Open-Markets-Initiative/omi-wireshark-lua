@@ -339,24 +339,16 @@ sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type = {}
 sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -397,54 +389,26 @@ sgx_titandt_depthofbook_glimpse_v1_4.financial_product = {}
 sgx_titandt_depthofbook_glimpse_v1_4.financial_product.size = 1
 
 -- Display: Financial Product
-sgx_titandt_depthofbook_glimpse_v1_4.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Or Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Standard Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.financial_product.labels = {
+  [1] = "Financial Product: Option (1)",
+  [2] = "Financial Product: Forward (2)",
+  [3] = "Financial Product: Future (3)",
+  [4] = "Financial Product: Fra (4)",
+  [5] = "Financial Product: Cash (5)",
+  [6] = "Financial Product: Payment (6)",
+  [7] = "Financial Product: Exchange Rate (7)",
+  [8] = "Financial Product: Interest Rate Swap (8)",
+  [9] = "Financial Product: Repo (9)",
+  [10] = "Financial Product: Synthetic Box Leg Or Reference (10)",
+  [11] = "Financial Product: Standard Combination (11)",
+  [12] = "Financial Product: Guarantee (12)",
+  [13] = "Financial Product: Otc General (13)",
+  [14] = "Financial Product: Equity Warrant (14)",
+  [15] = "Financial Product: Security Lending (15)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.financial_product.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -512,15 +476,13 @@ sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side = {}
 sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side.size = 1
 
 -- Display: Leg 1 Side
-sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side.display = function(value)
-  if value == "B" then
-    return "Leg 1 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 1 Side: Opposite (C)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side.labels = {
+  ["B"] = "Leg 1 Side: As Defined (B)",
+  ["C"] = "Leg 1 Side: Opposite (C)",
+}
 
-  return "Leg 1 Side: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side.labels[value] or "Leg 1 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 1 Side
@@ -588,15 +550,13 @@ sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side = {}
 sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side.size = 1
 
 -- Display: Leg 2 Side
-sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side.display = function(value)
-  if value == "B" then
-    return "Leg 2 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 2 Side: Opposite (C)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side.labels = {
+  ["B"] = "Leg 2 Side: As Defined (B)",
+  ["C"] = "Leg 2 Side: Opposite (C)",
+}
 
-  return "Leg 2 Side: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side.labels[value] or "Leg 2 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 2 Side
@@ -664,15 +624,13 @@ sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side = {}
 sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side.size = 1
 
 -- Display: Leg 3 Side
-sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side.display = function(value)
-  if value == "B" then
-    return "Leg 3 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 3 Side: Opposite (C)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side.labels = {
+  ["B"] = "Leg 3 Side: As Defined (B)",
+  ["C"] = "Leg 3 Side: Opposite (C)",
+}
 
-  return "Leg 3 Side: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side.labels[value] or "Leg 3 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 3 Side
@@ -740,15 +698,13 @@ sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side = {}
 sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side.size = 1
 
 -- Display: Leg 4 Side
-sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side.display = function(value)
-  if value == "B" then
-    return "Leg 4 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 4 Side: Opposite (C)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side.labels = {
+  ["B"] = "Leg 4 Side: As Defined (B)",
+  ["C"] = "Leg 4 Side: Opposite (C)",
+}
 
-  return "Leg 4 Side: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side.labels[value] or "Leg 4 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 4 Side
@@ -816,12 +772,12 @@ sgx_titandt_depthofbook_glimpse_v1_4.lot_type = {}
 sgx_titandt_depthofbook_glimpse_v1_4.lot_type.size = 1
 
 -- Display: Lot Type
-sgx_titandt_depthofbook_glimpse_v1_4.lot_type.display = function(value)
-  if value == 2 then
-    return "Lot Type: Round Lot (2)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.lot_type.labels = {
+  [2] = "Lot Type: Round Lot (2)",
+}
 
-  return "Lot Type: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.lot_type.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.lot_type.labels[value] or "Lot Type: Unknown("..value..")"
 end
 
 -- Dissect: Lot Type
@@ -1157,15 +1113,13 @@ sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code = {}
 sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1370,30 +1324,18 @@ sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message_type = {}
 sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message_type.display = function(value)
-  if value == "T" then
-    return "Sequenced Message Type: Seconds Message (T)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Order Book Directory Message (R)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Combination Order Book Directory Message (M)"
-  end
-  if value == "L" then
-    return "Sequenced Message Type: Tick Size Table Entry Message (L)"
-  end
-  if value == "O" then
-    return "Sequenced Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Add Order Message (A)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: End Of Snapshot Message (G)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message_type.labels = {
+  ["T"] = "Sequenced Message Type: Seconds Message (T)",
+  ["R"] = "Sequenced Message Type: Order Book Directory Message (R)",
+  ["M"] = "Sequenced Message Type: Combination Order Book Directory Message (M)",
+  ["L"] = "Sequenced Message Type: Tick Size Table Entry Message (L)",
+  ["O"] = "Sequenced Message Type: Order Book State Message (O)",
+  ["A"] = "Sequenced Message Type: Add Order Message (A)",
+  ["G"] = "Sequenced Message Type: End Of Snapshot Message (G)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message_type.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1415,27 +1357,17 @@ sgx_titandt_depthofbook_glimpse_v1_4.server_packet_type = {}
 sgx_titandt_depthofbook_glimpse_v1_4.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-sgx_titandt_depthofbook_glimpse_v1_4.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.server_packet_type.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1457,15 +1389,13 @@ sgx_titandt_depthofbook_glimpse_v1_4.side = {}
 sgx_titandt_depthofbook_glimpse_v1_4.side.size = 1
 
 -- Display: Side
-sgx_titandt_depthofbook_glimpse_v1_4.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
+sgx_titandt_depthofbook_glimpse_v1_4.side.labels = {
+  ["B"] = "Side: Buy Order (B)",
+  ["S"] = "Side: Sell Order (S)",
+}
 
-  return "Side: Unknown("..value..")"
+sgx_titandt_depthofbook_glimpse_v1_4.side.display = function(value)
+  return sgx_titandt_depthofbook_glimpse_v1_4.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2256,34 +2186,20 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message.dispatch = {
+  ["T"] = sgx_titandt_depthofbook_glimpse_v1_4.seconds_message.dissect,
+  ["R"] = sgx_titandt_depthofbook_glimpse_v1_4.order_book_directory_message.dissect,
+  ["M"] = sgx_titandt_depthofbook_glimpse_v1_4.combination_order_book_directory_message.dissect,
+  ["L"] = sgx_titandt_depthofbook_glimpse_v1_4.tick_size_table_entry_message.dissect,
+  ["O"] = sgx_titandt_depthofbook_glimpse_v1_4.order_book_state_message.dissect,
+  ["A"] = sgx_titandt_depthofbook_glimpse_v1_4.add_order_message.dissect,
+  ["G"] = sgx_titandt_depthofbook_glimpse_v1_4.end_of_snapshot_message.dissect,
+}
+
 sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Seconds Message
-  if sequenced_message_type == "T" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory Message
-  if sequenced_message_type == "R" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.order_book_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Order Book Directory Message
-  if sequenced_message_type == "M" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.combination_order_book_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Table Entry Message
-  if sequenced_message_type == "L" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.tick_size_table_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if sequenced_message_type == "O" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if sequenced_message_type == "A" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Snapshot Message
-  if sequenced_message_type == "G" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.end_of_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2526,30 +2442,19 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.server_payload = {}
 
 -- Dissect: Server Payload
+sgx_titandt_depthofbook_glimpse_v1_4.server_payload.dispatch = {
+  ["+"] = sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.dissect,
+  ["A"] = sgx_titandt_depthofbook_glimpse_v1_4.login_accepted_packet.dissect,
+  ["J"] = sgx_titandt_depthofbook_glimpse_v1_4.login_rejected_packet.dissect,
+  ["S"] = sgx_titandt_depthofbook_glimpse_v1_4.sequenced_data_packet.dissect,
+  ["H"] = sgx_titandt_depthofbook_glimpse_v1_4.server_heartbeat.dissect,
+  ["Z"] = sgx_titandt_depthofbook_glimpse_v1_4.end_of_session.dissect,
+}
+
 sgx_titandt_depthofbook_glimpse_v1_4.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = sgx_titandt_depthofbook_glimpse_v1_4.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2862,26 +2767,18 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.client_payload = {}
 
 -- Dissect: Client Payload
+sgx_titandt_depthofbook_glimpse_v1_4.client_payload.dispatch = {
+  ["+"] = sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.dissect,
+  ["L"] = sgx_titandt_depthofbook_glimpse_v1_4.login_request_packet.dissect,
+  ["U"] = sgx_titandt_depthofbook_glimpse_v1_4.unsequenced_data_packet.dissect,
+  ["R"] = sgx_titandt_depthofbook_glimpse_v1_4.client_heartbeat.dissect,
+  ["O"] = sgx_titandt_depthofbook_glimpse_v1_4.logout_request.dissect,
+}
+
 sgx_titandt_depthofbook_glimpse_v1_4.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return sgx_titandt_depthofbook_glimpse_v1_4.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = sgx_titandt_depthofbook_glimpse_v1_4.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

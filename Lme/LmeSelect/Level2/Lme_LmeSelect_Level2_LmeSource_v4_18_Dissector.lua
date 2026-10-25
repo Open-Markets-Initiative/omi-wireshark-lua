@@ -711,36 +711,20 @@ lme_lmeselect_level2_lmesource_v4_18.msg_type = {}
 lme_lmeselect_level2_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_level2_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 311 then
-    return "Msg Type: Market State Contract Message (311)"
-  end
-  if value == 312 then
-    return "Msg Type: Market State Instrument Message (312)"
-  end
-  if value == 320 then
-    return "Msg Type: Indicative Opening Price Message (320)"
-  end
-  if value == 329 then
-    return "Msg Type: Quote Request Message (329)"
-  end
-  if value == 327 then
-    return "Msg Type: Order Book Clear Message (327)"
-  end
-  if value == 330 then
-    return "Msg Type: Cross Request Message (330)"
-  end
-  if value == 322 then
-    return "Msg Type: Aggregate Order Book Message (322)"
-  end
-  if value == 341 then
-    return "Msg Type: Market Data Trade Message (341)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [311] = "Msg Type: Market State Contract Message (311)",
+  [312] = "Msg Type: Market State Instrument Message (312)",
+  [320] = "Msg Type: Indicative Opening Price Message (320)",
+  [329] = "Msg Type: Quote Request Message (329)",
+  [327] = "Msg Type: Order Book Clear Message (327)",
+  [330] = "Msg Type: Cross Request Message (330)",
+  [322] = "Msg Type: Aggregate Order Book Message (322)",
+  [341] = "Msg Type: Market Data Trade Message (341)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -939,15 +923,13 @@ lme_lmeselect_level2_lmesource_v4_18.quote_request_type = {}
 lme_lmeselect_level2_lmesource_v4_18.quote_request_type.size = 1
 
 -- Display: Quote Request Type
-lme_lmeselect_level2_lmesource_v4_18.quote_request_type.display = function(value)
-  if value == 1 then
-    return "Quote Request Type: Manual A Single Quote Request (1)"
-  end
-  if value == 2 then
-    return "Quote Request Type: Auto A Streaming Quote Request (2)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.quote_request_type.labels = {
+  [1] = "Quote Request Type: Manual A Single Quote Request (1)",
+  [2] = "Quote Request Type: Auto A Streaming Quote Request (2)",
+}
 
-  return "Quote Request Type: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.quote_request_type.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.quote_request_type.labels[value] or "Quote Request Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Request Type
@@ -1015,39 +997,21 @@ lme_lmeselect_level2_lmesource_v4_18.ring_session = {}
 lme_lmeselect_level2_lmesource_v4_18.ring_session.size = 2
 
 -- Display: Ring Session
-lme_lmeselect_level2_lmesource_v4_18.ring_session.display = function(value)
-  if value == "R1" then
-    return "Ring Session: First Morning Ring (R1)"
-  end
-  if value == "R2" then
-    return "Ring Session: Second Morning Ring (R2)"
-  end
-  if value == "R3" then
-    return "Ring Session: First Afternoon Ring (R3)"
-  end
-  if value == "K1" then
-    return "Ring Session: Morning Kerb Session (K1)"
-  end
-  if value == "K2" then
-    return "Ring Session: Afternoon Kerb Session (K2)"
-  end
-  if value == "C1" then
-    return "Ring Session: Basis Ring 1 (C1)"
-  end
-  if value == "C2" then
-    return "Ring Session: Basis Ring 2 (C2)"
-  end
-  if value == "C3" then
-    return "Ring Session: Basis Ring 3 (C3)"
-  end
-  if value == "D1" then
-    return "Ring Session: Basis Kerb 1 (D1)"
-  end
-  if value == "D2" then
-    return "Ring Session: Basis Kerb 2 (D2)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.ring_session.labels = {
+  ["R1"] = "Ring Session: First Morning Ring (R1)",
+  ["R2"] = "Ring Session: Second Morning Ring (R2)",
+  ["R3"] = "Ring Session: First Afternoon Ring (R3)",
+  ["K1"] = "Ring Session: Morning Kerb Session (K1)",
+  ["K2"] = "Ring Session: Afternoon Kerb Session (K2)",
+  ["C1"] = "Ring Session: Basis Ring 1 (C1)",
+  ["C2"] = "Ring Session: Basis Ring 2 (C2)",
+  ["C3"] = "Ring Session: Basis Ring 3 (C3)",
+  ["D1"] = "Ring Session: Basis Kerb 1 (D1)",
+  ["D2"] = "Ring Session: Basis Kerb 2 (D2)",
+}
 
-  return "Ring Session: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.ring_session.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.ring_session.labels[value] or "Ring Session: Unknown("..value..")"
 end
 
 -- Dissect: Ring Session
@@ -1163,24 +1127,16 @@ lme_lmeselect_level2_lmesource_v4_18.sub_type_of_trade = {}
 lme_lmeselect_level2_lmesource_v4_18.sub_type_of_trade.size = 1
 
 -- Display: Sub Type Of Trade
-lme_lmeselect_level2_lmesource_v4_18.sub_type_of_trade.display = function(value)
-  if value == 1 then
-    return "Sub Type Of Trade: The Trade Resulted From An Explicit Order (1)"
-  end
-  if value == 2 then
-    return "Sub Type Of Trade: The Trade Resulted From Uncrossing (2)"
-  end
-  if value == 7 then
-    return "Sub Type Of Trade: The Trade Resulted From An Implied Order (7)"
-  end
-  if value == 8 then
-    return "Sub Type Of Trade: The Trade Resulted From Two Implied Orders Matching (8)"
-  end
-  if value == 9 then
-    return "Sub Type Of Trade: The Trade Resulted From An Off Book Cross Trade (9)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.sub_type_of_trade.labels = {
+  [1] = "Sub Type Of Trade: The Trade Resulted From An Explicit Order (1)",
+  [2] = "Sub Type Of Trade: The Trade Resulted From Uncrossing (2)",
+  [7] = "Sub Type Of Trade: The Trade Resulted From An Implied Order (7)",
+  [8] = "Sub Type Of Trade: The Trade Resulted From Two Implied Orders Matching (8)",
+  [9] = "Sub Type Of Trade: The Trade Resulted From An Off Book Cross Trade (9)",
+}
 
-  return "Sub Type Of Trade: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.sub_type_of_trade.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.sub_type_of_trade.labels[value] or "Sub Type Of Trade: Unknown("..value..")"
 end
 
 -- Dissect: Sub Type Of Trade
@@ -1226,15 +1182,13 @@ lme_lmeselect_level2_lmesource_v4_18.timetable_control_type = {}
 lme_lmeselect_level2_lmesource_v4_18.timetable_control_type.size = 1
 
 -- Display: Timetable Control Type
-lme_lmeselect_level2_lmesource_v4_18.timetable_control_type.display = function(value)
-  if value == "A" then
-    return "Timetable Control Type: Automatic The Default Trading Schedule (A)"
-  end
-  if value == "M" then
-    return "Timetable Control Type: Manual A Temporary Trading Schedule (M)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.timetable_control_type.labels = {
+  ["A"] = "Timetable Control Type: Automatic The Default Trading Schedule (A)",
+  ["M"] = "Timetable Control Type: Manual A Temporary Trading Schedule (M)",
+}
 
-  return "Timetable Control Type: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.timetable_control_type.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.timetable_control_type.labels[value] or "Timetable Control Type: Unknown("..value..")"
 end
 
 -- Dissect: Timetable Control Type
@@ -1358,15 +1312,13 @@ lme_lmeselect_level2_lmesource_v4_18.trade_cancel_flag = {}
 lme_lmeselect_level2_lmesource_v4_18.trade_cancel_flag.size = 1
 
 -- Display: Trade Cancel Flag
-lme_lmeselect_level2_lmesource_v4_18.trade_cancel_flag.display = function(value)
-  if value == 0 then
-    return "Trade Cancel Flag: False (0)"
-  end
-  if value == 1 then
-    return "Trade Cancel Flag: True (1)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.trade_cancel_flag.labels = {
+  [0] = "Trade Cancel Flag: False (0)",
+  [1] = "Trade Cancel Flag: True (1)",
+}
 
-  return "Trade Cancel Flag: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.trade_cancel_flag.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.trade_cancel_flag.labels[value] or "Trade Cancel Flag: Unknown("..value..")"
 end
 
 -- Dissect: Trade Cancel Flag
@@ -1388,24 +1340,16 @@ lme_lmeselect_level2_lmesource_v4_18.trading_state = {}
 lme_lmeselect_level2_lmesource_v4_18.trading_state.size = 1
 
 -- Display: Trading State
-lme_lmeselect_level2_lmesource_v4_18.trading_state.display = function(value)
-  if value == 1 then
-    return "Trading State: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Trading State: Open (2)"
-  end
-  if value == 3 then
-    return "Trading State: Post Trade (3)"
-  end
-  if value == 4 then
-    return "Trading State: Close (4)"
-  end
-  if value == 6 then
-    return "Trading State: Technical Halt (6)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.trading_state.labels = {
+  [1] = "Trading State: Pre Open (1)",
+  [2] = "Trading State: Open (2)",
+  [3] = "Trading State: Post Trade (3)",
+  [4] = "Trading State: Close (4)",
+  [6] = "Trading State: Technical Halt (6)",
+}
 
-  return "Trading State: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.trading_state.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1460,18 +1404,14 @@ lme_lmeselect_level2_lmesource_v4_18.trading_venue = {}
 lme_lmeselect_level2_lmesource_v4_18.trading_venue.size = 2
 
 -- Display: Trading Venue
-lme_lmeselect_level2_lmesource_v4_18.trading_venue.display = function(value)
-  if value == "EL" then
-    return "Trading Venue: Electronic (EL)"
-  end
-  if value == "RK" then
-    return "Trading Venue: Ring (RK)"
-  end
-  if value == "IO" then
-    return "Trading Venue: Inter Office (IO)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.trading_venue.labels = {
+  ["EL"] = "Trading Venue: Electronic (EL)",
+  ["RK"] = "Trading Venue: Ring (RK)",
+  ["IO"] = "Trading Venue: Inter Office (IO)",
+}
 
-  return "Trading Venue: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.trading_venue.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.trading_venue.labels[value] or "Trading Venue: Unknown("..value..")"
 end
 
 -- Dissect: Trading Venue
@@ -1493,18 +1433,14 @@ lme_lmeselect_level2_lmesource_v4_18.update_action = {}
 lme_lmeselect_level2_lmesource_v4_18.update_action.size = 1
 
 -- Display: Update Action
-lme_lmeselect_level2_lmesource_v4_18.update_action.display = function(value)
-  if value == 0 then
-    return "Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Update Action: Delete (2)"
-  end
+lme_lmeselect_level2_lmesource_v4_18.update_action.labels = {
+  [0] = "Update Action: New (0)",
+  [1] = "Update Action: Change (1)",
+  [2] = "Update Action: Delete (2)",
+}
 
-  return "Update Action: Unknown("..value..")"
+lme_lmeselect_level2_lmesource_v4_18.update_action.display = function(value)
+  return lme_lmeselect_level2_lmesource_v4_18.update_action.labels[value] or "Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Update Action
@@ -2300,42 +2236,22 @@ end
 lme_lmeselect_level2_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_level2_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_level2_lmesource_v4_18.sequence_reset_message.dissect,
+  [311] = lme_lmeselect_level2_lmesource_v4_18.market_state_contract_message.dissect,
+  [312] = lme_lmeselect_level2_lmesource_v4_18.market_state_instrument_message.dissect,
+  [320] = lme_lmeselect_level2_lmesource_v4_18.indicative_opening_price_message.dissect,
+  [329] = lme_lmeselect_level2_lmesource_v4_18.quote_request_message.dissect,
+  [327] = lme_lmeselect_level2_lmesource_v4_18.order_book_clear_message.dissect,
+  [330] = lme_lmeselect_level2_lmesource_v4_18.cross_request_message.dissect,
+  [322] = lme_lmeselect_level2_lmesource_v4_18.aggregate_order_book_message.dissect,
+  [341] = lme_lmeselect_level2_lmesource_v4_18.market_data_trade_message.dissect,
+}
+
 lme_lmeselect_level2_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_level2_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Contract Message
-  if msg_type == 311 then
-    return lme_lmeselect_level2_lmesource_v4_18.market_state_contract_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Instrument Message
-  if msg_type == 312 then
-    return lme_lmeselect_level2_lmesource_v4_18.market_state_instrument_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Opening Price Message
-  if msg_type == 320 then
-    return lme_lmeselect_level2_lmesource_v4_18.indicative_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Message
-  if msg_type == 329 then
-    return lme_lmeselect_level2_lmesource_v4_18.quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Clear Message
-  if msg_type == 327 then
-    return lme_lmeselect_level2_lmesource_v4_18.order_book_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Request Message
-  if msg_type == 330 then
-    return lme_lmeselect_level2_lmesource_v4_18.cross_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aggregate Order Book Message
-  if msg_type == 322 then
-    return lme_lmeselect_level2_lmesource_v4_18.aggregate_order_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Data Trade Message
-  if msg_type == 341 then
-    return lme_lmeselect_level2_lmesource_v4_18.market_data_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_level2_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

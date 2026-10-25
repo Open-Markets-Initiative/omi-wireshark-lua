@@ -349,15 +349,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.event_code = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.event_code.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -379,15 +377,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.exceptional_market = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.exceptional_market.size = 1
 
 -- Display: Exceptional Market
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.exceptional_market.display = function(value)
-  if value == "Y" then
-    return "Exceptional Market: Yes (Y)"
-  end
-  if value == "N" then
-    return "Exceptional Market: No (N)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.exceptional_market.labels = {
+  ["Y"] = "Exceptional Market: Yes (Y)",
+  ["N"] = "Exceptional Market: No (N)",
+}
 
-  return "Exceptional Market: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.exceptional_market.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.exceptional_market.labels[value] or "Exceptional Market: Unknown("..value..")"
 end
 
 -- Dissect: Exceptional Market
@@ -432,60 +428,28 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.financial_product = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.financial_product.size = 1
 
 -- Display: Financial Product
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Or Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Standard Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
-  if value == 16 then
-    return "Financial Product: Non Deliverable Rolling Spot (16)"
-  end
-  if value == 17 then
-    return "Financial Product: Strip (17)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.financial_product.labels = {
+  [1] = "Financial Product: Option (1)",
+  [2] = "Financial Product: Forward (2)",
+  [3] = "Financial Product: Future (3)",
+  [4] = "Financial Product: Fra (4)",
+  [5] = "Financial Product: Cash (5)",
+  [6] = "Financial Product: Payment (6)",
+  [7] = "Financial Product: Exchange Rate (7)",
+  [8] = "Financial Product: Interest Rate Swap (8)",
+  [9] = "Financial Product: Repo (9)",
+  [10] = "Financial Product: Synthetic Box Leg Or Reference (10)",
+  [11] = "Financial Product: Standard Combination (11)",
+  [12] = "Financial Product: Guarantee (12)",
+  [13] = "Financial Product: Otc General (13)",
+  [14] = "Financial Product: Equity Warrant (14)",
+  [15] = "Financial Product: Security Lending (15)",
+  [16] = "Financial Product: Non Deliverable Rolling Spot (16)",
+  [17] = "Financial Product: Strip (17)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.financial_product.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -553,15 +517,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_1_side = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_1_side.size = 1
 
 -- Display: Leg 1 Side
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_1_side.display = function(value)
-  if value == "B" then
-    return "Leg 1 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 1 Side: Opposite (C)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_1_side.labels = {
+  ["B"] = "Leg 1 Side: As Defined (B)",
+  ["C"] = "Leg 1 Side: Opposite (C)",
+}
 
-  return "Leg 1 Side: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_1_side.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_1_side.labels[value] or "Leg 1 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 1 Side
@@ -629,15 +591,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_2_side = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_2_side.size = 1
 
 -- Display: Leg 2 Side
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_2_side.display = function(value)
-  if value == "B" then
-    return "Leg 2 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 2 Side: Opposite (C)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_2_side.labels = {
+  ["B"] = "Leg 2 Side: As Defined (B)",
+  ["C"] = "Leg 2 Side: Opposite (C)",
+}
 
-  return "Leg 2 Side: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_2_side.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_2_side.labels[value] or "Leg 2 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 2 Side
@@ -705,15 +665,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_3_side = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_3_side.size = 1
 
 -- Display: Leg 3 Side
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_3_side.display = function(value)
-  if value == "B" then
-    return "Leg 3 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 3 Side: Opposite (C)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_3_side.labels = {
+  ["B"] = "Leg 3 Side: As Defined (B)",
+  ["C"] = "Leg 3 Side: Opposite (C)",
+}
 
-  return "Leg 3 Side: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_3_side.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_3_side.labels[value] or "Leg 3 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 3 Side
@@ -781,15 +739,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_4_side = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_4_side.size = 1
 
 -- Display: Leg 4 Side
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_4_side.display = function(value)
-  if value == "B" then
-    return "Leg 4 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 4 Side: Opposite (C)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_4_side.labels = {
+  ["B"] = "Leg 4 Side: As Defined (B)",
+  ["C"] = "Leg 4 Side: Opposite (C)",
+}
 
-  return "Leg 4 Side: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_4_side.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.leg_4_side.labels[value] or "Leg 4 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 4 Side
@@ -857,24 +813,16 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.lot_type = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.lot_type.size = 1
 
 -- Display: Lot Type
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.lot_type.display = function(value)
-  if value == 0 then
-    return "Lot Type: Undefined (0)"
-  end
-  if value == 1 then
-    return "Lot Type: Odd Lot (1)"
-  end
-  if value == 2 then
-    return "Lot Type: Round Lot (2)"
-  end
-  if value == 3 then
-    return "Lot Type: Block Lot (3)"
-  end
-  if value == 4 then
-    return "Lot Type: All Or None Lot (4)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.lot_type.labels = {
+  [0] = "Lot Type: Undefined (0)",
+  [1] = "Lot Type: Odd Lot (1)",
+  [2] = "Lot Type: Round Lot (2)",
+  [3] = "Lot Type: Block Lot (3)",
+  [4] = "Lot Type: All Or None Lot (4)",
+}
 
-  return "Lot Type: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.lot_type.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.lot_type.labels[value] or "Lot Type: Unknown("..value..")"
 end
 
 -- Dissect: Lot Type
@@ -965,60 +913,28 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.message_type = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "R" then
-    return "Message Type: Order Book Directory (R)"
-  end
-  if value == "M" then
-    return "Message Type: Combination Order Book Directory (M)"
-  end
-  if value == "L" then
-    return "Message Type: Tick Size Table Entry (L)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "O" then
-    return "Message Type: Order Book State Message (O)"
-  end
-  if value == "K" then
-    return "Message Type: Stressed Market Message (K)"
-  end
-  if value == "X" then
-    return "Message Type: Exceptional Market Message (X)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order No Mpid Attribution (A)"
-  end
-  if value == "F" then
-    return "Message Type: Add Order With Mpid Attribution (F)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "Z" then
-    return "Message Type: Equilibrium Price Update (Z)"
-  end
-  if value == "q" then
-    return "Message Type: Quote Request Message (q)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["R"] = "Message Type: Order Book Directory (R)",
+  ["M"] = "Message Type: Combination Order Book Directory (M)",
+  ["L"] = "Message Type: Tick Size Table Entry (L)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["O"] = "Message Type: Order Book State Message (O)",
+  ["K"] = "Message Type: Stressed Market Message (K)",
+  ["X"] = "Message Type: Exceptional Market Message (X)",
+  ["A"] = "Message Type: Add Order No Mpid Attribution (A)",
+  ["F"] = "Message Type: Add Order With Mpid Attribution (F)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["Z"] = "Message Type: Equilibrium Price Update (Z)",
+  ["q"] = "Message Type: Quote Request Message (q)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.message_type.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1155,15 +1071,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.occurred_at_cross = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.occurred_at_cross.size = 1
 
 -- Display: Occurred At Cross
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.occurred_at_cross.display = function(value)
-  if value == "Y" then
-    return "Occurred At Cross: Yes (Y)"
-  end
-  if value == "N" then
-    return "Occurred At Cross: No (N)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.occurred_at_cross.labels = {
+  ["Y"] = "Occurred At Cross: Yes (Y)",
+  ["N"] = "Occurred At Cross: No (N)",
+}
 
-  return "Occurred At Cross: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.occurred_at_cross.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.occurred_at_cross.labels[value] or "Occurred At Cross: Unknown("..value..")"
 end
 
 -- Dissect: Occurred At Cross
@@ -1420,15 +1334,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.printable = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.printable.size = 1
 
 -- Display: Printable
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.printable.labels = {
+  ["N"] = "Printable: Non Printable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.printable.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1815,15 +1727,13 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.stressed_market = {}
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.stressed_market.size = 1
 
 -- Display: Stressed Market
-nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.stressed_market.display = function(value)
-  if value == "Y" then
-    return "Stressed Market: Yes (Y)"
-  end
-  if value == "N" then
-    return "Stressed Market: No (N)"
-  end
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.stressed_market.labels = {
+  ["Y"] = "Stressed Market: Yes (Y)",
+  ["N"] = "Stressed Market: No (N)",
+}
 
-  return "Stressed Market: Unknown("..value..")"
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.stressed_market.display = function(value)
+  return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.stressed_market.labels[value] or "Stressed Market: Unknown("..value..")"
 end
 
 -- Dissect: Stressed Market
@@ -3234,74 +3144,30 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload = {}
 
 -- Dissect: Payload
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload.dispatch = {
+  ["T"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.seconds_message.dissect,
+  ["R"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_book_directory.dissect,
+  ["M"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.combination_order_book_directory.dissect,
+  ["L"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.tick_size_table_entry.dissect,
+  ["S"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.system_event_message.dissect,
+  ["O"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_book_state_message.dissect,
+  ["K"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.stressed_market_message.dissect,
+  ["X"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.exceptional_market_message.dissect,
+  ["A"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.add_order_no_mpid_attribution.dissect,
+  ["F"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.add_order_with_mpid_attribution.dissect,
+  ["E"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_executed_message.dissect,
+  ["C"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_executed_with_price_message.dissect,
+  ["U"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_replace_message.dissect,
+  ["D"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_delete_message.dissect,
+  ["P"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.trade_message.dissect,
+  ["Z"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.equilibrium_price_update.dissect,
+  ["q"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.quote_request_message.dissect,
+}
+
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory
-  if message_type == "R" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_book_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Order Book Directory
-  if message_type == "M" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.combination_order_book_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Table Entry
-  if message_type == "L" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.tick_size_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if message_type == "O" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stressed Market Message
-  if message_type == "K" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.stressed_market_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Exceptional Market Message
-  if message_type == "X" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.exceptional_market_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order No Mpid Attribution
-  if message_type == "A" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.add_order_no_mpid_attribution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order With Mpid Attribution
-  if message_type == "F" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.add_order_with_mpid_attribution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equilibrium Price Update
-  if message_type == "Z" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.equilibrium_price_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Message
-  if message_type == "q" then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.quote_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3457,14 +3323,15 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.messages = {}
 
 -- Dissect: Messages
+nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.messages.dispatch = {
+  [0] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.heartbeat.dissect,
+  [65535] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.end_of_session.dissect,
+}
+
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

@@ -580,15 +580,13 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state = {}
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading Resumed (T)"
-  end
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Trading Resumed (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.display = function(value)
+  return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -656,33 +654,19 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code = {}
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: Start Of Normal Hours Closing Process (N)",
+  ["L"] = "Event Code: Start Of Late Hours Closing Process (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.display = function(value)
+  return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1015,33 +999,19 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type = {}
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Complex Strategy Directory Message (R)"
-  end
-  if value == "O" then
-    return "Message Type: Strategy Open Closed Message (O)"
-  end
-  if value == "H" then
-    return "Message Type: Strategy Trading Action Message (H)"
-  end
-  if value == "C" then
-    return "Message Type: Strategy Best Bid And Ask Update (C)"
-  end
-  if value == "D" then
-    return "Message Type: Strategy Best Bid Update (D)"
-  end
-  if value == "E" then
-    return "Message Type: Strategy Best Ask Update (E)"
-  end
-  if value == "t" then
-    return "Message Type: Complex Strategy Ticker Message (t)"
-  end
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Complex Strategy Directory Message (R)",
+  ["O"] = "Message Type: Strategy Open Closed Message (O)",
+  ["H"] = "Message Type: Strategy Trading Action Message (H)",
+  ["C"] = "Message Type: Strategy Best Bid And Ask Update (C)",
+  ["D"] = "Message Type: Strategy Best Bid Update (D)",
+  ["E"] = "Message Type: Strategy Best Ask Update (E)",
+  ["t"] = "Message Type: Complex Strategy Ticker Message (t)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.display = function(value)
+  return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1132,15 +1102,13 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state = {}
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.size = 1
 
 -- Display: Open State
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed (N)"
-  end
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.labels = {
+  ["Y"] = "Open State: Open (Y)",
+  ["N"] = "Open State: Closed (N)",
+}
 
-  return "Open State: Unknown("..value..")"
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.display = function(value)
+  return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.labels[value] or "Open State: Unknown("..value..")"
 end
 
 -- Dissect: Open State
@@ -1487,36 +1455,20 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type = {}
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.size = 1
 
 -- Display: Strategy Type
-nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.display = function(value)
-  if value == "V" then
-    return "Strategy Type: Vertical Spread (V)"
-  end
-  if value == "T" then
-    return "Strategy Type: Time Spread (T)"
-  end
-  if value == "D" then
-    return "Strategy Type: Diagonal Spread (D)"
-  end
-  if value == "S" then
-    return "Strategy Type: Straddle (S)"
-  end
-  if value == "G" then
-    return "Strategy Type: Strangle (G)"
-  end
-  if value == "C" then
-    return "Strategy Type: Combo (C)"
-  end
-  if value == "R" then
-    return "Strategy Type: Risk Reversal (R)"
-  end
-  if value == "A" then
-    return "Strategy Type: Ratio Spread (A)"
-  end
-  if value == "U" then
-    return "Strategy Type: Custom (U)"
-  end
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.labels = {
+  ["V"] = "Strategy Type: Vertical Spread (V)",
+  ["T"] = "Strategy Type: Time Spread (T)",
+  ["D"] = "Strategy Type: Diagonal Spread (D)",
+  ["S"] = "Strategy Type: Straddle (S)",
+  ["G"] = "Strategy Type: Strangle (G)",
+  ["C"] = "Strategy Type: Combo (C)",
+  ["R"] = "Strategy Type: Risk Reversal (R)",
+  ["A"] = "Strategy Type: Ratio Spread (A)",
+  ["U"] = "Strategy Type: Custom (U)",
+}
 
-  return "Strategy Type: Unknown("..value..")"
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.display = function(value)
+  return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.labels[value] or "Strategy Type: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Type
@@ -2347,38 +2299,21 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload = {}
 
 -- Dissect: Payload
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload.dispatch = {
+  ["S"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.dissect,
+  ["R"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message.dissect,
+  ["O"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.dissect,
+  ["H"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.dissect,
+  ["C"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.dissect,
+  ["D"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.dissect,
+  ["E"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update.dissect,
+  ["t"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.dissect,
+}
+
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Strategy Directory Message
-  if message_type == "R" then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Open Closed Message
-  if message_type == "O" then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trading Action Message
-  if message_type == "H" then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Best Bid And Ask Update
-  if message_type == "C" then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Best Bid Update
-  if message_type == "D" then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Best Ask Update
-  if message_type == "E" then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Strategy Ticker Message
-  if message_type == "t" then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2534,14 +2469,15 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages = {}
 
 -- Dissect: Messages
+nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dispatch = {
+  [0] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.heartbeat.dissect,
+  [65535] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.end_of_session.dissect,
+}
+
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

@@ -609,18 +609,14 @@ cme_globex_settlements_sbe_v7_0.md_update_action = {}
 cme_globex_settlements_sbe_v7_0.md_update_action.size = 1
 
 -- Display: Md Update Action
-cme_globex_settlements_sbe_v7_0.md_update_action.display = function(value)
-  if value == 0 then
-    return "Md Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Md Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Md Update Action: Delete (2)"
-  end
+cme_globex_settlements_sbe_v7_0.md_update_action.labels = {
+  [0] = "Md Update Action: New (0)",
+  [1] = "Md Update Action: Change (1)",
+  [2] = "Md Update Action: Delete (2)",
+}
 
-  return "Md Update Action: Unknown("..value..")"
+cme_globex_settlements_sbe_v7_0.md_update_action.display = function(value)
+  return cme_globex_settlements_sbe_v7_0.md_update_action.labels[value] or "Md Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Md Update Action
@@ -739,15 +735,13 @@ cme_globex_settlements_sbe_v7_0.open_close_settl_flag = {}
 cme_globex_settlements_sbe_v7_0.open_close_settl_flag.size = 1
 
 -- Display: Open Close Settl Flag
-cme_globex_settlements_sbe_v7_0.open_close_settl_flag.display = function(value)
-  if value == 3 then
-    return "Open Close Settl Flag: Estimated (3)"
-  end
-  if value == 4 then
-    return "Open Close Settl Flag: Actual Adjusted (4)"
-  end
+cme_globex_settlements_sbe_v7_0.open_close_settl_flag.labels = {
+  [3] = "Open Close Settl Flag: Estimated (3)",
+  [4] = "Open Close Settl Flag: Actual Adjusted (4)",
+}
 
-  return "Open Close Settl Flag: Unknown("..value..")"
+cme_globex_settlements_sbe_v7_0.open_close_settl_flag.display = function(value)
+  return cme_globex_settlements_sbe_v7_0.open_close_settl_flag.labels[value] or "Open Close Settl Flag: Unknown("..value..")"
 end
 
 -- Dissect: Open Close Settl Flag
@@ -1100,21 +1094,15 @@ cme_globex_settlements_sbe_v7_0.template_id = {}
 cme_globex_settlements_sbe_v7_0.template_id.size = 2
 
 -- Display: Template Id
-cme_globex_settlements_sbe_v7_0.template_id.display = function(value)
-  if value == 401 then
-    return "Template Id: Md Incremental Refresh Settle (401)"
-  end
-  if value == 402 then
-    return "Template Id: Md Incremental Refresh Voi (402)"
-  end
-  if value == 403 then
-    return "Template Id: Md Incremental Refresh High Low (403)"
-  end
-  if value == 407 then
-    return "Template Id: Admin Heartbeat (407)"
-  end
+cme_globex_settlements_sbe_v7_0.template_id.labels = {
+  [401] = "Template Id: Md Incremental Refresh Settle (401)",
+  [402] = "Template Id: Md Incremental Refresh Voi (402)",
+  [403] = "Template Id: Md Incremental Refresh High Low (403)",
+  [407] = "Template Id: Admin Heartbeat (407)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cme_globex_settlements_sbe_v7_0.template_id.display = function(value)
+  return cme_globex_settlements_sbe_v7_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2579,22 +2567,17 @@ end
 cme_globex_settlements_sbe_v7_0.payload = {}
 
 -- Dissect: Payload
+cme_globex_settlements_sbe_v7_0.payload.dispatch = {
+  [401] = cme_globex_settlements_sbe_v7_0.md_incremental_refresh_settle.dissect,
+  [402] = cme_globex_settlements_sbe_v7_0.md_incremental_refresh_voi.dissect,
+  [403] = cme_globex_settlements_sbe_v7_0.md_incremental_refresh_high_low.dissect,
+  [407] = cme_globex_settlements_sbe_v7_0.admin_heartbeat.dissect,
+}
+
 cme_globex_settlements_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Md Incremental Refresh Settle
-  if template_id == 401 then
-    return cme_globex_settlements_sbe_v7_0.md_incremental_refresh_settle.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Voi
-  if template_id == 402 then
-    return cme_globex_settlements_sbe_v7_0.md_incremental_refresh_voi.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh High Low
-  if template_id == 403 then
-    return cme_globex_settlements_sbe_v7_0.md_incremental_refresh_high_low.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Heartbeat
-  if template_id == 407 then
-    return cme_globex_settlements_sbe_v7_0.admin_heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_settlements_sbe_v7_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

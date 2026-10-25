@@ -378,27 +378,17 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag = {}
 nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Contains Original And Refresh Msgs (2)"
-  end
-  if value == 3 then
-    return "Delivery Flag: Contains Only Refresh Messages (3)"
-  end
-  if value == 10 then
-    return "Delivery Flag: XDP Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Contains Only Original Messages (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
+nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [2] = "Delivery Flag: Contains Original And Refresh Msgs (2)",
+  [3] = "Delivery Flag: Contains Only Refresh Messages (3)",
+  [10] = "Delivery Flag: XDP Failover (10)",
+  [11] = "Delivery Flag: Contains Only Original Messages (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag.display = function(value)
+  return nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -522,36 +512,20 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id = {}
 nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.size = 2
 
 -- Display: Market Id
-nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Cash (1)"
-  end
-  if value == 2 then
-    return "Market Id: Europe Cash (2)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Cash (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Arca Bonds (5)"
-  end
-  if value == 6 then
-    return "Market Id: Arca Edge (6)"
-  end
-  if value == 7 then
-    return "Market Id: Liffe (7)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse Mkt Cash (9)"
-  end
+nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.labels = {
+  [1] = "Market Id: Nyse Cash (1)",
+  [2] = "Market Id: Europe Cash (2)",
+  [3] = "Market Id: Nyse Arca Cash (3)",
+  [4] = "Market Id: Nyse Arca Options (4)",
+  [5] = "Market Id: Nyse Arca Bonds (5)",
+  [6] = "Market Id: Arca Edge (6)",
+  [7] = "Market Id: Liffe (7)",
+  [8] = "Market Id: Nyse American Options (8)",
+  [9] = "Market Id: Nyse Mkt Cash (9)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.display = function(value)
+  return nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -619,39 +593,21 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.message_type = {}
 nyse_amexoptions_complexfeed_xdp_v1_3_a.message_type.size = 2
 
 -- Display: Message Type
-nyse_amexoptions_complexfeed_xdp_v1_3_a.message_type.display = function(value)
-  if value == 423 then
-    return "Message Type: Complex Quote Message (423)"
-  end
-  if value == 425 then
-    return "Message Type: Complex Trade Message (425)"
-  end
-  if value == 429 then
-    return "Message Type: Complex Crossing Rfq Message (429)"
-  end
-  if value == 472 then
-    return "Message Type: Complex Cube Rfq Message (472)"
-  end
-  if value == 433 then
-    return "Message Type: Complex Status Message (433)"
-  end
-  if value == 511 then
-    return "Message Type: Refresh Complex Quote Message (511)"
-  end
-  if value == 513 then
-    return "Message Type: Refresh Complex Trade Message (513)"
-  end
-  if value == 439 then
-    return "Message Type: Complex Symbol Definition Message (439)"
-  end
-  if value == 455 then
-    return "Message Type: Stream Id Message (455)"
-  end
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
+nyse_amexoptions_complexfeed_xdp_v1_3_a.message_type.labels = {
+  [423] = "Message Type: Complex Quote Message (423)",
+  [425] = "Message Type: Complex Trade Message (425)",
+  [429] = "Message Type: Complex Crossing Rfq Message (429)",
+  [472] = "Message Type: Complex Cube Rfq Message (472)",
+  [433] = "Message Type: Complex Status Message (433)",
+  [511] = "Message Type: Refresh Complex Quote Message (511)",
+  [513] = "Message Type: Refresh Complex Trade Message (513)",
+  [439] = "Message Type: Complex Symbol Definition Message (439)",
+  [455] = "Message Type: Stream Id Message (455)",
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_amexoptions_complexfeed_xdp_v1_3_a.message_type.display = function(value)
+  return nyse_amexoptions_complexfeed_xdp_v1_3_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -2130,46 +2086,23 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.payload = {}
 
 -- Dissect: Payload
+nyse_amexoptions_complexfeed_xdp_v1_3_a.payload.dispatch = {
+  [423] = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_quote_message.dissect,
+  [425] = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_trade_message.dissect,
+  [429] = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.dissect,
+  [472] = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.dissect,
+  [433] = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_status_message.dissect,
+  [511] = nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.dissect,
+  [513] = nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.dissect,
+  [439] = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.dissect,
+  [455] = nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id_message.dissect,
+  [1] = nyse_amexoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.dissect,
+}
+
 nyse_amexoptions_complexfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Complex Quote Message
-  if message_type == 423 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Trade Message
-  if message_type == 425 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Crossing Rfq Message
-  if message_type == 429 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Cube Rfq Message
-  if message_type == 472 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Status Message
-  if message_type == 433 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complex Quote Message
-  if message_type == 511 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complex Trade Message
-  if message_type == 513 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Symbol Definition Message
-  if message_type == 439 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Id Message
-  if message_type == 455 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_amexoptions_complexfeed_xdp_v1_3_a.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -309,12 +309,12 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.accrued_interest_calculation_procedur
 bme_bmefixedincome_topofbook5_bmegate_v1_6.accrued_interest_calculation_procedure.size = 1
 
 -- Display: Accrued Interest Calculation Procedure
-bme_bmefixedincome_topofbook5_bmegate_v1_6.accrued_interest_calculation_procedure.display = function(value)
-  if value == "1" then
-    return "Accrued Interest Calculation Procedure: Real Base (1)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.accrued_interest_calculation_procedure.labels = {
+  ["1"] = "Accrued Interest Calculation Procedure: Real Base (1)",
+}
 
-  return "Accrued Interest Calculation Procedure: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.accrued_interest_calculation_procedure.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.accrued_interest_calculation_procedure.labels[value] or "Accrued Interest Calculation Procedure: Unknown("..value..")"
 end
 
 -- Dissect: Accrued Interest Calculation Procedure
@@ -831,45 +831,23 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.amended_trade_type = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.amended_trade_type.size = 1
 
 -- Display: Amended Trade Type
-bme_bmefixedincome_topofbook5_bmegate_v1_6.amended_trade_type.display = function(value)
-  if value == "M" then
-    return "Amended Trade Type: Market (M)"
-  end
-  if value == "K" then
-    return "Amended Trade Type: Block Trade (K)"
-  end
-  if value == "X" then
-    return "Amended Trade Type: Cancellation (X)"
-  end
-  if value == "T" then
-    return "Amended Trade Type: Trade Amendment (T)"
-  end
-  if value == "Q" then
-    return "Amended Trade Type: Application (Q)"
-  end
-  if value == "A" then
-    return "Amended Trade Type: Block Trade With Settlement Date Equal To Session Date (A)"
-  end
-  if value == "B" then
-    return "Amended Trade Type: Application With Settlement Date Equal To Session Date (B)"
-  end
-  if value == "C" then
-    return "Amended Trade Type: Repo Block Trade (C)"
-  end
-  if value == "D" then
-    return "Amended Trade Type: Repo Application (D)"
-  end
-  if value == "E" then
-    return "Amended Trade Type: Repo Block Trade With Start Date Equal To Session Date (E)"
-  end
-  if value == "F" then
-    return "Amended Trade Type: Repo Application With Start Date Equal To Session Date (F)"
-  end
-  if value == "3" then
-    return "Amended Trade Type: Rfq (3)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.amended_trade_type.labels = {
+  ["M"] = "Amended Trade Type: Market (M)",
+  ["K"] = "Amended Trade Type: Block Trade (K)",
+  ["X"] = "Amended Trade Type: Cancellation (X)",
+  ["T"] = "Amended Trade Type: Trade Amendment (T)",
+  ["Q"] = "Amended Trade Type: Application (Q)",
+  ["A"] = "Amended Trade Type: Block Trade With Settlement Date Equal To Session Date (A)",
+  ["B"] = "Amended Trade Type: Application With Settlement Date Equal To Session Date (B)",
+  ["C"] = "Amended Trade Type: Repo Block Trade (C)",
+  ["D"] = "Amended Trade Type: Repo Application (D)",
+  ["E"] = "Amended Trade Type: Repo Block Trade With Start Date Equal To Session Date (E)",
+  ["F"] = "Amended Trade Type: Repo Application With Start Date Equal To Session Date (F)",
+  ["3"] = "Amended Trade Type: Rfq (3)",
+}
 
-  return "Amended Trade Type: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.amended_trade_type.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.amended_trade_type.labels[value] or "Amended Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Amended Trade Type
@@ -1349,21 +1327,15 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark_curve_points_units = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark_curve_points_units.size = 4
 
 -- Display: Benchmark Curve Points Units
-bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark_curve_points_units.display = function(value)
-  if value == "DAYS" then
-    return "Benchmark Curve Points Units: Days (DAYS)"
-  end
-  if value == "WEEK" then
-    return "Benchmark Curve Points Units: Week (WEEK)"
-  end
-  if value == "MNTH" then
-    return "Benchmark Curve Points Units: Month (MNTH)"
-  end
-  if value == "YEAR" then
-    return "Benchmark Curve Points Units: Year (YEAR)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark_curve_points_units.labels = {
+  ["DAYS"] = "Benchmark Curve Points Units: Days (DAYS)",
+  ["WEEK"] = "Benchmark Curve Points Units: Week (WEEK)",
+  ["MNTH"] = "Benchmark Curve Points Units: Month (MNTH)",
+  ["YEAR"] = "Benchmark Curve Points Units: Year (YEAR)",
+}
 
-  return "Benchmark Curve Points Units: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark_curve_points_units.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.benchmark_curve_points_units.labels[value] or "Benchmark Curve Points Units: Unknown("..value..")"
 end
 
 -- Dissect: Benchmark Curve Points Units
@@ -1942,21 +1914,15 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.bond_seniority = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.bond_seniority.size = 4
 
 -- Display: Bond Seniority
-bme_bmefixedincome_topofbook5_bmegate_v1_6.bond_seniority.display = function(value)
-  if value == "SNDB" then
-    return "Bond Seniority: Senior (SNDB)"
-  end
-  if value == "MZZD" then
-    return "Bond Seniority: Mezzanine (MZZD)"
-  end
-  if value == "SBOD" then
-    return "Bond Seniority: Subordinated (SBOD)"
-  end
-  if value == "JUND" then
-    return "Bond Seniority: Junior (JUND)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.bond_seniority.labels = {
+  ["SNDB"] = "Bond Seniority: Senior (SNDB)",
+  ["MZZD"] = "Bond Seniority: Mezzanine (MZZD)",
+  ["SBOD"] = "Bond Seniority: Subordinated (SBOD)",
+  ["JUND"] = "Bond Seniority: Junior (JUND)",
+}
 
-  return "Bond Seniority: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.bond_seniority.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.bond_seniority.labels[value] or "Bond Seniority: Unknown("..value..")"
 end
 
 -- Dissect: Bond Seniority
@@ -2012,27 +1978,17 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.calculation_method = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.calculation_method.size = 1
 
 -- Display: Calculation Method
-bme_bmefixedincome_topofbook5_bmegate_v1_6.calculation_method.display = function(value)
-  if value == "0" then
-    return "Calculation Method: Thirty 360 US NASD (0)"
-  end
-  if value == "1" then
-    return "Calculation Method: Actual Actual (1)"
-  end
-  if value == "2" then
-    return "Calculation Method: Actual 360 (2)"
-  end
-  if value == "3" then
-    return "Calculation Method: Actual 365 (3)"
-  end
-  if value == "4" then
-    return "Calculation Method: Thirty 360 European (4)"
-  end
-  if value == "5" then
-    return "Calculation Method: If Days To Maturity 365 Actual 360 Else Actual 365 (5)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.calculation_method.labels = {
+  ["0"] = "Calculation Method: Thirty 360 US NASD (0)",
+  ["1"] = "Calculation Method: Actual Actual (1)",
+  ["2"] = "Calculation Method: Actual 360 (2)",
+  ["3"] = "Calculation Method: Actual 365 (3)",
+  ["4"] = "Calculation Method: Thirty 360 European (4)",
+  ["5"] = "Calculation Method: If Days To Maturity 365 Actual 360 Else Actual 365 (5)",
+}
 
-  return "Calculation Method: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.calculation_method.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.calculation_method.labels[value] or "Calculation Method: Unknown("..value..")"
 end
 
 -- Dissect: Calculation Method
@@ -2310,78 +2266,34 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.data_code = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.data_code.size = 1
 
 -- Display: Data Code
-bme_bmefixedincome_topofbook5_bmegate_v1_6.data_code.display = function(value)
-  if value == "D" then
-    return "Data Code: Average Price (D)"
-  end
-  if value == "d" then
-    return "Data Code: Previous Forward Price (d)"
-  end
-  if value == "E" then
-    return "Data Code: Published Cash Amount (E)"
-  end
-  if value == "e" then
-    return "Data Code: Order Modality Cash Amount (e)"
-  end
-  if value == "f" then
-    return "Data Code: End Of Session Indicator (f)"
-  end
-  if value == "G" then
-    return "Data Code: First (G)"
-  end
-  if value == "H" then
-    return "Data Code: High (H)"
-  end
-  if value == "h" then
-    return "Data Code: Maximum Bid (h)"
-  end
-  if value == "J" then
-    return "Data Code: Not Published Volume (J)"
-  end
-  if value == "M" then
-    return "Data Code: Last (M)"
-  end
-  if value == "N" then
-    return "Data Code: Number Of Trades (N)"
-  end
-  if value == "Q" then
-    return "Data Code: Previous Closing Price (Q)"
-  end
-  if value == "R" then
-    return "Data Code: Opening Volatility (R)"
-  end
-  if value == "V" then
-    return "Data Code: Published Volume (V)"
-  end
-  if value == "v" then
-    return "Data Code: Published Volume Order Modality (v)"
-  end
-  if value == "W" then
-    return "Data Code: Volume Of Last Trade (W)"
-  end
-  if value == "Z" then
-    return "Data Code: Low (Z)"
-  end
-  if value == "z" then
-    return "Data Code: Minimum Ask (z)"
-  end
-  if value == "j" then
-    return "Data Code: Closing Price (j)"
-  end
-  if value == "k" then
-    return "Data Code: Closing Yield (k)"
-  end
-  if value == "l" then
-    return "Data Code: Volatility (l)"
-  end
-  if value == "m" then
-    return "Data Code: Delta (m)"
-  end
-  if value == "n" then
-    return "Data Code: Forward Price (n)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.data_code.labels = {
+  ["D"] = "Data Code: Average Price (D)",
+  ["d"] = "Data Code: Previous Forward Price (d)",
+  ["E"] = "Data Code: Published Cash Amount (E)",
+  ["e"] = "Data Code: Order Modality Cash Amount (e)",
+  ["f"] = "Data Code: End Of Session Indicator (f)",
+  ["G"] = "Data Code: First (G)",
+  ["H"] = "Data Code: High (H)",
+  ["h"] = "Data Code: Maximum Bid (h)",
+  ["J"] = "Data Code: Not Published Volume (J)",
+  ["M"] = "Data Code: Last (M)",
+  ["N"] = "Data Code: Number Of Trades (N)",
+  ["Q"] = "Data Code: Previous Closing Price (Q)",
+  ["R"] = "Data Code: Opening Volatility (R)",
+  ["V"] = "Data Code: Published Volume (V)",
+  ["v"] = "Data Code: Published Volume Order Modality (v)",
+  ["W"] = "Data Code: Volume Of Last Trade (W)",
+  ["Z"] = "Data Code: Low (Z)",
+  ["z"] = "Data Code: Minimum Ask (z)",
+  ["j"] = "Data Code: Closing Price (j)",
+  ["k"] = "Data Code: Closing Yield (k)",
+  ["l"] = "Data Code: Volatility (l)",
+  ["m"] = "Data Code: Delta (m)",
+  ["n"] = "Data Code: Forward Price (n)",
+}
 
-  return "Data Code: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.data_code.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.data_code.labels[value] or "Data Code: Unknown("..value..")"
 end
 
 -- Dissect: Data Code
@@ -2520,36 +2432,20 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.designation = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.designation.size = 1
 
 -- Display: Designation
-bme_bmefixedincome_topofbook5_bmegate_v1_6.designation.display = function(value)
-  if value == "1" then
-    return "Designation: Trade During Open Market (1)"
-  end
-  if value == "2" then
-    return "Designation: Trade During Opening Auction (2)"
-  end
-  if value == "3" then
-    return "Designation: Trade During Closing Auction (3)"
-  end
-  if value == "4" then
-    return "Designation: Trade During Volatility Auction (4)"
-  end
-  if value == "5" then
-    return "Designation: Trade During Manual Auction (5)"
-  end
-  if value == "6" then
-    return "Designation: Trade During Opening Auction Extension (6)"
-  end
-  if value == "7" then
-    return "Designation: Trade During Closing Auction Extension (7)"
-  end
-  if value == "8" then
-    return "Designation: Trade During Tal Period (8)"
-  end
-  if value == "C" then
-    return "Designation: Trade In Spain At Mid Dark Book (C)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.designation.labels = {
+  ["1"] = "Designation: Trade During Open Market (1)",
+  ["2"] = "Designation: Trade During Opening Auction (2)",
+  ["3"] = "Designation: Trade During Closing Auction (3)",
+  ["4"] = "Designation: Trade During Volatility Auction (4)",
+  ["5"] = "Designation: Trade During Manual Auction (5)",
+  ["6"] = "Designation: Trade During Opening Auction Extension (6)",
+  ["7"] = "Designation: Trade During Closing Auction Extension (7)",
+  ["8"] = "Designation: Trade During Tal Period (8)",
+  ["C"] = "Designation: Trade In Spain At Mid Dark Book (C)",
+}
 
-  return "Designation: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.designation.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.designation.labels[value] or "Designation: Unknown("..value..")"
 end
 
 -- Dissect: Designation
@@ -2932,18 +2828,14 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.ioi_trans_type = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.ioi_trans_type.size = 1
 
 -- Display: Ioi Trans Type
-bme_bmefixedincome_topofbook5_bmegate_v1_6.ioi_trans_type.display = function(value)
-  if value == "N" then
-    return "Ioi Trans Type: New (N)"
-  end
-  if value == "C" then
-    return "Ioi Trans Type: Cancel (C)"
-  end
-  if value == "R" then
-    return "Ioi Trans Type: Replace (R)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.ioi_trans_type.labels = {
+  ["N"] = "Ioi Trans Type: New (N)",
+  ["C"] = "Ioi Trans Type: Cancel (C)",
+  ["R"] = "Ioi Trans Type: Replace (R)",
+}
 
-  return "Ioi Trans Type: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.ioi_trans_type.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.ioi_trans_type.labels[value] or "Ioi Trans Type: Unknown("..value..")"
 end
 
 -- Dissect: Ioi Trans Type
@@ -3265,33 +3157,19 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.logout_reason = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.logout_reason.size = 1
 
 -- Display: Logout Reason
-bme_bmefixedincome_topofbook5_bmegate_v1_6.logout_reason.display = function(value)
-  if value == 0 then
-    return "Logout Reason: Termination After A Solicited Logout Request (0)"
-  end
-  if value == 1 then
-    return "Logout Reason: End Of Session Termination In Recovery Server End Of Recovery Snapshot (1)"
-  end
-  if value == 2 then
-    return "Logout Reason: Timeout Connection Lost (2)"
-  end
-  if value == 3 then
-    return "Logout Reason: Lack Of Heartbeat (3)"
-  end
-  if value == 16 then
-    return "Logout Reason: Invalid Username Or Password (16)"
-  end
-  if value == 17 then
-    return "Logout Reason: Invalid Expected Sequence Number (17)"
-  end
-  if value == 18 then
-    return "Logout Reason: Invalid Protocol Version (18)"
-  end
-  if value == 19 then
-    return "Logout Reason: New Connection From User (19)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.logout_reason.labels = {
+  [0] = "Logout Reason: Termination After A Solicited Logout Request (0)",
+  [1] = "Logout Reason: End Of Session Termination In Recovery Server End Of Recovery Snapshot (1)",
+  [2] = "Logout Reason: Timeout Connection Lost (2)",
+  [3] = "Logout Reason: Lack Of Heartbeat (3)",
+  [16] = "Logout Reason: Invalid Username Or Password (16)",
+  [17] = "Logout Reason: Invalid Expected Sequence Number (17)",
+  [18] = "Logout Reason: Invalid Protocol Version (18)",
+  [19] = "Logout Reason: New Connection From User (19)",
+}
 
-  return "Logout Reason: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.logout_reason.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.logout_reason.labels[value] or "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -3342,15 +3220,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.market_id = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.market_id.size = 4
 
 -- Display: Market Id
-bme_bmefixedincome_topofbook5_bmegate_v1_6.market_id.display = function(value)
-  if value == "BMEX" then
-    return "Market Id: BMEX (BMEX)"
-  end
-  if value == "XNAF" then
-    return "Market Id: XNAF (XNAF)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.market_id.labels = {
+  ["BMEX"] = "Market Id: BMEX (BMEX)",
+  ["XNAF"] = "Market Id: XNAF (XNAF)",
+}
 
-  return "Market Id: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.market_id.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -3383,18 +3259,14 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.market_mechanism = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.market_mechanism.size = 1
 
 -- Display: Market Mechanism
-bme_bmefixedincome_topofbook5_bmegate_v1_6.market_mechanism.display = function(value)
-  if value == "0" then
-    return "Market Mechanism: Central Limit Order Book (0)"
-  end
-  if value == "1" then
-    return "Market Mechanism: Off Book Messaging Trading (1)"
-  end
-  if value == "6" then
-    return "Market Mechanism: Request For Quotes (6)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.market_mechanism.labels = {
+  ["0"] = "Market Mechanism: Central Limit Order Book (0)",
+  ["1"] = "Market Mechanism: Off Book Messaging Trading (1)",
+  ["6"] = "Market Mechanism: Request For Quotes (6)",
+}
 
-  return "Market Mechanism: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.market_mechanism.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.market_mechanism.labels[value] or "Market Mechanism: Unknown("..value..")"
 end
 
 -- Dissect: Market Mechanism
@@ -3416,30 +3288,18 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.market_segment_id = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.market_segment_id.size = 4
 
 -- Display: Market Segment Id
-bme_bmefixedincome_topofbook5_bmegate_v1_6.market_segment_id.display = function(value)
-  if value == "MARF" then
-    return "Market Segment Id: Mercado Alternativo De Renta Fija (MARF)"
-  end
-  if value == "MERF" then
-    return "Market Segment Id: Mercado Electrónico De Renta Fija (MERF)"
-  end
-  if value == "SBAR" then
-    return "Market Segment Id: Bolsa De Barcelona Renta Fija (SBAR)"
-  end
-  if value == "SBIL" then
-    return "Market Segment Id: Bolsa De Bilbao Renta Fija (SBIL)"
-  end
-  if value == "SEND" then
-    return "Market Segment Id: Send Sistema Electrónico De Negociación De Deuda (SEND)"
-  end
-  if value == "XDRF" then
-    return "Market Segment Id: Aiaf Mercado De Renta Fija (XDRF)"
-  end
-  if value == "XNAF" then
-    return "Market Segment Id: Senaf Sistema Electrónico De Negociación De Activos Financieros (XNAF)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.market_segment_id.labels = {
+  ["MARF"] = "Market Segment Id: Mercado Alternativo De Renta Fija (MARF)",
+  ["MERF"] = "Market Segment Id: Mercado Electrónico De Renta Fija (MERF)",
+  ["SBAR"] = "Market Segment Id: Bolsa De Barcelona Renta Fija (SBAR)",
+  ["SBIL"] = "Market Segment Id: Bolsa De Bilbao Renta Fija (SBIL)",
+  ["SEND"] = "Market Segment Id: Send Sistema Electrónico De Negociación De Deuda (SEND)",
+  ["XDRF"] = "Market Segment Id: Aiaf Mercado De Renta Fija (XDRF)",
+  ["XNAF"] = "Market Segment Id: Senaf Sistema Electrónico De Negociación De Activos Financieros (XNAF)",
+}
 
-  return "Market Segment Id: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.market_segment_id.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.market_segment_id.labels[value] or "Market Segment Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Segment Id
@@ -3547,60 +3407,28 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.message_type = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.message_type.size = 1
 
 -- Display: Message Type
-bme_bmefixedincome_topofbook5_bmegate_v1_6.message_type.display = function(value)
-  if value == 0x08 then
-    return "Message Type: Logon Response Message (0x08)"
-  end
-  if value == 0x0B then
-    return "Message Type: Logout Response Message (0x0B)"
-  end
-  if value == 0x30 then
-    return "Message Type: Heartbeat Message (0x30)"
-  end
-  if value == 0x0A then
-    return "Message Type: Network Status Message (0x0A)"
-  end
-  if value == 0x68 then
-    return "Message Type: Trading Session Status Message (0x68)"
-  end
-  if value == 0x42 then
-    return "Message Type: News Message (0x42)"
-  end
-  if value == 0x78 then
-    return "Message Type: Security List Cancellation Report Message (0x78)"
-  end
-  if value == 0x84 then
-    return "Message Type: Statistics Message (0x84)"
-  end
-  if value == 0x79 then
-    return "Message Type: Security List Message (0x79)"
-  end
-  if value == 0x80 then
-    return "Message Type: Security List Update Report Message (0x80)"
-  end
-  if value == 0x66 then
-    return "Message Type: Security Status Message (0x66)"
-  end
-  if value == 0x10 then
-    return "Message Type: Trade Market Post Transparency Information Topofbook Message (0x10)"
-  end
-  if value == 0x18 then
-    return "Message Type: Trade Trade Amendment Or Cancellation Message (0x18)"
-  end
-  if value == 0x36 then
-    return "Message Type: Indication Of Interest Message (0x36)"
-  end
-  if value == 0x85 then
-    return "Message Type: Rfq Market Pre Transparency Information Message (0x85)"
-  end
-  if value == 0x82 then
-    return "Message Type: Topofbook Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Topofbook 5 Levels Message (0x83)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.message_type.labels = {
+  [0x08] = "Message Type: Logon Response Message (0x08)",
+  [0x0B] = "Message Type: Logout Response Message (0x0B)",
+  [0x30] = "Message Type: Heartbeat Message (0x30)",
+  [0x0A] = "Message Type: Network Status Message (0x0A)",
+  [0x68] = "Message Type: Trading Session Status Message (0x68)",
+  [0x42] = "Message Type: News Message (0x42)",
+  [0x78] = "Message Type: Security List Cancellation Report Message (0x78)",
+  [0x84] = "Message Type: Statistics Message (0x84)",
+  [0x79] = "Message Type: Security List Message (0x79)",
+  [0x80] = "Message Type: Security List Update Report Message (0x80)",
+  [0x66] = "Message Type: Security Status Message (0x66)",
+  [0x10] = "Message Type: Trade Market Post Transparency Information Topofbook Message (0x10)",
+  [0x18] = "Message Type: Trade Trade Amendment Or Cancellation Message (0x18)",
+  [0x36] = "Message Type: Indication Of Interest Message (0x36)",
+  [0x85] = "Message Type: Rfq Market Pre Transparency Information Message (0x85)",
+  [0x82] = "Message Type: Topofbook Message (0x82)",
+  [0x83] = "Message Type: Topofbook 5 Levels Message (0x83)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.message_type.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -3801,21 +3629,15 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.network_status_value = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.network_status_value.size = 1
 
 -- Display: Network Status Value
-bme_bmefixedincome_topofbook5_bmegate_v1_6.network_status_value.display = function(value)
-  if value == 1 then
-    return "Network Status Value: Connected (1)"
-  end
-  if value == 2 then
-    return "Network Status Value: Not Connected Down Expected Up (2)"
-  end
-  if value == 3 then
-    return "Network Status Value: Not Connected Down Expected Down (3)"
-  end
-  if value == 4 then
-    return "Network Status Value: In Process (4)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.network_status_value.labels = {
+  [1] = "Network Status Value: Connected (1)",
+  [2] = "Network Status Value: Not Connected Down Expected Up (2)",
+  [3] = "Network Status Value: Not Connected Down Expected Down (3)",
+  [4] = "Network Status Value: In Process (4)",
+}
 
-  return "Network Status Value: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.network_status_value.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.network_status_value.labels[value] or "Network Status Value: Unknown("..value..")"
 end
 
 -- Dissect: Network Status Value
@@ -3899,24 +3721,16 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.non_availability_reason = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.non_availability_reason.size = 1
 
 -- Display: Non Availability Reason
-bme_bmefixedincome_topofbook5_bmegate_v1_6.non_availability_reason.display = function(value)
-  if value == 0 then
-    return "Non Availability Reason: Not Halted (0)"
-  end
-  if value == 100 then
-    return "Non Availability Reason: Halted By Regulator (100)"
-  end
-  if value == 101 then
-    return "Non Availability Reason: Halted By Market Surveillance (101)"
-  end
-  if value == 102 then
-    return "Non Availability Reason: Knockout (102)"
-  end
-  if value == 103 then
-    return "Non Availability Reason: Knockin Pending (103)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.non_availability_reason.labels = {
+  [0] = "Non Availability Reason: Not Halted (0)",
+  [100] = "Non Availability Reason: Halted By Regulator (100)",
+  [101] = "Non Availability Reason: Halted By Market Surveillance (101)",
+  [102] = "Non Availability Reason: Knockout (102)",
+  [103] = "Non Availability Reason: Knockin Pending (103)",
+}
 
-  return "Non Availability Reason: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.non_availability_reason.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.non_availability_reason.labels[value] or "Non Availability Reason: Unknown("..value..")"
 end
 
 -- Dissect: Non Availability Reason
@@ -4067,15 +3881,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.price_type = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.price_type.size = 1
 
 -- Display: Price Type
-bme_bmefixedincome_topofbook5_bmegate_v1_6.price_type.display = function(value)
-  if value == "1" then
-    return "Price Type: Price (1)"
-  end
-  if value == "2" then
-    return "Price Type: Rate (2)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.price_type.labels = {
+  ["1"] = "Price Type: Price (1)",
+  ["2"] = "Price Type: Rate (2)",
+}
 
-  return "Price Type: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.price_type.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -4097,12 +3909,12 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.protocol_version = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.protocol_version.size = 6
 
 -- Display: Protocol Version
-bme_bmefixedincome_topofbook5_bmegate_v1_6.protocol_version.display = function(value)
-  if value == "BBP001" then
-    return "Protocol Version: BBP001 (BBP001)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.protocol_version.labels = {
+  ["BBP001"] = "Protocol Version: BBP001 (BBP001)",
+}
 
-  return "Protocol Version: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.protocol_version.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.protocol_version.labels[value] or "Protocol Version: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Version
@@ -4301,36 +4113,20 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.security_group = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.security_group.size = 2
 
 -- Display: Security Group
-bme_bmefixedincome_topofbook5_bmegate_v1_6.security_group.display = function(value)
-  if value == "CR" then
-    return "Security Group: MERF Corporates (CR)"
-  end
-  if value == "DB" then
-    return "Security Group: Bilbao Stock Exchange Debt (DB)"
-  end
-  if value == "DC" then
-    return "Security Group: Barcelona Stock Exchange Debt (DC)"
-  end
-  if value == "CP" then
-    return "Security Group: AIAF SEND Corporates (CP)"
-  end
-  if value == "DE" then
-    return "Security Group: AIAF Spanish Treasury Debt (DE)"
-  end
-  if value == "DT" then
-    return "Security Group: AIAF DLT Issues (DT)"
-  end
-  if value == "EX" then
-    return "Security Group: AIAF Non Spanish Issues (EX)"
-  end
-  if value == "MA" then
-    return "Security Group: MARF Corporates (MA)"
-  end
-  if value == "DS" then
-    return "Security Group: Senaf Spanish Treasury Debt (DS)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.security_group.labels = {
+  ["CR"] = "Security Group: MERF Corporates (CR)",
+  ["DB"] = "Security Group: Bilbao Stock Exchange Debt (DB)",
+  ["DC"] = "Security Group: Barcelona Stock Exchange Debt (DC)",
+  ["CP"] = "Security Group: AIAF SEND Corporates (CP)",
+  ["DE"] = "Security Group: AIAF Spanish Treasury Debt (DE)",
+  ["DT"] = "Security Group: AIAF DLT Issues (DT)",
+  ["EX"] = "Security Group: AIAF Non Spanish Issues (EX)",
+  ["MA"] = "Security Group: MARF Corporates (MA)",
+  ["DS"] = "Security Group: Senaf Spanish Treasury Debt (DS)",
+}
 
-  return "Security Group: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.security_group.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_group.labels[value] or "Security Group: Unknown("..value..")"
 end
 
 -- Dissect: Security Group
@@ -4402,15 +4198,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status.size = 1
 
 -- Display: Security Status
-bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status.display = function(value)
-  if value == "1" then
-    return "Security Status: Active (1)"
-  end
-  if value == "2" then
-    return "Security Status: Inactive Provissionaly Assumed (2)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status.labels = {
+  ["1"] = "Security Status: Active (1)",
+  ["2"] = "Security Status: Inactive Provissionaly Assumed (2)",
+}
 
-  return "Security Status: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status.labels[value] or "Security Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Status
@@ -4432,33 +4226,19 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.security_trading_status = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-bme_bmefixedincome_topofbook5_bmegate_v1_6.security_trading_status.display = function(value)
-  if value == 17 then
-    return "Security Trading Status: Ready To Trade (17)"
-  end
-  if value == 18 then
-    return "Security Trading Status: Not Available For Trading (18)"
-  end
-  if value == 19 then
-    return "Security Trading Status: Not Traded On This Segment (19)"
-  end
-  if value == 20 then
-    return "Security Trading Status: Unknown Or Invalid (20)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Pre Open (21)"
-  end
-  if value == 26 then
-    return "Security Trading Status: Postclose Ready To Trade In Tal (26)"
-  end
-  if value == 23 then
-    return "Security Trading Status: Fast Market (23)"
-  end
-  if value == 100 then
-    return "Security Trading Status: Extraordinary Market Conditions (100)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.security_trading_status.labels = {
+  [17] = "Security Trading Status: Ready To Trade (17)",
+  [18] = "Security Trading Status: Not Available For Trading (18)",
+  [19] = "Security Trading Status: Not Traded On This Segment (19)",
+  [20] = "Security Trading Status: Unknown Or Invalid (20)",
+  [21] = "Security Trading Status: Pre Open (21)",
+  [26] = "Security Trading Status: Postclose Ready To Trade In Tal (26)",
+  [23] = "Security Trading Status: Fast Market (23)",
+  [100] = "Security Trading Status: Extraordinary Market Conditions (100)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.security_trading_status.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -4480,36 +4260,20 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.security_type = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.security_type.size = 2
 
 -- Display: Security Type
-bme_bmefixedincome_topofbook5_bmegate_v1_6.security_type.display = function(value)
-  if value == "BC" then
-    return "Security Type: Bonos Y Obligaciones Convertibles (BC)"
-  end
-  if value == "BO" then
-    return "Security Type: Bonos Y Obligaciones (BO)"
-  end
-  if value == "CA" then
-    return "Security Type: Cupones Segregados (CA)"
-  end
-  if value == "CD" then
-    return "Security Type: Cédulas (CD)"
-  end
-  if value == "LT" then
-    return "Security Type: Letras Del Tesoro (LT)"
-  end
-  if value == "PG" then
-    return "Security Type: Pagarés (PG)"
-  end
-  if value == "PP" then
-    return "Security Type: Participaciones Preferentes (PP)"
-  end
-  if value == "PS" then
-    return "Security Type: Principales Segregados (PS)"
-  end
-  if value == "TZ" then
-    return "Security Type: Titulizaciones (TZ)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.security_type.labels = {
+  ["BC"] = "Security Type: Bonos Y Obligaciones Convertibles (BC)",
+  ["BO"] = "Security Type: Bonos Y Obligaciones (BO)",
+  ["CA"] = "Security Type: Cupones Segregados (CA)",
+  ["CD"] = "Security Type: Cédulas (CD)",
+  ["LT"] = "Security Type: Letras Del Tesoro (LT)",
+  ["PG"] = "Security Type: Pagarés (PG)",
+  ["PP"] = "Security Type: Participaciones Preferentes (PP)",
+  ["PS"] = "Security Type: Principales Segregados (PS)",
+  ["TZ"] = "Security Type: Titulizaciones (TZ)",
+}
 
-  return "Security Type: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.security_type.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -4680,18 +4444,14 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.settlement_system = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.settlement_system.size = 1
 
 -- Display: Settlement System
-bme_bmefixedincome_topofbook5_bmegate_v1_6.settlement_system.display = function(value)
-  if value == "A" then
-    return "Settlement System: Iberclear Cade (A)"
-  end
-  if value == "D" then
-    return "Settlement System: Dlt Bme (D)"
-  end
-  if value == "O" then
-    return "Settlement System: Other (O)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.settlement_system.labels = {
+  ["A"] = "Settlement System: Iberclear Cade (A)",
+  ["D"] = "Settlement System: Dlt Bme (D)",
+  ["O"] = "Settlement System: Other (O)",
+}
 
-  return "Settlement System: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.settlement_system.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.settlement_system.labels[value] or "Settlement System: Unknown("..value..")"
 end
 
 -- Dissect: Settlement System
@@ -4867,15 +4627,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.static_range_type = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.static_range_type.size = 1
 
 -- Display: Static Range Type
-bme_bmefixedincome_topofbook5_bmegate_v1_6.static_range_type.display = function(value)
-  if value == "P" then
-    return "Static Range Type: Percentage (P)"
-  end
-  if value == "T" then
-    return "Static Range Type: Price (T)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.static_range_type.labels = {
+  ["P"] = "Static Range Type: Percentage (P)",
+  ["T"] = "Static Range Type: Price (T)",
+}
 
-  return "Static Range Type: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.static_range_type.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.static_range_type.labels[value] or "Static Range Type: Unknown("..value..")"
 end
 
 -- Dissect: Static Range Type
@@ -5008,15 +4766,13 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.test_production_ind = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.test_production_ind.size = 1
 
 -- Display: Test Production Ind
-bme_bmefixedincome_topofbook5_bmegate_v1_6.test_production_ind.display = function(value)
-  if value == "T" then
-    return "Test Production Ind: Test (T)"
-  end
-  if value == "P" then
-    return "Test Production Ind: Production (P)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.test_production_ind.labels = {
+  ["T"] = "Test Production Ind: Test (T)",
+  ["P"] = "Test Production Ind: Production (P)",
+}
 
-  return "Test Production Ind: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.test_production_ind.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.test_production_ind.labels[value] or "Test Production Ind: Unknown("..value..")"
 end
 
 -- Dissect: Test Production Ind
@@ -5038,27 +4794,17 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trad_ses_status = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.trad_ses_status.size = 1
 
 -- Display: Trad Ses Status
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trad_ses_status.display = function(value)
-  if value == 1 then
-    return "Trad Ses Status: Halted (1)"
-  end
-  if value == 2 then
-    return "Trad Ses Status: Open (2)"
-  end
-  if value == 3 then
-    return "Trad Ses Status: Closed (3)"
-  end
-  if value == 4 then
-    return "Trad Ses Status: Pre Open Not Started (4)"
-  end
-  if value == 5 then
-    return "Trad Ses Status: Pre Close (5)"
-  end
-  if value == 6 then
-    return "Trad Ses Status: Request Rejected (6)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trad_ses_status.labels = {
+  [1] = "Trad Ses Status: Halted (1)",
+  [2] = "Trad Ses Status: Open (2)",
+  [3] = "Trad Ses Status: Closed (3)",
+  [4] = "Trad Ses Status: Pre Open Not Started (4)",
+  [5] = "Trad Ses Status: Pre Close (5)",
+  [6] = "Trad Ses Status: Request Rejected (6)",
+}
 
-  return "Trad Ses Status: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trad_ses_status.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.trad_ses_status.labels[value] or "Trad Ses Status: Unknown("..value..")"
 end
 
 -- Dissect: Trad Ses Status
@@ -5160,45 +4906,23 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_type = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_type.size = 1
 
 -- Display: Trade Type
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_type.display = function(value)
-  if value == "M" then
-    return "Trade Type: Market (M)"
-  end
-  if value == "K" then
-    return "Trade Type: Block Trade (K)"
-  end
-  if value == "X" then
-    return "Trade Type: Cancellation (X)"
-  end
-  if value == "T" then
-    return "Trade Type: Trade Amendment (T)"
-  end
-  if value == "Q" then
-    return "Trade Type: Application (Q)"
-  end
-  if value == "A" then
-    return "Trade Type: Block Trade With Settlement Date Equal To Session Date (A)"
-  end
-  if value == "B" then
-    return "Trade Type: Application With Settlement Date Equal To Session Date (B)"
-  end
-  if value == "C" then
-    return "Trade Type: Repo Block Trade (C)"
-  end
-  if value == "D" then
-    return "Trade Type: Repo Application (D)"
-  end
-  if value == "E" then
-    return "Trade Type: Repo Block Trade With Start Date Equal To Session Date (E)"
-  end
-  if value == "F" then
-    return "Trade Type: Repo Application With Start Date Equal To Session Date (F)"
-  end
-  if value == "3" then
-    return "Trade Type: Rfq (3)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_type.labels = {
+  ["M"] = "Trade Type: Market (M)",
+  ["K"] = "Trade Type: Block Trade (K)",
+  ["X"] = "Trade Type: Cancellation (X)",
+  ["T"] = "Trade Type: Trade Amendment (T)",
+  ["Q"] = "Trade Type: Application (Q)",
+  ["A"] = "Trade Type: Block Trade With Settlement Date Equal To Session Date (A)",
+  ["B"] = "Trade Type: Application With Settlement Date Equal To Session Date (B)",
+  ["C"] = "Trade Type: Repo Block Trade (C)",
+  ["D"] = "Trade Type: Repo Application (D)",
+  ["E"] = "Trade Type: Repo Block Trade With Start Date Equal To Session Date (E)",
+  ["F"] = "Trade Type: Repo Application With Start Date Equal To Session Date (F)",
+  ["3"] = "Trade Type: Rfq (3)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_type.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -5276,21 +5000,15 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_id = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_id.size = 1
 
 -- Display: Trading Session Id
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_id.display = function(value)
-  if value == 100 then
-    return "Trading Session Id: Continuous Trading (100)"
-  end
-  if value == 102 then
-    return "Trading Session Id: Block Trades (102)"
-  end
-  if value == 111 then
-    return "Trading Session Id: Repo Cross Trades Within The Member And Repo Block Trading (111)"
-  end
-  if value == 114 then
-    return "Trading Session Id: Rfq (114)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_id.labels = {
+  [100] = "Trading Session Id: Continuous Trading (100)",
+  [102] = "Trading Session Id: Block Trades (102)",
+  [111] = "Trading Session Id: Repo Cross Trades Within The Member And Repo Block Trading (111)",
+  [114] = "Trading Session Id: Rfq (114)",
+}
 
-  return "Trading Session Id: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_id.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_id.labels[value] or "Trading Session Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Id
@@ -5312,27 +5030,17 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_sub_id = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
-bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_sub_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Sub Id: Pre Trading Not Started (1)"
-  end
-  if value == 3 then
-    return "Trading Session Sub Id: Continuous Trading (3)"
-  end
-  if value == 5 then
-    return "Trading Session Sub Id: Post Trading (5)"
-  end
-  if value == 202 then
-    return "Trading Session Sub Id: Not Started (202)"
-  end
-  if value == 203 then
-    return "Trading Session Sub Id: Open (203)"
-  end
-  if value == 204 then
-    return "Trading Session Sub Id: Closed (204)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_sub_id.labels = {
+  [1] = "Trading Session Sub Id: Pre Trading Not Started (1)",
+  [3] = "Trading Session Sub Id: Continuous Trading (3)",
+  [5] = "Trading Session Sub Id: Post Trading (5)",
+  [202] = "Trading Session Sub Id: Not Started (202)",
+  [203] = "Trading Session Sub Id: Open (203)",
+  [204] = "Trading Session Sub Id: Closed (204)",
+}
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_sub_id.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_sub_id.labels[value] or "Trading Session Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Sub Id
@@ -5431,24 +5139,16 @@ bme_bmefixedincome_topofbook5_bmegate_v1_6.type_of_redemption = {}
 bme_bmefixedincome_topofbook5_bmegate_v1_6.type_of_redemption.size = 2
 
 -- Display: Type Of Redemption
-bme_bmefixedincome_topofbook5_bmegate_v1_6.type_of_redemption.display = function(value)
-  if value == "RN" then
-    return "Type Of Redemption: Nominal Reduction (RN)"
-  end
-  if value == "UN" then
-    return "Type Of Redemption: Redemption At Maturity (UN)"
-  end
-  if value == "VE" then
-    return "Type Of Redemption: Call Redemption (VE)"
-  end
-  if value == "VT" then
-    return "Type Of Redemption: Put Redemption (VT)"
-  end
-  if value == "VL" then
-    return "Type Of Redemption: Call And Put Redemptions (VL)"
-  end
+bme_bmefixedincome_topofbook5_bmegate_v1_6.type_of_redemption.labels = {
+  ["RN"] = "Type Of Redemption: Nominal Reduction (RN)",
+  ["UN"] = "Type Of Redemption: Redemption At Maturity (UN)",
+  ["VE"] = "Type Of Redemption: Call Redemption (VE)",
+  ["VT"] = "Type Of Redemption: Put Redemption (VT)",
+  ["VL"] = "Type Of Redemption: Call And Put Redemptions (VL)",
+}
 
-  return "Type Of Redemption: Unknown("..value..")"
+bme_bmefixedincome_topofbook5_bmegate_v1_6.type_of_redemption.display = function(value)
+  return bme_bmefixedincome_topofbook5_bmegate_v1_6.type_of_redemption.labels[value] or "Type Of Redemption: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Redemption
@@ -7451,74 +7151,30 @@ end
 bme_bmefixedincome_topofbook5_bmegate_v1_6.payload = {}
 
 -- Dissect: Payload
+bme_bmefixedincome_topofbook5_bmegate_v1_6.payload.dispatch = {
+  [0x08] = bme_bmefixedincome_topofbook5_bmegate_v1_6.logon_response_message.dissect,
+  [0x0B] = bme_bmefixedincome_topofbook5_bmegate_v1_6.logout_response_message.dissect,
+  [0x30] = bme_bmefixedincome_topofbook5_bmegate_v1_6.heartbeat_message.dissect,
+  [0x0A] = bme_bmefixedincome_topofbook5_bmegate_v1_6.network_status_message.dissect,
+  [0x68] = bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_status_message.dissect,
+  [0x42] = bme_bmefixedincome_topofbook5_bmegate_v1_6.news_message.dissect,
+  [0x78] = bme_bmefixedincome_topofbook5_bmegate_v1_6.security_list_cancellation_report_message.dissect,
+  [0x84] = bme_bmefixedincome_topofbook5_bmegate_v1_6.statistics_message.dissect,
+  [0x79] = bme_bmefixedincome_topofbook5_bmegate_v1_6.security_list_message.dissect,
+  [0x80] = bme_bmefixedincome_topofbook5_bmegate_v1_6.security_list_update_report_message.dissect,
+  [0x66] = bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status_message.dissect,
+  [0x10] = bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect,
+  [0x18] = bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_trade_amendment_or_cancellation_message.dissect,
+  [0x36] = bme_bmefixedincome_topofbook5_bmegate_v1_6.indication_of_interest_message.dissect,
+  [0x85] = bme_bmefixedincome_topofbook5_bmegate_v1_6.rfq_market_pre_transparency_information_message.dissect,
+  [0x82] = bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.dissect,
+  [0x83] = bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.dissect,
+}
+
 bme_bmefixedincome_topofbook5_bmegate_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon Response Message
-  if message_type == 0x08 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if message_type == 0x0B then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == 0x30 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Network Status Message
-  if message_type == 0x0A then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.network_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if message_type == 0x68 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Message
-  if message_type == 0x42 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.news_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Cancellation Report Message
-  if message_type == 0x78 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_list_cancellation_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if message_type == 0x84 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Message
-  if message_type == 0x79 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_list_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Update Report Message
-  if message_type == 0x80 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_list_update_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 0x66 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Market Post Transparency Information Topofbook Message
-  if message_type == 0x10 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Trade Amendment Or Cancellation Message
-  if message_type == 0x18 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.trade_trade_amendment_or_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indication Of Interest Message
-  if message_type == 0x36 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.indication_of_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Market Pre Transparency Information Message
-  if message_type == 0x85 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.rfq_market_pre_transparency_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Topofbook Message
-  if message_type == 0x82 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Topofbook 5 Levels Message
-  if message_type == 0x83 then
-    return bme_bmefixedincome_topofbook5_bmegate_v1_6.topofbook_5_levels_message.dissect(buffer, offset, packet, parent)
+  local dissect = bme_bmefixedincome_topofbook5_bmegate_v1_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

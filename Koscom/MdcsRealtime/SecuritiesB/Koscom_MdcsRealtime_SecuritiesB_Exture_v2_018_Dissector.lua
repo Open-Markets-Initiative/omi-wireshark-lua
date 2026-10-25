@@ -7087,33 +7087,19 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.currency_code = {}
 koscom_mdcsrealtime_securitiesb_exture_v2_018.currency_code.size = 3
 
 -- Display: Currency Code
-koscom_mdcsrealtime_securitiesb_exture_v2_018.currency_code.display = function(value)
-  if value == "KRW" then
-    return "Currency Code: Korean Won (KRW)"
-  end
-  if value == "JPY" then
-    return "Currency Code: Japanese Yen (JPY)"
-  end
-  if value == "USD" then
-    return "Currency Code: Us Dollar (USD)"
-  end
-  if value == "HKD" then
-    return "Currency Code: Hong Kong Dollar (HKD)"
-  end
-  if value == "TWD" then
-    return "Currency Code: Taiwan Dollar (TWD)"
-  end
-  if value == "CNY" then
-    return "Currency Code: Chinese Yuan (CNY)"
-  end
-  if value == "EUR" then
-    return "Currency Code: Euro (EUR)"
-  end
-  if value == "GBP" then
-    return "Currency Code: British Pound (GBP)"
-  end
+koscom_mdcsrealtime_securitiesb_exture_v2_018.currency_code.labels = {
+  ["KRW"] = "Currency Code: Korean Won (KRW)",
+  ["JPY"] = "Currency Code: Japanese Yen (JPY)",
+  ["USD"] = "Currency Code: Us Dollar (USD)",
+  ["HKD"] = "Currency Code: Hong Kong Dollar (HKD)",
+  ["TWD"] = "Currency Code: Taiwan Dollar (TWD)",
+  ["CNY"] = "Currency Code: Chinese Yuan (CNY)",
+  ["EUR"] = "Currency Code: Euro (EUR)",
+  ["GBP"] = "Currency Code: British Pound (GBP)",
+}
 
-  return "Currency Code: Unknown("..value..")"
+koscom_mdcsrealtime_securitiesb_exture_v2_018.currency_code.display = function(value)
+  return koscom_mdcsrealtime_securitiesb_exture_v2_018.currency_code.labels[value] or "Currency Code: Unknown("..value..")"
 end
 
 -- Dissect: Currency Code
@@ -8205,12 +8191,12 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword = {}
 koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.size = 1
 
 -- Display: End Keyword
-koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.display = function(value)
-  if value == 255 then
-    return "End Keyword: End Of Message (255)"
-  end
+koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.labels = {
+  [255] = "End Keyword: End Of Message (255)",
+}
 
-  return "End Keyword: Unknown("..value..")"
+koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.display = function(value)
+  return koscom_mdcsrealtime_securitiesb_exture_v2_018.end_keyword.labels[value] or "End Keyword: Unknown("..value..")"
 end
 
 -- Dissect: End Keyword
@@ -9520,15 +9506,13 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.index_constituent = {}
 koscom_mdcsrealtime_securitiesb_exture_v2_018.index_constituent.size = 1
 
 -- Display: Index Constituent
-koscom_mdcsrealtime_securitiesb_exture_v2_018.index_constituent.display = function(value)
-  if value == "0" then
-    return "Index Constituent: Included In Etf Not In Index (0)"
-  end
-  if value == "1" then
-    return "Index Constituent: Included In Index (1)"
-  end
+koscom_mdcsrealtime_securitiesb_exture_v2_018.index_constituent.labels = {
+  ["0"] = "Index Constituent: Included In Etf Not In Index (0)",
+  ["1"] = "Index Constituent: Included In Index (1)",
+}
 
-  return "Index Constituent: Unknown("..value..")"
+koscom_mdcsrealtime_securitiesb_exture_v2_018.index_constituent.display = function(value)
+  return koscom_mdcsrealtime_securitiesb_exture_v2_018.index_constituent.labels[value] or "Index Constituent: Unknown("..value..")"
 end
 
 -- Dissect: Index Constituent
@@ -16598,894 +16582,306 @@ koscom_mdcsrealtime_securitiesb_exture_v2_018.tr_code = {}
 koscom_mdcsrealtime_securitiesb_exture_v2_018.tr_code.size = 5
 
 -- Display: Tr Code
-koscom_mdcsrealtime_securitiesb_exture_v2_018.tr_code.display = function(value)
-  if value == "I2000" then
-    return "Tr Code: Polling Data Message (I2000)"
-  end
-  if value == "IA000" then
-    return "Tr Code: Krx Index Message (IA000)"
-  end
-  if value == "IB000" then
-    return "Tr Code: Krx Estimated Index Message (IB000)"
-  end
-  if value == "J2000" then
-    return "Tr Code: Global Index Message (J2000)"
-  end
-  if value == "J4000" then
-    return "Tr Code: Bond Prime Index Message (J4000)"
-  end
-  if value == "K1000" then
-    return "Tr Code: Bond Ktb Index Message (K1000)"
-  end
-  if value == "K8000" then
-    return "Tr Code: Bond Ktb Index Term Structure Message (K8000)"
-  end
-  if value == "IG000" then
-    return "Tr Code: Bond Index Krx Message (IG000)"
-  end
-  if value == "B601S" then
-    return "Tr Code: Securities Quote Mm Lp Excluded Message (B601S)"
-  end
-  if value == "B601Q" then
-    return "Tr Code: Securities Quote Mm Lp Excluded Message (B601Q)"
-  end
-  if value == "B601X" then
-    return "Tr Code: Securities Quote Mm Lp Excluded Message (B601X)"
-  end
-  if value == "B702S" then
-    return "Tr Code: Securities Quote Mm Lp Included Message (B702S)"
-  end
-  if value == "B703S" then
-    return "Tr Code: Securities Quote Mm Lp Included Message (B703S)"
-  end
-  if value == "B704S" then
-    return "Tr Code: Securities Quote Mm Lp Included Message (B704S)"
-  end
-  if value == "B705S" then
-    return "Tr Code: Securities Quote Mm Lp Included Message (B705S)"
-  end
-  if value == "B201S" then
-    return "Tr Code: Securities Snapshot Mm Lp Excluded Message (B201S)"
-  end
-  if value == "B201Q" then
-    return "Tr Code: Securities Snapshot Mm Lp Excluded Message (B201Q)"
-  end
-  if value == "B202S" then
-    return "Tr Code: Securities Snapshot Mm Lp Included Message (B202S)"
-  end
-  if value == "B203S" then
-    return "Tr Code: Securities Snapshot Mm Lp Included Message (B203S)"
-  end
-  if value == "B204S" then
-    return "Tr Code: Securities Snapshot Mm Lp Included Message (B204S)"
-  end
-  if value == "B205S" then
-    return "Tr Code: Securities Snapshot Mm Lp Included Message (B205S)"
-  end
-  if value == "A301S" then
-    return "Tr Code: Securities Order Filled Message (A301S)"
-  end
-  if value == "A302S" then
-    return "Tr Code: Securities Order Filled Message (A302S)"
-  end
-  if value == "A303S" then
-    return "Tr Code: Securities Order Filled Message (A303S)"
-  end
-  if value == "A304S" then
-    return "Tr Code: Securities Order Filled Message (A304S)"
-  end
-  if value == "A305S" then
-    return "Tr Code: Securities Order Filled Message (A305S)"
-  end
-  if value == "A301Q" then
-    return "Tr Code: Securities Order Filled Message (A301Q)"
-  end
-  if value == "A301X" then
-    return "Tr Code: Securities Order Filled Message (A301X)"
-  end
-  if value == "C401S" then
-    return "Tr Code: Securities Negotiated Trade Message (C401S)"
-  end
-  if value == "C402S" then
-    return "Tr Code: Securities Negotiated Trade Message (C402S)"
-  end
-  if value == "C403S" then
-    return "Tr Code: Securities Negotiated Trade Message (C403S)"
-  end
-  if value == "C404S" then
-    return "Tr Code: Securities Negotiated Trade Message (C404S)"
-  end
-  if value == "C405S" then
-    return "Tr Code: Securities Negotiated Trade Message (C405S)"
-  end
-  if value == "C401Q" then
-    return "Tr Code: Securities Negotiated Trade Message (C401Q)"
-  end
-  if value == "C401X" then
-    return "Tr Code: Securities Negotiated Trade Message (C401X)"
-  end
-  if value == "A701S" then
-    return "Tr Code: Securities Market Operation Ts Message (A701S)"
-  end
-  if value == "A702S" then
-    return "Tr Code: Securities Market Operation Ts Message (A702S)"
-  end
-  if value == "A703S" then
-    return "Tr Code: Securities Market Operation Ts Message (A703S)"
-  end
-  if value == "A704S" then
-    return "Tr Code: Securities Market Operation Ts Message (A704S)"
-  end
-  if value == "A705S" then
-    return "Tr Code: Securities Market Operation Ts Message (A705S)"
-  end
-  if value == "A701Q" then
-    return "Tr Code: Securities Market Operation Ts Message (A701Q)"
-  end
-  if value == "A701X" then
-    return "Tr Code: Securities Market Operation Ts Message (A701X)"
-  end
-  if value == "A701B" then
-    return "Tr Code: Securities Market Operation Ts Message (A701B)"
-  end
-  if value == "A701M" then
-    return "Tr Code: Securities Market Operation Ts Message (A701M)"
-  end
-  if value == "A701K" then
-    return "Tr Code: Securities Market Operation Ts Message (A701K)"
-  end
-  if value == "A701R" then
-    return "Tr Code: Securities Market Operation Ts Message (A701R)"
-  end
-  if value == "A701F" then
-    return "Tr Code: Securities Market Operation Ts Message (A701F)"
-  end
-  if value == "A702F" then
-    return "Tr Code: Securities Market Operation Ts Message (A702F)"
-  end
-  if value == "A703F" then
-    return "Tr Code: Securities Market Operation Ts Message (A703F)"
-  end
-  if value == "A704F" then
-    return "Tr Code: Securities Market Operation Ts Message (A704F)"
-  end
-  if value == "A705F" then
-    return "Tr Code: Securities Market Operation Ts Message (A705F)"
-  end
-  if value == "A706F" then
-    return "Tr Code: Securities Market Operation Ts Message (A706F)"
-  end
-  if value == "A707F" then
-    return "Tr Code: Securities Market Operation Ts Message (A707F)"
-  end
-  if value == "A708F" then
-    return "Tr Code: Securities Market Operation Ts Message (A708F)"
-  end
-  if value == "A709F" then
-    return "Tr Code: Securities Market Operation Ts Message (A709F)"
-  end
-  if value == "A710F" then
-    return "Tr Code: Securities Market Operation Ts Message (A710F)"
-  end
-  if value == "A711F" then
-    return "Tr Code: Securities Market Operation Ts Message (A711F)"
-  end
-  if value == "A712F" then
-    return "Tr Code: Securities Market Operation Ts Message (A712F)"
-  end
-  if value == "A713F" then
-    return "Tr Code: Securities Market Operation Ts Message (A713F)"
-  end
-  if value == "A715F" then
-    return "Tr Code: Securities Market Operation Ts Message (A715F)"
-  end
-  if value == "A716F" then
-    return "Tr Code: Securities Market Operation Ts Message (A716F)"
-  end
-  if value == "A717F" then
-    return "Tr Code: Securities Market Operation Ts Message (A717F)"
-  end
-  if value == "A718F" then
-    return "Tr Code: Securities Market Operation Ts Message (A718F)"
-  end
-  if value == "A701G" then
-    return "Tr Code: Securities Market Operation Ts Message (A701G)"
-  end
-  if value == "A701E" then
-    return "Tr Code: Securities Market Operation Ts Message (A701E)"
-  end
-  if value == "A401S" then
-    return "Tr Code: Securities Determination Of Base Price Message (A401S)"
-  end
-  if value == "A403S" then
-    return "Tr Code: Securities Determination Of Base Price Message (A403S)"
-  end
-  if value == "A404S" then
-    return "Tr Code: Securities Determination Of Base Price Message (A404S)"
-  end
-  if value == "A405S" then
-    return "Tr Code: Securities Determination Of Base Price Message (A405S)"
-  end
-  if value == "A401Q" then
-    return "Tr Code: Securities Determination Of Base Price Message (A401Q)"
-  end
-  if value == "A401X" then
-    return "Tr Code: Securities Determination Of Base Price Message (A401X)"
-  end
-  if value == "A601S" then
-    return "Tr Code: Securities Issue Closing Message (A601S)"
-  end
-  if value == "A602S" then
-    return "Tr Code: Securities Issue Closing Message (A602S)"
-  end
-  if value == "A603S" then
-    return "Tr Code: Securities Issue Closing Message (A603S)"
-  end
-  if value == "A604S" then
-    return "Tr Code: Securities Issue Closing Message (A604S)"
-  end
-  if value == "A605S" then
-    return "Tr Code: Securities Issue Closing Message (A605S)"
-  end
-  if value == "A601Q" then
-    return "Tr Code: Securities Issue Closing Message (A601Q)"
-  end
-  if value == "A601X" then
-    return "Tr Code: Securities Issue Closing Message (A601X)"
-  end
-  if value == "A601G" then
-    return "Tr Code: Securities Issue Closing Message (A601G)"
-  end
-  if value == "A601E" then
-    return "Tr Code: Securities Issue Closing Message (A601E)"
-  end
-  if value == "M401S" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401S)"
-  end
-  if value == "M402S" then
-    return "Tr Code: Securities Market Operation Schedule Message (M402S)"
-  end
-  if value == "M403S" then
-    return "Tr Code: Securities Market Operation Schedule Message (M403S)"
-  end
-  if value == "M404S" then
-    return "Tr Code: Securities Market Operation Schedule Message (M404S)"
-  end
-  if value == "M405S" then
-    return "Tr Code: Securities Market Operation Schedule Message (M405S)"
-  end
-  if value == "M401Q" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401Q)"
-  end
-  if value == "M401X" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401X)"
-  end
-  if value == "M401B" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401B)"
-  end
-  if value == "M401M" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401M)"
-  end
-  if value == "M401K" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401K)"
-  end
-  if value == "M401R" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401R)"
-  end
-  if value == "M401F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401F)"
-  end
-  if value == "M402F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M402F)"
-  end
-  if value == "M403F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M403F)"
-  end
-  if value == "M404F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M404F)"
-  end
-  if value == "M405F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M405F)"
-  end
-  if value == "M406F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M406F)"
-  end
-  if value == "M407F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M407F)"
-  end
-  if value == "M408F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M408F)"
-  end
-  if value == "M409F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M409F)"
-  end
-  if value == "M410F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M410F)"
-  end
-  if value == "M411F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M411F)"
-  end
-  if value == "M412F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M412F)"
-  end
-  if value == "M413F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M413F)"
-  end
-  if value == "M415F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M415F)"
-  end
-  if value == "M416F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M416F)"
-  end
-  if value == "M417F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M417F)"
-  end
-  if value == "M418F" then
-    return "Tr Code: Securities Market Operation Schedule Message (M418F)"
-  end
-  if value == "M401G" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401G)"
-  end
-  if value == "M401E" then
-    return "Tr Code: Securities Market Operation Schedule Message (M401E)"
-  end
-  if value == "A501X" then
-    return "Tr Code: Securities Random End Message (A501X)"
-  end
-  if value == "A501G" then
-    return "Tr Code: Securities Random End Message (A501G)"
-  end
-  if value == "R801S" then
-    return "Tr Code: Securities Triggering Vi Message (R801S)"
-  end
-  if value == "R803S" then
-    return "Tr Code: Securities Triggering Vi Message (R803S)"
-  end
-  if value == "R804S" then
-    return "Tr Code: Securities Triggering Vi Message (R804S)"
-  end
-  if value == "R805S" then
-    return "Tr Code: Securities Triggering Vi Message (R805S)"
-  end
-  if value == "R801Q" then
-    return "Tr Code: Securities Triggering Vi Message (R801Q)"
-  end
-  if value == "O601S" then
-    return "Tr Code: Securities Quantity Allocation Message (O601S)"
-  end
-  if value == "O603S" then
-    return "Tr Code: Securities Quantity Allocation Message (O603S)"
-  end
-  if value == "O604S" then
-    return "Tr Code: Securities Quantity Allocation Message (O604S)"
-  end
-  if value == "O605S" then
-    return "Tr Code: Securities Quantity Allocation Message (O605S)"
-  end
-  if value == "O601Q" then
-    return "Tr Code: Securities Quantity Allocation Message (O601Q)"
-  end
-  if value == "O601X" then
-    return "Tr Code: Securities Quantity Allocation Message (O601X)"
-  end
-  if value == "O601F" then
-    return "Tr Code: Securities Quantity Allocation Message (O601F)"
-  end
-  if value == "O602F" then
-    return "Tr Code: Securities Quantity Allocation Message (O602F)"
-  end
-  if value == "O603F" then
-    return "Tr Code: Securities Quantity Allocation Message (O603F)"
-  end
-  if value == "O604F" then
-    return "Tr Code: Securities Quantity Allocation Message (O604F)"
-  end
-  if value == "O605F" then
-    return "Tr Code: Securities Quantity Allocation Message (O605F)"
-  end
-  if value == "O606F" then
-    return "Tr Code: Securities Quantity Allocation Message (O606F)"
-  end
-  if value == "O607F" then
-    return "Tr Code: Securities Quantity Allocation Message (O607F)"
-  end
-  if value == "O608F" then
-    return "Tr Code: Securities Quantity Allocation Message (O608F)"
-  end
-  if value == "O609F" then
-    return "Tr Code: Securities Quantity Allocation Message (O609F)"
-  end
-  if value == "O610F" then
-    return "Tr Code: Securities Quantity Allocation Message (O610F)"
-  end
-  if value == "O611F" then
-    return "Tr Code: Securities Quantity Allocation Message (O611F)"
-  end
-  if value == "O612F" then
-    return "Tr Code: Securities Quantity Allocation Message (O612F)"
-  end
-  if value == "O613F" then
-    return "Tr Code: Securities Quantity Allocation Message (O613F)"
-  end
-  if value == "O615F" then
-    return "Tr Code: Securities Quantity Allocation Message (O615F)"
-  end
-  if value == "O616F" then
-    return "Tr Code: Securities Quantity Allocation Message (O616F)"
-  end
-  if value == "O617F" then
-    return "Tr Code: Securities Quantity Allocation Message (O617F)"
-  end
-  if value == "O618F" then
-    return "Tr Code: Securities Quantity Allocation Message (O618F)"
-  end
-  if value == "R301S" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R301S)"
-  end
-  if value == "R302S" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R302S)"
-  end
-  if value == "R303S" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R303S)"
-  end
-  if value == "R304S" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R304S)"
-  end
-  if value == "R305S" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R305S)"
-  end
-  if value == "R301Q" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R301Q)"
-  end
-  if value == "R301X" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R301X)"
-  end
-  if value == "R301B" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R301B)"
-  end
-  if value == "R301M" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R301M)"
-  end
-  if value == "R301K" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R301K)"
-  end
-  if value == "R301R" then
-    return "Tr Code: Securities Member Firm Sanctions Message (R301R)"
-  end
-  if value == "A801S" then
-    return "Tr Code: Securities Equities Changes Of Batch Data Message (A801S)"
-  end
-  if value == "A802S" then
-    return "Tr Code: Securities Equities Changes Of Batch Data Message (A802S)"
-  end
-  if value == "A803S" then
-    return "Tr Code: Securities Equities Changes Of Batch Data Message (A803S)"
-  end
-  if value == "A804S" then
-    return "Tr Code: Securities Equities Changes Of Batch Data Message (A804S)"
-  end
-  if value == "A805S" then
-    return "Tr Code: Securities Equities Changes Of Batch Data Message (A805S)"
-  end
-  if value == "A801Q" then
-    return "Tr Code: Securities Equities Changes Of Batch Data Message (A801Q)"
-  end
-  if value == "A801X" then
-    return "Tr Code: Securities Equities Changes Of Batch Data Message (A801X)"
-  end
-  if value == "IF01S" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF01S)"
-  end
-  if value == "IF02S" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF02S)"
-  end
-  if value == "IF03S" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF03S)"
-  end
-  if value == "IF04S" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF04S)"
-  end
-  if value == "IF05S" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF05S)"
-  end
-  if value == "IF01Q" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF01Q)"
-  end
-  if value == "IF01F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF01F)"
-  end
-  if value == "IF02F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF02F)"
-  end
-  if value == "IF03F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF03F)"
-  end
-  if value == "IF04F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF04F)"
-  end
-  if value == "IF05F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF05F)"
-  end
-  if value == "IF06F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF06F)"
-  end
-  if value == "IF07F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF07F)"
-  end
-  if value == "IF08F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF08F)"
-  end
-  if value == "IF09F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF09F)"
-  end
-  if value == "IF10F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF10F)"
-  end
-  if value == "IF11F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF11F)"
-  end
-  if value == "IF12F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF12F)"
-  end
-  if value == "IF13F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF13F)"
-  end
-  if value == "IF15F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF15F)"
-  end
-  if value == "IF16F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF16F)"
-  end
-  if value == "IF17F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF17F)"
-  end
-  if value == "IF18F" then
-    return "Tr Code: Securities Group Order Acceptance Halt Message (IF18F)"
-  end
-  if value == "A001S" then
-    return "Tr Code: Securities Equities Batch Data Message (A001S)"
-  end
-  if value == "A002S" then
-    return "Tr Code: Securities Equities Batch Data Message (A002S)"
-  end
-  if value == "A003S" then
-    return "Tr Code: Securities Equities Batch Data Message (A003S)"
-  end
-  if value == "A004S" then
-    return "Tr Code: Securities Equities Batch Data Message (A004S)"
-  end
-  if value == "A005S" then
-    return "Tr Code: Securities Equities Batch Data Message (A005S)"
-  end
-  if value == "A001Q" then
-    return "Tr Code: Securities Equities Batch Data Message (A001Q)"
-  end
-  if value == "A001X" then
-    return "Tr Code: Securities Equities Batch Data Message (A001X)"
-  end
-  if value == "I501S" then
-    return "Tr Code: Securities Closing Date Message (I501S)"
-  end
-  if value == "I503S" then
-    return "Tr Code: Securities Closing Date Message (I503S)"
-  end
-  if value == "I504S" then
-    return "Tr Code: Securities Closing Date Message (I504S)"
-  end
-  if value == "I505S" then
-    return "Tr Code: Securities Closing Date Message (I505S)"
-  end
-  if value == "I501Q" then
-    return "Tr Code: Securities Closing Date Message (I501Q)"
-  end
-  if value == "I501X" then
-    return "Tr Code: Securities Closing Date Message (I501X)"
-  end
-  if value == "I701S" then
-    return "Tr Code: Securities Mm Lp Information Message (I701S)"
-  end
-  if value == "I702S" then
-    return "Tr Code: Securities Mm Lp Information Message (I702S)"
-  end
-  if value == "I703S" then
-    return "Tr Code: Securities Mm Lp Information Message (I703S)"
-  end
-  if value == "I704S" then
-    return "Tr Code: Securities Mm Lp Information Message (I704S)"
-  end
-  if value == "I705S" then
-    return "Tr Code: Securities Mm Lp Information Message (I705S)"
-  end
-  if value == "I701Q" then
-    return "Tr Code: Securities Mm Lp Information Message (I701Q)"
-  end
-  if value == "I701X" then
-    return "Tr Code: Securities Mm Lp Information Message (I701X)"
-  end
-  if value == "M900S" then
-    return "Tr Code: Securities Member Information Message (M900S)"
-  end
-  if value == "M900Q" then
-    return "Tr Code: Securities Member Information Message (M900Q)"
-  end
-  if value == "M900X" then
-    return "Tr Code: Securities Member Information Message (M900X)"
-  end
-  if value == "A901S" then
-    return "Tr Code: Securities Treasury Stocks Batch Message (A901S)"
-  end
-  if value == "A901Q" then
-    return "Tr Code: Securities Treasury Stocks Batch Message (A901Q)"
-  end
-  if value == "A901X" then
-    return "Tr Code: Securities Treasury Stocks Batch Message (A901X)"
-  end
-  if value == "CA01S" then
-    return "Tr Code: Securities Equity Index Indicator Message (CA01S)"
-  end
-  if value == "CA01Q" then
-    return "Tr Code: Securities Equity Index Indicator Message (CA01Q)"
-  end
-  if value == "P200S" then
-    return "Tr Code: Securities Dividend Yield Per Industry Message (P200S)"
-  end
-  if value == "P200Q" then
-    return "Tr Code: Securities Dividend Yield Per Industry Message (P200Q)"
-  end
-  if value == "C001S" then
-    return "Tr Code: Securities Investor Activities Per Industry Message (C001S)"
-  end
-  if value == "C001Q" then
-    return "Tr Code: Securities Investor Activities Per Industry Message (C001Q)"
-  end
-  if value == "C001X" then
-    return "Tr Code: Securities Investor Activities Per Industry Message (C001X)"
-  end
-  if value == "C101S" then
-    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C101S)"
-  end
-  if value == "C102S" then
-    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C102S)"
-  end
-  if value == "C103S" then
-    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C103S)"
-  end
-  if value == "C104S" then
-    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C104S)"
-  end
-  if value == "C105S" then
-    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C105S)"
-  end
-  if value == "C101Q" then
-    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C101Q)"
-  end
-  if value == "C101X" then
-    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C101X)"
-  end
-  if value == "C101G" then
-    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C101G)"
-  end
-  if value == "IC02S" then
-    return "Tr Code: Securities Investor Activities Per Commodities Message (IC02S)"
-  end
-  if value == "IC03S" then
-    return "Tr Code: Securities Investor Activities Per Commodities Message (IC03S)"
-  end
-  if value == "IC04S" then
-    return "Tr Code: Securities Investor Activities Per Commodities Message (IC04S)"
-  end
-  if value == "IC05S" then
-    return "Tr Code: Securities Investor Activities Per Commodities Message (IC05S)"
-  end
-  if value == "IC01G" then
-    return "Tr Code: Securities Investor Activities Per Commodities Message (IC01G)"
-  end
-  if value == "I801S" then
-    return "Tr Code: Securities Short Selling Message (I801S)"
-  end
-  if value == "I803S" then
-    return "Tr Code: Securities Short Selling Message (I803S)"
-  end
-  if value == "I804S" then
-    return "Tr Code: Securities Short Selling Message (I804S)"
-  end
-  if value == "I805S" then
-    return "Tr Code: Securities Short Selling Message (I805S)"
-  end
-  if value == "I801Q" then
-    return "Tr Code: Securities Short Selling Message (I801Q)"
-  end
-  if value == "B001S" then
-    return "Tr Code: Securities Treasury Stocks Traded Message (B001S)"
-  end
-  if value == "B001Q" then
-    return "Tr Code: Securities Treasury Stocks Traded Message (B001Q)"
-  end
-  if value == "B001X" then
-    return "Tr Code: Securities Treasury Stocks Traded Message (B001X)"
-  end
-  if value == "O401S" then
-    return "Tr Code: Securities Buy In Volume Message (O401S)"
-  end
-  if value == "O402S" then
-    return "Tr Code: Securities Buy In Volume Message (O402S)"
-  end
-  if value == "O403S" then
-    return "Tr Code: Securities Buy In Volume Message (O403S)"
-  end
-  if value == "O404S" then
-    return "Tr Code: Securities Buy In Volume Message (O404S)"
-  end
-  if value == "O401Q" then
-    return "Tr Code: Securities Buy In Volume Message (O401Q)"
-  end
-  if value == "O401X" then
-    return "Tr Code: Securities Buy In Volume Message (O401X)"
-  end
-  if value == "A102S" then
-    return "Tr Code: Securities Elw Batch Data Message (A102S)"
-  end
-  if value == "A104S" then
-    return "Tr Code: Securities Etn Batch Data Message (A104S)"
-  end
-  if value == "X304S" then
-    return "Tr Code: Securities Etn Early Redemption Message (X304S)"
-  end
-  if value == "V600S" then
-    return "Tr Code: Securities Etp Constituents Message (V600S)"
-  end
-  if value == "M602S" then
-    return "Tr Code: Securities Knock Out Elw Message (M602S)"
-  end
-  if value == "M502S" then
-    return "Tr Code: Securities Knock Out Underlying Message (M502S)"
-  end
-  if value == "P001S" then
-    return "Tr Code: Securities Program Trading Activity Per Investor Message (P001S)"
-  end
-  if value == "P001Q" then
-    return "Tr Code: Securities Program Trading Activity Per Investor Message (P001Q)"
-  end
-  if value == "C301S" then
-    return "Tr Code: Securities Program Trading Information Per Issue Aggregated Message (C301S)"
-  end
-  if value == "C301Q" then
-    return "Tr Code: Securities Program Trading Information Per Issue Aggregated Message (C301Q)"
-  end
-  if value == "J001S" then
-    return "Tr Code: Securities Program Trading Information Of Total Aggregated Message (J001S)"
-  end
-  if value == "J001Q" then
-    return "Tr Code: Securities Program Trading Information Of Total Aggregated Message (J001Q)"
-  end
-  if value == "B901S" then
-    return "Tr Code: Securities Top Five Traders Activities Message (B901S)"
-  end
-  if value == "B901Q" then
-    return "Tr Code: Securities Top Five Traders Activities Message (B901Q)"
-  end
-  if value == "B901X" then
-    return "Tr Code: Securities Top Five Traders Activities Message (B901X)"
-  end
-  if value == "B902S" then
-    return "Tr Code: Securities Top Five Traders Activities Message (B902S)"
-  end
-  if value == "B903S" then
-    return "Tr Code: Securities Top Five Traders Activities Message (B903S)"
-  end
-  if value == "B904S" then
-    return "Tr Code: Securities Top Five Traders Activities Message (B904S)"
-  end
-  if value == "B905S" then
-    return "Tr Code: Securities Top Five Traders Activities Message (B905S)"
-  end
-  if value == "B501S" then
-    return "Tr Code: Securities Current Movement Message (B501S)"
-  end
-  if value == "B501Q" then
-    return "Tr Code: Securities Current Movement Message (B501Q)"
-  end
-  if value == "B501X" then
-    return "Tr Code: Securities Current Movement Message (B501X)"
-  end
-  if value == "B801S" then
-    return "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B801S)"
-  end
-  if value == "B801Q" then
-    return "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B801Q)"
-  end
-  if value == "B801X" then
-    return "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B801X)"
-  end
-  if value == "B803S" then
-    return "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B803S)"
-  end
-  if value == "B804S" then
-    return "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B804S)"
-  end
-  if value == "B805S" then
-    return "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B805S)"
-  end
-  if value == "IE01S" then
-    return "Tr Code: Securities A Blox Trade Quotes Message (IE01S)"
-  end
-  if value == "IE01Q" then
-    return "Tr Code: Securities A Blox Trade Quotes Message (IE01Q)"
-  end
-  if value == "IE03S" then
-    return "Tr Code: Securities A Blox Trade Quotes Message (IE03S)"
-  end
-  if value == "IE04S" then
-    return "Tr Code: Securities A Blox Trade Quotes Message (IE04S)"
-  end
-  if value == "IE05S" then
-    return "Tr Code: Securities A Blox Trade Quotes Message (IE05S)"
-  end
-  if value == "Q001X" then
-    return "Tr Code: Securities One Sided Auction Message (Q001X)"
-  end
-  if value == "B201X" then
-    return "Tr Code: Securities Snapshot Mm Lp Excluded Konex Message (B201X)"
-  end
-  if value == "A001B" then
-    return "Tr Code: Bonds Batch Data Message (A001B)"
-  end
-  if value == "A001R" then
-    return "Tr Code: Repo Batch Data Message (A001R)"
-  end
-  if value == "I601S" then
-    return "Tr Code: Issue Event Message (I601S)"
-  end
-  if value == "I602S" then
-    return "Tr Code: Issue Event Message (I602S)"
-  end
-  if value == "I603S" then
-    return "Tr Code: Issue Event Message (I603S)"
-  end
-  if value == "I604S" then
-    return "Tr Code: Issue Event Message (I604S)"
-  end
-  if value == "I605S" then
-    return "Tr Code: Issue Event Message (I605S)"
-  end
-  if value == "I601Q" then
-    return "Tr Code: Issue Event Message (I601Q)"
-  end
-  if value == "I601X" then
-    return "Tr Code: Issue Event Message (I601X)"
-  end
-  if value == "I601B" then
-    return "Tr Code: Issue Event Message (I601B)"
-  end
-  if value == "I601M" then
-    return "Tr Code: Issue Event Message (I601M)"
-  end
-  if value == "I601K" then
-    return "Tr Code: Issue Event Message (I601K)"
-  end
-  if value == "I601R" then
-    return "Tr Code: Issue Event Message (I601R)"
-  end
-  if value == "F901B" then
-    return "Tr Code: Corporate Bonds Reference Message (F901B)"
-  end
-  if value == "F901M" then
-    return "Tr Code: Corporate Bonds Reference Message (F901M)"
-  end
-  if value == "BN01B" then
-    return "Tr Code: Regular Bonds Installment Repayment Date Message (BN01B)"
-  end
-  if value == "CB01R" then
-    return "Tr Code: Repo Classification Data Message (CB01R)"
-  end
-  if value == "S001R" then
-    return "Tr Code: Repo Trade Availability Per Term Message (S001R)"
-  end
-  if value == "G300B" then
-    return "Tr Code: Retail Bonds Type Code Message (G300B)"
-  end
+koscom_mdcsrealtime_securitiesb_exture_v2_018.tr_code.labels = {
+  ["I2000"] = "Tr Code: Polling Data Message (I2000)",
+  ["IA000"] = "Tr Code: Krx Index Message (IA000)",
+  ["IB000"] = "Tr Code: Krx Estimated Index Message (IB000)",
+  ["J2000"] = "Tr Code: Global Index Message (J2000)",
+  ["J4000"] = "Tr Code: Bond Prime Index Message (J4000)",
+  ["K1000"] = "Tr Code: Bond Ktb Index Message (K1000)",
+  ["K8000"] = "Tr Code: Bond Ktb Index Term Structure Message (K8000)",
+  ["IG000"] = "Tr Code: Bond Index Krx Message (IG000)",
+  ["B601S"] = "Tr Code: Securities Quote Mm Lp Excluded Message (B601S)",
+  ["B601Q"] = "Tr Code: Securities Quote Mm Lp Excluded Message (B601Q)",
+  ["B601X"] = "Tr Code: Securities Quote Mm Lp Excluded Message (B601X)",
+  ["B702S"] = "Tr Code: Securities Quote Mm Lp Included Message (B702S)",
+  ["B703S"] = "Tr Code: Securities Quote Mm Lp Included Message (B703S)",
+  ["B704S"] = "Tr Code: Securities Quote Mm Lp Included Message (B704S)",
+  ["B705S"] = "Tr Code: Securities Quote Mm Lp Included Message (B705S)",
+  ["B201S"] = "Tr Code: Securities Snapshot Mm Lp Excluded Message (B201S)",
+  ["B201Q"] = "Tr Code: Securities Snapshot Mm Lp Excluded Message (B201Q)",
+  ["B202S"] = "Tr Code: Securities Snapshot Mm Lp Included Message (B202S)",
+  ["B203S"] = "Tr Code: Securities Snapshot Mm Lp Included Message (B203S)",
+  ["B204S"] = "Tr Code: Securities Snapshot Mm Lp Included Message (B204S)",
+  ["B205S"] = "Tr Code: Securities Snapshot Mm Lp Included Message (B205S)",
+  ["A301S"] = "Tr Code: Securities Order Filled Message (A301S)",
+  ["A302S"] = "Tr Code: Securities Order Filled Message (A302S)",
+  ["A303S"] = "Tr Code: Securities Order Filled Message (A303S)",
+  ["A304S"] = "Tr Code: Securities Order Filled Message (A304S)",
+  ["A305S"] = "Tr Code: Securities Order Filled Message (A305S)",
+  ["A301Q"] = "Tr Code: Securities Order Filled Message (A301Q)",
+  ["A301X"] = "Tr Code: Securities Order Filled Message (A301X)",
+  ["C401S"] = "Tr Code: Securities Negotiated Trade Message (C401S)",
+  ["C402S"] = "Tr Code: Securities Negotiated Trade Message (C402S)",
+  ["C403S"] = "Tr Code: Securities Negotiated Trade Message (C403S)",
+  ["C404S"] = "Tr Code: Securities Negotiated Trade Message (C404S)",
+  ["C405S"] = "Tr Code: Securities Negotiated Trade Message (C405S)",
+  ["C401Q"] = "Tr Code: Securities Negotiated Trade Message (C401Q)",
+  ["C401X"] = "Tr Code: Securities Negotiated Trade Message (C401X)",
+  ["A701S"] = "Tr Code: Securities Market Operation Ts Message (A701S)",
+  ["A702S"] = "Tr Code: Securities Market Operation Ts Message (A702S)",
+  ["A703S"] = "Tr Code: Securities Market Operation Ts Message (A703S)",
+  ["A704S"] = "Tr Code: Securities Market Operation Ts Message (A704S)",
+  ["A705S"] = "Tr Code: Securities Market Operation Ts Message (A705S)",
+  ["A701Q"] = "Tr Code: Securities Market Operation Ts Message (A701Q)",
+  ["A701X"] = "Tr Code: Securities Market Operation Ts Message (A701X)",
+  ["A701B"] = "Tr Code: Securities Market Operation Ts Message (A701B)",
+  ["A701M"] = "Tr Code: Securities Market Operation Ts Message (A701M)",
+  ["A701K"] = "Tr Code: Securities Market Operation Ts Message (A701K)",
+  ["A701R"] = "Tr Code: Securities Market Operation Ts Message (A701R)",
+  ["A701F"] = "Tr Code: Securities Market Operation Ts Message (A701F)",
+  ["A702F"] = "Tr Code: Securities Market Operation Ts Message (A702F)",
+  ["A703F"] = "Tr Code: Securities Market Operation Ts Message (A703F)",
+  ["A704F"] = "Tr Code: Securities Market Operation Ts Message (A704F)",
+  ["A705F"] = "Tr Code: Securities Market Operation Ts Message (A705F)",
+  ["A706F"] = "Tr Code: Securities Market Operation Ts Message (A706F)",
+  ["A707F"] = "Tr Code: Securities Market Operation Ts Message (A707F)",
+  ["A708F"] = "Tr Code: Securities Market Operation Ts Message (A708F)",
+  ["A709F"] = "Tr Code: Securities Market Operation Ts Message (A709F)",
+  ["A710F"] = "Tr Code: Securities Market Operation Ts Message (A710F)",
+  ["A711F"] = "Tr Code: Securities Market Operation Ts Message (A711F)",
+  ["A712F"] = "Tr Code: Securities Market Operation Ts Message (A712F)",
+  ["A713F"] = "Tr Code: Securities Market Operation Ts Message (A713F)",
+  ["A715F"] = "Tr Code: Securities Market Operation Ts Message (A715F)",
+  ["A716F"] = "Tr Code: Securities Market Operation Ts Message (A716F)",
+  ["A717F"] = "Tr Code: Securities Market Operation Ts Message (A717F)",
+  ["A718F"] = "Tr Code: Securities Market Operation Ts Message (A718F)",
+  ["A701G"] = "Tr Code: Securities Market Operation Ts Message (A701G)",
+  ["A701E"] = "Tr Code: Securities Market Operation Ts Message (A701E)",
+  ["A401S"] = "Tr Code: Securities Determination Of Base Price Message (A401S)",
+  ["A403S"] = "Tr Code: Securities Determination Of Base Price Message (A403S)",
+  ["A404S"] = "Tr Code: Securities Determination Of Base Price Message (A404S)",
+  ["A405S"] = "Tr Code: Securities Determination Of Base Price Message (A405S)",
+  ["A401Q"] = "Tr Code: Securities Determination Of Base Price Message (A401Q)",
+  ["A401X"] = "Tr Code: Securities Determination Of Base Price Message (A401X)",
+  ["A601S"] = "Tr Code: Securities Issue Closing Message (A601S)",
+  ["A602S"] = "Tr Code: Securities Issue Closing Message (A602S)",
+  ["A603S"] = "Tr Code: Securities Issue Closing Message (A603S)",
+  ["A604S"] = "Tr Code: Securities Issue Closing Message (A604S)",
+  ["A605S"] = "Tr Code: Securities Issue Closing Message (A605S)",
+  ["A601Q"] = "Tr Code: Securities Issue Closing Message (A601Q)",
+  ["A601X"] = "Tr Code: Securities Issue Closing Message (A601X)",
+  ["A601G"] = "Tr Code: Securities Issue Closing Message (A601G)",
+  ["A601E"] = "Tr Code: Securities Issue Closing Message (A601E)",
+  ["M401S"] = "Tr Code: Securities Market Operation Schedule Message (M401S)",
+  ["M402S"] = "Tr Code: Securities Market Operation Schedule Message (M402S)",
+  ["M403S"] = "Tr Code: Securities Market Operation Schedule Message (M403S)",
+  ["M404S"] = "Tr Code: Securities Market Operation Schedule Message (M404S)",
+  ["M405S"] = "Tr Code: Securities Market Operation Schedule Message (M405S)",
+  ["M401Q"] = "Tr Code: Securities Market Operation Schedule Message (M401Q)",
+  ["M401X"] = "Tr Code: Securities Market Operation Schedule Message (M401X)",
+  ["M401B"] = "Tr Code: Securities Market Operation Schedule Message (M401B)",
+  ["M401M"] = "Tr Code: Securities Market Operation Schedule Message (M401M)",
+  ["M401K"] = "Tr Code: Securities Market Operation Schedule Message (M401K)",
+  ["M401R"] = "Tr Code: Securities Market Operation Schedule Message (M401R)",
+  ["M401F"] = "Tr Code: Securities Market Operation Schedule Message (M401F)",
+  ["M402F"] = "Tr Code: Securities Market Operation Schedule Message (M402F)",
+  ["M403F"] = "Tr Code: Securities Market Operation Schedule Message (M403F)",
+  ["M404F"] = "Tr Code: Securities Market Operation Schedule Message (M404F)",
+  ["M405F"] = "Tr Code: Securities Market Operation Schedule Message (M405F)",
+  ["M406F"] = "Tr Code: Securities Market Operation Schedule Message (M406F)",
+  ["M407F"] = "Tr Code: Securities Market Operation Schedule Message (M407F)",
+  ["M408F"] = "Tr Code: Securities Market Operation Schedule Message (M408F)",
+  ["M409F"] = "Tr Code: Securities Market Operation Schedule Message (M409F)",
+  ["M410F"] = "Tr Code: Securities Market Operation Schedule Message (M410F)",
+  ["M411F"] = "Tr Code: Securities Market Operation Schedule Message (M411F)",
+  ["M412F"] = "Tr Code: Securities Market Operation Schedule Message (M412F)",
+  ["M413F"] = "Tr Code: Securities Market Operation Schedule Message (M413F)",
+  ["M415F"] = "Tr Code: Securities Market Operation Schedule Message (M415F)",
+  ["M416F"] = "Tr Code: Securities Market Operation Schedule Message (M416F)",
+  ["M417F"] = "Tr Code: Securities Market Operation Schedule Message (M417F)",
+  ["M418F"] = "Tr Code: Securities Market Operation Schedule Message (M418F)",
+  ["M401G"] = "Tr Code: Securities Market Operation Schedule Message (M401G)",
+  ["M401E"] = "Tr Code: Securities Market Operation Schedule Message (M401E)",
+  ["A501X"] = "Tr Code: Securities Random End Message (A501X)",
+  ["A501G"] = "Tr Code: Securities Random End Message (A501G)",
+  ["R801S"] = "Tr Code: Securities Triggering Vi Message (R801S)",
+  ["R803S"] = "Tr Code: Securities Triggering Vi Message (R803S)",
+  ["R804S"] = "Tr Code: Securities Triggering Vi Message (R804S)",
+  ["R805S"] = "Tr Code: Securities Triggering Vi Message (R805S)",
+  ["R801Q"] = "Tr Code: Securities Triggering Vi Message (R801Q)",
+  ["O601S"] = "Tr Code: Securities Quantity Allocation Message (O601S)",
+  ["O603S"] = "Tr Code: Securities Quantity Allocation Message (O603S)",
+  ["O604S"] = "Tr Code: Securities Quantity Allocation Message (O604S)",
+  ["O605S"] = "Tr Code: Securities Quantity Allocation Message (O605S)",
+  ["O601Q"] = "Tr Code: Securities Quantity Allocation Message (O601Q)",
+  ["O601X"] = "Tr Code: Securities Quantity Allocation Message (O601X)",
+  ["O601F"] = "Tr Code: Securities Quantity Allocation Message (O601F)",
+  ["O602F"] = "Tr Code: Securities Quantity Allocation Message (O602F)",
+  ["O603F"] = "Tr Code: Securities Quantity Allocation Message (O603F)",
+  ["O604F"] = "Tr Code: Securities Quantity Allocation Message (O604F)",
+  ["O605F"] = "Tr Code: Securities Quantity Allocation Message (O605F)",
+  ["O606F"] = "Tr Code: Securities Quantity Allocation Message (O606F)",
+  ["O607F"] = "Tr Code: Securities Quantity Allocation Message (O607F)",
+  ["O608F"] = "Tr Code: Securities Quantity Allocation Message (O608F)",
+  ["O609F"] = "Tr Code: Securities Quantity Allocation Message (O609F)",
+  ["O610F"] = "Tr Code: Securities Quantity Allocation Message (O610F)",
+  ["O611F"] = "Tr Code: Securities Quantity Allocation Message (O611F)",
+  ["O612F"] = "Tr Code: Securities Quantity Allocation Message (O612F)",
+  ["O613F"] = "Tr Code: Securities Quantity Allocation Message (O613F)",
+  ["O615F"] = "Tr Code: Securities Quantity Allocation Message (O615F)",
+  ["O616F"] = "Tr Code: Securities Quantity Allocation Message (O616F)",
+  ["O617F"] = "Tr Code: Securities Quantity Allocation Message (O617F)",
+  ["O618F"] = "Tr Code: Securities Quantity Allocation Message (O618F)",
+  ["R301S"] = "Tr Code: Securities Member Firm Sanctions Message (R301S)",
+  ["R302S"] = "Tr Code: Securities Member Firm Sanctions Message (R302S)",
+  ["R303S"] = "Tr Code: Securities Member Firm Sanctions Message (R303S)",
+  ["R304S"] = "Tr Code: Securities Member Firm Sanctions Message (R304S)",
+  ["R305S"] = "Tr Code: Securities Member Firm Sanctions Message (R305S)",
+  ["R301Q"] = "Tr Code: Securities Member Firm Sanctions Message (R301Q)",
+  ["R301X"] = "Tr Code: Securities Member Firm Sanctions Message (R301X)",
+  ["R301B"] = "Tr Code: Securities Member Firm Sanctions Message (R301B)",
+  ["R301M"] = "Tr Code: Securities Member Firm Sanctions Message (R301M)",
+  ["R301K"] = "Tr Code: Securities Member Firm Sanctions Message (R301K)",
+  ["R301R"] = "Tr Code: Securities Member Firm Sanctions Message (R301R)",
+  ["A801S"] = "Tr Code: Securities Equities Changes Of Batch Data Message (A801S)",
+  ["A802S"] = "Tr Code: Securities Equities Changes Of Batch Data Message (A802S)",
+  ["A803S"] = "Tr Code: Securities Equities Changes Of Batch Data Message (A803S)",
+  ["A804S"] = "Tr Code: Securities Equities Changes Of Batch Data Message (A804S)",
+  ["A805S"] = "Tr Code: Securities Equities Changes Of Batch Data Message (A805S)",
+  ["A801Q"] = "Tr Code: Securities Equities Changes Of Batch Data Message (A801Q)",
+  ["A801X"] = "Tr Code: Securities Equities Changes Of Batch Data Message (A801X)",
+  ["IF01S"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF01S)",
+  ["IF02S"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF02S)",
+  ["IF03S"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF03S)",
+  ["IF04S"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF04S)",
+  ["IF05S"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF05S)",
+  ["IF01Q"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF01Q)",
+  ["IF01F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF01F)",
+  ["IF02F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF02F)",
+  ["IF03F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF03F)",
+  ["IF04F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF04F)",
+  ["IF05F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF05F)",
+  ["IF06F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF06F)",
+  ["IF07F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF07F)",
+  ["IF08F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF08F)",
+  ["IF09F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF09F)",
+  ["IF10F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF10F)",
+  ["IF11F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF11F)",
+  ["IF12F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF12F)",
+  ["IF13F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF13F)",
+  ["IF15F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF15F)",
+  ["IF16F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF16F)",
+  ["IF17F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF17F)",
+  ["IF18F"] = "Tr Code: Securities Group Order Acceptance Halt Message (IF18F)",
+  ["A001S"] = "Tr Code: Securities Equities Batch Data Message (A001S)",
+  ["A002S"] = "Tr Code: Securities Equities Batch Data Message (A002S)",
+  ["A003S"] = "Tr Code: Securities Equities Batch Data Message (A003S)",
+  ["A004S"] = "Tr Code: Securities Equities Batch Data Message (A004S)",
+  ["A005S"] = "Tr Code: Securities Equities Batch Data Message (A005S)",
+  ["A001Q"] = "Tr Code: Securities Equities Batch Data Message (A001Q)",
+  ["A001X"] = "Tr Code: Securities Equities Batch Data Message (A001X)",
+  ["I501S"] = "Tr Code: Securities Closing Date Message (I501S)",
+  ["I503S"] = "Tr Code: Securities Closing Date Message (I503S)",
+  ["I504S"] = "Tr Code: Securities Closing Date Message (I504S)",
+  ["I505S"] = "Tr Code: Securities Closing Date Message (I505S)",
+  ["I501Q"] = "Tr Code: Securities Closing Date Message (I501Q)",
+  ["I501X"] = "Tr Code: Securities Closing Date Message (I501X)",
+  ["I701S"] = "Tr Code: Securities Mm Lp Information Message (I701S)",
+  ["I702S"] = "Tr Code: Securities Mm Lp Information Message (I702S)",
+  ["I703S"] = "Tr Code: Securities Mm Lp Information Message (I703S)",
+  ["I704S"] = "Tr Code: Securities Mm Lp Information Message (I704S)",
+  ["I705S"] = "Tr Code: Securities Mm Lp Information Message (I705S)",
+  ["I701Q"] = "Tr Code: Securities Mm Lp Information Message (I701Q)",
+  ["I701X"] = "Tr Code: Securities Mm Lp Information Message (I701X)",
+  ["M900S"] = "Tr Code: Securities Member Information Message (M900S)",
+  ["M900Q"] = "Tr Code: Securities Member Information Message (M900Q)",
+  ["M900X"] = "Tr Code: Securities Member Information Message (M900X)",
+  ["A901S"] = "Tr Code: Securities Treasury Stocks Batch Message (A901S)",
+  ["A901Q"] = "Tr Code: Securities Treasury Stocks Batch Message (A901Q)",
+  ["A901X"] = "Tr Code: Securities Treasury Stocks Batch Message (A901X)",
+  ["CA01S"] = "Tr Code: Securities Equity Index Indicator Message (CA01S)",
+  ["CA01Q"] = "Tr Code: Securities Equity Index Indicator Message (CA01Q)",
+  ["P200S"] = "Tr Code: Securities Dividend Yield Per Industry Message (P200S)",
+  ["P200Q"] = "Tr Code: Securities Dividend Yield Per Industry Message (P200Q)",
+  ["C001S"] = "Tr Code: Securities Investor Activities Per Industry Message (C001S)",
+  ["C001Q"] = "Tr Code: Securities Investor Activities Per Industry Message (C001Q)",
+  ["C001X"] = "Tr Code: Securities Investor Activities Per Industry Message (C001X)",
+  ["C101S"] = "Tr Code: Securities Investor Activities Per Issue Eod Message (C101S)",
+  ["C102S"] = "Tr Code: Securities Investor Activities Per Issue Eod Message (C102S)",
+  ["C103S"] = "Tr Code: Securities Investor Activities Per Issue Eod Message (C103S)",
+  ["C104S"] = "Tr Code: Securities Investor Activities Per Issue Eod Message (C104S)",
+  ["C105S"] = "Tr Code: Securities Investor Activities Per Issue Eod Message (C105S)",
+  ["C101Q"] = "Tr Code: Securities Investor Activities Per Issue Eod Message (C101Q)",
+  ["C101X"] = "Tr Code: Securities Investor Activities Per Issue Eod Message (C101X)",
+  ["C101G"] = "Tr Code: Securities Investor Activities Per Issue Eod Message (C101G)",
+  ["IC02S"] = "Tr Code: Securities Investor Activities Per Commodities Message (IC02S)",
+  ["IC03S"] = "Tr Code: Securities Investor Activities Per Commodities Message (IC03S)",
+  ["IC04S"] = "Tr Code: Securities Investor Activities Per Commodities Message (IC04S)",
+  ["IC05S"] = "Tr Code: Securities Investor Activities Per Commodities Message (IC05S)",
+  ["IC01G"] = "Tr Code: Securities Investor Activities Per Commodities Message (IC01G)",
+  ["I801S"] = "Tr Code: Securities Short Selling Message (I801S)",
+  ["I803S"] = "Tr Code: Securities Short Selling Message (I803S)",
+  ["I804S"] = "Tr Code: Securities Short Selling Message (I804S)",
+  ["I805S"] = "Tr Code: Securities Short Selling Message (I805S)",
+  ["I801Q"] = "Tr Code: Securities Short Selling Message (I801Q)",
+  ["B001S"] = "Tr Code: Securities Treasury Stocks Traded Message (B001S)",
+  ["B001Q"] = "Tr Code: Securities Treasury Stocks Traded Message (B001Q)",
+  ["B001X"] = "Tr Code: Securities Treasury Stocks Traded Message (B001X)",
+  ["O401S"] = "Tr Code: Securities Buy In Volume Message (O401S)",
+  ["O402S"] = "Tr Code: Securities Buy In Volume Message (O402S)",
+  ["O403S"] = "Tr Code: Securities Buy In Volume Message (O403S)",
+  ["O404S"] = "Tr Code: Securities Buy In Volume Message (O404S)",
+  ["O401Q"] = "Tr Code: Securities Buy In Volume Message (O401Q)",
+  ["O401X"] = "Tr Code: Securities Buy In Volume Message (O401X)",
+  ["A102S"] = "Tr Code: Securities Elw Batch Data Message (A102S)",
+  ["A104S"] = "Tr Code: Securities Etn Batch Data Message (A104S)",
+  ["X304S"] = "Tr Code: Securities Etn Early Redemption Message (X304S)",
+  ["V600S"] = "Tr Code: Securities Etp Constituents Message (V600S)",
+  ["M602S"] = "Tr Code: Securities Knock Out Elw Message (M602S)",
+  ["M502S"] = "Tr Code: Securities Knock Out Underlying Message (M502S)",
+  ["P001S"] = "Tr Code: Securities Program Trading Activity Per Investor Message (P001S)",
+  ["P001Q"] = "Tr Code: Securities Program Trading Activity Per Investor Message (P001Q)",
+  ["C301S"] = "Tr Code: Securities Program Trading Information Per Issue Aggregated Message (C301S)",
+  ["C301Q"] = "Tr Code: Securities Program Trading Information Per Issue Aggregated Message (C301Q)",
+  ["J001S"] = "Tr Code: Securities Program Trading Information Of Total Aggregated Message (J001S)",
+  ["J001Q"] = "Tr Code: Securities Program Trading Information Of Total Aggregated Message (J001Q)",
+  ["B901S"] = "Tr Code: Securities Top Five Traders Activities Message (B901S)",
+  ["B901Q"] = "Tr Code: Securities Top Five Traders Activities Message (B901Q)",
+  ["B901X"] = "Tr Code: Securities Top Five Traders Activities Message (B901X)",
+  ["B902S"] = "Tr Code: Securities Top Five Traders Activities Message (B902S)",
+  ["B903S"] = "Tr Code: Securities Top Five Traders Activities Message (B903S)",
+  ["B904S"] = "Tr Code: Securities Top Five Traders Activities Message (B904S)",
+  ["B905S"] = "Tr Code: Securities Top Five Traders Activities Message (B905S)",
+  ["B501S"] = "Tr Code: Securities Current Movement Message (B501S)",
+  ["B501Q"] = "Tr Code: Securities Current Movement Message (B501Q)",
+  ["B501X"] = "Tr Code: Securities Current Movement Message (B501X)",
+  ["B801S"] = "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B801S)",
+  ["B801Q"] = "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B801Q)",
+  ["B801X"] = "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B801X)",
+  ["B803S"] = "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B803S)",
+  ["B804S"] = "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B804S)",
+  ["B805S"] = "Tr Code: Securities Closing Price Trade Remaining Quantity On Quotes Message (B805S)",
+  ["IE01S"] = "Tr Code: Securities A Blox Trade Quotes Message (IE01S)",
+  ["IE01Q"] = "Tr Code: Securities A Blox Trade Quotes Message (IE01Q)",
+  ["IE03S"] = "Tr Code: Securities A Blox Trade Quotes Message (IE03S)",
+  ["IE04S"] = "Tr Code: Securities A Blox Trade Quotes Message (IE04S)",
+  ["IE05S"] = "Tr Code: Securities A Blox Trade Quotes Message (IE05S)",
+  ["Q001X"] = "Tr Code: Securities One Sided Auction Message (Q001X)",
+  ["B201X"] = "Tr Code: Securities Snapshot Mm Lp Excluded Konex Message (B201X)",
+  ["A001B"] = "Tr Code: Bonds Batch Data Message (A001B)",
+  ["A001R"] = "Tr Code: Repo Batch Data Message (A001R)",
+  ["I601S"] = "Tr Code: Issue Event Message (I601S)",
+  ["I602S"] = "Tr Code: Issue Event Message (I602S)",
+  ["I603S"] = "Tr Code: Issue Event Message (I603S)",
+  ["I604S"] = "Tr Code: Issue Event Message (I604S)",
+  ["I605S"] = "Tr Code: Issue Event Message (I605S)",
+  ["I601Q"] = "Tr Code: Issue Event Message (I601Q)",
+  ["I601X"] = "Tr Code: Issue Event Message (I601X)",
+  ["I601B"] = "Tr Code: Issue Event Message (I601B)",
+  ["I601M"] = "Tr Code: Issue Event Message (I601M)",
+  ["I601K"] = "Tr Code: Issue Event Message (I601K)",
+  ["I601R"] = "Tr Code: Issue Event Message (I601R)",
+  ["F901B"] = "Tr Code: Corporate Bonds Reference Message (F901B)",
+  ["F901M"] = "Tr Code: Corporate Bonds Reference Message (F901M)",
+  ["BN01B"] = "Tr Code: Regular Bonds Installment Repayment Date Message (BN01B)",
+  ["CB01R"] = "Tr Code: Repo Classification Data Message (CB01R)",
+  ["S001R"] = "Tr Code: Repo Trade Availability Per Term Message (S001R)",
+  ["G300B"] = "Tr Code: Retail Bonds Type Code Message (G300B)",
+}
 
-  return "Tr Code: Unknown("..value..")"
+koscom_mdcsrealtime_securitiesb_exture_v2_018.tr_code.display = function(value)
+  return koscom_mdcsrealtime_securitiesb_exture_v2_018.tr_code.labels[value] or "Tr Code: Unknown("..value..")"
 end
 
 -- Dissect: Tr Code
@@ -26020,1186 +25416,308 @@ end
 koscom_mdcsrealtime_securitiesb_exture_v2_018.payload = {}
 
 -- Dissect: Payload
+koscom_mdcsrealtime_securitiesb_exture_v2_018.payload.dispatch = {
+  ["I2000"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.polling_data_message.dissect,
+  ["IA000"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.krx_index_message.dissect,
+  ["IB000"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.krx_estimated_index_message.dissect,
+  ["J2000"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.global_index_message.dissect,
+  ["J4000"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.bond_prime_index_message.dissect,
+  ["K1000"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.bond_ktb_index_message.dissect,
+  ["K8000"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.bond_ktb_index_term_structure_message.dissect,
+  ["IG000"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.bond_index_krx_message.dissect,
+  ["B601S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_excluded_message.dissect,
+  ["B601Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_excluded_message.dissect,
+  ["B601X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_excluded_message.dissect,
+  ["B702S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_included_message.dissect,
+  ["B703S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_included_message.dissect,
+  ["B704S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_included_message.dissect,
+  ["B705S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_included_message.dissect,
+  ["B201S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_excluded_message.dissect,
+  ["B201Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_excluded_message.dissect,
+  ["B202S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_included_message.dissect,
+  ["B203S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_included_message.dissect,
+  ["B204S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_included_message.dissect,
+  ["B205S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_included_message.dissect,
+  ["A301S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect,
+  ["A302S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect,
+  ["A303S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect,
+  ["A304S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect,
+  ["A305S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect,
+  ["A301Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect,
+  ["A301X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect,
+  ["C401S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect,
+  ["C402S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect,
+  ["C403S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect,
+  ["C404S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect,
+  ["C405S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect,
+  ["C401Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect,
+  ["C401X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect,
+  ["A701S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A702S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A703S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A704S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A705S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701B"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701M"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701K"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701R"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A702F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A703F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A704F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A705F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A706F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A707F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A708F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A709F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A710F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A711F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A712F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A713F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A715F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A716F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A717F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A718F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701G"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A701E"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect,
+  ["A401S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect,
+  ["A403S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect,
+  ["A404S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect,
+  ["A405S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect,
+  ["A401Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect,
+  ["A401X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect,
+  ["A601S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["A602S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["A603S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["A604S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["A605S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["A601Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["A601X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["A601G"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["A601E"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect,
+  ["M401S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M402S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M403S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M404S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M405S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401B"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401M"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401K"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401R"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M402F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M403F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M404F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M405F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M406F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M407F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M408F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M409F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M410F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M411F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M412F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M413F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M415F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M416F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M417F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M418F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401G"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["M401E"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect,
+  ["A501X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_random_end_message.dissect,
+  ["A501G"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_random_end_message.dissect,
+  ["R801S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect,
+  ["R803S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect,
+  ["R804S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect,
+  ["R805S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect,
+  ["R801Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect,
+  ["O601S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O603S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O604S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O605S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O601Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O601X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O601F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O602F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O603F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O604F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O605F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O606F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O607F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O608F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O609F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O610F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O611F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O612F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O613F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O615F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O616F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O617F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["O618F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect,
+  ["R301S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R302S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R303S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R304S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R305S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R301Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R301X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R301B"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R301M"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R301K"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["R301R"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect,
+  ["A801S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect,
+  ["A802S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect,
+  ["A803S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect,
+  ["A804S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect,
+  ["A805S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect,
+  ["A801Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect,
+  ["A801X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect,
+  ["IF01S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF02S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF03S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF04S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF05S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF01Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF01F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF02F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF03F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF04F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF05F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF06F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF07F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF08F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF09F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF10F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF11F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF12F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF13F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF15F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF16F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF17F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["IF18F"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect,
+  ["A001S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect,
+  ["A002S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect,
+  ["A003S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect,
+  ["A004S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect,
+  ["A005S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect,
+  ["A001Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect,
+  ["A001X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect,
+  ["I501S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect,
+  ["I503S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect,
+  ["I504S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect,
+  ["I505S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect,
+  ["I501Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect,
+  ["I501X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect,
+  ["I701S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect,
+  ["I702S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect,
+  ["I703S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect,
+  ["I704S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect,
+  ["I705S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect,
+  ["I701Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect,
+  ["I701X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect,
+  ["M900S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_information_message.dissect,
+  ["M900Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_information_message.dissect,
+  ["M900X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_information_message.dissect,
+  ["A901S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_batch_message.dissect,
+  ["A901Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_batch_message.dissect,
+  ["A901X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_batch_message.dissect,
+  ["CA01S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equity_index_indicator_message.dissect,
+  ["CA01Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equity_index_indicator_message.dissect,
+  ["P200S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_dividend_yield_per_industry_message.dissect,
+  ["P200Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_dividend_yield_per_industry_message.dissect,
+  ["C001S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_industry_message.dissect,
+  ["C001Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_industry_message.dissect,
+  ["C001X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_industry_message.dissect,
+  ["C101S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect,
+  ["C102S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect,
+  ["C103S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect,
+  ["C104S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect,
+  ["C105S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect,
+  ["C101Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect,
+  ["C101X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect,
+  ["C101G"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect,
+  ["IC02S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect,
+  ["IC03S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect,
+  ["IC04S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect,
+  ["IC05S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect,
+  ["IC01G"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect,
+  ["I801S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect,
+  ["I803S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect,
+  ["I804S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect,
+  ["I805S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect,
+  ["I801Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect,
+  ["B001S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_traded_message.dissect,
+  ["B001Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_traded_message.dissect,
+  ["B001X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_traded_message.dissect,
+  ["O401S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect,
+  ["O402S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect,
+  ["O403S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect,
+  ["O404S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect,
+  ["O401Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect,
+  ["O401X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect,
+  ["A102S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_elw_batch_data_message.dissect,
+  ["A104S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_etn_batch_data_message.dissect,
+  ["X304S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_etn_early_redemption_message.dissect,
+  ["V600S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_etp_constituents_message.dissect,
+  ["M602S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_knock_out_elw_message.dissect,
+  ["M502S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_knock_out_underlying_message.dissect,
+  ["P001S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_activity_per_investor_message.dissect,
+  ["P001Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_activity_per_investor_message.dissect,
+  ["C301S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_information_per_issue_aggregated_message.dissect,
+  ["C301Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_information_per_issue_aggregated_message.dissect,
+  ["J001S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_information_of_total_aggregated_message.dissect,
+  ["J001Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_information_of_total_aggregated_message.dissect,
+  ["B901S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect,
+  ["B901Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect,
+  ["B901X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect,
+  ["B902S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect,
+  ["B903S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect,
+  ["B904S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect,
+  ["B905S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect,
+  ["B501S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_current_movement_message.dissect,
+  ["B501Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_current_movement_message.dissect,
+  ["B501X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_current_movement_message.dissect,
+  ["B801S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect,
+  ["B801Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect,
+  ["B801X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect,
+  ["B803S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect,
+  ["B804S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect,
+  ["B805S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect,
+  ["IE01S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect,
+  ["IE01Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect,
+  ["IE03S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect,
+  ["IE04S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect,
+  ["IE05S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect,
+  ["Q001X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_one_sided_auction_message.dissect,
+  ["B201X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_excluded_konex_message.dissect,
+  ["A001B"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.bonds_batch_data_message.dissect,
+  ["A001R"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.repo_batch_data_message.dissect,
+  ["I601S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I602S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I603S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I604S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I605S"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I601Q"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I601X"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I601B"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I601M"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I601K"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["I601R"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect,
+  ["F901B"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.corporate_bonds_reference_message.dissect,
+  ["F901M"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.corporate_bonds_reference_message.dissect,
+  ["BN01B"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.regular_bonds_installment_repayment_date_message.dissect,
+  ["CB01R"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.repo_classification_data_message.dissect,
+  ["S001R"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.repo_trade_availability_per_term_message.dissect,
+  ["G300B"] = koscom_mdcsrealtime_securitiesb_exture_v2_018.retail_bonds_type_code_message.dissect,
+}
+
 koscom_mdcsrealtime_securitiesb_exture_v2_018.payload.dissect = function(buffer, offset, packet, parent, tr_code)
-  -- Dissect Polling Data Message
-  if tr_code == "I2000" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.polling_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Krx Index Message
-  if tr_code == "IA000" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.krx_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Krx Estimated Index Message
-  if tr_code == "IB000" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.krx_estimated_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Index Message
-  if tr_code == "J2000" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.global_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Prime Index Message
-  if tr_code == "J4000" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.bond_prime_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Ktb Index Message
-  if tr_code == "K1000" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.bond_ktb_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Ktb Index Term Structure Message
-  if tr_code == "K8000" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.bond_ktb_index_term_structure_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Index Krx Message
-  if tr_code == "IG000" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.bond_index_krx_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote Mm Lp Excluded Message
-  if tr_code == "B601S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_excluded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote Mm Lp Excluded Message
-  if tr_code == "B601Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_excluded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote Mm Lp Excluded Message
-  if tr_code == "B601X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_excluded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote Mm Lp Included Message
-  if tr_code == "B702S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_included_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote Mm Lp Included Message
-  if tr_code == "B703S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_included_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote Mm Lp Included Message
-  if tr_code == "B704S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_included_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote Mm Lp Included Message
-  if tr_code == "B705S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quote_mm_lp_included_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Snapshot Mm Lp Excluded Message
-  if tr_code == "B201S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_excluded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Snapshot Mm Lp Excluded Message
-  if tr_code == "B201Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_excluded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Snapshot Mm Lp Included Message
-  if tr_code == "B202S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_included_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Snapshot Mm Lp Included Message
-  if tr_code == "B203S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_included_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Snapshot Mm Lp Included Message
-  if tr_code == "B204S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_included_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Snapshot Mm Lp Included Message
-  if tr_code == "B205S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_included_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A301S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A302S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A303S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A304S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A305S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A301Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A301X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Negotiated Trade Message
-  if tr_code == "C401S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Negotiated Trade Message
-  if tr_code == "C402S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Negotiated Trade Message
-  if tr_code == "C403S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Negotiated Trade Message
-  if tr_code == "C404S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Negotiated Trade Message
-  if tr_code == "C405S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Negotiated Trade Message
-  if tr_code == "C401Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Negotiated Trade Message
-  if tr_code == "C401X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_negotiated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A702S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A703S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A704S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A705S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701B" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701M" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701K" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701R" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A702F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A703F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A704F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A705F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A706F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A707F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A708F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A709F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A710F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A711F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A712F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A713F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A715F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A716F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A717F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A718F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701G" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Ts Message
-  if tr_code == "A701E" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Determination Of Base Price Message
-  if tr_code == "A401S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Determination Of Base Price Message
-  if tr_code == "A403S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Determination Of Base Price Message
-  if tr_code == "A404S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Determination Of Base Price Message
-  if tr_code == "A405S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Determination Of Base Price Message
-  if tr_code == "A401Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Determination Of Base Price Message
-  if tr_code == "A401X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_determination_of_base_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A601S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A602S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A603S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A604S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A605S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A601Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A601X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A601G" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Issue Closing Message
-  if tr_code == "A601E" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M402S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M403S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M404S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M405S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401B" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401M" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401K" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401R" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M402F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M403F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M404F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M405F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M406F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M407F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M408F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M409F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M410F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M411F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M412F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M413F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M415F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M416F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M417F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M418F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401G" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Market Operation Schedule Message
-  if tr_code == "M401E" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Random End Message
-  if tr_code == "A501X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_random_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Random End Message
-  if tr_code == "A501G" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_random_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Triggering Vi Message
-  if tr_code == "R801S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Triggering Vi Message
-  if tr_code == "R803S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Triggering Vi Message
-  if tr_code == "R804S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Triggering Vi Message
-  if tr_code == "R805S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Triggering Vi Message
-  if tr_code == "R801Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_triggering_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O601S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O603S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O604S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O605S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O601Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O601X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O601F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O602F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O603F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O604F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O605F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O606F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O607F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O608F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O609F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O610F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O611F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O612F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O613F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O615F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O616F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O617F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quantity Allocation Message
-  if tr_code == "O618F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_quantity_allocation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R301S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R302S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R303S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R304S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R305S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R301Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R301X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R301B" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R301M" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R301K" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Firm Sanctions Message
-  if tr_code == "R301R" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Changes Of Batch Data Message
-  if tr_code == "A801S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Changes Of Batch Data Message
-  if tr_code == "A802S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Changes Of Batch Data Message
-  if tr_code == "A803S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Changes Of Batch Data Message
-  if tr_code == "A804S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Changes Of Batch Data Message
-  if tr_code == "A805S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Changes Of Batch Data Message
-  if tr_code == "A801Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Changes Of Batch Data Message
-  if tr_code == "A801X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_changes_of_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF01S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF02S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF03S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF04S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF05S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF01Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF01F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF02F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF03F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF04F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF05F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF06F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF07F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF08F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF09F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF10F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF11F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF12F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF13F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF15F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF16F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF17F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Group Order Acceptance Halt Message
-  if tr_code == "IF18F" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Batch Data Message
-  if tr_code == "A001S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Batch Data Message
-  if tr_code == "A002S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Batch Data Message
-  if tr_code == "A003S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Batch Data Message
-  if tr_code == "A004S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Batch Data Message
-  if tr_code == "A005S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Batch Data Message
-  if tr_code == "A001Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equities Batch Data Message
-  if tr_code == "A001X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Date Message
-  if tr_code == "I501S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Date Message
-  if tr_code == "I503S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Date Message
-  if tr_code == "I504S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Date Message
-  if tr_code == "I505S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Date Message
-  if tr_code == "I501Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Date Message
-  if tr_code == "I501X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Mm Lp Information Message
-  if tr_code == "I701S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Mm Lp Information Message
-  if tr_code == "I702S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Mm Lp Information Message
-  if tr_code == "I703S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Mm Lp Information Message
-  if tr_code == "I704S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Mm Lp Information Message
-  if tr_code == "I705S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Mm Lp Information Message
-  if tr_code == "I701Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Mm Lp Information Message
-  if tr_code == "I701X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Information Message
-  if tr_code == "M900S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Information Message
-  if tr_code == "M900Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Member Information Message
-  if tr_code == "M900X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_member_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Treasury Stocks Batch Message
-  if tr_code == "A901S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_batch_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Treasury Stocks Batch Message
-  if tr_code == "A901Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_batch_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Treasury Stocks Batch Message
-  if tr_code == "A901X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_batch_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equity Index Indicator Message
-  if tr_code == "CA01S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equity_index_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Equity Index Indicator Message
-  if tr_code == "CA01Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_equity_index_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Dividend Yield Per Industry Message
-  if tr_code == "P200S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_dividend_yield_per_industry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Dividend Yield Per Industry Message
-  if tr_code == "P200Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_dividend_yield_per_industry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Industry Message
-  if tr_code == "C001S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_industry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Industry Message
-  if tr_code == "C001Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_industry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Industry Message
-  if tr_code == "C001X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_industry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Issue Eod Message
-  if tr_code == "C101S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Issue Eod Message
-  if tr_code == "C102S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Issue Eod Message
-  if tr_code == "C103S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Issue Eod Message
-  if tr_code == "C104S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Issue Eod Message
-  if tr_code == "C105S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Issue Eod Message
-  if tr_code == "C101Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Issue Eod Message
-  if tr_code == "C101X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Issue Eod Message
-  if tr_code == "C101G" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Commodities Message
-  if tr_code == "IC02S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Commodities Message
-  if tr_code == "IC03S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Commodities Message
-  if tr_code == "IC04S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Commodities Message
-  if tr_code == "IC05S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Investor Activities Per Commodities Message
-  if tr_code == "IC01G" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Short Selling Message
-  if tr_code == "I801S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Short Selling Message
-  if tr_code == "I803S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Short Selling Message
-  if tr_code == "I804S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Short Selling Message
-  if tr_code == "I805S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Short Selling Message
-  if tr_code == "I801Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_short_selling_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Treasury Stocks Traded Message
-  if tr_code == "B001S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_traded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Treasury Stocks Traded Message
-  if tr_code == "B001Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_traded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Treasury Stocks Traded Message
-  if tr_code == "B001X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_treasury_stocks_traded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Buy In Volume Message
-  if tr_code == "O401S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Buy In Volume Message
-  if tr_code == "O402S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Buy In Volume Message
-  if tr_code == "O403S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Buy In Volume Message
-  if tr_code == "O404S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Buy In Volume Message
-  if tr_code == "O401Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Buy In Volume Message
-  if tr_code == "O401X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Elw Batch Data Message
-  if tr_code == "A102S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_elw_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Etn Batch Data Message
-  if tr_code == "A104S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_etn_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Etn Early Redemption Message
-  if tr_code == "X304S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_etn_early_redemption_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Etp Constituents Message
-  if tr_code == "V600S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_etp_constituents_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Knock Out Elw Message
-  if tr_code == "M602S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_knock_out_elw_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Knock Out Underlying Message
-  if tr_code == "M502S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_knock_out_underlying_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Program Trading Activity Per Investor Message
-  if tr_code == "P001S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_activity_per_investor_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Program Trading Activity Per Investor Message
-  if tr_code == "P001Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_activity_per_investor_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Program Trading Information Per Issue Aggregated Message
-  if tr_code == "C301S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_information_per_issue_aggregated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Program Trading Information Per Issue Aggregated Message
-  if tr_code == "C301Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_information_per_issue_aggregated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Program Trading Information Of Total Aggregated Message
-  if tr_code == "J001S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_information_of_total_aggregated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Program Trading Information Of Total Aggregated Message
-  if tr_code == "J001Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_program_trading_information_of_total_aggregated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Top Five Traders Activities Message
-  if tr_code == "B901S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Top Five Traders Activities Message
-  if tr_code == "B901Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Top Five Traders Activities Message
-  if tr_code == "B901X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Top Five Traders Activities Message
-  if tr_code == "B902S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Top Five Traders Activities Message
-  if tr_code == "B903S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Top Five Traders Activities Message
-  if tr_code == "B904S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Top Five Traders Activities Message
-  if tr_code == "B905S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Current Movement Message
-  if tr_code == "B501S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_current_movement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Current Movement Message
-  if tr_code == "B501Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_current_movement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Current Movement Message
-  if tr_code == "B501X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_current_movement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Price Trade Remaining Quantity On Quotes Message
-  if tr_code == "B801S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Price Trade Remaining Quantity On Quotes Message
-  if tr_code == "B801Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Price Trade Remaining Quantity On Quotes Message
-  if tr_code == "B801X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Price Trade Remaining Quantity On Quotes Message
-  if tr_code == "B803S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Price Trade Remaining Quantity On Quotes Message
-  if tr_code == "B804S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Closing Price Trade Remaining Quantity On Quotes Message
-  if tr_code == "B805S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_closing_price_trade_remaining_quantity_on_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities A Blox Trade Quotes Message
-  if tr_code == "IE01S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities A Blox Trade Quotes Message
-  if tr_code == "IE01Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities A Blox Trade Quotes Message
-  if tr_code == "IE03S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities A Blox Trade Quotes Message
-  if tr_code == "IE04S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities A Blox Trade Quotes Message
-  if tr_code == "IE05S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_a_blox_trade_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities One Sided Auction Message
-  if tr_code == "Q001X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_one_sided_auction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Snapshot Mm Lp Excluded Konex Message
-  if tr_code == "B201X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.securities_snapshot_mm_lp_excluded_konex_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Batch Data Message
-  if tr_code == "A001B" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.bonds_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Batch Data Message
-  if tr_code == "A001R" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.repo_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I602S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I603S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I604S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I605S" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601Q" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601X" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601B" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601M" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601K" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601R" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Corporate Bonds Reference Message
-  if tr_code == "F901B" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.corporate_bonds_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Corporate Bonds Reference Message
-  if tr_code == "F901M" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.corporate_bonds_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Regular Bonds Installment Repayment Date Message
-  if tr_code == "BN01B" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.regular_bonds_installment_repayment_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Classification Data Message
-  if tr_code == "CB01R" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.repo_classification_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Trade Availability Per Term Message
-  if tr_code == "S001R" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.repo_trade_availability_per_term_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retail Bonds Type Code Message
-  if tr_code == "G300B" then
-    return koscom_mdcsrealtime_securitiesb_exture_v2_018.retail_bonds_type_code_message.dissect(buffer, offset, packet, parent)
+  local dissect = koscom_mdcsrealtime_securitiesb_exture_v2_018.payload.dispatch[tr_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

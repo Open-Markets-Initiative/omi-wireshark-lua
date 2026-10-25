@@ -431,36 +431,20 @@ gpw_wse_marketinformation_xdp_v6_8.action_affecting_state = {}
 gpw_wse_marketinformation_xdp_v6_8.action_affecting_state.size = 1
 
 -- Display: Action Affecting State
-gpw_wse_marketinformation_xdp_v6_8.action_affecting_state.display = function(value)
-  if value == "C" then
-    return "Action Affecting State: Trading On The Instrument At The Opening Sent Before O (C)"
-  end
-  if value == "D" then
-    return "Action Affecting State: Cancelled Programmed Opening (D)"
-  end
-  if value == "M" then
-    return "Action Affecting State: Instrument Halted Independently From Its Class (M)"
-  end
-  if value == "N" then
-    return "Action Affecting State: Instrument Is Being Initialized Beginning Of The Trading Day (N)"
-  end
-  if value == "O" then
-    return "Action Affecting State: Instrument Opened (O)"
-  end
-  if value == "P" then
-    return "Action Affecting State: Deferred Programmed Opening (P)"
-  end
-  if value == "R" then
-    return "Action Affecting State: Automatic Halting At The Class Auction (R)"
-  end
-  if value == "Y" then
-    return "Action Affecting State: Beginning Of A One Side Only Period (Y)"
-  end
-  if value == "Z" then
-    return "Action Affecting State: End Of A One Side Only Period (Z)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.action_affecting_state.labels = {
+  ["C"] = "Action Affecting State: Trading On The Instrument At The Opening Sent Before O (C)",
+  ["D"] = "Action Affecting State: Cancelled Programmed Opening (D)",
+  ["M"] = "Action Affecting State: Instrument Halted Independently From Its Class (M)",
+  ["N"] = "Action Affecting State: Instrument Is Being Initialized Beginning Of The Trading Day (N)",
+  ["O"] = "Action Affecting State: Instrument Opened (O)",
+  ["P"] = "Action Affecting State: Deferred Programmed Opening (P)",
+  ["R"] = "Action Affecting State: Automatic Halting At The Class Auction (R)",
+  ["Y"] = "Action Affecting State: Beginning Of A One Side Only Period (Y)",
+  ["Z"] = "Action Affecting State: End Of A One Side Only Period (Z)",
+}
 
-  return "Action Affecting State: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.action_affecting_state.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.action_affecting_state.labels[value] or "Action Affecting State: Unknown("..value..")"
 end
 
 -- Dissect: Action Affecting State
@@ -482,15 +466,13 @@ gpw_wse_marketinformation_xdp_v6_8.algo = {}
 gpw_wse_marketinformation_xdp_v6_8.algo.size = 1
 
 -- Display: Algo
-gpw_wse_marketinformation_xdp_v6_8.algo.display = function(value)
-  if value == "F" then
-    return "Algo: Fifo (F)"
-  end
-  if value == "O" then
-    return "Algo: Fifo Origin (O)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.algo.labels = {
+  ["F"] = "Algo: Fifo (F)",
+  ["O"] = "Algo: Fifo Origin (O)",
+}
 
-  return "Algo: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.algo.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.algo.labels[value] or "Algo: Unknown("..value..")"
 end
 
 -- Dissect: Algo
@@ -535,18 +517,14 @@ gpw_wse_marketinformation_xdp_v6_8.authority = {}
 gpw_wse_marketinformation_xdp_v6_8.authority.size = 1
 
 -- Display: Authority
-gpw_wse_marketinformation_xdp_v6_8.authority.display = function(value)
-  if value == "1" then
-    return "Authority: Wse (1)"
-  end
-  if value == "2" then
-    return "Authority: Kdpw (2)"
-  end
-  if value == "3" then
-    return "Authority: Knf (3)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.authority.labels = {
+  ["1"] = "Authority: Wse (1)",
+  ["2"] = "Authority: Kdpw (2)",
+  ["3"] = "Authority: Knf (3)",
+}
 
-  return "Authority: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.authority.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.authority.labels[value] or "Authority: Unknown("..value..")"
 end
 
 -- Dissect: Authority
@@ -872,15 +850,13 @@ gpw_wse_marketinformation_xdp_v6_8.collar_type = {}
 gpw_wse_marketinformation_xdp_v6_8.collar_type.size = 1
 
 -- Display: Collar Type
-gpw_wse_marketinformation_xdp_v6_8.collar_type.display = function(value)
-  if value == "D" then
-    return "Collar Type: Dynamic Collars (D)"
-  end
-  if value == "S" then
-    return "Collar Type: Static Thresholds (S)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.collar_type.labels = {
+  ["D"] = "Collar Type: Dynamic Collars (D)",
+  ["S"] = "Collar Type: Static Thresholds (S)",
+}
 
-  return "Collar Type: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.collar_type.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.collar_type.labels[value] or "Collar Type: Unknown("..value..")"
 end
 
 -- Dissect: Collar Type
@@ -1204,24 +1180,16 @@ gpw_wse_marketinformation_xdp_v6_8.delivery_flag = {}
 gpw_wse_marketinformation_xdp_v6_8.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-gpw_wse_marketinformation_xdp_v6_8.delivery_flag.display = function(value)
-  if value == 0 then
-    return "Delivery Flag: Real Time Message Uncompressed (0)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Retransmission Message Uncompressed (2)"
-  end
-  if value == 16 then
-    return "Delivery Flag: Real Time Message Zlib Compressed (16)"
-  end
-  if value == 17 then
-    return "Delivery Flag: Refresh Message Zlib Compressed (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Retransmission Message Compressed (18)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.delivery_flag.labels = {
+  [0] = "Delivery Flag: Real Time Message Uncompressed (0)",
+  [2] = "Delivery Flag: Retransmission Message Uncompressed (2)",
+  [16] = "Delivery Flag: Real Time Message Zlib Compressed (16)",
+  [17] = "Delivery Flag: Refresh Message Zlib Compressed (17)",
+  [18] = "Delivery Flag: Retransmission Message Compressed (18)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.delivery_flag.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -1243,15 +1211,13 @@ gpw_wse_marketinformation_xdp_v6_8.delivery_type = {}
 gpw_wse_marketinformation_xdp_v6_8.delivery_type.size = 1
 
 -- Display: Delivery Type
-gpw_wse_marketinformation_xdp_v6_8.delivery_type.display = function(value)
-  if value == "C" then
-    return "Delivery Type: Cash Settlement (C)"
-  end
-  if value == "P" then
-    return "Delivery Type: Physical Delivery (P)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.delivery_type.labels = {
+  ["C"] = "Delivery Type: Cash Settlement (C)",
+  ["P"] = "Delivery Type: Physical Delivery (P)",
+}
 
-  return "Delivery Type: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.delivery_type.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.delivery_type.labels[value] or "Delivery Type: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Type
@@ -1497,15 +1463,13 @@ gpw_wse_marketinformation_xdp_v6_8.exercise_type = {}
 gpw_wse_marketinformation_xdp_v6_8.exercise_type.size = 1
 
 -- Display: Exercise Type
-gpw_wse_marketinformation_xdp_v6_8.exercise_type.display = function(value)
-  if value == "A" then
-    return "Exercise Type: American (A)"
-  end
-  if value == "E" then
-    return "Exercise Type: European (E)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.exercise_type.labels = {
+  ["A"] = "Exercise Type: American (A)",
+  ["E"] = "Exercise Type: European (E)",
+}
 
-  return "Exercise Type: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.exercise_type.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.exercise_type.labels[value] or "Exercise Type: Unknown("..value..")"
 end
 
 -- Dissect: Exercise Type
@@ -2042,30 +2006,18 @@ gpw_wse_marketinformation_xdp_v6_8.instrument_category = {}
 gpw_wse_marketinformation_xdp_v6_8.instrument_category.size = 1
 
 -- Display: Instrument Category
-gpw_wse_marketinformation_xdp_v6_8.instrument_category.display = function(value)
-  if value == "A" then
-    return "Instrument Category: Stock (A)"
-  end
-  if value == "O" then
-    return "Instrument Category: Bond (O)"
-  end
-  if value == "W" then
-    return "Instrument Category: Warrant And Certificate (W)"
-  end
-  if value == "T" then
-    return "Instrument Category: Tracker (T)"
-  end
-  if value == "I" then
-    return "Instrument Category: Index (I)"
-  end
-  if value == "F" then
-    return "Instrument Category: Future (F)"
-  end
-  if value == "X" then
-    return "Instrument Category: Option (X)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.instrument_category.labels = {
+  ["A"] = "Instrument Category: Stock (A)",
+  ["O"] = "Instrument Category: Bond (O)",
+  ["W"] = "Instrument Category: Warrant And Certificate (W)",
+  ["T"] = "Instrument Category: Tracker (T)",
+  ["I"] = "Instrument Category: Index (I)",
+  ["F"] = "Instrument Category: Future (F)",
+  ["X"] = "Instrument Category: Option (X)",
+}
 
-  return "Instrument Category: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.instrument_category.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.instrument_category.labels[value] or "Instrument Category: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Category
@@ -2350,24 +2302,16 @@ gpw_wse_marketinformation_xdp_v6_8.internal_msg_type = {}
 gpw_wse_marketinformation_xdp_v6_8.internal_msg_type.size = 2
 
 -- Display: Internal Msg Type
-gpw_wse_marketinformation_xdp_v6_8.internal_msg_type.display = function(value)
-  if value == "01" then
-    return "Internal Msg Type: End Of The Session (01)"
-  end
-  if value == "02" then
-    return "Internal Msg Type: Treasury Bond Futures Data (02)"
-  end
-  if value == "03" then
-    return "Internal Msg Type: Kid (03)"
-  end
-  if value == "04" then
-    return "Internal Msg Type: Stressed Market Conditions (04)"
-  end
-  if value == "05" then
-    return "Internal Msg Type: Exceptional Market Conditions (05)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.internal_msg_type.labels = {
+  ["01"] = "Internal Msg Type: End Of The Session (01)",
+  ["02"] = "Internal Msg Type: Treasury Bond Futures Data (02)",
+  ["03"] = "Internal Msg Type: Kid (03)",
+  ["04"] = "Internal Msg Type: Stressed Market Conditions (04)",
+  ["05"] = "Internal Msg Type: Exceptional Market Conditions (05)",
+}
 
-  return "Internal Msg Type: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.internal_msg_type.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.internal_msg_type.labels[value] or "Internal Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Internal Msg Type
@@ -2793,15 +2737,13 @@ gpw_wse_marketinformation_xdp_v6_8.main_depositary = {}
 gpw_wse_marketinformation_xdp_v6_8.main_depositary.size = 5
 
 -- Display: Main Depositary
-gpw_wse_marketinformation_xdp_v6_8.main_depositary.display = function(value)
-  if value == "00001" then
-    return "Main Depositary: Kdpw (00001)"
-  end
-  if value == "00000" then
-    return "Main Depositary: No Depository Organization (00000)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.main_depositary.labels = {
+  ["00001"] = "Main Depositary: Kdpw (00001)",
+  ["00000"] = "Main Depositary: No Depository Organization (00000)",
+}
 
-  return "Main Depositary: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.main_depositary.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.main_depositary.labels[value] or "Main Depositary: Unknown("..value..")"
 end
 
 -- Dissect: Main Depositary
@@ -2856,27 +2798,17 @@ gpw_wse_marketinformation_xdp_v6_8.market = {}
 gpw_wse_marketinformation_xdp_v6_8.market.size = 1
 
 -- Display: Market
-gpw_wse_marketinformation_xdp_v6_8.market.display = function(value)
-  if value == "P" then
-    return "Market: Primary Market (P)"
-  end
-  if value == "R" then
-    return "Market: Parallel Market (R)"
-  end
-  if value == "Z" then
-    return "Market: New Connect Market Price Driven Market (Z)"
-  end
-  if value == "C" then
-    return "Market: New Connect Marketorder Driven Market (C)"
-  end
-  if value == "O" then
-    return "Market: Catalyst Regulated Market (O)"
-  end
-  if value == "N" then
-    return "Market: Catalyst Aso (N)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.market.labels = {
+  ["P"] = "Market: Primary Market (P)",
+  ["R"] = "Market: Parallel Market (R)",
+  ["Z"] = "Market: New Connect Market Price Driven Market (Z)",
+  ["C"] = "Market: New Connect Marketorder Driven Market (C)",
+  ["O"] = "Market: Catalyst Regulated Market (O)",
+  ["N"] = "Market: Catalyst Aso (N)",
+}
 
-  return "Market: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.market.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.market.labels[value] or "Market: Unknown("..value..")"
 end
 
 -- Dissect: Market
@@ -2967,12 +2899,12 @@ gpw_wse_marketinformation_xdp_v6_8.market_indicator = {}
 gpw_wse_marketinformation_xdp_v6_8.market_indicator.size = 1
 
 -- Display: Market Indicator
-gpw_wse_marketinformation_xdp_v6_8.market_indicator.display = function(value)
-  if value == 0 then
-    return "Market Indicator: Not Used (0)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.market_indicator.labels = {
+  [0] = "Market Indicator: Not Used (0)",
+}
 
-  return "Market Indicator: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.market_indicator.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.market_indicator.labels[value] or "Market Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Market Indicator
@@ -2994,48 +2926,24 @@ gpw_wse_marketinformation_xdp_v6_8.market_segment = {}
 gpw_wse_marketinformation_xdp_v6_8.market_segment.size = 2
 
 -- Display: Market Segment
-gpw_wse_marketinformation_xdp_v6_8.market_segment.display = function(value)
-  if value == "NM" then
-    return "Market Segment: Cash Normal Market (NM)"
-  end
-  if value == "OT" then
-    return "Market Segment: Cash Block Trading (OT)"
-  end
-  if value == "TO" then
-    return "Market Segment: Tender Offer (TO)"
-  end
-  if value == "IP" then
-    return "Market Segment: Ipo (IP)"
-  end
-  if value == "IN" then
-    return "Market Segment: Investment (IN)"
-  end
-  if value == "LE" then
-    return "Market Segment: Leverage (LE)"
-  end
-  if value == "DN" then
-    return "Market Segment: Derivatives Normal Market (DN)"
-  end
-  if value == "DB" then
-    return "Market Segment: Derivatives Block Trading (DB)"
-  end
-  if value == "IX" then
-    return "Market Segment: Wse Indices (IX)"
-  end
-  if value == "BR" then
-    return "Market Segment: Retail Market (BR)"
-  end
-  if value == "BW" then
-    return "Market Segment: Wholesale Market (BW)"
-  end
-  if value == "BT" then
-    return "Market Segment: Bond Spot Tbs Poland (BT)"
-  end
-  if value == "BA" then
-    return "Market Segment: Bond Spot Ats (BA)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.market_segment.labels = {
+  ["NM"] = "Market Segment: Cash Normal Market (NM)",
+  ["OT"] = "Market Segment: Cash Block Trading (OT)",
+  ["TO"] = "Market Segment: Tender Offer (TO)",
+  ["IP"] = "Market Segment: Ipo (IP)",
+  ["IN"] = "Market Segment: Investment (IN)",
+  ["LE"] = "Market Segment: Leverage (LE)",
+  ["DN"] = "Market Segment: Derivatives Normal Market (DN)",
+  ["DB"] = "Market Segment: Derivatives Block Trading (DB)",
+  ["IX"] = "Market Segment: Wse Indices (IX)",
+  ["BR"] = "Market Segment: Retail Market (BR)",
+  ["BW"] = "Market Segment: Wholesale Market (BW)",
+  ["BT"] = "Market Segment: Bond Spot Tbs Poland (BT)",
+  ["BA"] = "Market Segment: Bond Spot Ats (BA)",
+}
 
-  return "Market Segment: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.market_segment.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.market_segment.labels[value] or "Market Segment: Unknown("..value..")"
 end
 
 -- Dissect: Market Segment
@@ -3218,48 +3126,24 @@ gpw_wse_marketinformation_xdp_v6_8.message_type = {}
 gpw_wse_marketinformation_xdp_v6_8.message_type.size = 2
 
 -- Display: Message Type
-gpw_wse_marketinformation_xdp_v6_8.message_type.display = function(value)
-  if value == 516 then
-    return "Message Type: Class State Change Message (516)"
-  end
-  if value == 523 then
-    return "Message Type: Mail Message (523)"
-  end
-  if value == 537 then
-    return "Message Type: Collars Message (537)"
-  end
-  if value == 539 then
-    return "Message Type: Session Timetable Message (539)"
-  end
-  if value == 550 then
-    return "Message Type: Start Referential Message (550)"
-  end
-  if value == 551 then
-    return "Message Type: End Referential Message (551)"
-  end
-  if value == 556 then
-    return "Message Type: Referential Message (556)"
-  end
-  if value == 561 then
-    return "Message Type: Session Summary Message (561)"
-  end
-  if value == 505 then
-    return "Message Type: Instrument State Change Message (505)"
-  end
-  if value == 530 then
-    return "Message Type: Indicative Matching Price Message (530)"
-  end
-  if value == 560 then
-    return "Message Type: Short Sale Change Message (560)"
-  end
-  if value == 592 then
-    return "Message Type: Generic Wse Message (592)"
-  end
-  if value == 595 then
-    return "Message Type: Open Position Message (595)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.message_type.labels = {
+  [516] = "Message Type: Class State Change Message (516)",
+  [523] = "Message Type: Mail Message (523)",
+  [537] = "Message Type: Collars Message (537)",
+  [539] = "Message Type: Session Timetable Message (539)",
+  [550] = "Message Type: Start Referential Message (550)",
+  [551] = "Message Type: End Referential Message (551)",
+  [556] = "Message Type: Referential Message (556)",
+  [561] = "Message Type: Session Summary Message (561)",
+  [505] = "Message Type: Instrument State Change Message (505)",
+  [530] = "Message Type: Indicative Matching Price Message (530)",
+  [560] = "Message Type: Short Sale Change Message (560)",
+  [592] = "Message Type: Generic Wse Message (592)",
+  [595] = "Message Type: Open Position Message (595)",
+}
 
-  return "Message Type: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.message_type.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -3281,51 +3165,25 @@ gpw_wse_marketinformation_xdp_v6_8.mic = {}
 gpw_wse_marketinformation_xdp_v6_8.mic.size = 4
 
 -- Display: Mic
-gpw_wse_marketinformation_xdp_v6_8.mic.display = function(value)
-  if value == "XWAR" then
-    return "Mic: Warsaw Stock Exchange (XWAR)"
-  end
-  if value == "XNCO" then
-    return "Mic: Warsaw Stock Exchange Equities New Connect Mtf (XNCO)"
-  end
-  if value == "WBON" then
-    return "Mic: Warsaw Stock Exchange Bonds Catalyst Main Market (WBON)"
-  end
-  if value == "WMTF" then
-    return "Mic: Warsaw Stock Exchange Bonds Catalyst Mtf (WMTF)"
-  end
-  if value == "WDER" then
-    return "Mic: Warsaw Stock Exchange Financial Derivatives (WDER)"
-  end
-  if value == "WETP" then
-    return "Mic: Warsaw Stock Exchange Et Ps (WETP)"
-  end
-  if value == "WIND" then
-    return "Mic: Warsaw Stock Exchange Indices (WIND)"
-  end
-  if value == "RPWC" then
-    return "Mic: Warsaw Stock Exchange Bonds Catalyst Bondspot Main Market (RPWC)"
-  end
-  if value == "BOSP" then
-    return "Mic: Warsaw Stock Exchange Bonds Catalyst Bondspot Mtf (BOSP)"
-  end
-  if value == "TBSP" then
-    return "Mic: Warsaw Stock Exchange Bonds Bondspot Treasury Bond Market (TBSP)"
-  end
-  if value == "WBCL" then
-    return "Mic: Warsaw Stock Exchange Bonds Catalyst Listing (WBCL)"
-  end
-  if value == "WIPO" then
-    return "Mic: Warsaw Stock Exchange Other Than Xoff Or Xxxx (WIPO)"
-  end
-  if value == "XOFF" then
-    return "Mic: Off Exchange Transactions Listed Instruments (XOFF)"
-  end
-  if value == "XXXX" then
-    return "Mic: No Market Eg Unlisted (XXXX)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.mic.labels = {
+  ["XWAR"] = "Mic: Warsaw Stock Exchange (XWAR)",
+  ["XNCO"] = "Mic: Warsaw Stock Exchange Equities New Connect Mtf (XNCO)",
+  ["WBON"] = "Mic: Warsaw Stock Exchange Bonds Catalyst Main Market (WBON)",
+  ["WMTF"] = "Mic: Warsaw Stock Exchange Bonds Catalyst Mtf (WMTF)",
+  ["WDER"] = "Mic: Warsaw Stock Exchange Financial Derivatives (WDER)",
+  ["WETP"] = "Mic: Warsaw Stock Exchange Et Ps (WETP)",
+  ["WIND"] = "Mic: Warsaw Stock Exchange Indices (WIND)",
+  ["RPWC"] = "Mic: Warsaw Stock Exchange Bonds Catalyst Bondspot Main Market (RPWC)",
+  ["BOSP"] = "Mic: Warsaw Stock Exchange Bonds Catalyst Bondspot Mtf (BOSP)",
+  ["TBSP"] = "Mic: Warsaw Stock Exchange Bonds Bondspot Treasury Bond Market (TBSP)",
+  ["WBCL"] = "Mic: Warsaw Stock Exchange Bonds Catalyst Listing (WBCL)",
+  ["WIPO"] = "Mic: Warsaw Stock Exchange Other Than Xoff Or Xxxx (WIPO)",
+  ["XOFF"] = "Mic: Off Exchange Transactions Listed Instruments (XOFF)",
+  ["XXXX"] = "Mic: No Market Eg Unlisted (XXXX)",
+}
 
-  return "Mic: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.mic.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.mic.labels[value] or "Mic: Unknown("..value..")"
 end
 
 -- Dissect: Mic
@@ -3771,18 +3629,14 @@ gpw_wse_marketinformation_xdp_v6_8.open_position_indicator = {}
 gpw_wse_marketinformation_xdp_v6_8.open_position_indicator.size = 1
 
 -- Display: Open Position Indicator
-gpw_wse_marketinformation_xdp_v6_8.open_position_indicator.display = function(value)
-  if value == "0" then
-    return "Open Position Indicator: Open Position During The Quotation Phase (0)"
-  end
-  if value == "3" then
-    return "Open Position Indicator: Open Position After The End Of The Trading Session (3)"
-  end
-  if value == "5" then
-    return "Open Position Indicator: Open Position Before The Start Of The Trading Session Verified Data From The Previous Day (5)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.open_position_indicator.labels = {
+  ["0"] = "Open Position Indicator: Open Position During The Quotation Phase (0)",
+  ["3"] = "Open Position Indicator: Open Position After The End Of The Trading Session (3)",
+  ["5"] = "Open Position Indicator: Open Position Before The Start Of The Trading Session Verified Data From The Previous Day (5)",
+}
 
-  return "Open Position Indicator: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.open_position_indicator.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.open_position_indicator.labels[value] or "Open Position Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Open Position Indicator
@@ -3873,15 +3727,13 @@ gpw_wse_marketinformation_xdp_v6_8.option_type = {}
 gpw_wse_marketinformation_xdp_v6_8.option_type.size = 1
 
 -- Display: Option Type
-gpw_wse_marketinformation_xdp_v6_8.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.option_type.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -3990,12 +3842,12 @@ gpw_wse_marketinformation_xdp_v6_8.packet_type = {}
 gpw_wse_marketinformation_xdp_v6_8.packet_type.size = 2
 
 -- Display: Packet Type
-gpw_wse_marketinformation_xdp_v6_8.packet_type.display = function(value)
-  if value == 501 then
-    return "Packet Type: Market Data Messages (501)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.packet_type.labels = {
+  [501] = "Packet Type: Market Data Messages (501)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.packet_type.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -4086,18 +3938,14 @@ gpw_wse_marketinformation_xdp_v6_8.period_side = {}
 gpw_wse_marketinformation_xdp_v6_8.period_side.size = 1
 
 -- Display: Period Side
-gpw_wse_marketinformation_xdp_v6_8.period_side.display = function(value)
-  if value == "0" then
-    return "Period Side: Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Period Side: Bid Only (1)"
-  end
-  if value == "2" then
-    return "Period Side: Offer Only (2)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.period_side.labels = {
+  ["0"] = "Period Side: Not Applicable (0)",
+  ["1"] = "Period Side: Bid Only (1)",
+  ["2"] = "Period Side: Offer Only (2)",
+}
 
-  return "Period Side: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.period_side.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.period_side.labels[value] or "Period Side: Unknown("..value..")"
 end
 
 -- Dissect: Period Side
@@ -4284,18 +4132,14 @@ gpw_wse_marketinformation_xdp_v6_8.quotation_system = {}
 gpw_wse_marketinformation_xdp_v6_8.quotation_system.size = 2
 
 -- Display: Quotation System
-gpw_wse_marketinformation_xdp_v6_8.quotation_system.display = function(value)
-  if value == "81" then
-    return "Quotation System: Single Price Quotation System With A Single Fixing (81)"
-  end
-  if value == "82" then
-    return "Quotation System: Continuous Trading (82)"
-  end
-  if value == "83" then
-    return "Quotation System: Single Price Quotation System With Two Fixings (83)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.quotation_system.labels = {
+  ["81"] = "Quotation System: Single Price Quotation System With A Single Fixing (81)",
+  ["82"] = "Quotation System: Continuous Trading (82)",
+  ["83"] = "Quotation System: Single Price Quotation System With Two Fixings (83)",
+}
 
-  return "Quotation System: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.quotation_system.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.quotation_system.labels[value] or "Quotation System: Unknown("..value..")"
 end
 
 -- Dissect: Quotation System
@@ -4662,363 +4506,129 @@ gpw_wse_marketinformation_xdp_v6_8.sector = {}
 gpw_wse_marketinformation_xdp_v6_8.sector.size = 3
 
 -- Display: Sector
-gpw_wse_marketinformation_xdp_v6_8.sector.display = function(value)
-  if value == "111" then
-    return "Sector: Commercial Banks (111)"
-  end
-  if value == "112" then
-    return "Sector: Cooperative Banks (112)"
-  end
-  if value == "113" then
-    return "Sector: Mortgage Banks (113)"
-  end
-  if value == "114" then
-    return "Sector: Government And International Banks (114)"
-  end
-  if value == "119" then
-    return "Sector: Banks Other (119)"
-  end
-  if value == "121" then
-    return "Sector: Insurance Offices (121)"
-  end
-  if value == "129" then
-    return "Sector: Insurance Other (129)"
-  end
-  if value == "131" then
-    return "Sector: Exchanges And Brokers (131)"
-  end
-  if value == "132" then
-    return "Sector: Asset Management (132)"
-  end
-  if value == "139" then
-    return "Sector: Capital Market Other (139)"
-  end
-  if value == "141" then
-    return "Sector: Real Estate Sales (141)"
-  end
-  if value == "142" then
-    return "Sector: Real Estate Rent (142)"
-  end
-  if value == "149" then
-    return "Sector: Real Estate Other (149)"
-  end
-  if value == "150" then
-    return "Sector: Leasing Factoring (150)"
-  end
-  if value == "160" then
-    return "Sector: Mortgage (160)"
-  end
-  if value == "170" then
-    return "Sector: Financial Services (170)"
-  end
-  if value == "180" then
-    return "Sector: Investment (180)"
-  end
-  if value == "190" then
-    return "Sector: Financials Other (190)"
-  end
-  if value == "211" then
-    return "Sector: Oil Gas Exploration And Production (211)"
-  end
-  if value == "212" then
-    return "Sector: Oil Gas Refining And Transportation (212)"
-  end
-  if value == "219" then
-    return "Sector: Oil Gas Other (219)"
-  end
-  if value == "221" then
-    return "Sector: Power Engineering (221)"
-  end
-  if value == "222" then
-    return "Sector: Ecoenergy (222)"
-  end
-  if value == "229" then
-    return "Sector: Energy Other (229)"
-  end
-  if value == "230" then
-    return "Sector: Water Multiutilities (230)"
-  end
-  if value == "290" then
-    return "Sector: Oil Energy Other (290)"
-  end
-  if value == "311" then
-    return "Sector: Basic Chemicals (311)"
-  end
-  if value == "312" then
-    return "Sector: Specialty Chemicals (312)"
-  end
-  if value == "319" then
-    return "Sector: Chemicals Other (319)"
-  end
-  if value == "321" then
-    return "Sector: Carbon Mining (321)"
-  end
-  if value == "322" then
-    return "Sector: Metals Mining (322)"
-  end
-  if value == "329" then
-    return "Sector: Mining Other (329)"
-  end
-  if value == "331" then
-    return "Sector: Steel Metallurgy (331)"
-  end
-  if value == "332" then
-    return "Sector: Nonferrous Metallurgy (332)"
-  end
-  if value == "339" then
-    return "Sector: Metallurgy Other (339)"
-  end
-  if value == "340" then
-    return "Sector: Basic Materials (340)"
-  end
-  if value == "351" then
-    return "Sector: Plastic (351)"
-  end
-  if value == "352" then
-    return "Sector: Rubber (352)"
-  end
-  if value == "359" then
-    return "Sector: Rubber Plastic Other (359)"
-  end
-  if value == "361" then
-    return "Sector: Forestry (361)"
-  end
-  if value == "362" then
-    return "Sector: Paper Packing (362)"
-  end
-  if value == "369" then
-    return "Sector: Paper Forestry Other (369)"
-  end
-  if value == "370" then
-    return "Sector: Recycling (370)"
-  end
-  if value == "390" then
-    return "Sector: Chemicals Materials Other (390)"
-  end
-  if value == "411" then
-    return "Sector: General Construction (411)"
-  end
-  if value == "412" then
-    return "Sector: Industry Construction (412)"
-  end
-  if value == "413" then
-    return "Sector: Engineering (413)"
-  end
-  if value == "414" then
-    return "Sector: Construction Materials (414)"
-  end
-  if value == "415" then
-    return "Sector: Building Products (415)"
-  end
-  if value == "419" then
-    return "Sector: Construction Other (419)"
-  end
-  if value == "421" then
-    return "Sector: Electro Machinery (421)"
-  end
-  if value == "422" then
-    return "Sector: Industrial Machinery (422)"
-  end
-  if value == "423" then
-    return "Sector: Metals Products (423)"
-  end
-  if value == "424" then
-    return "Sector: Farm Heavy Trucks (424)"
-  end
-  if value == "429" then
-    return "Sector: Machinery Other (429)"
-  end
-  if value == "431" then
-    return "Sector: Transport (431)"
-  end
-  if value == "432" then
-    return "Sector: Logistics (432)"
-  end
-  if value == "439" then
-    return "Sector: Transportation Other (439)"
-  end
-  if value == "441" then
-    return "Sector: Electro Products (441)"
-  end
-  if value == "442" then
-    return "Sector: Steel Products (442)"
-  end
-  if value == "443" then
-    return "Sector: Chemical Products (443)"
-  end
-  if value == "449" then
-    return "Sector: Industrial Supplies Other (449)"
-  end
-  if value == "450" then
-    return "Sector: Industry Services (450)"
-  end
-  if value == "490" then
-    return "Sector: Industrials Other (490)"
-  end
-  if value == "511" then
-    return "Sector: Food (511)"
-  end
-  if value == "512" then
-    return "Sector: Drinks (512)"
-  end
-  if value == "513" then
-    return "Sector: Agricultural Products And Fishing (513)"
-  end
-  if value == "519" then
-    return "Sector: Food Drinks Other (519)"
-  end
-  if value == "521" then
-    return "Sector: Clothes Footwear (521)"
-  end
-  if value == "522" then
-    return "Sector: Cosmetics Household Chemicals (522)"
-  end
-  if value == "529" then
-    return "Sector: Clothes Cosmetics Other (529)"
-  end
-  if value == "531" then
-    return "Sector: Household Durables (531)"
-  end
-  if value == "532" then
-    return "Sector: Electrical Electronic Equipment (532)"
-  end
-  if value == "539" then
-    return "Sector: Consumer Durables Other (539)"
-  end
-  if value == "541" then
-    return "Sector: Auto Parts (541)"
-  end
-  if value == "549" then
-    return "Sector: Automobiles Parts Other (549)"
-  end
-  if value == "590" then
-    return "Sector: Consumer Goods Other (590)"
-  end
-  if value == "611" then
-    return "Sector: Consumer Staples (611)"
-  end
-  if value == "612" then
-    return "Sector: Computers Electronics (612)"
-  end
-  if value == "619" then
-    return "Sector: Wholesale Trade Other (619)"
-  end
-  if value == "621" then
-    return "Sector: Consumer Discretionary (621)"
-  end
-  if value == "622" then
-    return "Sector: Consumer Electronics (622)"
-  end
-  if value == "629" then
-    return "Sector: General Retailers Other (629)"
-  end
-  if value == "631" then
-    return "Sector: Hotels Restaurants (631)"
-  end
-  if value == "632" then
-    return "Sector: Travel Agencies (632)"
-  end
-  if value == "633" then
-    return "Sector: Sports Clubs (633)"
-  end
-  if value == "634" then
-    return "Sector: Sport Leisure (634)"
-  end
-  if value == "639" then
-    return "Sector: Leisure Facilities Other (639)"
-  end
-  if value == "641" then
-    return "Sector: Radio Tv (641)"
-  end
-  if value == "642" then
-    return "Sector: Publishing (642)"
-  end
-  if value == "643" then
-    return "Sector: Advertising (643)"
-  end
-  if value == "644" then
-    return "Sector: Internet (644)"
-  end
-  if value == "649" then
-    return "Sector: Media Other (649)"
-  end
-  if value == "650" then
-    return "Sector: Video Games (650)"
-  end
-  if value == "660" then
-    return "Sector: E Trade (660)"
-  end
-  if value == "690" then
-    return "Sector: Trade Services Other (690)"
-  end
-  if value == "710" then
-    return "Sector: Health Care Services (710)"
-  end
-  if value == "720" then
-    return "Sector: Health Care Equipment (720)"
-  end
-  if value == "730" then
-    return "Sector: Pharmaceuticals (730)"
-  end
-  if value == "740" then
-    return "Sector: Pharmaceuticals Wholesales (740)"
-  end
-  if value == "750" then
-    return "Sector: Biotechnology (750)"
-  end
-  if value == "790" then
-    return "Sector: Health Care Other (790)"
-  end
-  if value == "810" then
-    return "Sector: Telecom (810)"
-  end
-  if value == "821" then
-    return "Sector: Software (821)"
-  end
-  if value == "822" then
-    return "Sector: It Systems (822)"
-  end
-  if value == "823" then
-    return "Sector: Hardware (823)"
-  end
-  if value == "829" then
-    return "Sector: It Other (829)"
-  end
-  if value == "830" then
-    return "Sector: New Technology (830)"
-  end
-  if value == "890" then
-    return "Sector: Technology Other (890)"
-  end
-  if value == "910" then
-    return "Sector: State (910)"
-  end
-  if value == "921" then
-    return "Sector: Voivodship (921)"
-  end
-  if value == "922" then
-    return "Sector: County (922)"
-  end
-  if value == "923" then
-    return "Sector: County State (923)"
-  end
-  if value == "924" then
-    return "Sector: Community (924)"
-  end
-  if value == "929" then
-    return "Sector: Local Government Other (929)"
-  end
-  if value == "930" then
-    return "Sector: Central Banks (930)"
-  end
-  if value == "990" then
-    return "Sector: Government Other (990)"
-  end
-  if value == "000" then
-    return "Sector: Non Classified (000)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.sector.labels = {
+  ["111"] = "Sector: Commercial Banks (111)",
+  ["112"] = "Sector: Cooperative Banks (112)",
+  ["113"] = "Sector: Mortgage Banks (113)",
+  ["114"] = "Sector: Government And International Banks (114)",
+  ["119"] = "Sector: Banks Other (119)",
+  ["121"] = "Sector: Insurance Offices (121)",
+  ["129"] = "Sector: Insurance Other (129)",
+  ["131"] = "Sector: Exchanges And Brokers (131)",
+  ["132"] = "Sector: Asset Management (132)",
+  ["139"] = "Sector: Capital Market Other (139)",
+  ["141"] = "Sector: Real Estate Sales (141)",
+  ["142"] = "Sector: Real Estate Rent (142)",
+  ["149"] = "Sector: Real Estate Other (149)",
+  ["150"] = "Sector: Leasing Factoring (150)",
+  ["160"] = "Sector: Mortgage (160)",
+  ["170"] = "Sector: Financial Services (170)",
+  ["180"] = "Sector: Investment (180)",
+  ["190"] = "Sector: Financials Other (190)",
+  ["211"] = "Sector: Oil Gas Exploration And Production (211)",
+  ["212"] = "Sector: Oil Gas Refining And Transportation (212)",
+  ["219"] = "Sector: Oil Gas Other (219)",
+  ["221"] = "Sector: Power Engineering (221)",
+  ["222"] = "Sector: Ecoenergy (222)",
+  ["229"] = "Sector: Energy Other (229)",
+  ["230"] = "Sector: Water Multiutilities (230)",
+  ["290"] = "Sector: Oil Energy Other (290)",
+  ["311"] = "Sector: Basic Chemicals (311)",
+  ["312"] = "Sector: Specialty Chemicals (312)",
+  ["319"] = "Sector: Chemicals Other (319)",
+  ["321"] = "Sector: Carbon Mining (321)",
+  ["322"] = "Sector: Metals Mining (322)",
+  ["329"] = "Sector: Mining Other (329)",
+  ["331"] = "Sector: Steel Metallurgy (331)",
+  ["332"] = "Sector: Nonferrous Metallurgy (332)",
+  ["339"] = "Sector: Metallurgy Other (339)",
+  ["340"] = "Sector: Basic Materials (340)",
+  ["351"] = "Sector: Plastic (351)",
+  ["352"] = "Sector: Rubber (352)",
+  ["359"] = "Sector: Rubber Plastic Other (359)",
+  ["361"] = "Sector: Forestry (361)",
+  ["362"] = "Sector: Paper Packing (362)",
+  ["369"] = "Sector: Paper Forestry Other (369)",
+  ["370"] = "Sector: Recycling (370)",
+  ["390"] = "Sector: Chemicals Materials Other (390)",
+  ["411"] = "Sector: General Construction (411)",
+  ["412"] = "Sector: Industry Construction (412)",
+  ["413"] = "Sector: Engineering (413)",
+  ["414"] = "Sector: Construction Materials (414)",
+  ["415"] = "Sector: Building Products (415)",
+  ["419"] = "Sector: Construction Other (419)",
+  ["421"] = "Sector: Electro Machinery (421)",
+  ["422"] = "Sector: Industrial Machinery (422)",
+  ["423"] = "Sector: Metals Products (423)",
+  ["424"] = "Sector: Farm Heavy Trucks (424)",
+  ["429"] = "Sector: Machinery Other (429)",
+  ["431"] = "Sector: Transport (431)",
+  ["432"] = "Sector: Logistics (432)",
+  ["439"] = "Sector: Transportation Other (439)",
+  ["441"] = "Sector: Electro Products (441)",
+  ["442"] = "Sector: Steel Products (442)",
+  ["443"] = "Sector: Chemical Products (443)",
+  ["449"] = "Sector: Industrial Supplies Other (449)",
+  ["450"] = "Sector: Industry Services (450)",
+  ["490"] = "Sector: Industrials Other (490)",
+  ["511"] = "Sector: Food (511)",
+  ["512"] = "Sector: Drinks (512)",
+  ["513"] = "Sector: Agricultural Products And Fishing (513)",
+  ["519"] = "Sector: Food Drinks Other (519)",
+  ["521"] = "Sector: Clothes Footwear (521)",
+  ["522"] = "Sector: Cosmetics Household Chemicals (522)",
+  ["529"] = "Sector: Clothes Cosmetics Other (529)",
+  ["531"] = "Sector: Household Durables (531)",
+  ["532"] = "Sector: Electrical Electronic Equipment (532)",
+  ["539"] = "Sector: Consumer Durables Other (539)",
+  ["541"] = "Sector: Auto Parts (541)",
+  ["549"] = "Sector: Automobiles Parts Other (549)",
+  ["590"] = "Sector: Consumer Goods Other (590)",
+  ["611"] = "Sector: Consumer Staples (611)",
+  ["612"] = "Sector: Computers Electronics (612)",
+  ["619"] = "Sector: Wholesale Trade Other (619)",
+  ["621"] = "Sector: Consumer Discretionary (621)",
+  ["622"] = "Sector: Consumer Electronics (622)",
+  ["629"] = "Sector: General Retailers Other (629)",
+  ["631"] = "Sector: Hotels Restaurants (631)",
+  ["632"] = "Sector: Travel Agencies (632)",
+  ["633"] = "Sector: Sports Clubs (633)",
+  ["634"] = "Sector: Sport Leisure (634)",
+  ["639"] = "Sector: Leisure Facilities Other (639)",
+  ["641"] = "Sector: Radio Tv (641)",
+  ["642"] = "Sector: Publishing (642)",
+  ["643"] = "Sector: Advertising (643)",
+  ["644"] = "Sector: Internet (644)",
+  ["649"] = "Sector: Media Other (649)",
+  ["650"] = "Sector: Video Games (650)",
+  ["660"] = "Sector: E Trade (660)",
+  ["690"] = "Sector: Trade Services Other (690)",
+  ["710"] = "Sector: Health Care Services (710)",
+  ["720"] = "Sector: Health Care Equipment (720)",
+  ["730"] = "Sector: Pharmaceuticals (730)",
+  ["740"] = "Sector: Pharmaceuticals Wholesales (740)",
+  ["750"] = "Sector: Biotechnology (750)",
+  ["790"] = "Sector: Health Care Other (790)",
+  ["810"] = "Sector: Telecom (810)",
+  ["821"] = "Sector: Software (821)",
+  ["822"] = "Sector: It Systems (822)",
+  ["823"] = "Sector: Hardware (823)",
+  ["829"] = "Sector: It Other (829)",
+  ["830"] = "Sector: New Technology (830)",
+  ["890"] = "Sector: Technology Other (890)",
+  ["910"] = "Sector: State (910)",
+  ["921"] = "Sector: Voivodship (921)",
+  ["922"] = "Sector: County (922)",
+  ["923"] = "Sector: County State (923)",
+  ["924"] = "Sector: Community (924)",
+  ["929"] = "Sector: Local Government Other (929)",
+  ["930"] = "Sector: Central Banks (930)",
+  ["990"] = "Sector: Government Other (990)",
+  ["000"] = "Sector: Non Classified (000)",
+}
 
-  return "Sector: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.sector.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.sector.labels[value] or "Sector: Unknown("..value..")"
 end
 
 -- Dissect: Sector
@@ -5040,21 +4650,15 @@ gpw_wse_marketinformation_xdp_v6_8.segment = {}
 gpw_wse_marketinformation_xdp_v6_8.segment.size = 2
 
 -- Display: Segment
-gpw_wse_marketinformation_xdp_v6_8.segment.display = function(value)
-  if value == "LA" then
-    return "Segment: Segment Alerts List (LA)"
-  end
-  if value == "NF" then
-    return "Segment: Segment New Connect Focus (NF)"
-  end
-  if value == "NB" then
-    return "Segment: Segment New Connect Base (NB)"
-  end
-  if value == "NA" then
-    return "Segment: Segment New Connect Alert (NA)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.segment.labels = {
+  ["LA"] = "Segment: Segment Alerts List (LA)",
+  ["NF"] = "Segment: Segment New Connect Focus (NF)",
+  ["NB"] = "Segment: Segment New Connect Base (NB)",
+  ["NA"] = "Segment: Segment New Connect Alert (NA)",
+}
 
-  return "Segment: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.segment.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.segment.labels[value] or "Segment: Unknown("..value..")"
 end
 
 -- Dissect: Segment
@@ -5122,18 +4726,14 @@ gpw_wse_marketinformation_xdp_v6_8.session_type = {}
 gpw_wse_marketinformation_xdp_v6_8.session_type.size = 1
 
 -- Display: Session Type
-gpw_wse_marketinformation_xdp_v6_8.session_type.display = function(value)
-  if value == "E" then
-    return "Session Type: Early Not Used (E)"
-  end
-  if value == "C" then
-    return "Session Type: Core Session (C)"
-  end
-  if value == "L" then
-    return "Session Type: Late Not Used (L)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.session_type.labels = {
+  ["E"] = "Session Type: Early Not Used (E)",
+  ["C"] = "Session Type: Core Session (C)",
+  ["L"] = "Session Type: Late Not Used (L)",
+}
 
-  return "Session Type: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.session_type.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.session_type.labels[value] or "Session Type: Unknown("..value..")"
 end
 
 -- Dissect: Session Type
@@ -5520,15 +5120,13 @@ gpw_wse_marketinformation_xdp_v6_8.split = {}
 gpw_wse_marketinformation_xdp_v6_8.split.size = 2
 
 -- Display: Split
-gpw_wse_marketinformation_xdp_v6_8.split.display = function(value)
-  if value == "pw" then
-    return "Split: After The Change (pw)"
-  end
-  if value == "zj" then
-    return "Split: Change Of The Trading Unit From The Moment Of Change Until The Last Session Before The Date Of The Shares Merger (zj)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.split.labels = {
+  ["pw"] = "Split: After The Change (pw)",
+  ["zj"] = "Split: Change Of The Trading Unit From The Moment Of Change Until The Last Session Before The Date Of The Shares Merger (zj)",
+}
 
-  return "Split: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.split.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.split.labels[value] or "Split: Unknown("..value..")"
 end
 
 -- Dissect: Split
@@ -5700,21 +5298,15 @@ gpw_wse_marketinformation_xdp_v6_8.stock_exchange_code = {}
 gpw_wse_marketinformation_xdp_v6_8.stock_exchange_code.size = 2
 
 -- Display: Stock Exchange Code
-gpw_wse_marketinformation_xdp_v6_8.stock_exchange_code.display = function(value)
-  if value == 243 then
-    return "Stock Exchange Code: Warsaw Stock Exchange (243)"
-  end
-  if value == 986 then
-    return "Stock Exchange Code: Bond Spot Non Exchange Regulated Market (986)"
-  end
-  if value == 988 then
-    return "Stock Exchange Code: Treasury Bond Spot Poland (988)"
-  end
-  if value == 989 then
-    return "Stock Exchange Code: Bond Spot Ats (989)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.stock_exchange_code.labels = {
+  [243] = "Stock Exchange Code: Warsaw Stock Exchange (243)",
+  [986] = "Stock Exchange Code: Bond Spot Non Exchange Regulated Market (986)",
+  [988] = "Stock Exchange Code: Treasury Bond Spot Poland (988)",
+  [989] = "Stock Exchange Code: Bond Spot Ats (989)",
+}
 
-  return "Stock Exchange Code: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.stock_exchange_code.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.stock_exchange_code.labels[value] or "Stock Exchange Code: Unknown("..value..")"
 end
 
 -- Dissect: Stock Exchange Code
@@ -6062,18 +5654,14 @@ gpw_wse_marketinformation_xdp_v6_8.system_id = {}
 gpw_wse_marketinformation_xdp_v6_8.system_id.size = 4
 
 -- Display: System Id
-gpw_wse_marketinformation_xdp_v6_8.system_id.display = function(value)
-  if value == 1 then
-    return "System Id: All Non Utp Systems (1)"
-  end
-  if value == 11 then
-    return "System Id: Utp Trading Unit 1 (11)"
-  end
-  if value == 12 then
-    return "System Id: Utp Trading Unit 2 (12)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.system_id.labels = {
+  [1] = "System Id: All Non Utp Systems (1)",
+  [11] = "System Id: Utp Trading Unit 1 (11)",
+  [12] = "System Id: Utp Trading Unit 2 (12)",
+}
 
-  return "System Id: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.system_id.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.system_id.labels[value] or "System Id: Unknown("..value..")"
 end
 
 -- Dissect: System Id
@@ -6697,48 +6285,24 @@ gpw_wse_marketinformation_xdp_v6_8.type_of_corporate_event = {}
 gpw_wse_marketinformation_xdp_v6_8.type_of_corporate_event.size = 2
 
 -- Display: Type Of Corporate Event
-gpw_wse_marketinformation_xdp_v6_8.type_of_corporate_event.display = function(value)
-  if value == "00" then
-    return "Type Of Corporate Event: No Specific Event (00)"
-  end
-  if value == "01" then
-    return "Type Of Corporate Event: Dividend Payment In Cash Or In Stocks (01)"
-  end
-  if value == "03" then
-    return "Type Of Corporate Event: Interest Payment Bonds For Which The Price Is Expressed In Of The Nominal (03)"
-  end
-  if value == "04" then
-    return "Type Of Corporate Event: Split (04)"
-  end
-  if value == "05" then
-    return "Type Of Corporate Event: Bonus Ie Attribution (05)"
-  end
-  if value == "09" then
-    return "Type Of Corporate Event: Reverse Split (09)"
-  end
-  if value == "12" then
-    return "Type Of Corporate Event: Purge Of The Order Book In The Absence Of A Corporate Event Eg Following The Modification Of The Variable Tick Of The Listed Instrument (12)"
-  end
-  if value == "17" then
-    return "Type Of Corporate Event: Spinoff (17)"
-  end
-  if value == "18" then
-    return "Type Of Corporate Event: Rights (18)"
-  end
-  if value == "19" then
-    return "Type Of Corporate Event: Bonus And Rights (19)"
-  end
-  if value == "20" then
-    return "Type Of Corporate Event: Bonus Also Entitled For Rights (20)"
-  end
-  if value == "21" then
-    return "Type Of Corporate Event: Rights Also Entitled For Bonus (21)"
-  end
-  if value == "99" then
-    return "Type Of Corporate Event: Multiple Corporate Events (99)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.type_of_corporate_event.labels = {
+  ["00"] = "Type Of Corporate Event: No Specific Event (00)",
+  ["01"] = "Type Of Corporate Event: Dividend Payment In Cash Or In Stocks (01)",
+  ["03"] = "Type Of Corporate Event: Interest Payment Bonds For Which The Price Is Expressed In Of The Nominal (03)",
+  ["04"] = "Type Of Corporate Event: Split (04)",
+  ["05"] = "Type Of Corporate Event: Bonus Ie Attribution (05)",
+  ["09"] = "Type Of Corporate Event: Reverse Split (09)",
+  ["12"] = "Type Of Corporate Event: Purge Of The Order Book In The Absence Of A Corporate Event Eg Following The Modification Of The Variable Tick Of The Listed Instrument (12)",
+  ["17"] = "Type Of Corporate Event: Spinoff (17)",
+  ["18"] = "Type Of Corporate Event: Rights (18)",
+  ["19"] = "Type Of Corporate Event: Bonus And Rights (19)",
+  ["20"] = "Type Of Corporate Event: Bonus Also Entitled For Rights (20)",
+  ["21"] = "Type Of Corporate Event: Rights Also Entitled For Bonus (21)",
+  ["99"] = "Type Of Corporate Event: Multiple Corporate Events (99)",
+}
 
-  return "Type Of Corporate Event: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.type_of_corporate_event.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.type_of_corporate_event.labels[value] or "Type Of Corporate Event: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Corporate Event
@@ -6760,21 +6324,15 @@ gpw_wse_marketinformation_xdp_v6_8.type_of_derivatives = {}
 gpw_wse_marketinformation_xdp_v6_8.type_of_derivatives.size = 1
 
 -- Display: Type Of Derivatives
-gpw_wse_marketinformation_xdp_v6_8.type_of_derivatives.display = function(value)
-  if value == "1" then
-    return "Type Of Derivatives: Inav Indicative Net Asset Value For Etf Exchange Traded Funds (1)"
-  end
-  if value == "4" then
-    return "Type Of Derivatives: Supports Short Terms Options (4)"
-  end
-  if value == "6" then
-    return "Type Of Derivatives: Supports Long Term Options (6)"
-  end
-  if value == "9" then
-    return "Type Of Derivatives: No (9)"
-  end
+gpw_wse_marketinformation_xdp_v6_8.type_of_derivatives.labels = {
+  ["1"] = "Type Of Derivatives: Inav Indicative Net Asset Value For Etf Exchange Traded Funds (1)",
+  ["4"] = "Type Of Derivatives: Supports Short Terms Options (4)",
+  ["6"] = "Type Of Derivatives: Supports Long Term Options (6)",
+  ["9"] = "Type Of Derivatives: No (9)",
+}
 
-  return "Type Of Derivatives: Unknown("..value..")"
+gpw_wse_marketinformation_xdp_v6_8.type_of_derivatives.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.type_of_derivatives.labels[value] or "Type Of Derivatives: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Derivatives
@@ -7688,22 +7246,17 @@ end
 gpw_wse_marketinformation_xdp_v6_8.body_message = {}
 
 -- Dissect: Body Message
+gpw_wse_marketinformation_xdp_v6_8.body_message.dispatch = {
+  ["02"] = gpw_wse_marketinformation_xdp_v6_8.treasury_bond_futures_data.dissect,
+  ["03"] = gpw_wse_marketinformation_xdp_v6_8.kid.dissect,
+  ["04"] = gpw_wse_marketinformation_xdp_v6_8.market_conditions.dissect,
+  ["05"] = gpw_wse_marketinformation_xdp_v6_8.market_conditions.dissect,
+}
+
 gpw_wse_marketinformation_xdp_v6_8.body_message.dissect = function(buffer, offset, packet, parent, internal_msg_type)
-  -- Dissect Treasury Bond Futures Data
-  if internal_msg_type == "02" then
-    return gpw_wse_marketinformation_xdp_v6_8.treasury_bond_futures_data.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Kid
-  if internal_msg_type == "03" then
-    return gpw_wse_marketinformation_xdp_v6_8.kid.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Conditions
-  if internal_msg_type == "04" then
-    return gpw_wse_marketinformation_xdp_v6_8.market_conditions.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Conditions
-  if internal_msg_type == "05" then
-    return gpw_wse_marketinformation_xdp_v6_8.market_conditions.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_wse_marketinformation_xdp_v6_8.body_message.dispatch[internal_msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -9406,58 +8959,26 @@ end
 gpw_wse_marketinformation_xdp_v6_8.payload = {}
 
 -- Dissect: Payload
+gpw_wse_marketinformation_xdp_v6_8.payload.dispatch = {
+  [516] = gpw_wse_marketinformation_xdp_v6_8.class_state_change_message.dissect,
+  [523] = gpw_wse_marketinformation_xdp_v6_8.mail_message.dissect,
+  [537] = gpw_wse_marketinformation_xdp_v6_8.collars_message.dissect,
+  [539] = gpw_wse_marketinformation_xdp_v6_8.session_timetable_message.dissect,
+  [550] = gpw_wse_marketinformation_xdp_v6_8.start_referential_message.dissect,
+  [551] = gpw_wse_marketinformation_xdp_v6_8.end_referential_message.dissect,
+  [556] = gpw_wse_marketinformation_xdp_v6_8.referential_message.dissect,
+  [561] = gpw_wse_marketinformation_xdp_v6_8.session_summary_message.dissect,
+  [505] = gpw_wse_marketinformation_xdp_v6_8.instrument_state_change_message.dissect,
+  [530] = gpw_wse_marketinformation_xdp_v6_8.indicative_matching_price_message.dissect,
+  [560] = gpw_wse_marketinformation_xdp_v6_8.short_sale_change_message.dissect,
+  [592] = gpw_wse_marketinformation_xdp_v6_8.generic_wse_message.dissect,
+  [595] = gpw_wse_marketinformation_xdp_v6_8.open_position_message.dissect,
+}
+
 gpw_wse_marketinformation_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Class State Change Message
-  if message_type == 516 then
-    return gpw_wse_marketinformation_xdp_v6_8.class_state_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mail Message
-  if message_type == 523 then
-    return gpw_wse_marketinformation_xdp_v6_8.mail_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Collars Message
-  if message_type == 537 then
-    return gpw_wse_marketinformation_xdp_v6_8.collars_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Timetable Message
-  if message_type == 539 then
-    return gpw_wse_marketinformation_xdp_v6_8.session_timetable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Referential Message
-  if message_type == 550 then
-    return gpw_wse_marketinformation_xdp_v6_8.start_referential_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Referential Message
-  if message_type == 551 then
-    return gpw_wse_marketinformation_xdp_v6_8.end_referential_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Referential Message
-  if message_type == 556 then
-    return gpw_wse_marketinformation_xdp_v6_8.referential_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Summary Message
-  if message_type == 561 then
-    return gpw_wse_marketinformation_xdp_v6_8.session_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument State Change Message
-  if message_type == 505 then
-    return gpw_wse_marketinformation_xdp_v6_8.instrument_state_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Matching Price Message
-  if message_type == 530 then
-    return gpw_wse_marketinformation_xdp_v6_8.indicative_matching_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Sale Change Message
-  if message_type == 560 then
-    return gpw_wse_marketinformation_xdp_v6_8.short_sale_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Generic Wse Message
-  if message_type == 592 then
-    return gpw_wse_marketinformation_xdp_v6_8.generic_wse_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Position Message
-  if message_type == 595 then
-    return gpw_wse_marketinformation_xdp_v6_8.open_position_message.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_wse_marketinformation_xdp_v6_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

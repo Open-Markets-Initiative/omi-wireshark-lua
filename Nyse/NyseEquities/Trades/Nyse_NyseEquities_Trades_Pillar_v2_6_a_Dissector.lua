@@ -335,42 +335,22 @@ nyse_nyseequities_trades_pillar_v2_6_a.delivery_flag = {}
 nyse_nyseequities_trades_pillar_v2_6_a.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_nyseequities_trades_pillar_v2_6_a.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_nyseequities_trades_pillar_v2_6_a.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Pillar Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_nyseequities_trades_pillar_v2_6_a.delivery_flag.display = function(value)
+  return nyse_nyseequities_trades_pillar_v2_6_a.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -771,33 +751,19 @@ nyse_nyseequities_trades_pillar_v2_6_a.market_id = {}
 nyse_nyseequities_trades_pillar_v2_6_a.market_id.size = 2
 
 -- Display: Market Id
-nyse_nyseequities_trades_pillar_v2_6_a.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Equities (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Texas Equities (11)"
-  end
+nyse_nyseequities_trades_pillar_v2_6_a.market_id.labels = {
+  [1] = "Market Id: Nyse Equities (1)",
+  [3] = "Market Id: Nyse Arca Equities (3)",
+  [4] = "Market Id: Nyse Arca Options (4)",
+  [5] = "Market Id: Nyse Bonds (5)",
+  [8] = "Market Id: Nyse American Options (8)",
+  [9] = "Market Id: Nyse American Equities (9)",
+  [10] = "Market Id: Nyse National Equities (10)",
+  [11] = "Market Id: Nyse Texas Equities (11)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_nyseequities_trades_pillar_v2_6_a.market_id.display = function(value)
+  return nyse_nyseequities_trades_pillar_v2_6_a.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -894,72 +860,32 @@ nyse_nyseequities_trades_pillar_v2_6_a.message_type = {}
 nyse_nyseequities_trades_pillar_v2_6_a.message_type.size = 2
 
 -- Display: Message Type
-nyse_nyseequities_trades_pillar_v2_6_a.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Source Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
-  if value == 220 then
-    return "Message Type: Trade Message (220)"
-  end
-  if value == 221 then
-    return "Message Type: Trade Cancel Message (221)"
-  end
-  if value == 222 then
-    return "Message Type: Trade Correction Message (222)"
-  end
-  if value == 223 then
-    return "Message Type: Stock Summary Message (223)"
-  end
-  if value == 210 then
-    return "Message Type: Trf Fractional Trade Message (210)"
-  end
-  if value == 216 then
-    return "Message Type: Trf Trade Cancel Message (216)"
-  end
-  if value == 212 then
-    return "Message Type: Trf Fractional Trade Correction Message (212)"
-  end
-  if value == 213 then
-    return "Message Type: Trf Fractional Prior Day Trade Message (213)"
-  end
-  if value == 214 then
-    return "Message Type: Trf Fractional Prior Day Trade Cancel Message (214)"
-  end
+nyse_nyseequities_trades_pillar_v2_6_a.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [2] = "Message Type: Source Time Reference Message (2)",
+  [3] = "Message Type: Symbol Index Mapping Message (3)",
+  [32] = "Message Type: Symbol Clear Message (32)",
+  [34] = "Message Type: Security Status Message (34)",
+  [10] = "Message Type: Retransmission Request Message (10)",
+  [13] = "Message Type: Symbol Index Mapping Request Message (13)",
+  [15] = "Message Type: Refresh Request Message (15)",
+  [31] = "Message Type: Message Unavailable Message (31)",
+  [35] = "Message Type: Refresh Header Message (35)",
+  [11] = "Message Type: Request Response Message (11)",
+  [12] = "Message Type: Heartbeat Response Message (12)",
+  [220] = "Message Type: Trade Message (220)",
+  [221] = "Message Type: Trade Cancel Message (221)",
+  [222] = "Message Type: Trade Correction Message (222)",
+  [223] = "Message Type: Stock Summary Message (223)",
+  [210] = "Message Type: Trf Fractional Trade Message (210)",
+  [216] = "Message Type: Trf Trade Cancel Message (216)",
+  [212] = "Message Type: Trf Fractional Trade Correction Message (212)",
+  [213] = "Message Type: Trf Fractional Prior Day Trade Message (213)",
+  [214] = "Message Type: Trf Fractional Prior Day Trade Cancel Message (214)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_nyseequities_trades_pillar_v2_6_a.message_type.display = function(value)
+  return nyse_nyseequities_trades_pillar_v2_6_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1257,18 +1183,14 @@ nyse_nyseequities_trades_pillar_v2_6_a.price_resolution = {}
 nyse_nyseequities_trades_pillar_v2_6_a.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_nyseequities_trades_pillar_v2_6_a.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
+nyse_nyseequities_trades_pillar_v2_6_a.price_resolution.labels = {
+  [0] = "Price Resolution: All Penny (0)",
+  [1] = "Price Resolution: Penny Nickel (1)",
+  [5] = "Price Resolution: Nickel Dime (5)",
+}
 
-  return "Price Resolution: Unknown("..value..")"
+nyse_nyseequities_trades_pillar_v2_6_a.price_resolution.display = function(value)
+  return nyse_nyseequities_trades_pillar_v2_6_a.price_resolution.labels[value] or "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1474,12 +1396,12 @@ nyse_nyseequities_trades_pillar_v2_6_a.retransmit_method = {}
 nyse_nyseequities_trades_pillar_v2_6_a.retransmit_method.size = 1
 
 -- Display: Retransmit Method
-nyse_nyseequities_trades_pillar_v2_6_a.retransmit_method.display = function(value)
-  if value == 0 then
-    return "Retransmit Method: Deliver Via Udp (0)"
-  end
+nyse_nyseequities_trades_pillar_v2_6_a.retransmit_method.labels = {
+  [0] = "Retransmit Method: Deliver Via Udp (0)",
+}
 
-  return "Retransmit Method: Unknown("..value..")"
+nyse_nyseequities_trades_pillar_v2_6_a.retransmit_method.display = function(value)
+  return nyse_nyseequities_trades_pillar_v2_6_a.retransmit_method.labels[value] or "Retransmit Method: Unknown("..value..")"
 end
 
 -- Dissect: Retransmit Method
@@ -4203,90 +4125,34 @@ end
 nyse_nyseequities_trades_pillar_v2_6_a.payload = {}
 
 -- Dissect: Payload
+nyse_nyseequities_trades_pillar_v2_6_a.payload.dispatch = {
+  [1] = nyse_nyseequities_trades_pillar_v2_6_a.sequence_number_reset_message.dissect,
+  [2] = nyse_nyseequities_trades_pillar_v2_6_a.source_time_reference_message.dissect,
+  [3] = nyse_nyseequities_trades_pillar_v2_6_a.symbol_index_mapping_message.dissect,
+  [32] = nyse_nyseequities_trades_pillar_v2_6_a.symbol_clear_message.dissect,
+  [34] = nyse_nyseequities_trades_pillar_v2_6_a.security_status_message.dissect,
+  [10] = nyse_nyseequities_trades_pillar_v2_6_a.retransmission_request_message.dissect,
+  [13] = nyse_nyseequities_trades_pillar_v2_6_a.symbol_index_mapping_request_message.dissect,
+  [15] = nyse_nyseequities_trades_pillar_v2_6_a.refresh_request_message.dissect,
+  [31] = nyse_nyseequities_trades_pillar_v2_6_a.message_unavailable_message.dissect,
+  [35] = nyse_nyseequities_trades_pillar_v2_6_a.refresh_header_message.dissect,
+  [11] = nyse_nyseequities_trades_pillar_v2_6_a.request_response_message.dissect,
+  [12] = nyse_nyseequities_trades_pillar_v2_6_a.heartbeat_response_message.dissect,
+  [220] = nyse_nyseequities_trades_pillar_v2_6_a.trade_message.dissect,
+  [221] = nyse_nyseequities_trades_pillar_v2_6_a.trade_cancel_message.dissect,
+  [222] = nyse_nyseequities_trades_pillar_v2_6_a.trade_correction_message.dissect,
+  [223] = nyse_nyseequities_trades_pillar_v2_6_a.stock_summary_message.dissect,
+  [210] = nyse_nyseequities_trades_pillar_v2_6_a.trf_fractional_trade_message.dissect,
+  [216] = nyse_nyseequities_trades_pillar_v2_6_a.trf_trade_cancel_message.dissect,
+  [212] = nyse_nyseequities_trades_pillar_v2_6_a.trf_fractional_trade_correction_message.dissect,
+  [213] = nyse_nyseequities_trades_pillar_v2_6_a.trf_fractional_prior_day_trade_message.dissect,
+  [214] = nyse_nyseequities_trades_pillar_v2_6_a.trf_fractional_prior_day_trade_cancel_message.dissect,
+}
+
 nyse_nyseequities_trades_pillar_v2_6_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Source Time Reference Message
-  if message_type == 2 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.source_time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Clear Message
-  if message_type == 32 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 34 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 10 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Request Message
-  if message_type == 15 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if message_type == 31 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Header Message
-  if message_type == 35 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.refresh_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 11 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.request_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.heartbeat_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 220 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == 221 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == 222 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Summary Message
-  if message_type == 223 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.stock_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trf Fractional Trade Message
-  if message_type == 210 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.trf_fractional_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trf Trade Cancel Message
-  if message_type == 216 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.trf_trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trf Fractional Trade Correction Message
-  if message_type == 212 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.trf_fractional_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trf Fractional Prior Day Trade Message
-  if message_type == 213 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.trf_fractional_prior_day_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trf Fractional Prior Day Trade Cancel Message
-  if message_type == 214 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.trf_fractional_prior_day_trade_cancel_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nyseequities_trades_pillar_v2_6_a.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4425,10 +4291,14 @@ end
 nyse_nyseequities_trades_pillar_v2_6_a.messages = {}
 
 -- Dissect: Messages
+nyse_nyseequities_trades_pillar_v2_6_a.messages.dispatch = {
+  [1] = nyse_nyseequities_trades_pillar_v2_6_a.heartbeat.dissect,
+}
+
 nyse_nyseequities_trades_pillar_v2_6_a.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
-  -- Dissect Heartbeat
-  if delivery_flag == 1 then
-    return nyse_nyseequities_trades_pillar_v2_6_a.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nyseequities_trades_pillar_v2_6_a.messages.dispatch[delivery_flag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

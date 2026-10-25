@@ -223,18 +223,14 @@ nasdaq_nsmequities_nois_itch_v2_2.cross_type = {}
 nasdaq_nsmequities_nois_itch_v2_2.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nsmequities_nois_itch_v2_2.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Open Cross (O)"
-  end
-  if value == "C" then
-    return "Cross Type: Close Cross (C)"
-  end
-  if value == "H" then
-    return "Cross Type: Intraday Opening Cross For Ipo (H)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.cross_type.labels = {
+  ["O"] = "Cross Type: Open Cross (O)",
+  ["C"] = "Cross Type: Close Cross (C)",
+  ["H"] = "Cross Type: Intraday Opening Cross For Ipo (H)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.cross_type.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -294,27 +290,17 @@ nasdaq_nsmequities_nois_itch_v2_2.event_code = {}
 nasdaq_nsmequities_nois_itch_v2_2.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_nois_itch_v2_2.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.event_code.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -336,21 +322,15 @@ nasdaq_nsmequities_nois_itch_v2_2.imbalance_direction = {}
 nasdaq_nsmequities_nois_itch_v2_2.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_nsmequities_nois_itch_v2_2.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell (S)"
-  end
-  if value == "N" then
-    return "Imbalance Direction: No Imbalance (N)"
-  end
-  if value == "O" then
-    return "Imbalance Direction: Insufficient (O)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.imbalance_direction.labels = {
+  ["B"] = "Imbalance Direction: Buy (B)",
+  ["S"] = "Imbalance Direction: Sell (S)",
+  ["N"] = "Imbalance Direction: No Imbalance (N)",
+  ["O"] = "Imbalance Direction: Insufficient (O)",
+}
 
-  return "Imbalance Direction: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.imbalance_direction.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.imbalance_direction.labels[value] or "Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Direction
@@ -403,57 +383,27 @@ nasdaq_nsmequities_nois_itch_v2_2.issue_classification = {}
 nasdaq_nsmequities_nois_itch_v2_2.issue_classification.size = 1
 
 -- Display: Issue Classification
-nasdaq_nsmequities_nois_itch_v2_2.issue_classification.display = function(value)
-  if value == "A" then
-    return "Issue Classification: American Depositary Share (A)"
-  end
-  if value == "B" then
-    return "Issue Classification: Bond (B)"
-  end
-  if value == "C" then
-    return "Issue Classification: Common Stock (C)"
-  end
-  if value == "F" then
-    return "Issue Classification: Depository Receipt (F)"
-  end
-  if value == "I" then
-    return "Issue Classification: Sec 144 A (I)"
-  end
-  if value == "L" then
-    return "Issue Classification: Limited Partnership (L)"
-  end
-  if value == "N" then
-    return "Issue Classification: Notes (N)"
-  end
-  if value == "O" then
-    return "Issue Classification: Ordinary Share (O)"
-  end
-  if value == "P" then
-    return "Issue Classification: Preferred Stock (P)"
-  end
-  if value == "Q" then
-    return "Issue Classification: Other Securities (Q)"
-  end
-  if value == "R" then
-    return "Issue Classification: Right (R)"
-  end
-  if value == "S" then
-    return "Issue Classification: Shares Of Beneficial Interest (S)"
-  end
-  if value == "T" then
-    return "Issue Classification: Convertible Debenture (T)"
-  end
-  if value == "U" then
-    return "Issue Classification: Unit (U)"
-  end
-  if value == "V" then
-    return "Issue Classification: Units Benif Int (V)"
-  end
-  if value == "W" then
-    return "Issue Classification: Warrant (W)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.issue_classification.labels = {
+  ["A"] = "Issue Classification: American Depositary Share (A)",
+  ["B"] = "Issue Classification: Bond (B)",
+  ["C"] = "Issue Classification: Common Stock (C)",
+  ["F"] = "Issue Classification: Depository Receipt (F)",
+  ["I"] = "Issue Classification: Sec 144 A (I)",
+  ["L"] = "Issue Classification: Limited Partnership (L)",
+  ["N"] = "Issue Classification: Notes (N)",
+  ["O"] = "Issue Classification: Ordinary Share (O)",
+  ["P"] = "Issue Classification: Preferred Stock (P)",
+  ["Q"] = "Issue Classification: Other Securities (Q)",
+  ["R"] = "Issue Classification: Right (R)",
+  ["S"] = "Issue Classification: Shares Of Beneficial Interest (S)",
+  ["T"] = "Issue Classification: Convertible Debenture (T)",
+  ["U"] = "Issue Classification: Unit (U)",
+  ["V"] = "Issue Classification: Units Benif Int (V)",
+  ["W"] = "Issue Classification: Warrant (W)",
+}
 
-  return "Issue Classification: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.issue_classification.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.issue_classification.labels[value] or "Issue Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification
@@ -475,183 +425,69 @@ nasdaq_nsmequities_nois_itch_v2_2.issue_sub_type = {}
 nasdaq_nsmequities_nois_itch_v2_2.issue_sub_type.size = 2
 
 -- Display: Issue Sub Type
-nasdaq_nsmequities_nois_itch_v2_2.issue_sub_type.display = function(value)
-  if value == "A" then
-    return "Issue Sub Type: Preferred Trust Securities (A)"
-  end
-  if value == "AI" then
-    return "Issue Sub Type: Alpha Index Et Ns (AI)"
-  end
-  if value == "B" then
-    return "Issue Sub Type: Index Based Derivative (B)"
-  end
-  if value == "C" then
-    return "Issue Sub Type: Common Shares (C)"
-  end
-  if value == "CB" then
-    return "Issue Sub Type: Commodity Based Trust Shares (CB)"
-  end
-  if value == "CF" then
-    return "Issue Sub Type: Commodity Futures Trust Shares (CF)"
-  end
-  if value == "CL" then
-    return "Issue Sub Type: Commodity Linked Securities (CL)"
-  end
-  if value == "CM" then
-    return "Issue Sub Type: Commodity Index Trust Shares (CM)"
-  end
-  if value == "CO" then
-    return "Issue Sub Type: Collateralized Mortgage Obligation (CO)"
-  end
-  if value == "CT" then
-    return "Issue Sub Type: Currency Trust Shares (CT)"
-  end
-  if value == "CU" then
-    return "Issue Sub Type: Commodity Currency Linked Securities (CU)"
-  end
-  if value == "CW" then
-    return "Issue Sub Type: Currency Warrants (CW)"
-  end
-  if value == "D" then
-    return "Issue Sub Type: Global Depositary Shares (D)"
-  end
-  if value == "E" then
-    return "Issue Sub Type: Etf Portfolio Depositary Receipt (E)"
-  end
-  if value == "EG" then
-    return "Issue Sub Type: Equity Gold Shares (EG)"
-  end
-  if value == "EI" then
-    return "Issue Sub Type: Etn Equity Index Linked Securities (EI)"
-  end
-  if value == "EM" then
-    return "Issue Sub Type: Next Shares Exchange Traded Managed Fund (EM)"
-  end
-  if value == "EN" then
-    return "Issue Sub Type: Exchange Traded Notes (EN)"
-  end
-  if value == "EU" then
-    return "Issue Sub Type: Equity Units (EU)"
-  end
-  if value == "F" then
-    return "Issue Sub Type: Holdrs (F)"
-  end
-  if value == "FI" then
-    return "Issue Sub Type: Etn Fixed Income Linked Securities (FI)"
-  end
-  if value == "FL" then
-    return "Issue Sub Type: Etn Futures Linked Securities (FL)"
-  end
-  if value == "G" then
-    return "Issue Sub Type: Global Shares (G)"
-  end
-  if value == "I" then
-    return "Issue Sub Type: Etf Index Fund Shares (I)"
-  end
-  if value == "IR" then
-    return "Issue Sub Type: Interest Rate (IR)"
-  end
-  if value == "IW" then
-    return "Issue Sub Type: Index Warrant (IW)"
-  end
-  if value == "IX" then
-    return "Issue Sub Type: Index Linked Exchangeable Notes (IX)"
-  end
-  if value == "J" then
-    return "Issue Sub Type: Corporate Backed Trust Security (J)"
-  end
-  if value == "L" then
-    return "Issue Sub Type: Contingent Litigation Right (L)"
-  end
-  if value == "LL" then
-    return "Issue Sub Type: Limited Liability Company (LL)"
-  end
-  if value == "M" then
-    return "Issue Sub Type: Equity Based Derivative (M)"
-  end
-  if value == "MF" then
-    return "Issue Sub Type: Managed Fund Shares (MF)"
-  end
-  if value == "ML" then
-    return "Issue Sub Type: Etn Multi Factor Index Linked Securities (ML)"
-  end
-  if value == "MT" then
-    return "Issue Sub Type: Managed Trust Securities (MT)"
-  end
-  if value == "N" then
-    return "Issue Sub Type: Ny Registry Shares (N)"
-  end
-  if value == "O" then
-    return "Issue Sub Type: Open Ended Mutual Fund (O)"
-  end
-  if value == "P" then
-    return "Issue Sub Type: Privately Held Security (P)"
-  end
-  if value == "PP" then
-    return "Issue Sub Type: Poison Pill (PP)"
-  end
-  if value == "PU" then
-    return "Issue Sub Type: Partnership Units (PU)"
-  end
-  if value == "Q" then
-    return "Issue Sub Type: Closed End Funds (Q)"
-  end
-  if value == "R" then
-    return "Issue Sub Type: Reg S (R)"
-  end
-  if value == "RC" then
-    return "Issue Sub Type: Commodity Redeemable Commodity Linked Securities (RC)"
-  end
-  if value == "RF" then
-    return "Issue Sub Type: Etn Redeemable Futures Linked Securities (RF)"
-  end
-  if value == "RT" then
-    return "Issue Sub Type: Reit (RT)"
-  end
-  if value == "RU" then
-    return "Issue Sub Type: Commodity Redeemable Currency Linked Securities (RU)"
-  end
-  if value == "S" then
-    return "Issue Sub Type: Seed (S)"
-  end
-  if value == "SC" then
-    return "Issue Sub Type: Spot Rate Closing (SC)"
-  end
-  if value == "SI" then
-    return "Issue Sub Type: Spot Rate Intraday (SI)"
-  end
-  if value == "T" then
-    return "Issue Sub Type: Tracking Stock (T)"
-  end
-  if value == "TC" then
-    return "Issue Sub Type: Trust Certificates (TC)"
-  end
-  if value == "TU" then
-    return "Issue Sub Type: Trust Units (TU)"
-  end
-  if value == "U" then
-    return "Issue Sub Type: Portal (U)"
-  end
-  if value == "V" then
-    return "Issue Sub Type: Contingent Value Right (V)"
-  end
-  if value == "W" then
-    return "Issue Sub Type: Trust Issued Receipts (W)"
-  end
-  if value == "WC" then
-    return "Issue Sub Type: World Currency Option (WC)"
-  end
-  if value == "X" then
-    return "Issue Sub Type: Trust (X)"
-  end
-  if value == "Y" then
-    return "Issue Sub Type: Other (Y)"
-  end
-  if value == "Z" then
-    return "Issue Sub Type: Not Applicable (Z)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.issue_sub_type.labels = {
+  ["A"] = "Issue Sub Type: Preferred Trust Securities (A)",
+  ["AI"] = "Issue Sub Type: Alpha Index Et Ns (AI)",
+  ["B"] = "Issue Sub Type: Index Based Derivative (B)",
+  ["C"] = "Issue Sub Type: Common Shares (C)",
+  ["CB"] = "Issue Sub Type: Commodity Based Trust Shares (CB)",
+  ["CF"] = "Issue Sub Type: Commodity Futures Trust Shares (CF)",
+  ["CL"] = "Issue Sub Type: Commodity Linked Securities (CL)",
+  ["CM"] = "Issue Sub Type: Commodity Index Trust Shares (CM)",
+  ["CO"] = "Issue Sub Type: Collateralized Mortgage Obligation (CO)",
+  ["CT"] = "Issue Sub Type: Currency Trust Shares (CT)",
+  ["CU"] = "Issue Sub Type: Commodity Currency Linked Securities (CU)",
+  ["CW"] = "Issue Sub Type: Currency Warrants (CW)",
+  ["D"] = "Issue Sub Type: Global Depositary Shares (D)",
+  ["E"] = "Issue Sub Type: Etf Portfolio Depositary Receipt (E)",
+  ["EG"] = "Issue Sub Type: Equity Gold Shares (EG)",
+  ["EI"] = "Issue Sub Type: Etn Equity Index Linked Securities (EI)",
+  ["EM"] = "Issue Sub Type: Next Shares Exchange Traded Managed Fund (EM)",
+  ["EN"] = "Issue Sub Type: Exchange Traded Notes (EN)",
+  ["EU"] = "Issue Sub Type: Equity Units (EU)",
+  ["F"] = "Issue Sub Type: Holdrs (F)",
+  ["FI"] = "Issue Sub Type: Etn Fixed Income Linked Securities (FI)",
+  ["FL"] = "Issue Sub Type: Etn Futures Linked Securities (FL)",
+  ["G"] = "Issue Sub Type: Global Shares (G)",
+  ["I"] = "Issue Sub Type: Etf Index Fund Shares (I)",
+  ["IR"] = "Issue Sub Type: Interest Rate (IR)",
+  ["IW"] = "Issue Sub Type: Index Warrant (IW)",
+  ["IX"] = "Issue Sub Type: Index Linked Exchangeable Notes (IX)",
+  ["J"] = "Issue Sub Type: Corporate Backed Trust Security (J)",
+  ["L"] = "Issue Sub Type: Contingent Litigation Right (L)",
+  ["LL"] = "Issue Sub Type: Limited Liability Company (LL)",
+  ["M"] = "Issue Sub Type: Equity Based Derivative (M)",
+  ["MF"] = "Issue Sub Type: Managed Fund Shares (MF)",
+  ["ML"] = "Issue Sub Type: Etn Multi Factor Index Linked Securities (ML)",
+  ["MT"] = "Issue Sub Type: Managed Trust Securities (MT)",
+  ["N"] = "Issue Sub Type: Ny Registry Shares (N)",
+  ["O"] = "Issue Sub Type: Open Ended Mutual Fund (O)",
+  ["P"] = "Issue Sub Type: Privately Held Security (P)",
+  ["PP"] = "Issue Sub Type: Poison Pill (PP)",
+  ["PU"] = "Issue Sub Type: Partnership Units (PU)",
+  ["Q"] = "Issue Sub Type: Closed End Funds (Q)",
+  ["R"] = "Issue Sub Type: Reg S (R)",
+  ["RC"] = "Issue Sub Type: Commodity Redeemable Commodity Linked Securities (RC)",
+  ["RF"] = "Issue Sub Type: Etn Redeemable Futures Linked Securities (RF)",
+  ["RT"] = "Issue Sub Type: Reit (RT)",
+  ["RU"] = "Issue Sub Type: Commodity Redeemable Currency Linked Securities (RU)",
+  ["S"] = "Issue Sub Type: Seed (S)",
+  ["SC"] = "Issue Sub Type: Spot Rate Closing (SC)",
+  ["SI"] = "Issue Sub Type: Spot Rate Intraday (SI)",
+  ["T"] = "Issue Sub Type: Tracking Stock (T)",
+  ["TC"] = "Issue Sub Type: Trust Certificates (TC)",
+  ["TU"] = "Issue Sub Type: Trust Units (TU)",
+  ["U"] = "Issue Sub Type: Portal (U)",
+  ["V"] = "Issue Sub Type: Contingent Value Right (V)",
+  ["W"] = "Issue Sub Type: Trust Issued Receipts (W)",
+  ["WC"] = "Issue Sub Type: World Currency Option (WC)",
+  ["X"] = "Issue Sub Type: Trust (X)",
+  ["Y"] = "Issue Sub Type: Other (Y)",
+  ["Z"] = "Issue Sub Type: Not Applicable (Z)",
+}
 
-  return "Issue Sub Type: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.issue_sub_type.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.issue_sub_type.labels[value] or "Issue Sub Type: Unknown("..value..")"
 end
 
 -- Dissect: Issue Sub Type
@@ -673,33 +509,19 @@ nasdaq_nsmequities_nois_itch_v2_2.market_category = {}
 nasdaq_nsmequities_nois_itch_v2_2.market_category.size = 1
 
 -- Display: Market Category
-nasdaq_nsmequities_nois_itch_v2_2.market_category.display = function(value)
-  if value == "Q" then
-    return "Market Category: Nasdaq Global Select Market (Q)"
-  end
-  if value == "G" then
-    return "Market Category: Nasdaq Global Market (G)"
-  end
-  if value == "S" then
-    return "Market Category: Nasdaq Capital Market (S)"
-  end
-  if value == "N" then
-    return "Market Category: New York Stock Exchange (N)"
-  end
-  if value == "A" then
-    return "Market Category: Nyse Amex (A)"
-  end
-  if value == "P" then
-    return "Market Category: Nyse Arca (P)"
-  end
-  if value == "Z" then
-    return "Market Category: Bats Z Exchange (Z)"
-  end
-  if value == "V" then
-    return "Market Category: Investors Exchange (V)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.market_category.labels = {
+  ["Q"] = "Market Category: Nasdaq Global Select Market (Q)",
+  ["G"] = "Market Category: Nasdaq Global Market (G)",
+  ["S"] = "Market Category: Nasdaq Capital Market (S)",
+  ["N"] = "Market Category: New York Stock Exchange (N)",
+  ["A"] = "Market Category: Nyse Amex (A)",
+  ["P"] = "Market Category: Nyse Arca (P)",
+  ["Z"] = "Market Category: Bats Z Exchange (Z)",
+  ["V"] = "Market Category: Investors Exchange (V)",
+}
 
-  return "Market Category: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.market_category.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.market_category.labels[value] or "Market Category: Unknown("..value..")"
 end
 
 -- Dissect: Market Category
@@ -767,21 +589,15 @@ nasdaq_nsmequities_nois_itch_v2_2.message_type = {}
 nasdaq_nsmequities_nois_itch_v2_2.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nsmequities_nois_itch_v2_2.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action (H)"
-  end
-  if value == "I" then
-    return "Message Type: Nois Message (I)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory (R)",
+  ["H"] = "Message Type: Stock Trading Action (H)",
+  ["I"] = "Message Type: Nois Message (I)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.message_type.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -918,15 +734,13 @@ nasdaq_nsmequities_nois_itch_v2_2.round_lots_only = {}
 nasdaq_nsmequities_nois_itch_v2_2.round_lots_only.size = 1
 
 -- Display: Round Lots Only
-nasdaq_nsmequities_nois_itch_v2_2.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Round Lots Only (Y)"
-  end
-  if value == "N" then
-    return "Round Lots Only: No Restrictions (N)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.round_lots_only.labels = {
+  ["Y"] = "Round Lots Only: Round Lots Only (Y)",
+  ["N"] = "Round Lots Only: No Restrictions (N)",
+}
 
-  return "Round Lots Only: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.round_lots_only.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.round_lots_only.labels[value] or "Round Lots Only: Unknown("..value..")"
 end
 
 -- Dissect: Round Lots Only
@@ -1076,21 +890,15 @@ nasdaq_nsmequities_nois_itch_v2_2.trading_state = {}
 nasdaq_nsmequities_nois_itch_v2_2.trading_state.size = 1
 
 -- Display: Trading State
-nasdaq_nsmequities_nois_itch_v2_2.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "P" then
-    return "Trading State: Paused (P)"
-  end
-  if value == "Q" then
-    return "Trading State: Quotation Only (Q)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+nasdaq_nsmequities_nois_itch_v2_2.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["P"] = "Trading State: Paused (P)",
+  ["Q"] = "Trading State: Quotation Only (Q)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nasdaq_nsmequities_nois_itch_v2_2.trading_state.display = function(value)
+  return nasdaq_nsmequities_nois_itch_v2_2.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1326,22 +1134,17 @@ end
 nasdaq_nsmequities_nois_itch_v2_2.payload = {}
 
 -- Dissect: Payload
+nasdaq_nsmequities_nois_itch_v2_2.payload.dispatch = {
+  ["S"] = nasdaq_nsmequities_nois_itch_v2_2.system_event_message.dissect,
+  ["R"] = nasdaq_nsmequities_nois_itch_v2_2.stock_directory.dissect,
+  ["H"] = nasdaq_nsmequities_nois_itch_v2_2.stock_trading_action.dissect,
+  ["I"] = nasdaq_nsmequities_nois_itch_v2_2.nois_message.dissect,
+}
+
 nasdaq_nsmequities_nois_itch_v2_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nsmequities_nois_itch_v2_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory
-  if message_type == "R" then
-    return nasdaq_nsmequities_nois_itch_v2_2.stock_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action
-  if message_type == "H" then
-    return nasdaq_nsmequities_nois_itch_v2_2.stock_trading_action.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Nois Message
-  if message_type == "I" then
-    return nasdaq_nsmequities_nois_itch_v2_2.nois_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_nois_itch_v2_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1466,10 +1269,14 @@ end
 nasdaq_nsmequities_nois_itch_v2_2.message_body = {}
 
 -- Dissect: Message Body
+nasdaq_nsmequities_nois_itch_v2_2.message_body.dispatch = {
+  [0] = nasdaq_nsmequities_nois_itch_v2_2.end_of_session.dissect,
+}
+
 nasdaq_nsmequities_nois_itch_v2_2.message_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect End Of Session
-  if message_length == 0 then
-    return nasdaq_nsmequities_nois_itch_v2_2.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_nois_itch_v2_2.message_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Message Data
@@ -1562,10 +1369,14 @@ end
 nasdaq_nsmequities_nois_itch_v2_2.messages = {}
 
 -- Dissect: Messages
+nasdaq_nsmequities_nois_itch_v2_2.messages.dispatch = {
+  [0] = nasdaq_nsmequities_nois_itch_v2_2.heartbeat.dissect,
+}
+
 nasdaq_nsmequities_nois_itch_v2_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nsmequities_nois_itch_v2_2.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_nois_itch_v2_2.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

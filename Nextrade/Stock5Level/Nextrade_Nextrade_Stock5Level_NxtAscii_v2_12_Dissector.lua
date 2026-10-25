@@ -2142,60 +2142,28 @@ nextrade_nextrade_stock5level_nxtascii_v2_12.tr_code = {}
 nextrade_nextrade_stock5level_nxtascii_v2_12.tr_code.size = 5
 
 -- Display: TR Code
-nextrade_nextrade_stock5level_nxtascii_v2_12.tr_code.display = function(value)
-  if value == "I2500" then
-    return "TR Code: Polling Data Message (I2500)"
-  end
-  if value == "B651S" then
-    return "TR Code: Securities Quote 5 Level Message (B651S)"
-  end
-  if value == "B651Q" then
-    return "TR Code: Securities Quote 5 Level Message (B651Q)"
-  end
-  if value == "G751S" then
-    return "TR Code: Securities Order Filled Plus Quote 5 Level Message (G751S)"
-  end
-  if value == "G751Q" then
-    return "TR Code: Securities Order Filled Plus Quote 5 Level Message (G751Q)"
-  end
-  if value == "R151S" then
-    return "TR Code: Market Operation Ts Plus Quote 5 Level Message (R151S)"
-  end
-  if value == "R151Q" then
-    return "TR Code: Market Operation Ts Plus Quote 5 Level Message (R151Q)"
-  end
-  if value == "A351S" then
-    return "TR Code: Securities Order Filled Message (A351S)"
-  end
-  if value == "A351Q" then
-    return "TR Code: Securities Order Filled Message (A351Q)"
-  end
-  if value == "A751S" then
-    return "TR Code: Market Operation Ts Message (A751S)"
-  end
-  if value == "A751Q" then
-    return "TR Code: Market Operation Ts Message (A751Q)"
-  end
-  if value == "A651S" then
-    return "TR Code: Issue Closing Message (A651S)"
-  end
-  if value == "A651Q" then
-    return "TR Code: Issue Closing Message (A651Q)"
-  end
-  if value == "R851S" then
-    return "TR Code: Triggering Removing Vi Message (R851S)"
-  end
-  if value == "R851Q" then
-    return "TR Code: Triggering Removing Vi Message (R851Q)"
-  end
-  if value == "E151S" then
-    return "TR Code: Closing Price Trading Quote Message (E151S)"
-  end
-  if value == "E151Q" then
-    return "TR Code: Closing Price Trading Quote Message (E151Q)"
-  end
+nextrade_nextrade_stock5level_nxtascii_v2_12.tr_code.labels = {
+  ["I2500"] = "TR Code: Polling Data Message (I2500)",
+  ["B651S"] = "TR Code: Securities Quote 5 Level Message (B651S)",
+  ["B651Q"] = "TR Code: Securities Quote 5 Level Message (B651Q)",
+  ["G751S"] = "TR Code: Securities Order Filled Plus Quote 5 Level Message (G751S)",
+  ["G751Q"] = "TR Code: Securities Order Filled Plus Quote 5 Level Message (G751Q)",
+  ["R151S"] = "TR Code: Market Operation Ts Plus Quote 5 Level Message (R151S)",
+  ["R151Q"] = "TR Code: Market Operation Ts Plus Quote 5 Level Message (R151Q)",
+  ["A351S"] = "TR Code: Securities Order Filled Message (A351S)",
+  ["A351Q"] = "TR Code: Securities Order Filled Message (A351Q)",
+  ["A751S"] = "TR Code: Market Operation Ts Message (A751S)",
+  ["A751Q"] = "TR Code: Market Operation Ts Message (A751Q)",
+  ["A651S"] = "TR Code: Issue Closing Message (A651S)",
+  ["A651Q"] = "TR Code: Issue Closing Message (A651Q)",
+  ["R851S"] = "TR Code: Triggering Removing Vi Message (R851S)",
+  ["R851Q"] = "TR Code: Triggering Removing Vi Message (R851Q)",
+  ["E151S"] = "TR Code: Closing Price Trading Quote Message (E151S)",
+  ["E151Q"] = "TR Code: Closing Price Trading Quote Message (E151Q)",
+}
 
-  return "TR Code: Unknown("..value..")"
+nextrade_nextrade_stock5level_nxtascii_v2_12.tr_code.display = function(value)
+  return nextrade_nextrade_stock5level_nxtascii_v2_12.tr_code.labels[value] or "TR Code: Unknown("..value..")"
 end
 
 -- Dissect: TR Code
@@ -3464,74 +3432,30 @@ end
 nextrade_nextrade_stock5level_nxtascii_v2_12.payload = {}
 
 -- Dissect: Payload
+nextrade_nextrade_stock5level_nxtascii_v2_12.payload.dispatch = {
+  ["I2500"] = nextrade_nextrade_stock5level_nxtascii_v2_12.polling_data_message.dissect,
+  ["B651S"] = nextrade_nextrade_stock5level_nxtascii_v2_12.securities_quote_5_level_message.dissect,
+  ["B651Q"] = nextrade_nextrade_stock5level_nxtascii_v2_12.securities_quote_5_level_message.dissect,
+  ["G751S"] = nextrade_nextrade_stock5level_nxtascii_v2_12.securities_order_filled_plus_quote_5_level_message.dissect,
+  ["G751Q"] = nextrade_nextrade_stock5level_nxtascii_v2_12.securities_order_filled_plus_quote_5_level_message.dissect,
+  ["R151S"] = nextrade_nextrade_stock5level_nxtascii_v2_12.market_operation_ts_plus_quote_5_level_message.dissect,
+  ["R151Q"] = nextrade_nextrade_stock5level_nxtascii_v2_12.market_operation_ts_plus_quote_5_level_message.dissect,
+  ["A351S"] = nextrade_nextrade_stock5level_nxtascii_v2_12.securities_order_filled_message.dissect,
+  ["A351Q"] = nextrade_nextrade_stock5level_nxtascii_v2_12.securities_order_filled_message.dissect,
+  ["A751S"] = nextrade_nextrade_stock5level_nxtascii_v2_12.market_operation_ts_message.dissect,
+  ["A751Q"] = nextrade_nextrade_stock5level_nxtascii_v2_12.market_operation_ts_message.dissect,
+  ["A651S"] = nextrade_nextrade_stock5level_nxtascii_v2_12.issue_closing_message.dissect,
+  ["A651Q"] = nextrade_nextrade_stock5level_nxtascii_v2_12.issue_closing_message.dissect,
+  ["R851S"] = nextrade_nextrade_stock5level_nxtascii_v2_12.triggering_removing_vi_message.dissect,
+  ["R851Q"] = nextrade_nextrade_stock5level_nxtascii_v2_12.triggering_removing_vi_message.dissect,
+  ["E151S"] = nextrade_nextrade_stock5level_nxtascii_v2_12.closing_price_trading_quote_message.dissect,
+  ["E151Q"] = nextrade_nextrade_stock5level_nxtascii_v2_12.closing_price_trading_quote_message.dissect,
+}
+
 nextrade_nextrade_stock5level_nxtascii_v2_12.payload.dissect = function(buffer, offset, packet, parent, tr_code)
-  -- Dissect Polling Data Message
-  if tr_code == "I2500" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.polling_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote 5 Level Message
-  if tr_code == "B651S" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.securities_quote_5_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote 5 Level Message
-  if tr_code == "B651Q" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.securities_quote_5_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Plus Quote 5 Level Message
-  if tr_code == "G751S" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.securities_order_filled_plus_quote_5_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Plus Quote 5 Level Message
-  if tr_code == "G751Q" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.securities_order_filled_plus_quote_5_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Plus Quote 5 Level Message
-  if tr_code == "R151S" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.market_operation_ts_plus_quote_5_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Plus Quote 5 Level Message
-  if tr_code == "R151Q" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.market_operation_ts_plus_quote_5_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A351S" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A351Q" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A751S" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A751Q" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A651S" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A651Q" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Triggering Removing Vi Message
-  if tr_code == "R851S" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.triggering_removing_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Triggering Removing Vi Message
-  if tr_code == "R851Q" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.triggering_removing_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price Trading Quote Message
-  if tr_code == "E151S" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.closing_price_trading_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price Trading Quote Message
-  if tr_code == "E151Q" then
-    return nextrade_nextrade_stock5level_nxtascii_v2_12.closing_price_trading_quote_message.dissect(buffer, offset, packet, parent)
+  local dissect = nextrade_nextrade_stock5level_nxtascii_v2_12.payload.dispatch[tr_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

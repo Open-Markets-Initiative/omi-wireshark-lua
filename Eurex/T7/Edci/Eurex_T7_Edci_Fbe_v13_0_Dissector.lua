@@ -724,12 +724,12 @@ eurex_t7_edci_fbe_v13_0.default_cstm_appl_ver_sub_id = {}
 eurex_t7_edci_fbe_v13_0.default_cstm_appl_ver_sub_id.size = 5
 
 -- Display: Default Cstm Appl Ver Sub Id
-eurex_t7_edci_fbe_v13_0.default_cstm_appl_ver_sub_id.display = function(value)
-  if value == "D0001" then
-    return "Default Cstm Appl Ver Sub Id: Derivatives (D0001)"
-  end
+eurex_t7_edci_fbe_v13_0.default_cstm_appl_ver_sub_id.labels = {
+  ["D0001"] = "Default Cstm Appl Ver Sub Id: Derivatives (D0001)",
+}
 
-  return "Default Cstm Appl Ver Sub Id: Unknown("..value..")"
+eurex_t7_edci_fbe_v13_0.default_cstm_appl_ver_sub_id.display = function(value)
+  return eurex_t7_edci_fbe_v13_0.default_cstm_appl_ver_sub_id.labels[value] or "Default Cstm Appl Ver Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Default Cstm Appl Ver Sub Id
@@ -4204,46 +4204,23 @@ end
 eurex_t7_edci_fbe_v13_0.server_payload = {}
 
 -- Dissect: Server Payload
+eurex_t7_edci_fbe_v13_0.server_payload.dispatch = {
+  [10902] = eurex_t7_edci_fbe_v13_0.delete_order_broadcast.dissect,
+  [10012] = eurex_t7_edci_fbe_v13_0.forced_logout_notification.dissect,
+  [10023] = eurex_t7_edci_fbe_v13_0.heartbeat_notification.dissect,
+  [10001] = eurex_t7_edci_fbe_v13_0.logon_response.dissect,
+  [10003] = eurex_t7_edci_fbe_v13_0.logout_response.dissect,
+  [10901] = eurex_t7_edci_fbe_v13_0.order_exec_report_broadcast.dissect,
+  [10037] = eurex_t7_edci_fbe_v13_0.partition_list_notification.dissect,
+  [10010] = eurex_t7_edci_fbe_v13_0.reject.dissect,
+  [10036] = eurex_t7_edci_fbe_v13_0.session_list_notification.dissect,
+  [10903] = eurex_t7_edci_fbe_v13_0.session_status_broadcast.dissect,
+}
+
 eurex_t7_edci_fbe_v13_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Delete Order Broadcast
-  if template_id == 10902 then
-    return eurex_t7_edci_fbe_v13_0.delete_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forced Logout Notification
-  if template_id == 10012 then
-    return eurex_t7_edci_fbe_v13_0.forced_logout_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Notification
-  if template_id == 10023 then
-    return eurex_t7_edci_fbe_v13_0.heartbeat_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response
-  if template_id == 10001 then
-    return eurex_t7_edci_fbe_v13_0.logon_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response
-  if template_id == 10003 then
-    return eurex_t7_edci_fbe_v13_0.logout_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Report Broadcast
-  if template_id == 10901 then
-    return eurex_t7_edci_fbe_v13_0.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Partition List Notification
-  if template_id == 10037 then
-    return eurex_t7_edci_fbe_v13_0.partition_list_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject
-  if template_id == 10010 then
-    return eurex_t7_edci_fbe_v13_0.reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session List Notification
-  if template_id == 10036 then
-    return eurex_t7_edci_fbe_v13_0.session_list_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Status Broadcast
-  if template_id == 10903 then
-    return eurex_t7_edci_fbe_v13_0.session_status_broadcast.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_edci_fbe_v13_0.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4616,18 +4593,16 @@ end
 eurex_t7_edci_fbe_v13_0.client_payload = {}
 
 -- Dissect: Client Payload
+eurex_t7_edci_fbe_v13_0.client_payload.dispatch = {
+  [10011] = eurex_t7_edci_fbe_v13_0.heartbeat.dissect,
+  [10000] = eurex_t7_edci_fbe_v13_0.logon_request.dissect,
+  [10002] = eurex_t7_edci_fbe_v13_0.logout_request.dissect,
+}
+
 eurex_t7_edci_fbe_v13_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Heartbeat
-  if template_id == 10011 then
-    return eurex_t7_edci_fbe_v13_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Request
-  if template_id == 10000 then
-    return eurex_t7_edci_fbe_v13_0.logon_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if template_id == 10002 then
-    return eurex_t7_edci_fbe_v13_0.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_edci_fbe_v13_0.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

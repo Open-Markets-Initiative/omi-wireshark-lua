@@ -536,30 +536,18 @@ nyse_nysebonds_trades_abp_v1_07_a.message_type = {}
 nyse_nysebonds_trades_abp_v1_07_a.message_type.size = 1
 
 -- Display: Message Type
-nyse_nysebonds_trades_abp_v1_07_a.message_type.display = function(value)
-  if value == "Q" then
-    return "Message Type: Login Accepted Message (Q)"
-  end
-  if value == "R" then
-    return "Message Type: Login Rejected Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Heartbeat Message (H)"
-  end
-  if value == "S" then
-    return "Message Type: Test Response Message (S)"
-  end
-  if value == "X" then
-    return "Message Type: Last Sale Message (X)"
-  end
-  if value == "U" then
-    return "Message Type: Trade Bust Or Correction Message (U)"
-  end
-  if value == "Z" then
-    return "Message Type: Nyse Bond Closing Price Message (Z)"
-  end
+nyse_nysebonds_trades_abp_v1_07_a.message_type.labels = {
+  ["Q"] = "Message Type: Login Accepted Message (Q)",
+  ["R"] = "Message Type: Login Rejected Message (R)",
+  ["H"] = "Message Type: Heartbeat Message (H)",
+  ["S"] = "Message Type: Test Response Message (S)",
+  ["X"] = "Message Type: Last Sale Message (X)",
+  ["U"] = "Message Type: Trade Bust Or Correction Message (U)",
+  ["Z"] = "Message Type: Nyse Bond Closing Price Message (Z)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_nysebonds_trades_abp_v1_07_a.message_type.display = function(value)
+  return nyse_nysebonds_trades_abp_v1_07_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -982,12 +970,12 @@ nyse_nysebonds_trades_abp_v1_07_a.security_type = {}
 nyse_nysebonds_trades_abp_v1_07_a.security_type.size = 1
 
 -- Display: Security Type
-nyse_nysebonds_trades_abp_v1_07_a.security_type.display = function(value)
-  if value == 1 then
-    return "Security Type: Corporate Bonds (1)"
-  end
+nyse_nysebonds_trades_abp_v1_07_a.security_type.labels = {
+  [1] = "Security Type: Corporate Bonds (1)",
+}
 
-  return "Security Type: Unknown("..value..")"
+nyse_nysebonds_trades_abp_v1_07_a.security_type.display = function(value)
+  return nyse_nysebonds_trades_abp_v1_07_a.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -1448,22 +1436,17 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.client_data = {}
 
 -- Dissect: Client Data
+nyse_nysebonds_trades_abp_v1_07_a.client_data.dispatch = {
+  ["L"] = nyse_nysebonds_trades_abp_v1_07_a.login_message.dissect,
+  ["O"] = nyse_nysebonds_trades_abp_v1_07_a.logoff_message.dissect,
+  ["H"] = nyse_nysebonds_trades_abp_v1_07_a.heartbeat_response_message.dissect,
+  ["T"] = nyse_nysebonds_trades_abp_v1_07_a.test_request_message.dissect,
+}
+
 nyse_nysebonds_trades_abp_v1_07_a.client_data.dissect = function(buffer, offset, packet, parent, client_message_type)
-  -- Dissect Login Message
-  if client_message_type == "L" then
-    return nyse_nysebonds_trades_abp_v1_07_a.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logoff Message
-  if client_message_type == "O" then
-    return nyse_nysebonds_trades_abp_v1_07_a.logoff_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if client_message_type == "H" then
-    return nyse_nysebonds_trades_abp_v1_07_a.heartbeat_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Request Message
-  if client_message_type == "T" then
-    return nyse_nysebonds_trades_abp_v1_07_a.test_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nysebonds_trades_abp_v1_07_a.client_data.dispatch[client_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1950,34 +1933,20 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.payload = {}
 
 -- Dissect: Payload
+nyse_nysebonds_trades_abp_v1_07_a.payload.dispatch = {
+  ["Q"] = nyse_nysebonds_trades_abp_v1_07_a.login_accepted_message.dissect,
+  ["R"] = nyse_nysebonds_trades_abp_v1_07_a.login_rejected_message.dissect,
+  ["H"] = nyse_nysebonds_trades_abp_v1_07_a.heartbeat_message.dissect,
+  ["S"] = nyse_nysebonds_trades_abp_v1_07_a.test_response_message.dissect,
+  ["X"] = nyse_nysebonds_trades_abp_v1_07_a.last_sale_message.dissect,
+  ["U"] = nyse_nysebonds_trades_abp_v1_07_a.trade_bust_or_correction_message.dissect,
+  ["Z"] = nyse_nysebonds_trades_abp_v1_07_a.nyse_bond_closing_price_message.dissect,
+}
+
 nyse_nysebonds_trades_abp_v1_07_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Accepted Message
-  if message_type == "Q" then
-    return nyse_nysebonds_trades_abp_v1_07_a.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == "R" then
-    return nyse_nysebonds_trades_abp_v1_07_a.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == "H" then
-    return nyse_nysebonds_trades_abp_v1_07_a.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Response Message
-  if message_type == "S" then
-    return nyse_nysebonds_trades_abp_v1_07_a.test_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Sale Message
-  if message_type == "X" then
-    return nyse_nysebonds_trades_abp_v1_07_a.last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Or Correction Message
-  if message_type == "U" then
-    return nyse_nysebonds_trades_abp_v1_07_a.trade_bust_or_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Nyse Bond Closing Price Message
-  if message_type == "Z" then
-    return nyse_nysebonds_trades_abp_v1_07_a.nyse_bond_closing_price_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nysebonds_trades_abp_v1_07_a.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

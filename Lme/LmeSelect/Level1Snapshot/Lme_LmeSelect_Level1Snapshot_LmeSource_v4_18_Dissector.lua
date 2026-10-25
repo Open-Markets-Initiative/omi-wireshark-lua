@@ -674,30 +674,18 @@ lme_lmeselect_level1snapshot_lmesource_v4_18.msg_type = {}
 lme_lmeselect_level1snapshot_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_level1snapshot_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 311 then
-    return "Msg Type: Market State Contract Message (311)"
-  end
-  if value == 312 then
-    return "Msg Type: Market State Instrument Message (312)"
-  end
-  if value == 320 then
-    return "Msg Type: Indicative Opening Price Message (320)"
-  end
-  if value == 329 then
-    return "Msg Type: Quote Request Message (329)"
-  end
-  if value == 321 then
-    return "Msg Type: Top Of Book Message (321)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete Message (203)"
-  end
+lme_lmeselect_level1snapshot_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [311] = "Msg Type: Market State Contract Message (311)",
+  [312] = "Msg Type: Market State Instrument Message (312)",
+  [320] = "Msg Type: Indicative Opening Price Message (320)",
+  [329] = "Msg Type: Quote Request Message (329)",
+  [321] = "Msg Type: Top Of Book Message (321)",
+  [203] = "Msg Type: Refresh Complete Message (203)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_level1snapshot_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_level1snapshot_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -857,15 +845,13 @@ lme_lmeselect_level1snapshot_lmesource_v4_18.quote_request_type = {}
 lme_lmeselect_level1snapshot_lmesource_v4_18.quote_request_type.size = 1
 
 -- Display: Quote Request Type
-lme_lmeselect_level1snapshot_lmesource_v4_18.quote_request_type.display = function(value)
-  if value == 1 then
-    return "Quote Request Type: Manual A Single Quote Request (1)"
-  end
-  if value == 2 then
-    return "Quote Request Type: Auto A Streaming Quote Request (2)"
-  end
+lme_lmeselect_level1snapshot_lmesource_v4_18.quote_request_type.labels = {
+  [1] = "Quote Request Type: Manual A Single Quote Request (1)",
+  [2] = "Quote Request Type: Auto A Streaming Quote Request (2)",
+}
 
-  return "Quote Request Type: Unknown("..value..")"
+lme_lmeselect_level1snapshot_lmesource_v4_18.quote_request_type.display = function(value)
+  return lme_lmeselect_level1snapshot_lmesource_v4_18.quote_request_type.labels[value] or "Quote Request Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Request Type
@@ -982,15 +968,13 @@ lme_lmeselect_level1snapshot_lmesource_v4_18.timetable_control_type = {}
 lme_lmeselect_level1snapshot_lmesource_v4_18.timetable_control_type.size = 1
 
 -- Display: Timetable Control Type
-lme_lmeselect_level1snapshot_lmesource_v4_18.timetable_control_type.display = function(value)
-  if value == "A" then
-    return "Timetable Control Type: Automatic The Default Trading Schedule (A)"
-  end
-  if value == "M" then
-    return "Timetable Control Type: Manual A Temporary Trading Schedule (M)"
-  end
+lme_lmeselect_level1snapshot_lmesource_v4_18.timetable_control_type.labels = {
+  ["A"] = "Timetable Control Type: Automatic The Default Trading Schedule (A)",
+  ["M"] = "Timetable Control Type: Manual A Temporary Trading Schedule (M)",
+}
 
-  return "Timetable Control Type: Unknown("..value..")"
+lme_lmeselect_level1snapshot_lmesource_v4_18.timetable_control_type.display = function(value)
+  return lme_lmeselect_level1snapshot_lmesource_v4_18.timetable_control_type.labels[value] or "Timetable Control Type: Unknown("..value..")"
 end
 
 -- Dissect: Timetable Control Type
@@ -1035,24 +1019,16 @@ lme_lmeselect_level1snapshot_lmesource_v4_18.trading_state = {}
 lme_lmeselect_level1snapshot_lmesource_v4_18.trading_state.size = 1
 
 -- Display: Trading State
-lme_lmeselect_level1snapshot_lmesource_v4_18.trading_state.display = function(value)
-  if value == 1 then
-    return "Trading State: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Trading State: Open (2)"
-  end
-  if value == 3 then
-    return "Trading State: Post Trade (3)"
-  end
-  if value == 4 then
-    return "Trading State: Close (4)"
-  end
-  if value == 6 then
-    return "Trading State: Technical Halt (6)"
-  end
+lme_lmeselect_level1snapshot_lmesource_v4_18.trading_state.labels = {
+  [1] = "Trading State: Pre Open (1)",
+  [2] = "Trading State: Open (2)",
+  [3] = "Trading State: Post Trade (3)",
+  [4] = "Trading State: Close (4)",
+  [6] = "Trading State: Technical Halt (6)",
+}
 
-  return "Trading State: Unknown("..value..")"
+lme_lmeselect_level1snapshot_lmesource_v4_18.trading_state.display = function(value)
+  return lme_lmeselect_level1snapshot_lmesource_v4_18.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1107,18 +1083,14 @@ lme_lmeselect_level1snapshot_lmesource_v4_18.trading_venue = {}
 lme_lmeselect_level1snapshot_lmesource_v4_18.trading_venue.size = 2
 
 -- Display: Trading Venue
-lme_lmeselect_level1snapshot_lmesource_v4_18.trading_venue.display = function(value)
-  if value == "EL" then
-    return "Trading Venue: Electronic (EL)"
-  end
-  if value == "RK" then
-    return "Trading Venue: Ring (RK)"
-  end
-  if value == "IO" then
-    return "Trading Venue: Inter Office (IO)"
-  end
+lme_lmeselect_level1snapshot_lmesource_v4_18.trading_venue.labels = {
+  ["EL"] = "Trading Venue: Electronic (EL)",
+  ["RK"] = "Trading Venue: Ring (RK)",
+  ["IO"] = "Trading Venue: Inter Office (IO)",
+}
 
-  return "Trading Venue: Unknown("..value..")"
+lme_lmeselect_level1snapshot_lmesource_v4_18.trading_venue.display = function(value)
+  return lme_lmeselect_level1snapshot_lmesource_v4_18.trading_venue.labels[value] or "Trading Venue: Unknown("..value..")"
 end
 
 -- Dissect: Trading Venue
@@ -1614,34 +1586,20 @@ end
 lme_lmeselect_level1snapshot_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_level1snapshot_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_level1snapshot_lmesource_v4_18.sequence_reset_message.dissect,
+  [311] = lme_lmeselect_level1snapshot_lmesource_v4_18.market_state_contract_message.dissect,
+  [312] = lme_lmeselect_level1snapshot_lmesource_v4_18.market_state_instrument_message.dissect,
+  [320] = lme_lmeselect_level1snapshot_lmesource_v4_18.indicative_opening_price_message.dissect,
+  [329] = lme_lmeselect_level1snapshot_lmesource_v4_18.quote_request_message.dissect,
+  [321] = lme_lmeselect_level1snapshot_lmesource_v4_18.top_of_book_message.dissect,
+  [203] = lme_lmeselect_level1snapshot_lmesource_v4_18.refresh_complete_message.dissect,
+}
+
 lme_lmeselect_level1snapshot_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_level1snapshot_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Contract Message
-  if msg_type == 311 then
-    return lme_lmeselect_level1snapshot_lmesource_v4_18.market_state_contract_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Instrument Message
-  if msg_type == 312 then
-    return lme_lmeselect_level1snapshot_lmesource_v4_18.market_state_instrument_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Opening Price Message
-  if msg_type == 320 then
-    return lme_lmeselect_level1snapshot_lmesource_v4_18.indicative_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Message
-  if msg_type == 329 then
-    return lme_lmeselect_level1snapshot_lmesource_v4_18.quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book Message
-  if msg_type == 321 then
-    return lme_lmeselect_level1snapshot_lmesource_v4_18.top_of_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete Message
-  if msg_type == 203 then
-    return lme_lmeselect_level1snapshot_lmesource_v4_18.refresh_complete_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_level1snapshot_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

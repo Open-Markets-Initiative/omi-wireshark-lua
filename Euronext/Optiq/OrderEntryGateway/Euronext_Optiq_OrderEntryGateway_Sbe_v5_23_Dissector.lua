@@ -636,36 +636,20 @@ euronext_optiq_orderentrygateway_sbe_v5_23.account_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.account_type.size = 1
 
 -- Display: Account Type
-euronext_optiq_orderentrygateway_sbe_v5_23.account_type.display = function(value)
-  if value == 1 then
-    return "Account Type: Client (1)"
-  end
-  if value == 2 then
-    return "Account Type: House (2)"
-  end
-  if value == 4 then
-    return "Account Type: Ro (4)"
-  end
-  if value == 5 then
-    return "Account Type: Assigned Broker (5)"
-  end
-  if value == 6 then
-    return "Account Type: Liquidity Provider (6)"
-  end
-  if value == 7 then
-    return "Account Type: Related Party (7)"
-  end
-  if value == 8 then
-    return "Account Type: Structured Product Market Maker (8)"
-  end
-  if value == 14 then
-    return "Account Type: Omega Client (14)"
-  end
-  if value == 15 then
-    return "Account Type: Ceres Client (15)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.account_type.labels = {
+  [1] = "Account Type: Client (1)",
+  [2] = "Account Type: House (2)",
+  [4] = "Account Type: Ro (4)",
+  [5] = "Account Type: Assigned Broker (5)",
+  [6] = "Account Type: Liquidity Provider (6)",
+  [7] = "Account Type: Related Party (7)",
+  [8] = "Account Type: Structured Product Market Maker (8)",
+  [14] = "Account Type: Omega Client (14)",
+  [15] = "Account Type: Ceres Client (15)",
+}
 
-  return "Account Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.account_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.account_type.labels[value] or "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -846,69 +830,31 @@ euronext_optiq_orderentrygateway_sbe_v5_23.ack_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.ack_type.size = 1
 
 -- Display: Ack Type
-euronext_optiq_orderentrygateway_sbe_v5_23.ack_type.display = function(value)
-  if value == 0 then
-    return "Ack Type: New Order Ack (0)"
-  end
-  if value == 1 then
-    return "Ack Type: Replace Ack (1)"
-  end
-  if value == 2 then
-    return "Ack Type: Order Creation By Market Operations (2)"
-  end
-  if value == 3 then
-    return "Ack Type: Stop Triggered Ack (3)"
-  end
-  if value == 4 then
-    return "Ack Type: Collar Confirmation Ack (4)"
-  end
-  if value == 5 then
-    return "Ack Type: Refilled Iceberg Ack (5)"
-  end
-  if value == 6 then
-    return "Ack Type: Mtl Second Ack (6)"
-  end
-  if value == 7 then
-    return "Ack Type: Knock In By Issuer Kibi Ack (7)"
-  end
-  if value == 8 then
-    return "Ack Type: Knock Out By Issuer Kobi Ack (8)"
-  end
-  if value == 9 then
-    return "Ack Type: Payment After Knock Out Pako Ack (9)"
-  end
-  if value == 10 then
-    return "Ack Type: Price Input Ack (10)"
-  end
-  if value == 11 then
-    return "Ack Type: Rfq Ack (11)"
-  end
-  if value == 12 then
-    return "Ack Type: Bid Only Ack (12)"
-  end
-  if value == 13 then
-    return "Ack Type: Offer Only Ack (13)"
-  end
-  if value == 14 then
-    return "Ack Type: Iceberg Transformedto Limit (14)"
-  end
-  if value == 15 then
-    return "Ack Type: Ownership Request Ack (15)"
-  end
-  if value == 16 then
-    return "Ack Type: Vfuvfc Triggered Ack (16)"
-  end
-  if value == 17 then
-    return "Ack Type: Open Order Request Ack (17)"
-  end
-  if value == 21 then
-    return "Ack Type: Rfie Ack (21)"
-  end
-  if value == 22 then
-    return "Ack Type: Cross Order Ack (22)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.ack_type.labels = {
+  [0] = "Ack Type: New Order Ack (0)",
+  [1] = "Ack Type: Replace Ack (1)",
+  [2] = "Ack Type: Order Creation By Market Operations (2)",
+  [3] = "Ack Type: Stop Triggered Ack (3)",
+  [4] = "Ack Type: Collar Confirmation Ack (4)",
+  [5] = "Ack Type: Refilled Iceberg Ack (5)",
+  [6] = "Ack Type: Mtl Second Ack (6)",
+  [7] = "Ack Type: Knock In By Issuer Kibi Ack (7)",
+  [8] = "Ack Type: Knock Out By Issuer Kobi Ack (8)",
+  [9] = "Ack Type: Payment After Knock Out Pako Ack (9)",
+  [10] = "Ack Type: Price Input Ack (10)",
+  [11] = "Ack Type: Rfq Ack (11)",
+  [12] = "Ack Type: Bid Only Ack (12)",
+  [13] = "Ack Type: Offer Only Ack (13)",
+  [14] = "Ack Type: Iceberg Transformedto Limit (14)",
+  [15] = "Ack Type: Ownership Request Ack (15)",
+  [16] = "Ack Type: Vfuvfc Triggered Ack (16)",
+  [17] = "Ack Type: Open Order Request Ack (17)",
+  [21] = "Ack Type: Rfie Ack (21)",
+  [22] = "Ack Type: Cross Order Ack (22)",
+}
 
-  return "Ack Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.ack_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.ack_type.labels[value] or "Ack Type: Unknown("..value..")"
 end
 
 -- Dissect: Ack Type
@@ -930,18 +876,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.action_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.action_type.size = 1
 
 -- Display: Action Type
-euronext_optiq_orderentrygateway_sbe_v5_23.action_type.display = function(value)
-  if value == 1 then
-    return "Action Type: Declaration Cancellation Request (1)"
-  end
-  if value == 2 then
-    return "Action Type: Declaration Refusal (2)"
-  end
-  if value == 3 then
-    return "Action Type: Trade Cancellation Request (3)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.action_type.labels = {
+  [1] = "Action Type: Declaration Cancellation Request (1)",
+  [2] = "Action Type: Declaration Refusal (2)",
+  [3] = "Action Type: Trade Cancellation Request (3)",
+}
 
-  return "Action Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.action_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.action_type.labels[value] or "Action Type: Unknown("..value..")"
 end
 
 -- Dissect: Action Type
@@ -963,24 +905,16 @@ euronext_optiq_orderentrygateway_sbe_v5_23.afq_reason = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.afq_reason.size = 1
 
 -- Display: Afq Reason
-euronext_optiq_orderentrygateway_sbe_v5_23.afq_reason.display = function(value)
-  if value == 1 then
-    return "Afq Reason: Quotecancelledbythe Liquidity Provider (1)"
-  end
-  if value == 2 then
-    return "Afq Reason: Quotecancelledby Market Control (2)"
-  end
-  if value == 3 then
-    return "Afq Reason: Noquote Mminutesbeforeanuncrossing (3)"
-  end
-  if value == 4 then
-    return "Afq Reason: Noquote Ssecondsbeforeanuncrossing (4)"
-  end
-  if value == 5 then
-    return "Afq Reason: Quotecompletelymatched (5)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.afq_reason.labels = {
+  [1] = "Afq Reason: Quotecancelledbythe Liquidity Provider (1)",
+  [2] = "Afq Reason: Quotecancelledby Market Control (2)",
+  [3] = "Afq Reason: Noquote Mminutesbeforeanuncrossing (3)",
+  [4] = "Afq Reason: Noquote Ssecondsbeforeanuncrossing (4)",
+  [5] = "Afq Reason: Quotecompletelymatched (5)",
+}
 
-  return "Afq Reason: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.afq_reason.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.afq_reason.labels[value] or "Afq Reason: Unknown("..value..")"
 end
 
 -- Dissect: Afq Reason
@@ -1988,48 +1922,24 @@ euronext_optiq_orderentrygateway_sbe_v5_23.declaration_status = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.declaration_status.size = 1
 
 -- Display: Declaration Status
-euronext_optiq_orderentrygateway_sbe_v5_23.declaration_status.display = function(value)
-  if value == 1 then
-    return "Declaration Status: New Waitingfor Counterparty Confirmation (1)"
-  end
-  if value == 2 then
-    return "Declaration Status: Confirmedby Counterparty (2)"
-  end
-  if value == 3 then
-    return "Declaration Status: Refusedby Counterparty (3)"
-  end
-  if value == 4 then
-    return "Declaration Status: Pending Cancellation (4)"
-  end
-  if value == 5 then
-    return "Declaration Status: Cancelled (5)"
-  end
-  if value == 6 then
-    return "Declaration Status: Time Out (6)"
-  end
-  if value == 7 then
-    return "Declaration Status: Filled (7)"
-  end
-  if value == 8 then
-    return "Declaration Status: Restated (8)"
-  end
-  if value == 9 then
-    return "Declaration Status: Expirationofapendingdeclaration (9)"
-  end
-  if value == 10 then
-    return "Declaration Status: Eliminationofapendingdeclaration (10)"
-  end
-  if value == 11 then
-    return "Declaration Status: Eliminationofaprematcheddeclarationfollowinga Ce (11)"
-  end
-  if value == 12 then
-    return "Declaration Status: Eliminationofaprematcheddeclarationby Moc (12)"
-  end
-  if value == 13 then
-    return "Declaration Status: Pre Matched (13)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.declaration_status.labels = {
+  [1] = "Declaration Status: New Waitingfor Counterparty Confirmation (1)",
+  [2] = "Declaration Status: Confirmedby Counterparty (2)",
+  [3] = "Declaration Status: Refusedby Counterparty (3)",
+  [4] = "Declaration Status: Pending Cancellation (4)",
+  [5] = "Declaration Status: Cancelled (5)",
+  [6] = "Declaration Status: Time Out (6)",
+  [7] = "Declaration Status: Filled (7)",
+  [8] = "Declaration Status: Restated (8)",
+  [9] = "Declaration Status: Expirationofapendingdeclaration (9)",
+  [10] = "Declaration Status: Eliminationofapendingdeclaration (10)",
+  [11] = "Declaration Status: Eliminationofaprematcheddeclarationfollowinga Ce (11)",
+  [12] = "Declaration Status: Eliminationofaprematcheddeclarationby Moc (12)",
+  [13] = "Declaration Status: Pre Matched (13)",
+}
 
-  return "Declaration Status: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.declaration_status.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.declaration_status.labels[value] or "Declaration Status: Unknown("..value..")"
 end
 
 -- Dissect: Declaration Status
@@ -2079,39 +1989,21 @@ euronext_optiq_orderentrygateway_sbe_v5_23.emm = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.emm.size = 1
 
 -- Display: Emm
-euronext_optiq_orderentrygateway_sbe_v5_23.emm.display = function(value)
-  if value == 1 then
-    return "Emm: Cashand Derivative Central Order Book (1)"
-  end
-  if value == 2 then
-    return "Emm: Nav Trading Facility (2)"
-  end
-  if value == 4 then
-    return "Emm: Derivatives Wholesales (4)"
-  end
-  if value == 5 then
-    return "Emm: Cash On Exchange Offbook (5)"
-  end
-  if value == 6 then
-    return "Emm: Euronextoffexchangetradereports (6)"
-  end
-  if value == 7 then
-    return "Emm: Derivatives On Exchange Offbook (7)"
-  end
-  if value == 8 then
-    return "Emm: Etfmtfnav Central Order Book (8)"
-  end
-  if value == 9 then
-    return "Emm: Listednottraded (9)"
-  end
-  if value == 15 then
-    return "Emm: Delta Neutral Contingency Leg (15)"
-  end
-  if value == 99 then
-    return "Emm: Not Applicable (99)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.emm.labels = {
+  [1] = "Emm: Cashand Derivative Central Order Book (1)",
+  [2] = "Emm: Nav Trading Facility (2)",
+  [4] = "Emm: Derivatives Wholesales (4)",
+  [5] = "Emm: Cash On Exchange Offbook (5)",
+  [6] = "Emm: Euronextoffexchangetradereports (6)",
+  [7] = "Emm: Derivatives On Exchange Offbook (7)",
+  [8] = "Emm: Etfmtfnav Central Order Book (8)",
+  [9] = "Emm: Listednottraded (9)",
+  [15] = "Emm: Delta Neutral Contingency Leg (15)",
+  [99] = "Emm: Not Applicable (99)",
+}
 
-  return "Emm: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.emm.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.emm.labels[value] or "Emm: Unknown("..value..")"
 end
 
 -- Dissect: Emm
@@ -2521,24 +2413,16 @@ euronext_optiq_orderentrygateway_sbe_v5_23.execution_phase = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.execution_phase.size = 1
 
 -- Display: Execution Phase
-euronext_optiq_orderentrygateway_sbe_v5_23.execution_phase.display = function(value)
-  if value == 1 then
-    return "Execution Phase: Continuous Trading Phase (1)"
-  end
-  if value == 2 then
-    return "Execution Phase: Uncrossing Phase (2)"
-  end
-  if value == 3 then
-    return "Execution Phase: Trading At Last Phase (3)"
-  end
-  if value == 4 then
-    return "Execution Phase: Continuous Uncrossing Phase (4)"
-  end
-  if value == 5 then
-    return "Execution Phase: Ipo (5)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.execution_phase.labels = {
+  [1] = "Execution Phase: Continuous Trading Phase (1)",
+  [2] = "Execution Phase: Uncrossing Phase (2)",
+  [3] = "Execution Phase: Trading At Last Phase (3)",
+  [4] = "Execution Phase: Continuous Uncrossing Phase (4)",
+  [5] = "Execution Phase: Ipo (5)",
+}
 
-  return "Execution Phase: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.execution_phase.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.execution_phase.labels[value] or "Execution Phase: Unknown("..value..")"
 end
 
 -- Dissect: Execution Phase
@@ -2941,15 +2825,13 @@ euronext_optiq_orderentrygateway_sbe_v5_23.guarantee_flag = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.guarantee_flag.size = 1
 
 -- Display: Guarantee Flag
-euronext_optiq_orderentrygateway_sbe_v5_23.guarantee_flag.display = function(value)
-  if value == 1 then
-    return "Guarantee Flag: Clearedbutnot Guaranteed (1)"
-  end
-  if value == 2 then
-    return "Guarantee Flag: Clearedand Guaranteed (2)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.guarantee_flag.labels = {
+  [1] = "Guarantee Flag: Clearedbutnot Guaranteed (1)",
+  [2] = "Guarantee Flag: Clearedand Guaranteed (2)",
+}
 
-  return "Guarantee Flag: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.guarantee_flag.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.guarantee_flag.labels[value] or "Guarantee Flag: Unknown("..value..")"
 end
 
 -- Dissect: Guarantee Flag
@@ -3004,15 +2886,13 @@ euronext_optiq_orderentrygateway_sbe_v5_23.input_price_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.input_price_type.size = 1
 
 -- Display: Input Price Type
-euronext_optiq_orderentrygateway_sbe_v5_23.input_price_type.display = function(value)
-  if value == 1 then
-    return "Input Price Type: Valuation Price (1)"
-  end
-  if value == 2 then
-    return "Input Price Type: Alternative Indicative Price Aip (2)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.input_price_type.labels = {
+  [1] = "Input Price Type: Valuation Price (1)",
+  [2] = "Input Price Type: Alternative Indicative Price Aip (2)",
+}
 
-  return "Input Price Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.input_price_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.input_price_type.labels[value] or "Input Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Input Price Type
@@ -3188,21 +3068,15 @@ euronext_optiq_orderentrygateway_sbe_v5_23.ioi_quantity = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.ioi_quantity.size = 1
 
 -- Display: Ioi Quantity
-euronext_optiq_orderentrygateway_sbe_v5_23.ioi_quantity.display = function(value)
-  if value == 1 then
-    return "Ioi Quantity: Small (1)"
-  end
-  if value == 2 then
-    return "Ioi Quantity: Medium (2)"
-  end
-  if value == 3 then
-    return "Ioi Quantity: Large (3)"
-  end
-  if value == 4 then
-    return "Ioi Quantity: Undisclosed Quantity (4)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.ioi_quantity.labels = {
+  [1] = "Ioi Quantity: Small (1)",
+  [2] = "Ioi Quantity: Medium (2)",
+  [3] = "Ioi Quantity: Large (3)",
+  [4] = "Ioi Quantity: Undisclosed Quantity (4)",
+}
 
-  return "Ioi Quantity: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.ioi_quantity.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.ioi_quantity.labels[value] or "Ioi Quantity: Unknown("..value..")"
 end
 
 -- Dissect: Ioi Quantity
@@ -3224,18 +3098,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.ioi_side = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.ioi_side.size = 1
 
 -- Display: Ioi Side
-euronext_optiq_orderentrygateway_sbe_v5_23.ioi_side.display = function(value)
-  if value == 1 then
-    return "Ioi Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Ioi Side: Sell (2)"
-  end
-  if value == 4 then
-    return "Ioi Side: Undisclosed (4)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.ioi_side.labels = {
+  [1] = "Ioi Side: Buy (1)",
+  [2] = "Ioi Side: Sell (2)",
+  [4] = "Ioi Side: Undisclosed (4)",
+}
 
-  return "Ioi Side: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.ioi_side.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.ioi_side.labels[value] or "Ioi Side: Unknown("..value..")"
 end
 
 -- Dissect: Ioi Side
@@ -3257,18 +3127,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.ioi_transaction_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.ioi_transaction_type.size = 1
 
 -- Display: Ioi Transaction Type
-euronext_optiq_orderentrygateway_sbe_v5_23.ioi_transaction_type.display = function(value)
-  if value == 1 then
-    return "Ioi Transaction Type: New (1)"
-  end
-  if value == 2 then
-    return "Ioi Transaction Type: Cancel (2)"
-  end
-  if value == 3 then
-    return "Ioi Transaction Type: Replace (3)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.ioi_transaction_type.labels = {
+  [1] = "Ioi Transaction Type: New (1)",
+  [2] = "Ioi Transaction Type: Cancel (2)",
+  [3] = "Ioi Transaction Type: Replace (3)",
+}
 
-  return "Ioi Transaction Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.ioi_transaction_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.ioi_transaction_type.labels[value] or "Ioi Transaction Type: Unknown("..value..")"
 end
 
 -- Dissect: Ioi Transaction Type
@@ -3290,27 +3156,17 @@ euronext_optiq_orderentrygateway_sbe_v5_23.ioi_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.ioi_type.size = 1
 
 -- Display: Ioi Type
-euronext_optiq_orderentrygateway_sbe_v5_23.ioi_type.display = function(value)
-  if value == 1 then
-    return "Ioi Type: Ack (1)"
-  end
-  if value == 2 then
-    return "Ioi Type: Reject (2)"
-  end
-  if value == 3 then
-    return "Ioi Type: New Ioi Notification (3)"
-  end
-  if value == 4 then
-    return "Ioi Type: Ioi Reply Notification (4)"
-  end
-  if value == 5 then
-    return "Ioi Type: Ioi Cancellation Notification (5)"
-  end
-  if value == 6 then
-    return "Ioi Type: Ioi Replacement Notification (6)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.ioi_type.labels = {
+  [1] = "Ioi Type: Ack (1)",
+  [2] = "Ioi Type: Reject (2)",
+  [3] = "Ioi Type: New Ioi Notification (3)",
+  [4] = "Ioi Type: Ioi Reply Notification (4)",
+  [5] = "Ioi Type: Ioi Cancellation Notification (5)",
+  [6] = "Ioi Type: Ioi Replacement Notification (6)",
+}
 
-  return "Ioi Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.ioi_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.ioi_type.labels[value] or "Ioi Type: Unknown("..value..")"
 end
 
 -- Dissect: Ioi Type
@@ -3332,99 +3188,41 @@ euronext_optiq_orderentrygateway_sbe_v5_23.kill_reason = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.kill_reason.size = 2
 
 -- Display: Kill Reason
-euronext_optiq_orderentrygateway_sbe_v5_23.kill_reason.display = function(value)
-  if value == 1 then
-    return "Kill Reason: Order Cancelledby Client (1)"
-  end
-  if value == 2 then
-    return "Kill Reason: Order Expired (2)"
-  end
-  if value == 3 then
-    return "Kill Reason: Order Cancelledby Market Operations (3)"
-  end
-  if value == 4 then
-    return "Kill Reason: Order Eliminateddueto Corporate Event (4)"
-  end
-  if value == 5 then
-    return "Kill Reason: Doneforday (5)"
-  end
-  if value == 6 then
-    return "Kill Reason: Cancelled Mt Linanempty Order Book (6)"
-  end
-  if value == 7 then
-    return "Kill Reason: Cancelledby Stp (7)"
-  end
-  if value == 8 then
-    return "Kill Reason: Remainingquantitykilled Ioc (8)"
-  end
-  if value == 9 then
-    return "Kill Reason: Beginningof Pako Period (9)"
-  end
-  if value == 11 then
-    return "Kill Reason: Order Cancelleddueto Cancel On Disconnect Mechanism (11)"
-  end
-  if value == 12 then
-    return "Kill Reason: Rf Qexpired (12)"
-  end
-  if value == 13 then
-    return "Kill Reason: Rf Qpartiallyorfullymatchedwithothercounterparts (13)"
-  end
-  if value == 14 then
-    return "Kill Reason: Rf Qcancelledbytheissuer (14)"
-  end
-  if value == 15 then
-    return "Kill Reason: Rfq Notmatchedduetoissuerordersfeatures (15)"
-  end
-  if value == 16 then
-    return "Kill Reason: Quotecancelleddueto Knock Out (16)"
-  end
-  if value == 17 then
-    return "Kill Reason: Ordercancelledduetoa Killcommand (17)"
-  end
-  if value == 19 then
-    return "Kill Reason: Lp Ordercancelleddueto Rf Qexpiration (19)"
-  end
-  if value == 20 then
-    return "Kill Reason: Lp Ordercancelleddueto Rf Qcancellation (20)"
-  end
-  if value == 21 then
-    return "Kill Reason: Rfq Remainingquantitykilled (21)"
-  end
-  if value == 22 then
-    return "Kill Reason: Lp Ordercancelleddueto Rf Qconfirmation (22)"
-  end
-  if value == 23 then
-    return "Kill Reason: Ordercancelleddueto Market Maker Protection (23)"
-  end
-  if value == 24 then
-    return "Kill Reason: Ordercancelledbyclearingriskmanager (24)"
-  end
-  if value == 25 then
-    return "Kill Reason: Ordercancelledbymemberriskmanager (25)"
-  end
-  if value == 26 then
-    return "Kill Reason: Ordercancelleddueto Trade Price Validation (26)"
-  end
-  if value == 30 then
-    return "Kill Reason: Conditional Ordercancelleddueto Potential Matching (30)"
-  end
-  if value == 36 then
-    return "Kill Reason: Order Cancelledduetoapotentialtradeoutside Fs Plimits (36)"
-  end
-  if value == 37 then
-    return "Kill Reason: Remaining Rfc Quantity Cancelled (37)"
-  end
-  if value == 38 then
-    return "Kill Reason: Order Cancelledduetoanincorrect Reactor Response (38)"
-  end
-  if value == 41 then
-    return "Kill Reason: Ordercancelleddueto Order Price Control Collarbreach (41)"
-  end
-  if value == 42 then
-    return "Kill Reason: Ordercancelleddueto Execution Prevention Across All Firms (42)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.kill_reason.labels = {
+  [1] = "Kill Reason: Order Cancelledby Client (1)",
+  [2] = "Kill Reason: Order Expired (2)",
+  [3] = "Kill Reason: Order Cancelledby Market Operations (3)",
+  [4] = "Kill Reason: Order Eliminateddueto Corporate Event (4)",
+  [5] = "Kill Reason: Doneforday (5)",
+  [6] = "Kill Reason: Cancelled Mt Linanempty Order Book (6)",
+  [7] = "Kill Reason: Cancelledby Stp (7)",
+  [8] = "Kill Reason: Remainingquantitykilled Ioc (8)",
+  [9] = "Kill Reason: Beginningof Pako Period (9)",
+  [11] = "Kill Reason: Order Cancelleddueto Cancel On Disconnect Mechanism (11)",
+  [12] = "Kill Reason: Rf Qexpired (12)",
+  [13] = "Kill Reason: Rf Qpartiallyorfullymatchedwithothercounterparts (13)",
+  [14] = "Kill Reason: Rf Qcancelledbytheissuer (14)",
+  [15] = "Kill Reason: Rfq Notmatchedduetoissuerordersfeatures (15)",
+  [16] = "Kill Reason: Quotecancelleddueto Knock Out (16)",
+  [17] = "Kill Reason: Ordercancelledduetoa Killcommand (17)",
+  [19] = "Kill Reason: Lp Ordercancelleddueto Rf Qexpiration (19)",
+  [20] = "Kill Reason: Lp Ordercancelleddueto Rf Qcancellation (20)",
+  [21] = "Kill Reason: Rfq Remainingquantitykilled (21)",
+  [22] = "Kill Reason: Lp Ordercancelleddueto Rf Qconfirmation (22)",
+  [23] = "Kill Reason: Ordercancelleddueto Market Maker Protection (23)",
+  [24] = "Kill Reason: Ordercancelledbyclearingriskmanager (24)",
+  [25] = "Kill Reason: Ordercancelledbymemberriskmanager (25)",
+  [26] = "Kill Reason: Ordercancelleddueto Trade Price Validation (26)",
+  [30] = "Kill Reason: Conditional Ordercancelleddueto Potential Matching (30)",
+  [36] = "Kill Reason: Order Cancelledduetoapotentialtradeoutside Fs Plimits (36)",
+  [37] = "Kill Reason: Remaining Rfc Quantity Cancelled (37)",
+  [38] = "Kill Reason: Order Cancelledduetoanincorrect Reactor Response (38)",
+  [41] = "Kill Reason: Ordercancelleddueto Order Price Control Collarbreach (41)",
+  [42] = "Kill Reason: Ordercancelleddueto Execution Prevention Across All Firms (42)",
+}
 
-  return "Kill Reason: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.kill_reason.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.kill_reason.labels[value] or "Kill Reason: Unknown("..value..")"
 end
 
 -- Dissect: Kill Reason
@@ -3982,18 +3780,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.leg_security_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.leg_security_type.size = 1
 
 -- Display: Leg Security Type
-euronext_optiq_orderentrygateway_sbe_v5_23.leg_security_type.display = function(value)
-  if value == 0 then
-    return "Leg Security Type: Future (0)"
-  end
-  if value == 1 then
-    return "Leg Security Type: Option (1)"
-  end
-  if value == 2 then
-    return "Leg Security Type: Cash (2)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.leg_security_type.labels = {
+  [0] = "Leg Security Type: Future (0)",
+  [1] = "Leg Security Type: Option (1)",
+  [2] = "Leg Security Type: Cash (2)",
+}
 
-  return "Leg Security Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.leg_security_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.leg_security_type.labels[value] or "Leg Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Leg Security Type
@@ -4015,15 +3809,13 @@ euronext_optiq_orderentrygateway_sbe_v5_23.leg_side = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.leg_side.size = 1
 
 -- Display: Leg Side
-euronext_optiq_orderentrygateway_sbe_v5_23.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell (2)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.leg_side.labels = {
+  [1] = "Leg Side: Buy (1)",
+  [2] = "Leg Side: Sell (2)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.leg_side.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -4157,27 +3949,17 @@ euronext_optiq_orderentrygateway_sbe_v5_23.log_out_reason_code = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.log_out_reason_code.size = 1
 
 -- Display: Log Out Reason Code
-euronext_optiq_orderentrygateway_sbe_v5_23.log_out_reason_code.display = function(value)
-  if value == 0 then
-    return "Log Out Reason Code: Regular Logout (0)"
-  end
-  if value == 1 then
-    return "Log Out Reason Code: End Of Day (1)"
-  end
-  if value == 2 then
-    return "Log Out Reason Code: Toomanyunknownmessages (2)"
-  end
-  if value == 3 then
-    return "Log Out Reason Code: Excessive Numberof Messages (3)"
-  end
-  if value == 4 then
-    return "Log Out Reason Code: Excessive Amountof Datain Bytes (4)"
-  end
-  if value == 5 then
-    return "Log Out Reason Code: Excessive Numberof Messages Amountof Datain Bytes (5)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.log_out_reason_code.labels = {
+  [0] = "Log Out Reason Code: Regular Logout (0)",
+  [1] = "Log Out Reason Code: End Of Day (1)",
+  [2] = "Log Out Reason Code: Toomanyunknownmessages (2)",
+  [3] = "Log Out Reason Code: Excessive Numberof Messages (3)",
+  [4] = "Log Out Reason Code: Excessive Amountof Datain Bytes (4)",
+  [5] = "Log Out Reason Code: Excessive Numberof Messages Amountof Datain Bytes (5)",
+}
 
-  return "Log Out Reason Code: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.log_out_reason_code.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.log_out_reason_code.labels[value] or "Log Out Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Log Out Reason Code
@@ -4250,30 +4032,18 @@ euronext_optiq_orderentrygateway_sbe_v5_23.logon_reject_code = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.logon_reject_code.size = 1
 
 -- Display: Logon Reject Code
-euronext_optiq_orderentrygateway_sbe_v5_23.logon_reject_code.display = function(value)
-  if value == 1 then
-    return "Logon Reject Code: Unknown Connection Identifier (1)"
-  end
-  if value == 2 then
-    return "Logon Reject Code: Systemunavailable (2)"
-  end
-  if value == 3 then
-    return "Logon Reject Code: Invalidsequencenumber (3)"
-  end
-  if value == 4 then
-    return "Logon Reject Code: Clientsessionalreadyloggedon (4)"
-  end
-  if value == 5 then
-    return "Logon Reject Code: Clientsessiondisabled (5)"
-  end
-  if value == 6 then
-    return "Logon Reject Code: Invalid Queueing Indicator (6)"
-  end
-  if value == 7 then
-    return "Logon Reject Code: Invalid Logonformat (7)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.logon_reject_code.labels = {
+  [1] = "Logon Reject Code: Unknown Connection Identifier (1)",
+  [2] = "Logon Reject Code: Systemunavailable (2)",
+  [3] = "Logon Reject Code: Invalidsequencenumber (3)",
+  [4] = "Logon Reject Code: Clientsessionalreadyloggedon (4)",
+  [5] = "Logon Reject Code: Clientsessiondisabled (5)",
+  [6] = "Logon Reject Code: Invalid Queueing Indicator (6)",
+  [7] = "Logon Reject Code: Invalid Logonformat (7)",
+}
 
-  return "Logon Reject Code: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.logon_reject_code.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.logon_reject_code.labels[value] or "Logon Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Logon Reject Code
@@ -4334,24 +4104,16 @@ euronext_optiq_orderentrygateway_sbe_v5_23.lp_action_code = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.lp_action_code.size = 1
 
 -- Display: Lp Action Code
-euronext_optiq_orderentrygateway_sbe_v5_23.lp_action_code.display = function(value)
-  if value == 1 then
-    return "Lp Action Code: Knock In By Issuer Kibi (1)"
-  end
-  if value == 2 then
-    return "Lp Action Code: Knock Out By Issuer Kobi (2)"
-  end
-  if value == 3 then
-    return "Lp Action Code: Payment After Knock Out Pako (3)"
-  end
-  if value == 4 then
-    return "Lp Action Code: Bid Only (4)"
-  end
-  if value == 5 then
-    return "Lp Action Code: Offer Only (5)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.lp_action_code.labels = {
+  [1] = "Lp Action Code: Knock In By Issuer Kibi (1)",
+  [2] = "Lp Action Code: Knock Out By Issuer Kobi (2)",
+  [3] = "Lp Action Code: Payment After Knock Out Pako (3)",
+  [4] = "Lp Action Code: Bid Only (4)",
+  [5] = "Lp Action Code: Offer Only (5)",
+}
 
-  return "Lp Action Code: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.lp_action_code.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.lp_action_code.labels[value] or "Lp Action Code: Unknown("..value..")"
 end
 
 -- Dissect: Lp Action Code
@@ -4373,18 +4135,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.lp_role = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.lp_role.size = 1
 
 -- Display: Lp Role
-euronext_optiq_orderentrygateway_sbe_v5_23.lp_role.display = function(value)
-  if value == 1 then
-    return "Lp Role: Liquidity Provideror Market Maker (1)"
-  end
-  if value == 3 then
-    return "Lp Role: Retail Liquidity Provider (3)"
-  end
-  if value == 12 then
-    return "Lp Role: Rfq Liquidity Provider (12)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.lp_role.labels = {
+  [1] = "Lp Role: Liquidity Provideror Market Maker (1)",
+  [3] = "Lp Role: Retail Liquidity Provider (3)",
+  [12] = "Lp Role: Rfq Liquidity Provider (12)",
+}
 
-  return "Lp Role: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.lp_role.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.lp_role.labels[value] or "Lp Role: Unknown("..value..")"
 end
 
 -- Dissect: Lp Role
@@ -5119,24 +4877,16 @@ euronext_optiq_orderentrygateway_sbe_v5_23.operation_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.operation_type.size = 1
 
 -- Display: Operation Type
-euronext_optiq_orderentrygateway_sbe_v5_23.operation_type.display = function(value)
-  if value == 1 then
-    return "Operation Type: Declarationofatradeoutsidethebook (1)"
-  end
-  if value == 4 then
-    return "Operation Type: Fundorderquantity (4)"
-  end
-  if value == 5 then
-    return "Operation Type: Declarationofa Vwa Ptransaction (5)"
-  end
-  if value == 6 then
-    return "Operation Type: Fundordercashamount (6)"
-  end
-  if value == 7 then
-    return "Operation Type: Declarationofatradeona Secondarylistingplace (7)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.operation_type.labels = {
+  [1] = "Operation Type: Declarationofatradeoutsidethebook (1)",
+  [4] = "Operation Type: Fundorderquantity (4)",
+  [5] = "Operation Type: Declarationofa Vwa Ptransaction (5)",
+  [6] = "Operation Type: Fundordercashamount (6)",
+  [7] = "Operation Type: Declarationofatradeona Secondarylistingplace (7)",
+}
 
-  return "Operation Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.operation_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.operation_type.labels[value] or "Operation Type: Unknown("..value..")"
 end
 
 -- Dissect: Operation Type
@@ -5194,15 +4944,13 @@ euronext_optiq_orderentrygateway_sbe_v5_23.order_actor_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.order_actor_type.size = 1
 
 -- Display: Order Actor Type
-euronext_optiq_orderentrygateway_sbe_v5_23.order_actor_type.display = function(value)
-  if value == 1 then
-    return "Order Actor Type: Initiator (1)"
-  end
-  if value == 2 then
-    return "Order Actor Type: Reactor (2)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.order_actor_type.labels = {
+  [1] = "Order Actor Type: Initiator (1)",
+  [2] = "Order Actor Type: Reactor (2)",
+}
 
-  return "Order Actor Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.order_actor_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.order_actor_type.labels[value] or "Order Actor Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Actor Type
@@ -5645,39 +5393,21 @@ euronext_optiq_orderentrygateway_sbe_v5_23.order_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.order_type.size = 1
 
 -- Display: Order Type
-euronext_optiq_orderentrygateway_sbe_v5_23.order_type.display = function(value)
-  if value == 1 then
-    return "Order Type: Market (1)"
-  end
-  if value == 2 then
-    return "Order Type: Limit (2)"
-  end
-  if value == 3 then
-    return "Order Type: Stopmarketor Stopmarketonquote (3)"
-  end
-  if value == 4 then
-    return "Order Type: Stoplimitor Stoplimitonquote (4)"
-  end
-  if value == 5 then
-    return "Order Type: Primary Peg (5)"
-  end
-  if value == 6 then
-    return "Order Type: Markettolimit (6)"
-  end
-  if value == 7 then
-    return "Order Type: Market Peg (7)"
-  end
-  if value == 8 then
-    return "Order Type: Mid Point Peg (8)"
-  end
-  if value == 9 then
-    return "Order Type: Average Price (9)"
-  end
-  if value == 10 then
-    return "Order Type: Iceberg (10)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.order_type.labels = {
+  [1] = "Order Type: Market (1)",
+  [2] = "Order Type: Limit (2)",
+  [3] = "Order Type: Stopmarketor Stopmarketonquote (3)",
+  [4] = "Order Type: Stoplimitor Stoplimitonquote (4)",
+  [5] = "Order Type: Primary Peg (5)",
+  [6] = "Order Type: Markettolimit (6)",
+  [7] = "Order Type: Market Peg (7)",
+  [8] = "Order Type: Mid Point Peg (8)",
+  [9] = "Order Type: Average Price (9)",
+  [10] = "Order Type: Iceberg (10)",
+}
 
-  return "Order Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.order_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -6226,15 +5956,13 @@ euronext_optiq_orderentrygateway_sbe_v5_23.protection_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.protection_type.size = 1
 
 -- Display: Protection Type
-euronext_optiq_orderentrygateway_sbe_v5_23.protection_type.display = function(value)
-  if value == 1 then
-    return "Protection Type: Delta (1)"
-  end
-  if value == 2 then
-    return "Protection Type: Volume (2)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.protection_type.labels = {
+  [1] = "Protection Type: Delta (1)",
+  [2] = "Protection Type: Volume (2)",
+}
 
-  return "Protection Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.protection_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.protection_type.labels[value] or "Protection Type: Unknown("..value..")"
 end
 
 -- Dissect: Protection Type
@@ -6414,15 +6142,13 @@ euronext_optiq_orderentrygateway_sbe_v5_23.recipient_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.recipient_type.size = 1
 
 -- Display: Recipient Type
-euronext_optiq_orderentrygateway_sbe_v5_23.recipient_type.display = function(value)
-  if value == 1 then
-    return "Recipient Type: Rfq Issuer (1)"
-  end
-  if value == 2 then
-    return "Recipient Type: Rf Qrecipient Lp (2)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.recipient_type.labels = {
+  [1] = "Recipient Type: Rfq Issuer (1)",
+  [2] = "Recipient Type: Rf Qrecipient Lp (2)",
+}
 
-  return "Recipient Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.recipient_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.recipient_type.labels[value] or "Recipient Type: Unknown("..value..")"
 end
 
 -- Dissect: Recipient Type
@@ -6528,18 +6254,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.request_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.request_type.size = 1
 
 -- Display: Request Type
-euronext_optiq_orderentrygateway_sbe_v5_23.request_type.display = function(value)
-  if value == 1 then
-    return "Request Type: Set (1)"
-  end
-  if value == 2 then
-    return "Request Type: Get (2)"
-  end
-  if value == 3 then
-    return "Request Type: Adjust (3)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.request_type.labels = {
+  [1] = "Request Type: Set (1)",
+  [2] = "Request Type: Get (2)",
+  [3] = "Request Type: Adjust (3)",
+}
 
-  return "Request Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.request_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.request_type.labels[value] or "Request Type: Unknown("..value..")"
 end
 
 -- Dissect: Request Type
@@ -6561,15 +6283,13 @@ euronext_optiq_orderentrygateway_sbe_v5_23.response_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.response_type.size = 1
 
 -- Display: Response Type
-euronext_optiq_orderentrygateway_sbe_v5_23.response_type.display = function(value)
-  if value == 0 then
-    return "Response Type: Accept (0)"
-  end
-  if value == 1 then
-    return "Response Type: Reject (1)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.response_type.labels = {
+  [0] = "Response Type: Accept (0)",
+  [1] = "Response Type: Reject (1)",
+}
 
-  return "Response Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.response_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.response_type.labels[value] or "Response Type: Unknown("..value..")"
 end
 
 -- Dissect: Response Type
@@ -6637,21 +6357,15 @@ euronext_optiq_orderentrygateway_sbe_v5_23.rfq_update_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.rfq_update_type.size = 1
 
 -- Display: Rfq Update Type
-euronext_optiq_orderentrygateway_sbe_v5_23.rfq_update_type.display = function(value)
-  if value == 1 then
-    return "Rfq Update Type: New (1)"
-  end
-  if value == 2 then
-    return "Rfq Update Type: Cancelledbythe Rf Qissuer (2)"
-  end
-  if value == 3 then
-    return "Rfq Update Type: Expired (3)"
-  end
-  if value == 4 then
-    return "Rfq Update Type: Partiallyor Fully Matched (4)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.rfq_update_type.labels = {
+  [1] = "Rfq Update Type: New (1)",
+  [2] = "Rfq Update Type: Cancelledbythe Rf Qissuer (2)",
+  [3] = "Rfq Update Type: Expired (3)",
+  [4] = "Rfq Update Type: Partiallyor Fully Matched (4)",
+}
 
-  return "Rfq Update Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.rfq_update_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.rfq_update_type.labels[value] or "Rfq Update Type: Unknown("..value..")"
 end
 
 -- Dissect: Rfq Update Type
@@ -6913,18 +6627,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.side = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.side.size = 1
 
 -- Display: Side
-euronext_optiq_orderentrygateway_sbe_v5_23.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
-  if value == 3 then
-    return "Side: Cross (3)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+  [3] = "Side: Cross (3)",
+}
 
-  return "Side: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.side.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -7627,174 +7337,66 @@ euronext_optiq_orderentrygateway_sbe_v5_23.template_id = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.template_id.size = 2
 
 -- Display: Template Id
-euronext_optiq_orderentrygateway_sbe_v5_23.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: New Order Message (1)"
-  end
-  if value == 3 then
-    return "Template Id: Ack Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Fill Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Kill Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Cancel Replace Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Reject Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Quotes Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Quote Ack Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Quote Request Message (10)"
-  end
-  if value == 12 then
-    return "Template Id: Cancel Request Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Mass Cancel Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Mass Cancel Ack Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Open Order Request Message (15)"
-  end
-  if value == 17 then
-    return "Template Id: Ownership Request Ack Message (17)"
-  end
-  if value == 18 then
-    return "Template Id: Ownership Request Message (18)"
-  end
-  if value == 19 then
-    return "Template Id: Trade Bust Notification Message (19)"
-  end
-  if value == 20 then
-    return "Template Id: Collar Breach Confirmation Message (20)"
-  end
-  if value == 28 then
-    return "Template Id: Price Input Message (28)"
-  end
-  if value == 32 then
-    return "Template Id: Liquidity Provider Command Message (32)"
-  end
-  if value == 33 then
-    return "Template Id: Ask For Quote Message (33)"
-  end
-  if value == 34 then
-    return "Template Id: Request For Execution Message (34)"
-  end
-  if value == 35 then
-    return "Template Id: Rfq Notification Message (35)"
-  end
-  if value == 36 then
-    return "Template Id: Rfq Matching Status Message (36)"
-  end
-  if value == 37 then
-    return "Template Id: Rfqlp Matching Status Message (37)"
-  end
-  if value == 39 then
-    return "Template Id: User Notification Message (39)"
-  end
-  if value == 47 then
-    return "Template Id: Mm Sign In Message (47)"
-  end
-  if value == 48 then
-    return "Template Id: Mm Sign In Ack Message (48)"
-  end
-  if value == 50 then
-    return "Template Id: Instrument Synchronization List Message (50)"
-  end
-  if value == 51 then
-    return "Template Id: Synchronization Time Message (51)"
-  end
-  if value == 60 then
-    return "Template Id: Security Definition Request Message (60)"
-  end
-  if value == 61 then
-    return "Template Id: Security Definition Ack Message (61)"
-  end
-  if value == 62 then
-    return "Template Id: Mm Protection Request Message (62)"
-  end
-  if value == 63 then
-    return "Template Id: Mm Protection Ack Message (63)"
-  end
-  if value == 64 then
-    return "Template Id: New Wholesale Order Message (64)"
-  end
-  if value == 65 then
-    return "Template Id: Wholesale Order Ack Message (65)"
-  end
-  if value == 66 then
-    return "Template Id: Request For Implied Execution Message (66)"
-  end
-  if value == 67 then
-    return "Template Id: Cross Order Message (67)"
-  end
-  if value == 72 then
-    return "Template Id: Rfq Audit Message (72)"
-  end
-  if value == 73 then
-    return "Template Id: Wave For Liquidity Message (73)"
-  end
-  if value == 74 then
-    return "Template Id: Wave For Liquidity Notification Message (74)"
-  end
-  if value == 75 then
-    return "Template Id: Clear Book Message (75)"
-  end
-  if value == 100 then
-    return "Template Id: Logon Message (100)"
-  end
-  if value == 101 then
-    return "Template Id: Logon Ack Message (101)"
-  end
-  if value == 102 then
-    return "Template Id: Logon Reject Message (102)"
-  end
-  if value == 103 then
-    return "Template Id: Logout Message (103)"
-  end
-  if value == 106 then
-    return "Template Id: Heartbeat Message (106)"
-  end
-  if value == 107 then
-    return "Template Id: Test Request Message (107)"
-  end
-  if value == 108 then
-    return "Template Id: Technical Reject Message (108)"
-  end
-  if value == 40 then
-    return "Template Id: Declaration Entry Message (40)"
-  end
-  if value == 41 then
-    return "Template Id: Declaration Entry Ack Message (41)"
-  end
-  if value == 42 then
-    return "Template Id: Declaration Notice Message (42)"
-  end
-  if value == 43 then
-    return "Template Id: Declaration Cancel And Refusal Message (43)"
-  end
-  if value == 44 then
-    return "Template Id: Fund Price Input Message (44)"
-  end
-  if value == 45 then
-    return "Template Id: Fund Price Input Ack Message (45)"
-  end
-  if value == 46 then
-    return "Template Id: Declaration Entry Reject Message (46)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.template_id.labels = {
+  [1] = "Template Id: New Order Message (1)",
+  [3] = "Template Id: Ack Message (3)",
+  [4] = "Template Id: Fill Message (4)",
+  [5] = "Template Id: Kill Message (5)",
+  [6] = "Template Id: Cancel Replace Message (6)",
+  [7] = "Template Id: Reject Message (7)",
+  [8] = "Template Id: Quotes Message (8)",
+  [9] = "Template Id: Quote Ack Message (9)",
+  [10] = "Template Id: Quote Request Message (10)",
+  [12] = "Template Id: Cancel Request Message (12)",
+  [13] = "Template Id: Mass Cancel Message (13)",
+  [14] = "Template Id: Mass Cancel Ack Message (14)",
+  [15] = "Template Id: Open Order Request Message (15)",
+  [17] = "Template Id: Ownership Request Ack Message (17)",
+  [18] = "Template Id: Ownership Request Message (18)",
+  [19] = "Template Id: Trade Bust Notification Message (19)",
+  [20] = "Template Id: Collar Breach Confirmation Message (20)",
+  [28] = "Template Id: Price Input Message (28)",
+  [32] = "Template Id: Liquidity Provider Command Message (32)",
+  [33] = "Template Id: Ask For Quote Message (33)",
+  [34] = "Template Id: Request For Execution Message (34)",
+  [35] = "Template Id: Rfq Notification Message (35)",
+  [36] = "Template Id: Rfq Matching Status Message (36)",
+  [37] = "Template Id: Rfqlp Matching Status Message (37)",
+  [39] = "Template Id: User Notification Message (39)",
+  [47] = "Template Id: Mm Sign In Message (47)",
+  [48] = "Template Id: Mm Sign In Ack Message (48)",
+  [50] = "Template Id: Instrument Synchronization List Message (50)",
+  [51] = "Template Id: Synchronization Time Message (51)",
+  [60] = "Template Id: Security Definition Request Message (60)",
+  [61] = "Template Id: Security Definition Ack Message (61)",
+  [62] = "Template Id: Mm Protection Request Message (62)",
+  [63] = "Template Id: Mm Protection Ack Message (63)",
+  [64] = "Template Id: New Wholesale Order Message (64)",
+  [65] = "Template Id: Wholesale Order Ack Message (65)",
+  [66] = "Template Id: Request For Implied Execution Message (66)",
+  [67] = "Template Id: Cross Order Message (67)",
+  [72] = "Template Id: Rfq Audit Message (72)",
+  [73] = "Template Id: Wave For Liquidity Message (73)",
+  [74] = "Template Id: Wave For Liquidity Notification Message (74)",
+  [75] = "Template Id: Clear Book Message (75)",
+  [100] = "Template Id: Logon Message (100)",
+  [101] = "Template Id: Logon Ack Message (101)",
+  [102] = "Template Id: Logon Reject Message (102)",
+  [103] = "Template Id: Logout Message (103)",
+  [106] = "Template Id: Heartbeat Message (106)",
+  [107] = "Template Id: Test Request Message (107)",
+  [108] = "Template Id: Technical Reject Message (108)",
+  [40] = "Template Id: Declaration Entry Message (40)",
+  [41] = "Template Id: Declaration Entry Ack Message (41)",
+  [42] = "Template Id: Declaration Notice Message (42)",
+  [43] = "Template Id: Declaration Cancel And Refusal Message (43)",
+  [44] = "Template Id: Fund Price Input Message (44)",
+  [45] = "Template Id: Fund Price Input Ack Message (45)",
+  [46] = "Template Id: Declaration Entry Reject Message (46)",
+}
 
-  return "Template Id: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.template_id.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -7816,36 +7418,20 @@ euronext_optiq_orderentrygateway_sbe_v5_23.time_in_force = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.time_in_force.size = 1
 
 -- Display: Time In Force
-euronext_optiq_orderentrygateway_sbe_v5_23.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 1 then
-    return "Time In Force: Good Till Cancel (1)"
-  end
-  if value == 2 then
-    return "Time In Force: Validfor Uncrossing (2)"
-  end
-  if value == 3 then
-    return "Time In Force: Immediateor Cancel (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fillor Kill (4)"
-  end
-  if value == 5 then
-    return "Time In Force: Goodtill Time (5)"
-  end
-  if value == 6 then
-    return "Time In Force: Goodtill Date (6)"
-  end
-  if value == 7 then
-    return "Time In Force: Validfor Closing Uncrossing (7)"
-  end
-  if value == 8 then
-    return "Time In Force: Validfor Session (8)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.time_in_force.labels = {
+  [0] = "Time In Force: Day (0)",
+  [1] = "Time In Force: Good Till Cancel (1)",
+  [2] = "Time In Force: Validfor Uncrossing (2)",
+  [3] = "Time In Force: Immediateor Cancel (3)",
+  [4] = "Time In Force: Fillor Kill (4)",
+  [5] = "Time In Force: Goodtill Time (5)",
+  [6] = "Time In Force: Goodtill Date (6)",
+  [7] = "Time In Force: Validfor Closing Uncrossing (7)",
+  [8] = "Time In Force: Validfor Session (8)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.time_in_force.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -7941,156 +7527,60 @@ euronext_optiq_orderentrygateway_sbe_v5_23.trade_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.trade_type.size = 1
 
 -- Display: Trade Type
-euronext_optiq_orderentrygateway_sbe_v5_23.trade_type.display = function(value)
-  if value == 1 then
-    return "Trade Type: Conventional Trade (1)"
-  end
-  if value == 2 then
-    return "Trade Type: Largein Scale Li S Trade (2)"
-  end
-  if value == 3 then
-    return "Trade Type: Basis Trade (3)"
-  end
-  if value == 4 then
-    return "Trade Type: Largein Scale Li S Package Trade (4)"
-  end
-  if value == 5 then
-    return "Trade Type: Guaranteed Cross Trade (5)"
-  end
-  if value == 6 then
-    return "Trade Type: Against Actual Trade (6)"
-  end
-  if value == 7 then
-    return "Trade Type: Asset Allocation Trade (7)"
-  end
-  if value == 9 then
-    return "Trade Type: Exchangefor Swap Trade (9)"
-  end
-  if value == 10 then
-    return "Trade Type: Exchangefor Physical Trade Cash Leg (10)"
-  end
-  if value == 11 then
-    return "Trade Type: Strategy Leg Conventional Trade (11)"
-  end
-  if value == 12 then
-    return "Trade Type: Strategy Leg Largein Scale Li S Trade (12)"
-  end
-  if value == 13 then
-    return "Trade Type: Strategy Leg Basis Trade (13)"
-  end
-  if value == 14 then
-    return "Trade Type: Strategy Leg Guaranteed Cross Trade (14)"
-  end
-  if value == 15 then
-    return "Trade Type: Strategy Leg Against Actual Trade (15)"
-  end
-  if value == 16 then
-    return "Trade Type: Strategy Leg Asset Allocation Trade (16)"
-  end
-  if value == 18 then
-    return "Trade Type: Strategy Leg Exchange For Swap Trade (18)"
-  end
-  if value == 19 then
-    return "Trade Type: Strategy Leg Exchange For Physical Trade (19)"
-  end
-  if value == 20 then
-    return "Trade Type: Bo B Trade (20)"
-  end
-  if value == 22 then
-    return "Trade Type: Atom X Trade (22)"
-  end
-  if value == 24 then
-    return "Trade Type: Trade Cancellation (24)"
-  end
-  if value == 25 then
-    return "Trade Type: Outof Market Trade (25)"
-  end
-  if value == 26 then
-    return "Trade Type: Delta Neutral Trade Underlying Cash Leg (26)"
-  end
-  if value == 27 then
-    return "Trade Type: Market Vwap Operation Trade (27)"
-  end
-  if value == 28 then
-    return "Trade Type: Euronext Fund Service Trade (28)"
-  end
-  if value == 29 then
-    return "Trade Type: Secondary Listing Trade (29)"
-  end
-  if value == 30 then
-    return "Trade Type: Requestfor Cross Trade (30)"
-  end
-  if value == 31 then
-    return "Trade Type: Requestforcrossstrategy Leg Trade (31)"
-  end
-  if value == 32 then
-    return "Trade Type: Trade Publication (32)"
-  end
-  if value == 33 then
-    return "Trade Type: Dark Trade (33)"
-  end
-  if value == 34 then
-    return "Trade Type: Delta Neutral Trade Underlying Future Leg (34)"
-  end
-  if value == 36 then
-    return "Trade Type: Total Traded Volume (36)"
-  end
-  if value == 37 then
-    return "Trade Type: Etfmtfnav Tradepriceinbp (37)"
-  end
-  if value == 38 then
-    return "Trade Type: Etfmtfnav Dark Tradepriceinbp (38)"
-  end
-  if value == 39 then
-    return "Trade Type: Guaranteed Cross Negotiateddeal Nliq (39)"
-  end
-  if value == 40 then
-    return "Trade Type: Guaranteed Cross Negotiateddeal Oilq (40)"
-  end
-  if value == 41 then
-    return "Trade Type: Largein Scale Trade (41)"
-  end
-  if value == 42 then
-    return "Trade Type: Largein Scale Tradeinbasispoints (42)"
-  end
-  if value == 43 then
-    return "Trade Type: Largein Scale Package Tradeinbasispoints (43)"
-  end
-  if value == 44 then
-    return "Trade Type: Strategy Leg Largein Scale Tradeinbasispoints (44)"
-  end
-  if value == 46 then
-    return "Trade Type: Non Standard Settlement (46)"
-  end
-  if value == 47 then
-    return "Trade Type: Repurchase Agreement Repo (47)"
-  end
-  if value == 48 then
-    return "Trade Type: Exchange Granted Trade (48)"
-  end
-  if value == 49 then
-    return "Trade Type: Other (49)"
-  end
-  if value == 50 then
-    return "Trade Type: Odd Lot (50)"
-  end
-  if value == 100 then
-    return "Trade Type: Conventional Trade Provisionalprice (100)"
-  end
-  if value == 101 then
-    return "Trade Type: Largein Scale Li S Trade Provisionalprice (101)"
-  end
-  if value == 102 then
-    return "Trade Type: Largein Scale Li S Package Trade Provisionalprice (102)"
-  end
-  if value == 103 then
-    return "Trade Type: Issuing Or Tender Offer Trade (103)"
-  end
-  if value == 104 then
-    return "Trade Type: Rfq Trade (104)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.trade_type.labels = {
+  [1] = "Trade Type: Conventional Trade (1)",
+  [2] = "Trade Type: Largein Scale Li S Trade (2)",
+  [3] = "Trade Type: Basis Trade (3)",
+  [4] = "Trade Type: Largein Scale Li S Package Trade (4)",
+  [5] = "Trade Type: Guaranteed Cross Trade (5)",
+  [6] = "Trade Type: Against Actual Trade (6)",
+  [7] = "Trade Type: Asset Allocation Trade (7)",
+  [9] = "Trade Type: Exchangefor Swap Trade (9)",
+  [10] = "Trade Type: Exchangefor Physical Trade Cash Leg (10)",
+  [11] = "Trade Type: Strategy Leg Conventional Trade (11)",
+  [12] = "Trade Type: Strategy Leg Largein Scale Li S Trade (12)",
+  [13] = "Trade Type: Strategy Leg Basis Trade (13)",
+  [14] = "Trade Type: Strategy Leg Guaranteed Cross Trade (14)",
+  [15] = "Trade Type: Strategy Leg Against Actual Trade (15)",
+  [16] = "Trade Type: Strategy Leg Asset Allocation Trade (16)",
+  [18] = "Trade Type: Strategy Leg Exchange For Swap Trade (18)",
+  [19] = "Trade Type: Strategy Leg Exchange For Physical Trade (19)",
+  [20] = "Trade Type: Bo B Trade (20)",
+  [22] = "Trade Type: Atom X Trade (22)",
+  [24] = "Trade Type: Trade Cancellation (24)",
+  [25] = "Trade Type: Outof Market Trade (25)",
+  [26] = "Trade Type: Delta Neutral Trade Underlying Cash Leg (26)",
+  [27] = "Trade Type: Market Vwap Operation Trade (27)",
+  [28] = "Trade Type: Euronext Fund Service Trade (28)",
+  [29] = "Trade Type: Secondary Listing Trade (29)",
+  [30] = "Trade Type: Requestfor Cross Trade (30)",
+  [31] = "Trade Type: Requestforcrossstrategy Leg Trade (31)",
+  [32] = "Trade Type: Trade Publication (32)",
+  [33] = "Trade Type: Dark Trade (33)",
+  [34] = "Trade Type: Delta Neutral Trade Underlying Future Leg (34)",
+  [36] = "Trade Type: Total Traded Volume (36)",
+  [37] = "Trade Type: Etfmtfnav Tradepriceinbp (37)",
+  [38] = "Trade Type: Etfmtfnav Dark Tradepriceinbp (38)",
+  [39] = "Trade Type: Guaranteed Cross Negotiateddeal Nliq (39)",
+  [40] = "Trade Type: Guaranteed Cross Negotiateddeal Oilq (40)",
+  [41] = "Trade Type: Largein Scale Trade (41)",
+  [42] = "Trade Type: Largein Scale Tradeinbasispoints (42)",
+  [43] = "Trade Type: Largein Scale Package Tradeinbasispoints (43)",
+  [44] = "Trade Type: Strategy Leg Largein Scale Tradeinbasispoints (44)",
+  [46] = "Trade Type: Non Standard Settlement (46)",
+  [47] = "Trade Type: Repurchase Agreement Repo (47)",
+  [48] = "Trade Type: Exchange Granted Trade (48)",
+  [49] = "Trade Type: Other (49)",
+  [50] = "Trade Type: Odd Lot (50)",
+  [100] = "Trade Type: Conventional Trade Provisionalprice (100)",
+  [101] = "Trade Type: Largein Scale Li S Trade Provisionalprice (101)",
+  [102] = "Trade Type: Largein Scale Li S Package Trade Provisionalprice (102)",
+  [103] = "Trade Type: Issuing Or Tender Offer Trade (103)",
+  [104] = "Trade Type: Rfq Trade (104)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.trade_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -8151,18 +7641,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.trading_capacity = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.trading_capacity.size = 1
 
 -- Display: Trading Capacity
-euronext_optiq_orderentrygateway_sbe_v5_23.trading_capacity.display = function(value)
-  if value == 1 then
-    return "Trading Capacity: Dealingonownaccount (1)"
-  end
-  if value == 2 then
-    return "Trading Capacity: Matchedprincipal (2)"
-  end
-  if value == 3 then
-    return "Trading Capacity: Anyothercapacity (3)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.trading_capacity.labels = {
+  [1] = "Trading Capacity: Dealingonownaccount (1)",
+  [2] = "Trading Capacity: Matchedprincipal (2)",
+  [3] = "Trading Capacity: Anyothercapacity (3)",
+}
 
-  return "Trading Capacity: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.trading_capacity.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.trading_capacity.labels[value] or "Trading Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Trading Capacity
@@ -8390,111 +7876,45 @@ euronext_optiq_orderentrygateway_sbe_v5_23.user_status = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.user_status.size = 1
 
 -- Display: User Status
-euronext_optiq_orderentrygateway_sbe_v5_23.user_status.display = function(value)
-  if value == 1 then
-    return "User Status: Trader Algo Suspended (1)"
-  end
-  if value == 2 then
-    return "User Status: Trader Algo Suspension Cleared (2)"
-  end
-  if value == 3 then
-    return "User Status: Trader Algo Killed (3)"
-  end
-  if value == 4 then
-    return "User Status: Trader Algo Kill Cleared (4)"
-  end
-  if value == 5 then
-    return "User Status: Firm Suspended (5)"
-  end
-  if value == 6 then
-    return "User Status: Firm Suspension Cleared (6)"
-  end
-  if value == 7 then
-    return "User Status: Firm Killed (7)"
-  end
-  if value == 8 then
-    return "User Status: Firm Kill Cleared (8)"
-  end
-  if value == 9 then
-    return "User Status: Dea Suspended (9)"
-  end
-  if value == 10 then
-    return "User Status: Dea Suspension Cleared (10)"
-  end
-  if value == 11 then
-    return "User Status: Dea Killed (11)"
-  end
-  if value == 12 then
-    return "User Status: Dea Kill Cleared (12)"
-  end
-  if value == 13 then
-    return "User Status: Trader Algo Suspendedby Risk Manager (13)"
-  end
-  if value == 14 then
-    return "User Status: Trader Algo Unsuspendedby Risk Manager (14)"
-  end
-  if value == 15 then
-    return "User Status: Firm Suspendedby Risk Manager (15)"
-  end
-  if value == 16 then
-    return "User Status: Firm Unsuspendedby Risk Manager (16)"
-  end
-  if value == 17 then
-    return "User Status: Dea Suspendedby Risk Manager (17)"
-  end
-  if value == 18 then
-    return "User Status: Dea Unsuspendedby Risk Manager (18)"
-  end
-  if value == 19 then
-    return "User Status: Logical Access Suspendedby Risk Manager (19)"
-  end
-  if value == 20 then
-    return "User Status: Logical Access Unsuspendedby Risk Manager (20)"
-  end
-  if value == 21 then
-    return "User Status: Trader Algo Blockedby Risk Manager (21)"
-  end
-  if value == 22 then
-    return "User Status: Trader Algo Unblockedby Risk Manager (22)"
-  end
-  if value == 23 then
-    return "User Status: Firm Blockedby Risk Manager (23)"
-  end
-  if value == 24 then
-    return "User Status: Firm Unblockedby Risk Manager (24)"
-  end
-  if value == 25 then
-    return "User Status: Dea Blockedby Risk Manager (25)"
-  end
-  if value == 26 then
-    return "User Status: Dea Unblockedby Risk Manager (26)"
-  end
-  if value == 27 then
-    return "User Status: Logical Access Blockedby Risk Manager (27)"
-  end
-  if value == 28 then
-    return "User Status: Logical Access Unblockedby Risk Manager (28)"
-  end
-  if value == 29 then
-    return "User Status: Order Size Limit Activatedby Risk Manager (29)"
-  end
-  if value == 30 then
-    return "User Status: Order Size Limit Deactivatedby Risk Manager (30)"
-  end
-  if value == 31 then
-    return "User Status: Oal Activatedfora Firmby Risk Manager (31)"
-  end
-  if value == 32 then
-    return "User Status: Oal Deactivatedfora Firmby Risk Manager (32)"
-  end
-  if value == 33 then
-    return "User Status: Oal Activatedfora Logical Accessby Risk Manager (33)"
-  end
-  if value == 34 then
-    return "User Status: Oal Deactivatedfora Logical Accessby Risk Manager (34)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.user_status.labels = {
+  [1] = "User Status: Trader Algo Suspended (1)",
+  [2] = "User Status: Trader Algo Suspension Cleared (2)",
+  [3] = "User Status: Trader Algo Killed (3)",
+  [4] = "User Status: Trader Algo Kill Cleared (4)",
+  [5] = "User Status: Firm Suspended (5)",
+  [6] = "User Status: Firm Suspension Cleared (6)",
+  [7] = "User Status: Firm Killed (7)",
+  [8] = "User Status: Firm Kill Cleared (8)",
+  [9] = "User Status: Dea Suspended (9)",
+  [10] = "User Status: Dea Suspension Cleared (10)",
+  [11] = "User Status: Dea Killed (11)",
+  [12] = "User Status: Dea Kill Cleared (12)",
+  [13] = "User Status: Trader Algo Suspendedby Risk Manager (13)",
+  [14] = "User Status: Trader Algo Unsuspendedby Risk Manager (14)",
+  [15] = "User Status: Firm Suspendedby Risk Manager (15)",
+  [16] = "User Status: Firm Unsuspendedby Risk Manager (16)",
+  [17] = "User Status: Dea Suspendedby Risk Manager (17)",
+  [18] = "User Status: Dea Unsuspendedby Risk Manager (18)",
+  [19] = "User Status: Logical Access Suspendedby Risk Manager (19)",
+  [20] = "User Status: Logical Access Unsuspendedby Risk Manager (20)",
+  [21] = "User Status: Trader Algo Blockedby Risk Manager (21)",
+  [22] = "User Status: Trader Algo Unblockedby Risk Manager (22)",
+  [23] = "User Status: Firm Blockedby Risk Manager (23)",
+  [24] = "User Status: Firm Unblockedby Risk Manager (24)",
+  [25] = "User Status: Dea Blockedby Risk Manager (25)",
+  [26] = "User Status: Dea Unblockedby Risk Manager (26)",
+  [27] = "User Status: Logical Access Blockedby Risk Manager (27)",
+  [28] = "User Status: Logical Access Unblockedby Risk Manager (28)",
+  [29] = "User Status: Order Size Limit Activatedby Risk Manager (29)",
+  [30] = "User Status: Order Size Limit Deactivatedby Risk Manager (30)",
+  [31] = "User Status: Oal Activatedfora Firmby Risk Manager (31)",
+  [32] = "User Status: Oal Deactivatedfora Firmby Risk Manager (32)",
+  [33] = "User Status: Oal Activatedfora Logical Accessby Risk Manager (33)",
+  [34] = "User Status: Oal Deactivatedfora Logical Accessby Risk Manager (34)",
+}
 
-  return "User Status: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.user_status.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.user_status.labels[value] or "User Status: Unknown("..value..")"
 end
 
 -- Dissect: User Status
@@ -8543,18 +7963,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_side = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_side.size = 1
 
 -- Display: Wholesale Side
-euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_side.display = function(value)
-  if value == 1 then
-    return "Wholesale Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Wholesale Side: Sell (2)"
-  end
-  if value == 3 then
-    return "Wholesale Side: Cross (3)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_side.labels = {
+  [1] = "Wholesale Side: Buy (1)",
+  [2] = "Wholesale Side: Sell (2)",
+  [3] = "Wholesale Side: Cross (3)",
+}
 
-  return "Wholesale Side: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_side.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_side.labels[value] or "Wholesale Side: Unknown("..value..")"
 end
 
 -- Dissect: Wholesale Side
@@ -8576,18 +7992,14 @@ euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_trade_type = {}
 euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_trade_type.size = 1
 
 -- Display: Wholesale Trade Type
-euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_trade_type.display = function(value)
-  if value == 0 then
-    return "Wholesale Trade Type: Largein Scale Trade Formerly Block Trade (0)"
-  end
-  if value == 1 then
-    return "Wholesale Trade Type: Against Actual (1)"
-  end
-  if value == 2 then
-    return "Wholesale Trade Type: Exchange For Swaps (2)"
-  end
+euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_trade_type.labels = {
+  [0] = "Wholesale Trade Type: Largein Scale Trade Formerly Block Trade (0)",
+  [1] = "Wholesale Trade Type: Against Actual (1)",
+  [2] = "Wholesale Trade Type: Exchange For Swaps (2)",
+}
 
-  return "Wholesale Trade Type: Unknown("..value..")"
+euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_trade_type.display = function(value)
+  return euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_trade_type.labels[value] or "Wholesale Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Wholesale Trade Type
@@ -18522,226 +17934,68 @@ end
 euronext_optiq_orderentrygateway_sbe_v5_23.payload = {}
 
 -- Dissect: Payload
+euronext_optiq_orderentrygateway_sbe_v5_23.payload.dispatch = {
+  [1] = euronext_optiq_orderentrygateway_sbe_v5_23.new_order_message.dissect,
+  [3] = euronext_optiq_orderentrygateway_sbe_v5_23.ack_message.dissect,
+  [4] = euronext_optiq_orderentrygateway_sbe_v5_23.fill_message.dissect,
+  [5] = euronext_optiq_orderentrygateway_sbe_v5_23.kill_message.dissect,
+  [6] = euronext_optiq_orderentrygateway_sbe_v5_23.cancel_replace_message.dissect,
+  [7] = euronext_optiq_orderentrygateway_sbe_v5_23.reject_message.dissect,
+  [8] = euronext_optiq_orderentrygateway_sbe_v5_23.quotes_message.dissect,
+  [9] = euronext_optiq_orderentrygateway_sbe_v5_23.quote_ack_message.dissect,
+  [10] = euronext_optiq_orderentrygateway_sbe_v5_23.quote_request_message.dissect,
+  [12] = euronext_optiq_orderentrygateway_sbe_v5_23.cancel_request_message.dissect,
+  [13] = euronext_optiq_orderentrygateway_sbe_v5_23.mass_cancel_message.dissect,
+  [14] = euronext_optiq_orderentrygateway_sbe_v5_23.mass_cancel_ack_message.dissect,
+  [15] = euronext_optiq_orderentrygateway_sbe_v5_23.open_order_request_message.dissect,
+  [17] = euronext_optiq_orderentrygateway_sbe_v5_23.ownership_request_ack_message.dissect,
+  [18] = euronext_optiq_orderentrygateway_sbe_v5_23.ownership_request_message.dissect,
+  [19] = euronext_optiq_orderentrygateway_sbe_v5_23.trade_bust_notification_message.dissect,
+  [20] = euronext_optiq_orderentrygateway_sbe_v5_23.collar_breach_confirmation_message.dissect,
+  [28] = euronext_optiq_orderentrygateway_sbe_v5_23.price_input_message.dissect,
+  [32] = euronext_optiq_orderentrygateway_sbe_v5_23.liquidity_provider_command_message.dissect,
+  [33] = euronext_optiq_orderentrygateway_sbe_v5_23.ask_for_quote_message.dissect,
+  [34] = euronext_optiq_orderentrygateway_sbe_v5_23.request_for_execution_message.dissect,
+  [35] = euronext_optiq_orderentrygateway_sbe_v5_23.rfq_notification_message.dissect,
+  [36] = euronext_optiq_orderentrygateway_sbe_v5_23.rfq_matching_status_message.dissect,
+  [37] = euronext_optiq_orderentrygateway_sbe_v5_23.rfqlp_matching_status_message.dissect,
+  [39] = euronext_optiq_orderentrygateway_sbe_v5_23.user_notification_message.dissect,
+  [47] = euronext_optiq_orderentrygateway_sbe_v5_23.mm_sign_in_message.dissect,
+  [48] = euronext_optiq_orderentrygateway_sbe_v5_23.mm_sign_in_ack_message.dissect,
+  [50] = euronext_optiq_orderentrygateway_sbe_v5_23.instrument_synchronization_list_message.dissect,
+  [51] = euronext_optiq_orderentrygateway_sbe_v5_23.synchronization_time_message.dissect,
+  [60] = euronext_optiq_orderentrygateway_sbe_v5_23.security_definition_request_message.dissect,
+  [61] = euronext_optiq_orderentrygateway_sbe_v5_23.security_definition_ack_message.dissect,
+  [62] = euronext_optiq_orderentrygateway_sbe_v5_23.mm_protection_request_message.dissect,
+  [63] = euronext_optiq_orderentrygateway_sbe_v5_23.mm_protection_ack_message.dissect,
+  [64] = euronext_optiq_orderentrygateway_sbe_v5_23.new_wholesale_order_message.dissect,
+  [65] = euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_order_ack_message.dissect,
+  [66] = euronext_optiq_orderentrygateway_sbe_v5_23.request_for_implied_execution_message.dissect,
+  [67] = euronext_optiq_orderentrygateway_sbe_v5_23.cross_order_message.dissect,
+  [72] = euronext_optiq_orderentrygateway_sbe_v5_23.rfq_audit_message.dissect,
+  [73] = euronext_optiq_orderentrygateway_sbe_v5_23.wave_for_liquidity_message.dissect,
+  [74] = euronext_optiq_orderentrygateway_sbe_v5_23.wave_for_liquidity_notification_message.dissect,
+  [75] = euronext_optiq_orderentrygateway_sbe_v5_23.clear_book_message.dissect,
+  [100] = euronext_optiq_orderentrygateway_sbe_v5_23.logon_message.dissect,
+  [101] = euronext_optiq_orderentrygateway_sbe_v5_23.logon_ack_message.dissect,
+  [102] = euronext_optiq_orderentrygateway_sbe_v5_23.logon_reject_message.dissect,
+  [103] = euronext_optiq_orderentrygateway_sbe_v5_23.logout_message.dissect,
+  [106] = euronext_optiq_orderentrygateway_sbe_v5_23.heartbeat_message.dissect,
+  [107] = euronext_optiq_orderentrygateway_sbe_v5_23.test_request_message.dissect,
+  [108] = euronext_optiq_orderentrygateway_sbe_v5_23.technical_reject_message.dissect,
+  [40] = euronext_optiq_orderentrygateway_sbe_v5_23.declaration_entry_message.dissect,
+  [41] = euronext_optiq_orderentrygateway_sbe_v5_23.declaration_entry_ack_message.dissect,
+  [42] = euronext_optiq_orderentrygateway_sbe_v5_23.declaration_notice_message.dissect,
+  [43] = euronext_optiq_orderentrygateway_sbe_v5_23.declaration_cancel_and_refusal_message.dissect,
+  [44] = euronext_optiq_orderentrygateway_sbe_v5_23.fund_price_input_message.dissect,
+  [45] = euronext_optiq_orderentrygateway_sbe_v5_23.fund_price_input_ack_message.dissect,
+  [46] = euronext_optiq_orderentrygateway_sbe_v5_23.declaration_entry_reject_message.dissect,
+}
+
 euronext_optiq_orderentrygateway_sbe_v5_23.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect New Order Message
-  if template_id == 1 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ack Message
-  if template_id == 3 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fill Message
-  if template_id == 4 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.fill_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Kill Message
-  if template_id == 5 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.kill_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Replace Message
-  if template_id == 6 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.cancel_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if template_id == 7 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quotes Message
-  if template_id == 8 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Ack Message
-  if template_id == 9 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.quote_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Message
-  if template_id == 10 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Request Message
-  if template_id == 12 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Message
-  if template_id == 13 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.mass_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Ack Message
-  if template_id == 14 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.mass_cancel_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Order Request Message
-  if template_id == 15 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.open_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ownership Request Ack Message
-  if template_id == 17 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.ownership_request_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ownership Request Message
-  if template_id == 18 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.ownership_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Notification Message
-  if template_id == 19 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.trade_bust_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Collar Breach Confirmation Message
-  if template_id == 20 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.collar_breach_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Input Message
-  if template_id == 28 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.price_input_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Liquidity Provider Command Message
-  if template_id == 32 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.liquidity_provider_command_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask For Quote Message
-  if template_id == 33 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.ask_for_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Execution Message
-  if template_id == 34 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.request_for_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Notification Message
-  if template_id == 35 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.rfq_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Matching Status Message
-  if template_id == 36 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.rfq_matching_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfqlp Matching Status Message
-  if template_id == 37 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.rfqlp_matching_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Notification Message
-  if template_id == 39 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.user_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Sign In Message
-  if template_id == 47 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.mm_sign_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Sign In Ack Message
-  if template_id == 48 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.mm_sign_in_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Synchronization List Message
-  if template_id == 50 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.instrument_synchronization_list_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Time Message
-  if template_id == 51 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.synchronization_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Request Message
-  if template_id == 60 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.security_definition_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Ack Message
-  if template_id == 61 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.security_definition_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Protection Request Message
-  if template_id == 62 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.mm_protection_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Protection Ack Message
-  if template_id == 63 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.mm_protection_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Wholesale Order Message
-  if template_id == 64 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.new_wholesale_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wholesale Order Ack Message
-  if template_id == 65 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.wholesale_order_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Implied Execution Message
-  if template_id == 66 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.request_for_implied_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Order Message
-  if template_id == 67 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.cross_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Audit Message
-  if template_id == 72 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.rfq_audit_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wave For Liquidity Message
-  if template_id == 73 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.wave_for_liquidity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wave For Liquidity Notification Message
-  if template_id == 74 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.wave_for_liquidity_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clear Book Message
-  if template_id == 75 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.clear_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Message
-  if template_id == 100 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Ack Message
-  if template_id == 101 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.logon_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Reject Message
-  if template_id == 102 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.logon_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if template_id == 103 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if template_id == 106 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Request Message
-  if template_id == 107 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.test_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Technical Reject Message
-  if template_id == 108 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.technical_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Declaration Entry Message
-  if template_id == 40 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.declaration_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Declaration Entry Ack Message
-  if template_id == 41 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.declaration_entry_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Declaration Notice Message
-  if template_id == 42 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.declaration_notice_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Declaration Cancel And Refusal Message
-  if template_id == 43 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.declaration_cancel_and_refusal_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fund Price Input Message
-  if template_id == 44 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.fund_price_input_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fund Price Input Ack Message
-  if template_id == 45 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.fund_price_input_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Declaration Entry Reject Message
-  if template_id == 46 then
-    return euronext_optiq_orderentrygateway_sbe_v5_23.declaration_entry_reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = euronext_optiq_orderentrygateway_sbe_v5_23.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

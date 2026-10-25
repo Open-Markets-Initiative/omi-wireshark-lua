@@ -271,18 +271,14 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.amounts_status = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.amounts_status.size = 1
 
 -- Display: Amounts Status
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.amounts_status.display = function(value)
-  if value == "1" then
-    return "Amounts Status: Quota Unavailable (1)"
-  end
-  if value == "2" then
-    return "Amounts Status: Quota Available (2)"
-  end
-  if value == "3" then
-    return "Amounts Status: Quota Adequate (3)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.amounts_status.labels = {
+  ["1"] = "Amounts Status: Quota Unavailable (1)",
+  ["2"] = "Amounts Status: Quota Available (2)",
+  ["3"] = "Amounts Status: Quota Adequate (3)",
+}
 
-  return "Amounts Status: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.amounts_status.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.amounts_status.labels[value] or "Amounts Status: Unknown("..value..")"
 end
 
 -- Dissect: Amounts Status
@@ -477,18 +473,14 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_exec_inst_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_exec_inst_type.size = 2
 
 -- Display: Bid Exec Inst Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_exec_inst_type.display = function(value)
-  if value == 1 then
-    return "Bid Exec Inst Type: Single Subject Winning The Bid (1)"
-  end
-  if value == 2 then
-    return "Bid Exec Inst Type: Multiple Subjects Single Price Winning The Bid (2)"
-  end
-  if value == 3 then
-    return "Bid Exec Inst Type: Multiple Subjects Multiple Price Winning The Bid (3)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_exec_inst_type.labels = {
+  [1] = "Bid Exec Inst Type: Single Subject Winning The Bid (1)",
+  [2] = "Bid Exec Inst Type: Multiple Subjects Single Price Winning The Bid (2)",
+  [3] = "Bid Exec Inst Type: Multiple Subjects Multiple Price Winning The Bid (3)",
+}
 
-  return "Bid Exec Inst Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_exec_inst_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_exec_inst_type.labels[value] or "Bid Exec Inst Type: Unknown("..value..")"
 end
 
 -- Dissect: Bid Exec Inst Type
@@ -510,18 +502,14 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_trans_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_trans_type.size = 2
 
 -- Display: Bid Trans Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_trans_type.display = function(value)
-  if value == 1 then
-    return "Bid Trans Type: Bid Reservation Declaration (1)"
-  end
-  if value == 2 then
-    return "Bid Trans Type: Bid Initiation Declaration (2)"
-  end
-  if value == 3 then
-    return "Bid Trans Type: Bid Price Declaration (3)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_trans_type.labels = {
+  [1] = "Bid Trans Type: Bid Reservation Declaration (1)",
+  [2] = "Bid Trans Type: Bid Initiation Declaration (2)",
+  [3] = "Bid Trans Type: Bid Price Declaration (3)",
+}
 
-  return "Bid Trans Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_trans_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.bid_trans_type.labels[value] or "Bid Trans Type: Unknown("..value..")"
 end
 
 -- Dissect: Bid Trans Type
@@ -890,15 +878,13 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.exec_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.exec_type.size = 1
 
 -- Display: Exec Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.exec_type.display = function(value)
-  if value == "4" then
-    return "Exec Type: Cancelled (4)"
-  end
-  if value == "F" then
-    return "Exec Type: Traded (F)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.exec_type.labels = {
+  ["4"] = "Exec Type: Cancelled (4)",
+  ["F"] = "Exec Type: Traded (F)",
+}
 
-  return "Exec Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.exec_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.exec_type.labels[value] or "Exec Type: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type
@@ -943,12 +929,12 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.expiration_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.expiration_type.size = 1
 
 -- Display: Expiration Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.expiration_type.display = function(value)
-  if value == 1 then
-    return "Expiration Type: Fixed Term (1)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.expiration_type.labels = {
+  [1] = "Expiration Type: Fixed Term (1)",
+}
 
-  return "Expiration Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.expiration_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.expiration_type.labels[value] or "Expiration Type: Unknown("..value..")"
 end
 
 -- Dissect: Expiration Type
@@ -970,15 +956,13 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.financial_status = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.financial_status.size = 8
 
 -- Display: Financial Status
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.financial_status.display = function(value)
-  if value == "A" then
-    return "Financial Status: Listed Companies Morning Disclosure (A)"
-  end
-  if value == "B" then
-    return "Financial Status: Listed Companies Afternoon Disclosure (B)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.financial_status.labels = {
+  ["A"] = "Financial Status: Listed Companies Morning Disclosure (A)",
+  ["B"] = "Financial Status: Listed Companies Afternoon Disclosure (B)",
+}
 
-  return "Financial Status: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.financial_status.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.financial_status.labels[value] or "Financial Status: Unknown("..value..")"
 end
 
 -- Dissect: Financial Status
@@ -1121,21 +1105,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.investor_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.investor_type.size = 2
 
 -- Display: Investor Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.investor_type.display = function(value)
-  if value == "01" then
-    return "Investor Type: Self Employed (01)"
-  end
-  if value == "02" then
-    return "Investor Type: Asset Management (02)"
-  end
-  if value == "03" then
-    return "Investor Type: Institutional Broker (03)"
-  end
-  if value == "04" then
-    return "Investor Type: Personal Broker (04)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.investor_type.labels = {
+  ["01"] = "Investor Type: Self Employed (01)",
+  ["02"] = "Investor Type: Asset Management (02)",
+  ["03"] = "Investor Type: Institutional Broker (03)",
+  ["04"] = "Investor Type: Personal Broker (04)",
+}
 
-  return "Investor Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.investor_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.investor_type.labels[value] or "Investor Type: Unknown("..value..")"
 end
 
 -- Dissect: Investor Type
@@ -1273,12 +1251,12 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.market_id = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.market_id.size = 8
 
 -- Display: Market Id
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.market_id.display = function(value)
-  if value == "XHKG" then
-    return "Market Id: Hk Connect (XHKG)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.market_id.labels = {
+  ["XHKG"] = "Market Id: Hk Connect (XHKG)",
+}
 
-  return "Market Id: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.market_id.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -1381,126 +1359,50 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_entry_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_entry_type.size = 2
 
 -- Display: Md Entry Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_entry_type.display = function(value)
-  if value == "0" then
-    return "Md Entry Type: Buy (0)"
-  end
-  if value == "1" then
-    return "Md Entry Type: Sell (1)"
-  end
-  if value == "2" then
-    return "Md Entry Type: Latest Price (2)"
-  end
-  if value == "3" then
-    return "Md Entry Type: Current Index (3)"
-  end
-  if value == "4" then
-    return "Md Entry Type: Open Price (4)"
-  end
-  if value == "5" then
-    return "Md Entry Type: Close Price (5)"
-  end
-  if value == "7" then
-    return "Md Entry Type: Highest Price (7)"
-  end
-  if value == "8" then
-    return "Md Entry Type: Lowest Price (8)"
-  end
-  if value == "9" then
-    return "Md Entry Type: Weighted Average Price (9)"
-  end
-  if value == "X1" then
-    return "Md Entry Type: Fluctuation 1 (X1)"
-  end
-  if value == "X2" then
-    return "Md Entry Type: Fluctuation 2 (X2)"
-  end
-  if value == "X3" then
-    return "Md Entry Type: Buy Statistics (X3)"
-  end
-  if value == "X4" then
-    return "Md Entry Type: Sell Statistics (X4)"
-  end
-  if value == "X5" then
-    return "Md Entry Type: Pe Ratio 1 (X5)"
-  end
-  if value == "X6" then
-    return "Md Entry Type: Pe Ratio 2 (X6)"
-  end
-  if value == "X7" then
-    return "Md Entry Type: Fund Nav At T 1 (X7)"
-  end
-  if value == "X8" then
-    return "Md Entry Type: Real Time Nav Of Funds (X8)"
-  end
-  if value == "x9" then
-    return "Md Entry Type: Warrants Premium Rate (x9)"
-  end
-  if value == "Xa" then
-    return "Md Entry Type: Previous Close Index (Xa)"
-  end
-  if value == "Xb" then
-    return "Md Entry Type: Open Index (Xb)"
-  end
-  if value == "Xc" then
-    return "Md Entry Type: Max Index (Xc)"
-  end
-  if value == "Xd" then
-    return "Md Entry Type: Min Index (Xd)"
-  end
-  if value == "xe" then
-    return "Md Entry Type: Up Price Limit (xe)"
-  end
-  if value == "xf" then
-    return "Md Entry Type: Down Price Limit (xf)"
-  end
-  if value == "xg" then
-    return "Md Entry Type: Position Quantity (xg)"
-  end
-  if value == "xh" then
-    return "Md Entry Type: Nominal Price (xh)"
-  end
-  if value == "xi" then
-    return "Md Entry Type: Reference Price (xi)"
-  end
-  if value == "xj" then
-    return "Md Entry Type: Rise Or Fall Bp Of The Weighted Average Price (xj)"
-  end
-  if value == "xk" then
-    return "Md Entry Type: Previous Weighted Average Close Price (xk)"
-  end
-  if value == "xl" then
-    return "Md Entry Type: Close Index (xl)"
-  end
-  if value == "xm" then
-    return "Md Entry Type: Close Index 2 (xm)"
-  end
-  if value == "xn" then
-    return "Md Entry Type: Close Index 3 (xn)"
-  end
-  if value == "xr" then
-    return "Md Entry Type: Price Cap Of Buy Order (xr)"
-  end
-  if value == "xs" then
-    return "Md Entry Type: Price Floor Of Buy Order (xs)"
-  end
-  if value == "xt" then
-    return "Md Entry Type: Price Cap Of Sell Order (xt)"
-  end
-  if value == "xu" then
-    return "Md Entry Type: Price Floor Of Sell Order (xu)"
-  end
-  if value == "xv" then
-    return "Md Entry Type: Matching Deal Latest Price (xv)"
-  end
-  if value == "xw" then
-    return "Md Entry Type: Etf Real Time Subscription (xw)"
-  end
-  if value == "xx" then
-    return "Md Entry Type: Etf Real Time Redemption (xx)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_entry_type.labels = {
+  ["0"] = "Md Entry Type: Buy (0)",
+  ["1"] = "Md Entry Type: Sell (1)",
+  ["2"] = "Md Entry Type: Latest Price (2)",
+  ["3"] = "Md Entry Type: Current Index (3)",
+  ["4"] = "Md Entry Type: Open Price (4)",
+  ["5"] = "Md Entry Type: Close Price (5)",
+  ["7"] = "Md Entry Type: Highest Price (7)",
+  ["8"] = "Md Entry Type: Lowest Price (8)",
+  ["9"] = "Md Entry Type: Weighted Average Price (9)",
+  ["X1"] = "Md Entry Type: Fluctuation 1 (X1)",
+  ["X2"] = "Md Entry Type: Fluctuation 2 (X2)",
+  ["X3"] = "Md Entry Type: Buy Statistics (X3)",
+  ["X4"] = "Md Entry Type: Sell Statistics (X4)",
+  ["X5"] = "Md Entry Type: Pe Ratio 1 (X5)",
+  ["X6"] = "Md Entry Type: Pe Ratio 2 (X6)",
+  ["X7"] = "Md Entry Type: Fund Nav At T 1 (X7)",
+  ["X8"] = "Md Entry Type: Real Time Nav Of Funds (X8)",
+  ["x9"] = "Md Entry Type: Warrants Premium Rate (x9)",
+  ["Xa"] = "Md Entry Type: Previous Close Index (Xa)",
+  ["Xb"] = "Md Entry Type: Open Index (Xb)",
+  ["Xc"] = "Md Entry Type: Max Index (Xc)",
+  ["Xd"] = "Md Entry Type: Min Index (Xd)",
+  ["xe"] = "Md Entry Type: Up Price Limit (xe)",
+  ["xf"] = "Md Entry Type: Down Price Limit (xf)",
+  ["xg"] = "Md Entry Type: Position Quantity (xg)",
+  ["xh"] = "Md Entry Type: Nominal Price (xh)",
+  ["xi"] = "Md Entry Type: Reference Price (xi)",
+  ["xj"] = "Md Entry Type: Rise Or Fall Bp Of The Weighted Average Price (xj)",
+  ["xk"] = "Md Entry Type: Previous Weighted Average Close Price (xk)",
+  ["xl"] = "Md Entry Type: Close Index (xl)",
+  ["xm"] = "Md Entry Type: Close Index 2 (xm)",
+  ["xn"] = "Md Entry Type: Close Index 3 (xn)",
+  ["xr"] = "Md Entry Type: Price Cap Of Buy Order (xr)",
+  ["xs"] = "Md Entry Type: Price Floor Of Buy Order (xs)",
+  ["xt"] = "Md Entry Type: Price Cap Of Sell Order (xt)",
+  ["xu"] = "Md Entry Type: Price Floor Of Sell Order (xu)",
+  ["xv"] = "Md Entry Type: Matching Deal Latest Price (xv)",
+  ["xw"] = "Md Entry Type: Etf Real Time Subscription (xw)",
+  ["xx"] = "Md Entry Type: Etf Real Time Redemption (xx)",
+}
 
-  return "Md Entry Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_entry_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_entry_type.labels[value] or "Md Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
@@ -1545,87 +1447,37 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_stream_id = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_stream_id.size = 3
 
 -- Display: Md Stream Id
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_stream_id.display = function(value)
-  if value == "010" then
-    return "Md Stream Id: Snapshot Data Of Cash Auction (010)"
-  end
-  if value == "011" then
-    return "Md Stream Id: Tick Data In Call Auction Of Spot Market (011)"
-  end
-  if value == "020" then
-    return "Md Stream Id: Snapshot Data Of Bond General Pledged Repo Matching Deal (020)"
-  end
-  if value == "021" then
-    return "Md Stream Id: Tick Data Of Pledge Style Repo (021)"
-  end
-  if value == "030" then
-    return "Md Stream Id: Snapshot Data Of Bond Distribution (030)"
-  end
-  if value == "040" then
-    return "Md Stream Id: Snapshot Data Of Option Auction (040)"
-  end
-  if value == "041" then
-    return "Md Stream Id: Tick Data Of Call Auction In Options (041)"
-  end
-  if value == "051" then
-    return "Md Stream Id: Tick Data Of Indication Of Interest Of Negotiable Trade (051)"
-  end
-  if value == "052" then
-    return "Md Stream Id: Tick Data Of Quote Of Negotiable Trade (052)"
-  end
-  if value == "060" then
-    return "Md Stream Id: After Hour Trading Block Trade Snapshot Data With Close Price (060)"
-  end
-  if value == "061" then
-    return "Md Stream Id: After Hour Trading Block Trade Snapshot Data With Vwap (061)"
-  end
-  if value == "071" then
-    return "Md Stream Id: Tick Data Of Security Lending (071)"
-  end
-  if value == "370" then
-    return "Md Stream Id: Snapshot Of After Hour Trading (370)"
-  end
-  if value == "410" then
-    return "Md Stream Id: Snapshot Of Spot Bond Trading (410)"
-  end
-  if value == "411" then
-    return "Md Stream Id: Tick Data Of Spot Bond Tradings Matching Deal (411)"
-  end
-  if value == "412" then
-    return "Md Stream Id: Tick Data Of Spot Bond Tradings Negotiated Deal (412)"
-  end
-  if value == "413" then
-    return "Md Stream Id: Tick Data Of Spot Bond Tradings Click Deal (413)"
-  end
-  if value == "414" then
-    return "Md Stream Id: Tick Data Of Spot Bond Tradings Inquiry Deal (414)"
-  end
-  if value == "415" then
-    return "Md Stream Id: Tick Data Of Spot Bond Tradings Declaration Of Intent (415)"
-  end
-  if value == "416" then
-    return "Md Stream Id: Tick Data Of Spot Bond Tradings Bidding Deal (416)"
-  end
-  if value == "417" then
-    return "Md Stream Id: Tick Data Of Spot Bond Tradings Large Amount Matching Deal (417)"
-  end
-  if value == "630" then
-    return "Md Stream Id: Real Time Market Data Of Eligible Hk Stocks (630)"
-  end
-  if value == "900" then
-    return "Md Stream Id: Index (900)"
-  end
-  if value == "910" then
-    return "Md Stream Id: Statistic Indicators (910)"
-  end
-  if value == "920" then
-    return "Md Stream Id: Cni Indices Snapshot Data (920)"
-  end
-  if value == "930" then
-    return "Md Stream Id: Real Time Reference Net Value Of Funds (930)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_stream_id.labels = {
+  ["010"] = "Md Stream Id: Snapshot Data Of Cash Auction (010)",
+  ["011"] = "Md Stream Id: Tick Data In Call Auction Of Spot Market (011)",
+  ["020"] = "Md Stream Id: Snapshot Data Of Bond General Pledged Repo Matching Deal (020)",
+  ["021"] = "Md Stream Id: Tick Data Of Pledge Style Repo (021)",
+  ["030"] = "Md Stream Id: Snapshot Data Of Bond Distribution (030)",
+  ["040"] = "Md Stream Id: Snapshot Data Of Option Auction (040)",
+  ["041"] = "Md Stream Id: Tick Data Of Call Auction In Options (041)",
+  ["051"] = "Md Stream Id: Tick Data Of Indication Of Interest Of Negotiable Trade (051)",
+  ["052"] = "Md Stream Id: Tick Data Of Quote Of Negotiable Trade (052)",
+  ["060"] = "Md Stream Id: After Hour Trading Block Trade Snapshot Data With Close Price (060)",
+  ["061"] = "Md Stream Id: After Hour Trading Block Trade Snapshot Data With Vwap (061)",
+  ["071"] = "Md Stream Id: Tick Data Of Security Lending (071)",
+  ["370"] = "Md Stream Id: Snapshot Of After Hour Trading (370)",
+  ["410"] = "Md Stream Id: Snapshot Of Spot Bond Trading (410)",
+  ["411"] = "Md Stream Id: Tick Data Of Spot Bond Tradings Matching Deal (411)",
+  ["412"] = "Md Stream Id: Tick Data Of Spot Bond Tradings Negotiated Deal (412)",
+  ["413"] = "Md Stream Id: Tick Data Of Spot Bond Tradings Click Deal (413)",
+  ["414"] = "Md Stream Id: Tick Data Of Spot Bond Tradings Inquiry Deal (414)",
+  ["415"] = "Md Stream Id: Tick Data Of Spot Bond Tradings Declaration Of Intent (415)",
+  ["416"] = "Md Stream Id: Tick Data Of Spot Bond Tradings Bidding Deal (416)",
+  ["417"] = "Md Stream Id: Tick Data Of Spot Bond Tradings Large Amount Matching Deal (417)",
+  ["630"] = "Md Stream Id: Real Time Market Data Of Eligible Hk Stocks (630)",
+  ["900"] = "Md Stream Id: Index (900)",
+  ["910"] = "Md Stream Id: Statistic Indicators (910)",
+  ["920"] = "Md Stream Id: Cni Indices Snapshot Data (920)",
+  ["930"] = "Md Stream Id: Real Time Reference Net Value Of Funds (930)",
+}
 
-  return "Md Stream Id: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_stream_id.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.md_stream_id.labels[value] or "Md Stream Id: Unknown("..value..")"
 end
 
 -- Dissect: Md Stream Id
@@ -1722,102 +1574,42 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.msg_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.msg_type.size = 4
 
 -- Display: Msg Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.msg_type.display = function(value)
-  if value == 1 then
-    return "Msg Type: Logon Message (1)"
-  end
-  if value == 2 then
-    return "Msg Type: Logout Message (2)"
-  end
-  if value == 3 then
-    return "Msg Type: Heartbeat Message (3)"
-  end
-  if value == 390095 then
-    return "Msg Type: Channel Heartbeat Message (390095)"
-  end
-  if value == 390094 then
-    return "Msg Type: Retransmitting Message (390094)"
-  end
-  if value == 390093 then
-    return "Msg Type: Client User Information Reporting Message (390093)"
-  end
-  if value == 390090 then
-    return "Msg Type: Statistics Of Snapshot Data Channel Message (390090)"
-  end
-  if value == 8 then
-    return "Msg Type: Business Reject Message (8)"
-  end
-  if value == 390019 then
-    return "Msg Type: Real Time Market Status Message (390019)"
-  end
-  if value == 390013 then
-    return "Msg Type: Real Time Status Of Security Message (390013)"
-  end
-  if value == 390012 then
-    return "Msg Type: Announcements Message (390012)"
-  end
-  if value == 300111 then
-    return "Msg Type: Snapshot Data Of Cash Auction Message (300111)"
-  end
-  if value == 300211 then
-    return "Msg Type: Snapshot Data Of Spot Bond Trading Message (300211)"
-  end
-  if value == 300611 then
-    return "Msg Type: Snapshot Data Of After Hour Trading Block Trade Message (300611)"
-  end
-  if value == 303711 then
-    return "Msg Type: Snapshot Data Of After Hour Trading Message (303711)"
-  end
-  if value == 306311 then
-    return "Msg Type: Snapshot Data Of Eligible Hk Stocks Message (306311)"
-  end
-  if value == 309011 then
-    return "Msg Type: Index Snapshot Message (309011)"
-  end
-  if value == 309111 then
-    return "Msg Type: Statistic Indicator Snapshot Message (309111)"
-  end
-  if value == 309211 then
-    return "Msg Type: Real Time Reference Net Value Of Funds Snapshot Message (309211)"
-  end
-  if value == 300192 then
-    return "Msg Type: Order Tick Data In Call Auction Message (300192)"
-  end
-  if value == 300592 then
-    return "Msg Type: Order Tick Data Of Negotiable Trade Message (300592)"
-  end
-  if value == 300792 then
-    return "Msg Type: Order Tick Data Of Security Lending Message (300792)"
-  end
-  if value == 300292 then
-    return "Msg Type: Order Tick Data Of Spot Bond Trading Matching Deal Message (300292)"
-  end
-  if value == 300392 then
-    return "Msg Type: Order Tick Data Of Spot Bond Trading Quotation Message (300392)"
-  end
-  if value == 300492 then
-    return "Msg Type: Order Tick Data Of Bid Quotation Message (300492)"
-  end
-  if value == 300191 then
-    return "Msg Type: Transaction Tick Data In Call Auction Message (300191)"
-  end
-  if value == 300591 then
-    return "Msg Type: Transaction Tick Data Of Negotiable Trade Message (300591)"
-  end
-  if value == 300791 then
-    return "Msg Type: Transaction Tick Data Of Security Lending Message (300791)"
-  end
-  if value == 300291 then
-    return "Msg Type: Transaction Tick Data Of Bond General Pledged Repo Message (300291)"
-  end
-  if value == 300391 then
-    return "Msg Type: Transaction Tick Data Of Spot Bond Trading Quotation Message (300391)"
-  end
-  if value == 300491 then
-    return "Msg Type: Transaction Tick Data Of Bid Quotation Message (300491)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.msg_type.labels = {
+  [1] = "Msg Type: Logon Message (1)",
+  [2] = "Msg Type: Logout Message (2)",
+  [3] = "Msg Type: Heartbeat Message (3)",
+  [390095] = "Msg Type: Channel Heartbeat Message (390095)",
+  [390094] = "Msg Type: Retransmitting Message (390094)",
+  [390093] = "Msg Type: Client User Information Reporting Message (390093)",
+  [390090] = "Msg Type: Statistics Of Snapshot Data Channel Message (390090)",
+  [8] = "Msg Type: Business Reject Message (8)",
+  [390019] = "Msg Type: Real Time Market Status Message (390019)",
+  [390013] = "Msg Type: Real Time Status Of Security Message (390013)",
+  [390012] = "Msg Type: Announcements Message (390012)",
+  [300111] = "Msg Type: Snapshot Data Of Cash Auction Message (300111)",
+  [300211] = "Msg Type: Snapshot Data Of Spot Bond Trading Message (300211)",
+  [300611] = "Msg Type: Snapshot Data Of After Hour Trading Block Trade Message (300611)",
+  [303711] = "Msg Type: Snapshot Data Of After Hour Trading Message (303711)",
+  [306311] = "Msg Type: Snapshot Data Of Eligible Hk Stocks Message (306311)",
+  [309011] = "Msg Type: Index Snapshot Message (309011)",
+  [309111] = "Msg Type: Statistic Indicator Snapshot Message (309111)",
+  [309211] = "Msg Type: Real Time Reference Net Value Of Funds Snapshot Message (309211)",
+  [300192] = "Msg Type: Order Tick Data In Call Auction Message (300192)",
+  [300592] = "Msg Type: Order Tick Data Of Negotiable Trade Message (300592)",
+  [300792] = "Msg Type: Order Tick Data Of Security Lending Message (300792)",
+  [300292] = "Msg Type: Order Tick Data Of Spot Bond Trading Matching Deal Message (300292)",
+  [300392] = "Msg Type: Order Tick Data Of Spot Bond Trading Quotation Message (300392)",
+  [300492] = "Msg Type: Order Tick Data Of Bid Quotation Message (300492)",
+  [300191] = "Msg Type: Transaction Tick Data In Call Auction Message (300191)",
+  [300591] = "Msg Type: Transaction Tick Data Of Negotiable Trade Message (300591)",
+  [300791] = "Msg Type: Transaction Tick Data Of Security Lending Message (300791)",
+  [300291] = "Msg Type: Transaction Tick Data Of Bond General Pledged Repo Message (300291)",
+  [300391] = "Msg Type: Transaction Tick Data Of Spot Bond Trading Quotation Message (300391)",
+  [300491] = "Msg Type: Transaction Tick Data Of Bid Quotation Message (300491)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.msg_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -2069,18 +1861,14 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.ord_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.ord_type.size = 1
 
 -- Display: Ord Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.ord_type.display = function(value)
-  if value == "1" then
-    return "Ord Type: Market Price (1)"
-  end
-  if value == "2" then
-    return "Ord Type: Limit Price (2)"
-  end
-  if value == "U" then
-    return "Ord Type: Best Price Of This Party (U)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.ord_type.labels = {
+  ["1"] = "Ord Type: Market Price (1)",
+  ["2"] = "Ord Type: Limit Price (2)",
+  ["U"] = "Ord Type: Best Price Of This Party (U)",
+}
 
-  return "Ord Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.ord_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.ord_type.labels[value] or "Ord Type: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type
@@ -2445,21 +2233,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_status = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_status.size = 1
 
 -- Display: Resend Status
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_status.display = function(value)
-  if value == 1 then
-    return "Resend Status: Finished (1)"
-  end
-  if value == 2 then
-    return "Resend Status: Partly Finished (2)"
-  end
-  if value == 3 then
-    return "Resend Status: No Authority Rights (3)"
-  end
-  if value == 4 then
-    return "Resend Status: Data Is Not Applicable (4)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_status.labels = {
+  [1] = "Resend Status: Finished (1)",
+  [2] = "Resend Status: Partly Finished (2)",
+  [3] = "Resend Status: No Authority Rights (3)",
+  [4] = "Resend Status: Data Is Not Applicable (4)",
+}
 
-  return "Resend Status: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_status.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_status.labels[value] or "Resend Status: Unknown("..value..")"
 end
 
 -- Dissect: Resend Status
@@ -2481,15 +2263,13 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_type.size = 1
 
 -- Display: Resend Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_type.display = function(value)
-  if value == 1 then
-    return "Resend Type: Tick Data (1)"
-  end
-  if value == 2 then
-    return "Resend Type: Announcement Message (2)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_type.labels = {
+  [1] = "Resend Type: Tick Data (1)",
+  [2] = "Resend Type: Announcement Message (2)",
+}
 
-  return "Resend Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.resend_type.labels[value] or "Resend Type: Unknown("..value..")"
 end
 
 -- Dissect: Resend Type
@@ -2557,15 +2337,13 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_id_source = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_id_source.size = 4
 
 -- Display: Security Id Source
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_id_source.display = function(value)
-  if value == "102" then
-    return "Security Id Source: Shenzhen Stock Exchange (102)"
-  end
-  if value == "103" then
-    return "Security Id Source: Hong Kong Exchange (103)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_id_source.labels = {
+  ["102"] = "Security Id Source: Shenzhen Stock Exchange (102)",
+  ["103"] = "Security Id Source: Hong Kong Exchange (103)",
+}
 
-  return "Security Id Source: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_id_source.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_id_source.labels[value] or "Security Id Source: Unknown("..value..")"
 end
 
 -- Dissect: Security Id Source
@@ -2610,96 +2388,40 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_switch_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_switch_type.size = 2
 
 -- Display: Security Switch Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_switch_type.display = function(value)
-  if value == 1 then
-    return "Security Switch Type: Margin Buy (1)"
-  end
-  if value == 2 then
-    return "Security Switch Type: Short Sell (2)"
-  end
-  if value == 3 then
-    return "Security Switch Type: Fund Subscription (3)"
-  end
-  if value == 4 then
-    return "Security Switch Type: Fund Redemption (4)"
-  end
-  if value == 5 then
-    return "Security Switch Type: Issue Subscription (5)"
-  end
-  if value == 6 then
-    return "Security Switch Type: Conversion (6)"
-  end
-  if value == 7 then
-    return "Security Switch Type: Resale (7)"
-  end
-  if value == 8 then
-    return "Security Switch Type: Warrant Exercise (8)"
-  end
-  if value == 10 then
-    return "Security Switch Type: Buy Open (10)"
-  end
-  if value == 11 then
-    return "Security Switch Type: Sell Open (11)"
-  end
-  if value == 12 then
-    return "Security Switch Type: Subscription Of Gold Etf In Physical (12)"
-  end
-  if value == 13 then
-    return "Security Switch Type: Redemption Of Gold Etf In Physical (13)"
-  end
-  if value == 14 then
-    return "Security Switch Type: Pre Accepted Tender Offer (14)"
-  end
-  if value == 15 then
-    return "Security Switch Type: Cancellation Of Tender Offer (15)"
-  end
-  if value == 20 then
-    return "Security Switch Type: Pledge (20)"
-  end
-  if value == 21 then
-    return "Security Switch Type: Release Of Pledge (21)"
-  end
-  if value == 22 then
-    return "Security Switch Type: Voting Rights (22)"
-  end
-  if value == 23 then
-    return "Security Switch Type: Equity Pledge Style Repo (23)"
-  end
-  if value == 26 then
-    return "Security Switch Type: Covered Openning (26)"
-  end
-  if value == 27 then
-    return "Security Switch Type: Market Maker Quotation (27)"
-  end
-  if value == 28 then
-    return "Security Switch Type: Round Lot Buy Of Eligible Hk Stocks (28)"
-  end
-  if value == 29 then
-    return "Security Switch Type: Round Lot Sell Of Eligible Hk Stocks (29)"
-  end
-  if value == 30 then
-    return "Security Switch Type: Odd Lot Buy Of Eligible Hk Stocks (30)"
-  end
-  if value == 31 then
-    return "Security Switch Type: Odd Lot Sell Of Eligible Hk Stocks (31)"
-  end
-  if value == 32 then
-    return "Security Switch Type: Options From Ordinary To Covered (32)"
-  end
-  if value == 33 then
-    return "Security Switch Type: Options From Covered To Ordinary (33)"
-  end
-  if value == 34 then
-    return "Security Switch Type: Resale Cancellation (34)"
-  end
-  if value == 35 then
-    return "Security Switch Type: Securities Lending (35)"
-  end
-  if value == 36 then
-    return "Security Switch Type: Bond Put Option And Resale (36)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_switch_type.labels = {
+  [1] = "Security Switch Type: Margin Buy (1)",
+  [2] = "Security Switch Type: Short Sell (2)",
+  [3] = "Security Switch Type: Fund Subscription (3)",
+  [4] = "Security Switch Type: Fund Redemption (4)",
+  [5] = "Security Switch Type: Issue Subscription (5)",
+  [6] = "Security Switch Type: Conversion (6)",
+  [7] = "Security Switch Type: Resale (7)",
+  [8] = "Security Switch Type: Warrant Exercise (8)",
+  [10] = "Security Switch Type: Buy Open (10)",
+  [11] = "Security Switch Type: Sell Open (11)",
+  [12] = "Security Switch Type: Subscription Of Gold Etf In Physical (12)",
+  [13] = "Security Switch Type: Redemption Of Gold Etf In Physical (13)",
+  [14] = "Security Switch Type: Pre Accepted Tender Offer (14)",
+  [15] = "Security Switch Type: Cancellation Of Tender Offer (15)",
+  [20] = "Security Switch Type: Pledge (20)",
+  [21] = "Security Switch Type: Release Of Pledge (21)",
+  [22] = "Security Switch Type: Voting Rights (22)",
+  [23] = "Security Switch Type: Equity Pledge Style Repo (23)",
+  [26] = "Security Switch Type: Covered Openning (26)",
+  [27] = "Security Switch Type: Market Maker Quotation (27)",
+  [28] = "Security Switch Type: Round Lot Buy Of Eligible Hk Stocks (28)",
+  [29] = "Security Switch Type: Round Lot Sell Of Eligible Hk Stocks (29)",
+  [30] = "Security Switch Type: Odd Lot Buy Of Eligible Hk Stocks (30)",
+  [31] = "Security Switch Type: Odd Lot Sell Of Eligible Hk Stocks (31)",
+  [32] = "Security Switch Type: Options From Ordinary To Covered (32)",
+  [33] = "Security Switch Type: Options From Covered To Ordinary (33)",
+  [34] = "Security Switch Type: Resale Cancellation (34)",
+  [35] = "Security Switch Type: Securities Lending (35)",
+  [36] = "Security Switch Type: Bond Put Option And Resale (36)",
+}
 
-  return "Security Switch Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_switch_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.security_switch_type.labels[value] or "Security Switch Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Switch Type
@@ -2744,48 +2466,24 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.session_status = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.session_status.size = 4
 
 -- Display: Session Status
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.session_status.display = function(value)
-  if value == 0 then
-    return "Session Status: Active In Session (0)"
-  end
-  if value == 1 then
-    return "Session Status: Session Password Has Been Changed (1)"
-  end
-  if value == 2 then
-    return "Session Status: Session Password Shall Be Overdue (2)"
-  end
-  if value == 3 then
-    return "Session Status: The New Session Password Is Not Consistent With The Instructions (3)"
-  end
-  if value == 4 then
-    return "Session Status: Session Logout Is Complete (4)"
-  end
-  if value == 5 then
-    return "Session Status: Illegal User Name Or Password (5)"
-  end
-  if value == 6 then
-    return "Session Status: User Name Is Locked (6)"
-  end
-  if value == 7 then
-    return "Session Status: Logon Is Prohibited At The Current Time (7)"
-  end
-  if value == 8 then
-    return "Session Status: Password Is Overdue (8)"
-  end
-  if value == 9 then
-    return "Session Status: Msg Seq Num Received Is Too Small (9)"
-  end
-  if value == 10 then
-    return "Session Status: Next Expected Msg Seq Num Received Is Too Large (10)"
-  end
-  if value == 101 then
-    return "Session Status: Others (101)"
-  end
-  if value == 102 then
-    return "Session Status: Invalid Message (102)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.session_status.labels = {
+  [0] = "Session Status: Active In Session (0)",
+  [1] = "Session Status: Session Password Has Been Changed (1)",
+  [2] = "Session Status: Session Password Shall Be Overdue (2)",
+  [3] = "Session Status: The New Session Password Is Not Consistent With The Instructions (3)",
+  [4] = "Session Status: Session Logout Is Complete (4)",
+  [5] = "Session Status: Illegal User Name Or Password (5)",
+  [6] = "Session Status: User Name Is Locked (6)",
+  [7] = "Session Status: Logon Is Prohibited At The Current Time (7)",
+  [8] = "Session Status: Password Is Overdue (8)",
+  [9] = "Session Status: Msg Seq Num Received Is Too Small (9)",
+  [10] = "Session Status: Next Expected Msg Seq Num Received Is Too Large (10)",
+  [101] = "Session Status: Others (101)",
+  [102] = "Session Status: Invalid Message (102)",
+}
 
-  return "Session Status: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.session_status.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.session_status.labels[value] or "Session Status: Unknown("..value..")"
 end
 
 -- Dissect: Session Status
@@ -2830,15 +2528,13 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.settl_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.settl_type.size = 2
 
 -- Display: Settl Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.settl_type.display = function(value)
-  if value == 103 then
-    return "Settl Type: Multilateral Netting (103)"
-  end
-  if value == 104 then
-    return "Settl Type: Gross Settlement (104)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.settl_type.labels = {
+  [103] = "Settl Type: Multilateral Netting (103)",
+  [104] = "Settl Type: Gross Settlement (104)",
+}
 
-  return "Settl Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.settl_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.settl_type.labels[value] or "Settl Type: Unknown("..value..")"
 end
 
 -- Dissect: Settl Type
@@ -2860,21 +2556,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.side = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.side.size = 1
 
 -- Display: Side
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.side.display = function(value)
-  if value == "1" then
-    return "Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Side: Sell (2)"
-  end
-  if value == "G" then
-    return "Side: Borrow (G)"
-  end
-  if value == "F" then
-    return "Side: Lend (F)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.side.labels = {
+  ["1"] = "Side: Buy (1)",
+  ["2"] = "Side: Sell (2)",
+  ["G"] = "Side: Borrow (G)",
+  ["F"] = "Side: Lend (F)",
+}
 
-  return "Side: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.side.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -3264,12 +2954,12 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_id = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_id.size = 4
 
 -- Display: Trading Session Id
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_id.display = function(value)
-  if value == "1" then
-    return "Trading Session Id: Day (1)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_id.labels = {
+  ["1"] = "Trading Session Id: Day (1)",
+}
 
-  return "Trading Session Id: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_id.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_id.labels[value] or "Trading Session Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Id
@@ -3291,54 +2981,26 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_sub_id = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_sub_id.size = 4
 
 -- Display: Trading Session Sub Id
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_sub_id.display = function(value)
-  if value == "0" then
-    return "Trading Session Sub Id: Market Close For The Whole Day (0)"
-  end
-  if value == "1" then
-    return "Trading Session Sub Id: Enter Bid Or Offer Price (1)"
-  end
-  if value == "2" then
-    return "Trading Session Sub Id: Order Matching (2)"
-  end
-  if value == "3" then
-    return "Trading Session Sub Id: Continuous Trading (3)"
-  end
-  if value == "4" then
-    return "Trading Session Sub Id: Order Matching Closing (4)"
-  end
-  if value == "5" then
-    return "Trading Session Sub Id: Enter Bid Or Offer Price Closing (5)"
-  end
-  if value == "7" then
-    return "Trading Session Sub Id: Suspension (7)"
-  end
-  if value == "100" then
-    return "Trading Session Sub Id: Market Not Open (100)"
-  end
-  if value == "101" then
-    return "Trading Session Sub Id: Before Order Matching (101)"
-  end
-  if value == "102" then
-    return "Trading Session Sub Id: Exchange Intervention (102)"
-  end
-  if value == "103" then
-    return "Trading Session Sub Id: Market Close (103)"
-  end
-  if value == "104" then
-    return "Trading Session Sub Id: Bid Or Offer Cancelled (104)"
-  end
-  if value == "105" then
-    return "Trading Session Sub Id: Fixed At A Reference Price (105)"
-  end
-  if value == "106" then
-    return "Trading Session Sub Id: Irrevocable (106)"
-  end
-  if value == "107" then
-    return "Trading Session Sub Id: Random Closing (107)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_sub_id.labels = {
+  ["0"] = "Trading Session Sub Id: Market Close For The Whole Day (0)",
+  ["1"] = "Trading Session Sub Id: Enter Bid Or Offer Price (1)",
+  ["2"] = "Trading Session Sub Id: Order Matching (2)",
+  ["3"] = "Trading Session Sub Id: Continuous Trading (3)",
+  ["4"] = "Trading Session Sub Id: Order Matching Closing (4)",
+  ["5"] = "Trading Session Sub Id: Enter Bid Or Offer Price Closing (5)",
+  ["7"] = "Trading Session Sub Id: Suspension (7)",
+  ["100"] = "Trading Session Sub Id: Market Not Open (100)",
+  ["101"] = "Trading Session Sub Id: Before Order Matching (101)",
+  ["102"] = "Trading Session Sub Id: Exchange Intervention (102)",
+  ["103"] = "Trading Session Sub Id: Market Close (103)",
+  ["104"] = "Trading Session Sub Id: Bid Or Offer Cancelled (104)",
+  ["105"] = "Trading Session Sub Id: Fixed At A Reference Price (105)",
+  ["106"] = "Trading Session Sub Id: Irrevocable (106)",
+  ["107"] = "Trading Session Sub Id: Random Closing (107)",
+}
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_sub_id.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_session_sub_id.labels[value] or "Trading Session Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Sub Id
@@ -3360,24 +3022,16 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_type = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_type.size = 1
 
 -- Display: Trading Type
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_type.display = function(value)
-  if value == 1 then
-    return "Trading Type: Matching Deal (1)"
-  end
-  if value == 2 then
-    return "Trading Type: Negotiated Deal (2)"
-  end
-  if value == 3 then
-    return "Trading Type: Click Deal (3)"
-  end
-  if value == 4 then
-    return "Trading Type: Inquiry Deal (4)"
-  end
-  if value == 5 then
-    return "Trading Type: Bidding Deal (5)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_type.labels = {
+  [1] = "Trading Type: Matching Deal (1)",
+  [2] = "Trading Type: Negotiated Deal (2)",
+  [3] = "Trading Type: Click Deal (3)",
+  [4] = "Trading Type: Inquiry Deal (4)",
+  [5] = "Trading Type: Bidding Deal (5)",
+}
 
-  return "Trading Type: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_type.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trading_type.labels[value] or "Trading Type: Unknown("..value..")"
 end
 
 -- Dissect: Trading Type
@@ -3469,15 +3123,13 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.version_code = {}
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.version_code.size = 16
 
 -- Display: Version Code
-szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.version_code.display = function(value)
-  if value == "01" then
-    return "Version Code: On The Spot Version (01)"
-  end
-  if value == "02" then
-    return "Version Code: Internet Version (02)"
-  end
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.version_code.labels = {
+  ["01"] = "Version Code: On The Spot Version (01)",
+  ["02"] = "Version Code: Internet Version (02)",
+}
 
-  return "Version Code: Unknown("..value..")"
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.version_code.display = function(value)
+  return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.version_code.labels[value] or "Version Code: Unknown("..value..")"
 end
 
 -- Dissect: Version Code
@@ -6590,130 +6242,44 @@ end
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload = {}
 
 -- Dissect: Payload
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload.dispatch = {
+  [1] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.logon_message.dissect,
+  [2] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.logout_message.dissect,
+  [3] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.heartbeat_message.dissect,
+  [390095] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.channel_heartbeat_message.dissect,
+  [390094] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.retransmitting_message.dissect,
+  [390093] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.client_user_information_reporting_message.dissect,
+  [390090] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.statistics_of_snapshot_data_channel_message.dissect,
+  [8] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.business_reject_message.dissect,
+  [390019] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.real_time_market_status_message.dissect,
+  [390013] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.real_time_status_of_security_message.dissect,
+  [390012] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.announcements_message.dissect,
+  [300111] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_cash_auction_message.dissect,
+  [300211] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_spot_bond_trading_message.dissect,
+  [300611] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_after_hour_trading_block_trade_message.dissect,
+  [303711] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_after_hour_trading_message.dissect,
+  [306311] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_eligible_hk_stocks_message.dissect,
+  [309011] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.index_snapshot_message.dissect,
+  [309111] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.statistic_indicator_snapshot_message.dissect,
+  [309211] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.real_time_reference_net_value_of_funds_snapshot_message.dissect,
+  [300192] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_in_call_auction_message.dissect,
+  [300592] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_negotiable_trade_message.dissect,
+  [300792] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_security_lending_message.dissect,
+  [300292] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_spot_bond_trading_matching_deal_message.dissect,
+  [300392] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_spot_bond_trading_quotation_message.dissect,
+  [300492] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_bid_quotation_message.dissect,
+  [300191] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_in_call_auction_message.dissect,
+  [300591] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_negotiable_trade_message.dissect,
+  [300791] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_security_lending_message.dissect,
+  [300291] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_bond_general_pledged_repo_message.dissect,
+  [300391] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_spot_bond_trading_quotation_message.dissect,
+  [300491] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_bid_quotation_message.dissect,
+}
+
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Logon Message
-  if msg_type == 1 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if msg_type == 2 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if msg_type == 3 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Channel Heartbeat Message
-  if msg_type == 390095 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.channel_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmitting Message
-  if msg_type == 390094 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.retransmitting_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client User Information Reporting Message
-  if msg_type == 390093 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.client_user_information_reporting_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Of Snapshot Data Channel Message
-  if msg_type == 390090 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.statistics_of_snapshot_data_channel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Business Reject Message
-  if msg_type == 8 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.business_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Real Time Market Status Message
-  if msg_type == 390019 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.real_time_market_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Real Time Status Of Security Message
-  if msg_type == 390013 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.real_time_status_of_security_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Announcements Message
-  if msg_type == 390012 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.announcements_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Data Of Cash Auction Message
-  if msg_type == 300111 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_cash_auction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Data Of Spot Bond Trading Message
-  if msg_type == 300211 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_spot_bond_trading_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Data Of After Hour Trading Block Trade Message
-  if msg_type == 300611 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_after_hour_trading_block_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Data Of After Hour Trading Message
-  if msg_type == 303711 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_after_hour_trading_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Data Of Eligible Hk Stocks Message
-  if msg_type == 306311 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.snapshot_data_of_eligible_hk_stocks_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Snapshot Message
-  if msg_type == 309011 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.index_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistic Indicator Snapshot Message
-  if msg_type == 309111 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.statistic_indicator_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Real Time Reference Net Value Of Funds Snapshot Message
-  if msg_type == 309211 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.real_time_reference_net_value_of_funds_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Tick Data In Call Auction Message
-  if msg_type == 300192 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_in_call_auction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Tick Data Of Negotiable Trade Message
-  if msg_type == 300592 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_negotiable_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Tick Data Of Security Lending Message
-  if msg_type == 300792 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_security_lending_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Tick Data Of Spot Bond Trading Matching Deal Message
-  if msg_type == 300292 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_spot_bond_trading_matching_deal_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Tick Data Of Spot Bond Trading Quotation Message
-  if msg_type == 300392 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_spot_bond_trading_quotation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Tick Data Of Bid Quotation Message
-  if msg_type == 300492 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.order_tick_data_of_bid_quotation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction Tick Data In Call Auction Message
-  if msg_type == 300191 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_in_call_auction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction Tick Data Of Negotiable Trade Message
-  if msg_type == 300591 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_negotiable_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction Tick Data Of Security Lending Message
-  if msg_type == 300791 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_security_lending_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction Tick Data Of Bond General Pledged Repo Message
-  if msg_type == 300291 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_bond_general_pledged_repo_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction Tick Data Of Spot Bond Trading Quotation Message
-  if msg_type == 300391 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_spot_bond_trading_quotation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction Tick Data Of Bid Quotation Message
-  if msg_type == 300491 then
-    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_bid_quotation_message.dissect(buffer, offset, packet, parent)
+  local dissect = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

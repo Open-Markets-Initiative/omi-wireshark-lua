@@ -146,18 +146,14 @@ aquis_aquisequities_replay_amd_v4_1.msg_type = {}
 aquis_aquisequities_replay_amd_v4_1.msg_type.size = 1
 
 -- Display: Msg Type
-aquis_aquisequities_replay_amd_v4_1.msg_type.display = function(value)
-  if value == 13 then
-    return "Msg Type: Login Message (13)"
-  end
-  if value == 14 then
-    return "Msg Type: Replay Request Message (14)"
-  end
-  if value == 15 then
-    return "Msg Type: Replay Response Message (15)"
-  end
+aquis_aquisequities_replay_amd_v4_1.msg_type.labels = {
+  [13] = "Msg Type: Login Message (13)",
+  [14] = "Msg Type: Replay Request Message (14)",
+  [15] = "Msg Type: Replay Response Message (15)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+aquis_aquisequities_replay_amd_v4_1.msg_type.display = function(value)
+  return aquis_aquisequities_replay_amd_v4_1.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -218,18 +214,14 @@ aquis_aquisequities_replay_amd_v4_1.response_code = {}
 aquis_aquisequities_replay_amd_v4_1.response_code.size = 1
 
 -- Display: Response Code
-aquis_aquisequities_replay_amd_v4_1.response_code.display = function(value)
-  if value == 0 then
-    return "Response Code: Login Successful (0)"
-  end
-  if value == 1 then
-    return "Response Code: Bad Begin Seq No In Resend Request (1)"
-  end
-  if value == 2 then
-    return "Response Code: Bad End Seq No In Resend Request (2)"
-  end
+aquis_aquisequities_replay_amd_v4_1.response_code.labels = {
+  [0] = "Response Code: Login Successful (0)",
+  [1] = "Response Code: Bad Begin Seq No In Resend Request (1)",
+  [2] = "Response Code: Bad End Seq No In Resend Request (2)",
+}
 
-  return "Response Code: Unknown("..value..")"
+aquis_aquisequities_replay_amd_v4_1.response_code.display = function(value)
+  return aquis_aquisequities_replay_amd_v4_1.response_code.labels[value] or "Response Code: Unknown("..value..")"
 end
 
 -- Dissect: Response Code
@@ -443,18 +435,16 @@ end
 aquis_aquisequities_replay_amd_v4_1.payload = {}
 
 -- Dissect: Payload
+aquis_aquisequities_replay_amd_v4_1.payload.dispatch = {
+  [13] = aquis_aquisequities_replay_amd_v4_1.login_message.dissect,
+  [14] = aquis_aquisequities_replay_amd_v4_1.replay_request_message.dissect,
+  [15] = aquis_aquisequities_replay_amd_v4_1.replay_response_message.dissect,
+}
+
 aquis_aquisequities_replay_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Login Message
-  if msg_type == 13 then
-    return aquis_aquisequities_replay_amd_v4_1.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Message
-  if msg_type == 14 then
-    return aquis_aquisequities_replay_amd_v4_1.replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Response Message
-  if msg_type == 15 then
-    return aquis_aquisequities_replay_amd_v4_1.replay_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = aquis_aquisequities_replay_amd_v4_1.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

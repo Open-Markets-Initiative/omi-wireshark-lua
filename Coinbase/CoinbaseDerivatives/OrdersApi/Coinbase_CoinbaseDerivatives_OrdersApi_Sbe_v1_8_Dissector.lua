@@ -372,18 +372,14 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_reason = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_reason.size = 1
 
 -- Display: Cancel Order Reject Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_reason.display = function(value)
-  if value == 1 then
-    return "Cancel Order Reject Reason: Error (1)"
-  end
-  if value == 2 then
-    return "Cancel Order Reject Reason: Unknown Order (2)"
-  end
-  if value == 3 then
-    return "Cancel Order Reject Reason: Order Filled (3)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_reason.labels = {
+  [1] = "Cancel Order Reject Reason: Error (1)",
+  [2] = "Cancel Order Reject Reason: Unknown Order (2)",
+  [3] = "Cancel Order Reject Reason: Order Filled (3)",
+}
 
-  return "Cancel Order Reject Reason: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_reason.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_reason.labels[value] or "Cancel Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Order Reject Reason
@@ -405,36 +401,20 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_reason = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_reason.display = function(value)
-  if value == 0 then
-    return "Cancel Reason: Expired (0)"
-  end
-  if value == 1 then
-    return "Cancel Reason: Canceled By User (1)"
-  end
-  if value == 2 then
-    return "Cancel Reason: Self Match Prevention (2)"
-  end
-  if value == 3 then
-    return "Cancel Reason: Client Disconnect (3)"
-  end
-  if value == 4 then
-    return "Cancel Reason: Price Limit (4)"
-  end
-  if value == 5 then
-    return "Cancel Reason: Admin Cancel (5)"
-  end
-  if value == 6 then
-    return "Cancel Reason: Mass Cancel (6)"
-  end
-  if value == 7 then
-    return "Cancel Reason: Stream Replaced (7)"
-  end
-  if value == 8 then
-    return "Cancel Reason: Active Limit Exceeded (8)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_reason.labels = {
+  [0] = "Cancel Reason: Expired (0)",
+  [1] = "Cancel Reason: Canceled By User (1)",
+  [2] = "Cancel Reason: Self Match Prevention (2)",
+  [3] = "Cancel Reason: Client Disconnect (3)",
+  [4] = "Cancel Reason: Price Limit (4)",
+  [5] = "Cancel Reason: Admin Cancel (5)",
+  [6] = "Cancel Reason: Mass Cancel (6)",
+  [7] = "Cancel Reason: Stream Replaced (7)",
+  [8] = "Cancel Reason: Active Limit Exceeded (8)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_reason.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -525,15 +505,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.current_session_only = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.current_session_only.size = 1
 
 -- Display: Current Session Only
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.current_session_only.display = function(value)
-  if value == 0 then
-    return "Current Session Only: False (0)"
-  end
-  if value == 1 then
-    return "Current Session Only: True (1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.current_session_only.labels = {
+  [0] = "Current Session Only: False (0)",
+  [1] = "Current Session Only: True (1)",
+}
 
-  return "Current Session Only: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.current_session_only.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.current_session_only.labels[value] or "Current Session Only: Unknown("..value..")"
 end
 
 -- Dissect: Current Session Only
@@ -961,27 +939,17 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_status = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_status.size = 1
 
 -- Display: Instrument Status
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_status.display = function(value)
-  if value == 1 then
-    return "Instrument Status: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Instrument Status: Pre Open No Cancel (2)"
-  end
-  if value == 3 then
-    return "Instrument Status: Ready To Trade (3)"
-  end
-  if value == 4 then
-    return "Instrument Status: Trading Halt (4)"
-  end
-  if value == 5 then
-    return "Instrument Status: Close (5)"
-  end
-  if value == 6 then
-    return "Instrument Status: Post Close (6)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_status.labels = {
+  [1] = "Instrument Status: Pre Open (1)",
+  [2] = "Instrument Status: Pre Open No Cancel (2)",
+  [3] = "Instrument Status: Ready To Trade (3)",
+  [4] = "Instrument Status: Trading Halt (4)",
+  [5] = "Instrument Status: Close (5)",
+  [6] = "Instrument Status: Post Close (6)",
+}
 
-  return "Instrument Status: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_status.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_status.labels[value] or "Instrument Status: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Status
@@ -1003,15 +971,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_aggressor = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_aggressor.size = 1
 
 -- Display: Is Aggressor
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_aggressor.display = function(value)
-  if value == 0 then
-    return "Is Aggressor: False (0)"
-  end
-  if value == 1 then
-    return "Is Aggressor: True (1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_aggressor.labels = {
+  [0] = "Is Aggressor: False (0)",
+  [1] = "Is Aggressor: True (1)",
+}
 
-  return "Is Aggressor: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_aggressor.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_aggressor.labels[value] or "Is Aggressor: Unknown("..value..")"
 end
 
 -- Dissect: Is Aggressor
@@ -1033,15 +999,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_last_message = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_last_message.size = 1
 
 -- Display: Is Last Message
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_last_message.display = function(value)
-  if value == 0 then
-    return "Is Last Message: False (0)"
-  end
-  if value == 1 then
-    return "Is Last Message: True (1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_last_message.labels = {
+  [0] = "Is Last Message: False (0)",
+  [1] = "Is Last Message: True (1)",
+}
 
-  return "Is Last Message: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_last_message.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.is_last_message.labels[value] or "Is Last Message: Unknown("..value..")"
 end
 
 -- Dissect: Is Last Message
@@ -1411,15 +1375,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.only_current_session = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.only_current_session.size = 1
 
 -- Display: Only Current Session
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.only_current_session.display = function(value)
-  if value == 0 then
-    return "Only Current Session: False (0)"
-  end
-  if value == 1 then
-    return "Only Current Session: True (1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.only_current_session.labels = {
+  [0] = "Only Current Session: False (0)",
+  [1] = "Only Current Session: True (1)",
+}
 
-  return "Only Current Session: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.only_current_session.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.only_current_session.labels[value] or "Only Current Session: Unknown("..value..")"
 end
 
 -- Dissect: Only Current Session
@@ -1531,24 +1493,16 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_reason = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_reason.display = function(value)
-  if value == 1 then
-    return "Order Reject Reason: Error (1)"
-  end
-  if value == 2 then
-    return "Order Reject Reason: Invalid Instrument (2)"
-  end
-  if value == 3 then
-    return "Order Reject Reason: Cl Ord Id In Use (3)"
-  end
-  if value == 8 then
-    return "Order Reject Reason: Validation Failure (8)"
-  end
-  if value == 9 then
-    return "Order Reject Reason: Unknown Order (9)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_reason.labels = {
+  [1] = "Order Reject Reason: Error (1)",
+  [2] = "Order Reject Reason: Invalid Instrument (2)",
+  [3] = "Order Reject Reason: Cl Ord Id In Use (3)",
+  [8] = "Order Reject Reason: Validation Failure (8)",
+  [9] = "Order Reject Reason: Unknown Order (9)",
+}
 
-  return "Order Reject Reason: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_reason.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_reason.labels[value] or "Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Reject Reason
@@ -1783,21 +1737,15 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reject_reason = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reject_reason.size = 4
 
 -- Display: Reject Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reject_reason.display = function(value)
-  if value == 1 then
-    return "Reject Reason: Invalid Schema Id (1)"
-  end
-  if value == 2 then
-    return "Reject Reason: Invalid Template Id (2)"
-  end
-  if value == 3 then
-    return "Reject Reason: Invalid Block Length (3)"
-  end
-  if value == 4 then
-    return "Reject Reason: Invalid Field Value (4)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reject_reason.labels = {
+  [1] = "Reject Reason: Invalid Schema Id (1)",
+  [2] = "Reject Reason: Invalid Template Id (2)",
+  [3] = "Reject Reason: Invalid Block Length (3)",
+  [4] = "Reject Reason: Invalid Field Value (4)",
+}
 
-  return "Reject Reason: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reject_reason.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reject_reason.labels[value] or "Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason
@@ -1843,15 +1791,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.request_trading_lock = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.request_trading_lock.size = 1
 
 -- Display: Request Trading Lock
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.request_trading_lock.display = function(value)
-  if value == 0 then
-    return "Request Trading Lock: False (0)"
-  end
-  if value == 1 then
-    return "Request Trading Lock: True (1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.request_trading_lock.labels = {
+  [0] = "Request Trading Lock: False (0)",
+  [1] = "Request Trading Lock: True (1)",
+}
 
-  return "Request Trading Lock: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.request_trading_lock.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.request_trading_lock.labels[value] or "Request Trading Lock: Unknown("..value..")"
 end
 
 -- Dissect: Request Trading Lock
@@ -1873,24 +1819,16 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.resend_reject_reason = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.resend_reject_reason.size = 1
 
 -- Display: Resend Reject Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.resend_reject_reason.display = function(value)
-  if value == 1 then
-    return "Resend Reject Reason: Begin Exec Id Too Small (1)"
-  end
-  if value == 2 then
-    return "Resend Reject Reason: End Exec Id Too Large (2)"
-  end
-  if value == 3 then
-    return "Resend Reject Reason: Resend Already In Progress (3)"
-  end
-  if value == 4 then
-    return "Resend Reject Reason: Too Many Resend Requests (4)"
-  end
-  if value == 5 then
-    return "Resend Reject Reason: Server Error (5)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.resend_reject_reason.labels = {
+  [1] = "Resend Reject Reason: Begin Exec Id Too Small (1)",
+  [2] = "Resend Reject Reason: End Exec Id Too Large (2)",
+  [3] = "Resend Reject Reason: Resend Already In Progress (3)",
+  [4] = "Resend Reject Reason: Too Many Resend Requests (4)",
+  [5] = "Resend Reject Reason: Server Error (5)",
+}
 
-  return "Resend Reject Reason: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.resend_reject_reason.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.resend_reject_reason.labels[value] or "Resend Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Resend Reject Reason
@@ -1981,15 +1919,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_seq_num = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_seq_num.size = 1
 
 -- Display: Reset Seq Num
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_seq_num.display = function(value)
-  if value == 0 then
-    return "Reset Seq Num: False (0)"
-  end
-  if value == 1 then
-    return "Reset Seq Num: True (1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_seq_num.labels = {
+  [0] = "Reset Seq Num: False (0)",
+  [1] = "Reset Seq Num: True (1)",
+}
 
-  return "Reset Seq Num: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_seq_num.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_seq_num.labels[value] or "Reset Seq Num: Unknown("..value..")"
 end
 
 -- Dissect: Reset Seq Num
@@ -2011,15 +1947,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.size = 2
 
 -- Display: Schema Id
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.display = function(value)
-  if value == 1100 then
-    return "Schema Id: Session (1100)"
-  end
-  if value == 1101 then
-    return "Schema Id: Order (1101)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.labels = {
+  [1100] = "Schema Id: Session (1100)",
+  [1101] = "Schema Id: Order (1101)",
+}
 
-  return "Schema Id: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.schema_id.labels[value] or "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id
@@ -2041,15 +1975,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.security_type = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.security_type.size = 1
 
 -- Display: Security Type
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.security_type.display = function(value)
-  if value == 0 then
-    return "Security Type: Futures (0)"
-  end
-  if value == 1 then
-    return "Security Type: Options (1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.security_type.labels = {
+  [0] = "Security Type: Futures (0)",
+  [1] = "Security Type: Options (1)",
+}
 
-  return "Security Type: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.security_type.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -2142,15 +2074,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.side = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.side.size = 1
 
 -- Display: Side
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == -1 then
-    return "Side: Sell (-1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.side.labels = {
+  [1] = "Side: Buy (1)",
+  [-1] = "Side: Sell (-1)",
+}
 
-  return "Side: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.side.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2211,135 +2141,53 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id.size = 2
 
 -- Display: Template Id
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id.display = function(value)
-  if value == 100 then
-    return "Template Id: Session Logon Message (100)"
-  end
-  if value == 200 then
-    return "Template Id: Session Logon Conf Message (200)"
-  end
-  if value == 101 then
-    return "Template Id: Session Logout Message (101)"
-  end
-  if value == 201 then
-    return "Template Id: Session Logged Out Message (201)"
-  end
-  if value == 10 then
-    return "Template Id: Session Heartbeat Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Session Test Request Message (11)"
-  end
-  if value == 102 then
-    return "Template Id: Session Resend Request Message (102)"
-  end
-  if value == 202 then
-    return "Template Id: Session Gap Fill Message (202)"
-  end
-  if value == 210 then
-    return "Template Id: Reject Message (210)"
-  end
-  if value == 102 then
-    return "Template Id: Ping Message (102)"
-  end
-  if value == 202 then
-    return "Template Id: Pong Message (202)"
-  end
-  if value == 103 then
-    return "Template Id: Instrument Info Request Message (103)"
-  end
-  if value == 203 then
-    return "Template Id: Instrument Info Message (203)"
-  end
-  if value == 105 then
-    return "Template Id: Set Account Message (105)"
-  end
-  if value == 106 then
-    return "Template Id: Set Trader Message (106)"
-  end
-  if value == 205 then
-    return "Template Id: Set Ack Message (205)"
-  end
-  if value == 110 then
-    return "Template Id: New Order Message (110)"
-  end
-  if value == 111 then
-    return "Template Id: New Ioc Order Message (111)"
-  end
-  if value == 210 then
-    return "Template Id: Order Entered Message (210)"
-  end
-  if value == 120 then
-    return "Template Id: Replace Order Message (120)"
-  end
-  if value == 121 then
-    return "Template Id: Obsolete Stream Order Message (121)"
-  end
-  if value == 221 then
-    return "Template Id: Order Reject Message (221)"
-  end
-  if value == 220 then
-    return "Template Id: Order Replaced Message (220)"
-  end
-  if value == 130 then
-    return "Template Id: Cancel Order Message (130)"
-  end
-  if value == 230 then
-    return "Template Id: Order Canceled Message (230)"
-  end
-  if value == 233 then
-    return "Template Id: Cancel Order Reject Message (233)"
-  end
-  if value == 131 then
-    return "Template Id: Mass Cancel Order Message (131)"
-  end
-  if value == 231 then
-    return "Template Id: Mass Cancel Order Ack Message (231)"
-  end
-  if value == 232 then
-    return "Template Id: Mass Cancel Order Reject Message (232)"
-  end
-  if value == 132 then
-    return "Template Id: Unlock Trading Message (132)"
-  end
-  if value == 234 then
-    return "Template Id: Unlock Trading Ack Message (234)"
-  end
-  if value == 235 then
-    return "Template Id: Unlock Trading Reject Message (235)"
-  end
-  if value == 240 then
-    return "Template Id: Order Filled Message (240)"
-  end
-  if value == 241 then
-    return "Template Id: Spread Order Filled Message (241)"
-  end
-  if value == 150 then
-    return "Template Id: Last Exec Id Request Message (150)"
-  end
-  if value == 250 then
-    return "Template Id: Last Exec Id Message (250)"
-  end
-  if value == 152 then
-    return "Template Id: Event Resend Request Message (152)"
-  end
-  if value == 252 then
-    return "Template Id: Event Resend Complete Message (252)"
-  end
-  if value == 253 then
-    return "Template Id: Event Resend Reject Message (253)"
-  end
-  if value == 160 then
-    return "Template Id: Reset Options Fill Protection Message (160)"
-  end
-  if value == 260 then
-    return "Template Id: Reset Options Fill Protection Ack Message (260)"
-  end
-  if value == 261 then
-    return "Template Id: Reset Options Fill Protection Reject Message (261)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id.labels = {
+  [100] = "Template Id: Session Logon Message (100)",
+  [200] = "Template Id: Session Logon Conf Message (200)",
+  [101] = "Template Id: Session Logout Message (101)",
+  [201] = "Template Id: Session Logged Out Message (201)",
+  [10] = "Template Id: Session Heartbeat Message (10)",
+  [11] = "Template Id: Session Test Request Message (11)",
+  [102] = "Template Id: Session Resend Request Message (102)",
+  [202] = "Template Id: Session Gap Fill Message (202)",
+  [210] = "Template Id: Reject Message (210)",
+  [102] = "Template Id: Ping Message (102)",
+  [202] = "Template Id: Pong Message (202)",
+  [103] = "Template Id: Instrument Info Request Message (103)",
+  [203] = "Template Id: Instrument Info Message (203)",
+  [105] = "Template Id: Set Account Message (105)",
+  [106] = "Template Id: Set Trader Message (106)",
+  [205] = "Template Id: Set Ack Message (205)",
+  [110] = "Template Id: New Order Message (110)",
+  [111] = "Template Id: New Ioc Order Message (111)",
+  [210] = "Template Id: Order Entered Message (210)",
+  [120] = "Template Id: Replace Order Message (120)",
+  [121] = "Template Id: Obsolete Stream Order Message (121)",
+  [221] = "Template Id: Order Reject Message (221)",
+  [220] = "Template Id: Order Replaced Message (220)",
+  [130] = "Template Id: Cancel Order Message (130)",
+  [230] = "Template Id: Order Canceled Message (230)",
+  [233] = "Template Id: Cancel Order Reject Message (233)",
+  [131] = "Template Id: Mass Cancel Order Message (131)",
+  [231] = "Template Id: Mass Cancel Order Ack Message (231)",
+  [232] = "Template Id: Mass Cancel Order Reject Message (232)",
+  [132] = "Template Id: Unlock Trading Message (132)",
+  [234] = "Template Id: Unlock Trading Ack Message (234)",
+  [235] = "Template Id: Unlock Trading Reject Message (235)",
+  [240] = "Template Id: Order Filled Message (240)",
+  [241] = "Template Id: Spread Order Filled Message (241)",
+  [150] = "Template Id: Last Exec Id Request Message (150)",
+  [250] = "Template Id: Last Exec Id Message (250)",
+  [152] = "Template Id: Event Resend Request Message (152)",
+  [252] = "Template Id: Event Resend Complete Message (252)",
+  [253] = "Template Id: Event Resend Reject Message (253)",
+  [160] = "Template Id: Reset Options Fill Protection Message (160)",
+  [260] = "Template Id: Reset Options Fill Protection Ack Message (260)",
+  [261] = "Template Id: Reset Options Fill Protection Reject Message (261)",
+}
 
-  return "Template Id: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2503,18 +2351,14 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_instrument_status = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_instrument_status.size = 1
 
 -- Display: Trading Instrument Status
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_instrument_status.display = function(value)
-  if value == 0 then
-    return "Trading Instrument Status: Ok (0)"
-  end
-  if value == 1 then
-    return "Trading Instrument Status: Temporarily Unavailable (1)"
-  end
-  if value == 2 then
-    return "Trading Instrument Status: Back Pressured (2)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_instrument_status.labels = {
+  [0] = "Trading Instrument Status: Ok (0)",
+  [1] = "Trading Instrument Status: Temporarily Unavailable (1)",
+  [2] = "Trading Instrument Status: Back Pressured (2)",
+}
 
-  return "Trading Instrument Status: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_instrument_status.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_instrument_status.labels[value] or "Trading Instrument Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Instrument Status
@@ -2536,15 +2380,13 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_lock_applied = {}
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_lock_applied.size = 1
 
 -- Display: Trading Lock Applied
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_lock_applied.display = function(value)
-  if value == 0 then
-    return "Trading Lock Applied: False (0)"
-  end
-  if value == 1 then
-    return "Trading Lock Applied: True (1)"
-  end
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_lock_applied.labels = {
+  [0] = "Trading Lock Applied: False (0)",
+  [1] = "Trading Lock Applied: True (1)",
+}
 
-  return "Trading Lock Applied: Unknown("..value..")"
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_lock_applied.display = function(value)
+  return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.trading_lock_applied.labels[value] or "Trading Lock Applied: Unknown("..value..")"
 end
 
 -- Dissect: Trading Lock Applied
@@ -4585,138 +4427,46 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_payload = {}
 
 -- Dissect: Order Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_payload.dispatch = {
+  [102] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.ping_message.dissect,
+  [202] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.pong_message.dissect,
+  [103] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_info_request_message.dissect,
+  [203] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_info_message.dissect,
+  [105] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_account_message.dissect,
+  [106] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_trader_message.dissect,
+  [205] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_ack_message.dissect,
+  [110] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.new_order_message.dissect,
+  [111] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.new_ioc_order_message.dissect,
+  [210] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_entered_message.dissect,
+  [120] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.replace_order_message.dissect,
+  [121] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.obsolete_stream_order_message.dissect,
+  [221] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_message.dissect,
+  [220] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_replaced_message.dissect,
+  [130] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_message.dissect,
+  [230] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_canceled_message.dissect,
+  [233] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_message.dissect,
+  [131] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_message.dissect,
+  [231] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_ack_message.dissect,
+  [232] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_reject_message.dissect,
+  [132] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_message.dissect,
+  [234] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_ack_message.dissect,
+  [235] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_reject_message.dissect,
+  [240] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_filled_message.dissect,
+  [241] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.spread_order_filled_message.dissect,
+  [150] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_exec_id_request_message.dissect,
+  [250] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_exec_id_message.dissect,
+  [152] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_request_message.dissect,
+  [252] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_complete_message.dissect,
+  [253] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_reject_message.dissect,
+  [160] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_message.dissect,
+  [260] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_ack_message.dissect,
+  [261] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_reject_message.dissect,
+}
+
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Ping Message
-  if template_id == 102 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.ping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pong Message
-  if template_id == 202 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.pong_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info Request Message
-  if template_id == 103 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_info_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info Message
-  if template_id == 203 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.instrument_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Set Account Message
-  if template_id == 105 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_account_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Set Trader Message
-  if template_id == 106 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_trader_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Set Ack Message
-  if template_id == 205 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.set_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Message
-  if template_id == 110 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Ioc Order Message
-  if template_id == 111 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.new_ioc_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entered Message
-  if template_id == 210 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_entered_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if template_id == 120 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Obsolete Stream Order Message
-  if template_id == 121 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.obsolete_stream_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Reject Message
-  if template_id == 221 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if template_id == 220 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if template_id == 130 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled Message
-  if template_id == 230 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Reject Message
-  if template_id == 233 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.cancel_order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Order Message
-  if template_id == 131 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Order Ack Message
-  if template_id == 231 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Order Reject Message
-  if template_id == 232 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.mass_cancel_order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unlock Trading Message
-  if template_id == 132 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unlock Trading Ack Message
-  if template_id == 234 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unlock Trading Reject Message
-  if template_id == 235 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.unlock_trading_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Filled Message
-  if template_id == 240 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Filled Message
-  if template_id == 241 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.spread_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Exec Id Request Message
-  if template_id == 150 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_exec_id_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Exec Id Message
-  if template_id == 250 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.last_exec_id_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Event Resend Request Message
-  if template_id == 152 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Event Resend Complete Message
-  if template_id == 252 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Event Resend Reject Message
-  if template_id == 253 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.event_resend_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Options Fill Protection Message
-  if template_id == 160 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Options Fill Protection Ack Message
-  if template_id == 260 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Options Fill Protection Reject Message
-  if template_id == 261 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reset_options_fill_protection_reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5161,42 +4911,22 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_payload = {}
 
 -- Dissect: Session Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_payload.dispatch = {
+  [100] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logon_message.dissect,
+  [200] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logon_conf_message.dissect,
+  [101] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logout_message.dissect,
+  [201] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logged_out_message.dissect,
+  [10] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.heartbeat_message.dissect,
+  [11] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.test_request_message.dissect,
+  [102] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.resend_request_message.dissect,
+  [202] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.gap_fill_message.dissect,
+  [210] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reject_message.dissect,
+}
+
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Logon Message
-  if template_id == 100 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Conf Message
-  if template_id == 200 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logon_conf_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if template_id == 101 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logged Out Message
-  if template_id == 201 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.logged_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if template_id == 10 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Request Message
-  if template_id == 11 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.test_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Resend Request Message
-  if template_id == 102 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.resend_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Fill Message
-  if template_id == 202 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.gap_fill_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if template_id == 210 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5257,14 +4987,15 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload = {}
 
 -- Dissect: Payload
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload.dispatch = {
+  [1100] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.dissect,
+  [1101] = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.dissect,
+}
+
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload.dissect = function(buffer, offset, packet, parent, schema_id)
-  -- Dissect Session Message
-  if schema_id == 1100 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Message
-  if schema_id == 1101 then
-    return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.order_message.dissect(buffer, offset, packet, parent)
+  local dissect = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.payload.dispatch[schema_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

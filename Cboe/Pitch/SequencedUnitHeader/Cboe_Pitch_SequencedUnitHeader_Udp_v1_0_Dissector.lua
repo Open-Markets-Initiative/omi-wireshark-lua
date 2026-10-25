@@ -360,10 +360,14 @@ end
 cboe_pitch_sequencedunitheader_udp_v1_0.messages = {}
 
 -- Dissect: Messages
+cboe_pitch_sequencedunitheader_udp_v1_0.messages.dispatch = {
+  [0] = cboe_pitch_sequencedunitheader_udp_v1_0.heartbeat.dissect,
+}
+
 cboe_pitch_sequencedunitheader_udp_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_pitch_sequencedunitheader_udp_v1_0.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_pitch_sequencedunitheader_udp_v1_0.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

@@ -601,21 +601,15 @@ cboe_c1options_multicasttop_spin_v1_2_54.gth_trading_status = {}
 cboe_c1options_multicasttop_spin_v1_2_54.gth_trading_status.size = 1
 
 -- Display: Gth Trading Status
-cboe_c1options_multicasttop_spin_v1_2_54.gth_trading_status.display = function(value)
-  if value == "H" then
-    return "Gth Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Gth Trading Status: Quote Only (Q)"
-  end
-  if value == "R" then
-    return "Gth Trading Status: Opening Rotation (R)"
-  end
-  if value == "T" then
-    return "Gth Trading Status: Trading (T)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.gth_trading_status.labels = {
+  ["H"] = "Gth Trading Status: Halted (H)",
+  ["Q"] = "Gth Trading Status: Quote Only (Q)",
+  ["R"] = "Gth Trading Status: Opening Rotation (R)",
+  ["T"] = "Gth Trading Status: Trading (T)",
+}
 
-  return "Gth Trading Status: Unknown("..value..")"
+cboe_c1options_multicasttop_spin_v1_2_54.gth_trading_status.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.gth_trading_status.labels[value] or "Gth Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Gth Trading Status
@@ -660,18 +654,14 @@ cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_response_status =
 cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_response_status.size = 1
 
 -- Display: Instrument Definition Response Status
-cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_response_status.display = function(value)
-  if value == "A" then
-    return "Instrument Definition Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Instrument Definition Response Status: Out Of Range Sequence Must Be 0 (O)"
-  end
-  if value == "S" then
-    return "Instrument Definition Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_response_status.labels = {
+  ["A"] = "Instrument Definition Response Status: Accepted (A)",
+  ["O"] = "Instrument Definition Response Status: Out Of Range Sequence Must Be 0 (O)",
+  ["S"] = "Instrument Definition Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Instrument Definition Response Status: Unknown("..value..")"
+cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_response_status.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_response_status.labels[value] or "Instrument Definition Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Definition Response Status
@@ -716,21 +706,15 @@ cboe_c1options_multicasttop_spin_v1_2_54.login_response_status = {}
 cboe_c1options_multicasttop_spin_v1_2_54.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_c1options_multicasttop_spin_v1_2_54.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.login_response_status.labels = {
+  ["A"] = "Login Response Status: Login Accepted (A)",
+  ["N"] = "Login Response Status: Not Authorized Invalid Username Password (N)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_c1options_multicasttop_spin_v1_2_54.login_response_status.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -798,60 +782,28 @@ cboe_c1options_multicasttop_spin_v1_2_54.message_type = {}
 cboe_c1options_multicasttop_spin_v1_2_54.message_type.size = 1
 
 -- Display: Message Type
-cboe_c1options_multicasttop_spin_v1_2_54.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x80 then
-    return "Message Type: Spin Image Available Message (0x80)"
-  end
-  if value == 0x81 then
-    return "Message Type: Spin Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Spin Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Spin Finished Message (0x83)"
-  end
-  if value == 0x84 then
-    return "Message Type: Instrument Definition Request Message (0x84)"
-  end
-  if value == 0x85 then
-    return "Message Type: Instrument Definition Response Message (0x85)"
-  end
-  if value == 0x86 then
-    return "Message Type: Instrument Definition Finished Message (0x86)"
-  end
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0xD4 then
-    return "Message Type: Single Side Update Expanded Short Message (0xD4)"
-  end
-  if value == 0xD5 then
-    return "Message Type: Single Side Update Expanded Long Message (0xD5)"
-  end
-  if value == 0xD6 then
-    return "Message Type: Two Side Update Expanded Short Message (0xD6)"
-  end
-  if value == 0xD7 then
-    return "Message Type: Two Side Update Expanded Long Message (0xD7)"
-  end
-  if value == 0xB8 then
-    return "Message Type: Top Trade Message (0xB8)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.message_type.labels = {
+  [0x01] = "Message Type: Login Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x80] = "Message Type: Spin Image Available Message (0x80)",
+  [0x81] = "Message Type: Spin Request Message (0x81)",
+  [0x82] = "Message Type: Spin Response Message (0x82)",
+  [0x83] = "Message Type: Spin Finished Message (0x83)",
+  [0x84] = "Message Type: Instrument Definition Request Message (0x84)",
+  [0x85] = "Message Type: Instrument Definition Response Message (0x85)",
+  [0x86] = "Message Type: Instrument Definition Finished Message (0x86)",
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
+  [0xD4] = "Message Type: Single Side Update Expanded Short Message (0xD4)",
+  [0xD5] = "Message Type: Single Side Update Expanded Long Message (0xD5)",
+  [0xD6] = "Message Type: Two Side Update Expanded Short Message (0xD6)",
+  [0xD7] = "Message Type: Two Side Update Expanded Long Message (0xD7)",
+  [0xB8] = "Message Type: Top Trade Message (0xB8)",
+  [0x31] = "Message Type: Trading Status Message (0x31)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_c1options_multicasttop_spin_v1_2_54.message_type.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1161,15 +1113,13 @@ cboe_c1options_multicasttop_spin_v1_2_54.side = {}
 cboe_c1options_multicasttop_spin_v1_2_54.side.size = 1
 
 -- Display: Side
-cboe_c1options_multicasttop_spin_v1_2_54.side.display = function(value)
-  if value == "B" then
-    return "Side: Bid Side (B)"
-  end
-  if value == "S" then
-    return "Side: Ask Side (S)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.side.labels = {
+  ["B"] = "Side: Bid Side (B)",
+  ["S"] = "Side: Ask Side (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cboe_c1options_multicasttop_spin_v1_2_54.side.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1191,18 +1141,14 @@ cboe_c1options_multicasttop_spin_v1_2_54.spin_response_status = {}
 cboe_c1options_multicasttop_spin_v1_2_54.spin_response_status.size = 1
 
 -- Display: Spin Response Status
-cboe_c1options_multicasttop_spin_v1_2_54.spin_response_status.display = function(value)
-  if value == "A" then
-    return "Spin Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)"
-  end
-  if value == "S" then
-    return "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.spin_response_status.labels = {
+  ["A"] = "Spin Response Status: Accepted (A)",
+  ["O"] = "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)",
+  ["S"] = "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Spin Response Status: Unknown("..value..")"
+cboe_c1options_multicasttop_spin_v1_2_54.spin_response_status.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.spin_response_status.labels[value] or "Spin Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Spin Response Status
@@ -1247,15 +1193,13 @@ cboe_c1options_multicasttop_spin_v1_2_54.symbol_condition = {}
 cboe_c1options_multicasttop_spin_v1_2_54.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_c1options_multicasttop_spin_v1_2_54.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_c1options_multicasttop_spin_v1_2_54.symbol_condition.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -1346,78 +1290,34 @@ cboe_c1options_multicasttop_spin_v1_2_54.trade_condition = {}
 cboe_c1options_multicasttop_spin_v1_2_54.trade_condition.size = 1
 
 -- Display: Trade Condition
-cboe_c1options_multicasttop_spin_v1_2_54.trade_condition.display = function(value)
-  if value == "a" then
-    return "Trade Condition: Single Leg Auction Non Iso Cboe Auction Types Include Aim Sam (a)"
-  end
-  if value == "b" then
-    return "Trade Condition: Single Leg Auction Iso Cboe Auction Types Include Aim Iso Sam Iso (b)"
-  end
-  if value == "c" then
-    return "Trade Condition: Single Leg Cross Non Iso Cboe Auction Types Include Cust To Cust Aim Qcc (c)"
-  end
-  if value == "d" then
-    return "Trade Condition: Single Leg Cross Iso Cboe Order Type Is Cust To Cust Aim Iso (d)"
-  end
-  if value == "e" then
-    return "Trade Condition: Single Leg Floor Trade (e)"
-  end
-  if value == "f" then
-    return "Trade Condition: Complex To Complex Electronic Trade Cboe Auction Type Is Coa (f)"
-  end
-  if value == "g" then
-    return "Trade Condition: Complex Auction Trade Cboe Order Types Include Caim Csam (g)"
-  end
-  if value == "h" then
-    return "Trade Condition: Complex Cross Cboe Auction Types Include Cust To Cust Caim Cqcc (h)"
-  end
-  if value == "i" then
-    return "Trade Condition: Complex Floor Trade Deprecated All Complex Floor Executions Are Reported As Condition M (i)"
-  end
-  if value == "j" then
-    return "Trade Condition: Complex Electronic Trade Against Single Legs (j)"
-  end
-  if value == "k" then
-    return "Trade Condition: Complex With Stock Options Auction Trade Cboe Auction Types Include Caim W Stock Csam W Stock (k)"
-  end
-  if value == "m" then
-    return "Trade Condition: Complex Floor Trade Against Single Legs All Complex Floor Executions Are Reported As Condition M (m)"
-  end
-  if value == "n" then
-    return "Trade Condition: Complex With Stock Electronic Trade Includes Coa Auctions Done Electronically (n)"
-  end
-  if value == "o" then
-    return "Trade Condition: Complex With Stock Cross Cboe Auction Types Include Cqcc W Stock (o)"
-  end
-  if value == "p" then
-    return "Trade Condition: Complex With Stock Floor Trade (p)"
-  end
-  if value == "t" then
-    return "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)"
-  end
-  if value == "u" then
-    return "Trade Condition: Multilateral Compression Trade Of Proprietary Products (u)"
-  end
-  if value == "v" then
-    return "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)"
-  end
-  if value == "I" then
-    return "Trade Condition: Electronic Trade (I)"
-  end
-  if value == "K" then
-    return "Trade Condition: Cabinet Order (K)"
-  end
-  if value == "O" then
-    return "Trade Condition: Opening Trade (O)"
-  end
-  if value == "S" then
-    return "Trade Condition: Iso (S)"
-  end
-  if value == "X" then
-    return "Trade Condition: Trade Break (X)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.trade_condition.labels = {
+  ["a"] = "Trade Condition: Single Leg Auction Non Iso Cboe Auction Types Include Aim Sam (a)",
+  ["b"] = "Trade Condition: Single Leg Auction Iso Cboe Auction Types Include Aim Iso Sam Iso (b)",
+  ["c"] = "Trade Condition: Single Leg Cross Non Iso Cboe Auction Types Include Cust To Cust Aim Qcc (c)",
+  ["d"] = "Trade Condition: Single Leg Cross Iso Cboe Order Type Is Cust To Cust Aim Iso (d)",
+  ["e"] = "Trade Condition: Single Leg Floor Trade (e)",
+  ["f"] = "Trade Condition: Complex To Complex Electronic Trade Cboe Auction Type Is Coa (f)",
+  ["g"] = "Trade Condition: Complex Auction Trade Cboe Order Types Include Caim Csam (g)",
+  ["h"] = "Trade Condition: Complex Cross Cboe Auction Types Include Cust To Cust Caim Cqcc (h)",
+  ["i"] = "Trade Condition: Complex Floor Trade Deprecated All Complex Floor Executions Are Reported As Condition M (i)",
+  ["j"] = "Trade Condition: Complex Electronic Trade Against Single Legs (j)",
+  ["k"] = "Trade Condition: Complex With Stock Options Auction Trade Cboe Auction Types Include Caim W Stock Csam W Stock (k)",
+  ["m"] = "Trade Condition: Complex Floor Trade Against Single Legs All Complex Floor Executions Are Reported As Condition M (m)",
+  ["n"] = "Trade Condition: Complex With Stock Electronic Trade Includes Coa Auctions Done Electronically (n)",
+  ["o"] = "Trade Condition: Complex With Stock Cross Cboe Auction Types Include Cqcc W Stock (o)",
+  ["p"] = "Trade Condition: Complex With Stock Floor Trade (p)",
+  ["t"] = "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)",
+  ["u"] = "Trade Condition: Multilateral Compression Trade Of Proprietary Products (u)",
+  ["v"] = "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)",
+  ["I"] = "Trade Condition: Electronic Trade (I)",
+  ["K"] = "Trade Condition: Cabinet Order (K)",
+  ["O"] = "Trade Condition: Opening Trade (O)",
+  ["S"] = "Trade Condition: Iso (S)",
+  ["X"] = "Trade Condition: Trade Break (X)",
+}
 
-  return "Trade Condition: Unknown("..value..")"
+cboe_c1options_multicasttop_spin_v1_2_54.trade_condition.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.trade_condition.labels[value] or "Trade Condition: Unknown("..value..")"
 end
 
 -- Dissect: Trade Condition
@@ -1439,24 +1339,16 @@ cboe_c1options_multicasttop_spin_v1_2_54.trading_status = {}
 cboe_c1options_multicasttop_spin_v1_2_54.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_c1options_multicasttop_spin_v1_2_54.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "L" then
-    return "Trading Status: Curb Trading (L)"
-  end
-  if value == "Q" then
-    return "Trading Status: Quote Only (Q)"
-  end
-  if value == "R" then
-    return "Trading Status: Opening Rotation (R)"
-  end
-  if value == "T" then
-    return "Trading Status: Rth Trading (T)"
-  end
+cboe_c1options_multicasttop_spin_v1_2_54.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["L"] = "Trading Status: Curb Trading (L)",
+  ["Q"] = "Trading Status: Quote Only (Q)",
+  ["R"] = "Trading Status: Opening Rotation (R)",
+  ["T"] = "Trading Status: Rth Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_c1options_multicasttop_spin_v1_2_54.trading_status.display = function(value)
+  return cboe_c1options_multicasttop_spin_v1_2_54.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2463,74 +2355,30 @@ end
 cboe_c1options_multicasttop_spin_v1_2_54.payload = {}
 
 -- Dissect: Payload
+cboe_c1options_multicasttop_spin_v1_2_54.payload.dispatch = {
+  [0x01] = cboe_c1options_multicasttop_spin_v1_2_54.login_message.dissect,
+  [0x02] = cboe_c1options_multicasttop_spin_v1_2_54.login_response_message.dissect,
+  [0x80] = cboe_c1options_multicasttop_spin_v1_2_54.spin_image_available_message.dissect,
+  [0x81] = cboe_c1options_multicasttop_spin_v1_2_54.spin_request_message.dissect,
+  [0x82] = cboe_c1options_multicasttop_spin_v1_2_54.spin_response_message.dissect,
+  [0x83] = cboe_c1options_multicasttop_spin_v1_2_54.spin_finished_message.dissect,
+  [0x84] = cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_request_message.dissect,
+  [0x85] = cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_response_message.dissect,
+  [0x86] = cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_finished_message.dissect,
+  [0x20] = cboe_c1options_multicasttop_spin_v1_2_54.time_message.dissect,
+  [0x2E] = cboe_c1options_multicasttop_spin_v1_2_54.symbol_mapping_message.dissect,
+  [0xD4] = cboe_c1options_multicasttop_spin_v1_2_54.single_side_update_expanded_short_message.dissect,
+  [0xD5] = cboe_c1options_multicasttop_spin_v1_2_54.single_side_update_expanded_long_message.dissect,
+  [0xD6] = cboe_c1options_multicasttop_spin_v1_2_54.two_side_update_expanded_short_message.dissect,
+  [0xD7] = cboe_c1options_multicasttop_spin_v1_2_54.two_side_update_expanded_long_message.dissect,
+  [0xB8] = cboe_c1options_multicasttop_spin_v1_2_54.top_trade_message.dissect,
+  [0x31] = cboe_c1options_multicasttop_spin_v1_2_54.trading_status_message.dissect,
+}
+
 cboe_c1options_multicasttop_spin_v1_2_54.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Message
-  if message_type == 0x01 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Image Available Message
-  if message_type == 0x80 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.spin_image_available_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 0x81 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 0x82 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Finished Message
-  if message_type == 0x83 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.spin_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Request Message
-  if message_type == 0x84 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Response Message
-  if message_type == 0x85 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Finished Message
-  if message_type == 0x86 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.instrument_definition_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_c1options_multicasttop_spin_v1_2_54.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Expanded Short Message
-  if message_type == 0xD4 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.single_side_update_expanded_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Expanded Long Message
-  if message_type == 0xD5 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.single_side_update_expanded_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Two Side Update Expanded Short Message
-  if message_type == 0xD6 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.two_side_update_expanded_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Two Side Update Expanded Long Message
-  if message_type == 0xD7 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.two_side_update_expanded_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Trade Message
-  if message_type == 0xB8 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.top_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x31 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.trading_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c1options_multicasttop_spin_v1_2_54.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2663,10 +2511,14 @@ end
 cboe_c1options_multicasttop_spin_v1_2_54.messages = {}
 
 -- Dissect: Messages
+cboe_c1options_multicasttop_spin_v1_2_54.messages.dispatch = {
+  [0] = cboe_c1options_multicasttop_spin_v1_2_54.heartbeat.dissect,
+}
+
 cboe_c1options_multicasttop_spin_v1_2_54.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_c1options_multicasttop_spin_v1_2_54.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c1options_multicasttop_spin_v1_2_54.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

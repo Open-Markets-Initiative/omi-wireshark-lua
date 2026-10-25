@@ -683,18 +683,14 @@ cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin.size = 1
 
 -- Display: Buy Lei Order Origin
-cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin.display = function(value)
-  if value == 5 then
-    return "Buy Lei Order Origin: Direct Access Client (5)"
-  end
-  if value == 6 then
-    return "Buy Lei Order Origin: Foreign Dealer Equivalent (6)"
-  end
-  if value == 7 then
-    return "Buy Lei Order Origin: Order Execution Only Service (7)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin.labels = {
+  [5] = "Buy Lei Order Origin: Direct Access Client (5)",
+  [6] = "Buy Lei Order Origin: Foreign Dealer Equivalent (6)",
+  [7] = "Buy Lei Order Origin: Order Execution Only Service (7)",
+}
 
-  return "Buy Lei Order Origin: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin.labels[value] or "Buy Lei Order Origin: Unknown("..value..")"
 end
 
 -- Dissect: Buy Lei Order Origin
@@ -1605,54 +1601,26 @@ cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message_type = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message_type.size = 2
 
 -- Display: Exchange Message Type
-cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message_type.display = function(value)
-  if value == 501 then
-    return "Message Type: Login Response Message (501)"
-  end
-  if value == 502 then
-    return "Message Type: Replay Complete Message (502)"
-  end
-  if value == 503 then
-    return "Message Type: Logout Response Message (503)"
-  end
-  if value == 504 then
-    return "Message Type: Server Heartbeat Message (504)"
-  end
-  if value == 6501 then
-    return "Message Type: Order Acknowledgement Ca Equities V 1 (6501)"
-  end
-  if value == 6502 then
-    return "Message Type: Order Rejected Ca Equities V 1 (6502)"
-  end
-  if value == 6503 then
-    return "Message Type: Order Modified Ca Equities V 1 (6503)"
-  end
-  if value == 6504 then
-    return "Message Type: Modify Rejected Ca Equities V 1 (6504)"
-  end
-  if value == 6505 then
-    return "Message Type: Order Restated Ca Equities V 1 (6505)"
-  end
-  if value == 6506 then
-    return "Message Type: Order Execution Ca Equities V 1 (6506)"
-  end
-  if value == 6507 then
-    return "Message Type: Order Cancelled Ca Equities V 1 (6507)"
-  end
-  if value == 6508 then
-    return "Message Type: Cancel Rejected Ca Equities V 1 (6508)"
-  end
-  if value == 6510 then
-    return "Message Type: Carried Restatement Ca Equities V 1 (6510)"
-  end
-  if value == 6511 then
-    return "Message Type: Done For Day Ca Equities V 1 (6511)"
-  end
-  if value == 6512 then
-    return "Message Type: Trade Cancel Correct Ca Equities V 1 (6512)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message_type.labels = {
+  [501] = "Message Type: Login Response Message (501)",
+  [502] = "Message Type: Replay Complete Message (502)",
+  [503] = "Message Type: Logout Response Message (503)",
+  [504] = "Message Type: Server Heartbeat Message (504)",
+  [6501] = "Message Type: Order Acknowledgement Ca Equities V 1 (6501)",
+  [6502] = "Message Type: Order Rejected Ca Equities V 1 (6502)",
+  [6503] = "Message Type: Order Modified Ca Equities V 1 (6503)",
+  [6504] = "Message Type: Modify Rejected Ca Equities V 1 (6504)",
+  [6505] = "Message Type: Order Restated Ca Equities V 1 (6505)",
+  [6506] = "Message Type: Order Execution Ca Equities V 1 (6506)",
+  [6507] = "Message Type: Order Cancelled Ca Equities V 1 (6507)",
+  [6508] = "Message Type: Cancel Rejected Ca Equities V 1 (6508)",
+  [6510] = "Message Type: Carried Restatement Ca Equities V 1 (6510)",
+  [6511] = "Message Type: Done For Day Ca Equities V 1 (6511)",
+  [6512] = "Message Type: Trade Cancel Correct Ca Equities V 1 (6512)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message_type.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Message Type
@@ -1858,36 +1826,20 @@ cboe_neoequities_orderentry_boe3_v1_0_19.firm_message_type = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.firm_message_type.size = 2
 
 -- Display: Firm Message Type
-cboe_neoequities_orderentry_boe3_v1_0_19.firm_message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Logout Request Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Client Heartbeat Message (3)"
-  end
-  if value == 6001 then
-    return "Message Type: New Order Ca Equities V 1 (6001)"
-  end
-  if value == 6006 then
-    return "Message Type: New Order Ca Equities V 2 (6006)"
-  end
-  if value == 6002 then
-    return "Message Type: Modify Order Ca Equities V 1 (6002)"
-  end
-  if value == 6003 then
-    return "Message Type: Cancel Order Ca Equities V 1 (6003)"
-  end
-  if value == 6004 then
-    return "Message Type: New Order Cross Ca Equities V 1 (6004)"
-  end
-  if value == 6005 then
-    return "Message Type: New Order Cross Ca Equities V 2 (6005)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.firm_message_type.labels = {
+  [1] = "Message Type: Login Request Message (1)",
+  [2] = "Message Type: Logout Request Message (2)",
+  [3] = "Message Type: Client Heartbeat Message (3)",
+  [6001] = "Message Type: New Order Ca Equities V 1 (6001)",
+  [6006] = "Message Type: New Order Ca Equities V 2 (6006)",
+  [6002] = "Message Type: Modify Order Ca Equities V 1 (6002)",
+  [6003] = "Message Type: Cancel Order Ca Equities V 1 (6003)",
+  [6004] = "Message Type: New Order Cross Ca Equities V 1 (6004)",
+  [6005] = "Message Type: New Order Cross Ca Equities V 2 (6005)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.firm_message_type.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.firm_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Firm Message Type
@@ -2197,18 +2149,14 @@ cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin.size = 1
 
 -- Display: Lei Order Origin
-cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin.display = function(value)
-  if value == 5 then
-    return "Lei Order Origin: Direct Access Client (5)"
-  end
-  if value == 6 then
-    return "Lei Order Origin: Foreign Dealer Equivalent (6)"
-  end
-  if value == 7 then
-    return "Lei Order Origin: Order Execution Only Service (7)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin.labels = {
+  [5] = "Lei Order Origin: Direct Access Client (5)",
+  [6] = "Lei Order Origin: Foreign Dealer Equivalent (6)",
+  [7] = "Lei Order Origin: Order Execution Only Service (7)",
+}
 
-  return "Lei Order Origin: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin.labels[value] or "Lei Order Origin: Unknown("..value..")"
 end
 
 -- Dissect: Lei Order Origin
@@ -2273,33 +2221,19 @@ cboe_neoequities_orderentry_boe3_v1_0_19.login_response_status = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_neoequities_orderentry_boe3_v1_0_19.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Accepted (A)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "D" then
-    return "Login Response Status: Disabled (D)"
-  end
-  if value == "I" then
-    return "Login Response Status: Invalid Unit (I)"
-  end
-  if value == "M" then
-    return "Login Response Status: Invalid Message (M)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized (N)"
-  end
-  if value == "Q" then
-    return "Login Response Status: Sequence Ahead (Q)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.login_response_status.labels = {
+  ["A"] = "Login Response Status: Accepted (A)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["D"] = "Login Response Status: Disabled (D)",
+  ["I"] = "Login Response Status: Invalid Unit (I)",
+  ["M"] = "Login Response Status: Invalid Message (M)",
+  ["N"] = "Login Response Status: Not Authorized (N)",
+  ["Q"] = "Login Response Status: Sequence Ahead (Q)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.login_response_status.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -2360,18 +2294,14 @@ cboe_neoequities_orderentry_boe3_v1_0_19.logout_reason = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.logout_reason.size = 1
 
 -- Display: Logout Reason
-cboe_neoequities_orderentry_boe3_v1_0_19.logout_reason.display = function(value)
-  if value == "U" then
-    return "Logout Reason: User Requested (U)"
-  end
-  if value == "A" then
-    return "Logout Reason: Administrative (A)"
-  end
-  if value == "!" then
-    return "Logout Reason: Protocol Violation (!)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.logout_reason.labels = {
+  ["U"] = "Logout Reason: User Requested (U)",
+  ["A"] = "Logout Reason: Administrative (A)",
+  ["!"] = "Logout Reason: Protocol Violation (!)",
+}
 
-  return "Logout Reason: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.logout_reason.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.logout_reason.labels[value] or "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -2432,18 +2362,14 @@ cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority.size = 1
 
 -- Display: Matching Priority
-cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority.display = function(value)
-  if value == 0 then
-    return "Matching Priority: None (0)"
-  end
-  if value == 1 then
-    return "Matching Priority: Broker Preferencing (1)"
-  end
-  if value == 100 then
-    return "Matching Priority: Market Maker Preferential Trading (100)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority.labels = {
+  [0] = "Matching Priority: None (0)",
+  [1] = "Matching Priority: Broker Preferencing (1)",
+  [100] = "Matching Priority: Market Maker Preferential Trading (100)",
+}
 
-  return "Matching Priority: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority.labels[value] or "Matching Priority: Unknown("..value..")"
 end
 
 -- Dissect: Matching Priority
@@ -3276,18 +3202,14 @@ cboe_neoequities_orderentry_boe3_v1_0_19.replay_unspecified_unit = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.replay_unspecified_unit.size = 1
 
 -- Display: Replay Unspecified Unit
-cboe_neoequities_orderentry_boe3_v1_0_19.replay_unspecified_unit.display = function(value)
-  if value == "F" then
-    return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
-  end
-  if value == "R" then
-    return "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)"
-  end
-  if value == "S" then
-    return "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.replay_unspecified_unit.labels = {
+  ["F"] = "Replay Unspecified Unit: Fail If Unit Not Specified (F)",
+  ["R"] = "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)",
+  ["S"] = "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)",
+}
 
-  return "Replay Unspecified Unit: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.replay_unspecified_unit.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.replay_unspecified_unit.labels[value] or "Replay Unspecified Unit: Unknown("..value..")"
 end
 
 -- Dissect: Replay Unspecified Unit
@@ -3688,18 +3610,14 @@ cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin.size = 1
 
 -- Display: Sell Lei Order Origin
-cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin.display = function(value)
-  if value == 5 then
-    return "Sell Lei Order Origin: Direct Access Client (5)"
-  end
-  if value == 6 then
-    return "Sell Lei Order Origin: Foreign Dealer Equivalent (6)"
-  end
-  if value == 7 then
-    return "Sell Lei Order Origin: Order Execution Only Service (7)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin.labels = {
+  [5] = "Sell Lei Order Origin: Direct Access Client (5)",
+  [6] = "Sell Lei Order Origin: Foreign Dealer Equivalent (6)",
+  [7] = "Sell Lei Order Origin: Order Execution Only Service (7)",
+}
 
-  return "Sell Lei Order Origin: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin.labels[value] or "Sell Lei Order Origin: Unknown("..value..")"
 end
 
 -- Dissect: Sell Lei Order Origin
@@ -3969,18 +3887,14 @@ cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type = {}
 cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type.size = 1
 
 -- Display: Settlement Type
-cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type.display = function(value)
-  if value == 1 then
-    return "Settlement Type: Cash (1)"
-  end
-  if value == 6 then
-    return "Settlement Type: Future (6)"
-  end
-  if value == 11 then
-    return "Settlement Type: Non Net (11)"
-  end
+cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type.labels = {
+  [1] = "Settlement Type: Cash (1)",
+  [6] = "Settlement Type: Future (6)",
+  [11] = "Settlement Type: Non Net (11)",
+}
 
-  return "Settlement Type: Unknown("..value..")"
+cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type.display = function(value)
+  return cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type.labels[value] or "Settlement Type: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Type
@@ -5885,66 +5799,28 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message = {}
 
 -- Dissect: Exchange Message
+cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message.dispatch = {
+  [501] = cboe_neoequities_orderentry_boe3_v1_0_19.login_response_message.dissect,
+  [502] = cboe_neoequities_orderentry_boe3_v1_0_19.replay_complete.dissect,
+  [503] = cboe_neoequities_orderentry_boe3_v1_0_19.logout_response_message.dissect,
+  [504] = cboe_neoequities_orderentry_boe3_v1_0_19.server_heartbeat.dissect,
+  [6501] = cboe_neoequities_orderentry_boe3_v1_0_19.order_acknowledgement_ca_equities_v_1.dissect,
+  [6502] = cboe_neoequities_orderentry_boe3_v1_0_19.order_rejected_ca_equities_v_1.dissect,
+  [6503] = cboe_neoequities_orderentry_boe3_v1_0_19.order_modified_ca_equities_v_1.dissect,
+  [6504] = cboe_neoequities_orderentry_boe3_v1_0_19.modify_rejected_ca_equities_v_1.dissect,
+  [6505] = cboe_neoequities_orderentry_boe3_v1_0_19.order_restated_ca_equities_v_1.dissect,
+  [6506] = cboe_neoequities_orderentry_boe3_v1_0_19.order_execution_ca_equities_v_1.dissect,
+  [6507] = cboe_neoequities_orderentry_boe3_v1_0_19.order_cancelled_ca_equities_v_1.dissect,
+  [6508] = cboe_neoequities_orderentry_boe3_v1_0_19.cancel_rejected_ca_equities_v_1.dissect,
+  [6510] = cboe_neoequities_orderentry_boe3_v1_0_19.carried_restatement_ca_equities_v_1.dissect,
+  [6511] = cboe_neoequities_orderentry_boe3_v1_0_19.done_for_day_ca_equities_v_1.dissect,
+  [6512] = cboe_neoequities_orderentry_boe3_v1_0_19.trade_cancel_correct_ca_equities_v_1.dissect,
+}
+
 cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
-  -- Dissect Login Response Message
-  if exchange_message_type == 501 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete
-  if exchange_message_type == 502 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.replay_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if exchange_message_type == 503 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if exchange_message_type == 504 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement Ca Equities V 1
-  if exchange_message_type == 6501 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.order_acknowledgement_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Ca Equities V 1
-  if exchange_message_type == 6502 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.order_rejected_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Ca Equities V 1
-  if exchange_message_type == 6503 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.order_modified_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Rejected Ca Equities V 1
-  if exchange_message_type == 6504 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.modify_rejected_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Ca Equities V 1
-  if exchange_message_type == 6505 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.order_restated_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Ca Equities V 1
-  if exchange_message_type == 6506 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.order_execution_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Ca Equities V 1
-  if exchange_message_type == 6507 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.order_cancelled_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Ca Equities V 1
-  if exchange_message_type == 6508 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.cancel_rejected_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Carried Restatement Ca Equities V 1
-  if exchange_message_type == 6510 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.carried_restatement_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Done For Day Ca Equities V 1
-  if exchange_message_type == 6511 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.done_for_day_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Correct Ca Equities V 1
-  if exchange_message_type == 6512 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.trade_cancel_correct_ca_equities_v_1.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message.dispatch[exchange_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7078,42 +6954,22 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.firm_message = {}
 
 -- Dissect: Firm Message
+cboe_neoequities_orderentry_boe3_v1_0_19.firm_message.dispatch = {
+  [1] = cboe_neoequities_orderentry_boe3_v1_0_19.login_request_message.dissect,
+  [2] = cboe_neoequities_orderentry_boe3_v1_0_19.logout_request.dissect,
+  [3] = cboe_neoequities_orderentry_boe3_v1_0_19.client_heartbeat.dissect,
+  [6001] = cboe_neoequities_orderentry_boe3_v1_0_19.new_order_ca_equities_v_1.dissect,
+  [6006] = cboe_neoequities_orderentry_boe3_v1_0_19.new_order_ca_equities_v_2.dissect,
+  [6002] = cboe_neoequities_orderentry_boe3_v1_0_19.modify_order_ca_equities_v_1.dissect,
+  [6003] = cboe_neoequities_orderentry_boe3_v1_0_19.cancel_order_ca_equities_v_1.dissect,
+  [6004] = cboe_neoequities_orderentry_boe3_v1_0_19.new_order_cross_ca_equities_v_1.dissect,
+  [6005] = cboe_neoequities_orderentry_boe3_v1_0_19.new_order_cross_ca_equities_v_2.dissect,
+}
+
 cboe_neoequities_orderentry_boe3_v1_0_19.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
-  -- Dissect Login Request Message
-  if firm_message_type == 1 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if firm_message_type == 2 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if firm_message_type == 3 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Ca Equities V 1
-  if firm_message_type == 6001 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.new_order_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Ca Equities V 2
-  if firm_message_type == 6006 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.new_order_ca_equities_v_2.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Ca Equities V 1
-  if firm_message_type == 6002 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.modify_order_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Ca Equities V 1
-  if firm_message_type == 6003 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.cancel_order_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Cross Ca Equities V 1
-  if firm_message_type == 6004 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.new_order_cross_ca_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Cross Ca Equities V 2
-  if firm_message_type == 6005 then
-    return cboe_neoequities_orderentry_boe3_v1_0_19.new_order_cross_ca_equities_v_2.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_neoequities_orderentry_boe3_v1_0_19.firm_message.dispatch[firm_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

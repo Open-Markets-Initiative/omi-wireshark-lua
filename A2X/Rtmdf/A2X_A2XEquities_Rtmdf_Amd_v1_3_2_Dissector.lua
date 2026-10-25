@@ -377,42 +377,22 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.msg_type = {}
 a2x_a2xequities_rtmdf_amd_v1_3_2.msg_type.size = 1
 
 -- Display: Msg Type
-a2x_a2xequities_rtmdf_amd_v1_3_2.msg_type.display = function(value)
-  if value == 1 then
-    return "Msg Type: Heartbeat Message (1)"
-  end
-  if value == 2 then
-    return "Msg Type: Order Add Message (2)"
-  end
-  if value == 3 then
-    return "Msg Type: Order Cancel Message (3)"
-  end
-  if value == 4 then
-    return "Msg Type: Order Modify Message (4)"
-  end
-  if value == 5 then
-    return "Msg Type: Trade Message (5)"
-  end
-  if value == 6 then
-    return "Msg Type: Trade Bust Message (6)"
-  end
-  if value == 7 then
-    return "Msg Type: Tick Table Data Message (7)"
-  end
-  if value == 8 then
-    return "Msg Type: Security Definition Message (8)"
-  end
-  if value == 9 then
-    return "Msg Type: Security Status Message (9)"
-  end
-  if value == 17 then
-    return "Msg Type: Auction On Demand Message (17)"
-  end
-  if value == 16 then
-    return "Msg Type: Market At Close (16)"
-  end
+a2x_a2xequities_rtmdf_amd_v1_3_2.msg_type.labels = {
+  [1] = "Msg Type: Heartbeat Message (1)",
+  [2] = "Msg Type: Order Add Message (2)",
+  [3] = "Msg Type: Order Cancel Message (3)",
+  [4] = "Msg Type: Order Modify Message (4)",
+  [5] = "Msg Type: Trade Message (5)",
+  [6] = "Msg Type: Trade Bust Message (6)",
+  [7] = "Msg Type: Tick Table Data Message (7)",
+  [8] = "Msg Type: Security Definition Message (8)",
+  [9] = "Msg Type: Security Status Message (9)",
+  [17] = "Msg Type: Auction On Demand Message (17)",
+  [16] = "Msg Type: Market At Close (16)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+a2x_a2xequities_rtmdf_amd_v1_3_2.msg_type.display = function(value)
+  return a2x_a2xequities_rtmdf_amd_v1_3_2.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -588,15 +568,13 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.side = {}
 a2x_a2xequities_rtmdf_amd_v1_3_2.side.size = 1
 
 -- Display: Side
-a2x_a2xequities_rtmdf_amd_v1_3_2.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy Order (1)"
-  end
-  if value == 2 then
-    return "Side: Sell Order (2)"
-  end
+a2x_a2xequities_rtmdf_amd_v1_3_2.side.labels = {
+  [1] = "Side: Buy Order (1)",
+  [2] = "Side: Sell Order (2)",
+}
 
-  return "Side: Unknown("..value..")"
+a2x_a2xequities_rtmdf_amd_v1_3_2.side.display = function(value)
+  return a2x_a2xequities_rtmdf_amd_v1_3_2.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -733,27 +711,17 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type = {}
 a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.size = 1
 
 -- Display: Trade Type
-a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.display = function(value)
-  if value == 1 then
-    return "Trade Type: Visible (1)"
-  end
-  if value == 2 then
-    return "Trade Type: Hidden Or Reserve (2)"
-  end
-  if value == 3 then
-    return "Trade Type: Market At Close (3)"
-  end
-  if value == 4 then
-    return "Trade Type: Large In Scale Cross (4)"
-  end
-  if value == 5 then
-    return "Trade Type: Benchmark Cross (5)"
-  end
-  if value == 6 then
-    return "Trade Type: Auction On Demand (6)"
-  end
+a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.labels = {
+  [1] = "Trade Type: Visible (1)",
+  [2] = "Trade Type: Hidden Or Reserve (2)",
+  [3] = "Trade Type: Market At Close (3)",
+  [4] = "Trade Type: Large In Scale Cross (4)",
+  [5] = "Trade Type: Benchmark Cross (5)",
+  [6] = "Trade Type: Auction On Demand (6)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.display = function(value)
+  return a2x_a2xequities_rtmdf_amd_v1_3_2.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -775,24 +743,16 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.trading_status = {}
 a2x_a2xequities_rtmdf_amd_v1_3_2.trading_status.size = 1
 
 -- Display: Trading Status
-a2x_a2xequities_rtmdf_amd_v1_3_2.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Active (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Halted (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Suspended (3)"
-  end
-  if value == 8 then
-    return "Trading Status: Aod Start (8)"
-  end
-  if value == 24 then
-    return "Trading Status: Aod End (24)"
-  end
+a2x_a2xequities_rtmdf_amd_v1_3_2.trading_status.labels = {
+  [1] = "Trading Status: Active (1)",
+  [2] = "Trading Status: Halted (2)",
+  [3] = "Trading Status: Suspended (3)",
+  [8] = "Trading Status: Aod Start (8)",
+  [24] = "Trading Status: Aod End (24)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+a2x_a2xequities_rtmdf_amd_v1_3_2.trading_status.display = function(value)
+  return a2x_a2xequities_rtmdf_amd_v1_3_2.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1552,50 +1512,24 @@ end
 a2x_a2xequities_rtmdf_amd_v1_3_2.payload = {}
 
 -- Dissect: Payload
+a2x_a2xequities_rtmdf_amd_v1_3_2.payload.dispatch = {
+  [1] = a2x_a2xequities_rtmdf_amd_v1_3_2.heartbeat_message.dissect,
+  [2] = a2x_a2xequities_rtmdf_amd_v1_3_2.order_add_message.dissect,
+  [3] = a2x_a2xequities_rtmdf_amd_v1_3_2.order_cancel_message.dissect,
+  [4] = a2x_a2xequities_rtmdf_amd_v1_3_2.order_modify_message.dissect,
+  [5] = a2x_a2xequities_rtmdf_amd_v1_3_2.trade_message.dissect,
+  [6] = a2x_a2xequities_rtmdf_amd_v1_3_2.trade_bust_message.dissect,
+  [7] = a2x_a2xequities_rtmdf_amd_v1_3_2.tick_table_data_message.dissect,
+  [8] = a2x_a2xequities_rtmdf_amd_v1_3_2.security_definition_message.dissect,
+  [9] = a2x_a2xequities_rtmdf_amd_v1_3_2.security_status_message.dissect,
+  [17] = a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.dissect,
+  [16] = a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.dissect,
+}
+
 a2x_a2xequities_rtmdf_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Heartbeat Message
-  if msg_type == 1 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Message
-  if msg_type == 2 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.order_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if msg_type == 3 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Message
-  if msg_type == 4 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.order_modify_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if msg_type == 5 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Message
-  if msg_type == 6 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.trade_bust_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Table Data Message
-  if msg_type == 7 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.tick_table_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Message
-  if msg_type == 8 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.security_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if msg_type == 9 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction On Demand Message
-  if msg_type == 17 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.auction_on_demand_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market At Close
-  if msg_type == 16 then
-    return a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.dissect(buffer, offset, packet, parent)
+  local dissect = a2x_a2xequities_rtmdf_amd_v1_3_2.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

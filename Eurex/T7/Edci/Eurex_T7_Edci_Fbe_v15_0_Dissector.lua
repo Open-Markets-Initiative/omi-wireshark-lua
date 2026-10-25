@@ -1039,12 +1039,12 @@ eurex_t7_edci_fbe_v15_0.default_cstm_appl_ver_sub_id = {}
 eurex_t7_edci_fbe_v15_0.default_cstm_appl_ver_sub_id.size = 5
 
 -- Display: Default Cstm Appl Ver Sub Id
-eurex_t7_edci_fbe_v15_0.default_cstm_appl_ver_sub_id.display = function(value)
-  if value == "D0002" then
-    return "Default Cstm Appl Ver Sub Id: Derivatives (D0002)"
-  end
+eurex_t7_edci_fbe_v15_0.default_cstm_appl_ver_sub_id.labels = {
+  ["D0002"] = "Default Cstm Appl Ver Sub Id: Derivatives (D0002)",
+}
 
-  return "Default Cstm Appl Ver Sub Id: Unknown("..value..")"
+eurex_t7_edci_fbe_v15_0.default_cstm_appl_ver_sub_id.display = function(value)
+  return eurex_t7_edci_fbe_v15_0.default_cstm_appl_ver_sub_id.labels[value] or "Default Cstm Appl Ver Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Default Cstm Appl Ver Sub Id
@@ -7022,102 +7022,37 @@ end
 eurex_t7_edci_fbe_v15_0.server_payload = {}
 
 -- Dissect: Server Payload
+eurex_t7_edci_fbe_v15_0.server_payload.dispatch = {
+  [10907] = eurex_t7_edci_fbe_v15_0.cross_request_notification.dissect,
+  [10902] = eurex_t7_edci_fbe_v15_0.delete_order_broadcast.dissect,
+  [10906] = eurex_t7_edci_fbe_v15_0.enter_clip_request_notification.dissect,
+  [10012] = eurex_t7_edci_fbe_v15_0.forced_logout_notification.dissect,
+  [10023] = eurex_t7_edci_fbe_v15_0.heartbeat_notification.dissect,
+  [10035] = eurex_t7_edci_fbe_v15_0.legal_notification_broadcast.dissect,
+  [10001] = eurex_t7_edci_fbe_v15_0.logon_response.dissect,
+  [10003] = eurex_t7_edci_fbe_v15_0.logout_response.dissect,
+  [10901] = eurex_t7_edci_fbe_v15_0.order_exec_report_broadcast.dissect,
+  [10014] = eurex_t7_edci_fbe_v15_0.order_reject_notification.dissect,
+  [10037] = eurex_t7_edci_fbe_v15_0.partition_list_notification.dissect,
+  [10038] = eurex_t7_edci_fbe_v15_0.party_action_report.dissect,
+  [10034] = eurex_t7_edci_fbe_v15_0.party_entitlements_update_report.dissect,
+  [10010] = eurex_t7_edci_fbe_v15_0.reject.dissect,
+  [10009] = eurex_t7_edci_fbe_v15_0.retransmit_response.dissect,
+  [10905] = eurex_t7_edci_fbe_v15_0.rfq_notification.dissect,
+  [10033] = eurex_t7_edci_fbe_v15_0.risk_notification_broadcast.dissect,
+  [10044] = eurex_t7_edci_fbe_v15_0.service_availability_market_broadcast.dissect,
+  [10036] = eurex_t7_edci_fbe_v15_0.session_list_notification.dissect,
+  [10903] = eurex_t7_edci_fbe_v15_0.session_status_broadcast.dissect,
+  [10045] = eurex_t7_edci_fbe_v15_0.status_broadcast.dissect,
+  [10909] = eurex_t7_edci_fbe_v15_0.trading_action_response.dissect,
+  [10019] = eurex_t7_edci_fbe_v15_0.user_login_response.dissect,
+  [10024] = eurex_t7_edci_fbe_v15_0.user_logout_response.dissect,
+}
+
 eurex_t7_edci_fbe_v15_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Cross Request Notification
-  if template_id == 10907 then
-    return eurex_t7_edci_fbe_v15_0.cross_request_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Broadcast
-  if template_id == 10902 then
-    return eurex_t7_edci_fbe_v15_0.delete_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enter Clip Request Notification
-  if template_id == 10906 then
-    return eurex_t7_edci_fbe_v15_0.enter_clip_request_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forced Logout Notification
-  if template_id == 10012 then
-    return eurex_t7_edci_fbe_v15_0.forced_logout_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Notification
-  if template_id == 10023 then
-    return eurex_t7_edci_fbe_v15_0.heartbeat_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Legal Notification Broadcast
-  if template_id == 10035 then
-    return eurex_t7_edci_fbe_v15_0.legal_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response
-  if template_id == 10001 then
-    return eurex_t7_edci_fbe_v15_0.logon_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response
-  if template_id == 10003 then
-    return eurex_t7_edci_fbe_v15_0.logout_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Report Broadcast
-  if template_id == 10901 then
-    return eurex_t7_edci_fbe_v15_0.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Reject Notification
-  if template_id == 10014 then
-    return eurex_t7_edci_fbe_v15_0.order_reject_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Partition List Notification
-  if template_id == 10037 then
-    return eurex_t7_edci_fbe_v15_0.partition_list_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Action Report
-  if template_id == 10038 then
-    return eurex_t7_edci_fbe_v15_0.party_action_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Entitlements Update Report
-  if template_id == 10034 then
-    return eurex_t7_edci_fbe_v15_0.party_entitlements_update_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject
-  if template_id == 10010 then
-    return eurex_t7_edci_fbe_v15_0.reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Response
-  if template_id == 10009 then
-    return eurex_t7_edci_fbe_v15_0.retransmit_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Notification
-  if template_id == 10905 then
-    return eurex_t7_edci_fbe_v15_0.rfq_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Notification Broadcast
-  if template_id == 10033 then
-    return eurex_t7_edci_fbe_v15_0.risk_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Service Availability Market Broadcast
-  if template_id == 10044 then
-    return eurex_t7_edci_fbe_v15_0.service_availability_market_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session List Notification
-  if template_id == 10036 then
-    return eurex_t7_edci_fbe_v15_0.session_list_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Status Broadcast
-  if template_id == 10903 then
-    return eurex_t7_edci_fbe_v15_0.session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Status Broadcast
-  if template_id == 10045 then
-    return eurex_t7_edci_fbe_v15_0.status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Response
-  if template_id == 10909 then
-    return eurex_t7_edci_fbe_v15_0.trading_action_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Response
-  if template_id == 10019 then
-    return eurex_t7_edci_fbe_v15_0.user_login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Response
-  if template_id == 10024 then
-    return eurex_t7_edci_fbe_v15_0.user_logout_response.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_edci_fbe_v15_0.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7756,34 +7691,20 @@ end
 eurex_t7_edci_fbe_v15_0.client_payload = {}
 
 -- Dissect: Client Payload
+eurex_t7_edci_fbe_v15_0.client_payload.dispatch = {
+  [10011] = eurex_t7_edci_fbe_v15_0.heartbeat.dissect,
+  [10000] = eurex_t7_edci_fbe_v15_0.logon_request.dissect,
+  [10002] = eurex_t7_edci_fbe_v15_0.logout_request.dissect,
+  [10008] = eurex_t7_edci_fbe_v15_0.retransmit_request.dissect,
+  [10908] = eurex_t7_edci_fbe_v15_0.trading_action_request.dissect,
+  [10018] = eurex_t7_edci_fbe_v15_0.user_login_request.dissect,
+  [10029] = eurex_t7_edci_fbe_v15_0.user_logout_request.dissect,
+}
+
 eurex_t7_edci_fbe_v15_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Heartbeat
-  if template_id == 10011 then
-    return eurex_t7_edci_fbe_v15_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Request
-  if template_id == 10000 then
-    return eurex_t7_edci_fbe_v15_0.logon_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if template_id == 10002 then
-    return eurex_t7_edci_fbe_v15_0.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Request
-  if template_id == 10008 then
-    return eurex_t7_edci_fbe_v15_0.retransmit_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Request
-  if template_id == 10908 then
-    return eurex_t7_edci_fbe_v15_0.trading_action_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Request
-  if template_id == 10018 then
-    return eurex_t7_edci_fbe_v15_0.user_login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Request
-  if template_id == 10029 then
-    return eurex_t7_edci_fbe_v15_0.user_logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_edci_fbe_v15_0.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -1522,12 +1522,12 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_identification_code_
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_identification_code_type.size = 4
 
 -- Display: Instrument Identification Code Type
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_identification_code_type.display = function(value)
-  if value == "ISIN" then
-    return "Instrument Identification Code Type: International Securities Identification Number (ISIN)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_identification_code_type.labels = {
+  ["ISIN"] = "Instrument Identification Code Type: International Securities Identification Number (ISIN)",
+}
 
-  return "Instrument Identification Code Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_identification_code_type.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_identification_code_type.labels[value] or "Instrument Identification Code Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Identification Code Type
@@ -1933,39 +1933,21 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.message_type = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.message_type.size = 1
 
 -- Display: Message Type
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Request Message (0x01)"
-  end
-  if value == 0x81 then
-    return "Message Type: Recovery Request Message (0x81)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x82 then
-    return "Message Type: Recovery Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Replay And Recovery Complete Message (0x83)"
-  end
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x70 then
-    return "Message Type: Instrument Directory Message (0x70)"
-  end
-  if value == 0x48 then
-    return "Message Type: Instrument Status Message (0x48)"
-  end
-  if value == 0x6b then
-    return "Message Type: Statistics Snapshot Message (0x6b)"
-  end
-  if value == 0x54 then
-    return "Message Type: Mifid Ii Trade Report Message (0x54)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.message_type.labels = {
+  [0x01] = "Message Type: Login Request Message (0x01)",
+  [0x81] = "Message Type: Recovery Request Message (0x81)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x82] = "Message Type: Recovery Response Message (0x82)",
+  [0x83] = "Message Type: Replay And Recovery Complete Message (0x83)",
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x70] = "Message Type: Instrument Directory Message (0x70)",
+  [0x48] = "Message Type: Instrument Status Message (0x48)",
+  [0x6b] = "Message Type: Statistics Snapshot Message (0x6b)",
+  [0x54] = "Message Type: Mifid Ii Trade Report Message (0x54)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.message_type.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -2634,15 +2616,13 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.order_book_type = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.order_book_type.size = 1
 
 -- Display: Order Book Type
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.order_book_type.display = function(value)
-  if value == 1 then
-    return "Order Book Type: Si Quote Book (1)"
-  end
-  if value == 2 then
-    return "Order Book Type: Off Book (2)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.order_book_type.labels = {
+  [1] = "Order Book Type: Si Quote Book (1)",
+  [2] = "Order Book Type: Off Book (2)",
+}
 
-  return "Order Book Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.order_book_type.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -2877,21 +2857,15 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.price_notation = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.price_notation.size = 4
 
 -- Display: Price Notation
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.price_notation.display = function(value)
-  if value == "MONE" then
-    return "Price Notation: Monetary Value (MONE)"
-  end
-  if value == "PERC" then
-    return "Price Notation: Percentage (PERC)"
-  end
-  if value == "YIEL" then
-    return "Price Notation: Yield (YIEL)"
-  end
-  if value == "BAPO" then
-    return "Price Notation: Basis Point (BAPO)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.price_notation.labels = {
+  ["MONE"] = "Price Notation: Monetary Value (MONE)",
+  ["PERC"] = "Price Notation: Percentage (PERC)",
+  ["YIEL"] = "Price Notation: Yield (YIEL)",
+  ["BAPO"] = "Price Notation: Basis Point (BAPO)",
+}
 
-  return "Price Notation: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.price_notation.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -3093,30 +3067,18 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_type = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_type.size = 1
 
 -- Display: Recovery Type
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_type.display = function(value)
-  if value == 0 then
-    return "Recovery Type: Instrument Directory (0)"
-  end
-  if value == 1 then
-    return "Recovery Type: Order Book (1)"
-  end
-  if value == 2 then
-    return "Recovery Type: All Trades (2)"
-  end
-  if value == 3 then
-    return "Recovery Type: Statistics (3)"
-  end
-  if value == 4 then
-    return "Recovery Type: Instrument Status (4)"
-  end
-  if value == 5 then
-    return "Recovery Type: Reserved (5)"
-  end
-  if value == 6 then
-    return "Recovery Type: System Event (6)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_type.labels = {
+  [0] = "Recovery Type: Instrument Directory (0)",
+  [1] = "Recovery Type: Order Book (1)",
+  [2] = "Recovery Type: All Trades (2)",
+  [3] = "Recovery Type: Statistics (3)",
+  [4] = "Recovery Type: Instrument Status (4)",
+  [5] = "Recovery Type: Reserved (5)",
+  [6] = "Recovery Type: System Event (6)",
+}
 
-  return "Recovery Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_type.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_type.labels[value] or "Recovery Type: Unknown("..value..")"
 end
 
 -- Dissect: Recovery Type
@@ -3225,18 +3187,14 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_level = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_level.size = 1
 
 -- Display: Request Level
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_level.display = function(value)
-  if value == 0 then
-    return "Request Level: Instrument (0)"
-  end
-  if value == 1 then
-    return "Request Level: Group Segment (1)"
-  end
-  if value == 2 then
-    return "Request Level: Multicast Channel (2)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_level.labels = {
+  [0] = "Request Level: Instrument (0)",
+  [1] = "Request Level: Group Segment (1)",
+  [2] = "Request Level: Multicast Channel (2)",
+}
 
-  return "Request Level: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_level.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_level.labels[value] or "Request Level: Unknown("..value..")"
 end
 
 -- Dissect: Request Level
@@ -3258,18 +3216,14 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_order_book_type = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_order_book_type.size = 1
 
 -- Display: Request Order Book Type
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_order_book_type.display = function(value)
-  if value == 0 then
-    return "Request Order Book Type: All Books (0)"
-  end
-  if value == 1 then
-    return "Request Order Book Type: Si Quote Book (1)"
-  end
-  if value == 2 then
-    return "Request Order Book Type: Offbook (2)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_order_book_type.labels = {
+  [0] = "Request Order Book Type: All Books (0)",
+  [1] = "Request Order Book Type: Si Quote Book (1)",
+  [2] = "Request Order Book Type: Offbook (2)",
+}
 
-  return "Request Order Book Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_order_book_type.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.request_order_book_type.labels[value] or "Request Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Request Order Book Type
@@ -3503,12 +3457,12 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.session_change_reason = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.session_change_reason.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -3530,12 +3484,12 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.source_venue = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.source_venue.size = 2
 
 -- Display: Source Venue
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.source_venue.display = function(value)
-  if value == 11 then
-    return "Source Venue: Trade Echo (11)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.source_venue.labels = {
+  [11] = "Source Venue: Trade Echo (11)",
+}
 
-  return "Source Venue: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.source_venue.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
 end
 
 -- Dissect: Source Venue
@@ -4286,15 +4240,13 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_book_definition_id = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_book_definition_id.size = 1
 
 -- Display: Venue Book Definition Id
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_book_definition_id.display = function(value)
-  if value == 0 then
-    return "Venue Book Definition Id: Unspecified (0)"
-  end
-  if value == 1 then
-    return "Venue Book Definition Id: Off Book (1)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_book_definition_id.labels = {
+  [0] = "Venue Book Definition Id: Unspecified (0)",
+  [1] = "Venue Book Definition Id: Off Book (1)",
+}
 
-  return "Venue Book Definition Id: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_book_definition_id.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_book_definition_id.labels[value] or "Venue Book Definition Id: Unknown("..value..")"
 end
 
 -- Dissect: Venue Book Definition Id
@@ -4428,21 +4380,15 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_type = {}
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_type.size = 1
 
 -- Display: Venue Type
-lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_type.display = function(value)
-  if value == 0 then
-    return "Venue Type: Unspecified (0)"
-  end
-  if value == 1 then
-    return "Venue Type: Mtf (1)"
-  end
-  if value == 2 then
-    return "Venue Type: Otf (2)"
-  end
-  if value == 3 then
-    return "Venue Type: Regulated Market (3)"
-  end
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_type.labels = {
+  [0] = "Venue Type: Unspecified (0)",
+  [1] = "Venue Type: Mtf (1)",
+  [2] = "Venue Type: Otf (2)",
+  [3] = "Venue Type: Regulated Market (3)",
+}
 
-  return "Venue Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_type.display = function(value)
+  return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.venue_type.labels[value] or "Venue Type: Unknown("..value..")"
 end
 
 -- Dissect: Venue Type
@@ -5715,46 +5661,23 @@ end
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.payload = {}
 
 -- Dissect: Payload
+lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.payload.dispatch = {
+  [0x01] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.login_request_message.dissect,
+  [0x81] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_request_message.dissect,
+  [0x02] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.login_response_message.dissect,
+  [0x82] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_response_message.dissect,
+  [0x83] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.replay_and_recovery_complete_message.dissect,
+  [0x53] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.system_event_message.dissect,
+  [0x70] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_directory_message.dissect,
+  [0x48] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_status_message.dissect,
+  [0x6b] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.statistics_snapshot_message.dissect,
+  [0x54] = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mifid_ii_trade_report_message.dissect,
+}
+
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 0x01 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Recovery Request Message
-  if message_type == 0x81 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Recovery Response Message
-  if message_type == 0x82 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.recovery_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay And Recovery Complete Message
-  if message_type == 0x83 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.replay_and_recovery_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Directory Message
-  if message_type == 0x70 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Message
-  if message_type == 0x48 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.instrument_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Snapshot Message
-  if message_type == 0x6b then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.statistics_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mifid Ii Trade Report Message
-  if message_type == 0x54 then
-    return lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.mifid_ii_trade_report_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

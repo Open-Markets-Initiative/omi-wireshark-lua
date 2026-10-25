@@ -415,21 +415,15 @@ nasdaq_uqdf_output_utp_v1_5.authenticity = {}
 nasdaq_uqdf_output_utp_v1_5.authenticity.size = 1
 
 -- Display: Authenticity
-nasdaq_uqdf_output_utp_v1_5.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
-  if value == "D" then
-    return "Authenticity: Demo (D)"
-  end
-  if value == "X" then
-    return "Authenticity: Deleted (X)"
-  end
+nasdaq_uqdf_output_utp_v1_5.authenticity.labels = {
+  ["P"] = "Authenticity: Production (P)",
+  ["T"] = "Authenticity: Test (T)",
+  ["D"] = "Authenticity: Demo (D)",
+  ["X"] = "Authenticity: Deleted (X)",
+}
 
-  return "Authenticity: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.authenticity.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.authenticity.labels[value] or "Authenticity: Unknown("..value..")"
 end
 
 -- Dissect: Authenticity
@@ -861,36 +855,20 @@ nasdaq_uqdf_output_utp_v1_5.financial_status_indicator = {}
 nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
-nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.display = function(value)
-  if value == "C" then
-    return "Financial Status Indicator: Creations And Or Redemptions Suspended (C)"
-  end
-  if value == "D" then
-    return "Financial Status Indicator: Deficient (D)"
-  end
-  if value == "E" then
-    return "Financial Status Indicator: Delinquent (E)"
-  end
-  if value == "Q" then
-    return "Financial Status Indicator: Bankrupt (Q)"
-  end
-  if value == "N" then
-    return "Financial Status Indicator: Normal (N)"
-  end
-  if value == "G" then
-    return "Financial Status Indicator: Deficient And Bankrupt (G)"
-  end
-  if value == "H" then
-    return "Financial Status Indicator: Deficient And Delinquent (H)"
-  end
-  if value == "J" then
-    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
-  end
-  if value == "K" then
-    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
-  end
+nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.labels = {
+  ["C"] = "Financial Status Indicator: Creations And Or Redemptions Suspended (C)",
+  ["D"] = "Financial Status Indicator: Deficient (D)",
+  ["E"] = "Financial Status Indicator: Delinquent (E)",
+  ["Q"] = "Financial Status Indicator: Bankrupt (Q)",
+  ["N"] = "Financial Status Indicator: Normal (N)",
+  ["G"] = "Financial Status Indicator: Deficient And Bankrupt (G)",
+  ["H"] = "Financial Status Indicator: Deficient And Delinquent (H)",
+  ["J"] = "Financial Status Indicator: Delinquent And Bankrupt (J)",
+  ["K"] = "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)",
+}
 
-  return "Financial Status Indicator: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.labels[value] or "Financial Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Financial Status Indicator
@@ -1041,57 +1019,27 @@ nasdaq_uqdf_output_utp_v1_5.issue_type = {}
 nasdaq_uqdf_output_utp_v1_5.issue_type.size = 1
 
 -- Display: Issue Type
-nasdaq_uqdf_output_utp_v1_5.issue_type.display = function(value)
-  if value == "A" then
-    return "Issue Type: American Depository Receipt (A)"
-  end
-  if value == "B" then
-    return "Issue Type: Bond (B)"
-  end
-  if value == "C" then
-    return "Issue Type: Common Stock (C)"
-  end
-  if value == "F" then
-    return "Issue Type: Depository Receipt (F)"
-  end
-  if value == "I" then
-    return "Issue Type: Rule 144a (I)"
-  end
-  if value == "L" then
-    return "Issue Type: Limited Partnership (L)"
-  end
-  if value == "N" then
-    return "Issue Type: Note (N)"
-  end
-  if value == "O" then
-    return "Issue Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Issue Type: Preferred Stock (P)"
-  end
-  if value == "Q" then
-    return "Issue Type: Other Securities (Q)"
-  end
-  if value == "R" then
-    return "Issue Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Issue Type: Shares Of Beneficial Interest (S)"
-  end
-  if value == "T" then
-    return "Issue Type: Convertible Debenture (T)"
-  end
-  if value == "U" then
-    return "Issue Type: Unit (U)"
-  end
-  if value == "V" then
-    return "Issue Type: Units Of Beneficial Interest (V)"
-  end
-  if value == "W" then
-    return "Issue Type: Warrant (W)"
-  end
+nasdaq_uqdf_output_utp_v1_5.issue_type.labels = {
+  ["A"] = "Issue Type: American Depository Receipt (A)",
+  ["B"] = "Issue Type: Bond (B)",
+  ["C"] = "Issue Type: Common Stock (C)",
+  ["F"] = "Issue Type: Depository Receipt (F)",
+  ["I"] = "Issue Type: Rule 144a (I)",
+  ["L"] = "Issue Type: Limited Partnership (L)",
+  ["N"] = "Issue Type: Note (N)",
+  ["O"] = "Issue Type: Ordinary Shares (O)",
+  ["P"] = "Issue Type: Preferred Stock (P)",
+  ["Q"] = "Issue Type: Other Securities (Q)",
+  ["R"] = "Issue Type: Rights (R)",
+  ["S"] = "Issue Type: Shares Of Beneficial Interest (S)",
+  ["T"] = "Issue Type: Convertible Debenture (T)",
+  ["U"] = "Issue Type: Unit (U)",
+  ["V"] = "Issue Type: Units Of Beneficial Interest (V)",
+  ["W"] = "Issue Type: Warrant (W)",
+}
 
-  return "Issue Type: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.issue_type.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.issue_type.labels[value] or "Issue Type: Unknown("..value..")"
 end
 
 -- Dissect: Issue Type
@@ -1457,69 +1405,31 @@ nasdaq_uqdf_output_utp_v1_5.market_center_originator_id = {}
 nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.size = 1
 
 -- Display: Market Center Originator Id
-nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.display = function(value)
-  if value == "Y" then
-    return "Market Center Originator Id: Byx (Y)"
-  end
-  if value == "Z" then
-    return "Market Center Originator Id: Bzx (Z)"
-  end
-  if value == "J" then
-    return "Market Center Originator Id: Edga (J)"
-  end
-  if value == "K" then
-    return "Market Center Originator Id: Edgx (K)"
-  end
-  if value == "W" then
-    return "Market Center Originator Id: Cboe (W)"
-  end
-  if value == "B" then
-    return "Market Center Originator Id: Bx (B)"
-  end
-  if value == "X" then
-    return "Market Center Originator Id: Phlx (X)"
-  end
-  if value == "Q" then
-    return "Market Center Originator Id: Nasdaq (Q)"
-  end
-  if value == "I" then
-    return "Market Center Originator Id: Ise (I)"
-  end
-  if value == "N" then
-    return "Market Center Originator Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Market Center Originator Id: Arca (P)"
-  end
-  if value == "A" then
-    return "Market Center Originator Id: American (A)"
-  end
-  if value == "C" then
-    return "Market Center Originator Id: National (C)"
-  end
-  if value == "M" then
-    return "Market Center Originator Id: Chicago (M)"
-  end
-  if value == "D" then
-    return "Market Center Originator Id: Finra (D)"
-  end
-  if value == "V" then
-    return "Market Center Originator Id: Iex (V)"
-  end
-  if value == "L" then
-    return "Market Center Originator Id: Ltse (L)"
-  end
-  if value == "H" then
-    return "Market Center Originator Id: Pearl (H)"
-  end
-  if value == "U" then
-    return "Market Center Originator Id: Memx (U)"
-  end
-  if value == "E" then
-    return "Market Center Originator Id: Market Independent (E)"
-  end
+nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.labels = {
+  ["Y"] = "Market Center Originator Id: Byx (Y)",
+  ["Z"] = "Market Center Originator Id: Bzx (Z)",
+  ["J"] = "Market Center Originator Id: Edga (J)",
+  ["K"] = "Market Center Originator Id: Edgx (K)",
+  ["W"] = "Market Center Originator Id: Cboe (W)",
+  ["B"] = "Market Center Originator Id: Bx (B)",
+  ["X"] = "Market Center Originator Id: Phlx (X)",
+  ["Q"] = "Market Center Originator Id: Nasdaq (Q)",
+  ["I"] = "Market Center Originator Id: Ise (I)",
+  ["N"] = "Market Center Originator Id: Nyse (N)",
+  ["P"] = "Market Center Originator Id: Arca (P)",
+  ["A"] = "Market Center Originator Id: American (A)",
+  ["C"] = "Market Center Originator Id: National (C)",
+  ["M"] = "Market Center Originator Id: Chicago (M)",
+  ["D"] = "Market Center Originator Id: Finra (D)",
+  ["V"] = "Market Center Originator Id: Iex (V)",
+  ["L"] = "Market Center Originator Id: Ltse (L)",
+  ["H"] = "Market Center Originator Id: Pearl (H)",
+  ["U"] = "Market Center Originator Id: Memx (U)",
+  ["E"] = "Market Center Originator Id: Market Independent (E)",
+}
 
-  return "Market Center Originator Id: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.labels[value] or "Market Center Originator Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Center Originator Id
@@ -1541,18 +1451,14 @@ nasdaq_uqdf_output_utp_v1_5.market_tier = {}
 nasdaq_uqdf_output_utp_v1_5.market_tier.size = 1
 
 -- Display: Market Tier
-nasdaq_uqdf_output_utp_v1_5.market_tier.display = function(value)
-  if value == "Q" then
-    return "Market Tier: Nasdaq Global Select Market (Q)"
-  end
-  if value == "G" then
-    return "Market Tier: Nasdaq Global Market (G)"
-  end
-  if value == "S" then
-    return "Market Tier: Nasdaq Capital Market (S)"
-  end
+nasdaq_uqdf_output_utp_v1_5.market_tier.labels = {
+  ["Q"] = "Market Tier: Nasdaq Global Select Market (Q)",
+  ["G"] = "Market Tier: Nasdaq Global Market (G)",
+  ["S"] = "Market Tier: Nasdaq Capital Market (S)",
+}
 
-  return "Market Tier: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.market_tier.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.market_tier.labels[value] or "Market Tier: Unknown("..value..")"
 end
 
 -- Dissect: Market Tier
@@ -1712,18 +1618,14 @@ nasdaq_uqdf_output_utp_v1_5.mwcb_status_level_indicator = {}
 nasdaq_uqdf_output_utp_v1_5.mwcb_status_level_indicator.size = 1
 
 -- Display: Mwcb Status Level Indicator
-nasdaq_uqdf_output_utp_v1_5.mwcb_status_level_indicator.display = function(value)
-  if value == "1" then
-    return "Mwcb Status Level Indicator: Level 1 Breached (1)"
-  end
-  if value == "2" then
-    return "Mwcb Status Level Indicator: Level 2 Breached (2)"
-  end
-  if value == "3" then
-    return "Mwcb Status Level Indicator: Level 3 Breached (3)"
-  end
+nasdaq_uqdf_output_utp_v1_5.mwcb_status_level_indicator.labels = {
+  ["1"] = "Mwcb Status Level Indicator: Level 1 Breached (1)",
+  ["2"] = "Mwcb Status Level Indicator: Level 2 Breached (2)",
+  ["3"] = "Mwcb Status Level Indicator: Level 3 Breached (3)",
+}
 
-  return "Mwcb Status Level Indicator: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.mwcb_status_level_indicator.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.mwcb_status_level_indicator.labels[value] or "Mwcb Status Level Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mwcb Status Level Indicator
@@ -1999,24 +1901,16 @@ nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator = {}
 nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.size = 1
 
 -- Display: Nbbo Appendage Indicator
-nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.display = function(value)
-  if value == "0" then
-    return "Nbbo Appendage Indicator: No National Bbo Change (0)"
-  end
-  if value == "1" then
-    return "Nbbo Appendage Indicator: No National Bbo Can Be Calculated (1)"
-  end
-  if value == "2" then
-    return "Nbbo Appendage Indicator: Short Form National Bbo Appendage (2)"
-  end
-  if value == "3" then
-    return "Nbbo Appendage Indicator: Long Form National Bbo Appendage (3)"
-  end
-  if value == "4" then
-    return "Nbbo Appendage Indicator: Quote Contains All National Bbo Information (4)"
-  end
+nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.labels = {
+  ["0"] = "Nbbo Appendage Indicator: No National Bbo Change (0)",
+  ["1"] = "Nbbo Appendage Indicator: No National Bbo Can Be Calculated (1)",
+  ["2"] = "Nbbo Appendage Indicator: Short Form National Bbo Appendage (2)",
+  ["3"] = "Nbbo Appendage Indicator: Long Form National Bbo Appendage (3)",
+  ["4"] = "Nbbo Appendage Indicator: Quote Contains All National Bbo Information (4)",
+}
 
-  return "Nbbo Appendage Indicator: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.labels[value] or "Nbbo Appendage Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Nbbo Appendage Indicator
@@ -2038,51 +1932,25 @@ nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition = {}
 nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.size = 1
 
 -- Display: Nbbo Quote Condition
-nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.display = function(value)
-  if value == "A" then
-    return "Nbbo Quote Condition: Manual Ask Automated Bid (A)"
-  end
-  if value == "B" then
-    return "Nbbo Quote Condition: Manual Bid Automated Ask (B)"
-  end
-  if value == "F" then
-    return "Nbbo Quote Condition: Fast Trading (F)"
-  end
-  if value == "H" then
-    return "Nbbo Quote Condition: Manual Bid And Ask (H)"
-  end
-  if value == "I" then
-    return "Nbbo Quote Condition: Order Imbalance (I)"
-  end
-  if value == "L" then
-    return "Nbbo Quote Condition: Closed Quote (L)"
-  end
-  if value == "N" then
-    return "Nbbo Quote Condition: Non Firm Quote (N)"
-  end
-  if value == "O" then
-    return "Nbbo Quote Condition: Opening Quote Automated (O)"
-  end
-  if value == "R" then
-    return "Nbbo Quote Condition: Regular Two Sided Open Quote Automated (R)"
-  end
-  if value == "U" then
-    return "Nbbo Quote Condition: Manual Bid And Ask Non Firm (U)"
-  end
-  if value == "X" then
-    return "Nbbo Quote Condition: Order Influx (X)"
-  end
-  if value == "Y" then
-    return "Nbbo Quote Condition: Automated Bid No Offer Or Automated Offer No Bid (Y)"
-  end
-  if value == "Z" then
-    return "Nbbo Quote Condition: No Open No Resume (Z)"
-  end
-  if value == "4" then
-    return "Nbbo Quote Condition: Intraday Auction (4)"
-  end
+nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.labels = {
+  ["A"] = "Nbbo Quote Condition: Manual Ask Automated Bid (A)",
+  ["B"] = "Nbbo Quote Condition: Manual Bid Automated Ask (B)",
+  ["F"] = "Nbbo Quote Condition: Fast Trading (F)",
+  ["H"] = "Nbbo Quote Condition: Manual Bid And Ask (H)",
+  ["I"] = "Nbbo Quote Condition: Order Imbalance (I)",
+  ["L"] = "Nbbo Quote Condition: Closed Quote (L)",
+  ["N"] = "Nbbo Quote Condition: Non Firm Quote (N)",
+  ["O"] = "Nbbo Quote Condition: Opening Quote Automated (O)",
+  ["R"] = "Nbbo Quote Condition: Regular Two Sided Open Quote Automated (R)",
+  ["U"] = "Nbbo Quote Condition: Manual Bid And Ask Non Firm (U)",
+  ["X"] = "Nbbo Quote Condition: Order Influx (X)",
+  ["Y"] = "Nbbo Quote Condition: Automated Bid No Offer Or Automated Offer No Bid (Y)",
+  ["Z"] = "Nbbo Quote Condition: No Open No Resume (Z)",
+  ["4"] = "Nbbo Quote Condition: Intraday Auction (4)",
+}
 
-  return "Nbbo Quote Condition: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.labels[value] or "Nbbo Quote Condition: Unknown("..value..")"
 end
 
 -- Dissect: Nbbo Quote Condition
@@ -2197,51 +2065,25 @@ nasdaq_uqdf_output_utp_v1_5.quote_condition = {}
 nasdaq_uqdf_output_utp_v1_5.quote_condition.size = 1
 
 -- Display: Quote Condition
-nasdaq_uqdf_output_utp_v1_5.quote_condition.display = function(value)
-  if value == "A" then
-    return "Quote Condition: Manual Ask Automated Bid (A)"
-  end
-  if value == "B" then
-    return "Quote Condition: Manual Bid Automated Ask (B)"
-  end
-  if value == "F" then
-    return "Quote Condition: Fast Trading (F)"
-  end
-  if value == "H" then
-    return "Quote Condition: Manual Bid And Ask (H)"
-  end
-  if value == "I" then
-    return "Quote Condition: Order Imbalance (I)"
-  end
-  if value == "L" then
-    return "Quote Condition: Closed Quote (L)"
-  end
-  if value == "N" then
-    return "Quote Condition: Non Firm Quote (N)"
-  end
-  if value == "O" then
-    return "Quote Condition: Opening Quote Automated (O)"
-  end
-  if value == "R" then
-    return "Quote Condition: Regular Two Sided Open Quote Automated (R)"
-  end
-  if value == "U" then
-    return "Quote Condition: Manual Bid And Ask Non Firm (U)"
-  end
-  if value == "X" then
-    return "Quote Condition: Order Influx (X)"
-  end
-  if value == "Y" then
-    return "Quote Condition: Automated Bid No Offer Or Automated Offer No Bid (Y)"
-  end
-  if value == "Z" then
-    return "Quote Condition: No Open No Resume (Z)"
-  end
-  if value == "4" then
-    return "Quote Condition: Intraday Auction (4)"
-  end
+nasdaq_uqdf_output_utp_v1_5.quote_condition.labels = {
+  ["A"] = "Quote Condition: Manual Ask Automated Bid (A)",
+  ["B"] = "Quote Condition: Manual Bid Automated Ask (B)",
+  ["F"] = "Quote Condition: Fast Trading (F)",
+  ["H"] = "Quote Condition: Manual Bid And Ask (H)",
+  ["I"] = "Quote Condition: Order Imbalance (I)",
+  ["L"] = "Quote Condition: Closed Quote (L)",
+  ["N"] = "Quote Condition: Non Firm Quote (N)",
+  ["O"] = "Quote Condition: Opening Quote Automated (O)",
+  ["R"] = "Quote Condition: Regular Two Sided Open Quote Automated (R)",
+  ["U"] = "Quote Condition: Manual Bid And Ask Non Firm (U)",
+  ["X"] = "Quote Condition: Order Influx (X)",
+  ["Y"] = "Quote Condition: Automated Bid No Offer Or Automated Offer No Bid (Y)",
+  ["Z"] = "Quote Condition: No Open No Resume (Z)",
+  ["4"] = "Quote Condition: Intraday Auction (4)",
+}
 
-  return "Quote Condition: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.quote_condition.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.quote_condition.labels[value] or "Quote Condition: Unknown("..value..")"
 end
 
 -- Dissect: Quote Condition
@@ -2286,18 +2128,14 @@ nasdaq_uqdf_output_utp_v1_5.reg_sho_action = {}
 nasdaq_uqdf_output_utp_v1_5.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_uqdf_output_utp_v1_5.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Effect (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho In Effect Due To An Intra Day Price Drop (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)"
-  end
+nasdaq_uqdf_output_utp_v1_5.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Effect (0)",
+  ["1"] = "Reg Sho Action: Reg Sho In Effect Due To An Intra Day Price Drop (1)",
+  ["2"] = "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.reg_sho_action.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -2671,21 +2509,15 @@ nasdaq_uqdf_output_utp_v1_5.trading_action_code = {}
 nasdaq_uqdf_output_utp_v1_5.trading_action_code.size = 1
 
 -- Display: Trading Action Code
-nasdaq_uqdf_output_utp_v1_5.trading_action_code.display = function(value)
-  if value == "H" then
-    return "Trading Action Code: Trading Halt (H)"
-  end
-  if value == "Q" then
-    return "Trading Action Code: Quotation Resumption Including After Ema (Q)"
-  end
-  if value == "T" then
-    return "Trading Action Code: Trading Resumption (T)"
-  end
-  if value == "P" then
-    return "Trading Action Code: Volatility Trading Pause (P)"
-  end
+nasdaq_uqdf_output_utp_v1_5.trading_action_code.labels = {
+  ["H"] = "Trading Action Code: Trading Halt (H)",
+  ["Q"] = "Trading Action Code: Quotation Resumption Including After Ema (Q)",
+  ["T"] = "Trading Action Code: Trading Resumption (T)",
+  ["P"] = "Trading Action Code: Volatility Trading Pause (P)",
+}
 
-  return "Trading Action Code: Unknown("..value..")"
+nasdaq_uqdf_output_utp_v1_5.trading_action_code.display = function(value)
+  return nasdaq_uqdf_output_utp_v1_5.trading_action_code.labels[value] or "Trading Action Code: Unknown("..value..")"
 end
 
 -- Dissect: Trading Action Code
@@ -3074,30 +2906,19 @@ end
 nasdaq_uqdf_output_utp_v1_5.control_message_payload = {}
 
 -- Dissect: Control Message Payload
+nasdaq_uqdf_output_utp_v1_5.control_message_payload.dispatch = {
+  ["I"] = nasdaq_uqdf_output_utp_v1_5.start_of_day_message.dissect,
+  ["J"] = nasdaq_uqdf_output_utp_v1_5.end_of_day_message.dissect,
+  ["O"] = nasdaq_uqdf_output_utp_v1_5.market_session_open_message.dissect,
+  ["C"] = nasdaq_uqdf_output_utp_v1_5.market_session_close_message.dissect,
+  ["Z"] = nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.dissect,
+  ["P"] = nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.dissect,
+}
+
 nasdaq_uqdf_output_utp_v1_5.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Dissect Start Of Day Message
-  if control_message_type == "I" then
-    return nasdaq_uqdf_output_utp_v1_5.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if control_message_type == "J" then
-    return nasdaq_uqdf_output_utp_v1_5.end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Open Message
-  if control_message_type == "O" then
-    return nasdaq_uqdf_output_utp_v1_5.market_session_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Close Message
-  if control_message_type == "C" then
-    return nasdaq_uqdf_output_utp_v1_5.market_session_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Transmissions Message
-  if control_message_type == "Z" then
-    return nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Wipe Out Message
-  if control_message_type == "P" then
-    return nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_uqdf_output_utp_v1_5.control_message_payload.dispatch[control_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3841,46 +3662,23 @@ end
 nasdaq_uqdf_output_utp_v1_5.administrative_message_payload = {}
 
 -- Dissect: Administrative Message Payload
+nasdaq_uqdf_output_utp_v1_5.administrative_message_payload.dispatch = {
+  ["A"] = nasdaq_uqdf_output_utp_v1_5.general_administrative_message.dissect,
+  ["H"] = nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.dissect,
+  ["K"] = nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.dissect,
+  ["B"] = nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.dissect,
+  ["V"] = nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["P"] = nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.dissect,
+  ["C"] = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.dissect,
+  ["D"] = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.dissect,
+  ["E"] = nasdaq_uqdf_output_utp_v1_5.auction_collar_message.dissect,
+  ["R"] = nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.dissect,
+}
+
 nasdaq_uqdf_output_utp_v1_5.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect General Administrative Message
-  if administrative_message_type == "A" then
-    return nasdaq_uqdf_output_utp_v1_5.general_administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Sro Trading Action Message
-  if administrative_message_type == "H" then
-    return nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Center Trading Action Message
-  if administrative_message_type == "K" then
-    return nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Symbol Directory Message
-  if administrative_message_type == "B" then
-    return nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Regulation Sho Short Sale Price Test Restricted Indicator Message
-  if administrative_message_type == "V" then
-    return nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Up Limit Down Price Band Message
-  if administrative_message_type == "P" then
-    return nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Decline Level Message
-  if administrative_message_type == "C" then
-    return nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Status Message
-  if administrative_message_type == "D" then
-    return nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Collar Message
-  if administrative_message_type == "E" then
-    return nasdaq_uqdf_output_utp_v1_5.auction_collar_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Close Recap Message
-  if administrative_message_type == "R" then
-    return nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_uqdf_output_utp_v1_5.administrative_message_payload.dispatch[administrative_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4477,18 +4275,16 @@ end
 nasdaq_uqdf_output_utp_v1_5.quote_message_payload = {}
 
 -- Dissect: Quote Message Payload
+nasdaq_uqdf_output_utp_v1_5.quote_message_payload.dispatch = {
+  ["E"] = nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.dissect,
+  ["F"] = nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.dissect,
+  ["M"] = nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.dissect,
+}
+
 nasdaq_uqdf_output_utp_v1_5.quote_message_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
-  -- Dissect Quote Short Form Message
-  if quote_message_type == "E" then
-    return nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Long Form Message
-  if quote_message_type == "F" then
-    return nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Finra Adf Market Participant Quotation Message
-  if quote_message_type == "M" then
-    return nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_uqdf_output_utp_v1_5.quote_message_payload.dispatch[quote_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4551,18 +4347,16 @@ end
 nasdaq_uqdf_output_utp_v1_5.payload = {}
 
 -- Dissect: Payload
+nasdaq_uqdf_output_utp_v1_5.payload.dispatch = {
+  ["Q"] = nasdaq_uqdf_output_utp_v1_5.quote_message.dissect,
+  ["A"] = nasdaq_uqdf_output_utp_v1_5.administrative_message.dissect,
+  ["C"] = nasdaq_uqdf_output_utp_v1_5.control_message.dissect,
+}
+
 nasdaq_uqdf_output_utp_v1_5.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Quote Message
-  if message_category == "Q" then
-    return nasdaq_uqdf_output_utp_v1_5.quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Administrative Message
-  if message_category == "A" then
-    return nasdaq_uqdf_output_utp_v1_5.administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if message_category == "C" then
-    return nasdaq_uqdf_output_utp_v1_5.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_uqdf_output_utp_v1_5.payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

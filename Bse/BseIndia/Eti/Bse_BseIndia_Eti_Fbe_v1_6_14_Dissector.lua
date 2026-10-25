@@ -15395,210 +15395,64 @@ end
 bse_bseindia_eti_fbe_v1_6_14.server_payload = {}
 
 -- Dissect: Server Payload
+bse_bseindia_eti_fbe_v1_6_14.server_payload.dispatch = {
+  [10032] = bse_bseindia_eti_fbe_v1_6_14.broadcast_error_notification.dissect,
+  [10391] = bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_response.dissect,
+  [10122] = bse_bseindia_eti_fbe_v1_6_14.delete_all_order_broadcast.dissect,
+  [10124] = bse_bseindia_eti_fbe_v1_6_14.delete_all_order_nr_response.dissect,
+  [10308] = bse_bseindia_eti_fbe_v1_6_14.delete_all_order_quote_event_broadcast.dissect,
+  [10121] = bse_bseindia_eti_fbe_v1_6_14.delete_all_order_response.dissect,
+  [10410] = bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_broadcast.dissect,
+  [10409] = bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_response.dissect,
+  [10112] = bse_bseindia_eti_fbe_v1_6_14.delete_order_broadcast.dissect,
+  [10111] = bse_bseindia_eti_fbe_v1_6_14.delete_order_nr_response.dissect,
+  [10110] = bse_bseindia_eti_fbe_v1_6_14.delete_order_response.dissect,
+  [10012] = bse_bseindia_eti_fbe_v1_6_14.forced_logout_notification.dissect,
+  [10022] = bse_bseindia_eti_fbe_v1_6_14.gateway_response.dissect,
+  [10990] = bse_bseindia_eti_fbe_v1_6_14.gw_order_acknowledgement.dissect,
+  [10023] = bse_bseindia_eti_fbe_v1_6_14.heartbeat_notification.dissect,
+  [10036] = bse_bseindia_eti_fbe_v1_6_14.inquire_session_list_response.dissect,
+  [10001] = bse_bseindia_eti_fbe_v1_6_14.logon_response.dissect,
+  [10003] = bse_bseindia_eti_fbe_v1_6_14.logout_response.dissect,
+  [10406] = bse_bseindia_eti_fbe_v1_6_14.mass_quote_response.dissect,
+  [10108] = bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.dissect,
+  [10107] = bse_bseindia_eti_fbe_v1_6_14.modify_order_response.dissect,
+  [10994] = bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_report_broadcast.dissect,
+  [10993] = bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_response.dissect,
+  [10992] = bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_reject.dissect,
+  [10102] = bse_bseindia_eti_fbe_v1_6_14.new_order_nr_response.dissect,
+  [10101] = bse_bseindia_eti_fbe_v1_6_14.new_order_response.dissect,
+  [10031] = bse_bseindia_eti_fbe_v1_6_14.news_broadcast.dissect,
+  [10104] = bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.dissect,
+  [10117] = bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.dissect,
+  [10103] = bse_bseindia_eti_fbe_v1_6_14.order_exec_response.dissect,
+  [10412] = bse_bseindia_eti_fbe_v1_6_14.quote_exec_report_broadcast.dissect,
+  [10407] = bse_bseindia_eti_fbe_v1_6_14.quote_execution_report.dissect,
+  [10010] = bse_bseindia_eti_fbe_v1_6_14.reject.dissect,
+  [10027] = bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_response.dissect,
+  [10009] = bse_bseindia_eti_fbe_v1_6_14.retransmit_response.dissect,
+  [10048] = bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_admin_broadcast.dissect,
+  [10049] = bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_broadcast.dissect,
+  [10033] = bse_bseindia_eti_fbe_v1_6_14.risk_notification_broadcast.dissect,
+  [10030] = bse_bseindia_eti_fbe_v1_6_14.service_availability_broadcast.dissect,
+  [10995] = bse_bseindia_eti_fbe_v1_6_14.session_password_change_response.dissect,
+  [10054] = bse_bseindia_eti_fbe_v1_6_14.session_registration_response.dissect,
+  [10005] = bse_bseindia_eti_fbe_v1_6_14.subscribe_response.dissect,
+  [10501] = bse_bseindia_eti_fbe_v1_6_14.tm_trading_session_status_broadcast.dissect,
+  [10028] = bse_bseindia_eti_fbe_v1_6_14.throttle_update_notification.dissect,
+  [10500] = bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.dissect,
+  [10989] = bse_bseindia_eti_fbe_v1_6_14.trade_enhancement_broadcast.dissect,
+  [10307] = bse_bseindia_eti_fbe_v1_6_14.trading_session_status_broadcast.dissect,
+  [10007] = bse_bseindia_eti_fbe_v1_6_14.unsubscribe_response.dissect,
+  [10019] = bse_bseindia_eti_fbe_v1_6_14.user_login_response.dissect,
+  [10024] = bse_bseindia_eti_fbe_v1_6_14.user_logout_response.dissect,
+  [10043] = bse_bseindia_eti_fbe_v1_6_14.user_password_change_response.dissect,
+}
+
 bse_bseindia_eti_fbe_v1_6_14.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Broadcast Error Notification
-  if template_id == 10032 then
-    return bse_bseindia_eti_fbe_v1_6_14.broadcast_error_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Debt Inquiry Response
-  if template_id == 10391 then
-    return bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Broadcast
-  if template_id == 10122 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_all_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Nr Response
-  if template_id == 10124 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_all_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Quote Event Broadcast
-  if template_id == 10308 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_all_order_quote_event_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Response
-  if template_id == 10121 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_all_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Broadcast
-  if template_id == 10410 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Response
-  if template_id == 10409 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Broadcast
-  if template_id == 10112 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Nr Response
-  if template_id == 10111 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Response
-  if template_id == 10110 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forced Logout Notification
-  if template_id == 10012 then
-    return bse_bseindia_eti_fbe_v1_6_14.forced_logout_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Response
-  if template_id == 10022 then
-    return bse_bseindia_eti_fbe_v1_6_14.gateway_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gw Order Acknowledgement
-  if template_id == 10990 then
-    return bse_bseindia_eti_fbe_v1_6_14.gw_order_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Notification
-  if template_id == 10023 then
-    return bse_bseindia_eti_fbe_v1_6_14.heartbeat_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Session List Response
-  if template_id == 10036 then
-    return bse_bseindia_eti_fbe_v1_6_14.inquire_session_list_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response
-  if template_id == 10001 then
-    return bse_bseindia_eti_fbe_v1_6_14.logon_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response
-  if template_id == 10003 then
-    return bse_bseindia_eti_fbe_v1_6_14.logout_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Response
-  if template_id == 10406 then
-    return bse_bseindia_eti_fbe_v1_6_14.mass_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Nr Response
-  if template_id == 10108 then
-    return bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response
-  if template_id == 10107 then
-    return bse_bseindia_eti_fbe_v1_6_14.modify_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multi Leg Exec Report Broadcast
-  if template_id == 10994 then
-    return bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multi Leg Exec Response
-  if template_id == 10993 then
-    return bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multi Leg Order Reject
-  if template_id == 10992 then
-    return bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Nr Response
-  if template_id == 10102 then
-    return bse_bseindia_eti_fbe_v1_6_14.new_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response
-  if template_id == 10101 then
-    return bse_bseindia_eti_fbe_v1_6_14.new_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Broadcast
-  if template_id == 10031 then
-    return bse_bseindia_eti_fbe_v1_6_14.news_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Notification
-  if template_id == 10104 then
-    return bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Report Broadcast
-  if template_id == 10117 then
-    return bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Response
-  if template_id == 10103 then
-    return bse_bseindia_eti_fbe_v1_6_14.order_exec_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Exec Report Broadcast
-  if template_id == 10412 then
-    return bse_bseindia_eti_fbe_v1_6_14.quote_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Execution Report
-  if template_id == 10407 then
-    return bse_bseindia_eti_fbe_v1_6_14.quote_execution_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject
-  if template_id == 10010 then
-    return bse_bseindia_eti_fbe_v1_6_14.reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Me Message Response
-  if template_id == 10027 then
-    return bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Response
-  if template_id == 10009 then
-    return bse_bseindia_eti_fbe_v1_6_14.retransmit_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Collateral Alert Admin Broadcast
-  if template_id == 10048 then
-    return bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_admin_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Collateral Alert Broadcast
-  if template_id == 10049 then
-    return bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Notification Broadcast
-  if template_id == 10033 then
-    return bse_bseindia_eti_fbe_v1_6_14.risk_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Service Availability Broadcast
-  if template_id == 10030 then
-    return bse_bseindia_eti_fbe_v1_6_14.service_availability_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Password Change Response
-  if template_id == 10995 then
-    return bse_bseindia_eti_fbe_v1_6_14.session_password_change_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Registration Response
-  if template_id == 10054 then
-    return bse_bseindia_eti_fbe_v1_6_14.session_registration_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscribe Response
-  if template_id == 10005 then
-    return bse_bseindia_eti_fbe_v1_6_14.subscribe_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tm Trading Session Status Broadcast
-  if template_id == 10501 then
-    return bse_bseindia_eti_fbe_v1_6_14.tm_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Throttle Update Notification
-  if template_id == 10028 then
-    return bse_bseindia_eti_fbe_v1_6_14.throttle_update_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Broadcast
-  if template_id == 10500 then
-    return bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Enhancement Broadcast
-  if template_id == 10989 then
-    return bse_bseindia_eti_fbe_v1_6_14.trade_enhancement_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Broadcast
-  if template_id == 10307 then
-    return bse_bseindia_eti_fbe_v1_6_14.trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsubscribe Response
-  if template_id == 10007 then
-    return bse_bseindia_eti_fbe_v1_6_14.unsubscribe_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Response
-  if template_id == 10019 then
-    return bse_bseindia_eti_fbe_v1_6_14.user_login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Response
-  if template_id == 10024 then
-    return bse_bseindia_eti_fbe_v1_6_14.user_logout_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Password Change Response
-  if template_id == 10043 then
-    return bse_bseindia_eti_fbe_v1_6_14.user_password_change_response.dissect(buffer, offset, packet, parent)
+  local dissect = bse_bseindia_eti_fbe_v1_6_14.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -18402,114 +18256,40 @@ end
 bse_bseindia_eti_fbe_v1_6_14.client_payload = {}
 
 -- Dissect: Client Payload
+bse_bseindia_eti_fbe_v1_6_14.client_payload.dispatch = {
+  [10390] = bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_request.dissect,
+  [10120] = bse_bseindia_eti_fbe_v1_6_14.delete_all_order_request.dissect,
+  [10408] = bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_request.dissect,
+  [10123] = bse_bseindia_eti_fbe_v1_6_14.delete_order_complex_request.dissect,
+  [10109] = bse_bseindia_eti_fbe_v1_6_14.delete_order_single_request.dissect,
+  [10020] = bse_bseindia_eti_fbe_v1_6_14.gateway_request.dissect,
+  [10011] = bse_bseindia_eti_fbe_v1_6_14.heartbeat.dissect,
+  [10035] = bse_bseindia_eti_fbe_v1_6_14.inquire_session_list_request.dissect,
+  [10000] = bse_bseindia_eti_fbe_v1_6_14.logon_request.dissect,
+  [10002] = bse_bseindia_eti_fbe_v1_6_14.logout_request.dissect,
+  [10405] = bse_bseindia_eti_fbe_v1_6_14.mass_quote_request.dissect,
+  [10114] = bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.dissect,
+  [10106] = bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.dissect,
+  [10126] = bse_bseindia_eti_fbe_v1_6_14.modify_order_single_short_request.dissect,
+  [10991] = bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_request.dissect,
+  [10113] = bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.dissect,
+  [10100] = bse_bseindia_eti_fbe_v1_6_14.new_order_single_request.dissect,
+  [10125] = bse_bseindia_eti_fbe_v1_6_14.new_order_single_short_request.dissect,
+  [10026] = bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_request.dissect,
+  [10008] = bse_bseindia_eti_fbe_v1_6_14.retransmit_request.dissect,
+  [10997] = bse_bseindia_eti_fbe_v1_6_14.session_password_change_request.dissect,
+  [10053] = bse_bseindia_eti_fbe_v1_6_14.session_registration_request.dissect,
+  [10025] = bse_bseindia_eti_fbe_v1_6_14.subscribe_request.dissect,
+  [10006] = bse_bseindia_eti_fbe_v1_6_14.unsubscribe_request.dissect,
+  [10018] = bse_bseindia_eti_fbe_v1_6_14.user_login_request.dissect,
+  [10029] = bse_bseindia_eti_fbe_v1_6_14.user_logout_request.dissect,
+  [10996] = bse_bseindia_eti_fbe_v1_6_14.user_password_change_request.dissect,
+}
+
 bse_bseindia_eti_fbe_v1_6_14.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Debt Inquiry Request
-  if template_id == 10390 then
-    return bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Request
-  if template_id == 10120 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_all_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Request
-  if template_id == 10408 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Complex Request
-  if template_id == 10123 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_order_complex_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Single Request
-  if template_id == 10109 then
-    return bse_bseindia_eti_fbe_v1_6_14.delete_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Request
-  if template_id == 10020 then
-    return bse_bseindia_eti_fbe_v1_6_14.gateway_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if template_id == 10011 then
-    return bse_bseindia_eti_fbe_v1_6_14.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Session List Request
-  if template_id == 10035 then
-    return bse_bseindia_eti_fbe_v1_6_14.inquire_session_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Request
-  if template_id == 10000 then
-    return bse_bseindia_eti_fbe_v1_6_14.logon_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if template_id == 10002 then
-    return bse_bseindia_eti_fbe_v1_6_14.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Request
-  if template_id == 10405 then
-    return bse_bseindia_eti_fbe_v1_6_14.mass_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Complex Request
-  if template_id == 10114 then
-    return bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Single Request
-  if template_id == 10106 then
-    return bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Single Short Request
-  if template_id == 10126 then
-    return bse_bseindia_eti_fbe_v1_6_14.modify_order_single_short_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multi Leg Order Request
-  if template_id == 10991 then
-    return bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Complex Request
-  if template_id == 10113 then
-    return bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Single Request
-  if template_id == 10100 then
-    return bse_bseindia_eti_fbe_v1_6_14.new_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Single Short Request
-  if template_id == 10125 then
-    return bse_bseindia_eti_fbe_v1_6_14.new_order_single_short_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Me Message Request
-  if template_id == 10026 then
-    return bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Request
-  if template_id == 10008 then
-    return bse_bseindia_eti_fbe_v1_6_14.retransmit_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Password Change Request
-  if template_id == 10997 then
-    return bse_bseindia_eti_fbe_v1_6_14.session_password_change_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Registration Request
-  if template_id == 10053 then
-    return bse_bseindia_eti_fbe_v1_6_14.session_registration_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscribe Request
-  if template_id == 10025 then
-    return bse_bseindia_eti_fbe_v1_6_14.subscribe_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsubscribe Request
-  if template_id == 10006 then
-    return bse_bseindia_eti_fbe_v1_6_14.unsubscribe_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Request
-  if template_id == 10018 then
-    return bse_bseindia_eti_fbe_v1_6_14.user_login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Request
-  if template_id == 10029 then
-    return bse_bseindia_eti_fbe_v1_6_14.user_logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Password Change Request
-  if template_id == 10996 then
-    return bse_bseindia_eti_fbe_v1_6_14.user_password_change_request.dissect(buffer, offset, packet, parent)
+  local dissect = bse_bseindia_eti_fbe_v1_6_14.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

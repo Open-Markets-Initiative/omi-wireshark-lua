@@ -412,18 +412,14 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.auction_status = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.auction_status.size = 1
 
 -- Display: Auction Status
-nyse_amexoptions_topfeed_pillar_v1_2_j.auction_status.display = function(value)
-  if value == 0 then
-    return "Auction Status: Will Run As Usual (0)"
-  end
-  if value == 4 then
-    return "Auction Status: Auction Will Not Run Because Legal Width Quote Does Not Exist (4)"
-  end
-  if value == 5 then
-    return "Auction Status: Auction Will Not Run Because Market Maker Quote Is Not Received (5)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.auction_status.labels = {
+  [0] = "Auction Status: Will Run As Usual (0)",
+  [4] = "Auction Status: Auction Will Not Run Because Legal Width Quote Does Not Exist (4)",
+  [5] = "Auction Status: Auction Will Not Run Because Market Maker Quote Is Not Received (5)",
+}
 
-  return "Auction Status: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.auction_status.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.auction_status.labels[value] or "Auction Status: Unknown("..value..")"
 end
 
 -- Dissect: Auction Status
@@ -796,42 +792,22 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.delivery_flag = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_amexoptions_topfeed_pillar_v1_2_j.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Pillar Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.delivery_flag.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -1370,30 +1346,18 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.market_id = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.market_id.size = 2
 
 -- Display: Market Id
-nyse_amexoptions_topfeed_pillar_v1_2_j.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Equities (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Texas Equities (11)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.market_id.labels = {
+  [1] = "Market Id: Nyse Equities (1)",
+  [3] = "Market Id: Nyse Arca Equities (3)",
+  [4] = "Market Id: Nyse Arca Options (4)",
+  [8] = "Market Id: Nyse American Options (8)",
+  [9] = "Market Id: Nyse American Equities (9)",
+  [10] = "Market Id: Nyse National Equities (10)",
+  [11] = "Market Id: Nyse Texas Equities (11)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.market_id.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -1552,75 +1516,33 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.message_type = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.message_type.size = 2
 
 -- Display: Message Type
-nyse_amexoptions_topfeed_pillar_v1_2_j.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Source Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 50 then
-    return "Message Type: Outright Series Index Mapping Message (50)"
-  end
-  if value == 51 then
-    return "Message Type: Options Status Message (51)"
-  end
-  if value == 60 then
-    return "Message Type: Complex Series Index Mapping Message (60)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
-  if value == 340 then
-    return "Message Type: Options Quote Message (340)"
-  end
-  if value == 320 then
-    return "Message Type: Options Trade Message (320)"
-  end
-  if value == 321 then
-    return "Message Type: Options Trade Cancel Message (321)"
-  end
-  if value == 322 then
-    return "Message Type: Options Trade Correction Message (322)"
-  end
-  if value == 305 then
-    return "Message Type: Options Imbalance Message (305)"
-  end
-  if value == 307 then
-    return "Message Type: Series Rfq Message (307)"
-  end
-  if value == 323 then
-    return "Message Type: Outright Series Summary Message (323)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [2] = "Message Type: Source Time Reference Message (2)",
+  [3] = "Message Type: Symbol Index Mapping Message (3)",
+  [32] = "Message Type: Symbol Clear Message (32)",
+  [34] = "Message Type: Security Status Message (34)",
+  [50] = "Message Type: Outright Series Index Mapping Message (50)",
+  [51] = "Message Type: Options Status Message (51)",
+  [60] = "Message Type: Complex Series Index Mapping Message (60)",
+  [10] = "Message Type: Retransmission Request Message (10)",
+  [35] = "Message Type: Refresh Header Message (35)",
+  [15] = "Message Type: Refresh Request Message (15)",
+  [13] = "Message Type: Symbol Index Mapping Request Message (13)",
+  [31] = "Message Type: Message Unavailable Message (31)",
+  [11] = "Message Type: Request Response Message (11)",
+  [12] = "Message Type: Heartbeat Response Message (12)",
+  [340] = "Message Type: Options Quote Message (340)",
+  [320] = "Message Type: Options Trade Message (320)",
+  [321] = "Message Type: Options Trade Cancel Message (321)",
+  [322] = "Message Type: Options Trade Correction Message (322)",
+  [305] = "Message Type: Options Imbalance Message (305)",
+  [307] = "Message Type: Series Rfq Message (307)",
+  [323] = "Message Type: Outright Series Summary Message (323)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.message_type.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -2046,18 +1968,14 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.price_resolution = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_amexoptions_topfeed_pillar_v1_2_j.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.price_resolution.labels = {
+  [0] = "Price Resolution: All Penny (0)",
+  [1] = "Price Resolution: Penny Nickel (1)",
+  [5] = "Price Resolution: Nickel Dime (5)",
+}
 
-  return "Price Resolution: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.price_resolution.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.price_resolution.labels[value] or "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -2079,18 +1997,14 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.price_scale_code = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.price_scale_code.size = 1
 
 -- Display: Price Scale Code
-nyse_amexoptions_topfeed_pillar_v1_2_j.price_scale_code.display = function(value)
-  if value == 6 then
-    return "Price Scale Code: Low Priced Securities (6)"
-  end
-  if value == 4 then
-    return "Price Scale Code: Medium Priced Securities (4)"
-  end
-  if value == 3 then
-    return "Price Scale Code: High Priced Securities (3)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.price_scale_code.labels = {
+  [6] = "Price Scale Code: Low Priced Securities (6)",
+  [4] = "Price Scale Code: Medium Priced Securities (4)",
+  [3] = "Price Scale Code: High Priced Securities (3)",
+}
 
-  return "Price Scale Code: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.price_scale_code.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.price_scale_code.labels[value] or "Price Scale Code: Unknown("..value..")"
 end
 
 -- Dissect: Price Scale Code
@@ -2135,15 +2049,13 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.put_or_call = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.put_or_call.size = 1
 
 -- Display: Put Or Call
-nyse_amexoptions_topfeed_pillar_v1_2_j.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.put_or_call.labels = {
+  [0] = "Put Or Call: Put (0)",
+  [1] = "Put Or Call: Call (1)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.put_or_call.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -2300,12 +2212,12 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.retransmit_method = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.retransmit_method.size = 1
 
 -- Display: Retransmit Method
-nyse_amexoptions_topfeed_pillar_v1_2_j.retransmit_method.display = function(value)
-  if value == 0 then
-    return "Retransmit Method: Deliver Via Udp (0)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.retransmit_method.labels = {
+  [0] = "Retransmit Method: Deliver Via Udp (0)",
+}
 
-  return "Retransmit Method: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.retransmit_method.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.retransmit_method.labels[value] or "Retransmit Method: Unknown("..value..")"
 end
 
 -- Dissect: Retransmit Method
@@ -2831,18 +2743,14 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.series_type = {}
 nyse_amexoptions_topfeed_pillar_v1_2_j.series_type.size = 1
 
 -- Display: Series Type
-nyse_amexoptions_topfeed_pillar_v1_2_j.series_type.display = function(value)
-  if value == 0 then
-    return "Series Type: Standard (0)"
-  end
-  if value == 1 then
-    return "Series Type: Flex (1)"
-  end
-  if value == 2 then
-    return "Series Type: Flex Percentage (2)"
-  end
+nyse_amexoptions_topfeed_pillar_v1_2_j.series_type.labels = {
+  [0] = "Series Type: Standard (0)",
+  [1] = "Series Type: Flex (1)",
+  [2] = "Series Type: Flex Percentage (2)",
+}
 
-  return "Series Type: Unknown("..value..")"
+nyse_amexoptions_topfeed_pillar_v1_2_j.series_type.display = function(value)
+  return nyse_amexoptions_topfeed_pillar_v1_2_j.series_type.labels[value] or "Series Type: Unknown("..value..")"
 end
 
 -- Dissect: Series Type
@@ -5942,94 +5850,35 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.payload = {}
 
 -- Dissect: Payload
+nyse_amexoptions_topfeed_pillar_v1_2_j.payload.dispatch = {
+  [1] = nyse_amexoptions_topfeed_pillar_v1_2_j.sequence_number_reset_message.dissect,
+  [2] = nyse_amexoptions_topfeed_pillar_v1_2_j.source_time_reference_message.dissect,
+  [3] = nyse_amexoptions_topfeed_pillar_v1_2_j.symbol_index_mapping_message.dissect,
+  [32] = nyse_amexoptions_topfeed_pillar_v1_2_j.symbol_clear_message.dissect,
+  [34] = nyse_amexoptions_topfeed_pillar_v1_2_j.security_status_message.dissect,
+  [50] = nyse_amexoptions_topfeed_pillar_v1_2_j.outright_series_index_mapping_message.dissect,
+  [51] = nyse_amexoptions_topfeed_pillar_v1_2_j.options_status_message.dissect,
+  [60] = nyse_amexoptions_topfeed_pillar_v1_2_j.complex_series_index_mapping_message.dissect,
+  [10] = nyse_amexoptions_topfeed_pillar_v1_2_j.retransmission_request_message.dissect,
+  [35] = nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_message.dissect,
+  [15] = nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_request_message.dissect,
+  [13] = nyse_amexoptions_topfeed_pillar_v1_2_j.symbol_index_mapping_request_message.dissect,
+  [31] = nyse_amexoptions_topfeed_pillar_v1_2_j.message_unavailable_message.dissect,
+  [11] = nyse_amexoptions_topfeed_pillar_v1_2_j.request_response_message.dissect,
+  [12] = nyse_amexoptions_topfeed_pillar_v1_2_j.heartbeat_response_message.dissect,
+  [340] = nyse_amexoptions_topfeed_pillar_v1_2_j.options_quote_message.dissect,
+  [320] = nyse_amexoptions_topfeed_pillar_v1_2_j.options_trade_message.dissect,
+  [321] = nyse_amexoptions_topfeed_pillar_v1_2_j.options_trade_cancel_message.dissect,
+  [322] = nyse_amexoptions_topfeed_pillar_v1_2_j.options_trade_correction_message.dissect,
+  [305] = nyse_amexoptions_topfeed_pillar_v1_2_j.options_imbalance_message.dissect,
+  [307] = nyse_amexoptions_topfeed_pillar_v1_2_j.series_rfq_message.dissect,
+  [323] = nyse_amexoptions_topfeed_pillar_v1_2_j.outright_series_summary_message.dissect,
+}
+
 nyse_amexoptions_topfeed_pillar_v1_2_j.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Source Time Reference Message
-  if message_type == 2 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.source_time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Clear Message
-  if message_type == 32 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 34 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Series Index Mapping Message
-  if message_type == 50 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.outright_series_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Status Message
-  if message_type == 51 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.options_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Series Index Mapping Message
-  if message_type == 60 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.complex_series_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 10 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Header Message
-  if message_type == 35 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Request Message
-  if message_type == 15 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if message_type == 31 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 11 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.request_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.heartbeat_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Quote Message
-  if message_type == 340 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.options_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Trade Message
-  if message_type == 320 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.options_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Trade Cancel Message
-  if message_type == 321 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.options_trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Trade Correction Message
-  if message_type == 322 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.options_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Imbalance Message
-  if message_type == 305 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.options_imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Rfq Message
-  if message_type == 307 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.series_rfq_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Series Summary Message
-  if message_type == 323 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.outright_series_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_amexoptions_topfeed_pillar_v1_2_j.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6168,10 +6017,14 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.messages = {}
 
 -- Dissect: Messages
+nyse_amexoptions_topfeed_pillar_v1_2_j.messages.dispatch = {
+  [1] = nyse_amexoptions_topfeed_pillar_v1_2_j.heartbeat.dissect,
+}
+
 nyse_amexoptions_topfeed_pillar_v1_2_j.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
-  -- Dissect Heartbeat
-  if delivery_flag == 1 then
-    return nyse_amexoptions_topfeed_pillar_v1_2_j.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_amexoptions_topfeed_pillar_v1_2_j.messages.dispatch[delivery_flag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

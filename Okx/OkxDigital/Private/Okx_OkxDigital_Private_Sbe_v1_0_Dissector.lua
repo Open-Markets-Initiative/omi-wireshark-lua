@@ -482,15 +482,13 @@ okx_okxdigital_private_sbe_v1_0.exec_type = {}
 okx_okxdigital_private_sbe_v1_0.exec_type.size = 1
 
 -- Display: Exec Type
-okx_okxdigital_private_sbe_v1_0.exec_type.display = function(value)
-  if value == 0 then
-    return "Exec Type: Maker (0)"
-  end
-  if value == 1 then
-    return "Exec Type: Taker (1)"
-  end
+okx_okxdigital_private_sbe_v1_0.exec_type.labels = {
+  [0] = "Exec Type: Maker (0)",
+  [1] = "Exec Type: Taker (1)",
+}
 
-  return "Exec Type: Unknown("..value..")"
+okx_okxdigital_private_sbe_v1_0.exec_type.display = function(value)
+  return okx_okxdigital_private_sbe_v1_0.exec_type.labels[value] or "Exec Type: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type
@@ -1012,15 +1010,13 @@ okx_okxdigital_private_sbe_v1_0.side = {}
 okx_okxdigital_private_sbe_v1_0.side.size = 1
 
 -- Display: Side
-okx_okxdigital_private_sbe_v1_0.side.display = function(value)
-  if value == 0 then
-    return "Side: Sell (0)"
-  end
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
+okx_okxdigital_private_sbe_v1_0.side.labels = {
+  [0] = "Side: Sell (0)",
+  [1] = "Side: Buy (1)",
+}
 
-  return "Side: Unknown("..value..")"
+okx_okxdigital_private_sbe_v1_0.side.display = function(value)
+  return okx_okxdigital_private_sbe_v1_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1042,24 +1038,16 @@ okx_okxdigital_private_sbe_v1_0.state = {}
 okx_okxdigital_private_sbe_v1_0.state.size = 1
 
 -- Display: State
-okx_okxdigital_private_sbe_v1_0.state.display = function(value)
-  if value == 2 then
-    return "State: Canceled (2)"
-  end
-  if value == 3 then
-    return "State: Live (3)"
-  end
-  if value == 4 then
-    return "State: Partially Filled (4)"
-  end
-  if value == 5 then
-    return "State: Filled (5)"
-  end
-  if value == 6 then
-    return "State: Mmp Canceled (6)"
-  end
+okx_okxdigital_private_sbe_v1_0.state.labels = {
+  [2] = "State: Canceled (2)",
+  [3] = "State: Live (3)",
+  [4] = "State: Partially Filled (4)",
+  [5] = "State: Filled (5)",
+  [6] = "State: Mmp Canceled (6)",
+}
 
-  return "State: Unknown("..value..")"
+okx_okxdigital_private_sbe_v1_0.state.display = function(value)
+  return okx_okxdigital_private_sbe_v1_0.state.labels[value] or "State: Unknown("..value..")"
 end
 
 -- Dissect: State
@@ -1160,21 +1148,15 @@ okx_okxdigital_private_sbe_v1_0.td_mode = {}
 okx_okxdigital_private_sbe_v1_0.td_mode.size = 1
 
 -- Display: Td Mode
-okx_okxdigital_private_sbe_v1_0.td_mode.display = function(value)
-  if value == 1 then
-    return "Td Mode: Cash (1)"
-  end
-  if value == 2 then
-    return "Td Mode: Cross (2)"
-  end
-  if value == 3 then
-    return "Td Mode: Isolated (3)"
-  end
-  if value == 4 then
-    return "Td Mode: Spot Isolated (4)"
-  end
+okx_okxdigital_private_sbe_v1_0.td_mode.labels = {
+  [1] = "Td Mode: Cash (1)",
+  [2] = "Td Mode: Cross (2)",
+  [3] = "Td Mode: Isolated (3)",
+  [4] = "Td Mode: Spot Isolated (4)",
+}
 
-  return "Td Mode: Unknown("..value..")"
+okx_okxdigital_private_sbe_v1_0.td_mode.display = function(value)
+  return okx_okxdigital_private_sbe_v1_0.td_mode.labels[value] or "Td Mode: Unknown("..value..")"
 end
 
 -- Dissect: Td Mode
@@ -1196,15 +1178,13 @@ okx_okxdigital_private_sbe_v1_0.template_id = {}
 okx_okxdigital_private_sbe_v1_0.template_id.size = 2
 
 -- Display: Template Id
-okx_okxdigital_private_sbe_v1_0.template_id.display = function(value)
-  if value == 1100 then
-    return "Template Id: Orders Channel Event Message (1100)"
-  end
-  if value == 1101 then
-    return "Template Id: Fills Channel Event Message (1101)"
-  end
+okx_okxdigital_private_sbe_v1_0.template_id.labels = {
+  [1100] = "Template Id: Orders Channel Event Message (1100)",
+  [1101] = "Template Id: Fills Channel Event Message (1101)",
+}
 
-  return "Template Id: Unknown("..value..")"
+okx_okxdigital_private_sbe_v1_0.template_id.display = function(value)
+  return okx_okxdigital_private_sbe_v1_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1584,14 +1564,15 @@ end
 okx_okxdigital_private_sbe_v1_0.payload = {}
 
 -- Dissect: Payload
+okx_okxdigital_private_sbe_v1_0.payload.dispatch = {
+  [1100] = okx_okxdigital_private_sbe_v1_0.orders_channel_event_message.dissect,
+  [1101] = okx_okxdigital_private_sbe_v1_0.fills_channel_event_message.dissect,
+}
+
 okx_okxdigital_private_sbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Orders Channel Event Message
-  if template_id == 1100 then
-    return okx_okxdigital_private_sbe_v1_0.orders_channel_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fills Channel Event Message
-  if template_id == 1101 then
-    return okx_okxdigital_private_sbe_v1_0.fills_channel_event_message.dissect(buffer, offset, packet, parent)
+  local dissect = okx_okxdigital_private_sbe_v1_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

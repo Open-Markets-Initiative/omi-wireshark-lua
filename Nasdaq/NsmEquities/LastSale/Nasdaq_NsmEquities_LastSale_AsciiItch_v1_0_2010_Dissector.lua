@@ -281,21 +281,15 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.corrected_settlement_type = {}
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.corrected_settlement_type.size = 1
 
 -- Display: Corrected Settlement Type
-nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.corrected_settlement_type.display = function(value)
-  if value == "@" then
-    return "Corrected Settlement Type: Regular Settlement (@)"
-  end
-  if value == "C" then
-    return "Corrected Settlement Type: Cash Settlement (C)"
-  end
-  if value == "N" then
-    return "Corrected Settlement Type: Next Day Settlement (N)"
-  end
-  if value == "R" then
-    return "Corrected Settlement Type: Seller Settlement (R)"
-  end
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.corrected_settlement_type.labels = {
+  ["@"] = "Corrected Settlement Type: Regular Settlement (@)",
+  ["C"] = "Corrected Settlement Type: Cash Settlement (C)",
+  ["N"] = "Corrected Settlement Type: Next Day Settlement (N)",
+  ["R"] = "Corrected Settlement Type: Seller Settlement (R)",
+}
 
-  return "Corrected Settlement Type: Unknown("..value..")"
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.corrected_settlement_type.display = function(value)
+  return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.corrected_settlement_type.labels[value] or "Corrected Settlement Type: Unknown("..value..")"
 end
 
 -- Dissect: Corrected Settlement Type
@@ -511,24 +505,16 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.current_trading_state = {}
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halted Or Paused On Nasdaq And All Utp Participants (H)"
-  end
-  if value == "V" then
-    return "Current Trading State: Halted Or Paused On Nasdaq Omx (V)"
-  end
-  if value == "Q" then
-    return "Current Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)"
-  end
-  if value == "R" then
-    return "Current Trading State: Quotation Only Period For Nasdaq Omx Only Halt Or Pause (R)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading On Nasdaq (T)"
-  end
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halted Or Paused On Nasdaq And All Utp Participants (H)",
+  ["V"] = "Current Trading State: Halted Or Paused On Nasdaq Omx (V)",
+  ["Q"] = "Current Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)",
+  ["R"] = "Current Trading State: Quotation Only Period For Nasdaq Omx Only Halt Or Pause (R)",
+  ["T"] = "Current Trading State: Trading On Nasdaq (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.current_trading_state.display = function(value)
+  return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -550,21 +536,15 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.event_code = {}
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmissions (O)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Transmissions (C)"
-  end
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.event_code.labels = {
+  ["O"] = "Event Code: Start Of Transmissions (O)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["C"] = "Event Code: End Of Transmissions (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.event_code.display = function(value)
+  return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -741,15 +721,13 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.market_center_identifier = {}
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.market_center_identifier.size = 1
 
 -- Display: Market Center Identifier
-nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.market_center_identifier.display = function(value)
-  if value == "Q" then
-    return "Market Center Identifier: Nasdaq (Q)"
-  end
-  if value == "L" then
-    return "Market Center Identifier: Trf (L)"
-  end
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.market_center_identifier.labels = {
+  ["Q"] = "Market Center Identifier: Nasdaq (Q)",
+  ["L"] = "Market Center Identifier: Trf (L)",
+}
 
-  return "Market Center Identifier: Unknown("..value..")"
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.market_center_identifier.display = function(value)
+  return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.market_center_identifier.labels[value] or "Market Center Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Market Center Identifier
@@ -817,27 +795,17 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_type = {}
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "T" then
-    return "Message Type: Trade Report Message (T)"
-  end
-  if value == "X" then
-    return "Message Type: Trade Cancel Error Message (X)"
-  end
-  if value == "C" then
-    return "Message Type: Trade Correction Message (C)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["T"] = "Message Type: Trade Report Message (T)",
+  ["X"] = "Message Type: Trade Cancel Error Message (X)",
+  ["C"] = "Message Type: Trade Correction Message (C)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_type.display = function(value)
+  return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -898,21 +866,15 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.original_settlement_type = {}
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.original_settlement_type.size = 1
 
 -- Display: Original Settlement Type
-nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.original_settlement_type.display = function(value)
-  if value == "@" then
-    return "Original Settlement Type: Regular Settlement (@)"
-  end
-  if value == "C" then
-    return "Original Settlement Type: Cash Settlement (C)"
-  end
-  if value == "N" then
-    return "Original Settlement Type: Next Day Settlement (N)"
-  end
-  if value == "R" then
-    return "Original Settlement Type: Seller Settlement (R)"
-  end
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.original_settlement_type.labels = {
+  ["@"] = "Original Settlement Type: Regular Settlement (@)",
+  ["C"] = "Original Settlement Type: Cash Settlement (C)",
+  ["N"] = "Original Settlement Type: Next Day Settlement (N)",
+  ["R"] = "Original Settlement Type: Seller Settlement (R)",
+}
 
-  return "Original Settlement Type: Unknown("..value..")"
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.original_settlement_type.display = function(value)
+  return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.original_settlement_type.labels[value] or "Original Settlement Type: Unknown("..value..")"
 end
 
 -- Dissect: Original Settlement Type
@@ -1233,21 +1195,15 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.security_class = {}
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.security_class.size = 1
 
 -- Display: Security Class
-nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.security_class.display = function(value)
-  if value == "Q" then
-    return "Security Class: Nasdaq (Q)"
-  end
-  if value == "N" then
-    return "Security Class: Nyse (N)"
-  end
-  if value == "A" then
-    return "Security Class: Nyse Amex (A)"
-  end
-  if value == "P" then
-    return "Security Class: Nyse Arca (P)"
-  end
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.security_class.labels = {
+  ["Q"] = "Security Class: Nasdaq (Q)",
+  ["N"] = "Security Class: Nyse (N)",
+  ["A"] = "Security Class: Nyse Amex (A)",
+  ["P"] = "Security Class: Nyse Arca (P)",
+}
 
-  return "Security Class: Unknown("..value..")"
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.security_class.display = function(value)
+  return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.security_class.labels[value] or "Security Class: Unknown("..value..")"
 end
 
 -- Dissect: Security Class
@@ -1315,21 +1271,15 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.settlement_type = {}
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.settlement_type.size = 1
 
 -- Display: Settlement Type
-nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.settlement_type.display = function(value)
-  if value == "@" then
-    return "Settlement Type: Regular Settlement (@)"
-  end
-  if value == "C" then
-    return "Settlement Type: Cash Settlement (C)"
-  end
-  if value == "N" then
-    return "Settlement Type: Next Day Settlement (N)"
-  end
-  if value == "R" then
-    return "Settlement Type: Seller Settlement (R)"
-  end
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.settlement_type.labels = {
+  ["@"] = "Settlement Type: Regular Settlement (@)",
+  ["C"] = "Settlement Type: Cash Settlement (C)",
+  ["N"] = "Settlement Type: Next Day Settlement (N)",
+  ["R"] = "Settlement Type: Seller Settlement (R)",
+}
 
-  return "Settlement Type: Unknown("..value..")"
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.settlement_type.display = function(value)
+  return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.settlement_type.labels[value] or "Settlement Type: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Type
@@ -2106,30 +2056,19 @@ end
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.payload = {}
 
 -- Dissect: Payload
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.payload.dispatch = {
+  ["S"] = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.system_event_message.dissect,
+  ["T"] = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.trade_report_message.dissect,
+  ["X"] = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.trade_cancel_error_message.dissect,
+  ["C"] = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.trade_correction_message.dissect,
+  ["H"] = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.stock_trading_action_message.dissect,
+  ["R"] = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.stock_directory_message.dissect,
+}
+
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "T" then
-    return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error Message
-  if message_type == "X" then
-    return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == "C" then
-    return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.stock_directory_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2254,10 +2193,14 @@ end
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_body = {}
 
 -- Dissect: Message Body
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_body.dispatch = {
+  [0] = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.end_of_session.dissect,
+}
+
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect End Of Session
-  if message_length == 0 then
-    return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.message_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Message Data
@@ -2350,10 +2293,14 @@ end
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.messages = {}
 
 -- Dissect: Messages
+nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.messages.dispatch = {
+  [0] = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.heartbeat.dissect,
+}
+
 nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_lastsale_asciiitch_v1_0_2010.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

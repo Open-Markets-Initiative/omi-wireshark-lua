@@ -264,15 +264,13 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.active_on_sapphire = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.active_on_sapphire.size = 1
 
 -- Display: Active On Sapphire
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.active_on_sapphire.display = function(value)
-  if value == "A" then
-    return "Active On Sapphire: Active (A)"
-  end
-  if value == "I" then
-    return "Active On Sapphire: Inactive (I)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.active_on_sapphire.labels = {
+  ["A"] = "Active On Sapphire: Active (A)",
+  ["I"] = "Active On Sapphire: Inactive (I)",
+}
 
-  return "Active On Sapphire: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.active_on_sapphire.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.active_on_sapphire.labels[value] or "Active On Sapphire: Unknown("..value..")"
 end
 
 -- Dissect: Active On Sapphire
@@ -317,27 +315,17 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.bid_condition = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.bid_condition.size = 1
 
 -- Display: Bid Condition
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.bid_condition.display = function(value)
-  if value == "A" then
-    return "Bid Condition: Regular (A)"
-  end
-  if value == "T" then
-    return "Bid Condition: Trading Halt (T)"
-  end
-  if value == "W" then
-    return "Bid Condition: Wide (W)"
-  end
-  if value == "C" then
-    return "Bid Condition: Timer In Progress (C)"
-  end
-  if value == "M" then
-    return "Bid Condition: Simple Market Protection (M)"
-  end
-  if value == "L" then
-    return "Bid Condition: Simple Market Protection Prevented (L)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.bid_condition.labels = {
+  ["A"] = "Bid Condition: Regular (A)",
+  ["T"] = "Bid Condition: Trading Halt (T)",
+  ["W"] = "Bid Condition: Wide (W)",
+  ["C"] = "Bid Condition: Timer In Progress (C)",
+  ["M"] = "Bid Condition: Simple Market Protection (M)",
+  ["L"] = "Bid Condition: Simple Market Protection Prevented (L)",
+}
 
-  return "Bid Condition: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.bid_condition.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.bid_condition.labels[value] or "Bid Condition: Unknown("..value..")"
 end
 
 -- Dissect: Bid Condition
@@ -532,15 +520,13 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.call_or_put = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.call_or_put.size = 1
 
 -- Display: Call Or Put
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.call_or_put.display = function(value)
-  if value == "C" then
-    return "Call Or Put: Call (C)"
-  end
-  if value == "P" then
-    return "Call Or Put: Put (P)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.call_or_put.labels = {
+  ["C"] = "Call Or Put: Call (C)",
+  ["P"] = "Call Or Put: Put (P)",
+}
 
-  return "Call Or Put: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.call_or_put.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.call_or_put.labels[value] or "Call Or Put: Unknown("..value..")"
 end
 
 -- Dissect: Call Or Put
@@ -608,27 +594,17 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.condition = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.condition.size = 1
 
 -- Display: Condition
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.condition.display = function(value)
-  if value == "A" then
-    return "Condition: Regular (A)"
-  end
-  if value == "T" then
-    return "Condition: Trading Halt (T)"
-  end
-  if value == "W" then
-    return "Condition: Wide (W)"
-  end
-  if value == "C" then
-    return "Condition: Timer In Progress (C)"
-  end
-  if value == "M" then
-    return "Condition: Simple Market Protection (M)"
-  end
-  if value == "L" then
-    return "Condition: Simple Market Protection Prevented (L)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.condition.labels = {
+  ["A"] = "Condition: Regular (A)",
+  ["T"] = "Condition: Trading Halt (T)",
+  ["W"] = "Condition: Wide (W)",
+  ["C"] = "Condition: Timer In Progress (C)",
+  ["M"] = "Condition: Simple Market Protection (M)",
+  ["L"] = "Condition: Simple Market Protection Prevented (L)",
+}
 
-  return "Condition: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.condition.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.condition.labels[value] or "Condition: Unknown("..value..")"
 end
 
 -- Dissect: Condition
@@ -673,15 +649,13 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.event_reason = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.event_reason.size = 1
 
 -- Display: Event Reason
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.event_reason.display = function(value)
-  if value == "A" then
-    return "Event Reason: Automatic (A)"
-  end
-  if value == "M" then
-    return "Event Reason: Manual (M)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.event_reason.labels = {
+  ["A"] = "Event Reason: Automatic (A)",
+  ["M"] = "Event Reason: Manual (M)",
+}
 
-  return "Event Reason: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.event_reason.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.event_reason.labels[value] or "Event Reason: Unknown("..value..")"
 end
 
 -- Dissect: Event Reason
@@ -818,15 +792,13 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.leg_side = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.leg_side.size = 1
 
 -- Display: Leg Side
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Bid (B)"
-  end
-  if value == "A" then
-    return "Leg Side: Ask (A)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.leg_side.labels = {
+  ["B"] = "Leg Side: Bid (B)",
+  ["A"] = "Leg Side: Ask (A)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.leg_side.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -848,18 +820,14 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.liquidity_acceptance_increme
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.liquidity_acceptance_increment_indicator.size = 1
 
 -- Display: Liquidity Acceptance Increment Indicator
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.liquidity_acceptance_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Liquidity Acceptance Increment Indicator: Penny (P)"
-  end
-  if value == "N" then
-    return "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)"
-  end
-  if value == "D" then
-    return "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.liquidity_acceptance_increment_indicator.labels = {
+  ["P"] = "Liquidity Acceptance Increment Indicator: Penny (P)",
+  ["N"] = "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)",
+}
 
-  return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.liquidity_acceptance_increment_indicator.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.liquidity_acceptance_increment_indicator.labels[value] or "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Acceptance Increment Indicator
@@ -984,15 +952,13 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.long_term_option = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.long_term_option.size = 1
 
 -- Display: Long Term Option
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.long_term_option.display = function(value)
-  if value == "Y" then
-    return "Long Term Option: Yes (Y)"
-  end
-  if value == "N" then
-    return "Long Term Option: No (N)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.long_term_option.labels = {
+  ["Y"] = "Long Term Option: Yes (Y)",
+  ["N"] = "Long Term Option: No (N)",
+}
 
-  return "Long Term Option: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.long_term_option.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.long_term_option.labels[value] or "Long Term Option: Unknown("..value..")"
 end
 
 -- Dissect: Long Term Option
@@ -1037,45 +1003,23 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.message_type = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.message_type.size = 1
 
 -- Display: Message Type
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.message_type.display = function(value)
-  if value == "1" then
-    return "Message Type: System Time Message (1)"
-  end
-  if value == "P" then
-    return "Message Type: Simple Series Update Message (P)"
-  end
-  if value == "C" then
-    return "Message Type: Complex Strategy Definition Message (C)"
-  end
-  if value == "S" then
-    return "Message Type: System State Message (S)"
-  end
-  if value == "b" then
-    return "Message Type: Complex Top Of Market Best Bid Or Offer Compact Format Bid Message (b)"
-  end
-  if value == "o" then
-    return "Message Type: Complex Top Of Market Best Bid Or Offer Compact Format Offer Message (o)"
-  end
-  if value == "e" then
-    return "Message Type: Complex Top Of Market Best Bid Or Offer Wide Format Bid Message (e)"
-  end
-  if value == "f" then
-    return "Message Type: Complex Top Of Market Best Bid Or Offer Wide Format Offer Message (f)"
-  end
-  if value == "m" then
-    return "Message Type: Complex Double Sided Top Of Market Best Bid And Offer Compact Format Message (m)"
-  end
-  if value == "w" then
-    return "Message Type: Complex Double Sided Top Of Market Best Bid And Offer Wide Format Message (w)"
-  end
-  if value == "t" then
-    return "Message Type: Strategy Last Sale Message (t)"
-  end
-  if value == "H" then
-    return "Message Type: Underlying Trading Status Notification Message (H)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.message_type.labels = {
+  ["1"] = "Message Type: System Time Message (1)",
+  ["P"] = "Message Type: Simple Series Update Message (P)",
+  ["C"] = "Message Type: Complex Strategy Definition Message (C)",
+  ["S"] = "Message Type: System State Message (S)",
+  ["b"] = "Message Type: Complex Top Of Market Best Bid Or Offer Compact Format Bid Message (b)",
+  ["o"] = "Message Type: Complex Top Of Market Best Bid Or Offer Compact Format Offer Message (o)",
+  ["e"] = "Message Type: Complex Top Of Market Best Bid Or Offer Wide Format Bid Message (e)",
+  ["f"] = "Message Type: Complex Top Of Market Best Bid Or Offer Wide Format Offer Message (f)",
+  ["m"] = "Message Type: Complex Double Sided Top Of Market Best Bid And Offer Compact Format Message (m)",
+  ["w"] = "Message Type: Complex Double Sided Top Of Market Best Bid And Offer Wide Format Message (w)",
+  ["t"] = "Message Type: Strategy Last Sale Message (t)",
+  ["H"] = "Message Type: Underlying Trading Status Notification Message (H)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.message_type.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1195,27 +1139,17 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.offer_condition = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.offer_condition.size = 1
 
 -- Display: Offer Condition
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.offer_condition.display = function(value)
-  if value == "A" then
-    return "Offer Condition: Regular (A)"
-  end
-  if value == "T" then
-    return "Offer Condition: Trading Halt (T)"
-  end
-  if value == "W" then
-    return "Offer Condition: Wide (W)"
-  end
-  if value == "C" then
-    return "Offer Condition: Timer In Progress (C)"
-  end
-  if value == "M" then
-    return "Offer Condition: Simple Market Protection (M)"
-  end
-  if value == "L" then
-    return "Offer Condition: Simple Market Protection Prevented (L)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.offer_condition.labels = {
+  ["A"] = "Offer Condition: Regular (A)",
+  ["T"] = "Offer Condition: Trading Halt (T)",
+  ["W"] = "Offer Condition: Wide (W)",
+  ["C"] = "Offer Condition: Timer In Progress (C)",
+  ["M"] = "Offer Condition: Simple Market Protection (M)",
+  ["L"] = "Offer Condition: Simple Market Protection Prevented (L)",
+}
 
-  return "Offer Condition: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.offer_condition.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.offer_condition.labels[value] or "Offer Condition: Unknown("..value..")"
 end
 
 -- Dissect: Offer Condition
@@ -1410,72 +1344,32 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.opening_underlying_market_co
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.opening_underlying_market_code.size = 1
 
 -- Display: Opening Underlying Market Code
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.opening_underlying_market_code.display = function(value)
-  if value == "A" then
-    return "Opening Underlying Market Code: Nyse Amex (A)"
-  end
-  if value == "B" then
-    return "Opening Underlying Market Code: Nasdaq Omx Bx (B)"
-  end
-  if value == "C" then
-    return "Opening Underlying Market Code: National Stock Exchange (C)"
-  end
-  if value == "D" then
-    return "Opening Underlying Market Code: Finra Adf (D)"
-  end
-  if value == "E" then
-    return "Opening Underlying Market Code: Market Independent (E)"
-  end
-  if value == "H" then
-    return "Opening Underlying Market Code: Miax Pearl Equities (H)"
-  end
-  if value == "I" then
-    return "Opening Underlying Market Code: International Securities Exchange (I)"
-  end
-  if value == "J" then
-    return "Opening Underlying Market Code: Edga Exchange Inc (J)"
-  end
-  if value == "K" then
-    return "Opening Underlying Market Code: Edgx Exchange Inc (K)"
-  end
-  if value == "L" then
-    return "Opening Underlying Market Code: Ltse (L)"
-  end
-  if value == "M" then
-    return "Opening Underlying Market Code: Chicago Stock Exchange (M)"
-  end
-  if value == "N" then
-    return "Opening Underlying Market Code: Nyse Euronext (N)"
-  end
-  if value == "P" then
-    return "Opening Underlying Market Code: Nyse Arca Exchange (P)"
-  end
-  if value == "Q" then
-    return "Opening Underlying Market Code: Nasdaq Omx Via Utp Feed (Q)"
-  end
-  if value == "T" then
-    return "Opening Underlying Market Code: Nasdaq Omx Via Cta Feed (T)"
-  end
-  if value == "U" then
-    return "Opening Underlying Market Code: Memx (U)"
-  end
-  if value == "V" then
-    return "Opening Underlying Market Code: Iex (V)"
-  end
-  if value == "W" then
-    return "Opening Underlying Market Code: Cboe Stock Exchange Cbsx (W)"
-  end
-  if value == "X" then
-    return "Opening Underlying Market Code: Nasdaq Omx Phlx (X)"
-  end
-  if value == "Y" then
-    return "Opening Underlying Market Code: Bats Y Exchange Inc (Y)"
-  end
-  if value == "Z" then
-    return "Opening Underlying Market Code: Bats Exchange Inc (Z)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.opening_underlying_market_code.labels = {
+  ["A"] = "Opening Underlying Market Code: Nyse Amex (A)",
+  ["B"] = "Opening Underlying Market Code: Nasdaq Omx Bx (B)",
+  ["C"] = "Opening Underlying Market Code: National Stock Exchange (C)",
+  ["D"] = "Opening Underlying Market Code: Finra Adf (D)",
+  ["E"] = "Opening Underlying Market Code: Market Independent (E)",
+  ["H"] = "Opening Underlying Market Code: Miax Pearl Equities (H)",
+  ["I"] = "Opening Underlying Market Code: International Securities Exchange (I)",
+  ["J"] = "Opening Underlying Market Code: Edga Exchange Inc (J)",
+  ["K"] = "Opening Underlying Market Code: Edgx Exchange Inc (K)",
+  ["L"] = "Opening Underlying Market Code: Ltse (L)",
+  ["M"] = "Opening Underlying Market Code: Chicago Stock Exchange (M)",
+  ["N"] = "Opening Underlying Market Code: Nyse Euronext (N)",
+  ["P"] = "Opening Underlying Market Code: Nyse Arca Exchange (P)",
+  ["Q"] = "Opening Underlying Market Code: Nasdaq Omx Via Utp Feed (Q)",
+  ["T"] = "Opening Underlying Market Code: Nasdaq Omx Via Cta Feed (T)",
+  ["U"] = "Opening Underlying Market Code: Memx (U)",
+  ["V"] = "Opening Underlying Market Code: Iex (V)",
+  ["W"] = "Opening Underlying Market Code: Cboe Stock Exchange Cbsx (W)",
+  ["X"] = "Opening Underlying Market Code: Nasdaq Omx Phlx (X)",
+  ["Y"] = "Opening Underlying Market Code: Bats Y Exchange Inc (Y)",
+  ["Z"] = "Opening Underlying Market Code: Bats Exchange Inc (Z)",
+}
 
-  return "Opening Underlying Market Code: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.opening_underlying_market_code.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.opening_underlying_market_code.labels[value] or "Opening Underlying Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Opening Underlying Market Code
@@ -1520,21 +1414,15 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.packet_type = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.packet_type.size = 1
 
 -- Display: Packet Type
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.packet_type.labels = {
+  [0] = "Packet Type: Heartbeat (0)",
+  [1] = "Packet Type: Start Of Session (1)",
+  [2] = "Packet Type: End Of Session (2)",
+  [3] = "Packet Type: Application Message (3)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.packet_type.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -1683,24 +1571,16 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_message_type = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_message_type.size = 1
 
 -- Display: Refresh Message Type
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_message_type.display = function(value)
-  if value == "P" then
-    return "Refresh Message Type: Simple Series Update Refresh (P)"
-  end
-  if value == "C" then
-    return "Refresh Message Type: Complex Strategy Update Refresh (C)"
-  end
-  if value == "T" then
-    return "Refresh Message Type: Top Of Strategy Market Refresh (T)"
-  end
-  if value == "U" then
-    return "Refresh Message Type: Underlying Trading Status Refresh (U)"
-  end
-  if value == "S" then
-    return "Refresh Message Type: System State Refresh (S)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_message_type.labels = {
+  ["P"] = "Refresh Message Type: Simple Series Update Refresh (P)",
+  ["C"] = "Refresh Message Type: Complex Strategy Update Refresh (C)",
+  ["T"] = "Refresh Message Type: Top Of Strategy Market Refresh (T)",
+  ["U"] = "Refresh Message Type: Underlying Trading Status Refresh (U)",
+  ["S"] = "Refresh Message Type: System State Refresh (S)",
+}
 
-  return "Refresh Message Type: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_message_type.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_message_type.labels[value] or "Refresh Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Refresh Message Type
@@ -1883,15 +1763,13 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.restricted_option = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.restricted_option.size = 1
 
 -- Display: Restricted Option
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.restricted_option.display = function(value)
-  if value == "Y" then
-    return "Restricted Option: Yes (Y)"
-  end
-  if value == "N" then
-    return "Restricted Option: No (N)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.restricted_option.labels = {
+  ["Y"] = "Restricted Option: Yes (Y)",
+  ["N"] = "Restricted Option: No (N)",
+}
 
-  return "Restricted Option: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.restricted_option.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.restricted_option.labels[value] or "Restricted Option: Unknown("..value..")"
 end
 
 -- Dissect: Restricted Option
@@ -1913,18 +1791,14 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sapphire_bbo_posting_increme
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sapphire_bbo_posting_increment_indicator.size = 1
 
 -- Display: Sapphire Bbo Posting Increment Indicator
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sapphire_bbo_posting_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Sapphire Bbo Posting Increment Indicator: Penny (P)"
-  end
-  if value == "N" then
-    return "Sapphire Bbo Posting Increment Indicator: Penny Or Nickel (N)"
-  end
-  if value == "D" then
-    return "Sapphire Bbo Posting Increment Indicator: Nickel Or Dime (D)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sapphire_bbo_posting_increment_indicator.labels = {
+  ["P"] = "Sapphire Bbo Posting Increment Indicator: Penny (P)",
+  ["N"] = "Sapphire Bbo Posting Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Sapphire Bbo Posting Increment Indicator: Nickel Or Dime (D)",
+}
 
-  return "Sapphire Bbo Posting Increment Indicator: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sapphire_bbo_posting_increment_indicator.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sapphire_bbo_posting_increment_indicator.labels[value] or "Sapphire Bbo Posting Increment Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Sapphire Bbo Posting Increment Indicator
@@ -2075,45 +1949,23 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_packet_type = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_packet_type.size = 1
 
 -- Display: Sesm Packet Type
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_packet_type.display = function(value)
-  if value == "s" then
-    return "Sesm Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Sesm Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Sesm Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Sesm Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Sesm Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Sesm Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Sesm Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Sesm Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Sesm Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Sesm Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Sesm Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Sesm Packet Type: Test Packet (T)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_packet_type.labels = {
+  ["s"] = "Sesm Packet Type: Sequenced Data Packet (s)",
+  ["U"] = "Sesm Packet Type: Unsequenced Data Packet (U)",
+  ["l"] = "Sesm Packet Type: Login Request (l)",
+  ["r"] = "Sesm Packet Type: Login Response (r)",
+  ["c"] = "Sesm Packet Type: Synchronization Complete (c)",
+  ["a"] = "Sesm Packet Type: Retransmission Request (a)",
+  ["X"] = "Sesm Packet Type: Logout Request (X)",
+  ["G"] = "Sesm Packet Type: Goodbye Packet (G)",
+  ["u"] = "Sesm Packet Type: Trading Session Update (u)",
+  ["0"] = "Sesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Sesm Packet Type: Client Heartbeat (1)",
+  ["T"] = "Sesm Packet Type: Test Packet (T)",
+}
 
-  return "Sesm Packet Type: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_packet_type.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_packet_type.labels[value] or "Sesm Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Sesm Packet Type
@@ -2325,21 +2177,15 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_status = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_status.size = 1
 
 -- Display: System Status
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of System Hours (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of System Hours (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Test Session (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of Test Session (2)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_status.labels = {
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_status.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -2426,18 +2272,14 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.trading_status = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.trading_status.size = 1
 
 -- Display: Trading Status
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "R" then
-    return "Trading Status: Resumed (R)"
-  end
-  if value == "O" then
-    return "Trading Status: Opened (O)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["R"] = "Trading Status: Resumed (R)",
+  ["O"] = "Trading Status: Opened (O)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.trading_status.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2482,18 +2324,14 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type = {
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type.display = function(value)
-  if value == "R" then
-    return "Unsequenced Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Unsequenced Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type.labels = {
+  ["R"] = "Unsequenced Message Type: Refresh Request Message (R)",
+  ["r"] = "Unsequenced Message Type: Refresh Response Message (r)",
+  ["E"] = "Unsequenced Message Type: End Of Refresh Notification Message (E)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2515,15 +2353,13 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.update_reason = {}
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.update_reason.size = 1
 
 -- Display: Update Reason
-miax_sapphireoptions_complextopofmarket_mach_v1_0_a.update_reason.display = function(value)
-  if value == "N" then
-    return "Update Reason: New Strategy Created (N)"
-  end
-  if value == "U" then
-    return "Update Reason: Updated (U)"
-  end
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.update_reason.labels = {
+  ["N"] = "Update Reason: New Strategy Created (N)",
+  ["U"] = "Update Reason: Updated (U)",
+}
 
-  return "Update Reason: Unknown("..value..")"
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.update_reason.display = function(value)
+  return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.update_reason.labels[value] or "Update Reason: Unknown("..value..")"
 end
 
 -- Dissect: Update Reason
@@ -3924,54 +3760,25 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.data = {}
 
 -- Dissect: Data
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.data.dispatch = {
+  ["1"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_time_message.dissect,
+  ["P"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.simple_series_update_message.dissect,
+  ["C"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_strategy_definition_message.dissect,
+  ["S"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_state_message.dissect,
+  ["b"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_top_of_market_best_bid_or_offer_compact_format_bid_message.dissect,
+  ["o"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_top_of_market_best_bid_or_offer_compact_format_offer_message.dissect,
+  ["e"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_top_of_market_best_bid_or_offer_wide_format_bid_message.dissect,
+  ["f"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_top_of_market_best_bid_or_offer_wide_format_offer_message.dissect,
+  ["m"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_double_sided_top_of_market_best_bid_and_offer_compact_format_message.dissect,
+  ["w"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_double_sided_top_of_market_best_bid_and_offer_wide_format_message.dissect,
+  ["t"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.strategy_last_sale_message.dissect,
+  ["H"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.underlying_trading_status_notification_message.dissect,
+}
+
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Time Message
-  if message_type == "1" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Series Update Message
-  if message_type == "P" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.simple_series_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Strategy Definition Message
-  if message_type == "C" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_strategy_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Message
-  if message_type == "S" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.system_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Top Of Market Best Bid Or Offer Compact Format Bid Message
-  if message_type == "b" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_top_of_market_best_bid_or_offer_compact_format_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Top Of Market Best Bid Or Offer Compact Format Offer Message
-  if message_type == "o" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_top_of_market_best_bid_or_offer_compact_format_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Top Of Market Best Bid Or Offer Wide Format Bid Message
-  if message_type == "e" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_top_of_market_best_bid_or_offer_wide_format_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Top Of Market Best Bid Or Offer Wide Format Offer Message
-  if message_type == "f" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_top_of_market_best_bid_or_offer_wide_format_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Double Sided Top Of Market Best Bid And Offer Compact Format Message
-  if message_type == "m" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_double_sided_top_of_market_best_bid_and_offer_compact_format_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Double Sided Top Of Market Best Bid And Offer Wide Format Message
-  if message_type == "w" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.complex_double_sided_top_of_market_best_bid_and_offer_wide_format_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Last Sale Message
-  if message_type == "t" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.strategy_last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Trading Status Notification Message
-  if message_type == "H" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.underlying_trading_status_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4120,18 +3927,16 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message.dispatch = {
+  ["R"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_request_message.dissect,
+  ["r"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_response_message.dissect,
+  ["E"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.end_of_refresh_notification_message.dissect,
+}
+
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Refresh Request Message
-  if unsequenced_message_type == "R" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Response Message
-  if unsequenced_message_type == "r" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.refresh_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Refresh Notification Message
-  if unsequenced_message_type == "E" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.end_of_refresh_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4253,54 +4058,25 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_payload = {}
 
 -- Dissect: Sesm Payload
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_payload.dispatch = {
+  ["s"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sequenced_data_packet.dissect,
+  ["U"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_data_packet.dissect,
+  ["l"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.login_request.dissect,
+  ["r"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.login_response.dissect,
+  ["c"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.synchronization_complete.dissect,
+  ["a"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.retransmission_request.dissect,
+  ["X"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.logout_request.dissect,
+  ["G"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.goodbye_packet.dissect,
+  ["u"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.trading_session_update.dissect,
+  ["0"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.server_heartbeat.dissect,
+  ["1"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.client_heartbeat.dissect,
+  ["T"] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.test_packet.dissect,
+}
+
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
-  -- Dissect Sequenced Data Packet
-  if sesm_packet_type == "s" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if sesm_packet_type == "U" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if sesm_packet_type == "l" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if sesm_packet_type == "r" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if sesm_packet_type == "c" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if sesm_packet_type == "a" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if sesm_packet_type == "X" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if sesm_packet_type == "G" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Update
-  if sesm_packet_type == "u" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.trading_session_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if sesm_packet_type == "0" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if sesm_packet_type == "1" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Packet
-  if sesm_packet_type == "T" then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.test_packet.dissect(buffer, offset, packet, parent)
+  local dissect = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_payload.dispatch[sesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4517,22 +4293,17 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.payload = {}
 
 -- Dissect: Payload
+miax_sapphireoptions_complextopofmarket_mach_v1_0_a.payload.dispatch = {
+  [0] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.heartbeat.dissect,
+  [1] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.start_of_session.dissect,
+  [2] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.end_of_session.dissect,
+  [3] = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.application_message.dissect,
+}
+
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Heartbeat
-  if packet_type == 0 then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if packet_type == 1 then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if packet_type == 2 then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Message
-  if packet_type == 3 then
-    return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.application_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

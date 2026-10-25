@@ -7,15 +7,15 @@
 
 | Division | [Protocol][Omi.Taifex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Taifex.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TaifexDerivatives][TaifexDerivatives.Exchange] | [ClearingMember][Taifex.TaifexDerivatives.ClearingMember] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.ClearingMember.Tmp.v2.18.7.Dissector] | 8/18/2025 | 6079 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.ClearingMember.Tmp.v2.18.7.Pdf] |
-| [TaifexDerivatives][TaifexDerivatives.Exchange] | [DropCopy][Taifex.TaifexDerivatives.DropCopy] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.DropCopy.Tmp.v2.18.7.Dissector] | 8/18/2025 | 6014 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.DropCopy.Tmp.v2.18.7.Pdf] |
+| [TaifexDerivatives][TaifexDerivatives.Exchange] | [ClearingMember][Taifex.TaifexDerivatives.ClearingMember] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.ClearingMember.Tmp.v2.18.7.Dissector] | 8/18/2025 | 5376 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.ClearingMember.Tmp.v2.18.7.Pdf] |
+| [TaifexDerivatives][TaifexDerivatives.Exchange] | [DropCopy][Taifex.TaifexDerivatives.DropCopy] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.DropCopy.Tmp.v2.18.7.Dissector] | 8/18/2025 | 5306 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.DropCopy.Tmp.v2.18.7.Pdf] |
 
 
 ### Order Entry
 
 | Division | [Protocol][Omi.Taifex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Taifex.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TaifexDerivatives][TaifexDerivatives.Exchange] | [OrderEntry][Taifex.TaifexDerivatives.OrderEntry] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.OrderEntry.Tmp.v2.18.7.Dissector] | 8/18/2025 | 9503 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.OrderEntry.Tmp.v2.18.7.Pdf] |
+| [TaifexDerivatives][TaifexDerivatives.Exchange] | [OrderEntry][Taifex.TaifexDerivatives.OrderEntry] | [Tmp][Omi.Encoding.Tmp] | [2.18.7][Taifex.TaifexDerivatives.OrderEntry.Tmp.v2.18.7.Dissector] | 8/18/2025 | 8632 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Taifex.TaifexDerivatives.OrderEntry.Tmp.v2.18.7.Pdf] |
 
 
 <p align="center"><a href="https://www.taifex.com.tw" title="Taiwan Futures Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/taiwan-futures-exchange" title="Taiwan Futures Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Taiwan_Futures_Exchange" title="Taiwan Futures Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

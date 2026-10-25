@@ -951,66 +951,30 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message_type = {}
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message_type.size = 2
 
 -- Display: Exchange Message Type
-cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message_type.display = function(value)
-  if value == 501 then
-    return "Message Type: Login Response Message (501)"
-  end
-  if value == 502 then
-    return "Message Type: Replay Complete Message (502)"
-  end
-  if value == 503 then
-    return "Message Type: Logout Response Message (503)"
-  end
-  if value == 504 then
-    return "Message Type: Server Heartbeat Message (504)"
-  end
-  if value == 3501 then
-    return "Message Type: Order Acknowledgement Au Equities V 1 (3501)"
-  end
-  if value == 3502 then
-    return "Message Type: Order Rejected Au Equities V 1 (3502)"
-  end
-  if value == 3503 then
-    return "Message Type: Order Modified Au Equities V 1 (3503)"
-  end
-  if value == 3504 then
-    return "Message Type: Modify Rejected Au Equities V 1 (3504)"
-  end
-  if value == 3505 then
-    return "Message Type: Order Restated Au Equities V 1 (3505)"
-  end
-  if value == 3506 then
-    return "Message Type: Order Execution Au Equities V 1 (3506)"
-  end
-  if value == 3507 then
-    return "Message Type: Order Cancelled Au Equities V 1 (3507)"
-  end
-  if value == 3508 then
-    return "Message Type: Cancel Rejected Au Equities V 1 (3508)"
-  end
-  if value == 3509 then
-    return "Message Type: Execution Restatement Au Equities V 1 (3509)"
-  end
-  if value == 3510 then
-    return "Message Type: Purge Acknowledgement Au Equities V 1 (3510)"
-  end
-  if value == 3511 then
-    return "Message Type: Purge Rejected Au Equities V 1 (3511)"
-  end
-  if value == 3512 then
-    return "Message Type: Trade Cancel Correct Au Equities V 1 (3512)"
-  end
-  if value == 3513 then
-    return "Message Type: Order Modified Au Equities V 2 (3513)"
-  end
-  if value == 3514 then
-    return "Message Type: Carried Restatement Au Equities V 1 (3514)"
-  end
-  if value == 3515 then
-    return "Message Type: Done For Day Au Equities V 1 (3515)"
-  end
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message_type.labels = {
+  [501] = "Message Type: Login Response Message (501)",
+  [502] = "Message Type: Replay Complete Message (502)",
+  [503] = "Message Type: Logout Response Message (503)",
+  [504] = "Message Type: Server Heartbeat Message (504)",
+  [3501] = "Message Type: Order Acknowledgement Au Equities V 1 (3501)",
+  [3502] = "Message Type: Order Rejected Au Equities V 1 (3502)",
+  [3503] = "Message Type: Order Modified Au Equities V 1 (3503)",
+  [3504] = "Message Type: Modify Rejected Au Equities V 1 (3504)",
+  [3505] = "Message Type: Order Restated Au Equities V 1 (3505)",
+  [3506] = "Message Type: Order Execution Au Equities V 1 (3506)",
+  [3507] = "Message Type: Order Cancelled Au Equities V 1 (3507)",
+  [3508] = "Message Type: Cancel Rejected Au Equities V 1 (3508)",
+  [3509] = "Message Type: Execution Restatement Au Equities V 1 (3509)",
+  [3510] = "Message Type: Purge Acknowledgement Au Equities V 1 (3510)",
+  [3511] = "Message Type: Purge Rejected Au Equities V 1 (3511)",
+  [3512] = "Message Type: Trade Cancel Correct Au Equities V 1 (3512)",
+  [3513] = "Message Type: Order Modified Au Equities V 2 (3513)",
+  [3514] = "Message Type: Carried Restatement Au Equities V 1 (3514)",
+  [3515] = "Message Type: Done For Day Au Equities V 1 (3515)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message_type.display = function(value)
+  return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Message Type
@@ -1256,36 +1220,20 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message_type = {}
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message_type.size = 2
 
 -- Display: Firm Message Type
-cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Logout Request Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Client Heartbeat Message (3)"
-  end
-  if value == 3001 then
-    return "Message Type: New Order Au Equities V 1 (3001)"
-  end
-  if value == 3005 then
-    return "Message Type: New Order Au Equities V 2 (3005)"
-  end
-  if value == 3002 then
-    return "Message Type: Modify Order Au Equities V 1 (3002)"
-  end
-  if value == 3006 then
-    return "Message Type: Modify Order Au Equities V 2 (3006)"
-  end
-  if value == 3003 then
-    return "Message Type: Cancel Order Au Equities V 1 (3003)"
-  end
-  if value == 3004 then
-    return "Message Type: Purge Orders Au Equities V 1 (3004)"
-  end
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message_type.labels = {
+  [1] = "Message Type: Login Request Message (1)",
+  [2] = "Message Type: Logout Request Message (2)",
+  [3] = "Message Type: Client Heartbeat Message (3)",
+  [3001] = "Message Type: New Order Au Equities V 1 (3001)",
+  [3005] = "Message Type: New Order Au Equities V 2 (3005)",
+  [3002] = "Message Type: Modify Order Au Equities V 1 (3002)",
+  [3006] = "Message Type: Modify Order Au Equities V 2 (3006)",
+  [3003] = "Message Type: Cancel Order Au Equities V 1 (3003)",
+  [3004] = "Message Type: Purge Orders Au Equities V 1 (3004)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message_type.display = function(value)
+  return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Firm Message Type
@@ -1401,24 +1349,16 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.last_mkt = {}
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.last_mkt.size = 4
 
 -- Display: Last Mkt
-cboe_cxaequities_binaryorderentry_boe3_v1_0_20.last_mkt.display = function(value)
-  if value == "CXAC" then
-    return "Last Mkt: Limit (CXAC)"
-  end
-  if value == "CXAP" then
-    return "Last Mkt: Mid Point (CXAP)"
-  end
-  if value == "CXAN" then
-    return "Last Mkt: Near Point (CXAN)"
-  end
-  if value == "CXAF" then
-    return "Last Mkt: Far Point (CXAF)"
-  end
-  if value == "CXAM" then
-    return "Last Mkt: Moc (CXAM)"
-  end
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.last_mkt.labels = {
+  ["CXAC"] = "Last Mkt: Limit (CXAC)",
+  ["CXAP"] = "Last Mkt: Mid Point (CXAP)",
+  ["CXAN"] = "Last Mkt: Near Point (CXAN)",
+  ["CXAF"] = "Last Mkt: Far Point (CXAF)",
+  ["CXAM"] = "Last Mkt: Moc (CXAM)",
+}
 
-  return "Last Mkt: Unknown("..value..")"
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.last_mkt.display = function(value)
+  return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.last_mkt.labels[value] or "Last Mkt: Unknown("..value..")"
 end
 
 -- Dissect: Last Mkt
@@ -1526,33 +1466,19 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_response_status = {}
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Accepted (A)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "D" then
-    return "Login Response Status: Disabled (D)"
-  end
-  if value == "I" then
-    return "Login Response Status: Invalid Unit (I)"
-  end
-  if value == "M" then
-    return "Login Response Status: Invalid Message (M)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized (N)"
-  end
-  if value == "Q" then
-    return "Login Response Status: Sequence Ahead (Q)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_response_status.labels = {
+  ["A"] = "Login Response Status: Accepted (A)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["D"] = "Login Response Status: Disabled (D)",
+  ["I"] = "Login Response Status: Invalid Unit (I)",
+  ["M"] = "Login Response Status: Invalid Message (M)",
+  ["N"] = "Login Response Status: Not Authorized (N)",
+  ["Q"] = "Login Response Status: Sequence Ahead (Q)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_response_status.display = function(value)
+  return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -1613,18 +1539,14 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_reason = {}
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_reason.size = 1
 
 -- Display: Logout Reason
-cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_reason.display = function(value)
-  if value == "U" then
-    return "Logout Reason: User Requested (U)"
-  end
-  if value == "A" then
-    return "Logout Reason: Administrative (A)"
-  end
-  if value == "!" then
-    return "Logout Reason: Protocol Violation (!)"
-  end
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_reason.labels = {
+  ["U"] = "Logout Reason: User Requested (U)",
+  ["A"] = "Logout Reason: Administrative (A)",
+  ["!"] = "Logout Reason: Protocol Violation (!)",
+}
 
-  return "Logout Reason: Unknown("..value..")"
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_reason.display = function(value)
+  return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_reason.labels[value] or "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -2656,18 +2578,14 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.replay_unspecified_unit = {}
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.replay_unspecified_unit.size = 1
 
 -- Display: Replay Unspecified Unit
-cboe_cxaequities_binaryorderentry_boe3_v1_0_20.replay_unspecified_unit.display = function(value)
-  if value == "F" then
-    return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
-  end
-  if value == "R" then
-    return "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)"
-  end
-  if value == "S" then
-    return "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)"
-  end
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.replay_unspecified_unit.labels = {
+  ["F"] = "Replay Unspecified Unit: Fail If Unit Not Specified (F)",
+  ["R"] = "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)",
+  ["S"] = "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)",
+}
 
-  return "Replay Unspecified Unit: Unknown("..value..")"
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.replay_unspecified_unit.display = function(value)
+  return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.replay_unspecified_unit.labels[value] or "Replay Unspecified Unit: Unknown("..value..")"
 end
 
 -- Dissect: Replay Unspecified Unit
@@ -5074,82 +4992,32 @@ end
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message = {}
 
 -- Dissect: Exchange Message
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message.dispatch = {
+  [501] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_response_message.dissect,
+  [502] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.replay_complete.dissect,
+  [503] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_response_message.dissect,
+  [504] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.server_heartbeat.dissect,
+  [3501] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_acknowledgement_au_equities_v_1.dissect,
+  [3502] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_rejected_au_equities_v_1.dissect,
+  [3503] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_modified_au_equities_v_1.dissect,
+  [3504] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.modify_rejected_au_equities_v_1.dissect,
+  [3505] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_restated_au_equities_v_1.dissect,
+  [3506] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_execution_au_equities_v_1.dissect,
+  [3507] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_cancelled_au_equities_v_1.dissect,
+  [3508] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.cancel_rejected_au_equities_v_1.dissect,
+  [3509] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.execution_restatement_au_equities_v_1.dissect,
+  [3510] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.purge_acknowledgement_au_equities_v_1.dissect,
+  [3511] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.purge_rejected_au_equities_v_1.dissect,
+  [3512] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.trade_cancel_correct_au_equities_v_1.dissect,
+  [3513] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_modified_au_equities_v_2.dissect,
+  [3514] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.carried_restatement_au_equities_v_1.dissect,
+  [3515] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.done_for_day_au_equities_v_1.dissect,
+}
+
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
-  -- Dissect Login Response Message
-  if exchange_message_type == 501 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete
-  if exchange_message_type == 502 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.replay_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if exchange_message_type == 503 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if exchange_message_type == 504 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement Au Equities V 1
-  if exchange_message_type == 3501 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_acknowledgement_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Au Equities V 1
-  if exchange_message_type == 3502 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_rejected_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Au Equities V 1
-  if exchange_message_type == 3503 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_modified_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Rejected Au Equities V 1
-  if exchange_message_type == 3504 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.modify_rejected_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Au Equities V 1
-  if exchange_message_type == 3505 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_restated_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Au Equities V 1
-  if exchange_message_type == 3506 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_execution_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Au Equities V 1
-  if exchange_message_type == 3507 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_cancelled_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Au Equities V 1
-  if exchange_message_type == 3508 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.cancel_rejected_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Restatement Au Equities V 1
-  if exchange_message_type == 3509 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.execution_restatement_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Acknowledgement Au Equities V 1
-  if exchange_message_type == 3510 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.purge_acknowledgement_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Rejected Au Equities V 1
-  if exchange_message_type == 3511 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.purge_rejected_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Correct Au Equities V 1
-  if exchange_message_type == 3512 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.trade_cancel_correct_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Au Equities V 2
-  if exchange_message_type == 3513 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.order_modified_au_equities_v_2.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Carried Restatement Au Equities V 1
-  if exchange_message_type == 3514 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.carried_restatement_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Done For Day Au Equities V 1
-  if exchange_message_type == 3515 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.done_for_day_au_equities_v_1.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.exchange_message.dispatch[exchange_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5970,42 +5838,22 @@ end
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message = {}
 
 -- Dissect: Firm Message
+cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message.dispatch = {
+  [1] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_request_message.dissect,
+  [2] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_request.dissect,
+  [3] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.client_heartbeat.dissect,
+  [3001] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.new_order_au_equities_v_1.dissect,
+  [3005] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.new_order_au_equities_v_2.dissect,
+  [3002] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.modify_order_au_equities_v_1.dissect,
+  [3006] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.modify_order_au_equities_v_2.dissect,
+  [3003] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.cancel_order_au_equities_v_1.dissect,
+  [3004] = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.purge_orders_au_equities_v_1.dissect,
+}
+
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
-  -- Dissect Login Request Message
-  if firm_message_type == 1 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if firm_message_type == 2 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if firm_message_type == 3 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Au Equities V 1
-  if firm_message_type == 3001 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.new_order_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Au Equities V 2
-  if firm_message_type == 3005 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.new_order_au_equities_v_2.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Au Equities V 1
-  if firm_message_type == 3002 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.modify_order_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Au Equities V 2
-  if firm_message_type == 3006 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.modify_order_au_equities_v_2.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Au Equities V 1
-  if firm_message_type == 3003 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.cancel_order_au_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Orders Au Equities V 1
-  if firm_message_type == 3004 then
-    return cboe_cxaequities_binaryorderentry_boe3_v1_0_20.purge_orders_au_equities_v_1.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxaequities_binaryorderentry_boe3_v1_0_20.firm_message.dispatch[firm_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

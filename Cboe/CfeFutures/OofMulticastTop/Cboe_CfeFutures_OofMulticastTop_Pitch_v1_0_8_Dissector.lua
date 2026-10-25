@@ -470,15 +470,13 @@ cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.call_put_indicator = {}
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.call_put_indicator.size = 1
 
 -- Display: Call Put Indicator
-cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.call_put_indicator.display = function(value)
-  if value == "C" then
-    return "Call Put Indicator: Call (C)"
-  end
-  if value == "P" then
-    return "Call Put Indicator: Put (P)"
-  end
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.call_put_indicator.labels = {
+  ["C"] = "Call Put Indicator: Call (C)",
+  ["P"] = "Call Put Indicator: Put (P)",
+}
 
-  return "Call Put Indicator: Unknown("..value..")"
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.call_put_indicator.display = function(value)
+  return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.call_put_indicator.labels[value] or "Call Put Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Call Put Indicator
@@ -788,18 +786,14 @@ cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.issue = {}
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.issue.size = 1
 
 -- Display: Issue
-cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.issue.display = function(value)
-  if value == "I" then
-    return "Issue: Indicative Settlement (I)"
-  end
-  if value == "S" then
-    return "Issue: Initial Settlement (S)"
-  end
-  if value == "R" then
-    return "Issue: Reissued Settlement (R)"
-  end
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.issue.labels = {
+  ["I"] = "Issue: Indicative Settlement (I)",
+  ["S"] = "Issue: Initial Settlement (S)",
+  ["R"] = "Issue: Reissued Settlement (R)",
+}
 
-  return "Issue: Unknown("..value..")"
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.issue.display = function(value)
+  return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.issue.labels[value] or "Issue: Unknown("..value..")"
 end
 
 -- Dissect: Issue
@@ -867,12 +861,12 @@ cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.leg_security_type = {}
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.leg_security_type.size = 1
 
 -- Display: Leg Security Type
-cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.leg_security_type.display = function(value)
-  if value == "O" then
-    return "Leg Security Type: Leg Is An Option Instrument (O)"
-  end
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.leg_security_type.labels = {
+  ["O"] = "Leg Security Type: Leg Is An Option Instrument (O)",
+}
 
-  return "Leg Security Type: Unknown("..value..")"
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.leg_security_type.display = function(value)
+  return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.leg_security_type.labels[value] or "Leg Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Leg Security Type
@@ -1015,51 +1009,25 @@ cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.message_type = {}
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.message_type.size = 1
 
 -- Display: Message Type
-cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.message_type.display = function(value)
-  if value == 0xB1 then
-    return "Message Type: Time Reference Message (0xB1)"
-  end
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0xF9 then
-    return "Message Type: Oof Symbol Mapping Message (0xF9)"
-  end
-  if value == 0x9A then
-    return "Message Type: Complex Instrument Definition Expanded Message (0x9A)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0xB4 then
-    return "Message Type: Single Side Update Short Message (0xB4)"
-  end
-  if value == 0xB5 then
-    return "Message Type: Single Side Update Long Message (0xB5)"
-  end
-  if value == 0xB6 then
-    return "Message Type: Two Side Update Short Message (0xB6)"
-  end
-  if value == 0xB7 then
-    return "Message Type: Two Side Update Long Message (0xB7)"
-  end
-  if value == 0xB8 then
-    return "Message Type: Top Trade Message (0xB8)"
-  end
-  if value == 0xB9 then
-    return "Message Type: Settlement Message (0xB9)"
-  end
-  if value == 0xBA then
-    return "Message Type: End Of Day Summary Message (0xBA)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.message_type.labels = {
+  [0xB1] = "Message Type: Time Reference Message (0xB1)",
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0xF9] = "Message Type: Oof Symbol Mapping Message (0xF9)",
+  [0x9A] = "Message Type: Complex Instrument Definition Expanded Message (0x9A)",
+  [0x31] = "Message Type: Trading Status Message (0x31)",
+  [0xB4] = "Message Type: Single Side Update Short Message (0xB4)",
+  [0xB5] = "Message Type: Single Side Update Long Message (0xB5)",
+  [0xB6] = "Message Type: Two Side Update Short Message (0xB6)",
+  [0xB7] = "Message Type: Two Side Update Long Message (0xB7)",
+  [0xB8] = "Message Type: Top Trade Message (0xB8)",
+  [0xB9] = "Message Type: Settlement Message (0xB9)",
+  [0xBA] = "Message Type: End Of Day Summary Message (0xBA)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.message_type.display = function(value)
+  return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1418,15 +1386,13 @@ cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.side = {}
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.side.size = 1
 
 -- Display: Side
-cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.side.display = function(value)
-  if value == "B" then
-    return "Side: Bid Side (B)"
-  end
-  if value == "S" then
-    return "Side: Ask Side (S)"
-  end
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.side.labels = {
+  ["B"] = "Side: Bid Side (B)",
+  ["S"] = "Side: Ask Side (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.side.display = function(value)
+  return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1500,15 +1466,13 @@ cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.symbol_condition = {}
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.symbol_condition.display = function(value)
+  return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -1668,18 +1632,14 @@ cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.trading_status = {}
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Trading Status: Queuing (Q)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["Q"] = "Trading Status: Queuing (Q)",
+  ["T"] = "Trading Status: Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.trading_status.display = function(value)
+  return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2732,62 +2692,27 @@ end
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.payload = {}
 
 -- Dissect: Payload
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.payload.dispatch = {
+  [0xB1] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.time_reference_message.dissect,
+  [0x20] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.time_message.dissect,
+  [0x97] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.unit_clear_message.dissect,
+  [0xF9] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.oof_symbol_mapping_message.dissect,
+  [0x9A] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.complex_instrument_definition_expanded_message.dissect,
+  [0x31] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.trading_status_message.dissect,
+  [0xB4] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.single_side_update_short_message.dissect,
+  [0xB5] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.single_side_update_long_message.dissect,
+  [0xB6] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.two_side_update_short_message.dissect,
+  [0xB7] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.two_side_update_long_message.dissect,
+  [0xB8] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.top_trade_message.dissect,
+  [0xB9] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.settlement_message.dissect,
+  [0xBA] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.end_of_day_summary_message.dissect,
+  [0x2D] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.end_of_session_message.dissect,
+}
+
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Reference Message
-  if message_type == 0xB1 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Oof Symbol Mapping Message
-  if message_type == 0xF9 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.oof_symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Expanded Message
-  if message_type == 0x9A then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.complex_instrument_definition_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x31 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Short Message
-  if message_type == 0xB4 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.single_side_update_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Long Message
-  if message_type == 0xB5 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.single_side_update_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Two Side Update Short Message
-  if message_type == 0xB6 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.two_side_update_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Two Side Update Long Message
-  if message_type == 0xB7 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.two_side_update_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Trade Message
-  if message_type == 0xB8 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.top_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Message
-  if message_type == 0xB9 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.settlement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Summary Message
-  if message_type == 0xBA then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.end_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2926,10 +2851,14 @@ end
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.messages = {}
 
 -- Dissect: Messages
+cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.messages.dispatch = {
+  [0] = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.heartbeat.dissect,
+}
+
 cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cfefutures_oofmulticasttop_pitch_v1_0_8.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

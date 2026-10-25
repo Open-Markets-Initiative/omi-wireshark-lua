@@ -587,24 +587,16 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_packet_type = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_packet_type.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -626,18 +618,14 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.closing_type = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.closing_type.size = 1
 
 -- Display: Closing Type
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.closing_type.display = function(value)
-  if value == "N" then
-    return "Closing Type: Normal Hours (N)"
-  end
-  if value == "L" then
-    return "Closing Type: Late Hours (L)"
-  end
-  if value == "W" then
-    return "Closing Type: Wco Early Closing (W)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.closing_type.labels = {
+  ["N"] = "Closing Type: Normal Hours (N)",
+  ["L"] = "Closing Type: Late Hours (L)",
+  ["W"] = "Closing Type: Wco Early Closing (W)",
+}
 
-  return "Closing Type: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.closing_type.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.closing_type.labels[value] or "Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Closing Type
@@ -659,33 +647,19 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.current_trading_state = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.current_trading_state.display = function(value)
-  if value == "B" then
-    return "Current Trading State: Buy Side Suspended (B)"
-  end
-  if value == "S" then
-    return "Current Trading State: Sell Side Suspended (S)"
-  end
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Continuous Trading (T)"
-  end
-  if value == "I" then
-    return "Current Trading State: Pre Open (I)"
-  end
-  if value == "O" then
-    return "Current Trading State: Opening Auction (O)"
-  end
-  if value == "R" then
-    return "Current Trading State: Re Opening (R)"
-  end
-  if value == "X" then
-    return "Current Trading State: Closed (X)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.current_trading_state.labels = {
+  ["B"] = "Current Trading State: Buy Side Suspended (B)",
+  ["S"] = "Current Trading State: Sell Side Suspended (S)",
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Continuous Trading (T)",
+  ["I"] = "Current Trading State: Pre Open (I)",
+  ["O"] = "Current Trading State: Opening Auction (O)",
+  ["R"] = "Current Trading State: Re Opening (R)",
+  ["X"] = "Current Trading State: Closed (X)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.current_trading_state.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -726,33 +700,19 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.event_code = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: Start Of Normal Hours Closing Process (N)",
+  ["L"] = "Event Code: Start Of Late Hours Closing Process (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.event_code.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -895,18 +855,14 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.mpv = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.mpv.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -928,18 +884,14 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.option_type = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == "N" then
-    return "Option Type: Not Applicable (N)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+  ["N"] = "Option Type: Not Applicable (N)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.option_type.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1133,15 +1085,13 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.reject_reason_code = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.reject_reason_code.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1309,33 +1259,19 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message_type = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "m" then
-    return "Sequenced Message Type: Derivative Directory Message (m)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading Action Message (H)"
-  end
-  if value == "r" then
-    return "Sequenced Message Type: Add Order Short Form Message (r)"
-  end
-  if value == "o" then
-    return "Sequenced Message Type: Add Order Long Form Message (o)"
-  end
-  if value == "j" then
-    return "Sequenced Message Type: Add Quote Short Form Message (j)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Add Quote Long Form Message (J)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Snapshot Message (M)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["m"] = "Sequenced Message Type: Derivative Directory Message (m)",
+  ["H"] = "Sequenced Message Type: Trading Action Message (H)",
+  ["r"] = "Sequenced Message Type: Add Order Short Form Message (r)",
+  ["o"] = "Sequenced Message Type: Add Order Long Form Message (o)",
+  ["j"] = "Sequenced Message Type: Add Quote Short Form Message (j)",
+  ["J"] = "Sequenced Message Type: Add Quote Long Form Message (J)",
+  ["M"] = "Sequenced Message Type: Snapshot Message (M)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message_type.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1357,27 +1293,17 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_packet_type = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_packet_type.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1399,21 +1325,15 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.side = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.side.size = 1
 
 -- Display: Side
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "M" then
-    return "Side: Buy Implied (M)"
-  end
-  if value == "N" then
-    return "Side: Sell Implied (N)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["M"] = "Side: Buy Implied (M)",
+  ["N"] = "Side: Sell Implied (N)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.side.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1501,15 +1421,13 @@ nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.tradable = {}
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.tradable.display = function(value)
+  return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -2221,38 +2139,21 @@ end
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message.dispatch = {
+  ["S"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.system_event_message.dissect,
+  ["m"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.derivative_directory_message.dissect,
+  ["H"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.trading_action_message.dissect,
+  ["r"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.add_order_short_form_message.dissect,
+  ["o"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.add_order_long_form_message.dissect,
+  ["j"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.add_quote_short_form_message.dissect,
+  ["J"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.add_quote_long_form_message.dissect,
+  ["M"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.snapshot_message.dissect,
+}
+
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Derivative Directory Message
-  if sequenced_message_type == "m" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.derivative_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Short Form Message
-  if sequenced_message_type == "r" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.add_order_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Long Form Message
-  if sequenced_message_type == "o" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.add_order_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Short Form Message
-  if sequenced_message_type == "j" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.add_quote_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Long Form Message
-  if sequenced_message_type == "J" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.add_quote_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Message
-  if sequenced_message_type == "M" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2495,30 +2396,19 @@ end
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_payload.dispatch = {
+  ["+"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.debug_packet.dissect,
+  ["A"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.login_accepted_packet.dissect,
+  ["J"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.login_rejected_packet.dissect,
+  ["S"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_heartbeat.dissect,
+  ["Z"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.end_of_session.dissect,
+}
+
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2829,26 +2719,18 @@ end
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_payload.dispatch = {
+  ["+"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.debug_packet.dissect,
+  ["L"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.login_request_packet.dissect,
+  ["U"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_heartbeat.dissect,
+  ["O"] = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.logout_request.dissect,
+}
+
 nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_mrxoptions_depthofmarket_glimpse_v2_1.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -250,36 +250,20 @@ cboe_byxequities_lastsale_asciipitch_v1_2_4.packet_type = {}
 cboe_byxequities_lastsale_asciipitch_v1_2_4.packet_type.size = 1
 
 -- Display: Packet Type
-cboe_byxequities_lastsale_asciipitch_v1_2_4.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+cboe_byxequities_lastsale_asciipitch_v1_2_4.packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+cboe_byxequities_lastsale_asciipitch_v1_2_4.packet_type.display = function(value)
+  return cboe_byxequities_lastsale_asciipitch_v1_2_4.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -485,18 +469,14 @@ cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message_type = {}
 cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message_type.display = function(value)
-  if value == "L" then
-    return "Sequenced Message Type: Last Sale Message (L)"
-  end
-  if value == "5" then
-    return "Sequenced Message Type: Last Sale Extended Message (5)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Trade Break Message (B)"
-  end
+cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message_type.labels = {
+  ["L"] = "Sequenced Message Type: Last Sale Message (L)",
+  ["5"] = "Sequenced Message Type: Last Sale Extended Message (5)",
+  ["B"] = "Sequenced Message Type: Trade Break Message (B)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message_type.display = function(value)
+  return cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -934,18 +914,16 @@ end
 cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message.dispatch = {
+  ["L"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.last_sale_message.dissect,
+  ["5"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.last_sale_extended_message.dissect,
+  ["B"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.trade_break_message.dissect,
+}
+
 cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Last Sale Message
-  if sequenced_message_type == "L" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Sale Extended Message
-  if sequenced_message_type == "5" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.last_sale_extended_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if sequenced_message_type == "B" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.trade_break_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1179,30 +1157,19 @@ end
 cboe_byxequities_lastsale_asciipitch_v1_2_4.payload = {}
 
 -- Dissect: Payload
+cboe_byxequities_lastsale_asciipitch_v1_2_4.payload.dispatch = {
+  ["+"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.debug_packet.dissect,
+  ["A"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.login_accepted_packet.dissect,
+  ["J"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.login_rejected_packet.dissect,
+  ["S"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_data_packet.dissect,
+  ["L"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.login_request_packet.dissect,
+  ["U"] = cboe_byxequities_lastsale_asciipitch_v1_2_4.unsequenced_data_packet.dissect,
+}
+
 cboe_byxequities_lastsale_asciipitch_v1_2_4.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Debug Packet
-  if packet_type == "+" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if packet_type == "A" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if packet_type == "J" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return cboe_byxequities_lastsale_asciipitch_v1_2_4.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_byxequities_lastsale_asciipitch_v1_2_4.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

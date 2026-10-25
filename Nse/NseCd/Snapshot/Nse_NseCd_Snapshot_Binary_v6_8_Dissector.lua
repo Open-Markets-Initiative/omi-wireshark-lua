@@ -131,15 +131,13 @@ nse_nsecd_snapshot_binary_v6_8.message_type = {}
 nse_nsecd_snapshot_binary_v6_8.message_type.size = 1
 
 -- Display: Message Type
-nse_nsecd_snapshot_binary_v6_8.message_type.display = function(value)
-  if value == "N" then
-    return "Message Type: New Order Message (N)"
-  end
-  if value == "G" then
-    return "Message Type: New Spread Order Message (G)"
-  end
+nse_nsecd_snapshot_binary_v6_8.message_type.labels = {
+  ["N"] = "Message Type: New Order Message (N)",
+  ["G"] = "Message Type: New Spread Order Message (G)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nse_nsecd_snapshot_binary_v6_8.message_type.display = function(value)
+  return nse_nsecd_snapshot_binary_v6_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -207,15 +205,13 @@ nse_nsecd_snapshot_binary_v6_8.order_type = {}
 nse_nsecd_snapshot_binary_v6_8.order_type.size = 1
 
 -- Display: Order Type
-nse_nsecd_snapshot_binary_v6_8.order_type.display = function(value)
-  if value == "B" then
-    return "Order Type: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Order Type: Sell Order (S)"
-  end
+nse_nsecd_snapshot_binary_v6_8.order_type.labels = {
+  ["B"] = "Order Type: Buy Order (B)",
+  ["S"] = "Order Type: Sell Order (S)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nse_nsecd_snapshot_binary_v6_8.order_type.display = function(value)
+  return nse_nsecd_snapshot_binary_v6_8.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -382,12 +378,12 @@ nse_nsecd_snapshot_binary_v6_8.trans_code = {}
 nse_nsecd_snapshot_binary_v6_8.trans_code.size = 2
 
 -- Display: Trans Code
-nse_nsecd_snapshot_binary_v6_8.trans_code.display = function(value)
-  if value == 10501 then
-    return "Trans Code: Order Book Snapshot (10501)"
-  end
+nse_nsecd_snapshot_binary_v6_8.trans_code.labels = {
+  [10501] = "Trans Code: Order Book Snapshot (10501)",
+}
 
-  return "Trans Code: Unknown("..value..")"
+nse_nsecd_snapshot_binary_v6_8.trans_code.display = function(value)
+  return nse_nsecd_snapshot_binary_v6_8.trans_code.labels[value] or "Trans Code: Unknown("..value..")"
 end
 
 -- Dissect: Trans Code
@@ -531,14 +527,15 @@ end
 nse_nsecd_snapshot_binary_v6_8.payload = {}
 
 -- Dissect: Payload
+nse_nsecd_snapshot_binary_v6_8.payload.dispatch = {
+  ["N"] = nse_nsecd_snapshot_binary_v6_8.new_order_message.dissect,
+  ["G"] = nse_nsecd_snapshot_binary_v6_8.new_spread_order_message.dissect,
+}
+
 nse_nsecd_snapshot_binary_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect New Order Message
-  if message_type == "N" then
-    return nse_nsecd_snapshot_binary_v6_8.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Spread Order Message
-  if message_type == "G" then
-    return nse_nsecd_snapshot_binary_v6_8.new_spread_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsecd_snapshot_binary_v6_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

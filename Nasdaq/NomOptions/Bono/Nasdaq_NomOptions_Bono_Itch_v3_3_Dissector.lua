@@ -577,24 +577,16 @@ nasdaq_nomoptions_bono_itch_v3_3.client_packet_type = {}
 nasdaq_nomoptions_bono_itch_v3_3.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nomoptions_bono_itch_v3_3.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.client_packet_type.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -639,15 +631,13 @@ nasdaq_nomoptions_bono_itch_v3_3.current_trading_state = {}
 nasdaq_nomoptions_bono_itch_v3_3.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_nomoptions_bono_itch_v3_3.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Trading (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.current_trading_state.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -711,30 +701,18 @@ nasdaq_nomoptions_bono_itch_v3_3.event_code = {}
 nasdaq_nomoptions_bono_itch_v3_3.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nomoptions_bono_itch_v3_3.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: Start Of Normal Hours Closing Process (N)",
+  ["L"] = "Event Code: Start Of Late Hours Closing Process (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.event_code.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -871,48 +849,24 @@ nasdaq_nomoptions_bono_itch_v3_3.message_type = {}
 nasdaq_nomoptions_bono_itch_v3_3.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nomoptions_bono_itch_v3_3.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Timestamp Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Options Directory Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Security Open Closed Message (O)"
-  end
-  if value == "q" then
-    return "Message Type: Short Best Bid And Ask Update Message (q)"
-  end
-  if value == "Q" then
-    return "Message Type: Long Best Bid And Ask Update Message (Q)"
-  end
-  if value == "a" then
-    return "Message Type: Short Best Ask Update Message (a)"
-  end
-  if value == "b" then
-    return "Message Type: Short Best Bid Update Message (b)"
-  end
-  if value == "A" then
-    return "Message Type: Long Best Ask Update Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Long Best Bid Update Message (B)"
-  end
-  if value == "R" then
-    return "Message Type: Trade Report Message (R)"
-  end
-  if value == "X" then
-    return "Message Type: Broken Trade Report Message (X)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.message_type.labels = {
+  ["T"] = "Message Type: Timestamp Message (T)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["D"] = "Message Type: Options Directory Message (D)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["O"] = "Message Type: Security Open Closed Message (O)",
+  ["q"] = "Message Type: Short Best Bid And Ask Update Message (q)",
+  ["Q"] = "Message Type: Long Best Bid And Ask Update Message (Q)",
+  ["a"] = "Message Type: Short Best Ask Update Message (a)",
+  ["b"] = "Message Type: Short Best Bid Update Message (b)",
+  ["A"] = "Message Type: Long Best Ask Update Message (A)",
+  ["B"] = "Message Type: Long Best Bid Update Message (B)",
+  ["R"] = "Message Type: Trade Report Message (R)",
+  ["X"] = "Message Type: Broken Trade Report Message (X)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.message_type.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -934,18 +888,14 @@ nasdaq_nomoptions_bono_itch_v3_3.mpv = {}
 nasdaq_nomoptions_bono_itch_v3_3.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_nomoptions_bono_itch_v3_3.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.mpv.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -990,15 +940,13 @@ nasdaq_nomoptions_bono_itch_v3_3.open_state = {}
 nasdaq_nomoptions_bono_itch_v3_3.open_state.size = 1
 
 -- Display: Open State
-nasdaq_nomoptions_bono_itch_v3_3.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open For Auto Execution (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed For Auto Execution (N)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.open_state.labels = {
+  ["Y"] = "Open State: Open For Auto Execution (Y)",
+  ["N"] = "Open State: Closed For Auto Execution (N)",
+}
 
-  return "Open State: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.open_state.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.open_state.labels[value] or "Open State: Unknown("..value..")"
 end
 
 -- Dissect: Open State
@@ -1020,15 +968,13 @@ nasdaq_nomoptions_bono_itch_v3_3.option_closing_type = {}
 nasdaq_nomoptions_bono_itch_v3_3.option_closing_type.size = 1
 
 -- Display: Option Closing Type
-nasdaq_nomoptions_bono_itch_v3_3.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late (L)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.option_closing_type.labels = {
+  ["N"] = "Option Closing Type: Normal (N)",
+  ["L"] = "Option Closing Type: Late (L)",
+}
 
-  return "Option Closing Type: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.option_closing_type.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.option_closing_type.labels[value] or "Option Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Closing Type
@@ -1073,15 +1019,13 @@ nasdaq_nomoptions_bono_itch_v3_3.option_type = {}
 nasdaq_nomoptions_bono_itch_v3_3.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_nomoptions_bono_itch_v3_3.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.option_type.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1318,15 +1262,13 @@ nasdaq_nomoptions_bono_itch_v3_3.reject_reason_code = {}
 nasdaq_nomoptions_bono_itch_v3_3.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nomoptions_bono_itch_v3_3.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.reject_reason_code.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1481,51 +1423,25 @@ nasdaq_nomoptions_bono_itch_v3_3.sequenced_message_type = {}
 nasdaq_nomoptions_bono_itch_v3_3.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nomoptions_bono_itch_v3_3.sequenced_message_type.display = function(value)
-  if value == "T" then
-    return "Sequenced Message Type: Timestamp Message (T)"
-  end
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Options Directory Message (D)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Sequenced Message Type: Security Open Closed Message (O)"
-  end
-  if value == "q" then
-    return "Sequenced Message Type: Short Best Bid And Ask Update Message (q)"
-  end
-  if value == "Q" then
-    return "Sequenced Message Type: Long Best Bid And Ask Update Message (Q)"
-  end
-  if value == "a" then
-    return "Sequenced Message Type: Short Best Ask Update Message (a)"
-  end
-  if value == "b" then
-    return "Sequenced Message Type: Short Best Bid Update Message (b)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Long Best Ask Update Message (A)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Long Best Bid Update Message (B)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Trade Report Message (R)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Broken Trade Report Message (X)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: End Of Replay Sequence Message (M)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.sequenced_message_type.labels = {
+  ["T"] = "Sequenced Message Type: Timestamp Message (T)",
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["D"] = "Sequenced Message Type: Options Directory Message (D)",
+  ["H"] = "Sequenced Message Type: Trading Action Message (H)",
+  ["O"] = "Sequenced Message Type: Security Open Closed Message (O)",
+  ["q"] = "Sequenced Message Type: Short Best Bid And Ask Update Message (q)",
+  ["Q"] = "Sequenced Message Type: Long Best Bid And Ask Update Message (Q)",
+  ["a"] = "Sequenced Message Type: Short Best Ask Update Message (a)",
+  ["b"] = "Sequenced Message Type: Short Best Bid Update Message (b)",
+  ["A"] = "Sequenced Message Type: Long Best Ask Update Message (A)",
+  ["B"] = "Sequenced Message Type: Long Best Bid Update Message (B)",
+  ["R"] = "Sequenced Message Type: Trade Report Message (R)",
+  ["X"] = "Sequenced Message Type: Broken Trade Report Message (X)",
+  ["M"] = "Sequenced Message Type: End Of Replay Sequence Message (M)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.sequenced_message_type.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1547,27 +1463,17 @@ nasdaq_nomoptions_bono_itch_v3_3.server_packet_type = {}
 nasdaq_nomoptions_bono_itch_v3_3.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nomoptions_bono_itch_v3_3.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.server_packet_type.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1749,15 +1655,13 @@ nasdaq_nomoptions_bono_itch_v3_3.tradable = {}
 nasdaq_nomoptions_bono_itch_v3_3.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_nomoptions_bono_itch_v3_3.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
+nasdaq_nomoptions_bono_itch_v3_3.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_nomoptions_bono_itch_v3_3.tradable.display = function(value)
+  return nasdaq_nomoptions_bono_itch_v3_3.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -2748,58 +2652,26 @@ end
 nasdaq_nomoptions_bono_itch_v3_3.payload = {}
 
 -- Dissect: Payload
+nasdaq_nomoptions_bono_itch_v3_3.payload.dispatch = {
+  ["T"] = nasdaq_nomoptions_bono_itch_v3_3.timestamp_message.dissect,
+  ["S"] = nasdaq_nomoptions_bono_itch_v3_3.system_event_message.dissect,
+  ["D"] = nasdaq_nomoptions_bono_itch_v3_3.options_directory_message.dissect,
+  ["H"] = nasdaq_nomoptions_bono_itch_v3_3.trading_action_message.dissect,
+  ["O"] = nasdaq_nomoptions_bono_itch_v3_3.security_open_closed_message.dissect,
+  ["q"] = nasdaq_nomoptions_bono_itch_v3_3.short_best_bid_and_ask_update_message.dissect,
+  ["Q"] = nasdaq_nomoptions_bono_itch_v3_3.long_best_bid_and_ask_update_message.dissect,
+  ["a"] = nasdaq_nomoptions_bono_itch_v3_3.short_best_ask_update_message.dissect,
+  ["b"] = nasdaq_nomoptions_bono_itch_v3_3.short_best_bid_update_message.dissect,
+  ["A"] = nasdaq_nomoptions_bono_itch_v3_3.long_best_ask_update_message.dissect,
+  ["B"] = nasdaq_nomoptions_bono_itch_v3_3.long_best_bid_update_message.dissect,
+  ["R"] = nasdaq_nomoptions_bono_itch_v3_3.trade_report_message.dissect,
+  ["X"] = nasdaq_nomoptions_bono_itch_v3_3.broken_trade_report_message.dissect,
+}
+
 nasdaq_nomoptions_bono_itch_v3_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Timestamp Message
-  if message_type == "T" then
-    return nasdaq_nomoptions_bono_itch_v3_3.timestamp_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nomoptions_bono_itch_v3_3.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if message_type == "D" then
-    return nasdaq_nomoptions_bono_itch_v3_3.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nomoptions_bono_itch_v3_3.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Closed Message
-  if message_type == "O" then
-    return nasdaq_nomoptions_bono_itch_v3_3.security_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Bid And Ask Update Message
-  if message_type == "q" then
-    return nasdaq_nomoptions_bono_itch_v3_3.short_best_bid_and_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Bid And Ask Update Message
-  if message_type == "Q" then
-    return nasdaq_nomoptions_bono_itch_v3_3.long_best_bid_and_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Ask Update Message
-  if message_type == "a" then
-    return nasdaq_nomoptions_bono_itch_v3_3.short_best_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Bid Update Message
-  if message_type == "b" then
-    return nasdaq_nomoptions_bono_itch_v3_3.short_best_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Ask Update Message
-  if message_type == "A" then
-    return nasdaq_nomoptions_bono_itch_v3_3.long_best_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Bid Update Message
-  if message_type == "B" then
-    return nasdaq_nomoptions_bono_itch_v3_3.long_best_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "R" then
-    return nasdaq_nomoptions_bono_itch_v3_3.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Report Message
-  if message_type == "X" then
-    return nasdaq_nomoptions_bono_itch_v3_3.broken_trade_report_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_bono_itch_v3_3.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2955,14 +2827,15 @@ end
 nasdaq_nomoptions_bono_itch_v3_3.messages = {}
 
 -- Dissect: Messages
+nasdaq_nomoptions_bono_itch_v3_3.messages.dispatch = {
+  [0] = nasdaq_nomoptions_bono_itch_v3_3.heartbeat.dissect,
+  [65535] = nasdaq_nomoptions_bono_itch_v3_3.end_of_session.dissect,
+}
+
 nasdaq_nomoptions_bono_itch_v3_3.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nomoptions_bono_itch_v3_3.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nomoptions_bono_itch_v3_3.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_bono_itch_v3_3.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
@@ -3140,62 +3013,27 @@ end
 nasdaq_nomoptions_bono_itch_v3_3.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nomoptions_bono_itch_v3_3.sequenced_message.dispatch = {
+  ["T"] = nasdaq_nomoptions_bono_itch_v3_3.timestamp_message.dissect,
+  ["S"] = nasdaq_nomoptions_bono_itch_v3_3.system_event_message.dissect,
+  ["D"] = nasdaq_nomoptions_bono_itch_v3_3.options_directory_message.dissect,
+  ["H"] = nasdaq_nomoptions_bono_itch_v3_3.trading_action_message.dissect,
+  ["O"] = nasdaq_nomoptions_bono_itch_v3_3.security_open_closed_message.dissect,
+  ["q"] = nasdaq_nomoptions_bono_itch_v3_3.short_best_bid_and_ask_update_message.dissect,
+  ["Q"] = nasdaq_nomoptions_bono_itch_v3_3.long_best_bid_and_ask_update_message.dissect,
+  ["a"] = nasdaq_nomoptions_bono_itch_v3_3.short_best_ask_update_message.dissect,
+  ["b"] = nasdaq_nomoptions_bono_itch_v3_3.short_best_bid_update_message.dissect,
+  ["A"] = nasdaq_nomoptions_bono_itch_v3_3.long_best_ask_update_message.dissect,
+  ["B"] = nasdaq_nomoptions_bono_itch_v3_3.long_best_bid_update_message.dissect,
+  ["R"] = nasdaq_nomoptions_bono_itch_v3_3.trade_report_message.dissect,
+  ["X"] = nasdaq_nomoptions_bono_itch_v3_3.broken_trade_report_message.dissect,
+  ["M"] = nasdaq_nomoptions_bono_itch_v3_3.end_of_replay_sequence_message.dissect,
+}
+
 nasdaq_nomoptions_bono_itch_v3_3.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Timestamp Message
-  if sequenced_message_type == "T" then
-    return nasdaq_nomoptions_bono_itch_v3_3.timestamp_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nomoptions_bono_itch_v3_3.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if sequenced_message_type == "D" then
-    return nasdaq_nomoptions_bono_itch_v3_3.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_nomoptions_bono_itch_v3_3.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Closed Message
-  if sequenced_message_type == "O" then
-    return nasdaq_nomoptions_bono_itch_v3_3.security_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Bid And Ask Update Message
-  if sequenced_message_type == "q" then
-    return nasdaq_nomoptions_bono_itch_v3_3.short_best_bid_and_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Bid And Ask Update Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_nomoptions_bono_itch_v3_3.long_best_bid_and_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Ask Update Message
-  if sequenced_message_type == "a" then
-    return nasdaq_nomoptions_bono_itch_v3_3.short_best_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Bid Update Message
-  if sequenced_message_type == "b" then
-    return nasdaq_nomoptions_bono_itch_v3_3.short_best_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Ask Update Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nomoptions_bono_itch_v3_3.long_best_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Bid Update Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nomoptions_bono_itch_v3_3.long_best_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if sequenced_message_type == "R" then
-    return nasdaq_nomoptions_bono_itch_v3_3.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Report Message
-  if sequenced_message_type == "X" then
-    return nasdaq_nomoptions_bono_itch_v3_3.broken_trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Replay Sequence Message
-  if sequenced_message_type == "M" then
-    return nasdaq_nomoptions_bono_itch_v3_3.end_of_replay_sequence_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_bono_itch_v3_3.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3438,30 +3276,19 @@ end
 nasdaq_nomoptions_bono_itch_v3_3.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nomoptions_bono_itch_v3_3.server_payload.dispatch = {
+  ["+"] = nasdaq_nomoptions_bono_itch_v3_3.debug_packet.dissect,
+  ["A"] = nasdaq_nomoptions_bono_itch_v3_3.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nomoptions_bono_itch_v3_3.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nomoptions_bono_itch_v3_3.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nomoptions_bono_itch_v3_3.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_nomoptions_bono_itch_v3_3.end_of_session_packet.dissect,
+}
+
 nasdaq_nomoptions_bono_itch_v3_3.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nomoptions_bono_itch_v3_3.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nomoptions_bono_itch_v3_3.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nomoptions_bono_itch_v3_3.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nomoptions_bono_itch_v3_3.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_nomoptions_bono_itch_v3_3.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_nomoptions_bono_itch_v3_3.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_bono_itch_v3_3.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3774,26 +3601,18 @@ end
 nasdaq_nomoptions_bono_itch_v3_3.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nomoptions_bono_itch_v3_3.client_payload.dispatch = {
+  ["+"] = nasdaq_nomoptions_bono_itch_v3_3.debug_packet.dissect,
+  ["L"] = nasdaq_nomoptions_bono_itch_v3_3.login_request_packet.dissect,
+  ["U"] = nasdaq_nomoptions_bono_itch_v3_3.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nomoptions_bono_itch_v3_3.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_nomoptions_bono_itch_v3_3.logout_request_packet.dissect,
+}
+
 nasdaq_nomoptions_bono_itch_v3_3.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nomoptions_bono_itch_v3_3.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nomoptions_bono_itch_v3_3.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nomoptions_bono_itch_v3_3.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_nomoptions_bono_itch_v3_3.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_nomoptions_bono_itch_v3_3.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nomoptions_bono_itch_v3_3.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

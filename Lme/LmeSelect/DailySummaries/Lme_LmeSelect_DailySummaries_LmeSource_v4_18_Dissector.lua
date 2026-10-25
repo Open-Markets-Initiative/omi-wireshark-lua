@@ -220,15 +220,13 @@ lme_lmeselect_dailysummaries_lmesource_v4_18.calculation_type = {}
 lme_lmeselect_dailysummaries_lmesource_v4_18.calculation_type.size = 1
 
 -- Display: Calculation Type
-lme_lmeselect_dailysummaries_lmesource_v4_18.calculation_type.display = function(value)
-  if value == "D" then
-    return "Calculation Type: Daily (D)"
-  end
-  if value == "I" then
-    return "Calculation Type: Intraday (I)"
-  end
+lme_lmeselect_dailysummaries_lmesource_v4_18.calculation_type.labels = {
+  ["D"] = "Calculation Type: Daily (D)",
+  ["I"] = "Calculation Type: Intraday (I)",
+}
 
-  return "Calculation Type: Unknown("..value..")"
+lme_lmeselect_dailysummaries_lmesource_v4_18.calculation_type.display = function(value)
+  return lme_lmeselect_dailysummaries_lmesource_v4_18.calculation_type.labels[value] or "Calculation Type: Unknown("..value..")"
 end
 
 -- Dissect: Calculation Type
@@ -273,15 +271,13 @@ lme_lmeselect_dailysummaries_lmesource_v4_18.contract_type = {}
 lme_lmeselect_dailysummaries_lmesource_v4_18.contract_type.size = 1
 
 -- Display: Contract Type
-lme_lmeselect_dailysummaries_lmesource_v4_18.contract_type.display = function(value)
-  if value == "F" then
-    return "Contract Type: Future (F)"
-  end
-  if value == "O" then
-    return "Contract Type: Option (O)"
-  end
+lme_lmeselect_dailysummaries_lmesource_v4_18.contract_type.labels = {
+  ["F"] = "Contract Type: Future (F)",
+  ["O"] = "Contract Type: Option (O)",
+}
 
-  return "Contract Type: Unknown("..value..")"
+lme_lmeselect_dailysummaries_lmesource_v4_18.contract_type.display = function(value)
+  return lme_lmeselect_dailysummaries_lmesource_v4_18.contract_type.labels[value] or "Contract Type: Unknown("..value..")"
 end
 
 -- Dissect: Contract Type
@@ -636,27 +632,17 @@ lme_lmeselect_dailysummaries_lmesource_v4_18.msg_type = {}
 lme_lmeselect_dailysummaries_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_dailysummaries_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 420 then
-    return "Msg Type: Open Interest Message (420)"
-  end
-  if value == 421 then
-    return "Msg Type: Open Interest Band Message (421)"
-  end
-  if value == 422 then
-    return "Msg Type: Position Band Message (422)"
-  end
-  if value == 423 then
-    return "Msg Type: Warrant Band Message (423)"
-  end
-  if value == 424 then
-    return "Msg Type: Trading Volume Message (424)"
-  end
+lme_lmeselect_dailysummaries_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [420] = "Msg Type: Open Interest Message (420)",
+  [421] = "Msg Type: Open Interest Band Message (421)",
+  [422] = "Msg Type: Position Band Message (422)",
+  [423] = "Msg Type: Warrant Band Message (423)",
+  [424] = "Msg Type: Trading Volume Message (424)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_dailysummaries_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_dailysummaries_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -701,15 +687,13 @@ lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_type = {}
 lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_type.size = 1
 
 -- Display: Open Interest Type
-lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_type.display = function(value)
-  if value == "E" then
-    return "Open Interest Type: Exchange (E)"
-  end
-  if value == "M" then
-    return "Open Interest Type: Market (M)"
-  end
+lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_type.labels = {
+  ["E"] = "Open Interest Type: Exchange (E)",
+  ["M"] = "Open Interest Type: Market (M)",
+}
 
-  return "Open Interest Type: Unknown("..value..")"
+lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_type.display = function(value)
+  return lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_type.labels[value] or "Open Interest Type: Unknown("..value..")"
 end
 
 -- Dissect: Open Interest Type
@@ -1132,18 +1116,14 @@ lme_lmeselect_dailysummaries_lmesource_v4_18.warrant_band_type = {}
 lme_lmeselect_dailysummaries_lmesource_v4_18.warrant_band_type.size = 4
 
 -- Display: Warrant Band Type
-lme_lmeselect_dailysummaries_lmesource_v4_18.warrant_band_type.display = function(value)
-  if value == "WB" then
-    return "Warrant Band Type: Warrant Band (WB)"
-  end
-  if value == "WC" then
-    return "Warrant Band Type: Warrant Band Cash (WC)"
-  end
-  if value == "WT" then
-    return "Warrant Band Type: Warrant Band Tom (WT)"
-  end
+lme_lmeselect_dailysummaries_lmesource_v4_18.warrant_band_type.labels = {
+  ["WB"] = "Warrant Band Type: Warrant Band (WB)",
+  ["WC"] = "Warrant Band Type: Warrant Band Cash (WC)",
+  ["WT"] = "Warrant Band Type: Warrant Band Tom (WT)",
+}
 
-  return "Warrant Band Type: Unknown("..value..")"
+lme_lmeselect_dailysummaries_lmesource_v4_18.warrant_band_type.display = function(value)
+  return lme_lmeselect_dailysummaries_lmesource_v4_18.warrant_band_type.labels[value] or "Warrant Band Type: Unknown("..value..")"
 end
 
 -- Dissect: Warrant Band Type
@@ -1928,30 +1908,19 @@ end
 lme_lmeselect_dailysummaries_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_dailysummaries_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_dailysummaries_lmesource_v4_18.sequence_reset_message.dissect,
+  [420] = lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_message.dissect,
+  [421] = lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_band_message.dissect,
+  [422] = lme_lmeselect_dailysummaries_lmesource_v4_18.position_band_message.dissect,
+  [423] = lme_lmeselect_dailysummaries_lmesource_v4_18.warrant_band_message.dissect,
+  [424] = lme_lmeselect_dailysummaries_lmesource_v4_18.trading_volume_message.dissect,
+}
+
 lme_lmeselect_dailysummaries_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_dailysummaries_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if msg_type == 420 then
-    return lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Band Message
-  if msg_type == 421 then
-    return lme_lmeselect_dailysummaries_lmesource_v4_18.open_interest_band_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Position Band Message
-  if msg_type == 422 then
-    return lme_lmeselect_dailysummaries_lmesource_v4_18.position_band_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Warrant Band Message
-  if msg_type == 423 then
-    return lme_lmeselect_dailysummaries_lmesource_v4_18.warrant_band_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Volume Message
-  if msg_type == 424 then
-    return lme_lmeselect_dailysummaries_lmesource_v4_18.trading_volume_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_dailysummaries_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

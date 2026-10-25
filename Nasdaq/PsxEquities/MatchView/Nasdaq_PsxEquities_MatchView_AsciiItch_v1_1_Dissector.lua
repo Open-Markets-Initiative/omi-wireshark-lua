@@ -330,12 +330,12 @@ nasdaq_psxequities_matchview_asciiitch_v1_1.message_type = {}
 nasdaq_psxequities_matchview_asciiitch_v1_1.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_psxequities_matchview_asciiitch_v1_1.message_type.display = function(value)
-  if value == "U" then
-    return "Message Type: Best Bid And Offer Message (U)"
-  end
+nasdaq_psxequities_matchview_asciiitch_v1_1.message_type.labels = {
+  ["U"] = "Message Type: Best Bid And Offer Message (U)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_psxequities_matchview_asciiitch_v1_1.message_type.display = function(value)
+  return nasdaq_psxequities_matchview_asciiitch_v1_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -531,10 +531,14 @@ end
 nasdaq_psxequities_matchview_asciiitch_v1_1.payload = {}
 
 -- Dissect: Payload
+nasdaq_psxequities_matchview_asciiitch_v1_1.payload.dispatch = {
+  ["U"] = nasdaq_psxequities_matchview_asciiitch_v1_1.best_bid_and_offer_message.dissect,
+}
+
 nasdaq_psxequities_matchview_asciiitch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Best Bid And Offer Message
-  if message_type == "U" then
-    return nasdaq_psxequities_matchview_asciiitch_v1_1.best_bid_and_offer_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_matchview_asciiitch_v1_1.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -659,10 +663,14 @@ end
 nasdaq_psxequities_matchview_asciiitch_v1_1.message_body = {}
 
 -- Dissect: Message Body
+nasdaq_psxequities_matchview_asciiitch_v1_1.message_body.dispatch = {
+  [0] = nasdaq_psxequities_matchview_asciiitch_v1_1.end_of_session.dissect,
+}
+
 nasdaq_psxequities_matchview_asciiitch_v1_1.message_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect End Of Session
-  if message_length == 0 then
-    return nasdaq_psxequities_matchview_asciiitch_v1_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_matchview_asciiitch_v1_1.message_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Message Data
@@ -755,10 +763,14 @@ end
 nasdaq_psxequities_matchview_asciiitch_v1_1.messages = {}
 
 -- Dissect: Messages
+nasdaq_psxequities_matchview_asciiitch_v1_1.messages.dispatch = {
+  [0] = nasdaq_psxequities_matchview_asciiitch_v1_1.heartbeat.dissect,
+}
+
 nasdaq_psxequities_matchview_asciiitch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_psxequities_matchview_asciiitch_v1_1.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_matchview_asciiitch_v1_1.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

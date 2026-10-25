@@ -323,36 +323,20 @@ siac_opra_output_obi_v6_3_a.best_bid_denominator_code = {}
 siac_opra_output_obi_v6_3_a.best_bid_denominator_code.size = 1
 
 -- Display: Best Bid Denominator Code
-siac_opra_output_obi_v6_3_a.best_bid_denominator_code.display = function(value)
-  if value == "A" then
-    return "Best Bid Denominator Code: Ten (A)"
-  end
-  if value == "B" then
-    return "Best Bid Denominator Code: Hundred (B)"
-  end
-  if value == "C" then
-    return "Best Bid Denominator Code: Thousand (C)"
-  end
-  if value == "D" then
-    return "Best Bid Denominator Code: Ten Thousand (D)"
-  end
-  if value == "E" then
-    return "Best Bid Denominator Code: Hundred Thousand (E)"
-  end
-  if value == "F" then
-    return "Best Bid Denominator Code: Million (F)"
-  end
-  if value == "G" then
-    return "Best Bid Denominator Code: Ten Million (G)"
-  end
-  if value == "H" then
-    return "Best Bid Denominator Code: Hundred Million (H)"
-  end
-  if value == "I" then
-    return "Best Bid Denominator Code: No Fraction (I)"
-  end
+siac_opra_output_obi_v6_3_a.best_bid_denominator_code.labels = {
+  ["A"] = "Best Bid Denominator Code: Ten (A)",
+  ["B"] = "Best Bid Denominator Code: Hundred (B)",
+  ["C"] = "Best Bid Denominator Code: Thousand (C)",
+  ["D"] = "Best Bid Denominator Code: Ten Thousand (D)",
+  ["E"] = "Best Bid Denominator Code: Hundred Thousand (E)",
+  ["F"] = "Best Bid Denominator Code: Million (F)",
+  ["G"] = "Best Bid Denominator Code: Ten Million (G)",
+  ["H"] = "Best Bid Denominator Code: Hundred Million (H)",
+  ["I"] = "Best Bid Denominator Code: No Fraction (I)",
+}
 
-  return "Best Bid Denominator Code: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.best_bid_denominator_code.display = function(value)
+  return siac_opra_output_obi_v6_3_a.best_bid_denominator_code.labels[value] or "Best Bid Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Best Bid Denominator Code
@@ -374,66 +358,30 @@ siac_opra_output_obi_v6_3_a.best_bid_participant_id = {}
 siac_opra_output_obi_v6_3_a.best_bid_participant_id.size = 1
 
 -- Display: Best Bid Participant Id
-siac_opra_output_obi_v6_3_a.best_bid_participant_id.display = function(value)
-  if value == "A" then
-    return "Best Bid Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Best Bid Participant Id: Boston Options Exchange (B)"
-  end
-  if value == "C" then
-    return "Best Bid Participant Id: Cboe Options Exchange (C)"
-  end
-  if value == "D" then
-    return "Best Bid Participant Id: Miax Emerald (D)"
-  end
-  if value == "E" then
-    return "Best Bid Participant Id: Cboe Edgx Options (E)"
-  end
-  if value == "G" then
-    return "Best Bid Participant Id: Mx 2 Options (G)"
-  end
-  if value == "H" then
-    return "Best Bid Participant Id: Nasdaq Gemx (H)"
-  end
-  if value == "I" then
-    return "Best Bid Participant Id: Nasdaq Ise (I)"
-  end
-  if value == "J" then
-    return "Best Bid Participant Id: Nasdaq Mrx (J)"
-  end
-  if value == "M" then
-    return "Best Bid Participant Id: Miami International Securities Exchange (M)"
-  end
-  if value == "N" then
-    return "Best Bid Participant Id: Nyse Arca (N)"
-  end
-  if value == "O" then
-    return "Best Bid Participant Id: Options Price Reporting Authority (O)"
-  end
-  if value == "P" then
-    return "Best Bid Participant Id: Miax Pearl (P)"
-  end
-  if value == "Q" then
-    return "Best Bid Participant Id: Nasdaq Options Market (Q)"
-  end
-  if value == "T" then
-    return "Best Bid Participant Id: Nasdaq Bx Options (T)"
-  end
-  if value == "V" then
-    return "Best Bid Participant Id: Iex Options Llc (V)"
-  end
-  if value == "W" then
-    return "Best Bid Participant Id: Cboe C 2 Options (W)"
-  end
-  if value == "X" then
-    return "Best Bid Participant Id: Nasdaq Phlx (X)"
-  end
-  if value == "Z" then
-    return "Best Bid Participant Id: Cboe Bzx Options Exchange (Z)"
-  end
+siac_opra_output_obi_v6_3_a.best_bid_participant_id.labels = {
+  ["A"] = "Best Bid Participant Id: Nyse American (A)",
+  ["B"] = "Best Bid Participant Id: Boston Options Exchange (B)",
+  ["C"] = "Best Bid Participant Id: Cboe Options Exchange (C)",
+  ["D"] = "Best Bid Participant Id: Miax Emerald (D)",
+  ["E"] = "Best Bid Participant Id: Cboe Edgx Options (E)",
+  ["G"] = "Best Bid Participant Id: Mx 2 Options (G)",
+  ["H"] = "Best Bid Participant Id: Nasdaq Gemx (H)",
+  ["I"] = "Best Bid Participant Id: Nasdaq Ise (I)",
+  ["J"] = "Best Bid Participant Id: Nasdaq Mrx (J)",
+  ["M"] = "Best Bid Participant Id: Miami International Securities Exchange (M)",
+  ["N"] = "Best Bid Participant Id: Nyse Arca (N)",
+  ["O"] = "Best Bid Participant Id: Options Price Reporting Authority (O)",
+  ["P"] = "Best Bid Participant Id: Miax Pearl (P)",
+  ["Q"] = "Best Bid Participant Id: Nasdaq Options Market (Q)",
+  ["T"] = "Best Bid Participant Id: Nasdaq Bx Options (T)",
+  ["V"] = "Best Bid Participant Id: Iex Options Llc (V)",
+  ["W"] = "Best Bid Participant Id: Cboe C 2 Options (W)",
+  ["X"] = "Best Bid Participant Id: Nasdaq Phlx (X)",
+  ["Z"] = "Best Bid Participant Id: Cboe Bzx Options Exchange (Z)",
+}
 
-  return "Best Bid Participant Id: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.best_bid_participant_id.display = function(value)
+  return siac_opra_output_obi_v6_3_a.best_bid_participant_id.labels[value] or "Best Bid Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Best Bid Participant Id
@@ -501,36 +449,20 @@ siac_opra_output_obi_v6_3_a.best_offer_denominator_code = {}
 siac_opra_output_obi_v6_3_a.best_offer_denominator_code.size = 1
 
 -- Display: Best Offer Denominator Code
-siac_opra_output_obi_v6_3_a.best_offer_denominator_code.display = function(value)
-  if value == "A" then
-    return "Best Offer Denominator Code: Ten (A)"
-  end
-  if value == "B" then
-    return "Best Offer Denominator Code: Hundred (B)"
-  end
-  if value == "C" then
-    return "Best Offer Denominator Code: Thousand (C)"
-  end
-  if value == "D" then
-    return "Best Offer Denominator Code: Ten Thousand (D)"
-  end
-  if value == "E" then
-    return "Best Offer Denominator Code: Hundred Thousand (E)"
-  end
-  if value == "F" then
-    return "Best Offer Denominator Code: Million (F)"
-  end
-  if value == "G" then
-    return "Best Offer Denominator Code: Ten Million (G)"
-  end
-  if value == "H" then
-    return "Best Offer Denominator Code: Hundred Million (H)"
-  end
-  if value == "I" then
-    return "Best Offer Denominator Code: No Fraction (I)"
-  end
+siac_opra_output_obi_v6_3_a.best_offer_denominator_code.labels = {
+  ["A"] = "Best Offer Denominator Code: Ten (A)",
+  ["B"] = "Best Offer Denominator Code: Hundred (B)",
+  ["C"] = "Best Offer Denominator Code: Thousand (C)",
+  ["D"] = "Best Offer Denominator Code: Ten Thousand (D)",
+  ["E"] = "Best Offer Denominator Code: Hundred Thousand (E)",
+  ["F"] = "Best Offer Denominator Code: Million (F)",
+  ["G"] = "Best Offer Denominator Code: Ten Million (G)",
+  ["H"] = "Best Offer Denominator Code: Hundred Million (H)",
+  ["I"] = "Best Offer Denominator Code: No Fraction (I)",
+}
 
-  return "Best Offer Denominator Code: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.best_offer_denominator_code.display = function(value)
+  return siac_opra_output_obi_v6_3_a.best_offer_denominator_code.labels[value] or "Best Offer Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Best Offer Denominator Code
@@ -552,66 +484,30 @@ siac_opra_output_obi_v6_3_a.best_offer_participant_id = {}
 siac_opra_output_obi_v6_3_a.best_offer_participant_id.size = 1
 
 -- Display: Best Offer Participant Id
-siac_opra_output_obi_v6_3_a.best_offer_participant_id.display = function(value)
-  if value == "A" then
-    return "Best Offer Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Best Offer Participant Id: Boston Options Exchange (B)"
-  end
-  if value == "C" then
-    return "Best Offer Participant Id: Cboe Options Exchange (C)"
-  end
-  if value == "D" then
-    return "Best Offer Participant Id: Miax Emerald (D)"
-  end
-  if value == "E" then
-    return "Best Offer Participant Id: Cboe Edgx Options (E)"
-  end
-  if value == "G" then
-    return "Best Offer Participant Id: Mx 2 Options (G)"
-  end
-  if value == "H" then
-    return "Best Offer Participant Id: Nasdaq Gemx (H)"
-  end
-  if value == "I" then
-    return "Best Offer Participant Id: Nasdaq Ise (I)"
-  end
-  if value == "J" then
-    return "Best Offer Participant Id: Nasdaq Mrx (J)"
-  end
-  if value == "M" then
-    return "Best Offer Participant Id: Miami International Securities Exchange (M)"
-  end
-  if value == "N" then
-    return "Best Offer Participant Id: Nyse Arca (N)"
-  end
-  if value == "O" then
-    return "Best Offer Participant Id: Options Price Reporting Authority (O)"
-  end
-  if value == "P" then
-    return "Best Offer Participant Id: Miax Pearl (P)"
-  end
-  if value == "Q" then
-    return "Best Offer Participant Id: Nasdaq Options Market (Q)"
-  end
-  if value == "T" then
-    return "Best Offer Participant Id: Nasdaq Bx Options (T)"
-  end
-  if value == "V" then
-    return "Best Offer Participant Id: Iex Options Llc (V)"
-  end
-  if value == "W" then
-    return "Best Offer Participant Id: Cboe C 2 Options (W)"
-  end
-  if value == "X" then
-    return "Best Offer Participant Id: Nasdaq Phlx (X)"
-  end
-  if value == "Z" then
-    return "Best Offer Participant Id: Cboe Bzx Options Exchange (Z)"
-  end
+siac_opra_output_obi_v6_3_a.best_offer_participant_id.labels = {
+  ["A"] = "Best Offer Participant Id: Nyse American (A)",
+  ["B"] = "Best Offer Participant Id: Boston Options Exchange (B)",
+  ["C"] = "Best Offer Participant Id: Cboe Options Exchange (C)",
+  ["D"] = "Best Offer Participant Id: Miax Emerald (D)",
+  ["E"] = "Best Offer Participant Id: Cboe Edgx Options (E)",
+  ["G"] = "Best Offer Participant Id: Mx 2 Options (G)",
+  ["H"] = "Best Offer Participant Id: Nasdaq Gemx (H)",
+  ["I"] = "Best Offer Participant Id: Nasdaq Ise (I)",
+  ["J"] = "Best Offer Participant Id: Nasdaq Mrx (J)",
+  ["M"] = "Best Offer Participant Id: Miami International Securities Exchange (M)",
+  ["N"] = "Best Offer Participant Id: Nyse Arca (N)",
+  ["O"] = "Best Offer Participant Id: Options Price Reporting Authority (O)",
+  ["P"] = "Best Offer Participant Id: Miax Pearl (P)",
+  ["Q"] = "Best Offer Participant Id: Nasdaq Options Market (Q)",
+  ["T"] = "Best Offer Participant Id: Nasdaq Bx Options (T)",
+  ["V"] = "Best Offer Participant Id: Iex Options Llc (V)",
+  ["W"] = "Best Offer Participant Id: Cboe C 2 Options (W)",
+  ["X"] = "Best Offer Participant Id: Nasdaq Phlx (X)",
+  ["Z"] = "Best Offer Participant Id: Cboe Bzx Options Exchange (Z)",
+}
 
-  return "Best Offer Participant Id: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.best_offer_participant_id.display = function(value)
+  return siac_opra_output_obi_v6_3_a.best_offer_participant_id.labels[value] or "Best Offer Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Best Offer Participant Id
@@ -892,36 +788,20 @@ siac_opra_output_obi_v6_3_a.control_message_type = {}
 siac_opra_output_obi_v6_3_a.control_message_type.size = 1
 
 -- Display: Control Message Type
-siac_opra_output_obi_v6_3_a.control_message_type.display = function(value)
-  if value == "C" then
-    return "Control Message Type: Start Of Day (C)"
-  end
-  if value == "E" then
-    return "Control Message Type: Start Of Summary (E)"
-  end
-  if value == "F" then
-    return "Control Message Type: End Of Summary (F)"
-  end
-  if value == "J" then
-    return "Control Message Type: End Of Day (J)"
-  end
-  if value == "K" then
-    return "Control Message Type: Reset Block Sequence Number (K)"
-  end
-  if value == "L" then
-    return "Control Message Type: Start Of Open Interest (L)"
-  end
-  if value == "M" then
-    return "Control Message Type: End Of Open Interest (M)"
-  end
-  if value == "N" then
-    return "Control Message Type: Line Integrity (N)"
-  end
-  if value == "P" then
-    return "Control Message Type: Disaster Recovery Data Center Activation (P)"
-  end
+siac_opra_output_obi_v6_3_a.control_message_type.labels = {
+  ["C"] = "Control Message Type: Start Of Day (C)",
+  ["E"] = "Control Message Type: Start Of Summary (E)",
+  ["F"] = "Control Message Type: End Of Summary (F)",
+  ["J"] = "Control Message Type: End Of Day (J)",
+  ["K"] = "Control Message Type: Reset Block Sequence Number (K)",
+  ["L"] = "Control Message Type: Start Of Open Interest (L)",
+  ["M"] = "Control Message Type: End Of Open Interest (M)",
+  ["N"] = "Control Message Type: Line Integrity (N)",
+  ["P"] = "Control Message Type: Disaster Recovery Data Center Activation (P)",
+}
 
-  return "Control Message Type: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.control_message_type.display = function(value)
+  return siac_opra_output_obi_v6_3_a.control_message_type.labels[value] or "Control Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Control Message Type
@@ -943,12 +823,12 @@ siac_opra_output_obi_v6_3_a.data_feed_indicator = {}
 siac_opra_output_obi_v6_3_a.data_feed_indicator.size = 1
 
 -- Display: Data Feed Indicator
-siac_opra_output_obi_v6_3_a.data_feed_indicator.display = function(value)
-  if value == "O" then
-    return "Data Feed Indicator: Opra (O)"
-  end
+siac_opra_output_obi_v6_3_a.data_feed_indicator.labels = {
+  ["O"] = "Data Feed Indicator: Opra (O)",
+}
 
-  return "Data Feed Indicator: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.data_feed_indicator.display = function(value)
+  return siac_opra_output_obi_v6_3_a.data_feed_indicator.labels[value] or "Data Feed Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Data Feed Indicator
@@ -997,138 +877,54 @@ siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_message_type = {}
 siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_message_type.size = 1
 
 -- Display: Equity And Index Last Sale Message Type
-siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_message_type.display = function(value)
-  if value == "A" then
-    return "Equity And Index Last Sale Message Type: Canc (A)"
-  end
-  if value == "B" then
-    return "Equity And Index Last Sale Message Type: Oseq (B)"
-  end
-  if value == "C" then
-    return "Equity And Index Last Sale Message Type: Cncl (C)"
-  end
-  if value == "D" then
-    return "Equity And Index Last Sale Message Type: Late (D)"
-  end
-  if value == "E" then
-    return "Equity And Index Last Sale Message Type: Cnco (E)"
-  end
-  if value == "F" then
-    return "Equity And Index Last Sale Message Type: Open (F)"
-  end
-  if value == "G" then
-    return "Equity And Index Last Sale Message Type: Cnol (G)"
-  end
-  if value == "H" then
-    return "Equity And Index Last Sale Message Type: Opnl (H)"
-  end
-  if value == "I" then
-    return "Equity And Index Last Sale Message Type: Auto (I)"
-  end
-  if value == "J" then
-    return "Equity And Index Last Sale Message Type: Reop (J)"
-  end
-  if value == "K" then
-    return "Equity And Index Last Sale Message Type: Ajst (K)"
-  end
-  if value == "L" then
-    return "Equity And Index Last Sale Message Type: Sprd (L)"
-  end
-  if value == "M" then
-    return "Equity And Index Last Sale Message Type: Stdl (M)"
-  end
-  if value == "N" then
-    return "Equity And Index Last Sale Message Type: Stpd (N)"
-  end
-  if value == "O" then
-    return "Equity And Index Last Sale Message Type: Cstp (O)"
-  end
-  if value == "P" then
-    return "Equity And Index Last Sale Message Type: Bwrt (P)"
-  end
-  if value == "Q" then
-    return "Equity And Index Last Sale Message Type: Cmbo (Q)"
-  end
-  if value == "R" then
-    return "Equity And Index Last Sale Message Type: Spim (R)"
-  end
-  if value == "S" then
-    return "Equity And Index Last Sale Message Type: Isoi (S)"
-  end
-  if value == "T" then
-    return "Equity And Index Last Sale Message Type: Bnmt (T)"
-  end
-  if value == "X" then
-    return "Equity And Index Last Sale Message Type: Xmpt (X)"
-  end
-  if value == "a" then
-    return "Equity And Index Last Sale Message Type: Slan (a)"
-  end
-  if value == "b" then
-    return "Equity And Index Last Sale Message Type: Slai (b)"
-  end
-  if value == "c" then
-    return "Equity And Index Last Sale Message Type: Slcn (c)"
-  end
-  if value == "d" then
-    return "Equity And Index Last Sale Message Type: Scli (d)"
-  end
-  if value == "e" then
-    return "Equity And Index Last Sale Message Type: Slft (e)"
-  end
-  if value == "f" then
-    return "Equity And Index Last Sale Message Type: Mlet (f)"
-  end
-  if value == "g" then
-    return "Equity And Index Last Sale Message Type: Mlat (g)"
-  end
-  if value == "h" then
-    return "Equity And Index Last Sale Message Type: Mlct (h)"
-  end
-  if value == "i" then
-    return "Equity And Index Last Sale Message Type: Mlft (i)"
-  end
-  if value == "j" then
-    return "Equity And Index Last Sale Message Type: Mesl (j)"
-  end
-  if value == "k" then
-    return "Equity And Index Last Sale Message Type: Tlat (k)"
-  end
-  if value == "l" then
-    return "Equity And Index Last Sale Message Type: Masl (l)"
-  end
-  if value == "m" then
-    return "Equity And Index Last Sale Message Type: Mfsl (m)"
-  end
-  if value == "n" then
-    return "Equity And Index Last Sale Message Type: Tlet (n)"
-  end
-  if value == "o" then
-    return "Equity And Index Last Sale Message Type: Tlct (o)"
-  end
-  if value == "p" then
-    return "Equity And Index Last Sale Message Type: Tlft (p)"
-  end
-  if value == "q" then
-    return "Equity And Index Last Sale Message Type: Tesl (q)"
-  end
-  if value == "r" then
-    return "Equity And Index Last Sale Message Type: Tasl (r)"
-  end
-  if value == "s" then
-    return "Equity And Index Last Sale Message Type: Tfsl (s)"
-  end
-  if value == "t" then
-    return "Equity And Index Last Sale Message Type: Cbmo (t)"
-  end
-  if value == "u" then
-    return "Equity And Index Last Sale Message Type: Mctp (u)"
-  end
-  if value == "v" then
-    return "Equity And Index Last Sale Message Type: Exht (v)"
-  end
+siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_message_type.labels = {
+  ["A"] = "Equity And Index Last Sale Message Type: Canc (A)",
+  ["B"] = "Equity And Index Last Sale Message Type: Oseq (B)",
+  ["C"] = "Equity And Index Last Sale Message Type: Cncl (C)",
+  ["D"] = "Equity And Index Last Sale Message Type: Late (D)",
+  ["E"] = "Equity And Index Last Sale Message Type: Cnco (E)",
+  ["F"] = "Equity And Index Last Sale Message Type: Open (F)",
+  ["G"] = "Equity And Index Last Sale Message Type: Cnol (G)",
+  ["H"] = "Equity And Index Last Sale Message Type: Opnl (H)",
+  ["I"] = "Equity And Index Last Sale Message Type: Auto (I)",
+  ["J"] = "Equity And Index Last Sale Message Type: Reop (J)",
+  ["K"] = "Equity And Index Last Sale Message Type: Ajst (K)",
+  ["L"] = "Equity And Index Last Sale Message Type: Sprd (L)",
+  ["M"] = "Equity And Index Last Sale Message Type: Stdl (M)",
+  ["N"] = "Equity And Index Last Sale Message Type: Stpd (N)",
+  ["O"] = "Equity And Index Last Sale Message Type: Cstp (O)",
+  ["P"] = "Equity And Index Last Sale Message Type: Bwrt (P)",
+  ["Q"] = "Equity And Index Last Sale Message Type: Cmbo (Q)",
+  ["R"] = "Equity And Index Last Sale Message Type: Spim (R)",
+  ["S"] = "Equity And Index Last Sale Message Type: Isoi (S)",
+  ["T"] = "Equity And Index Last Sale Message Type: Bnmt (T)",
+  ["X"] = "Equity And Index Last Sale Message Type: Xmpt (X)",
+  ["a"] = "Equity And Index Last Sale Message Type: Slan (a)",
+  ["b"] = "Equity And Index Last Sale Message Type: Slai (b)",
+  ["c"] = "Equity And Index Last Sale Message Type: Slcn (c)",
+  ["d"] = "Equity And Index Last Sale Message Type: Scli (d)",
+  ["e"] = "Equity And Index Last Sale Message Type: Slft (e)",
+  ["f"] = "Equity And Index Last Sale Message Type: Mlet (f)",
+  ["g"] = "Equity And Index Last Sale Message Type: Mlat (g)",
+  ["h"] = "Equity And Index Last Sale Message Type: Mlct (h)",
+  ["i"] = "Equity And Index Last Sale Message Type: Mlft (i)",
+  ["j"] = "Equity And Index Last Sale Message Type: Mesl (j)",
+  ["k"] = "Equity And Index Last Sale Message Type: Tlat (k)",
+  ["l"] = "Equity And Index Last Sale Message Type: Masl (l)",
+  ["m"] = "Equity And Index Last Sale Message Type: Mfsl (m)",
+  ["n"] = "Equity And Index Last Sale Message Type: Tlet (n)",
+  ["o"] = "Equity And Index Last Sale Message Type: Tlct (o)",
+  ["p"] = "Equity And Index Last Sale Message Type: Tlft (p)",
+  ["q"] = "Equity And Index Last Sale Message Type: Tesl (q)",
+  ["r"] = "Equity And Index Last Sale Message Type: Tasl (r)",
+  ["s"] = "Equity And Index Last Sale Message Type: Tfsl (s)",
+  ["t"] = "Equity And Index Last Sale Message Type: Cbmo (t)",
+  ["u"] = "Equity And Index Last Sale Message Type: Mctp (u)",
+  ["v"] = "Equity And Index Last Sale Message Type: Exht (v)",
+}
 
-  return "Equity And Index Last Sale Message Type: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_message_type.display = function(value)
+  return siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_message_type.labels[value] or "Equity And Index Last Sale Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Equity And Index Last Sale Message Type
@@ -1173,81 +969,35 @@ siac_opra_output_obi_v6_3_a.expiration_month = {}
 siac_opra_output_obi_v6_3_a.expiration_month.size = 1
 
 -- Display: Expiration Month
-siac_opra_output_obi_v6_3_a.expiration_month.display = function(value)
-  if value == "A" then
-    return "Expiration Month: Call Options January (A)"
-  end
-  if value == "B" then
-    return "Expiration Month: Call Options February (B)"
-  end
-  if value == "C" then
-    return "Expiration Month: Call Options March (C)"
-  end
-  if value == "D" then
-    return "Expiration Month: Call Options April (D)"
-  end
-  if value == "E" then
-    return "Expiration Month: Call Options May (E)"
-  end
-  if value == "F" then
-    return "Expiration Month: Call Options June (F)"
-  end
-  if value == "G" then
-    return "Expiration Month: Call Options July (G)"
-  end
-  if value == "H" then
-    return "Expiration Month: Call Options August (H)"
-  end
-  if value == "I" then
-    return "Expiration Month: Call Options September (I)"
-  end
-  if value == "J" then
-    return "Expiration Month: Call Options October (J)"
-  end
-  if value == "K" then
-    return "Expiration Month: Call Options November (K)"
-  end
-  if value == "L" then
-    return "Expiration Month: Call Options December (L)"
-  end
-  if value == "M" then
-    return "Expiration Month: Put Options January (M)"
-  end
-  if value == "N" then
-    return "Expiration Month: Put Options February (N)"
-  end
-  if value == "O" then
-    return "Expiration Month: Put Options March (O)"
-  end
-  if value == "P" then
-    return "Expiration Month: Put Options April (P)"
-  end
-  if value == "Q" then
-    return "Expiration Month: Put Options May (Q)"
-  end
-  if value == "R" then
-    return "Expiration Month: Put Options June (R)"
-  end
-  if value == "S" then
-    return "Expiration Month: Put Options July (S)"
-  end
-  if value == "T" then
-    return "Expiration Month: Put Options August (T)"
-  end
-  if value == "U" then
-    return "Expiration Month: Put Options September (U)"
-  end
-  if value == "V" then
-    return "Expiration Month: Put Options October (V)"
-  end
-  if value == "W" then
-    return "Expiration Month: Put Options November (W)"
-  end
-  if value == "X" then
-    return "Expiration Month: Put Options December (X)"
-  end
+siac_opra_output_obi_v6_3_a.expiration_month.labels = {
+  ["A"] = "Expiration Month: Call Options January (A)",
+  ["B"] = "Expiration Month: Call Options February (B)",
+  ["C"] = "Expiration Month: Call Options March (C)",
+  ["D"] = "Expiration Month: Call Options April (D)",
+  ["E"] = "Expiration Month: Call Options May (E)",
+  ["F"] = "Expiration Month: Call Options June (F)",
+  ["G"] = "Expiration Month: Call Options July (G)",
+  ["H"] = "Expiration Month: Call Options August (H)",
+  ["I"] = "Expiration Month: Call Options September (I)",
+  ["J"] = "Expiration Month: Call Options October (J)",
+  ["K"] = "Expiration Month: Call Options November (K)",
+  ["L"] = "Expiration Month: Call Options December (L)",
+  ["M"] = "Expiration Month: Put Options January (M)",
+  ["N"] = "Expiration Month: Put Options February (N)",
+  ["O"] = "Expiration Month: Put Options March (O)",
+  ["P"] = "Expiration Month: Put Options April (P)",
+  ["Q"] = "Expiration Month: Put Options May (Q)",
+  ["R"] = "Expiration Month: Put Options June (R)",
+  ["S"] = "Expiration Month: Put Options July (S)",
+  ["T"] = "Expiration Month: Put Options August (T)",
+  ["U"] = "Expiration Month: Put Options September (U)",
+  ["V"] = "Expiration Month: Put Options October (V)",
+  ["W"] = "Expiration Month: Put Options November (W)",
+  ["X"] = "Expiration Month: Put Options December (X)",
+}
 
-  return "Expiration Month: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.expiration_month.display = function(value)
+  return siac_opra_output_obi_v6_3_a.expiration_month.labels[value] or "Expiration Month: Unknown("..value..")"
 end
 
 -- Dissect: Expiration Month
@@ -1338,33 +1088,19 @@ siac_opra_output_obi_v6_3_a.index_value_denominator_code = {}
 siac_opra_output_obi_v6_3_a.index_value_denominator_code.size = 1
 
 -- Display: Index Value Denominator Code
-siac_opra_output_obi_v6_3_a.index_value_denominator_code.display = function(value)
-  if value == "A" then
-    return "Index Value Denominator Code: Ten (A)"
-  end
-  if value == "B" then
-    return "Index Value Denominator Code: Hundred (B)"
-  end
-  if value == "C" then
-    return "Index Value Denominator Code: Thousand (C)"
-  end
-  if value == "D" then
-    return "Index Value Denominator Code: Ten Thousand (D)"
-  end
-  if value == "E" then
-    return "Index Value Denominator Code: Hundred Thousand (E)"
-  end
-  if value == "F" then
-    return "Index Value Denominator Code: Million (F)"
-  end
-  if value == "G" then
-    return "Index Value Denominator Code: Ten Million (G)"
-  end
-  if value == "I" then
-    return "Index Value Denominator Code: No Fraction (I)"
-  end
+siac_opra_output_obi_v6_3_a.index_value_denominator_code.labels = {
+  ["A"] = "Index Value Denominator Code: Ten (A)",
+  ["B"] = "Index Value Denominator Code: Hundred (B)",
+  ["C"] = "Index Value Denominator Code: Thousand (C)",
+  ["D"] = "Index Value Denominator Code: Ten Thousand (D)",
+  ["E"] = "Index Value Denominator Code: Hundred Thousand (E)",
+  ["F"] = "Index Value Denominator Code: Million (F)",
+  ["G"] = "Index Value Denominator Code: Ten Million (G)",
+  ["I"] = "Index Value Denominator Code: No Fraction (I)",
+}
 
-  return "Index Value Denominator Code: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.index_value_denominator_code.display = function(value)
+  return siac_opra_output_obi_v6_3_a.index_value_denominator_code.labels[value] or "Index Value Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Index Value Denominator Code
@@ -1489,36 +1225,20 @@ siac_opra_output_obi_v6_3_a.message_category = {}
 siac_opra_output_obi_v6_3_a.message_category.size = 1
 
 -- Display: Message Category
-siac_opra_output_obi_v6_3_a.message_category.display = function(value)
-  if value == "C" then
-    return "Message Category: Administrative (C)"
-  end
-  if value == "H" then
-    return "Message Category: Control (H)"
-  end
-  if value == "a" then
-    return "Message Category: Equity And Index Last Sale (a)"
-  end
-  if value == "d" then
-    return "Message Category: Open Interest (d)"
-  end
-  if value == "f" then
-    return "Message Category: Equity And Index End Of Day Summary (f)"
-  end
-  if value == "k" then
-    return "Message Category: Long Equity And Index Quote (k)"
-  end
-  if value == "q" then
-    return "Message Category: Short Equity And Index Quote (q)"
-  end
-  if value == "R" then
-    return "Message Category: Series Mapping (R)"
-  end
-  if value == "Y" then
-    return "Message Category: Underlying Value (Y)"
-  end
+siac_opra_output_obi_v6_3_a.message_category.labels = {
+  ["C"] = "Message Category: Administrative (C)",
+  ["H"] = "Message Category: Control (H)",
+  ["a"] = "Message Category: Equity And Index Last Sale (a)",
+  ["d"] = "Message Category: Open Interest (d)",
+  ["f"] = "Message Category: Equity And Index End Of Day Summary (f)",
+  ["k"] = "Message Category: Long Equity And Index Quote (k)",
+  ["q"] = "Message Category: Short Equity And Index Quote (q)",
+  ["R"] = "Message Category: Series Mapping (R)",
+  ["Y"] = "Message Category: Underlying Value (Y)",
+}
 
-  return "Message Category: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.message_category.display = function(value)
+  return siac_opra_output_obi_v6_3_a.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -1891,72 +1611,32 @@ siac_opra_output_obi_v6_3_a.participant_id = {}
 siac_opra_output_obi_v6_3_a.participant_id.size = 1
 
 -- Display: Participant Id
-siac_opra_output_obi_v6_3_a.participant_id.display = function(value)
-  if value == "A" then
-    return "Participant Id: Amex (A)"
-  end
-  if value == "B" then
-    return "Participant Id: Box (B)"
-  end
-  if value == "C" then
-    return "Participant Id: Cboe (C)"
-  end
-  if value == "D" then
-    return "Participant Id: Emerald (D)"
-  end
-  if value == "E" then
-    return "Participant Id: Edgx (E)"
-  end
-  if value == "G" then
-    return "Participant Id: Mx 2 (G)"
-  end
-  if value == "H" then
-    return "Participant Id: Gemx (H)"
-  end
-  if value == "I" then
-    return "Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Participant Id: Mrx (J)"
-  end
-  if value == "M" then
-    return "Participant Id: Miax (M)"
-  end
-  if value == "N" then
-    return "Participant Id: Nyse (N)"
-  end
-  if value == "O" then
-    return "Participant Id: Opra (O)"
-  end
-  if value == "P" then
-    return "Participant Id: Pearl (P)"
-  end
-  if value == "Q" then
-    return "Participant Id: Nasd (Q)"
-  end
-  if value == "S" then
-    return "Participant Id: Sphr (S)"
-  end
-  if value == "T" then
-    return "Participant Id: Bx (T)"
-  end
-  if value == "U" then
-    return "Participant Id: Memx (U)"
-  end
-  if value == "V" then
-    return "Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Participant Id: C 2 (W)"
-  end
-  if value == "X" then
-    return "Participant Id: Phlx (X)"
-  end
-  if value == "Z" then
-    return "Participant Id: Bats (Z)"
-  end
+siac_opra_output_obi_v6_3_a.participant_id.labels = {
+  ["A"] = "Participant Id: Amex (A)",
+  ["B"] = "Participant Id: Box (B)",
+  ["C"] = "Participant Id: Cboe (C)",
+  ["D"] = "Participant Id: Emerald (D)",
+  ["E"] = "Participant Id: Edgx (E)",
+  ["G"] = "Participant Id: Mx 2 (G)",
+  ["H"] = "Participant Id: Gemx (H)",
+  ["I"] = "Participant Id: Ise (I)",
+  ["J"] = "Participant Id: Mrx (J)",
+  ["M"] = "Participant Id: Miax (M)",
+  ["N"] = "Participant Id: Nyse (N)",
+  ["O"] = "Participant Id: Opra (O)",
+  ["P"] = "Participant Id: Pearl (P)",
+  ["Q"] = "Participant Id: Nasd (Q)",
+  ["S"] = "Participant Id: Sphr (S)",
+  ["T"] = "Participant Id: Bx (T)",
+  ["U"] = "Participant Id: Memx (U)",
+  ["V"] = "Participant Id: Iex (V)",
+  ["W"] = "Participant Id: C 2 (W)",
+  ["X"] = "Participant Id: Phlx (X)",
+  ["Z"] = "Participant Id: Bats (Z)",
+}
 
-  return "Participant Id: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.participant_id.display = function(value)
+  return siac_opra_output_obi_v6_3_a.participant_id.labels[value] or "Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Participant Id
@@ -2024,33 +1704,19 @@ siac_opra_output_obi_v6_3_a.premium_price_denominator_code = {}
 siac_opra_output_obi_v6_3_a.premium_price_denominator_code.size = 1
 
 -- Display: Premium Price Denominator Code
-siac_opra_output_obi_v6_3_a.premium_price_denominator_code.display = function(value)
-  if value == "A" then
-    return "Premium Price Denominator Code: Ten (A)"
-  end
-  if value == "B" then
-    return "Premium Price Denominator Code: Hundred (B)"
-  end
-  if value == "C" then
-    return "Premium Price Denominator Code: Thousand (C)"
-  end
-  if value == "D" then
-    return "Premium Price Denominator Code: Ten Thousand (D)"
-  end
-  if value == "E" then
-    return "Premium Price Denominator Code: Hundred Thousand (E)"
-  end
-  if value == "F" then
-    return "Premium Price Denominator Code: Million (F)"
-  end
-  if value == "G" then
-    return "Premium Price Denominator Code: Ten Million (G)"
-  end
-  if value == "I" then
-    return "Premium Price Denominator Code: No Fraction (I)"
-  end
+siac_opra_output_obi_v6_3_a.premium_price_denominator_code.labels = {
+  ["A"] = "Premium Price Denominator Code: Ten (A)",
+  ["B"] = "Premium Price Denominator Code: Hundred (B)",
+  ["C"] = "Premium Price Denominator Code: Thousand (C)",
+  ["D"] = "Premium Price Denominator Code: Ten Thousand (D)",
+  ["E"] = "Premium Price Denominator Code: Hundred Thousand (E)",
+  ["F"] = "Premium Price Denominator Code: Million (F)",
+  ["G"] = "Premium Price Denominator Code: Ten Million (G)",
+  ["I"] = "Premium Price Denominator Code: No Fraction (I)",
+}
 
-  return "Premium Price Denominator Code: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.premium_price_denominator_code.display = function(value)
+  return siac_opra_output_obi_v6_3_a.premium_price_denominator_code.labels[value] or "Premium Price Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Premium Price Denominator Code
@@ -2268,30 +1934,18 @@ siac_opra_output_obi_v6_3_a.session_indicator = {}
 siac_opra_output_obi_v6_3_a.session_indicator.size = 1
 
 -- Display: Session Indicator
-siac_opra_output_obi_v6_3_a.session_indicator.display = function(value)
-  if value == 0 then
-    return "Session Indicator: Regular (0)"
-  end
-  if value == 1 then
-    return "Session Indicator: Sunday Into Monday (1)"
-  end
-  if value == 2 then
-    return "Session Indicator: Monday Into Tuesday (2)"
-  end
-  if value == 3 then
-    return "Session Indicator: Tuesday Into Wednesday (3)"
-  end
-  if value == 4 then
-    return "Session Indicator: Wednesday Into Thursday (4)"
-  end
-  if value == 5 then
-    return "Session Indicator: Thursday Into Friday (5)"
-  end
-  if value == 0x58 then
-    return "Session Indicator: Generated By Opra (0x58)"
-  end
+siac_opra_output_obi_v6_3_a.session_indicator.labels = {
+  [0] = "Session Indicator: Regular (0)",
+  [1] = "Session Indicator: Sunday Into Monday (1)",
+  [2] = "Session Indicator: Monday Into Tuesday (2)",
+  [3] = "Session Indicator: Tuesday Into Wednesday (3)",
+  [4] = "Session Indicator: Wednesday Into Thursday (4)",
+  [5] = "Session Indicator: Thursday Into Friday (5)",
+  [0x58] = "Session Indicator: Generated By Opra (0x58)",
+}
 
-  return "Session Indicator: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.session_indicator.display = function(value)
+  return siac_opra_output_obi_v6_3_a.session_indicator.labels[value] or "Session Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Session Indicator
@@ -2393,27 +2047,17 @@ siac_opra_output_obi_v6_3_a.strike_price_denominator_code = {}
 siac_opra_output_obi_v6_3_a.strike_price_denominator_code.size = 1
 
 -- Display: Strike Price Denominator Code
-siac_opra_output_obi_v6_3_a.strike_price_denominator_code.display = function(value)
-  if value == "A" then
-    return "Strike Price Denominator Code: Ten (A)"
-  end
-  if value == "B" then
-    return "Strike Price Denominator Code: Hundred (B)"
-  end
-  if value == "C" then
-    return "Strike Price Denominator Code: Thousand (C)"
-  end
-  if value == "D" then
-    return "Strike Price Denominator Code: Ten Thousand (D)"
-  end
-  if value == "E" then
-    return "Strike Price Denominator Code: Hundred Thousand (E)"
-  end
-  if value == "I" then
-    return "Strike Price Denominator Code: No Fraction (I)"
-  end
+siac_opra_output_obi_v6_3_a.strike_price_denominator_code.labels = {
+  ["A"] = "Strike Price Denominator Code: Ten (A)",
+  ["B"] = "Strike Price Denominator Code: Hundred (B)",
+  ["C"] = "Strike Price Denominator Code: Thousand (C)",
+  ["D"] = "Strike Price Denominator Code: Ten Thousand (D)",
+  ["E"] = "Strike Price Denominator Code: Hundred Thousand (E)",
+  ["I"] = "Strike Price Denominator Code: No Fraction (I)",
+}
 
-  return "Strike Price Denominator Code: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.strike_price_denominator_code.display = function(value)
+  return siac_opra_output_obi_v6_3_a.strike_price_denominator_code.labels[value] or "Strike Price Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Denominator Code
@@ -2533,36 +2177,20 @@ siac_opra_output_obi_v6_3_a.underlying_price_denominator_code = {}
 siac_opra_output_obi_v6_3_a.underlying_price_denominator_code.size = 1
 
 -- Display: Underlying Price Denominator Code
-siac_opra_output_obi_v6_3_a.underlying_price_denominator_code.display = function(value)
-  if value == "A" then
-    return "Underlying Price Denominator Code: Ten (A)"
-  end
-  if value == "B" then
-    return "Underlying Price Denominator Code: Hundred (B)"
-  end
-  if value == "C" then
-    return "Underlying Price Denominator Code: Thousand (C)"
-  end
-  if value == "D" then
-    return "Underlying Price Denominator Code: Ten Thousand (D)"
-  end
-  if value == "E" then
-    return "Underlying Price Denominator Code: Hundred Thousand (E)"
-  end
-  if value == "F" then
-    return "Underlying Price Denominator Code: Million (F)"
-  end
-  if value == "G" then
-    return "Underlying Price Denominator Code: Ten Million (G)"
-  end
-  if value == "H" then
-    return "Underlying Price Denominator Code: Hundred Million (H)"
-  end
-  if value == "I" then
-    return "Underlying Price Denominator Code: No Fraction (I)"
-  end
+siac_opra_output_obi_v6_3_a.underlying_price_denominator_code.labels = {
+  ["A"] = "Underlying Price Denominator Code: Ten (A)",
+  ["B"] = "Underlying Price Denominator Code: Hundred (B)",
+  ["C"] = "Underlying Price Denominator Code: Thousand (C)",
+  ["D"] = "Underlying Price Denominator Code: Ten Thousand (D)",
+  ["E"] = "Underlying Price Denominator Code: Hundred Thousand (E)",
+  ["F"] = "Underlying Price Denominator Code: Million (F)",
+  ["G"] = "Underlying Price Denominator Code: Ten Million (G)",
+  ["H"] = "Underlying Price Denominator Code: Hundred Million (H)",
+  ["I"] = "Underlying Price Denominator Code: No Fraction (I)",
+}
 
-  return "Underlying Price Denominator Code: Unknown("..value..")"
+siac_opra_output_obi_v6_3_a.underlying_price_denominator_code.display = function(value)
+  return siac_opra_output_obi_v6_3_a.underlying_price_denominator_code.labels[value] or "Underlying Price Denominator Code: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Price Denominator Code
@@ -3160,14 +2788,15 @@ end
 siac_opra_output_obi_v6_3_a.underlying_value_message_payload = {}
 
 -- Dissect: Underlying Value Message Payload
+siac_opra_output_obi_v6_3_a.underlying_value_message_payload.dispatch = {
+  [" "] = siac_opra_output_obi_v6_3_a.underlying_value_last_sale_message.dissect,
+  ["I"] = siac_opra_output_obi_v6_3_a.underlying_value_bid_and_offer_message.dissect,
+}
+
 siac_opra_output_obi_v6_3_a.underlying_value_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
-  -- Dissect Underlying Value Last Sale Message
-  if underlying_value_message_type == " " then
-    return siac_opra_output_obi_v6_3_a.underlying_value_last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Value Bid And Offer Message
-  if underlying_value_message_type == "I" then
-    return siac_opra_output_obi_v6_3_a.underlying_value_bid_and_offer_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_opra_output_obi_v6_3_a.underlying_value_message_payload.dispatch[underlying_value_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3350,10 +2979,14 @@ end
 siac_opra_output_obi_v6_3_a.series_mapping_message_payload = {}
 
 -- Dissect: Series Mapping Message Payload
+siac_opra_output_obi_v6_3_a.series_mapping_message_payload.dispatch = {
+  [" "] = siac_opra_output_obi_v6_3_a.series_mapping_message.dissect,
+}
+
 siac_opra_output_obi_v6_3_a.series_mapping_message_payload.dissect = function(buffer, offset, packet, parent, series_mapping_message_type)
-  -- Dissect Series Mapping Message
-  if series_mapping_message_type == " " then
-    return siac_opra_output_obi_v6_3_a.series_mapping_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_opra_output_obi_v6_3_a.series_mapping_message_payload.dispatch[series_mapping_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4127,10 +3760,14 @@ end
 siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_message_payload = {}
 
 -- Dissect: Equity And Index End Of Day Summary Message Payload
+siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_message_payload.dispatch = {
+  [" "] = siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_message.dissect,
+}
+
 siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_message_payload.dissect = function(buffer, offset, packet, parent, equity_and_index_end_of_day_summary_message_type)
-  -- Dissect Equity And Index End Of Day Summary Message
-  if equity_and_index_end_of_day_summary_message_type == " " then
-    return siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_message_payload.dispatch[equity_and_index_end_of_day_summary_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4265,10 +3902,14 @@ end
 siac_opra_output_obi_v6_3_a.open_interest_message_payload = {}
 
 -- Dissect: Open Interest Message Payload
+siac_opra_output_obi_v6_3_a.open_interest_message_payload.dispatch = {
+  [" "] = siac_opra_output_obi_v6_3_a.open_interest_message.dissect,
+}
+
 siac_opra_output_obi_v6_3_a.open_interest_message_payload.dissect = function(buffer, offset, packet, parent, open_interest_message_type)
-  -- Dissect Open Interest Message
-  if open_interest_message_type == " " then
-    return siac_opra_output_obi_v6_3_a.open_interest_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_opra_output_obi_v6_3_a.open_interest_message_payload.dispatch[open_interest_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4669,10 +4310,14 @@ end
 siac_opra_output_obi_v6_3_a.administrative_message_payload = {}
 
 -- Dissect: Administrative Message Payload
+siac_opra_output_obi_v6_3_a.administrative_message_payload.dispatch = {
+  [" "] = siac_opra_output_obi_v6_3_a.administrative_message.dissect,
+}
+
 siac_opra_output_obi_v6_3_a.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect Administrative Message
-  if administrative_message_type == " " then
-    return siac_opra_output_obi_v6_3_a.administrative_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_opra_output_obi_v6_3_a.administrative_message_payload.dispatch[administrative_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4735,42 +4380,22 @@ end
 siac_opra_output_obi_v6_3_a.payload = {}
 
 -- Dissect: Payload
+siac_opra_output_obi_v6_3_a.payload.dispatch = {
+  ["C"] = siac_opra_output_obi_v6_3_a.administrative_category.dissect,
+  ["H"] = siac_opra_output_obi_v6_3_a.control_category.dissect,
+  ["a"] = siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_category.dissect,
+  ["d"] = siac_opra_output_obi_v6_3_a.open_interest_category.dissect,
+  ["f"] = siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_category.dissect,
+  ["k"] = siac_opra_output_obi_v6_3_a.long_equity_and_index_quote_category.dissect,
+  ["q"] = siac_opra_output_obi_v6_3_a.short_equity_and_index_quote_category.dissect,
+  ["R"] = siac_opra_output_obi_v6_3_a.series_mapping_category.dissect,
+  ["Y"] = siac_opra_output_obi_v6_3_a.underlying_value_category.dissect,
+}
+
 siac_opra_output_obi_v6_3_a.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Administrative Category
-  if message_category == "C" then
-    return siac_opra_output_obi_v6_3_a.administrative_category.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Category
-  if message_category == "H" then
-    return siac_opra_output_obi_v6_3_a.control_category.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity And Index Last Sale Category
-  if message_category == "a" then
-    return siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_category.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Category
-  if message_category == "d" then
-    return siac_opra_output_obi_v6_3_a.open_interest_category.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity And Index End Of Day Summary Category
-  if message_category == "f" then
-    return siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_category.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Equity And Index Quote Category
-  if message_category == "k" then
-    return siac_opra_output_obi_v6_3_a.long_equity_and_index_quote_category.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Equity And Index Quote Category
-  if message_category == "q" then
-    return siac_opra_output_obi_v6_3_a.short_equity_and_index_quote_category.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Mapping Category
-  if message_category == "R" then
-    return siac_opra_output_obi_v6_3_a.series_mapping_category.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Value Category
-  if message_category == "Y" then
-    return siac_opra_output_obi_v6_3_a.underlying_value_category.dissect(buffer, offset, packet, parent)
+  local dissect = siac_opra_output_obi_v6_3_a.payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

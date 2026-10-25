@@ -156,15 +156,13 @@ bruceats_bruceequities_depthofbook_itch_v3_3.authenticity = {}
 bruceats_bruceequities_depthofbook_itch_v3_3.authenticity.size = 1
 
 -- Display: Authenticity
-bruceats_bruceequities_depthofbook_itch_v3_3.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
+bruceats_bruceequities_depthofbook_itch_v3_3.authenticity.labels = {
+  ["P"] = "Authenticity: Live Production (P)",
+  ["T"] = "Authenticity: Test (T)",
+}
 
-  return "Authenticity: Unknown("..value..")"
+bruceats_bruceequities_depthofbook_itch_v3_3.authenticity.display = function(value)
+  return bruceats_bruceequities_depthofbook_itch_v3_3.authenticity.labels[value] or "Authenticity: Unknown("..value..")"
 end
 
 -- Dissect: Authenticity
@@ -186,15 +184,13 @@ bruceats_bruceequities_depthofbook_itch_v3_3.buy_sell_indicator = {}
 bruceats_bruceequities_depthofbook_itch_v3_3.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-bruceats_bruceequities_depthofbook_itch_v3_3.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+bruceats_bruceequities_depthofbook_itch_v3_3.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+bruceats_bruceequities_depthofbook_itch_v3_3.buy_sell_indicator.display = function(value)
+  return bruceats_bruceequities_depthofbook_itch_v3_3.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -239,27 +235,17 @@ bruceats_bruceequities_depthofbook_itch_v3_3.event_code = {}
 bruceats_bruceequities_depthofbook_itch_v3_3.event_code.size = 1
 
 -- Display: Event Code
-bruceats_bruceequities_depthofbook_itch_v3_3.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmission (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Transmissions (C)"
-  end
+bruceats_bruceequities_depthofbook_itch_v3_3.event_code.labels = {
+  ["O"] = "Event Code: Start Of Transmission (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Transmissions (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+bruceats_bruceequities_depthofbook_itch_v3_3.event_code.display = function(value)
+  return bruceats_bruceequities_depthofbook_itch_v3_3.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -418,42 +404,22 @@ bruceats_bruceequities_depthofbook_itch_v3_3.message_type = {}
 bruceats_bruceequities_depthofbook_itch_v3_3.message_type.size = 1
 
 -- Display: Message Type
-bruceats_bruceequities_depthofbook_itch_v3_3.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "C" then
-    return "Message Type: Trade Correction Message (C)"
-  end
-  if value == "B" then
-    return "Message Type: Trade Break Message (B)"
-  end
+bruceats_bruceequities_depthofbook_itch_v3_3.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["Y"] = "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["C"] = "Message Type: Trade Correction Message (C)",
+  ["B"] = "Message Type: Trade Break Message (B)",
+}
 
-  return "Message Type: Unknown("..value..")"
+bruceats_bruceequities_depthofbook_itch_v3_3.message_type.display = function(value)
+  return bruceats_bruceequities_depthofbook_itch_v3_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -596,18 +562,14 @@ bruceats_bruceequities_depthofbook_itch_v3_3.reg_sho_action = {}
 bruceats_bruceequities_depthofbook_itch_v3_3.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-bruceats_bruceequities_depthofbook_itch_v3_3.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Place (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Restriction In Effect (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)"
-  end
+bruceats_bruceequities_depthofbook_itch_v3_3.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Place (0)",
+  ["1"] = "Reg Sho Action: Reg Sho Restriction In Effect (1)",
+  ["2"] = "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+bruceats_bruceequities_depthofbook_itch_v3_3.reg_sho_action.display = function(value)
+  return bruceats_bruceequities_depthofbook_itch_v3_3.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -807,15 +769,13 @@ bruceats_bruceequities_depthofbook_itch_v3_3.trading_state = {}
 bruceats_bruceequities_depthofbook_itch_v3_3.trading_state.size = 1
 
 -- Display: Trading State
-bruceats_bruceequities_depthofbook_itch_v3_3.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+bruceats_bruceequities_depthofbook_itch_v3_3.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+bruceats_bruceequities_depthofbook_itch_v3_3.trading_state.display = function(value)
+  return bruceats_bruceequities_depthofbook_itch_v3_3.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1439,50 +1399,24 @@ end
 bruceats_bruceequities_depthofbook_itch_v3_3.payload = {}
 
 -- Dissect: Payload
+bruceats_bruceequities_depthofbook_itch_v3_3.payload.dispatch = {
+  ["S"] = bruceats_bruceequities_depthofbook_itch_v3_3.system_event_message.dissect,
+  ["R"] = bruceats_bruceequities_depthofbook_itch_v3_3.stock_directory_message.dissect,
+  ["H"] = bruceats_bruceequities_depthofbook_itch_v3_3.stock_trading_action_message.dissect,
+  ["Y"] = bruceats_bruceequities_depthofbook_itch_v3_3.reg_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["A"] = bruceats_bruceequities_depthofbook_itch_v3_3.add_order_message.dissect,
+  ["E"] = bruceats_bruceequities_depthofbook_itch_v3_3.order_executed_message.dissect,
+  ["X"] = bruceats_bruceequities_depthofbook_itch_v3_3.order_cancel_message.dissect,
+  ["D"] = bruceats_bruceequities_depthofbook_itch_v3_3.order_delete_message.dissect,
+  ["U"] = bruceats_bruceequities_depthofbook_itch_v3_3.order_replace_message.dissect,
+  ["C"] = bruceats_bruceequities_depthofbook_itch_v3_3.trade_correction_message.dissect,
+  ["B"] = bruceats_bruceequities_depthofbook_itch_v3_3.trade_break_message.dissect,
+}
+
 bruceats_bruceequities_depthofbook_itch_v3_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == "C" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == "B" then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.trade_break_message.dissect(buffer, offset, packet, parent)
+  local dissect = bruceats_bruceequities_depthofbook_itch_v3_3.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1638,14 +1572,15 @@ end
 bruceats_bruceequities_depthofbook_itch_v3_3.messages = {}
 
 -- Dissect: Messages
+bruceats_bruceequities_depthofbook_itch_v3_3.messages.dispatch = {
+  [0] = bruceats_bruceequities_depthofbook_itch_v3_3.heartbeat.dissect,
+  [65535] = bruceats_bruceequities_depthofbook_itch_v3_3.end_of_session.dissect,
+}
+
 bruceats_bruceequities_depthofbook_itch_v3_3.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return bruceats_bruceequities_depthofbook_itch_v3_3.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = bruceats_bruceequities_depthofbook_itch_v3_3.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

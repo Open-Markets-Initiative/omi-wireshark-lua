@@ -237,15 +237,13 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_type = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_type.display = function(value)
-  if value == "B" then
-    return "Auction Type: Bats Auction Mechanism (B)"
-  end
-  if value == "T" then
-    return "Auction Type: Step Up Mechanism (T)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_type.labels = {
+  ["B"] = "Auction Type: Bats Auction Mechanism (B)",
+  ["T"] = "Auction Type: Step Up Mechanism (T)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_type.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -290,15 +288,13 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.customer_indicator = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-cboe_edgxoptions_auctionfeed_pitch_v1_1_1.customer_indicator.display = function(value)
-  if value == "N" then
-    return "Customer Indicator: Non Customer (N)"
-  end
-  if value == "C" then
-    return "Customer Indicator: Customer (C)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.customer_indicator.labels = {
+  ["N"] = "Customer Indicator: Non Customer (N)",
+  ["C"] = "Customer Indicator: Customer (C)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.customer_indicator.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -435,30 +431,18 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.message_type = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgxoptions_auctionfeed_pitch_v1_1_1.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0xAD then
-    return "Message Type: Auction Notification Message (0xAD)"
-  end
-  if value == 0xAE then
-    return "Message Type: Auction Cancel Message (0xAE)"
-  end
-  if value == 0xAF then
-    return "Message Type: Auction Trade Message (0xAF)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.message_type.labels = {
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0xAD] = "Message Type: Auction Notification Message (0xAD)",
+  [0xAE] = "Message Type: Auction Cancel Message (0xAE)",
+  [0xAF] = "Message Type: Auction Trade Message (0xAF)",
+  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.message_type.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -578,15 +562,13 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_1.side = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.side.size = 1
 
 -- Display: Side
-cboe_edgxoptions_auctionfeed_pitch_v1_1_1.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.side.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1168,34 +1150,20 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.payload = {}
 
 -- Dissect: Payload
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.payload.dispatch = {
+  [0x20] = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_message.dissect,
+  [0x97] = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.unit_clear_message.dissect,
+  [0xAD] = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_notification_message.dissect,
+  [0xAE] = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_cancel_message.dissect,
+  [0xAF] = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_trade_message.dissect,
+  [0x2E] = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.symbol_mapping_message.dissect,
+  [0x2D] = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.end_of_session_message.dissect,
+}
+
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Notification Message
-  if message_type == 0xAD then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Cancel Message
-  if message_type == 0xAE then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Trade Message
-  if message_type == 0xAF then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1334,10 +1302,14 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.messages = {}
 
 -- Dissect: Messages
+cboe_edgxoptions_auctionfeed_pitch_v1_1_1.messages.dispatch = {
+  [0] = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.heartbeat.dissect,
+}
+
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_1.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

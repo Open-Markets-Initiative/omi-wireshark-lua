@@ -568,39 +568,21 @@ gpw_wse_replaybbo_wats_v1_7_6_20.adjusted_closing_price_reason = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.adjusted_closing_price_reason.size = 1
 
 -- Display: Adjusted Closing Price Reason
-gpw_wse_replaybbo_wats_v1_7_6_20.adjusted_closing_price_reason.display = function(value)
-  if value == 1 then
-    return "Adjusted Closing Price Reason: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Adjusted Closing Price Reason: Dividend (2)"
-  end
-  if value == 3 then
-    return "Adjusted Closing Price Reason: Issue Right (3)"
-  end
-  if value == 4 then
-    return "Adjusted Closing Price Reason: Split (4)"
-  end
-  if value == 5 then
-    return "Adjusted Closing Price Reason: Reverse Split (5)"
-  end
-  if value == 6 then
-    return "Adjusted Closing Price Reason: Bonus (6)"
-  end
-  if value == 7 then
-    return "Adjusted Closing Price Reason: Spin Off (7)"
-  end
-  if value == 8 then
-    return "Adjusted Closing Price Reason: Tick Size Change (8)"
-  end
-  if value == 9 then
-    return "Adjusted Closing Price Reason: Order Purge (9)"
-  end
-  if value == 10 then
-    return "Adjusted Closing Price Reason: Other Reason (10)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.adjusted_closing_price_reason.labels = {
+  [1] = "Adjusted Closing Price Reason: Not Applicable (1)",
+  [2] = "Adjusted Closing Price Reason: Dividend (2)",
+  [3] = "Adjusted Closing Price Reason: Issue Right (3)",
+  [4] = "Adjusted Closing Price Reason: Split (4)",
+  [5] = "Adjusted Closing Price Reason: Reverse Split (5)",
+  [6] = "Adjusted Closing Price Reason: Bonus (6)",
+  [7] = "Adjusted Closing Price Reason: Spin Off (7)",
+  [8] = "Adjusted Closing Price Reason: Tick Size Change (8)",
+  [9] = "Adjusted Closing Price Reason: Order Purge (9)",
+  [10] = "Adjusted Closing Price Reason: Other Reason (10)",
+}
 
-  return "Adjusted Closing Price Reason: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.adjusted_closing_price_reason.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.adjusted_closing_price_reason.labels[value] or "Adjusted Closing Price Reason: Unknown("..value..")"
 end
 
 -- Dissect: Adjusted Closing Price Reason
@@ -622,36 +604,20 @@ gpw_wse_replaybbo_wats_v1_7_6_20.auction_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.auction_type.size = 1
 
 -- Display: Auction Type
-gpw_wse_replaybbo_wats_v1_7_6_20.auction_type.display = function(value)
-  if value == 1 then
-    return "Auction Type: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Auction Type: Auction Opening (2)"
-  end
-  if value == 3 then
-    return "Auction Type: Auction Closing (3)"
-  end
-  if value == 4 then
-    return "Auction Type: Auction Intraday (4)"
-  end
-  if value == 5 then
-    return "Auction Type: Auction Volatility Static (5)"
-  end
-  if value == 6 then
-    return "Auction Type: Auction Volatility Dynamic (6)"
-  end
-  if value == 7 then
-    return "Auction Type: Auction Extended Volatility Static (7)"
-  end
-  if value == 8 then
-    return "Auction Type: Auction Extended Volatility Dynamic (8)"
-  end
-  if value == 9 then
-    return "Auction Type: Unsuspension Auction (9)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.auction_type.labels = {
+  [1] = "Auction Type: Not Applicable (1)",
+  [2] = "Auction Type: Auction Opening (2)",
+  [3] = "Auction Type: Auction Closing (3)",
+  [4] = "Auction Type: Auction Intraday (4)",
+  [5] = "Auction Type: Auction Volatility Static (5)",
+  [6] = "Auction Type: Auction Volatility Dynamic (6)",
+  [7] = "Auction Type: Auction Extended Volatility Static (7)",
+  [8] = "Auction Type: Auction Extended Volatility Dynamic (8)",
+  [9] = "Auction Type: Unsuspension Auction (9)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.auction_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -777,24 +743,16 @@ gpw_wse_replaybbo_wats_v1_7_6_20.bond_coupon_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.bond_coupon_type.size = 1
 
 -- Display: Bond Coupon Type
-gpw_wse_replaybbo_wats_v1_7_6_20.bond_coupon_type.display = function(value)
-  if value == 1 then
-    return "Bond Coupon Type: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Bond Coupon Type: Zero (2)"
-  end
-  if value == 3 then
-    return "Bond Coupon Type: Fixed (3)"
-  end
-  if value == 4 then
-    return "Bond Coupon Type: Floating (4)"
-  end
-  if value == 5 then
-    return "Bond Coupon Type: Indexed (5)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.bond_coupon_type.labels = {
+  [1] = "Bond Coupon Type: Not Applicable (1)",
+  [2] = "Bond Coupon Type: Zero (2)",
+  [3] = "Bond Coupon Type: Fixed (3)",
+  [4] = "Bond Coupon Type: Floating (4)",
+  [5] = "Bond Coupon Type: Indexed (5)",
+}
 
-  return "Bond Coupon Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.bond_coupon_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.bond_coupon_type.labels[value] or "Bond Coupon Type: Unknown("..value..")"
 end
 
 -- Dissect: Bond Coupon Type
@@ -842,15 +800,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.calendar_exception_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.calendar_exception_type.size = 1
 
 -- Display: Calendar Exception Type
-gpw_wse_replaybbo_wats_v1_7_6_20.calendar_exception_type.display = function(value)
-  if value == 1 then
-    return "Calendar Exception Type: Closed (1)"
-  end
-  if value == 2 then
-    return "Calendar Exception Type: Open (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.calendar_exception_type.labels = {
+  [1] = "Calendar Exception Type: Closed (1)",
+  [2] = "Calendar Exception Type: Open (2)",
+}
 
-  return "Calendar Exception Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.calendar_exception_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.calendar_exception_type.labels[value] or "Calendar Exception Type: Unknown("..value..")"
 end
 
 -- Dissect: Calendar Exception Type
@@ -1028,27 +984,17 @@ gpw_wse_replaybbo_wats_v1_7_6_20.closing_price_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.closing_price_type.size = 1
 
 -- Display: Closing Price Type
-gpw_wse_replaybbo_wats_v1_7_6_20.closing_price_type.display = function(value)
-  if value == 1 then
-    return "Closing Price Type: Initial Price (1)"
-  end
-  if value == 2 then
-    return "Closing Price Type: Ltp (2)"
-  end
-  if value == 3 then
-    return "Closing Price Type: Last Acp (3)"
-  end
-  if value == 4 then
-    return "Closing Price Type: Fair Value (4)"
-  end
-  if value == 5 then
-    return "Closing Price Type: Daily Settlement Price (5)"
-  end
-  if value == 6 then
-    return "Closing Price Type: Final Settlement Price (6)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.closing_price_type.labels = {
+  [1] = "Closing Price Type: Initial Price (1)",
+  [2] = "Closing Price Type: Ltp (2)",
+  [3] = "Closing Price Type: Last Acp (3)",
+  [4] = "Closing Price Type: Fair Value (4)",
+  [5] = "Closing Price Type: Daily Settlement Price (5)",
+  [6] = "Closing Price Type: Final Settlement Price (6)",
+}
 
-  return "Closing Price Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.closing_price_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.closing_price_type.labels[value] or "Closing Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Closing Price Type
@@ -1070,15 +1016,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.collar_expression = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.collar_expression.size = 1
 
 -- Display: Collar Expression
-gpw_wse_replaybbo_wats_v1_7_6_20.collar_expression.display = function(value)
-  if value == 1 then
-    return "Collar Expression: Percentage (1)"
-  end
-  if value == 2 then
-    return "Collar Expression: Absolute Value (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.collar_expression.labels = {
+  [1] = "Collar Expression: Percentage (1)",
+  [2] = "Collar Expression: Absolute Value (2)",
+}
 
-  return "Collar Expression: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.collar_expression.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.collar_expression.labels[value] or "Collar Expression: Unknown("..value..")"
 end
 
 -- Dissect: Collar Expression
@@ -1210,15 +1154,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.collar_mode = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.collar_mode.size = 1
 
 -- Display: Collar Mode
-gpw_wse_replaybbo_wats_v1_7_6_20.collar_mode.display = function(value)
-  if value == 1 then
-    return "Collar Mode: Trade Price Collar (1)"
-  end
-  if value == 2 then
-    return "Collar Mode: Order Price Collar (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.collar_mode.labels = {
+  [1] = "Collar Mode: Trade Price Collar (1)",
+  [2] = "Collar Mode: Order Price Collar (2)",
+}
 
-  return "Collar Mode: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.collar_mode.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.collar_mode.labels[value] or "Collar Mode: Unknown("..value..")"
 end
 
 -- Dissect: Collar Mode
@@ -1263,15 +1205,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.collar_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.collar_type.size = 1
 
 -- Display: Collar Type
-gpw_wse_replaybbo_wats_v1_7_6_20.collar_type.display = function(value)
-  if value == 1 then
-    return "Collar Type: Static (1)"
-  end
-  if value == 2 then
-    return "Collar Type: Dynamic (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.collar_type.labels = {
+  [1] = "Collar Type: Static (1)",
+  [2] = "Collar Type: Dynamic (2)",
+}
 
-  return "Collar Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.collar_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.collar_type.labels[value] or "Collar Type: Unknown("..value..")"
 end
 
 -- Dissect: Collar Type
@@ -1432,549 +1372,191 @@ gpw_wse_replaybbo_wats_v1_7_6_20.currency = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.currency.size = 2
 
 -- Display: Currency
-gpw_wse_replaybbo_wats_v1_7_6_20.currency.display = function(value)
-  if value == 8 then
-    return "Currency: All (8)"
-  end
-  if value == 12 then
-    return "Currency: Dzd (12)"
-  end
-  if value == 32 then
-    return "Currency: Ars (32)"
-  end
-  if value == 36 then
-    return "Currency: Aud (36)"
-  end
-  if value == 44 then
-    return "Currency: Bsd (44)"
-  end
-  if value == 48 then
-    return "Currency: Bhd (48)"
-  end
-  if value == 50 then
-    return "Currency: Bdt (50)"
-  end
-  if value == 51 then
-    return "Currency: Amd (51)"
-  end
-  if value == 52 then
-    return "Currency: Bbd (52)"
-  end
-  if value == 60 then
-    return "Currency: Bmd (60)"
-  end
-  if value == 64 then
-    return "Currency: Btn (64)"
-  end
-  if value == 68 then
-    return "Currency: Bob (68)"
-  end
-  if value == 72 then
-    return "Currency: Bwp (72)"
-  end
-  if value == 84 then
-    return "Currency: Bzd (84)"
-  end
-  if value == 90 then
-    return "Currency: Sbd (90)"
-  end
-  if value == 96 then
-    return "Currency: Bnd (96)"
-  end
-  if value == 104 then
-    return "Currency: Mmk (104)"
-  end
-  if value == 108 then
-    return "Currency: Bif (108)"
-  end
-  if value == 116 then
-    return "Currency: Khr (116)"
-  end
-  if value == 124 then
-    return "Currency: Cad (124)"
-  end
-  if value == 132 then
-    return "Currency: Cve (132)"
-  end
-  if value == 136 then
-    return "Currency: Kyd (136)"
-  end
-  if value == 144 then
-    return "Currency: Lkr (144)"
-  end
-  if value == 152 then
-    return "Currency: Clp (152)"
-  end
-  if value == 156 then
-    return "Currency: Cny (156)"
-  end
-  if value == 170 then
-    return "Currency: Cop (170)"
-  end
-  if value == 174 then
-    return "Currency: Kmf (174)"
-  end
-  if value == 188 then
-    return "Currency: Crc (188)"
-  end
-  if value == 191 then
-    return "Currency: Hrk (191)"
-  end
-  if value == 192 then
-    return "Currency: Cup (192)"
-  end
-  if value == 203 then
-    return "Currency: Czk (203)"
-  end
-  if value == 208 then
-    return "Currency: Dkk (208)"
-  end
-  if value == 214 then
-    return "Currency: Dop (214)"
-  end
-  if value == 222 then
-    return "Currency: Svc (222)"
-  end
-  if value == 230 then
-    return "Currency: Etb (230)"
-  end
-  if value == 232 then
-    return "Currency: Ern (232)"
-  end
-  if value == 238 then
-    return "Currency: Fkp (238)"
-  end
-  if value == 242 then
-    return "Currency: Fjd (242)"
-  end
-  if value == 262 then
-    return "Currency: Djf (262)"
-  end
-  if value == 270 then
-    return "Currency: Gmd (270)"
-  end
-  if value == 292 then
-    return "Currency: Gip (292)"
-  end
-  if value == 320 then
-    return "Currency: Gtq (320)"
-  end
-  if value == 324 then
-    return "Currency: Gnf (324)"
-  end
-  if value == 328 then
-    return "Currency: Gyd (328)"
-  end
-  if value == 332 then
-    return "Currency: Htg (332)"
-  end
-  if value == 340 then
-    return "Currency: Hnl (340)"
-  end
-  if value == 344 then
-    return "Currency: Hkd (344)"
-  end
-  if value == 348 then
-    return "Currency: Huf (348)"
-  end
-  if value == 352 then
-    return "Currency: Isk (352)"
-  end
-  if value == 356 then
-    return "Currency: Inr (356)"
-  end
-  if value == 360 then
-    return "Currency: Idr (360)"
-  end
-  if value == 364 then
-    return "Currency: Irr (364)"
-  end
-  if value == 368 then
-    return "Currency: Iqd (368)"
-  end
-  if value == 376 then
-    return "Currency: Ils (376)"
-  end
-  if value == 388 then
-    return "Currency: Jmd (388)"
-  end
-  if value == 392 then
-    return "Currency: Jpy (392)"
-  end
-  if value == 398 then
-    return "Currency: Kzt (398)"
-  end
-  if value == 400 then
-    return "Currency: Jod (400)"
-  end
-  if value == 404 then
-    return "Currency: Kes (404)"
-  end
-  if value == 408 then
-    return "Currency: Kpw (408)"
-  end
-  if value == 410 then
-    return "Currency: Krw (410)"
-  end
-  if value == 414 then
-    return "Currency: Kwd (414)"
-  end
-  if value == 417 then
-    return "Currency: Kgs (417)"
-  end
-  if value == 418 then
-    return "Currency: Lak (418)"
-  end
-  if value == 422 then
-    return "Currency: Lbp (422)"
-  end
-  if value == 426 then
-    return "Currency: Lsl (426)"
-  end
-  if value == 430 then
-    return "Currency: Lrd (430)"
-  end
-  if value == 434 then
-    return "Currency: Lyd (434)"
-  end
-  if value == 446 then
-    return "Currency: Mop (446)"
-  end
-  if value == 454 then
-    return "Currency: Mwk (454)"
-  end
-  if value == 458 then
-    return "Currency: Myr (458)"
-  end
-  if value == 462 then
-    return "Currency: Mvr (462)"
-  end
-  if value == 480 then
-    return "Currency: Mur (480)"
-  end
-  if value == 484 then
-    return "Currency: Mxn (484)"
-  end
-  if value == 496 then
-    return "Currency: Mnt (496)"
-  end
-  if value == 498 then
-    return "Currency: Mdl (498)"
-  end
-  if value == 504 then
-    return "Currency: Mad (504)"
-  end
-  if value == 512 then
-    return "Currency: Omr (512)"
-  end
-  if value == 516 then
-    return "Currency: Nad (516)"
-  end
-  if value == 524 then
-    return "Currency: Npr (524)"
-  end
-  if value == 532 then
-    return "Currency: Ang (532)"
-  end
-  if value == 533 then
-    return "Currency: Awg (533)"
-  end
-  if value == 548 then
-    return "Currency: Vuv (548)"
-  end
-  if value == 554 then
-    return "Currency: Nzd (554)"
-  end
-  if value == 558 then
-    return "Currency: Nio (558)"
-  end
-  if value == 566 then
-    return "Currency: Ngn (566)"
-  end
-  if value == 578 then
-    return "Currency: Nok (578)"
-  end
-  if value == 586 then
-    return "Currency: Pkr (586)"
-  end
-  if value == 590 then
-    return "Currency: Pab (590)"
-  end
-  if value == 598 then
-    return "Currency: Pgk (598)"
-  end
-  if value == 600 then
-    return "Currency: Pyg (600)"
-  end
-  if value == 604 then
-    return "Currency: Pen (604)"
-  end
-  if value == 608 then
-    return "Currency: Php (608)"
-  end
-  if value == 634 then
-    return "Currency: Qar (634)"
-  end
-  if value == 643 then
-    return "Currency: Rub (643)"
-  end
-  if value == 646 then
-    return "Currency: Rwf (646)"
-  end
-  if value == 654 then
-    return "Currency: Shp (654)"
-  end
-  if value == 682 then
-    return "Currency: Sar (682)"
-  end
-  if value == 690 then
-    return "Currency: Scr (690)"
-  end
-  if value == 702 then
-    return "Currency: Sgd (702)"
-  end
-  if value == 704 then
-    return "Currency: Vnd (704)"
-  end
-  if value == 706 then
-    return "Currency: Sos (706)"
-  end
-  if value == 710 then
-    return "Currency: Zar (710)"
-  end
-  if value == 728 then
-    return "Currency: Ssp (728)"
-  end
-  if value == 748 then
-    return "Currency: Szl (748)"
-  end
-  if value == 752 then
-    return "Currency: Sek (752)"
-  end
-  if value == 756 then
-    return "Currency: Chf (756)"
-  end
-  if value == 760 then
-    return "Currency: Syp (760)"
-  end
-  if value == 764 then
-    return "Currency: Thb (764)"
-  end
-  if value == 776 then
-    return "Currency: Top (776)"
-  end
-  if value == 780 then
-    return "Currency: Ttd (780)"
-  end
-  if value == 784 then
-    return "Currency: Aed (784)"
-  end
-  if value == 788 then
-    return "Currency: Tnd (788)"
-  end
-  if value == 800 then
-    return "Currency: Ugx (800)"
-  end
-  if value == 807 then
-    return "Currency: Mkd (807)"
-  end
-  if value == 818 then
-    return "Currency: Egp (818)"
-  end
-  if value == 826 then
-    return "Currency: Gbp (826)"
-  end
-  if value == 834 then
-    return "Currency: Tzs (834)"
-  end
-  if value == 840 then
-    return "Currency: Usd (840)"
-  end
-  if value == 858 then
-    return "Currency: Uyu (858)"
-  end
-  if value == 860 then
-    return "Currency: Uzs (860)"
-  end
-  if value == 882 then
-    return "Currency: Wst (882)"
-  end
-  if value == 886 then
-    return "Currency: Yer (886)"
-  end
-  if value == 901 then
-    return "Currency: Twd (901)"
-  end
-  if value == 925 then
-    return "Currency: Sle (925)"
-  end
-  if value == 926 then
-    return "Currency: Ved (926)"
-  end
-  if value == 927 then
-    return "Currency: Uyw (927)"
-  end
-  if value == 928 then
-    return "Currency: Ves (928)"
-  end
-  if value == 929 then
-    return "Currency: Mru (929)"
-  end
-  if value == 930 then
-    return "Currency: Stn (930)"
-  end
-  if value == 931 then
-    return "Currency: Cuc (931)"
-  end
-  if value == 932 then
-    return "Currency: Zwl (932)"
-  end
-  if value == 933 then
-    return "Currency: Byn (933)"
-  end
-  if value == 934 then
-    return "Currency: Tmt (934)"
-  end
-  if value == 936 then
-    return "Currency: Ghs (936)"
-  end
-  if value == 938 then
-    return "Currency: Sdg (938)"
-  end
-  if value == 940 then
-    return "Currency: Uyi (940)"
-  end
-  if value == 941 then
-    return "Currency: Rsd (941)"
-  end
-  if value == 943 then
-    return "Currency: Mzn (943)"
-  end
-  if value == 944 then
-    return "Currency: Azn (944)"
-  end
-  if value == 946 then
-    return "Currency: Ron (946)"
-  end
-  if value == 947 then
-    return "Currency: Che (947)"
-  end
-  if value == 948 then
-    return "Currency: Chw (948)"
-  end
-  if value == 949 then
-    return "Currency: Try (949)"
-  end
-  if value == 950 then
-    return "Currency: Xaf (950)"
-  end
-  if value == 951 then
-    return "Currency: Xcd (951)"
-  end
-  if value == 952 then
-    return "Currency: Xof (952)"
-  end
-  if value == 953 then
-    return "Currency: Xpf (953)"
-  end
-  if value == 955 then
-    return "Currency: Xba (955)"
-  end
-  if value == 956 then
-    return "Currency: Xbb (956)"
-  end
-  if value == 957 then
-    return "Currency: Xbc (957)"
-  end
-  if value == 958 then
-    return "Currency: Xbd (958)"
-  end
-  if value == 959 then
-    return "Currency: Xau (959)"
-  end
-  if value == 960 then
-    return "Currency: Xdr (960)"
-  end
-  if value == 961 then
-    return "Currency: Xag (961)"
-  end
-  if value == 962 then
-    return "Currency: Xpt (962)"
-  end
-  if value == 963 then
-    return "Currency: Xts (963)"
-  end
-  if value == 964 then
-    return "Currency: Xpd (964)"
-  end
-  if value == 965 then
-    return "Currency: Xua (965)"
-  end
-  if value == 967 then
-    return "Currency: Zmw (967)"
-  end
-  if value == 968 then
-    return "Currency: Srd (968)"
-  end
-  if value == 969 then
-    return "Currency: Mga (969)"
-  end
-  if value == 970 then
-    return "Currency: Cou (970)"
-  end
-  if value == 971 then
-    return "Currency: Afn (971)"
-  end
-  if value == 972 then
-    return "Currency: Tjs (972)"
-  end
-  if value == 973 then
-    return "Currency: Aoa (973)"
-  end
-  if value == 975 then
-    return "Currency: Bgn (975)"
-  end
-  if value == 976 then
-    return "Currency: Cdf (976)"
-  end
-  if value == 977 then
-    return "Currency: Bam (977)"
-  end
-  if value == 978 then
-    return "Currency: Eur (978)"
-  end
-  if value == 979 then
-    return "Currency: Mxv (979)"
-  end
-  if value == 980 then
-    return "Currency: Uah (980)"
-  end
-  if value == 981 then
-    return "Currency: Gel (981)"
-  end
-  if value == 984 then
-    return "Currency: Bov (984)"
-  end
-  if value == 985 then
-    return "Currency: Pln (985)"
-  end
-  if value == 986 then
-    return "Currency: Brl (986)"
-  end
-  if value == 990 then
-    return "Currency: Clf (990)"
-  end
-  if value == 994 then
-    return "Currency: Xsu (994)"
-  end
-  if value == 997 then
-    return "Currency: Usn (997)"
-  end
-  if value == 999 then
-    return "Currency: Xxx (999)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.currency.labels = {
+  [8] = "Currency: All (8)",
+  [12] = "Currency: Dzd (12)",
+  [32] = "Currency: Ars (32)",
+  [36] = "Currency: Aud (36)",
+  [44] = "Currency: Bsd (44)",
+  [48] = "Currency: Bhd (48)",
+  [50] = "Currency: Bdt (50)",
+  [51] = "Currency: Amd (51)",
+  [52] = "Currency: Bbd (52)",
+  [60] = "Currency: Bmd (60)",
+  [64] = "Currency: Btn (64)",
+  [68] = "Currency: Bob (68)",
+  [72] = "Currency: Bwp (72)",
+  [84] = "Currency: Bzd (84)",
+  [90] = "Currency: Sbd (90)",
+  [96] = "Currency: Bnd (96)",
+  [104] = "Currency: Mmk (104)",
+  [108] = "Currency: Bif (108)",
+  [116] = "Currency: Khr (116)",
+  [124] = "Currency: Cad (124)",
+  [132] = "Currency: Cve (132)",
+  [136] = "Currency: Kyd (136)",
+  [144] = "Currency: Lkr (144)",
+  [152] = "Currency: Clp (152)",
+  [156] = "Currency: Cny (156)",
+  [170] = "Currency: Cop (170)",
+  [174] = "Currency: Kmf (174)",
+  [188] = "Currency: Crc (188)",
+  [191] = "Currency: Hrk (191)",
+  [192] = "Currency: Cup (192)",
+  [203] = "Currency: Czk (203)",
+  [208] = "Currency: Dkk (208)",
+  [214] = "Currency: Dop (214)",
+  [222] = "Currency: Svc (222)",
+  [230] = "Currency: Etb (230)",
+  [232] = "Currency: Ern (232)",
+  [238] = "Currency: Fkp (238)",
+  [242] = "Currency: Fjd (242)",
+  [262] = "Currency: Djf (262)",
+  [270] = "Currency: Gmd (270)",
+  [292] = "Currency: Gip (292)",
+  [320] = "Currency: Gtq (320)",
+  [324] = "Currency: Gnf (324)",
+  [328] = "Currency: Gyd (328)",
+  [332] = "Currency: Htg (332)",
+  [340] = "Currency: Hnl (340)",
+  [344] = "Currency: Hkd (344)",
+  [348] = "Currency: Huf (348)",
+  [352] = "Currency: Isk (352)",
+  [356] = "Currency: Inr (356)",
+  [360] = "Currency: Idr (360)",
+  [364] = "Currency: Irr (364)",
+  [368] = "Currency: Iqd (368)",
+  [376] = "Currency: Ils (376)",
+  [388] = "Currency: Jmd (388)",
+  [392] = "Currency: Jpy (392)",
+  [398] = "Currency: Kzt (398)",
+  [400] = "Currency: Jod (400)",
+  [404] = "Currency: Kes (404)",
+  [408] = "Currency: Kpw (408)",
+  [410] = "Currency: Krw (410)",
+  [414] = "Currency: Kwd (414)",
+  [417] = "Currency: Kgs (417)",
+  [418] = "Currency: Lak (418)",
+  [422] = "Currency: Lbp (422)",
+  [426] = "Currency: Lsl (426)",
+  [430] = "Currency: Lrd (430)",
+  [434] = "Currency: Lyd (434)",
+  [446] = "Currency: Mop (446)",
+  [454] = "Currency: Mwk (454)",
+  [458] = "Currency: Myr (458)",
+  [462] = "Currency: Mvr (462)",
+  [480] = "Currency: Mur (480)",
+  [484] = "Currency: Mxn (484)",
+  [496] = "Currency: Mnt (496)",
+  [498] = "Currency: Mdl (498)",
+  [504] = "Currency: Mad (504)",
+  [512] = "Currency: Omr (512)",
+  [516] = "Currency: Nad (516)",
+  [524] = "Currency: Npr (524)",
+  [532] = "Currency: Ang (532)",
+  [533] = "Currency: Awg (533)",
+  [548] = "Currency: Vuv (548)",
+  [554] = "Currency: Nzd (554)",
+  [558] = "Currency: Nio (558)",
+  [566] = "Currency: Ngn (566)",
+  [578] = "Currency: Nok (578)",
+  [586] = "Currency: Pkr (586)",
+  [590] = "Currency: Pab (590)",
+  [598] = "Currency: Pgk (598)",
+  [600] = "Currency: Pyg (600)",
+  [604] = "Currency: Pen (604)",
+  [608] = "Currency: Php (608)",
+  [634] = "Currency: Qar (634)",
+  [643] = "Currency: Rub (643)",
+  [646] = "Currency: Rwf (646)",
+  [654] = "Currency: Shp (654)",
+  [682] = "Currency: Sar (682)",
+  [690] = "Currency: Scr (690)",
+  [702] = "Currency: Sgd (702)",
+  [704] = "Currency: Vnd (704)",
+  [706] = "Currency: Sos (706)",
+  [710] = "Currency: Zar (710)",
+  [728] = "Currency: Ssp (728)",
+  [748] = "Currency: Szl (748)",
+  [752] = "Currency: Sek (752)",
+  [756] = "Currency: Chf (756)",
+  [760] = "Currency: Syp (760)",
+  [764] = "Currency: Thb (764)",
+  [776] = "Currency: Top (776)",
+  [780] = "Currency: Ttd (780)",
+  [784] = "Currency: Aed (784)",
+  [788] = "Currency: Tnd (788)",
+  [800] = "Currency: Ugx (800)",
+  [807] = "Currency: Mkd (807)",
+  [818] = "Currency: Egp (818)",
+  [826] = "Currency: Gbp (826)",
+  [834] = "Currency: Tzs (834)",
+  [840] = "Currency: Usd (840)",
+  [858] = "Currency: Uyu (858)",
+  [860] = "Currency: Uzs (860)",
+  [882] = "Currency: Wst (882)",
+  [886] = "Currency: Yer (886)",
+  [901] = "Currency: Twd (901)",
+  [925] = "Currency: Sle (925)",
+  [926] = "Currency: Ved (926)",
+  [927] = "Currency: Uyw (927)",
+  [928] = "Currency: Ves (928)",
+  [929] = "Currency: Mru (929)",
+  [930] = "Currency: Stn (930)",
+  [931] = "Currency: Cuc (931)",
+  [932] = "Currency: Zwl (932)",
+  [933] = "Currency: Byn (933)",
+  [934] = "Currency: Tmt (934)",
+  [936] = "Currency: Ghs (936)",
+  [938] = "Currency: Sdg (938)",
+  [940] = "Currency: Uyi (940)",
+  [941] = "Currency: Rsd (941)",
+  [943] = "Currency: Mzn (943)",
+  [944] = "Currency: Azn (944)",
+  [946] = "Currency: Ron (946)",
+  [947] = "Currency: Che (947)",
+  [948] = "Currency: Chw (948)",
+  [949] = "Currency: Try (949)",
+  [950] = "Currency: Xaf (950)",
+  [951] = "Currency: Xcd (951)",
+  [952] = "Currency: Xof (952)",
+  [953] = "Currency: Xpf (953)",
+  [955] = "Currency: Xba (955)",
+  [956] = "Currency: Xbb (956)",
+  [957] = "Currency: Xbc (957)",
+  [958] = "Currency: Xbd (958)",
+  [959] = "Currency: Xau (959)",
+  [960] = "Currency: Xdr (960)",
+  [961] = "Currency: Xag (961)",
+  [962] = "Currency: Xpt (962)",
+  [963] = "Currency: Xts (963)",
+  [964] = "Currency: Xpd (964)",
+  [965] = "Currency: Xua (965)",
+  [967] = "Currency: Zmw (967)",
+  [968] = "Currency: Srd (968)",
+  [969] = "Currency: Mga (969)",
+  [970] = "Currency: Cou (970)",
+  [971] = "Currency: Afn (971)",
+  [972] = "Currency: Tjs (972)",
+  [973] = "Currency: Aoa (973)",
+  [975] = "Currency: Bgn (975)",
+  [976] = "Currency: Cdf (976)",
+  [977] = "Currency: Bam (977)",
+  [978] = "Currency: Eur (978)",
+  [979] = "Currency: Mxv (979)",
+  [980] = "Currency: Uah (980)",
+  [981] = "Currency: Gel (981)",
+  [984] = "Currency: Bov (984)",
+  [985] = "Currency: Pln (985)",
+  [986] = "Currency: Brl (986)",
+  [990] = "Currency: Clf (990)",
+  [994] = "Currency: Xsu (994)",
+  [997] = "Currency: Usn (997)",
+  [999] = "Currency: Xxx (999)",
+}
 
-  return "Currency: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.currency.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -2345,18 +1927,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.event_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.event_type.size = 1
 
 -- Display: Event Type
-gpw_wse_replaybbo_wats_v1_7_6_20.event_type.display = function(value)
-  if value == 1 then
-    return "Event Type: Flush (1)"
-  end
-  if value == 2 then
-    return "Event Type: Scenario Start (2)"
-  end
-  if value == 3 then
-    return "Event Type: Scenario End (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.event_type.labels = {
+  [1] = "Event Type: Flush (1)",
+  [2] = "Event Type: Scenario Start (2)",
+  [3] = "Event Type: Scenario End (3)",
+}
 
-  return "Event Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.event_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.event_type.labels[value] or "Event Type: Unknown("..value..")"
 end
 
 -- Dissect: Event Type
@@ -2378,18 +1956,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.exercise_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.exercise_type.size = 1
 
 -- Display: Exercise Type
-gpw_wse_replaybbo_wats_v1_7_6_20.exercise_type.display = function(value)
-  if value == 1 then
-    return "Exercise Type: Amer (1)"
-  end
-  if value == 2 then
-    return "Exercise Type: Euro (2)"
-  end
-  if value == 3 then
-    return "Exercise Type: Na (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.exercise_type.labels = {
+  [1] = "Exercise Type: Amer (1)",
+  [2] = "Exercise Type: Euro (2)",
+  [3] = "Exercise Type: Na (3)",
+}
 
-  return "Exercise Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.exercise_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.exercise_type.labels[value] or "Exercise Type: Unknown("..value..")"
 end
 
 -- Dissect: Exercise Type
@@ -2772,33 +2346,19 @@ gpw_wse_replaybbo_wats_v1_7_6_20.index_level_code = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.index_level_code.size = 1
 
 -- Display: Index Level Code
-gpw_wse_replaybbo_wats_v1_7_6_20.index_level_code.display = function(value)
-  if value == 1 then
-    return "Index Level Code: Previous Closing Value (1)"
-  end
-  if value == 2 then
-    return "Index Level Code: Theoretical Value Before Opening (2)"
-  end
-  if value == 3 then
-    return "Index Level Code: Value Before Opening (3)"
-  end
-  if value == 4 then
-    return "Index Level Code: Opening Value (4)"
-  end
-  if value == 5 then
-    return "Index Level Code: Current Value (5)"
-  end
-  if value == 6 then
-    return "Index Level Code: Pre Closing Value (6)"
-  end
-  if value == 7 then
-    return "Index Level Code: Closing Value (7)"
-  end
-  if value == 8 then
-    return "Index Level Code: Value Without Opening (8)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.index_level_code.labels = {
+  [1] = "Index Level Code: Previous Closing Value (1)",
+  [2] = "Index Level Code: Theoretical Value Before Opening (2)",
+  [3] = "Index Level Code: Value Before Opening (3)",
+  [4] = "Index Level Code: Opening Value (4)",
+  [5] = "Index Level Code: Current Value (5)",
+  [6] = "Index Level Code: Pre Closing Value (6)",
+  [7] = "Index Level Code: Closing Value (7)",
+  [8] = "Index Level Code: Value Without Opening (8)",
+}
 
-  return "Index Level Code: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.index_level_code.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.index_level_code.labels[value] or "Index Level Code: Unknown("..value..")"
 end
 
 -- Dissect: Index Level Code
@@ -2820,18 +2380,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.index_publication_schedule = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.index_publication_schedule.size = 1
 
 -- Display: Index Publication Schedule
-gpw_wse_replaybbo_wats_v1_7_6_20.index_publication_schedule.display = function(value)
-  if value == 1 then
-    return "Index Publication Schedule: Continuous (1)"
-  end
-  if value == 2 then
-    return "Index Publication Schedule: Fixing (2)"
-  end
-  if value == 3 then
-    return "Index Publication Schedule: Closing (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.index_publication_schedule.labels = {
+  [1] = "Index Publication Schedule: Continuous (1)",
+  [2] = "Index Publication Schedule: Fixing (2)",
+  [3] = "Index Publication Schedule: Closing (3)",
+}
 
-  return "Index Publication Schedule: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.index_publication_schedule.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.index_publication_schedule.labels[value] or "Index Publication Schedule: Unknown("..value..")"
 end
 
 -- Dissect: Index Publication Schedule
@@ -2853,27 +2409,17 @@ gpw_wse_replaybbo_wats_v1_7_6_20.index_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.index_type.size = 1
 
 -- Display: Index Type
-gpw_wse_replaybbo_wats_v1_7_6_20.index_type.display = function(value)
-  if value == 1 then
-    return "Index Type: W (1)"
-  end
-  if value == 2 then
-    return "Index Type: Z (2)"
-  end
-  if value == 3 then
-    return "Index Type: V (3)"
-  end
-  if value == 4 then
-    return "Index Type: M (4)"
-  end
-  if value == 5 then
-    return "Index Type: S (5)"
-  end
-  if value == 6 then
-    return "Index Type: L (6)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.index_type.labels = {
+  [1] = "Index Type: W (1)",
+  [2] = "Index Type: Z (2)",
+  [3] = "Index Type: V (3)",
+  [4] = "Index Type: M (4)",
+  [5] = "Index Type: S (5)",
+  [6] = "Index Type: L (6)",
+}
 
-  return "Index Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.index_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.index_type.labels[value] or "Index Type: Unknown("..value..")"
 end
 
 -- Dissect: Index Type
@@ -2895,18 +2441,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.index_underlying_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.index_underlying_type.size = 1
 
 -- Display: Index Underlying Type
-gpw_wse_replaybbo_wats_v1_7_6_20.index_underlying_type.display = function(value)
-  if value == 1 then
-    return "Index Underlying Type: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Index Underlying Type: Index (2)"
-  end
-  if value == 3 then
-    return "Index Underlying Type: Reference Rate (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.index_underlying_type.labels = {
+  [1] = "Index Underlying Type: Not Applicable (1)",
+  [2] = "Index Underlying Type: Index (2)",
+  [3] = "Index Underlying Type: Reference Rate (3)",
+}
 
-  return "Index Underlying Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.index_underlying_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.index_underlying_type.labels[value] or "Index Underlying Type: Unknown("..value..")"
 end
 
 -- Dissect: Index Underlying Type
@@ -3289,18 +2831,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.is_leverage = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.is_leverage.size = 1
 
 -- Display: Is Leverage
-gpw_wse_replaybbo_wats_v1_7_6_20.is_leverage.display = function(value)
-  if value == 1 then
-    return "Is Leverage: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Is Leverage: Yes (2)"
-  end
-  if value == 3 then
-    return "Is Leverage: No (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.is_leverage.labels = {
+  [1] = "Is Leverage: Not Applicable (1)",
+  [2] = "Is Leverage: Yes (2)",
+  [3] = "Is Leverage: No (3)",
+}
 
-  return "Is Leverage: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.is_leverage.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.is_leverage.labels[value] or "Is Leverage: Unknown("..value..")"
 end
 
 -- Dissect: Is Leverage
@@ -3368,756 +2906,260 @@ gpw_wse_replaybbo_wats_v1_7_6_20.issuer_reg_country = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.issuer_reg_country.size = 2
 
 -- Display: Issuer Reg Country
-gpw_wse_replaybbo_wats_v1_7_6_20.issuer_reg_country.display = function(value)
-  if value == 4 then
-    return "Issuer Reg Country: Afg (4)"
-  end
-  if value == 8 then
-    return "Issuer Reg Country: Alb (8)"
-  end
-  if value == 10 then
-    return "Issuer Reg Country: Ata (10)"
-  end
-  if value == 12 then
-    return "Issuer Reg Country: Dza (12)"
-  end
-  if value == 16 then
-    return "Issuer Reg Country: Asm (16)"
-  end
-  if value == 20 then
-    return "Issuer Reg Country: And (20)"
-  end
-  if value == 24 then
-    return "Issuer Reg Country: Ago (24)"
-  end
-  if value == 28 then
-    return "Issuer Reg Country: Atg (28)"
-  end
-  if value == 31 then
-    return "Issuer Reg Country: Aze (31)"
-  end
-  if value == 32 then
-    return "Issuer Reg Country: Arg (32)"
-  end
-  if value == 36 then
-    return "Issuer Reg Country: Aus (36)"
-  end
-  if value == 40 then
-    return "Issuer Reg Country: Aut (40)"
-  end
-  if value == 44 then
-    return "Issuer Reg Country: Bhs (44)"
-  end
-  if value == 48 then
-    return "Issuer Reg Country: Bhr (48)"
-  end
-  if value == 50 then
-    return "Issuer Reg Country: Bgd (50)"
-  end
-  if value == 51 then
-    return "Issuer Reg Country: Arm (51)"
-  end
-  if value == 52 then
-    return "Issuer Reg Country: Brb (52)"
-  end
-  if value == 56 then
-    return "Issuer Reg Country: Bel (56)"
-  end
-  if value == 60 then
-    return "Issuer Reg Country: Bmu (60)"
-  end
-  if value == 64 then
-    return "Issuer Reg Country: Btn (64)"
-  end
-  if value == 68 then
-    return "Issuer Reg Country: Bol (68)"
-  end
-  if value == 70 then
-    return "Issuer Reg Country: Bih (70)"
-  end
-  if value == 72 then
-    return "Issuer Reg Country: Bwa (72)"
-  end
-  if value == 74 then
-    return "Issuer Reg Country: Bvt (74)"
-  end
-  if value == 76 then
-    return "Issuer Reg Country: Bra (76)"
-  end
-  if value == 84 then
-    return "Issuer Reg Country: Blz (84)"
-  end
-  if value == 86 then
-    return "Issuer Reg Country: Iot (86)"
-  end
-  if value == 90 then
-    return "Issuer Reg Country: Slb (90)"
-  end
-  if value == 92 then
-    return "Issuer Reg Country: Vgb (92)"
-  end
-  if value == 96 then
-    return "Issuer Reg Country: Brn (96)"
-  end
-  if value == 100 then
-    return "Issuer Reg Country: Bgr (100)"
-  end
-  if value == 104 then
-    return "Issuer Reg Country: Mmr (104)"
-  end
-  if value == 108 then
-    return "Issuer Reg Country: Bdi (108)"
-  end
-  if value == 112 then
-    return "Issuer Reg Country: Blr (112)"
-  end
-  if value == 116 then
-    return "Issuer Reg Country: Khm (116)"
-  end
-  if value == 120 then
-    return "Issuer Reg Country: Cmr (120)"
-  end
-  if value == 124 then
-    return "Issuer Reg Country: Can (124)"
-  end
-  if value == 132 then
-    return "Issuer Reg Country: Cpv (132)"
-  end
-  if value == 136 then
-    return "Issuer Reg Country: Cym (136)"
-  end
-  if value == 140 then
-    return "Issuer Reg Country: Caf (140)"
-  end
-  if value == 144 then
-    return "Issuer Reg Country: Lka (144)"
-  end
-  if value == 148 then
-    return "Issuer Reg Country: Tcd (148)"
-  end
-  if value == 152 then
-    return "Issuer Reg Country: Chl (152)"
-  end
-  if value == 156 then
-    return "Issuer Reg Country: Chn (156)"
-  end
-  if value == 158 then
-    return "Issuer Reg Country: Twn (158)"
-  end
-  if value == 162 then
-    return "Issuer Reg Country: Cxr (162)"
-  end
-  if value == 166 then
-    return "Issuer Reg Country: Cck (166)"
-  end
-  if value == 170 then
-    return "Issuer Reg Country: Col (170)"
-  end
-  if value == 174 then
-    return "Issuer Reg Country: Com (174)"
-  end
-  if value == 175 then
-    return "Issuer Reg Country: Myt (175)"
-  end
-  if value == 178 then
-    return "Issuer Reg Country: Cog (178)"
-  end
-  if value == 180 then
-    return "Issuer Reg Country: Cod (180)"
-  end
-  if value == 184 then
-    return "Issuer Reg Country: Cok (184)"
-  end
-  if value == 188 then
-    return "Issuer Reg Country: Cri (188)"
-  end
-  if value == 191 then
-    return "Issuer Reg Country: Hrv (191)"
-  end
-  if value == 192 then
-    return "Issuer Reg Country: Cub (192)"
-  end
-  if value == 196 then
-    return "Issuer Reg Country: Cyp (196)"
-  end
-  if value == 203 then
-    return "Issuer Reg Country: Cze (203)"
-  end
-  if value == 204 then
-    return "Issuer Reg Country: Ben (204)"
-  end
-  if value == 208 then
-    return "Issuer Reg Country: Dnk (208)"
-  end
-  if value == 212 then
-    return "Issuer Reg Country: Dma (212)"
-  end
-  if value == 214 then
-    return "Issuer Reg Country: Dom (214)"
-  end
-  if value == 218 then
-    return "Issuer Reg Country: Ecu (218)"
-  end
-  if value == 222 then
-    return "Issuer Reg Country: Slv (222)"
-  end
-  if value == 226 then
-    return "Issuer Reg Country: Gnq (226)"
-  end
-  if value == 231 then
-    return "Issuer Reg Country: Eth (231)"
-  end
-  if value == 232 then
-    return "Issuer Reg Country: Eri (232)"
-  end
-  if value == 233 then
-    return "Issuer Reg Country: Est (233)"
-  end
-  if value == 234 then
-    return "Issuer Reg Country: Fro (234)"
-  end
-  if value == 238 then
-    return "Issuer Reg Country: Flk (238)"
-  end
-  if value == 239 then
-    return "Issuer Reg Country: Sgs (239)"
-  end
-  if value == 242 then
-    return "Issuer Reg Country: Fji (242)"
-  end
-  if value == 246 then
-    return "Issuer Reg Country: Fin (246)"
-  end
-  if value == 248 then
-    return "Issuer Reg Country: Ala (248)"
-  end
-  if value == 250 then
-    return "Issuer Reg Country: Fra (250)"
-  end
-  if value == 254 then
-    return "Issuer Reg Country: Guf (254)"
-  end
-  if value == 258 then
-    return "Issuer Reg Country: Pyf (258)"
-  end
-  if value == 260 then
-    return "Issuer Reg Country: Atf (260)"
-  end
-  if value == 262 then
-    return "Issuer Reg Country: Dji (262)"
-  end
-  if value == 266 then
-    return "Issuer Reg Country: Gab (266)"
-  end
-  if value == 268 then
-    return "Issuer Reg Country: Geo (268)"
-  end
-  if value == 270 then
-    return "Issuer Reg Country: Gmb (270)"
-  end
-  if value == 275 then
-    return "Issuer Reg Country: Pse (275)"
-  end
-  if value == 276 then
-    return "Issuer Reg Country: Deu (276)"
-  end
-  if value == 288 then
-    return "Issuer Reg Country: Gha (288)"
-  end
-  if value == 292 then
-    return "Issuer Reg Country: Gib (292)"
-  end
-  if value == 296 then
-    return "Issuer Reg Country: Kir (296)"
-  end
-  if value == 300 then
-    return "Issuer Reg Country: Grc (300)"
-  end
-  if value == 304 then
-    return "Issuer Reg Country: Grl (304)"
-  end
-  if value == 308 then
-    return "Issuer Reg Country: Grd (308)"
-  end
-  if value == 312 then
-    return "Issuer Reg Country: Glp (312)"
-  end
-  if value == 316 then
-    return "Issuer Reg Country: Gum (316)"
-  end
-  if value == 320 then
-    return "Issuer Reg Country: Gtm (320)"
-  end
-  if value == 324 then
-    return "Issuer Reg Country: Gin (324)"
-  end
-  if value == 328 then
-    return "Issuer Reg Country: Guy (328)"
-  end
-  if value == 332 then
-    return "Issuer Reg Country: Hti (332)"
-  end
-  if value == 334 then
-    return "Issuer Reg Country: Hmd (334)"
-  end
-  if value == 336 then
-    return "Issuer Reg Country: Vat (336)"
-  end
-  if value == 340 then
-    return "Issuer Reg Country: Hnd (340)"
-  end
-  if value == 344 then
-    return "Issuer Reg Country: Hkg (344)"
-  end
-  if value == 348 then
-    return "Issuer Reg Country: Hun (348)"
-  end
-  if value == 352 then
-    return "Issuer Reg Country: Isl (352)"
-  end
-  if value == 356 then
-    return "Issuer Reg Country: Ind (356)"
-  end
-  if value == 360 then
-    return "Issuer Reg Country: Idn (360)"
-  end
-  if value == 364 then
-    return "Issuer Reg Country: Irn (364)"
-  end
-  if value == 368 then
-    return "Issuer Reg Country: Irq (368)"
-  end
-  if value == 372 then
-    return "Issuer Reg Country: Irl (372)"
-  end
-  if value == 376 then
-    return "Issuer Reg Country: Isr (376)"
-  end
-  if value == 380 then
-    return "Issuer Reg Country: Ita (380)"
-  end
-  if value == 384 then
-    return "Issuer Reg Country: Civ (384)"
-  end
-  if value == 388 then
-    return "Issuer Reg Country: Jam (388)"
-  end
-  if value == 392 then
-    return "Issuer Reg Country: Jpn (392)"
-  end
-  if value == 398 then
-    return "Issuer Reg Country: Kaz (398)"
-  end
-  if value == 400 then
-    return "Issuer Reg Country: Jor (400)"
-  end
-  if value == 404 then
-    return "Issuer Reg Country: Ken (404)"
-  end
-  if value == 408 then
-    return "Issuer Reg Country: Prk (408)"
-  end
-  if value == 410 then
-    return "Issuer Reg Country: Kor (410)"
-  end
-  if value == 414 then
-    return "Issuer Reg Country: Kwt (414)"
-  end
-  if value == 417 then
-    return "Issuer Reg Country: Kgz (417)"
-  end
-  if value == 418 then
-    return "Issuer Reg Country: Lao (418)"
-  end
-  if value == 422 then
-    return "Issuer Reg Country: Lbn (422)"
-  end
-  if value == 426 then
-    return "Issuer Reg Country: Lso (426)"
-  end
-  if value == 428 then
-    return "Issuer Reg Country: Lva (428)"
-  end
-  if value == 430 then
-    return "Issuer Reg Country: Lbr (430)"
-  end
-  if value == 434 then
-    return "Issuer Reg Country: Lby (434)"
-  end
-  if value == 438 then
-    return "Issuer Reg Country: Lie (438)"
-  end
-  if value == 440 then
-    return "Issuer Reg Country: Ltu (440)"
-  end
-  if value == 442 then
-    return "Issuer Reg Country: Lux (442)"
-  end
-  if value == 446 then
-    return "Issuer Reg Country: Mac (446)"
-  end
-  if value == 450 then
-    return "Issuer Reg Country: Mdg (450)"
-  end
-  if value == 454 then
-    return "Issuer Reg Country: Mwi (454)"
-  end
-  if value == 458 then
-    return "Issuer Reg Country: Mys (458)"
-  end
-  if value == 462 then
-    return "Issuer Reg Country: Mdv (462)"
-  end
-  if value == 466 then
-    return "Issuer Reg Country: Mli (466)"
-  end
-  if value == 470 then
-    return "Issuer Reg Country: Mlt (470)"
-  end
-  if value == 474 then
-    return "Issuer Reg Country: Mtq (474)"
-  end
-  if value == 478 then
-    return "Issuer Reg Country: Mrt (478)"
-  end
-  if value == 480 then
-    return "Issuer Reg Country: Mus (480)"
-  end
-  if value == 484 then
-    return "Issuer Reg Country: Mex (484)"
-  end
-  if value == 492 then
-    return "Issuer Reg Country: Mco (492)"
-  end
-  if value == 496 then
-    return "Issuer Reg Country: Mng (496)"
-  end
-  if value == 498 then
-    return "Issuer Reg Country: Mda (498)"
-  end
-  if value == 499 then
-    return "Issuer Reg Country: Mne (499)"
-  end
-  if value == 500 then
-    return "Issuer Reg Country: Msr (500)"
-  end
-  if value == 504 then
-    return "Issuer Reg Country: Mar (504)"
-  end
-  if value == 508 then
-    return "Issuer Reg Country: Moz (508)"
-  end
-  if value == 512 then
-    return "Issuer Reg Country: Omn (512)"
-  end
-  if value == 516 then
-    return "Issuer Reg Country: Nam (516)"
-  end
-  if value == 520 then
-    return "Issuer Reg Country: Nru (520)"
-  end
-  if value == 524 then
-    return "Issuer Reg Country: Npl (524)"
-  end
-  if value == 528 then
-    return "Issuer Reg Country: Nld (528)"
-  end
-  if value == 531 then
-    return "Issuer Reg Country: Cuw (531)"
-  end
-  if value == 533 then
-    return "Issuer Reg Country: Abw (533)"
-  end
-  if value == 534 then
-    return "Issuer Reg Country: Sxm (534)"
-  end
-  if value == 535 then
-    return "Issuer Reg Country: Bes (535)"
-  end
-  if value == 540 then
-    return "Issuer Reg Country: Ncl (540)"
-  end
-  if value == 548 then
-    return "Issuer Reg Country: Vut (548)"
-  end
-  if value == 554 then
-    return "Issuer Reg Country: Nzl (554)"
-  end
-  if value == 558 then
-    return "Issuer Reg Country: Nic (558)"
-  end
-  if value == 562 then
-    return "Issuer Reg Country: Ner (562)"
-  end
-  if value == 566 then
-    return "Issuer Reg Country: Nga (566)"
-  end
-  if value == 570 then
-    return "Issuer Reg Country: Niu (570)"
-  end
-  if value == 574 then
-    return "Issuer Reg Country: Nfk (574)"
-  end
-  if value == 578 then
-    return "Issuer Reg Country: Nor (578)"
-  end
-  if value == 580 then
-    return "Issuer Reg Country: Mnp (580)"
-  end
-  if value == 581 then
-    return "Issuer Reg Country: Umi (581)"
-  end
-  if value == 583 then
-    return "Issuer Reg Country: Fsm (583)"
-  end
-  if value == 584 then
-    return "Issuer Reg Country: Mhl (584)"
-  end
-  if value == 585 then
-    return "Issuer Reg Country: Plw (585)"
-  end
-  if value == 586 then
-    return "Issuer Reg Country: Pak (586)"
-  end
-  if value == 591 then
-    return "Issuer Reg Country: Pan (591)"
-  end
-  if value == 598 then
-    return "Issuer Reg Country: Png (598)"
-  end
-  if value == 600 then
-    return "Issuer Reg Country: Pry (600)"
-  end
-  if value == 604 then
-    return "Issuer Reg Country: Per (604)"
-  end
-  if value == 608 then
-    return "Issuer Reg Country: Phl (608)"
-  end
-  if value == 612 then
-    return "Issuer Reg Country: Pcn (612)"
-  end
-  if value == 616 then
-    return "Issuer Reg Country: Pol (616)"
-  end
-  if value == 620 then
-    return "Issuer Reg Country: Prt (620)"
-  end
-  if value == 624 then
-    return "Issuer Reg Country: Gnb (624)"
-  end
-  if value == 626 then
-    return "Issuer Reg Country: Tls (626)"
-  end
-  if value == 630 then
-    return "Issuer Reg Country: Pri (630)"
-  end
-  if value == 634 then
-    return "Issuer Reg Country: Qat (634)"
-  end
-  if value == 638 then
-    return "Issuer Reg Country: Reu (638)"
-  end
-  if value == 642 then
-    return "Issuer Reg Country: Rou (642)"
-  end
-  if value == 643 then
-    return "Issuer Reg Country: Rus (643)"
-  end
-  if value == 646 then
-    return "Issuer Reg Country: Rwa (646)"
-  end
-  if value == 652 then
-    return "Issuer Reg Country: Blm (652)"
-  end
-  if value == 654 then
-    return "Issuer Reg Country: Shn (654)"
-  end
-  if value == 659 then
-    return "Issuer Reg Country: Kna (659)"
-  end
-  if value == 660 then
-    return "Issuer Reg Country: Aia (660)"
-  end
-  if value == 662 then
-    return "Issuer Reg Country: Lca (662)"
-  end
-  if value == 663 then
-    return "Issuer Reg Country: Maf (663)"
-  end
-  if value == 666 then
-    return "Issuer Reg Country: Spm (666)"
-  end
-  if value == 670 then
-    return "Issuer Reg Country: Vct (670)"
-  end
-  if value == 674 then
-    return "Issuer Reg Country: Smr (674)"
-  end
-  if value == 678 then
-    return "Issuer Reg Country: Stp (678)"
-  end
-  if value == 682 then
-    return "Issuer Reg Country: Sau (682)"
-  end
-  if value == 686 then
-    return "Issuer Reg Country: Sen (686)"
-  end
-  if value == 688 then
-    return "Issuer Reg Country: Srb (688)"
-  end
-  if value == 690 then
-    return "Issuer Reg Country: Syc (690)"
-  end
-  if value == 694 then
-    return "Issuer Reg Country: Sle (694)"
-  end
-  if value == 702 then
-    return "Issuer Reg Country: Sgp (702)"
-  end
-  if value == 703 then
-    return "Issuer Reg Country: Svk (703)"
-  end
-  if value == 704 then
-    return "Issuer Reg Country: Vnm (704)"
-  end
-  if value == 705 then
-    return "Issuer Reg Country: Svn (705)"
-  end
-  if value == 706 then
-    return "Issuer Reg Country: Som (706)"
-  end
-  if value == 710 then
-    return "Issuer Reg Country: Zaf (710)"
-  end
-  if value == 716 then
-    return "Issuer Reg Country: Zwe (716)"
-  end
-  if value == 724 then
-    return "Issuer Reg Country: Esp (724)"
-  end
-  if value == 728 then
-    return "Issuer Reg Country: Ssd (728)"
-  end
-  if value == 729 then
-    return "Issuer Reg Country: Sdn (729)"
-  end
-  if value == 732 then
-    return "Issuer Reg Country: Esh (732)"
-  end
-  if value == 740 then
-    return "Issuer Reg Country: Sur (740)"
-  end
-  if value == 744 then
-    return "Issuer Reg Country: Sjm (744)"
-  end
-  if value == 748 then
-    return "Issuer Reg Country: Swz (748)"
-  end
-  if value == 752 then
-    return "Issuer Reg Country: Swe (752)"
-  end
-  if value == 756 then
-    return "Issuer Reg Country: Che (756)"
-  end
-  if value == 760 then
-    return "Issuer Reg Country: Syr (760)"
-  end
-  if value == 762 then
-    return "Issuer Reg Country: Tjk (762)"
-  end
-  if value == 764 then
-    return "Issuer Reg Country: Tha (764)"
-  end
-  if value == 768 then
-    return "Issuer Reg Country: Tgo (768)"
-  end
-  if value == 772 then
-    return "Issuer Reg Country: Tkl (772)"
-  end
-  if value == 776 then
-    return "Issuer Reg Country: Ton (776)"
-  end
-  if value == 780 then
-    return "Issuer Reg Country: Tto (780)"
-  end
-  if value == 784 then
-    return "Issuer Reg Country: Are (784)"
-  end
-  if value == 788 then
-    return "Issuer Reg Country: Tun (788)"
-  end
-  if value == 792 then
-    return "Issuer Reg Country: Tur (792)"
-  end
-  if value == 795 then
-    return "Issuer Reg Country: Tkm (795)"
-  end
-  if value == 796 then
-    return "Issuer Reg Country: Tca (796)"
-  end
-  if value == 798 then
-    return "Issuer Reg Country: Tuv (798)"
-  end
-  if value == 800 then
-    return "Issuer Reg Country: Uga (800)"
-  end
-  if value == 804 then
-    return "Issuer Reg Country: Ukr (804)"
-  end
-  if value == 807 then
-    return "Issuer Reg Country: Mkd (807)"
-  end
-  if value == 818 then
-    return "Issuer Reg Country: Egy (818)"
-  end
-  if value == 826 then
-    return "Issuer Reg Country: Gbr (826)"
-  end
-  if value == 831 then
-    return "Issuer Reg Country: Ggy (831)"
-  end
-  if value == 832 then
-    return "Issuer Reg Country: Jey (832)"
-  end
-  if value == 833 then
-    return "Issuer Reg Country: Imn (833)"
-  end
-  if value == 834 then
-    return "Issuer Reg Country: Tza (834)"
-  end
-  if value == 840 then
-    return "Issuer Reg Country: Usa (840)"
-  end
-  if value == 850 then
-    return "Issuer Reg Country: Vir (850)"
-  end
-  if value == 854 then
-    return "Issuer Reg Country: Bfa (854)"
-  end
-  if value == 858 then
-    return "Issuer Reg Country: Ury (858)"
-  end
-  if value == 860 then
-    return "Issuer Reg Country: Uzb (860)"
-  end
-  if value == 862 then
-    return "Issuer Reg Country: Ven (862)"
-  end
-  if value == 876 then
-    return "Issuer Reg Country: Wlf (876)"
-  end
-  if value == 882 then
-    return "Issuer Reg Country: Wsm (882)"
-  end
-  if value == 887 then
-    return "Issuer Reg Country: Yem (887)"
-  end
-  if value == 894 then
-    return "Issuer Reg Country: Zmb (894)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.issuer_reg_country.labels = {
+  [4] = "Issuer Reg Country: Afg (4)",
+  [8] = "Issuer Reg Country: Alb (8)",
+  [10] = "Issuer Reg Country: Ata (10)",
+  [12] = "Issuer Reg Country: Dza (12)",
+  [16] = "Issuer Reg Country: Asm (16)",
+  [20] = "Issuer Reg Country: And (20)",
+  [24] = "Issuer Reg Country: Ago (24)",
+  [28] = "Issuer Reg Country: Atg (28)",
+  [31] = "Issuer Reg Country: Aze (31)",
+  [32] = "Issuer Reg Country: Arg (32)",
+  [36] = "Issuer Reg Country: Aus (36)",
+  [40] = "Issuer Reg Country: Aut (40)",
+  [44] = "Issuer Reg Country: Bhs (44)",
+  [48] = "Issuer Reg Country: Bhr (48)",
+  [50] = "Issuer Reg Country: Bgd (50)",
+  [51] = "Issuer Reg Country: Arm (51)",
+  [52] = "Issuer Reg Country: Brb (52)",
+  [56] = "Issuer Reg Country: Bel (56)",
+  [60] = "Issuer Reg Country: Bmu (60)",
+  [64] = "Issuer Reg Country: Btn (64)",
+  [68] = "Issuer Reg Country: Bol (68)",
+  [70] = "Issuer Reg Country: Bih (70)",
+  [72] = "Issuer Reg Country: Bwa (72)",
+  [74] = "Issuer Reg Country: Bvt (74)",
+  [76] = "Issuer Reg Country: Bra (76)",
+  [84] = "Issuer Reg Country: Blz (84)",
+  [86] = "Issuer Reg Country: Iot (86)",
+  [90] = "Issuer Reg Country: Slb (90)",
+  [92] = "Issuer Reg Country: Vgb (92)",
+  [96] = "Issuer Reg Country: Brn (96)",
+  [100] = "Issuer Reg Country: Bgr (100)",
+  [104] = "Issuer Reg Country: Mmr (104)",
+  [108] = "Issuer Reg Country: Bdi (108)",
+  [112] = "Issuer Reg Country: Blr (112)",
+  [116] = "Issuer Reg Country: Khm (116)",
+  [120] = "Issuer Reg Country: Cmr (120)",
+  [124] = "Issuer Reg Country: Can (124)",
+  [132] = "Issuer Reg Country: Cpv (132)",
+  [136] = "Issuer Reg Country: Cym (136)",
+  [140] = "Issuer Reg Country: Caf (140)",
+  [144] = "Issuer Reg Country: Lka (144)",
+  [148] = "Issuer Reg Country: Tcd (148)",
+  [152] = "Issuer Reg Country: Chl (152)",
+  [156] = "Issuer Reg Country: Chn (156)",
+  [158] = "Issuer Reg Country: Twn (158)",
+  [162] = "Issuer Reg Country: Cxr (162)",
+  [166] = "Issuer Reg Country: Cck (166)",
+  [170] = "Issuer Reg Country: Col (170)",
+  [174] = "Issuer Reg Country: Com (174)",
+  [175] = "Issuer Reg Country: Myt (175)",
+  [178] = "Issuer Reg Country: Cog (178)",
+  [180] = "Issuer Reg Country: Cod (180)",
+  [184] = "Issuer Reg Country: Cok (184)",
+  [188] = "Issuer Reg Country: Cri (188)",
+  [191] = "Issuer Reg Country: Hrv (191)",
+  [192] = "Issuer Reg Country: Cub (192)",
+  [196] = "Issuer Reg Country: Cyp (196)",
+  [203] = "Issuer Reg Country: Cze (203)",
+  [204] = "Issuer Reg Country: Ben (204)",
+  [208] = "Issuer Reg Country: Dnk (208)",
+  [212] = "Issuer Reg Country: Dma (212)",
+  [214] = "Issuer Reg Country: Dom (214)",
+  [218] = "Issuer Reg Country: Ecu (218)",
+  [222] = "Issuer Reg Country: Slv (222)",
+  [226] = "Issuer Reg Country: Gnq (226)",
+  [231] = "Issuer Reg Country: Eth (231)",
+  [232] = "Issuer Reg Country: Eri (232)",
+  [233] = "Issuer Reg Country: Est (233)",
+  [234] = "Issuer Reg Country: Fro (234)",
+  [238] = "Issuer Reg Country: Flk (238)",
+  [239] = "Issuer Reg Country: Sgs (239)",
+  [242] = "Issuer Reg Country: Fji (242)",
+  [246] = "Issuer Reg Country: Fin (246)",
+  [248] = "Issuer Reg Country: Ala (248)",
+  [250] = "Issuer Reg Country: Fra (250)",
+  [254] = "Issuer Reg Country: Guf (254)",
+  [258] = "Issuer Reg Country: Pyf (258)",
+  [260] = "Issuer Reg Country: Atf (260)",
+  [262] = "Issuer Reg Country: Dji (262)",
+  [266] = "Issuer Reg Country: Gab (266)",
+  [268] = "Issuer Reg Country: Geo (268)",
+  [270] = "Issuer Reg Country: Gmb (270)",
+  [275] = "Issuer Reg Country: Pse (275)",
+  [276] = "Issuer Reg Country: Deu (276)",
+  [288] = "Issuer Reg Country: Gha (288)",
+  [292] = "Issuer Reg Country: Gib (292)",
+  [296] = "Issuer Reg Country: Kir (296)",
+  [300] = "Issuer Reg Country: Grc (300)",
+  [304] = "Issuer Reg Country: Grl (304)",
+  [308] = "Issuer Reg Country: Grd (308)",
+  [312] = "Issuer Reg Country: Glp (312)",
+  [316] = "Issuer Reg Country: Gum (316)",
+  [320] = "Issuer Reg Country: Gtm (320)",
+  [324] = "Issuer Reg Country: Gin (324)",
+  [328] = "Issuer Reg Country: Guy (328)",
+  [332] = "Issuer Reg Country: Hti (332)",
+  [334] = "Issuer Reg Country: Hmd (334)",
+  [336] = "Issuer Reg Country: Vat (336)",
+  [340] = "Issuer Reg Country: Hnd (340)",
+  [344] = "Issuer Reg Country: Hkg (344)",
+  [348] = "Issuer Reg Country: Hun (348)",
+  [352] = "Issuer Reg Country: Isl (352)",
+  [356] = "Issuer Reg Country: Ind (356)",
+  [360] = "Issuer Reg Country: Idn (360)",
+  [364] = "Issuer Reg Country: Irn (364)",
+  [368] = "Issuer Reg Country: Irq (368)",
+  [372] = "Issuer Reg Country: Irl (372)",
+  [376] = "Issuer Reg Country: Isr (376)",
+  [380] = "Issuer Reg Country: Ita (380)",
+  [384] = "Issuer Reg Country: Civ (384)",
+  [388] = "Issuer Reg Country: Jam (388)",
+  [392] = "Issuer Reg Country: Jpn (392)",
+  [398] = "Issuer Reg Country: Kaz (398)",
+  [400] = "Issuer Reg Country: Jor (400)",
+  [404] = "Issuer Reg Country: Ken (404)",
+  [408] = "Issuer Reg Country: Prk (408)",
+  [410] = "Issuer Reg Country: Kor (410)",
+  [414] = "Issuer Reg Country: Kwt (414)",
+  [417] = "Issuer Reg Country: Kgz (417)",
+  [418] = "Issuer Reg Country: Lao (418)",
+  [422] = "Issuer Reg Country: Lbn (422)",
+  [426] = "Issuer Reg Country: Lso (426)",
+  [428] = "Issuer Reg Country: Lva (428)",
+  [430] = "Issuer Reg Country: Lbr (430)",
+  [434] = "Issuer Reg Country: Lby (434)",
+  [438] = "Issuer Reg Country: Lie (438)",
+  [440] = "Issuer Reg Country: Ltu (440)",
+  [442] = "Issuer Reg Country: Lux (442)",
+  [446] = "Issuer Reg Country: Mac (446)",
+  [450] = "Issuer Reg Country: Mdg (450)",
+  [454] = "Issuer Reg Country: Mwi (454)",
+  [458] = "Issuer Reg Country: Mys (458)",
+  [462] = "Issuer Reg Country: Mdv (462)",
+  [466] = "Issuer Reg Country: Mli (466)",
+  [470] = "Issuer Reg Country: Mlt (470)",
+  [474] = "Issuer Reg Country: Mtq (474)",
+  [478] = "Issuer Reg Country: Mrt (478)",
+  [480] = "Issuer Reg Country: Mus (480)",
+  [484] = "Issuer Reg Country: Mex (484)",
+  [492] = "Issuer Reg Country: Mco (492)",
+  [496] = "Issuer Reg Country: Mng (496)",
+  [498] = "Issuer Reg Country: Mda (498)",
+  [499] = "Issuer Reg Country: Mne (499)",
+  [500] = "Issuer Reg Country: Msr (500)",
+  [504] = "Issuer Reg Country: Mar (504)",
+  [508] = "Issuer Reg Country: Moz (508)",
+  [512] = "Issuer Reg Country: Omn (512)",
+  [516] = "Issuer Reg Country: Nam (516)",
+  [520] = "Issuer Reg Country: Nru (520)",
+  [524] = "Issuer Reg Country: Npl (524)",
+  [528] = "Issuer Reg Country: Nld (528)",
+  [531] = "Issuer Reg Country: Cuw (531)",
+  [533] = "Issuer Reg Country: Abw (533)",
+  [534] = "Issuer Reg Country: Sxm (534)",
+  [535] = "Issuer Reg Country: Bes (535)",
+  [540] = "Issuer Reg Country: Ncl (540)",
+  [548] = "Issuer Reg Country: Vut (548)",
+  [554] = "Issuer Reg Country: Nzl (554)",
+  [558] = "Issuer Reg Country: Nic (558)",
+  [562] = "Issuer Reg Country: Ner (562)",
+  [566] = "Issuer Reg Country: Nga (566)",
+  [570] = "Issuer Reg Country: Niu (570)",
+  [574] = "Issuer Reg Country: Nfk (574)",
+  [578] = "Issuer Reg Country: Nor (578)",
+  [580] = "Issuer Reg Country: Mnp (580)",
+  [581] = "Issuer Reg Country: Umi (581)",
+  [583] = "Issuer Reg Country: Fsm (583)",
+  [584] = "Issuer Reg Country: Mhl (584)",
+  [585] = "Issuer Reg Country: Plw (585)",
+  [586] = "Issuer Reg Country: Pak (586)",
+  [591] = "Issuer Reg Country: Pan (591)",
+  [598] = "Issuer Reg Country: Png (598)",
+  [600] = "Issuer Reg Country: Pry (600)",
+  [604] = "Issuer Reg Country: Per (604)",
+  [608] = "Issuer Reg Country: Phl (608)",
+  [612] = "Issuer Reg Country: Pcn (612)",
+  [616] = "Issuer Reg Country: Pol (616)",
+  [620] = "Issuer Reg Country: Prt (620)",
+  [624] = "Issuer Reg Country: Gnb (624)",
+  [626] = "Issuer Reg Country: Tls (626)",
+  [630] = "Issuer Reg Country: Pri (630)",
+  [634] = "Issuer Reg Country: Qat (634)",
+  [638] = "Issuer Reg Country: Reu (638)",
+  [642] = "Issuer Reg Country: Rou (642)",
+  [643] = "Issuer Reg Country: Rus (643)",
+  [646] = "Issuer Reg Country: Rwa (646)",
+  [652] = "Issuer Reg Country: Blm (652)",
+  [654] = "Issuer Reg Country: Shn (654)",
+  [659] = "Issuer Reg Country: Kna (659)",
+  [660] = "Issuer Reg Country: Aia (660)",
+  [662] = "Issuer Reg Country: Lca (662)",
+  [663] = "Issuer Reg Country: Maf (663)",
+  [666] = "Issuer Reg Country: Spm (666)",
+  [670] = "Issuer Reg Country: Vct (670)",
+  [674] = "Issuer Reg Country: Smr (674)",
+  [678] = "Issuer Reg Country: Stp (678)",
+  [682] = "Issuer Reg Country: Sau (682)",
+  [686] = "Issuer Reg Country: Sen (686)",
+  [688] = "Issuer Reg Country: Srb (688)",
+  [690] = "Issuer Reg Country: Syc (690)",
+  [694] = "Issuer Reg Country: Sle (694)",
+  [702] = "Issuer Reg Country: Sgp (702)",
+  [703] = "Issuer Reg Country: Svk (703)",
+  [704] = "Issuer Reg Country: Vnm (704)",
+  [705] = "Issuer Reg Country: Svn (705)",
+  [706] = "Issuer Reg Country: Som (706)",
+  [710] = "Issuer Reg Country: Zaf (710)",
+  [716] = "Issuer Reg Country: Zwe (716)",
+  [724] = "Issuer Reg Country: Esp (724)",
+  [728] = "Issuer Reg Country: Ssd (728)",
+  [729] = "Issuer Reg Country: Sdn (729)",
+  [732] = "Issuer Reg Country: Esh (732)",
+  [740] = "Issuer Reg Country: Sur (740)",
+  [744] = "Issuer Reg Country: Sjm (744)",
+  [748] = "Issuer Reg Country: Swz (748)",
+  [752] = "Issuer Reg Country: Swe (752)",
+  [756] = "Issuer Reg Country: Che (756)",
+  [760] = "Issuer Reg Country: Syr (760)",
+  [762] = "Issuer Reg Country: Tjk (762)",
+  [764] = "Issuer Reg Country: Tha (764)",
+  [768] = "Issuer Reg Country: Tgo (768)",
+  [772] = "Issuer Reg Country: Tkl (772)",
+  [776] = "Issuer Reg Country: Ton (776)",
+  [780] = "Issuer Reg Country: Tto (780)",
+  [784] = "Issuer Reg Country: Are (784)",
+  [788] = "Issuer Reg Country: Tun (788)",
+  [792] = "Issuer Reg Country: Tur (792)",
+  [795] = "Issuer Reg Country: Tkm (795)",
+  [796] = "Issuer Reg Country: Tca (796)",
+  [798] = "Issuer Reg Country: Tuv (798)",
+  [800] = "Issuer Reg Country: Uga (800)",
+  [804] = "Issuer Reg Country: Ukr (804)",
+  [807] = "Issuer Reg Country: Mkd (807)",
+  [818] = "Issuer Reg Country: Egy (818)",
+  [826] = "Issuer Reg Country: Gbr (826)",
+  [831] = "Issuer Reg Country: Ggy (831)",
+  [832] = "Issuer Reg Country: Jey (832)",
+  [833] = "Issuer Reg Country: Imn (833)",
+  [834] = "Issuer Reg Country: Tza (834)",
+  [840] = "Issuer Reg Country: Usa (840)",
+  [850] = "Issuer Reg Country: Vir (850)",
+  [854] = "Issuer Reg Country: Bfa (854)",
+  [858] = "Issuer Reg Country: Ury (858)",
+  [860] = "Issuer Reg Country: Uzb (860)",
+  [862] = "Issuer Reg Country: Ven (862)",
+  [876] = "Issuer Reg Country: Wlf (876)",
+  [882] = "Issuer Reg Country: Wsm (882)",
+  [887] = "Issuer Reg Country: Yem (887)",
+  [894] = "Issuer Reg Country: Zmb (894)",
+}
 
-  return "Issuer Reg Country: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.issuer_reg_country.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.issuer_reg_country.labels[value] or "Issuer Reg Country: Unknown("..value..")"
 end
 
 -- Dissect: Issuer Reg Country
@@ -4477,21 +3519,15 @@ gpw_wse_replaybbo_wats_v1_7_6_20.marker_price_change = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.marker_price_change.size = 1
 
 -- Display: Marker Price Change
-gpw_wse_replaybbo_wats_v1_7_6_20.marker_price_change.display = function(value)
-  if value == 1 then
-    return "Marker Price Change: Increase (1)"
-  end
-  if value == 2 then
-    return "Marker Price Change: Decrease (2)"
-  end
-  if value == 3 then
-    return "Marker Price Change: No Change (3)"
-  end
-  if value == 4 then
-    return "Marker Price Change: Not Applicable (4)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.marker_price_change.labels = {
+  [1] = "Marker Price Change: Increase (1)",
+  [2] = "Marker Price Change: Decrease (2)",
+  [3] = "Marker Price Change: No Change (3)",
+  [4] = "Marker Price Change: Not Applicable (4)",
+}
 
-  return "Marker Price Change: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.marker_price_change.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.marker_price_change.labels[value] or "Marker Price Change: Unknown("..value..")"
 end
 
 -- Dissect: Marker Price Change
@@ -4559,33 +3595,19 @@ gpw_wse_replaybbo_wats_v1_7_6_20.market_model_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.market_model_type.size = 1
 
 -- Display: Market Model Type
-gpw_wse_replaybbo_wats_v1_7_6_20.market_model_type.display = function(value)
-  if value == 1 then
-    return "Market Model Type: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Market Model Type: Clob (2)"
-  end
-  if value == 3 then
-    return "Market Model Type: Block (3)"
-  end
-  if value == 4 then
-    return "Market Model Type: Hybrid (4)"
-  end
-  if value == 5 then
-    return "Market Model Type: Cross (5)"
-  end
-  if value == 6 then
-    return "Market Model Type: Ipo (6)"
-  end
-  if value == 7 then
-    return "Market Model Type: Tender Offer (7)"
-  end
-  if value == 8 then
-    return "Market Model Type: Redistribution (8)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.market_model_type.labels = {
+  [1] = "Market Model Type: Not Applicable (1)",
+  [2] = "Market Model Type: Clob (2)",
+  [3] = "Market Model Type: Block (3)",
+  [4] = "Market Model Type: Hybrid (4)",
+  [5] = "Market Model Type: Cross (5)",
+  [6] = "Market Model Type: Ipo (6)",
+  [7] = "Market Model Type: Tender Offer (7)",
+  [8] = "Market Model Type: Redistribution (8)",
+}
 
-  return "Market Model Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.market_model_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.market_model_type.labels[value] or "Market Model Type: Unknown("..value..")"
 end
 
 -- Dissect: Market Model Type
@@ -4705,102 +3727,42 @@ gpw_wse_replaybbo_wats_v1_7_6_20.message_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.message_type.size = 2
 
 -- Display: Message Type
-gpw_wse_replaybbo_wats_v1_7_6_20.message_type.display = function(value)
-  if value == 33 then
-    return "Message Type: Week Plan (33)"
-  end
-  if value == 35 then
-    return "Message Type: Calendar Exception (35)"
-  end
-  if value == 32 then
-    return "Message Type: Tick Table Entry (32)"
-  end
-  if value == 108 then
-    return "Message Type: Collar Table Entry (108)"
-  end
-  if value == 27 then
-    return "Message Type: Trading Phase Schedule Entry (27)"
-  end
-  if value == 275 then
-    return "Message Type: Market Structure (275)"
-  end
-  if value == 299 then
-    return "Message Type: Collar Group (299)"
-  end
-  if value == 806 then
-    return "Message Type: External Underlying (806)"
-  end
-  if value == 279 then
-    return "Message Type: Instrument (279)"
-  end
-  if value == 36 then
-    return "Message Type: Accrued Interest Table Entry (36)"
-  end
-  if value == 37 then
-    return "Message Type: Indexation Table Entry (37)"
-  end
-  if value == 503 then
-    return "Message Type: Index Params (503)"
-  end
-  if value == 502 then
-    return "Message Type: Index Portfolio Entry (502)"
-  end
-  if value == 270 then
-    return "Message Type: Auction Summary (270)"
-  end
-  if value == 268 then
-    return "Message Type: Auction Update (268)"
-  end
-  if value == 257 then
-    return "Message Type: Price Level Snapshot (257)"
-  end
-  if value == 256 then
-    return "Message Type: Top Price Level Update (256)"
-  end
-  if value == 38 then
-    return "Message Type: Trade (38)"
-  end
-  if value == 801 then
-    return "Message Type: Position Report (801)"
-  end
-  if value == 26 then
-    return "Message Type: Instrument Status Change (26)"
-  end
-  if value == 272 then
-    return "Message Type: Order Collars (272)"
-  end
-  if value == 273 then
-    return "Message Type: Trade Collars (273)"
-  end
-  if value == 671 then
-    return "Message Type: Instrument Summary (671)"
-  end
-  if value == 672 then
-    return "Message Type: Product Summary (672)"
-  end
-  if value == 271 then
-    return "Message Type: Price Update (271)"
-  end
-  if value == 517 then
-    return "Message Type: News (517)"
-  end
-  if value == 500 then
-    return "Message Type: Real Time Index (500)"
-  end
-  if value == 501 then
-    return "Message Type: Index Summary (501)"
-  end
-  if value == 23 then
-    return "Message Type: Trading Session Status (23)"
-  end
-  if value == 1 then
-    return "Message Type: Heartbeat (1)"
-  end
-  if value == 8192 then
-    return "Message Type: Test Event (8192)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.message_type.labels = {
+  [33] = "Message Type: Week Plan (33)",
+  [35] = "Message Type: Calendar Exception (35)",
+  [32] = "Message Type: Tick Table Entry (32)",
+  [108] = "Message Type: Collar Table Entry (108)",
+  [27] = "Message Type: Trading Phase Schedule Entry (27)",
+  [275] = "Message Type: Market Structure (275)",
+  [299] = "Message Type: Collar Group (299)",
+  [806] = "Message Type: External Underlying (806)",
+  [279] = "Message Type: Instrument (279)",
+  [36] = "Message Type: Accrued Interest Table Entry (36)",
+  [37] = "Message Type: Indexation Table Entry (37)",
+  [503] = "Message Type: Index Params (503)",
+  [502] = "Message Type: Index Portfolio Entry (502)",
+  [270] = "Message Type: Auction Summary (270)",
+  [268] = "Message Type: Auction Update (268)",
+  [257] = "Message Type: Price Level Snapshot (257)",
+  [256] = "Message Type: Top Price Level Update (256)",
+  [38] = "Message Type: Trade (38)",
+  [801] = "Message Type: Position Report (801)",
+  [26] = "Message Type: Instrument Status Change (26)",
+  [272] = "Message Type: Order Collars (272)",
+  [273] = "Message Type: Trade Collars (273)",
+  [671] = "Message Type: Instrument Summary (671)",
+  [672] = "Message Type: Product Summary (672)",
+  [271] = "Message Type: Price Update (271)",
+  [517] = "Message Type: News (517)",
+  [500] = "Message Type: Real Time Index (500)",
+  [501] = "Message Type: Index Summary (501)",
+  [23] = "Message Type: Trading Session Status (23)",
+  [1] = "Message Type: Heartbeat (1)",
+  [8192] = "Message Type: Test Event (8192)",
+}
 
-  return "Message Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.message_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -4972,15 +3934,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_agency_cross_trade_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_agency_cross_trade_indicator.size = 1
 
 -- Display: Mmt Agency Cross Trade Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_agency_cross_trade_indicator.display = function(value)
-  if value == 1 then
-    return "Mmt Agency Cross Trade Indicator: Agency Cross Trade (1)"
-  end
-  if value == 2 then
-    return "Mmt Agency Cross Trade Indicator: No Agency Cross Trade (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_agency_cross_trade_indicator.labels = {
+  [1] = "Mmt Agency Cross Trade Indicator: Agency Cross Trade (1)",
+  [2] = "Mmt Agency Cross Trade Indicator: No Agency Cross Trade (2)",
+}
 
-  return "Mmt Agency Cross Trade Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_agency_cross_trade_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_agency_cross_trade_indicator.labels[value] or "Mmt Agency Cross Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Agency Cross Trade Indicator
@@ -5002,15 +3962,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_algorithmic_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_algorithmic_indicator.size = 1
 
 -- Display: Mmt Algorithmic Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_algorithmic_indicator.display = function(value)
-  if value == 1 then
-    return "Mmt Algorithmic Indicator: Algorithmic Trade (1)"
-  end
-  if value == 2 then
-    return "Mmt Algorithmic Indicator: No Algorithmic Trade (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_algorithmic_indicator.labels = {
+  [1] = "Mmt Algorithmic Indicator: Algorithmic Trade (1)",
+  [2] = "Mmt Algorithmic Indicator: No Algorithmic Trade (2)",
+}
 
-  return "Mmt Algorithmic Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_algorithmic_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_algorithmic_indicator.labels[value] or "Mmt Algorithmic Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Algorithmic Indicator
@@ -5032,18 +3990,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator.size = 1
 
 -- Display: Mmt Benchmark Reference Price Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator.display = function(value)
-  if value == 1 then
-    return "Mmt Benchmark Reference Price Indicator: Benchmark Trade (1)"
-  end
-  if value == 2 then
-    return "Mmt Benchmark Reference Price Indicator: Reference Price Trade (2)"
-  end
-  if value == 3 then
-    return "Mmt Benchmark Reference Price Indicator: No Benchmarkor Reference Price Trade (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator.labels = {
+  [1] = "Mmt Benchmark Reference Price Indicator: Benchmark Trade (1)",
+  [2] = "Mmt Benchmark Reference Price Indicator: Reference Price Trade (2)",
+  [3] = "Mmt Benchmark Reference Price Indicator: No Benchmarkor Reference Price Trade (3)",
+}
 
-  return "Mmt Benchmark Reference Price Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator.labels[value] or "Mmt Benchmark Reference Price Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Benchmark Reference Price Indicator
@@ -5065,30 +4019,18 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_market_mechanism = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_market_mechanism.size = 1
 
 -- Display: Mmt Market Mechanism
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_market_mechanism.display = function(value)
-  if value == 1 then
-    return "Mmt Market Mechanism: Central Limit Order Book (1)"
-  end
-  if value == 2 then
-    return "Mmt Market Mechanism: Quote Driven Market (2)"
-  end
-  if value == 3 then
-    return "Mmt Market Mechanism: Dark Order Book (3)"
-  end
-  if value == 4 then
-    return "Mmt Market Mechanism: Off Book (4)"
-  end
-  if value == 5 then
-    return "Mmt Market Mechanism: Periodic Auction (5)"
-  end
-  if value == 6 then
-    return "Mmt Market Mechanism: Request For Quotes (6)"
-  end
-  if value == 7 then
-    return "Mmt Market Mechanism: Other (7)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_market_mechanism.labels = {
+  [1] = "Mmt Market Mechanism: Central Limit Order Book (1)",
+  [2] = "Mmt Market Mechanism: Quote Driven Market (2)",
+  [3] = "Mmt Market Mechanism: Dark Order Book (3)",
+  [4] = "Mmt Market Mechanism: Off Book (4)",
+  [5] = "Mmt Market Mechanism: Periodic Auction (5)",
+  [6] = "Mmt Market Mechanism: Request For Quotes (6)",
+  [7] = "Mmt Market Mechanism: Other (7)",
+}
 
-  return "Mmt Market Mechanism: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_market_mechanism.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_market_mechanism.labels[value] or "Mmt Market Mechanism: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Market Mechanism
@@ -5110,18 +4052,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_modification_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_modification_indicator.size = 1
 
 -- Display: Mmt Modification Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_modification_indicator.display = function(value)
-  if value == 1 then
-    return "Mmt Modification Indicator: Trade Cancellation (1)"
-  end
-  if value == 2 then
-    return "Mmt Modification Indicator: Trade Amendment (2)"
-  end
-  if value == 3 then
-    return "Mmt Modification Indicator: New Trade (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_modification_indicator.labels = {
+  [1] = "Mmt Modification Indicator: Trade Cancellation (1)",
+  [2] = "Mmt Modification Indicator: Trade Amendment (2)",
+  [3] = "Mmt Modification Indicator: New Trade (3)",
+}
 
-  return "Mmt Modification Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_modification_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_modification_indicator.labels[value] or "Mmt Modification Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Modification Indicator
@@ -5143,33 +4081,19 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_negotiation_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_negotiation_indicator.size = 1
 
 -- Display: Mmt Negotiation Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_negotiation_indicator.display = function(value)
-  if value == 1 then
-    return "Mmt Negotiation Indicator: Negotiated Trade (1)"
-  end
-  if value == 2 then
-    return "Mmt Negotiation Indicator: Negotiated Trade Liquid Financial Instruments (2)"
-  end
-  if value == 3 then
-    return "Mmt Negotiation Indicator: Negotiated Trade Illiquid Financial Instruments (3)"
-  end
-  if value == 4 then
-    return "Mmt Negotiation Indicator: Negotiated Trade Other (4)"
-  end
-  if value == 5 then
-    return "Mmt Negotiation Indicator: No Negotiated Trade (5)"
-  end
-  if value == 6 then
-    return "Mmt Negotiation Indicator: Pre Trade Transparency Waiver Illiquid Instrument (6)"
-  end
-  if value == 7 then
-    return "Mmt Negotiation Indicator: Pre Trade Transparency Waiver Standard Market Size (7)"
-  end
-  if value == 8 then
-    return "Mmt Negotiation Indicator: Pre Trade Transparency Waivers Ilqd And Size (8)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_negotiation_indicator.labels = {
+  [1] = "Mmt Negotiation Indicator: Negotiated Trade (1)",
+  [2] = "Mmt Negotiation Indicator: Negotiated Trade Liquid Financial Instruments (2)",
+  [3] = "Mmt Negotiation Indicator: Negotiated Trade Illiquid Financial Instruments (3)",
+  [4] = "Mmt Negotiation Indicator: Negotiated Trade Other (4)",
+  [5] = "Mmt Negotiation Indicator: No Negotiated Trade (5)",
+  [6] = "Mmt Negotiation Indicator: Pre Trade Transparency Waiver Illiquid Instrument (6)",
+  [7] = "Mmt Negotiation Indicator: Pre Trade Transparency Waiver Standard Market Size (7)",
+  [8] = "Mmt Negotiation Indicator: Pre Trade Transparency Waivers Ilqd And Size (8)",
+}
 
-  return "Mmt Negotiation Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_negotiation_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_negotiation_indicator.labels[value] or "Mmt Negotiation Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Negotiation Indicator
@@ -5191,18 +4115,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_off_book_automated_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_off_book_automated_indicator.size = 1
 
 -- Display: Mmt Off Book Automated Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_off_book_automated_indicator.display = function(value)
-  if value == 1 then
-    return "Mmt Off Book Automated Indicator: Unspecified Or Not Apply (1)"
-  end
-  if value == 2 then
-    return "Mmt Off Book Automated Indicator: Off Book Non Automated (2)"
-  end
-  if value == 3 then
-    return "Mmt Off Book Automated Indicator: Off Book Automated (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_off_book_automated_indicator.labels = {
+  [1] = "Mmt Off Book Automated Indicator: Unspecified Or Not Apply (1)",
+  [2] = "Mmt Off Book Automated Indicator: Off Book Non Automated (2)",
+  [3] = "Mmt Off Book Automated Indicator: Off Book Automated (3)",
+}
 
-  return "Mmt Off Book Automated Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_off_book_automated_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_off_book_automated_indicator.labels[value] or "Mmt Off Book Automated Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Off Book Automated Indicator
@@ -5224,21 +4144,15 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_ordinary_trade_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_ordinary_trade_indicator.size = 1
 
 -- Display: Mmt Ordinary Trade Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_ordinary_trade_indicator.display = function(value)
-  if value == 1 then
-    return "Mmt Ordinary Trade Indicator: Plain Vanilla Trade (1)"
-  end
-  if value == 2 then
-    return "Mmt Ordinary Trade Indicator: Non Price Forming Trade (2)"
-  end
-  if value == 3 then
-    return "Mmt Ordinary Trade Indicator: Trade Not Contributing To Price Discovery (3)"
-  end
-  if value == 4 then
-    return "Mmt Ordinary Trade Indicator: Price Pending (4)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_ordinary_trade_indicator.labels = {
+  [1] = "Mmt Ordinary Trade Indicator: Plain Vanilla Trade (1)",
+  [2] = "Mmt Ordinary Trade Indicator: Non Price Forming Trade (2)",
+  [3] = "Mmt Ordinary Trade Indicator: Trade Not Contributing To Price Discovery (3)",
+  [4] = "Mmt Ordinary Trade Indicator: Price Pending (4)",
+}
 
-  return "Mmt Ordinary Trade Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_ordinary_trade_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_ordinary_trade_indicator.labels[value] or "Mmt Ordinary Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Ordinary Trade Indicator
@@ -5260,30 +4174,18 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_reason = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_reason.size = 1
 
 -- Display: Mmt Post Trade Deferral Reason
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_reason.display = function(value)
-  if value == 1 then
-    return "Mmt Post Trade Deferral Reason: Immediate Publication (1)"
-  end
-  if value == 2 then
-    return "Mmt Post Trade Deferral Reason: Non Immediate Publication (2)"
-  end
-  if value == 3 then
-    return "Mmt Post Trade Deferral Reason: Non Immediate Publication Large In Scale (3)"
-  end
-  if value == 4 then
-    return "Mmt Post Trade Deferral Reason: Non Immediate Publication Illiquid Instrument (4)"
-  end
-  if value == 5 then
-    return "Mmt Post Trade Deferral Reason: Non Immediate Publication Size Specific (5)"
-  end
-  if value == 6 then
-    return "Mmt Post Trade Deferral Reason: Non Immediate Publication Ilqd And Size (6)"
-  end
-  if value == 7 then
-    return "Mmt Post Trade Deferral Reason: Non Immediate Publication Ilqd And Lrgs (7)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_reason.labels = {
+  [1] = "Mmt Post Trade Deferral Reason: Immediate Publication (1)",
+  [2] = "Mmt Post Trade Deferral Reason: Non Immediate Publication (2)",
+  [3] = "Mmt Post Trade Deferral Reason: Non Immediate Publication Large In Scale (3)",
+  [4] = "Mmt Post Trade Deferral Reason: Non Immediate Publication Illiquid Instrument (4)",
+  [5] = "Mmt Post Trade Deferral Reason: Non Immediate Publication Size Specific (5)",
+  [6] = "Mmt Post Trade Deferral Reason: Non Immediate Publication Ilqd And Size (6)",
+  [7] = "Mmt Post Trade Deferral Reason: Non Immediate Publication Ilqd And Lrgs (7)",
+}
 
-  return "Mmt Post Trade Deferral Reason: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_reason.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_reason.labels[value] or "Mmt Post Trade Deferral Reason: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Post Trade Deferral Reason
@@ -5305,30 +4207,18 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_type.size = 1
 
 -- Display: Mmt Post Trade Deferral Type
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_type.display = function(value)
-  if value == 1 then
-    return "Mmt Post Trade Deferral Type: Limited Details Trade (1)"
-  end
-  if value == 2 then
-    return "Mmt Post Trade Deferral Type: Daily Aggregated Trade (2)"
-  end
-  if value == 3 then
-    return "Mmt Post Trade Deferral Type: Volume Omission Trade (3)"
-  end
-  if value == 4 then
-    return "Mmt Post Trade Deferral Type: Four Weeks Aggregation Trade (4)"
-  end
-  if value == 5 then
-    return "Mmt Post Trade Deferral Type: Indefinite Aggregation Trade (5)"
-  end
-  if value == 6 then
-    return "Mmt Post Trade Deferral Type: Volume Omission Trade Aggregated (6)"
-  end
-  if value == 7 then
-    return "Mmt Post Trade Deferral Type: Not Applicable (7)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_type.labels = {
+  [1] = "Mmt Post Trade Deferral Type: Limited Details Trade (1)",
+  [2] = "Mmt Post Trade Deferral Type: Daily Aggregated Trade (2)",
+  [3] = "Mmt Post Trade Deferral Type: Volume Omission Trade (3)",
+  [4] = "Mmt Post Trade Deferral Type: Four Weeks Aggregation Trade (4)",
+  [5] = "Mmt Post Trade Deferral Type: Indefinite Aggregation Trade (5)",
+  [6] = "Mmt Post Trade Deferral Type: Volume Omission Trade Aggregated (6)",
+  [7] = "Mmt Post Trade Deferral Type: Not Applicable (7)",
+}
 
-  return "Mmt Post Trade Deferral Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_post_trade_deferral_type.labels[value] or "Mmt Post Trade Deferral Type: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Post Trade Deferral Type
@@ -5350,15 +4240,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_special_dividend_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_special_dividend_indicator.size = 1
 
 -- Display: Mmt Special Dividend Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_special_dividend_indicator.display = function(value)
-  if value == 1 then
-    return "Mmt Special Dividend Indicator: Special Dividend Trade (1)"
-  end
-  if value == 2 then
-    return "Mmt Special Dividend Indicator: No Special Dividend Trade (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_special_dividend_indicator.labels = {
+  [1] = "Mmt Special Dividend Indicator: Special Dividend Trade (1)",
+  [2] = "Mmt Special Dividend Indicator: No Special Dividend Trade (2)",
+}
 
-  return "Mmt Special Dividend Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_special_dividend_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_special_dividend_indicator.labels[value] or "Mmt Special Dividend Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Special Dividend Indicator
@@ -5380,42 +4268,22 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_trading_mode = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_trading_mode.size = 1
 
 -- Display: Mmt Trading Mode
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_trading_mode.display = function(value)
-  if value == 1 then
-    return "Mmt Trading Mode: Undefined Auction (1)"
-  end
-  if value == 2 then
-    return "Mmt Trading Mode: Scheduled Opening Auction (2)"
-  end
-  if value == 3 then
-    return "Mmt Trading Mode: Scheduled Closing Auction (3)"
-  end
-  if value == 4 then
-    return "Mmt Trading Mode: Scheduled Intraday Auction (4)"
-  end
-  if value == 5 then
-    return "Mmt Trading Mode: Unscheduled Auction (5)"
-  end
-  if value == 6 then
-    return "Mmt Trading Mode: Continuous Trading (6)"
-  end
-  if value == 7 then
-    return "Mmt Trading Mode: At Market Close Trading (7)"
-  end
-  if value == 8 then
-    return "Mmt Trading Mode: Out Of Main Session Trading (8)"
-  end
-  if value == 9 then
-    return "Mmt Trading Mode: Trade Reporting On Exchange (9)"
-  end
-  if value == 10 then
-    return "Mmt Trading Mode: Trade Reporting Off Exchange (10)"
-  end
-  if value == 11 then
-    return "Mmt Trading Mode: Trade Reporting Systematic Internaliser (11)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_trading_mode.labels = {
+  [1] = "Mmt Trading Mode: Undefined Auction (1)",
+  [2] = "Mmt Trading Mode: Scheduled Opening Auction (2)",
+  [3] = "Mmt Trading Mode: Scheduled Closing Auction (3)",
+  [4] = "Mmt Trading Mode: Scheduled Intraday Auction (4)",
+  [5] = "Mmt Trading Mode: Unscheduled Auction (5)",
+  [6] = "Mmt Trading Mode: Continuous Trading (6)",
+  [7] = "Mmt Trading Mode: At Market Close Trading (7)",
+  [8] = "Mmt Trading Mode: Out Of Main Session Trading (8)",
+  [9] = "Mmt Trading Mode: Trade Reporting On Exchange (9)",
+  [10] = "Mmt Trading Mode: Trade Reporting Off Exchange (10)",
+  [11] = "Mmt Trading Mode: Trade Reporting Systematic Internaliser (11)",
+}
 
-  return "Mmt Trading Mode: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_trading_mode.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_trading_mode.labels[value] or "Mmt Trading Mode: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Trading Mode
@@ -5437,24 +4305,16 @@ gpw_wse_replaybbo_wats_v1_7_6_20.mmt_transaction_category = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.mmt_transaction_category.size = 1
 
 -- Display: Mmt Transaction Category
-gpw_wse_replaybbo_wats_v1_7_6_20.mmt_transaction_category.display = function(value)
-  if value == 1 then
-    return "Mmt Transaction Category: Dark Trade (1)"
-  end
-  if value == 2 then
-    return "Mmt Transaction Category: Trade Price Improvement (2)"
-  end
-  if value == 3 then
-    return "Mmt Transaction Category: Package Trade (3)"
-  end
-  if value == 4 then
-    return "Mmt Transaction Category: Exchange For Physicals Trade (4)"
-  end
-  if value == 5 then
-    return "Mmt Transaction Category: None (5)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_transaction_category.labels = {
+  [1] = "Mmt Transaction Category: Dark Trade (1)",
+  [2] = "Mmt Transaction Category: Trade Price Improvement (2)",
+  [3] = "Mmt Transaction Category: Package Trade (3)",
+  [4] = "Mmt Transaction Category: Exchange For Physicals Trade (4)",
+  [5] = "Mmt Transaction Category: None (5)",
+}
 
-  return "Mmt Transaction Category: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.mmt_transaction_category.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.mmt_transaction_category.labels[value] or "Mmt Transaction Category: Unknown("..value..")"
 end
 
 -- Dissect: Mmt Transaction Category
@@ -5603,549 +4463,191 @@ gpw_wse_replaybbo_wats_v1_7_6_20.nominal_currency = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.nominal_currency.size = 2
 
 -- Display: Nominal Currency
-gpw_wse_replaybbo_wats_v1_7_6_20.nominal_currency.display = function(value)
-  if value == 8 then
-    return "Nominal Currency: All (8)"
-  end
-  if value == 12 then
-    return "Nominal Currency: Dzd (12)"
-  end
-  if value == 32 then
-    return "Nominal Currency: Ars (32)"
-  end
-  if value == 36 then
-    return "Nominal Currency: Aud (36)"
-  end
-  if value == 44 then
-    return "Nominal Currency: Bsd (44)"
-  end
-  if value == 48 then
-    return "Nominal Currency: Bhd (48)"
-  end
-  if value == 50 then
-    return "Nominal Currency: Bdt (50)"
-  end
-  if value == 51 then
-    return "Nominal Currency: Amd (51)"
-  end
-  if value == 52 then
-    return "Nominal Currency: Bbd (52)"
-  end
-  if value == 60 then
-    return "Nominal Currency: Bmd (60)"
-  end
-  if value == 64 then
-    return "Nominal Currency: Btn (64)"
-  end
-  if value == 68 then
-    return "Nominal Currency: Bob (68)"
-  end
-  if value == 72 then
-    return "Nominal Currency: Bwp (72)"
-  end
-  if value == 84 then
-    return "Nominal Currency: Bzd (84)"
-  end
-  if value == 90 then
-    return "Nominal Currency: Sbd (90)"
-  end
-  if value == 96 then
-    return "Nominal Currency: Bnd (96)"
-  end
-  if value == 104 then
-    return "Nominal Currency: Mmk (104)"
-  end
-  if value == 108 then
-    return "Nominal Currency: Bif (108)"
-  end
-  if value == 116 then
-    return "Nominal Currency: Khr (116)"
-  end
-  if value == 124 then
-    return "Nominal Currency: Cad (124)"
-  end
-  if value == 132 then
-    return "Nominal Currency: Cve (132)"
-  end
-  if value == 136 then
-    return "Nominal Currency: Kyd (136)"
-  end
-  if value == 144 then
-    return "Nominal Currency: Lkr (144)"
-  end
-  if value == 152 then
-    return "Nominal Currency: Clp (152)"
-  end
-  if value == 156 then
-    return "Nominal Currency: Cny (156)"
-  end
-  if value == 170 then
-    return "Nominal Currency: Cop (170)"
-  end
-  if value == 174 then
-    return "Nominal Currency: Kmf (174)"
-  end
-  if value == 188 then
-    return "Nominal Currency: Crc (188)"
-  end
-  if value == 191 then
-    return "Nominal Currency: Hrk (191)"
-  end
-  if value == 192 then
-    return "Nominal Currency: Cup (192)"
-  end
-  if value == 203 then
-    return "Nominal Currency: Czk (203)"
-  end
-  if value == 208 then
-    return "Nominal Currency: Dkk (208)"
-  end
-  if value == 214 then
-    return "Nominal Currency: Dop (214)"
-  end
-  if value == 222 then
-    return "Nominal Currency: Svc (222)"
-  end
-  if value == 230 then
-    return "Nominal Currency: Etb (230)"
-  end
-  if value == 232 then
-    return "Nominal Currency: Ern (232)"
-  end
-  if value == 238 then
-    return "Nominal Currency: Fkp (238)"
-  end
-  if value == 242 then
-    return "Nominal Currency: Fjd (242)"
-  end
-  if value == 262 then
-    return "Nominal Currency: Djf (262)"
-  end
-  if value == 270 then
-    return "Nominal Currency: Gmd (270)"
-  end
-  if value == 292 then
-    return "Nominal Currency: Gip (292)"
-  end
-  if value == 320 then
-    return "Nominal Currency: Gtq (320)"
-  end
-  if value == 324 then
-    return "Nominal Currency: Gnf (324)"
-  end
-  if value == 328 then
-    return "Nominal Currency: Gyd (328)"
-  end
-  if value == 332 then
-    return "Nominal Currency: Htg (332)"
-  end
-  if value == 340 then
-    return "Nominal Currency: Hnl (340)"
-  end
-  if value == 344 then
-    return "Nominal Currency: Hkd (344)"
-  end
-  if value == 348 then
-    return "Nominal Currency: Huf (348)"
-  end
-  if value == 352 then
-    return "Nominal Currency: Isk (352)"
-  end
-  if value == 356 then
-    return "Nominal Currency: Inr (356)"
-  end
-  if value == 360 then
-    return "Nominal Currency: Idr (360)"
-  end
-  if value == 364 then
-    return "Nominal Currency: Irr (364)"
-  end
-  if value == 368 then
-    return "Nominal Currency: Iqd (368)"
-  end
-  if value == 376 then
-    return "Nominal Currency: Ils (376)"
-  end
-  if value == 388 then
-    return "Nominal Currency: Jmd (388)"
-  end
-  if value == 392 then
-    return "Nominal Currency: Jpy (392)"
-  end
-  if value == 398 then
-    return "Nominal Currency: Kzt (398)"
-  end
-  if value == 400 then
-    return "Nominal Currency: Jod (400)"
-  end
-  if value == 404 then
-    return "Nominal Currency: Kes (404)"
-  end
-  if value == 408 then
-    return "Nominal Currency: Kpw (408)"
-  end
-  if value == 410 then
-    return "Nominal Currency: Krw (410)"
-  end
-  if value == 414 then
-    return "Nominal Currency: Kwd (414)"
-  end
-  if value == 417 then
-    return "Nominal Currency: Kgs (417)"
-  end
-  if value == 418 then
-    return "Nominal Currency: Lak (418)"
-  end
-  if value == 422 then
-    return "Nominal Currency: Lbp (422)"
-  end
-  if value == 426 then
-    return "Nominal Currency: Lsl (426)"
-  end
-  if value == 430 then
-    return "Nominal Currency: Lrd (430)"
-  end
-  if value == 434 then
-    return "Nominal Currency: Lyd (434)"
-  end
-  if value == 446 then
-    return "Nominal Currency: Mop (446)"
-  end
-  if value == 454 then
-    return "Nominal Currency: Mwk (454)"
-  end
-  if value == 458 then
-    return "Nominal Currency: Myr (458)"
-  end
-  if value == 462 then
-    return "Nominal Currency: Mvr (462)"
-  end
-  if value == 480 then
-    return "Nominal Currency: Mur (480)"
-  end
-  if value == 484 then
-    return "Nominal Currency: Mxn (484)"
-  end
-  if value == 496 then
-    return "Nominal Currency: Mnt (496)"
-  end
-  if value == 498 then
-    return "Nominal Currency: Mdl (498)"
-  end
-  if value == 504 then
-    return "Nominal Currency: Mad (504)"
-  end
-  if value == 512 then
-    return "Nominal Currency: Omr (512)"
-  end
-  if value == 516 then
-    return "Nominal Currency: Nad (516)"
-  end
-  if value == 524 then
-    return "Nominal Currency: Npr (524)"
-  end
-  if value == 532 then
-    return "Nominal Currency: Ang (532)"
-  end
-  if value == 533 then
-    return "Nominal Currency: Awg (533)"
-  end
-  if value == 548 then
-    return "Nominal Currency: Vuv (548)"
-  end
-  if value == 554 then
-    return "Nominal Currency: Nzd (554)"
-  end
-  if value == 558 then
-    return "Nominal Currency: Nio (558)"
-  end
-  if value == 566 then
-    return "Nominal Currency: Ngn (566)"
-  end
-  if value == 578 then
-    return "Nominal Currency: Nok (578)"
-  end
-  if value == 586 then
-    return "Nominal Currency: Pkr (586)"
-  end
-  if value == 590 then
-    return "Nominal Currency: Pab (590)"
-  end
-  if value == 598 then
-    return "Nominal Currency: Pgk (598)"
-  end
-  if value == 600 then
-    return "Nominal Currency: Pyg (600)"
-  end
-  if value == 604 then
-    return "Nominal Currency: Pen (604)"
-  end
-  if value == 608 then
-    return "Nominal Currency: Php (608)"
-  end
-  if value == 634 then
-    return "Nominal Currency: Qar (634)"
-  end
-  if value == 643 then
-    return "Nominal Currency: Rub (643)"
-  end
-  if value == 646 then
-    return "Nominal Currency: Rwf (646)"
-  end
-  if value == 654 then
-    return "Nominal Currency: Shp (654)"
-  end
-  if value == 682 then
-    return "Nominal Currency: Sar (682)"
-  end
-  if value == 690 then
-    return "Nominal Currency: Scr (690)"
-  end
-  if value == 702 then
-    return "Nominal Currency: Sgd (702)"
-  end
-  if value == 704 then
-    return "Nominal Currency: Vnd (704)"
-  end
-  if value == 706 then
-    return "Nominal Currency: Sos (706)"
-  end
-  if value == 710 then
-    return "Nominal Currency: Zar (710)"
-  end
-  if value == 728 then
-    return "Nominal Currency: Ssp (728)"
-  end
-  if value == 748 then
-    return "Nominal Currency: Szl (748)"
-  end
-  if value == 752 then
-    return "Nominal Currency: Sek (752)"
-  end
-  if value == 756 then
-    return "Nominal Currency: Chf (756)"
-  end
-  if value == 760 then
-    return "Nominal Currency: Syp (760)"
-  end
-  if value == 764 then
-    return "Nominal Currency: Thb (764)"
-  end
-  if value == 776 then
-    return "Nominal Currency: Top (776)"
-  end
-  if value == 780 then
-    return "Nominal Currency: Ttd (780)"
-  end
-  if value == 784 then
-    return "Nominal Currency: Aed (784)"
-  end
-  if value == 788 then
-    return "Nominal Currency: Tnd (788)"
-  end
-  if value == 800 then
-    return "Nominal Currency: Ugx (800)"
-  end
-  if value == 807 then
-    return "Nominal Currency: Mkd (807)"
-  end
-  if value == 818 then
-    return "Nominal Currency: Egp (818)"
-  end
-  if value == 826 then
-    return "Nominal Currency: Gbp (826)"
-  end
-  if value == 834 then
-    return "Nominal Currency: Tzs (834)"
-  end
-  if value == 840 then
-    return "Nominal Currency: Usd (840)"
-  end
-  if value == 858 then
-    return "Nominal Currency: Uyu (858)"
-  end
-  if value == 860 then
-    return "Nominal Currency: Uzs (860)"
-  end
-  if value == 882 then
-    return "Nominal Currency: Wst (882)"
-  end
-  if value == 886 then
-    return "Nominal Currency: Yer (886)"
-  end
-  if value == 901 then
-    return "Nominal Currency: Twd (901)"
-  end
-  if value == 925 then
-    return "Nominal Currency: Sle (925)"
-  end
-  if value == 926 then
-    return "Nominal Currency: Ved (926)"
-  end
-  if value == 927 then
-    return "Nominal Currency: Uyw (927)"
-  end
-  if value == 928 then
-    return "Nominal Currency: Ves (928)"
-  end
-  if value == 929 then
-    return "Nominal Currency: Mru (929)"
-  end
-  if value == 930 then
-    return "Nominal Currency: Stn (930)"
-  end
-  if value == 931 then
-    return "Nominal Currency: Cuc (931)"
-  end
-  if value == 932 then
-    return "Nominal Currency: Zwl (932)"
-  end
-  if value == 933 then
-    return "Nominal Currency: Byn (933)"
-  end
-  if value == 934 then
-    return "Nominal Currency: Tmt (934)"
-  end
-  if value == 936 then
-    return "Nominal Currency: Ghs (936)"
-  end
-  if value == 938 then
-    return "Nominal Currency: Sdg (938)"
-  end
-  if value == 940 then
-    return "Nominal Currency: Uyi (940)"
-  end
-  if value == 941 then
-    return "Nominal Currency: Rsd (941)"
-  end
-  if value == 943 then
-    return "Nominal Currency: Mzn (943)"
-  end
-  if value == 944 then
-    return "Nominal Currency: Azn (944)"
-  end
-  if value == 946 then
-    return "Nominal Currency: Ron (946)"
-  end
-  if value == 947 then
-    return "Nominal Currency: Che (947)"
-  end
-  if value == 948 then
-    return "Nominal Currency: Chw (948)"
-  end
-  if value == 949 then
-    return "Nominal Currency: Try (949)"
-  end
-  if value == 950 then
-    return "Nominal Currency: Xaf (950)"
-  end
-  if value == 951 then
-    return "Nominal Currency: Xcd (951)"
-  end
-  if value == 952 then
-    return "Nominal Currency: Xof (952)"
-  end
-  if value == 953 then
-    return "Nominal Currency: Xpf (953)"
-  end
-  if value == 955 then
-    return "Nominal Currency: Xba (955)"
-  end
-  if value == 956 then
-    return "Nominal Currency: Xbb (956)"
-  end
-  if value == 957 then
-    return "Nominal Currency: Xbc (957)"
-  end
-  if value == 958 then
-    return "Nominal Currency: Xbd (958)"
-  end
-  if value == 959 then
-    return "Nominal Currency: Xau (959)"
-  end
-  if value == 960 then
-    return "Nominal Currency: Xdr (960)"
-  end
-  if value == 961 then
-    return "Nominal Currency: Xag (961)"
-  end
-  if value == 962 then
-    return "Nominal Currency: Xpt (962)"
-  end
-  if value == 963 then
-    return "Nominal Currency: Xts (963)"
-  end
-  if value == 964 then
-    return "Nominal Currency: Xpd (964)"
-  end
-  if value == 965 then
-    return "Nominal Currency: Xua (965)"
-  end
-  if value == 967 then
-    return "Nominal Currency: Zmw (967)"
-  end
-  if value == 968 then
-    return "Nominal Currency: Srd (968)"
-  end
-  if value == 969 then
-    return "Nominal Currency: Mga (969)"
-  end
-  if value == 970 then
-    return "Nominal Currency: Cou (970)"
-  end
-  if value == 971 then
-    return "Nominal Currency: Afn (971)"
-  end
-  if value == 972 then
-    return "Nominal Currency: Tjs (972)"
-  end
-  if value == 973 then
-    return "Nominal Currency: Aoa (973)"
-  end
-  if value == 975 then
-    return "Nominal Currency: Bgn (975)"
-  end
-  if value == 976 then
-    return "Nominal Currency: Cdf (976)"
-  end
-  if value == 977 then
-    return "Nominal Currency: Bam (977)"
-  end
-  if value == 978 then
-    return "Nominal Currency: Eur (978)"
-  end
-  if value == 979 then
-    return "Nominal Currency: Mxv (979)"
-  end
-  if value == 980 then
-    return "Nominal Currency: Uah (980)"
-  end
-  if value == 981 then
-    return "Nominal Currency: Gel (981)"
-  end
-  if value == 984 then
-    return "Nominal Currency: Bov (984)"
-  end
-  if value == 985 then
-    return "Nominal Currency: Pln (985)"
-  end
-  if value == 986 then
-    return "Nominal Currency: Brl (986)"
-  end
-  if value == 990 then
-    return "Nominal Currency: Clf (990)"
-  end
-  if value == 994 then
-    return "Nominal Currency: Xsu (994)"
-  end
-  if value == 997 then
-    return "Nominal Currency: Usn (997)"
-  end
-  if value == 999 then
-    return "Nominal Currency: Xxx (999)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.nominal_currency.labels = {
+  [8] = "Nominal Currency: All (8)",
+  [12] = "Nominal Currency: Dzd (12)",
+  [32] = "Nominal Currency: Ars (32)",
+  [36] = "Nominal Currency: Aud (36)",
+  [44] = "Nominal Currency: Bsd (44)",
+  [48] = "Nominal Currency: Bhd (48)",
+  [50] = "Nominal Currency: Bdt (50)",
+  [51] = "Nominal Currency: Amd (51)",
+  [52] = "Nominal Currency: Bbd (52)",
+  [60] = "Nominal Currency: Bmd (60)",
+  [64] = "Nominal Currency: Btn (64)",
+  [68] = "Nominal Currency: Bob (68)",
+  [72] = "Nominal Currency: Bwp (72)",
+  [84] = "Nominal Currency: Bzd (84)",
+  [90] = "Nominal Currency: Sbd (90)",
+  [96] = "Nominal Currency: Bnd (96)",
+  [104] = "Nominal Currency: Mmk (104)",
+  [108] = "Nominal Currency: Bif (108)",
+  [116] = "Nominal Currency: Khr (116)",
+  [124] = "Nominal Currency: Cad (124)",
+  [132] = "Nominal Currency: Cve (132)",
+  [136] = "Nominal Currency: Kyd (136)",
+  [144] = "Nominal Currency: Lkr (144)",
+  [152] = "Nominal Currency: Clp (152)",
+  [156] = "Nominal Currency: Cny (156)",
+  [170] = "Nominal Currency: Cop (170)",
+  [174] = "Nominal Currency: Kmf (174)",
+  [188] = "Nominal Currency: Crc (188)",
+  [191] = "Nominal Currency: Hrk (191)",
+  [192] = "Nominal Currency: Cup (192)",
+  [203] = "Nominal Currency: Czk (203)",
+  [208] = "Nominal Currency: Dkk (208)",
+  [214] = "Nominal Currency: Dop (214)",
+  [222] = "Nominal Currency: Svc (222)",
+  [230] = "Nominal Currency: Etb (230)",
+  [232] = "Nominal Currency: Ern (232)",
+  [238] = "Nominal Currency: Fkp (238)",
+  [242] = "Nominal Currency: Fjd (242)",
+  [262] = "Nominal Currency: Djf (262)",
+  [270] = "Nominal Currency: Gmd (270)",
+  [292] = "Nominal Currency: Gip (292)",
+  [320] = "Nominal Currency: Gtq (320)",
+  [324] = "Nominal Currency: Gnf (324)",
+  [328] = "Nominal Currency: Gyd (328)",
+  [332] = "Nominal Currency: Htg (332)",
+  [340] = "Nominal Currency: Hnl (340)",
+  [344] = "Nominal Currency: Hkd (344)",
+  [348] = "Nominal Currency: Huf (348)",
+  [352] = "Nominal Currency: Isk (352)",
+  [356] = "Nominal Currency: Inr (356)",
+  [360] = "Nominal Currency: Idr (360)",
+  [364] = "Nominal Currency: Irr (364)",
+  [368] = "Nominal Currency: Iqd (368)",
+  [376] = "Nominal Currency: Ils (376)",
+  [388] = "Nominal Currency: Jmd (388)",
+  [392] = "Nominal Currency: Jpy (392)",
+  [398] = "Nominal Currency: Kzt (398)",
+  [400] = "Nominal Currency: Jod (400)",
+  [404] = "Nominal Currency: Kes (404)",
+  [408] = "Nominal Currency: Kpw (408)",
+  [410] = "Nominal Currency: Krw (410)",
+  [414] = "Nominal Currency: Kwd (414)",
+  [417] = "Nominal Currency: Kgs (417)",
+  [418] = "Nominal Currency: Lak (418)",
+  [422] = "Nominal Currency: Lbp (422)",
+  [426] = "Nominal Currency: Lsl (426)",
+  [430] = "Nominal Currency: Lrd (430)",
+  [434] = "Nominal Currency: Lyd (434)",
+  [446] = "Nominal Currency: Mop (446)",
+  [454] = "Nominal Currency: Mwk (454)",
+  [458] = "Nominal Currency: Myr (458)",
+  [462] = "Nominal Currency: Mvr (462)",
+  [480] = "Nominal Currency: Mur (480)",
+  [484] = "Nominal Currency: Mxn (484)",
+  [496] = "Nominal Currency: Mnt (496)",
+  [498] = "Nominal Currency: Mdl (498)",
+  [504] = "Nominal Currency: Mad (504)",
+  [512] = "Nominal Currency: Omr (512)",
+  [516] = "Nominal Currency: Nad (516)",
+  [524] = "Nominal Currency: Npr (524)",
+  [532] = "Nominal Currency: Ang (532)",
+  [533] = "Nominal Currency: Awg (533)",
+  [548] = "Nominal Currency: Vuv (548)",
+  [554] = "Nominal Currency: Nzd (554)",
+  [558] = "Nominal Currency: Nio (558)",
+  [566] = "Nominal Currency: Ngn (566)",
+  [578] = "Nominal Currency: Nok (578)",
+  [586] = "Nominal Currency: Pkr (586)",
+  [590] = "Nominal Currency: Pab (590)",
+  [598] = "Nominal Currency: Pgk (598)",
+  [600] = "Nominal Currency: Pyg (600)",
+  [604] = "Nominal Currency: Pen (604)",
+  [608] = "Nominal Currency: Php (608)",
+  [634] = "Nominal Currency: Qar (634)",
+  [643] = "Nominal Currency: Rub (643)",
+  [646] = "Nominal Currency: Rwf (646)",
+  [654] = "Nominal Currency: Shp (654)",
+  [682] = "Nominal Currency: Sar (682)",
+  [690] = "Nominal Currency: Scr (690)",
+  [702] = "Nominal Currency: Sgd (702)",
+  [704] = "Nominal Currency: Vnd (704)",
+  [706] = "Nominal Currency: Sos (706)",
+  [710] = "Nominal Currency: Zar (710)",
+  [728] = "Nominal Currency: Ssp (728)",
+  [748] = "Nominal Currency: Szl (748)",
+  [752] = "Nominal Currency: Sek (752)",
+  [756] = "Nominal Currency: Chf (756)",
+  [760] = "Nominal Currency: Syp (760)",
+  [764] = "Nominal Currency: Thb (764)",
+  [776] = "Nominal Currency: Top (776)",
+  [780] = "Nominal Currency: Ttd (780)",
+  [784] = "Nominal Currency: Aed (784)",
+  [788] = "Nominal Currency: Tnd (788)",
+  [800] = "Nominal Currency: Ugx (800)",
+  [807] = "Nominal Currency: Mkd (807)",
+  [818] = "Nominal Currency: Egp (818)",
+  [826] = "Nominal Currency: Gbp (826)",
+  [834] = "Nominal Currency: Tzs (834)",
+  [840] = "Nominal Currency: Usd (840)",
+  [858] = "Nominal Currency: Uyu (858)",
+  [860] = "Nominal Currency: Uzs (860)",
+  [882] = "Nominal Currency: Wst (882)",
+  [886] = "Nominal Currency: Yer (886)",
+  [901] = "Nominal Currency: Twd (901)",
+  [925] = "Nominal Currency: Sle (925)",
+  [926] = "Nominal Currency: Ved (926)",
+  [927] = "Nominal Currency: Uyw (927)",
+  [928] = "Nominal Currency: Ves (928)",
+  [929] = "Nominal Currency: Mru (929)",
+  [930] = "Nominal Currency: Stn (930)",
+  [931] = "Nominal Currency: Cuc (931)",
+  [932] = "Nominal Currency: Zwl (932)",
+  [933] = "Nominal Currency: Byn (933)",
+  [934] = "Nominal Currency: Tmt (934)",
+  [936] = "Nominal Currency: Ghs (936)",
+  [938] = "Nominal Currency: Sdg (938)",
+  [940] = "Nominal Currency: Uyi (940)",
+  [941] = "Nominal Currency: Rsd (941)",
+  [943] = "Nominal Currency: Mzn (943)",
+  [944] = "Nominal Currency: Azn (944)",
+  [946] = "Nominal Currency: Ron (946)",
+  [947] = "Nominal Currency: Che (947)",
+  [948] = "Nominal Currency: Chw (948)",
+  [949] = "Nominal Currency: Try (949)",
+  [950] = "Nominal Currency: Xaf (950)",
+  [951] = "Nominal Currency: Xcd (951)",
+  [952] = "Nominal Currency: Xof (952)",
+  [953] = "Nominal Currency: Xpf (953)",
+  [955] = "Nominal Currency: Xba (955)",
+  [956] = "Nominal Currency: Xbb (956)",
+  [957] = "Nominal Currency: Xbc (957)",
+  [958] = "Nominal Currency: Xbd (958)",
+  [959] = "Nominal Currency: Xau (959)",
+  [960] = "Nominal Currency: Xdr (960)",
+  [961] = "Nominal Currency: Xag (961)",
+  [962] = "Nominal Currency: Xpt (962)",
+  [963] = "Nominal Currency: Xts (963)",
+  [964] = "Nominal Currency: Xpd (964)",
+  [965] = "Nominal Currency: Xua (965)",
+  [967] = "Nominal Currency: Zmw (967)",
+  [968] = "Nominal Currency: Srd (968)",
+  [969] = "Nominal Currency: Mga (969)",
+  [970] = "Nominal Currency: Cou (970)",
+  [971] = "Nominal Currency: Afn (971)",
+  [972] = "Nominal Currency: Tjs (972)",
+  [973] = "Nominal Currency: Aoa (973)",
+  [975] = "Nominal Currency: Bgn (975)",
+  [976] = "Nominal Currency: Cdf (976)",
+  [977] = "Nominal Currency: Bam (977)",
+  [978] = "Nominal Currency: Eur (978)",
+  [979] = "Nominal Currency: Mxv (979)",
+  [980] = "Nominal Currency: Uah (980)",
+  [981] = "Nominal Currency: Gel (981)",
+  [984] = "Nominal Currency: Bov (984)",
+  [985] = "Nominal Currency: Pln (985)",
+  [986] = "Nominal Currency: Brl (986)",
+  [990] = "Nominal Currency: Clf (990)",
+  [994] = "Nominal Currency: Xsu (994)",
+  [997] = "Nominal Currency: Usn (997)",
+  [999] = "Nominal Currency: Xxx (999)",
+}
 
-  return "Nominal Currency: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.nominal_currency.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.nominal_currency.labels[value] or "Nominal Currency: Unknown("..value..")"
 end
 
 -- Dissect: Nominal Currency
@@ -6196,15 +4698,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.nominal_value_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.nominal_value_type.size = 1
 
 -- Display: Nominal Value Type
-gpw_wse_replaybbo_wats_v1_7_6_20.nominal_value_type.display = function(value)
-  if value == 1 then
-    return "Nominal Value Type: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Nominal Value Type: Constant (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.nominal_value_type.labels = {
+  [1] = "Nominal Value Type: Not Applicable (1)",
+  [2] = "Nominal Value Type: Constant (2)",
+}
 
-  return "Nominal Value Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.nominal_value_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.nominal_value_type.labels[value] or "Nominal Value Type: Unknown("..value..")"
 end
 
 -- Dissect: Nominal Value Type
@@ -6405,18 +4905,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.option_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.option_type.size = 1
 
 -- Display: Option Type
-gpw_wse_replaybbo_wats_v1_7_6_20.option_type.display = function(value)
-  if value == 1 then
-    return "Option Type: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Option Type: Call (2)"
-  end
-  if value == 3 then
-    return "Option Type: Put (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.option_type.labels = {
+  [1] = "Option Type: Not Applicable (1)",
+  [2] = "Option Type: Call (2)",
+  [3] = "Option Type: Put (3)",
+}
 
-  return "Option Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.option_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -6646,18 +5142,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.pos_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.pos_type.size = 1
 
 -- Display: Pos Type
-gpw_wse_replaybbo_wats_v1_7_6_20.pos_type.display = function(value)
-  if value == 1 then
-    return "Pos Type: Sod (1)"
-  end
-  if value == 2 then
-    return "Pos Type: Itd (2)"
-  end
-  if value == 3 then
-    return "Pos Type: Fin (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.pos_type.labels = {
+  [1] = "Pos Type: Sod (1)",
+  [2] = "Pos Type: Itd (2)",
+  [3] = "Pos Type: Fin (3)",
+}
 
-  return "Pos Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.pos_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.pos_type.labels[value] or "Pos Type: Unknown("..value..")"
 end
 
 -- Dissect: Pos Type
@@ -6870,549 +5362,191 @@ gpw_wse_replaybbo_wats_v1_7_6_20.price_currency = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.price_currency.size = 2
 
 -- Display: Price Currency
-gpw_wse_replaybbo_wats_v1_7_6_20.price_currency.display = function(value)
-  if value == 8 then
-    return "Price Currency: All (8)"
-  end
-  if value == 12 then
-    return "Price Currency: Dzd (12)"
-  end
-  if value == 32 then
-    return "Price Currency: Ars (32)"
-  end
-  if value == 36 then
-    return "Price Currency: Aud (36)"
-  end
-  if value == 44 then
-    return "Price Currency: Bsd (44)"
-  end
-  if value == 48 then
-    return "Price Currency: Bhd (48)"
-  end
-  if value == 50 then
-    return "Price Currency: Bdt (50)"
-  end
-  if value == 51 then
-    return "Price Currency: Amd (51)"
-  end
-  if value == 52 then
-    return "Price Currency: Bbd (52)"
-  end
-  if value == 60 then
-    return "Price Currency: Bmd (60)"
-  end
-  if value == 64 then
-    return "Price Currency: Btn (64)"
-  end
-  if value == 68 then
-    return "Price Currency: Bob (68)"
-  end
-  if value == 72 then
-    return "Price Currency: Bwp (72)"
-  end
-  if value == 84 then
-    return "Price Currency: Bzd (84)"
-  end
-  if value == 90 then
-    return "Price Currency: Sbd (90)"
-  end
-  if value == 96 then
-    return "Price Currency: Bnd (96)"
-  end
-  if value == 104 then
-    return "Price Currency: Mmk (104)"
-  end
-  if value == 108 then
-    return "Price Currency: Bif (108)"
-  end
-  if value == 116 then
-    return "Price Currency: Khr (116)"
-  end
-  if value == 124 then
-    return "Price Currency: Cad (124)"
-  end
-  if value == 132 then
-    return "Price Currency: Cve (132)"
-  end
-  if value == 136 then
-    return "Price Currency: Kyd (136)"
-  end
-  if value == 144 then
-    return "Price Currency: Lkr (144)"
-  end
-  if value == 152 then
-    return "Price Currency: Clp (152)"
-  end
-  if value == 156 then
-    return "Price Currency: Cny (156)"
-  end
-  if value == 170 then
-    return "Price Currency: Cop (170)"
-  end
-  if value == 174 then
-    return "Price Currency: Kmf (174)"
-  end
-  if value == 188 then
-    return "Price Currency: Crc (188)"
-  end
-  if value == 191 then
-    return "Price Currency: Hrk (191)"
-  end
-  if value == 192 then
-    return "Price Currency: Cup (192)"
-  end
-  if value == 203 then
-    return "Price Currency: Czk (203)"
-  end
-  if value == 208 then
-    return "Price Currency: Dkk (208)"
-  end
-  if value == 214 then
-    return "Price Currency: Dop (214)"
-  end
-  if value == 222 then
-    return "Price Currency: Svc (222)"
-  end
-  if value == 230 then
-    return "Price Currency: Etb (230)"
-  end
-  if value == 232 then
-    return "Price Currency: Ern (232)"
-  end
-  if value == 238 then
-    return "Price Currency: Fkp (238)"
-  end
-  if value == 242 then
-    return "Price Currency: Fjd (242)"
-  end
-  if value == 262 then
-    return "Price Currency: Djf (262)"
-  end
-  if value == 270 then
-    return "Price Currency: Gmd (270)"
-  end
-  if value == 292 then
-    return "Price Currency: Gip (292)"
-  end
-  if value == 320 then
-    return "Price Currency: Gtq (320)"
-  end
-  if value == 324 then
-    return "Price Currency: Gnf (324)"
-  end
-  if value == 328 then
-    return "Price Currency: Gyd (328)"
-  end
-  if value == 332 then
-    return "Price Currency: Htg (332)"
-  end
-  if value == 340 then
-    return "Price Currency: Hnl (340)"
-  end
-  if value == 344 then
-    return "Price Currency: Hkd (344)"
-  end
-  if value == 348 then
-    return "Price Currency: Huf (348)"
-  end
-  if value == 352 then
-    return "Price Currency: Isk (352)"
-  end
-  if value == 356 then
-    return "Price Currency: Inr (356)"
-  end
-  if value == 360 then
-    return "Price Currency: Idr (360)"
-  end
-  if value == 364 then
-    return "Price Currency: Irr (364)"
-  end
-  if value == 368 then
-    return "Price Currency: Iqd (368)"
-  end
-  if value == 376 then
-    return "Price Currency: Ils (376)"
-  end
-  if value == 388 then
-    return "Price Currency: Jmd (388)"
-  end
-  if value == 392 then
-    return "Price Currency: Jpy (392)"
-  end
-  if value == 398 then
-    return "Price Currency: Kzt (398)"
-  end
-  if value == 400 then
-    return "Price Currency: Jod (400)"
-  end
-  if value == 404 then
-    return "Price Currency: Kes (404)"
-  end
-  if value == 408 then
-    return "Price Currency: Kpw (408)"
-  end
-  if value == 410 then
-    return "Price Currency: Krw (410)"
-  end
-  if value == 414 then
-    return "Price Currency: Kwd (414)"
-  end
-  if value == 417 then
-    return "Price Currency: Kgs (417)"
-  end
-  if value == 418 then
-    return "Price Currency: Lak (418)"
-  end
-  if value == 422 then
-    return "Price Currency: Lbp (422)"
-  end
-  if value == 426 then
-    return "Price Currency: Lsl (426)"
-  end
-  if value == 430 then
-    return "Price Currency: Lrd (430)"
-  end
-  if value == 434 then
-    return "Price Currency: Lyd (434)"
-  end
-  if value == 446 then
-    return "Price Currency: Mop (446)"
-  end
-  if value == 454 then
-    return "Price Currency: Mwk (454)"
-  end
-  if value == 458 then
-    return "Price Currency: Myr (458)"
-  end
-  if value == 462 then
-    return "Price Currency: Mvr (462)"
-  end
-  if value == 480 then
-    return "Price Currency: Mur (480)"
-  end
-  if value == 484 then
-    return "Price Currency: Mxn (484)"
-  end
-  if value == 496 then
-    return "Price Currency: Mnt (496)"
-  end
-  if value == 498 then
-    return "Price Currency: Mdl (498)"
-  end
-  if value == 504 then
-    return "Price Currency: Mad (504)"
-  end
-  if value == 512 then
-    return "Price Currency: Omr (512)"
-  end
-  if value == 516 then
-    return "Price Currency: Nad (516)"
-  end
-  if value == 524 then
-    return "Price Currency: Npr (524)"
-  end
-  if value == 532 then
-    return "Price Currency: Ang (532)"
-  end
-  if value == 533 then
-    return "Price Currency: Awg (533)"
-  end
-  if value == 548 then
-    return "Price Currency: Vuv (548)"
-  end
-  if value == 554 then
-    return "Price Currency: Nzd (554)"
-  end
-  if value == 558 then
-    return "Price Currency: Nio (558)"
-  end
-  if value == 566 then
-    return "Price Currency: Ngn (566)"
-  end
-  if value == 578 then
-    return "Price Currency: Nok (578)"
-  end
-  if value == 586 then
-    return "Price Currency: Pkr (586)"
-  end
-  if value == 590 then
-    return "Price Currency: Pab (590)"
-  end
-  if value == 598 then
-    return "Price Currency: Pgk (598)"
-  end
-  if value == 600 then
-    return "Price Currency: Pyg (600)"
-  end
-  if value == 604 then
-    return "Price Currency: Pen (604)"
-  end
-  if value == 608 then
-    return "Price Currency: Php (608)"
-  end
-  if value == 634 then
-    return "Price Currency: Qar (634)"
-  end
-  if value == 643 then
-    return "Price Currency: Rub (643)"
-  end
-  if value == 646 then
-    return "Price Currency: Rwf (646)"
-  end
-  if value == 654 then
-    return "Price Currency: Shp (654)"
-  end
-  if value == 682 then
-    return "Price Currency: Sar (682)"
-  end
-  if value == 690 then
-    return "Price Currency: Scr (690)"
-  end
-  if value == 702 then
-    return "Price Currency: Sgd (702)"
-  end
-  if value == 704 then
-    return "Price Currency: Vnd (704)"
-  end
-  if value == 706 then
-    return "Price Currency: Sos (706)"
-  end
-  if value == 710 then
-    return "Price Currency: Zar (710)"
-  end
-  if value == 728 then
-    return "Price Currency: Ssp (728)"
-  end
-  if value == 748 then
-    return "Price Currency: Szl (748)"
-  end
-  if value == 752 then
-    return "Price Currency: Sek (752)"
-  end
-  if value == 756 then
-    return "Price Currency: Chf (756)"
-  end
-  if value == 760 then
-    return "Price Currency: Syp (760)"
-  end
-  if value == 764 then
-    return "Price Currency: Thb (764)"
-  end
-  if value == 776 then
-    return "Price Currency: Top (776)"
-  end
-  if value == 780 then
-    return "Price Currency: Ttd (780)"
-  end
-  if value == 784 then
-    return "Price Currency: Aed (784)"
-  end
-  if value == 788 then
-    return "Price Currency: Tnd (788)"
-  end
-  if value == 800 then
-    return "Price Currency: Ugx (800)"
-  end
-  if value == 807 then
-    return "Price Currency: Mkd (807)"
-  end
-  if value == 818 then
-    return "Price Currency: Egp (818)"
-  end
-  if value == 826 then
-    return "Price Currency: Gbp (826)"
-  end
-  if value == 834 then
-    return "Price Currency: Tzs (834)"
-  end
-  if value == 840 then
-    return "Price Currency: Usd (840)"
-  end
-  if value == 858 then
-    return "Price Currency: Uyu (858)"
-  end
-  if value == 860 then
-    return "Price Currency: Uzs (860)"
-  end
-  if value == 882 then
-    return "Price Currency: Wst (882)"
-  end
-  if value == 886 then
-    return "Price Currency: Yer (886)"
-  end
-  if value == 901 then
-    return "Price Currency: Twd (901)"
-  end
-  if value == 925 then
-    return "Price Currency: Sle (925)"
-  end
-  if value == 926 then
-    return "Price Currency: Ved (926)"
-  end
-  if value == 927 then
-    return "Price Currency: Uyw (927)"
-  end
-  if value == 928 then
-    return "Price Currency: Ves (928)"
-  end
-  if value == 929 then
-    return "Price Currency: Mru (929)"
-  end
-  if value == 930 then
-    return "Price Currency: Stn (930)"
-  end
-  if value == 931 then
-    return "Price Currency: Cuc (931)"
-  end
-  if value == 932 then
-    return "Price Currency: Zwl (932)"
-  end
-  if value == 933 then
-    return "Price Currency: Byn (933)"
-  end
-  if value == 934 then
-    return "Price Currency: Tmt (934)"
-  end
-  if value == 936 then
-    return "Price Currency: Ghs (936)"
-  end
-  if value == 938 then
-    return "Price Currency: Sdg (938)"
-  end
-  if value == 940 then
-    return "Price Currency: Uyi (940)"
-  end
-  if value == 941 then
-    return "Price Currency: Rsd (941)"
-  end
-  if value == 943 then
-    return "Price Currency: Mzn (943)"
-  end
-  if value == 944 then
-    return "Price Currency: Azn (944)"
-  end
-  if value == 946 then
-    return "Price Currency: Ron (946)"
-  end
-  if value == 947 then
-    return "Price Currency: Che (947)"
-  end
-  if value == 948 then
-    return "Price Currency: Chw (948)"
-  end
-  if value == 949 then
-    return "Price Currency: Try (949)"
-  end
-  if value == 950 then
-    return "Price Currency: Xaf (950)"
-  end
-  if value == 951 then
-    return "Price Currency: Xcd (951)"
-  end
-  if value == 952 then
-    return "Price Currency: Xof (952)"
-  end
-  if value == 953 then
-    return "Price Currency: Xpf (953)"
-  end
-  if value == 955 then
-    return "Price Currency: Xba (955)"
-  end
-  if value == 956 then
-    return "Price Currency: Xbb (956)"
-  end
-  if value == 957 then
-    return "Price Currency: Xbc (957)"
-  end
-  if value == 958 then
-    return "Price Currency: Xbd (958)"
-  end
-  if value == 959 then
-    return "Price Currency: Xau (959)"
-  end
-  if value == 960 then
-    return "Price Currency: Xdr (960)"
-  end
-  if value == 961 then
-    return "Price Currency: Xag (961)"
-  end
-  if value == 962 then
-    return "Price Currency: Xpt (962)"
-  end
-  if value == 963 then
-    return "Price Currency: Xts (963)"
-  end
-  if value == 964 then
-    return "Price Currency: Xpd (964)"
-  end
-  if value == 965 then
-    return "Price Currency: Xua (965)"
-  end
-  if value == 967 then
-    return "Price Currency: Zmw (967)"
-  end
-  if value == 968 then
-    return "Price Currency: Srd (968)"
-  end
-  if value == 969 then
-    return "Price Currency: Mga (969)"
-  end
-  if value == 970 then
-    return "Price Currency: Cou (970)"
-  end
-  if value == 971 then
-    return "Price Currency: Afn (971)"
-  end
-  if value == 972 then
-    return "Price Currency: Tjs (972)"
-  end
-  if value == 973 then
-    return "Price Currency: Aoa (973)"
-  end
-  if value == 975 then
-    return "Price Currency: Bgn (975)"
-  end
-  if value == 976 then
-    return "Price Currency: Cdf (976)"
-  end
-  if value == 977 then
-    return "Price Currency: Bam (977)"
-  end
-  if value == 978 then
-    return "Price Currency: Eur (978)"
-  end
-  if value == 979 then
-    return "Price Currency: Mxv (979)"
-  end
-  if value == 980 then
-    return "Price Currency: Uah (980)"
-  end
-  if value == 981 then
-    return "Price Currency: Gel (981)"
-  end
-  if value == 984 then
-    return "Price Currency: Bov (984)"
-  end
-  if value == 985 then
-    return "Price Currency: Pln (985)"
-  end
-  if value == 986 then
-    return "Price Currency: Brl (986)"
-  end
-  if value == 990 then
-    return "Price Currency: Clf (990)"
-  end
-  if value == 994 then
-    return "Price Currency: Xsu (994)"
-  end
-  if value == 997 then
-    return "Price Currency: Usn (997)"
-  end
-  if value == 999 then
-    return "Price Currency: Xxx (999)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.price_currency.labels = {
+  [8] = "Price Currency: All (8)",
+  [12] = "Price Currency: Dzd (12)",
+  [32] = "Price Currency: Ars (32)",
+  [36] = "Price Currency: Aud (36)",
+  [44] = "Price Currency: Bsd (44)",
+  [48] = "Price Currency: Bhd (48)",
+  [50] = "Price Currency: Bdt (50)",
+  [51] = "Price Currency: Amd (51)",
+  [52] = "Price Currency: Bbd (52)",
+  [60] = "Price Currency: Bmd (60)",
+  [64] = "Price Currency: Btn (64)",
+  [68] = "Price Currency: Bob (68)",
+  [72] = "Price Currency: Bwp (72)",
+  [84] = "Price Currency: Bzd (84)",
+  [90] = "Price Currency: Sbd (90)",
+  [96] = "Price Currency: Bnd (96)",
+  [104] = "Price Currency: Mmk (104)",
+  [108] = "Price Currency: Bif (108)",
+  [116] = "Price Currency: Khr (116)",
+  [124] = "Price Currency: Cad (124)",
+  [132] = "Price Currency: Cve (132)",
+  [136] = "Price Currency: Kyd (136)",
+  [144] = "Price Currency: Lkr (144)",
+  [152] = "Price Currency: Clp (152)",
+  [156] = "Price Currency: Cny (156)",
+  [170] = "Price Currency: Cop (170)",
+  [174] = "Price Currency: Kmf (174)",
+  [188] = "Price Currency: Crc (188)",
+  [191] = "Price Currency: Hrk (191)",
+  [192] = "Price Currency: Cup (192)",
+  [203] = "Price Currency: Czk (203)",
+  [208] = "Price Currency: Dkk (208)",
+  [214] = "Price Currency: Dop (214)",
+  [222] = "Price Currency: Svc (222)",
+  [230] = "Price Currency: Etb (230)",
+  [232] = "Price Currency: Ern (232)",
+  [238] = "Price Currency: Fkp (238)",
+  [242] = "Price Currency: Fjd (242)",
+  [262] = "Price Currency: Djf (262)",
+  [270] = "Price Currency: Gmd (270)",
+  [292] = "Price Currency: Gip (292)",
+  [320] = "Price Currency: Gtq (320)",
+  [324] = "Price Currency: Gnf (324)",
+  [328] = "Price Currency: Gyd (328)",
+  [332] = "Price Currency: Htg (332)",
+  [340] = "Price Currency: Hnl (340)",
+  [344] = "Price Currency: Hkd (344)",
+  [348] = "Price Currency: Huf (348)",
+  [352] = "Price Currency: Isk (352)",
+  [356] = "Price Currency: Inr (356)",
+  [360] = "Price Currency: Idr (360)",
+  [364] = "Price Currency: Irr (364)",
+  [368] = "Price Currency: Iqd (368)",
+  [376] = "Price Currency: Ils (376)",
+  [388] = "Price Currency: Jmd (388)",
+  [392] = "Price Currency: Jpy (392)",
+  [398] = "Price Currency: Kzt (398)",
+  [400] = "Price Currency: Jod (400)",
+  [404] = "Price Currency: Kes (404)",
+  [408] = "Price Currency: Kpw (408)",
+  [410] = "Price Currency: Krw (410)",
+  [414] = "Price Currency: Kwd (414)",
+  [417] = "Price Currency: Kgs (417)",
+  [418] = "Price Currency: Lak (418)",
+  [422] = "Price Currency: Lbp (422)",
+  [426] = "Price Currency: Lsl (426)",
+  [430] = "Price Currency: Lrd (430)",
+  [434] = "Price Currency: Lyd (434)",
+  [446] = "Price Currency: Mop (446)",
+  [454] = "Price Currency: Mwk (454)",
+  [458] = "Price Currency: Myr (458)",
+  [462] = "Price Currency: Mvr (462)",
+  [480] = "Price Currency: Mur (480)",
+  [484] = "Price Currency: Mxn (484)",
+  [496] = "Price Currency: Mnt (496)",
+  [498] = "Price Currency: Mdl (498)",
+  [504] = "Price Currency: Mad (504)",
+  [512] = "Price Currency: Omr (512)",
+  [516] = "Price Currency: Nad (516)",
+  [524] = "Price Currency: Npr (524)",
+  [532] = "Price Currency: Ang (532)",
+  [533] = "Price Currency: Awg (533)",
+  [548] = "Price Currency: Vuv (548)",
+  [554] = "Price Currency: Nzd (554)",
+  [558] = "Price Currency: Nio (558)",
+  [566] = "Price Currency: Ngn (566)",
+  [578] = "Price Currency: Nok (578)",
+  [586] = "Price Currency: Pkr (586)",
+  [590] = "Price Currency: Pab (590)",
+  [598] = "Price Currency: Pgk (598)",
+  [600] = "Price Currency: Pyg (600)",
+  [604] = "Price Currency: Pen (604)",
+  [608] = "Price Currency: Php (608)",
+  [634] = "Price Currency: Qar (634)",
+  [643] = "Price Currency: Rub (643)",
+  [646] = "Price Currency: Rwf (646)",
+  [654] = "Price Currency: Shp (654)",
+  [682] = "Price Currency: Sar (682)",
+  [690] = "Price Currency: Scr (690)",
+  [702] = "Price Currency: Sgd (702)",
+  [704] = "Price Currency: Vnd (704)",
+  [706] = "Price Currency: Sos (706)",
+  [710] = "Price Currency: Zar (710)",
+  [728] = "Price Currency: Ssp (728)",
+  [748] = "Price Currency: Szl (748)",
+  [752] = "Price Currency: Sek (752)",
+  [756] = "Price Currency: Chf (756)",
+  [760] = "Price Currency: Syp (760)",
+  [764] = "Price Currency: Thb (764)",
+  [776] = "Price Currency: Top (776)",
+  [780] = "Price Currency: Ttd (780)",
+  [784] = "Price Currency: Aed (784)",
+  [788] = "Price Currency: Tnd (788)",
+  [800] = "Price Currency: Ugx (800)",
+  [807] = "Price Currency: Mkd (807)",
+  [818] = "Price Currency: Egp (818)",
+  [826] = "Price Currency: Gbp (826)",
+  [834] = "Price Currency: Tzs (834)",
+  [840] = "Price Currency: Usd (840)",
+  [858] = "Price Currency: Uyu (858)",
+  [860] = "Price Currency: Uzs (860)",
+  [882] = "Price Currency: Wst (882)",
+  [886] = "Price Currency: Yer (886)",
+  [901] = "Price Currency: Twd (901)",
+  [925] = "Price Currency: Sle (925)",
+  [926] = "Price Currency: Ved (926)",
+  [927] = "Price Currency: Uyw (927)",
+  [928] = "Price Currency: Ves (928)",
+  [929] = "Price Currency: Mru (929)",
+  [930] = "Price Currency: Stn (930)",
+  [931] = "Price Currency: Cuc (931)",
+  [932] = "Price Currency: Zwl (932)",
+  [933] = "Price Currency: Byn (933)",
+  [934] = "Price Currency: Tmt (934)",
+  [936] = "Price Currency: Ghs (936)",
+  [938] = "Price Currency: Sdg (938)",
+  [940] = "Price Currency: Uyi (940)",
+  [941] = "Price Currency: Rsd (941)",
+  [943] = "Price Currency: Mzn (943)",
+  [944] = "Price Currency: Azn (944)",
+  [946] = "Price Currency: Ron (946)",
+  [947] = "Price Currency: Che (947)",
+  [948] = "Price Currency: Chw (948)",
+  [949] = "Price Currency: Try (949)",
+  [950] = "Price Currency: Xaf (950)",
+  [951] = "Price Currency: Xcd (951)",
+  [952] = "Price Currency: Xof (952)",
+  [953] = "Price Currency: Xpf (953)",
+  [955] = "Price Currency: Xba (955)",
+  [956] = "Price Currency: Xbb (956)",
+  [957] = "Price Currency: Xbc (957)",
+  [958] = "Price Currency: Xbd (958)",
+  [959] = "Price Currency: Xau (959)",
+  [960] = "Price Currency: Xdr (960)",
+  [961] = "Price Currency: Xag (961)",
+  [962] = "Price Currency: Xpt (962)",
+  [963] = "Price Currency: Xts (963)",
+  [964] = "Price Currency: Xpd (964)",
+  [965] = "Price Currency: Xua (965)",
+  [967] = "Price Currency: Zmw (967)",
+  [968] = "Price Currency: Srd (968)",
+  [969] = "Price Currency: Mga (969)",
+  [970] = "Price Currency: Cou (970)",
+  [971] = "Price Currency: Afn (971)",
+  [972] = "Price Currency: Tjs (972)",
+  [973] = "Price Currency: Aoa (973)",
+  [975] = "Price Currency: Bgn (975)",
+  [976] = "Price Currency: Cdf (976)",
+  [977] = "Price Currency: Bam (977)",
+  [978] = "Price Currency: Eur (978)",
+  [979] = "Price Currency: Mxv (979)",
+  [980] = "Price Currency: Uah (980)",
+  [981] = "Price Currency: Gel (981)",
+  [984] = "Price Currency: Bov (984)",
+  [985] = "Price Currency: Pln (985)",
+  [986] = "Price Currency: Brl (986)",
+  [990] = "Price Currency: Clf (990)",
+  [994] = "Price Currency: Xsu (994)",
+  [997] = "Price Currency: Usn (997)",
+  [999] = "Price Currency: Xxx (999)",
+}
 
-  return "Price Currency: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.price_currency.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.price_currency.labels[value] or "Price Currency: Unknown("..value..")"
 end
 
 -- Dissect: Price Currency
@@ -7434,18 +5568,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.price_expression_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.price_expression_type.size = 1
 
 -- Display: Price Expression Type
-gpw_wse_replaybbo_wats_v1_7_6_20.price_expression_type.display = function(value)
-  if value == 3 then
-    return "Price Expression Type: Not Applicable (3)"
-  end
-  if value == 1 then
-    return "Price Expression Type: Price (1)"
-  end
-  if value == 2 then
-    return "Price Expression Type: Percentage (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.price_expression_type.labels = {
+  [3] = "Price Expression Type: Not Applicable (3)",
+  [1] = "Price Expression Type: Price (1)",
+  [2] = "Price Expression Type: Percentage (2)",
+}
 
-  return "Price Expression Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.price_expression_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.price_expression_type.labels[value] or "Price Expression Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Expression Type
@@ -7467,18 +5597,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.price_notation = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.price_notation.size = 1
 
 -- Display: Price Notation
-gpw_wse_replaybbo_wats_v1_7_6_20.price_notation.display = function(value)
-  if value == 3 then
-    return "Price Notation: Not Applicable (3)"
-  end
-  if value == 1 then
-    return "Price Notation: Price (1)"
-  end
-  if value == 2 then
-    return "Price Notation: Percentage (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.price_notation.labels = {
+  [3] = "Price Notation: Not Applicable (3)",
+  [1] = "Price Notation: Price (1)",
+  [2] = "Price Notation: Percentage (2)",
+}
 
-  return "Price Notation: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.price_notation.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -7500,27 +5626,17 @@ gpw_wse_replaybbo_wats_v1_7_6_20.price_update_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.price_update_type.size = 1
 
 -- Display: Price Update Type
-gpw_wse_replaybbo_wats_v1_7_6_20.price_update_type.display = function(value)
-  if value == 1 then
-    return "Price Update Type: Reference Price (1)"
-  end
-  if value == 2 then
-    return "Price Update Type: Reference Index Price (2)"
-  end
-  if value == 3 then
-    return "Price Update Type: Reference Fixing Index Price (3)"
-  end
-  if value == 4 then
-    return "Price Update Type: Mid Price (4)"
-  end
-  if value == 5 then
-    return "Price Update Type: Fixing Price (5)"
-  end
-  if value == 6 then
-    return "Price Update Type: Fixing Ytm (6)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.price_update_type.labels = {
+  [1] = "Price Update Type: Reference Price (1)",
+  [2] = "Price Update Type: Reference Index Price (2)",
+  [3] = "Price Update Type: Reference Fixing Index Price (3)",
+  [4] = "Price Update Type: Mid Price (4)",
+  [5] = "Price Update Type: Fixing Price (5)",
+  [6] = "Price Update Type: Fixing Ytm (6)",
+}
 
-  return "Price Update Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.price_update_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.price_update_type.labels[value] or "Price Update Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Update Type
@@ -7611,15 +5727,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.product_identification_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.product_identification_type.size = 1
 
 -- Display: Product Identification Type
-gpw_wse_replaybbo_wats_v1_7_6_20.product_identification_type.display = function(value)
-  if value == 1 then
-    return "Product Identification Type: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Product Identification Type: Isin (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.product_identification_type.labels = {
+  [1] = "Product Identification Type: Not Applicable (1)",
+  [2] = "Product Identification Type: Isin (2)",
+}
 
-  return "Product Identification Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.product_identification_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.product_identification_type.labels[value] or "Product Identification Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Identification Type
@@ -7664,177 +5778,67 @@ gpw_wse_replaybbo_wats_v1_7_6_20.product_subtype = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.product_subtype.size = 1
 
 -- Display: Product Subtype
-gpw_wse_replaybbo_wats_v1_7_6_20.product_subtype.display = function(value)
-  if value == 1 then
-    return "Product Subtype: Share (1)"
-  end
-  if value == 2 then
-    return "Product Subtype: Allotment Right (2)"
-  end
-  if value == 3 then
-    return "Product Subtype: Subscription Right (3)"
-  end
-  if value == 4 then
-    return "Product Subtype: Tender Offer (4)"
-  end
-  if value == 5 then
-    return "Product Subtype: Issue Right (5)"
-  end
-  if value == 6 then
-    return "Product Subtype: Subscription Warrant (6)"
-  end
-  if value == 7 then
-    return "Product Subtype: Bank Securities (7)"
-  end
-  if value == 8 then
-    return "Product Subtype: Bond (8)"
-  end
-  if value == 9 then
-    return "Product Subtype: Treasury Bond (9)"
-  end
-  if value == 10 then
-    return "Product Subtype: Agency Bond (10)"
-  end
-  if value == 11 then
-    return "Product Subtype: Municipal Bond (11)"
-  end
-  if value == 12 then
-    return "Product Subtype: Corporate Bank Bond (12)"
-  end
-  if value == 13 then
-    return "Product Subtype: Corporate Firm Bond (13)"
-  end
-  if value == 14 then
-    return "Product Subtype: Convertible Bond (14)"
-  end
-  if value == 15 then
-    return "Product Subtype: Mortgage Bond (15)"
-  end
-  if value == 16 then
-    return "Product Subtype: Mortgage Backed Bond (16)"
-  end
-  if value == 17 then
-    return "Product Subtype: Public Mortgage Bond (17)"
-  end
-  if value == 18 then
-    return "Product Subtype: Bill (18)"
-  end
-  if value == 19 then
-    return "Product Subtype: Treasury Bill (19)"
-  end
-  if value == 20 then
-    return "Product Subtype: Commercial Bill (20)"
-  end
-  if value == 21 then
-    return "Product Subtype: Exchange Traded Fund (21)"
-  end
-  if value == 22 then
-    return "Product Subtype: Exchange Traded Note (22)"
-  end
-  if value == 23 then
-    return "Product Subtype: Exchange Traded Commodity (23)"
-  end
-  if value == 24 then
-    return "Product Subtype: Investment Certificate (24)"
-  end
-  if value == 25 then
-    return "Product Subtype: Index Futures (25)"
-  end
-  if value == 26 then
-    return "Product Subtype: Stock Futures (26)"
-  end
-  if value == 27 then
-    return "Product Subtype: Currency Futures (27)"
-  end
-  if value == 28 then
-    return "Product Subtype: Bond Futures (28)"
-  end
-  if value == 29 then
-    return "Product Subtype: Interest Rate Futures (29)"
-  end
-  if value == 30 then
-    return "Product Subtype: Index Options (30)"
-  end
-  if value == 31 then
-    return "Product Subtype: Stock Options (31)"
-  end
-  if value == 32 then
-    return "Product Subtype: Option Warrants (32)"
-  end
-  if value == 33 then
-    return "Product Subtype: Factor Certificates (33)"
-  end
-  if value == 34 then
-    return "Product Subtype: Turbo Certificates (34)"
-  end
-  if value == 35 then
-    return "Product Subtype: Capital Protection Certificates (35)"
-  end
-  if value == 36 then
-    return "Product Subtype: Bonus Certificates (36)"
-  end
-  if value == 37 then
-    return "Product Subtype: Reverse Convertible Certificates (37)"
-  end
-  if value == 38 then
-    return "Product Subtype: Express Certificates (38)"
-  end
-  if value == 39 then
-    return "Product Subtype: Discount Certificates (39)"
-  end
-  if value == 40 then
-    return "Product Subtype: Index Tracker Certificates (40)"
-  end
-  if value == 41 then
-    return "Product Subtype: Other Investment Certificates (41)"
-  end
-  if value == 42 then
-    return "Product Subtype: Structured Notes (42)"
-  end
-  if value == 43 then
-    return "Product Subtype: Reference Rate (43)"
-  end
-  if value == 44 then
-    return "Product Subtype: Interest Rate (44)"
-  end
-  if value == 45 then
-    return "Product Subtype: Exchange Rate (45)"
-  end
-  if value == 46 then
-    return "Product Subtype: Price Index (46)"
-  end
-  if value == 47 then
-    return "Product Subtype: Total Return Index (47)"
-  end
-  if value == 48 then
-    return "Product Subtype: Sector Price Index (48)"
-  end
-  if value == 49 then
-    return "Product Subtype: Sector Total Return Index (49)"
-  end
-  if value == 50 then
-    return "Product Subtype: Dividend Index (50)"
-  end
-  if value == 51 then
-    return "Product Subtype: Strategy Price Index (51)"
-  end
-  if value == 52 then
-    return "Product Subtype: Strategy Total Return Index (52)"
-  end
-  if value == 53 then
-    return "Product Subtype: Commodity Index (53)"
-  end
-  if value == 54 then
-    return "Product Subtype: Bond Total Return Index (54)"
-  end
-  if value == 55 then
-    return "Product Subtype: Supranational Bond (55)"
-  end
-  if value == 56 then
-    return "Product Subtype: Warrant With Knock Out (56)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.product_subtype.labels = {
+  [1] = "Product Subtype: Share (1)",
+  [2] = "Product Subtype: Allotment Right (2)",
+  [3] = "Product Subtype: Subscription Right (3)",
+  [4] = "Product Subtype: Tender Offer (4)",
+  [5] = "Product Subtype: Issue Right (5)",
+  [6] = "Product Subtype: Subscription Warrant (6)",
+  [7] = "Product Subtype: Bank Securities (7)",
+  [8] = "Product Subtype: Bond (8)",
+  [9] = "Product Subtype: Treasury Bond (9)",
+  [10] = "Product Subtype: Agency Bond (10)",
+  [11] = "Product Subtype: Municipal Bond (11)",
+  [12] = "Product Subtype: Corporate Bank Bond (12)",
+  [13] = "Product Subtype: Corporate Firm Bond (13)",
+  [14] = "Product Subtype: Convertible Bond (14)",
+  [15] = "Product Subtype: Mortgage Bond (15)",
+  [16] = "Product Subtype: Mortgage Backed Bond (16)",
+  [17] = "Product Subtype: Public Mortgage Bond (17)",
+  [18] = "Product Subtype: Bill (18)",
+  [19] = "Product Subtype: Treasury Bill (19)",
+  [20] = "Product Subtype: Commercial Bill (20)",
+  [21] = "Product Subtype: Exchange Traded Fund (21)",
+  [22] = "Product Subtype: Exchange Traded Note (22)",
+  [23] = "Product Subtype: Exchange Traded Commodity (23)",
+  [24] = "Product Subtype: Investment Certificate (24)",
+  [25] = "Product Subtype: Index Futures (25)",
+  [26] = "Product Subtype: Stock Futures (26)",
+  [27] = "Product Subtype: Currency Futures (27)",
+  [28] = "Product Subtype: Bond Futures (28)",
+  [29] = "Product Subtype: Interest Rate Futures (29)",
+  [30] = "Product Subtype: Index Options (30)",
+  [31] = "Product Subtype: Stock Options (31)",
+  [32] = "Product Subtype: Option Warrants (32)",
+  [33] = "Product Subtype: Factor Certificates (33)",
+  [34] = "Product Subtype: Turbo Certificates (34)",
+  [35] = "Product Subtype: Capital Protection Certificates (35)",
+  [36] = "Product Subtype: Bonus Certificates (36)",
+  [37] = "Product Subtype: Reverse Convertible Certificates (37)",
+  [38] = "Product Subtype: Express Certificates (38)",
+  [39] = "Product Subtype: Discount Certificates (39)",
+  [40] = "Product Subtype: Index Tracker Certificates (40)",
+  [41] = "Product Subtype: Other Investment Certificates (41)",
+  [42] = "Product Subtype: Structured Notes (42)",
+  [43] = "Product Subtype: Reference Rate (43)",
+  [44] = "Product Subtype: Interest Rate (44)",
+  [45] = "Product Subtype: Exchange Rate (45)",
+  [46] = "Product Subtype: Price Index (46)",
+  [47] = "Product Subtype: Total Return Index (47)",
+  [48] = "Product Subtype: Sector Price Index (48)",
+  [49] = "Product Subtype: Sector Total Return Index (49)",
+  [50] = "Product Subtype: Dividend Index (50)",
+  [51] = "Product Subtype: Strategy Price Index (51)",
+  [52] = "Product Subtype: Strategy Total Return Index (52)",
+  [53] = "Product Subtype: Commodity Index (53)",
+  [54] = "Product Subtype: Bond Total Return Index (54)",
+  [55] = "Product Subtype: Supranational Bond (55)",
+  [56] = "Product Subtype: Warrant With Knock Out (56)",
+}
 
-  return "Product Subtype: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.product_subtype.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.product_subtype.labels[value] or "Product Subtype: Unknown("..value..")"
 end
 
 -- Dissect: Product Subtype
@@ -7856,33 +5860,19 @@ gpw_wse_replaybbo_wats_v1_7_6_20.product_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.product_type.size = 1
 
 -- Display: Product Type
-gpw_wse_replaybbo_wats_v1_7_6_20.product_type.display = function(value)
-  if value == 1 then
-    return "Product Type: Equity (1)"
-  end
-  if value == 2 then
-    return "Product Type: Fixed Income (2)"
-  end
-  if value == 3 then
-    return "Product Type: Derivative Futures (3)"
-  end
-  if value == 4 then
-    return "Product Type: Derivative Options (4)"
-  end
-  if value == 5 then
-    return "Product Type: Index (5)"
-  end
-  if value == 6 then
-    return "Product Type: Currency (6)"
-  end
-  if value == 7 then
-    return "Product Type: Structured Product (7)"
-  end
-  if value == 9 then
-    return "Product Type: Tracker (9)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.product_type.labels = {
+  [1] = "Product Type: Equity (1)",
+  [2] = "Product Type: Fixed Income (2)",
+  [3] = "Product Type: Derivative Futures (3)",
+  [4] = "Product Type: Derivative Options (4)",
+  [5] = "Product Type: Index (5)",
+  [6] = "Product Type: Currency (6)",
+  [7] = "Product Type: Structured Product (7)",
+  [9] = "Product Type: Tracker (9)",
+}
 
-  return "Product Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.product_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -7974,21 +5964,15 @@ gpw_wse_replaybbo_wats_v1_7_6_20.quotation_system = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.quotation_system.size = 1
 
 -- Display: Quotation System
-gpw_wse_replaybbo_wats_v1_7_6_20.quotation_system.display = function(value)
-  if value == 1 then
-    return "Quotation System: Na (1)"
-  end
-  if value == 2 then
-    return "Quotation System: Single Price Single Fixing (2)"
-  end
-  if value == 3 then
-    return "Quotation System: Continuous Trading (3)"
-  end
-  if value == 4 then
-    return "Quotation System: Single Price Two Fixings (4)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.quotation_system.labels = {
+  [1] = "Quotation System: Na (1)",
+  [2] = "Quotation System: Single Price Single Fixing (2)",
+  [3] = "Quotation System: Continuous Trading (3)",
+  [4] = "Quotation System: Single Price Two Fixings (4)",
+}
 
-  return "Quotation System: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.quotation_system.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.quotation_system.labels[value] or "Quotation System: Unknown("..value..")"
 end
 
 -- Dissect: Quotation System
@@ -8085,12 +6069,12 @@ gpw_wse_replaybbo_wats_v1_7_6_20.replay_message_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.replay_message_type.size = 2
 
 -- Display: Replay Message Type
-gpw_wse_replaybbo_wats_v1_7_6_20.replay_message_type.display = function(value)
-  if value == 1 then
-    return "Replay Message Type: Replay Request (1)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.replay_message_type.labels = {
+  [1] = "Replay Message Type: Replay Request (1)",
+}
 
-  return "Replay Message Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.replay_message_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.replay_message_type.labels[value] or "Replay Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Replay Message Type
@@ -8447,18 +6431,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.settlement_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.settlement_type.size = 1
 
 -- Display: Settlement Type
-gpw_wse_replaybbo_wats_v1_7_6_20.settlement_type.display = function(value)
-  if value == 1 then
-    return "Settlement Type: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Settlement Type: Cash Settlement (2)"
-  end
-  if value == 3 then
-    return "Settlement Type: Physical Delivery (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.settlement_type.labels = {
+  [1] = "Settlement Type: Not Applicable (1)",
+  [2] = "Settlement Type: Cash Settlement (2)",
+  [3] = "Settlement Type: Physical Delivery (3)",
+}
 
-  return "Settlement Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.settlement_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.settlement_type.labels[value] or "Settlement Type: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Type
@@ -8538,15 +6518,13 @@ gpw_wse_replaybbo_wats_v1_7_6_20.side = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.side.size = 1
 
 -- Display: Side
-gpw_wse_replaybbo_wats_v1_7_6_20.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
 
-  return "Side: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.side.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -8638,36 +6616,20 @@ gpw_wse_replaybbo_wats_v1_7_6_20.status = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.status.size = 1
 
 -- Display: Status
-gpw_wse_replaybbo_wats_v1_7_6_20.status.display = function(value)
-  if value == 1 then
-    return "Status: Active (1)"
-  end
-  if value == 2 then
-    return "Status: Inactive (2)"
-  end
-  if value == 3 then
-    return "Status: Market Operations Suspension (3)"
-  end
-  if value == 4 then
-    return "Status: Outside Collars Static (4)"
-  end
-  if value == 5 then
-    return "Status: Outside Collars Dynamic (5)"
-  end
-  if value == 6 then
-    return "Status: Regulatory Suspension (6)"
-  end
-  if value == 8 then
-    return "Status: Hybrid No Quotes (8)"
-  end
-  if value == 9 then
-    return "Status: Hybrid Knockout (9)"
-  end
-  if value == 10 then
-    return "Status: Hybrid Knockout By Issuer (10)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.status.labels = {
+  [1] = "Status: Active (1)",
+  [2] = "Status: Inactive (2)",
+  [3] = "Status: Market Operations Suspension (3)",
+  [4] = "Status: Outside Collars Static (4)",
+  [5] = "Status: Outside Collars Dynamic (5)",
+  [6] = "Status: Regulatory Suspension (6)",
+  [8] = "Status: Hybrid No Quotes (8)",
+  [9] = "Status: Hybrid Knockout (9)",
+  [10] = "Status: Hybrid Knockout By Issuer (10)",
+}
 
-  return "Status: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.status.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -8764,549 +6726,191 @@ gpw_wse_replaybbo_wats_v1_7_6_20.strike_price_currency = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.strike_price_currency.size = 2
 
 -- Display: Strike Price Currency
-gpw_wse_replaybbo_wats_v1_7_6_20.strike_price_currency.display = function(value)
-  if value == 8 then
-    return "Strike Price Currency: All (8)"
-  end
-  if value == 12 then
-    return "Strike Price Currency: Dzd (12)"
-  end
-  if value == 32 then
-    return "Strike Price Currency: Ars (32)"
-  end
-  if value == 36 then
-    return "Strike Price Currency: Aud (36)"
-  end
-  if value == 44 then
-    return "Strike Price Currency: Bsd (44)"
-  end
-  if value == 48 then
-    return "Strike Price Currency: Bhd (48)"
-  end
-  if value == 50 then
-    return "Strike Price Currency: Bdt (50)"
-  end
-  if value == 51 then
-    return "Strike Price Currency: Amd (51)"
-  end
-  if value == 52 then
-    return "Strike Price Currency: Bbd (52)"
-  end
-  if value == 60 then
-    return "Strike Price Currency: Bmd (60)"
-  end
-  if value == 64 then
-    return "Strike Price Currency: Btn (64)"
-  end
-  if value == 68 then
-    return "Strike Price Currency: Bob (68)"
-  end
-  if value == 72 then
-    return "Strike Price Currency: Bwp (72)"
-  end
-  if value == 84 then
-    return "Strike Price Currency: Bzd (84)"
-  end
-  if value == 90 then
-    return "Strike Price Currency: Sbd (90)"
-  end
-  if value == 96 then
-    return "Strike Price Currency: Bnd (96)"
-  end
-  if value == 104 then
-    return "Strike Price Currency: Mmk (104)"
-  end
-  if value == 108 then
-    return "Strike Price Currency: Bif (108)"
-  end
-  if value == 116 then
-    return "Strike Price Currency: Khr (116)"
-  end
-  if value == 124 then
-    return "Strike Price Currency: Cad (124)"
-  end
-  if value == 132 then
-    return "Strike Price Currency: Cve (132)"
-  end
-  if value == 136 then
-    return "Strike Price Currency: Kyd (136)"
-  end
-  if value == 144 then
-    return "Strike Price Currency: Lkr (144)"
-  end
-  if value == 152 then
-    return "Strike Price Currency: Clp (152)"
-  end
-  if value == 156 then
-    return "Strike Price Currency: Cny (156)"
-  end
-  if value == 170 then
-    return "Strike Price Currency: Cop (170)"
-  end
-  if value == 174 then
-    return "Strike Price Currency: Kmf (174)"
-  end
-  if value == 188 then
-    return "Strike Price Currency: Crc (188)"
-  end
-  if value == 191 then
-    return "Strike Price Currency: Hrk (191)"
-  end
-  if value == 192 then
-    return "Strike Price Currency: Cup (192)"
-  end
-  if value == 203 then
-    return "Strike Price Currency: Czk (203)"
-  end
-  if value == 208 then
-    return "Strike Price Currency: Dkk (208)"
-  end
-  if value == 214 then
-    return "Strike Price Currency: Dop (214)"
-  end
-  if value == 222 then
-    return "Strike Price Currency: Svc (222)"
-  end
-  if value == 230 then
-    return "Strike Price Currency: Etb (230)"
-  end
-  if value == 232 then
-    return "Strike Price Currency: Ern (232)"
-  end
-  if value == 238 then
-    return "Strike Price Currency: Fkp (238)"
-  end
-  if value == 242 then
-    return "Strike Price Currency: Fjd (242)"
-  end
-  if value == 262 then
-    return "Strike Price Currency: Djf (262)"
-  end
-  if value == 270 then
-    return "Strike Price Currency: Gmd (270)"
-  end
-  if value == 292 then
-    return "Strike Price Currency: Gip (292)"
-  end
-  if value == 320 then
-    return "Strike Price Currency: Gtq (320)"
-  end
-  if value == 324 then
-    return "Strike Price Currency: Gnf (324)"
-  end
-  if value == 328 then
-    return "Strike Price Currency: Gyd (328)"
-  end
-  if value == 332 then
-    return "Strike Price Currency: Htg (332)"
-  end
-  if value == 340 then
-    return "Strike Price Currency: Hnl (340)"
-  end
-  if value == 344 then
-    return "Strike Price Currency: Hkd (344)"
-  end
-  if value == 348 then
-    return "Strike Price Currency: Huf (348)"
-  end
-  if value == 352 then
-    return "Strike Price Currency: Isk (352)"
-  end
-  if value == 356 then
-    return "Strike Price Currency: Inr (356)"
-  end
-  if value == 360 then
-    return "Strike Price Currency: Idr (360)"
-  end
-  if value == 364 then
-    return "Strike Price Currency: Irr (364)"
-  end
-  if value == 368 then
-    return "Strike Price Currency: Iqd (368)"
-  end
-  if value == 376 then
-    return "Strike Price Currency: Ils (376)"
-  end
-  if value == 388 then
-    return "Strike Price Currency: Jmd (388)"
-  end
-  if value == 392 then
-    return "Strike Price Currency: Jpy (392)"
-  end
-  if value == 398 then
-    return "Strike Price Currency: Kzt (398)"
-  end
-  if value == 400 then
-    return "Strike Price Currency: Jod (400)"
-  end
-  if value == 404 then
-    return "Strike Price Currency: Kes (404)"
-  end
-  if value == 408 then
-    return "Strike Price Currency: Kpw (408)"
-  end
-  if value == 410 then
-    return "Strike Price Currency: Krw (410)"
-  end
-  if value == 414 then
-    return "Strike Price Currency: Kwd (414)"
-  end
-  if value == 417 then
-    return "Strike Price Currency: Kgs (417)"
-  end
-  if value == 418 then
-    return "Strike Price Currency: Lak (418)"
-  end
-  if value == 422 then
-    return "Strike Price Currency: Lbp (422)"
-  end
-  if value == 426 then
-    return "Strike Price Currency: Lsl (426)"
-  end
-  if value == 430 then
-    return "Strike Price Currency: Lrd (430)"
-  end
-  if value == 434 then
-    return "Strike Price Currency: Lyd (434)"
-  end
-  if value == 446 then
-    return "Strike Price Currency: Mop (446)"
-  end
-  if value == 454 then
-    return "Strike Price Currency: Mwk (454)"
-  end
-  if value == 458 then
-    return "Strike Price Currency: Myr (458)"
-  end
-  if value == 462 then
-    return "Strike Price Currency: Mvr (462)"
-  end
-  if value == 480 then
-    return "Strike Price Currency: Mur (480)"
-  end
-  if value == 484 then
-    return "Strike Price Currency: Mxn (484)"
-  end
-  if value == 496 then
-    return "Strike Price Currency: Mnt (496)"
-  end
-  if value == 498 then
-    return "Strike Price Currency: Mdl (498)"
-  end
-  if value == 504 then
-    return "Strike Price Currency: Mad (504)"
-  end
-  if value == 512 then
-    return "Strike Price Currency: Omr (512)"
-  end
-  if value == 516 then
-    return "Strike Price Currency: Nad (516)"
-  end
-  if value == 524 then
-    return "Strike Price Currency: Npr (524)"
-  end
-  if value == 532 then
-    return "Strike Price Currency: Ang (532)"
-  end
-  if value == 533 then
-    return "Strike Price Currency: Awg (533)"
-  end
-  if value == 548 then
-    return "Strike Price Currency: Vuv (548)"
-  end
-  if value == 554 then
-    return "Strike Price Currency: Nzd (554)"
-  end
-  if value == 558 then
-    return "Strike Price Currency: Nio (558)"
-  end
-  if value == 566 then
-    return "Strike Price Currency: Ngn (566)"
-  end
-  if value == 578 then
-    return "Strike Price Currency: Nok (578)"
-  end
-  if value == 586 then
-    return "Strike Price Currency: Pkr (586)"
-  end
-  if value == 590 then
-    return "Strike Price Currency: Pab (590)"
-  end
-  if value == 598 then
-    return "Strike Price Currency: Pgk (598)"
-  end
-  if value == 600 then
-    return "Strike Price Currency: Pyg (600)"
-  end
-  if value == 604 then
-    return "Strike Price Currency: Pen (604)"
-  end
-  if value == 608 then
-    return "Strike Price Currency: Php (608)"
-  end
-  if value == 634 then
-    return "Strike Price Currency: Qar (634)"
-  end
-  if value == 643 then
-    return "Strike Price Currency: Rub (643)"
-  end
-  if value == 646 then
-    return "Strike Price Currency: Rwf (646)"
-  end
-  if value == 654 then
-    return "Strike Price Currency: Shp (654)"
-  end
-  if value == 682 then
-    return "Strike Price Currency: Sar (682)"
-  end
-  if value == 690 then
-    return "Strike Price Currency: Scr (690)"
-  end
-  if value == 702 then
-    return "Strike Price Currency: Sgd (702)"
-  end
-  if value == 704 then
-    return "Strike Price Currency: Vnd (704)"
-  end
-  if value == 706 then
-    return "Strike Price Currency: Sos (706)"
-  end
-  if value == 710 then
-    return "Strike Price Currency: Zar (710)"
-  end
-  if value == 728 then
-    return "Strike Price Currency: Ssp (728)"
-  end
-  if value == 748 then
-    return "Strike Price Currency: Szl (748)"
-  end
-  if value == 752 then
-    return "Strike Price Currency: Sek (752)"
-  end
-  if value == 756 then
-    return "Strike Price Currency: Chf (756)"
-  end
-  if value == 760 then
-    return "Strike Price Currency: Syp (760)"
-  end
-  if value == 764 then
-    return "Strike Price Currency: Thb (764)"
-  end
-  if value == 776 then
-    return "Strike Price Currency: Top (776)"
-  end
-  if value == 780 then
-    return "Strike Price Currency: Ttd (780)"
-  end
-  if value == 784 then
-    return "Strike Price Currency: Aed (784)"
-  end
-  if value == 788 then
-    return "Strike Price Currency: Tnd (788)"
-  end
-  if value == 800 then
-    return "Strike Price Currency: Ugx (800)"
-  end
-  if value == 807 then
-    return "Strike Price Currency: Mkd (807)"
-  end
-  if value == 818 then
-    return "Strike Price Currency: Egp (818)"
-  end
-  if value == 826 then
-    return "Strike Price Currency: Gbp (826)"
-  end
-  if value == 834 then
-    return "Strike Price Currency: Tzs (834)"
-  end
-  if value == 840 then
-    return "Strike Price Currency: Usd (840)"
-  end
-  if value == 858 then
-    return "Strike Price Currency: Uyu (858)"
-  end
-  if value == 860 then
-    return "Strike Price Currency: Uzs (860)"
-  end
-  if value == 882 then
-    return "Strike Price Currency: Wst (882)"
-  end
-  if value == 886 then
-    return "Strike Price Currency: Yer (886)"
-  end
-  if value == 901 then
-    return "Strike Price Currency: Twd (901)"
-  end
-  if value == 925 then
-    return "Strike Price Currency: Sle (925)"
-  end
-  if value == 926 then
-    return "Strike Price Currency: Ved (926)"
-  end
-  if value == 927 then
-    return "Strike Price Currency: Uyw (927)"
-  end
-  if value == 928 then
-    return "Strike Price Currency: Ves (928)"
-  end
-  if value == 929 then
-    return "Strike Price Currency: Mru (929)"
-  end
-  if value == 930 then
-    return "Strike Price Currency: Stn (930)"
-  end
-  if value == 931 then
-    return "Strike Price Currency: Cuc (931)"
-  end
-  if value == 932 then
-    return "Strike Price Currency: Zwl (932)"
-  end
-  if value == 933 then
-    return "Strike Price Currency: Byn (933)"
-  end
-  if value == 934 then
-    return "Strike Price Currency: Tmt (934)"
-  end
-  if value == 936 then
-    return "Strike Price Currency: Ghs (936)"
-  end
-  if value == 938 then
-    return "Strike Price Currency: Sdg (938)"
-  end
-  if value == 940 then
-    return "Strike Price Currency: Uyi (940)"
-  end
-  if value == 941 then
-    return "Strike Price Currency: Rsd (941)"
-  end
-  if value == 943 then
-    return "Strike Price Currency: Mzn (943)"
-  end
-  if value == 944 then
-    return "Strike Price Currency: Azn (944)"
-  end
-  if value == 946 then
-    return "Strike Price Currency: Ron (946)"
-  end
-  if value == 947 then
-    return "Strike Price Currency: Che (947)"
-  end
-  if value == 948 then
-    return "Strike Price Currency: Chw (948)"
-  end
-  if value == 949 then
-    return "Strike Price Currency: Try (949)"
-  end
-  if value == 950 then
-    return "Strike Price Currency: Xaf (950)"
-  end
-  if value == 951 then
-    return "Strike Price Currency: Xcd (951)"
-  end
-  if value == 952 then
-    return "Strike Price Currency: Xof (952)"
-  end
-  if value == 953 then
-    return "Strike Price Currency: Xpf (953)"
-  end
-  if value == 955 then
-    return "Strike Price Currency: Xba (955)"
-  end
-  if value == 956 then
-    return "Strike Price Currency: Xbb (956)"
-  end
-  if value == 957 then
-    return "Strike Price Currency: Xbc (957)"
-  end
-  if value == 958 then
-    return "Strike Price Currency: Xbd (958)"
-  end
-  if value == 959 then
-    return "Strike Price Currency: Xau (959)"
-  end
-  if value == 960 then
-    return "Strike Price Currency: Xdr (960)"
-  end
-  if value == 961 then
-    return "Strike Price Currency: Xag (961)"
-  end
-  if value == 962 then
-    return "Strike Price Currency: Xpt (962)"
-  end
-  if value == 963 then
-    return "Strike Price Currency: Xts (963)"
-  end
-  if value == 964 then
-    return "Strike Price Currency: Xpd (964)"
-  end
-  if value == 965 then
-    return "Strike Price Currency: Xua (965)"
-  end
-  if value == 967 then
-    return "Strike Price Currency: Zmw (967)"
-  end
-  if value == 968 then
-    return "Strike Price Currency: Srd (968)"
-  end
-  if value == 969 then
-    return "Strike Price Currency: Mga (969)"
-  end
-  if value == 970 then
-    return "Strike Price Currency: Cou (970)"
-  end
-  if value == 971 then
-    return "Strike Price Currency: Afn (971)"
-  end
-  if value == 972 then
-    return "Strike Price Currency: Tjs (972)"
-  end
-  if value == 973 then
-    return "Strike Price Currency: Aoa (973)"
-  end
-  if value == 975 then
-    return "Strike Price Currency: Bgn (975)"
-  end
-  if value == 976 then
-    return "Strike Price Currency: Cdf (976)"
-  end
-  if value == 977 then
-    return "Strike Price Currency: Bam (977)"
-  end
-  if value == 978 then
-    return "Strike Price Currency: Eur (978)"
-  end
-  if value == 979 then
-    return "Strike Price Currency: Mxv (979)"
-  end
-  if value == 980 then
-    return "Strike Price Currency: Uah (980)"
-  end
-  if value == 981 then
-    return "Strike Price Currency: Gel (981)"
-  end
-  if value == 984 then
-    return "Strike Price Currency: Bov (984)"
-  end
-  if value == 985 then
-    return "Strike Price Currency: Pln (985)"
-  end
-  if value == 986 then
-    return "Strike Price Currency: Brl (986)"
-  end
-  if value == 990 then
-    return "Strike Price Currency: Clf (990)"
-  end
-  if value == 994 then
-    return "Strike Price Currency: Xsu (994)"
-  end
-  if value == 997 then
-    return "Strike Price Currency: Usn (997)"
-  end
-  if value == 999 then
-    return "Strike Price Currency: Xxx (999)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.strike_price_currency.labels = {
+  [8] = "Strike Price Currency: All (8)",
+  [12] = "Strike Price Currency: Dzd (12)",
+  [32] = "Strike Price Currency: Ars (32)",
+  [36] = "Strike Price Currency: Aud (36)",
+  [44] = "Strike Price Currency: Bsd (44)",
+  [48] = "Strike Price Currency: Bhd (48)",
+  [50] = "Strike Price Currency: Bdt (50)",
+  [51] = "Strike Price Currency: Amd (51)",
+  [52] = "Strike Price Currency: Bbd (52)",
+  [60] = "Strike Price Currency: Bmd (60)",
+  [64] = "Strike Price Currency: Btn (64)",
+  [68] = "Strike Price Currency: Bob (68)",
+  [72] = "Strike Price Currency: Bwp (72)",
+  [84] = "Strike Price Currency: Bzd (84)",
+  [90] = "Strike Price Currency: Sbd (90)",
+  [96] = "Strike Price Currency: Bnd (96)",
+  [104] = "Strike Price Currency: Mmk (104)",
+  [108] = "Strike Price Currency: Bif (108)",
+  [116] = "Strike Price Currency: Khr (116)",
+  [124] = "Strike Price Currency: Cad (124)",
+  [132] = "Strike Price Currency: Cve (132)",
+  [136] = "Strike Price Currency: Kyd (136)",
+  [144] = "Strike Price Currency: Lkr (144)",
+  [152] = "Strike Price Currency: Clp (152)",
+  [156] = "Strike Price Currency: Cny (156)",
+  [170] = "Strike Price Currency: Cop (170)",
+  [174] = "Strike Price Currency: Kmf (174)",
+  [188] = "Strike Price Currency: Crc (188)",
+  [191] = "Strike Price Currency: Hrk (191)",
+  [192] = "Strike Price Currency: Cup (192)",
+  [203] = "Strike Price Currency: Czk (203)",
+  [208] = "Strike Price Currency: Dkk (208)",
+  [214] = "Strike Price Currency: Dop (214)",
+  [222] = "Strike Price Currency: Svc (222)",
+  [230] = "Strike Price Currency: Etb (230)",
+  [232] = "Strike Price Currency: Ern (232)",
+  [238] = "Strike Price Currency: Fkp (238)",
+  [242] = "Strike Price Currency: Fjd (242)",
+  [262] = "Strike Price Currency: Djf (262)",
+  [270] = "Strike Price Currency: Gmd (270)",
+  [292] = "Strike Price Currency: Gip (292)",
+  [320] = "Strike Price Currency: Gtq (320)",
+  [324] = "Strike Price Currency: Gnf (324)",
+  [328] = "Strike Price Currency: Gyd (328)",
+  [332] = "Strike Price Currency: Htg (332)",
+  [340] = "Strike Price Currency: Hnl (340)",
+  [344] = "Strike Price Currency: Hkd (344)",
+  [348] = "Strike Price Currency: Huf (348)",
+  [352] = "Strike Price Currency: Isk (352)",
+  [356] = "Strike Price Currency: Inr (356)",
+  [360] = "Strike Price Currency: Idr (360)",
+  [364] = "Strike Price Currency: Irr (364)",
+  [368] = "Strike Price Currency: Iqd (368)",
+  [376] = "Strike Price Currency: Ils (376)",
+  [388] = "Strike Price Currency: Jmd (388)",
+  [392] = "Strike Price Currency: Jpy (392)",
+  [398] = "Strike Price Currency: Kzt (398)",
+  [400] = "Strike Price Currency: Jod (400)",
+  [404] = "Strike Price Currency: Kes (404)",
+  [408] = "Strike Price Currency: Kpw (408)",
+  [410] = "Strike Price Currency: Krw (410)",
+  [414] = "Strike Price Currency: Kwd (414)",
+  [417] = "Strike Price Currency: Kgs (417)",
+  [418] = "Strike Price Currency: Lak (418)",
+  [422] = "Strike Price Currency: Lbp (422)",
+  [426] = "Strike Price Currency: Lsl (426)",
+  [430] = "Strike Price Currency: Lrd (430)",
+  [434] = "Strike Price Currency: Lyd (434)",
+  [446] = "Strike Price Currency: Mop (446)",
+  [454] = "Strike Price Currency: Mwk (454)",
+  [458] = "Strike Price Currency: Myr (458)",
+  [462] = "Strike Price Currency: Mvr (462)",
+  [480] = "Strike Price Currency: Mur (480)",
+  [484] = "Strike Price Currency: Mxn (484)",
+  [496] = "Strike Price Currency: Mnt (496)",
+  [498] = "Strike Price Currency: Mdl (498)",
+  [504] = "Strike Price Currency: Mad (504)",
+  [512] = "Strike Price Currency: Omr (512)",
+  [516] = "Strike Price Currency: Nad (516)",
+  [524] = "Strike Price Currency: Npr (524)",
+  [532] = "Strike Price Currency: Ang (532)",
+  [533] = "Strike Price Currency: Awg (533)",
+  [548] = "Strike Price Currency: Vuv (548)",
+  [554] = "Strike Price Currency: Nzd (554)",
+  [558] = "Strike Price Currency: Nio (558)",
+  [566] = "Strike Price Currency: Ngn (566)",
+  [578] = "Strike Price Currency: Nok (578)",
+  [586] = "Strike Price Currency: Pkr (586)",
+  [590] = "Strike Price Currency: Pab (590)",
+  [598] = "Strike Price Currency: Pgk (598)",
+  [600] = "Strike Price Currency: Pyg (600)",
+  [604] = "Strike Price Currency: Pen (604)",
+  [608] = "Strike Price Currency: Php (608)",
+  [634] = "Strike Price Currency: Qar (634)",
+  [643] = "Strike Price Currency: Rub (643)",
+  [646] = "Strike Price Currency: Rwf (646)",
+  [654] = "Strike Price Currency: Shp (654)",
+  [682] = "Strike Price Currency: Sar (682)",
+  [690] = "Strike Price Currency: Scr (690)",
+  [702] = "Strike Price Currency: Sgd (702)",
+  [704] = "Strike Price Currency: Vnd (704)",
+  [706] = "Strike Price Currency: Sos (706)",
+  [710] = "Strike Price Currency: Zar (710)",
+  [728] = "Strike Price Currency: Ssp (728)",
+  [748] = "Strike Price Currency: Szl (748)",
+  [752] = "Strike Price Currency: Sek (752)",
+  [756] = "Strike Price Currency: Chf (756)",
+  [760] = "Strike Price Currency: Syp (760)",
+  [764] = "Strike Price Currency: Thb (764)",
+  [776] = "Strike Price Currency: Top (776)",
+  [780] = "Strike Price Currency: Ttd (780)",
+  [784] = "Strike Price Currency: Aed (784)",
+  [788] = "Strike Price Currency: Tnd (788)",
+  [800] = "Strike Price Currency: Ugx (800)",
+  [807] = "Strike Price Currency: Mkd (807)",
+  [818] = "Strike Price Currency: Egp (818)",
+  [826] = "Strike Price Currency: Gbp (826)",
+  [834] = "Strike Price Currency: Tzs (834)",
+  [840] = "Strike Price Currency: Usd (840)",
+  [858] = "Strike Price Currency: Uyu (858)",
+  [860] = "Strike Price Currency: Uzs (860)",
+  [882] = "Strike Price Currency: Wst (882)",
+  [886] = "Strike Price Currency: Yer (886)",
+  [901] = "Strike Price Currency: Twd (901)",
+  [925] = "Strike Price Currency: Sle (925)",
+  [926] = "Strike Price Currency: Ved (926)",
+  [927] = "Strike Price Currency: Uyw (927)",
+  [928] = "Strike Price Currency: Ves (928)",
+  [929] = "Strike Price Currency: Mru (929)",
+  [930] = "Strike Price Currency: Stn (930)",
+  [931] = "Strike Price Currency: Cuc (931)",
+  [932] = "Strike Price Currency: Zwl (932)",
+  [933] = "Strike Price Currency: Byn (933)",
+  [934] = "Strike Price Currency: Tmt (934)",
+  [936] = "Strike Price Currency: Ghs (936)",
+  [938] = "Strike Price Currency: Sdg (938)",
+  [940] = "Strike Price Currency: Uyi (940)",
+  [941] = "Strike Price Currency: Rsd (941)",
+  [943] = "Strike Price Currency: Mzn (943)",
+  [944] = "Strike Price Currency: Azn (944)",
+  [946] = "Strike Price Currency: Ron (946)",
+  [947] = "Strike Price Currency: Che (947)",
+  [948] = "Strike Price Currency: Chw (948)",
+  [949] = "Strike Price Currency: Try (949)",
+  [950] = "Strike Price Currency: Xaf (950)",
+  [951] = "Strike Price Currency: Xcd (951)",
+  [952] = "Strike Price Currency: Xof (952)",
+  [953] = "Strike Price Currency: Xpf (953)",
+  [955] = "Strike Price Currency: Xba (955)",
+  [956] = "Strike Price Currency: Xbb (956)",
+  [957] = "Strike Price Currency: Xbc (957)",
+  [958] = "Strike Price Currency: Xbd (958)",
+  [959] = "Strike Price Currency: Xau (959)",
+  [960] = "Strike Price Currency: Xdr (960)",
+  [961] = "Strike Price Currency: Xag (961)",
+  [962] = "Strike Price Currency: Xpt (962)",
+  [963] = "Strike Price Currency: Xts (963)",
+  [964] = "Strike Price Currency: Xpd (964)",
+  [965] = "Strike Price Currency: Xua (965)",
+  [967] = "Strike Price Currency: Zmw (967)",
+  [968] = "Strike Price Currency: Srd (968)",
+  [969] = "Strike Price Currency: Mga (969)",
+  [970] = "Strike Price Currency: Cou (970)",
+  [971] = "Strike Price Currency: Afn (971)",
+  [972] = "Strike Price Currency: Tjs (972)",
+  [973] = "Strike Price Currency: Aoa (973)",
+  [975] = "Strike Price Currency: Bgn (975)",
+  [976] = "Strike Price Currency: Cdf (976)",
+  [977] = "Strike Price Currency: Bam (977)",
+  [978] = "Strike Price Currency: Eur (978)",
+  [979] = "Strike Price Currency: Mxv (979)",
+  [980] = "Strike Price Currency: Uah (980)",
+  [981] = "Strike Price Currency: Gel (981)",
+  [984] = "Strike Price Currency: Bov (984)",
+  [985] = "Strike Price Currency: Pln (985)",
+  [986] = "Strike Price Currency: Brl (986)",
+  [990] = "Strike Price Currency: Clf (990)",
+  [994] = "Strike Price Currency: Xsu (994)",
+  [997] = "Strike Price Currency: Usn (997)",
+  [999] = "Strike Price Currency: Xxx (999)",
+}
 
-  return "Strike Price Currency: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.strike_price_currency.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.strike_price_currency.labels[value] or "Strike Price Currency: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Currency
@@ -9796,549 +7400,191 @@ gpw_wse_replaybbo_wats_v1_7_6_20.trading_currency = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.trading_currency.size = 2
 
 -- Display: Trading Currency
-gpw_wse_replaybbo_wats_v1_7_6_20.trading_currency.display = function(value)
-  if value == 8 then
-    return "Trading Currency: All (8)"
-  end
-  if value == 12 then
-    return "Trading Currency: Dzd (12)"
-  end
-  if value == 32 then
-    return "Trading Currency: Ars (32)"
-  end
-  if value == 36 then
-    return "Trading Currency: Aud (36)"
-  end
-  if value == 44 then
-    return "Trading Currency: Bsd (44)"
-  end
-  if value == 48 then
-    return "Trading Currency: Bhd (48)"
-  end
-  if value == 50 then
-    return "Trading Currency: Bdt (50)"
-  end
-  if value == 51 then
-    return "Trading Currency: Amd (51)"
-  end
-  if value == 52 then
-    return "Trading Currency: Bbd (52)"
-  end
-  if value == 60 then
-    return "Trading Currency: Bmd (60)"
-  end
-  if value == 64 then
-    return "Trading Currency: Btn (64)"
-  end
-  if value == 68 then
-    return "Trading Currency: Bob (68)"
-  end
-  if value == 72 then
-    return "Trading Currency: Bwp (72)"
-  end
-  if value == 84 then
-    return "Trading Currency: Bzd (84)"
-  end
-  if value == 90 then
-    return "Trading Currency: Sbd (90)"
-  end
-  if value == 96 then
-    return "Trading Currency: Bnd (96)"
-  end
-  if value == 104 then
-    return "Trading Currency: Mmk (104)"
-  end
-  if value == 108 then
-    return "Trading Currency: Bif (108)"
-  end
-  if value == 116 then
-    return "Trading Currency: Khr (116)"
-  end
-  if value == 124 then
-    return "Trading Currency: Cad (124)"
-  end
-  if value == 132 then
-    return "Trading Currency: Cve (132)"
-  end
-  if value == 136 then
-    return "Trading Currency: Kyd (136)"
-  end
-  if value == 144 then
-    return "Trading Currency: Lkr (144)"
-  end
-  if value == 152 then
-    return "Trading Currency: Clp (152)"
-  end
-  if value == 156 then
-    return "Trading Currency: Cny (156)"
-  end
-  if value == 170 then
-    return "Trading Currency: Cop (170)"
-  end
-  if value == 174 then
-    return "Trading Currency: Kmf (174)"
-  end
-  if value == 188 then
-    return "Trading Currency: Crc (188)"
-  end
-  if value == 191 then
-    return "Trading Currency: Hrk (191)"
-  end
-  if value == 192 then
-    return "Trading Currency: Cup (192)"
-  end
-  if value == 203 then
-    return "Trading Currency: Czk (203)"
-  end
-  if value == 208 then
-    return "Trading Currency: Dkk (208)"
-  end
-  if value == 214 then
-    return "Trading Currency: Dop (214)"
-  end
-  if value == 222 then
-    return "Trading Currency: Svc (222)"
-  end
-  if value == 230 then
-    return "Trading Currency: Etb (230)"
-  end
-  if value == 232 then
-    return "Trading Currency: Ern (232)"
-  end
-  if value == 238 then
-    return "Trading Currency: Fkp (238)"
-  end
-  if value == 242 then
-    return "Trading Currency: Fjd (242)"
-  end
-  if value == 262 then
-    return "Trading Currency: Djf (262)"
-  end
-  if value == 270 then
-    return "Trading Currency: Gmd (270)"
-  end
-  if value == 292 then
-    return "Trading Currency: Gip (292)"
-  end
-  if value == 320 then
-    return "Trading Currency: Gtq (320)"
-  end
-  if value == 324 then
-    return "Trading Currency: Gnf (324)"
-  end
-  if value == 328 then
-    return "Trading Currency: Gyd (328)"
-  end
-  if value == 332 then
-    return "Trading Currency: Htg (332)"
-  end
-  if value == 340 then
-    return "Trading Currency: Hnl (340)"
-  end
-  if value == 344 then
-    return "Trading Currency: Hkd (344)"
-  end
-  if value == 348 then
-    return "Trading Currency: Huf (348)"
-  end
-  if value == 352 then
-    return "Trading Currency: Isk (352)"
-  end
-  if value == 356 then
-    return "Trading Currency: Inr (356)"
-  end
-  if value == 360 then
-    return "Trading Currency: Idr (360)"
-  end
-  if value == 364 then
-    return "Trading Currency: Irr (364)"
-  end
-  if value == 368 then
-    return "Trading Currency: Iqd (368)"
-  end
-  if value == 376 then
-    return "Trading Currency: Ils (376)"
-  end
-  if value == 388 then
-    return "Trading Currency: Jmd (388)"
-  end
-  if value == 392 then
-    return "Trading Currency: Jpy (392)"
-  end
-  if value == 398 then
-    return "Trading Currency: Kzt (398)"
-  end
-  if value == 400 then
-    return "Trading Currency: Jod (400)"
-  end
-  if value == 404 then
-    return "Trading Currency: Kes (404)"
-  end
-  if value == 408 then
-    return "Trading Currency: Kpw (408)"
-  end
-  if value == 410 then
-    return "Trading Currency: Krw (410)"
-  end
-  if value == 414 then
-    return "Trading Currency: Kwd (414)"
-  end
-  if value == 417 then
-    return "Trading Currency: Kgs (417)"
-  end
-  if value == 418 then
-    return "Trading Currency: Lak (418)"
-  end
-  if value == 422 then
-    return "Trading Currency: Lbp (422)"
-  end
-  if value == 426 then
-    return "Trading Currency: Lsl (426)"
-  end
-  if value == 430 then
-    return "Trading Currency: Lrd (430)"
-  end
-  if value == 434 then
-    return "Trading Currency: Lyd (434)"
-  end
-  if value == 446 then
-    return "Trading Currency: Mop (446)"
-  end
-  if value == 454 then
-    return "Trading Currency: Mwk (454)"
-  end
-  if value == 458 then
-    return "Trading Currency: Myr (458)"
-  end
-  if value == 462 then
-    return "Trading Currency: Mvr (462)"
-  end
-  if value == 480 then
-    return "Trading Currency: Mur (480)"
-  end
-  if value == 484 then
-    return "Trading Currency: Mxn (484)"
-  end
-  if value == 496 then
-    return "Trading Currency: Mnt (496)"
-  end
-  if value == 498 then
-    return "Trading Currency: Mdl (498)"
-  end
-  if value == 504 then
-    return "Trading Currency: Mad (504)"
-  end
-  if value == 512 then
-    return "Trading Currency: Omr (512)"
-  end
-  if value == 516 then
-    return "Trading Currency: Nad (516)"
-  end
-  if value == 524 then
-    return "Trading Currency: Npr (524)"
-  end
-  if value == 532 then
-    return "Trading Currency: Ang (532)"
-  end
-  if value == 533 then
-    return "Trading Currency: Awg (533)"
-  end
-  if value == 548 then
-    return "Trading Currency: Vuv (548)"
-  end
-  if value == 554 then
-    return "Trading Currency: Nzd (554)"
-  end
-  if value == 558 then
-    return "Trading Currency: Nio (558)"
-  end
-  if value == 566 then
-    return "Trading Currency: Ngn (566)"
-  end
-  if value == 578 then
-    return "Trading Currency: Nok (578)"
-  end
-  if value == 586 then
-    return "Trading Currency: Pkr (586)"
-  end
-  if value == 590 then
-    return "Trading Currency: Pab (590)"
-  end
-  if value == 598 then
-    return "Trading Currency: Pgk (598)"
-  end
-  if value == 600 then
-    return "Trading Currency: Pyg (600)"
-  end
-  if value == 604 then
-    return "Trading Currency: Pen (604)"
-  end
-  if value == 608 then
-    return "Trading Currency: Php (608)"
-  end
-  if value == 634 then
-    return "Trading Currency: Qar (634)"
-  end
-  if value == 643 then
-    return "Trading Currency: Rub (643)"
-  end
-  if value == 646 then
-    return "Trading Currency: Rwf (646)"
-  end
-  if value == 654 then
-    return "Trading Currency: Shp (654)"
-  end
-  if value == 682 then
-    return "Trading Currency: Sar (682)"
-  end
-  if value == 690 then
-    return "Trading Currency: Scr (690)"
-  end
-  if value == 702 then
-    return "Trading Currency: Sgd (702)"
-  end
-  if value == 704 then
-    return "Trading Currency: Vnd (704)"
-  end
-  if value == 706 then
-    return "Trading Currency: Sos (706)"
-  end
-  if value == 710 then
-    return "Trading Currency: Zar (710)"
-  end
-  if value == 728 then
-    return "Trading Currency: Ssp (728)"
-  end
-  if value == 748 then
-    return "Trading Currency: Szl (748)"
-  end
-  if value == 752 then
-    return "Trading Currency: Sek (752)"
-  end
-  if value == 756 then
-    return "Trading Currency: Chf (756)"
-  end
-  if value == 760 then
-    return "Trading Currency: Syp (760)"
-  end
-  if value == 764 then
-    return "Trading Currency: Thb (764)"
-  end
-  if value == 776 then
-    return "Trading Currency: Top (776)"
-  end
-  if value == 780 then
-    return "Trading Currency: Ttd (780)"
-  end
-  if value == 784 then
-    return "Trading Currency: Aed (784)"
-  end
-  if value == 788 then
-    return "Trading Currency: Tnd (788)"
-  end
-  if value == 800 then
-    return "Trading Currency: Ugx (800)"
-  end
-  if value == 807 then
-    return "Trading Currency: Mkd (807)"
-  end
-  if value == 818 then
-    return "Trading Currency: Egp (818)"
-  end
-  if value == 826 then
-    return "Trading Currency: Gbp (826)"
-  end
-  if value == 834 then
-    return "Trading Currency: Tzs (834)"
-  end
-  if value == 840 then
-    return "Trading Currency: Usd (840)"
-  end
-  if value == 858 then
-    return "Trading Currency: Uyu (858)"
-  end
-  if value == 860 then
-    return "Trading Currency: Uzs (860)"
-  end
-  if value == 882 then
-    return "Trading Currency: Wst (882)"
-  end
-  if value == 886 then
-    return "Trading Currency: Yer (886)"
-  end
-  if value == 901 then
-    return "Trading Currency: Twd (901)"
-  end
-  if value == 925 then
-    return "Trading Currency: Sle (925)"
-  end
-  if value == 926 then
-    return "Trading Currency: Ved (926)"
-  end
-  if value == 927 then
-    return "Trading Currency: Uyw (927)"
-  end
-  if value == 928 then
-    return "Trading Currency: Ves (928)"
-  end
-  if value == 929 then
-    return "Trading Currency: Mru (929)"
-  end
-  if value == 930 then
-    return "Trading Currency: Stn (930)"
-  end
-  if value == 931 then
-    return "Trading Currency: Cuc (931)"
-  end
-  if value == 932 then
-    return "Trading Currency: Zwl (932)"
-  end
-  if value == 933 then
-    return "Trading Currency: Byn (933)"
-  end
-  if value == 934 then
-    return "Trading Currency: Tmt (934)"
-  end
-  if value == 936 then
-    return "Trading Currency: Ghs (936)"
-  end
-  if value == 938 then
-    return "Trading Currency: Sdg (938)"
-  end
-  if value == 940 then
-    return "Trading Currency: Uyi (940)"
-  end
-  if value == 941 then
-    return "Trading Currency: Rsd (941)"
-  end
-  if value == 943 then
-    return "Trading Currency: Mzn (943)"
-  end
-  if value == 944 then
-    return "Trading Currency: Azn (944)"
-  end
-  if value == 946 then
-    return "Trading Currency: Ron (946)"
-  end
-  if value == 947 then
-    return "Trading Currency: Che (947)"
-  end
-  if value == 948 then
-    return "Trading Currency: Chw (948)"
-  end
-  if value == 949 then
-    return "Trading Currency: Try (949)"
-  end
-  if value == 950 then
-    return "Trading Currency: Xaf (950)"
-  end
-  if value == 951 then
-    return "Trading Currency: Xcd (951)"
-  end
-  if value == 952 then
-    return "Trading Currency: Xof (952)"
-  end
-  if value == 953 then
-    return "Trading Currency: Xpf (953)"
-  end
-  if value == 955 then
-    return "Trading Currency: Xba (955)"
-  end
-  if value == 956 then
-    return "Trading Currency: Xbb (956)"
-  end
-  if value == 957 then
-    return "Trading Currency: Xbc (957)"
-  end
-  if value == 958 then
-    return "Trading Currency: Xbd (958)"
-  end
-  if value == 959 then
-    return "Trading Currency: Xau (959)"
-  end
-  if value == 960 then
-    return "Trading Currency: Xdr (960)"
-  end
-  if value == 961 then
-    return "Trading Currency: Xag (961)"
-  end
-  if value == 962 then
-    return "Trading Currency: Xpt (962)"
-  end
-  if value == 963 then
-    return "Trading Currency: Xts (963)"
-  end
-  if value == 964 then
-    return "Trading Currency: Xpd (964)"
-  end
-  if value == 965 then
-    return "Trading Currency: Xua (965)"
-  end
-  if value == 967 then
-    return "Trading Currency: Zmw (967)"
-  end
-  if value == 968 then
-    return "Trading Currency: Srd (968)"
-  end
-  if value == 969 then
-    return "Trading Currency: Mga (969)"
-  end
-  if value == 970 then
-    return "Trading Currency: Cou (970)"
-  end
-  if value == 971 then
-    return "Trading Currency: Afn (971)"
-  end
-  if value == 972 then
-    return "Trading Currency: Tjs (972)"
-  end
-  if value == 973 then
-    return "Trading Currency: Aoa (973)"
-  end
-  if value == 975 then
-    return "Trading Currency: Bgn (975)"
-  end
-  if value == 976 then
-    return "Trading Currency: Cdf (976)"
-  end
-  if value == 977 then
-    return "Trading Currency: Bam (977)"
-  end
-  if value == 978 then
-    return "Trading Currency: Eur (978)"
-  end
-  if value == 979 then
-    return "Trading Currency: Mxv (979)"
-  end
-  if value == 980 then
-    return "Trading Currency: Uah (980)"
-  end
-  if value == 981 then
-    return "Trading Currency: Gel (981)"
-  end
-  if value == 984 then
-    return "Trading Currency: Bov (984)"
-  end
-  if value == 985 then
-    return "Trading Currency: Pln (985)"
-  end
-  if value == 986 then
-    return "Trading Currency: Brl (986)"
-  end
-  if value == 990 then
-    return "Trading Currency: Clf (990)"
-  end
-  if value == 994 then
-    return "Trading Currency: Xsu (994)"
-  end
-  if value == 997 then
-    return "Trading Currency: Usn (997)"
-  end
-  if value == 999 then
-    return "Trading Currency: Xxx (999)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.trading_currency.labels = {
+  [8] = "Trading Currency: All (8)",
+  [12] = "Trading Currency: Dzd (12)",
+  [32] = "Trading Currency: Ars (32)",
+  [36] = "Trading Currency: Aud (36)",
+  [44] = "Trading Currency: Bsd (44)",
+  [48] = "Trading Currency: Bhd (48)",
+  [50] = "Trading Currency: Bdt (50)",
+  [51] = "Trading Currency: Amd (51)",
+  [52] = "Trading Currency: Bbd (52)",
+  [60] = "Trading Currency: Bmd (60)",
+  [64] = "Trading Currency: Btn (64)",
+  [68] = "Trading Currency: Bob (68)",
+  [72] = "Trading Currency: Bwp (72)",
+  [84] = "Trading Currency: Bzd (84)",
+  [90] = "Trading Currency: Sbd (90)",
+  [96] = "Trading Currency: Bnd (96)",
+  [104] = "Trading Currency: Mmk (104)",
+  [108] = "Trading Currency: Bif (108)",
+  [116] = "Trading Currency: Khr (116)",
+  [124] = "Trading Currency: Cad (124)",
+  [132] = "Trading Currency: Cve (132)",
+  [136] = "Trading Currency: Kyd (136)",
+  [144] = "Trading Currency: Lkr (144)",
+  [152] = "Trading Currency: Clp (152)",
+  [156] = "Trading Currency: Cny (156)",
+  [170] = "Trading Currency: Cop (170)",
+  [174] = "Trading Currency: Kmf (174)",
+  [188] = "Trading Currency: Crc (188)",
+  [191] = "Trading Currency: Hrk (191)",
+  [192] = "Trading Currency: Cup (192)",
+  [203] = "Trading Currency: Czk (203)",
+  [208] = "Trading Currency: Dkk (208)",
+  [214] = "Trading Currency: Dop (214)",
+  [222] = "Trading Currency: Svc (222)",
+  [230] = "Trading Currency: Etb (230)",
+  [232] = "Trading Currency: Ern (232)",
+  [238] = "Trading Currency: Fkp (238)",
+  [242] = "Trading Currency: Fjd (242)",
+  [262] = "Trading Currency: Djf (262)",
+  [270] = "Trading Currency: Gmd (270)",
+  [292] = "Trading Currency: Gip (292)",
+  [320] = "Trading Currency: Gtq (320)",
+  [324] = "Trading Currency: Gnf (324)",
+  [328] = "Trading Currency: Gyd (328)",
+  [332] = "Trading Currency: Htg (332)",
+  [340] = "Trading Currency: Hnl (340)",
+  [344] = "Trading Currency: Hkd (344)",
+  [348] = "Trading Currency: Huf (348)",
+  [352] = "Trading Currency: Isk (352)",
+  [356] = "Trading Currency: Inr (356)",
+  [360] = "Trading Currency: Idr (360)",
+  [364] = "Trading Currency: Irr (364)",
+  [368] = "Trading Currency: Iqd (368)",
+  [376] = "Trading Currency: Ils (376)",
+  [388] = "Trading Currency: Jmd (388)",
+  [392] = "Trading Currency: Jpy (392)",
+  [398] = "Trading Currency: Kzt (398)",
+  [400] = "Trading Currency: Jod (400)",
+  [404] = "Trading Currency: Kes (404)",
+  [408] = "Trading Currency: Kpw (408)",
+  [410] = "Trading Currency: Krw (410)",
+  [414] = "Trading Currency: Kwd (414)",
+  [417] = "Trading Currency: Kgs (417)",
+  [418] = "Trading Currency: Lak (418)",
+  [422] = "Trading Currency: Lbp (422)",
+  [426] = "Trading Currency: Lsl (426)",
+  [430] = "Trading Currency: Lrd (430)",
+  [434] = "Trading Currency: Lyd (434)",
+  [446] = "Trading Currency: Mop (446)",
+  [454] = "Trading Currency: Mwk (454)",
+  [458] = "Trading Currency: Myr (458)",
+  [462] = "Trading Currency: Mvr (462)",
+  [480] = "Trading Currency: Mur (480)",
+  [484] = "Trading Currency: Mxn (484)",
+  [496] = "Trading Currency: Mnt (496)",
+  [498] = "Trading Currency: Mdl (498)",
+  [504] = "Trading Currency: Mad (504)",
+  [512] = "Trading Currency: Omr (512)",
+  [516] = "Trading Currency: Nad (516)",
+  [524] = "Trading Currency: Npr (524)",
+  [532] = "Trading Currency: Ang (532)",
+  [533] = "Trading Currency: Awg (533)",
+  [548] = "Trading Currency: Vuv (548)",
+  [554] = "Trading Currency: Nzd (554)",
+  [558] = "Trading Currency: Nio (558)",
+  [566] = "Trading Currency: Ngn (566)",
+  [578] = "Trading Currency: Nok (578)",
+  [586] = "Trading Currency: Pkr (586)",
+  [590] = "Trading Currency: Pab (590)",
+  [598] = "Trading Currency: Pgk (598)",
+  [600] = "Trading Currency: Pyg (600)",
+  [604] = "Trading Currency: Pen (604)",
+  [608] = "Trading Currency: Php (608)",
+  [634] = "Trading Currency: Qar (634)",
+  [643] = "Trading Currency: Rub (643)",
+  [646] = "Trading Currency: Rwf (646)",
+  [654] = "Trading Currency: Shp (654)",
+  [682] = "Trading Currency: Sar (682)",
+  [690] = "Trading Currency: Scr (690)",
+  [702] = "Trading Currency: Sgd (702)",
+  [704] = "Trading Currency: Vnd (704)",
+  [706] = "Trading Currency: Sos (706)",
+  [710] = "Trading Currency: Zar (710)",
+  [728] = "Trading Currency: Ssp (728)",
+  [748] = "Trading Currency: Szl (748)",
+  [752] = "Trading Currency: Sek (752)",
+  [756] = "Trading Currency: Chf (756)",
+  [760] = "Trading Currency: Syp (760)",
+  [764] = "Trading Currency: Thb (764)",
+  [776] = "Trading Currency: Top (776)",
+  [780] = "Trading Currency: Ttd (780)",
+  [784] = "Trading Currency: Aed (784)",
+  [788] = "Trading Currency: Tnd (788)",
+  [800] = "Trading Currency: Ugx (800)",
+  [807] = "Trading Currency: Mkd (807)",
+  [818] = "Trading Currency: Egp (818)",
+  [826] = "Trading Currency: Gbp (826)",
+  [834] = "Trading Currency: Tzs (834)",
+  [840] = "Trading Currency: Usd (840)",
+  [858] = "Trading Currency: Uyu (858)",
+  [860] = "Trading Currency: Uzs (860)",
+  [882] = "Trading Currency: Wst (882)",
+  [886] = "Trading Currency: Yer (886)",
+  [901] = "Trading Currency: Twd (901)",
+  [925] = "Trading Currency: Sle (925)",
+  [926] = "Trading Currency: Ved (926)",
+  [927] = "Trading Currency: Uyw (927)",
+  [928] = "Trading Currency: Ves (928)",
+  [929] = "Trading Currency: Mru (929)",
+  [930] = "Trading Currency: Stn (930)",
+  [931] = "Trading Currency: Cuc (931)",
+  [932] = "Trading Currency: Zwl (932)",
+  [933] = "Trading Currency: Byn (933)",
+  [934] = "Trading Currency: Tmt (934)",
+  [936] = "Trading Currency: Ghs (936)",
+  [938] = "Trading Currency: Sdg (938)",
+  [940] = "Trading Currency: Uyi (940)",
+  [941] = "Trading Currency: Rsd (941)",
+  [943] = "Trading Currency: Mzn (943)",
+  [944] = "Trading Currency: Azn (944)",
+  [946] = "Trading Currency: Ron (946)",
+  [947] = "Trading Currency: Che (947)",
+  [948] = "Trading Currency: Chw (948)",
+  [949] = "Trading Currency: Try (949)",
+  [950] = "Trading Currency: Xaf (950)",
+  [951] = "Trading Currency: Xcd (951)",
+  [952] = "Trading Currency: Xof (952)",
+  [953] = "Trading Currency: Xpf (953)",
+  [955] = "Trading Currency: Xba (955)",
+  [956] = "Trading Currency: Xbb (956)",
+  [957] = "Trading Currency: Xbc (957)",
+  [958] = "Trading Currency: Xbd (958)",
+  [959] = "Trading Currency: Xau (959)",
+  [960] = "Trading Currency: Xdr (960)",
+  [961] = "Trading Currency: Xag (961)",
+  [962] = "Trading Currency: Xpt (962)",
+  [963] = "Trading Currency: Xts (963)",
+  [964] = "Trading Currency: Xpd (964)",
+  [965] = "Trading Currency: Xua (965)",
+  [967] = "Trading Currency: Zmw (967)",
+  [968] = "Trading Currency: Srd (968)",
+  [969] = "Trading Currency: Mga (969)",
+  [970] = "Trading Currency: Cou (970)",
+  [971] = "Trading Currency: Afn (971)",
+  [972] = "Trading Currency: Tjs (972)",
+  [973] = "Trading Currency: Aoa (973)",
+  [975] = "Trading Currency: Bgn (975)",
+  [976] = "Trading Currency: Cdf (976)",
+  [977] = "Trading Currency: Bam (977)",
+  [978] = "Trading Currency: Eur (978)",
+  [979] = "Trading Currency: Mxv (979)",
+  [980] = "Trading Currency: Uah (980)",
+  [981] = "Trading Currency: Gel (981)",
+  [984] = "Trading Currency: Bov (984)",
+  [985] = "Trading Currency: Pln (985)",
+  [986] = "Trading Currency: Brl (986)",
+  [990] = "Trading Currency: Clf (990)",
+  [994] = "Trading Currency: Xsu (994)",
+  [997] = "Trading Currency: Usn (997)",
+  [999] = "Trading Currency: Xxx (999)",
+}
 
-  return "Trading Currency: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.trading_currency.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.trading_currency.labels[value] or "Trading Currency: Unknown("..value..")"
 end
 
 -- Dissect: Trading Currency
@@ -10453,78 +7699,34 @@ gpw_wse_replaybbo_wats_v1_7_6_20.trading_phase_type = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.trading_phase_type.size = 1
 
 -- Display: Trading Phase Type
-gpw_wse_replaybbo_wats_v1_7_6_20.trading_phase_type.display = function(value)
-  if value == 1 then
-    return "Trading Phase Type: Continuous Price Time (1)"
-  end
-  if value == 2 then
-    return "Trading Phase Type: Continuous Ref Price Time (2)"
-  end
-  if value == 3 then
-    return "Trading Phase Type: Continuous Last Auction Time (3)"
-  end
-  if value == 4 then
-    return "Trading Phase Type: Auction Opening (4)"
-  end
-  if value == 5 then
-    return "Trading Phase Type: Block Exact Matching (5)"
-  end
-  if value == 6 then
-    return "Trading Phase Type: No Trading Closed (6)"
-  end
-  if value == 7 then
-    return "Trading Phase Type: Uncrossing (7)"
-  end
-  if value == 8 then
-    return "Trading Phase Type: Auction Closing (8)"
-  end
-  if value == 9 then
-    return "Trading Phase Type: Auction Intraday (9)"
-  end
-  if value == 10 then
-    return "Trading Phase Type: Auction Volatility Static (10)"
-  end
-  if value == 11 then
-    return "Trading Phase Type: Auction Volatility Dynamic (11)"
-  end
-  if value == 12 then
-    return "Trading Phase Type: Auction Extended Volatility Static (12)"
-  end
-  if value == 13 then
-    return "Trading Phase Type: Auction Extended Volatility Dynamic (13)"
-  end
-  if value == 14 then
-    return "Trading Phase Type: No Trading Early Monitoring (14)"
-  end
-  if value == 15 then
-    return "Trading Phase Type: No Trading Late Monitoring (15)"
-  end
-  if value == 16 then
-    return "Trading Phase Type: Hybrid (16)"
-  end
-  if value == 17 then
-    return "Trading Phase Type: Hybrid Buy Only (17)"
-  end
-  if value == 18 then
-    return "Trading Phase Type: Hybrid Pre Trade (18)"
-  end
-  if value == 19 then
-    return "Trading Phase Type: Unsuspension Auction (19)"
-  end
-  if value == 20 then
-    return "Trading Phase Type: Ipo (20)"
-  end
-  if value == 21 then
-    return "Trading Phase Type: Tender Offer (21)"
-  end
-  if value == 22 then
-    return "Trading Phase Type: Hybrid Pre Trade Buy Only (22)"
-  end
-  if value == 23 then
-    return "Trading Phase Type: Distribution (23)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.trading_phase_type.labels = {
+  [1] = "Trading Phase Type: Continuous Price Time (1)",
+  [2] = "Trading Phase Type: Continuous Ref Price Time (2)",
+  [3] = "Trading Phase Type: Continuous Last Auction Time (3)",
+  [4] = "Trading Phase Type: Auction Opening (4)",
+  [5] = "Trading Phase Type: Block Exact Matching (5)",
+  [6] = "Trading Phase Type: No Trading Closed (6)",
+  [7] = "Trading Phase Type: Uncrossing (7)",
+  [8] = "Trading Phase Type: Auction Closing (8)",
+  [9] = "Trading Phase Type: Auction Intraday (9)",
+  [10] = "Trading Phase Type: Auction Volatility Static (10)",
+  [11] = "Trading Phase Type: Auction Volatility Dynamic (11)",
+  [12] = "Trading Phase Type: Auction Extended Volatility Static (12)",
+  [13] = "Trading Phase Type: Auction Extended Volatility Dynamic (13)",
+  [14] = "Trading Phase Type: No Trading Early Monitoring (14)",
+  [15] = "Trading Phase Type: No Trading Late Monitoring (15)",
+  [16] = "Trading Phase Type: Hybrid (16)",
+  [17] = "Trading Phase Type: Hybrid Buy Only (17)",
+  [18] = "Trading Phase Type: Hybrid Pre Trade (18)",
+  [19] = "Trading Phase Type: Unsuspension Auction (19)",
+  [20] = "Trading Phase Type: Ipo (20)",
+  [21] = "Trading Phase Type: Tender Offer (21)",
+  [22] = "Trading Phase Type: Hybrid Pre Trade Buy Only (22)",
+  [23] = "Trading Phase Type: Distribution (23)",
+}
 
-  return "Trading Phase Type: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.trading_phase_type.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.trading_phase_type.labels[value] or "Trading Phase Type: Unknown("..value..")"
 end
 
 -- Dissect: Trading Phase Type
@@ -10569,42 +7771,22 @@ gpw_wse_replaybbo_wats_v1_7_6_20.trading_session_event = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.trading_session_event.size = 1
 
 -- Display: Trading Session Event
-gpw_wse_replaybbo_wats_v1_7_6_20.trading_session_event.display = function(value)
-  if value == 1 then
-    return "Trading Session Event: Na (1)"
-  end
-  if value == 2 then
-    return "Trading Session Event: Start Of Technical Session (2)"
-  end
-  if value == 3 then
-    return "Trading Session Event: End Of Technical Session (3)"
-  end
-  if value == 4 then
-    return "Trading Session Event: Initial Reference Data Start (4)"
-  end
-  if value == 5 then
-    return "Trading Session Event: Initial Reference Data End (5)"
-  end
-  if value == 6 then
-    return "Trading Session Event: Previous Day Restate Start (6)"
-  end
-  if value == 7 then
-    return "Trading Session Event: Previous Day Restate End (7)"
-  end
-  if value == 8 then
-    return "Trading Session Event: Next Session Reference Data Start (8)"
-  end
-  if value == 9 then
-    return "Trading Session Event: Next Session Reference Data End (9)"
-  end
-  if value == 12 then
-    return "Trading Session Event: Start Of Trading Session Mic (12)"
-  end
-  if value == 13 then
-    return "Trading Session Event: End Of Trading Session Mic (13)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.trading_session_event.labels = {
+  [1] = "Trading Session Event: Na (1)",
+  [2] = "Trading Session Event: Start Of Technical Session (2)",
+  [3] = "Trading Session Event: End Of Technical Session (3)",
+  [4] = "Trading Session Event: Initial Reference Data Start (4)",
+  [5] = "Trading Session Event: Initial Reference Data End (5)",
+  [6] = "Trading Session Event: Previous Day Restate Start (6)",
+  [7] = "Trading Session Event: Previous Day Restate End (7)",
+  [8] = "Trading Session Event: Next Session Reference Data Start (8)",
+  [9] = "Trading Session Event: Next Session Reference Data End (9)",
+  [12] = "Trading Session Event: Start Of Trading Session Mic (12)",
+  [13] = "Trading Session Event: End Of Trading Session Mic (13)",
+}
 
-  return "Trading Session Event: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.trading_session_event.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.trading_session_event.labels[value] or "Trading Session Event: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Event
@@ -10841,18 +8023,14 @@ gpw_wse_replaybbo_wats_v1_7_6_20.us_indicator = {}
 gpw_wse_replaybbo_wats_v1_7_6_20.us_indicator.size = 1
 
 -- Display: Us Indicator
-gpw_wse_replaybbo_wats_v1_7_6_20.us_indicator.display = function(value)
-  if value == 1 then
-    return "Us Indicator: Not Applicable (1)"
-  end
-  if value == 2 then
-    return "Us Indicator: Regulation S (2)"
-  end
-  if value == 3 then
-    return "Us Indicator: Regulation S Plus Rule 144a (3)"
-  end
+gpw_wse_replaybbo_wats_v1_7_6_20.us_indicator.labels = {
+  [1] = "Us Indicator: Not Applicable (1)",
+  [2] = "Us Indicator: Regulation S (2)",
+  [3] = "Us Indicator: Regulation S Plus Rule 144a (3)",
+}
 
-  return "Us Indicator: Unknown("..value..")"
+gpw_wse_replaybbo_wats_v1_7_6_20.us_indicator.display = function(value)
+  return gpw_wse_replaybbo_wats_v1_7_6_20.us_indicator.labels[value] or "Us Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Us Indicator
@@ -11167,10 +8345,14 @@ end
 gpw_wse_replaybbo_wats_v1_7_6_20.replay_request_payload = {}
 
 -- Dissect: Replay Request Payload
+gpw_wse_replaybbo_wats_v1_7_6_20.replay_request_payload.dispatch = {
+  [1] = gpw_wse_replaybbo_wats_v1_7_6_20.replay_request.dissect,
+}
+
 gpw_wse_replaybbo_wats_v1_7_6_20.replay_request_payload.dissect = function(buffer, offset, packet, parent, replay_message_type)
-  -- Dissect Replay Request
-  if replay_message_type == 1 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.replay_request.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_wse_replaybbo_wats_v1_7_6_20.replay_request_payload.dispatch[replay_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -14753,130 +11935,44 @@ end
 gpw_wse_replaybbo_wats_v1_7_6_20.payload = {}
 
 -- Dissect: Payload
+gpw_wse_replaybbo_wats_v1_7_6_20.payload.dispatch = {
+  [33] = gpw_wse_replaybbo_wats_v1_7_6_20.week_plan.dissect,
+  [35] = gpw_wse_replaybbo_wats_v1_7_6_20.calendar_exception.dissect,
+  [32] = gpw_wse_replaybbo_wats_v1_7_6_20.tick_table_entry.dissect,
+  [108] = gpw_wse_replaybbo_wats_v1_7_6_20.collar_table_entry.dissect,
+  [27] = gpw_wse_replaybbo_wats_v1_7_6_20.trading_phase_schedule_entry.dissect,
+  [275] = gpw_wse_replaybbo_wats_v1_7_6_20.market_structure.dissect,
+  [299] = gpw_wse_replaybbo_wats_v1_7_6_20.collar_group.dissect,
+  [806] = gpw_wse_replaybbo_wats_v1_7_6_20.external_underlying.dissect,
+  [279] = gpw_wse_replaybbo_wats_v1_7_6_20.instrument.dissect,
+  [36] = gpw_wse_replaybbo_wats_v1_7_6_20.accrued_interest_table_entry.dissect,
+  [37] = gpw_wse_replaybbo_wats_v1_7_6_20.indexation_table_entry.dissect,
+  [503] = gpw_wse_replaybbo_wats_v1_7_6_20.index_params.dissect,
+  [502] = gpw_wse_replaybbo_wats_v1_7_6_20.index_portfolio_entry.dissect,
+  [270] = gpw_wse_replaybbo_wats_v1_7_6_20.auction_summary.dissect,
+  [268] = gpw_wse_replaybbo_wats_v1_7_6_20.auction_update.dissect,
+  [257] = gpw_wse_replaybbo_wats_v1_7_6_20.price_level_snapshot.dissect,
+  [256] = gpw_wse_replaybbo_wats_v1_7_6_20.top_price_level_update.dissect,
+  [38] = gpw_wse_replaybbo_wats_v1_7_6_20.trade.dissect,
+  [801] = gpw_wse_replaybbo_wats_v1_7_6_20.position_report.dissect,
+  [26] = gpw_wse_replaybbo_wats_v1_7_6_20.instrument_status_change.dissect,
+  [272] = gpw_wse_replaybbo_wats_v1_7_6_20.order_collars.dissect,
+  [273] = gpw_wse_replaybbo_wats_v1_7_6_20.trade_collars.dissect,
+  [671] = gpw_wse_replaybbo_wats_v1_7_6_20.instrument_summary.dissect,
+  [672] = gpw_wse_replaybbo_wats_v1_7_6_20.product_summary.dissect,
+  [271] = gpw_wse_replaybbo_wats_v1_7_6_20.price_update.dissect,
+  [517] = gpw_wse_replaybbo_wats_v1_7_6_20.news.dissect,
+  [500] = gpw_wse_replaybbo_wats_v1_7_6_20.real_time_index.dissect,
+  [501] = gpw_wse_replaybbo_wats_v1_7_6_20.index_summary.dissect,
+  [23] = gpw_wse_replaybbo_wats_v1_7_6_20.trading_session_status.dissect,
+  [1] = gpw_wse_replaybbo_wats_v1_7_6_20.heartbeat.dissect,
+  [8192] = gpw_wse_replaybbo_wats_v1_7_6_20.test_event.dissect,
+}
+
 gpw_wse_replaybbo_wats_v1_7_6_20.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Week Plan
-  if message_type == 33 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.week_plan.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Calendar Exception
-  if message_type == 35 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.calendar_exception.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Table Entry
-  if message_type == 32 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.tick_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Collar Table Entry
-  if message_type == 108 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.collar_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Phase Schedule Entry
-  if message_type == 27 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.trading_phase_schedule_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Structure
-  if message_type == 275 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.market_structure.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Collar Group
-  if message_type == 299 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.collar_group.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Underlying
-  if message_type == 806 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.external_underlying.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument
-  if message_type == 279 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.instrument.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Accrued Interest Table Entry
-  if message_type == 36 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.accrued_interest_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indexation Table Entry
-  if message_type == 37 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.indexation_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Params
-  if message_type == 503 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.index_params.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Portfolio Entry
-  if message_type == 502 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.index_portfolio_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary
-  if message_type == 270 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.auction_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Update
-  if message_type == 268 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.auction_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Level Snapshot
-  if message_type == 257 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.price_level_snapshot.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Price Level Update
-  if message_type == 256 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.top_price_level_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade
-  if message_type == 38 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Position Report
-  if message_type == 801 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.position_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Change
-  if message_type == 26 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.instrument_status_change.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Collars
-  if message_type == 272 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.order_collars.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Collars
-  if message_type == 273 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.trade_collars.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Summary
-  if message_type == 671 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.instrument_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Product Summary
-  if message_type == 672 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.product_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Update
-  if message_type == 271 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.price_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News
-  if message_type == 517 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.news.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Real Time Index
-  if message_type == 500 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.real_time_index.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Summary
-  if message_type == 501 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.index_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status
-  if message_type == 23 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.trading_session_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if message_type == 1 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Event
-  if message_type == 8192 then
-    return gpw_wse_replaybbo_wats_v1_7_6_20.test_event.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_wse_replaybbo_wats_v1_7_6_20.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

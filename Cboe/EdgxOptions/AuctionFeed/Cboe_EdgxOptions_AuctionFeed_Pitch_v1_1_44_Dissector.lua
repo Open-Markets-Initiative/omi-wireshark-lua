@@ -283,33 +283,19 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_type = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_type.display = function(value)
-  if value == "B" then
-    return "Auction Type: Aim (B)"
-  end
-  if value == "S" then
-    return "Auction Type: Solicitation Auction Mechanism (S)"
-  end
-  if value == "T" then
-    return "Auction Type: Step Up Mechanism Sum (T)"
-  end
-  if value == "A" then
-    return "Auction Type: Sum All Or None (A)"
-  end
-  if value == "G" then
-    return "Auction Type: Gth Opening (G)"
-  end
-  if value == "O" then
-    return "Auction Type: Rth Opening (O)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Re Opening (H)"
-  end
-  if value == "V" then
-    return "Auction Type: Volatility Opening (V)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_type.labels = {
+  ["B"] = "Auction Type: Aim (B)",
+  ["S"] = "Auction Type: Solicitation Auction Mechanism (S)",
+  ["T"] = "Auction Type: Step Up Mechanism Sum (T)",
+  ["A"] = "Auction Type: Sum All Or None (A)",
+  ["G"] = "Auction Type: Gth Opening (G)",
+  ["O"] = "Auction Type: Rth Opening (O)",
+  ["H"] = "Auction Type: Halt Re Opening (H)",
+  ["V"] = "Auction Type: Volatility Opening (V)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_type.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -458,15 +444,13 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_44.customer_indicator = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-cboe_edgxoptions_auctionfeed_pitch_v1_1_44.customer_indicator.display = function(value)
-  if value == "N" then
-    return "Customer Indicator: Non Customer (N)"
-  end
-  if value == "C" then
-    return "Customer Indicator: Customer (C)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.customer_indicator.labels = {
+  ["N"] = "Customer Indicator: Non Customer (N)",
+  ["C"] = "Customer Indicator: Customer (C)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.customer_indicator.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -655,39 +639,21 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_44.message_type = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgxoptions_auctionfeed_pitch_v1_1_44.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0xAD then
-    return "Message Type: Auction Notification Message (0xAD)"
-  end
-  if value == 0xAE then
-    return "Message Type: Auction Cancel Message (0xAE)"
-  end
-  if value == 0xAF then
-    return "Message Type: Auction Trade Message (0xAF)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Options Auction Update Message (0xD1)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0xD2 then
-    return "Message Type: Width Update Message (0xD2)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.message_type.labels = {
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0xAD] = "Message Type: Auction Notification Message (0xAD)",
+  [0xAE] = "Message Type: Auction Cancel Message (0xAE)",
+  [0xAF] = "Message Type: Auction Trade Message (0xAF)",
+  [0xD1] = "Message Type: Options Auction Update Message (0xD1)",
+  [0x96] = "Message Type: Auction Summary Message (0x96)",
+  [0xD2] = "Message Type: Width Update Message (0xD2)",
+  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.message_type.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -738,24 +704,16 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_44.opening_condition = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.opening_condition.size = 1
 
 -- Display: Opening Condition
-cboe_edgxoptions_auctionfeed_pitch_v1_1_44.opening_condition.display = function(value)
-  if value == "O" then
-    return "Opening Condition: Would Open (O)"
-  end
-  if value == "Q" then
-    return "Opening Condition: Need Quote To Open (Q)"
-  end
-  if value == "B" then
-    return "Opening Condition: Need More Buyers (B)"
-  end
-  if value == "S" then
-    return "Opening Condition: Need More Sellers (S)"
-  end
-  if value == "C" then
-    return "Opening Condition: Crossed Composite Market (C)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.opening_condition.labels = {
+  ["O"] = "Opening Condition: Would Open (O)",
+  ["Q"] = "Opening Condition: Need Quote To Open (Q)",
+  ["B"] = "Opening Condition: Need More Buyers (B)",
+  ["S"] = "Opening Condition: Need More Sellers (S)",
+  ["C"] = "Opening Condition: Crossed Composite Market (C)",
+}
 
-  return "Opening Condition: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.opening_condition.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.opening_condition.labels[value] or "Opening Condition: Unknown("..value..")"
 end
 
 -- Dissect: Opening Condition
@@ -950,15 +908,13 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_44.side = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.side.size = 1
 
 -- Display: Side
-cboe_edgxoptions_auctionfeed_pitch_v1_1_44.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Side (S)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.side.labels = {
+  ["B"] = "Side: Buy Side (B)",
+  ["S"] = "Side: Sell Side (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.side.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1003,15 +959,13 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_44.symbol_condition = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_edgxoptions_auctionfeed_pitch_v1_1_44.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.symbol_condition.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -1158,18 +1112,14 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_44.width_type = {}
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.width_type.size = 1
 
 -- Display: Width Type
-cboe_edgxoptions_auctionfeed_pitch_v1_1_44.width_type.display = function(value)
-  if value == "Q" then
-    return "Width Type: Max Quote Width (Q)"
-  end
-  if value == "R" then
-    return "Width Type: Regular (R)"
-  end
-  if value == "V" then
-    return "Width Type: Volatility (V)"
-  end
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.width_type.labels = {
+  ["Q"] = "Width Type: Max Quote Width (Q)",
+  ["R"] = "Width Type: Regular (R)",
+  ["V"] = "Width Type: Volatility (V)",
+}
 
-  return "Width Type: Unknown("..value..")"
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.width_type.display = function(value)
+  return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.width_type.labels[value] or "Width Type: Unknown("..value..")"
 end
 
 -- Dissect: Width Type
@@ -1799,46 +1749,23 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.payload = {}
 
 -- Dissect: Payload
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.payload.dispatch = {
+  [0x20] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.time_message.dissect,
+  [0x97] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.unit_clear_message.dissect,
+  [0xAD] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_notification_message.dissect,
+  [0xAE] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_cancel_message.dissect,
+  [0xAF] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_trade_message.dissect,
+  [0xD1] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.options_auction_update_message.dissect,
+  [0x96] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_summary_message.dissect,
+  [0xD2] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.width_update_message.dissect,
+  [0x2E] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.symbol_mapping_message.dissect,
+  [0x2D] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.end_of_session_message.dissect,
+}
+
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Notification Message
-  if message_type == 0xAD then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Cancel Message
-  if message_type == 0xAE then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Trade Message
-  if message_type == 0xAF then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.options_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Width Update Message
-  if message_type == 0xD2 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.width_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1977,10 +1904,14 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.messages = {}
 
 -- Dissect: Messages
+cboe_edgxoptions_auctionfeed_pitch_v1_1_44.messages.dispatch = {
+  [0] = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.heartbeat.dissect,
+}
+
 cboe_edgxoptions_auctionfeed_pitch_v1_1_44.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_edgxoptions_auctionfeed_pitch_v1_1_44.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgxoptions_auctionfeed_pitch_v1_1_44.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

@@ -420,15 +420,13 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.cross_type = {}
 lseg_turquoise_mifid2posttrade_gtp_v24_4.cross_type.size = 1
 
 -- Display: Cross Type
-lseg_turquoise_mifid2posttrade_gtp_v24_4.cross_type.display = function(value)
-  if value == 6 then
-    return "Cross Type: Internal Btf (6)"
-  end
-  if value == 8 then
-    return "Cross Type: Committed Btf (8)"
-  end
+lseg_turquoise_mifid2posttrade_gtp_v24_4.cross_type.labels = {
+  [6] = "Cross Type: Internal Btf (6)",
+  [8] = "Cross Type: Committed Btf (8)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+lseg_turquoise_mifid2posttrade_gtp_v24_4.cross_type.display = function(value)
+  return lseg_turquoise_mifid2posttrade_gtp_v24_4.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -903,24 +901,16 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.message_type = {}
 lseg_turquoise_mifid2posttrade_gtp_v24_4.message_type.size = 1
 
 -- Display: Message Type
-lseg_turquoise_mifid2posttrade_gtp_v24_4.message_type.display = function(value)
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x70 then
-    return "Message Type: Instrument Directory Message (0x70)"
-  end
-  if value == 0x48 then
-    return "Message Type: Instrument Status Message (0x48)"
-  end
-  if value == 0x51 then
-    return "Message Type: Mifid Ii Trade Message (0x51)"
-  end
-  if value == 0x56 then
-    return "Message Type: Mi Fid Ii Trade Cross Message (0x56)"
-  end
+lseg_turquoise_mifid2posttrade_gtp_v24_4.message_type.labels = {
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x70] = "Message Type: Instrument Directory Message (0x70)",
+  [0x48] = "Message Type: Instrument Status Message (0x48)",
+  [0x51] = "Message Type: Mifid Ii Trade Message (0x51)",
+  [0x56] = "Message Type: Mi Fid Ii Trade Cross Message (0x56)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_turquoise_mifid2posttrade_gtp_v24_4.message_type.display = function(value)
+  return lseg_turquoise_mifid2posttrade_gtp_v24_4.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1273,12 +1263,12 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.order_book_type = {}
 lseg_turquoise_mifid2posttrade_gtp_v24_4.order_book_type.size = 1
 
 -- Display: Order Book Type
-lseg_turquoise_mifid2posttrade_gtp_v24_4.order_book_type.display = function(value)
-  if value == 3 then
-    return "Order Book Type: Electronic (3)"
-  end
+lseg_turquoise_mifid2posttrade_gtp_v24_4.order_book_type.labels = {
+  [3] = "Order Book Type: Electronic (3)",
+}
 
-  return "Order Book Type: Unknown("..value..")"
+lseg_turquoise_mifid2posttrade_gtp_v24_4.order_book_type.display = function(value)
+  return lseg_turquoise_mifid2posttrade_gtp_v24_4.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -1932,30 +1922,18 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.session_change_reason = {}
 lseg_turquoise_mifid2posttrade_gtp_v24_4.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_turquoise_mifid2posttrade_gtp_v24_4.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 5 then
-    return "Session Change Reason: Aesp Circuit Breaker Tripped (5)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable (9)"
-  end
+lseg_turquoise_mifid2posttrade_gtp_v24_4.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [5] = "Session Change Reason: Aesp Circuit Breaker Tripped (5)",
+  [9] = "Session Change Reason: Unavailable (9)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_turquoise_mifid2posttrade_gtp_v24_4.session_change_reason.display = function(value)
+  return lseg_turquoise_mifid2posttrade_gtp_v24_4.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -1977,27 +1955,17 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.source_venue = {}
 lseg_turquoise_mifid2posttrade_gtp_v24_4.source_venue.size = 2
 
 -- Display: Source Venue
-lseg_turquoise_mifid2posttrade_gtp_v24_4.source_venue.display = function(value)
-  if value == 5 then
-    return "Source Venue: Turquoise Lit Order Book (5)"
-  end
-  if value == 6 then
-    return "Source Venue: Turquoise Plato Order Book (6)"
-  end
-  if value == 12 then
-    return "Source Venue: Turquoise Plato Lit Auctions Order Book (12)"
-  end
-  if value == 14 then
-    return "Source Venue: Turquoise Lit Order Book (14)"
-  end
-  if value == 15 then
-    return "Source Venue: Turquoise Plato Order Book (15)"
-  end
-  if value == 16 then
-    return "Source Venue: Turquoise Plato Lit Auctions Order Book (16)"
-  end
+lseg_turquoise_mifid2posttrade_gtp_v24_4.source_venue.labels = {
+  [5] = "Source Venue: Turquoise Lit Order Book (5)",
+  [6] = "Source Venue: Turquoise Plato Order Book (6)",
+  [12] = "Source Venue: Turquoise Plato Lit Auctions Order Book (12)",
+  [14] = "Source Venue: Turquoise Lit Order Book (14)",
+  [15] = "Source Venue: Turquoise Plato Order Book (15)",
+  [16] = "Source Venue: Turquoise Plato Lit Auctions Order Book (16)",
+}
 
-  return "Source Venue: Unknown("..value..")"
+lseg_turquoise_mifid2posttrade_gtp_v24_4.source_venue.display = function(value)
+  return lseg_turquoise_mifid2posttrade_gtp_v24_4.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
 end
 
 -- Dissect: Source Venue
@@ -2229,18 +2197,14 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_type = {}
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_type.size = 1
 
 -- Display: Trade Type
-lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_type.display = function(value)
-  if value == 0 then
-    return "Trade Type: Regular (0)"
-  end
-  if value == 2 then
-    return "Trade Type: Auction Trade (2)"
-  end
-  if value == 9 then
-    return "Trade Type: Trade Cancellation (9)"
-  end
+lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_type.labels = {
+  [0] = "Trade Type: Regular (0)",
+  [2] = "Trade Type: Auction Trade (2)",
+  [9] = "Trade Type: Trade Cancellation (9)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_type.display = function(value)
+  return lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -3214,26 +3178,18 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.payload = {}
 
 -- Dissect: Payload
+lseg_turquoise_mifid2posttrade_gtp_v24_4.payload.dispatch = {
+  [0x53] = lseg_turquoise_mifid2posttrade_gtp_v24_4.system_event_message.dissect,
+  [0x70] = lseg_turquoise_mifid2posttrade_gtp_v24_4.instrument_directory_message.dissect,
+  [0x48] = lseg_turquoise_mifid2posttrade_gtp_v24_4.instrument_status_message.dissect,
+  [0x51] = lseg_turquoise_mifid2posttrade_gtp_v24_4.mifid_ii_trade_message.dissect,
+  [0x56] = lseg_turquoise_mifid2posttrade_gtp_v24_4.mi_fid_ii_trade_cross_message.dissect,
+}
+
 lseg_turquoise_mifid2posttrade_gtp_v24_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return lseg_turquoise_mifid2posttrade_gtp_v24_4.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Directory Message
-  if message_type == 0x70 then
-    return lseg_turquoise_mifid2posttrade_gtp_v24_4.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Message
-  if message_type == 0x48 then
-    return lseg_turquoise_mifid2posttrade_gtp_v24_4.instrument_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mifid Ii Trade Message
-  if message_type == 0x51 then
-    return lseg_turquoise_mifid2posttrade_gtp_v24_4.mifid_ii_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mi Fid Ii Trade Cross Message
-  if message_type == 0x56 then
-    return lseg_turquoise_mifid2posttrade_gtp_v24_4.mi_fid_ii_trade_cross_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_turquoise_mifid2posttrade_gtp_v24_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

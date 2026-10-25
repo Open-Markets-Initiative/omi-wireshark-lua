@@ -323,15 +323,13 @@ nasdaq_psxequities_totalview_glimpse_v3_2.buy_sell_indicator = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_psxequities_totalview_glimpse_v3_2.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell Order (S)"
-  end
+nasdaq_psxequities_totalview_glimpse_v3_2.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy Order (B)",
+  ["S"] = "Buy Sell Indicator: Sell Order (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_psxequities_totalview_glimpse_v3_2.buy_sell_indicator.display = function(value)
+  return nasdaq_psxequities_totalview_glimpse_v3_2.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -353,24 +351,16 @@ nasdaq_psxequities_totalview_glimpse_v3_2.client_packet_type = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_psxequities_totalview_glimpse_v3_2.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Client Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Client Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Client Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Client Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Client Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_psxequities_totalview_glimpse_v3_2.client_packet_type.labels = {
+  ["+"] = "Client Packet Type: Debug Packet (+)",
+  ["L"] = "Client Packet Type: Login Request Packet (L)",
+  ["U"] = "Client Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Client Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Client Packet Type: Logout Request Packet (O)",
+}
 
-  return "Client Packet Type: Unknown("..value..")"
+nasdaq_psxequities_totalview_glimpse_v3_2.client_packet_type.display = function(value)
+  return nasdaq_psxequities_totalview_glimpse_v3_2.client_packet_type.labels[value] or "Client Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -392,36 +382,20 @@ nasdaq_psxequities_totalview_glimpse_v3_2.event_code = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_psxequities_totalview_glimpse_v3_2.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "A" then
-    return "Event Code: Emergency Market Condition Halt (A)"
-  end
-  if value == "R" then
-    return "Event Code: Emergency Market Condition Quote Only Period (R)"
-  end
-  if value == "B" then
-    return "Event Code: Emergency Market Condition Resumption (B)"
-  end
+nasdaq_psxequities_totalview_glimpse_v3_2.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["A"] = "Event Code: Emergency Market Condition Halt (A)",
+  ["R"] = "Event Code: Emergency Market Condition Quote Only Period (R)",
+  ["B"] = "Event Code: Emergency Market Condition Resumption (B)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_psxequities_totalview_glimpse_v3_2.event_code.display = function(value)
+  return nasdaq_psxequities_totalview_glimpse_v3_2.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -573,36 +547,20 @@ nasdaq_psxequities_totalview_glimpse_v3_2.message_type = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_psxequities_totalview_glimpse_v3_2.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "M" then
-    return "Message Type: Milliseconds Message (M)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "F" then
-    return "Message Type: Add Order Mpid Attribution Message (F)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Restriction Message (Y)"
-  end
-  if value == "G" then
-    return "Message Type: End Of Snapshot Message (G)"
-  end
+nasdaq_psxequities_totalview_glimpse_v3_2.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["M"] = "Message Type: Milliseconds Message (M)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["F"] = "Message Type: Add Order Mpid Attribution Message (F)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["Y"] = "Message Type: Reg Sho Restriction Message (Y)",
+  ["G"] = "Message Type: End Of Snapshot Message (G)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_psxequities_totalview_glimpse_v3_2.message_type.display = function(value)
+  return nasdaq_psxequities_totalview_glimpse_v3_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -770,18 +728,14 @@ nasdaq_psxequities_totalview_glimpse_v3_2.reg_sho_action = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_psxequities_totalview_glimpse_v3_2.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Place (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Restriction In Effect (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Restriction Remains In Effect (2)"
-  end
+nasdaq_psxequities_totalview_glimpse_v3_2.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Place (0)",
+  ["1"] = "Reg Sho Action: Restriction In Effect (1)",
+  ["2"] = "Reg Sho Action: Restriction Remains In Effect (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+nasdaq_psxequities_totalview_glimpse_v3_2.reg_sho_action.display = function(value)
+  return nasdaq_psxequities_totalview_glimpse_v3_2.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -934,15 +888,13 @@ nasdaq_psxequities_totalview_glimpse_v3_2.round_lots_only = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.round_lots_only.size = 1
 
 -- Display: Round Lots Only
-nasdaq_psxequities_totalview_glimpse_v3_2.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Only Round Lots Are Accepted (Y)"
-  end
-  if value == "N" then
-    return "Round Lots Only: Odd And Mixed Lots Are Allowed (N)"
-  end
+nasdaq_psxequities_totalview_glimpse_v3_2.round_lots_only.labels = {
+  ["Y"] = "Round Lots Only: Only Round Lots Are Accepted (Y)",
+  ["N"] = "Round Lots Only: Odd And Mixed Lots Are Allowed (N)",
+}
 
-  return "Round Lots Only: Unknown("..value..")"
+nasdaq_psxequities_totalview_glimpse_v3_2.round_lots_only.display = function(value)
+  return nasdaq_psxequities_totalview_glimpse_v3_2.round_lots_only.labels[value] or "Round Lots Only: Unknown("..value..")"
 end
 
 -- Dissect: Round Lots Only
@@ -995,24 +947,16 @@ nasdaq_psxequities_totalview_glimpse_v3_2.server_packet_type = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_psxequities_totalview_glimpse_v3_2.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Server Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Server Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Server Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Server Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Server Packet Type: Server Heartbeat Packet (H)"
-  end
+nasdaq_psxequities_totalview_glimpse_v3_2.server_packet_type.labels = {
+  ["+"] = "Server Packet Type: Debug Packet (+)",
+  ["A"] = "Server Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Server Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Server Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Server Packet Type: Server Heartbeat Packet (H)",
+}
 
-  return "Server Packet Type: Unknown("..value..")"
+nasdaq_psxequities_totalview_glimpse_v3_2.server_packet_type.display = function(value)
+  return nasdaq_psxequities_totalview_glimpse_v3_2.server_packet_type.labels[value] or "Server Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1134,18 +1078,14 @@ nasdaq_psxequities_totalview_glimpse_v3_2.trading_state = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.trading_state.size = 1
 
 -- Display: Trading State
-nasdaq_psxequities_totalview_glimpse_v3_2.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted Or Paused Across All Us Equity Markets (H)"
-  end
-  if value == "Q" then
-    return "Trading State: Quotation Only Period (Q)"
-  end
-  if value == "T" then
-    return "Trading State: Trading On Psx (T)"
-  end
+nasdaq_psxequities_totalview_glimpse_v3_2.trading_state.labels = {
+  ["H"] = "Trading State: Halted Or Paused Across All Us Equity Markets (H)",
+  ["Q"] = "Trading State: Quotation Only Period (Q)",
+  ["T"] = "Trading State: Trading On Psx (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nasdaq_psxequities_totalview_glimpse_v3_2.trading_state.display = function(value)
+  return nasdaq_psxequities_totalview_glimpse_v3_2.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1639,42 +1579,22 @@ end
 nasdaq_psxequities_totalview_glimpse_v3_2.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_psxequities_totalview_glimpse_v3_2.sequenced_message.dispatch = {
+  ["T"] = nasdaq_psxequities_totalview_glimpse_v3_2.seconds_message.dissect,
+  ["M"] = nasdaq_psxequities_totalview_glimpse_v3_2.milliseconds_message.dissect,
+  ["S"] = nasdaq_psxequities_totalview_glimpse_v3_2.system_event_message.dissect,
+  ["A"] = nasdaq_psxequities_totalview_glimpse_v3_2.add_order_message.dissect,
+  ["F"] = nasdaq_psxequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.dissect,
+  ["R"] = nasdaq_psxequities_totalview_glimpse_v3_2.stock_directory_message.dissect,
+  ["H"] = nasdaq_psxequities_totalview_glimpse_v3_2.stock_trading_action_message.dissect,
+  ["Y"] = nasdaq_psxequities_totalview_glimpse_v3_2.reg_sho_restriction_message.dissect,
+  ["G"] = nasdaq_psxequities_totalview_glimpse_v3_2.end_of_snapshot_message.dissect,
+}
+
 nasdaq_psxequities_totalview_glimpse_v3_2.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Milliseconds Message
-  if message_type == "M" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.milliseconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Mpid Attribution Message
-  if message_type == "F" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Restriction Message
-  if message_type == "Y" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.reg_sho_restriction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Snapshot Message
-  if message_type == "G" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.end_of_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_totalview_glimpse_v3_2.sequenced_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1913,22 +1833,17 @@ end
 nasdaq_psxequities_totalview_glimpse_v3_2.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_psxequities_totalview_glimpse_v3_2.server_payload.dispatch = {
+  ["+"] = nasdaq_psxequities_totalview_glimpse_v3_2.debug_packet.dissect,
+  ["A"] = nasdaq_psxequities_totalview_glimpse_v3_2.login_accepted_packet.dissect,
+  ["J"] = nasdaq_psxequities_totalview_glimpse_v3_2.login_rejected_packet.dissect,
+  ["S"] = nasdaq_psxequities_totalview_glimpse_v3_2.sequenced_data_packet.dissect,
+}
+
 nasdaq_psxequities_totalview_glimpse_v3_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_totalview_glimpse_v3_2.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2188,18 +2103,16 @@ end
 nasdaq_psxequities_totalview_glimpse_v3_2.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_psxequities_totalview_glimpse_v3_2.client_payload.dispatch = {
+  ["+"] = nasdaq_psxequities_totalview_glimpse_v3_2.debug_packet.dissect,
+  ["L"] = nasdaq_psxequities_totalview_glimpse_v3_2.login_request_packet.dissect,
+  ["U"] = nasdaq_psxequities_totalview_glimpse_v3_2.unsequenced_data_packet.dissect,
+}
+
 nasdaq_psxequities_totalview_glimpse_v3_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_totalview_glimpse_v3_2.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

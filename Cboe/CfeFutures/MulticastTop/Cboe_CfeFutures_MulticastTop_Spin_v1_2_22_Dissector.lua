@@ -1059,21 +1059,15 @@ cboe_cfefutures_multicasttop_spin_v1_2_22.login_response_status = {}
 cboe_cfefutures_multicasttop_spin_v1_2_22.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_cfefutures_multicasttop_spin_v1_2_22.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_cfefutures_multicasttop_spin_v1_2_22.login_response_status.labels = {
+  ["A"] = "Login Response Status: Login Accepted (A)",
+  ["N"] = "Login Response Status: Not Authorized Invalid Username Password (N)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_cfefutures_multicasttop_spin_v1_2_22.login_response_status.display = function(value)
+  return cboe_cfefutures_multicasttop_spin_v1_2_22.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -1199,54 +1193,26 @@ cboe_cfefutures_multicasttop_spin_v1_2_22.message_type = {}
 cboe_cfefutures_multicasttop_spin_v1_2_22.message_type.size = 1
 
 -- Display: Message Type
-cboe_cfefutures_multicasttop_spin_v1_2_22.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x80 then
-    return "Message Type: Spin Image Available Message (0x80)"
-  end
-  if value == 0x81 then
-    return "Message Type: Spin Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Spin Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Spin Finished Message (0x83)"
-  end
-  if value == 0xB1 then
-    return "Message Type: Time Reference Message (0xB1)"
-  end
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0xBB then
-    return "Message Type: Futures Instrument Definition Message (0xBB)"
-  end
-  if value == 0xFA then
-    return "Message Type: Futures Variance Symbol Mapping Message (0xFA)"
-  end
-  if value == 0xBE then
-    return "Message Type: Price Limits Message (0xBE)"
-  end
-  if value == 0xB2 then
-    return "Message Type: Market Snapshot Short Message (0xB2)"
-  end
-  if value == 0xB3 then
-    return "Message Type: Market Snapshot Long Message (0xB3)"
-  end
-  if value == 0xB9 then
-    return "Message Type: Settlement Message (0xB9)"
-  end
-  if value == 0xBA then
-    return "Message Type: End Of Day Summary Message (0xBA)"
-  end
+cboe_cfefutures_multicasttop_spin_v1_2_22.message_type.labels = {
+  [0x01] = "Message Type: Login Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x80] = "Message Type: Spin Image Available Message (0x80)",
+  [0x81] = "Message Type: Spin Request Message (0x81)",
+  [0x82] = "Message Type: Spin Response Message (0x82)",
+  [0x83] = "Message Type: Spin Finished Message (0x83)",
+  [0xB1] = "Message Type: Time Reference Message (0xB1)",
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0xBB] = "Message Type: Futures Instrument Definition Message (0xBB)",
+  [0xFA] = "Message Type: Futures Variance Symbol Mapping Message (0xFA)",
+  [0xBE] = "Message Type: Price Limits Message (0xBE)",
+  [0xB2] = "Message Type: Market Snapshot Short Message (0xB2)",
+  [0xB3] = "Message Type: Market Snapshot Long Message (0xB3)",
+  [0xB9] = "Message Type: Settlement Message (0xB9)",
+  [0xBA] = "Message Type: End Of Day Summary Message (0xBA)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_cfefutures_multicasttop_spin_v1_2_22.message_type.display = function(value)
+  return cboe_cfefutures_multicasttop_spin_v1_2_22.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1622,18 +1588,14 @@ cboe_cfefutures_multicasttop_spin_v1_2_22.spin_response_status = {}
 cboe_cfefutures_multicasttop_spin_v1_2_22.spin_response_status.size = 1
 
 -- Display: Spin Response Status
-cboe_cfefutures_multicasttop_spin_v1_2_22.spin_response_status.display = function(value)
-  if value == "A" then
-    return "Spin Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)"
-  end
-  if value == "S" then
-    return "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_cfefutures_multicasttop_spin_v1_2_22.spin_response_status.labels = {
+  ["A"] = "Spin Response Status: Accepted (A)",
+  ["O"] = "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)",
+  ["S"] = "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Spin Response Status: Unknown("..value..")"
+cboe_cfefutures_multicasttop_spin_v1_2_22.spin_response_status.display = function(value)
+  return cboe_cfefutures_multicasttop_spin_v1_2_22.spin_response_status.labels[value] or "Spin Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Spin Response Status
@@ -1780,21 +1742,15 @@ cboe_cfefutures_multicasttop_spin_v1_2_22.trading_status = {}
 cboe_cfefutures_multicasttop_spin_v1_2_22.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_cfefutures_multicasttop_spin_v1_2_22.trading_status.display = function(value)
-  if value == "S" then
-    return "Trading Status: Suspended (S)"
-  end
-  if value == "Q" then
-    return "Trading Status: Queuing (Q)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
+cboe_cfefutures_multicasttop_spin_v1_2_22.trading_status.labels = {
+  ["S"] = "Trading Status: Suspended (S)",
+  ["Q"] = "Trading Status: Queuing (Q)",
+  ["T"] = "Trading Status: Trading (T)",
+  ["H"] = "Trading Status: Halted (H)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_cfefutures_multicasttop_spin_v1_2_22.trading_status.display = function(value)
+  return cboe_cfefutures_multicasttop_spin_v1_2_22.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -3045,66 +3001,28 @@ end
 cboe_cfefutures_multicasttop_spin_v1_2_22.payload = {}
 
 -- Dissect: Payload
+cboe_cfefutures_multicasttop_spin_v1_2_22.payload.dispatch = {
+  [0x01] = cboe_cfefutures_multicasttop_spin_v1_2_22.login_message.dissect,
+  [0x02] = cboe_cfefutures_multicasttop_spin_v1_2_22.login_response_message.dissect,
+  [0x80] = cboe_cfefutures_multicasttop_spin_v1_2_22.spin_image_available_message.dissect,
+  [0x81] = cboe_cfefutures_multicasttop_spin_v1_2_22.spin_request_message.dissect,
+  [0x82] = cboe_cfefutures_multicasttop_spin_v1_2_22.spin_response_message.dissect,
+  [0x83] = cboe_cfefutures_multicasttop_spin_v1_2_22.spin_finished_message.dissect,
+  [0xB1] = cboe_cfefutures_multicasttop_spin_v1_2_22.time_reference_message.dissect,
+  [0x20] = cboe_cfefutures_multicasttop_spin_v1_2_22.time_message.dissect,
+  [0xBB] = cboe_cfefutures_multicasttop_spin_v1_2_22.futures_instrument_definition_message.dissect,
+  [0xFA] = cboe_cfefutures_multicasttop_spin_v1_2_22.futures_variance_symbol_mapping_message.dissect,
+  [0xBE] = cboe_cfefutures_multicasttop_spin_v1_2_22.price_limits_message.dissect,
+  [0xB2] = cboe_cfefutures_multicasttop_spin_v1_2_22.market_snapshot_short_message.dissect,
+  [0xB3] = cboe_cfefutures_multicasttop_spin_v1_2_22.market_snapshot_long_message.dissect,
+  [0xB9] = cboe_cfefutures_multicasttop_spin_v1_2_22.settlement_message.dissect,
+  [0xBA] = cboe_cfefutures_multicasttop_spin_v1_2_22.end_of_day_summary_message.dissect,
+}
+
 cboe_cfefutures_multicasttop_spin_v1_2_22.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Message
-  if message_type == 0x01 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Image Available Message
-  if message_type == 0x80 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.spin_image_available_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 0x81 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 0x82 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Finished Message
-  if message_type == 0x83 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.spin_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Reference Message
-  if message_type == 0xB1 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Instrument Definition Message
-  if message_type == 0xBB then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.futures_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Variance Symbol Mapping Message
-  if message_type == 0xFA then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.futures_variance_symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Limits Message
-  if message_type == 0xBE then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.price_limits_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Snapshot Short Message
-  if message_type == 0xB2 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.market_snapshot_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Snapshot Long Message
-  if message_type == 0xB3 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.market_snapshot_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Message
-  if message_type == 0xB9 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.settlement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Summary Message
-  if message_type == 0xBA then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cfefutures_multicasttop_spin_v1_2_22.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3237,10 +3155,14 @@ end
 cboe_cfefutures_multicasttop_spin_v1_2_22.messages = {}
 
 -- Dissect: Messages
+cboe_cfefutures_multicasttop_spin_v1_2_22.messages.dispatch = {
+  [0] = cboe_cfefutures_multicasttop_spin_v1_2_22.heartbeat.dissect,
+}
+
 cboe_cfefutures_multicasttop_spin_v1_2_22.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_cfefutures_multicasttop_spin_v1_2_22.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cfefutures_multicasttop_spin_v1_2_22.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

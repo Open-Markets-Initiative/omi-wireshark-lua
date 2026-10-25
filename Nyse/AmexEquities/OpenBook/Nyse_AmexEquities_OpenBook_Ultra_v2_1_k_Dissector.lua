@@ -393,48 +393,24 @@ nyse_amexequities_openbook_ultra_v2_1_k.message_type = {}
 nyse_amexequities_openbook_ultra_v2_1_k.message_type.size = 2
 
 -- Display: Message Type
-nyse_amexequities_openbook_ultra_v2_1_k.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Heartbeat Message (2)"
-  end
-  if value == 5 then
-    return "Message Type: Unavailable Message (5)"
-  end
-  if value == 10 then
-    return "Message Type: Request Response Message (10)"
-  end
-  if value == 19 then
-    return "Message Type: Heartbeat Subscription Message (19)"
-  end
-  if value == 20 then
-    return "Message Type: Retransmission Request Message (20)"
-  end
-  if value == 22 then
-    return "Message Type: Book Refresh Request Message (22)"
-  end
-  if value == 24 then
-    return "Message Type: Heartbeat Response Message (24)"
-  end
-  if value == 27 then
-    return "Message Type: Extended Book Refresh Request Message (27)"
-  end
-  if value == 34 then
-    return "Message Type: Symbol Index Mapping Request Message (34)"
-  end
-  if value == 35 then
-    return "Message Type: Symbol Index Mapping Response Message (35)"
-  end
-  if value == 230 then
-    return "Message Type: Full Update Message (230)"
-  end
-  if value == 231 then
-    return "Message Type: Delta Update Message (231)"
-  end
+nyse_amexequities_openbook_ultra_v2_1_k.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [2] = "Message Type: Heartbeat Message (2)",
+  [5] = "Message Type: Unavailable Message (5)",
+  [10] = "Message Type: Request Response Message (10)",
+  [19] = "Message Type: Heartbeat Subscription Message (19)",
+  [20] = "Message Type: Retransmission Request Message (20)",
+  [22] = "Message Type: Book Refresh Request Message (22)",
+  [24] = "Message Type: Heartbeat Response Message (24)",
+  [27] = "Message Type: Extended Book Refresh Request Message (27)",
+  [34] = "Message Type: Symbol Index Mapping Request Message (34)",
+  [35] = "Message Type: Symbol Index Mapping Response Message (35)",
+  [230] = "Message Type: Full Update Message (230)",
+  [231] = "Message Type: Delta Update Message (231)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_amexequities_openbook_ultra_v2_1_k.message_type.display = function(value)
+  return nyse_amexequities_openbook_ultra_v2_1_k.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -617,15 +593,13 @@ nyse_amexequities_openbook_ultra_v2_1_k.product_id = {}
 nyse_amexequities_openbook_ultra_v2_1_k.product_id.size = 1
 
 -- Display: Product Id
-nyse_amexequities_openbook_ultra_v2_1_k.product_id.display = function(value)
-  if value == 12 then
-    return "Product Id: NYSE Openbook Ultra (12)"
-  end
-  if value == 62 then
-    return "Product Id: NYSE American Openbook Ultra (62)"
-  end
+nyse_amexequities_openbook_ultra_v2_1_k.product_id.labels = {
+  [12] = "Product Id: NYSE Openbook Ultra (12)",
+  [62] = "Product Id: NYSE American Openbook Ultra (62)",
+}
 
-  return "Product Id: Unknown("..value..")"
+nyse_amexequities_openbook_ultra_v2_1_k.product_id.display = function(value)
+  return nyse_amexequities_openbook_ultra_v2_1_k.product_id.labels[value] or "Product Id: Unknown("..value..")"
 end
 
 -- Dissect: Product Id
@@ -797,21 +771,15 @@ nyse_amexequities_openbook_ultra_v2_1_k.retransmission_flag = {}
 nyse_amexequities_openbook_ultra_v2_1_k.retransmission_flag.size = 1
 
 -- Display: Retransmission Flag
-nyse_amexequities_openbook_ultra_v2_1_k.retransmission_flag.display = function(value)
-  if value == 1 then
-    return "Retransmission Flag: Original Packet (1)"
-  end
-  if value == 2 then
-    return "Retransmission Flag: Retransmitted Packet (2)"
-  end
-  if value == 5 then
-    return "Retransmission Flag: Refresh Packet (5)"
-  end
-  if value == 6 then
-    return "Retransmission Flag: Last Refresh Packet (6)"
-  end
+nyse_amexequities_openbook_ultra_v2_1_k.retransmission_flag.labels = {
+  [1] = "Retransmission Flag: Original Packet (1)",
+  [2] = "Retransmission Flag: Retransmitted Packet (2)",
+  [5] = "Retransmission Flag: Refresh Packet (5)",
+  [6] = "Retransmission Flag: Last Refresh Packet (6)",
+}
 
-  return "Retransmission Flag: Unknown("..value..")"
+nyse_amexequities_openbook_ultra_v2_1_k.retransmission_flag.display = function(value)
+  return nyse_amexequities_openbook_ultra_v2_1_k.retransmission_flag.labels[value] or "Retransmission Flag: Unknown("..value..")"
 end
 
 -- Dissect: Retransmission Flag
@@ -2336,58 +2304,26 @@ end
 nyse_amexequities_openbook_ultra_v2_1_k.payload = {}
 
 -- Dissect: Payload
+nyse_amexequities_openbook_ultra_v2_1_k.payload.dispatch = {
+  [35] = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.dissect,
+  [1] = nyse_amexequities_openbook_ultra_v2_1_k.sequence_number_reset_message.dissect,
+  [2] = nyse_amexequities_openbook_ultra_v2_1_k.heartbeat_message.dissect,
+  [5] = nyse_amexequities_openbook_ultra_v2_1_k.unavailable_message.dissect,
+  [10] = nyse_amexequities_openbook_ultra_v2_1_k.request_response_message.dissect,
+  [19] = nyse_amexequities_openbook_ultra_v2_1_k.heartbeat_subscription_message.dissect,
+  [20] = nyse_amexequities_openbook_ultra_v2_1_k.retransmission_request_message.dissect,
+  [22] = nyse_amexequities_openbook_ultra_v2_1_k.book_refresh_request_message.dissect,
+  [24] = nyse_amexequities_openbook_ultra_v2_1_k.heartbeat_response_message.dissect,
+  [27] = nyse_amexequities_openbook_ultra_v2_1_k.extended_book_refresh_request_message.dissect,
+  [34] = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_request_message.dissect,
+  [230] = nyse_amexequities_openbook_ultra_v2_1_k.full_update_messages.dissect,
+  [231] = nyse_amexequities_openbook_ultra_v2_1_k.delta_update_messages.dissect,
+}
+
 nyse_amexequities_openbook_ultra_v2_1_k.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Symbol Index Mapping Response Messages
-  if message_type == 35 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == 2 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unavailable Message
-  if message_type == 5 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 10 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.request_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Subscription Message
-  if message_type == 19 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.heartbeat_subscription_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 20 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Book Refresh Request Message
-  if message_type == 22 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.book_refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if message_type == 24 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.heartbeat_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Book Refresh Request Message
-  if message_type == 27 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.extended_book_refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Request Message
-  if message_type == 34 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Full Update Messages
-  if message_type == 230 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.full_update_messages.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delta Update Messages
-  if message_type == 231 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.delta_update_messages.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_amexequities_openbook_ultra_v2_1_k.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

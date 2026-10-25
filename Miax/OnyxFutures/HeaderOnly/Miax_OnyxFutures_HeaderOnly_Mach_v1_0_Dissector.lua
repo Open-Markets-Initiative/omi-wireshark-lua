@@ -131,21 +131,15 @@ miax_onyxfutures_headeronly_mach_v1_0.packet_type = {}
 miax_onyxfutures_headeronly_mach_v1_0.packet_type.size = 1
 
 -- Display: Packet Type
-miax_onyxfutures_headeronly_mach_v1_0.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
+miax_onyxfutures_headeronly_mach_v1_0.packet_type.labels = {
+  [0] = "Packet Type: Heartbeat (0)",
+  [1] = "Packet Type: Start Of Session (1)",
+  [2] = "Packet Type: End Of Session (2)",
+  [3] = "Packet Type: Application Message (3)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+miax_onyxfutures_headeronly_mach_v1_0.packet_type.display = function(value)
+  return miax_onyxfutures_headeronly_mach_v1_0.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -325,22 +319,17 @@ end
 miax_onyxfutures_headeronly_mach_v1_0.payload = {}
 
 -- Dissect: Payload
+miax_onyxfutures_headeronly_mach_v1_0.payload.dispatch = {
+  [3] = miax_onyxfutures_headeronly_mach_v1_0.application_message.dissect,
+  [0] = miax_onyxfutures_headeronly_mach_v1_0.heartbeat.dissect,
+  [1] = miax_onyxfutures_headeronly_mach_v1_0.start_of_session.dissect,
+  [2] = miax_onyxfutures_headeronly_mach_v1_0.end_of_session.dissect,
+}
+
 miax_onyxfutures_headeronly_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Application Message
-  if packet_type == 3 then
-    return miax_onyxfutures_headeronly_mach_v1_0.application_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if packet_type == 0 then
-    return miax_onyxfutures_headeronly_mach_v1_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if packet_type == 1 then
-    return miax_onyxfutures_headeronly_mach_v1_0.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if packet_type == 2 then
-    return miax_onyxfutures_headeronly_mach_v1_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_headeronly_mach_v1_0.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

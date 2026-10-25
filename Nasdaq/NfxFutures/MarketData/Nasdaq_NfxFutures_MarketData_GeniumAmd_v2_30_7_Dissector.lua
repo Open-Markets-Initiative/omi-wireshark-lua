@@ -351,57 +351,27 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.financial_product = {}
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.financial_product.size = 1
 
 -- Display: Financial Product
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.financial_product.display = function(value)
-  if value == 0 then
-    return "Financial Product: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Standard Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.financial_product.labels = {
+  [0] = "Financial Product: Not Applicable (0)",
+  [1] = "Financial Product: Option (1)",
+  [2] = "Financial Product: Forward (2)",
+  [3] = "Financial Product: Future (3)",
+  [4] = "Financial Product: Fra (4)",
+  [5] = "Financial Product: Cash (5)",
+  [6] = "Financial Product: Payment (6)",
+  [7] = "Financial Product: Exchange Rate (7)",
+  [8] = "Financial Product: Interest Rate Swap (8)",
+  [9] = "Financial Product: Repo (9)",
+  [10] = "Financial Product: Synthetic Box Leg Reference (10)",
+  [11] = "Financial Product: Standard Combination (11)",
+  [12] = "Financial Product: Guarantee (12)",
+  [13] = "Financial Product: Otc General (13)",
+  [14] = "Financial Product: Equity Warrant (14)",
+  [15] = "Financial Product: Security Lending (15)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.financial_product.display = function(value)
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -561,15 +531,13 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.leg_side = {}
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.leg_side.size = 1
 
 -- Display: Leg Side
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg Side: Opposite (C)"
-  end
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.leg_side.labels = {
+  ["B"] = "Leg Side: As Defined (B)",
+  ["C"] = "Leg Side: Opposite (C)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.leg_side.display = function(value)
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -1066,15 +1034,13 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.put_or_call = {}
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.put_or_call.size = 1
 
 -- Display: Put Or Call
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.put_or_call.display = function(value)
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-  if value == 2 then
-    return "Put Or Call: Put (2)"
-  end
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.put_or_call.labels = {
+  [1] = "Put Or Call: Call (1)",
+  [2] = "Put Or Call: Put (2)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.put_or_call.display = function(value)
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -1273,15 +1239,13 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.strategy_subtype = {}
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.strategy_subtype.size = 1
 
 -- Display: Strategy Subtype
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.strategy_subtype.display = function(value)
-  if value == 0 then
-    return "Strategy Subtype: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Strategy Subtype: Covered Option (1)"
-  end
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.strategy_subtype.labels = {
+  [0] = "Strategy Subtype: Not Applicable (0)",
+  [1] = "Strategy Subtype: Covered Option (1)",
+}
 
-  return "Strategy Subtype: Unknown("..value..")"
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.strategy_subtype.display = function(value)
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.strategy_subtype.labels[value] or "Strategy Subtype: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Subtype
@@ -1559,21 +1523,15 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_type = {}
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_type.size = 2
 
 -- Display: Trade Type
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_type.display = function(value)
-  if value == 1 then
-    return "Trade Type: Block Trade (1)"
-  end
-  if value == 2 then
-    return "Trade Type: Exchange For Physical (2)"
-  end
-  if value == 11 then
-    return "Trade Type: Exchange For Risk (11)"
-  end
-  if value == 14 then
-    return "Trade Type: Exchange For Options (14)"
-  end
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_type.labels = {
+  [1] = "Trade Type: Block Trade (1)",
+  [2] = "Trade Type: Exchange For Physical (2)",
+  [11] = "Trade Type: Exchange For Risk (11)",
+  [14] = "Trade Type: Exchange For Options (14)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_type.display = function(value)
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -2559,46 +2517,23 @@ end
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload = {}
 
 -- Dissect: Payload
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload.dispatch = {
+  ["T"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.seconds_message.dissect,
+  ["R"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.dissect,
+  ["M"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.combination_order_book_leg.dissect,
+  ["L"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size_table_entry.dissect,
+  ["S"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.system_event_message.dissect,
+  ["O"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_state_message.dissect,
+  ["r"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.reported_trade.dissect,
+  ["B"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.broken_trade_message.dissect,
+  ["o"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.open_interest_message.dissect,
+  ["p"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_message.dissect,
+}
+
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory
-  if message_type == "R" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Order Book Leg
-  if message_type == "M" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.combination_order_book_leg.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Table Entry
-  if message_type == "L" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if message_type == "O" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reported Trade
-  if message_type == "r" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.reported_trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if message_type == "B" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if message_type == "o" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Message
-  if message_type == "p" then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2754,14 +2689,15 @@ end
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.messages = {}
 
 -- Dissect: Messages
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.messages.dispatch = {
+  [0] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.heartbeat.dissect,
+  [65535] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.end_of_session.dissect,
+}
+
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

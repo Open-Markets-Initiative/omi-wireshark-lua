@@ -2302,45 +2302,23 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.strategy_type = {}
 smallx_smallfutures_orderbookfeed_sbe_v2_2.strategy_type.size = 1
 
 -- Display: Strategy Type
-smallx_smallfutures_orderbookfeed_sbe_v2_2.strategy_type.display = function(value)
-  if value == 0 then
-    return "Strategy Type: Custom (0)"
-  end
-  if value == 1 then
-    return "Strategy Type: Futures Calendar (1)"
-  end
-  if value == 2 then
-    return "Strategy Type: Futures Inter Commodity (2)"
-  end
-  if value == 3 then
-    return "Strategy Type: Covered (3)"
-  end
-  if value == 4 then
-    return "Strategy Type: Option Butterfly (4)"
-  end
-  if value == 5 then
-    return "Strategy Type: Option Vertical (5)"
-  end
-  if value == 6 then
-    return "Strategy Type: Option Strangle (6)"
-  end
-  if value == 7 then
-    return "Strategy Type: Option Straddle (7)"
-  end
-  if value == 8 then
-    return "Strategy Type: Option Diagonal (8)"
-  end
-  if value == 9 then
-    return "Strategy Type: Option Calendar (9)"
-  end
-  if value == 10 then
-    return "Strategy Type: Option Iron Condor (10)"
-  end
-  if value == 11 then
-    return "Strategy Type: Protective Put (11)"
-  end
+smallx_smallfutures_orderbookfeed_sbe_v2_2.strategy_type.labels = {
+  [0] = "Strategy Type: Custom (0)",
+  [1] = "Strategy Type: Futures Calendar (1)",
+  [2] = "Strategy Type: Futures Inter Commodity (2)",
+  [3] = "Strategy Type: Covered (3)",
+  [4] = "Strategy Type: Option Butterfly (4)",
+  [5] = "Strategy Type: Option Vertical (5)",
+  [6] = "Strategy Type: Option Strangle (6)",
+  [7] = "Strategy Type: Option Straddle (7)",
+  [8] = "Strategy Type: Option Diagonal (8)",
+  [9] = "Strategy Type: Option Calendar (9)",
+  [10] = "Strategy Type: Option Iron Condor (10)",
+  [11] = "Strategy Type: Protective Put (11)",
+}
 
-  return "Strategy Type: Unknown("..value..")"
+smallx_smallfutures_orderbookfeed_sbe_v2_2.strategy_type.display = function(value)
+  return smallx_smallfutures_orderbookfeed_sbe_v2_2.strategy_type.labels[value] or "Strategy Type: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Type
@@ -2440,48 +2418,24 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.template_id = {}
 smallx_smallfutures_orderbookfeed_sbe_v2_2.template_id.size = 2
 
 -- Display: Template Id
-smallx_smallfutures_orderbookfeed_sbe_v2_2.template_id.display = function(value)
-  if value == 3 then
-    return "Template Id: Instrument Trading Status Incremental Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Trades Incremental Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Trade Correct Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Trade Bust Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Order Book Incremental Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Market Summary Incremental Message (8)"
-  end
-  if value == 11 then
-    return "Template Id: Order Book Snapshot Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Market Summary Snapshot Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Index Value Snapshot Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Single Instrument Definition Incremental V 2 Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Multileg Definition Incremental V 2 Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Single Instrument Definition Snapshot V 2 Message (16)"
-  end
-  if value == 17 then
-    return "Template Id: Multileg Definition Snapshot V 2 Message (17)"
-  end
+smallx_smallfutures_orderbookfeed_sbe_v2_2.template_id.labels = {
+  [3] = "Template Id: Instrument Trading Status Incremental Message (3)",
+  [4] = "Template Id: Trades Incremental Message (4)",
+  [5] = "Template Id: Trade Correct Message (5)",
+  [6] = "Template Id: Trade Bust Message (6)",
+  [7] = "Template Id: Order Book Incremental Message (7)",
+  [8] = "Template Id: Market Summary Incremental Message (8)",
+  [11] = "Template Id: Order Book Snapshot Message (11)",
+  [12] = "Template Id: Market Summary Snapshot Message (12)",
+  [13] = "Template Id: Index Value Snapshot Message (13)",
+  [14] = "Template Id: Single Instrument Definition Incremental V 2 Message (14)",
+  [15] = "Template Id: Multileg Definition Incremental V 2 Message (15)",
+  [16] = "Template Id: Single Instrument Definition Snapshot V 2 Message (16)",
+  [17] = "Template Id: Multileg Definition Snapshot V 2 Message (17)",
+}
 
-  return "Template Id: Unknown("..value..")"
+smallx_smallfutures_orderbookfeed_sbe_v2_2.template_id.display = function(value)
+  return smallx_smallfutures_orderbookfeed_sbe_v2_2.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -5325,58 +5279,26 @@ end
 smallx_smallfutures_orderbookfeed_sbe_v2_2.payload = {}
 
 -- Dissect: Payload
+smallx_smallfutures_orderbookfeed_sbe_v2_2.payload.dispatch = {
+  [3] = smallx_smallfutures_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.dissect,
+  [4] = smallx_smallfutures_orderbookfeed_sbe_v2_2.trades_incremental_message.dissect,
+  [5] = smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_correct_message.dissect,
+  [6] = smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_bust_message.dissect,
+  [7] = smallx_smallfutures_orderbookfeed_sbe_v2_2.order_book_incremental_message.dissect,
+  [8] = smallx_smallfutures_orderbookfeed_sbe_v2_2.market_summary_incremental_message.dissect,
+  [11] = smallx_smallfutures_orderbookfeed_sbe_v2_2.order_book_snapshot_message.dissect,
+  [12] = smallx_smallfutures_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.dissect,
+  [13] = smallx_smallfutures_orderbookfeed_sbe_v2_2.index_value_snapshot_message.dissect,
+  [14] = smallx_smallfutures_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.dissect,
+  [15] = smallx_smallfutures_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message.dissect,
+  [16] = smallx_smallfutures_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.dissect,
+  [17] = smallx_smallfutures_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.dissect,
+}
+
 smallx_smallfutures_orderbookfeed_sbe_v2_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Instrument Trading Status Incremental Message
-  if template_id == 3 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trades Incremental Message
-  if template_id == 4 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.trades_incremental_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correct Message
-  if template_id == 5 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Message
-  if template_id == 6 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_bust_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Incremental Message
-  if template_id == 7 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.order_book_incremental_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Summary Incremental Message
-  if template_id == 8 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.market_summary_incremental_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Snapshot Message
-  if template_id == 11 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.order_book_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Summary Snapshot Message
-  if template_id == 12 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Value Snapshot Message
-  if template_id == 13 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.index_value_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Instrument Definition Incremental V 2 Message
-  if template_id == 14 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.single_instrument_definition_incremental_v_2_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multileg Definition Incremental V 2 Message
-  if template_id == 15 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.multileg_definition_incremental_v_2_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Instrument Definition Snapshot V 2 Message
-  if template_id == 16 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot_v_2_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multileg Definition Snapshot V 2 Message
-  if template_id == 17 then
-    return smallx_smallfutures_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.dissect(buffer, offset, packet, parent)
+  local dissect = smallx_smallfutures_orderbookfeed_sbe_v2_2.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

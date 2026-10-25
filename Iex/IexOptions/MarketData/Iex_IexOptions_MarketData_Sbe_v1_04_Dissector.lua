@@ -272,15 +272,13 @@ iex_iexoptions_marketdata_sbe_v1_04.auction_summary_type = {}
 iex_iexoptions_marketdata_sbe_v1_04.auction_summary_type.size = 1
 
 -- Display: Auction Summary Type
-iex_iexoptions_marketdata_sbe_v1_04.auction_summary_type.display = function(value)
-  if value == 0 then
-    return "Auction Summary Type: Opening (0)"
-  end
-  if value == 1 then
-    return "Auction Summary Type: Halt Re Opening (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.auction_summary_type.labels = {
+  [0] = "Auction Summary Type: Opening (0)",
+  [1] = "Auction Summary Type: Halt Re Opening (1)",
+}
 
-  return "Auction Summary Type: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.auction_summary_type.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.auction_summary_type.labels[value] or "Auction Summary Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Summary Type
@@ -446,30 +444,18 @@ iex_iexoptions_marketdata_sbe_v1_04.capacity = {}
 iex_iexoptions_marketdata_sbe_v1_04.capacity.size = 1
 
 -- Display: Capacity
-iex_iexoptions_marketdata_sbe_v1_04.capacity.display = function(value)
-  if value == 0 then
-    return "Capacity: Customer (0)"
-  end
-  if value == 1 then
-    return "Capacity: Firm (1)"
-  end
-  if value == 2 then
-    return "Capacity: Broker Dealer (2)"
-  end
-  if value == 3 then
-    return "Capacity: Market Maker (3)"
-  end
-  if value == 4 then
-    return "Capacity: Away Market Maker (4)"
-  end
-  if value == 5 then
-    return "Capacity: Prof Customer (5)"
-  end
-  if value == 6 then
-    return "Capacity: Not Disclosed (6)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.capacity.labels = {
+  [0] = "Capacity: Customer (0)",
+  [1] = "Capacity: Firm (1)",
+  [2] = "Capacity: Broker Dealer (2)",
+  [3] = "Capacity: Market Maker (3)",
+  [4] = "Capacity: Away Market Maker (4)",
+  [5] = "Capacity: Prof Customer (5)",
+  [6] = "Capacity: Not Disclosed (6)",
+}
 
-  return "Capacity: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.capacity.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -514,15 +500,13 @@ iex_iexoptions_marketdata_sbe_v1_04.close_indicator = {}
 iex_iexoptions_marketdata_sbe_v1_04.close_indicator.size = 1
 
 -- Display: Close Indicator
-iex_iexoptions_marketdata_sbe_v1_04.close_indicator.display = function(value)
-  if value == 0 then
-    return "Close Indicator: Default (0)"
-  end
-  if value == 1 then
-    return "Close Indicator: Underlying Closed (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.close_indicator.labels = {
+  [0] = "Close Indicator: Default (0)",
+  [1] = "Close Indicator: Underlying Closed (1)",
+}
 
-  return "Close Indicator: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.close_indicator.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.close_indicator.labels[value] or "Close Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Close Indicator
@@ -544,15 +528,13 @@ iex_iexoptions_marketdata_sbe_v1_04.closing_only_series = {}
 iex_iexoptions_marketdata_sbe_v1_04.closing_only_series.size = 1
 
 -- Display: Closing Only Series
-iex_iexoptions_marketdata_sbe_v1_04.closing_only_series.display = function(value)
-  if value == 0 then
-    return "Closing Only Series: False (0)"
-  end
-  if value == 1 then
-    return "Closing Only Series: True (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.closing_only_series.labels = {
+  [0] = "Closing Only Series: False (0)",
+  [1] = "Closing Only Series: True (1)",
+}
 
-  return "Closing Only Series: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.closing_only_series.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.closing_only_series.labels[value] or "Closing Only Series: Unknown("..value..")"
 end
 
 -- Dissect: Closing Only Series
@@ -620,15 +602,13 @@ iex_iexoptions_marketdata_sbe_v1_04.customer_indicator = {}
 iex_iexoptions_marketdata_sbe_v1_04.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-iex_iexoptions_marketdata_sbe_v1_04.customer_indicator.display = function(value)
-  if value == 0 then
-    return "Customer Indicator: Customer (0)"
-  end
-  if value == 1 then
-    return "Customer Indicator: Non Customer (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.customer_indicator.labels = {
+  [0] = "Customer Indicator: Customer (0)",
+  [1] = "Customer Indicator: Non Customer (1)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.customer_indicator.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -778,15 +758,13 @@ iex_iexoptions_marketdata_sbe_v1_04.feed = {}
 iex_iexoptions_marketdata_sbe_v1_04.feed.size = 1
 
 -- Display: Feed
-iex_iexoptions_marketdata_sbe_v1_04.feed.display = function(value)
-  if value == 0 then
-    return "Feed: Deep (0)"
-  end
-  if value == 1 then
-    return "Feed: Tops (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.feed.labels = {
+  [0] = "Feed: Deep (0)",
+  [1] = "Feed: Tops (1)",
+}
 
-  return "Feed: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.feed.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.feed.labels[value] or "Feed: Unknown("..value..")"
 end
 
 -- Dissect: Feed
@@ -831,12 +809,12 @@ iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_type = {}
 iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_type.size = 1
 
 -- Display: Liquidity Event Type
-iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_type.display = function(value)
-  if value == 0 then
-    return "Liquidity Event Type: Sum (0)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_type.labels = {
+  [0] = "Liquidity Event Type: Sum (0)",
+}
 
-  return "Liquidity Event Type: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_type.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_type.labels[value] or "Liquidity Event Type: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Event Type
@@ -978,15 +956,13 @@ iex_iexoptions_marketdata_sbe_v1_04.mod_flag = {}
 iex_iexoptions_marketdata_sbe_v1_04.mod_flag.size = 1
 
 -- Display: Mod Flag
-iex_iexoptions_marketdata_sbe_v1_04.mod_flag.display = function(value)
-  if value == 0 then
-    return "Mod Flag: Reset Priority (0)"
-  end
-  if value == 1 then
-    return "Mod Flag: Maintain Priority (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.mod_flag.labels = {
+  [0] = "Mod Flag: Reset Priority (0)",
+  [1] = "Mod Flag: Maintain Priority (1)",
+}
 
-  return "Mod Flag: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.mod_flag.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.mod_flag.labels[value] or "Mod Flag: Unknown("..value..")"
 end
 
 -- Dissect: Mod Flag
@@ -1008,18 +984,14 @@ iex_iexoptions_marketdata_sbe_v1_04.mpv_group = {}
 iex_iexoptions_marketdata_sbe_v1_04.mpv_group.size = 1
 
 -- Display: Mpv Group
-iex_iexoptions_marketdata_sbe_v1_04.mpv_group.display = function(value)
-  if value == 0 then
-    return "Mpv Group: All Penny (0)"
-  end
-  if value == 1 then
-    return "Mpv Group: Penny Nickel (1)"
-  end
-  if value == 2 then
-    return "Mpv Group: Nickel Dime (2)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.mpv_group.labels = {
+  [0] = "Mpv Group: All Penny (0)",
+  [1] = "Mpv Group: Penny Nickel (1)",
+  [2] = "Mpv Group: Nickel Dime (2)",
+}
 
-  return "Mpv Group: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.mpv_group.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.mpv_group.labels[value] or "Mpv Group: Unknown("..value..")"
 end
 
 -- Dissect: Mpv Group
@@ -1064,15 +1036,13 @@ iex_iexoptions_marketdata_sbe_v1_04.option_type = {}
 iex_iexoptions_marketdata_sbe_v1_04.option_type.size = 1
 
 -- Display: Option Type
-iex_iexoptions_marketdata_sbe_v1_04.option_type.display = function(value)
-  if value == 0 then
-    return "Option Type: Put (0)"
-  end
-  if value == 1 then
-    return "Option Type: Call (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.option_type.labels = {
+  [0] = "Option Type: Put (0)",
+  [1] = "Option Type: Call (1)",
+}
 
-  return "Option Type: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.option_type.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1140,15 +1110,13 @@ iex_iexoptions_marketdata_sbe_v1_04.orp_enablement = {}
 iex_iexoptions_marketdata_sbe_v1_04.orp_enablement.size = 1
 
 -- Display: Orp Enablement
-iex_iexoptions_marketdata_sbe_v1_04.orp_enablement.display = function(value)
-  if value == 0 then
-    return "Orp Enablement: Orp Protection Enabled (0)"
-  end
-  if value == 1 then
-    return "Orp Enablement: Orp Protection Disabled (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.orp_enablement.labels = {
+  [0] = "Orp Enablement: Orp Protection Enabled (0)",
+  [1] = "Orp Enablement: Orp Protection Disabled (1)",
+}
 
-  return "Orp Enablement: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.orp_enablement.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.orp_enablement.labels[value] or "Orp Enablement: Unknown("..value..")"
 end
 
 -- Dissect: Orp Enablement
@@ -1442,15 +1410,13 @@ iex_iexoptions_marketdata_sbe_v1_04.side = {}
 iex_iexoptions_marketdata_sbe_v1_04.side.size = 1
 
 -- Display: Side
-iex_iexoptions_marketdata_sbe_v1_04.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
 
-  return "Side: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.side.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1495,48 +1461,24 @@ iex_iexoptions_marketdata_sbe_v1_04.status_retransmission_status_type = {}
 iex_iexoptions_marketdata_sbe_v1_04.status_retransmission_status_type.size = 1
 
 -- Display: Status Retransmission Status Type
-iex_iexoptions_marketdata_sbe_v1_04.status_retransmission_status_type.display = function(value)
-  if value == 0 then
-    return "Status Retransmission Status Type: Success (0)"
-  end
-  if value == 1 then
-    return "Status Retransmission Status Type: Invalid Channel Id (1)"
-  end
-  if value == 2 then
-    return "Status Retransmission Status Type: Invalid Feed (2)"
-  end
-  if value == 3 then
-    return "Status Retransmission Status Type: Invalid Logon Id (3)"
-  end
-  if value == 4 then
-    return "Status Retransmission Status Type: Invalid Request Id (4)"
-  end
-  if value == 5 then
-    return "Status Retransmission Status Type: Invalid Packet Length (5)"
-  end
-  if value == 6 then
-    return "Status Retransmission Status Type: Invalid Message (6)"
-  end
-  if value == 7 then
-    return "Status Retransmission Status Type: Invalid Seq Num Range (7)"
-  end
-  if value == 8 then
-    return "Status Retransmission Status Type: Denial Of Service (8)"
-  end
-  if value == 9 then
-    return "Status Retransmission Status Type: Max Daily Requests Exceeded (9)"
-  end
-  if value == 10 then
-    return "Status Retransmission Status Type: Max Seq Num Range Exceeded (10)"
-  end
-  if value == 11 then
-    return "Status Retransmission Status Type: Seq Num Ttl Expired (11)"
-  end
-  if value == 12 then
-    return "Status Retransmission Status Type: Internal Error (12)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.status_retransmission_status_type.labels = {
+  [0] = "Status Retransmission Status Type: Success (0)",
+  [1] = "Status Retransmission Status Type: Invalid Channel Id (1)",
+  [2] = "Status Retransmission Status Type: Invalid Feed (2)",
+  [3] = "Status Retransmission Status Type: Invalid Logon Id (3)",
+  [4] = "Status Retransmission Status Type: Invalid Request Id (4)",
+  [5] = "Status Retransmission Status Type: Invalid Packet Length (5)",
+  [6] = "Status Retransmission Status Type: Invalid Message (6)",
+  [7] = "Status Retransmission Status Type: Invalid Seq Num Range (7)",
+  [8] = "Status Retransmission Status Type: Denial Of Service (8)",
+  [9] = "Status Retransmission Status Type: Max Daily Requests Exceeded (9)",
+  [10] = "Status Retransmission Status Type: Max Seq Num Range Exceeded (10)",
+  [11] = "Status Retransmission Status Type: Seq Num Ttl Expired (11)",
+  [12] = "Status Retransmission Status Type: Internal Error (12)",
+}
 
-  return "Status Retransmission Status Type: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.status_retransmission_status_type.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.status_retransmission_status_type.labels[value] or "Status Retransmission Status Type: Unknown("..value..")"
 end
 
 -- Dissect: Status Retransmission Status Type
@@ -1558,15 +1500,13 @@ iex_iexoptions_marketdata_sbe_v1_04.status_status_type = {}
 iex_iexoptions_marketdata_sbe_v1_04.status_status_type.size = 1
 
 -- Display: Status Status Type
-iex_iexoptions_marketdata_sbe_v1_04.status_status_type.display = function(value)
-  if value == 0 then
-    return "Status Status Type: Regular Trading (0)"
-  end
-  if value == 1 then
-    return "Status Status Type: Trading Halted (1)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.status_status_type.labels = {
+  [0] = "Status Status Type: Regular Trading (0)",
+  [1] = "Status Status Type: Trading Halted (1)",
+}
 
-  return "Status Status Type: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.status_status_type.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.status_status_type.labels[value] or "Status Status Type: Unknown("..value..")"
 end
 
 -- Dissect: Status Status Type
@@ -1617,96 +1557,40 @@ iex_iexoptions_marketdata_sbe_v1_04.template_id = {}
 iex_iexoptions_marketdata_sbe_v1_04.template_id.size = 2
 
 -- Display: Template Id
-iex_iexoptions_marketdata_sbe_v1_04.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Underlying Ref Data Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Symbol Mapping Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Instrument Clear Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Trading Status Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Options Auction Summary Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Options Auction Width Update Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Liquidity Event Notification Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Liquidity Event Execution Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Liquidity Event Cancel Message (9)"
-  end
-  if value == 100 then
-    return "Template Id: Add Order Non Customer Message (100)"
-  end
-  if value == 101 then
-    return "Template Id: Add Order Customer Message (101)"
-  end
-  if value == 102 then
-    return "Template Id: Modify Order Message (102)"
-  end
-  if value == 103 then
-    return "Template Id: Delete Order Message (103)"
-  end
-  if value == 104 then
-    return "Template Id: Order Execution Message (104)"
-  end
-  if value == 105 then
-    return "Template Id: Deep Trade Break Message (105)"
-  end
-  if value == 200 then
-    return "Template Id: Quote Update No Customer Interest Message (200)"
-  end
-  if value == 201 then
-    return "Template Id: Quote Update Customer Interest Message (201)"
-  end
-  if value == 202 then
-    return "Template Id: Trade Message (202)"
-  end
-  if value == 203 then
-    return "Template Id: Trade Correction Message (203)"
-  end
-  if value == 204 then
-    return "Template Id: Tops Trade Break Message (204)"
-  end
-  if value == 300 then
-    return "Template Id: Heartbeat Message (300)"
-  end
-  if value == 301 then
-    return "Template Id: Sequenced Packet Message (301)"
-  end
-  if value == 302 then
-    return "Template Id: Session Shutdown Message (302)"
-  end
-  if value == 303 then
-    return "Template Id: Sequence Number Reset Message (303)"
-  end
-  if value == 400 then
-    return "Template Id: Server Heartbeat Message (400)"
-  end
-  if value == 401 then
-    return "Template Id: Client Heartbeat Message (401)"
-  end
-  if value == 402 then
-    return "Template Id: Retransmission Request Message (402)"
-  end
-  if value == 403 then
-    return "Template Id: Retransmission Response Message (403)"
-  end
-  if value == 601 then
-    return "Template Id: Snapshot Header Message (601)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.template_id.labels = {
+  [1] = "Template Id: Underlying Ref Data Message (1)",
+  [2] = "Template Id: Symbol Mapping Message (2)",
+  [3] = "Template Id: Instrument Clear Message (3)",
+  [4] = "Template Id: Trading Status Message (4)",
+  [5] = "Template Id: Options Auction Summary Message (5)",
+  [6] = "Template Id: Options Auction Width Update Message (6)",
+  [7] = "Template Id: Liquidity Event Notification Message (7)",
+  [8] = "Template Id: Liquidity Event Execution Message (8)",
+  [9] = "Template Id: Liquidity Event Cancel Message (9)",
+  [100] = "Template Id: Add Order Non Customer Message (100)",
+  [101] = "Template Id: Add Order Customer Message (101)",
+  [102] = "Template Id: Modify Order Message (102)",
+  [103] = "Template Id: Delete Order Message (103)",
+  [104] = "Template Id: Order Execution Message (104)",
+  [105] = "Template Id: Deep Trade Break Message (105)",
+  [200] = "Template Id: Quote Update No Customer Interest Message (200)",
+  [201] = "Template Id: Quote Update Customer Interest Message (201)",
+  [202] = "Template Id: Trade Message (202)",
+  [203] = "Template Id: Trade Correction Message (203)",
+  [204] = "Template Id: Tops Trade Break Message (204)",
+  [300] = "Template Id: Heartbeat Message (300)",
+  [301] = "Template Id: Sequenced Packet Message (301)",
+  [302] = "Template Id: Session Shutdown Message (302)",
+  [303] = "Template Id: Sequence Number Reset Message (303)",
+  [400] = "Template Id: Server Heartbeat Message (400)",
+  [401] = "Template Id: Client Heartbeat Message (401)",
+  [402] = "Template Id: Retransmission Request Message (402)",
+  [403] = "Template Id: Retransmission Response Message (403)",
+  [601] = "Template Id: Snapshot Header Message (601)",
+}
 
-  return "Template Id: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.template_id.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1856,30 +1740,18 @@ iex_iexoptions_marketdata_sbe_v1_04.trading_status = {}
 iex_iexoptions_marketdata_sbe_v1_04.trading_status.size = 1
 
 -- Display: Trading Status
-iex_iexoptions_marketdata_sbe_v1_04.trading_status.display = function(value)
-  if value == 0 then
-    return "Trading Status: Halted (0)"
-  end
-  if value == 1 then
-    return "Trading Status: Pre Opening (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Opening Process (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Continuous Trading (3)"
-  end
-  if value == 4 then
-    return "Trading Status: Re Opening Process (4)"
-  end
-  if value == 5 then
-    return "Trading Status: Suspended (5)"
-  end
-  if value == 6 then
-    return "Trading Status: Queueing (6)"
-  end
+iex_iexoptions_marketdata_sbe_v1_04.trading_status.labels = {
+  [0] = "Trading Status: Halted (0)",
+  [1] = "Trading Status: Pre Opening (1)",
+  [2] = "Trading Status: Opening Process (2)",
+  [3] = "Trading Status: Continuous Trading (3)",
+  [4] = "Trading Status: Re Opening Process (4)",
+  [5] = "Trading Status: Suspended (5)",
+  [6] = "Trading Status: Queueing (6)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+iex_iexoptions_marketdata_sbe_v1_04.trading_status.display = function(value)
+  return iex_iexoptions_marketdata_sbe_v1_04.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -3783,122 +3655,42 @@ end
 iex_iexoptions_marketdata_sbe_v1_04.payload = {}
 
 -- Dissect: Payload
+iex_iexoptions_marketdata_sbe_v1_04.payload.dispatch = {
+  [1] = iex_iexoptions_marketdata_sbe_v1_04.underlying_ref_data_message.dissect,
+  [2] = iex_iexoptions_marketdata_sbe_v1_04.symbol_mapping_message.dissect,
+  [3] = iex_iexoptions_marketdata_sbe_v1_04.instrument_clear_message.dissect,
+  [4] = iex_iexoptions_marketdata_sbe_v1_04.trading_status_message.dissect,
+  [5] = iex_iexoptions_marketdata_sbe_v1_04.options_auction_summary_message.dissect,
+  [6] = iex_iexoptions_marketdata_sbe_v1_04.options_auction_width_update_message.dissect,
+  [7] = iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_notification_message.dissect,
+  [8] = iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_execution_message.dissect,
+  [9] = iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_cancel_message.dissect,
+  [100] = iex_iexoptions_marketdata_sbe_v1_04.add_order_non_customer_message.dissect,
+  [101] = iex_iexoptions_marketdata_sbe_v1_04.add_order_customer_message.dissect,
+  [102] = iex_iexoptions_marketdata_sbe_v1_04.modify_order_message.dissect,
+  [103] = iex_iexoptions_marketdata_sbe_v1_04.delete_order_message.dissect,
+  [104] = iex_iexoptions_marketdata_sbe_v1_04.order_execution_message.dissect,
+  [105] = iex_iexoptions_marketdata_sbe_v1_04.deep_trade_break_message.dissect,
+  [200] = iex_iexoptions_marketdata_sbe_v1_04.quote_update_no_customer_interest_message.dissect,
+  [201] = iex_iexoptions_marketdata_sbe_v1_04.quote_update_customer_interest_message.dissect,
+  [202] = iex_iexoptions_marketdata_sbe_v1_04.trade_message.dissect,
+  [203] = iex_iexoptions_marketdata_sbe_v1_04.trade_correction_message.dissect,
+  [204] = iex_iexoptions_marketdata_sbe_v1_04.tops_trade_break_message.dissect,
+  [300] = iex_iexoptions_marketdata_sbe_v1_04.heartbeat_message.dissect,
+  [301] = iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message.dissect,
+  [302] = iex_iexoptions_marketdata_sbe_v1_04.session_shutdown_message.dissect,
+  [303] = iex_iexoptions_marketdata_sbe_v1_04.sequence_number_reset_message.dissect,
+  [400] = iex_iexoptions_marketdata_sbe_v1_04.server_heartbeat_message.dissect,
+  [401] = iex_iexoptions_marketdata_sbe_v1_04.client_heartbeat_message.dissect,
+  [402] = iex_iexoptions_marketdata_sbe_v1_04.retransmission_request_message.dissect,
+  [403] = iex_iexoptions_marketdata_sbe_v1_04.retransmission_response_message.dissect,
+  [601] = iex_iexoptions_marketdata_sbe_v1_04.snapshot_header_message.dissect,
+}
+
 iex_iexoptions_marketdata_sbe_v1_04.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Underlying Ref Data Message
-  if template_id == 1 then
-    return iex_iexoptions_marketdata_sbe_v1_04.underlying_ref_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if template_id == 2 then
-    return iex_iexoptions_marketdata_sbe_v1_04.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Clear Message
-  if template_id == 3 then
-    return iex_iexoptions_marketdata_sbe_v1_04.instrument_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if template_id == 4 then
-    return iex_iexoptions_marketdata_sbe_v1_04.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Auction Summary Message
-  if template_id == 5 then
-    return iex_iexoptions_marketdata_sbe_v1_04.options_auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Auction Width Update Message
-  if template_id == 6 then
-    return iex_iexoptions_marketdata_sbe_v1_04.options_auction_width_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Liquidity Event Notification Message
-  if template_id == 7 then
-    return iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Liquidity Event Execution Message
-  if template_id == 8 then
-    return iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Liquidity Event Cancel Message
-  if template_id == 9 then
-    return iex_iexoptions_marketdata_sbe_v1_04.liquidity_event_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Non Customer Message
-  if template_id == 100 then
-    return iex_iexoptions_marketdata_sbe_v1_04.add_order_non_customer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Customer Message
-  if template_id == 101 then
-    return iex_iexoptions_marketdata_sbe_v1_04.add_order_customer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if template_id == 102 then
-    return iex_iexoptions_marketdata_sbe_v1_04.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if template_id == 103 then
-    return iex_iexoptions_marketdata_sbe_v1_04.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if template_id == 104 then
-    return iex_iexoptions_marketdata_sbe_v1_04.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Deep Trade Break Message
-  if template_id == 105 then
-    return iex_iexoptions_marketdata_sbe_v1_04.deep_trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update No Customer Interest Message
-  if template_id == 200 then
-    return iex_iexoptions_marketdata_sbe_v1_04.quote_update_no_customer_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Customer Interest Message
-  if template_id == 201 then
-    return iex_iexoptions_marketdata_sbe_v1_04.quote_update_customer_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if template_id == 202 then
-    return iex_iexoptions_marketdata_sbe_v1_04.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if template_id == 203 then
-    return iex_iexoptions_marketdata_sbe_v1_04.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tops Trade Break Message
-  if template_id == 204 then
-    return iex_iexoptions_marketdata_sbe_v1_04.tops_trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if template_id == 300 then
-    return iex_iexoptions_marketdata_sbe_v1_04.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Packet Message
-  if template_id == 301 then
-    return iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Shutdown Message
-  if template_id == 302 then
-    return iex_iexoptions_marketdata_sbe_v1_04.session_shutdown_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Number Reset Message
-  if template_id == 303 then
-    return iex_iexoptions_marketdata_sbe_v1_04.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Message
-  if template_id == 400 then
-    return iex_iexoptions_marketdata_sbe_v1_04.server_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Message
-  if template_id == 401 then
-    return iex_iexoptions_marketdata_sbe_v1_04.client_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if template_id == 402 then
-    return iex_iexoptions_marketdata_sbe_v1_04.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Response Message
-  if template_id == 403 then
-    return iex_iexoptions_marketdata_sbe_v1_04.retransmission_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Header Message
-  if template_id == 601 then
-    return iex_iexoptions_marketdata_sbe_v1_04.snapshot_header_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_marketdata_sbe_v1_04.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

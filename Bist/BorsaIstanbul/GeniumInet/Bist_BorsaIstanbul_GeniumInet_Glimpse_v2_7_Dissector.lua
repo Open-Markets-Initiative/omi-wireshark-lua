@@ -368,24 +368,16 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.client_packet_type = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-bist_borsaistanbul_geniuminet_glimpse_v2_7.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.client_packet_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -541,57 +533,27 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.financial_product = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.financial_product.size = 1
 
 -- Display: Financial Product
-bist_borsaistanbul_geniuminet_glimpse_v2_7.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Or Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Standard Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
-  if value == 18 then
-    return "Financial Product: Certificate (18)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.financial_product.labels = {
+  [1] = "Financial Product: Option (1)",
+  [2] = "Financial Product: Forward (2)",
+  [3] = "Financial Product: Future (3)",
+  [4] = "Financial Product: Fra (4)",
+  [5] = "Financial Product: Cash (5)",
+  [6] = "Financial Product: Payment (6)",
+  [7] = "Financial Product: Exchange Rate (7)",
+  [8] = "Financial Product: Interest Rate Swap (8)",
+  [9] = "Financial Product: Repo (9)",
+  [10] = "Financial Product: Synthetic Box Leg Or Reference (10)",
+  [11] = "Financial Product: Standard Combination (11)",
+  [12] = "Financial Product: Guarantee (12)",
+  [13] = "Financial Product: Otc General (13)",
+  [14] = "Financial Product: Equity Warrant (14)",
+  [15] = "Financial Product: Security Lending (15)",
+  [18] = "Financial Product: Certificate (18)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.financial_product.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -682,15 +644,13 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side.size = 1
 
 -- Display: Leg Side
-bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg Side: Opposite (C)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side.labels = {
+  ["B"] = "Leg Side: As Defined (B)",
+  ["C"] = "Leg Side: Opposite (C)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -735,12 +695,12 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.lot_type = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.lot_type.size = 1
 
 -- Display: Lot Type
-bist_borsaistanbul_geniuminet_glimpse_v2_7.lot_type.display = function(value)
-  if value == 2 then
-    return "Lot Type: Round Lot (2)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.lot_type.labels = {
+  [2] = "Lot Type: Round Lot (2)",
+}
 
-  return "Lot Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.lot_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.lot_type.labels[value] or "Lot Type: Unknown("..value..")"
 end
 
 -- Dissect: Lot Type
@@ -1038,18 +998,14 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.put_or_call = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.put_or_call.size = 1
 
 -- Display: Put Or Call
-bist_borsaistanbul_geniuminet_glimpse_v2_7.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Undefined (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-  if value == 2 then
-    return "Put Or Call: Put (2)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.put_or_call.labels = {
+  [0] = "Put Or Call: Undefined (0)",
+  [1] = "Put Or Call: Call (1)",
+  [2] = "Put Or Call: Put (2)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.put_or_call.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -1141,12 +1097,12 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_type = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_type.size = 1
 
 -- Display: Ranking Type
-bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_type.display = function(value)
-  if value == 1 then
-    return "Ranking Type: Price Time (1)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_type.labels = {
+  [1] = "Ranking Type: Price Time (1)",
+}
 
-  return "Ranking Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.ranking_type.labels[value] or "Ranking Type: Unknown("..value..")"
 end
 
 -- Dissect: Ranking Type
@@ -1168,15 +1124,13 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.reject_reason_code = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-bist_borsaistanbul_geniuminet_glimpse_v2_7.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.reject_reason_code.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1358,36 +1312,20 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message_type = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message_type.display = function(value)
-  if value == "T" then
-    return "Sequenced Message Type: Seconds Message (T)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Order Book Directory (R)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Combination Order Book Leg (M)"
-  end
-  if value == "L" then
-    return "Sequenced Message Type: Tick Size Table Entry (L)"
-  end
-  if value == "V" then
-    return "Sequenced Message Type: Short Sell Status (V)"
-  end
-  if value == "O" then
-    return "Sequenced Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Add Order No Mpid Attribution (A)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Add Order With Mpid Attribution (F)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: End Of Snapshot Message (G)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message_type.labels = {
+  ["T"] = "Sequenced Message Type: Seconds Message (T)",
+  ["R"] = "Sequenced Message Type: Order Book Directory (R)",
+  ["M"] = "Sequenced Message Type: Combination Order Book Leg (M)",
+  ["L"] = "Sequenced Message Type: Tick Size Table Entry (L)",
+  ["V"] = "Sequenced Message Type: Short Sell Status (V)",
+  ["O"] = "Sequenced Message Type: Order Book State Message (O)",
+  ["A"] = "Sequenced Message Type: Add Order No Mpid Attribution (A)",
+  ["F"] = "Sequenced Message Type: Add Order With Mpid Attribution (F)",
+  ["G"] = "Sequenced Message Type: End Of Snapshot Message (G)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1409,27 +1347,17 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet_type = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1451,18 +1379,14 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sale_restriction = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
-bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sale_restriction.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction: No Restrictions (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction: Short Selling Not Allowed (1)"
-  end
-  if value == 2 then
-    return "Short Sale Restriction: Short Selling Allowed With Up Tick Rule (2)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sale_restriction.labels = {
+  [0] = "Short Sale Restriction: No Restrictions (0)",
+  [1] = "Short Sale Restriction: Short Selling Not Allowed (1)",
+  [2] = "Short Sale Restriction: Short Selling Allowed With Up Tick Rule (2)",
+}
 
-  return "Short Sale Restriction: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sale_restriction.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sale_restriction.labels[value] or "Short Sale Restriction: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction
@@ -1484,15 +1408,13 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.side = {}
 bist_borsaistanbul_geniuminet_glimpse_v2_7.side.size = 1
 
 -- Display: Side
-bist_borsaistanbul_geniuminet_glimpse_v2_7.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
+bist_borsaistanbul_geniuminet_glimpse_v2_7.side.labels = {
+  ["B"] = "Side: Buy Order (B)",
+  ["S"] = "Side: Sell Order (S)",
+}
 
-  return "Side: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_glimpse_v2_7.side.display = function(value)
+  return bist_borsaistanbul_geniuminet_glimpse_v2_7.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2405,42 +2327,22 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message.dispatch = {
+  ["T"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.seconds_message.dissect,
+  ["R"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.order_book_directory.dissect,
+  ["M"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.combination_order_book_leg.dissect,
+  ["L"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.tick_size_table_entry.dissect,
+  ["V"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sell_status.dissect,
+  ["O"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.order_book_state_message.dissect,
+  ["A"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.add_order_no_mpid_attribution.dissect,
+  ["F"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.add_order_with_mpid_attribution.dissect,
+  ["G"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.end_of_snapshot_message.dissect,
+}
+
 bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Seconds Message
-  if sequenced_message_type == "T" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory
-  if sequenced_message_type == "R" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.order_book_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Order Book Leg
-  if sequenced_message_type == "M" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.combination_order_book_leg.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Table Entry
-  if sequenced_message_type == "L" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.tick_size_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Sell Status
-  if sequenced_message_type == "V" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sell_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if sequenced_message_type == "O" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order No Mpid Attribution
-  if sequenced_message_type == "A" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.add_order_no_mpid_attribution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order With Mpid Attribution
-  if sequenced_message_type == "F" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.add_order_with_mpid_attribution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Snapshot Message
-  if sequenced_message_type == "G" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.end_of_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2683,30 +2585,19 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload = {}
 
 -- Dissect: Server Payload
+bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload.dispatch = {
+  ["+"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.dissect,
+  ["A"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.login_accepted_packet.dissect,
+  ["J"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.login_rejected_packet.dissect,
+  ["S"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_data_packet.dissect,
+  ["H"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.server_heartbeat.dissect,
+  ["Z"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.end_of_session.dissect,
+}
+
 bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3019,26 +2910,18 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload = {}
 
 -- Dissect: Client Payload
+bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload.dispatch = {
+  ["+"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.dissect,
+  ["L"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.login_request_packet.dissect,
+  ["U"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.unsequenced_data_packet.dissect,
+  ["R"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.client_heartbeat.dissect,
+  ["O"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.logout_request.dissect,
+}
+
 bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return bist_borsaistanbul_geniuminet_glimpse_v2_7.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -2369,27 +2369,17 @@ cme_globex_streamlined_sbe_v5_9.md_update_action = {}
 cme_globex_streamlined_sbe_v5_9.md_update_action.size = 1
 
 -- Display: Md Update Action
-cme_globex_streamlined_sbe_v5_9.md_update_action.display = function(value)
-  if value == 0 then
-    return "Md Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Md Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Md Update Action: Delete (2)"
-  end
-  if value == 3 then
-    return "Md Update Action: Delete Thru (3)"
-  end
-  if value == 4 then
-    return "Md Update Action: Delete From (4)"
-  end
-  if value == 5 then
-    return "Md Update Action: Overlay (5)"
-  end
+cme_globex_streamlined_sbe_v5_9.md_update_action.labels = {
+  [0] = "Md Update Action: New (0)",
+  [1] = "Md Update Action: Change (1)",
+  [2] = "Md Update Action: Delete (2)",
+  [3] = "Md Update Action: Delete Thru (3)",
+  [4] = "Md Update Action: Delete From (4)",
+  [5] = "Md Update Action: Overlay (5)",
+}
 
-  return "Md Update Action: Unknown("..value..")"
+cme_globex_streamlined_sbe_v5_9.md_update_action.display = function(value)
+  return cme_globex_streamlined_sbe_v5_9.md_update_action.labels[value] or "Md Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Md Update Action
@@ -4372,57 +4362,27 @@ cme_globex_streamlined_sbe_v5_9.template_id = {}
 cme_globex_streamlined_sbe_v5_9.template_id.size = 2
 
 -- Display: Template Id
-cme_globex_streamlined_sbe_v5_9.template_id.display = function(value)
-  if value == 312 then
-    return "Template Id: Admin Heartbeat (312)"
-  end
-  if value == 315 then
-    return "Template Id: Admin Login (315)"
-  end
-  if value == 316 then
-    return "Template Id: Admin Logout (316)"
-  end
-  if value == 333 then
-    return "Template Id: Md Incremental Refresh Eris Reference Data And Daily Statistics (333)"
-  end
-  if value == 339 then
-    return "Template Id: Md News Indices (339)"
-  end
-  if value == 340 then
-    return "Template Id: Md Incremental Refresh Trade Blocks 340 (340)"
-  end
-  if value == 345 then
-    return "Template Id: Quote Request (345)"
-  end
-  if value == 347 then
-    return "Template Id: Md Instrument Definition Indices (347)"
-  end
-  if value == 348 then
-    return "Template Id: Md Incremental Refresh Indices (348)"
-  end
-  if value == 349 then
-    return "Template Id: Md Incremental Refresh Trade Blocks 349 (349)"
-  end
-  if value == 351 then
-    return "Template Id: Md Incremental Refresh Eris 351 (351)"
-  end
-  if value == 353 then
-    return "Template Id: Md Incremental Refresh Eris 353 (353)"
-  end
-  if value == 356 then
-    return "Template Id: Md Incremental Refresh Ot C 356 (356)"
-  end
-  if value == 363 then
-    return "Template Id: Md Instrument Definition Eris (363)"
-  end
-  if value == 365 then
-    return "Template Id: Md Incremental Refresh Trade Blocks 365 (365)"
-  end
-  if value == 366 then
-    return "Template Id: Md Incremental Refresh Ot C 366 (366)"
-  end
+cme_globex_streamlined_sbe_v5_9.template_id.labels = {
+  [312] = "Template Id: Admin Heartbeat (312)",
+  [315] = "Template Id: Admin Login (315)",
+  [316] = "Template Id: Admin Logout (316)",
+  [333] = "Template Id: Md Incremental Refresh Eris Reference Data And Daily Statistics (333)",
+  [339] = "Template Id: Md News Indices (339)",
+  [340] = "Template Id: Md Incremental Refresh Trade Blocks 340 (340)",
+  [345] = "Template Id: Quote Request (345)",
+  [347] = "Template Id: Md Instrument Definition Indices (347)",
+  [348] = "Template Id: Md Incremental Refresh Indices (348)",
+  [349] = "Template Id: Md Incremental Refresh Trade Blocks 349 (349)",
+  [351] = "Template Id: Md Incremental Refresh Eris 351 (351)",
+  [353] = "Template Id: Md Incremental Refresh Eris 353 (353)",
+  [356] = "Template Id: Md Incremental Refresh Ot C 356 (356)",
+  [363] = "Template Id: Md Instrument Definition Eris (363)",
+  [365] = "Template Id: Md Incremental Refresh Trade Blocks 365 (365)",
+  [366] = "Template Id: Md Incremental Refresh Ot C 366 (366)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cme_globex_streamlined_sbe_v5_9.template_id.display = function(value)
+  return cme_globex_streamlined_sbe_v5_9.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -12783,70 +12743,29 @@ end
 cme_globex_streamlined_sbe_v5_9.payload = {}
 
 -- Dissect: Payload
+cme_globex_streamlined_sbe_v5_9.payload.dispatch = {
+  [312] = cme_globex_streamlined_sbe_v5_9.admin_heartbeat.dissect,
+  [315] = cme_globex_streamlined_sbe_v5_9.admin_login.dissect,
+  [316] = cme_globex_streamlined_sbe_v5_9.admin_logout.dissect,
+  [333] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.dissect,
+  [339] = cme_globex_streamlined_sbe_v5_9.md_news_indices.dissect,
+  [340] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.dissect,
+  [345] = cme_globex_streamlined_sbe_v5_9.quote_request.dissect,
+  [347] = cme_globex_streamlined_sbe_v5_9.md_instrument_definition_indices.dissect,
+  [348] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_indices.dissect,
+  [349] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.dissect,
+  [351] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.dissect,
+  [353] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.dissect,
+  [356] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.dissect,
+  [363] = cme_globex_streamlined_sbe_v5_9.md_instrument_definition_eris.dissect,
+  [365] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.dissect,
+  [366] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.dissect,
+}
+
 cme_globex_streamlined_sbe_v5_9.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Admin Heartbeat
-  if template_id == 312 then
-    return cme_globex_streamlined_sbe_v5_9.admin_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Login
-  if template_id == 315 then
-    return cme_globex_streamlined_sbe_v5_9.admin_login.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Logout
-  if template_id == 316 then
-    return cme_globex_streamlined_sbe_v5_9.admin_logout.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Eris Reference Data And Daily Statistics
-  if template_id == 333 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_eris_reference_data_and_daily_statistics.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md News Indices
-  if template_id == 339 then
-    return cme_globex_streamlined_sbe_v5_9.md_news_indices.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Trade Blocks 340
-  if template_id == 340 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_340.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request
-  if template_id == 345 then
-    return cme_globex_streamlined_sbe_v5_9.quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Indices
-  if template_id == 347 then
-    return cme_globex_streamlined_sbe_v5_9.md_instrument_definition_indices.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Indices
-  if template_id == 348 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_indices.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Trade Blocks 349
-  if template_id == 349 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_349.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Eris 351
-  if template_id == 351 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_eris_351.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Eris 353
-  if template_id == 353 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_eris_353.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Ot C 356
-  if template_id == 356 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Eris
-  if template_id == 363 then
-    return cme_globex_streamlined_sbe_v5_9.md_instrument_definition_eris.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Trade Blocks 365
-  if template_id == 365 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Ot C 366
-  if template_id == 366 then
-    return cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_streamlined_sbe_v5_9.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

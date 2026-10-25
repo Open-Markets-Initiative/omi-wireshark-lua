@@ -586,60 +586,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.size = 1
 
 -- Display: Ask Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Ask Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Ask Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Ask Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Ask Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Ask Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Ask Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Ask Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Ask Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Ask Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Ask Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Ask Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Ask Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Ask Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Ask Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Ask Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Ask Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Ask Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.labels = {
+  ["0"] = "Ask Price Fraction Indicator: Whole (0)",
+  ["1"] = "Ask Price Fraction Indicator: Ten (1)",
+  ["2"] = "Ask Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Ask Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Ask Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Ask Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Ask Price Fraction Indicator: Million (6)",
+  ["7"] = "Ask Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Ask Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Ask Price Fraction Indicator: Billion (9)",
+  ["A"] = "Ask Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Ask Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Ask Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Ask Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Ask Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Ask Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Ask Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Ask Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.labels[value] or "Ask Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Ask Price Fraction Indicator
@@ -715,15 +683,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.ask_price_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.ask_price_sign.size = 1
 
 -- Display: Ask Price Sign
-box_boxoptions_solamulticast_hsvf_v1_9.ask_price_sign.display = function(value)
-  if value == "+" then
-    return "Ask Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Ask Price Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.ask_price_sign.labels = {
+  ["+"] = "Ask Price Sign: Positive (+)",
+  ["-"] = "Ask Price Sign: Negative (-)",
+}
 
-  return "Ask Price Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.ask_price_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_sign.labels[value] or "Ask Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Ask Price Sign
@@ -783,21 +749,15 @@ box_boxoptions_solamulticast_hsvf_v1_9.auction_type = {}
 box_boxoptions_solamulticast_hsvf_v1_9.auction_type.size = 1
 
 -- Display: Auction Type
-box_boxoptions_solamulticast_hsvf_v1_9.auction_type.display = function(value)
-  if value == "G" then
-    return "Auction Type: Regular Pip (G)"
-  end
-  if value == "B" then
-    return "Auction Type: Solicitation (B)"
-  end
-  if value == "C" then
-    return "Auction Type: Facilitation (C)"
-  end
-  if value == "F" then
-    return "Auction Type: Exposed Order (F)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.auction_type.labels = {
+  ["G"] = "Auction Type: Regular Pip (G)",
+  ["B"] = "Auction Type: Solicitation (B)",
+  ["C"] = "Auction Type: Facilitation (C)",
+  ["F"] = "Auction Type: Exposed Order (F)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.auction_type.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -850,60 +810,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.size = 1
 
 -- Display: Bid Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Bid Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Bid Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Bid Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Bid Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Bid Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Bid Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Bid Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Bid Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Bid Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Bid Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Bid Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Bid Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Bid Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Bid Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Bid Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Bid Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Bid Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.labels = {
+  ["0"] = "Bid Price Fraction Indicator: Whole (0)",
+  ["1"] = "Bid Price Fraction Indicator: Ten (1)",
+  ["2"] = "Bid Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Bid Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Bid Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Bid Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Bid Price Fraction Indicator: Million (6)",
+  ["7"] = "Bid Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Bid Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Bid Price Fraction Indicator: Billion (9)",
+  ["A"] = "Bid Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Bid Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Bid Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Bid Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Bid Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Bid Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Bid Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Bid Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.labels[value] or "Bid Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bid Price Fraction Indicator
@@ -1063,15 +991,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.bulletin_type = {}
 box_boxoptions_solamulticast_hsvf_v1_9.bulletin_type.size = 1
 
 -- Display: Bulletin Type
-box_boxoptions_solamulticast_hsvf_v1_9.bulletin_type.display = function(value)
-  if value == "1" then
-    return "Bulletin Type: Regular (1)"
-  end
-  if value == "2" then
-    return "Bulletin Type: Special (2)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.bulletin_type.labels = {
+  ["1"] = "Bulletin Type: Regular (1)",
+  ["2"] = "Bulletin Type: Special (2)",
+}
 
-  return "Bulletin Type: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.bulletin_type.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.bulletin_type.labels[value] or "Bulletin Type: Unknown("..value..")"
 end
 
 -- Dissect: Bulletin Type
@@ -1116,18 +1042,14 @@ box_boxoptions_solamulticast_hsvf_v1_9.complex_order_instrument_allow_implied = 
 box_boxoptions_solamulticast_hsvf_v1_9.complex_order_instrument_allow_implied.size = 1
 
 -- Display: Complex Order Instrument Allow Implied
-box_boxoptions_solamulticast_hsvf_v1_9.complex_order_instrument_allow_implied.display = function(value)
-  if value == "N" then
-    return "Complex Order Instrument Allow Implied: No (N)"
-  end
-  if value == "C" then
-    return "Complex Order Instrument Allow Implied: Continuous Implied (C)"
-  end
-  if value == "S" then
-    return "Complex Order Instrument Allow Implied: Snapshot Implied (S)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.complex_order_instrument_allow_implied.labels = {
+  ["N"] = "Complex Order Instrument Allow Implied: No (N)",
+  ["C"] = "Complex Order Instrument Allow Implied: Continuous Implied (C)",
+  ["S"] = "Complex Order Instrument Allow Implied: Snapshot Implied (S)",
+}
 
-  return "Complex Order Instrument Allow Implied: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.complex_order_instrument_allow_implied.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_instrument_allow_implied.labels[value] or "Complex Order Instrument Allow Implied: Unknown("..value..")"
 end
 
 -- Dissect: Complex Order Instrument Allow Implied
@@ -1172,15 +1094,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.continue_marker = {}
 box_boxoptions_solamulticast_hsvf_v1_9.continue_marker.size = 1
 
 -- Display: Continue Marker
-box_boxoptions_solamulticast_hsvf_v1_9.continue_marker.display = function(value)
-  if value == 0 then
-    return "Continue Marker: Bulletin Continues In Next Record (0)"
-  end
-  if value == 1 then
-    return "Continue Marker: Bulletin Ended (1)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.continue_marker.labels = {
+  [0] = "Continue Marker: Bulletin Continues In Next Record (0)",
+  [1] = "Continue Marker: Bulletin Ended (1)",
+}
 
-  return "Continue Marker: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.continue_marker.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.continue_marker.labels[value] or "Continue Marker: Unknown("..value..")"
 end
 
 -- Dissect: Continue Marker
@@ -1210,18 +1130,14 @@ box_boxoptions_solamulticast_hsvf_v1_9.deletion_type = {}
 box_boxoptions_solamulticast_hsvf_v1_9.deletion_type.size = 1
 
 -- Display: Deletion Type
-box_boxoptions_solamulticast_hsvf_v1_9.deletion_type.display = function(value)
-  if value == 1 then
-    return "Deletion Type: Precise Order (1)"
-  end
-  if value == 2 then
-    return "Deletion Type: All Previous Orders In The Specified Side (2)"
-  end
-  if value == 3 then
-    return "Deletion Type: All Orders (3)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.deletion_type.labels = {
+  [1] = "Deletion Type: Precise Order (1)",
+  [2] = "Deletion Type: All Previous Orders In The Specified Side (2)",
+  [3] = "Deletion Type: All Orders (3)",
+}
 
-  return "Deletion Type: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.deletion_type.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.deletion_type.labels[value] or "Deletion Type: Unknown("..value..")"
 end
 
 -- Dissect: Deletion Type
@@ -1251,42 +1167,22 @@ box_boxoptions_solamulticast_hsvf_v1_9.delivery_month = {}
 box_boxoptions_solamulticast_hsvf_v1_9.delivery_month.size = 1
 
 -- Display: Delivery Month
-box_boxoptions_solamulticast_hsvf_v1_9.delivery_month.display = function(value)
-  if value == "M" then
-    return "Delivery Month: January Put (M)"
-  end
-  if value == "N" then
-    return "Delivery Month: February Put (N)"
-  end
-  if value == "O" then
-    return "Delivery Month: March Put (O)"
-  end
-  if value == "P" then
-    return "Delivery Month: April Put (P)"
-  end
-  if value == "Q" then
-    return "Delivery Month: May Put (Q)"
-  end
-  if value == "R" then
-    return "Delivery Month: June Put (R)"
-  end
-  if value == "S" then
-    return "Delivery Month: July Put (S)"
-  end
-  if value == "T" then
-    return "Delivery Month: August Put (T)"
-  end
-  if value == "U" then
-    return "Delivery Month: September Put (U)"
-  end
-  if value == "V" then
-    return "Delivery Month: October Put (V)"
-  end
-  if value == "W" then
-    return "Delivery Month: November Put (W)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.delivery_month.labels = {
+  ["M"] = "Delivery Month: January Put (M)",
+  ["N"] = "Delivery Month: February Put (N)",
+  ["O"] = "Delivery Month: March Put (O)",
+  ["P"] = "Delivery Month: April Put (P)",
+  ["Q"] = "Delivery Month: May Put (Q)",
+  ["R"] = "Delivery Month: June Put (R)",
+  ["S"] = "Delivery Month: July Put (S)",
+  ["T"] = "Delivery Month: August Put (T)",
+  ["U"] = "Delivery Month: September Put (U)",
+  ["V"] = "Delivery Month: October Put (V)",
+  ["W"] = "Delivery Month: November Put (W)",
+}
 
-  return "Delivery Month: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.delivery_month.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.delivery_month.labels[value] or "Delivery Month: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Month
@@ -1389,42 +1285,22 @@ box_boxoptions_solamulticast_hsvf_v1_9.expiry_month_code = {}
 box_boxoptions_solamulticast_hsvf_v1_9.expiry_month_code.size = 1
 
 -- Display: Expiry Month Code
-box_boxoptions_solamulticast_hsvf_v1_9.expiry_month_code.display = function(value)
-  if value == "M" then
-    return "Expiry Month Code: January Put (M)"
-  end
-  if value == "N" then
-    return "Expiry Month Code: February Put (N)"
-  end
-  if value == "O" then
-    return "Expiry Month Code: March Put (O)"
-  end
-  if value == "P" then
-    return "Expiry Month Code: April Put (P)"
-  end
-  if value == "Q" then
-    return "Expiry Month Code: May Put (Q)"
-  end
-  if value == "R" then
-    return "Expiry Month Code: June Put (R)"
-  end
-  if value == "S" then
-    return "Expiry Month Code: July Put (S)"
-  end
-  if value == "T" then
-    return "Expiry Month Code: August Put (T)"
-  end
-  if value == "U" then
-    return "Expiry Month Code: September Put (U)"
-  end
-  if value == "V" then
-    return "Expiry Month Code: October Put (V)"
-  end
-  if value == "W" then
-    return "Expiry Month Code: November Put (W)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.expiry_month_code.labels = {
+  ["M"] = "Expiry Month Code: January Put (M)",
+  ["N"] = "Expiry Month Code: February Put (N)",
+  ["O"] = "Expiry Month Code: March Put (O)",
+  ["P"] = "Expiry Month Code: April Put (P)",
+  ["Q"] = "Expiry Month Code: May Put (Q)",
+  ["R"] = "Expiry Month Code: June Put (R)",
+  ["S"] = "Expiry Month Code: July Put (S)",
+  ["T"] = "Expiry Month Code: August Put (T)",
+  ["U"] = "Expiry Month Code: September Put (U)",
+  ["V"] = "Expiry Month Code: October Put (V)",
+  ["W"] = "Expiry Month Code: November Put (W)",
+}
 
-  return "Expiry Month Code: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.expiry_month_code.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.expiry_month_code.labels[value] or "Expiry Month Code: Unknown("..value..")"
 end
 
 -- Dissect: Expiry Month Code
@@ -1684,33 +1560,19 @@ box_boxoptions_solamulticast_hsvf_v1_9.group_status = {}
 box_boxoptions_solamulticast_hsvf_v1_9.group_status.size = 1
 
 -- Display: Group Status
-box_boxoptions_solamulticast_hsvf_v1_9.group_status.display = function(value)
-  if value == "Y" then
-    return "Group Status: Preopening Phase (Y)"
-  end
-  if value == "O" then
-    return "Group Status: Opening Phase (O)"
-  end
-  if value == "T" then
-    return "Group Status: Opened For Trading (T)"
-  end
-  if value == "F" then
-    return "Group Status: Forbidden Phase (F)"
-  end
-  if value == "H" then
-    return "Group Status: Trading Halted (H)"
-  end
-  if value == "A" then
-    return "Group Status: Surveillance Intervention Phase (A)"
-  end
-  if value == "C" then
-    return "Group Status: Closed (C)"
-  end
-  if value == "B" then
-    return "Group Status: Beginning Of Day Inquiries (B)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.group_status.labels = {
+  ["Y"] = "Group Status: Preopening Phase (Y)",
+  ["O"] = "Group Status: Opening Phase (O)",
+  ["T"] = "Group Status: Opened For Trading (T)",
+  ["F"] = "Group Status: Forbidden Phase (F)",
+  ["H"] = "Group Status: Trading Halted (H)",
+  ["A"] = "Group Status: Surveillance Intervention Phase (A)",
+  ["C"] = "Group Status: Closed (C)",
+  ["B"] = "Group Status: Beginning Of Day Inquiries (B)",
+}
 
-  return "Group Status: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.group_status.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.group_status.labels[value] or "Group Status: Unknown("..value..")"
 end
 
 -- Dissect: Group Status
@@ -1763,60 +1625,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_indicator.size = 1
 
 -- Display: High Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "High Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "High Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "High Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "High Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "High Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "High Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "High Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "High Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "High Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "High Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "High Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "High Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "High Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "High Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "High Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "High Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "High Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_indicator.labels = {
+  ["0"] = "High Price Fraction Indicator: Whole (0)",
+  ["1"] = "High Price Fraction Indicator: Ten (1)",
+  ["2"] = "High Price Fraction Indicator: Hundred (2)",
+  ["3"] = "High Price Fraction Indicator: Thousand (3)",
+  ["4"] = "High Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "High Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "High Price Fraction Indicator: Million (6)",
+  ["7"] = "High Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "High Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "High Price Fraction Indicator: Billion (9)",
+  ["A"] = "High Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "High Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "High Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "High Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "High Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "High Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "High Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "High Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_indicator.labels[value] or "High Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: High Price Fraction Indicator
@@ -1838,15 +1668,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.high_price_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.high_price_sign.size = 1
 
 -- Display: High Price Sign
-box_boxoptions_solamulticast_hsvf_v1_9.high_price_sign.display = function(value)
-  if value == "+" then
-    return "High Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "High Price Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.high_price_sign.labels = {
+  ["+"] = "High Price Sign: Positive (+)",
+  ["-"] = "High Price Sign: Negative (-)",
+}
 
-  return "High Price Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.high_price_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.high_price_sign.labels[value] or "High Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: High Price Sign
@@ -2082,60 +1910,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_indicator = 
 box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_indicator.size = 1
 
 -- Display: Initial Order Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Initial Order Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Initial Order Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Initial Order Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Initial Order Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Initial Order Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Initial Order Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Initial Order Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Initial Order Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Initial Order Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Initial Order Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Initial Order Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Initial Order Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Initial Order Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Initial Order Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Initial Order Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Initial Order Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Initial Order Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_indicator.labels = {
+  ["0"] = "Initial Order Price Fraction Indicator: Whole (0)",
+  ["1"] = "Initial Order Price Fraction Indicator: Ten (1)",
+  ["2"] = "Initial Order Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Initial Order Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Initial Order Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Initial Order Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Initial Order Price Fraction Indicator: Million (6)",
+  ["7"] = "Initial Order Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Initial Order Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Initial Order Price Fraction Indicator: Billion (9)",
+  ["A"] = "Initial Order Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Initial Order Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Initial Order Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Initial Order Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Initial Order Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Initial Order Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Initial Order Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Initial Order Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_indicator.labels[value] or "Initial Order Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Initial Order Price Fraction Indicator
@@ -2157,15 +1953,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_sign.size = 1
 
 -- Display: Initial Order Price Sign
-box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_sign.display = function(value)
-  if value == "+" then
-    return "Initial Order Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Initial Order Price Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_sign.labels = {
+  ["+"] = "Initial Order Price Sign: Positive (+)",
+  ["-"] = "Initial Order Price Sign: Negative (-)",
+}
 
-  return "Initial Order Price Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_sign.labels[value] or "Initial Order Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Initial Order Price Sign
@@ -2210,15 +2004,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.initial_order_side = {}
 box_boxoptions_solamulticast_hsvf_v1_9.initial_order_side.size = 1
 
 -- Display: Initial Order Side
-box_boxoptions_solamulticast_hsvf_v1_9.initial_order_side.display = function(value)
-  if value == "B" then
-    return "Initial Order Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Initial Order Side: Sell (S)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.initial_order_side.labels = {
+  ["B"] = "Initial Order Side: Buy (B)",
+  ["S"] = "Initial Order Side: Sell (S)",
+}
 
-  return "Initial Order Side: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.initial_order_side.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_side.labels[value] or "Initial Order Side: Unknown("..value..")"
 end
 
 -- Dissect: Initial Order Side
@@ -2286,42 +2078,22 @@ box_boxoptions_solamulticast_hsvf_v1_9.instrument_status_marker = {}
 box_boxoptions_solamulticast_hsvf_v1_9.instrument_status_marker.size = 1
 
 -- Display: Instrument Status Marker
-box_boxoptions_solamulticast_hsvf_v1_9.instrument_status_marker.display = function(value)
-  if value == "Y" then
-    return "Instrument Status Marker: Preopening Phase (Y)"
-  end
-  if value == "O" then
-    return "Instrument Status Marker: Opening Phase (O)"
-  end
-  if value == "T" then
-    return "Instrument Status Marker: Opened For Trading (T)"
-  end
-  if value == "F" then
-    return "Instrument Status Marker: Forbidden Phase (F)"
-  end
-  if value == "H" then
-    return "Instrument Status Marker: Trading Halted (H)"
-  end
-  if value == "R" then
-    return "Instrument Status Marker: Reserved Phase (R)"
-  end
-  if value == "S" then
-    return "Instrument Status Marker: Suspended Phase (S)"
-  end
-  if value == "Z" then
-    return "Instrument Status Marker: Frozen (Z)"
-  end
-  if value == "A" then
-    return "Instrument Status Marker: Surveillance Intervention Phase (A)"
-  end
-  if value == "C" then
-    return "Instrument Status Marker: Closed (C)"
-  end
-  if value == "B" then
-    return "Instrument Status Marker: Beginning Of Day Inquiries (B)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.instrument_status_marker.labels = {
+  ["Y"] = "Instrument Status Marker: Preopening Phase (Y)",
+  ["O"] = "Instrument Status Marker: Opening Phase (O)",
+  ["T"] = "Instrument Status Marker: Opened For Trading (T)",
+  ["F"] = "Instrument Status Marker: Forbidden Phase (F)",
+  ["H"] = "Instrument Status Marker: Trading Halted (H)",
+  ["R"] = "Instrument Status Marker: Reserved Phase (R)",
+  ["S"] = "Instrument Status Marker: Suspended Phase (S)",
+  ["Z"] = "Instrument Status Marker: Frozen (Z)",
+  ["A"] = "Instrument Status Marker: Surveillance Intervention Phase (A)",
+  ["C"] = "Instrument Status Marker: Closed (C)",
+  ["B"] = "Instrument Status Marker: Beginning Of Day Inquiries (B)",
+}
 
-  return "Instrument Status Marker: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.instrument_status_marker.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.instrument_status_marker.labels[value] or "Instrument Status Marker: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Status Marker
@@ -2374,60 +2146,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_indicator.size = 1
 
 -- Display: Last Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Last Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Last Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Last Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Last Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Last Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Last Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Last Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Last Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Last Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Last Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Last Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Last Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Last Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Last Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Last Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Last Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Last Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_indicator.labels = {
+  ["0"] = "Last Price Fraction Indicator: Whole (0)",
+  ["1"] = "Last Price Fraction Indicator: Ten (1)",
+  ["2"] = "Last Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Last Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Last Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Last Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Last Price Fraction Indicator: Million (6)",
+  ["7"] = "Last Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Last Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Last Price Fraction Indicator: Billion (9)",
+  ["A"] = "Last Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Last Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Last Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Last Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Last Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Last Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Last Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Last Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_indicator.labels[value] or "Last Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Last Price Fraction Indicator
@@ -2503,15 +2243,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.leg_ratio_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.leg_ratio_sign.size = 1
 
 -- Display: Leg Ratio Sign
-box_boxoptions_solamulticast_hsvf_v1_9.leg_ratio_sign.display = function(value)
-  if value == "+" then
-    return "Leg Ratio Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Leg Ratio Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.leg_ratio_sign.labels = {
+  ["+"] = "Leg Ratio Sign: Positive (+)",
+  ["-"] = "Leg Ratio Sign: Negative (-)",
+}
 
-  return "Leg Ratio Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.leg_ratio_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.leg_ratio_sign.labels[value] or "Leg Ratio Sign: Unknown("..value..")"
 end
 
 -- Dissect: Leg Ratio Sign
@@ -2556,33 +2294,19 @@ box_boxoptions_solamulticast_hsvf_v1_9.level_of_market_depth = {}
 box_boxoptions_solamulticast_hsvf_v1_9.level_of_market_depth.size = 1
 
 -- Display: Level Of Market Depth
-box_boxoptions_solamulticast_hsvf_v1_9.level_of_market_depth.display = function(value)
-  if value == "1" then
-    return "Level Of Market Depth: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Level Of Market Depth: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Level Of Market Depth: Level 3 (3)"
-  end
-  if value == "4" then
-    return "Level Of Market Depth: Level 4 (4)"
-  end
-  if value == "5" then
-    return "Level Of Market Depth: Level 5 (5)"
-  end
-  if value == "6" then
-    return "Level Of Market Depth: Level 6 (6)"
-  end
-  if value == "A" then
-    return "Level Of Market Depth: Implied Price (A)"
-  end
-  if value == "P" then
-    return "Level Of Market Depth: Public Customer Volume (P)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.level_of_market_depth.labels = {
+  ["1"] = "Level Of Market Depth: Level 1 (1)",
+  ["2"] = "Level Of Market Depth: Level 2 (2)",
+  ["3"] = "Level Of Market Depth: Level 3 (3)",
+  ["4"] = "Level Of Market Depth: Level 4 (4)",
+  ["5"] = "Level Of Market Depth: Level 5 (5)",
+  ["6"] = "Level Of Market Depth: Level 6 (6)",
+  ["A"] = "Level Of Market Depth: Implied Price (A)",
+  ["P"] = "Level Of Market Depth: Public Customer Volume (P)",
+}
 
-  return "Level Of Market Depth: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.level_of_market_depth.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.level_of_market_depth.labels[value] or "Level Of Market Depth: Unknown("..value..")"
 end
 
 -- Dissect: Level Of Market Depth
@@ -2635,15 +2359,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_sign.size = 1
 
 -- Display: Limit Entered For An Order Sign
-box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_sign.display = function(value)
-  if value == "+" then
-    return "Limit Entered For An Order Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Limit Entered For An Order Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_sign.labels = {
+  ["+"] = "Limit Entered For An Order Sign: Positive (+)",
+  ["-"] = "Limit Entered For An Order Sign: Negative (-)",
+}
 
-  return "Limit Entered For An Order Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_sign.labels[value] or "Limit Entered For An Order Sign: Unknown("..value..")"
 end
 
 -- Dissect: Limit Entered For An Order Sign
@@ -2665,60 +2387,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.limit_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.limit_fraction_indicator.size = 1
 
 -- Display: Limit Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.limit_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Limit Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Limit Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Limit Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Limit Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Limit Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Limit Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Limit Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Limit Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Limit Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Limit Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Limit Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Limit Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Limit Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Limit Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Limit Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Limit Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Limit Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.limit_fraction_indicator.labels = {
+  ["0"] = "Limit Fraction Indicator: Whole (0)",
+  ["1"] = "Limit Fraction Indicator: Ten (1)",
+  ["2"] = "Limit Fraction Indicator: Hundred (2)",
+  ["3"] = "Limit Fraction Indicator: Thousand (3)",
+  ["4"] = "Limit Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Limit Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Limit Fraction Indicator: Million (6)",
+  ["7"] = "Limit Fraction Indicator: Ten Million (7)",
+  ["8"] = "Limit Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Limit Fraction Indicator: Billion (9)",
+  ["A"] = "Limit Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Limit Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Limit Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Limit Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Limit Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Limit Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Limit Fraction Indicator: Negative Million (G)",
+}
 
-  return "Limit Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.limit_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.limit_fraction_indicator.labels[value] or "Limit Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Limit Fraction Indicator
@@ -2771,60 +2461,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_indicator.size = 1
 
 -- Display: Low Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Low Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Low Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Low Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Low Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Low Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Low Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Low Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Low Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Low Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Low Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Low Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Low Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Low Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Low Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Low Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Low Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Low Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_indicator.labels = {
+  ["0"] = "Low Price Fraction Indicator: Whole (0)",
+  ["1"] = "Low Price Fraction Indicator: Ten (1)",
+  ["2"] = "Low Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Low Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Low Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Low Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Low Price Fraction Indicator: Million (6)",
+  ["7"] = "Low Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Low Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Low Price Fraction Indicator: Billion (9)",
+  ["A"] = "Low Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Low Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Low Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Low Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Low Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Low Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Low Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Low Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_indicator.labels[value] or "Low Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Low Price Fraction Indicator
@@ -2846,15 +2504,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.low_price_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.low_price_sign.size = 1
 
 -- Display: Low Price Sign
-box_boxoptions_solamulticast_hsvf_v1_9.low_price_sign.display = function(value)
-  if value == "+" then
-    return "Low Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Low Price Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.low_price_sign.labels = {
+  ["+"] = "Low Price Sign: Positive (+)",
+  ["-"] = "Low Price Sign: Negative (-)",
+}
 
-  return "Low Price Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.low_price_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.low_price_sign.labels[value] or "Low Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Low Price Sign
@@ -2938,60 +2594,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_indicator = 
 box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_indicator.size = 1
 
 -- Display: Max Threshold Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Max Threshold Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Max Threshold Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Max Threshold Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Max Threshold Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Max Threshold Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Max Threshold Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Max Threshold Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Max Threshold Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Max Threshold Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Max Threshold Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Max Threshold Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Max Threshold Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Max Threshold Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Max Threshold Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Max Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Max Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Max Threshold Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_indicator.labels = {
+  ["0"] = "Max Threshold Price Fraction Indicator: Whole (0)",
+  ["1"] = "Max Threshold Price Fraction Indicator: Ten (1)",
+  ["2"] = "Max Threshold Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Max Threshold Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Max Threshold Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Max Threshold Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Max Threshold Price Fraction Indicator: Million (6)",
+  ["7"] = "Max Threshold Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Max Threshold Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Max Threshold Price Fraction Indicator: Billion (9)",
+  ["A"] = "Max Threshold Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Max Threshold Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Max Threshold Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Max Threshold Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Max Threshold Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Max Threshold Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Max Threshold Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Max Threshold Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_indicator.labels[value] or "Max Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Max Threshold Price Fraction Indicator
@@ -3013,15 +2637,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_sign.size = 1
 
 -- Display: Max Threshold Price Sign
-box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_sign.display = function(value)
-  if value == "+" then
-    return "Max Threshold Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Max Threshold Price Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_sign.labels = {
+  ["+"] = "Max Threshold Price Sign: Positive (+)",
+  ["-"] = "Max Threshold Price Sign: Negative (-)",
+}
 
-  return "Max Threshold Price Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_sign.labels[value] or "Max Threshold Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Max Threshold Price Sign
@@ -3105,60 +2727,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_indicato
 box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_indicator.size = 1
 
 -- Display: Maximum Threshold Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Maximum Threshold Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Maximum Threshold Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Maximum Threshold Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Maximum Threshold Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Maximum Threshold Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Maximum Threshold Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Maximum Threshold Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Maximum Threshold Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Maximum Threshold Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Maximum Threshold Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Maximum Threshold Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_indicator.labels = {
+  ["0"] = "Maximum Threshold Price Fraction Indicator: Whole (0)",
+  ["1"] = "Maximum Threshold Price Fraction Indicator: Ten (1)",
+  ["2"] = "Maximum Threshold Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Maximum Threshold Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Maximum Threshold Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Maximum Threshold Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Maximum Threshold Price Fraction Indicator: Million (6)",
+  ["7"] = "Maximum Threshold Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Maximum Threshold Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Maximum Threshold Price Fraction Indicator: Billion (9)",
+  ["A"] = "Maximum Threshold Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Maximum Threshold Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Maximum Threshold Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Maximum Threshold Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Maximum Threshold Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Maximum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Maximum Threshold Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Maximum Threshold Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_indicator.labels[value] or "Maximum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Maximum Threshold Price Fraction Indicator
@@ -3180,96 +2770,40 @@ box_boxoptions_solamulticast_hsvf_v1_9.message_type = {}
 box_boxoptions_solamulticast_hsvf_v1_9.message_type.size = 2
 
 -- Display: Message Type
-box_boxoptions_solamulticast_hsvf_v1_9.message_type.display = function(value)
-  if value == "U" then
-    return "Message Type: End Of Transmission Message (U)"
-  end
-  if value == "V" then
-    return "Message Type: Circuit Assurance Message (V)"
-  end
-  if value == "Z" then
-    return "Message Type: System Timestamp Message (Z)"
-  end
-  if value == "C" then
-    return "Message Type: Option Trade Message (C)"
-  end
-  if value == "CS" then
-    return "Message Type: Strategy Trade Message (CS)"
-  end
-  if value == "D" then
-    return "Message Type: Option Request For Quote Message (D)"
-  end
-  if value == "F" then
-    return "Message Type: Option Quote Message (F)"
-  end
-  if value == "FS" then
-    return "Message Type: Complex Order Quote Message (FS)"
-  end
-  if value == "GC" then
-    return "Message Type: Group Opening Time Message (GC)"
-  end
-  if value == "GR" then
-    return "Message Type: Group Status Message (GR)"
-  end
-  if value == "GS" then
-    return "Message Type: Strategies Group Status Message (GS)"
-  end
-  if value == "H" then
-    return "Message Type: Option Market Depth Message (H)"
-  end
-  if value == "HS" then
-    return "Message Type: Complex Order Market Depth Message (HS)"
-  end
-  if value == "I" then
-    return "Message Type: Option Trade Cancellation Message (I)"
-  end
-  if value == "IS" then
-    return "Message Type: Complex Order Trade Cancellation Message (IS)"
-  end
-  if value == "J" then
-    return "Message Type: Option Instrument Keys Message (J)"
-  end
-  if value == "JS" then
-    return "Message Type: Complex Order Instrument Keys Message (JS)"
-  end
-  if value == "L" then
-    return "Message Type: Bulletins Message (L)"
-  end
-  if value == "N" then
-    return "Message Type: Option Summary Message (N)"
-  end
-  if value == "NS" then
-    return "Message Type: Complex Order Summary Message (NS)"
-  end
-  if value == "Q" then
-    return "Message Type: Beginning Of Options Summary Message (Q)"
-  end
-  if value == "QS" then
-    return "Message Type: Beginning Of Complex Order Summary Message (QS)"
-  end
-  if value == "S" then
-    return "Message Type: End Of Sales Message (S)"
-  end
-  if value == "M" then
-    return "Message Type: Option Improvement Process Beginning Message (M)"
-  end
-  if value == "MS" then
-    return "Message Type: Complex Order Improvement Process Beginning Message Message (MS)"
-  end
-  if value == "O" then
-    return "Message Type: Market Sheet Initial And Improvement Order Message (O)"
-  end
-  if value == "OS" then
-    return "Message Type: Complex Order Market Sheet Initial And Improvement Order Message (OS)"
-  end
-  if value == "T" then
-    return "Message Type: Initial And Improvement Order Message (T)"
-  end
-  if value == "TS" then
-    return "Message Type: Complex Order Initial And Improvement Order Message (TS)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.message_type.labels = {
+  ["U"] = "Message Type: End Of Transmission Message (U)",
+  ["V"] = "Message Type: Circuit Assurance Message (V)",
+  ["Z"] = "Message Type: System Timestamp Message (Z)",
+  ["C"] = "Message Type: Option Trade Message (C)",
+  ["CS"] = "Message Type: Strategy Trade Message (CS)",
+  ["D"] = "Message Type: Option Request For Quote Message (D)",
+  ["F"] = "Message Type: Option Quote Message (F)",
+  ["FS"] = "Message Type: Complex Order Quote Message (FS)",
+  ["GC"] = "Message Type: Group Opening Time Message (GC)",
+  ["GR"] = "Message Type: Group Status Message (GR)",
+  ["GS"] = "Message Type: Strategies Group Status Message (GS)",
+  ["H"] = "Message Type: Option Market Depth Message (H)",
+  ["HS"] = "Message Type: Complex Order Market Depth Message (HS)",
+  ["I"] = "Message Type: Option Trade Cancellation Message (I)",
+  ["IS"] = "Message Type: Complex Order Trade Cancellation Message (IS)",
+  ["J"] = "Message Type: Option Instrument Keys Message (J)",
+  ["JS"] = "Message Type: Complex Order Instrument Keys Message (JS)",
+  ["L"] = "Message Type: Bulletins Message (L)",
+  ["N"] = "Message Type: Option Summary Message (N)",
+  ["NS"] = "Message Type: Complex Order Summary Message (NS)",
+  ["Q"] = "Message Type: Beginning Of Options Summary Message (Q)",
+  ["QS"] = "Message Type: Beginning Of Complex Order Summary Message (QS)",
+  ["S"] = "Message Type: End Of Sales Message (S)",
+  ["M"] = "Message Type: Option Improvement Process Beginning Message (M)",
+  ["MS"] = "Message Type: Complex Order Improvement Process Beginning Message Message (MS)",
+  ["O"] = "Message Type: Market Sheet Initial And Improvement Order Message (O)",
+  ["OS"] = "Message Type: Complex Order Market Sheet Initial And Improvement Order Message (OS)",
+  ["T"] = "Message Type: Initial And Improvement Order Message (T)",
+  ["TS"] = "Message Type: Complex Order Initial And Improvement Order Message (TS)",
+}
 
-  return "Message Type: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.message_type.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -3353,60 +2887,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_indicator = 
 box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_indicator.size = 1
 
 -- Display: Min Threshold Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Min Threshold Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Min Threshold Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Min Threshold Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Min Threshold Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Min Threshold Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Min Threshold Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Min Threshold Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Min Threshold Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Min Threshold Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Min Threshold Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Min Threshold Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Min Threshold Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Min Threshold Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Min Threshold Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Min Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Min Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Min Threshold Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_indicator.labels = {
+  ["0"] = "Min Threshold Price Fraction Indicator: Whole (0)",
+  ["1"] = "Min Threshold Price Fraction Indicator: Ten (1)",
+  ["2"] = "Min Threshold Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Min Threshold Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Min Threshold Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Min Threshold Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Min Threshold Price Fraction Indicator: Million (6)",
+  ["7"] = "Min Threshold Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Min Threshold Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Min Threshold Price Fraction Indicator: Billion (9)",
+  ["A"] = "Min Threshold Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Min Threshold Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Min Threshold Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Min Threshold Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Min Threshold Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Min Threshold Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Min Threshold Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Min Threshold Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_indicator.labels[value] or "Min Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Min Threshold Price Fraction Indicator
@@ -3428,15 +2930,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_sign.size = 1
 
 -- Display: Min Threshold Price Sign
-box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_sign.display = function(value)
-  if value == "+" then
-    return "Min Threshold Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Min Threshold Price Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_sign.labels = {
+  ["+"] = "Min Threshold Price Sign: Positive (+)",
+  ["-"] = "Min Threshold Price Sign: Negative (-)",
+}
 
-  return "Min Threshold Price Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_sign.labels[value] or "Min Threshold Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Min Threshold Price Sign
@@ -3551,60 +3051,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_indicato
 box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_indicator.size = 1
 
 -- Display: Minimum Threshold Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Minimum Threshold Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Minimum Threshold Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Minimum Threshold Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Minimum Threshold Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Minimum Threshold Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Minimum Threshold Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Minimum Threshold Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Minimum Threshold Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Minimum Threshold Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Minimum Threshold Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Minimum Threshold Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_indicator.labels = {
+  ["0"] = "Minimum Threshold Price Fraction Indicator: Whole (0)",
+  ["1"] = "Minimum Threshold Price Fraction Indicator: Ten (1)",
+  ["2"] = "Minimum Threshold Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Minimum Threshold Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Minimum Threshold Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Minimum Threshold Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Minimum Threshold Price Fraction Indicator: Million (6)",
+  ["7"] = "Minimum Threshold Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Minimum Threshold Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Minimum Threshold Price Fraction Indicator: Billion (9)",
+  ["A"] = "Minimum Threshold Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Minimum Threshold Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Minimum Threshold Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Minimum Threshold Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Minimum Threshold Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Minimum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Minimum Threshold Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Minimum Threshold Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_indicator.labels[value] or "Minimum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Minimum Threshold Price Fraction Indicator
@@ -3657,60 +3125,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_indicator.size = 1
 
 -- Display: Net Change Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Net Change Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Net Change Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Net Change Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Net Change Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Net Change Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Net Change Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Net Change Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Net Change Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Net Change Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Net Change Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Net Change Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Net Change Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Net Change Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Net Change Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Net Change Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Net Change Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Net Change Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_indicator.labels = {
+  ["0"] = "Net Change Fraction Indicator: Whole (0)",
+  ["1"] = "Net Change Fraction Indicator: Ten (1)",
+  ["2"] = "Net Change Fraction Indicator: Hundred (2)",
+  ["3"] = "Net Change Fraction Indicator: Thousand (3)",
+  ["4"] = "Net Change Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Net Change Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Net Change Fraction Indicator: Million (6)",
+  ["7"] = "Net Change Fraction Indicator: Ten Million (7)",
+  ["8"] = "Net Change Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Net Change Fraction Indicator: Billion (9)",
+  ["A"] = "Net Change Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Net Change Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Net Change Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Net Change Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Net Change Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Net Change Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Net Change Fraction Indicator: Negative Million (G)",
+}
 
-  return "Net Change Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_indicator.labels[value] or "Net Change Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Fraction Indicator
@@ -3732,15 +3168,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.net_change_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.net_change_sign.size = 1
 
 -- Display: Net Change Sign
-box_boxoptions_solamulticast_hsvf_v1_9.net_change_sign.display = function(value)
-  if value == "+" then
-    return "Net Change Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Net Change Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.net_change_sign.labels = {
+  ["+"] = "Net Change Sign: Positive (+)",
+  ["-"] = "Net Change Sign: Negative (-)",
+}
 
-  return "Net Change Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.net_change_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.net_change_sign.labels[value] or "Net Change Sign: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Sign
@@ -3962,60 +3396,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_indicator.size = 1
 
 -- Display: Open Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Open Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Open Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Open Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Open Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Open Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Open Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Open Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Open Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Open Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Open Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Open Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Open Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Open Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Open Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Open Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Open Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Open Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_indicator.labels = {
+  ["0"] = "Open Price Fraction Indicator: Whole (0)",
+  ["1"] = "Open Price Fraction Indicator: Ten (1)",
+  ["2"] = "Open Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Open Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Open Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Open Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Open Price Fraction Indicator: Million (6)",
+  ["7"] = "Open Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Open Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Open Price Fraction Indicator: Billion (9)",
+  ["A"] = "Open Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Open Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Open Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Open Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Open Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Open Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Open Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Open Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_indicator.labels[value] or "Open Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Open Price Fraction Indicator
@@ -4037,15 +3439,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.open_price_sign = {}
 box_boxoptions_solamulticast_hsvf_v1_9.open_price_sign.size = 1
 
 -- Display: Open Price Sign
-box_boxoptions_solamulticast_hsvf_v1_9.open_price_sign.display = function(value)
-  if value == "+" then
-    return "Open Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Open Price Sign: Negative (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.open_price_sign.labels = {
+  ["+"] = "Open Price Sign: Positive (+)",
+  ["-"] = "Open Price Sign: Negative (-)",
+}
 
-  return "Open Price Sign: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.open_price_sign.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.open_price_sign.labels[value] or "Open Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Open Price Sign
@@ -4090,15 +3490,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.option_type = {}
 box_boxoptions_solamulticast_hsvf_v1_9.option_type.size = 1
 
 -- Display: Option Type
-box_boxoptions_solamulticast_hsvf_v1_9.option_type.display = function(value)
-  if value == "A" then
-    return "Option Type: American (A)"
-  end
-  if value == "E" then
-    return "Option Type: European (E)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.option_type.labels = {
+  ["A"] = "Option Type: American (A)",
+  ["E"] = "Option Type: European (E)",
+}
 
-  return "Option Type: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.option_type.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -4182,15 +3580,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.order_side = {}
 box_boxoptions_solamulticast_hsvf_v1_9.order_side.size = 1
 
 -- Display: Order Side
-box_boxoptions_solamulticast_hsvf_v1_9.order_side.display = function(value)
-  if value == "B" then
-    return "Order Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Side: Sell (S)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.order_side.labels = {
+  ["B"] = "Order Side: Buy (B)",
+  ["S"] = "Order Side: Sell (S)",
+}
 
-  return "Order Side: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.order_side.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.order_side.labels[value] or "Order Side: Unknown("..value..")"
 end
 
 -- Dissect: Order Side
@@ -5026,60 +4422,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_indicator.size = 1
 
 -- Display: Reference Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Reference Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Reference Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Reference Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Reference Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Reference Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Reference Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Reference Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Reference Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Reference Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Reference Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Reference Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Reference Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Reference Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Reference Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Reference Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Reference Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Reference Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_indicator.labels = {
+  ["0"] = "Reference Price Fraction Indicator: Whole (0)",
+  ["1"] = "Reference Price Fraction Indicator: Ten (1)",
+  ["2"] = "Reference Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Reference Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Reference Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Reference Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Reference Price Fraction Indicator: Million (6)",
+  ["7"] = "Reference Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Reference Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Reference Price Fraction Indicator: Billion (9)",
+  ["A"] = "Reference Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Reference Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Reference Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Reference Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Reference Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Reference Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Reference Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Reference Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_indicator.labels[value] or "Reference Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Reference Price Fraction Indicator
@@ -5307,60 +4671,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_indicator.size = 1
 
 -- Display: Strike Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Strike Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Strike Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Strike Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Strike Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Strike Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Strike Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Strike Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Strike Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Strike Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Strike Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Strike Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Strike Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Strike Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Strike Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Strike Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Strike Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Strike Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_indicator.labels = {
+  ["0"] = "Strike Price Fraction Indicator: Whole (0)",
+  ["1"] = "Strike Price Fraction Indicator: Ten (1)",
+  ["2"] = "Strike Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Strike Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Strike Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Strike Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Strike Price Fraction Indicator: Million (6)",
+  ["7"] = "Strike Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Strike Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Strike Price Fraction Indicator: Billion (9)",
+  ["A"] = "Strike Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Strike Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Strike Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Strike Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Strike Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Strike Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Strike Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Strike Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_indicator.labels[value] or "Strike Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Fraction Indicator
@@ -5382,15 +4714,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.tick = {}
 box_boxoptions_solamulticast_hsvf_v1_9.tick.size = 1
 
 -- Display: Tick
-box_boxoptions_solamulticast_hsvf_v1_9.tick.display = function(value)
-  if value == "+" then
-    return "Tick: Uptick (+)"
-  end
-  if value == "-" then
-    return "Tick: Downtick (-)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.tick.labels = {
+  ["+"] = "Tick: Uptick (+)",
+  ["-"] = "Tick: Downtick (-)",
+}
 
-  return "Tick: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.tick.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.tick.labels[value] or "Tick: Unknown("..value..")"
 end
 
 -- Dissect: Tick
@@ -5443,60 +4773,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.tick_increment_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.tick_increment_fraction_indicator.size = 1
 
 -- Display: Tick Increment Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.tick_increment_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Tick Increment Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Tick Increment Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Tick Increment Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Tick Increment Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Tick Increment Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Tick Increment Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Tick Increment Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Tick Increment Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Tick Increment Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Tick Increment Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Tick Increment Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Tick Increment Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Tick Increment Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Tick Increment Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Tick Increment Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Tick Increment Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Tick Increment Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.tick_increment_fraction_indicator.labels = {
+  ["0"] = "Tick Increment Fraction Indicator: Whole (0)",
+  ["1"] = "Tick Increment Fraction Indicator: Ten (1)",
+  ["2"] = "Tick Increment Fraction Indicator: Hundred (2)",
+  ["3"] = "Tick Increment Fraction Indicator: Thousand (3)",
+  ["4"] = "Tick Increment Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Tick Increment Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Tick Increment Fraction Indicator: Million (6)",
+  ["7"] = "Tick Increment Fraction Indicator: Ten Million (7)",
+  ["8"] = "Tick Increment Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Tick Increment Fraction Indicator: Billion (9)",
+  ["A"] = "Tick Increment Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Tick Increment Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Tick Increment Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Tick Increment Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Tick Increment Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Tick Increment Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Tick Increment Fraction Indicator: Negative Million (G)",
+}
 
-  return "Tick Increment Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.tick_increment_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.tick_increment_fraction_indicator.labels[value] or "Tick Increment Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Tick Increment Fraction Indicator
@@ -5603,60 +4901,28 @@ box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_indicator = {}
 box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_indicator.size = 1
 
 -- Display: Trade Price Fraction Indicator
-box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Trade Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Trade Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Trade Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Trade Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Trade Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Trade Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Trade Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Trade Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Trade Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Trade Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Trade Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Trade Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Trade Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Trade Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Trade Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Trade Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Trade Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_indicator.labels = {
+  ["0"] = "Trade Price Fraction Indicator: Whole (0)",
+  ["1"] = "Trade Price Fraction Indicator: Ten (1)",
+  ["2"] = "Trade Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Trade Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Trade Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Trade Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Trade Price Fraction Indicator: Million (6)",
+  ["7"] = "Trade Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Trade Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Trade Price Fraction Indicator: Billion (9)",
+  ["A"] = "Trade Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Trade Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Trade Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Trade Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Trade Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Trade Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Trade Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Trade Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_indicator.labels[value] or "Trade Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Price Fraction Indicator
@@ -5728,27 +4994,17 @@ box_boxoptions_solamulticast_hsvf_v1_9.type_of_clearing_account = {}
 box_boxoptions_solamulticast_hsvf_v1_9.type_of_clearing_account.size = 1
 
 -- Display: Type Of Clearing Account
-box_boxoptions_solamulticast_hsvf_v1_9.type_of_clearing_account.display = function(value)
-  if value == "6" then
-    return "Type Of Clearing Account: Public Customer (6)"
-  end
-  if value == "7" then
-    return "Type Of Clearing Account: Broker Dealer (7)"
-  end
-  if value == "8" then
-    return "Type Of Clearing Account: Market Maker (8)"
-  end
-  if value == "T" then
-    return "Type Of Clearing Account: Professional Customer (T)"
-  end
-  if value == "W" then
-    return "Type Of Clearing Account: Broker Dealer Cleared As Customer (W)"
-  end
-  if value == "X" then
-    return "Type Of Clearing Account: Away Market Maker (X)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.type_of_clearing_account.labels = {
+  ["6"] = "Type Of Clearing Account: Public Customer (6)",
+  ["7"] = "Type Of Clearing Account: Broker Dealer (7)",
+  ["8"] = "Type Of Clearing Account: Market Maker (8)",
+  ["T"] = "Type Of Clearing Account: Professional Customer (T)",
+  ["W"] = "Type Of Clearing Account: Broker Dealer Cleared As Customer (W)",
+  ["X"] = "Type Of Clearing Account: Away Market Maker (X)",
+}
 
-  return "Type Of Clearing Account: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.type_of_clearing_account.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.type_of_clearing_account.labels[value] or "Type Of Clearing Account: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Clearing Account
@@ -5770,15 +5026,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.type_of_instrument = {}
 box_boxoptions_solamulticast_hsvf_v1_9.type_of_instrument.size = 1
 
 -- Display: Type Of Instrument
-box_boxoptions_solamulticast_hsvf_v1_9.type_of_instrument.display = function(value)
-  if value == "O" then
-    return "Type Of Instrument: Options (O)"
-  end
-  if value == "L" then
-    return "Type Of Instrument: Long Term (L)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.type_of_instrument.labels = {
+  ["O"] = "Type Of Instrument: Options (O)",
+  ["L"] = "Type Of Instrument: Long Term (L)",
+}
 
-  return "Type Of Instrument: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.type_of_instrument.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.type_of_instrument.labels[value] or "Type Of Instrument: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Instrument
@@ -5850,15 +5104,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.type_of_order = {}
 box_boxoptions_solamulticast_hsvf_v1_9.type_of_order.size = 1
 
 -- Display: Type Of Order
-box_boxoptions_solamulticast_hsvf_v1_9.type_of_order.display = function(value)
-  if value == "A" then
-    return "Type Of Order: Initial Order (A)"
-  end
-  if value == "P" then
-    return "Type Of Order: Exposed Order (P)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.type_of_order.labels = {
+  ["A"] = "Type Of Order: Initial Order (A)",
+  ["P"] = "Type Of Order: Exposed Order (P)",
+}
 
-  return "Type Of Order: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.type_of_order.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.type_of_order.labels[value] or "Type Of Order: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Order
@@ -5880,15 +5132,13 @@ box_boxoptions_solamulticast_hsvf_v1_9.type_of_underlying = {}
 box_boxoptions_solamulticast_hsvf_v1_9.type_of_underlying.size = 1
 
 -- Display: Type Of Underlying
-box_boxoptions_solamulticast_hsvf_v1_9.type_of_underlying.display = function(value)
-  if value == "X" then
-    return "Type Of Underlying: Index (X)"
-  end
-  if value == "E" then
-    return "Type Of Underlying: Equities (E)"
-  end
+box_boxoptions_solamulticast_hsvf_v1_9.type_of_underlying.labels = {
+  ["X"] = "Type Of Underlying: Index (X)",
+  ["E"] = "Type Of Underlying: Equities (E)",
+}
 
-  return "Type Of Underlying: Unknown("..value..")"
+box_boxoptions_solamulticast_hsvf_v1_9.type_of_underlying.display = function(value)
+  return box_boxoptions_solamulticast_hsvf_v1_9.type_of_underlying.labels[value] or "Type Of Underlying: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Underlying
@@ -7729,74 +6979,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_pair = {}
 
 -- Dissect: Strike Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
-  -- Dissect Strike Price Negative Whole Pair
-  if strike_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Ten Pair
-  if strike_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Hundred Pair
-  if strike_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Thousand Pair
-  if strike_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Ten Thousand Pair
-  if strike_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Hundred Thousand Pair
-  if strike_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Million Pair
-  if strike_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Numeric Pair
-  if strike_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strike_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.strike_price_fraction_pair.dispatch[strike_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Strike Price Unknown Fraction Pair
@@ -8354,74 +7560,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_fraction_pair = {}
 
 -- Dissect: Limit Entered For An Order Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_fraction_pair.dissect = function(buffer, offset, packet, parent, limit_fraction_indicator)
-  -- Dissect Limit Entered For An Order Negative Whole Pair
-  if limit_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Negative Ten Pair
-  if limit_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Negative Hundred Pair
-  if limit_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Negative Thousand Pair
-  if limit_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Negative Ten Thousand Pair
-  if limit_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Negative Hundred Thousand Pair
-  if limit_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Negative Million Pair
-  if limit_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Entered For An Order Numeric Pair
-  if limit_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.limit_entered_for_an_order_fraction_pair.dispatch[limit_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Limit Entered For An Order Unknown Fraction Pair
@@ -9065,74 +8227,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_pair = {}
 
 -- Dissect: Initial Order Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_pair.dissect = function(buffer, offset, packet, parent, initial_order_price_fraction_indicator)
-  -- Dissect Initial Order Price Negative Whole Pair
-  if initial_order_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Negative Ten Pair
-  if initial_order_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Negative Hundred Pair
-  if initial_order_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Negative Thousand Pair
-  if initial_order_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Negative Ten Thousand Pair
-  if initial_order_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Negative Hundred Thousand Pair
-  if initial_order_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Negative Million Pair
-  if initial_order_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial Order Price Numeric Pair
-  if initial_order_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.initial_order_price_fraction_pair.dispatch[initial_order_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Initial Order Price Unknown Fraction Pair
@@ -9875,74 +8993,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_pair = {}
 
 -- Dissect: Net Change Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Numeric Pair
-  if net_change_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.net_change_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.net_change_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Unknown Fraction Pair
@@ -10349,74 +9423,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_pair = {}
 
 -- Dissect: Low Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_pair.dissect = function(buffer, offset, packet, parent, low_price_fraction_indicator)
-  -- Dissect Low Price Negative Whole Pair
-  if low_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Ten Pair
-  if low_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Hundred Pair
-  if low_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Thousand Pair
-  if low_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Ten Thousand Pair
-  if low_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Hundred Thousand Pair
-  if low_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Million Pair
-  if low_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Numeric Pair
-  if low_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.low_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.low_price_fraction_pair.dispatch[low_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Low Price Unknown Fraction Pair
@@ -10823,74 +9853,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_pair = {}
 
 -- Dissect: High Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_pair.dissect = function(buffer, offset, packet, parent, high_price_fraction_indicator)
-  -- Dissect High Price Negative Whole Pair
-  if high_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Ten Pair
-  if high_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Hundred Pair
-  if high_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Thousand Pair
-  if high_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Ten Thousand Pair
-  if high_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Hundred Thousand Pair
-  if high_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Million Pair
-  if high_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Numeric Pair
-  if high_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.high_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.high_price_fraction_pair.dispatch[high_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect High Price Unknown Fraction Pair
@@ -11297,74 +10283,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_pair = {}
 
 -- Dissect: Open Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_pair.dissect = function(buffer, offset, packet, parent, open_price_fraction_indicator)
-  -- Dissect Open Price Negative Whole Pair
-  if open_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Ten Pair
-  if open_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Hundred Pair
-  if open_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Thousand Pair
-  if open_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Ten Thousand Pair
-  if open_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Hundred Thousand Pair
-  if open_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Million Pair
-  if open_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Numeric Pair
-  if open_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.open_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.open_price_fraction_pair.dispatch[open_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Open Price Unknown Fraction Pair
@@ -11771,74 +10713,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_pair = {}
 
 -- Dissect: Last Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_pair.dissect = function(buffer, offset, packet, parent, last_price_fraction_indicator)
-  -- Dissect Last Price Negative Whole Pair
-  if last_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Ten Pair
-  if last_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Hundred Pair
-  if last_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Thousand Pair
-  if last_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Ten Thousand Pair
-  if last_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Hundred Thousand Pair
-  if last_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Million Pair
-  if last_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Numeric Pair
-  if last_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.last_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.last_price_fraction_pair.dispatch[last_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Last Price Unknown Fraction Pair
@@ -12245,74 +11143,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_pair = {}
 
 -- Dissect: Ask Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_pair.dissect = function(buffer, offset, packet, parent, ask_price_fraction_indicator)
-  -- Dissect Ask Price Negative Whole Pair
-  if ask_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Negative Ten Pair
-  if ask_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Negative Hundred Pair
-  if ask_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Negative Thousand Pair
-  if ask_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Negative Ten Thousand Pair
-  if ask_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Negative Hundred Thousand Pair
-  if ask_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Negative Million Pair
-  if ask_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Numeric Pair
-  if ask_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.ask_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_pair.dispatch[ask_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Ask Price Unknown Fraction Pair
@@ -12719,74 +11573,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_pair = {}
 
 -- Dissect: Bid Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_pair.dissect = function(buffer, offset, packet, parent, bid_price_fraction_indicator)
-  -- Dissect Bid Price Negative Whole Pair
-  if bid_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Negative Ten Pair
-  if bid_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Negative Hundred Pair
-  if bid_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Negative Thousand Pair
-  if bid_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Negative Ten Thousand Pair
-  if bid_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Negative Hundred Thousand Pair
-  if bid_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Negative Million Pair
-  if bid_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Numeric Pair
-  if bid_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bid_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_pair.dispatch[bid_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Bid Price Unknown Fraction Pair
@@ -13370,74 +12180,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_pair = {}
 
 -- Dissect: Reference Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_pair.dissect = function(buffer, offset, packet, parent, reference_price_fraction_indicator)
-  -- Dissect Reference Price Negative Whole Pair
-  if reference_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Negative Ten Pair
-  if reference_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Negative Hundred Pair
-  if reference_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Negative Thousand Pair
-  if reference_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Negative Ten Thousand Pair
-  if reference_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Negative Hundred Thousand Pair
-  if reference_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Negative Million Pair
-  if reference_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Numeric Pair
-  if reference_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.reference_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.reference_price_fraction_pair.dispatch[reference_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Reference Price Unknown Fraction Pair
@@ -14694,74 +13460,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_pair = {}
 
 -- Dissect: Min Threshold Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, min_threshold_price_fraction_indicator)
-  -- Dissect Min Threshold Price Negative Whole Pair
-  if min_threshold_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Negative Ten Pair
-  if min_threshold_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Negative Hundred Pair
-  if min_threshold_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Negative Thousand Pair
-  if min_threshold_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Negative Ten Thousand Pair
-  if min_threshold_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Negative Hundred Thousand Pair
-  if min_threshold_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Negative Million Pair
-  if min_threshold_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Threshold Price Numeric Pair
-  if min_threshold_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.min_threshold_price_fraction_pair.dispatch[min_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Min Threshold Price Unknown Fraction Pair
@@ -15168,74 +13890,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_pair = {}
 
 -- Dissect: Max Threshold Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, max_threshold_price_fraction_indicator)
-  -- Dissect Max Threshold Price Negative Whole Pair
-  if max_threshold_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Negative Ten Pair
-  if max_threshold_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Negative Hundred Pair
-  if max_threshold_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Negative Thousand Pair
-  if max_threshold_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Negative Ten Thousand Pair
-  if max_threshold_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Negative Hundred Thousand Pair
-  if max_threshold_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Negative Million Pair
-  if max_threshold_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Threshold Price Numeric Pair
-  if max_threshold_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.max_threshold_price_fraction_pair.dispatch[max_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Max Threshold Price Unknown Fraction Pair
@@ -15849,74 +14527,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_pair = {}
 
 -- Dissect: Minimum Threshold Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
-  -- Dissect Minimum Threshold Price Negative Whole Pair
-  if minimum_threshold_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Negative Ten Pair
-  if minimum_threshold_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Negative Hundred Pair
-  if minimum_threshold_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Negative Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Negative Ten Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Negative Hundred Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Negative Million Pair
-  if minimum_threshold_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Numeric Pair
-  if minimum_threshold_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.minimum_threshold_price_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Minimum Threshold Price Unknown Fraction Pair
@@ -16323,74 +14957,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_pair = {}
 
 -- Dissect: Maximum Threshold Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
-  -- Dissect Maximum Threshold Price Negative Whole Pair
-  if maximum_threshold_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Negative Ten Pair
-  if maximum_threshold_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Negative Hundred Pair
-  if maximum_threshold_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Negative Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Negative Ten Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Negative Hundred Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Negative Million Pair
-  if maximum_threshold_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Numeric Pair
-  if maximum_threshold_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.maximum_threshold_price_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Maximum Threshold Price Unknown Fraction Pair
@@ -16936,74 +15526,30 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_pair = {}
 
 -- Dissect: Trade Price Fraction Pair
+box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_pair.dispatch = {
+  ["A"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_whole_pair.dissect,
+  ["B"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_ten_pair.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_hundred_pair.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_thousand_pair.dissect,
+  ["E"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_ten_thousand_pair.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_million_pair.dissect,
+  ["0"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["1"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["2"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["3"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["4"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["5"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["6"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["7"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["8"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+  ["9"] = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_pair.dissect = function(buffer, offset, packet, parent, trade_price_fraction_indicator)
-  -- Dissect Trade Price Negative Whole Pair
-  if trade_price_fraction_indicator == "A" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Ten Pair
-  if trade_price_fraction_indicator == "B" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Hundred Pair
-  if trade_price_fraction_indicator == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Thousand Pair
-  if trade_price_fraction_indicator == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Ten Thousand Pair
-  if trade_price_fraction_indicator == "E" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Hundred Thousand Pair
-  if trade_price_fraction_indicator == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Million Pair
-  if trade_price_fraction_indicator == "G" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "0" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "1" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "2" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "3" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "4" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "5" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "6" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "7" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "8" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Numeric Pair
-  if trade_price_fraction_indicator == "9" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.trade_price_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.trade_price_fraction_pair.dispatch[trade_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Trade Price Unknown Fraction Pair
@@ -19374,122 +17920,42 @@ end
 box_boxoptions_solamulticast_hsvf_v1_9.message_body = {}
 
 -- Dissect: Message Body
+box_boxoptions_solamulticast_hsvf_v1_9.message_body.dispatch = {
+  ["U"] = box_boxoptions_solamulticast_hsvf_v1_9.end_of_transmission_message.dissect,
+  ["V"] = box_boxoptions_solamulticast_hsvf_v1_9.circuit_assurance_message.dissect,
+  ["Z"] = box_boxoptions_solamulticast_hsvf_v1_9.system_timestamp_message.dissect,
+  ["C"] = box_boxoptions_solamulticast_hsvf_v1_9.option_trade_message.dissect,
+  ["CS"] = box_boxoptions_solamulticast_hsvf_v1_9.strategy_trade_message.dissect,
+  ["D"] = box_boxoptions_solamulticast_hsvf_v1_9.option_request_for_quote_message.dissect,
+  ["F"] = box_boxoptions_solamulticast_hsvf_v1_9.option_quote_message.dissect,
+  ["FS"] = box_boxoptions_solamulticast_hsvf_v1_9.complex_order_quote_message.dissect,
+  ["GC"] = box_boxoptions_solamulticast_hsvf_v1_9.group_opening_time_message.dissect,
+  ["GR"] = box_boxoptions_solamulticast_hsvf_v1_9.group_status_message.dissect,
+  ["GS"] = box_boxoptions_solamulticast_hsvf_v1_9.strategies_group_status_message.dissect,
+  ["H"] = box_boxoptions_solamulticast_hsvf_v1_9.option_market_depth_message.dissect,
+  ["HS"] = box_boxoptions_solamulticast_hsvf_v1_9.complex_order_market_depth_message.dissect,
+  ["I"] = box_boxoptions_solamulticast_hsvf_v1_9.option_trade_cancellation_message.dissect,
+  ["IS"] = box_boxoptions_solamulticast_hsvf_v1_9.complex_order_trade_cancellation_message.dissect,
+  ["J"] = box_boxoptions_solamulticast_hsvf_v1_9.option_instrument_keys_message.dissect,
+  ["JS"] = box_boxoptions_solamulticast_hsvf_v1_9.complex_order_instrument_keys_message.dissect,
+  ["L"] = box_boxoptions_solamulticast_hsvf_v1_9.bulletins_message.dissect,
+  ["N"] = box_boxoptions_solamulticast_hsvf_v1_9.option_summary_message.dissect,
+  ["NS"] = box_boxoptions_solamulticast_hsvf_v1_9.complex_order_summary_message.dissect,
+  ["Q"] = box_boxoptions_solamulticast_hsvf_v1_9.beginning_of_options_summary_message.dissect,
+  ["QS"] = box_boxoptions_solamulticast_hsvf_v1_9.beginning_of_complex_order_summary_message.dissect,
+  ["S"] = box_boxoptions_solamulticast_hsvf_v1_9.end_of_sales_message.dissect,
+  ["M"] = box_boxoptions_solamulticast_hsvf_v1_9.option_improvement_process_beginning_message.dissect,
+  ["MS"] = box_boxoptions_solamulticast_hsvf_v1_9.complex_order_improvement_process_beginning_message_message.dissect,
+  ["O"] = box_boxoptions_solamulticast_hsvf_v1_9.market_sheet_initial_and_improvement_order_message.dissect,
+  ["OS"] = box_boxoptions_solamulticast_hsvf_v1_9.complex_order_market_sheet_initial_and_improvement_order_message.dissect,
+  ["T"] = box_boxoptions_solamulticast_hsvf_v1_9.initial_and_improvement_order_message.dissect,
+  ["TS"] = box_boxoptions_solamulticast_hsvf_v1_9.complex_order_initial_and_improvement_order_message.dissect,
+}
+
 box_boxoptions_solamulticast_hsvf_v1_9.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect End Of Transmission Message
-  if message_type == "U" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.end_of_transmission_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Circuit Assurance Message
-  if message_type == "V" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.circuit_assurance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Timestamp Message
-  if message_type == "Z" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.system_timestamp_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Trade Message
-  if message_type == "C" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.option_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trade Message
-  if message_type == "CS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strategy_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Request For Quote Message
-  if message_type == "D" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.option_request_for_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Quote Message
-  if message_type == "F" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.option_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Quote Message
-  if message_type == "FS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Opening Time Message
-  if message_type == "GC" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.group_opening_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Status Message
-  if message_type == "GR" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.group_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategies Group Status Message
-  if message_type == "GS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.strategies_group_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Market Depth Message
-  if message_type == "H" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.option_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Market Depth Message
-  if message_type == "HS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Trade Cancellation Message
-  if message_type == "I" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.option_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Trade Cancellation Message
-  if message_type == "IS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Instrument Keys Message
-  if message_type == "J" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.option_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Instrument Keys Message
-  if message_type == "JS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulletins Message
-  if message_type == "L" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.bulletins_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Summary Message
-  if message_type == "N" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.option_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Summary Message
-  if message_type == "NS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Options Summary Message
-  if message_type == "Q" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.beginning_of_options_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Complex Order Summary Message
-  if message_type == "QS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.beginning_of_complex_order_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Sales Message
-  if message_type == "S" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.end_of_sales_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Improvement Process Beginning Message
-  if message_type == "M" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.option_improvement_process_beginning_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Improvement Process Beginning Message Message
-  if message_type == "MS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_improvement_process_beginning_message_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Sheet Initial And Improvement Order Message
-  if message_type == "O" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.market_sheet_initial_and_improvement_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Market Sheet Initial And Improvement Order Message
-  if message_type == "OS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_market_sheet_initial_and_improvement_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Initial And Improvement Order Message
-  if message_type == "T" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.initial_and_improvement_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Initial And Improvement Order Message
-  if message_type == "TS" then
-    return box_boxoptions_solamulticast_hsvf_v1_9.complex_order_initial_and_improvement_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solamulticast_hsvf_v1_9.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

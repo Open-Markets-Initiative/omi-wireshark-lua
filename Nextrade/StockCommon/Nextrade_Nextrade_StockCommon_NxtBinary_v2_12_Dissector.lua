@@ -7077,159 +7077,61 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.tr_code = {}
 nextrade_nextrade_stockcommon_nxtbinary_v2_12.tr_code.size = 5
 
 -- Display: TR Code
-nextrade_nextrade_stockcommon_nxtbinary_v2_12.tr_code.display = function(value)
-  if value == "I2500" then
-    return "TR Code: Polling Data Message (I2500)"
-  end
-  if value == "B651S" then
-    return "TR Code: Securities Quote 10 Level Message (B651S)"
-  end
-  if value == "B651Q" then
-    return "TR Code: Securities Quote 10 Level Message (B651Q)"
-  end
-  if value == "A351S" then
-    return "TR Code: Securities Order Filled Message (A351S)"
-  end
-  if value == "A351Q" then
-    return "TR Code: Securities Order Filled Message (A351Q)"
-  end
-  if value == "A751S" then
-    return "TR Code: Market Operation Ts Message (A751S)"
-  end
-  if value == "A751Q" then
-    return "TR Code: Market Operation Ts Message (A751Q)"
-  end
-  if value == "A651S" then
-    return "TR Code: Issue Closing Message (A651S)"
-  end
-  if value == "A651Q" then
-    return "TR Code: Issue Closing Message (A651Q)"
-  end
-  if value == "R851S" then
-    return "TR Code: Triggering Removing Vi Message (R851S)"
-  end
-  if value == "R851Q" then
-    return "TR Code: Triggering Removing Vi Message (R851Q)"
-  end
-  if value == "E151S" then
-    return "TR Code: Closing Price Trading Quote Message (E151S)"
-  end
-  if value == "E151Q" then
-    return "TR Code: Closing Price Trading Quote Message (E151Q)"
-  end
-  if value == "B251S" then
-    return "TR Code: Equities Snapshot 10 Level Message (B251S)"
-  end
-  if value == "B251Q" then
-    return "TR Code: Equities Snapshot 10 Level Message (B251Q)"
-  end
-  if value == "C051S" then
-    return "TR Code: Investor Activities Per An Industry Message (C051S)"
-  end
-  if value == "C051Q" then
-    return "TR Code: Investor Activities Per An Industry Message (C051Q)"
-  end
-  if value == "B551S" then
-    return "TR Code: Current Movement Message (B551S)"
-  end
-  if value == "B551Q" then
-    return "TR Code: Current Movement Message (B551Q)"
-  end
-  if value == "P051S" then
-    return "TR Code: Program Trading Activity Per Investor Message (P051S)"
-  end
-  if value == "P051Q" then
-    return "TR Code: Program Trading Activity Per Investor Message (P051Q)"
-  end
-  if value == "C351S" then
-    return "TR Code: Program Trading Information Per Issue Aggregated Information Message (C351S)"
-  end
-  if value == "C351Q" then
-    return "TR Code: Program Trading Information Per Issue Aggregated Information Message (C351Q)"
-  end
-  if value == "J051S" then
-    return "TR Code: Program Trading Information Of Total Aggregated Information Message (J051S)"
-  end
-  if value == "J051Q" then
-    return "TR Code: Program Trading Information Of Total Aggregated Information Message (J051Q)"
-  end
-  if value == "M451S" then
-    return "TR Code: Market Operation Schedule Message (M451S)"
-  end
-  if value == "M451Q" then
-    return "TR Code: Market Operation Schedule Message (M451Q)"
-  end
-  if value == "R351T" then
-    return "TR Code: Member Firm Imposing Lifting Sanctions Message (R351T)"
-  end
-  if value == "B951S" then
-    return "TR Code: Top Five Traders Activities Message (B951S)"
-  end
-  if value == "B951Q" then
-    return "TR Code: Top Five Traders Activities Message (B951Q)"
-  end
-  if value == "A051S" then
-    return "TR Code: Equities Batch Data Message (A051S)"
-  end
-  if value == "E051S" then
-    return "TR Code: Equities Batch Data Message (E051S)"
-  end
-  if value == "A051Q" then
-    return "TR Code: Equities Batch Data Message (A051Q)"
-  end
-  if value == "E051Q" then
-    return "TR Code: Equities Batch Data Message (E051Q)"
-  end
-  if value == "M951T" then
-    return "TR Code: Member Information Message (M951T)"
-  end
-  if value == "E851T" then
-    return "TR Code: Member Information Message (E851T)"
-  end
-  if value == "I651S" then
-    return "TR Code: Issue Event Message (I651S)"
-  end
-  if value == "E651S" then
-    return "TR Code: Issue Event Message (E651S)"
-  end
-  if value == "I651Q" then
-    return "TR Code: Issue Event Message (I651Q)"
-  end
-  if value == "E651Q" then
-    return "TR Code: Issue Event Message (E651Q)"
-  end
-  if value == "C451S" then
-    return "TR Code: Block Basket Trade Data Message (C451S)"
-  end
-  if value == "C451Q" then
-    return "TR Code: Block Basket Trade Data Message (C451Q)"
-  end
-  if value == "C151S" then
-    return "TR Code: Investor Activities Per An Issue Eod Message (C151S)"
-  end
-  if value == "C151Q" then
-    return "TR Code: Investor Activities Per An Issue Eod Message (C151Q)"
-  end
-  if value == "I851S" then
-    return "TR Code: Short Selling Message (I851S)"
-  end
-  if value == "I851Q" then
-    return "TR Code: Short Selling Message (I851Q)"
-  end
-  if value == "E251S" then
-    return "TR Code: Brokers Acitity Information Message (E251S)"
-  end
-  if value == "E251Q" then
-    return "TR Code: Brokers Acitity Information Message (E251Q)"
-  end
-  if value == "E351S" then
-    return "TR Code: Trading Activity By Session Per An Issue Message (E351S)"
-  end
-  if value == "E351Q" then
-    return "TR Code: Trading Activity By Session Per An Issue Message (E351Q)"
-  end
+nextrade_nextrade_stockcommon_nxtbinary_v2_12.tr_code.labels = {
+  ["I2500"] = "TR Code: Polling Data Message (I2500)",
+  ["B651S"] = "TR Code: Securities Quote 10 Level Message (B651S)",
+  ["B651Q"] = "TR Code: Securities Quote 10 Level Message (B651Q)",
+  ["A351S"] = "TR Code: Securities Order Filled Message (A351S)",
+  ["A351Q"] = "TR Code: Securities Order Filled Message (A351Q)",
+  ["A751S"] = "TR Code: Market Operation Ts Message (A751S)",
+  ["A751Q"] = "TR Code: Market Operation Ts Message (A751Q)",
+  ["A651S"] = "TR Code: Issue Closing Message (A651S)",
+  ["A651Q"] = "TR Code: Issue Closing Message (A651Q)",
+  ["R851S"] = "TR Code: Triggering Removing Vi Message (R851S)",
+  ["R851Q"] = "TR Code: Triggering Removing Vi Message (R851Q)",
+  ["E151S"] = "TR Code: Closing Price Trading Quote Message (E151S)",
+  ["E151Q"] = "TR Code: Closing Price Trading Quote Message (E151Q)",
+  ["B251S"] = "TR Code: Equities Snapshot 10 Level Message (B251S)",
+  ["B251Q"] = "TR Code: Equities Snapshot 10 Level Message (B251Q)",
+  ["C051S"] = "TR Code: Investor Activities Per An Industry Message (C051S)",
+  ["C051Q"] = "TR Code: Investor Activities Per An Industry Message (C051Q)",
+  ["B551S"] = "TR Code: Current Movement Message (B551S)",
+  ["B551Q"] = "TR Code: Current Movement Message (B551Q)",
+  ["P051S"] = "TR Code: Program Trading Activity Per Investor Message (P051S)",
+  ["P051Q"] = "TR Code: Program Trading Activity Per Investor Message (P051Q)",
+  ["C351S"] = "TR Code: Program Trading Information Per Issue Aggregated Information Message (C351S)",
+  ["C351Q"] = "TR Code: Program Trading Information Per Issue Aggregated Information Message (C351Q)",
+  ["J051S"] = "TR Code: Program Trading Information Of Total Aggregated Information Message (J051S)",
+  ["J051Q"] = "TR Code: Program Trading Information Of Total Aggregated Information Message (J051Q)",
+  ["M451S"] = "TR Code: Market Operation Schedule Message (M451S)",
+  ["M451Q"] = "TR Code: Market Operation Schedule Message (M451Q)",
+  ["R351T"] = "TR Code: Member Firm Imposing Lifting Sanctions Message (R351T)",
+  ["B951S"] = "TR Code: Top Five Traders Activities Message (B951S)",
+  ["B951Q"] = "TR Code: Top Five Traders Activities Message (B951Q)",
+  ["A051S"] = "TR Code: Equities Batch Data Message (A051S)",
+  ["E051S"] = "TR Code: Equities Batch Data Message (E051S)",
+  ["A051Q"] = "TR Code: Equities Batch Data Message (A051Q)",
+  ["E051Q"] = "TR Code: Equities Batch Data Message (E051Q)",
+  ["M951T"] = "TR Code: Member Information Message (M951T)",
+  ["E851T"] = "TR Code: Member Information Message (E851T)",
+  ["I651S"] = "TR Code: Issue Event Message (I651S)",
+  ["E651S"] = "TR Code: Issue Event Message (E651S)",
+  ["I651Q"] = "TR Code: Issue Event Message (I651Q)",
+  ["E651Q"] = "TR Code: Issue Event Message (E651Q)",
+  ["C451S"] = "TR Code: Block Basket Trade Data Message (C451S)",
+  ["C451Q"] = "TR Code: Block Basket Trade Data Message (C451Q)",
+  ["C151S"] = "TR Code: Investor Activities Per An Issue Eod Message (C151S)",
+  ["C151Q"] = "TR Code: Investor Activities Per An Issue Eod Message (C151Q)",
+  ["I851S"] = "TR Code: Short Selling Message (I851S)",
+  ["I851Q"] = "TR Code: Short Selling Message (I851Q)",
+  ["E251S"] = "TR Code: Brokers Acitity Information Message (E251S)",
+  ["E251Q"] = "TR Code: Brokers Acitity Information Message (E251Q)",
+  ["E351S"] = "TR Code: Trading Activity By Session Per An Issue Message (E351S)",
+  ["E351Q"] = "TR Code: Trading Activity By Session Per An Issue Message (E351Q)",
+}
 
-  return "TR Code: Unknown("..value..")"
+nextrade_nextrade_stockcommon_nxtbinary_v2_12.tr_code.display = function(value)
+  return nextrade_nextrade_stockcommon_nxtbinary_v2_12.tr_code.labels[value] or "TR Code: Unknown("..value..")"
 end
 
 -- Dissect: TR Code
@@ -10668,206 +10570,63 @@ end
 nextrade_nextrade_stockcommon_nxtbinary_v2_12.payload = {}
 
 -- Dissect: Payload
+nextrade_nextrade_stockcommon_nxtbinary_v2_12.payload.dispatch = {
+  ["I2500"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.polling_data_message.dissect,
+  ["B651S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.securities_quote_10_level_message.dissect,
+  ["B651Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.securities_quote_10_level_message.dissect,
+  ["A351S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.securities_order_filled_message.dissect,
+  ["A351Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.securities_order_filled_message.dissect,
+  ["A751S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.market_operation_ts_message.dissect,
+  ["A751Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.market_operation_ts_message.dissect,
+  ["A651S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_closing_message.dissect,
+  ["A651Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_closing_message.dissect,
+  ["R851S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.triggering_removing_vi_message.dissect,
+  ["R851Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.triggering_removing_vi_message.dissect,
+  ["E151S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.closing_price_trading_quote_message.dissect,
+  ["E151Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.closing_price_trading_quote_message.dissect,
+  ["B251S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_snapshot_10_level_message.dissect,
+  ["B251Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_snapshot_10_level_message.dissect,
+  ["C051S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.investor_activities_per_an_industry_message.dissect,
+  ["C051Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.investor_activities_per_an_industry_message.dissect,
+  ["B551S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.current_movement_message.dissect,
+  ["B551Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.current_movement_message.dissect,
+  ["P051S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_activity_per_investor_message.dissect,
+  ["P051Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_activity_per_investor_message.dissect,
+  ["C351S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_information_per_issue_aggregated_information_message.dissect,
+  ["C351Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_information_per_issue_aggregated_information_message.dissect,
+  ["J051S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_information_of_total_aggregated_information_message.dissect,
+  ["J051Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_information_of_total_aggregated_information_message.dissect,
+  ["M451S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.market_operation_schedule_message.dissect,
+  ["M451Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.market_operation_schedule_message.dissect,
+  ["R351T"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.member_firm_imposing_lifting_sanctions_message.dissect,
+  ["B951S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.top_five_traders_activities_message.dissect,
+  ["B951Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.top_five_traders_activities_message.dissect,
+  ["A051S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_batch_data_message.dissect,
+  ["E051S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_batch_data_message.dissect,
+  ["A051Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_batch_data_message.dissect,
+  ["E051Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_batch_data_message.dissect,
+  ["M951T"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.member_information_message.dissect,
+  ["E851T"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.member_information_message.dissect,
+  ["I651S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_event_message.dissect,
+  ["E651S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_event_message.dissect,
+  ["I651Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_event_message.dissect,
+  ["E651Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_event_message.dissect,
+  ["C451S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.block_basket_trade_data_message.dissect,
+  ["C451Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.block_basket_trade_data_message.dissect,
+  ["C151S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.investor_activities_per_an_issue_eod_message.dissect,
+  ["C151Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.investor_activities_per_an_issue_eod_message.dissect,
+  ["I851S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.short_selling_message.dissect,
+  ["I851Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.short_selling_message.dissect,
+  ["E251S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.brokers_acitity_information_message.dissect,
+  ["E251Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.brokers_acitity_information_message.dissect,
+  ["E351S"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.trading_activity_by_session_per_an_issue_message.dissect,
+  ["E351Q"] = nextrade_nextrade_stockcommon_nxtbinary_v2_12.trading_activity_by_session_per_an_issue_message.dissect,
+}
+
 nextrade_nextrade_stockcommon_nxtbinary_v2_12.payload.dissect = function(buffer, offset, packet, parent, tr_code)
-  -- Dissect Polling Data Message
-  if tr_code == "I2500" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.polling_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote 10 Level Message
-  if tr_code == "B651S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.securities_quote_10_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote 10 Level Message
-  if tr_code == "B651Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.securities_quote_10_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A351S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A351Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A751S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A751Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A651S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A651Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Triggering Removing Vi Message
-  if tr_code == "R851S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.triggering_removing_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Triggering Removing Vi Message
-  if tr_code == "R851Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.triggering_removing_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price Trading Quote Message
-  if tr_code == "E151S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.closing_price_trading_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price Trading Quote Message
-  if tr_code == "E151Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.closing_price_trading_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equities Snapshot 10 Level Message
-  if tr_code == "B251S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_snapshot_10_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equities Snapshot 10 Level Message
-  if tr_code == "B251Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_snapshot_10_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Investor Activities Per An Industry Message
-  if tr_code == "C051S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.investor_activities_per_an_industry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Investor Activities Per An Industry Message
-  if tr_code == "C051Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.investor_activities_per_an_industry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Current Movement Message
-  if tr_code == "B551S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.current_movement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Current Movement Message
-  if tr_code == "B551Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.current_movement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Program Trading Activity Per Investor Message
-  if tr_code == "P051S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_activity_per_investor_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Program Trading Activity Per Investor Message
-  if tr_code == "P051Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_activity_per_investor_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Program Trading Information Per Issue Aggregated Information Message
-  if tr_code == "C351S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_information_per_issue_aggregated_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Program Trading Information Per Issue Aggregated Information Message
-  if tr_code == "C351Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_information_per_issue_aggregated_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Program Trading Information Of Total Aggregated Information Message
-  if tr_code == "J051S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_information_of_total_aggregated_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Program Trading Information Of Total Aggregated Information Message
-  if tr_code == "J051Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.program_trading_information_of_total_aggregated_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M451S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M451Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Imposing Lifting Sanctions Message
-  if tr_code == "R351T" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.member_firm_imposing_lifting_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Five Traders Activities Message
-  if tr_code == "B951S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Five Traders Activities Message
-  if tr_code == "B951Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.top_five_traders_activities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equities Batch Data Message
-  if tr_code == "A051S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equities Batch Data Message
-  if tr_code == "E051S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equities Batch Data Message
-  if tr_code == "A051Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equities Batch Data Message
-  if tr_code == "E051Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.equities_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Information Message
-  if tr_code == "M951T" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.member_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Information Message
-  if tr_code == "E851T" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.member_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I651S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "E651S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I651Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "E651Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Block Basket Trade Data Message
-  if tr_code == "C451S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.block_basket_trade_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Block Basket Trade Data Message
-  if tr_code == "C451Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.block_basket_trade_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Investor Activities Per An Issue Eod Message
-  if tr_code == "C151S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.investor_activities_per_an_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Investor Activities Per An Issue Eod Message
-  if tr_code == "C151Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.investor_activities_per_an_issue_eod_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Selling Message
-  if tr_code == "I851S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.short_selling_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Selling Message
-  if tr_code == "I851Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.short_selling_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Brokers Acitity Information Message
-  if tr_code == "E251S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.brokers_acitity_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Brokers Acitity Information Message
-  if tr_code == "E251Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.brokers_acitity_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Activity By Session Per An Issue Message
-  if tr_code == "E351S" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.trading_activity_by_session_per_an_issue_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Activity By Session Per An Issue Message
-  if tr_code == "E351Q" then
-    return nextrade_nextrade_stockcommon_nxtbinary_v2_12.trading_activity_by_session_per_an_issue_message.dissect(buffer, offset, packet, parent)
+  local dissect = nextrade_nextrade_stockcommon_nxtbinary_v2_12.payload.dispatch[tr_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

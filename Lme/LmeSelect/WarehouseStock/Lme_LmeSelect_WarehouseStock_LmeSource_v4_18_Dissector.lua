@@ -252,15 +252,13 @@ lme_lmeselect_warehousestock_lmesource_v4_18.msg_type = {}
 lme_lmeselect_warehousestock_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_warehousestock_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 426 then
-    return "Msg Type: Warehouse Stock Movement Message (426)"
-  end
+lme_lmeselect_warehousestock_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [426] = "Msg Type: Warehouse Stock Movement Message (426)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_warehousestock_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_warehousestock_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -423,21 +421,15 @@ lme_lmeselect_warehousestock_lmesource_v4_18.report_level = {}
 lme_lmeselect_warehousestock_lmesource_v4_18.report_level.size = 12
 
 -- Display: Report Level
-lme_lmeselect_warehousestock_lmesource_v4_18.report_level.display = function(value)
-  if value == "Summary" then
-    return "Report Level: Summary (Summary)"
-  end
-  if value == "Grade" then
-    return "Report Level: Grade (Grade)"
-  end
-  if value == "Location" then
-    return "Report Level: Location (Location)"
-  end
-  if value == "Detailed" then
-    return "Report Level: Detailed (Detailed)"
-  end
+lme_lmeselect_warehousestock_lmesource_v4_18.report_level.labels = {
+  ["Summary"] = "Report Level: Summary (Summary)",
+  ["Grade"] = "Report Level: Grade (Grade)",
+  ["Location"] = "Report Level: Location (Location)",
+  ["Detailed"] = "Report Level: Detailed (Detailed)",
+}
 
-  return "Report Level: Unknown("..value..")"
+lme_lmeselect_warehousestock_lmesource_v4_18.report_level.display = function(value)
+  return lme_lmeselect_warehousestock_lmesource_v4_18.report_level.labels[value] or "Report Level: Unknown("..value..")"
 end
 
 -- Dissect: Report Level
@@ -529,30 +521,18 @@ lme_lmeselect_warehousestock_lmesource_v4_18.stock_status = {}
 lme_lmeselect_warehousestock_lmesource_v4_18.stock_status.size = 3
 
 -- Display: Stock Status
-lme_lmeselect_warehousestock_lmesource_v4_18.stock_status.display = function(value)
-  if value == "CLS" then
-    return "Stock Status: Closing Stock (CLS)"
-  end
-  if value == "OPN" then
-    return "Stock Status: Opening Stock (OPN)"
-  end
-  if value == "DIN" then
-    return "Stock Status: Stock Delivered In (DIN)"
-  end
-  if value == "DOT" then
-    return "Stock Status: Stock Delivered Out (DOT)"
-  end
-  if value == "MOV" then
-    return "Stock Status: Stock Movement (MOV)"
-  end
-  if value == "COW" then
-    return "Stock Status: Closing Stock On Warrant (COW)"
-  end
-  if value == "CCW" then
-    return "Stock Status: Closing Stock On Cancelled Warrant (CCW)"
-  end
+lme_lmeselect_warehousestock_lmesource_v4_18.stock_status.labels = {
+  ["CLS"] = "Stock Status: Closing Stock (CLS)",
+  ["OPN"] = "Stock Status: Opening Stock (OPN)",
+  ["DIN"] = "Stock Status: Stock Delivered In (DIN)",
+  ["DOT"] = "Stock Status: Stock Delivered Out (DOT)",
+  ["MOV"] = "Stock Status: Stock Movement (MOV)",
+  ["COW"] = "Stock Status: Closing Stock On Warrant (COW)",
+  ["CCW"] = "Stock Status: Closing Stock On Cancelled Warrant (CCW)",
+}
 
-  return "Stock Status: Unknown("..value..")"
+lme_lmeselect_warehousestock_lmesource_v4_18.stock_status.display = function(value)
+  return lme_lmeselect_warehousestock_lmesource_v4_18.stock_status.labels[value] or "Stock Status: Unknown("..value..")"
 end
 
 -- Dissect: Stock Status
@@ -747,14 +727,15 @@ end
 lme_lmeselect_warehousestock_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_warehousestock_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_warehousestock_lmesource_v4_18.sequence_reset_message.dissect,
+  [426] = lme_lmeselect_warehousestock_lmesource_v4_18.warehouse_stock_movement_message.dissect,
+}
+
 lme_lmeselect_warehousestock_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_warehousestock_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Warehouse Stock Movement Message
-  if msg_type == 426 then
-    return lme_lmeselect_warehousestock_lmesource_v4_18.warehouse_stock_movement_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_warehousestock_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

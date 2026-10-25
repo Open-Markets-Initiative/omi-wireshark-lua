@@ -462,15 +462,13 @@ lseg_turquoise_level2incremental_gtp_v26_3.cross_type = {}
 lseg_turquoise_level2incremental_gtp_v26_3.cross_type.size = 1
 
 -- Display: Cross Type
-lseg_turquoise_level2incremental_gtp_v26_3.cross_type.display = function(value)
-  if value == 6 then
-    return "Cross Type: Internal Btf (6)"
-  end
-  if value == 8 then
-    return "Cross Type: Committed Btf (8)"
-  end
+lseg_turquoise_level2incremental_gtp_v26_3.cross_type.labels = {
+  [6] = "Cross Type: Internal Btf (6)",
+  [8] = "Cross Type: Committed Btf (8)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+lseg_turquoise_level2incremental_gtp_v26_3.cross_type.display = function(value)
+  return lseg_turquoise_level2incremental_gtp_v26_3.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -702,18 +700,14 @@ lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator = {}
 lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator.size = 1
 
 -- Display: Hidden Execution Indicator
-lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator.display = function(value)
-  if value == 0 then
-    return "Hidden Execution Indicator: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Hidden Execution Indicator: Visible (1)"
-  end
-  if value == 2 then
-    return "Hidden Execution Indicator: Hidden (2)"
-  end
+lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator.labels = {
+  [0] = "Hidden Execution Indicator: Not Applicable (0)",
+  [1] = "Hidden Execution Indicator: Visible (1)",
+  [2] = "Hidden Execution Indicator: Hidden (2)",
+}
 
-  return "Hidden Execution Indicator: Unknown("..value..")"
+lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator.display = function(value)
+  return lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator.labels[value] or "Hidden Execution Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Hidden Execution Indicator
@@ -907,45 +901,23 @@ lseg_turquoise_level2incremental_gtp_v26_3.message_type = {}
 lseg_turquoise_level2incremental_gtp_v26_3.message_type.size = 1
 
 -- Display: Message Type
-lseg_turquoise_level2incremental_gtp_v26_3.message_type.display = function(value)
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x70 then
-    return "Message Type: Instrument Directory Message (0x70)"
-  end
-  if value == 0x48 then
-    return "Message Type: Instrument Status Message (0x48)"
-  end
-  if value == 0x46 then
-    return "Message Type: Add Order Incremental Message (0x46)"
-  end
-  if value == 0x55 then
-    return "Message Type: Modify Order Message (0x55)"
-  end
-  if value == 0x44 then
-    return "Message Type: Delete Order Message (0x44)"
-  end
-  if value == 0x79 then
-    return "Message Type: Order Book Clear Message (0x79)"
-  end
-  if value == 0x50 then
-    return "Message Type: Trade Message (0x50)"
-  end
-  if value == 0x71 then
-    return "Message Type: Trade Cross Message (0x71)"
-  end
-  if value == 0x77 then
-    return "Message Type: Statistics Message (0x77)"
-  end
-  if value == 0x6A then
-    return "Message Type: Statistics Update Message (0x6A)"
-  end
-  if value == 0x57 then
-    return "Message Type: Trade Summary Message (0x57)"
-  end
+lseg_turquoise_level2incremental_gtp_v26_3.message_type.labels = {
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x70] = "Message Type: Instrument Directory Message (0x70)",
+  [0x48] = "Message Type: Instrument Status Message (0x48)",
+  [0x46] = "Message Type: Add Order Incremental Message (0x46)",
+  [0x55] = "Message Type: Modify Order Message (0x55)",
+  [0x44] = "Message Type: Delete Order Message (0x44)",
+  [0x79] = "Message Type: Order Book Clear Message (0x79)",
+  [0x50] = "Message Type: Trade Message (0x50)",
+  [0x71] = "Message Type: Trade Cross Message (0x71)",
+  [0x77] = "Message Type: Statistics Message (0x77)",
+  [0x6A] = "Message Type: Statistics Update Message (0x6A)",
+  [0x57] = "Message Type: Trade Summary Message (0x57)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_turquoise_level2incremental_gtp_v26_3.message_type.display = function(value)
+  return lseg_turquoise_level2incremental_gtp_v26_3.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1139,12 +1111,12 @@ lseg_turquoise_level2incremental_gtp_v26_3.order_book_type = {}
 lseg_turquoise_level2incremental_gtp_v26_3.order_book_type.size = 1
 
 -- Display: Order Book Type
-lseg_turquoise_level2incremental_gtp_v26_3.order_book_type.display = function(value)
-  if value == 3 then
-    return "Order Book Type: Electronic (3)"
-  end
+lseg_turquoise_level2incremental_gtp_v26_3.order_book_type.labels = {
+  [3] = "Order Book Type: Electronic (3)",
+}
 
-  return "Order Book Type: Unknown("..value..")"
+lseg_turquoise_level2incremental_gtp_v26_3.order_book_type.display = function(value)
+  return lseg_turquoise_level2incremental_gtp_v26_3.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -1608,30 +1580,18 @@ lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason = {}
 lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 5 then
-    return "Session Change Reason: Aesp Circuit Breaker Tripped (5)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable (9)"
-  end
+lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [5] = "Session Change Reason: Aesp Circuit Breaker Tripped (5)",
+  [9] = "Session Change Reason: Unavailable (9)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason.display = function(value)
+  return lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -1725,27 +1685,17 @@ lseg_turquoise_level2incremental_gtp_v26_3.source_venue = {}
 lseg_turquoise_level2incremental_gtp_v26_3.source_venue.size = 2
 
 -- Display: Source Venue
-lseg_turquoise_level2incremental_gtp_v26_3.source_venue.display = function(value)
-  if value == 5 then
-    return "Source Venue: Turquoise Lit Order Book (5)"
-  end
-  if value == 6 then
-    return "Source Venue: Turquoise Plato Order Book (6)"
-  end
-  if value == 12 then
-    return "Source Venue: Turquoise Plato Lit Auctions Order Book (12)"
-  end
-  if value == 14 then
-    return "Source Venue: Turquoise Lit Order Book (14)"
-  end
-  if value == 15 then
-    return "Source Venue: Turquoise Plato Order Book (15)"
-  end
-  if value == 16 then
-    return "Source Venue: Turquoise Plato Lit Auctions Order Book (16)"
-  end
+lseg_turquoise_level2incremental_gtp_v26_3.source_venue.labels = {
+  [5] = "Source Venue: Turquoise Lit Order Book (5)",
+  [6] = "Source Venue: Turquoise Plato Order Book (6)",
+  [12] = "Source Venue: Turquoise Plato Lit Auctions Order Book (12)",
+  [14] = "Source Venue: Turquoise Lit Order Book (14)",
+  [15] = "Source Venue: Turquoise Plato Order Book (15)",
+  [16] = "Source Venue: Turquoise Plato Lit Auctions Order Book (16)",
+}
 
-  return "Source Venue: Unknown("..value..")"
+lseg_turquoise_level2incremental_gtp_v26_3.source_venue.display = function(value)
+  return lseg_turquoise_level2incremental_gtp_v26_3.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
 end
 
 -- Dissect: Source Venue
@@ -1854,30 +1804,18 @@ lseg_turquoise_level2incremental_gtp_v26_3.statistic_type = {}
 lseg_turquoise_level2incremental_gtp_v26_3.statistic_type.size = 2
 
 -- Display: Statistic Type
-lseg_turquoise_level2incremental_gtp_v26_3.statistic_type.display = function(value)
-  if value == 1 then
-    return "Statistic Type: Indicative Auction Uncrossing Data (1)"
-  end
-  if value == 4 then
-    return "Statistic Type: Trade High On Book (4)"
-  end
-  if value == 5 then
-    return "Statistic Type: Trade Low On Book (5)"
-  end
-  if value == 6 then
-    return "Statistic Type: Trade High All Trades (6)"
-  end
-  if value == 7 then
-    return "Statistic Type: Trade Low All Trades (7)"
-  end
-  if value == 8 then
-    return "Statistic Type: Fifty Two Week Trade High All Trades (8)"
-  end
-  if value == 9 then
-    return "Statistic Type: Fifty Two Week Trade Low All Trades (9)"
-  end
+lseg_turquoise_level2incremental_gtp_v26_3.statistic_type.labels = {
+  [1] = "Statistic Type: Indicative Auction Uncrossing Data (1)",
+  [4] = "Statistic Type: Trade High On Book (4)",
+  [5] = "Statistic Type: Trade Low On Book (5)",
+  [6] = "Statistic Type: Trade High All Trades (6)",
+  [7] = "Statistic Type: Trade Low All Trades (7)",
+  [8] = "Statistic Type: Fifty Two Week Trade High All Trades (8)",
+  [9] = "Statistic Type: Fifty Two Week Trade Low All Trades (9)",
+}
 
-  return "Statistic Type: Unknown("..value..")"
+lseg_turquoise_level2incremental_gtp_v26_3.statistic_type.display = function(value)
+  return lseg_turquoise_level2incremental_gtp_v26_3.statistic_type.labels[value] or "Statistic Type: Unknown("..value..")"
 end
 
 -- Dissect: Statistic Type
@@ -2159,18 +2097,14 @@ lseg_turquoise_level2incremental_gtp_v26_3.trade_type = {}
 lseg_turquoise_level2incremental_gtp_v26_3.trade_type.size = 1
 
 -- Display: Trade Type
-lseg_turquoise_level2incremental_gtp_v26_3.trade_type.display = function(value)
-  if value == 0 then
-    return "Trade Type: Regular (0)"
-  end
-  if value == 2 then
-    return "Trade Type: Auction Trade (2)"
-  end
-  if value == 9 then
-    return "Trade Type: Trade Cancellation (9)"
-  end
+lseg_turquoise_level2incremental_gtp_v26_3.trade_type.labels = {
+  [0] = "Trade Type: Regular (0)",
+  [2] = "Trade Type: Auction Trade (2)",
+  [9] = "Trade Type: Trade Cancellation (9)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+lseg_turquoise_level2incremental_gtp_v26_3.trade_type.display = function(value)
+  return lseg_turquoise_level2incremental_gtp_v26_3.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -3591,54 +3525,25 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.payload = {}
 
 -- Dissect: Payload
+lseg_turquoise_level2incremental_gtp_v26_3.payload.dispatch = {
+  [0x53] = lseg_turquoise_level2incremental_gtp_v26_3.system_event_message.dissect,
+  [0x70] = lseg_turquoise_level2incremental_gtp_v26_3.instrument_directory_message.dissect,
+  [0x48] = lseg_turquoise_level2incremental_gtp_v26_3.instrument_status_message.dissect,
+  [0x46] = lseg_turquoise_level2incremental_gtp_v26_3.add_order_incremental_message.dissect,
+  [0x55] = lseg_turquoise_level2incremental_gtp_v26_3.modify_order_message.dissect,
+  [0x44] = lseg_turquoise_level2incremental_gtp_v26_3.delete_order_message.dissect,
+  [0x79] = lseg_turquoise_level2incremental_gtp_v26_3.order_book_clear_message.dissect,
+  [0x50] = lseg_turquoise_level2incremental_gtp_v26_3.trade_message.dissect,
+  [0x71] = lseg_turquoise_level2incremental_gtp_v26_3.trade_cross_message.dissect,
+  [0x77] = lseg_turquoise_level2incremental_gtp_v26_3.statistics_message.dissect,
+  [0x6A] = lseg_turquoise_level2incremental_gtp_v26_3.statistics_update_message.dissect,
+  [0x57] = lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_message.dissect,
+}
+
 lseg_turquoise_level2incremental_gtp_v26_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Directory Message
-  if message_type == 0x70 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Message
-  if message_type == 0x48 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.instrument_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Incremental Message
-  if message_type == 0x46 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.add_order_incremental_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 0x55 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 0x44 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Clear Message
-  if message_type == 0x79 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.order_book_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0x50 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cross Message
-  if message_type == 0x71 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.trade_cross_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if message_type == 0x77 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Update Message
-  if message_type == 0x6A then
-    return lseg_turquoise_level2incremental_gtp_v26_3.statistics_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Summary Message
-  if message_type == 0x57 then
-    return lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_turquoise_level2incremental_gtp_v26_3.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

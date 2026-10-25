@@ -243,15 +243,13 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.ack_required_poss_dup = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.ack_required_poss_dup.size = 1
 
 -- Display: Ack Required Poss Dup
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.ack_required_poss_dup.display = function(value)
-  if value == "A" then
-    return "Ack Required Poss Dup: Ack Required (A)"
-  end
-  if value == "D" then
-    return "Ack Required Poss Dup: Poss Dup (D)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.ack_required_poss_dup.labels = {
+  ["A"] = "Ack Required Poss Dup: Ack Required (A)",
+  ["D"] = "Ack Required Poss Dup: Poss Dup (D)",
+}
 
-  return "Ack Required Poss Dup: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.ack_required_poss_dup.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.ack_required_poss_dup.labels[value] or "Ack Required Poss Dup: Unknown("..value..")"
 end
 
 -- Dissect: Ack Required Poss Dup
@@ -436,15 +434,13 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.bypass = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.bypass.size = 1
 
 -- Display: Bypass
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.bypass.display = function(value)
-  if value == "Y" then
-    return "Bypass: Yes (Y)"
-  end
-  if value == "N" then
-    return "Bypass: No (N)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.bypass.labels = {
+  ["Y"] = "Bypass: Yes (Y)",
+  ["N"] = "Bypass: No (N)",
+}
 
-  return "Bypass: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.bypass.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.bypass.labels[value] or "Bypass: Unknown("..value..")"
 end
 
 -- Dissect: Bypass
@@ -561,15 +557,13 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.currency = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.currency.size = 1
 
 -- Display: Currency
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.currency.display = function(value)
-  if value == "U" then
-    return "Currency: Usd (U)"
-  end
-  if value == "C" then
-    return "Currency: Cad (C)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.currency.labels = {
+  ["U"] = "Currency: Usd (U)",
+  ["C"] = "Currency: Cad (C)",
+}
 
-  return "Currency: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.currency.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -676,18 +670,14 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.initiated_by = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.initiated_by.size = 1
 
 -- Display: Initiated By
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.initiated_by.display = function(value)
-  if value == "B" then
-    return "Initiated By: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Initiated By: Sell Side (S)"
-  end
-  if value == "C" then
-    return "Initiated By: Both Sides (C)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.initiated_by.labels = {
+  ["B"] = "Initiated By: Buy Side (B)",
+  ["S"] = "Initiated By: Sell Side (S)",
+  ["C"] = "Initiated By: Both Sides (C)",
+}
 
-  return "Initiated By: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.initiated_by.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.initiated_by.labels[value] or "Initiated By: Unknown("..value..")"
 end
 
 -- Dissect: Initiated By
@@ -771,15 +761,13 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.listing_market = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.listing_market.size = 1
 
 -- Display: Listing Market
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsxv (V)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.listing_market.labels = {
+  ["T"] = "Listing Market: Tsx (T)",
+  ["V"] = "Listing Market: Tsxv (V)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.listing_market.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -801,42 +789,22 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state.size = 1
 
 -- Display: Market State
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state.display = function(value)
-  if value == "P" then
-    return "Market State: Preopen (P)"
-  end
-  if value == "O" then
-    return "Market State: Opening (O)"
-  end
-  if value == "S" then
-    return "Market State: Open (S)"
-  end
-  if value == "C" then
-    return "Market State: Closed (C)"
-  end
-  if value == "R" then
-    return "Market State: Extended Hours Open (R)"
-  end
-  if value == "F" then
-    return "Market State: Extended Hours Close (F)"
-  end
-  if value == "N" then
-    return "Market State: Extended Hours Cxls (N)"
-  end
-  if value == "M" then
-    return "Market State: Moc Imbalance (M)"
-  end
-  if value == "A" then
-    return "Market State: Ccp Determination (A)"
-  end
-  if value == "E" then
-    return "Market State: Price Movement Extension (E)"
-  end
-  if value == "L" then
-    return "Market State: Closing (L)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state.labels = {
+  ["P"] = "Market State: Preopen (P)",
+  ["O"] = "Market State: Opening (O)",
+  ["S"] = "Market State: Open (S)",
+  ["C"] = "Market State: Closed (C)",
+  ["R"] = "Market State: Extended Hours Open (R)",
+  ["F"] = "Market State: Extended Hours Close (F)",
+  ["N"] = "Market State: Extended Hours Cxls (N)",
+  ["M"] = "Market State: Moc Imbalance (M)",
+  ["A"] = "Market State: Ccp Determination (A)",
+  ["E"] = "Market State: Price Movement Extension (E)",
+  ["L"] = "Market State: Closing (L)",
+}
 
-  return "Market State: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state.labels[value] or "Market State: Unknown("..value..")"
 end
 
 -- Dissect: Market State
@@ -932,72 +900,32 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.msg_type = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.msg_type.size = 1
 
 -- Display: Msg Type
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.msg_type.display = function(value)
-  if value == "0" then
-    return "Msg Type: Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Msg Type: Login Request (1)"
-  end
-  if value == "2" then
-    return "Msg Type: Login Response (2)"
-  end
-  if value == "3" then
-    return "Msg Type: Logout (3)"
-  end
-  if value == "4" then
-    return "Msg Type: Ack (4)"
-  end
-  if value == "5" then
-    return "Msg Type: Replay Request (5)"
-  end
-  if value == "6" then
-    return "Msg Type: Sequence Jump (6)"
-  end
-  if value == "9" then
-    return "Msg Type: Reject (9)"
-  end
-  if value == "J" then
-    return "Msg Type: Symbol Status Message (J)"
-  end
-  if value == "G" then
-    return "Msg Type: Order Book Message (G)"
-  end
-  if value == "E" then
-    return "Msg Type: Market State Update Message (E)"
-  end
-  if value == "P" then
-    return "Msg Type: Order Booked Message (P)"
-  end
-  if value == "Q" then
-    return "Msg Type: Order Cancelled Message (Q)"
-  end
-  if value == "R" then
-    return "Msg Type: Order Price Time Assigned Message (R)"
-  end
-  if value == "I" then
-    return "Msg Type: Stock Status Message (I)"
-  end
-  if value == "S" then
-    return "Msg Type: Trade Report Message (S)"
-  end
-  if value == "p" then
-    return "Msg Type: Trade Report Terms Message (p)"
-  end
-  if value == "T" then
-    return "Msg Type: Trade Cancelled Message (T)"
-  end
-  if value == "q" then
-    return "Msg Type: Trade Cancelled Terms Message (q)"
-  end
-  if value == "U" then
-    return "Msg Type: Trade Correction Message (U)"
-  end
-  if value == "r" then
-    return "Msg Type: Trade Correction Terms Message (r)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.msg_type.labels = {
+  ["0"] = "Msg Type: Heartbeat (0)",
+  ["1"] = "Msg Type: Login Request (1)",
+  ["2"] = "Msg Type: Login Response (2)",
+  ["3"] = "Msg Type: Logout (3)",
+  ["4"] = "Msg Type: Ack (4)",
+  ["5"] = "Msg Type: Replay Request (5)",
+  ["6"] = "Msg Type: Sequence Jump (6)",
+  ["9"] = "Msg Type: Reject (9)",
+  ["J"] = "Msg Type: Symbol Status Message (J)",
+  ["G"] = "Msg Type: Order Book Message (G)",
+  ["E"] = "Msg Type: Market State Update Message (E)",
+  ["P"] = "Msg Type: Order Booked Message (P)",
+  ["Q"] = "Msg Type: Order Cancelled Message (Q)",
+  ["R"] = "Msg Type: Order Price Time Assigned Message (R)",
+  ["I"] = "Msg Type: Stock Status Message (I)",
+  ["S"] = "Msg Type: Trade Report Message (S)",
+  ["p"] = "Msg Type: Trade Report Terms Message (p)",
+  ["T"] = "Msg Type: Trade Cancelled Message (T)",
+  ["q"] = "Msg Type: Trade Cancelled Terms Message (q)",
+  ["U"] = "Msg Type: Trade Correction Message (U)",
+  ["r"] = "Msg Type: Trade Correction Terms Message (r)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.msg_type.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -1093,15 +1021,13 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_side = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_side.size = 1
 
 -- Display: Order Side
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_side.display = function(value)
-  if value == "B" then
-    return "Order Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Side: Sell (S)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_side.labels = {
+  ["B"] = "Order Side: Buy (B)",
+  ["S"] = "Order Side: Sell (S)",
+}
 
-  return "Order Side: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_side.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_side.labels[value] or "Order Side: Unknown("..value..")"
 end
 
 -- Dissect: Order Side
@@ -1221,21 +1147,15 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.product_type = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.product_type.size = 1
 
 -- Display: Product Type
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.product_type.display = function(value)
-  if value == "B" then
-    return "Product Type: Debenture (B)"
-  end
-  if value == "E" then
-    return "Product Type: Equity (E)"
-  end
-  if value == "M" then
-    return "Product Type: Mutual Fund (M)"
-  end
-  if value == "F" then
-    return "Product Type: Etf (F)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.product_type.labels = {
+  ["B"] = "Product Type: Debenture (B)",
+  ["E"] = "Product Type: Equity (E)",
+  ["M"] = "Product Type: Mutual Fund (M)",
+  ["F"] = "Product Type: Etf (F)",
+}
 
-  return "Product Type: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.product_type.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -1311,18 +1231,14 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reason_code = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reason_code.size = 1
 
 -- Display: Reason Code
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reason_code.display = function(value)
-  if value == 1 then
-    return "Reason Code: Do Not Resend (1)"
-  end
-  if value == 2 then
-    return "Reason Code: No Longer Available (2)"
-  end
-  if value == 3 then
-    return "Reason Code: Disaster (3)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reason_code.labels = {
+  [1] = "Reason Code: Do Not Resend (1)",
+  [2] = "Reason Code: No Longer Available (2)",
+  [3] = "Reason Code: Disaster (3)",
+}
 
-  return "Reason Code: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reason_code.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reason_code.labels[value] or "Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reason Code
@@ -1344,21 +1260,15 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_code = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_code.size = 1
 
 -- Display: Reject Code
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_code.display = function(value)
-  if value == 0 then
-    return "Reject Code: Information (0)"
-  end
-  if value == 1 then
-    return "Reject Code: Warning (1)"
-  end
-  if value == 2 then
-    return "Reject Code: Critical (2)"
-  end
-  if value == 3 then
-    return "Reject Code: Fatal (3)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_code.labels = {
+  [0] = "Reject Code: Information (0)",
+  [1] = "Reject Code: Warning (1)",
+  [2] = "Reject Code: Critical (2)",
+  [3] = "Reject Code: Fatal (3)",
+}
 
-  return "Reject Code: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_code.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_code.labels[value] or "Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Code
@@ -1403,36 +1313,20 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_subcode = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_subcode.size = 1
 
 -- Display: Reject Subcode
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_subcode.display = function(value)
-  if value == 1 then
-    return "Reject Subcode: Invalid Syntax (1)"
-  end
-  if value == 2 then
-    return "Reject Subcode: Invalid Session States Or Conditions (2)"
-  end
-  if value == 3 then
-    return "Reject Subcode: Invalid Values (3)"
-  end
-  if value == 4 then
-    return "Reject Subcode: Function Not Implemented (4)"
-  end
-  if value == 5 then
-    return "Reject Subcode: Function Not Allowed (5)"
-  end
-  if value == 6 then
-    return "Reject Subcode: Function Temporarily Not Available But Retryable (6)"
-  end
-  if value == 7 then
-    return "Reject Subcode: Message Temporarily Not Available But Retryable (7)"
-  end
-  if value == 8 then
-    return "Reject Subcode: Duplicate Request Or Message (8)"
-  end
-  if value == 9 then
-    return "Reject Subcode: Others See Message (9)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_subcode.labels = {
+  [1] = "Reject Subcode: Invalid Syntax (1)",
+  [2] = "Reject Subcode: Invalid Session States Or Conditions (2)",
+  [3] = "Reject Subcode: Invalid Values (3)",
+  [4] = "Reject Subcode: Function Not Implemented (4)",
+  [5] = "Reject Subcode: Function Not Allowed (5)",
+  [6] = "Reject Subcode: Function Temporarily Not Available But Retryable (6)",
+  [7] = "Reject Subcode: Message Temporarily Not Available But Retryable (7)",
+  [8] = "Reject Subcode: Duplicate Request Or Message (8)",
+  [9] = "Reject Subcode: Others See Message (9)",
+}
 
-  return "Reject Subcode: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_subcode.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.reject_subcode.labels[value] or "Reject Subcode: Unknown("..value..")"
 end
 
 -- Dissect: Reject Subcode
@@ -1914,21 +1808,15 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.source_id = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.source_id.size = 1
 
 -- Display: Source Id
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.source_id.display = function(value)
-  if value == "0" then
-    return "Source Id: Non Source Related (0)"
-  end
-  if value == "Q" then
-    return "Source Id: TSX (Q)"
-  end
-  if value == "V" then
-    return "Source Id: TSX Venture (V)"
-  end
-  if value == "A" then
-    return "Source Id: Alpha (A)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.source_id.labels = {
+  ["0"] = "Source Id: Non Source Related (0)",
+  ["Q"] = "Source Id: TSX (Q)",
+  ["V"] = "Source Id: TSX Venture (V)",
+  ["A"] = "Source Id: Alpha (A)",
+}
 
-  return "Source Id: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.source_id.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.source_id.labels[value] or "Source Id: Unknown("..value..")"
 end
 
 -- Dissect: Source Id
@@ -2005,21 +1893,15 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.stock_state = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.stock_state.size = 2
 
 -- Display: Stock State
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.stock_state.display = function(value)
-  if value == "AS" then
-    return "Stock State: Authorized Halted (AS)"
-  end
-  if value == "IS" then
-    return "Stock State: Inhibited Halted (IS)"
-  end
-  if value == "A" then
-    return "Stock State: Authorized (A)"
-  end
-  if value == "I" then
-    return "Stock State: Inhibited (I)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.stock_state.labels = {
+  ["AS"] = "Stock State: Authorized Halted (AS)",
+  ["IS"] = "Stock State: Inhibited Halted (IS)",
+  ["A"] = "Stock State: Authorized (A)",
+  ["I"] = "Stock State: Inhibited (I)",
+}
 
-  return "Stock State: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.stock_state.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.stock_state.labels[value] or "Stock State: Unknown("..value..")"
 end
 
 -- Dissect: Stock State
@@ -2087,15 +1969,13 @@ tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.test_symbol = {}
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.test_symbol.size = 1
 
 -- Display: Test Symbol
-tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.test_symbol.display = function(value)
-  if value == "Y" then
-    return "Test Symbol: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Symbol: No (N)"
-  end
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.test_symbol.labels = {
+  ["Y"] = "Test Symbol: Yes (Y)",
+  ["N"] = "Test Symbol: No (N)",
+}
 
-  return "Test Symbol: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.test_symbol.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.test_symbol.labels[value] or "Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Test Symbol
@@ -3452,58 +3332,26 @@ end
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.business_message = {}
 
 -- Dissect: Business Message
+tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.business_message.dispatch = {
+  ["J"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.symbol_status_message.dissect,
+  ["G"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_book_message.dissect,
+  ["E"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state_update_message.dissect,
+  ["P"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_booked_message.dissect,
+  ["Q"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_cancelled_message.dissect,
+  ["R"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_price_time_assigned_message.dissect,
+  ["I"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.stock_status_message.dissect,
+  ["S"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_report_message.dissect,
+  ["p"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_report_terms_message.dissect,
+  ["T"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_cancelled_message.dissect,
+  ["q"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_cancelled_terms_message.dissect,
+  ["U"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_correction_message.dissect,
+  ["r"] = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_correction_terms_message.dissect,
+}
+
 tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Symbol Status Message
-  if msg_type == "J" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Message
-  if msg_type == "G" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Update Message
-  if msg_type == "E" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.market_state_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Booked Message
-  if msg_type == "P" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_booked_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Message
-  if msg_type == "Q" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Price Time Assigned Message
-  if msg_type == "R" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.order_price_time_assigned_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Status Message
-  if msg_type == "I" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.stock_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if msg_type == "S" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Terms Message
-  if msg_type == "p" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_report_terms_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancelled Message
-  if msg_type == "T" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancelled Terms Message
-  if msg_type == "q" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_cancelled_terms_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if msg_type == "U" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Terms Message
-  if msg_type == "r" then
-    return tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.trade_correction_terms_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsxalpha_quantumfeedlevel2recovery_xmt_v2_1.business_message.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -467,15 +467,13 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.event_code = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.event_code.size = 1
 
 -- Display: Event Code
-jpx_osederivatives_geniuminet_itch_v5_0_6.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.event_code.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -543,54 +541,26 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.financial_product = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.financial_product.size = 1
 
 -- Display: Financial Product
-jpx_osederivatives_geniuminet_itch_v5_0_6.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Or Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.financial_product.labels = {
+  [1] = "Financial Product: Option (1)",
+  [2] = "Financial Product: Forward (2)",
+  [3] = "Financial Product: Future (3)",
+  [4] = "Financial Product: Fra (4)",
+  [5] = "Financial Product: Cash (5)",
+  [6] = "Financial Product: Payment (6)",
+  [7] = "Financial Product: Exchange Rate (7)",
+  [8] = "Financial Product: Interest Rate Swap (8)",
+  [9] = "Financial Product: Repo (9)",
+  [10] = "Financial Product: Synthetic Box Leg Or Reference (10)",
+  [11] = "Financial Product: Combination (11)",
+  [12] = "Financial Product: Guarantee (12)",
+  [13] = "Financial Product: Otc General (13)",
+  [14] = "Financial Product: Equity Warrant (14)",
+  [15] = "Financial Product: Security Lending (15)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.financial_product.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -681,15 +651,13 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.leg_side = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.leg_side.size = 1
 
 -- Display: Leg Side
-jpx_osederivatives_geniuminet_itch_v5_0_6.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg Side: Opposite (C)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.leg_side.labels = {
+  ["B"] = "Leg Side: As Defined (B)",
+  ["C"] = "Leg Side: Opposite (C)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.leg_side.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -734,24 +702,16 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.lot_type = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.lot_type.size = 1
 
 -- Display: Lot Type
-jpx_osederivatives_geniuminet_itch_v5_0_6.lot_type.display = function(value)
-  if value == 0 then
-    return "Lot Type: Undefined (0)"
-  end
-  if value == 1 then
-    return "Lot Type: Odd Lot (1)"
-  end
-  if value == 2 then
-    return "Lot Type: Round Lot (2)"
-  end
-  if value == 3 then
-    return "Lot Type: Block Lot (3)"
-  end
-  if value == 4 then
-    return "Lot Type: All Or None Lot (4)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.lot_type.labels = {
+  [0] = "Lot Type: Undefined (0)",
+  [1] = "Lot Type: Odd Lot (1)",
+  [2] = "Lot Type: Round Lot (2)",
+  [3] = "Lot Type: Block Lot (3)",
+  [4] = "Lot Type: All Or None Lot (4)",
+}
 
-  return "Lot Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.lot_type.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.lot_type.labels[value] or "Lot Type: Unknown("..value..")"
 end
 
 -- Dissect: Lot Type
@@ -842,51 +802,25 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.message_type = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.message_type.size = 1
 
 -- Display: Message Type
-jpx_osederivatives_geniuminet_itch_v5_0_6.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "R" then
-    return "Message Type: Order Book Directory (R)"
-  end
-  if value == "M" then
-    return "Message Type: Combination Orderbook Leg (M)"
-  end
-  if value == "L" then
-    return "Message Type: Tick Size Table Entry (L)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "O" then
-    return "Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order No Mpid (A)"
-  end
-  if value == "F" then
-    return "Message Type: Add Order With Mpid (F)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "Z" then
-    return "Message Type: Equilibrium Price Update (Z)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["R"] = "Message Type: Order Book Directory (R)",
+  ["M"] = "Message Type: Combination Orderbook Leg (M)",
+  ["L"] = "Message Type: Tick Size Table Entry (L)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["O"] = "Message Type: Order Book State Message (O)",
+  ["A"] = "Message Type: Add Order No Mpid (A)",
+  ["F"] = "Message Type: Add Order With Mpid (F)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["Z"] = "Message Type: Equilibrium Price Update (Z)",
+}
 
-  return "Message Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.message_type.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1000,15 +934,13 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.occurred_at_cross = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.occurred_at_cross.size = 1
 
 -- Display: Occurred At Cross
-jpx_osederivatives_geniuminet_itch_v5_0_6.occurred_at_cross.display = function(value)
-  if value == "N" then
-    return "Occurred At Cross: No (N)"
-  end
-  if value == "Y" then
-    return "Occurred At Cross: Yes (Y)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.occurred_at_cross.labels = {
+  ["N"] = "Occurred At Cross: No (N)",
+  ["Y"] = "Occurred At Cross: Yes (Y)",
+}
 
-  return "Occurred At Cross: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.occurred_at_cross.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.occurred_at_cross.labels[value] or "Occurred At Cross: Unknown("..value..")"
 end
 
 -- Dissect: Occurred At Cross
@@ -1283,15 +1215,13 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.printable = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.printable.size = 1
 
 -- Display: Printable
-jpx_osederivatives_geniuminet_itch_v5_0_6.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.printable.labels = {
+  ["N"] = "Printable: Non Printable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.printable.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1313,15 +1243,13 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.put_or_call = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.put_or_call.size = 1
 
 -- Display: Put Or Call
-jpx_osederivatives_geniuminet_itch_v5_0_6.put_or_call.display = function(value)
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-  if value == 2 then
-    return "Put Or Call: Put (2)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.put_or_call.labels = {
+  [1] = "Put Or Call: Call (1)",
+  [2] = "Put Or Call: Put (2)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.put_or_call.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -1511,15 +1439,13 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.side = {}
 jpx_osederivatives_geniuminet_itch_v5_0_6.side.size = 1
 
 -- Display: Side
-jpx_osederivatives_geniuminet_itch_v5_0_6.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
+jpx_osederivatives_geniuminet_itch_v5_0_6.side.labels = {
+  ["B"] = "Side: Buy Order (B)",
+  ["S"] = "Side: Sell Order (S)",
+}
 
-  return "Side: Unknown("..value..")"
+jpx_osederivatives_geniuminet_itch_v5_0_6.side.display = function(value)
+  return jpx_osederivatives_geniuminet_itch_v5_0_6.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2752,62 +2678,27 @@ end
 jpx_osederivatives_geniuminet_itch_v5_0_6.payload = {}
 
 -- Dissect: Payload
+jpx_osederivatives_geniuminet_itch_v5_0_6.payload.dispatch = {
+  ["T"] = jpx_osederivatives_geniuminet_itch_v5_0_6.seconds_message.dissect,
+  ["R"] = jpx_osederivatives_geniuminet_itch_v5_0_6.order_book_directory.dissect,
+  ["M"] = jpx_osederivatives_geniuminet_itch_v5_0_6.combination_orderbook_leg.dissect,
+  ["L"] = jpx_osederivatives_geniuminet_itch_v5_0_6.tick_size_table_entry.dissect,
+  ["S"] = jpx_osederivatives_geniuminet_itch_v5_0_6.system_event_message.dissect,
+  ["O"] = jpx_osederivatives_geniuminet_itch_v5_0_6.order_book_state_message.dissect,
+  ["A"] = jpx_osederivatives_geniuminet_itch_v5_0_6.add_order_no_mpid.dissect,
+  ["F"] = jpx_osederivatives_geniuminet_itch_v5_0_6.add_order_with_mpid.dissect,
+  ["E"] = jpx_osederivatives_geniuminet_itch_v5_0_6.order_executed_message.dissect,
+  ["C"] = jpx_osederivatives_geniuminet_itch_v5_0_6.order_executed_with_price_message.dissect,
+  ["U"] = jpx_osederivatives_geniuminet_itch_v5_0_6.order_replace_message.dissect,
+  ["D"] = jpx_osederivatives_geniuminet_itch_v5_0_6.order_delete_message.dissect,
+  ["P"] = jpx_osederivatives_geniuminet_itch_v5_0_6.trade_message.dissect,
+  ["Z"] = jpx_osederivatives_geniuminet_itch_v5_0_6.equilibrium_price_update.dissect,
+}
+
 jpx_osederivatives_geniuminet_itch_v5_0_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory
-  if message_type == "R" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.order_book_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Orderbook Leg
-  if message_type == "M" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.combination_orderbook_leg.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Table Entry
-  if message_type == "L" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.tick_size_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if message_type == "O" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order No Mpid
-  if message_type == "A" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.add_order_no_mpid.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order With Mpid
-  if message_type == "F" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.add_order_with_mpid.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equilibrium Price Update
-  if message_type == "Z" then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.equilibrium_price_update.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_itch_v5_0_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2963,14 +2854,15 @@ end
 jpx_osederivatives_geniuminet_itch_v5_0_6.messages = {}
 
 -- Dissect: Messages
+jpx_osederivatives_geniuminet_itch_v5_0_6.messages.dispatch = {
+  [0] = jpx_osederivatives_geniuminet_itch_v5_0_6.heartbeat.dissect,
+  [65535] = jpx_osederivatives_geniuminet_itch_v5_0_6.end_of_session.dissect,
+}
+
 jpx_osederivatives_geniuminet_itch_v5_0_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return jpx_osederivatives_geniuminet_itch_v5_0_6.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_itch_v5_0_6.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

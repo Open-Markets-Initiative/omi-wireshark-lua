@@ -246,15 +246,13 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.buy_sell_indicator = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell Order (S)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy Order (B)",
+  ["S"] = "Buy Sell Indicator: Sell Order (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.buy_sell_indicator.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -276,15 +274,13 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.bypass = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.bypass.size = 1
 
 -- Display: Bypass
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.bypass.display = function(value)
-  if value == "Y" then
-    return "Bypass: Bypass (Y)"
-  end
-  if value == "N" then
-    return "Bypass: Non Bypass (N)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.bypass.labels = {
+  ["Y"] = "Bypass: Bypass (Y)",
+  ["N"] = "Bypass: Non Bypass (N)",
+}
 
-  return "Bypass: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.bypass.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.bypass.labels[value] or "Bypass: Unknown("..value..")"
 end
 
 -- Dissect: Bypass
@@ -404,21 +400,15 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.cross_type = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.cross_type.size = 1
 
 -- Display: Cross Type
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.cross_type.display = function(value)
-  if value == "D" then
-    return "Cross Type: Derivatives Cross (D)"
-  end
-  if value == "I" then
-    return "Cross Type: Internal Cross (I)"
-  end
-  if value == "M" then
-    return "Cross Type: Intentional Cross (M)"
-  end
-  if value == "N" then
-    return "Cross Type: Net Asset Value Cross (N)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.cross_type.labels = {
+  ["D"] = "Cross Type: Derivatives Cross (D)",
+  ["I"] = "Cross Type: Internal Cross (I)",
+  ["M"] = "Cross Type: Intentional Cross (M)",
+  ["N"] = "Cross Type: Net Asset Value Cross (N)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.cross_type.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -440,15 +430,13 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.currency = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.currency.size = 3
 
 -- Display: Currency
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.currency.display = function(value)
-  if value == "CAD" then
-    return "Currency: Canadian Dollars (CAD)"
-  end
-  if value == "USD" then
-    return "Currency: Us Dollars (USD)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.currency.labels = {
+  ["CAD"] = "Currency: Canadian Dollars (CAD)",
+  ["USD"] = "Currency: Us Dollars (USD)",
+}
 
-  return "Currency: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.currency.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -493,21 +481,15 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.dividend_indicator = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.dividend_indicator.size = 1
 
 -- Display: Dividend Indicator
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.dividend_indicator.display = function(value)
-  if value == "A" then
-    return "Dividend Indicator: Annual (A)"
-  end
-  if value == "S" then
-    return "Dividend Indicator: Semi Annual (S)"
-  end
-  if value == "Q" then
-    return "Dividend Indicator: Quarterly (Q)"
-  end
-  if value == "M" then
-    return "Dividend Indicator: Monthly (M)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.dividend_indicator.labels = {
+  ["A"] = "Dividend Indicator: Annual (A)",
+  ["S"] = "Dividend Indicator: Semi Annual (S)",
+  ["Q"] = "Dividend Indicator: Quarterly (Q)",
+  ["M"] = "Dividend Indicator: Monthly (M)",
+}
 
-  return "Dividend Indicator: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.dividend_indicator.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.dividend_indicator.labels[value] or "Dividend Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Dividend Indicator
@@ -529,33 +511,19 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.event_code = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.event_code.size = 1
 
 -- Display: Event Code
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "B" then
-    return "Event Code: Trading Halted (B)"
-  end
-  if value == "R" then
-    return "Event Code: Trading Resumed (R)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["B"] = "Event Code: Trading Halted (B)",
+  ["R"] = "Event Code: Trading Resumed (R)",
+}
 
-  return "Event Code: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.event_code.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -679,21 +647,15 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.frequency = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.frequency.size = 1
 
 -- Display: Frequency
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.frequency.display = function(value)
-  if value == "A" then
-    return "Frequency: Annual (A)"
-  end
-  if value == "S" then
-    return "Frequency: Semi Annual (S)"
-  end
-  if value == "Q" then
-    return "Frequency: Quarterly (Q)"
-  end
-  if value == "M" then
-    return "Frequency: Monthly (M)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.frequency.labels = {
+  ["A"] = "Frequency: Annual (A)",
+  ["S"] = "Frequency: Semi Annual (S)",
+  ["Q"] = "Frequency: Quarterly (Q)",
+  ["M"] = "Frequency: Monthly (M)",
+}
 
-  return "Frequency: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.frequency.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.frequency.labels[value] or "Frequency: Unknown("..value..")"
 end
 
 -- Dissect: Frequency
@@ -761,27 +723,17 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.market = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.market.size = 1
 
 -- Display: Market
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.market.display = function(value)
-  if value == "t" then
-    return "Market: Tsx (t)"
-  end
-  if value == "v" then
-    return "Market: Tsx Venture (v)"
-  end
-  if value == "c" then
-    return "Market: Cse (c)"
-  end
-  if value == "q" then
-    return "Market: Nasdaq Canada (q)"
-  end
-  if value == "o" then
-    return "Market: Omega Ats (o)"
-  end
-  if value == "z" then
-    return "Market: Cboe Canada (z)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.market.labels = {
+  ["t"] = "Market: Tsx (t)",
+  ["v"] = "Market: Tsx Venture (v)",
+  ["c"] = "Market: Cse (c)",
+  ["q"] = "Market: Nasdaq Canada (q)",
+  ["o"] = "Market: Omega Ats (o)",
+  ["z"] = "Market: Cboe Canada (z)",
+}
 
-  return "Market: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.market.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.market.labels[value] or "Market: Unknown("..value..")"
 end
 
 -- Dissect: Market
@@ -872,51 +824,25 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.message_type = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.message_type.size = 1
 
 -- Display: Message Type
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "r" then
-    return "Message Type: Extended Stock Directory Message (r)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Cross Trade Message (Q)"
-  end
-  if value == "B" then
-    return "Message Type: Trade Bust Message (B)"
-  end
-  if value == "M" then
-    return "Message Type: Trade Amend Message (M)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["r"] = "Message Type: Extended Stock Directory Message (r)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["Q"] = "Message Type: Cross Trade Message (Q)",
+  ["B"] = "Message Type: Trade Bust Message (B)",
+  ["M"] = "Message Type: Trade Amend Message (M)",
+}
 
-  return "Message Type: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.message_type.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -938,15 +864,13 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.midpoint_book_trade = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.midpoint_book_trade.size = 4
 
 -- Display: Midpoint Book Trade
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.midpoint_book_trade.display = function(value)
-  if value == 0 then
-    return "Midpoint Book Trade: No (0)"
-  end
-  if value == 1 then
-    return "Midpoint Book Trade: Yes (1)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.midpoint_book_trade.labels = {
+  [0] = "Midpoint Book Trade: No (0)",
+  [1] = "Midpoint Book Trade: Yes (1)",
+}
 
-  return "Midpoint Book Trade: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.midpoint_book_trade.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.midpoint_book_trade.labels[value] or "Midpoint Book Trade: Unknown("..value..")"
 end
 
 -- Dissect: Midpoint Book Trade
@@ -1141,15 +1065,13 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.reason = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.reason.size = 4
 
 -- Display: Reason
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.reason.display = function(value)
-  if value == "R" then
-    return "Reason: Regulatory Halt (R)"
-  end
-  if value == "B" then
-    return "Reason: Business Halt (B)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.reason.labels = {
+  ["R"] = "Reason: Regulatory Halt (R)",
+  ["B"] = "Reason: Business Halt (B)",
+}
 
-  return "Reason: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.reason.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1332,24 +1254,16 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.security_type = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.security_type.size = 1
 
 -- Display: Security Type
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.security_type.display = function(value)
-  if value == "b" then
-    return "Security Type: Bonds (b)"
-  end
-  if value == "d" then
-    return "Security Type: Debentures (d)"
-  end
-  if value == "r" then
-    return "Security Type: Rights (r)"
-  end
-  if value == "n" then
-    return "Security Type: Notes (n)"
-  end
-  if value == "w" then
-    return "Security Type: Warrants (w)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.security_type.labels = {
+  ["b"] = "Security Type: Bonds (b)",
+  ["d"] = "Security Type: Debentures (d)",
+  ["r"] = "Security Type: Rights (r)",
+  ["n"] = "Security Type: Notes (n)",
+  ["w"] = "Security Type: Warrants (w)",
+}
 
-  return "Security Type: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.security_type.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -1440,21 +1354,15 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.settlement_type = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.settlement_type.size = 1
 
 -- Display: Settlement Type
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.settlement_type.display = function(value)
-  if value == "0" then
-    return "Settlement Type: Regular Settlement (0)"
-  end
-  if value == "1" then
-    return "Settlement Type: Cash (1)"
-  end
-  if value == "2" then
-    return "Settlement Type: Next Day (2)"
-  end
-  if value == "3" then
-    return "Settlement Type: Delayed Delivery (3)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.settlement_type.labels = {
+  ["0"] = "Settlement Type: Regular Settlement (0)",
+  ["1"] = "Settlement Type: Cash (1)",
+  ["2"] = "Settlement Type: Next Day (2)",
+  ["3"] = "Settlement Type: Delayed Delivery (3)",
+}
 
-  return "Settlement Type: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.settlement_type.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.settlement_type.labels[value] or "Settlement Type: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Type
@@ -1499,18 +1407,14 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.shortable = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.shortable.size = 1
 
 -- Display: Shortable
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.shortable.display = function(value)
-  if value == "E" then
-    return "Shortable: Short Exempt (E)"
-  end
-  if value == "S" then
-    return "Shortable: Shortable (S)"
-  end
-  if value == "N" then
-    return "Shortable: Not Shortable (N)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.shortable.labels = {
+  ["E"] = "Shortable: Short Exempt (E)",
+  ["S"] = "Shortable: Shortable (S)",
+  ["N"] = "Shortable: Not Shortable (N)",
+}
 
-  return "Shortable: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.shortable.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.shortable.labels[value] or "Shortable: Unknown("..value..")"
 end
 
 -- Dissect: Shortable
@@ -1532,15 +1436,13 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.side = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.side.size = 1
 
 -- Display: Side
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.side.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1628,15 +1530,13 @@ tradelogiq_omegaats_multicastlevel2_itch_v2_01.trading_state = {}
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.trading_state.size = 1
 
 -- Display: Trading State
-tradelogiq_omegaats_multicastlevel2_itch_v2_01.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.trading_state.display = function(value)
+  return tradelogiq_omegaats_multicastlevel2_itch_v2_01.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -2596,62 +2496,27 @@ end
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.payload = {}
 
 -- Dissect: Payload
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.payload.dispatch = {
+  ["S"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.system_event_message.dissect,
+  ["R"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.stock_directory_message.dissect,
+  ["r"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.extended_stock_directory_message.dissect,
+  ["H"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.stock_trading_action_message.dissect,
+  ["A"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.add_order_message.dissect,
+  ["E"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_executed_message.dissect,
+  ["C"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_executed_with_price_message.dissect,
+  ["D"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_delete_message.dissect,
+  ["U"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_replace_message.dissect,
+  ["X"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_cancel_message.dissect,
+  ["P"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.trade_message.dissect,
+  ["Q"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.cross_trade_message.dissect,
+  ["B"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.trade_bust_message.dissect,
+  ["M"] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.trade_amend_message.dissect,
+}
+
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Stock Directory Message
-  if message_type == "r" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.extended_stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Trade Message
-  if message_type == "Q" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.cross_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Message
-  if message_type == "B" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.trade_bust_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Amend Message
-  if message_type == "M" then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.trade_amend_message.dissect(buffer, offset, packet, parent)
+  local dissect = tradelogiq_omegaats_multicastlevel2_itch_v2_01.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2790,10 +2655,14 @@ end
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.messages = {}
 
 -- Dissect: Messages
+tradelogiq_omegaats_multicastlevel2_itch_v2_01.messages.dispatch = {
+  [0] = tradelogiq_omegaats_multicastlevel2_itch_v2_01.heartbeat.dissect,
+}
+
 tradelogiq_omegaats_multicastlevel2_itch_v2_01.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return tradelogiq_omegaats_multicastlevel2_itch_v2_01.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = tradelogiq_omegaats_multicastlevel2_itch_v2_01.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

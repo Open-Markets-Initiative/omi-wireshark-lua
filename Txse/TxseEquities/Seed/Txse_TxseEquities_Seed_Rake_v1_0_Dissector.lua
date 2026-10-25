@@ -472,63 +472,29 @@ txse_txseequities_seed_rake_v1_0.cancel_reason = {}
 txse_txseequities_seed_rake_v1_0.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-txse_txseequities_seed_rake_v1_0.cancel_reason.display = function(value)
-  if value == 1 then
-    return "Cancel Reason: Requested By User (1)"
-  end
-  if value == 2 then
-    return "Cancel Reason: Related To Time In Force (2)"
-  end
-  if value == 3 then
-    return "Cancel Reason: Related To Min Qty (3)"
-  end
-  if value == 4 then
-    return "Cancel Reason: Reg Nms Violation No Slide (4)"
-  end
-  if value == 5 then
-    return "Cancel Reason: Marketable Reserve (5)"
-  end
-  if value == 6 then
-    return "Cancel Reason: Self Match Prevention (6)"
-  end
-  if value == 7 then
-    return "Cancel Reason: Replenishment Canceled Due To Reserve (7)"
-  end
-  if value == 8 then
-    return "Cancel Reason: Related To Order Type (8)"
-  end
-  if value == 9 then
-    return "Cancel Reason: Canceled Due To Crossed Markets (9)"
-  end
-  if value == 10 then
-    return "Cancel Reason: Canceled Due To Mass Cancel Request (10)"
-  end
-  if value == 11 then
-    return "Cancel Reason: Exchange Locked Or Crossed No Slide (11)"
-  end
-  if value == 12 then
-    return "Cancel Reason: Reg Sho Violation No Slide (12)"
-  end
-  if value == 13 then
-    return "Cancel Reason: Luld Breached No Slide (13)"
-  end
-  if value == 14 then
-    return "Cancel Reason: Canceled As Price Breached Luld (14)"
-  end
-  if value == 15 then
-    return "Cancel Reason: Canceled On Disconnect (15)"
-  end
-  if value == 16 then
-    return "Cancel Reason: Auction Order Post Cross (16)"
-  end
-  if value == 17 then
-    return "Cancel Reason: Peg Reference Price Breaches Limit Price (17)"
-  end
-  if value == 18 then
-    return "Cancel Reason: Odd Lot Not Executable (18)"
-  end
+txse_txseequities_seed_rake_v1_0.cancel_reason.labels = {
+  [1] = "Cancel Reason: Requested By User (1)",
+  [2] = "Cancel Reason: Related To Time In Force (2)",
+  [3] = "Cancel Reason: Related To Min Qty (3)",
+  [4] = "Cancel Reason: Reg Nms Violation No Slide (4)",
+  [5] = "Cancel Reason: Marketable Reserve (5)",
+  [6] = "Cancel Reason: Self Match Prevention (6)",
+  [7] = "Cancel Reason: Replenishment Canceled Due To Reserve (7)",
+  [8] = "Cancel Reason: Related To Order Type (8)",
+  [9] = "Cancel Reason: Canceled Due To Crossed Markets (9)",
+  [10] = "Cancel Reason: Canceled Due To Mass Cancel Request (10)",
+  [11] = "Cancel Reason: Exchange Locked Or Crossed No Slide (11)",
+  [12] = "Cancel Reason: Reg Sho Violation No Slide (12)",
+  [13] = "Cancel Reason: Luld Breached No Slide (13)",
+  [14] = "Cancel Reason: Canceled As Price Breached Luld (14)",
+  [15] = "Cancel Reason: Canceled On Disconnect (15)",
+  [16] = "Cancel Reason: Auction Order Post Cross (16)",
+  [17] = "Cancel Reason: Peg Reference Price Breaches Limit Price (17)",
+  [18] = "Cancel Reason: Odd Lot Not Executable (18)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.cancel_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -550,126 +516,50 @@ txse_txseequities_seed_rake_v1_0.cancel_rejected_reason = {}
 txse_txseequities_seed_rake_v1_0.cancel_rejected_reason.size = 1
 
 -- Display: Cancel Rejected Reason
-txse_txseequities_seed_rake_v1_0.cancel_rejected_reason.display = function(value)
-  if value == 1 then
-    return "Cancel Rejected Reason: Invalid Client Order Id (1)"
-  end
-  if value == 2 then
-    return "Cancel Rejected Reason: Duplicate Client Order Id (2)"
-  end
-  if value == 3 then
-    return "Cancel Rejected Reason: Unknown Original Client Order Id (3)"
-  end
-  if value == 4 then
-    return "Cancel Rejected Reason: No Longer On Book (4)"
-  end
-  if value == 5 then
-    return "Cancel Rejected Reason: Invalid Symbol (5)"
-  end
-  if value == 6 then
-    return "Cancel Rejected Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Cancel Rejected Reason: Invalid Order Quantity (7)"
-  end
-  if value == 8 then
-    return "Cancel Rejected Reason: Invalid Reference Price Target (8)"
-  end
-  if value == 9 then
-    return "Cancel Rejected Reason: Invalid Is Hidden Flag (9)"
-  end
-  if value == 10 then
-    return "Cancel Rejected Reason: Invalid Order Type (10)"
-  end
-  if value == 11 then
-    return "Cancel Rejected Reason: Invalid Side (11)"
-  end
-  if value == 12 then
-    return "Cancel Rejected Reason: Invalid Max Floor Quantity (12)"
-  end
-  if value == 13 then
-    return "Cancel Rejected Reason: Invalid Max Replenish Quantity Range (13)"
-  end
-  if value == 14 then
-    return "Cancel Rejected Reason: Invalid Max Replenish Time Range (14)"
-  end
-  if value == 15 then
-    return "Cancel Rejected Reason: Invalid Minimum Quantity (15)"
-  end
-  if value == 16 then
-    return "Cancel Rejected Reason: Invalid Locate Required Flag (16)"
-  end
-  if value == 17 then
-    return "Cancel Rejected Reason: Invalid Time In Force (17)"
-  end
-  if value == 18 then
-    return "Cancel Rejected Reason: Modification Not Permitted (18)"
-  end
-  if value == 19 then
-    return "Cancel Rejected Reason: Invalid Mpid (19)"
-  end
-  if value == 20 then
-    return "Cancel Rejected Reason: Invalid Sender Comp (20)"
-  end
-  if value == 21 then
-    return "Cancel Rejected Reason: Invalid Is Post Only Flag (21)"
-  end
-  if value == 22 then
-    return "Cancel Rejected Reason: Invalid Expire Time (22)"
-  end
-  if value == 23 then
-    return "Cancel Rejected Reason: Invalid For Trading Session (23)"
-  end
-  if value == 24 then
-    return "Cancel Rejected Reason: Invalid For Trading Status (24)"
-  end
-  if value == 25 then
-    return "Cancel Rejected Reason: Invalid For Symbol Status (25)"
-  end
-  if value == 26 then
-    return "Cancel Rejected Reason: Invalid Is Iso Flag (26)"
-  end
-  if value == 27 then
-    return "Cancel Rejected Reason: Trading Disabled For Mpid On Port (27)"
-  end
-  if value == 28 then
-    return "Cancel Rejected Reason: Trading Disabled For Non Test Symbols (28)"
-  end
-  if value == 29 then
-    return "Cancel Rejected Reason: Trading Disabled For Order Capacity (29)"
-  end
-  if value == 30 then
-    return "Cancel Rejected Reason: Trading Disabled For Iso (30)"
-  end
-  if value == 31 then
-    return "Cancel Rejected Reason: Maximum Order Quantity Breached (31)"
-  end
-  if value == 32 then
-    return "Cancel Rejected Reason: Maximum Price Breached (32)"
-  end
-  if value == 33 then
-    return "Cancel Rejected Reason: Maximum Notional Breached (33)"
-  end
-  if value == 34 then
-    return "Cancel Rejected Reason: Invalid Mass Cancel Request Id (34)"
-  end
-  if value == 35 then
-    return "Cancel Rejected Reason: Symbol On Restricted List (35)"
-  end
-  if value == 36 then
-    return "Cancel Rejected Reason: Luld Band Breached (36)"
-  end
-  if value == 37 then
-    return "Cancel Rejected Reason: Invalid Price Increment (37)"
-  end
-  if value == 38 then
-    return "Cancel Rejected Reason: Auction Order Not Cancelable (38)"
-  end
-  if value == 39 then
-    return "Cancel Rejected Reason: Invalid For Auction Order (39)"
-  end
+txse_txseequities_seed_rake_v1_0.cancel_rejected_reason.labels = {
+  [1] = "Cancel Rejected Reason: Invalid Client Order Id (1)",
+  [2] = "Cancel Rejected Reason: Duplicate Client Order Id (2)",
+  [3] = "Cancel Rejected Reason: Unknown Original Client Order Id (3)",
+  [4] = "Cancel Rejected Reason: No Longer On Book (4)",
+  [5] = "Cancel Rejected Reason: Invalid Symbol (5)",
+  [6] = "Cancel Rejected Reason: Invalid Price (6)",
+  [7] = "Cancel Rejected Reason: Invalid Order Quantity (7)",
+  [8] = "Cancel Rejected Reason: Invalid Reference Price Target (8)",
+  [9] = "Cancel Rejected Reason: Invalid Is Hidden Flag (9)",
+  [10] = "Cancel Rejected Reason: Invalid Order Type (10)",
+  [11] = "Cancel Rejected Reason: Invalid Side (11)",
+  [12] = "Cancel Rejected Reason: Invalid Max Floor Quantity (12)",
+  [13] = "Cancel Rejected Reason: Invalid Max Replenish Quantity Range (13)",
+  [14] = "Cancel Rejected Reason: Invalid Max Replenish Time Range (14)",
+  [15] = "Cancel Rejected Reason: Invalid Minimum Quantity (15)",
+  [16] = "Cancel Rejected Reason: Invalid Locate Required Flag (16)",
+  [17] = "Cancel Rejected Reason: Invalid Time In Force (17)",
+  [18] = "Cancel Rejected Reason: Modification Not Permitted (18)",
+  [19] = "Cancel Rejected Reason: Invalid Mpid (19)",
+  [20] = "Cancel Rejected Reason: Invalid Sender Comp (20)",
+  [21] = "Cancel Rejected Reason: Invalid Is Post Only Flag (21)",
+  [22] = "Cancel Rejected Reason: Invalid Expire Time (22)",
+  [23] = "Cancel Rejected Reason: Invalid For Trading Session (23)",
+  [24] = "Cancel Rejected Reason: Invalid For Trading Status (24)",
+  [25] = "Cancel Rejected Reason: Invalid For Symbol Status (25)",
+  [26] = "Cancel Rejected Reason: Invalid Is Iso Flag (26)",
+  [27] = "Cancel Rejected Reason: Trading Disabled For Mpid On Port (27)",
+  [28] = "Cancel Rejected Reason: Trading Disabled For Non Test Symbols (28)",
+  [29] = "Cancel Rejected Reason: Trading Disabled For Order Capacity (29)",
+  [30] = "Cancel Rejected Reason: Trading Disabled For Iso (30)",
+  [31] = "Cancel Rejected Reason: Maximum Order Quantity Breached (31)",
+  [32] = "Cancel Rejected Reason: Maximum Price Breached (32)",
+  [33] = "Cancel Rejected Reason: Maximum Notional Breached (33)",
+  [34] = "Cancel Rejected Reason: Invalid Mass Cancel Request Id (34)",
+  [35] = "Cancel Rejected Reason: Symbol On Restricted List (35)",
+  [36] = "Cancel Rejected Reason: Luld Band Breached (36)",
+  [37] = "Cancel Rejected Reason: Invalid Price Increment (37)",
+  [38] = "Cancel Rejected Reason: Auction Order Not Cancelable (38)",
+  [39] = "Cancel Rejected Reason: Invalid For Auction Order (39)",
+}
 
-  return "Cancel Rejected Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.cancel_rejected_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.cancel_rejected_reason.labels[value] or "Cancel Rejected Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Rejected Reason
@@ -1141,21 +1031,15 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction = 
 txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.size = 1
 
 -- Display: Limit Order Accepted Price Slide Instruction
-txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.display = function(value)
-  if value == 0 then
-    return "Limit Order Accepted Price Slide Instruction: No Price Slide (0)"
-  end
-  if value == 1 then
-    return "Limit Order Accepted Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
-  end
-  if value == 2 then
-    return "Limit Order Accepted Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
-  end
-  if value == 3 then
-    return "Limit Order Accepted Price Slide Instruction: Single Price Slide Lock Only (3)"
-  end
+txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.labels = {
+  [0] = "Limit Order Accepted Price Slide Instruction: No Price Slide (0)",
+  [1] = "Limit Order Accepted Price Slide Instruction: Single Price Slide On Lock And Cross (1)",
+  [2] = "Limit Order Accepted Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)",
+  [3] = "Limit Order Accepted Price Slide Instruction: Single Price Slide Lock Only (3)",
+}
 
-  return "Limit Order Accepted Price Slide Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.labels[value] or "Limit Order Accepted Price Slide Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Limit Order Accepted Price Slide Instruction
@@ -1229,27 +1113,17 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction = {
 txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.size = 1
 
 -- Display: Limit Order Accepted Self Match Instruction
-txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Limit Order Accepted Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Limit Order Accepted Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Limit Order Accepted Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Limit Order Accepted Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Limit Order Accepted Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Limit Order Accepted Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.labels = {
+  [0] = "Limit Order Accepted Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Limit Order Accepted Self Match Instruction: Cancel Newest (1)",
+  [2] = "Limit Order Accepted Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Limit Order Accepted Self Match Instruction: Cancel Both (3)",
+  [4] = "Limit Order Accepted Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Limit Order Accepted Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Limit Order Accepted Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.labels[value] or "Limit Order Accepted Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Limit Order Accepted Self Match Instruction
@@ -1502,21 +1376,15 @@ txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction = {}
 txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.size = 1
 
 -- Display: Limit Order Price Slide Instruction
-txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.display = function(value)
-  if value == 0 then
-    return "Limit Order Price Slide Instruction: No Price Slide (0)"
-  end
-  if value == 1 then
-    return "Limit Order Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
-  end
-  if value == 2 then
-    return "Limit Order Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
-  end
-  if value == 3 then
-    return "Limit Order Price Slide Instruction: Single Price Slide Lock Only (3)"
-  end
+txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.labels = {
+  [0] = "Limit Order Price Slide Instruction: No Price Slide (0)",
+  [1] = "Limit Order Price Slide Instruction: Single Price Slide On Lock And Cross (1)",
+  [2] = "Limit Order Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)",
+  [3] = "Limit Order Price Slide Instruction: Single Price Slide Lock Only (3)",
+}
 
-  return "Limit Order Price Slide Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.labels[value] or "Limit Order Price Slide Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Limit Order Price Slide Instruction
@@ -1746,21 +1614,15 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction = 
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.size = 1
 
 -- Display: Limit Order Rejected Price Slide Instruction
-txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.display = function(value)
-  if value == 0 then
-    return "Limit Order Rejected Price Slide Instruction: No Price Slide (0)"
-  end
-  if value == 1 then
-    return "Limit Order Rejected Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
-  end
-  if value == 2 then
-    return "Limit Order Rejected Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
-  end
-  if value == 3 then
-    return "Limit Order Rejected Price Slide Instruction: Single Price Slide Lock Only (3)"
-  end
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.labels = {
+  [0] = "Limit Order Rejected Price Slide Instruction: No Price Slide (0)",
+  [1] = "Limit Order Rejected Price Slide Instruction: Single Price Slide On Lock And Cross (1)",
+  [2] = "Limit Order Rejected Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)",
+  [3] = "Limit Order Rejected Price Slide Instruction: Single Price Slide Lock Only (3)",
+}
 
-  return "Limit Order Rejected Price Slide Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.labels[value] or "Limit Order Rejected Price Slide Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Limit Order Rejected Price Slide Instruction
@@ -1782,126 +1644,50 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason = {}
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.size = 1
 
 -- Display: Limit Order Rejected Reason
-txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.display = function(value)
-  if value == 1 then
-    return "Limit Order Rejected Reason: Invalid Client Order Id (1)"
-  end
-  if value == 2 then
-    return "Limit Order Rejected Reason: Duplicate Client Order Id (2)"
-  end
-  if value == 3 then
-    return "Limit Order Rejected Reason: Unknown Original Client Order Id (3)"
-  end
-  if value == 4 then
-    return "Limit Order Rejected Reason: No Longer On Book (4)"
-  end
-  if value == 5 then
-    return "Limit Order Rejected Reason: Invalid Symbol (5)"
-  end
-  if value == 6 then
-    return "Limit Order Rejected Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Limit Order Rejected Reason: Invalid Order Quantity (7)"
-  end
-  if value == 8 then
-    return "Limit Order Rejected Reason: Invalid Reference Price Target (8)"
-  end
-  if value == 9 then
-    return "Limit Order Rejected Reason: Invalid Is Hidden Flag (9)"
-  end
-  if value == 10 then
-    return "Limit Order Rejected Reason: Invalid Order Type (10)"
-  end
-  if value == 11 then
-    return "Limit Order Rejected Reason: Invalid Side (11)"
-  end
-  if value == 12 then
-    return "Limit Order Rejected Reason: Invalid Max Floor Quantity (12)"
-  end
-  if value == 13 then
-    return "Limit Order Rejected Reason: Invalid Max Replenish Quantity Range (13)"
-  end
-  if value == 14 then
-    return "Limit Order Rejected Reason: Invalid Max Replenish Time Range (14)"
-  end
-  if value == 15 then
-    return "Limit Order Rejected Reason: Invalid Minimum Quantity (15)"
-  end
-  if value == 16 then
-    return "Limit Order Rejected Reason: Invalid Locate Required Flag (16)"
-  end
-  if value == 17 then
-    return "Limit Order Rejected Reason: Invalid Time In Force (17)"
-  end
-  if value == 18 then
-    return "Limit Order Rejected Reason: Modification Not Permitted (18)"
-  end
-  if value == 19 then
-    return "Limit Order Rejected Reason: Invalid Mpid (19)"
-  end
-  if value == 20 then
-    return "Limit Order Rejected Reason: Invalid Sender Comp (20)"
-  end
-  if value == 21 then
-    return "Limit Order Rejected Reason: Invalid Is Post Only Flag (21)"
-  end
-  if value == 22 then
-    return "Limit Order Rejected Reason: Invalid Expire Time (22)"
-  end
-  if value == 23 then
-    return "Limit Order Rejected Reason: Invalid For Trading Session (23)"
-  end
-  if value == 24 then
-    return "Limit Order Rejected Reason: Invalid For Trading Status (24)"
-  end
-  if value == 25 then
-    return "Limit Order Rejected Reason: Invalid For Symbol Status (25)"
-  end
-  if value == 26 then
-    return "Limit Order Rejected Reason: Invalid Is Iso Flag (26)"
-  end
-  if value == 27 then
-    return "Limit Order Rejected Reason: Trading Disabled For Mpid On Port (27)"
-  end
-  if value == 28 then
-    return "Limit Order Rejected Reason: Trading Disabled For Non Test Symbols (28)"
-  end
-  if value == 29 then
-    return "Limit Order Rejected Reason: Trading Disabled For Order Capacity (29)"
-  end
-  if value == 30 then
-    return "Limit Order Rejected Reason: Trading Disabled For Iso (30)"
-  end
-  if value == 31 then
-    return "Limit Order Rejected Reason: Maximum Order Quantity Breached (31)"
-  end
-  if value == 32 then
-    return "Limit Order Rejected Reason: Maximum Price Breached (32)"
-  end
-  if value == 33 then
-    return "Limit Order Rejected Reason: Maximum Notional Breached (33)"
-  end
-  if value == 34 then
-    return "Limit Order Rejected Reason: Invalid Mass Cancel Request Id (34)"
-  end
-  if value == 35 then
-    return "Limit Order Rejected Reason: Symbol On Restricted List (35)"
-  end
-  if value == 36 then
-    return "Limit Order Rejected Reason: Luld Band Breached (36)"
-  end
-  if value == 37 then
-    return "Limit Order Rejected Reason: Invalid Price Increment (37)"
-  end
-  if value == 38 then
-    return "Limit Order Rejected Reason: Auction Order Not Cancelable (38)"
-  end
-  if value == 39 then
-    return "Limit Order Rejected Reason: Invalid For Auction Order (39)"
-  end
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.labels = {
+  [1] = "Limit Order Rejected Reason: Invalid Client Order Id (1)",
+  [2] = "Limit Order Rejected Reason: Duplicate Client Order Id (2)",
+  [3] = "Limit Order Rejected Reason: Unknown Original Client Order Id (3)",
+  [4] = "Limit Order Rejected Reason: No Longer On Book (4)",
+  [5] = "Limit Order Rejected Reason: Invalid Symbol (5)",
+  [6] = "Limit Order Rejected Reason: Invalid Price (6)",
+  [7] = "Limit Order Rejected Reason: Invalid Order Quantity (7)",
+  [8] = "Limit Order Rejected Reason: Invalid Reference Price Target (8)",
+  [9] = "Limit Order Rejected Reason: Invalid Is Hidden Flag (9)",
+  [10] = "Limit Order Rejected Reason: Invalid Order Type (10)",
+  [11] = "Limit Order Rejected Reason: Invalid Side (11)",
+  [12] = "Limit Order Rejected Reason: Invalid Max Floor Quantity (12)",
+  [13] = "Limit Order Rejected Reason: Invalid Max Replenish Quantity Range (13)",
+  [14] = "Limit Order Rejected Reason: Invalid Max Replenish Time Range (14)",
+  [15] = "Limit Order Rejected Reason: Invalid Minimum Quantity (15)",
+  [16] = "Limit Order Rejected Reason: Invalid Locate Required Flag (16)",
+  [17] = "Limit Order Rejected Reason: Invalid Time In Force (17)",
+  [18] = "Limit Order Rejected Reason: Modification Not Permitted (18)",
+  [19] = "Limit Order Rejected Reason: Invalid Mpid (19)",
+  [20] = "Limit Order Rejected Reason: Invalid Sender Comp (20)",
+  [21] = "Limit Order Rejected Reason: Invalid Is Post Only Flag (21)",
+  [22] = "Limit Order Rejected Reason: Invalid Expire Time (22)",
+  [23] = "Limit Order Rejected Reason: Invalid For Trading Session (23)",
+  [24] = "Limit Order Rejected Reason: Invalid For Trading Status (24)",
+  [25] = "Limit Order Rejected Reason: Invalid For Symbol Status (25)",
+  [26] = "Limit Order Rejected Reason: Invalid Is Iso Flag (26)",
+  [27] = "Limit Order Rejected Reason: Trading Disabled For Mpid On Port (27)",
+  [28] = "Limit Order Rejected Reason: Trading Disabled For Non Test Symbols (28)",
+  [29] = "Limit Order Rejected Reason: Trading Disabled For Order Capacity (29)",
+  [30] = "Limit Order Rejected Reason: Trading Disabled For Iso (30)",
+  [31] = "Limit Order Rejected Reason: Maximum Order Quantity Breached (31)",
+  [32] = "Limit Order Rejected Reason: Maximum Price Breached (32)",
+  [33] = "Limit Order Rejected Reason: Maximum Notional Breached (33)",
+  [34] = "Limit Order Rejected Reason: Invalid Mass Cancel Request Id (34)",
+  [35] = "Limit Order Rejected Reason: Symbol On Restricted List (35)",
+  [36] = "Limit Order Rejected Reason: Luld Band Breached (36)",
+  [37] = "Limit Order Rejected Reason: Invalid Price Increment (37)",
+  [38] = "Limit Order Rejected Reason: Auction Order Not Cancelable (38)",
+  [39] = "Limit Order Rejected Reason: Invalid For Auction Order (39)",
+}
 
-  return "Limit Order Rejected Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.labels[value] or "Limit Order Rejected Reason: Unknown("..value..")"
 end
 
 -- Dissect: Limit Order Rejected Reason
@@ -1946,27 +1732,17 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction = {
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.size = 1
 
 -- Display: Limit Order Rejected Self Match Instruction
-txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Limit Order Rejected Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Limit Order Rejected Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Limit Order Rejected Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Limit Order Rejected Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Limit Order Rejected Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Limit Order Rejected Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.labels = {
+  [0] = "Limit Order Rejected Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Limit Order Rejected Self Match Instruction: Cancel Newest (1)",
+  [2] = "Limit Order Rejected Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Limit Order Rejected Self Match Instruction: Cancel Both (3)",
+  [4] = "Limit Order Rejected Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Limit Order Rejected Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Limit Order Rejected Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.labels[value] or "Limit Order Rejected Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Limit Order Rejected Self Match Instruction
@@ -2034,27 +1810,17 @@ txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction = {}
 txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.size = 1
 
 -- Display: Limit Order Self Match Instruction
-txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Limit Order Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Limit Order Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Limit Order Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Limit Order Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Limit Order Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Limit Order Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.labels = {
+  [0] = "Limit Order Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Limit Order Self Match Instruction: Cancel Newest (1)",
+  [2] = "Limit Order Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Limit Order Self Match Instruction: Cancel Both (3)",
+  [4] = "Limit Order Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Limit Order Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Limit Order Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.labels[value] or "Limit Order Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Limit Order Self Match Instruction
@@ -2122,24 +1888,16 @@ txse_txseequities_seed_rake_v1_0.liquidity_indicator = {}
 txse_txseequities_seed_rake_v1_0.liquidity_indicator.size = 1
 
 -- Display: Liquidity Indicator
-txse_txseequities_seed_rake_v1_0.liquidity_indicator.display = function(value)
-  if value == 0 then
-    return "Liquidity Indicator: Removed Hidden Liquidity (0)"
-  end
-  if value == 1 then
-    return "Liquidity Indicator: Removed Displayed Liquidity (1)"
-  end
-  if value == 2 then
-    return "Liquidity Indicator: Added Hidden Liquidity (2)"
-  end
-  if value == 3 then
-    return "Liquidity Indicator: Added Displayed Liquidity (3)"
-  end
-  if value == 4 then
-    return "Liquidity Indicator: Auction (4)"
-  end
+txse_txseequities_seed_rake_v1_0.liquidity_indicator.labels = {
+  [0] = "Liquidity Indicator: Removed Hidden Liquidity (0)",
+  [1] = "Liquidity Indicator: Removed Displayed Liquidity (1)",
+  [2] = "Liquidity Indicator: Added Hidden Liquidity (2)",
+  [3] = "Liquidity Indicator: Added Displayed Liquidity (3)",
+  [4] = "Liquidity Indicator: Auction (4)",
+}
 
-  return "Liquidity Indicator: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.liquidity_indicator.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.liquidity_indicator.labels[value] or "Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Indicator
@@ -2161,15 +1919,13 @@ txse_txseequities_seed_rake_v1_0.listing_market = {}
 txse_txseequities_seed_rake_v1_0.listing_market.size = 1
 
 -- Display: Listing Market
-txse_txseequities_seed_rake_v1_0.listing_market.display = function(value)
-  if value == 0 then
-    return "Listing Market: Not Available (0)"
-  end
-  if value == 70 then
-    return "Listing Market: Txse (70)"
-  end
+txse_txseequities_seed_rake_v1_0.listing_market.labels = {
+  [0] = "Listing Market: Not Available (0)",
+  [70] = "Listing Market: Txse (70)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.listing_market.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -2191,27 +1947,17 @@ txse_txseequities_seed_rake_v1_0.logon_response_code = {}
 txse_txseequities_seed_rake_v1_0.logon_response_code.size = 1
 
 -- Display: Logon Response Code
-txse_txseequities_seed_rake_v1_0.logon_response_code.display = function(value)
-  if value == 0 then
-    return "Logon Response Code: Success (0)"
-  end
-  if value == 1 then
-    return "Logon Response Code: Incorrect Sender Comp (1)"
-  end
-  if value == 2 then
-    return "Logon Response Code: Incorrect Session (2)"
-  end
-  if value == 3 then
-    return "Logon Response Code: Invalid Next Sequence (3)"
-  end
-  if value == 4 then
-    return "Logon Response Code: Invalid Configuration (4)"
-  end
-  if value == 5 then
-    return "Logon Response Code: Incorrect Token (5)"
-  end
+txse_txseequities_seed_rake_v1_0.logon_response_code.labels = {
+  [0] = "Logon Response Code: Success (0)",
+  [1] = "Logon Response Code: Incorrect Sender Comp (1)",
+  [2] = "Logon Response Code: Incorrect Session (2)",
+  [3] = "Logon Response Code: Invalid Next Sequence (3)",
+  [4] = "Logon Response Code: Invalid Configuration (4)",
+  [5] = "Logon Response Code: Incorrect Token (5)",
+}
 
-  return "Logon Response Code: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.logon_response_code.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.logon_response_code.labels[value] or "Logon Response Code: Unknown("..value..")"
 end
 
 -- Dissect: Logon Response Code
@@ -2256,24 +2002,16 @@ txse_txseequities_seed_rake_v1_0.market_hours_state = {}
 txse_txseequities_seed_rake_v1_0.market_hours_state.size = 1
 
 -- Display: Market Hours State
-txse_txseequities_seed_rake_v1_0.market_hours_state.display = function(value)
-  if value == 0 then
-    return "Market Hours State: Closed Before Hours (0)"
-  end
-  if value == 1 then
-    return "Market Hours State: Early Session (1)"
-  end
-  if value == 2 then
-    return "Market Hours State: Regular Session (2)"
-  end
-  if value == 3 then
-    return "Market Hours State: After Hours Session (3)"
-  end
-  if value == 4 then
-    return "Market Hours State: Closed After Hours (4)"
-  end
+txse_txseequities_seed_rake_v1_0.market_hours_state.labels = {
+  [0] = "Market Hours State: Closed Before Hours (0)",
+  [1] = "Market Hours State: Early Session (1)",
+  [2] = "Market Hours State: Regular Session (2)",
+  [3] = "Market Hours State: After Hours Session (3)",
+  [4] = "Market Hours State: Closed After Hours (4)",
+}
 
-  return "Market Hours State: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.market_hours_state.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.market_hours_state.labels[value] or "Market Hours State: Unknown("..value..")"
 end
 
 -- Dissect: Market Hours State
@@ -2364,27 +2102,17 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction = 
 txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.size = 1
 
 -- Display: Market Order Accepted Self Match Instruction
-txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Market Order Accepted Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Market Order Accepted Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Market Order Accepted Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Market Order Accepted Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Market Order Accepted Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Market Order Accepted Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.labels = {
+  [0] = "Market Order Accepted Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Market Order Accepted Self Match Instruction: Cancel Newest (1)",
+  [2] = "Market Order Accepted Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Market Order Accepted Self Match Instruction: Cancel Both (3)",
+  [4] = "Market Order Accepted Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Market Order Accepted Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Market Order Accepted Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.labels[value] or "Market Order Accepted Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Market Order Accepted Self Match Instruction
@@ -2590,126 +2318,50 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_reason = {}
 txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.size = 1
 
 -- Display: Market Order Rejected Reason
-txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.display = function(value)
-  if value == 1 then
-    return "Market Order Rejected Reason: Invalid Client Order Id (1)"
-  end
-  if value == 2 then
-    return "Market Order Rejected Reason: Duplicate Client Order Id (2)"
-  end
-  if value == 3 then
-    return "Market Order Rejected Reason: Unknown Original Client Order Id (3)"
-  end
-  if value == 4 then
-    return "Market Order Rejected Reason: No Longer On Book (4)"
-  end
-  if value == 5 then
-    return "Market Order Rejected Reason: Invalid Symbol (5)"
-  end
-  if value == 6 then
-    return "Market Order Rejected Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Market Order Rejected Reason: Invalid Order Quantity (7)"
-  end
-  if value == 8 then
-    return "Market Order Rejected Reason: Invalid Reference Price Target (8)"
-  end
-  if value == 9 then
-    return "Market Order Rejected Reason: Invalid Is Hidden Flag (9)"
-  end
-  if value == 10 then
-    return "Market Order Rejected Reason: Invalid Order Type (10)"
-  end
-  if value == 11 then
-    return "Market Order Rejected Reason: Invalid Side (11)"
-  end
-  if value == 12 then
-    return "Market Order Rejected Reason: Invalid Max Floor Quantity (12)"
-  end
-  if value == 13 then
-    return "Market Order Rejected Reason: Invalid Max Replenish Quantity Range (13)"
-  end
-  if value == 14 then
-    return "Market Order Rejected Reason: Invalid Max Replenish Time Range (14)"
-  end
-  if value == 15 then
-    return "Market Order Rejected Reason: Invalid Minimum Quantity (15)"
-  end
-  if value == 16 then
-    return "Market Order Rejected Reason: Invalid Locate Required Flag (16)"
-  end
-  if value == 17 then
-    return "Market Order Rejected Reason: Invalid Time In Force (17)"
-  end
-  if value == 18 then
-    return "Market Order Rejected Reason: Modification Not Permitted (18)"
-  end
-  if value == 19 then
-    return "Market Order Rejected Reason: Invalid Mpid (19)"
-  end
-  if value == 20 then
-    return "Market Order Rejected Reason: Invalid Sender Comp (20)"
-  end
-  if value == 21 then
-    return "Market Order Rejected Reason: Invalid Is Post Only Flag (21)"
-  end
-  if value == 22 then
-    return "Market Order Rejected Reason: Invalid Expire Time (22)"
-  end
-  if value == 23 then
-    return "Market Order Rejected Reason: Invalid For Trading Session (23)"
-  end
-  if value == 24 then
-    return "Market Order Rejected Reason: Invalid For Trading Status (24)"
-  end
-  if value == 25 then
-    return "Market Order Rejected Reason: Invalid For Symbol Status (25)"
-  end
-  if value == 26 then
-    return "Market Order Rejected Reason: Invalid Is Iso Flag (26)"
-  end
-  if value == 27 then
-    return "Market Order Rejected Reason: Trading Disabled For Mpid On Port (27)"
-  end
-  if value == 28 then
-    return "Market Order Rejected Reason: Trading Disabled For Non Test Symbols (28)"
-  end
-  if value == 29 then
-    return "Market Order Rejected Reason: Trading Disabled For Order Capacity (29)"
-  end
-  if value == 30 then
-    return "Market Order Rejected Reason: Trading Disabled For Iso (30)"
-  end
-  if value == 31 then
-    return "Market Order Rejected Reason: Maximum Order Quantity Breached (31)"
-  end
-  if value == 32 then
-    return "Market Order Rejected Reason: Maximum Price Breached (32)"
-  end
-  if value == 33 then
-    return "Market Order Rejected Reason: Maximum Notional Breached (33)"
-  end
-  if value == 34 then
-    return "Market Order Rejected Reason: Invalid Mass Cancel Request Id (34)"
-  end
-  if value == 35 then
-    return "Market Order Rejected Reason: Symbol On Restricted List (35)"
-  end
-  if value == 36 then
-    return "Market Order Rejected Reason: Luld Band Breached (36)"
-  end
-  if value == 37 then
-    return "Market Order Rejected Reason: Invalid Price Increment (37)"
-  end
-  if value == 38 then
-    return "Market Order Rejected Reason: Auction Order Not Cancelable (38)"
-  end
-  if value == 39 then
-    return "Market Order Rejected Reason: Invalid For Auction Order (39)"
-  end
+txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.labels = {
+  [1] = "Market Order Rejected Reason: Invalid Client Order Id (1)",
+  [2] = "Market Order Rejected Reason: Duplicate Client Order Id (2)",
+  [3] = "Market Order Rejected Reason: Unknown Original Client Order Id (3)",
+  [4] = "Market Order Rejected Reason: No Longer On Book (4)",
+  [5] = "Market Order Rejected Reason: Invalid Symbol (5)",
+  [6] = "Market Order Rejected Reason: Invalid Price (6)",
+  [7] = "Market Order Rejected Reason: Invalid Order Quantity (7)",
+  [8] = "Market Order Rejected Reason: Invalid Reference Price Target (8)",
+  [9] = "Market Order Rejected Reason: Invalid Is Hidden Flag (9)",
+  [10] = "Market Order Rejected Reason: Invalid Order Type (10)",
+  [11] = "Market Order Rejected Reason: Invalid Side (11)",
+  [12] = "Market Order Rejected Reason: Invalid Max Floor Quantity (12)",
+  [13] = "Market Order Rejected Reason: Invalid Max Replenish Quantity Range (13)",
+  [14] = "Market Order Rejected Reason: Invalid Max Replenish Time Range (14)",
+  [15] = "Market Order Rejected Reason: Invalid Minimum Quantity (15)",
+  [16] = "Market Order Rejected Reason: Invalid Locate Required Flag (16)",
+  [17] = "Market Order Rejected Reason: Invalid Time In Force (17)",
+  [18] = "Market Order Rejected Reason: Modification Not Permitted (18)",
+  [19] = "Market Order Rejected Reason: Invalid Mpid (19)",
+  [20] = "Market Order Rejected Reason: Invalid Sender Comp (20)",
+  [21] = "Market Order Rejected Reason: Invalid Is Post Only Flag (21)",
+  [22] = "Market Order Rejected Reason: Invalid Expire Time (22)",
+  [23] = "Market Order Rejected Reason: Invalid For Trading Session (23)",
+  [24] = "Market Order Rejected Reason: Invalid For Trading Status (24)",
+  [25] = "Market Order Rejected Reason: Invalid For Symbol Status (25)",
+  [26] = "Market Order Rejected Reason: Invalid Is Iso Flag (26)",
+  [27] = "Market Order Rejected Reason: Trading Disabled For Mpid On Port (27)",
+  [28] = "Market Order Rejected Reason: Trading Disabled For Non Test Symbols (28)",
+  [29] = "Market Order Rejected Reason: Trading Disabled For Order Capacity (29)",
+  [30] = "Market Order Rejected Reason: Trading Disabled For Iso (30)",
+  [31] = "Market Order Rejected Reason: Maximum Order Quantity Breached (31)",
+  [32] = "Market Order Rejected Reason: Maximum Price Breached (32)",
+  [33] = "Market Order Rejected Reason: Maximum Notional Breached (33)",
+  [34] = "Market Order Rejected Reason: Invalid Mass Cancel Request Id (34)",
+  [35] = "Market Order Rejected Reason: Symbol On Restricted List (35)",
+  [36] = "Market Order Rejected Reason: Luld Band Breached (36)",
+  [37] = "Market Order Rejected Reason: Invalid Price Increment (37)",
+  [38] = "Market Order Rejected Reason: Auction Order Not Cancelable (38)",
+  [39] = "Market Order Rejected Reason: Invalid For Auction Order (39)",
+}
 
-  return "Market Order Rejected Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.labels[value] or "Market Order Rejected Reason: Unknown("..value..")"
 end
 
 -- Dissect: Market Order Rejected Reason
@@ -2731,27 +2383,17 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction = 
 txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.size = 1
 
 -- Display: Market Order Rejected Self Match Instruction
-txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Market Order Rejected Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Market Order Rejected Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Market Order Rejected Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Market Order Rejected Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Market Order Rejected Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Market Order Rejected Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.labels = {
+  [0] = "Market Order Rejected Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Market Order Rejected Self Match Instruction: Cancel Newest (1)",
+  [2] = "Market Order Rejected Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Market Order Rejected Self Match Instruction: Cancel Both (3)",
+  [4] = "Market Order Rejected Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Market Order Rejected Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Market Order Rejected Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.labels[value] or "Market Order Rejected Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Market Order Rejected Self Match Instruction
@@ -2819,27 +2461,17 @@ txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction = {}
 txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.size = 1
 
 -- Display: Market Order Self Match Instruction
-txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Market Order Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Market Order Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Market Order Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Market Order Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Market Order Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Market Order Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.labels = {
+  [0] = "Market Order Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Market Order Self Match Instruction: Cancel Newest (1)",
+  [2] = "Market Order Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Market Order Self Match Instruction: Cancel Both (3)",
+  [4] = "Market Order Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Market Order Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Market Order Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.labels[value] or "Market Order Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Market Order Self Match Instruction
@@ -2976,15 +2608,13 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope = {}
 txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope.size = 1
 
 -- Display: Mass Cancel Accepted Scope
-txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Accepted Scope: By Member Owned Sender Comps (0)"
-  end
-  if value == 1 then
-    return "Mass Cancel Accepted Scope: By Member Owned Mpids (1)"
-  end
+txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope.labels = {
+  [0] = "Mass Cancel Accepted Scope: By Member Owned Sender Comps (0)",
+  [1] = "Mass Cancel Accepted Scope: By Member Owned Mpids (1)",
+}
 
-  return "Mass Cancel Accepted Scope: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope.labels[value] or "Mass Cancel Accepted Scope: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Accepted Scope
@@ -3190,126 +2820,50 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason = {}
 txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason.size = 1
 
 -- Display: Mass Cancel Rejected Reason
-txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason.display = function(value)
-  if value == 1 then
-    return "Mass Cancel Rejected Reason: Invalid Client Order Id (1)"
-  end
-  if value == 2 then
-    return "Mass Cancel Rejected Reason: Duplicate Client Order Id (2)"
-  end
-  if value == 3 then
-    return "Mass Cancel Rejected Reason: Unknown Original Client Order Id (3)"
-  end
-  if value == 4 then
-    return "Mass Cancel Rejected Reason: No Longer On Book (4)"
-  end
-  if value == 5 then
-    return "Mass Cancel Rejected Reason: Invalid Symbol (5)"
-  end
-  if value == 6 then
-    return "Mass Cancel Rejected Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Mass Cancel Rejected Reason: Invalid Order Quantity (7)"
-  end
-  if value == 8 then
-    return "Mass Cancel Rejected Reason: Invalid Reference Price Target (8)"
-  end
-  if value == 9 then
-    return "Mass Cancel Rejected Reason: Invalid Is Hidden Flag (9)"
-  end
-  if value == 10 then
-    return "Mass Cancel Rejected Reason: Invalid Order Type (10)"
-  end
-  if value == 11 then
-    return "Mass Cancel Rejected Reason: Invalid Side (11)"
-  end
-  if value == 12 then
-    return "Mass Cancel Rejected Reason: Invalid Max Floor Quantity (12)"
-  end
-  if value == 13 then
-    return "Mass Cancel Rejected Reason: Invalid Max Replenish Quantity Range (13)"
-  end
-  if value == 14 then
-    return "Mass Cancel Rejected Reason: Invalid Max Replenish Time Range (14)"
-  end
-  if value == 15 then
-    return "Mass Cancel Rejected Reason: Invalid Minimum Quantity (15)"
-  end
-  if value == 16 then
-    return "Mass Cancel Rejected Reason: Invalid Locate Required Flag (16)"
-  end
-  if value == 17 then
-    return "Mass Cancel Rejected Reason: Invalid Time In Force (17)"
-  end
-  if value == 18 then
-    return "Mass Cancel Rejected Reason: Modification Not Permitted (18)"
-  end
-  if value == 19 then
-    return "Mass Cancel Rejected Reason: Invalid Mpid (19)"
-  end
-  if value == 20 then
-    return "Mass Cancel Rejected Reason: Invalid Sender Comp (20)"
-  end
-  if value == 21 then
-    return "Mass Cancel Rejected Reason: Invalid Is Post Only Flag (21)"
-  end
-  if value == 22 then
-    return "Mass Cancel Rejected Reason: Invalid Expire Time (22)"
-  end
-  if value == 23 then
-    return "Mass Cancel Rejected Reason: Invalid For Trading Session (23)"
-  end
-  if value == 24 then
-    return "Mass Cancel Rejected Reason: Invalid For Trading Status (24)"
-  end
-  if value == 25 then
-    return "Mass Cancel Rejected Reason: Invalid For Symbol Status (25)"
-  end
-  if value == 26 then
-    return "Mass Cancel Rejected Reason: Invalid Is Iso Flag (26)"
-  end
-  if value == 27 then
-    return "Mass Cancel Rejected Reason: Trading Disabled For Mpid On Port (27)"
-  end
-  if value == 28 then
-    return "Mass Cancel Rejected Reason: Trading Disabled For Non Test Symbols (28)"
-  end
-  if value == 29 then
-    return "Mass Cancel Rejected Reason: Trading Disabled For Order Capacity (29)"
-  end
-  if value == 30 then
-    return "Mass Cancel Rejected Reason: Trading Disabled For Iso (30)"
-  end
-  if value == 31 then
-    return "Mass Cancel Rejected Reason: Maximum Order Quantity Breached (31)"
-  end
-  if value == 32 then
-    return "Mass Cancel Rejected Reason: Maximum Price Breached (32)"
-  end
-  if value == 33 then
-    return "Mass Cancel Rejected Reason: Maximum Notional Breached (33)"
-  end
-  if value == 34 then
-    return "Mass Cancel Rejected Reason: Invalid Mass Cancel Request Id (34)"
-  end
-  if value == 35 then
-    return "Mass Cancel Rejected Reason: Symbol On Restricted List (35)"
-  end
-  if value == 36 then
-    return "Mass Cancel Rejected Reason: Luld Band Breached (36)"
-  end
-  if value == 37 then
-    return "Mass Cancel Rejected Reason: Invalid Price Increment (37)"
-  end
-  if value == 38 then
-    return "Mass Cancel Rejected Reason: Auction Order Not Cancelable (38)"
-  end
-  if value == 39 then
-    return "Mass Cancel Rejected Reason: Invalid For Auction Order (39)"
-  end
+txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason.labels = {
+  [1] = "Mass Cancel Rejected Reason: Invalid Client Order Id (1)",
+  [2] = "Mass Cancel Rejected Reason: Duplicate Client Order Id (2)",
+  [3] = "Mass Cancel Rejected Reason: Unknown Original Client Order Id (3)",
+  [4] = "Mass Cancel Rejected Reason: No Longer On Book (4)",
+  [5] = "Mass Cancel Rejected Reason: Invalid Symbol (5)",
+  [6] = "Mass Cancel Rejected Reason: Invalid Price (6)",
+  [7] = "Mass Cancel Rejected Reason: Invalid Order Quantity (7)",
+  [8] = "Mass Cancel Rejected Reason: Invalid Reference Price Target (8)",
+  [9] = "Mass Cancel Rejected Reason: Invalid Is Hidden Flag (9)",
+  [10] = "Mass Cancel Rejected Reason: Invalid Order Type (10)",
+  [11] = "Mass Cancel Rejected Reason: Invalid Side (11)",
+  [12] = "Mass Cancel Rejected Reason: Invalid Max Floor Quantity (12)",
+  [13] = "Mass Cancel Rejected Reason: Invalid Max Replenish Quantity Range (13)",
+  [14] = "Mass Cancel Rejected Reason: Invalid Max Replenish Time Range (14)",
+  [15] = "Mass Cancel Rejected Reason: Invalid Minimum Quantity (15)",
+  [16] = "Mass Cancel Rejected Reason: Invalid Locate Required Flag (16)",
+  [17] = "Mass Cancel Rejected Reason: Invalid Time In Force (17)",
+  [18] = "Mass Cancel Rejected Reason: Modification Not Permitted (18)",
+  [19] = "Mass Cancel Rejected Reason: Invalid Mpid (19)",
+  [20] = "Mass Cancel Rejected Reason: Invalid Sender Comp (20)",
+  [21] = "Mass Cancel Rejected Reason: Invalid Is Post Only Flag (21)",
+  [22] = "Mass Cancel Rejected Reason: Invalid Expire Time (22)",
+  [23] = "Mass Cancel Rejected Reason: Invalid For Trading Session (23)",
+  [24] = "Mass Cancel Rejected Reason: Invalid For Trading Status (24)",
+  [25] = "Mass Cancel Rejected Reason: Invalid For Symbol Status (25)",
+  [26] = "Mass Cancel Rejected Reason: Invalid Is Iso Flag (26)",
+  [27] = "Mass Cancel Rejected Reason: Trading Disabled For Mpid On Port (27)",
+  [28] = "Mass Cancel Rejected Reason: Trading Disabled For Non Test Symbols (28)",
+  [29] = "Mass Cancel Rejected Reason: Trading Disabled For Order Capacity (29)",
+  [30] = "Mass Cancel Rejected Reason: Trading Disabled For Iso (30)",
+  [31] = "Mass Cancel Rejected Reason: Maximum Order Quantity Breached (31)",
+  [32] = "Mass Cancel Rejected Reason: Maximum Price Breached (32)",
+  [33] = "Mass Cancel Rejected Reason: Maximum Notional Breached (33)",
+  [34] = "Mass Cancel Rejected Reason: Invalid Mass Cancel Request Id (34)",
+  [35] = "Mass Cancel Rejected Reason: Symbol On Restricted List (35)",
+  [36] = "Mass Cancel Rejected Reason: Luld Band Breached (36)",
+  [37] = "Mass Cancel Rejected Reason: Invalid Price Increment (37)",
+  [38] = "Mass Cancel Rejected Reason: Auction Order Not Cancelable (38)",
+  [39] = "Mass Cancel Rejected Reason: Invalid For Auction Order (39)",
+}
 
-  return "Mass Cancel Rejected Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason.labels[value] or "Mass Cancel Rejected Reason: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Rejected Reason
@@ -3331,15 +2885,13 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope = {}
 txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope.size = 1
 
 -- Display: Mass Cancel Rejected Scope
-txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Rejected Scope: By Member Owned Sender Comps (0)"
-  end
-  if value == 1 then
-    return "Mass Cancel Rejected Scope: By Member Owned Mpids (1)"
-  end
+txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope.labels = {
+  [0] = "Mass Cancel Rejected Scope: By Member Owned Sender Comps (0)",
+  [1] = "Mass Cancel Rejected Scope: By Member Owned Mpids (1)",
+}
 
-  return "Mass Cancel Rejected Scope: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope.labels[value] or "Mass Cancel Rejected Scope: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Rejected Scope
@@ -3407,15 +2959,13 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_scope = {}
 txse_txseequities_seed_rake_v1_0.mass_cancel_scope.size = 1
 
 -- Display: Mass Cancel Scope
-txse_txseequities_seed_rake_v1_0.mass_cancel_scope.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Scope: By Member Owned Sender Comps (0)"
-  end
-  if value == 1 then
-    return "Mass Cancel Scope: By Member Owned Mpids (1)"
-  end
+txse_txseequities_seed_rake_v1_0.mass_cancel_scope.labels = {
+  [0] = "Mass Cancel Scope: By Member Owned Sender Comps (0)",
+  [1] = "Mass Cancel Scope: By Member Owned Mpids (1)",
+}
 
-  return "Mass Cancel Scope: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.mass_cancel_scope.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.mass_cancel_scope.labels[value] or "Mass Cancel Scope: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Scope
@@ -3506,84 +3056,36 @@ txse_txseequities_seed_rake_v1_0.message_type = {}
 txse_txseequities_seed_rake_v1_0.message_type.size = 1
 
 -- Display: Message Type
-txse_txseequities_seed_rake_v1_0.message_type.display = function(value)
-  if value == 76 then
-    return "Message Type: Limit Order Message (76)"
-  end
-  if value == 65 then
-    return "Message Type: Market Order Message (65)"
-  end
-  if value == 67 then
-    return "Message Type: Cancel Order Message (67)"
-  end
-  if value == 77 then
-    return "Message Type: Modify Order Message (77)"
-  end
-  if value == 82 then
-    return "Message Type: Replace Order Message (82)"
-  end
-  if value == 86 then
-    return "Message Type: Mass Cancel Message (86)"
-  end
-  if value == 105 then
-    return "Message Type: Trading Session Status Message (105)"
-  end
-  if value == 115 then
-    return "Message Type: Define Symbol Message (115)"
-  end
-  if value == 121 then
-    return "Message Type: Symbol Status Message (121)"
-  end
-  if value == 73 then
-    return "Message Type: Limit Order Accepted Message (73)"
-  end
-  if value == 85 then
-    return "Message Type: Limit Order Rejected Message (85)"
-  end
-  if value == 68 then
-    return "Message Type: Market Order Accepted Message (68)"
-  end
-  if value == 84 then
-    return "Message Type: Market Order Rejected Message (84)"
-  end
-  if value == 88 then
-    return "Message Type: Order Canceled Message (88)"
-  end
-  if value == 87 then
-    return "Message Type: Cancel Rejected Message (87)"
-  end
-  if value == 89 then
-    return "Message Type: Order Modified Message (89)"
-  end
-  if value == 78 then
-    return "Message Type: Modify Rejected Message (78)"
-  end
-  if value == 74 then
-    return "Message Type: Order Replaced Message (74)"
-  end
-  if value == 75 then
-    return "Message Type: Replace Rejected Message (75)"
-  end
-  if value == 69 then
-    return "Message Type: Order Executed Message (69)"
-  end
-  if value == 70 then
-    return "Message Type: Order Restated Message (70)"
-  end
-  if value == 90 then
-    return "Message Type: Self Match Prevented Message (90)"
-  end
-  if value == 79 then
-    return "Message Type: Mass Cancel Accepted Message (79)"
-  end
-  if value == 80 then
-    return "Message Type: Mass Cancel Rejected Message (80)"
-  end
-  if value == 81 then
-    return "Message Type: Mass Cancel Result Message (81)"
-  end
+txse_txseequities_seed_rake_v1_0.message_type.labels = {
+  [76] = "Message Type: Limit Order Message (76)",
+  [65] = "Message Type: Market Order Message (65)",
+  [67] = "Message Type: Cancel Order Message (67)",
+  [77] = "Message Type: Modify Order Message (77)",
+  [82] = "Message Type: Replace Order Message (82)",
+  [86] = "Message Type: Mass Cancel Message (86)",
+  [105] = "Message Type: Trading Session Status Message (105)",
+  [115] = "Message Type: Define Symbol Message (115)",
+  [121] = "Message Type: Symbol Status Message (121)",
+  [73] = "Message Type: Limit Order Accepted Message (73)",
+  [85] = "Message Type: Limit Order Rejected Message (85)",
+  [68] = "Message Type: Market Order Accepted Message (68)",
+  [84] = "Message Type: Market Order Rejected Message (84)",
+  [88] = "Message Type: Order Canceled Message (88)",
+  [87] = "Message Type: Cancel Rejected Message (87)",
+  [89] = "Message Type: Order Modified Message (89)",
+  [78] = "Message Type: Modify Rejected Message (78)",
+  [74] = "Message Type: Order Replaced Message (74)",
+  [75] = "Message Type: Replace Rejected Message (75)",
+  [69] = "Message Type: Order Executed Message (69)",
+  [70] = "Message Type: Order Restated Message (70)",
+  [90] = "Message Type: Self Match Prevented Message (90)",
+  [79] = "Message Type: Mass Cancel Accepted Message (79)",
+  [80] = "Message Type: Mass Cancel Rejected Message (80)",
+  [81] = "Message Type: Mass Cancel Result Message (81)",
+}
 
-  return "Message Type: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.message_type.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -3697,126 +3199,50 @@ txse_txseequities_seed_rake_v1_0.modify_rejected_reason = {}
 txse_txseequities_seed_rake_v1_0.modify_rejected_reason.size = 1
 
 -- Display: Modify Rejected Reason
-txse_txseequities_seed_rake_v1_0.modify_rejected_reason.display = function(value)
-  if value == 1 then
-    return "Modify Rejected Reason: Invalid Client Order Id (1)"
-  end
-  if value == 2 then
-    return "Modify Rejected Reason: Duplicate Client Order Id (2)"
-  end
-  if value == 3 then
-    return "Modify Rejected Reason: Unknown Original Client Order Id (3)"
-  end
-  if value == 4 then
-    return "Modify Rejected Reason: No Longer On Book (4)"
-  end
-  if value == 5 then
-    return "Modify Rejected Reason: Invalid Symbol (5)"
-  end
-  if value == 6 then
-    return "Modify Rejected Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Modify Rejected Reason: Invalid Order Quantity (7)"
-  end
-  if value == 8 then
-    return "Modify Rejected Reason: Invalid Reference Price Target (8)"
-  end
-  if value == 9 then
-    return "Modify Rejected Reason: Invalid Is Hidden Flag (9)"
-  end
-  if value == 10 then
-    return "Modify Rejected Reason: Invalid Order Type (10)"
-  end
-  if value == 11 then
-    return "Modify Rejected Reason: Invalid Side (11)"
-  end
-  if value == 12 then
-    return "Modify Rejected Reason: Invalid Max Floor Quantity (12)"
-  end
-  if value == 13 then
-    return "Modify Rejected Reason: Invalid Max Replenish Quantity Range (13)"
-  end
-  if value == 14 then
-    return "Modify Rejected Reason: Invalid Max Replenish Time Range (14)"
-  end
-  if value == 15 then
-    return "Modify Rejected Reason: Invalid Minimum Quantity (15)"
-  end
-  if value == 16 then
-    return "Modify Rejected Reason: Invalid Locate Required Flag (16)"
-  end
-  if value == 17 then
-    return "Modify Rejected Reason: Invalid Time In Force (17)"
-  end
-  if value == 18 then
-    return "Modify Rejected Reason: Modification Not Permitted (18)"
-  end
-  if value == 19 then
-    return "Modify Rejected Reason: Invalid Mpid (19)"
-  end
-  if value == 20 then
-    return "Modify Rejected Reason: Invalid Sender Comp (20)"
-  end
-  if value == 21 then
-    return "Modify Rejected Reason: Invalid Is Post Only Flag (21)"
-  end
-  if value == 22 then
-    return "Modify Rejected Reason: Invalid Expire Time (22)"
-  end
-  if value == 23 then
-    return "Modify Rejected Reason: Invalid For Trading Session (23)"
-  end
-  if value == 24 then
-    return "Modify Rejected Reason: Invalid For Trading Status (24)"
-  end
-  if value == 25 then
-    return "Modify Rejected Reason: Invalid For Symbol Status (25)"
-  end
-  if value == 26 then
-    return "Modify Rejected Reason: Invalid Is Iso Flag (26)"
-  end
-  if value == 27 then
-    return "Modify Rejected Reason: Trading Disabled For Mpid On Port (27)"
-  end
-  if value == 28 then
-    return "Modify Rejected Reason: Trading Disabled For Non Test Symbols (28)"
-  end
-  if value == 29 then
-    return "Modify Rejected Reason: Trading Disabled For Order Capacity (29)"
-  end
-  if value == 30 then
-    return "Modify Rejected Reason: Trading Disabled For Iso (30)"
-  end
-  if value == 31 then
-    return "Modify Rejected Reason: Maximum Order Quantity Breached (31)"
-  end
-  if value == 32 then
-    return "Modify Rejected Reason: Maximum Price Breached (32)"
-  end
-  if value == 33 then
-    return "Modify Rejected Reason: Maximum Notional Breached (33)"
-  end
-  if value == 34 then
-    return "Modify Rejected Reason: Invalid Mass Cancel Request Id (34)"
-  end
-  if value == 35 then
-    return "Modify Rejected Reason: Symbol On Restricted List (35)"
-  end
-  if value == 36 then
-    return "Modify Rejected Reason: Luld Band Breached (36)"
-  end
-  if value == 37 then
-    return "Modify Rejected Reason: Invalid Price Increment (37)"
-  end
-  if value == 38 then
-    return "Modify Rejected Reason: Auction Order Not Cancelable (38)"
-  end
-  if value == 39 then
-    return "Modify Rejected Reason: Invalid For Auction Order (39)"
-  end
+txse_txseequities_seed_rake_v1_0.modify_rejected_reason.labels = {
+  [1] = "Modify Rejected Reason: Invalid Client Order Id (1)",
+  [2] = "Modify Rejected Reason: Duplicate Client Order Id (2)",
+  [3] = "Modify Rejected Reason: Unknown Original Client Order Id (3)",
+  [4] = "Modify Rejected Reason: No Longer On Book (4)",
+  [5] = "Modify Rejected Reason: Invalid Symbol (5)",
+  [6] = "Modify Rejected Reason: Invalid Price (6)",
+  [7] = "Modify Rejected Reason: Invalid Order Quantity (7)",
+  [8] = "Modify Rejected Reason: Invalid Reference Price Target (8)",
+  [9] = "Modify Rejected Reason: Invalid Is Hidden Flag (9)",
+  [10] = "Modify Rejected Reason: Invalid Order Type (10)",
+  [11] = "Modify Rejected Reason: Invalid Side (11)",
+  [12] = "Modify Rejected Reason: Invalid Max Floor Quantity (12)",
+  [13] = "Modify Rejected Reason: Invalid Max Replenish Quantity Range (13)",
+  [14] = "Modify Rejected Reason: Invalid Max Replenish Time Range (14)",
+  [15] = "Modify Rejected Reason: Invalid Minimum Quantity (15)",
+  [16] = "Modify Rejected Reason: Invalid Locate Required Flag (16)",
+  [17] = "Modify Rejected Reason: Invalid Time In Force (17)",
+  [18] = "Modify Rejected Reason: Modification Not Permitted (18)",
+  [19] = "Modify Rejected Reason: Invalid Mpid (19)",
+  [20] = "Modify Rejected Reason: Invalid Sender Comp (20)",
+  [21] = "Modify Rejected Reason: Invalid Is Post Only Flag (21)",
+  [22] = "Modify Rejected Reason: Invalid Expire Time (22)",
+  [23] = "Modify Rejected Reason: Invalid For Trading Session (23)",
+  [24] = "Modify Rejected Reason: Invalid For Trading Status (24)",
+  [25] = "Modify Rejected Reason: Invalid For Symbol Status (25)",
+  [26] = "Modify Rejected Reason: Invalid Is Iso Flag (26)",
+  [27] = "Modify Rejected Reason: Trading Disabled For Mpid On Port (27)",
+  [28] = "Modify Rejected Reason: Trading Disabled For Non Test Symbols (28)",
+  [29] = "Modify Rejected Reason: Trading Disabled For Order Capacity (29)",
+  [30] = "Modify Rejected Reason: Trading Disabled For Iso (30)",
+  [31] = "Modify Rejected Reason: Maximum Order Quantity Breached (31)",
+  [32] = "Modify Rejected Reason: Maximum Price Breached (32)",
+  [33] = "Modify Rejected Reason: Maximum Notional Breached (33)",
+  [34] = "Modify Rejected Reason: Invalid Mass Cancel Request Id (34)",
+  [35] = "Modify Rejected Reason: Symbol On Restricted List (35)",
+  [36] = "Modify Rejected Reason: Luld Band Breached (36)",
+  [37] = "Modify Rejected Reason: Invalid Price Increment (37)",
+  [38] = "Modify Rejected Reason: Auction Order Not Cancelable (38)",
+  [39] = "Modify Rejected Reason: Invalid For Auction Order (39)",
+}
 
-  return "Modify Rejected Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.modify_rejected_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.modify_rejected_reason.labels[value] or "Modify Rejected Reason: Unknown("..value..")"
 end
 
 -- Dissect: Modify Rejected Reason
@@ -4103,21 +3529,15 @@ txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction = {}
 txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.size = 1
 
 -- Display: Order Replaced Price Slide Instruction
-txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.display = function(value)
-  if value == 0 then
-    return "Order Replaced Price Slide Instruction: No Price Slide (0)"
-  end
-  if value == 1 then
-    return "Order Replaced Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
-  end
-  if value == 2 then
-    return "Order Replaced Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
-  end
-  if value == 3 then
-    return "Order Replaced Price Slide Instruction: Single Price Slide Lock Only (3)"
-  end
+txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.labels = {
+  [0] = "Order Replaced Price Slide Instruction: No Price Slide (0)",
+  [1] = "Order Replaced Price Slide Instruction: Single Price Slide On Lock And Cross (1)",
+  [2] = "Order Replaced Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)",
+  [3] = "Order Replaced Price Slide Instruction: Single Price Slide Lock Only (3)",
+}
 
-  return "Order Replaced Price Slide Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.labels[value] or "Order Replaced Price Slide Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Order Replaced Price Slide Instruction
@@ -4191,27 +3611,17 @@ txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction = {}
 txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.size = 1
 
 -- Display: Order Replaced Self Match Instruction
-txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Order Replaced Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Order Replaced Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Order Replaced Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Order Replaced Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Order Replaced Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Order Replaced Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.labels = {
+  [0] = "Order Replaced Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Order Replaced Self Match Instruction: Cancel Newest (1)",
+  [2] = "Order Replaced Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Order Replaced Self Match Instruction: Cancel Both (3)",
+  [4] = "Order Replaced Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Order Replaced Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Order Replaced Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.labels[value] or "Order Replaced Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Order Replaced Self Match Instruction
@@ -4337,33 +3747,19 @@ txse_txseequities_seed_rake_v1_0.packet_type = {}
 txse_txseequities_seed_rake_v1_0.packet_type.size = 1
 
 -- Display: Packet Type
-txse_txseequities_seed_rake_v1_0.packet_type.display = function(value)
-  if value == 53 then
-    return "Packet Type: Logon Request Packet (53)"
-  end
-  if value == 55 then
-    return "Packet Type: Member Heartbeat Packet (55)"
-  end
-  if value == 54 then
-    return "Packet Type: Tcp Unsequenced Message (54)"
-  end
-  if value == 48 then
-    return "Packet Type: Debug Message (48)"
-  end
-  if value == 52 then
-    return "Packet Type: End Of Session Message (52)"
-  end
-  if value == 49 then
-    return "Packet Type: Logon Response Message (49)"
-  end
-  if value == 51 then
-    return "Packet Type: Server Heartbeat Message (51)"
-  end
-  if value == 50 then
-    return "Packet Type: Tcp Sequenced Message (50)"
-  end
+txse_txseequities_seed_rake_v1_0.packet_type.labels = {
+  [53] = "Packet Type: Logon Request Packet (53)",
+  [55] = "Packet Type: Member Heartbeat Packet (55)",
+  [54] = "Packet Type: Tcp Unsequenced Message (54)",
+  [48] = "Packet Type: Debug Message (48)",
+  [52] = "Packet Type: End Of Session Message (52)",
+  [49] = "Packet Type: Logon Response Message (49)",
+  [51] = "Packet Type: Server Heartbeat Message (51)",
+  [50] = "Packet Type: Tcp Sequenced Message (50)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.packet_type.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -4512,21 +3908,15 @@ txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction = {}
 txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.size = 1
 
 -- Display: Replace Order Price Slide Instruction
-txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.display = function(value)
-  if value == 0 then
-    return "Replace Order Price Slide Instruction: No Price Slide (0)"
-  end
-  if value == 1 then
-    return "Replace Order Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
-  end
-  if value == 2 then
-    return "Replace Order Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
-  end
-  if value == 3 then
-    return "Replace Order Price Slide Instruction: Single Price Slide Lock Only (3)"
-  end
+txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.labels = {
+  [0] = "Replace Order Price Slide Instruction: No Price Slide (0)",
+  [1] = "Replace Order Price Slide Instruction: Single Price Slide On Lock And Cross (1)",
+  [2] = "Replace Order Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)",
+  [3] = "Replace Order Price Slide Instruction: Single Price Slide Lock Only (3)",
+}
 
-  return "Replace Order Price Slide Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.labels[value] or "Replace Order Price Slide Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Replace Order Price Slide Instruction
@@ -4571,27 +3961,17 @@ txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction = {}
 txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.size = 1
 
 -- Display: Replace Order Self Match Instruction
-txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Replace Order Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Replace Order Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Replace Order Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Replace Order Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Replace Order Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Replace Order Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.labels = {
+  [0] = "Replace Order Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Replace Order Self Match Instruction: Cancel Newest (1)",
+  [2] = "Replace Order Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Replace Order Self Match Instruction: Cancel Both (3)",
+  [4] = "Replace Order Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Replace Order Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Replace Order Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.labels[value] or "Replace Order Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Replace Order Self Match Instruction
@@ -4734,21 +4114,15 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction = {}
 txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.size = 1
 
 -- Display: Replace Rejected Price Slide Instruction
-txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.display = function(value)
-  if value == 0 then
-    return "Replace Rejected Price Slide Instruction: No Price Slide (0)"
-  end
-  if value == 1 then
-    return "Replace Rejected Price Slide Instruction: Single Price Slide On Lock And Cross (1)"
-  end
-  if value == 2 then
-    return "Replace Rejected Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)"
-  end
-  if value == 3 then
-    return "Replace Rejected Price Slide Instruction: Single Price Slide Lock Only (3)"
-  end
+txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.labels = {
+  [0] = "Replace Rejected Price Slide Instruction: No Price Slide (0)",
+  [1] = "Replace Rejected Price Slide Instruction: Single Price Slide On Lock And Cross (1)",
+  [2] = "Replace Rejected Price Slide Instruction: Multiple Price Slides On Lock And Cross (2)",
+  [3] = "Replace Rejected Price Slide Instruction: Single Price Slide Lock Only (3)",
+}
 
-  return "Replace Rejected Price Slide Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.labels[value] or "Replace Rejected Price Slide Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Replace Rejected Price Slide Instruction
@@ -4770,126 +4144,50 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_reason = {}
 txse_txseequities_seed_rake_v1_0.replace_rejected_reason.size = 1
 
 -- Display: Replace Rejected Reason
-txse_txseequities_seed_rake_v1_0.replace_rejected_reason.display = function(value)
-  if value == 1 then
-    return "Replace Rejected Reason: Invalid Client Order Id (1)"
-  end
-  if value == 2 then
-    return "Replace Rejected Reason: Duplicate Client Order Id (2)"
-  end
-  if value == 3 then
-    return "Replace Rejected Reason: Unknown Original Client Order Id (3)"
-  end
-  if value == 4 then
-    return "Replace Rejected Reason: No Longer On Book (4)"
-  end
-  if value == 5 then
-    return "Replace Rejected Reason: Invalid Symbol (5)"
-  end
-  if value == 6 then
-    return "Replace Rejected Reason: Invalid Price (6)"
-  end
-  if value == 7 then
-    return "Replace Rejected Reason: Invalid Order Quantity (7)"
-  end
-  if value == 8 then
-    return "Replace Rejected Reason: Invalid Reference Price Target (8)"
-  end
-  if value == 9 then
-    return "Replace Rejected Reason: Invalid Is Hidden Flag (9)"
-  end
-  if value == 10 then
-    return "Replace Rejected Reason: Invalid Order Type (10)"
-  end
-  if value == 11 then
-    return "Replace Rejected Reason: Invalid Side (11)"
-  end
-  if value == 12 then
-    return "Replace Rejected Reason: Invalid Max Floor Quantity (12)"
-  end
-  if value == 13 then
-    return "Replace Rejected Reason: Invalid Max Replenish Quantity Range (13)"
-  end
-  if value == 14 then
-    return "Replace Rejected Reason: Invalid Max Replenish Time Range (14)"
-  end
-  if value == 15 then
-    return "Replace Rejected Reason: Invalid Minimum Quantity (15)"
-  end
-  if value == 16 then
-    return "Replace Rejected Reason: Invalid Locate Required Flag (16)"
-  end
-  if value == 17 then
-    return "Replace Rejected Reason: Invalid Time In Force (17)"
-  end
-  if value == 18 then
-    return "Replace Rejected Reason: Modification Not Permitted (18)"
-  end
-  if value == 19 then
-    return "Replace Rejected Reason: Invalid Mpid (19)"
-  end
-  if value == 20 then
-    return "Replace Rejected Reason: Invalid Sender Comp (20)"
-  end
-  if value == 21 then
-    return "Replace Rejected Reason: Invalid Is Post Only Flag (21)"
-  end
-  if value == 22 then
-    return "Replace Rejected Reason: Invalid Expire Time (22)"
-  end
-  if value == 23 then
-    return "Replace Rejected Reason: Invalid For Trading Session (23)"
-  end
-  if value == 24 then
-    return "Replace Rejected Reason: Invalid For Trading Status (24)"
-  end
-  if value == 25 then
-    return "Replace Rejected Reason: Invalid For Symbol Status (25)"
-  end
-  if value == 26 then
-    return "Replace Rejected Reason: Invalid Is Iso Flag (26)"
-  end
-  if value == 27 then
-    return "Replace Rejected Reason: Trading Disabled For Mpid On Port (27)"
-  end
-  if value == 28 then
-    return "Replace Rejected Reason: Trading Disabled For Non Test Symbols (28)"
-  end
-  if value == 29 then
-    return "Replace Rejected Reason: Trading Disabled For Order Capacity (29)"
-  end
-  if value == 30 then
-    return "Replace Rejected Reason: Trading Disabled For Iso (30)"
-  end
-  if value == 31 then
-    return "Replace Rejected Reason: Maximum Order Quantity Breached (31)"
-  end
-  if value == 32 then
-    return "Replace Rejected Reason: Maximum Price Breached (32)"
-  end
-  if value == 33 then
-    return "Replace Rejected Reason: Maximum Notional Breached (33)"
-  end
-  if value == 34 then
-    return "Replace Rejected Reason: Invalid Mass Cancel Request Id (34)"
-  end
-  if value == 35 then
-    return "Replace Rejected Reason: Symbol On Restricted List (35)"
-  end
-  if value == 36 then
-    return "Replace Rejected Reason: Luld Band Breached (36)"
-  end
-  if value == 37 then
-    return "Replace Rejected Reason: Invalid Price Increment (37)"
-  end
-  if value == 38 then
-    return "Replace Rejected Reason: Auction Order Not Cancelable (38)"
-  end
-  if value == 39 then
-    return "Replace Rejected Reason: Invalid For Auction Order (39)"
-  end
+txse_txseequities_seed_rake_v1_0.replace_rejected_reason.labels = {
+  [1] = "Replace Rejected Reason: Invalid Client Order Id (1)",
+  [2] = "Replace Rejected Reason: Duplicate Client Order Id (2)",
+  [3] = "Replace Rejected Reason: Unknown Original Client Order Id (3)",
+  [4] = "Replace Rejected Reason: No Longer On Book (4)",
+  [5] = "Replace Rejected Reason: Invalid Symbol (5)",
+  [6] = "Replace Rejected Reason: Invalid Price (6)",
+  [7] = "Replace Rejected Reason: Invalid Order Quantity (7)",
+  [8] = "Replace Rejected Reason: Invalid Reference Price Target (8)",
+  [9] = "Replace Rejected Reason: Invalid Is Hidden Flag (9)",
+  [10] = "Replace Rejected Reason: Invalid Order Type (10)",
+  [11] = "Replace Rejected Reason: Invalid Side (11)",
+  [12] = "Replace Rejected Reason: Invalid Max Floor Quantity (12)",
+  [13] = "Replace Rejected Reason: Invalid Max Replenish Quantity Range (13)",
+  [14] = "Replace Rejected Reason: Invalid Max Replenish Time Range (14)",
+  [15] = "Replace Rejected Reason: Invalid Minimum Quantity (15)",
+  [16] = "Replace Rejected Reason: Invalid Locate Required Flag (16)",
+  [17] = "Replace Rejected Reason: Invalid Time In Force (17)",
+  [18] = "Replace Rejected Reason: Modification Not Permitted (18)",
+  [19] = "Replace Rejected Reason: Invalid Mpid (19)",
+  [20] = "Replace Rejected Reason: Invalid Sender Comp (20)",
+  [21] = "Replace Rejected Reason: Invalid Is Post Only Flag (21)",
+  [22] = "Replace Rejected Reason: Invalid Expire Time (22)",
+  [23] = "Replace Rejected Reason: Invalid For Trading Session (23)",
+  [24] = "Replace Rejected Reason: Invalid For Trading Status (24)",
+  [25] = "Replace Rejected Reason: Invalid For Symbol Status (25)",
+  [26] = "Replace Rejected Reason: Invalid Is Iso Flag (26)",
+  [27] = "Replace Rejected Reason: Trading Disabled For Mpid On Port (27)",
+  [28] = "Replace Rejected Reason: Trading Disabled For Non Test Symbols (28)",
+  [29] = "Replace Rejected Reason: Trading Disabled For Order Capacity (29)",
+  [30] = "Replace Rejected Reason: Trading Disabled For Iso (30)",
+  [31] = "Replace Rejected Reason: Maximum Order Quantity Breached (31)",
+  [32] = "Replace Rejected Reason: Maximum Price Breached (32)",
+  [33] = "Replace Rejected Reason: Maximum Notional Breached (33)",
+  [34] = "Replace Rejected Reason: Invalid Mass Cancel Request Id (34)",
+  [35] = "Replace Rejected Reason: Symbol On Restricted List (35)",
+  [36] = "Replace Rejected Reason: Luld Band Breached (36)",
+  [37] = "Replace Rejected Reason: Invalid Price Increment (37)",
+  [38] = "Replace Rejected Reason: Auction Order Not Cancelable (38)",
+  [39] = "Replace Rejected Reason: Invalid For Auction Order (39)",
+}
 
-  return "Replace Rejected Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.replace_rejected_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.replace_rejected_reason.labels[value] or "Replace Rejected Reason: Unknown("..value..")"
 end
 
 -- Dissect: Replace Rejected Reason
@@ -4934,27 +4232,17 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction = {}
 txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.size = 1
 
 -- Display: Replace Rejected Self Match Instruction
-txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.display = function(value)
-  if value == 0 then
-    return "Replace Rejected Self Match Instruction: No Self Match Prevention (0)"
-  end
-  if value == 1 then
-    return "Replace Rejected Self Match Instruction: Cancel Newest (1)"
-  end
-  if value == 2 then
-    return "Replace Rejected Self Match Instruction: Cancel Oldest (2)"
-  end
-  if value == 3 then
-    return "Replace Rejected Self Match Instruction: Cancel Both (3)"
-  end
-  if value == 4 then
-    return "Replace Rejected Self Match Instruction: Cancel Smallest (4)"
-  end
-  if value == 5 then
-    return "Replace Rejected Self Match Instruction: Decrement And Cancel (5)"
-  end
+txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.labels = {
+  [0] = "Replace Rejected Self Match Instruction: No Self Match Prevention (0)",
+  [1] = "Replace Rejected Self Match Instruction: Cancel Newest (1)",
+  [2] = "Replace Rejected Self Match Instruction: Cancel Oldest (2)",
+  [3] = "Replace Rejected Self Match Instruction: Cancel Both (3)",
+  [4] = "Replace Rejected Self Match Instruction: Cancel Smallest (4)",
+  [5] = "Replace Rejected Self Match Instruction: Decrement And Cancel (5)",
+}
 
-  return "Replace Rejected Self Match Instruction: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.labels[value] or "Replace Rejected Self Match Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Replace Rejected Self Match Instruction
@@ -4999,18 +4287,14 @@ txse_txseequities_seed_rake_v1_0.restatement_reason = {}
 txse_txseequities_seed_rake_v1_0.restatement_reason.size = 1
 
 -- Display: Restatement Reason
-txse_txseequities_seed_rake_v1_0.restatement_reason.display = function(value)
-  if value == 1 then
-    return "Restatement Reason: Reserve Replenished (1)"
-  end
-  if value == 2 then
-    return "Restatement Reason: Repriced (2)"
-  end
-  if value == 3 then
-    return "Restatement Reason: Post Auction (3)"
-  end
+txse_txseequities_seed_rake_v1_0.restatement_reason.labels = {
+  [1] = "Restatement Reason: Reserve Replenished (1)",
+  [2] = "Restatement Reason: Repriced (2)",
+  [3] = "Restatement Reason: Post Auction (3)",
+}
 
-  return "Restatement Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.restatement_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.restatement_reason.labels[value] or "Restatement Reason: Unknown("..value..")"
 end
 
 -- Dissect: Restatement Reason
@@ -5078,18 +4362,14 @@ txse_txseequities_seed_rake_v1_0.session_trading_state = {}
 txse_txseequities_seed_rake_v1_0.session_trading_state.size = 1
 
 -- Display: Session Trading State
-txse_txseequities_seed_rake_v1_0.session_trading_state.display = function(value)
-  if value == 0 then
-    return "Session Trading State: Closed (0)"
-  end
-  if value == 1 then
-    return "Session Trading State: Trading (1)"
-  end
-  if value == 2 then
-    return "Session Trading State: Halted (2)"
-  end
+txse_txseequities_seed_rake_v1_0.session_trading_state.labels = {
+  [0] = "Session Trading State: Closed (0)",
+  [1] = "Session Trading State: Trading (1)",
+  [2] = "Session Trading State: Halted (2)",
+}
 
-  return "Session Trading State: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.session_trading_state.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.session_trading_state.labels[value] or "Session Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Session Trading State
@@ -5111,24 +4391,16 @@ txse_txseequities_seed_rake_v1_0.short_sale_restriction_state = {}
 txse_txseequities_seed_rake_v1_0.short_sale_restriction_state.size = 1
 
 -- Display: Short Sale Restriction State
-txse_txseequities_seed_rake_v1_0.short_sale_restriction_state.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction State: None (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction State: Activated (1)"
-  end
-  if value == 2 then
-    return "Short Sale Restriction State: Continued (2)"
-  end
-  if value == 3 then
-    return "Short Sale Restriction State: Deactivated (3)"
-  end
-  if value == 4 then
-    return "Short Sale Restriction State: In Effect (4)"
-  end
+txse_txseequities_seed_rake_v1_0.short_sale_restriction_state.labels = {
+  [0] = "Short Sale Restriction State: None (0)",
+  [1] = "Short Sale Restriction State: Activated (1)",
+  [2] = "Short Sale Restriction State: Continued (2)",
+  [3] = "Short Sale Restriction State: Deactivated (3)",
+  [4] = "Short Sale Restriction State: In Effect (4)",
+}
 
-  return "Short Sale Restriction State: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.short_sale_restriction_state.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.short_sale_restriction_state.labels[value] or "Short Sale Restriction State: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction State
@@ -5242,12 +4514,12 @@ txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason = {}
 txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason.size = 1
 
 -- Display: Symbol Status Operational Halt Reason
-txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason.display = function(value)
-  if value == 0 then
-    return "Symbol Status Operational Halt Reason: Administrative (0)"
-  end
+txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason.labels = {
+  [0] = "Symbol Status Operational Halt Reason: Administrative (0)",
+}
 
-  return "Symbol Status Operational Halt Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason.labels[value] or "Symbol Status Operational Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Status Operational Halt Reason
@@ -5269,126 +4541,50 @@ txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason = {}
 txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.size = 1
 
 -- Display: Symbol Status Regulatory Halt Reason
-txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.display = function(value)
-  if value == 0 then
-    return "Symbol Status Regulatory Halt Reason: Reason Not Available (0)"
-  end
-  if value == 1 then
-    return "Symbol Status Regulatory Halt Reason: News Pending (1)"
-  end
-  if value == 2 then
-    return "Symbol Status Regulatory Halt Reason: News Dissemination (2)"
-  end
-  if value == 3 then
-    return "Symbol Status Regulatory Halt Reason: Info Requested (3)"
-  end
-  if value == 4 then
-    return "Symbol Status Regulatory Halt Reason: Order Imbalance (4)"
-  end
-  if value == 5 then
-    return "Symbol Status Regulatory Halt Reason: Extraordinary Market Activity (5)"
-  end
-  if value == 6 then
-    return "Symbol Status Regulatory Halt Reason: Luld Pause (6)"
-  end
-  if value == 7 then
-    return "Symbol Status Regulatory Halt Reason: Non Compliance (7)"
-  end
-  if value == 8 then
-    return "Symbol Status Regulatory Halt Reason: Filings Not Current (8)"
-  end
-  if value == 9 then
-    return "Symbol Status Regulatory Halt Reason: Sec Suspension (9)"
-  end
-  if value == 10 then
-    return "Symbol Status Regulatory Halt Reason: Regulatory Concern (10)"
-  end
-  if value == 11 then
-    return "Symbol Status Regulatory Halt Reason: Sub Penny Trading (11)"
-  end
-  if value == 12 then
-    return "Symbol Status Regulatory Halt Reason: Etf (12)"
-  end
-  if value == 13 then
-    return "Symbol Status Regulatory Halt Reason: Ipo Not Trading (13)"
-  end
-  if value == 14 then
-    return "Symbol Status Regulatory Halt Reason: Corporate Action (14)"
-  end
-  if value == 15 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker L 1 (15)"
-  end
-  if value == 16 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker L 2 (16)"
-  end
-  if value == 17 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker L 3 (17)"
-  end
-  if value == 18 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker Carryover (18)"
-  end
-  if value == 19 then
-    return "Symbol Status Regulatory Halt Reason: Merger Effective (19)"
-  end
-  if value == 20 then
-    return "Symbol Status Regulatory Halt Reason: New Security Offering (20)"
-  end
-  if value == 21 then
-    return "Symbol Status Regulatory Halt Reason: Indicative Value Not Available (21)"
-  end
-  if value == 22 then
-    return "Symbol Status Regulatory Halt Reason: Quotation Not Available (22)"
-  end
-  if value == 23 then
-    return "Symbol Status Regulatory Halt Reason: Single Stock Trading Pause (23)"
-  end
-  if value == 24 then
-    return "Symbol Status Regulatory Halt Reason: Operational (24)"
-  end
-  if value == 25 then
-    return "Symbol Status Regulatory Halt Reason: Luld Pause Straddle (25)"
-  end
-  if value == 26 then
-    return "Symbol Status Regulatory Halt Reason: News Resumption Times (26)"
-  end
-  if value == 27 then
-    return "Symbol Status Regulatory Halt Reason: Single Stock Trading Pause Quoting (27)"
-  end
-  if value == 28 then
-    return "Symbol Status Regulatory Halt Reason: Qualifications Issues Resolved (28)"
-  end
-  if value == 29 then
-    return "Symbol Status Regulatory Halt Reason: Filing Requirements Satisfied (29)"
-  end
-  if value == 30 then
-    return "Symbol Status Regulatory Halt Reason: Issuer News Not Forthcoming (30)"
-  end
-  if value == 31 then
-    return "Symbol Status Regulatory Halt Reason: Qualifications Halt Ended (31)"
-  end
-  if value == 32 then
-    return "Symbol Status Regulatory Halt Reason: Qualifications Halt Concluded (32)"
-  end
-  if value == 33 then
-    return "Symbol Status Regulatory Halt Reason: Regulatory Authority Halt Concluded (33)"
-  end
-  if value == 34 then
-    return "Symbol Status Regulatory Halt Reason: New Issue Available (34)"
-  end
-  if value == 35 then
-    return "Symbol Status Regulatory Halt Reason: Issue Available (35)"
-  end
-  if value == 36 then
-    return "Symbol Status Regulatory Halt Reason: Ipo Quotation Released (36)"
-  end
-  if value == 37 then
-    return "Symbol Status Regulatory Halt Reason: Ipo Positioning Window Extension (37)"
-  end
-  if value == 38 then
-    return "Symbol Status Regulatory Halt Reason: Circuit Breaker Quotation Resumption (38)"
-  end
+txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.labels = {
+  [0] = "Symbol Status Regulatory Halt Reason: Reason Not Available (0)",
+  [1] = "Symbol Status Regulatory Halt Reason: News Pending (1)",
+  [2] = "Symbol Status Regulatory Halt Reason: News Dissemination (2)",
+  [3] = "Symbol Status Regulatory Halt Reason: Info Requested (3)",
+  [4] = "Symbol Status Regulatory Halt Reason: Order Imbalance (4)",
+  [5] = "Symbol Status Regulatory Halt Reason: Extraordinary Market Activity (5)",
+  [6] = "Symbol Status Regulatory Halt Reason: Luld Pause (6)",
+  [7] = "Symbol Status Regulatory Halt Reason: Non Compliance (7)",
+  [8] = "Symbol Status Regulatory Halt Reason: Filings Not Current (8)",
+  [9] = "Symbol Status Regulatory Halt Reason: Sec Suspension (9)",
+  [10] = "Symbol Status Regulatory Halt Reason: Regulatory Concern (10)",
+  [11] = "Symbol Status Regulatory Halt Reason: Sub Penny Trading (11)",
+  [12] = "Symbol Status Regulatory Halt Reason: Etf (12)",
+  [13] = "Symbol Status Regulatory Halt Reason: Ipo Not Trading (13)",
+  [14] = "Symbol Status Regulatory Halt Reason: Corporate Action (14)",
+  [15] = "Symbol Status Regulatory Halt Reason: Circuit Breaker L 1 (15)",
+  [16] = "Symbol Status Regulatory Halt Reason: Circuit Breaker L 2 (16)",
+  [17] = "Symbol Status Regulatory Halt Reason: Circuit Breaker L 3 (17)",
+  [18] = "Symbol Status Regulatory Halt Reason: Circuit Breaker Carryover (18)",
+  [19] = "Symbol Status Regulatory Halt Reason: Merger Effective (19)",
+  [20] = "Symbol Status Regulatory Halt Reason: New Security Offering (20)",
+  [21] = "Symbol Status Regulatory Halt Reason: Indicative Value Not Available (21)",
+  [22] = "Symbol Status Regulatory Halt Reason: Quotation Not Available (22)",
+  [23] = "Symbol Status Regulatory Halt Reason: Single Stock Trading Pause (23)",
+  [24] = "Symbol Status Regulatory Halt Reason: Operational (24)",
+  [25] = "Symbol Status Regulatory Halt Reason: Luld Pause Straddle (25)",
+  [26] = "Symbol Status Regulatory Halt Reason: News Resumption Times (26)",
+  [27] = "Symbol Status Regulatory Halt Reason: Single Stock Trading Pause Quoting (27)",
+  [28] = "Symbol Status Regulatory Halt Reason: Qualifications Issues Resolved (28)",
+  [29] = "Symbol Status Regulatory Halt Reason: Filing Requirements Satisfied (29)",
+  [30] = "Symbol Status Regulatory Halt Reason: Issuer News Not Forthcoming (30)",
+  [31] = "Symbol Status Regulatory Halt Reason: Qualifications Halt Ended (31)",
+  [32] = "Symbol Status Regulatory Halt Reason: Qualifications Halt Concluded (32)",
+  [33] = "Symbol Status Regulatory Halt Reason: Regulatory Authority Halt Concluded (33)",
+  [34] = "Symbol Status Regulatory Halt Reason: New Issue Available (34)",
+  [35] = "Symbol Status Regulatory Halt Reason: Issue Available (35)",
+  [36] = "Symbol Status Regulatory Halt Reason: Ipo Quotation Released (36)",
+  [37] = "Symbol Status Regulatory Halt Reason: Ipo Positioning Window Extension (37)",
+  [38] = "Symbol Status Regulatory Halt Reason: Circuit Breaker Quotation Resumption (38)",
+}
 
-  return "Symbol Status Regulatory Halt Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.labels[value] or "Symbol Status Regulatory Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Status Regulatory Halt Reason
@@ -5410,18 +4606,14 @@ txse_txseequities_seed_rake_v1_0.symbol_trading_state = {}
 txse_txseequities_seed_rake_v1_0.symbol_trading_state.size = 1
 
 -- Display: Symbol Trading State
-txse_txseequities_seed_rake_v1_0.symbol_trading_state.display = function(value)
-  if value == 1 then
-    return "Symbol Trading State: Trading (1)"
-  end
-  if value == 2 then
-    return "Symbol Trading State: Halted (2)"
-  end
-  if value == 3 then
-    return "Symbol Trading State: Resume Pending (3)"
-  end
+txse_txseequities_seed_rake_v1_0.symbol_trading_state.labels = {
+  [1] = "Symbol Trading State: Trading (1)",
+  [2] = "Symbol Trading State: Halted (2)",
+  [3] = "Symbol Trading State: Resume Pending (3)",
+}
 
-  return "Symbol Trading State: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.symbol_trading_state.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.symbol_trading_state.labels[value] or "Symbol Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Trading State
@@ -5485,12 +4677,12 @@ txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason 
 txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason.size = 1
 
 -- Display: Trading Session Status Operational Halt Reason
-txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason.display = function(value)
-  if value == 0 then
-    return "Trading Session Status Operational Halt Reason: Administrative (0)"
-  end
+txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason.labels = {
+  [0] = "Trading Session Status Operational Halt Reason: Administrative (0)",
+}
 
-  return "Trading Session Status Operational Halt Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason.labels[value] or "Trading Session Status Operational Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Status Operational Halt Reason
@@ -5512,126 +4704,50 @@ txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason =
 txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.size = 1
 
 -- Display: Trading Session Status Regulatory Halt Reason
-txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.display = function(value)
-  if value == 0 then
-    return "Trading Session Status Regulatory Halt Reason: Reason Not Available (0)"
-  end
-  if value == 1 then
-    return "Trading Session Status Regulatory Halt Reason: News Pending (1)"
-  end
-  if value == 2 then
-    return "Trading Session Status Regulatory Halt Reason: News Dissemination (2)"
-  end
-  if value == 3 then
-    return "Trading Session Status Regulatory Halt Reason: Info Requested (3)"
-  end
-  if value == 4 then
-    return "Trading Session Status Regulatory Halt Reason: Order Imbalance (4)"
-  end
-  if value == 5 then
-    return "Trading Session Status Regulatory Halt Reason: Extraordinary Market Activity (5)"
-  end
-  if value == 6 then
-    return "Trading Session Status Regulatory Halt Reason: Luld Pause (6)"
-  end
-  if value == 7 then
-    return "Trading Session Status Regulatory Halt Reason: Non Compliance (7)"
-  end
-  if value == 8 then
-    return "Trading Session Status Regulatory Halt Reason: Filings Not Current (8)"
-  end
-  if value == 9 then
-    return "Trading Session Status Regulatory Halt Reason: Sec Suspension (9)"
-  end
-  if value == 10 then
-    return "Trading Session Status Regulatory Halt Reason: Regulatory Concern (10)"
-  end
-  if value == 11 then
-    return "Trading Session Status Regulatory Halt Reason: Sub Penny Trading (11)"
-  end
-  if value == 12 then
-    return "Trading Session Status Regulatory Halt Reason: Etf (12)"
-  end
-  if value == 13 then
-    return "Trading Session Status Regulatory Halt Reason: Ipo Not Trading (13)"
-  end
-  if value == 14 then
-    return "Trading Session Status Regulatory Halt Reason: Corporate Action (14)"
-  end
-  if value == 15 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 1 (15)"
-  end
-  if value == 16 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 2 (16)"
-  end
-  if value == 17 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 3 (17)"
-  end
-  if value == 18 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker Carryover (18)"
-  end
-  if value == 19 then
-    return "Trading Session Status Regulatory Halt Reason: Merger Effective (19)"
-  end
-  if value == 20 then
-    return "Trading Session Status Regulatory Halt Reason: New Security Offering (20)"
-  end
-  if value == 21 then
-    return "Trading Session Status Regulatory Halt Reason: Indicative Value Not Available (21)"
-  end
-  if value == 22 then
-    return "Trading Session Status Regulatory Halt Reason: Quotation Not Available (22)"
-  end
-  if value == 23 then
-    return "Trading Session Status Regulatory Halt Reason: Single Stock Trading Pause (23)"
-  end
-  if value == 24 then
-    return "Trading Session Status Regulatory Halt Reason: Operational (24)"
-  end
-  if value == 25 then
-    return "Trading Session Status Regulatory Halt Reason: Luld Pause Straddle (25)"
-  end
-  if value == 26 then
-    return "Trading Session Status Regulatory Halt Reason: News Resumption Times (26)"
-  end
-  if value == 27 then
-    return "Trading Session Status Regulatory Halt Reason: Single Stock Trading Pause Quoting (27)"
-  end
-  if value == 28 then
-    return "Trading Session Status Regulatory Halt Reason: Qualifications Issues Resolved (28)"
-  end
-  if value == 29 then
-    return "Trading Session Status Regulatory Halt Reason: Filing Requirements Satisfied (29)"
-  end
-  if value == 30 then
-    return "Trading Session Status Regulatory Halt Reason: Issuer News Not Forthcoming (30)"
-  end
-  if value == 31 then
-    return "Trading Session Status Regulatory Halt Reason: Qualifications Halt Ended (31)"
-  end
-  if value == 32 then
-    return "Trading Session Status Regulatory Halt Reason: Qualifications Halt Concluded (32)"
-  end
-  if value == 33 then
-    return "Trading Session Status Regulatory Halt Reason: Regulatory Authority Halt Concluded (33)"
-  end
-  if value == 34 then
-    return "Trading Session Status Regulatory Halt Reason: New Issue Available (34)"
-  end
-  if value == 35 then
-    return "Trading Session Status Regulatory Halt Reason: Issue Available (35)"
-  end
-  if value == 36 then
-    return "Trading Session Status Regulatory Halt Reason: Ipo Quotation Released (36)"
-  end
-  if value == 37 then
-    return "Trading Session Status Regulatory Halt Reason: Ipo Positioning Window Extension (37)"
-  end
-  if value == 38 then
-    return "Trading Session Status Regulatory Halt Reason: Circuit Breaker Quotation Resumption (38)"
-  end
+txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.labels = {
+  [0] = "Trading Session Status Regulatory Halt Reason: Reason Not Available (0)",
+  [1] = "Trading Session Status Regulatory Halt Reason: News Pending (1)",
+  [2] = "Trading Session Status Regulatory Halt Reason: News Dissemination (2)",
+  [3] = "Trading Session Status Regulatory Halt Reason: Info Requested (3)",
+  [4] = "Trading Session Status Regulatory Halt Reason: Order Imbalance (4)",
+  [5] = "Trading Session Status Regulatory Halt Reason: Extraordinary Market Activity (5)",
+  [6] = "Trading Session Status Regulatory Halt Reason: Luld Pause (6)",
+  [7] = "Trading Session Status Regulatory Halt Reason: Non Compliance (7)",
+  [8] = "Trading Session Status Regulatory Halt Reason: Filings Not Current (8)",
+  [9] = "Trading Session Status Regulatory Halt Reason: Sec Suspension (9)",
+  [10] = "Trading Session Status Regulatory Halt Reason: Regulatory Concern (10)",
+  [11] = "Trading Session Status Regulatory Halt Reason: Sub Penny Trading (11)",
+  [12] = "Trading Session Status Regulatory Halt Reason: Etf (12)",
+  [13] = "Trading Session Status Regulatory Halt Reason: Ipo Not Trading (13)",
+  [14] = "Trading Session Status Regulatory Halt Reason: Corporate Action (14)",
+  [15] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 1 (15)",
+  [16] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 2 (16)",
+  [17] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker L 3 (17)",
+  [18] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker Carryover (18)",
+  [19] = "Trading Session Status Regulatory Halt Reason: Merger Effective (19)",
+  [20] = "Trading Session Status Regulatory Halt Reason: New Security Offering (20)",
+  [21] = "Trading Session Status Regulatory Halt Reason: Indicative Value Not Available (21)",
+  [22] = "Trading Session Status Regulatory Halt Reason: Quotation Not Available (22)",
+  [23] = "Trading Session Status Regulatory Halt Reason: Single Stock Trading Pause (23)",
+  [24] = "Trading Session Status Regulatory Halt Reason: Operational (24)",
+  [25] = "Trading Session Status Regulatory Halt Reason: Luld Pause Straddle (25)",
+  [26] = "Trading Session Status Regulatory Halt Reason: News Resumption Times (26)",
+  [27] = "Trading Session Status Regulatory Halt Reason: Single Stock Trading Pause Quoting (27)",
+  [28] = "Trading Session Status Regulatory Halt Reason: Qualifications Issues Resolved (28)",
+  [29] = "Trading Session Status Regulatory Halt Reason: Filing Requirements Satisfied (29)",
+  [30] = "Trading Session Status Regulatory Halt Reason: Issuer News Not Forthcoming (30)",
+  [31] = "Trading Session Status Regulatory Halt Reason: Qualifications Halt Ended (31)",
+  [32] = "Trading Session Status Regulatory Halt Reason: Qualifications Halt Concluded (32)",
+  [33] = "Trading Session Status Regulatory Halt Reason: Regulatory Authority Halt Concluded (33)",
+  [34] = "Trading Session Status Regulatory Halt Reason: New Issue Available (34)",
+  [35] = "Trading Session Status Regulatory Halt Reason: Issue Available (35)",
+  [36] = "Trading Session Status Regulatory Halt Reason: Ipo Quotation Released (36)",
+  [37] = "Trading Session Status Regulatory Halt Reason: Ipo Positioning Window Extension (37)",
+  [38] = "Trading Session Status Regulatory Halt Reason: Circuit Breaker Quotation Resumption (38)",
+}
 
-  return "Trading Session Status Regulatory Halt Reason: Unknown("..value..")"
+txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.display = function(value)
+  return txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.labels[value] or "Trading Session Status Regulatory Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Status Regulatory Halt Reason
@@ -9885,82 +9001,32 @@ end
 txse_txseequities_seed_rake_v1_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+txse_txseequities_seed_rake_v1_0.sequenced_message.dispatch = {
+  [105] = txse_txseequities_seed_rake_v1_0.trading_session_status_message.dissect,
+  [115] = txse_txseequities_seed_rake_v1_0.define_symbol_message.dissect,
+  [121] = txse_txseequities_seed_rake_v1_0.symbol_status_message.dissect,
+  [73] = txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.dissect,
+  [85] = txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.dissect,
+  [68] = txse_txseequities_seed_rake_v1_0.market_order_accepted_message.dissect,
+  [84] = txse_txseequities_seed_rake_v1_0.market_order_rejected_message.dissect,
+  [88] = txse_txseequities_seed_rake_v1_0.order_canceled_message.dissect,
+  [87] = txse_txseequities_seed_rake_v1_0.cancel_rejected_message.dissect,
+  [89] = txse_txseequities_seed_rake_v1_0.order_modified_message.dissect,
+  [78] = txse_txseequities_seed_rake_v1_0.modify_rejected_message.dissect,
+  [74] = txse_txseequities_seed_rake_v1_0.order_replaced_message.dissect,
+  [75] = txse_txseequities_seed_rake_v1_0.replace_rejected_message.dissect,
+  [69] = txse_txseequities_seed_rake_v1_0.order_executed_message.dissect,
+  [70] = txse_txseequities_seed_rake_v1_0.order_restated_message.dissect,
+  [90] = txse_txseequities_seed_rake_v1_0.self_match_prevented_message.dissect,
+  [79] = txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_message.dissect,
+  [80] = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_message.dissect,
+  [81] = txse_txseequities_seed_rake_v1_0.mass_cancel_result_message.dissect,
+}
+
 txse_txseequities_seed_rake_v1_0.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Trading Session Status Message
-  if message_type == 105 then
-    return txse_txseequities_seed_rake_v1_0.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Define Symbol Message
-  if message_type == 115 then
-    return txse_txseequities_seed_rake_v1_0.define_symbol_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Status Message
-  if message_type == 121 then
-    return txse_txseequities_seed_rake_v1_0.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Order Accepted Message
-  if message_type == 73 then
-    return txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Order Rejected Message
-  if message_type == 85 then
-    return txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Order Accepted Message
-  if message_type == 68 then
-    return txse_txseequities_seed_rake_v1_0.market_order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Order Rejected Message
-  if message_type == 84 then
-    return txse_txseequities_seed_rake_v1_0.market_order_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled Message
-  if message_type == 88 then
-    return txse_txseequities_seed_rake_v1_0.order_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Message
-  if message_type == 87 then
-    return txse_txseequities_seed_rake_v1_0.cancel_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Message
-  if message_type == 89 then
-    return txse_txseequities_seed_rake_v1_0.order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Rejected Message
-  if message_type == 78 then
-    return txse_txseequities_seed_rake_v1_0.modify_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if message_type == 74 then
-    return txse_txseequities_seed_rake_v1_0.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Rejected Message
-  if message_type == 75 then
-    return txse_txseequities_seed_rake_v1_0.replace_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 69 then
-    return txse_txseequities_seed_rake_v1_0.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Message
-  if message_type == 70 then
-    return txse_txseequities_seed_rake_v1_0.order_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Self Match Prevented Message
-  if message_type == 90 then
-    return txse_txseequities_seed_rake_v1_0.self_match_prevented_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Accepted Message
-  if message_type == 79 then
-    return txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Rejected Message
-  if message_type == 80 then
-    return txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Result Message
-  if message_type == 81 then
-    return txse_txseequities_seed_rake_v1_0.mass_cancel_result_message.dissect(buffer, offset, packet, parent)
+  local dissect = txse_txseequities_seed_rake_v1_0.sequenced_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -10155,22 +9221,17 @@ end
 txse_txseequities_seed_rake_v1_0.server_payload = {}
 
 -- Dissect: Server Payload
+txse_txseequities_seed_rake_v1_0.server_payload.dispatch = {
+  [48] = txse_txseequities_seed_rake_v1_0.debug_message.dissect,
+  [52] = txse_txseequities_seed_rake_v1_0.end_of_session_message.dissect,
+  [49] = txse_txseequities_seed_rake_v1_0.logon_response_message.dissect,
+  [50] = txse_txseequities_seed_rake_v1_0.tcp_sequenced_message.dissect,
+}
+
 txse_txseequities_seed_rake_v1_0.server_payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Debug Message
-  if packet_type == 48 then
-    return txse_txseequities_seed_rake_v1_0.debug_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if packet_type == 52 then
-    return txse_txseequities_seed_rake_v1_0.end_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response Message
-  if packet_type == 49 then
-    return txse_txseequities_seed_rake_v1_0.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tcp Sequenced Message
-  if packet_type == 50 then
-    return txse_txseequities_seed_rake_v1_0.tcp_sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = txse_txseequities_seed_rake_v1_0.server_payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -11930,30 +10991,19 @@ end
 txse_txseequities_seed_rake_v1_0.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+txse_txseequities_seed_rake_v1_0.unsequenced_message.dispatch = {
+  [76] = txse_txseequities_seed_rake_v1_0.limit_order_message.dissect,
+  [65] = txse_txseequities_seed_rake_v1_0.market_order_message.dissect,
+  [67] = txse_txseequities_seed_rake_v1_0.cancel_order_message.dissect,
+  [77] = txse_txseequities_seed_rake_v1_0.modify_order_message.dissect,
+  [82] = txse_txseequities_seed_rake_v1_0.replace_order_message.dissect,
+  [86] = txse_txseequities_seed_rake_v1_0.mass_cancel_message.dissect,
+}
+
 txse_txseequities_seed_rake_v1_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Limit Order Message
-  if message_type == 76 then
-    return txse_txseequities_seed_rake_v1_0.limit_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Order Message
-  if message_type == 65 then
-    return txse_txseequities_seed_rake_v1_0.market_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if message_type == 67 then
-    return txse_txseequities_seed_rake_v1_0.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 77 then
-    return txse_txseequities_seed_rake_v1_0.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if message_type == 82 then
-    return txse_txseequities_seed_rake_v1_0.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Message
-  if message_type == 86 then
-    return txse_txseequities_seed_rake_v1_0.mass_cancel_message.dissect(buffer, offset, packet, parent)
+  local dissect = txse_txseequities_seed_rake_v1_0.unsequenced_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -12068,14 +11118,15 @@ end
 txse_txseequities_seed_rake_v1_0.client_payload = {}
 
 -- Dissect: Client Payload
+txse_txseequities_seed_rake_v1_0.client_payload.dispatch = {
+  [53] = txse_txseequities_seed_rake_v1_0.logon_request_packet.dissect,
+  [54] = txse_txseequities_seed_rake_v1_0.tcp_unsequenced_message.dissect,
+}
+
 txse_txseequities_seed_rake_v1_0.client_payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Logon Request Packet
-  if packet_type == 53 then
-    return txse_txseequities_seed_rake_v1_0.logon_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tcp Unsequenced Message
-  if packet_type == 54 then
-    return txse_txseequities_seed_rake_v1_0.tcp_unsequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = txse_txseequities_seed_rake_v1_0.client_payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

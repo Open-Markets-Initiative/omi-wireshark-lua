@@ -317,15 +317,13 @@ memx_memxoptions_memoirtop_sbe_v1_3.closing_only = {}
 memx_memxoptions_memoirtop_sbe_v1_3.closing_only.size = 1
 
 -- Display: Closing Only
-memx_memxoptions_memoirtop_sbe_v1_3.closing_only.display = function(value)
-  if value == 0 then
-    return "Closing Only: False (0)"
-  end
-  if value == 1 then
-    return "Closing Only: True (1)"
-  end
+memx_memxoptions_memoirtop_sbe_v1_3.closing_only.labels = {
+  [0] = "Closing Only: False (0)",
+  [1] = "Closing Only: True (1)",
+}
 
-  return "Closing Only: Unknown("..value..")"
+memx_memxoptions_memoirtop_sbe_v1_3.closing_only.display = function(value)
+  return memx_memxoptions_memoirtop_sbe_v1_3.closing_only.labels[value] or "Closing Only: Unknown("..value..")"
 end
 
 -- Dissect: Closing Only
@@ -646,15 +644,13 @@ memx_memxoptions_memoirtop_sbe_v1_3.is_test_symbol = {}
 memx_memxoptions_memoirtop_sbe_v1_3.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
-memx_memxoptions_memoirtop_sbe_v1_3.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
+memx_memxoptions_memoirtop_sbe_v1_3.is_test_symbol.labels = {
+  [0] = "Is Test Symbol: False (0)",
+  [1] = "Is Test Symbol: True (1)",
+}
 
-  return "Is Test Symbol: Unknown("..value..")"
+memx_memxoptions_memoirtop_sbe_v1_3.is_test_symbol.display = function(value)
+  return memx_memxoptions_memoirtop_sbe_v1_3.is_test_symbol.labels[value] or "Is Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Is Test Symbol
@@ -761,18 +757,14 @@ memx_memxoptions_memoirtop_sbe_v1_3.message_type = {}
 memx_memxoptions_memoirtop_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
-memx_memxoptions_memoirtop_sbe_v1_3.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
+memx_memxoptions_memoirtop_sbe_v1_3.message_type.labels = {
+  [0] = "Message Type: Heartbeat Message (0)",
+  [1] = "Message Type: Session Shutdown Message (1)",
+  [2] = "Message Type: Sequenced Message (2)",
+}
 
-  return "Message Type: Unknown("..value..")"
+memx_memxoptions_memoirtop_sbe_v1_3.message_type.display = function(value)
+  return memx_memxoptions_memoirtop_sbe_v1_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -852,15 +844,13 @@ memx_memxoptions_memoirtop_sbe_v1_3.options_product_type = {}
 memx_memxoptions_memoirtop_sbe_v1_3.options_product_type.size = 1
 
 -- Display: Options Product Type
-memx_memxoptions_memoirtop_sbe_v1_3.options_product_type.display = function(value)
-  if value == 0 then
-    return "Options Product Type: Equity Underlying (0)"
-  end
-  if value == 1 then
-    return "Options Product Type: Index Underlying (1)"
-  end
+memx_memxoptions_memoirtop_sbe_v1_3.options_product_type.labels = {
+  [0] = "Options Product Type: Equity Underlying (0)",
+  [1] = "Options Product Type: Index Underlying (1)",
+}
 
-  return "Options Product Type: Unknown("..value..")"
+memx_memxoptions_memoirtop_sbe_v1_3.options_product_type.display = function(value)
+  return memx_memxoptions_memoirtop_sbe_v1_3.options_product_type.labels[value] or "Options Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Options Product Type
@@ -1170,15 +1160,13 @@ memx_memxoptions_memoirtop_sbe_v1_3.strike_put_or_call = {}
 memx_memxoptions_memoirtop_sbe_v1_3.strike_put_or_call.size = 1
 
 -- Display: Strike Put Or Call
-memx_memxoptions_memoirtop_sbe_v1_3.strike_put_or_call.display = function(value)
-  if value == 0 then
-    return "Strike Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Strike Put Or Call: Call (1)"
-  end
+memx_memxoptions_memoirtop_sbe_v1_3.strike_put_or_call.labels = {
+  [0] = "Strike Put Or Call: Put (0)",
+  [1] = "Strike Put Or Call: Call (1)",
+}
 
-  return "Strike Put Or Call: Unknown("..value..")"
+memx_memxoptions_memoirtop_sbe_v1_3.strike_put_or_call.display = function(value)
+  return memx_memxoptions_memoirtop_sbe_v1_3.strike_put_or_call.labels[value] or "Strike Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Strike Put Or Call
@@ -1239,48 +1227,24 @@ memx_memxoptions_memoirtop_sbe_v1_3.template_id = {}
 memx_memxoptions_memoirtop_sbe_v1_3.template_id.size = 1
 
 -- Display: Template Id
-memx_memxoptions_memoirtop_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Instrument Trading Status Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Trading Session Status Message (3)"
-  end
-  if value == 5 then
-    return "Template Id: Broken Trade Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Corrected Trade Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Snapshot Complete Message (7)"
-  end
-  if value == 10 then
-    return "Template Id: Best Bid Offer Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Best Bid Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Best Offer Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Best Bid Short Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Best Offer Short Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Trade Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Clear Book Message (16)"
-  end
+memx_memxoptions_memoirtop_sbe_v1_3.template_id.labels = {
+  [1] = "Template Id: Instrument Directory Message (1)",
+  [2] = "Template Id: Instrument Trading Status Message (2)",
+  [3] = "Template Id: Trading Session Status Message (3)",
+  [5] = "Template Id: Broken Trade Message (5)",
+  [6] = "Template Id: Corrected Trade Message (6)",
+  [7] = "Template Id: Snapshot Complete Message (7)",
+  [10] = "Template Id: Best Bid Offer Message (10)",
+  [11] = "Template Id: Best Bid Message (11)",
+  [12] = "Template Id: Best Offer Message (12)",
+  [13] = "Template Id: Best Bid Short Message (13)",
+  [14] = "Template Id: Best Offer Short Message (14)",
+  [15] = "Template Id: Trade Message (15)",
+  [16] = "Template Id: Clear Book Message (16)",
+}
 
-  return "Template Id: Unknown("..value..")"
+memx_memxoptions_memoirtop_sbe_v1_3.template_id.display = function(value)
+  return memx_memxoptions_memoirtop_sbe_v1_3.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2343,58 +2307,26 @@ end
 memx_memxoptions_memoirtop_sbe_v1_3.payload = {}
 
 -- Dissect: Payload
+memx_memxoptions_memoirtop_sbe_v1_3.payload.dispatch = {
+  [1] = memx_memxoptions_memoirtop_sbe_v1_3.instrument_directory_message.dissect,
+  [2] = memx_memxoptions_memoirtop_sbe_v1_3.instrument_trading_status_message.dissect,
+  [3] = memx_memxoptions_memoirtop_sbe_v1_3.trading_session_status_message.dissect,
+  [5] = memx_memxoptions_memoirtop_sbe_v1_3.broken_trade_message.dissect,
+  [6] = memx_memxoptions_memoirtop_sbe_v1_3.corrected_trade_message.dissect,
+  [7] = memx_memxoptions_memoirtop_sbe_v1_3.snapshot_complete_message.dissect,
+  [10] = memx_memxoptions_memoirtop_sbe_v1_3.best_bid_offer_message.dissect,
+  [11] = memx_memxoptions_memoirtop_sbe_v1_3.best_bid_message.dissect,
+  [12] = memx_memxoptions_memoirtop_sbe_v1_3.best_offer_message.dissect,
+  [13] = memx_memxoptions_memoirtop_sbe_v1_3.best_bid_short_message.dissect,
+  [14] = memx_memxoptions_memoirtop_sbe_v1_3.best_offer_short_message.dissect,
+  [15] = memx_memxoptions_memoirtop_sbe_v1_3.trade_message.dissect,
+  [16] = memx_memxoptions_memoirtop_sbe_v1_3.clear_book_message.dissect,
+}
+
 memx_memxoptions_memoirtop_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Instrument Directory Message
-  if template_id == 1 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Trading Status Message
-  if template_id == 2 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.instrument_trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if template_id == 3 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if template_id == 5 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Corrected Trade Message
-  if template_id == 6 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.corrected_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Complete Message
-  if template_id == 7 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.snapshot_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Offer Message
-  if template_id == 10 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.best_bid_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Message
-  if template_id == 11 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.best_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Offer Message
-  if template_id == 12 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.best_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Short Message
-  if template_id == 13 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.best_bid_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Offer Short Message
-  if template_id == 14 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.best_offer_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if template_id == 15 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clear Book Message
-  if template_id == 16 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.clear_book_message.dissect(buffer, offset, packet, parent)
+  local dissect = memx_memxoptions_memoirtop_sbe_v1_3.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2661,18 +2593,16 @@ end
 memx_memxoptions_memoirtop_sbe_v1_3.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
+memx_memxoptions_memoirtop_sbe_v1_3.sequenced_messages.dispatch = {
+  [0] = memx_memxoptions_memoirtop_sbe_v1_3.heartbeat.dissect,
+  [1] = memx_memxoptions_memoirtop_sbe_v1_3.session_shutdown.dissect,
+  [2] = memx_memxoptions_memoirtop_sbe_v1_3.sequenced_message.dissect,
+}
+
 memx_memxoptions_memoirtop_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Heartbeat
-  if message_type == 0 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Shutdown
-  if message_type == 1 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.session_shutdown.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 2 then
-    return memx_memxoptions_memoirtop_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = memx_memxoptions_memoirtop_sbe_v1_3.sequenced_messages.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

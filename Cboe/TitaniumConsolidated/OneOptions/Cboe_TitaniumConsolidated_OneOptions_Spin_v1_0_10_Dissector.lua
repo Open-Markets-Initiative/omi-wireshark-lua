@@ -193,18 +193,14 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_response
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_response_status.size = 1
 
 -- Display: Instrument Definition Response Status
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_response_status.display = function(value)
-  if value == "A" then
-    return "Instrument Definition Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Instrument Definition Response Status: Out Of Range Sequence Must Be 0 (O)"
-  end
-  if value == "S" then
-    return "Instrument Definition Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_response_status.labels = {
+  ["A"] = "Instrument Definition Response Status: Accepted (A)",
+  ["O"] = "Instrument Definition Response Status: Out Of Range Sequence Must Be 0 (O)",
+  ["S"] = "Instrument Definition Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Instrument Definition Response Status: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_response_status.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_response_status.labels[value] or "Instrument Definition Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Definition Response Status
@@ -249,21 +245,15 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_response_status = {}
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_response_status.labels = {
+  ["A"] = "Login Response Status: Login Accepted (A)",
+  ["N"] = "Login Response Status: Not Authorized Invalid Username Password (N)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_response_status.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -331,48 +321,24 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type = {}
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type.size = 1
 
 -- Display: Message Type
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x80 then
-    return "Message Type: Spin Image Available Message (0x80)"
-  end
-  if value == 0x81 then
-    return "Message Type: Spin Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Spin Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Spin Finished Message (0x83)"
-  end
-  if value == 0x84 then
-    return "Message Type: Instrument Definition Request Message (0x84)"
-  end
-  if value == 0x85 then
-    return "Message Type: Instrument Definition Response Message (0x85)"
-  end
-  if value == 0x86 then
-    return "Message Type: Instrument Definition Finished Message (0x86)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0x87 then
-    return "Message Type: Trade Replay Request Message (0x87)"
-  end
-  if value == 0x88 then
-    return "Message Type: Trade Replay Response Message (0x88)"
-  end
-  if value == 0x89 then
-    return "Message Type: Trade Replay Finished Message (0x89)"
-  end
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type.labels = {
+  [0x01] = "Message Type: Login Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x80] = "Message Type: Spin Image Available Message (0x80)",
+  [0x81] = "Message Type: Spin Request Message (0x81)",
+  [0x82] = "Message Type: Spin Response Message (0x82)",
+  [0x83] = "Message Type: Spin Finished Message (0x83)",
+  [0x84] = "Message Type: Instrument Definition Request Message (0x84)",
+  [0x85] = "Message Type: Instrument Definition Response Message (0x85)",
+  [0x86] = "Message Type: Instrument Definition Finished Message (0x86)",
+  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
+  [0x87] = "Message Type: Trade Replay Request Message (0x87)",
+  [0x88] = "Message Type: Trade Replay Response Message (0x88)",
+  [0x89] = "Message Type: Trade Replay Finished Message (0x89)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -509,18 +475,14 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_response_status = {}
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_response_status.size = 1
 
 -- Display: Spin Response Status
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_response_status.display = function(value)
-  if value == "A" then
-    return "Spin Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)"
-  end
-  if value == "S" then
-    return "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_response_status.labels = {
+  ["A"] = "Spin Response Status: Accepted (A)",
+  ["O"] = "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)",
+  ["S"] = "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Spin Response Status: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_response_status.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_response_status.labels[value] or "Spin Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Spin Response Status
@@ -542,15 +504,13 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_condition = {}
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_condition.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -572,21 +532,15 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status =
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status.size = 1
 
 -- Display: Trade Replay Response Status
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status.display = function(value)
-  if value == "A" then
-    return "Trade Replay Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Trade Replay Response Status: Out Of Range Sequence Must Be 0 (O)"
-  end
-  if value == "U" then
-    return "Trade Replay Response Status: Trade Replay Functionality Is Not Available On This Unit (U)"
-  end
-  if value == "S" then
-    return "Trade Replay Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status.labels = {
+  ["A"] = "Trade Replay Response Status: Accepted (A)",
+  ["O"] = "Trade Replay Response Status: Out Of Range Sequence Must Be 0 (O)",
+  ["U"] = "Trade Replay Response Status: Trade Replay Functionality Is Not Available On This Unit (U)",
+  ["S"] = "Trade Replay Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Trade Replay Response Status: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status.labels[value] or "Trade Replay Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Trade Replay Response Status
@@ -1201,58 +1155,26 @@ end
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.payload = {}
 
 -- Dissect: Payload
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.payload.dispatch = {
+  [0x01] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_message.dissect,
+  [0x02] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_response_message.dissect,
+  [0x80] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_image_available_message.dissect,
+  [0x81] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_request_message.dissect,
+  [0x82] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_response_message.dissect,
+  [0x83] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_finished_message.dissect,
+  [0x84] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_request_message.dissect,
+  [0x85] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_response_message.dissect,
+  [0x86] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_finished_message.dissect,
+  [0x2E] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_mapping_message.dissect,
+  [0x87] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_request_message.dissect,
+  [0x88] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_message.dissect,
+  [0x89] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_finished_message.dissect,
+}
+
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Message
-  if message_type == 0x01 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Image Available Message
-  if message_type == 0x80 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_image_available_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 0x81 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 0x82 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Finished Message
-  if message_type == 0x83 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.spin_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Request Message
-  if message_type == 0x84 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Response Message
-  if message_type == 0x85 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Finished Message
-  if message_type == 0x86 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Request Message
-  if message_type == 0x87 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Response Message
-  if message_type == 0x88 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Finished Message
-  if message_type == 0x89 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_finished_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1385,10 +1307,14 @@ end
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages = {}
 
 -- Dissect: Messages
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dispatch = {
+  [0] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.heartbeat.dissect,
+}
+
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

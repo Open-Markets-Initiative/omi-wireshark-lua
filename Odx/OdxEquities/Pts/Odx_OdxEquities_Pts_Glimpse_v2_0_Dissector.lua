@@ -352,15 +352,13 @@ odx_odxequities_pts_glimpse_v2_0.buy_sell_indicator = {}
 odx_odxequities_pts_glimpse_v2_0.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-odx_odxequities_pts_glimpse_v2_0.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+odx_odxequities_pts_glimpse_v2_0.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.buy_sell_indicator.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -382,24 +380,16 @@ odx_odxequities_pts_glimpse_v2_0.client_packet_type = {}
 odx_odxequities_pts_glimpse_v2_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-odx_odxequities_pts_glimpse_v2_0.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+odx_odxequities_pts_glimpse_v2_0.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.client_packet_type.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -538,12 +528,12 @@ odx_odxequities_pts_glimpse_v2_0.order_type = {}
 odx_odxequities_pts_glimpse_v2_0.order_type.size = 1
 
 -- Display: Order Type
-odx_odxequities_pts_glimpse_v2_0.order_type.display = function(value)
-  if value == "Q" then
-    return "Order Type: Dlp Order (Q)"
-  end
+odx_odxequities_pts_glimpse_v2_0.order_type.labels = {
+  ["Q"] = "Order Type: Dlp Order (Q)",
+}
 
-  return "Order Type: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.order_type.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -813,15 +803,13 @@ odx_odxequities_pts_glimpse_v2_0.reject_reason_code = {}
 odx_odxequities_pts_glimpse_v2_0.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-odx_odxequities_pts_glimpse_v2_0.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+odx_odxequities_pts_glimpse_v2_0.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.reject_reason_code.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -976,36 +964,20 @@ odx_odxequities_pts_glimpse_v2_0.sequenced_message_type = {}
 odx_odxequities_pts_glimpse_v2_0.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-odx_odxequities_pts_glimpse_v2_0.sequenced_message_type.display = function(value)
-  if value == "T" then
-    return "Sequenced Message Type: Timestamp Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Sequenced Message Type: Price Tick Size Message (L)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Orderbook Directory Message (R)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading State Message (H)"
-  end
-  if value == "Y" then
-    return "Sequenced Message Type: Short Selling Price Restriction State Message (Y)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Order Added Message (A)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Order Added With Attributes Message (F)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: End Of Snapshot Message (G)"
-  end
+odx_odxequities_pts_glimpse_v2_0.sequenced_message_type.labels = {
+  ["T"] = "Sequenced Message Type: Timestamp Seconds Message (T)",
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["L"] = "Sequenced Message Type: Price Tick Size Message (L)",
+  ["R"] = "Sequenced Message Type: Orderbook Directory Message (R)",
+  ["H"] = "Sequenced Message Type: Trading State Message (H)",
+  ["Y"] = "Sequenced Message Type: Short Selling Price Restriction State Message (Y)",
+  ["A"] = "Sequenced Message Type: Order Added Message (A)",
+  ["F"] = "Sequenced Message Type: Order Added With Attributes Message (F)",
+  ["G"] = "Sequenced Message Type: End Of Snapshot Message (G)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.sequenced_message_type.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1027,27 +999,17 @@ odx_odxequities_pts_glimpse_v2_0.server_packet_type = {}
 odx_odxequities_pts_glimpse_v2_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-odx_odxequities_pts_glimpse_v2_0.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+odx_odxequities_pts_glimpse_v2_0.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.server_packet_type.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1069,15 +1031,13 @@ odx_odxequities_pts_glimpse_v2_0.short_selling_state = {}
 odx_odxequities_pts_glimpse_v2_0.short_selling_state.size = 1
 
 -- Display: Short Selling State
-odx_odxequities_pts_glimpse_v2_0.short_selling_state.display = function(value)
-  if value == "0" then
-    return "Short Selling State: No Price Restriction (0)"
-  end
-  if value == "1" then
-    return "Short Selling State: Price Restriction In Effect (1)"
-  end
+odx_odxequities_pts_glimpse_v2_0.short_selling_state.labels = {
+  ["0"] = "Short Selling State: No Price Restriction (0)",
+  ["1"] = "Short Selling State: Price Restriction In Effect (1)",
+}
 
-  return "Short Selling State: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.short_selling_state.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.short_selling_state.labels[value] or "Short Selling State: Unknown("..value..")"
 end
 
 -- Dissect: Short Selling State
@@ -1099,15 +1059,13 @@ odx_odxequities_pts_glimpse_v2_0.system_event = {}
 odx_odxequities_pts_glimpse_v2_0.system_event.size = 1
 
 -- Display: System Event
-odx_odxequities_pts_glimpse_v2_0.system_event.display = function(value)
-  if value == "O" then
-    return "System Event: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "System Event: End Of Messages (C)"
-  end
+odx_odxequities_pts_glimpse_v2_0.system_event.labels = {
+  ["O"] = "System Event: Start Of Messages (O)",
+  ["C"] = "System Event: End Of Messages (C)",
+}
 
-  return "System Event: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.system_event.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.system_event.labels[value] or "System Event: Unknown("..value..")"
 end
 
 -- Dissect: System Event
@@ -1129,15 +1087,13 @@ odx_odxequities_pts_glimpse_v2_0.trading_state = {}
 odx_odxequities_pts_glimpse_v2_0.trading_state.size = 1
 
 -- Display: Trading State
-odx_odxequities_pts_glimpse_v2_0.trading_state.display = function(value)
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
-  if value == "V" then
-    return "Trading State: Suspended (V)"
-  end
+odx_odxequities_pts_glimpse_v2_0.trading_state.labels = {
+  ["T"] = "Trading State: Trading (T)",
+  ["V"] = "Trading State: Suspended (V)",
+}
 
-  return "Trading State: Unknown("..value..")"
+odx_odxequities_pts_glimpse_v2_0.trading_state.display = function(value)
+  return odx_odxequities_pts_glimpse_v2_0.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1847,42 +1803,22 @@ end
 odx_odxequities_pts_glimpse_v2_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+odx_odxequities_pts_glimpse_v2_0.sequenced_message.dispatch = {
+  ["T"] = odx_odxequities_pts_glimpse_v2_0.seconds_message.dissect,
+  ["S"] = odx_odxequities_pts_glimpse_v2_0.system_event_message.dissect,
+  ["L"] = odx_odxequities_pts_glimpse_v2_0.price_tick_size_message.dissect,
+  ["R"] = odx_odxequities_pts_glimpse_v2_0.orderbook_directory_message.dissect,
+  ["H"] = odx_odxequities_pts_glimpse_v2_0.trading_state_message.dissect,
+  ["Y"] = odx_odxequities_pts_glimpse_v2_0.short_selling_price_restriction_state_message.dissect,
+  ["A"] = odx_odxequities_pts_glimpse_v2_0.order_added_message.dissect,
+  ["F"] = odx_odxequities_pts_glimpse_v2_0.order_added_with_attributes_message.dissect,
+  ["G"] = odx_odxequities_pts_glimpse_v2_0.end_of_snapshot_message.dissect,
+}
+
 odx_odxequities_pts_glimpse_v2_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Seconds Message
-  if sequenced_message_type == "T" then
-    return odx_odxequities_pts_glimpse_v2_0.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return odx_odxequities_pts_glimpse_v2_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Tick Size Message
-  if sequenced_message_type == "L" then
-    return odx_odxequities_pts_glimpse_v2_0.price_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Directory Message
-  if sequenced_message_type == "R" then
-    return odx_odxequities_pts_glimpse_v2_0.orderbook_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading State Message
-  if sequenced_message_type == "H" then
-    return odx_odxequities_pts_glimpse_v2_0.trading_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Selling Price Restriction State Message
-  if sequenced_message_type == "Y" then
-    return odx_odxequities_pts_glimpse_v2_0.short_selling_price_restriction_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added Message
-  if sequenced_message_type == "A" then
-    return odx_odxequities_pts_glimpse_v2_0.order_added_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added With Attributes Message
-  if sequenced_message_type == "F" then
-    return odx_odxequities_pts_glimpse_v2_0.order_added_with_attributes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Snapshot Message
-  if sequenced_message_type == "G" then
-    return odx_odxequities_pts_glimpse_v2_0.end_of_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = odx_odxequities_pts_glimpse_v2_0.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2125,30 +2061,19 @@ end
 odx_odxequities_pts_glimpse_v2_0.server_payload = {}
 
 -- Dissect: Server Payload
+odx_odxequities_pts_glimpse_v2_0.server_payload.dispatch = {
+  ["+"] = odx_odxequities_pts_glimpse_v2_0.debug_packet.dissect,
+  ["A"] = odx_odxequities_pts_glimpse_v2_0.login_accepted_packet.dissect,
+  ["J"] = odx_odxequities_pts_glimpse_v2_0.login_rejected_packet.dissect,
+  ["S"] = odx_odxequities_pts_glimpse_v2_0.sequenced_data_packet.dissect,
+  ["H"] = odx_odxequities_pts_glimpse_v2_0.server_heartbeat.dissect,
+  ["Z"] = odx_odxequities_pts_glimpse_v2_0.end_of_session.dissect,
+}
+
 odx_odxequities_pts_glimpse_v2_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return odx_odxequities_pts_glimpse_v2_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return odx_odxequities_pts_glimpse_v2_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return odx_odxequities_pts_glimpse_v2_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return odx_odxequities_pts_glimpse_v2_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return odx_odxequities_pts_glimpse_v2_0.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return odx_odxequities_pts_glimpse_v2_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = odx_odxequities_pts_glimpse_v2_0.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2461,26 +2386,18 @@ end
 odx_odxequities_pts_glimpse_v2_0.client_payload = {}
 
 -- Dissect: Client Payload
+odx_odxequities_pts_glimpse_v2_0.client_payload.dispatch = {
+  ["+"] = odx_odxequities_pts_glimpse_v2_0.debug_packet.dissect,
+  ["L"] = odx_odxequities_pts_glimpse_v2_0.login_request_packet.dissect,
+  ["U"] = odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.dissect,
+  ["R"] = odx_odxequities_pts_glimpse_v2_0.client_heartbeat.dissect,
+  ["O"] = odx_odxequities_pts_glimpse_v2_0.logout_request.dissect,
+}
+
 odx_odxequities_pts_glimpse_v2_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return odx_odxequities_pts_glimpse_v2_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return odx_odxequities_pts_glimpse_v2_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return odx_odxequities_pts_glimpse_v2_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return odx_odxequities_pts_glimpse_v2_0.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return odx_odxequities_pts_glimpse_v2_0.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = odx_odxequities_pts_glimpse_v2_0.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

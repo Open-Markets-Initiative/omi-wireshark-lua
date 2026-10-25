@@ -755,36 +755,20 @@ lseg_lse_analyticsreplay_gtp_v26_2.message_type = {}
 lseg_lse_analyticsreplay_gtp_v26_2.message_type.size = 1
 
 -- Display: Message Type
-lseg_lse_analyticsreplay_gtp_v26_2.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Request Message (0x01)"
-  end
-  if value == 0x03 then
-    return "Message Type: Replay Request Message (0x03)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x04 then
-    return "Message Type: Replay Response Message (0x04)"
-  end
-  if value == 0x83 then
-    return "Message Type: Replay And Recovery Complete Message (0x83)"
-  end
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x70 then
-    return "Message Type: Instrument Directory Message (0x70)"
-  end
-  if value == 0x48 then
-    return "Message Type: Instrument Status Message (0x48)"
-  end
-  if value == 0x61 then
-    return "Message Type: Analytics Message (0x61)"
-  end
+lseg_lse_analyticsreplay_gtp_v26_2.message_type.labels = {
+  [0x01] = "Message Type: Login Request Message (0x01)",
+  [0x03] = "Message Type: Replay Request Message (0x03)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x04] = "Message Type: Replay Response Message (0x04)",
+  [0x83] = "Message Type: Replay And Recovery Complete Message (0x83)",
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x70] = "Message Type: Instrument Directory Message (0x70)",
+  [0x48] = "Message Type: Instrument Status Message (0x48)",
+  [0x61] = "Message Type: Analytics Message (0x61)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_lse_analyticsreplay_gtp_v26_2.message_type.display = function(value)
+  return lseg_lse_analyticsreplay_gtp_v26_2.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -838,21 +822,15 @@ lseg_lse_analyticsreplay_gtp_v26_2.order_book_type = {}
 lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.size = 1
 
 -- Display: Order Book Type
-lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.display = function(value)
-  if value == 1 then
-    return "Order Book Type: Firm Quote Book (1)"
-  end
-  if value == 2 then
-    return "Order Book Type: Offbook (2)"
-  end
-  if value == 3 then
-    return "Order Book Type: Electronic Order Book (3)"
-  end
-  if value == 4 then
-    return "Order Book Type: Private Rfq (4)"
-  end
+lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.labels = {
+  [1] = "Order Book Type: Firm Quote Book (1)",
+  [2] = "Order Book Type: Offbook (2)",
+  [3] = "Order Book Type: Electronic Order Book (3)",
+  [4] = "Order Book Type: Private Rfq (4)",
+}
 
-  return "Order Book Type: Unknown("..value..")"
+lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.display = function(value)
+  return lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -1298,30 +1276,18 @@ lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason = {}
 lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 5 then
-    return "Session Change Reason: Aesp Circuit Breaker Tripped (5)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable (9)"
-  end
+lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [5] = "Session Change Reason: Aesp Circuit Breaker Tripped (5)",
+  [9] = "Session Change Reason: Unavailable (9)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason.display = function(value)
+  return lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -1343,12 +1309,12 @@ lseg_lse_analyticsreplay_gtp_v26_2.source_venue = {}
 lseg_lse_analyticsreplay_gtp_v26_2.source_venue.size = 2
 
 -- Display: Source Venue
-lseg_lse_analyticsreplay_gtp_v26_2.source_venue.display = function(value)
-  if value == 1 then
-    return "Source Venue: London Stock Exchange (1)"
-  end
+lseg_lse_analyticsreplay_gtp_v26_2.source_venue.labels = {
+  [1] = "Source Venue: London Stock Exchange (1)",
+}
 
-  return "Source Venue: Unknown("..value..")"
+lseg_lse_analyticsreplay_gtp_v26_2.source_venue.display = function(value)
+  return lseg_lse_analyticsreplay_gtp_v26_2.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
 end
 
 -- Dissect: Source Venue
@@ -2348,42 +2314,22 @@ end
 lseg_lse_analyticsreplay_gtp_v26_2.payload = {}
 
 -- Dissect: Payload
+lseg_lse_analyticsreplay_gtp_v26_2.payload.dispatch = {
+  [0x01] = lseg_lse_analyticsreplay_gtp_v26_2.login_request_message.dissect,
+  [0x03] = lseg_lse_analyticsreplay_gtp_v26_2.replay_request_message.dissect,
+  [0x02] = lseg_lse_analyticsreplay_gtp_v26_2.login_response_message.dissect,
+  [0x04] = lseg_lse_analyticsreplay_gtp_v26_2.replay_response_message.dissect,
+  [0x83] = lseg_lse_analyticsreplay_gtp_v26_2.replay_and_recovery_complete_message.dissect,
+  [0x53] = lseg_lse_analyticsreplay_gtp_v26_2.system_event_message.dissect,
+  [0x70] = lseg_lse_analyticsreplay_gtp_v26_2.instrument_directory_message.dissect,
+  [0x48] = lseg_lse_analyticsreplay_gtp_v26_2.instrument_status_message.dissect,
+  [0x61] = lseg_lse_analyticsreplay_gtp_v26_2.analytics_message.dissect,
+}
+
 lseg_lse_analyticsreplay_gtp_v26_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 0x01 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Message
-  if message_type == 0x03 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Response Message
-  if message_type == 0x04 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.replay_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay And Recovery Complete Message
-  if message_type == 0x83 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.replay_and_recovery_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Directory Message
-  if message_type == 0x70 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Message
-  if message_type == 0x48 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.instrument_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Analytics Message
-  if message_type == 0x61 then
-    return lseg_lse_analyticsreplay_gtp_v26_2.analytics_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_lse_analyticsreplay_gtp_v26_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

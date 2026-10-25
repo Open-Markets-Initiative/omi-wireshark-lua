@@ -366,51 +366,25 @@ currenex_currenexforex_now_cbp_v10.message_type = {}
 currenex_currenexforex_now_cbp_v10.message_type.size = 1
 
 -- Display: Message Type
-currenex_currenexforex_now_cbp_v10.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Logon Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Logout Message (B)"
-  end
-  if value == "C" then
-    return "Message Type: Heart Beat Message (C)"
-  end
-  if value == "D" then
-    return "Message Type: Instrument Info (D)"
-  end
-  if value == "E" then
-    return "Message Type: Instrument Info Ack Message (E)"
-  end
-  if value == "X" then
-    return "Message Type: Subscription Request Message (X)"
-  end
-  if value == "Y" then
-    return "Message Type: Mass Subscription Request Message (Y)"
-  end
-  if value == "G" then
-    return "Message Type: Subscription Reply Message (G)"
-  end
-  if value == "Z" then
-    return "Message Type: Mass Subscription Reply Message (Z)"
-  end
-  if value == "d" then
-    return "Message Type: Depth Of Book Message (d)"
-  end
-  if value == "k" then
-    return "Message Type: Paid Given Message (k)"
-  end
-  if value == "r" then
-    return "Message Type: Wamr With Confidence Factor Message (r)"
-  end
-  if value == "x" then
-    return "Message Type: Mid Activity Indicator Message (x)"
-  end
-  if value == "K" then
-    return "Message Type: Reject Message (K)"
-  end
+currenex_currenexforex_now_cbp_v10.message_type.labels = {
+  ["A"] = "Message Type: Logon Message (A)",
+  ["B"] = "Message Type: Logout Message (B)",
+  ["C"] = "Message Type: Heart Beat Message (C)",
+  ["D"] = "Message Type: Instrument Info (D)",
+  ["E"] = "Message Type: Instrument Info Ack Message (E)",
+  ["X"] = "Message Type: Subscription Request Message (X)",
+  ["Y"] = "Message Type: Mass Subscription Request Message (Y)",
+  ["G"] = "Message Type: Subscription Reply Message (G)",
+  ["Z"] = "Message Type: Mass Subscription Reply Message (Z)",
+  ["d"] = "Message Type: Depth Of Book Message (d)",
+  ["k"] = "Message Type: Paid Given Message (k)",
+  ["r"] = "Message Type: Wamr With Confidence Factor Message (r)",
+  ["x"] = "Message Type: Mid Activity Indicator Message (x)",
+  ["K"] = "Message Type: Reject Message (K)",
+}
 
-  return "Message Type: Unknown("..value..")"
+currenex_currenexforex_now_cbp_v10.message_type.display = function(value)
+  return currenex_currenexforex_now_cbp_v10.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -2040,62 +2014,27 @@ end
 currenex_currenexforex_now_cbp_v10.message_body = {}
 
 -- Dissect: Message Body
+currenex_currenexforex_now_cbp_v10.message_body.dispatch = {
+  ["A"] = currenex_currenexforex_now_cbp_v10.logon_message.dissect,
+  ["B"] = currenex_currenexforex_now_cbp_v10.logout_message.dissect,
+  ["C"] = currenex_currenexforex_now_cbp_v10.heart_beat_message.dissect,
+  ["D"] = currenex_currenexforex_now_cbp_v10.instrument_info.dissect,
+  ["E"] = currenex_currenexforex_now_cbp_v10.instrument_info_ack_message.dissect,
+  ["X"] = currenex_currenexforex_now_cbp_v10.subscription_request_message.dissect,
+  ["Y"] = currenex_currenexforex_now_cbp_v10.mass_subscription_request_message.dissect,
+  ["G"] = currenex_currenexforex_now_cbp_v10.subscription_reply_message.dissect,
+  ["Z"] = currenex_currenexforex_now_cbp_v10.mass_subscription_reply_message.dissect,
+  ["d"] = currenex_currenexforex_now_cbp_v10.depth_of_book_message.dissect,
+  ["k"] = currenex_currenexforex_now_cbp_v10.paid_given_message.dissect,
+  ["r"] = currenex_currenexforex_now_cbp_v10.wamr_with_confidence_factor_message.dissect,
+  ["x"] = currenex_currenexforex_now_cbp_v10.mid_activity_indicator_message.dissect,
+  ["K"] = currenex_currenexforex_now_cbp_v10.reject_message.dissect,
+}
+
 currenex_currenexforex_now_cbp_v10.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon Message
-  if message_type == "A" then
-    return currenex_currenexforex_now_cbp_v10.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if message_type == "B" then
-    return currenex_currenexforex_now_cbp_v10.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heart Beat Message
-  if message_type == "C" then
-    return currenex_currenexforex_now_cbp_v10.heart_beat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info
-  if message_type == "D" then
-    return currenex_currenexforex_now_cbp_v10.instrument_info.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info Ack Message
-  if message_type == "E" then
-    return currenex_currenexforex_now_cbp_v10.instrument_info_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscription Request Message
-  if message_type == "X" then
-    return currenex_currenexforex_now_cbp_v10.subscription_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Subscription Request Message
-  if message_type == "Y" then
-    return currenex_currenexforex_now_cbp_v10.mass_subscription_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscription Reply Message
-  if message_type == "G" then
-    return currenex_currenexforex_now_cbp_v10.subscription_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Subscription Reply Message
-  if message_type == "Z" then
-    return currenex_currenexforex_now_cbp_v10.mass_subscription_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Depth Of Book Message
-  if message_type == "d" then
-    return currenex_currenexforex_now_cbp_v10.depth_of_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Paid Given Message
-  if message_type == "k" then
-    return currenex_currenexforex_now_cbp_v10.paid_given_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wamr With Confidence Factor Message
-  if message_type == "r" then
-    return currenex_currenexforex_now_cbp_v10.wamr_with_confidence_factor_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mid Activity Indicator Message
-  if message_type == "x" then
-    return currenex_currenexforex_now_cbp_v10.mid_activity_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if message_type == "K" then
-    return currenex_currenexforex_now_cbp_v10.reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = currenex_currenexforex_now_cbp_v10.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

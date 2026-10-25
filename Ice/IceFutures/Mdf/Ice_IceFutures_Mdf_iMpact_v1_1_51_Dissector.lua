@@ -3907,429 +3907,151 @@ ice_icefutures_mdf_impact_v1_1_51.market_type_id = {}
 ice_icefutures_mdf_impact_v1_1_51.market_type_id.size = 2
 
 -- Display: Market Type Id
-ice_icefutures_mdf_impact_v1_1_51.market_type_id.display = function(value)
-  if value == 0 then
-    return "Market Type Id: Financial Gas (0)"
-  end
-  if value == 1 then
-    return "Market Type Id: Financial Power (1)"
-  end
-  if value == 2 then
-    return "Market Type Id: Oil (2)"
-  end
-  if value == 3 then
-    return "Market Type Id: Ipe Natural Gas Futures (3)"
-  end
-  if value == 4 then
-    return "Market Type Id: Ipe Gas Oil Futures (4)"
-  end
-  if value == 5 then
-    return "Market Type Id: Ipe Brent Futures (5)"
-  end
-  if value == 7 then
-    return "Market Type Id: Ipe Uk Electricity Futures Peak (7)"
-  end
-  if value == 8 then
-    return "Market Type Id: Ipe Uk Electricity Futures Base (8)"
-  end
-  if value == 9 then
-    return "Market Type Id: Ice Wti Crude Futures (9)"
-  end
-  if value == 10 then
-    return "Market Type Id: G C Newcastle Coal Futures (10)"
-  end
-  if value == 11 then
-    return "Market Type Id: Ice Brent Wti Futures Spread (11)"
-  end
-  if value == 12 then
-    return "Market Type Id: Ipeecx European Emissions (12)"
-  end
-  if value == 13 then
-    return "Market Type Id: Ice Heating Oil Futures (13)"
-  end
-  if value == 14 then
-    return "Market Type Id: Ice Heating Oil Wti Futures Crack (14)"
-  end
-  if value == 15 then
-    return "Market Type Id: Ice Nyh Rbob Gasoline Futures (15)"
-  end
-  if value == 16 then
-    return "Market Type Id: Ice Nyh Rbob Gasoline Wti Futures Crack (16)"
-  end
-  if value == 17 then
-    return "Market Type Id: Ice Rotterdam Coal Futures (17)"
-  end
-  if value == 18 then
-    return "Market Type Id: Ice Richards Bay Coal Futures (18)"
-  end
-  if value == 19 then
-    return "Market Type Id: Ice Rotterdam Richards Bay Coal Futures Spread (19)"
-  end
-  if value == 20 then
-    return "Market Type Id: Cocoa (20)"
-  end
-  if value == 21 then
-    return "Market Type Id: Coffee C (21)"
-  end
-  if value == 22 then
-    return "Market Type Id: Cotton No 2 (22)"
-  end
-  if value == 23 then
-    return "Market Type Id: Fcoj A (23)"
-  end
-  if value == 24 then
-    return "Market Type Id: Sugar No 11 (24)"
-  end
-  if value == 25 then
-    return "Market Type Id: Heat Rate Spread (25)"
-  end
-  if value == 26 then
-    return "Market Type Id: Us Dollar Index (26)"
-  end
-  if value == 36 then
-    return "Market Type Id: Canadian Oilseeds (36)"
-  end
-  if value == 38 then
-    return "Market Type Id: Ecx Cer Futures (38)"
-  end
-  if value == 39 then
-    return "Market Type Id: Foreign Exchange (39)"
-  end
-  if value == 40 then
-    return "Market Type Id: Financial Index Data (40)"
-  end
-  if value == 41 then
-    return "Market Type Id: Sugar No 16 (41)"
-  end
-  if value == 42 then
-    return "Market Type Id: Ecx Euacer Futures Spread (42)"
-  end
-  if value == 44 then
-    return "Market Type Id: Henry Hub (44)"
-  end
-  if value == 48 then
-    return "Market Type Id: Dutch Ttf Gas Futures (48)"
-  end
-  if value == 50 then
-    return "Market Type Id: German Natural Gas Futures (50)"
-  end
-  if value == 51 then
-    return "Market Type Id: European Gas Spreads (51)"
-  end
-  if value == 53 then
-    return "Market Type Id: Canadian Financial Gas (53)"
-  end
-  if value == 54 then
-    return "Market Type Id: Ngx Canadian Physical Crude (54)"
-  end
-  if value == 55 then
-    return "Market Type Id: Us Coal Futures (55)"
-  end
-  if value == 57 then
-    return "Market Type Id: Fob Indo Subbit Coal Futures (57)"
-  end
-  if value == 58 then
-    return "Market Type Id: Heating Oil Brent Futures Crack (58)"
-  end
-  if value == 59 then
-    return "Market Type Id: Nyh Rbob Gasoline Brent Futures Crack (59)"
-  end
-  if value == 60 then
-    return "Market Type Id: Wet Freight (60)"
-  end
-  if value == 61 then
-    return "Market Type Id: Dry Freight (61)"
-  end
-  if value == 62 then
-    return "Market Type Id: Ferrous Metals (62)"
-  end
-  if value == 63 then
-    return "Market Type Id: Platts Variable Oil (63)"
-  end
-  if value == 66 then
-    return "Market Type Id: Nyh Rbob Gasoline Heating Oil Spread (66)"
-  end
-  if value == 69 then
-    return "Market Type Id: Physical Environmental (69)"
-  end
-  if value == 70 then
-    return "Market Type Id: Heating Oil Ls Gasoil Futures Spread (70)"
-  end
-  if value == 71 then
-    return "Market Type Id: Ls Gasoil Brent Futures Crack (71)"
-  end
-  if value == 72 then
-    return "Market Type Id: Nyh Rbob Gasoline Ls Gasoil Futures Spread (72)"
-  end
-  if value == 84 then
-    return "Market Type Id: Ecx Euaa Futures (84)"
-  end
-  if value == 85 then
-    return "Market Type Id: Ecx Cereuaa Futures Spread (85)"
-  end
-  if value == 86 then
-    return "Market Type Id: Ecx Euaaeua Futures Spread (86)"
-  end
-  if value == 89 then
-    return "Market Type Id: Soybean (89)"
-  end
-  if value == 92 then
-    return "Market Type Id: Ecx Eua Eib Auction (92)"
-  end
-  if value == 93 then
-    return "Market Type Id: Financial Lng (93)"
-  end
-  if value == 95 then
-    return "Market Type Id: Eua Uk Auction (95)"
-  end
-  if value == 96 then
-    return "Market Type Id: Euaa Uk Auction (96)"
-  end
-  if value == 97 then
-    return "Market Type Id: Cfr South China Coal Futures (97)"
-  end
-  if value == 98 then
-    return "Market Type Id: Belgian Power Futures (98)"
-  end
-  if value == 99 then
-    return "Market Type Id: Dutch Power Futures (99)"
-  end
-  if value == 100 then
-    return "Market Type Id: G C Newcastle Fob Indo Subbit Coal Futures Spread (100)"
-  end
-  if value == 101 then
-    return "Market Type Id: Richards Bayg C Newcastle Coal Futures Spread (101)"
-  end
-  if value == 102 then
-    return "Market Type Id: Fcoj A Mini (102)"
-  end
-  if value == 104 then
-    return "Market Type Id: Cif Us (104)"
-  end
-  if value == 108 then
-    return "Market Type Id: D 6 Rin (108)"
-  end
-  if value == 111 then
-    return "Market Type Id: European Power Spreads (111)"
-  end
-  if value == 112 then
-    return "Market Type Id: Taqa (112)"
-  end
-  if value == 113 then
-    return "Market Type Id: Belgian Ztp Gas Spot (113)"
-  end
-  if value == 114 then
-    return "Market Type Id: Dutch Ttf Gas Spot (114)"
-  end
-  if value == 115 then
-    return "Market Type Id: Dutch Ttf Gas Storage (115)"
-  end
-  if value == 116 then
-    return "Market Type Id: European Gas Spot Spreads (116)"
-  end
-  if value == 117 then
-    return "Market Type Id: Belgian Ztp Gas Futures (117)"
-  end
-  if value == 118 then
-    return "Market Type Id: Uk Ocm Gas Spot (118)"
-  end
-  if value == 119 then
-    return "Market Type Id: Belgian Gas Spreads (119)"
-  end
-  if value == 124 then
-    return "Market Type Id: Financial Olefins (124)"
-  end
-  if value == 125 then
-    return "Market Type Id: Financial Monomers (125)"
-  end
-  if value == 126 then
-    return "Market Type Id: Platts Variable Oil Urals (126)"
-  end
-  if value == 127 then
-    return "Market Type Id: Endex Spot Market Indices (127)"
-  end
-  if value == 131 then
-    return "Market Type Id: Interest Rate Futures (131)"
-  end
-  if value == 133 then
-    return "Market Type Id: Singapore Energy (133)"
-  end
-  if value == 134 then
-    return "Market Type Id: Singapore Financials (134)"
-  end
-  if value == 135 then
-    return "Market Type Id: Singapore Metals (135)"
-  end
-  if value == 136 then
-    return "Market Type Id: Italian Natural Gas Futures (136)"
-  end
-  if value == 137 then
-    return "Market Type Id: Italian Power Futures (137)"
-  end
-  if value == 139 then
-    return "Market Type Id: Credit Swap Data (139)"
-  end
-  if value == 140 then
-    return "Market Type Id: Gold Fixing (140)"
-  end
-  if value == 141 then
-    return "Market Type Id: North Sea Partials (141)"
-  end
-  if value == 142 then
-    return "Market Type Id: Eu Financial Power Spreads (142)"
-  end
-  if value == 143 then
-    return "Market Type Id: Eu Financial Power Futures (143)"
-  end
-  if value == 144 then
-    return "Market Type Id: Oil Cad (144)"
-  end
-  if value == 147 then
-    return "Market Type Id: Silver Fixing (147)"
-  end
-  if value == 149 then
-    return "Market Type Id: Uk Spark Spread (149)"
-  end
-  if value == 150 then
-    return "Market Type Id: Uk Ocm Physical Gas Spot (150)"
-  end
-  if value == 152 then
-    return "Market Type Id: Japan Domestic Waterborne (152)"
-  end
-  if value == 154 then
-    return "Market Type Id: Daily Metals (154)"
-  end
-  if value == 155 then
-    return "Market Type Id: Brix Energia Fin (155)"
-  end
-  if value == 156 then
-    return "Market Type Id: Japan Domestic Rack (156)"
-  end
-  if value == 157 then
-    return "Market Type Id: Financial Us Lng (157)"
-  end
-  if value == 160 then
-    return "Market Type Id: Ice Rotterdam Newcastle Coal Futures Spread (160)"
-  end
-  if value == 165 then
-    return "Market Type Id: Oil Americas (165)"
-  end
-  if value == 167 then
-    return "Market Type Id: Platts Petrochemical (167)"
-  end
-  if value == 168 then
-    return "Market Type Id: Permian Wti Futures (168)"
-  end
-  if value == 170 then
-    return "Market Type Id: Endex Equity Indices (170)"
-  end
-  if value == 171 then
-    return "Market Type Id: Endex Single Stock Options (171)"
-  end
-  if value == 172 then
-    return "Market Type Id: Ifus Ice Indices (172)"
-  end
-  if value == 173 then
-    return "Market Type Id: Platts Asia Bunker (173)"
-  end
-  if value == 177 then
-    return "Market Type Id: Sofr Futures (177)"
-  end
-  if value == 178 then
-    return "Market Type Id: Digital Asset Futures (178)"
-  end
-  if value == 179 then
-    return "Market Type Id: Permian Brent Futures Spread (179)"
-  end
-  if value == 180 then
-    return "Market Type Id: Permian Wti Futures Spread (180)"
-  end
-  if value == 200 then
-    return "Market Type Id: Liffe Sti Rs (200)"
-  end
-  if value == 202 then
-    return "Market Type Id: Liffe Bonds (202)"
-  end
-  if value == 203 then
-    return "Market Type Id: Liffe Swapnotes (203)"
-  end
-  if value == 205 then
-    return "Market Type Id: Liffe Commodities (205)"
-  end
-  if value == 206 then
-    return "Market Type Id: Metals (206)"
-  end
-  if value == 207 then
-    return "Market Type Id: Ifus Equity Indices (207)"
-  end
-  if value == 208 then
-    return "Market Type Id: Gcf Repo (208)"
-  end
-  if value == 209 then
-    return "Market Type Id: Liffe Three Month Euro And Eonia (209)"
-  end
-  if value == 210 then
-    return "Market Type Id: Eurodollar (210)"
-  end
-  if value == 211 then
-    return "Market Type Id: Liffe Equity Derivatives Non Us Based (211)"
-  end
-  if value == 212 then
-    return "Market Type Id: Liffe Equity Derivatives Us Based (212)"
-  end
-  if value == 213 then
-    return "Market Type Id: Liffe Index Options (213)"
-  end
-  if value == 214 then
-    return "Market Type Id: Liffe Index Futures Us Restricted (214)"
-  end
-  if value == 215 then
-    return "Market Type Id: Liffe Index Futures Non Us Restricted (215)"
-  end
-  if value == 305 then
-    return "Market Type Id: Physical Gas (305)"
-  end
-  if value == 306 then
-    return "Market Type Id: Power (306)"
-  end
-  if value == 314 then
-    return "Market Type Id: Ngx Physical Gas (314)"
-  end
-  if value == 315 then
-    return "Market Type Id: Ngx Financial Power (315)"
-  end
-  if value == 316 then
-    return "Market Type Id: Ngx Financial Gas (316)"
-  end
-  if value == 317 then
-    return "Market Type Id: Financial Ngl (317)"
-  end
-  if value == 318 then
-    return "Market Type Id: Olefins Polymers (318)"
-  end
-  if value == 319 then
-    return "Market Type Id: Physical Ngl (319)"
-  end
-  if value == 320 then
-    return "Market Type Id: Physical Oil (320)"
-  end
-  if value == 600 then
-    return "Market Type Id: Test Ipe (600)"
-  end
-  if value == 601 then
-    return "Market Type Id: Test Nybot (601)"
-  end
-  if value == 602 then
-    return "Market Type Id: Test Ndex (602)"
-  end
-  if value == 603 then
-    return "Market Type Id: Test Liffeuk 1 (603)"
-  end
-  if value == 604 then
-    return "Market Type Id: Test Liffeuk 2 (604)"
-  end
+ice_icefutures_mdf_impact_v1_1_51.market_type_id.labels = {
+  [0] = "Market Type Id: Financial Gas (0)",
+  [1] = "Market Type Id: Financial Power (1)",
+  [2] = "Market Type Id: Oil (2)",
+  [3] = "Market Type Id: Ipe Natural Gas Futures (3)",
+  [4] = "Market Type Id: Ipe Gas Oil Futures (4)",
+  [5] = "Market Type Id: Ipe Brent Futures (5)",
+  [7] = "Market Type Id: Ipe Uk Electricity Futures Peak (7)",
+  [8] = "Market Type Id: Ipe Uk Electricity Futures Base (8)",
+  [9] = "Market Type Id: Ice Wti Crude Futures (9)",
+  [10] = "Market Type Id: G C Newcastle Coal Futures (10)",
+  [11] = "Market Type Id: Ice Brent Wti Futures Spread (11)",
+  [12] = "Market Type Id: Ipeecx European Emissions (12)",
+  [13] = "Market Type Id: Ice Heating Oil Futures (13)",
+  [14] = "Market Type Id: Ice Heating Oil Wti Futures Crack (14)",
+  [15] = "Market Type Id: Ice Nyh Rbob Gasoline Futures (15)",
+  [16] = "Market Type Id: Ice Nyh Rbob Gasoline Wti Futures Crack (16)",
+  [17] = "Market Type Id: Ice Rotterdam Coal Futures (17)",
+  [18] = "Market Type Id: Ice Richards Bay Coal Futures (18)",
+  [19] = "Market Type Id: Ice Rotterdam Richards Bay Coal Futures Spread (19)",
+  [20] = "Market Type Id: Cocoa (20)",
+  [21] = "Market Type Id: Coffee C (21)",
+  [22] = "Market Type Id: Cotton No 2 (22)",
+  [23] = "Market Type Id: Fcoj A (23)",
+  [24] = "Market Type Id: Sugar No 11 (24)",
+  [25] = "Market Type Id: Heat Rate Spread (25)",
+  [26] = "Market Type Id: Us Dollar Index (26)",
+  [36] = "Market Type Id: Canadian Oilseeds (36)",
+  [38] = "Market Type Id: Ecx Cer Futures (38)",
+  [39] = "Market Type Id: Foreign Exchange (39)",
+  [40] = "Market Type Id: Financial Index Data (40)",
+  [41] = "Market Type Id: Sugar No 16 (41)",
+  [42] = "Market Type Id: Ecx Euacer Futures Spread (42)",
+  [44] = "Market Type Id: Henry Hub (44)",
+  [48] = "Market Type Id: Dutch Ttf Gas Futures (48)",
+  [50] = "Market Type Id: German Natural Gas Futures (50)",
+  [51] = "Market Type Id: European Gas Spreads (51)",
+  [53] = "Market Type Id: Canadian Financial Gas (53)",
+  [54] = "Market Type Id: Ngx Canadian Physical Crude (54)",
+  [55] = "Market Type Id: Us Coal Futures (55)",
+  [57] = "Market Type Id: Fob Indo Subbit Coal Futures (57)",
+  [58] = "Market Type Id: Heating Oil Brent Futures Crack (58)",
+  [59] = "Market Type Id: Nyh Rbob Gasoline Brent Futures Crack (59)",
+  [60] = "Market Type Id: Wet Freight (60)",
+  [61] = "Market Type Id: Dry Freight (61)",
+  [62] = "Market Type Id: Ferrous Metals (62)",
+  [63] = "Market Type Id: Platts Variable Oil (63)",
+  [66] = "Market Type Id: Nyh Rbob Gasoline Heating Oil Spread (66)",
+  [69] = "Market Type Id: Physical Environmental (69)",
+  [70] = "Market Type Id: Heating Oil Ls Gasoil Futures Spread (70)",
+  [71] = "Market Type Id: Ls Gasoil Brent Futures Crack (71)",
+  [72] = "Market Type Id: Nyh Rbob Gasoline Ls Gasoil Futures Spread (72)",
+  [84] = "Market Type Id: Ecx Euaa Futures (84)",
+  [85] = "Market Type Id: Ecx Cereuaa Futures Spread (85)",
+  [86] = "Market Type Id: Ecx Euaaeua Futures Spread (86)",
+  [89] = "Market Type Id: Soybean (89)",
+  [92] = "Market Type Id: Ecx Eua Eib Auction (92)",
+  [93] = "Market Type Id: Financial Lng (93)",
+  [95] = "Market Type Id: Eua Uk Auction (95)",
+  [96] = "Market Type Id: Euaa Uk Auction (96)",
+  [97] = "Market Type Id: Cfr South China Coal Futures (97)",
+  [98] = "Market Type Id: Belgian Power Futures (98)",
+  [99] = "Market Type Id: Dutch Power Futures (99)",
+  [100] = "Market Type Id: G C Newcastle Fob Indo Subbit Coal Futures Spread (100)",
+  [101] = "Market Type Id: Richards Bayg C Newcastle Coal Futures Spread (101)",
+  [102] = "Market Type Id: Fcoj A Mini (102)",
+  [104] = "Market Type Id: Cif Us (104)",
+  [108] = "Market Type Id: D 6 Rin (108)",
+  [111] = "Market Type Id: European Power Spreads (111)",
+  [112] = "Market Type Id: Taqa (112)",
+  [113] = "Market Type Id: Belgian Ztp Gas Spot (113)",
+  [114] = "Market Type Id: Dutch Ttf Gas Spot (114)",
+  [115] = "Market Type Id: Dutch Ttf Gas Storage (115)",
+  [116] = "Market Type Id: European Gas Spot Spreads (116)",
+  [117] = "Market Type Id: Belgian Ztp Gas Futures (117)",
+  [118] = "Market Type Id: Uk Ocm Gas Spot (118)",
+  [119] = "Market Type Id: Belgian Gas Spreads (119)",
+  [124] = "Market Type Id: Financial Olefins (124)",
+  [125] = "Market Type Id: Financial Monomers (125)",
+  [126] = "Market Type Id: Platts Variable Oil Urals (126)",
+  [127] = "Market Type Id: Endex Spot Market Indices (127)",
+  [131] = "Market Type Id: Interest Rate Futures (131)",
+  [133] = "Market Type Id: Singapore Energy (133)",
+  [134] = "Market Type Id: Singapore Financials (134)",
+  [135] = "Market Type Id: Singapore Metals (135)",
+  [136] = "Market Type Id: Italian Natural Gas Futures (136)",
+  [137] = "Market Type Id: Italian Power Futures (137)",
+  [139] = "Market Type Id: Credit Swap Data (139)",
+  [140] = "Market Type Id: Gold Fixing (140)",
+  [141] = "Market Type Id: North Sea Partials (141)",
+  [142] = "Market Type Id: Eu Financial Power Spreads (142)",
+  [143] = "Market Type Id: Eu Financial Power Futures (143)",
+  [144] = "Market Type Id: Oil Cad (144)",
+  [147] = "Market Type Id: Silver Fixing (147)",
+  [149] = "Market Type Id: Uk Spark Spread (149)",
+  [150] = "Market Type Id: Uk Ocm Physical Gas Spot (150)",
+  [152] = "Market Type Id: Japan Domestic Waterborne (152)",
+  [154] = "Market Type Id: Daily Metals (154)",
+  [155] = "Market Type Id: Brix Energia Fin (155)",
+  [156] = "Market Type Id: Japan Domestic Rack (156)",
+  [157] = "Market Type Id: Financial Us Lng (157)",
+  [160] = "Market Type Id: Ice Rotterdam Newcastle Coal Futures Spread (160)",
+  [165] = "Market Type Id: Oil Americas (165)",
+  [167] = "Market Type Id: Platts Petrochemical (167)",
+  [168] = "Market Type Id: Permian Wti Futures (168)",
+  [170] = "Market Type Id: Endex Equity Indices (170)",
+  [171] = "Market Type Id: Endex Single Stock Options (171)",
+  [172] = "Market Type Id: Ifus Ice Indices (172)",
+  [173] = "Market Type Id: Platts Asia Bunker (173)",
+  [177] = "Market Type Id: Sofr Futures (177)",
+  [178] = "Market Type Id: Digital Asset Futures (178)",
+  [179] = "Market Type Id: Permian Brent Futures Spread (179)",
+  [180] = "Market Type Id: Permian Wti Futures Spread (180)",
+  [200] = "Market Type Id: Liffe Sti Rs (200)",
+  [202] = "Market Type Id: Liffe Bonds (202)",
+  [203] = "Market Type Id: Liffe Swapnotes (203)",
+  [205] = "Market Type Id: Liffe Commodities (205)",
+  [206] = "Market Type Id: Metals (206)",
+  [207] = "Market Type Id: Ifus Equity Indices (207)",
+  [208] = "Market Type Id: Gcf Repo (208)",
+  [209] = "Market Type Id: Liffe Three Month Euro And Eonia (209)",
+  [210] = "Market Type Id: Eurodollar (210)",
+  [211] = "Market Type Id: Liffe Equity Derivatives Non Us Based (211)",
+  [212] = "Market Type Id: Liffe Equity Derivatives Us Based (212)",
+  [213] = "Market Type Id: Liffe Index Options (213)",
+  [214] = "Market Type Id: Liffe Index Futures Us Restricted (214)",
+  [215] = "Market Type Id: Liffe Index Futures Non Us Restricted (215)",
+  [305] = "Market Type Id: Physical Gas (305)",
+  [306] = "Market Type Id: Power (306)",
+  [314] = "Market Type Id: Ngx Physical Gas (314)",
+  [315] = "Market Type Id: Ngx Financial Power (315)",
+  [316] = "Market Type Id: Ngx Financial Gas (316)",
+  [317] = "Market Type Id: Financial Ngl (317)",
+  [318] = "Market Type Id: Olefins Polymers (318)",
+  [319] = "Market Type Id: Physical Ngl (319)",
+  [320] = "Market Type Id: Physical Oil (320)",
+  [600] = "Market Type Id: Test Ipe (600)",
+  [601] = "Market Type Id: Test Nybot (601)",
+  [602] = "Market Type Id: Test Ndex (602)",
+  [603] = "Market Type Id: Test Liffeuk 1 (603)",
+  [604] = "Market Type Id: Test Liffeuk 2 (604)",
+}
 
-  return "Market Type Id: Unknown("..value..")"
+ice_icefutures_mdf_impact_v1_1_51.market_type_id.display = function(value)
+  return ice_icefutures_mdf_impact_v1_1_51.market_type_id.labels[value] or "Market Type Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Type Id
@@ -4514,123 +4236,49 @@ ice_icefutures_mdf_impact_v1_1_51.message_type = {}
 ice_icefutures_mdf_impact_v1_1_51.message_type.size = 1
 
 -- Display: Message Type
-ice_icefutures_mdf_impact_v1_1_51.message_type.display = function(value)
-  if value == "C" then
-    return "Message Type: Market Snapshot Message (C)"
-  end
-  if value == "G" then
-    return "Message Type: Trade Message (G)"
-  end
-  if value == "Y" then
-    return "Message Type: Spot Market Trade Message (Y)"
-  end
-  if value == "H" then
-    return "Message Type: Investigated Trade Message (H)"
-  end
-  if value == "I" then
-    return "Message Type: Cancelled Trade Message (I)"
-  end
-  if value == "J" then
-    return "Message Type: Market Statistics Message (J)"
-  end
-  if value == "K" then
-    return "Message Type: Market State Change Message (K)"
-  end
-  if value == "L" then
-    return "Message Type: System Text Message (L)"
-  end
-  if value == "M" then
-    return "Message Type: Open Interest Message (M)"
-  end
-  if value == "N" then
-    return "Message Type: Open Price Message (N)"
-  end
-  if value == "c" then
-    return "Message Type: Close Price Message (c)"
-  end
-  if value == "O" then
-    return "Message Type: Settlement Price Message (O)"
-  end
-  if value == "z" then
-    return "Message Type: Index Prices Message (z)"
-  end
-  if value == "u" then
-    return "Message Type: End Of Day Market Summary Message (u)"
-  end
-  if value == "f" then
-    return "Message Type: Market Event Message (f)"
-  end
-  if value == "g" then
-    return "Message Type: Pre Open Price Indicator Message (g)"
-  end
-  if value == "i" then
-    return "Message Type: Strip Info Message (i)"
-  end
-  if value == "V" then
-    return "Message Type: Interval Price Limit Notification Message (V)"
-  end
-  if value == "9" then
-    return "Message Type: New Futures Strategy Definition Message (9)"
-  end
-  if value == "R" then
-    return "Message Type: New Expiry Message (R)"
-  end
-  if value == "b" then
-    return "Message Type: Special Field Message (b)"
-  end
-  if value == "Z" then
-    return "Message Type: Fragment Wrapper Message (Z)"
-  end
-  if value == "U" then
-    return "Message Type: New Options Strategy Definition Message (U)"
-  end
-  if value == "l" then
-    return "Message Type: New Options Market Definition Message (l)"
-  end
-  if value == "v" then
-    return "Message Type: Option Open Interest Message (v)"
-  end
-  if value == "w" then
-    return "Message Type: Option Settlement Price Message (w)"
-  end
-  if value == "D" then
-    return "Message Type: Market Snapshot Order Message (D)"
-  end
-  if value == "E" then
-    return "Message Type: Add Or Modify Order Message (E)"
-  end
-  if value == "F" then
-    return "Message Type: Delete Order Message (F)"
-  end
-  if value == "T" then
-    return "Message Type: Message Bundle Marker (T)"
-  end
-  if value == "3" then
-    return "Message Type: Fixing Transition Message (3)"
-  end
-  if value == "4" then
-    return "Message Type: Fixing Lockdown Message (4)"
-  end
-  if value == "0" then
-    return "Message Type: Fixing Indicative Price Message (0)"
-  end
-  if value == "m" then
-    return "Message Type: Market Snapshot Price Level Message (m)"
-  end
-  if value == "t" then
-    return "Message Type: Add Price Level Message (t)"
-  end
-  if value == "s" then
-    return "Message Type: Change Price Level Message (s)"
-  end
-  if value == "r" then
-    return "Message Type: Delete Price Level Message (r)"
-  end
-  if value == "k" then
-    return "Message Type: Rfq Message (k)"
-  end
+ice_icefutures_mdf_impact_v1_1_51.message_type.labels = {
+  ["C"] = "Message Type: Market Snapshot Message (C)",
+  ["G"] = "Message Type: Trade Message (G)",
+  ["Y"] = "Message Type: Spot Market Trade Message (Y)",
+  ["H"] = "Message Type: Investigated Trade Message (H)",
+  ["I"] = "Message Type: Cancelled Trade Message (I)",
+  ["J"] = "Message Type: Market Statistics Message (J)",
+  ["K"] = "Message Type: Market State Change Message (K)",
+  ["L"] = "Message Type: System Text Message (L)",
+  ["M"] = "Message Type: Open Interest Message (M)",
+  ["N"] = "Message Type: Open Price Message (N)",
+  ["c"] = "Message Type: Close Price Message (c)",
+  ["O"] = "Message Type: Settlement Price Message (O)",
+  ["z"] = "Message Type: Index Prices Message (z)",
+  ["u"] = "Message Type: End Of Day Market Summary Message (u)",
+  ["f"] = "Message Type: Market Event Message (f)",
+  ["g"] = "Message Type: Pre Open Price Indicator Message (g)",
+  ["i"] = "Message Type: Strip Info Message (i)",
+  ["V"] = "Message Type: Interval Price Limit Notification Message (V)",
+  ["9"] = "Message Type: New Futures Strategy Definition Message (9)",
+  ["R"] = "Message Type: New Expiry Message (R)",
+  ["b"] = "Message Type: Special Field Message (b)",
+  ["Z"] = "Message Type: Fragment Wrapper Message (Z)",
+  ["U"] = "Message Type: New Options Strategy Definition Message (U)",
+  ["l"] = "Message Type: New Options Market Definition Message (l)",
+  ["v"] = "Message Type: Option Open Interest Message (v)",
+  ["w"] = "Message Type: Option Settlement Price Message (w)",
+  ["D"] = "Message Type: Market Snapshot Order Message (D)",
+  ["E"] = "Message Type: Add Or Modify Order Message (E)",
+  ["F"] = "Message Type: Delete Order Message (F)",
+  ["T"] = "Message Type: Message Bundle Marker (T)",
+  ["3"] = "Message Type: Fixing Transition Message (3)",
+  ["4"] = "Message Type: Fixing Lockdown Message (4)",
+  ["0"] = "Message Type: Fixing Indicative Price Message (0)",
+  ["m"] = "Message Type: Market Snapshot Price Level Message (m)",
+  ["t"] = "Message Type: Add Price Level Message (t)",
+  ["s"] = "Message Type: Change Price Level Message (s)",
+  ["r"] = "Message Type: Delete Price Level Message (r)",
+  ["k"] = "Message Type: Rfq Message (k)",
+}
 
-  return "Message Type: Unknown("..value..")"
+ice_icefutures_mdf_impact_v1_1_51.message_type.display = function(value)
+  return ice_icefutures_mdf_impact_v1_1_51.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -6396,366 +6044,130 @@ ice_icefutures_mdf_impact_v1_1_51.security_sub_type = {}
 ice_icefutures_mdf_impact_v1_1_51.security_sub_type.size = 2
 
 -- Display: Security Sub Type
-ice_icefutures_mdf_impact_v1_1_51.security_sub_type.display = function(value)
-  if value == 0 then
-    return "Security Sub Type: None (0)"
-  end
-  if value == 1 then
-    return "Security Sub Type: Call (1)"
-  end
-  if value == 2 then
-    return "Security Sub Type: Put (2)"
-  end
-  if value == 3 then
-    return "Security Sub Type: Futures Butterfly (3)"
-  end
-  if value == 4 then
-    return "Security Sub Type: Call Butterfly (4)"
-  end
-  if value == 5 then
-    return "Security Sub Type: Put Butterfly (5)"
-  end
-  if value == 6 then
-    return "Security Sub Type: Call Spread (6)"
-  end
-  if value == 7 then
-    return "Security Sub Type: Put Spread (7)"
-  end
-  if value == 9 then
-    return "Security Sub Type: Diagonal Call Spread (9)"
-  end
-  if value == 10 then
-    return "Security Sub Type: Diagonal Put Spread (10)"
-  end
-  if value == 11 then
-    return "Security Sub Type: Gut Strangle (11)"
-  end
-  if value == 12 then
-    return "Security Sub Type: One By Two Call Spread To The Two (12)"
-  end
-  if value == 13 then
-    return "Security Sub Type: One By Two Put Spread To The Two (13)"
-  end
-  if value == 14 then
-    return "Security Sub Type: Iron Butterfly (14)"
-  end
-  if value == 16 then
-    return "Security Sub Type: Strangle (16)"
-  end
-  if value == 17 then
-    return "Security Sub Type: Call Ladder Tree (17)"
-  end
-  if value == 18 then
-    return "Security Sub Type: Put Ladder Tree (18)"
-  end
-  if value == 19 then
-    return "Security Sub Type: Straddle Spread (19)"
-  end
-  if value == 21 then
-    return "Security Sub Type: Reversal Conversion (21)"
-  end
-  if value == 22 then
-    return "Security Sub Type: Straddle (22)"
-  end
-  if value == 23 then
-    return "Security Sub Type: Futures Condor (23)"
-  end
-  if value == 24 then
-    return "Security Sub Type: Call Condor (24)"
-  end
-  if value == 25 then
-    return "Security Sub Type: Put Condor (25)"
-  end
-  if value == 26 then
-    return "Security Sub Type: Box (26)"
-  end
-  if value == 33 then
-    return "Security Sub Type: Synthetic Underlying (33)"
-  end
-  if value == 34 then
-    return "Security Sub Type: Call Spread Vs Put 3 Way (34)"
-  end
-  if value == 35 then
-    return "Security Sub Type: Put Spread Vs Call 3 Way (35)"
-  end
-  if value == 36 then
-    return "Security Sub Type: Straddle Vs Call 3 Way (36)"
-  end
-  if value == 37 then
-    return "Security Sub Type: Straddle Vs Put 3 Way (37)"
-  end
-  if value == 38 then
-    return "Security Sub Type: Call Calendar Spread (38)"
-  end
-  if value == 39 then
-    return "Security Sub Type: Put Calendar Spread (39)"
-  end
-  if value == 40 then
-    return "Security Sub Type: Iron Condor (40)"
-  end
-  if value == 41 then
-    return "Security Sub Type: Jelly Roll (41)"
-  end
-  if value == 42 then
-    return "Security Sub Type: Hedged One By Two Call Spread To The Two (42)"
-  end
-  if value == 43 then
-    return "Security Sub Type: Hedged One By Two Put Spread To The Two (43)"
-  end
-  if value == 44 then
-    return "Security Sub Type: Call Spread Versus Sell Put Hedge (44)"
-  end
-  if value == 45 then
-    return "Security Sub Type: Put Spread Versus Sell Call Hedge (45)"
-  end
-  if value == 46 then
-    return "Security Sub Type: Hedged Call Calendar (46)"
-  end
-  if value == 47 then
-    return "Security Sub Type: Hedged Put Calendar (47)"
-  end
-  if value == 48 then
-    return "Security Sub Type: Hedged Call Ladder Tree (48)"
-  end
-  if value == 49 then
-    return "Security Sub Type: Hedged Put Ladder Tree (49)"
-  end
-  if value == 50 then
-    return "Security Sub Type: Hedged Call Spread (50)"
-  end
-  if value == 51 then
-    return "Security Sub Type: Hedged Put Spread (51)"
-  end
-  if value == 53 then
-    return "Security Sub Type: Hedged Straddle (53)"
-  end
-  if value == 54 then
-    return "Security Sub Type: Hedged Strangle (54)"
-  end
-  if value == 55 then
-    return "Security Sub Type: Hedged Call (55)"
-  end
-  if value == 56 then
-    return "Security Sub Type: Hedged Put (56)"
-  end
-  if value == 58 then
-    return "Security Sub Type: Custom (58)"
-  end
-  if value == 59 then
-    return "Security Sub Type: Hedged Straddle Spread (59)"
-  end
-  if value == 60 then
-    return "Security Sub Type: Hedged Call Condor (60)"
-  end
-  if value == 61 then
-    return "Security Sub Type: Hedged Put Condor (61)"
-  end
-  if value == 63 then
-    return "Security Sub Type: Hedged Diagonal Call Spread (63)"
-  end
-  if value == 64 then
-    return "Security Sub Type: Hedged Diagonal Put Spread (64)"
-  end
-  if value == 65 then
-    return "Security Sub Type: Hedged Call Butterlfy (65)"
-  end
-  if value == 66 then
-    return "Security Sub Type: Hedged Put Butterlfy (66)"
-  end
-  if value == 67 then
-    return "Security Sub Type: Hedged Guts Strangle (67)"
-  end
-  if value == 68 then
-    return "Security Sub Type: Hedged Iron Condor (68)"
-  end
-  if value == 69 then
-    return "Security Sub Type: Hedged Iron Butterfly (69)"
-  end
-  if value == 70 then
-    return "Security Sub Type: Fence To The Call (70)"
-  end
-  if value == 71 then
-    return "Security Sub Type: Fence To The Put (71)"
-  end
-  if value == 72 then
-    return "Security Sub Type: Hedged Fence To The Call (72)"
-  end
-  if value == 73 then
-    return "Security Sub Type: Hedged Fence To The Put (73)"
-  end
-  if value == 74 then
-    return "Security Sub Type: One By Two Call Spread To The One (74)"
-  end
-  if value == 75 then
-    return "Security Sub Type: One By Two Put Spread To The One (75)"
-  end
-  if value == 76 then
-    return "Security Sub Type: Hedged One By Two Call Spread To The One (76)"
-  end
-  if value == 77 then
-    return "Security Sub Type: Hedged One By Two Put Spread To The One (77)"
-  end
-  if value == 88 then
-    return "Security Sub Type: Discount Spreads (88)"
-  end
-  if value == 89 then
-    return "Security Sub Type: Location Spreads (89)"
-  end
-  if value == 90 then
-    return "Security Sub Type: Platts Diff Spread (90)"
-  end
-  if value == 91 then
-    return "Security Sub Type: Platts Spread (91)"
-  end
-  if value == 92 then
-    return "Security Sub Type: Otc Gas Oil Crack (92)"
-  end
-  if value == 93 then
-    return "Security Sub Type: Balmo Over Month (93)"
-  end
-  if value == 94 then
-    return "Security Sub Type: Ratio Spread (94)"
-  end
-  if value == 95 then
-    return "Security Sub Type: Volumetric Spread (95)"
-  end
-  if value == 96 then
-    return "Security Sub Type: Heat Rate (96)"
-  end
-  if value == 97 then
-    return "Security Sub Type: Crack Spread (97)"
-  end
-  if value == 98 then
-    return "Security Sub Type: Combo Spread (98)"
-  end
-  if value == 99 then
-    return "Security Sub Type: Spread S (99)"
-  end
-  if value == 100 then
-    return "Security Sub Type: Packno Color (100)"
-  end
-  if value == 101 then
-    return "Security Sub Type: Pack White (101)"
-  end
-  if value == 102 then
-    return "Security Sub Type: Pack Red (102)"
-  end
-  if value == 103 then
-    return "Security Sub Type: Pack Green (103)"
-  end
-  if value == 104 then
-    return "Security Sub Type: Pack Blue (104)"
-  end
-  if value == 105 then
-    return "Security Sub Type: Pack Gold (105)"
-  end
-  if value == 106 then
-    return "Security Sub Type: Pack Purple (106)"
-  end
-  if value == 107 then
-    return "Security Sub Type: Pack Orange (107)"
-  end
-  if value == 108 then
-    return "Security Sub Type: Pack Pink (108)"
-  end
-  if value == 109 then
-    return "Security Sub Type: Pack Silver (109)"
-  end
-  if value == 110 then
-    return "Security Sub Type: Pack Copper (110)"
-  end
-  if value == 200 then
-    return "Security Sub Type: Bundle No Color (200)"
-  end
-  if value == 201 then
-    return "Security Sub Type: Bundle 2 Yr (201)"
-  end
-  if value == 202 then
-    return "Security Sub Type: Bundle 3 Yr (202)"
-  end
-  if value == 203 then
-    return "Security Sub Type: Bundle 4 Yr (203)"
-  end
-  if value == 204 then
-    return "Security Sub Type: Bundle 5 Yr (204)"
-  end
-  if value == 205 then
-    return "Security Sub Type: Bundle 6 Yr (205)"
-  end
-  if value == 206 then
-    return "Security Sub Type: Bundle 7 Yr (206)"
-  end
-  if value == 207 then
-    return "Security Sub Type: Bundle 8 Yr (207)"
-  end
-  if value == 208 then
-    return "Security Sub Type: Bundle 9 Yr (208)"
-  end
-  if value == 209 then
-    return "Security Sub Type: Bundle 10 Yr (209)"
-  end
-  if value == 400 then
-    return "Security Sub Type: Balmo (400)"
-  end
-  if value == 410 then
-    return "Security Sub Type: Next Day (410)"
-  end
-  if value == 411 then
-    return "Security Sub Type: Cfd (411)"
-  end
-  if value == 412 then
-    return "Security Sub Type: Weekend (412)"
-  end
-  if value == 413 then
-    return "Security Sub Type: Single Day (413)"
-  end
-  if value == 414 then
-    return "Security Sub Type: Custom Daily (414)"
-  end
-  if value == 415 then
-    return "Security Sub Type: Hourly (415)"
-  end
-  if value == 416 then
-    return "Security Sub Type: Month (416)"
-  end
-  if value == 450 then
-    return "Security Sub Type: Balweek (450)"
-  end
-  if value == 500 then
-    return "Security Sub Type: Basket (500)"
-  end
-  if value == 550 then
-    return "Security Sub Type: Custom Monthly (550)"
-  end
-  if value == 600 then
-    return "Security Sub Type: Next Week (600)"
-  end
-  if value == 700 then
-    return "Security Sub Type: Period (700)"
-  end
-  if value == 711 then
-    return "Security Sub Type: Custom Daily Cfd (711)"
-  end
-  if value == 712 then
-    return "Security Sub Type: Custom Daily 7 X 8 (712)"
-  end
-  if value == 713 then
-    return "Security Sub Type: Custom Daily 7 X 16 (713)"
-  end
-  if value == 714 then
-    return "Security Sub Type: Custom Daily 7 X 6 (714)"
-  end
-  if value == 715 then
-    return "Security Sub Type: Custom Daily Off Peak X 16 (715)"
-  end
-  if value == 800 then
-    return "Security Sub Type: Quarter (800)"
-  end
-  if value == 900 then
-    return "Security Sub Type: Year (900)"
-  end
+ice_icefutures_mdf_impact_v1_1_51.security_sub_type.labels = {
+  [0] = "Security Sub Type: None (0)",
+  [1] = "Security Sub Type: Call (1)",
+  [2] = "Security Sub Type: Put (2)",
+  [3] = "Security Sub Type: Futures Butterfly (3)",
+  [4] = "Security Sub Type: Call Butterfly (4)",
+  [5] = "Security Sub Type: Put Butterfly (5)",
+  [6] = "Security Sub Type: Call Spread (6)",
+  [7] = "Security Sub Type: Put Spread (7)",
+  [9] = "Security Sub Type: Diagonal Call Spread (9)",
+  [10] = "Security Sub Type: Diagonal Put Spread (10)",
+  [11] = "Security Sub Type: Gut Strangle (11)",
+  [12] = "Security Sub Type: One By Two Call Spread To The Two (12)",
+  [13] = "Security Sub Type: One By Two Put Spread To The Two (13)",
+  [14] = "Security Sub Type: Iron Butterfly (14)",
+  [16] = "Security Sub Type: Strangle (16)",
+  [17] = "Security Sub Type: Call Ladder Tree (17)",
+  [18] = "Security Sub Type: Put Ladder Tree (18)",
+  [19] = "Security Sub Type: Straddle Spread (19)",
+  [21] = "Security Sub Type: Reversal Conversion (21)",
+  [22] = "Security Sub Type: Straddle (22)",
+  [23] = "Security Sub Type: Futures Condor (23)",
+  [24] = "Security Sub Type: Call Condor (24)",
+  [25] = "Security Sub Type: Put Condor (25)",
+  [26] = "Security Sub Type: Box (26)",
+  [33] = "Security Sub Type: Synthetic Underlying (33)",
+  [34] = "Security Sub Type: Call Spread Vs Put 3 Way (34)",
+  [35] = "Security Sub Type: Put Spread Vs Call 3 Way (35)",
+  [36] = "Security Sub Type: Straddle Vs Call 3 Way (36)",
+  [37] = "Security Sub Type: Straddle Vs Put 3 Way (37)",
+  [38] = "Security Sub Type: Call Calendar Spread (38)",
+  [39] = "Security Sub Type: Put Calendar Spread (39)",
+  [40] = "Security Sub Type: Iron Condor (40)",
+  [41] = "Security Sub Type: Jelly Roll (41)",
+  [42] = "Security Sub Type: Hedged One By Two Call Spread To The Two (42)",
+  [43] = "Security Sub Type: Hedged One By Two Put Spread To The Two (43)",
+  [44] = "Security Sub Type: Call Spread Versus Sell Put Hedge (44)",
+  [45] = "Security Sub Type: Put Spread Versus Sell Call Hedge (45)",
+  [46] = "Security Sub Type: Hedged Call Calendar (46)",
+  [47] = "Security Sub Type: Hedged Put Calendar (47)",
+  [48] = "Security Sub Type: Hedged Call Ladder Tree (48)",
+  [49] = "Security Sub Type: Hedged Put Ladder Tree (49)",
+  [50] = "Security Sub Type: Hedged Call Spread (50)",
+  [51] = "Security Sub Type: Hedged Put Spread (51)",
+  [53] = "Security Sub Type: Hedged Straddle (53)",
+  [54] = "Security Sub Type: Hedged Strangle (54)",
+  [55] = "Security Sub Type: Hedged Call (55)",
+  [56] = "Security Sub Type: Hedged Put (56)",
+  [58] = "Security Sub Type: Custom (58)",
+  [59] = "Security Sub Type: Hedged Straddle Spread (59)",
+  [60] = "Security Sub Type: Hedged Call Condor (60)",
+  [61] = "Security Sub Type: Hedged Put Condor (61)",
+  [63] = "Security Sub Type: Hedged Diagonal Call Spread (63)",
+  [64] = "Security Sub Type: Hedged Diagonal Put Spread (64)",
+  [65] = "Security Sub Type: Hedged Call Butterlfy (65)",
+  [66] = "Security Sub Type: Hedged Put Butterlfy (66)",
+  [67] = "Security Sub Type: Hedged Guts Strangle (67)",
+  [68] = "Security Sub Type: Hedged Iron Condor (68)",
+  [69] = "Security Sub Type: Hedged Iron Butterfly (69)",
+  [70] = "Security Sub Type: Fence To The Call (70)",
+  [71] = "Security Sub Type: Fence To The Put (71)",
+  [72] = "Security Sub Type: Hedged Fence To The Call (72)",
+  [73] = "Security Sub Type: Hedged Fence To The Put (73)",
+  [74] = "Security Sub Type: One By Two Call Spread To The One (74)",
+  [75] = "Security Sub Type: One By Two Put Spread To The One (75)",
+  [76] = "Security Sub Type: Hedged One By Two Call Spread To The One (76)",
+  [77] = "Security Sub Type: Hedged One By Two Put Spread To The One (77)",
+  [88] = "Security Sub Type: Discount Spreads (88)",
+  [89] = "Security Sub Type: Location Spreads (89)",
+  [90] = "Security Sub Type: Platts Diff Spread (90)",
+  [91] = "Security Sub Type: Platts Spread (91)",
+  [92] = "Security Sub Type: Otc Gas Oil Crack (92)",
+  [93] = "Security Sub Type: Balmo Over Month (93)",
+  [94] = "Security Sub Type: Ratio Spread (94)",
+  [95] = "Security Sub Type: Volumetric Spread (95)",
+  [96] = "Security Sub Type: Heat Rate (96)",
+  [97] = "Security Sub Type: Crack Spread (97)",
+  [98] = "Security Sub Type: Combo Spread (98)",
+  [99] = "Security Sub Type: Spread S (99)",
+  [100] = "Security Sub Type: Packno Color (100)",
+  [101] = "Security Sub Type: Pack White (101)",
+  [102] = "Security Sub Type: Pack Red (102)",
+  [103] = "Security Sub Type: Pack Green (103)",
+  [104] = "Security Sub Type: Pack Blue (104)",
+  [105] = "Security Sub Type: Pack Gold (105)",
+  [106] = "Security Sub Type: Pack Purple (106)",
+  [107] = "Security Sub Type: Pack Orange (107)",
+  [108] = "Security Sub Type: Pack Pink (108)",
+  [109] = "Security Sub Type: Pack Silver (109)",
+  [110] = "Security Sub Type: Pack Copper (110)",
+  [200] = "Security Sub Type: Bundle No Color (200)",
+  [201] = "Security Sub Type: Bundle 2 Yr (201)",
+  [202] = "Security Sub Type: Bundle 3 Yr (202)",
+  [203] = "Security Sub Type: Bundle 4 Yr (203)",
+  [204] = "Security Sub Type: Bundle 5 Yr (204)",
+  [205] = "Security Sub Type: Bundle 6 Yr (205)",
+  [206] = "Security Sub Type: Bundle 7 Yr (206)",
+  [207] = "Security Sub Type: Bundle 8 Yr (207)",
+  [208] = "Security Sub Type: Bundle 9 Yr (208)",
+  [209] = "Security Sub Type: Bundle 10 Yr (209)",
+  [400] = "Security Sub Type: Balmo (400)",
+  [410] = "Security Sub Type: Next Day (410)",
+  [411] = "Security Sub Type: Cfd (411)",
+  [412] = "Security Sub Type: Weekend (412)",
+  [413] = "Security Sub Type: Single Day (413)",
+  [414] = "Security Sub Type: Custom Daily (414)",
+  [415] = "Security Sub Type: Hourly (415)",
+  [416] = "Security Sub Type: Month (416)",
+  [450] = "Security Sub Type: Balweek (450)",
+  [500] = "Security Sub Type: Basket (500)",
+  [550] = "Security Sub Type: Custom Monthly (550)",
+  [600] = "Security Sub Type: Next Week (600)",
+  [700] = "Security Sub Type: Period (700)",
+  [711] = "Security Sub Type: Custom Daily Cfd (711)",
+  [712] = "Security Sub Type: Custom Daily 7 X 8 (712)",
+  [713] = "Security Sub Type: Custom Daily 7 X 16 (713)",
+  [714] = "Security Sub Type: Custom Daily 7 X 6 (714)",
+  [715] = "Security Sub Type: Custom Daily Off Peak X 16 (715)",
+  [800] = "Security Sub Type: Quarter (800)",
+  [900] = "Security Sub Type: Year (900)",
+}
 
-  return "Security Sub Type: Unknown("..value..")"
+ice_icefutures_mdf_impact_v1_1_51.security_sub_type.display = function(value)
+  return ice_icefutures_mdf_impact_v1_1_51.security_sub_type.labels[value] or "Security Sub Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Sub Type
@@ -7104,42 +6516,22 @@ ice_icefutures_mdf_impact_v1_1_51.special_field_id = {}
 ice_icefutures_mdf_impact_v1_1_51.special_field_id.size = 1
 
 -- Display: Special Field Id
-ice_icefutures_mdf_impact_v1_1_51.special_field_id.display = function(value)
-  if value == 1 then
-    return "Special Field Id: Alt Price (1)"
-  end
-  if value == 2 then
-    return "Special Field Id: Alt High Price (2)"
-  end
-  if value == 3 then
-    return "Special Field Id: Alt Low Price (3)"
-  end
-  if value == 4 then
-    return "Special Field Id: Alt Vwap (4)"
-  end
-  if value == 5 then
-    return "Special Field Id: Alt Last Trade Price (5)"
-  end
-  if value == 6 then
-    return "Special Field Id: Aon (6)"
-  end
-  if value == 18 then
-    return "Special Field Id: Accrued Distribution (18)"
-  end
-  if value == 19 then
-    return "Special Field Id: Accrued Funding (19)"
-  end
-  if value == 20 then
-    return "Special Field Id: Annualization Factor (20)"
-  end
-  if value == 21 then
-    return "Special Field Id: Trf Days To Maturity (21)"
-  end
-  if value == 22 then
-    return "Special Field Id: Seconds To End Tpl Hold (22)"
-  end
+ice_icefutures_mdf_impact_v1_1_51.special_field_id.labels = {
+  [1] = "Special Field Id: Alt Price (1)",
+  [2] = "Special Field Id: Alt High Price (2)",
+  [3] = "Special Field Id: Alt Low Price (3)",
+  [4] = "Special Field Id: Alt Vwap (4)",
+  [5] = "Special Field Id: Alt Last Trade Price (5)",
+  [6] = "Special Field Id: Aon (6)",
+  [18] = "Special Field Id: Accrued Distribution (18)",
+  [19] = "Special Field Id: Accrued Funding (19)",
+  [20] = "Special Field Id: Annualization Factor (20)",
+  [21] = "Special Field Id: Trf Days To Maturity (21)",
+  [22] = "Special Field Id: Seconds To End Tpl Hold (22)",
+}
 
-  return "Special Field Id: Unknown("..value..")"
+ice_icefutures_mdf_impact_v1_1_51.special_field_id.display = function(value)
+  return ice_icefutures_mdf_impact_v1_1_51.special_field_id.labels[value] or "Special Field Id: Unknown("..value..")"
 end
 
 -- Dissect: Special Field Id
@@ -9826,50 +9218,24 @@ end
 ice_icefutures_mdf_impact_v1_1_51.variable_field = {}
 
 -- Dissect: Variable Field
+ice_icefutures_mdf_impact_v1_1_51.variable_field.dispatch = {
+  [1] = ice_icefutures_mdf_impact_v1_1_51.alt_price.dissect,
+  [2] = ice_icefutures_mdf_impact_v1_1_51.alt_high_price.dissect,
+  [3] = ice_icefutures_mdf_impact_v1_1_51.alt_low_price.dissect,
+  [4] = ice_icefutures_mdf_impact_v1_1_51.alt_vwap.dissect,
+  [5] = ice_icefutures_mdf_impact_v1_1_51.alt_last_trade_price.dissect,
+  [6] = ice_icefutures_mdf_impact_v1_1_51.aon.dissect,
+  [18] = ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.dissect,
+  [19] = ice_icefutures_mdf_impact_v1_1_51.accrued_funding.dissect,
+  [20] = ice_icefutures_mdf_impact_v1_1_51.annualization_factor.dissect,
+  [21] = ice_icefutures_mdf_impact_v1_1_51.trf_days_to_maturity.dissect,
+  [22] = ice_icefutures_mdf_impact_v1_1_51.seconds_to_end_tpl_hold.dissect,
+}
+
 ice_icefutures_mdf_impact_v1_1_51.variable_field.dissect = function(buffer, offset, packet, parent, special_field_id)
-  -- Dissect Alt Price
-  if special_field_id == 1 then
-    return ice_icefutures_mdf_impact_v1_1_51.alt_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Alt High Price
-  if special_field_id == 2 then
-    return ice_icefutures_mdf_impact_v1_1_51.alt_high_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Alt Low Price
-  if special_field_id == 3 then
-    return ice_icefutures_mdf_impact_v1_1_51.alt_low_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Alt Vwap
-  if special_field_id == 4 then
-    return ice_icefutures_mdf_impact_v1_1_51.alt_vwap.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Alt Last Trade Price
-  if special_field_id == 5 then
-    return ice_icefutures_mdf_impact_v1_1_51.alt_last_trade_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aon
-  if special_field_id == 6 then
-    return ice_icefutures_mdf_impact_v1_1_51.aon.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Accrued Distribution
-  if special_field_id == 18 then
-    return ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Accrued Funding
-  if special_field_id == 19 then
-    return ice_icefutures_mdf_impact_v1_1_51.accrued_funding.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Annualization Factor
-  if special_field_id == 20 then
-    return ice_icefutures_mdf_impact_v1_1_51.annualization_factor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trf Days To Maturity
-  if special_field_id == 21 then
-    return ice_icefutures_mdf_impact_v1_1_51.trf_days_to_maturity.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Seconds To End Tpl Hold
-  if special_field_id == 22 then
-    return ice_icefutures_mdf_impact_v1_1_51.seconds_to_end_tpl_hold.dissect(buffer, offset, packet, parent)
+  local dissect = ice_icefutures_mdf_impact_v1_1_51.variable_field.dispatch[special_field_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -11980,158 +11346,51 @@ end
 ice_icefutures_mdf_impact_v1_1_51.payload = {}
 
 -- Dissect: Payload
+ice_icefutures_mdf_impact_v1_1_51.payload.dispatch = {
+  ["C"] = ice_icefutures_mdf_impact_v1_1_51.market_snapshot_message.dissect,
+  ["G"] = ice_icefutures_mdf_impact_v1_1_51.trade_message.dissect,
+  ["Y"] = ice_icefutures_mdf_impact_v1_1_51.spot_market_trade_message.dissect,
+  ["H"] = ice_icefutures_mdf_impact_v1_1_51.investigated_trade_message.dissect,
+  ["I"] = ice_icefutures_mdf_impact_v1_1_51.cancelled_trade_message.dissect,
+  ["J"] = ice_icefutures_mdf_impact_v1_1_51.market_statistics_message.dissect,
+  ["K"] = ice_icefutures_mdf_impact_v1_1_51.market_state_change_message.dissect,
+  ["L"] = ice_icefutures_mdf_impact_v1_1_51.system_text_message.dissect,
+  ["M"] = ice_icefutures_mdf_impact_v1_1_51.open_interest_message.dissect,
+  ["N"] = ice_icefutures_mdf_impact_v1_1_51.open_price_message.dissect,
+  ["c"] = ice_icefutures_mdf_impact_v1_1_51.close_price_message.dissect,
+  ["O"] = ice_icefutures_mdf_impact_v1_1_51.settlement_price_message.dissect,
+  ["z"] = ice_icefutures_mdf_impact_v1_1_51.index_prices_message.dissect,
+  ["u"] = ice_icefutures_mdf_impact_v1_1_51.end_of_day_market_summary_message.dissect,
+  ["f"] = ice_icefutures_mdf_impact_v1_1_51.market_event_message.dissect,
+  ["g"] = ice_icefutures_mdf_impact_v1_1_51.pre_open_price_indicator_message.dissect,
+  ["i"] = ice_icefutures_mdf_impact_v1_1_51.strip_info_message.dissect,
+  ["V"] = ice_icefutures_mdf_impact_v1_1_51.interval_price_limit_notification_message.dissect,
+  ["9"] = ice_icefutures_mdf_impact_v1_1_51.new_futures_strategy_definition_message.dissect,
+  ["R"] = ice_icefutures_mdf_impact_v1_1_51.new_expiry_message.dissect,
+  ["b"] = ice_icefutures_mdf_impact_v1_1_51.special_field_message.dissect,
+  ["Z"] = ice_icefutures_mdf_impact_v1_1_51.fragment_wrapper_message.dissect,
+  ["U"] = ice_icefutures_mdf_impact_v1_1_51.new_options_strategy_definition_message.dissect,
+  ["l"] = ice_icefutures_mdf_impact_v1_1_51.new_options_market_definition_message.dissect,
+  ["v"] = ice_icefutures_mdf_impact_v1_1_51.option_open_interest_message.dissect,
+  ["w"] = ice_icefutures_mdf_impact_v1_1_51.option_settlement_price_message.dissect,
+  ["D"] = ice_icefutures_mdf_impact_v1_1_51.market_snapshot_order_message.dissect,
+  ["E"] = ice_icefutures_mdf_impact_v1_1_51.add_or_modify_order_message.dissect,
+  ["F"] = ice_icefutures_mdf_impact_v1_1_51.delete_order_message.dissect,
+  ["T"] = ice_icefutures_mdf_impact_v1_1_51.message_bundle_marker.dissect,
+  ["3"] = ice_icefutures_mdf_impact_v1_1_51.fixing_transition_message.dissect,
+  ["4"] = ice_icefutures_mdf_impact_v1_1_51.fixing_lockdown_message.dissect,
+  ["0"] = ice_icefutures_mdf_impact_v1_1_51.fixing_indicative_price_message.dissect,
+  ["m"] = ice_icefutures_mdf_impact_v1_1_51.market_snapshot_price_level_message.dissect,
+  ["t"] = ice_icefutures_mdf_impact_v1_1_51.add_price_level_message.dissect,
+  ["s"] = ice_icefutures_mdf_impact_v1_1_51.change_price_level_message.dissect,
+  ["r"] = ice_icefutures_mdf_impact_v1_1_51.delete_price_level_message.dissect,
+  ["k"] = ice_icefutures_mdf_impact_v1_1_51.rfq_message.dissect,
+}
+
 ice_icefutures_mdf_impact_v1_1_51.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Market Snapshot Message
-  if message_type == "C" then
-    return ice_icefutures_mdf_impact_v1_1_51.market_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "G" then
-    return ice_icefutures_mdf_impact_v1_1_51.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spot Market Trade Message
-  if message_type == "Y" then
-    return ice_icefutures_mdf_impact_v1_1_51.spot_market_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Investigated Trade Message
-  if message_type == "H" then
-    return ice_icefutures_mdf_impact_v1_1_51.investigated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancelled Trade Message
-  if message_type == "I" then
-    return ice_icefutures_mdf_impact_v1_1_51.cancelled_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Statistics Message
-  if message_type == "J" then
-    return ice_icefutures_mdf_impact_v1_1_51.market_statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Change Message
-  if message_type == "K" then
-    return ice_icefutures_mdf_impact_v1_1_51.market_state_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Text Message
-  if message_type == "L" then
-    return ice_icefutures_mdf_impact_v1_1_51.system_text_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if message_type == "M" then
-    return ice_icefutures_mdf_impact_v1_1_51.open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Message
-  if message_type == "N" then
-    return ice_icefutures_mdf_impact_v1_1_51.open_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Close Price Message
-  if message_type == "c" then
-    return ice_icefutures_mdf_impact_v1_1_51.close_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Message
-  if message_type == "O" then
-    return ice_icefutures_mdf_impact_v1_1_51.settlement_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Prices Message
-  if message_type == "z" then
-    return ice_icefutures_mdf_impact_v1_1_51.index_prices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Market Summary Message
-  if message_type == "u" then
-    return ice_icefutures_mdf_impact_v1_1_51.end_of_day_market_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Event Message
-  if message_type == "f" then
-    return ice_icefutures_mdf_impact_v1_1_51.market_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pre Open Price Indicator Message
-  if message_type == "g" then
-    return ice_icefutures_mdf_impact_v1_1_51.pre_open_price_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strip Info Message
-  if message_type == "i" then
-    return ice_icefutures_mdf_impact_v1_1_51.strip_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Interval Price Limit Notification Message
-  if message_type == "V" then
-    return ice_icefutures_mdf_impact_v1_1_51.interval_price_limit_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Futures Strategy Definition Message
-  if message_type == "9" then
-    return ice_icefutures_mdf_impact_v1_1_51.new_futures_strategy_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Expiry Message
-  if message_type == "R" then
-    return ice_icefutures_mdf_impact_v1_1_51.new_expiry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Special Field Message
-  if message_type == "b" then
-    return ice_icefutures_mdf_impact_v1_1_51.special_field_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fragment Wrapper Message
-  if message_type == "Z" then
-    return ice_icefutures_mdf_impact_v1_1_51.fragment_wrapper_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Options Strategy Definition Message
-  if message_type == "U" then
-    return ice_icefutures_mdf_impact_v1_1_51.new_options_strategy_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Options Market Definition Message
-  if message_type == "l" then
-    return ice_icefutures_mdf_impact_v1_1_51.new_options_market_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Open Interest Message
-  if message_type == "v" then
-    return ice_icefutures_mdf_impact_v1_1_51.option_open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Settlement Price Message
-  if message_type == "w" then
-    return ice_icefutures_mdf_impact_v1_1_51.option_settlement_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Snapshot Order Message
-  if message_type == "D" then
-    return ice_icefutures_mdf_impact_v1_1_51.market_snapshot_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Or Modify Order Message
-  if message_type == "E" then
-    return ice_icefutures_mdf_impact_v1_1_51.add_or_modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == "F" then
-    return ice_icefutures_mdf_impact_v1_1_51.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Bundle Marker
-  if message_type == "T" then
-    return ice_icefutures_mdf_impact_v1_1_51.message_bundle_marker.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixing Transition Message
-  if message_type == "3" then
-    return ice_icefutures_mdf_impact_v1_1_51.fixing_transition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixing Lockdown Message
-  if message_type == "4" then
-    return ice_icefutures_mdf_impact_v1_1_51.fixing_lockdown_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fixing Indicative Price Message
-  if message_type == "0" then
-    return ice_icefutures_mdf_impact_v1_1_51.fixing_indicative_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Snapshot Price Level Message
-  if message_type == "m" then
-    return ice_icefutures_mdf_impact_v1_1_51.market_snapshot_price_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Price Level Message
-  if message_type == "t" then
-    return ice_icefutures_mdf_impact_v1_1_51.add_price_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Change Price Level Message
-  if message_type == "s" then
-    return ice_icefutures_mdf_impact_v1_1_51.change_price_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Price Level Message
-  if message_type == "r" then
-    return ice_icefutures_mdf_impact_v1_1_51.delete_price_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Message
-  if message_type == "k" then
-    return ice_icefutures_mdf_impact_v1_1_51.rfq_message.dissect(buffer, offset, packet, parent)
+  local dissect = ice_icefutures_mdf_impact_v1_1_51.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

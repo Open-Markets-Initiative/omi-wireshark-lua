@@ -580,15 +580,13 @@ cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag = {}
 cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.size = 1
 
 -- Display: Open Close Settl Flag
-cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.display = function(value)
-  if value == 0 then
-    return "Open Close Settl Flag: Current Day (0)"
-  end
-  if value == 4 then
-    return "Open Close Settl Flag: Previous Day (4)"
-  end
+cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.labels = {
+  [0] = "Open Close Settl Flag: Current Day (0)",
+  [4] = "Open Close Settl Flag: Previous Day (4)",
+}
 
-  return "Open Close Settl Flag: Unknown("..value..")"
+cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.display = function(value)
+  return cme_ebs_spectrum_sbe_v12_0.open_close_settl_flag.labels[value] or "Open Close Settl Flag: Unknown("..value..")"
 end
 
 -- Dissect: Open Close Settl Flag
@@ -683,12 +681,12 @@ cme_ebs_spectrum_sbe_v12_0.security_trading_event = {}
 cme_ebs_spectrum_sbe_v12_0.security_trading_event.size = 1
 
 -- Display: Security Trading Event
-cme_ebs_spectrum_sbe_v12_0.security_trading_event.display = function(value)
-  if value == 4 then
-    return "Security Trading Event: Global Day Roll (4)"
-  end
+cme_ebs_spectrum_sbe_v12_0.security_trading_event.labels = {
+  [4] = "Security Trading Event: Global Day Roll (4)",
+}
 
-  return "Security Trading Event: Unknown("..value..")"
+cme_ebs_spectrum_sbe_v12_0.security_trading_event.display = function(value)
+  return cme_ebs_spectrum_sbe_v12_0.security_trading_event.labels[value] or "Security Trading Event: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Event
@@ -796,27 +794,17 @@ cme_ebs_spectrum_sbe_v12_0.template_id = {}
 cme_ebs_spectrum_sbe_v12_0.template_id.size = 2
 
 -- Display: Template Id
-cme_ebs_spectrum_sbe_v12_0.template_id.display = function(value)
-  if value == 302 then
-    return "Template Id: Admin Heartbeat (302)"
-  end
-  if value == 303 then
-    return "Template Id: Md Incremental Refresh Spectrum (303)"
-  end
-  if value == 304 then
-    return "Template Id: Md Incremental Refresh Ticker (304)"
-  end
-  if value == 305 then
-    return "Template Id: Md Snapshot Refresh Spectrum (305)"
-  end
-  if value == 306 then
-    return "Template Id: Md Snapshot Refresh Ticker (306)"
-  end
-  if value == 307 then
-    return "Template Id: Global Day Roll (307)"
-  end
+cme_ebs_spectrum_sbe_v12_0.template_id.labels = {
+  [302] = "Template Id: Admin Heartbeat (302)",
+  [303] = "Template Id: Md Incremental Refresh Spectrum (303)",
+  [304] = "Template Id: Md Incremental Refresh Ticker (304)",
+  [305] = "Template Id: Md Snapshot Refresh Spectrum (305)",
+  [306] = "Template Id: Md Snapshot Refresh Ticker (306)",
+  [307] = "Template Id: Global Day Roll (307)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cme_ebs_spectrum_sbe_v12_0.template_id.display = function(value)
+  return cme_ebs_spectrum_sbe_v12_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1906,30 +1894,19 @@ end
 cme_ebs_spectrum_sbe_v12_0.payload = {}
 
 -- Dissect: Payload
+cme_ebs_spectrum_sbe_v12_0.payload.dispatch = {
+  [302] = cme_ebs_spectrum_sbe_v12_0.admin_heartbeat.dissect,
+  [303] = cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_spectrum.dissect,
+  [304] = cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_ticker.dissect,
+  [305] = cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_spectrum.dissect,
+  [306] = cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_ticker.dissect,
+  [307] = cme_ebs_spectrum_sbe_v12_0.global_day_roll.dissect,
+}
+
 cme_ebs_spectrum_sbe_v12_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Admin Heartbeat
-  if template_id == 302 then
-    return cme_ebs_spectrum_sbe_v12_0.admin_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Spectrum
-  if template_id == 303 then
-    return cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_spectrum.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Ticker
-  if template_id == 304 then
-    return cme_ebs_spectrum_sbe_v12_0.md_incremental_refresh_ticker.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Snapshot Refresh Spectrum
-  if template_id == 305 then
-    return cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_spectrum.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Snapshot Refresh Ticker
-  if template_id == 306 then
-    return cme_ebs_spectrum_sbe_v12_0.md_snapshot_refresh_ticker.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Day Roll
-  if template_id == 307 then
-    return cme_ebs_spectrum_sbe_v12_0.global_day_roll.dissect(buffer, offset, packet, parent)
+  local dissect = cme_ebs_spectrum_sbe_v12_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

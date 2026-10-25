@@ -254,15 +254,13 @@ hkex_hkexsecurities_indexretrans_omd_v1_44.dr_status = {}
 hkex_hkexsecurities_indexretrans_omd_v1_44.dr_status.size = 4
 
 -- Display: Dr Status
-hkex_hkexsecurities_indexretrans_omd_v1_44.dr_status.display = function(value)
-  if value == 1 then
-    return "Dr Status: Dr In Progress (1)"
-  end
-  if value == 2 then
-    return "Dr Status: Dr Completed (2)"
-  end
+hkex_hkexsecurities_indexretrans_omd_v1_44.dr_status.labels = {
+  [1] = "Dr Status: Dr In Progress (1)",
+  [2] = "Dr Status: Dr Completed (2)",
+}
 
-  return "Dr Status: Unknown("..value..")"
+hkex_hkexsecurities_indexretrans_omd_v1_44.dr_status.display = function(value)
+  return hkex_hkexsecurities_indexretrans_omd_v1_44.dr_status.labels[value] or "Dr Status: Unknown("..value..")"
 end
 
 -- Dissect: Dr Status
@@ -510,18 +508,14 @@ hkex_hkexsecurities_indexretrans_omd_v1_44.index_source = {}
 hkex_hkexsecurities_indexretrans_omd_v1_44.index_source.size = 1
 
 -- Display: Index Source
-hkex_hkexsecurities_indexretrans_omd_v1_44.index_source.display = function(value)
-  if value == "C" then
-    return "Index Source: Csi And Ces (C)"
-  end
-  if value == "H" then
-    return "Index Source: Hsi (H)"
-  end
-  if value == "S" then
-    return "Index Source: S And P (S)"
-  end
+hkex_hkexsecurities_indexretrans_omd_v1_44.index_source.labels = {
+  ["C"] = "Index Source: Csi And Ces (C)",
+  ["H"] = "Index Source: Hsi (H)",
+  ["S"] = "Index Source: S And P (S)",
+}
 
-  return "Index Source: Unknown("..value..")"
+hkex_hkexsecurities_indexretrans_omd_v1_44.index_source.display = function(value)
+  return hkex_hkexsecurities_indexretrans_omd_v1_44.index_source.labels[value] or "Index Source: Unknown("..value..")"
 end
 
 -- Dissect: Index Source
@@ -543,30 +537,18 @@ hkex_hkexsecurities_indexretrans_omd_v1_44.index_status = {}
 hkex_hkexsecurities_indexretrans_omd_v1_44.index_status.size = 1
 
 -- Display: Index Status
-hkex_hkexsecurities_indexretrans_omd_v1_44.index_status.display = function(value)
-  if value == "C" then
-    return "Index Status: Closing Value (C)"
-  end
-  if value == "I" then
-    return "Index Status: Indicative (I)"
-  end
-  if value == "O" then
-    return "Index Status: Opening Index (O)"
-  end
-  if value == "P" then
-    return "Index Status: Last Close Value Previous Session (P)"
-  end
-  if value == "R" then
-    return "Index Status: Preliminary Close (R)"
-  end
-  if value == "S" then
-    return "Index Status: Stop Loss Index (S)"
-  end
-  if value == "T" then
-    return "Index Status: Realtime Index Value (T)"
-  end
+hkex_hkexsecurities_indexretrans_omd_v1_44.index_status.labels = {
+  ["C"] = "Index Status: Closing Value (C)",
+  ["I"] = "Index Status: Indicative (I)",
+  ["O"] = "Index Status: Opening Index (O)",
+  ["P"] = "Index Status: Last Close Value Previous Session (P)",
+  ["R"] = "Index Status: Preliminary Close (R)",
+  ["S"] = "Index Status: Stop Loss Index (S)",
+  ["T"] = "Index Status: Realtime Index Value (T)",
+}
 
-  return "Index Status: Unknown("..value..")"
+hkex_hkexsecurities_indexretrans_omd_v1_44.index_status.display = function(value)
+  return hkex_hkexsecurities_indexretrans_omd_v1_44.index_status.labels[value] or "Index Status: Unknown("..value..")"
 end
 
 -- Dissect: Index Status
@@ -790,36 +772,20 @@ hkex_hkexsecurities_indexretrans_omd_v1_44.msg_type = {}
 hkex_hkexsecurities_indexretrans_omd_v1_44.msg_type.size = 2
 
 -- Display: Msg Type
-hkex_hkexsecurities_indexretrans_omd_v1_44.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 105 then
-    return "Msg Type: Disaster Recovery Signal Message (105)"
-  end
-  if value == 70 then
-    return "Msg Type: Index Definition Message (70)"
-  end
-  if value == 71 then
-    return "Msg Type: Index Data Message (71)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete Message (203)"
-  end
-  if value == 101 then
-    return "Msg Type: Logon Message (101)"
-  end
-  if value == 102 then
-    return "Msg Type: Logon Response Message (102)"
-  end
-  if value == 201 then
-    return "Msg Type: Retransmission Request Message (201)"
-  end
-  if value == 202 then
-    return "Msg Type: Retransmission Response Message (202)"
-  end
+hkex_hkexsecurities_indexretrans_omd_v1_44.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [105] = "Msg Type: Disaster Recovery Signal Message (105)",
+  [70] = "Msg Type: Index Definition Message (70)",
+  [71] = "Msg Type: Index Data Message (71)",
+  [203] = "Msg Type: Refresh Complete Message (203)",
+  [101] = "Msg Type: Logon Message (101)",
+  [102] = "Msg Type: Logon Response Message (102)",
+  [201] = "Msg Type: Retransmission Request Message (201)",
+  [202] = "Msg Type: Retransmission Response Message (202)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+hkex_hkexsecurities_indexretrans_omd_v1_44.msg_type.display = function(value)
+  return hkex_hkexsecurities_indexretrans_omd_v1_44.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -1003,24 +969,16 @@ hkex_hkexsecurities_indexretrans_omd_v1_44.retrans_status = {}
 hkex_hkexsecurities_indexretrans_omd_v1_44.retrans_status.size = 1
 
 -- Display: Retrans Status
-hkex_hkexsecurities_indexretrans_omd_v1_44.retrans_status.display = function(value)
-  if value == 0 then
-    return "Retrans Status: Request Accepted (0)"
-  end
-  if value == 1 then
-    return "Retrans Status: Unknown Or Unauthorized Channel Id (1)"
-  end
-  if value == 2 then
-    return "Retrans Status: Messages Not Available (2)"
-  end
-  if value == 100 then
-    return "Retrans Status: Exceeds Maximum Sequence Range (100)"
-  end
-  if value == 101 then
-    return "Retrans Status: Exceeds Maximum Requests In A Day (101)"
-  end
+hkex_hkexsecurities_indexretrans_omd_v1_44.retrans_status.labels = {
+  [0] = "Retrans Status: Request Accepted (0)",
+  [1] = "Retrans Status: Unknown Or Unauthorized Channel Id (1)",
+  [2] = "Retrans Status: Messages Not Available (2)",
+  [100] = "Retrans Status: Exceeds Maximum Sequence Range (100)",
+  [101] = "Retrans Status: Exceeds Maximum Requests In A Day (101)",
+}
 
-  return "Retrans Status: Unknown("..value..")"
+hkex_hkexsecurities_indexretrans_omd_v1_44.retrans_status.display = function(value)
+  return hkex_hkexsecurities_indexretrans_omd_v1_44.retrans_status.labels[value] or "Retrans Status: Unknown("..value..")"
 end
 
 -- Dissect: Retrans Status
@@ -1089,18 +1047,14 @@ hkex_hkexsecurities_indexretrans_omd_v1_44.session_status = {}
 hkex_hkexsecurities_indexretrans_omd_v1_44.session_status.size = 1
 
 -- Display: Session Status
-hkex_hkexsecurities_indexretrans_omd_v1_44.session_status.display = function(value)
-  if value == 0 then
-    return "Session Status: Session Active (0)"
-  end
-  if value == 5 then
-    return "Session Status: Invalid Username Or Ip Address (5)"
-  end
-  if value == 100 then
-    return "Session Status: User Already Connected (100)"
-  end
+hkex_hkexsecurities_indexretrans_omd_v1_44.session_status.labels = {
+  [0] = "Session Status: Session Active (0)",
+  [5] = "Session Status: Invalid Username Or Ip Address (5)",
+  [100] = "Session Status: User Already Connected (100)",
+}
 
-  return "Session Status: Unknown("..value..")"
+hkex_hkexsecurities_indexretrans_omd_v1_44.session_status.display = function(value)
+  return hkex_hkexsecurities_indexretrans_omd_v1_44.session_status.labels[value] or "Session Status: Unknown("..value..")"
 end
 
 -- Dissect: Session Status
@@ -1627,42 +1581,22 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_44.payload = {}
 
 -- Dissect: Payload
+hkex_hkexsecurities_indexretrans_omd_v1_44.payload.dispatch = {
+  [100] = hkex_hkexsecurities_indexretrans_omd_v1_44.sequence_reset_message.dissect,
+  [105] = hkex_hkexsecurities_indexretrans_omd_v1_44.disaster_recovery_signal_message.dissect,
+  [70] = hkex_hkexsecurities_indexretrans_omd_v1_44.index_definition_message.dissect,
+  [71] = hkex_hkexsecurities_indexretrans_omd_v1_44.index_data_message.dissect,
+  [203] = hkex_hkexsecurities_indexretrans_omd_v1_44.refresh_complete_message.dissect,
+  [101] = hkex_hkexsecurities_indexretrans_omd_v1_44.logon_message.dissect,
+  [102] = hkex_hkexsecurities_indexretrans_omd_v1_44.logon_response_message.dissect,
+  [201] = hkex_hkexsecurities_indexretrans_omd_v1_44.retransmission_request_message.dissect,
+  [202] = hkex_hkexsecurities_indexretrans_omd_v1_44.retransmission_response_message.dissect,
+}
+
 hkex_hkexsecurities_indexretrans_omd_v1_44.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disaster Recovery Signal Message
-  if msg_type == 105 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.disaster_recovery_signal_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Definition Message
-  if msg_type == 70 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.index_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Data Message
-  if msg_type == 71 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.index_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete Message
-  if msg_type == 203 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.refresh_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Message
-  if msg_type == 101 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response Message
-  if msg_type == 102 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if msg_type == 201 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Response Message
-  if msg_type == 202 then
-    return hkex_hkexsecurities_indexretrans_omd_v1_44.retransmission_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = hkex_hkexsecurities_indexretrans_omd_v1_44.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -433,15 +433,13 @@ sgx_titandt_depthofbook_itch_v1_4.event_code = {}
 sgx_titandt_depthofbook_itch_v1_4.event_code.size = 1
 
 -- Display: Event Code
-sgx_titandt_depthofbook_itch_v1_4.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.event_code.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -486,54 +484,26 @@ sgx_titandt_depthofbook_itch_v1_4.financial_product = {}
 sgx_titandt_depthofbook_itch_v1_4.financial_product.size = 1
 
 -- Display: Financial Product
-sgx_titandt_depthofbook_itch_v1_4.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Or Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Standard Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.financial_product.labels = {
+  [1] = "Financial Product: Option (1)",
+  [2] = "Financial Product: Forward (2)",
+  [3] = "Financial Product: Future (3)",
+  [4] = "Financial Product: Fra (4)",
+  [5] = "Financial Product: Cash (5)",
+  [6] = "Financial Product: Payment (6)",
+  [7] = "Financial Product: Exchange Rate (7)",
+  [8] = "Financial Product: Interest Rate Swap (8)",
+  [9] = "Financial Product: Repo (9)",
+  [10] = "Financial Product: Synthetic Box Leg Or Reference (10)",
+  [11] = "Financial Product: Standard Combination (11)",
+  [12] = "Financial Product: Guarantee (12)",
+  [13] = "Financial Product: Otc General (13)",
+  [14] = "Financial Product: Equity Warrant (14)",
+  [15] = "Financial Product: Security Lending (15)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.financial_product.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -578,15 +548,13 @@ sgx_titandt_depthofbook_itch_v1_4.leg_1_side = {}
 sgx_titandt_depthofbook_itch_v1_4.leg_1_side.size = 1
 
 -- Display: Leg 1 Side
-sgx_titandt_depthofbook_itch_v1_4.leg_1_side.display = function(value)
-  if value == "B" then
-    return "Leg 1 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 1 Side: Opposite (C)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.leg_1_side.labels = {
+  ["B"] = "Leg 1 Side: As Defined (B)",
+  ["C"] = "Leg 1 Side: Opposite (C)",
+}
 
-  return "Leg 1 Side: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.leg_1_side.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.leg_1_side.labels[value] or "Leg 1 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 1 Side
@@ -654,15 +622,13 @@ sgx_titandt_depthofbook_itch_v1_4.leg_2_side = {}
 sgx_titandt_depthofbook_itch_v1_4.leg_2_side.size = 1
 
 -- Display: Leg 2 Side
-sgx_titandt_depthofbook_itch_v1_4.leg_2_side.display = function(value)
-  if value == "B" then
-    return "Leg 2 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 2 Side: Opposite (C)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.leg_2_side.labels = {
+  ["B"] = "Leg 2 Side: As Defined (B)",
+  ["C"] = "Leg 2 Side: Opposite (C)",
+}
 
-  return "Leg 2 Side: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.leg_2_side.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.leg_2_side.labels[value] or "Leg 2 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 2 Side
@@ -730,15 +696,13 @@ sgx_titandt_depthofbook_itch_v1_4.leg_3_side = {}
 sgx_titandt_depthofbook_itch_v1_4.leg_3_side.size = 1
 
 -- Display: Leg 3 Side
-sgx_titandt_depthofbook_itch_v1_4.leg_3_side.display = function(value)
-  if value == "B" then
-    return "Leg 3 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 3 Side: Opposite (C)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.leg_3_side.labels = {
+  ["B"] = "Leg 3 Side: As Defined (B)",
+  ["C"] = "Leg 3 Side: Opposite (C)",
+}
 
-  return "Leg 3 Side: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.leg_3_side.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.leg_3_side.labels[value] or "Leg 3 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 3 Side
@@ -806,15 +770,13 @@ sgx_titandt_depthofbook_itch_v1_4.leg_4_side = {}
 sgx_titandt_depthofbook_itch_v1_4.leg_4_side.size = 1
 
 -- Display: Leg 4 Side
-sgx_titandt_depthofbook_itch_v1_4.leg_4_side.display = function(value)
-  if value == "B" then
-    return "Leg 4 Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg 4 Side: Opposite (C)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.leg_4_side.labels = {
+  ["B"] = "Leg 4 Side: As Defined (B)",
+  ["C"] = "Leg 4 Side: Opposite (C)",
+}
 
-  return "Leg 4 Side: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.leg_4_side.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.leg_4_side.labels[value] or "Leg 4 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 4 Side
@@ -882,12 +844,12 @@ sgx_titandt_depthofbook_itch_v1_4.lot_type = {}
 sgx_titandt_depthofbook_itch_v1_4.lot_type.size = 1
 
 -- Display: Lot Type
-sgx_titandt_depthofbook_itch_v1_4.lot_type.display = function(value)
-  if value == 2 then
-    return "Lot Type: Round Lot (2)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.lot_type.labels = {
+  [2] = "Lot Type: Round Lot (2)",
+}
 
-  return "Lot Type: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.lot_type.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.lot_type.labels[value] or "Lot Type: Unknown("..value..")"
 end
 
 -- Dissect: Lot Type
@@ -978,48 +940,24 @@ sgx_titandt_depthofbook_itch_v1_4.message_type = {}
 sgx_titandt_depthofbook_itch_v1_4.message_type.size = 1
 
 -- Display: Message Type
-sgx_titandt_depthofbook_itch_v1_4.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "R" then
-    return "Message Type: Order Book Directory Message (R)"
-  end
-  if value == "M" then
-    return "Message Type: Combination Order Book Directory Message (M)"
-  end
-  if value == "L" then
-    return "Message Type: Tick Size Table Entry Message (L)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "O" then
-    return "Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "Z" then
-    return "Message Type: Equilibrium Price Update Message (Z)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["R"] = "Message Type: Order Book Directory Message (R)",
+  ["M"] = "Message Type: Combination Order Book Directory Message (M)",
+  ["L"] = "Message Type: Tick Size Table Entry Message (L)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["O"] = "Message Type: Order Book State Message (O)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["Z"] = "Message Type: Equilibrium Price Update Message (Z)",
+}
 
-  return "Message Type: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.message_type.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1156,15 +1094,13 @@ sgx_titandt_depthofbook_itch_v1_4.occurred_at_cross = {}
 sgx_titandt_depthofbook_itch_v1_4.occurred_at_cross.size = 1
 
 -- Display: Occurred At Cross
-sgx_titandt_depthofbook_itch_v1_4.occurred_at_cross.display = function(value)
-  if value == "Y" then
-    return "Occurred At Cross: Trade Occurred At The Cross (Y)"
-  end
-  if value == "N" then
-    return "Occurred At Cross: Trade Occurred At Continuous Market (N)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.occurred_at_cross.labels = {
+  ["Y"] = "Occurred At Cross: Trade Occurred At The Cross (Y)",
+  ["N"] = "Occurred At Cross: Trade Occurred At Continuous Market (N)",
+}
 
-  return "Occurred At Cross: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.occurred_at_cross.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.occurred_at_cross.labels[value] or "Occurred At Cross: Unknown("..value..")"
 end
 
 -- Dissect: Occurred At Cross
@@ -1339,15 +1275,13 @@ sgx_titandt_depthofbook_itch_v1_4.printable = {}
 sgx_titandt_depthofbook_itch_v1_4.printable.size = 1
 
 -- Display: Printable
-sgx_titandt_depthofbook_itch_v1_4.printable.display = function(value)
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.printable.labels = {
+  ["Y"] = "Printable: Printable (Y)",
+  ["N"] = "Printable: Non Printable (N)",
+}
 
-  return "Printable: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.printable.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1629,15 +1563,13 @@ sgx_titandt_depthofbook_itch_v1_4.side = {}
 sgx_titandt_depthofbook_itch_v1_4.side.size = 1
 
 -- Display: Side
-sgx_titandt_depthofbook_itch_v1_4.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
+sgx_titandt_depthofbook_itch_v1_4.side.labels = {
+  ["B"] = "Side: Buy Order (B)",
+  ["S"] = "Side: Sell Order (S)",
+}
 
-  return "Side: Unknown("..value..")"
+sgx_titandt_depthofbook_itch_v1_4.side.display = function(value)
+  return sgx_titandt_depthofbook_itch_v1_4.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2789,58 +2721,26 @@ end
 sgx_titandt_depthofbook_itch_v1_4.payload = {}
 
 -- Dissect: Payload
+sgx_titandt_depthofbook_itch_v1_4.payload.dispatch = {
+  ["T"] = sgx_titandt_depthofbook_itch_v1_4.seconds_message.dissect,
+  ["R"] = sgx_titandt_depthofbook_itch_v1_4.order_book_directory_message.dissect,
+  ["M"] = sgx_titandt_depthofbook_itch_v1_4.combination_order_book_directory_message.dissect,
+  ["L"] = sgx_titandt_depthofbook_itch_v1_4.tick_size_table_entry_message.dissect,
+  ["S"] = sgx_titandt_depthofbook_itch_v1_4.system_event_message.dissect,
+  ["O"] = sgx_titandt_depthofbook_itch_v1_4.order_book_state_message.dissect,
+  ["A"] = sgx_titandt_depthofbook_itch_v1_4.add_order_message.dissect,
+  ["E"] = sgx_titandt_depthofbook_itch_v1_4.order_executed_message.dissect,
+  ["C"] = sgx_titandt_depthofbook_itch_v1_4.order_executed_with_price_message.dissect,
+  ["U"] = sgx_titandt_depthofbook_itch_v1_4.order_replace_message.dissect,
+  ["D"] = sgx_titandt_depthofbook_itch_v1_4.order_delete_message.dissect,
+  ["P"] = sgx_titandt_depthofbook_itch_v1_4.trade_message.dissect,
+  ["Z"] = sgx_titandt_depthofbook_itch_v1_4.equilibrium_price_update_message.dissect,
+}
+
 sgx_titandt_depthofbook_itch_v1_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return sgx_titandt_depthofbook_itch_v1_4.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory Message
-  if message_type == "R" then
-    return sgx_titandt_depthofbook_itch_v1_4.order_book_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Order Book Directory Message
-  if message_type == "M" then
-    return sgx_titandt_depthofbook_itch_v1_4.combination_order_book_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Table Entry Message
-  if message_type == "L" then
-    return sgx_titandt_depthofbook_itch_v1_4.tick_size_table_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return sgx_titandt_depthofbook_itch_v1_4.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if message_type == "O" then
-    return sgx_titandt_depthofbook_itch_v1_4.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return sgx_titandt_depthofbook_itch_v1_4.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return sgx_titandt_depthofbook_itch_v1_4.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return sgx_titandt_depthofbook_itch_v1_4.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return sgx_titandt_depthofbook_itch_v1_4.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return sgx_titandt_depthofbook_itch_v1_4.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return sgx_titandt_depthofbook_itch_v1_4.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equilibrium Price Update Message
-  if message_type == "Z" then
-    return sgx_titandt_depthofbook_itch_v1_4.equilibrium_price_update_message.dissect(buffer, offset, packet, parent)
+  local dissect = sgx_titandt_depthofbook_itch_v1_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2996,14 +2896,15 @@ end
 sgx_titandt_depthofbook_itch_v1_4.messages = {}
 
 -- Dissect: Messages
+sgx_titandt_depthofbook_itch_v1_4.messages.dispatch = {
+  [0] = sgx_titandt_depthofbook_itch_v1_4.heartbeat.dissect,
+  [65535] = sgx_titandt_depthofbook_itch_v1_4.end_of_session.dissect,
+}
+
 sgx_titandt_depthofbook_itch_v1_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return sgx_titandt_depthofbook_itch_v1_4.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return sgx_titandt_depthofbook_itch_v1_4.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = sgx_titandt_depthofbook_itch_v1_4.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

@@ -355,6 +355,9 @@ jobs:
       - name: Run Tmx Mx SolaMulticast Hsvf 1.14.1 Dissector Tests
         run: bash -x .github/tests/Tmx-Mx-SolaMulticast-Hsvf-v1-14-1-Test.sh
 
+      - name: Run Tmx Tsx QuantumFeedLevel2 Xmt 2.10 Dissector Tests
+        run: bash -x .github/tests/Tmx-Tsx-QuantumFeedLevel2-Xmt-v2-10-Test.sh
+
       - name: Run Txse TxseEquities Seed Rake 1.0 Dissector Tests
         run: bash -x .github/tests/Txse-TxseEquities-Seed-Rake-v1-0-Test.sh
 

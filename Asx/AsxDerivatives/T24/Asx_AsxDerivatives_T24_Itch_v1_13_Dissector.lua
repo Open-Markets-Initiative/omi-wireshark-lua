@@ -295,15 +295,13 @@ asx_asxderivatives_t24_itch_v1_13.activated = {}
 asx_asxderivatives_t24_itch_v1_13.activated.size = 1
 
 -- Display: Activated
-asx_asxderivatives_t24_itch_v1_13.activated.display = function(value)
-  if value == "Y" then
-    return "Activated: Yes (Y)"
-  end
-  if value == "N" then
-    return "Activated: No (N)"
-  end
+asx_asxderivatives_t24_itch_v1_13.activated.labels = {
+  ["Y"] = "Activated: Yes (Y)",
+  ["N"] = "Activated: No (N)",
+}
 
-  return "Activated: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.activated.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.activated.labels[value] or "Activated: Unknown("..value..")"
 end
 
 -- Dissect: Activated
@@ -631,30 +629,18 @@ asx_asxderivatives_t24_itch_v1_13.contract_type = {}
 asx_asxderivatives_t24_itch_v1_13.contract_type.size = 1
 
 -- Display: Contract Type
-asx_asxderivatives_t24_itch_v1_13.contract_type.display = function(value)
-  if value == "F" then
-    return "Contract Type: Cfut (F)"
-  end
-  if value == "O" then
-    return "Contract Type: Copta (O)"
-  end
-  if value == "E" then
-    return "Contract Type: Eopta (E)"
-  end
-  if value == "N" then
-    return "Contract Type: Oopt (N)"
-  end
-  if value == "S" then
-    return "Contract Type: Csprd (S)"
-  end
-  if value == "A" then
-    return "Contract Type: Sprd (A)"
-  end
-  if value == "D" then
-    return "Contract Type: Sfut (D)"
-  end
+asx_asxderivatives_t24_itch_v1_13.contract_type.labels = {
+  ["F"] = "Contract Type: Cfut (F)",
+  ["O"] = "Contract Type: Copta (O)",
+  ["E"] = "Contract Type: Eopta (E)",
+  ["N"] = "Contract Type: Oopt (N)",
+  ["S"] = "Contract Type: Csprd (S)",
+  ["A"] = "Contract Type: Sprd (A)",
+  ["D"] = "Contract Type: Sfut (D)",
+}
 
-  return "Contract Type: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.contract_type.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.contract_type.labels[value] or "Contract Type: Unknown("..value..")"
 end
 
 -- Dissect: Contract Type
@@ -907,24 +893,16 @@ asx_asxderivatives_t24_itch_v1_13.event_code = {}
 asx_asxderivatives_t24_itch_v1_13.event_code.size = 1
 
 -- Display: Event Code
-asx_asxderivatives_t24_itch_v1_13.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Open (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start (S)"
-  end
-  if value == "C" then
-    return "Event Code: End (C)"
-  end
-  if value == "P" then
-    return "Event Code: Paused (P)"
-  end
-  if value == "R" then
-    return "Event Code: Resumed (R)"
-  end
+asx_asxderivatives_t24_itch_v1_13.event_code.labels = {
+  ["O"] = "Event Code: Open (O)",
+  ["S"] = "Event Code: Start (S)",
+  ["C"] = "Event Code: End (C)",
+  ["P"] = "Event Code: Paused (P)",
+  ["R"] = "Event Code: Resumed (R)",
+}
 
-  return "Event Code: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.event_code.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1038,24 +1016,16 @@ asx_asxderivatives_t24_itch_v1_13.financial_type = {}
 asx_asxderivatives_t24_itch_v1_13.financial_type.size = 1
 
 -- Display: Financial Type
-asx_asxderivatives_t24_itch_v1_13.financial_type.display = function(value)
-  if value == "C" then
-    return "Financial Type: Commodity (C)"
-  end
-  if value == "D" then
-    return "Financial Type: Cfd (D)"
-  end
-  if value == "E" then
-    return "Financial Type: Equity (E)"
-  end
-  if value == "X" then
-    return "Financial Type: Government Bond (X)"
-  end
-  if value == "B" then
-    return "Financial Type: Bank Bill (B)"
-  end
+asx_asxderivatives_t24_itch_v1_13.financial_type.labels = {
+  ["C"] = "Financial Type: Commodity (C)",
+  ["D"] = "Financial Type: Cfd (D)",
+  ["E"] = "Financial Type: Equity (E)",
+  ["X"] = "Financial Type: Government Bond (X)",
+  ["B"] = "Financial Type: Bank Bill (B)",
+}
 
-  return "Financial Type: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.financial_type.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.financial_type.labels[value] or "Financial Type: Unknown("..value..")"
 end
 
 -- Dissect: Financial Type
@@ -1394,99 +1364,41 @@ asx_asxderivatives_t24_itch_v1_13.message_type = {}
 asx_asxderivatives_t24_itch_v1_13.message_type.size = 1
 
 -- Display: Message Type
-asx_asxderivatives_t24_itch_v1_13.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Time Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "f" then
-    return "Message Type: Future Symbol Directory Message (f)"
-  end
-  if value == "g" then
-    return "Message Type: Spread Symbol Directory Message (g)"
-  end
-  if value == "h" then
-    return "Message Type: Option Symbol Directory Message (h)"
-  end
-  if value == "O" then
-    return "Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Message Type: Order Added Message (A)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replaced Message (U)"
-  end
-  if value == "X" then
-    return "Message Type: Order Volume Cancelled Message (X)"
-  end
-  if value == "D" then
-    return "Message Type: Order Deleted Message (D)"
-  end
-  if value == "j" then
-    return "Message Type: Implied Order Added Message (j)"
-  end
-  if value == "l" then
-    return "Message Type: Implied Order Replaced Message (l)"
-  end
-  if value == "k" then
-    return "Message Type: Implied Order Deleted Message (k)"
-  end
-  if value == "m" then
-    return "Message Type: Custom Market Order Added Message (m)"
-  end
-  if value == "n" then
-    return "Message Type: Custom Market Order Replaced Message (n)"
-  end
-  if value == "r" then
-    return "Message Type: Custom Market Order Deleted Message (r)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "e" then
-    return "Message Type: Spread Executed Message (e)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Spread Execution Chain Message (P)"
-  end
-  if value == "u" then
-    return "Message Type: Custom Market Executed Message (u)"
-  end
-  if value == "p" then
-    return "Message Type: Custom Market Trade Message (p)"
-  end
-  if value == "B" then
-    return "Message Type: Trade Cancellation Message (B)"
-  end
-  if value == "Z" then
-    return "Message Type: Equilibrium Price Auction Info Message (Z)"
-  end
-  if value == "t" then
-    return "Message Type: Open High Low Last Trade Adjustment Message (t)"
-  end
-  if value == "Y" then
-    return "Message Type: Market Settlement Message (Y)"
-  end
-  if value == "x" then
-    return "Message Type: Ad Hoc Text Message (x)"
-  end
-  if value == "q" then
-    return "Message Type: Request For Quote Message (q)"
-  end
-  if value == "W" then
-    return "Message Type: Anomalous Order Threshold Publish Message (W)"
-  end
-  if value == "V" then
-    return "Message Type: Volume And Open Interest Message (V)"
-  end
+asx_asxderivatives_t24_itch_v1_13.message_type.labels = {
+  ["T"] = "Message Type: Time Message (T)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["f"] = "Message Type: Future Symbol Directory Message (f)",
+  ["g"] = "Message Type: Spread Symbol Directory Message (g)",
+  ["h"] = "Message Type: Option Symbol Directory Message (h)",
+  ["O"] = "Message Type: Order Book State Message (O)",
+  ["A"] = "Message Type: Order Added Message (A)",
+  ["U"] = "Message Type: Order Replaced Message (U)",
+  ["X"] = "Message Type: Order Volume Cancelled Message (X)",
+  ["D"] = "Message Type: Order Deleted Message (D)",
+  ["j"] = "Message Type: Implied Order Added Message (j)",
+  ["l"] = "Message Type: Implied Order Replaced Message (l)",
+  ["k"] = "Message Type: Implied Order Deleted Message (k)",
+  ["m"] = "Message Type: Custom Market Order Added Message (m)",
+  ["n"] = "Message Type: Custom Market Order Replaced Message (n)",
+  ["r"] = "Message Type: Custom Market Order Deleted Message (r)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["e"] = "Message Type: Spread Executed Message (e)",
+  ["P"] = "Message Type: Trade Spread Execution Chain Message (P)",
+  ["u"] = "Message Type: Custom Market Executed Message (u)",
+  ["p"] = "Message Type: Custom Market Trade Message (p)",
+  ["B"] = "Message Type: Trade Cancellation Message (B)",
+  ["Z"] = "Message Type: Equilibrium Price Auction Info Message (Z)",
+  ["t"] = "Message Type: Open High Low Last Trade Adjustment Message (t)",
+  ["Y"] = "Message Type: Market Settlement Message (Y)",
+  ["x"] = "Message Type: Ad Hoc Text Message (x)",
+  ["q"] = "Message Type: Request For Quote Message (q)",
+  ["W"] = "Message Type: Anomalous Order Threshold Publish Message (W)",
+  ["V"] = "Message Type: Volume And Open Interest Message (V)",
+}
 
-  return "Message Type: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.message_type.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1583,15 +1495,13 @@ asx_asxderivatives_t24_itch_v1_13.option_type = {}
 asx_asxderivatives_t24_itch_v1_13.option_type.size = 1
 
 -- Display: Option Type
-asx_asxderivatives_t24_itch_v1_13.option_type.display = function(value)
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
+asx_asxderivatives_t24_itch_v1_13.option_type.labels = {
+  ["P"] = "Option Type: Put (P)",
+  ["C"] = "Option Type: Call (C)",
+}
 
-  return "Option Type: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.option_type.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1803,15 +1713,13 @@ asx_asxderivatives_t24_itch_v1_13.printable = {}
 asx_asxderivatives_t24_itch_v1_13.printable.size = 1
 
 -- Display: Printable
-asx_asxderivatives_t24_itch_v1_13.printable.display = function(value)
-  if value == "Y" then
-    return "Printable: Yes (Y)"
-  end
-  if value == "N" then
-    return "Printable: No (N)"
-  end
+asx_asxderivatives_t24_itch_v1_13.printable.labels = {
+  ["Y"] = "Printable: Yes (Y)",
+  ["N"] = "Printable: No (N)",
+}
 
-  return "Printable: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.printable.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -2227,15 +2135,13 @@ asx_asxderivatives_t24_itch_v1_13.side = {}
 asx_asxderivatives_t24_itch_v1_13.side.size = 1
 
 -- Display: Side
-asx_asxderivatives_t24_itch_v1_13.side.display = function(value)
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
+asx_asxderivatives_t24_itch_v1_13.side.labels = {
+  ["S"] = "Side: Sell (S)",
+  ["B"] = "Side: Buy (B)",
+}
 
-  return "Side: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.side.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2614,51 +2520,25 @@ asx_asxderivatives_t24_itch_v1_13.trade_type = {}
 asx_asxderivatives_t24_itch_v1_13.trade_type.size = 1
 
 -- Display: Trade Type
-asx_asxderivatives_t24_itch_v1_13.trade_type.display = function(value)
-  if value == "T" then
-    return "Trade Type: Normal (T)"
-  end
-  if value == "t" then
-    return "Trade Type: Crossing Normal (t)"
-  end
-  if value == "W" then
-    return "Trade Type: Sweeping (W)"
-  end
-  if value == "w" then
-    return "Trade Type: Crossing Sweeping (w)"
-  end
-  if value == "L" then
-    return "Trade Type: Levelling (L)"
-  end
-  if value == "l" then
-    return "Trade Type: Crossing Levelling (l)"
-  end
-  if value == "S" then
-    return "Trade Type: Spread To Underlying (S)"
-  end
-  if value == "s" then
-    return "Trade Type: Crossing Spread To Underlying (s)"
-  end
-  if value == "R" then
-    return "Trade Type: Intra Spread (R)"
-  end
-  if value == "r" then
-    return "Trade Type: Crossing Intra Spread (r)"
-  end
-  if value == "Q" then
-    return "Trade Type: Inter Spread (Q)"
-  end
-  if value == "q" then
-    return "Trade Type: Crossing Inter Spread (q)"
-  end
-  if value == "U" then
-    return "Trade Type: Custom (U)"
-  end
-  if value == "u" then
-    return "Trade Type: Crossing Custom (u)"
-  end
+asx_asxderivatives_t24_itch_v1_13.trade_type.labels = {
+  ["T"] = "Trade Type: Normal (T)",
+  ["t"] = "Trade Type: Crossing Normal (t)",
+  ["W"] = "Trade Type: Sweeping (W)",
+  ["w"] = "Trade Type: Crossing Sweeping (w)",
+  ["L"] = "Trade Type: Levelling (L)",
+  ["l"] = "Trade Type: Crossing Levelling (l)",
+  ["S"] = "Trade Type: Spread To Underlying (S)",
+  ["s"] = "Trade Type: Crossing Spread To Underlying (s)",
+  ["R"] = "Trade Type: Intra Spread (R)",
+  ["r"] = "Trade Type: Crossing Intra Spread (r)",
+  ["Q"] = "Trade Type: Inter Spread (Q)",
+  ["q"] = "Trade Type: Crossing Inter Spread (q)",
+  ["U"] = "Trade Type: Custom (U)",
+  ["u"] = "Trade Type: Crossing Custom (u)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.trade_type.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -2726,48 +2606,24 @@ asx_asxderivatives_t24_itch_v1_13.trading_status = {}
 asx_asxderivatives_t24_itch_v1_13.trading_status.size = 1
 
 -- Display: Trading Status
-asx_asxderivatives_t24_itch_v1_13.trading_status.display = function(value)
-  if value == "p" then
-    return "Trading Status: Pending (p)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "P" then
-    return "Trading Status: Pre Open (P)"
-  end
-  if value == "C" then
-    return "Trading Status: Closed (C)"
-  end
-  if value == "l" then
-    return "Trading Status: Levelling (l)"
-  end
-  if value == "L" then
-    return "Trading Status: Locked (L)"
-  end
-  if value == "O" then
-    return "Trading Status: Opened (O)"
-  end
-  if value == "U" then
-    return "Trading Status: Unavailable (U)"
-  end
-  if value == "d" then
-    return "Trading Status: Pre Price Discovery (d)"
-  end
-  if value == "I" then
-    return "Trading Status: Inactive (I)"
-  end
-  if value == "D" then
-    return "Trading Status: Price Discovery (D)"
-  end
-  if value == "A" then
-    return "Trading Status: Activated (A)"
-  end
-  if value == "R" then
-    return "Trading Status: Regulatory Halt (R)"
-  end
+asx_asxderivatives_t24_itch_v1_13.trading_status.labels = {
+  ["p"] = "Trading Status: Pending (p)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["P"] = "Trading Status: Pre Open (P)",
+  ["C"] = "Trading Status: Closed (C)",
+  ["l"] = "Trading Status: Levelling (l)",
+  ["L"] = "Trading Status: Locked (L)",
+  ["O"] = "Trading Status: Opened (O)",
+  ["U"] = "Trading Status: Unavailable (U)",
+  ["d"] = "Trading Status: Pre Price Discovery (d)",
+  ["I"] = "Trading Status: Inactive (I)",
+  ["D"] = "Trading Status: Price Discovery (D)",
+  ["A"] = "Trading Status: Activated (A)",
+  ["R"] = "Trading Status: Regulatory Halt (R)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+asx_asxderivatives_t24_itch_v1_13.trading_status.display = function(value)
+  return asx_asxderivatives_t24_itch_v1_13.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -5164,126 +5020,43 @@ end
 asx_asxderivatives_t24_itch_v1_13.payload = {}
 
 -- Dissect: Payload
+asx_asxderivatives_t24_itch_v1_13.payload.dispatch = {
+  ["T"] = asx_asxderivatives_t24_itch_v1_13.time_message.dissect,
+  ["S"] = asx_asxderivatives_t24_itch_v1_13.system_event_message.dissect,
+  ["f"] = asx_asxderivatives_t24_itch_v1_13.future_symbol_directory_message.dissect,
+  ["g"] = asx_asxderivatives_t24_itch_v1_13.spread_symbol_directory_message.dissect,
+  ["h"] = asx_asxderivatives_t24_itch_v1_13.option_symbol_directory_message.dissect,
+  ["O"] = asx_asxderivatives_t24_itch_v1_13.order_book_state_message.dissect,
+  ["A"] = asx_asxderivatives_t24_itch_v1_13.order_added_message.dissect,
+  ["U"] = asx_asxderivatives_t24_itch_v1_13.order_replaced_message.dissect,
+  ["X"] = asx_asxderivatives_t24_itch_v1_13.order_volume_cancelled_message.dissect,
+  ["D"] = asx_asxderivatives_t24_itch_v1_13.order_deleted_message.dissect,
+  ["j"] = asx_asxderivatives_t24_itch_v1_13.implied_order_added_message.dissect,
+  ["l"] = asx_asxderivatives_t24_itch_v1_13.implied_order_replaced_message.dissect,
+  ["k"] = asx_asxderivatives_t24_itch_v1_13.implied_order_deleted_message.dissect,
+  ["m"] = asx_asxderivatives_t24_itch_v1_13.custom_market_order_added_message.dissect,
+  ["n"] = asx_asxderivatives_t24_itch_v1_13.custom_market_order_replaced_message.dissect,
+  ["r"] = asx_asxderivatives_t24_itch_v1_13.custom_market_order_deleted_message.dissect,
+  ["E"] = asx_asxderivatives_t24_itch_v1_13.order_executed_message.dissect,
+  ["C"] = asx_asxderivatives_t24_itch_v1_13.order_executed_with_price_message.dissect,
+  ["e"] = asx_asxderivatives_t24_itch_v1_13.spread_executed_message.dissect,
+  ["P"] = asx_asxderivatives_t24_itch_v1_13.trade_spread_execution_chain_message.dissect,
+  ["u"] = asx_asxderivatives_t24_itch_v1_13.custom_market_executed_message.dissect,
+  ["p"] = asx_asxderivatives_t24_itch_v1_13.custom_market_trade_message.dissect,
+  ["B"] = asx_asxderivatives_t24_itch_v1_13.trade_cancellation_message.dissect,
+  ["Z"] = asx_asxderivatives_t24_itch_v1_13.equilibrium_price_auction_info_message.dissect,
+  ["t"] = asx_asxderivatives_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.dissect,
+  ["Y"] = asx_asxderivatives_t24_itch_v1_13.market_settlement_message.dissect,
+  ["x"] = asx_asxderivatives_t24_itch_v1_13.ad_hoc_text_message.dissect,
+  ["q"] = asx_asxderivatives_t24_itch_v1_13.request_for_quote_message.dissect,
+  ["W"] = asx_asxderivatives_t24_itch_v1_13.anomalous_order_threshold_publish_message.dissect,
+  ["V"] = asx_asxderivatives_t24_itch_v1_13.volume_and_open_interest_message.dissect,
+}
+
 asx_asxderivatives_t24_itch_v1_13.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == "T" then
-    return asx_asxderivatives_t24_itch_v1_13.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return asx_asxderivatives_t24_itch_v1_13.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Symbol Directory Message
-  if message_type == "f" then
-    return asx_asxderivatives_t24_itch_v1_13.future_symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Symbol Directory Message
-  if message_type == "g" then
-    return asx_asxderivatives_t24_itch_v1_13.spread_symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Symbol Directory Message
-  if message_type == "h" then
-    return asx_asxderivatives_t24_itch_v1_13.option_symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if message_type == "O" then
-    return asx_asxderivatives_t24_itch_v1_13.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added Message
-  if message_type == "A" then
-    return asx_asxderivatives_t24_itch_v1_13.order_added_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if message_type == "U" then
-    return asx_asxderivatives_t24_itch_v1_13.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Volume Cancelled Message
-  if message_type == "X" then
-    return asx_asxderivatives_t24_itch_v1_13.order_volume_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Deleted Message
-  if message_type == "D" then
-    return asx_asxderivatives_t24_itch_v1_13.order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Order Added Message
-  if message_type == "j" then
-    return asx_asxderivatives_t24_itch_v1_13.implied_order_added_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Order Replaced Message
-  if message_type == "l" then
-    return asx_asxderivatives_t24_itch_v1_13.implied_order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Order Deleted Message
-  if message_type == "k" then
-    return asx_asxderivatives_t24_itch_v1_13.implied_order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Custom Market Order Added Message
-  if message_type == "m" then
-    return asx_asxderivatives_t24_itch_v1_13.custom_market_order_added_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Custom Market Order Replaced Message
-  if message_type == "n" then
-    return asx_asxderivatives_t24_itch_v1_13.custom_market_order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Custom Market Order Deleted Message
-  if message_type == "r" then
-    return asx_asxderivatives_t24_itch_v1_13.custom_market_order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return asx_asxderivatives_t24_itch_v1_13.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return asx_asxderivatives_t24_itch_v1_13.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Executed Message
-  if message_type == "e" then
-    return asx_asxderivatives_t24_itch_v1_13.spread_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Spread Execution Chain Message
-  if message_type == "P" then
-    return asx_asxderivatives_t24_itch_v1_13.trade_spread_execution_chain_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Custom Market Executed Message
-  if message_type == "u" then
-    return asx_asxderivatives_t24_itch_v1_13.custom_market_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Custom Market Trade Message
-  if message_type == "p" then
-    return asx_asxderivatives_t24_itch_v1_13.custom_market_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancellation Message
-  if message_type == "B" then
-    return asx_asxderivatives_t24_itch_v1_13.trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equilibrium Price Auction Info Message
-  if message_type == "Z" then
-    return asx_asxderivatives_t24_itch_v1_13.equilibrium_price_auction_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open High Low Last Trade Adjustment Message
-  if message_type == "t" then
-    return asx_asxderivatives_t24_itch_v1_13.open_high_low_last_trade_adjustment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Settlement Message
-  if message_type == "Y" then
-    return asx_asxderivatives_t24_itch_v1_13.market_settlement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ad Hoc Text Message
-  if message_type == "x" then
-    return asx_asxderivatives_t24_itch_v1_13.ad_hoc_text_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Quote Message
-  if message_type == "q" then
-    return asx_asxderivatives_t24_itch_v1_13.request_for_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Anomalous Order Threshold Publish Message
-  if message_type == "W" then
-    return asx_asxderivatives_t24_itch_v1_13.anomalous_order_threshold_publish_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Volume And Open Interest Message
-  if message_type == "V" then
-    return asx_asxderivatives_t24_itch_v1_13.volume_and_open_interest_message.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxderivatives_t24_itch_v1_13.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5439,14 +5212,15 @@ end
 asx_asxderivatives_t24_itch_v1_13.messages = {}
 
 -- Dissect: Messages
+asx_asxderivatives_t24_itch_v1_13.messages.dispatch = {
+  [0] = asx_asxderivatives_t24_itch_v1_13.heartbeat.dissect,
+  [65535] = asx_asxderivatives_t24_itch_v1_13.end_of_session.dissect,
+}
+
 asx_asxderivatives_t24_itch_v1_13.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return asx_asxderivatives_t24_itch_v1_13.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return asx_asxderivatives_t24_itch_v1_13.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxderivatives_t24_itch_v1_13.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

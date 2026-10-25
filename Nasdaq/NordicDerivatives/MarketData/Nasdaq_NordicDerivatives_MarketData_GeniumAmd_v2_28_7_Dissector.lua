@@ -468,15 +468,13 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type = {}
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type.size = 1
 
 -- Display: Entry Type
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type.display = function(value)
-  if value == "B" then
-    return "Entry Type: Buy (B)"
-  end
-  if value == "S" then
-    return "Entry Type: Sell (S)"
-  end
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type.labels = {
+  ["B"] = "Entry Type: Buy (B)",
+  ["S"] = "Entry Type: Sell (S)",
+}
 
-  return "Entry Type: Unknown("..value..")"
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type.display = function(value)
+  return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type.labels[value] or "Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Entry Type
@@ -547,63 +545,29 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.financial_product = {}
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.financial_product.size = 1
 
 -- Display: Financial Product
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.financial_product.display = function(value)
-  if value == 0 then
-    return "Financial Product: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Standard Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
-  if value == 16 then
-    return "Financial Product: Non Deliverable Rolling Spot (16)"
-  end
-  if value == 17 then
-    return "Financial Product: Strip (17)"
-  end
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.financial_product.labels = {
+  [0] = "Financial Product: Not Applicable (0)",
+  [1] = "Financial Product: Option (1)",
+  [2] = "Financial Product: Forward (2)",
+  [3] = "Financial Product: Future (3)",
+  [4] = "Financial Product: Fra (4)",
+  [5] = "Financial Product: Cash (5)",
+  [6] = "Financial Product: Payment (6)",
+  [7] = "Financial Product: Exchange Rate (7)",
+  [8] = "Financial Product: Interest Rate Swap (8)",
+  [9] = "Financial Product: Repo (9)",
+  [10] = "Financial Product: Synthetic Box Leg Reference (10)",
+  [11] = "Financial Product: Standard Combination (11)",
+  [12] = "Financial Product: Guarantee (12)",
+  [13] = "Financial Product: Otc General (13)",
+  [14] = "Financial Product: Equity Warrant (14)",
+  [15] = "Financial Product: Security Lending (15)",
+  [16] = "Financial Product: Non Deliverable Rolling Spot (16)",
+  [17] = "Financial Product: Strip (17)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.financial_product.display = function(value)
+  return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -718,15 +682,13 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_message = {}
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_message.size = 1
 
 -- Display: Last Message
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_message.display = function(value)
-  if value == 0 then
-    return "Last Message: Not Last Message (0)"
-  end
-  if value == 1 then
-    return "Last Message: Last Message (1)"
-  end
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_message.labels = {
+  [0] = "Last Message: Not Last Message (0)",
+  [1] = "Last Message: Last Message (1)",
+}
 
-  return "Last Message: Unknown("..value..")"
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_message.display = function(value)
+  return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_message.labels[value] or "Last Message: Unknown("..value..")"
 end
 
 -- Dissect: Last Message
@@ -864,15 +826,13 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side = {}
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side.size = 1
 
 -- Display: Leg Side
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg Side: Opposite (C)"
-  end
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side.labels = {
+  ["B"] = "Leg Side: As Defined (B)",
+  ["C"] = "Leg Side: Opposite (C)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side.display = function(value)
+  return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -917,21 +877,15 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.level_update_action = {}
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.level_update_action.size = 1
 
 -- Display: Level Update Action
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.level_update_action.display = function(value)
-  if value == 0 then
-    return "Level Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Level Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Level Update Action: Delete (2)"
-  end
-  if value == 3 then
-    return "Level Update Action: Max Depth (3)"
-  end
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.level_update_action.labels = {
+  [0] = "Level Update Action: New (0)",
+  [1] = "Level Update Action: Change (1)",
+  [2] = "Level Update Action: Delete (2)",
+  [3] = "Level Update Action: Max Depth (3)",
+}
 
-  return "Level Update Action: Unknown("..value..")"
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.level_update_action.display = function(value)
+  return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.level_update_action.labels[value] or "Level Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Level Update Action
@@ -1393,21 +1347,15 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.option_style = {}
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.option_style.size = 2
 
 -- Display: Option Style
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.option_style.display = function(value)
-  if value == 0 then
-    return "Option Style: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Option Style: American (1)"
-  end
-  if value == 2 then
-    return "Option Style: European (2)"
-  end
-  if value == 3 then
-    return "Option Style: Asian (3)"
-  end
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.option_style.labels = {
+  [0] = "Option Style: Not Applicable (0)",
+  [1] = "Option Style: American (1)",
+  [2] = "Option Style: European (2)",
+  [3] = "Option Style: Asian (3)",
+}
 
-  return "Option Style: Unknown("..value..")"
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.option_style.display = function(value)
+  return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.option_style.labels[value] or "Option Style: Unknown("..value..")"
 end
 
 -- Dissect: Option Style
@@ -1490,18 +1438,14 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.physical_delivery = {}
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.physical_delivery.size = 1
 
 -- Display: Physical Delivery
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.physical_delivery.display = function(value)
-  if value == 0 then
-    return "Physical Delivery: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Physical Delivery: Yes (1)"
-  end
-  if value == 2 then
-    return "Physical Delivery: No (2)"
-  end
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.physical_delivery.labels = {
+  [0] = "Physical Delivery: Not Applicable (0)",
+  [1] = "Physical Delivery: Yes (1)",
+  [2] = "Physical Delivery: No (2)",
+}
 
-  return "Physical Delivery: Unknown("..value..")"
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.physical_delivery.display = function(value)
+  return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.physical_delivery.labels[value] or "Physical Delivery: Unknown("..value..")"
 end
 
 -- Dissect: Physical Delivery
@@ -1664,15 +1608,13 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.put_or_call = {}
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.put_or_call.size = 1
 
 -- Display: Put Or Call
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.put_or_call.display = function(value)
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-  if value == 2 then
-    return "Put Or Call: Put (2)"
-  end
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.put_or_call.labels = {
+  [1] = "Put Or Call: Call (1)",
+  [2] = "Put Or Call: Put (2)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.put_or_call.display = function(value)
+  return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -3442,58 +3384,26 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload = {}
 
 -- Dissect: Payload
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload.dispatch = {
+  ["T"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.seconds_message.dissect,
+  ["R"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.dissect,
+  ["V"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.market_directory.dissect,
+  ["M"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.combination_order_book_leg_directory.dissect,
+  ["L"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.tick_size_table_entry.dissect,
+  ["S"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.system_event_message.dissect,
+  ["r"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reported_trade.dissect,
+  ["B"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.broken_trade_message.dissect,
+  ["q"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.quote_request_message.dissect,
+  ["o"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.open_interest_messsage.dissect,
+  ["p"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_message.dissect,
+  ["W"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.market_by_level_message.dissect,
+  ["U"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.underlying_price_message.dissect,
+}
+
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory
-  if message_type == "R" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Directory
-  if message_type == "V" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.market_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Order Book Leg Directory
-  if message_type == "M" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.combination_order_book_leg_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Table Entry
-  if message_type == "L" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.tick_size_table_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reported Trade
-  if message_type == "r" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reported_trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if message_type == "B" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Message
-  if message_type == "q" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Messsage
-  if message_type == "o" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.open_interest_messsage.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Message
-  if message_type == "p" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market By Level Message
-  if message_type == "W" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.market_by_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Price Message
-  if message_type == "U" then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.underlying_price_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3649,14 +3559,15 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.messages = {}
 
 -- Dissect: Messages
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.messages.dispatch = {
+  [0] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.heartbeat.dissect,
+  [65535] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.end_of_session.dissect,
+}
+
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

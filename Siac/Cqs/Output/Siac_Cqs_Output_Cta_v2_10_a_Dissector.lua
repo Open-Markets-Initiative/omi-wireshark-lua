@@ -229,12 +229,12 @@ siac_cqs_output_cta_v2_10_a.administrative_message_type = {}
 siac_cqs_output_cta_v2_10_a.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
-siac_cqs_output_cta_v2_10_a.administrative_message_type.display = function(value)
-  if value == "S" then
-    return "Administrative Message Type: Symbol Reference Data (S)"
-  end
+siac_cqs_output_cta_v2_10_a.administrative_message_type.labels = {
+  ["S"] = "Administrative Message Type: Symbol Reference Data (S)",
+}
 
-  return "Administrative Message Type: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.administrative_message_type.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.administrative_message_type.labels[value] or "Administrative Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Administrative Message Type
@@ -897,30 +897,18 @@ siac_cqs_output_cta_v2_10_a.control_message_type = {}
 siac_cqs_output_cta_v2_10_a.control_message_type.size = 1
 
 -- Display: Control Message Type
-siac_cqs_output_cta_v2_10_a.control_message_type.display = function(value)
-  if value == "A" then
-    return "Control Message Type: Start Of Day (A)"
-  end
-  if value == "C" then
-    return "Control Message Type: Finra Close (C)"
-  end
-  if value == "L" then
-    return "Control Message Type: Reset Block Sequence Number (L)"
-  end
-  if value == "O" then
-    return "Control Message Type: Finra Open (O)"
-  end
-  if value == "P" then
-    return "Control Message Type: Disaster Recovery Data Center Activation (P)"
-  end
-  if value == "T" then
-    return "Control Message Type: Line Integrity (T)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Day (Z)"
-  end
+siac_cqs_output_cta_v2_10_a.control_message_type.labels = {
+  ["A"] = "Control Message Type: Start Of Day (A)",
+  ["C"] = "Control Message Type: Finra Close (C)",
+  ["L"] = "Control Message Type: Reset Block Sequence Number (L)",
+  ["O"] = "Control Message Type: Finra Open (O)",
+  ["P"] = "Control Message Type: Disaster Recovery Data Center Activation (P)",
+  ["T"] = "Control Message Type: Line Integrity (T)",
+  ["Z"] = "Control Message Type: End Of Day (Z)",
+}
 
-  return "Control Message Type: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.control_message_type.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.control_message_type.labels[value] or "Control Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Control Message Type
@@ -965,42 +953,22 @@ siac_cqs_output_cta_v2_10_a.financial_status_indicator = {}
 siac_cqs_output_cta_v2_10_a.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
-siac_cqs_output_cta_v2_10_a.financial_status_indicator.display = function(value)
-  if value == "0" then
-    return "Financial Status Indicator: Financial Status Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Financial Status Indicator: Bankrupt (1)"
-  end
-  if value == "2" then
-    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
-  end
-  if value == "3" then
-    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
-  end
-  if value == "4" then
-    return "Financial Status Indicator: Late Filing (4)"
-  end
-  if value == "5" then
-    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
-  end
-  if value == "6" then
-    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
-  end
-  if value == "7" then
-    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
-  end
-  if value == "8" then
-    return "Financial Status Indicator: Creations Suspended (8)"
-  end
-  if value == "9" then
-    return "Financial Status Indicator: Redemptions Suspended (9)"
-  end
-  if value == "A" then
-    return "Financial Status Indicator: Liquidation (A)"
-  end
+siac_cqs_output_cta_v2_10_a.financial_status_indicator.labels = {
+  ["0"] = "Financial Status Indicator: Financial Status Not Applicable (0)",
+  ["1"] = "Financial Status Indicator: Bankrupt (1)",
+  ["2"] = "Financial Status Indicator: Below Continuing Listing Standards (2)",
+  ["3"] = "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)",
+  ["4"] = "Financial Status Indicator: Late Filing (4)",
+  ["5"] = "Financial Status Indicator: Bankrupt And Late Filing (5)",
+  ["6"] = "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)",
+  ["7"] = "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)",
+  ["8"] = "Financial Status Indicator: Creations Suspended (8)",
+  ["9"] = "Financial Status Indicator: Redemptions Suspended (9)",
+  ["A"] = "Financial Status Indicator: Liquidation (A)",
+}
 
-  return "Financial Status Indicator: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.financial_status_indicator.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.financial_status_indicator.labels[value] or "Financial Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Financial Status Indicator
@@ -1336,21 +1304,15 @@ siac_cqs_output_cta_v2_10_a.instrument_type = {}
 siac_cqs_output_cta_v2_10_a.instrument_type.size = 1
 
 -- Display: Instrument Type
-siac_cqs_output_cta_v2_10_a.instrument_type.display = function(value)
-  if value == "0" then
-    return "Instrument Type: Cta Eligible Equity (0)"
-  end
-  if value == "1" then
-    return "Instrument Type: Local Issue (1)"
-  end
-  if value == "2" then
-    return "Instrument Type: Corporate Bond (2)"
-  end
-  if value == "3" then
-    return "Instrument Type: Government Bond (3)"
-  end
+siac_cqs_output_cta_v2_10_a.instrument_type.labels = {
+  ["0"] = "Instrument Type: Cta Eligible Equity (0)",
+  ["1"] = "Instrument Type: Local Issue (1)",
+  ["2"] = "Instrument Type: Corporate Bond (2)",
+  ["3"] = "Instrument Type: Government Bond (3)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.instrument_type.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -1372,15 +1334,13 @@ siac_cqs_output_cta_v2_10_a.ipo = {}
 siac_cqs_output_cta_v2_10_a.ipo.size = 1
 
 -- Display: Ipo
-siac_cqs_output_cta_v2_10_a.ipo.display = function(value)
-  if value == "0" then
-    return "Ipo: Not An Ipo Symbol (0)"
-  end
-  if value == "1" then
-    return "Ipo: Ipo Symbol (1)"
-  end
+siac_cqs_output_cta_v2_10_a.ipo.labels = {
+  ["0"] = "Ipo: Not An Ipo Symbol (0)",
+  ["1"] = "Ipo: Ipo Symbol (1)",
+}
 
-  return "Ipo: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.ipo.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.ipo.labels[value] or "Ipo: Unknown("..value..")"
 end
 
 -- Dissect: Ipo
@@ -1464,18 +1424,14 @@ siac_cqs_output_cta_v2_10_a.luld_tier = {}
 siac_cqs_output_cta_v2_10_a.luld_tier.size = 1
 
 -- Display: Luld Tier
-siac_cqs_output_cta_v2_10_a.luld_tier.display = function(value)
-  if value == "0" then
-    return "Luld Tier: Luld Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Luld Tier: Luld Tier 1 Security (1)"
-  end
-  if value == "2" then
-    return "Luld Tier: Luld Tier 2 Security (2)"
-  end
+siac_cqs_output_cta_v2_10_a.luld_tier.labels = {
+  ["0"] = "Luld Tier: Luld Not Applicable (0)",
+  ["1"] = "Luld Tier: Luld Tier 1 Security (1)",
+  ["2"] = "Luld Tier: Luld Tier 2 Security (2)",
+}
 
-  return "Luld Tier: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.luld_tier.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.luld_tier.labels[value] or "Luld Tier: Unknown("..value..")"
 end
 
 -- Dissect: Luld Tier
@@ -1530,15 +1486,13 @@ siac_cqs_output_cta_v2_10_a.market_status_message_type = {}
 siac_cqs_output_cta_v2_10_a.market_status_message_type.size = 1
 
 -- Display: Market Status Message Type
-siac_cqs_output_cta_v2_10_a.market_status_message_type.display = function(value)
-  if value == "K" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status (K)"
-  end
-  if value == "L" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Status (L)"
-  end
+siac_cqs_output_cta_v2_10_a.market_status_message_type.labels = {
+  ["K"] = "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status (K)",
+  ["L"] = "Market Status Message Type: Market Wide Circuit Breaker Status (L)",
+}
 
-  return "Market Status Message Type: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.market_status_message_type.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.market_status_message_type.labels[value] or "Market Status Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Market Status Message Type
@@ -1596,21 +1550,15 @@ siac_cqs_output_cta_v2_10_a.message_category = {}
 siac_cqs_output_cta_v2_10_a.message_category.size = 1
 
 -- Display: Message Category
-siac_cqs_output_cta_v2_10_a.message_category.display = function(value)
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
-  if value == "M" then
-    return "Message Category: Market Status (M)"
-  end
-  if value == "Q" then
-    return "Message Category: Quote (Q)"
-  end
+siac_cqs_output_cta_v2_10_a.message_category.labels = {
+  ["A"] = "Message Category: Administrative (A)",
+  ["C"] = "Message Category: Control (C)",
+  ["M"] = "Message Category: Market Status (M)",
+  ["Q"] = "Message Category: Quote (Q)",
+}
 
-  return "Message Category: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.message_category.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -2117,72 +2065,32 @@ siac_cqs_output_cta_v2_10_a.participant_id = {}
 siac_cqs_output_cta_v2_10_a.participant_id.size = 1
 
 -- Display: Participant Id
-siac_cqs_output_cta_v2_10_a.participant_id.display = function(value)
-  if value == "A" then
-    return "Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Participant Id: Nasdaq Omx Bx (B)"
-  end
-  if value == "C" then
-    return "Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Participant Id: Finra Adf (D)"
-  end
-  if value == "G" then
-    return "Participant Id: 24X (G)"
-  end
-  if value == "H" then
-    return "Participant Id: Miax (H)"
-  end
-  if value == "I" then
-    return "Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Participant Id: Nyse Texas (M)"
-  end
-  if value == "N" then
-    return "Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "Participant Id: Cqs (S)"
-  end
-  if value == "T" then
-    return "Participant Id: Nasdaq (T)"
-  end
-  if value == "U" then
-    return "Participant Id: Memx (U)"
-  end
-  if value == "V" then
-    return "Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Participant Id: Nasdaq Omx Psx (X)"
-  end
-  if value == "Y" then
-    return "Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Participant Id: Cboe Bzx (Z)"
-  end
+siac_cqs_output_cta_v2_10_a.participant_id.labels = {
+  ["A"] = "Participant Id: Nyse American (A)",
+  ["B"] = "Participant Id: Nasdaq Omx Bx (B)",
+  ["C"] = "Participant Id: Nyse National (C)",
+  ["D"] = "Participant Id: Finra Adf (D)",
+  ["G"] = "Participant Id: 24X (G)",
+  ["H"] = "Participant Id: Miax (H)",
+  ["I"] = "Participant Id: Ise (I)",
+  ["J"] = "Participant Id: Cboe Edga (J)",
+  ["K"] = "Participant Id: Cboe Edgx (K)",
+  ["L"] = "Participant Id: Ltse (L)",
+  ["M"] = "Participant Id: Nyse Texas (M)",
+  ["N"] = "Participant Id: Nyse (N)",
+  ["P"] = "Participant Id: Nyse Arca (P)",
+  ["S"] = "Participant Id: Cqs (S)",
+  ["T"] = "Participant Id: Nasdaq (T)",
+  ["U"] = "Participant Id: Memx (U)",
+  ["V"] = "Participant Id: Iex (V)",
+  ["W"] = "Participant Id: Cbsx (W)",
+  ["X"] = "Participant Id: Nasdaq Omx Psx (X)",
+  ["Y"] = "Participant Id: Cboe Byx (Y)",
+  ["Z"] = "Participant Id: Cboe Bzx (Z)",
+}
 
-  return "Participant Id: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.participant_id.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.participant_id.labels[value] or "Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Participant Id
@@ -2432,21 +2340,15 @@ siac_cqs_output_cta_v2_10_a.quote_message_type = {}
 siac_cqs_output_cta_v2_10_a.quote_message_type.size = 1
 
 -- Display: Quote Message Type
-siac_cqs_output_cta_v2_10_a.quote_message_type.display = function(value)
-  if value == "A" then
-    return "Quote Message Type: Auction Status (A)"
-  end
-  if value == "L" then
-    return "Quote Message Type: Long Quote (L)"
-  end
-  if value == "Q" then
-    return "Quote Message Type: Short Quote (Q)"
-  end
-  if value == "S" then
-    return "Quote Message Type: Special Long Quote (S)"
-  end
+siac_cqs_output_cta_v2_10_a.quote_message_type.labels = {
+  ["A"] = "Quote Message Type: Auction Status (A)",
+  ["L"] = "Quote Message Type: Long Quote (L)",
+  ["Q"] = "Quote Message Type: Short Quote (Q)",
+  ["S"] = "Quote Message Type: Special Long Quote (S)",
+}
 
-  return "Quote Message Type: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.quote_message_type.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.quote_message_type.labels[value] or "Quote Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Message Type
@@ -2881,15 +2783,13 @@ siac_cqs_output_cta_v2_10_a.test = {}
 siac_cqs_output_cta_v2_10_a.test.size = 1
 
 -- Display: Test
-siac_cqs_output_cta_v2_10_a.test.display = function(value)
-  if value == "0" then
-    return "Test: Not A Test Symbol (0)"
-  end
-  if value == "1" then
-    return "Test: Test Symbol (1)"
-  end
+siac_cqs_output_cta_v2_10_a.test.labels = {
+  ["0"] = "Test: Not A Test Symbol (0)",
+  ["1"] = "Test: Test Symbol (1)",
+}
 
-  return "Test: Unknown("..value..")"
+siac_cqs_output_cta_v2_10_a.test.display = function(value)
+  return siac_cqs_output_cta_v2_10_a.test.labels[value] or "Test: Unknown("..value..")"
 end
 
 -- Dissect: Test
@@ -4313,22 +4213,17 @@ end
 siac_cqs_output_cta_v2_10_a.quote_message_payload = {}
 
 -- Dissect: Quote Message Payload
+siac_cqs_output_cta_v2_10_a.quote_message_payload.dispatch = {
+  ["A"] = siac_cqs_output_cta_v2_10_a.auction_status_message.dissect,
+  ["L"] = siac_cqs_output_cta_v2_10_a.long_quote_message.dissect,
+  ["Q"] = siac_cqs_output_cta_v2_10_a.short_quote_message.dissect,
+  ["S"] = siac_cqs_output_cta_v2_10_a.special_long_quote_message.dissect,
+}
+
 siac_cqs_output_cta_v2_10_a.quote_message_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
-  -- Dissect Auction Status Message
-  if quote_message_type == "A" then
-    return siac_cqs_output_cta_v2_10_a.auction_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Quote Message
-  if quote_message_type == "L" then
-    return siac_cqs_output_cta_v2_10_a.long_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Quote Message
-  if quote_message_type == "Q" then
-    return siac_cqs_output_cta_v2_10_a.short_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Special Long Quote Message
-  if quote_message_type == "S" then
-    return siac_cqs_output_cta_v2_10_a.special_long_quote_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cqs_output_cta_v2_10_a.quote_message_payload.dispatch[quote_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4527,14 +4422,15 @@ end
 siac_cqs_output_cta_v2_10_a.market_status_message_payload = {}
 
 -- Dissect: Market Status Message Payload
+siac_cqs_output_cta_v2_10_a.market_status_message_payload.dispatch = {
+  ["K"] = siac_cqs_output_cta_v2_10_a.market_wide_circuit_breaker_decline_level_status_message.dissect,
+  ["L"] = siac_cqs_output_cta_v2_10_a.market_wide_circuit_breaker_status_message.dissect,
+}
+
 siac_cqs_output_cta_v2_10_a.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
-  -- Dissect Market Wide Circuit Breaker Decline Level Status Message
-  if market_status_message_type == "K" then
-    return siac_cqs_output_cta_v2_10_a.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Status Message
-  if market_status_message_type == "L" then
-    return siac_cqs_output_cta_v2_10_a.market_wide_circuit_breaker_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cqs_output_cta_v2_10_a.market_status_message_payload.dispatch[market_status_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4989,34 +4885,20 @@ end
 siac_cqs_output_cta_v2_10_a.control_message_payload = {}
 
 -- Dissect: Control Message Payload
+siac_cqs_output_cta_v2_10_a.control_message_payload.dispatch = {
+  ["A"] = siac_cqs_output_cta_v2_10_a.start_of_day_message.dissect,
+  ["C"] = siac_cqs_output_cta_v2_10_a.finra_close_message.dissect,
+  ["L"] = siac_cqs_output_cta_v2_10_a.reset_block_sequence_number_message.dissect,
+  ["O"] = siac_cqs_output_cta_v2_10_a.finra_open_message.dissect,
+  ["P"] = siac_cqs_output_cta_v2_10_a.disaster_recovery_data_center_activation_message.dissect,
+  ["T"] = siac_cqs_output_cta_v2_10_a.line_integrity_message.dissect,
+  ["Z"] = siac_cqs_output_cta_v2_10_a.end_of_day_message.dissect,
+}
+
 siac_cqs_output_cta_v2_10_a.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Dissect Start Of Day Message
-  if control_message_type == "A" then
-    return siac_cqs_output_cta_v2_10_a.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Finra Close Message
-  if control_message_type == "C" then
-    return siac_cqs_output_cta_v2_10_a.finra_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Block Sequence Number Message
-  if control_message_type == "L" then
-    return siac_cqs_output_cta_v2_10_a.reset_block_sequence_number_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Finra Open Message
-  if control_message_type == "O" then
-    return siac_cqs_output_cta_v2_10_a.finra_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disaster Recovery Data Center Activation Message
-  if control_message_type == "P" then
-    return siac_cqs_output_cta_v2_10_a.disaster_recovery_data_center_activation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Line Integrity Message
-  if control_message_type == "T" then
-    return siac_cqs_output_cta_v2_10_a.line_integrity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if control_message_type == "Z" then
-    return siac_cqs_output_cta_v2_10_a.end_of_day_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cqs_output_cta_v2_10_a.control_message_payload.dispatch[control_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5207,10 +5089,14 @@ end
 siac_cqs_output_cta_v2_10_a.administrative_message_payload = {}
 
 -- Dissect: Administrative Message Payload
+siac_cqs_output_cta_v2_10_a.administrative_message_payload.dispatch = {
+  ["S"] = siac_cqs_output_cta_v2_10_a.symbol_reference_data_message.dissect,
+}
+
 siac_cqs_output_cta_v2_10_a.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect Symbol Reference Data Message
-  if administrative_message_type == "S" then
-    return siac_cqs_output_cta_v2_10_a.symbol_reference_data_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cqs_output_cta_v2_10_a.administrative_message_payload.dispatch[administrative_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5273,22 +5159,17 @@ end
 siac_cqs_output_cta_v2_10_a.category_payload = {}
 
 -- Dissect: Category Payload
+siac_cqs_output_cta_v2_10_a.category_payload.dispatch = {
+  ["A"] = siac_cqs_output_cta_v2_10_a.administrative_message.dissect,
+  ["C"] = siac_cqs_output_cta_v2_10_a.control_message.dissect,
+  ["M"] = siac_cqs_output_cta_v2_10_a.market_status_message.dissect,
+  ["Q"] = siac_cqs_output_cta_v2_10_a.quote_message.dissect,
+}
+
 siac_cqs_output_cta_v2_10_a.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Administrative Message
-  if message_category == "A" then
-    return siac_cqs_output_cta_v2_10_a.administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if message_category == "C" then
-    return siac_cqs_output_cta_v2_10_a.control_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Status Message
-  if message_category == "M" then
-    return siac_cqs_output_cta_v2_10_a.market_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Message
-  if message_category == "Q" then
-    return siac_cqs_output_cta_v2_10_a.quote_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cqs_output_cta_v2_10_a.category_payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

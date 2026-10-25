@@ -148,21 +148,15 @@ ltse_commonheader_tcp_v1_2.login_reject_code = {}
 ltse_commonheader_tcp_v1_2.login_reject_code.size = 1
 
 -- Display: Login Reject Code
-ltse_commonheader_tcp_v1_2.login_reject_code.display = function(value)
-  if value == "T" then
-    return "Login Reject Code: Malformed Token (T)"
-  end
-  if value == "U" then
-    return "Login Reject Code: Token Type Unsupported (U)"
-  end
-  if value == "V" then
-    return "Login Reject Code: Token Type Invalid (V)"
-  end
-  if value == "A" then
-    return "Login Reject Code: Authorization Failed (A)"
-  end
+ltse_commonheader_tcp_v1_2.login_reject_code.labels = {
+  ["T"] = "Login Reject Code: Malformed Token (T)",
+  ["U"] = "Login Reject Code: Token Type Unsupported (U)",
+  ["V"] = "Login Reject Code: Token Type Invalid (V)",
+  ["A"] = "Login Reject Code: Authorization Failed (A)",
+}
 
-  return "Login Reject Code: Unknown("..value..")"
+ltse_commonheader_tcp_v1_2.login_reject_code.display = function(value)
+  return ltse_commonheader_tcp_v1_2.login_reject_code.labels[value] or "Login Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Login Reject Code
@@ -253,57 +247,27 @@ ltse_commonheader_tcp_v1_2.message_type = {}
 ltse_commonheader_tcp_v1_2.message_type.size = 1
 
 -- Display: Message Type
-ltse_commonheader_tcp_v1_2.message_type.display = function(value)
-  if value == 100 then
-    return "Message Type: Login Request (100)"
-  end
-  if value == 101 then
-    return "Message Type: Replay Request (101)"
-  end
-  if value == 102 then
-    return "Message Type: Replay All Request (102)"
-  end
-  if value == 103 then
-    return "Message Type: Stream Request (103)"
-  end
-  if value == 104 then
-    return "Message Type: Unsequenced Message (104)"
-  end
-  if value == 1 then
-    return "Message Type: Login Accepted (1)"
-  end
-  if value == 2 then
-    return "Message Type: Login Rejected (2)"
-  end
-  if value == 3 then
-    return "Message Type: Start Of Session (3)"
-  end
-  if value == 4 then
-    return "Message Type: End Of Session (4)"
-  end
-  if value == 5 then
-    return "Message Type: Replay Begin (5)"
-  end
-  if value == 6 then
-    return "Message Type: Replay Rejected (6)"
-  end
-  if value == 7 then
-    return "Message Type: Replay Complete (7)"
-  end
-  if value == 8 then
-    return "Message Type: Stream Begin (8)"
-  end
-  if value == 9 then
-    return "Message Type: Stream Rejected (9)"
-  end
-  if value == 10 then
-    return "Message Type: Stream Complete (10)"
-  end
-  if value == 11 then
-    return "Message Type: Sequenced Message (11)"
-  end
+ltse_commonheader_tcp_v1_2.message_type.labels = {
+  [100] = "Message Type: Login Request (100)",
+  [101] = "Message Type: Replay Request (101)",
+  [102] = "Message Type: Replay All Request (102)",
+  [103] = "Message Type: Stream Request (103)",
+  [104] = "Message Type: Unsequenced Message (104)",
+  [1] = "Message Type: Login Accepted (1)",
+  [2] = "Message Type: Login Rejected (2)",
+  [3] = "Message Type: Start Of Session (3)",
+  [4] = "Message Type: End Of Session (4)",
+  [5] = "Message Type: Replay Begin (5)",
+  [6] = "Message Type: Replay Rejected (6)",
+  [7] = "Message Type: Replay Complete (7)",
+  [8] = "Message Type: Stream Begin (8)",
+  [9] = "Message Type: Stream Rejected (9)",
+  [10] = "Message Type: Stream Complete (10)",
+  [11] = "Message Type: Sequenced Message (11)",
+}
 
-  return "Message Type: Unknown("..value..")"
+ltse_commonheader_tcp_v1_2.message_type.display = function(value)
+  return ltse_commonheader_tcp_v1_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -390,21 +354,15 @@ ltse_commonheader_tcp_v1_2.replay_reject_code = {}
 ltse_commonheader_tcp_v1_2.replay_reject_code.size = 1
 
 -- Display: Replay Reject Code
-ltse_commonheader_tcp_v1_2.replay_reject_code.display = function(value)
-  if value == "R" then
-    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
-  end
-  if value == "A" then
-    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
-  end
-  if value == "P" then
-    return "Replay Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Replay Reject Code: Sequence Number Out Of Range (S)"
-  end
+ltse_commonheader_tcp_v1_2.replay_reject_code.labels = {
+  ["R"] = "Replay Reject Code: Replay Requests Are Not Allowed (R)",
+  ["A"] = "Replay Reject Code: Replay All Requests Are Not Allowed (A)",
+  ["P"] = "Replay Reject Code: Not The Active Session (P)",
+  ["S"] = "Replay Reject Code: Sequence Number Out Of Range (S)",
+}
 
-  return "Replay Reject Code: Unknown("..value..")"
+ltse_commonheader_tcp_v1_2.replay_reject_code.display = function(value)
+  return ltse_commonheader_tcp_v1_2.replay_reject_code.labels[value] or "Replay Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Replay Reject Code
@@ -472,18 +430,14 @@ ltse_commonheader_tcp_v1_2.stream_reject_code = {}
 ltse_commonheader_tcp_v1_2.stream_reject_code.size = 1
 
 -- Display: Stream Reject Code
-ltse_commonheader_tcp_v1_2.stream_reject_code.display = function(value)
-  if value == "R" then
-    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
-  end
-  if value == "P" then
-    return "Stream Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Stream Reject Code: Sequence Number Out Of Range (S)"
-  end
+ltse_commonheader_tcp_v1_2.stream_reject_code.labels = {
+  ["R"] = "Stream Reject Code: Stream Requests Are Not Allowed (R)",
+  ["P"] = "Stream Reject Code: Not The Active Session (P)",
+  ["S"] = "Stream Reject Code: Sequence Number Out Of Range (S)",
+}
 
-  return "Stream Reject Code: Unknown("..value..")"
+ltse_commonheader_tcp_v1_2.stream_reject_code.display = function(value)
+  return ltse_commonheader_tcp_v1_2.stream_reject_code.labels[value] or "Stream Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Stream Reject Code
@@ -505,18 +459,14 @@ ltse_commonheader_tcp_v1_2.supported_request_mode = {}
 ltse_commonheader_tcp_v1_2.supported_request_mode.size = 1
 
 -- Display: Supported Request Mode
-ltse_commonheader_tcp_v1_2.supported_request_mode.display = function(value)
-  if value == "S" then
-    return "Supported Request Mode: Stream (S)"
-  end
-  if value == "R" then
-    return "Supported Request Mode: Replay (R)"
-  end
-  if value == "T" then
-    return "Supported Request Mode: Snapshot Mode (T)"
-  end
+ltse_commonheader_tcp_v1_2.supported_request_mode.labels = {
+  ["S"] = "Supported Request Mode: Stream (S)",
+  ["R"] = "Supported Request Mode: Replay (R)",
+  ["T"] = "Supported Request Mode: Snapshot Mode (T)",
+}
 
-  return "Supported Request Mode: Unknown("..value..")"
+ltse_commonheader_tcp_v1_2.supported_request_mode.display = function(value)
+  return ltse_commonheader_tcp_v1_2.supported_request_mode.labels[value] or "Supported Request Mode: Unknown("..value..")"
 end
 
 -- Dissect: Supported Request Mode
@@ -1400,66 +1350,28 @@ end
 ltse_commonheader_tcp_v1_2.data = {}
 
 -- Dissect: Data
+ltse_commonheader_tcp_v1_2.data.dispatch = {
+  [100] = ltse_commonheader_tcp_v1_2.login_request_message.dissect,
+  [101] = ltse_commonheader_tcp_v1_2.replay_request_message.dissect,
+  [102] = ltse_commonheader_tcp_v1_2.replay_all_request_message.dissect,
+  [103] = ltse_commonheader_tcp_v1_2.stream_request_message.dissect,
+  [104] = ltse_commonheader_tcp_v1_2.unsequenced_message.dissect,
+  [1] = ltse_commonheader_tcp_v1_2.login_accepted_message.dissect,
+  [2] = ltse_commonheader_tcp_v1_2.login_rejected_message.dissect,
+  [3] = ltse_commonheader_tcp_v1_2.start_of_session_message.dissect,
+  [5] = ltse_commonheader_tcp_v1_2.replay_begin_message.dissect,
+  [6] = ltse_commonheader_tcp_v1_2.replay_rejected_message.dissect,
+  [7] = ltse_commonheader_tcp_v1_2.replay_complete_message.dissect,
+  [8] = ltse_commonheader_tcp_v1_2.stream_begin_message.dissect,
+  [9] = ltse_commonheader_tcp_v1_2.stream_rejected_message.dissect,
+  [10] = ltse_commonheader_tcp_v1_2.stream_complete_message.dissect,
+  [11] = ltse_commonheader_tcp_v1_2.sequenced_message.dissect,
+}
+
 ltse_commonheader_tcp_v1_2.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 100 then
-    return ltse_commonheader_tcp_v1_2.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Message
-  if message_type == 101 then
-    return ltse_commonheader_tcp_v1_2.replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay All Request Message
-  if message_type == 102 then
-    return ltse_commonheader_tcp_v1_2.replay_all_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Request Message
-  if message_type == 103 then
-    return ltse_commonheader_tcp_v1_2.stream_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Message
-  if message_type == 104 then
-    return ltse_commonheader_tcp_v1_2.unsequenced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Message
-  if message_type == 1 then
-    return ltse_commonheader_tcp_v1_2.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == 2 then
-    return ltse_commonheader_tcp_v1_2.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session Message
-  if message_type == 3 then
-    return ltse_commonheader_tcp_v1_2.start_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Begin Message
-  if message_type == 5 then
-    return ltse_commonheader_tcp_v1_2.replay_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Rejected Message
-  if message_type == 6 then
-    return ltse_commonheader_tcp_v1_2.replay_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete Message
-  if message_type == 7 then
-    return ltse_commonheader_tcp_v1_2.replay_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Begin Message
-  if message_type == 8 then
-    return ltse_commonheader_tcp_v1_2.stream_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Rejected Message
-  if message_type == 9 then
-    return ltse_commonheader_tcp_v1_2.stream_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Complete Message
-  if message_type == 10 then
-    return ltse_commonheader_tcp_v1_2.stream_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 11 then
-    return ltse_commonheader_tcp_v1_2.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = ltse_commonheader_tcp_v1_2.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -169,21 +169,15 @@ cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_response_status = {}
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_response_status.labels = {
+  ["A"] = "Login Response Status: Login Accepted (A)",
+  ["N"] = "Login Response Status: Not Authorized Invalid Username Password (N)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_response_status.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -251,33 +245,19 @@ cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.message_type = {}
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.message_type.size = 1
 
 -- Display: Message Type
-cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x80 then
-    return "Message Type: Spin Image Available Message (0x80)"
-  end
-  if value == 0x81 then
-    return "Message Type: Spin Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Spin Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Spin Finished Message (0x83)"
-  end
-  if value == 0x50 then
-    return "Message Type: Trading Status Message (0x50)"
-  end
-  if value == 0x51 then
-    return "Message Type: Add Order Message (0x51)"
-  end
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.message_type.labels = {
+  [0x01] = "Message Type: Login Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x80] = "Message Type: Spin Image Available Message (0x80)",
+  [0x81] = "Message Type: Spin Request Message (0x81)",
+  [0x82] = "Message Type: Spin Response Message (0x82)",
+  [0x83] = "Message Type: Spin Finished Message (0x83)",
+  [0x50] = "Message Type: Trading Status Message (0x50)",
+  [0x51] = "Message Type: Add Order Message (0x51)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.message_type.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -489,15 +469,13 @@ cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.side_indicator = {}
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.side_indicator.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -519,18 +497,14 @@ cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_response_status = {}
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_response_status.size = 1
 
 -- Display: Spin Response Status
-cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_response_status.display = function(value)
-  if value == "A" then
-    return "Spin Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)"
-  end
-  if value == "S" then
-    return "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_response_status.labels = {
+  ["A"] = "Spin Response Status: Accepted (A)",
+  ["O"] = "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)",
+  ["S"] = "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Spin Response Status: Unknown("..value..")"
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_response_status.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_response_status.labels[value] or "Spin Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Spin Response Status
@@ -598,21 +572,15 @@ cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.trading_status = {}
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.trading_status.display = function(value)
-  if value == "C" then
-    return "Trading Status: Closed (C)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "h" then
-    return "Trading Status: Halted In Pre Open (h)"
-  end
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.trading_status.labels = {
+  ["C"] = "Trading Status: Closed (C)",
+  ["T"] = "Trading Status: Trading (T)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["h"] = "Trading Status: Halted In Pre Open (h)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.trading_status.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1101,38 +1069,21 @@ end
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.payload = {}
 
 -- Dissect: Payload
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.payload.dispatch = {
+  [0x01] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_message.dissect,
+  [0x02] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_response_message.dissect,
+  [0x80] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_image_available_message.dissect,
+  [0x81] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_request_message.dissect,
+  [0x82] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_response_message.dissect,
+  [0x83] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_finished_message.dissect,
+  [0x50] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.trading_status_message.dissect,
+  [0x51] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.add_order_message.dissect,
+}
+
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Message
-  if message_type == 0x01 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Image Available Message
-  if message_type == 0x80 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_image_available_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 0x81 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 0x82 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Finished Message
-  if message_type == 0x83 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.spin_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x50 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 0x51 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.add_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1265,10 +1216,14 @@ end
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.messages = {}
 
 -- Dissect: Messages
+cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.messages.dispatch = {
+  [0] = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.heartbeat.dissect,
+}
+
 cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxjequities_multicastdepthofbook_spin_v1_0_6.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

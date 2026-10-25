@@ -420,18 +420,14 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.bid_ask_flag = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.bid_ask_flag.size = 1
 
 -- Display: Bid Ask Flag
-hkex_hkexderivatives_premiumretrans_omd_v1_47.bid_ask_flag.display = function(value)
-  if value == 0 then
-    return "Bid Ask Flag: Bid (0)"
-  end
-  if value == 1 then
-    return "Bid Ask Flag: Ask (1)"
-  end
-  if value == 2 then
-    return "Bid Ask Flag: Both (2)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.bid_ask_flag.labels = {
+  [0] = "Bid Ask Flag: Bid (0)",
+  [1] = "Bid Ask Flag: Ask (1)",
+  [2] = "Bid Ask Flag: Both (2)",
+}
 
-  return "Bid Ask Flag: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.bid_ask_flag.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.bid_ask_flag.labels[value] or "Bid Ask Flag: Unknown("..value..")"
 end
 
 -- Dissect: Bid Ask Flag
@@ -775,15 +771,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.day_indicator = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.day_indicator.size = 2
 
 -- Display: Day Indicator
-hkex_hkexderivatives_premiumretrans_omd_v1_47.day_indicator.display = function(value)
-  if value == 0 then
-    return "Day Indicator: Current Business Day (0)"
-  end
-  if value == 1 then
-    return "Day Indicator: Previous Business Day (1)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.day_indicator.labels = {
+  [0] = "Day Indicator: Current Business Day (0)",
+  [1] = "Day Indicator: Previous Business Day (1)",
+}
 
-  return "Day Indicator: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.day_indicator.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.day_indicator.labels[value] or "Day Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Day Indicator
@@ -920,15 +914,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.dr_status = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.dr_status.size = 4
 
 -- Display: Dr Status
-hkex_hkexderivatives_premiumretrans_omd_v1_47.dr_status.display = function(value)
-  if value == 1 then
-    return "Dr Status: In Progress (1)"
-  end
-  if value == 2 then
-    return "Dr Status: Completed (2)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.dr_status.labels = {
+  [1] = "Dr Status: In Progress (1)",
+  [2] = "Dr Status: Completed (2)",
+}
 
-  return "Dr Status: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.dr_status.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.dr_status.labels[value] or "Dr Status: Unknown("..value..")"
 end
 
 -- Dissect: Dr Status
@@ -973,15 +965,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.effective_tomorrow = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.effective_tomorrow.size = 1
 
 -- Display: Effective Tomorrow
-hkex_hkexderivatives_premiumretrans_omd_v1_47.effective_tomorrow.display = function(value)
-  if value == 0 then
-    return "Effective Tomorrow: False (0)"
-  end
-  if value == 1 then
-    return "Effective Tomorrow: True (1)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.effective_tomorrow.labels = {
+  [0] = "Effective Tomorrow: False (0)",
+  [1] = "Effective Tomorrow: True (1)",
+}
 
-  return "Effective Tomorrow: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.effective_tomorrow.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.effective_tomorrow.labels[value] or "Effective Tomorrow: Unknown("..value..")"
 end
 
 -- Dissect: Effective Tomorrow
@@ -1187,54 +1177,26 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.financial_product = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.financial_product.size = 1
 
 -- Display: Financial Product
-hkex_hkexderivatives_premiumretrans_omd_v1_47.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Forward (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Fra (4)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 6 then
-    return "Financial Product: Payment (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Exchange Rate (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Interest Rate Swap (8)"
-  end
-  if value == 9 then
-    return "Financial Product: Repo (9)"
-  end
-  if value == 10 then
-    return "Financial Product: Synthetic Box Leg Reference (10)"
-  end
-  if value == 11 then
-    return "Financial Product: Standard Combination (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Guarantee (12)"
-  end
-  if value == 13 then
-    return "Financial Product: Otc General (13)"
-  end
-  if value == 14 then
-    return "Financial Product: Equity Warrant (14)"
-  end
-  if value == 15 then
-    return "Financial Product: Security Lending (15)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.financial_product.labels = {
+  [1] = "Financial Product: Option (1)",
+  [2] = "Financial Product: Forward (2)",
+  [3] = "Financial Product: Future (3)",
+  [4] = "Financial Product: Fra (4)",
+  [5] = "Financial Product: Cash (5)",
+  [6] = "Financial Product: Payment (6)",
+  [7] = "Financial Product: Exchange Rate (7)",
+  [8] = "Financial Product: Interest Rate Swap (8)",
+  [9] = "Financial Product: Repo (9)",
+  [10] = "Financial Product: Synthetic Box Leg Reference (10)",
+  [11] = "Financial Product: Standard Combination (11)",
+  [12] = "Financial Product: Guarantee (12)",
+  [13] = "Financial Product: Otc General (13)",
+  [14] = "Financial Product: Equity Warrant (14)",
+  [15] = "Financial Product: Security Lending (15)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.financial_product.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -1348,24 +1310,16 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.info_type = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.info_type.size = 1
 
 -- Display: Info Type
-hkex_hkexderivatives_premiumretrans_omd_v1_47.info_type.display = function(value)
-  if value == 0 then
-    return "Info Type: Not Specified (0)"
-  end
-  if value == 1 then
-    return "Info Type: Company Announcement (1)"
-  end
-  if value == 2 then
-    return "Info Type: Market Message (2)"
-  end
-  if value == 3 then
-    return "Info Type: Static Line (3)"
-  end
-  if value == 4 then
-    return "Info Type: Notice Received (4)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.info_type.labels = {
+  [0] = "Info Type: Not Specified (0)",
+  [1] = "Info Type: Company Announcement (1)",
+  [2] = "Info Type: Market Message (2)",
+  [3] = "Info Type: Static Line (3)",
+  [4] = "Info Type: Notice Received (4)",
+}
 
-  return "Info Type: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.info_type.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.info_type.labels[value] or "Info Type: Unknown("..value..")"
 end
 
 -- Dissect: Info Type
@@ -1456,111 +1410,45 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.instrument_group = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.instrument_group.size = 1
 
 -- Display: Instrument Group
-hkex_hkexderivatives_premiumretrans_omd_v1_47.instrument_group.display = function(value)
-  if value == 4 then
-    return "Instrument Group: Futures (4)"
-  end
-  if value == 6 then
-    return "Instrument Group: American Style Call (6)"
-  end
-  if value == 7 then
-    return "Instrument Group: American Style Put (7)"
-  end
-  if value == 22 then
-    return "Instrument Group: European Style Call (22)"
-  end
-  if value == 23 then
-    return "Instrument Group: European Style Put (23)"
-  end
-  if value == 170 then
-    return "Instrument Group: Options Straddle (170)"
-  end
-  if value == 171 then
-    return "Instrument Group: Options Strangle (171)"
-  end
-  if value == 172 then
-    return "Instrument Group: Synthetic Futures (172)"
-  end
-  if value == 201 then
-    return "Instrument Group: Time Spread Level 1 (201)"
-  end
-  if value == 202 then
-    return "Instrument Group: Time Spread Level 2 (202)"
-  end
-  if value == 203 then
-    return "Instrument Group: Time Spread Level 3 (203)"
-  end
-  if value == 204 then
-    return "Instrument Group: Time Spread Level 4 (204)"
-  end
-  if value == 205 then
-    return "Instrument Group: Time Spread Level 5 (205)"
-  end
-  if value == 206 then
-    return "Instrument Group: Time Spread Level 6 (206)"
-  end
-  if value == 207 then
-    return "Instrument Group: Time Spread Level 7 (207)"
-  end
-  if value == 208 then
-    return "Instrument Group: Time Spread Level 8 (208)"
-  end
-  if value == 209 then
-    return "Instrument Group: Time Spread Level 9 (209)"
-  end
-  if value == 210 then
-    return "Instrument Group: Time Spread Level 10 (210)"
-  end
-  if value == 211 then
-    return "Instrument Group: Time Spread Level 11 (211)"
-  end
-  if value == 212 then
-    return "Instrument Group: Time Spread Level 12 (212)"
-  end
-  if value == 213 then
-    return "Instrument Group: Time Spread Level 13 (213)"
-  end
-  if value == 214 then
-    return "Instrument Group: Time Spread Level 14 (214)"
-  end
-  if value == 215 then
-    return "Instrument Group: Time Spread Level 15 (215)"
-  end
-  if value == 216 then
-    return "Instrument Group: Time Spread Level 16 (216)"
-  end
-  if value == 217 then
-    return "Instrument Group: Time Spread Level 17 (217)"
-  end
-  if value == 218 then
-    return "Instrument Group: Time Spread Level 18 (218)"
-  end
-  if value == 219 then
-    return "Instrument Group: Time Spread Level 19 (219)"
-  end
-  if value == 220 then
-    return "Instrument Group: Time Spread Level 20 (220)"
-  end
-  if value == 221 then
-    return "Instrument Group: Time Spread Level 21 (221)"
-  end
-  if value == 222 then
-    return "Instrument Group: Time Spread Level 22 (222)"
-  end
-  if value == 223 then
-    return "Instrument Group: Time Spread Level 23 (223)"
-  end
-  if value == 250 then
-    return "Instrument Group: Tailor Made Combination (250)"
-  end
-  if value == 254 then
-    return "Instrument Group: Exchange Rate (254)"
-  end
-  if value == 255 then
-    return "Instrument Group: Payment Currency (255)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.instrument_group.labels = {
+  [4] = "Instrument Group: Futures (4)",
+  [6] = "Instrument Group: American Style Call (6)",
+  [7] = "Instrument Group: American Style Put (7)",
+  [22] = "Instrument Group: European Style Call (22)",
+  [23] = "Instrument Group: European Style Put (23)",
+  [170] = "Instrument Group: Options Straddle (170)",
+  [171] = "Instrument Group: Options Strangle (171)",
+  [172] = "Instrument Group: Synthetic Futures (172)",
+  [201] = "Instrument Group: Time Spread Level 1 (201)",
+  [202] = "Instrument Group: Time Spread Level 2 (202)",
+  [203] = "Instrument Group: Time Spread Level 3 (203)",
+  [204] = "Instrument Group: Time Spread Level 4 (204)",
+  [205] = "Instrument Group: Time Spread Level 5 (205)",
+  [206] = "Instrument Group: Time Spread Level 6 (206)",
+  [207] = "Instrument Group: Time Spread Level 7 (207)",
+  [208] = "Instrument Group: Time Spread Level 8 (208)",
+  [209] = "Instrument Group: Time Spread Level 9 (209)",
+  [210] = "Instrument Group: Time Spread Level 10 (210)",
+  [211] = "Instrument Group: Time Spread Level 11 (211)",
+  [212] = "Instrument Group: Time Spread Level 12 (212)",
+  [213] = "Instrument Group: Time Spread Level 13 (213)",
+  [214] = "Instrument Group: Time Spread Level 14 (214)",
+  [215] = "Instrument Group: Time Spread Level 15 (215)",
+  [216] = "Instrument Group: Time Spread Level 16 (216)",
+  [217] = "Instrument Group: Time Spread Level 17 (217)",
+  [218] = "Instrument Group: Time Spread Level 18 (218)",
+  [219] = "Instrument Group: Time Spread Level 19 (219)",
+  [220] = "Instrument Group: Time Spread Level 20 (220)",
+  [221] = "Instrument Group: Time Spread Level 21 (221)",
+  [222] = "Instrument Group: Time Spread Level 22 (222)",
+  [223] = "Instrument Group: Time Spread Level 23 (223)",
+  [250] = "Instrument Group: Tailor Made Combination (250)",
+  [254] = "Instrument Group: Exchange Rate (254)",
+  [255] = "Instrument Group: Payment Currency (255)",
+}
 
-  return "Instrument Group: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.instrument_group.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.instrument_group.labels[value] or "Instrument Group: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Group
@@ -1582,15 +1470,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.is_fractions = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.is_fractions.size = 1
 
 -- Display: Is Fractions
-hkex_hkexderivatives_premiumretrans_omd_v1_47.is_fractions.display = function(value)
-  if value == "1" then
-    return "Is Fractions: Yes (1)"
-  end
-  if value == "2" then
-    return "Is Fractions: No (2)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.is_fractions.labels = {
+  ["1"] = "Is Fractions: Yes (1)",
+  ["2"] = "Is Fractions: No (2)",
+}
 
-  return "Is Fractions: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.is_fractions.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.is_fractions.labels[value] or "Is Fractions: Unknown("..value..")"
 end
 
 -- Dissect: Is Fractions
@@ -1635,15 +1521,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.last_fragment = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.last_fragment.size = 1
 
 -- Display: Last Fragment
-hkex_hkexderivatives_premiumretrans_omd_v1_47.last_fragment.display = function(value)
-  if value == "Y" then
-    return "Last Fragment: Complete (Y)"
-  end
-  if value == "M" then
-    return "Last Fragment: Not Complete (M)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.last_fragment.labels = {
+  ["Y"] = "Last Fragment: Complete (Y)",
+  ["M"] = "Last Fragment: Not Complete (M)",
+}
 
-  return "Last Fragment: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.last_fragment.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.last_fragment.labels[value] or "Last Fragment: Unknown("..value..")"
 end
 
 -- Dissect: Last Fragment
@@ -1734,18 +1618,14 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.leg_side = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.leg_side.size = 1
 
 -- Display: Leg Side
-hkex_hkexderivatives_premiumretrans_omd_v1_47.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg Side: Opposite (C)"
-  end
-  if value == "2" then
-    return "Leg Side: Net Value (2)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.leg_side.labels = {
+  ["B"] = "Leg Side: As Defined (B)",
+  ["C"] = "Leg Side: Opposite (C)",
+  ["2"] = "Leg Side: Net Value (2)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.leg_side.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -1767,15 +1647,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.locked = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.locked.size = 1
 
 -- Display: Locked
-hkex_hkexderivatives_premiumretrans_omd_v1_47.locked.display = function(value)
-  if value == 1 then
-    return "Locked: Yes (1)"
-  end
-  if value == 2 then
-    return "Locked: No (2)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.locked.labels = {
+  [1] = "Locked: Yes (1)",
+  [2] = "Locked: No (2)",
+}
 
-  return "Locked: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.locked.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.locked.labels[value] or "Locked: Unknown("..value..")"
 end
 
 -- Dissect: Locked
@@ -1820,144 +1698,56 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.market = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.market.size = 1
 
 -- Display: Market
-hkex_hkexderivatives_premiumretrans_omd_v1_47.market.display = function(value)
-  if value == 1 then
-    return "Market: Cesc Index Futures And Options (1)"
-  end
-  if value == 2 then
-    return "Market: Stock Futures In Omdd Partition 1 (2)"
-  end
-  if value == 3 then
-    return "Market: Three Year Exchange Fund Note Futures (3)"
-  end
-  if value == 16 then
-    return "Market: Mini Hang Seng Index Futures And Options (16)"
-  end
-  if value == 18 then
-    return "Market: Weekly Stock Options In Omdd Partition 1 (18)"
-  end
-  if value == 20 then
-    return "Market: Stock Options In Omdd Partition 1 (20)"
-  end
-  if value == 24 then
-    return "Market: Hibor (24)"
-  end
-  if value == 27 then
-    return "Market: Dividend Futures (27)"
-  end
-  if value == 32 then
-    return "Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)"
-  end
-  if value == 34 then
-    return "Market: Hang Seng Index Futures And Options (34)"
-  end
-  if value == 35 then
-    return "Market: Flexible Hang Seng Index Options (35)"
-  end
-  if value == 37 then
-    return "Market: Flexible Hang Seng China Enterprises Index Options (37)"
-  end
-  if value == 38 then
-    return "Market: Hang Seng China Enterprises Index Futures And Options (38)"
-  end
-  if value == 39 then
-    return "Market: Weekly Hang Seng Index Options (39)"
-  end
-  if value == 40 then
-    return "Market: Physically Settled Options On Futures Contracts On Hang Seng China Enterprises Index Futures (40)"
-  end
-  if value == 51 then
-    return "Market: Hsi Volatility Index Futures (51)"
-  end
-  if value == 60 then
-    return "Market: Sector Index Futures (60)"
-  end
-  if value == 70 then
-    return "Market: Renminbi Currency Futures And Options (70)"
-  end
-  if value == 80 then
-    return "Market: Hang Seng Biotech Index Futures (80)"
-  end
-  if value == 83 then
-    return "Market: Physically Settled Options On Futures Contracts On Hang Seng Tech Index Futures Options (83)"
-  end
-  if value == 84 then
-    return "Market: Weekly Hang Seng Tech Index Options (84)"
-  end
-  if value == 86 then
-    return "Market: Hang Seng Tech Index Futures And Options (86)"
-  end
-  if value == 87 then
-    return "Market: Hang Seng Index And Hang Seng China Enterprises Index Gross And Net Total Return Index Futures (87)"
-  end
-  if value == 93 then
-    return "Market: Weekly Hang Seng China Enterprises Index Options (93)"
-  end
-  if value == 96 then
-    return "Market: Ibovespa Index Futures (96)"
-  end
-  if value == 99 then
-    return "Market: Sp Bse Sensex Index Futures (99)"
-  end
-  if value == 102 then
-    return "Market: Ftse And Jse Top 40 Index Futures (102)"
-  end
-  if value == 108 then
-    return "Market: Micex Index Futures (108)"
-  end
-  if value == 111 then
-    return "Market: Msci Ax J Futures Ntr (111)"
-  end
-  if value == 112 then
-    return "Market: Physically Settled Usd Silver Futures (112)"
-  end
-  if value == 115 then
-    return "Market: Physically Settled Cnh Silver Futures (115)"
-  end
-  if value == 116 then
-    return "Market: Physically Settled Cnh Gold Futures (116)"
-  end
-  if value == 117 then
-    return "Market: Physically Settled Usd Gold Futures (117)"
-  end
-  if value == 118 then
-    return "Market: Mof T Bond Futures (118)"
-  end
-  if value == 120 then
-    return "Market: Usd Base And Ferrous Futures (120)"
-  end
-  if value == 122 then
-    return "Market: Cnh London Metal Mini Futures (122)"
-  end
-  if value == 125 then
-    return "Market: Cash Settled Rmb Currency Futures (125)"
-  end
-  if value == 153 then
-    return "Market: Msci China A 50 Connect Index Futures (153)"
-  end
-  if value == 160 then
-    return "Market: Msci Jpy Index Futures Price And Ntr (160)"
-  end
-  if value == 161 then
-    return "Market: Msci Usd Index Futures Ntr (161)"
-  end
-  if value == 163 then
-    return "Market: Msci Usd Index Futures And Options Price 1 (163)"
-  end
-  if value == 164 then
-    return "Market: Msci Usd Index Futures And Options Price 2 (164)"
-  end
-  if value == 166 then
-    return "Market: Msci Usd Index Futures And Options Price 3 (166)"
-  end
-  if value == 168 then
-    return "Market: Msci Usd Index Futures And Options Price 4 (168)"
-  end
-  if value == 170 then
-    return "Market: Msci Sgd Index Futures Price (170)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.market.labels = {
+  [1] = "Market: Cesc Index Futures And Options (1)",
+  [2] = "Market: Stock Futures In Omdd Partition 1 (2)",
+  [3] = "Market: Three Year Exchange Fund Note Futures (3)",
+  [16] = "Market: Mini Hang Seng Index Futures And Options (16)",
+  [18] = "Market: Weekly Stock Options In Omdd Partition 1 (18)",
+  [20] = "Market: Stock Options In Omdd Partition 1 (20)",
+  [24] = "Market: Hibor (24)",
+  [27] = "Market: Dividend Futures (27)",
+  [32] = "Market: Physically Settled Options On Futures Contracts On Hang Seng Index Futures (32)",
+  [34] = "Market: Hang Seng Index Futures And Options (34)",
+  [35] = "Market: Flexible Hang Seng Index Options (35)",
+  [37] = "Market: Flexible Hang Seng China Enterprises Index Options (37)",
+  [38] = "Market: Hang Seng China Enterprises Index Futures And Options (38)",
+  [39] = "Market: Weekly Hang Seng Index Options (39)",
+  [40] = "Market: Physically Settled Options On Futures Contracts On Hang Seng China Enterprises Index Futures (40)",
+  [51] = "Market: Hsi Volatility Index Futures (51)",
+  [60] = "Market: Sector Index Futures (60)",
+  [70] = "Market: Renminbi Currency Futures And Options (70)",
+  [80] = "Market: Hang Seng Biotech Index Futures (80)",
+  [83] = "Market: Physically Settled Options On Futures Contracts On Hang Seng Tech Index Futures Options (83)",
+  [84] = "Market: Weekly Hang Seng Tech Index Options (84)",
+  [86] = "Market: Hang Seng Tech Index Futures And Options (86)",
+  [87] = "Market: Hang Seng Index And Hang Seng China Enterprises Index Gross And Net Total Return Index Futures (87)",
+  [93] = "Market: Weekly Hang Seng China Enterprises Index Options (93)",
+  [96] = "Market: Ibovespa Index Futures (96)",
+  [99] = "Market: Sp Bse Sensex Index Futures (99)",
+  [102] = "Market: Ftse And Jse Top 40 Index Futures (102)",
+  [108] = "Market: Micex Index Futures (108)",
+  [111] = "Market: Msci Ax J Futures Ntr (111)",
+  [112] = "Market: Physically Settled Usd Silver Futures (112)",
+  [115] = "Market: Physically Settled Cnh Silver Futures (115)",
+  [116] = "Market: Physically Settled Cnh Gold Futures (116)",
+  [117] = "Market: Physically Settled Usd Gold Futures (117)",
+  [118] = "Market: Mof T Bond Futures (118)",
+  [120] = "Market: Usd Base And Ferrous Futures (120)",
+  [122] = "Market: Cnh London Metal Mini Futures (122)",
+  [125] = "Market: Cash Settled Rmb Currency Futures (125)",
+  [153] = "Market: Msci China A 50 Connect Index Futures (153)",
+  [160] = "Market: Msci Jpy Index Futures Price And Ntr (160)",
+  [161] = "Market: Msci Usd Index Futures Ntr (161)",
+  [163] = "Market: Msci Usd Index Futures And Options Price 1 (163)",
+  [164] = "Market: Msci Usd Index Futures And Options Price 2 (164)",
+  [166] = "Market: Msci Usd Index Futures And Options Price 3 (166)",
+  [168] = "Market: Msci Usd Index Futures And Options Price 4 (168)",
+  [170] = "Market: Msci Sgd Index Futures Price (170)",
+}
 
-  return "Market: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.market.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.market.labels[value] or "Market: Unknown("..value..")"
 end
 
 -- Dissect: Market
@@ -2048,81 +1838,35 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.msg_type = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.msg_type.size = 2
 
 -- Display: Msg Type
-hkex_hkexderivatives_premiumretrans_omd_v1_47.msg_type.display = function(value)
-  if value == 353 then
-    return "Msg Type: Aggregate Order Book Update Message (353)"
-  end
-  if value == 364 then
-    return "Msg Type: Calculated Opening Price Message (364)"
-  end
-  if value == 100 then
-    return "Msg Type: Sequence Reset (100)"
-  end
-  if value == 105 then
-    return "Msg Type: Disaster Recovery Signal Message (105)"
-  end
-  if value == 367 then
-    return "Msg Type: Implied Volatility Message (367)"
-  end
-  if value == 323 then
-    return "Msg Type: Market Alert Message (323)"
-  end
-  if value == 366 then
-    return "Msg Type: Open Interest Message (366)"
-  end
-  if value == 336 then
-    return "Msg Type: Quote Request (336)"
-  end
-  if value == 301 then
-    return "Msg Type: Commodity Definition Message (301)"
-  end
-  if value == 302 then
-    return "Msg Type: Class Definition Message (302)"
-  end
-  if value == 303 then
-    return "Msg Type: Series Definition Base Message (303)"
-  end
-  if value == 304 then
-    return "Msg Type: Series Definition Extended Message (304)"
-  end
-  if value == 305 then
-    return "Msg Type: Combination Definition Message (305)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete (203)"
-  end
-  if value == 101 then
-    return "Msg Type: Logon (101)"
-  end
-  if value == 102 then
-    return "Msg Type: Logon Response (102)"
-  end
-  if value == 201 then
-    return "Msg Type: Retransmission Request (201)"
-  end
-  if value == 202 then
-    return "Msg Type: Retransmission Response (202)"
-  end
-  if value == 363 then
-    return "Msg Type: Series Statistics Message (363)"
-  end
-  if value == 320 then
-    return "Msg Type: Market Status Message (320)"
-  end
-  if value == 321 then
-    return "Msg Type: Series Status Message (321)"
-  end
-  if value == 322 then
-    return "Msg Type: Commodity Status Message (322)"
-  end
-  if value == 350 then
-    return "Msg Type: Trade Message (350)"
-  end
-  if value == 356 then
-    return "Msg Type: Trade Amendment Message (356)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.msg_type.labels = {
+  [353] = "Msg Type: Aggregate Order Book Update Message (353)",
+  [364] = "Msg Type: Calculated Opening Price Message (364)",
+  [100] = "Msg Type: Sequence Reset (100)",
+  [105] = "Msg Type: Disaster Recovery Signal Message (105)",
+  [367] = "Msg Type: Implied Volatility Message (367)",
+  [323] = "Msg Type: Market Alert Message (323)",
+  [366] = "Msg Type: Open Interest Message (366)",
+  [336] = "Msg Type: Quote Request (336)",
+  [301] = "Msg Type: Commodity Definition Message (301)",
+  [302] = "Msg Type: Class Definition Message (302)",
+  [303] = "Msg Type: Series Definition Base Message (303)",
+  [304] = "Msg Type: Series Definition Extended Message (304)",
+  [305] = "Msg Type: Combination Definition Message (305)",
+  [203] = "Msg Type: Refresh Complete (203)",
+  [101] = "Msg Type: Logon (101)",
+  [102] = "Msg Type: Logon Response (102)",
+  [201] = "Msg Type: Retransmission Request (201)",
+  [202] = "Msg Type: Retransmission Response (202)",
+  [363] = "Msg Type: Series Statistics Message (363)",
+  [320] = "Msg Type: Market Status Message (320)",
+  [321] = "Msg Type: Series Status Message (321)",
+  [322] = "Msg Type: Commodity Status Message (322)",
+  [350] = "Msg Type: Trade Message (350)",
+  [356] = "Msg Type: Trade Amendment Message (356)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.msg_type.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -2489,36 +2233,20 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.premium_unit_4_price = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.premium_unit_4_price.size = 1
 
 -- Display: Premium Unit 4 Price
-hkex_hkexderivatives_premiumretrans_omd_v1_47.premium_unit_4_price.display = function(value)
-  if value == 1 then
-    return "Premium Unit 4 Price: Price (1)"
-  end
-  if value == 2 then
-    return "Premium Unit 4 Price: Yield (2)"
-  end
-  if value == 3 then
-    return "Premium Unit 4 Price: Points (3)"
-  end
-  if value == 4 then
-    return "Premium Unit 4 Price: Yield Diff (4)"
-  end
-  if value == 5 then
-    return "Premium Unit 4 Price: Imm Index (5)"
-  end
-  if value == 6 then
-    return "Premium Unit 4 Price: Basis Points (6)"
-  end
-  if value == 7 then
-    return "Premium Unit 4 Price: Inverted Yield (7)"
-  end
-  if value == 8 then
-    return "Premium Unit 4 Price: Percentage Of Nominal (8)"
-  end
-  if value == 9 then
-    return "Premium Unit 4 Price: Dirty Price (9)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.premium_unit_4_price.labels = {
+  [1] = "Premium Unit 4 Price: Price (1)",
+  [2] = "Premium Unit 4 Price: Yield (2)",
+  [3] = "Premium Unit 4 Price: Points (3)",
+  [4] = "Premium Unit 4 Price: Yield Diff (4)",
+  [5] = "Premium Unit 4 Price: Imm Index (5)",
+  [6] = "Premium Unit 4 Price: Basis Points (6)",
+  [7] = "Premium Unit 4 Price: Inverted Yield (7)",
+  [8] = "Premium Unit 4 Price: Percentage Of Nominal (8)",
+  [9] = "Premium Unit 4 Price: Dirty Price (9)",
+}
 
-  return "Premium Unit 4 Price: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.premium_unit_4_price.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.premium_unit_4_price.labels[value] or "Premium Unit 4 Price: Unknown("..value..")"
 end
 
 -- Dissect: Premium Unit 4 Price
@@ -2586,18 +2314,14 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.price_method = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.price_method.size = 1
 
 -- Display: Price Method
-hkex_hkexderivatives_premiumretrans_omd_v1_47.price_method.display = function(value)
-  if value == 0 then
-    return "Price Method: Not Available (0)"
-  end
-  if value == 1 then
-    return "Price Method: Net Price (1)"
-  end
-  if value == 2 then
-    return "Price Method: Net Value (2)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.price_method.labels = {
+  [0] = "Price Method: Not Available (0)",
+  [1] = "Price Method: Net Price (1)",
+  [2] = "Price Method: Net Value (2)",
+}
 
-  return "Price Method: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.price_method.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.price_method.labels[value] or "Price Method: Unknown("..value..")"
 end
 
 -- Dissect: Price Method
@@ -2642,24 +2366,16 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.priority = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.priority.size = 1
 
 -- Display: Priority
-hkex_hkexderivatives_premiumretrans_omd_v1_47.priority.display = function(value)
-  if value == 0 then
-    return "Priority: Not Specified (0)"
-  end
-  if value == 1 then
-    return "Priority: Low (1)"
-  end
-  if value == 2 then
-    return "Priority: Medium (2)"
-  end
-  if value == 3 then
-    return "Priority: High (3)"
-  end
-  if value == 4 then
-    return "Priority: Critical (4)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.priority.labels = {
+  [0] = "Priority: Not Specified (0)",
+  [1] = "Priority: Low (1)",
+  [2] = "Priority: Medium (2)",
+  [3] = "Priority: High (3)",
+  [4] = "Priority: Critical (4)",
+}
 
-  return "Priority: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.priority.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.priority.labels[value] or "Priority: Unknown("..value..")"
 end
 
 -- Dissect: Priority
@@ -2681,18 +2397,14 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.put_or_call = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.put_or_call.size = 1
 
 -- Display: Put Or Call
-hkex_hkexderivatives_premiumretrans_omd_v1_47.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Undefined (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-  if value == 2 then
-    return "Put Or Call: Put (2)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.put_or_call.labels = {
+  [0] = "Put Or Call: Undefined (0)",
+  [1] = "Put Or Call: Call (1)",
+  [2] = "Put Or Call: Put (2)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.put_or_call.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -2737,39 +2449,21 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.ranking_type = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.ranking_type.size = 2
 
 -- Display: Ranking Type
-hkex_hkexderivatives_premiumretrans_omd_v1_47.ranking_type.display = function(value)
-  if value == 1 then
-    return "Ranking Type: Price Then Time (1)"
-  end
-  if value == 2 then
-    return "Ranking Type: Inverted Price Then Time (2)"
-  end
-  if value == 3 then
-    return "Ranking Type: Price Then Traders Then Time (3)"
-  end
-  if value == 4 then
-    return "Ranking Type: Inverted Price Then Traders Then Time (4)"
-  end
-  if value == 5 then
-    return "Ranking Type: Price Then Market Makers Then Time (5)"
-  end
-  if value == 6 then
-    return "Ranking Type: Inverted Price Then Market Makers Then Time (6)"
-  end
-  if value == 7 then
-    return "Ranking Type: Price Then Baits Then Time (7)"
-  end
-  if value == 8 then
-    return "Ranking Type: Inverted Price Then Baits Then Time (8)"
-  end
-  if value == 11 then
-    return "Ranking Type: Price Then Own Orders Then Time (11)"
-  end
-  if value == 12 then
-    return "Ranking Type: Inverted Price Then Own Orders Then Time (12)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.ranking_type.labels = {
+  [1] = "Ranking Type: Price Then Time (1)",
+  [2] = "Ranking Type: Inverted Price Then Time (2)",
+  [3] = "Ranking Type: Price Then Traders Then Time (3)",
+  [4] = "Ranking Type: Inverted Price Then Traders Then Time (4)",
+  [5] = "Ranking Type: Price Then Market Makers Then Time (5)",
+  [6] = "Ranking Type: Inverted Price Then Market Makers Then Time (6)",
+  [7] = "Ranking Type: Price Then Baits Then Time (7)",
+  [8] = "Ranking Type: Inverted Price Then Baits Then Time (8)",
+  [11] = "Ranking Type: Price Then Own Orders Then Time (11)",
+  [12] = "Ranking Type: Inverted Price Then Own Orders Then Time (12)",
+}
 
-  return "Ranking Type: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.ranking_type.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.ranking_type.labels[value] or "Ranking Type: Unknown("..value..")"
 end
 
 -- Dissect: Ranking Type
@@ -2791,24 +2485,16 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.retrans_status = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.retrans_status.size = 1
 
 -- Display: Retrans Status
-hkex_hkexderivatives_premiumretrans_omd_v1_47.retrans_status.display = function(value)
-  if value == 0 then
-    return "Retrans Status: Request Accepted (0)"
-  end
-  if value == 1 then
-    return "Retrans Status: Unkown Unauthorized Channel Id (1)"
-  end
-  if value == 2 then
-    return "Retrans Status: Messages Not Available (2)"
-  end
-  if value == 100 then
-    return "Retrans Status: Exceeds Maximum Sequence Range (100)"
-  end
-  if value == 101 then
-    return "Retrans Status: Exceeds Maximum Requests In A Day (101)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.retrans_status.labels = {
+  [0] = "Retrans Status: Request Accepted (0)",
+  [1] = "Retrans Status: Unkown Unauthorized Channel Id (1)",
+  [2] = "Retrans Status: Messages Not Available (2)",
+  [100] = "Retrans Status: Exceeds Maximum Sequence Range (100)",
+  [101] = "Retrans Status: Exceeds Maximum Requests In A Day (101)",
+}
 
-  return "Retrans Status: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.retrans_status.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.retrans_status.labels[value] or "Retrans Status: Unknown("..value..")"
 end
 
 -- Dissect: Retrans Status
@@ -2900,27 +2586,17 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.series_status = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.series_status.size = 1
 
 -- Display: Series Status
-hkex_hkexderivatives_premiumretrans_omd_v1_47.series_status.display = function(value)
-  if value == 0 then
-    return "Series Status: Not Available (0)"
-  end
-  if value == 1 then
-    return "Series Status: Active (1)"
-  end
-  if value == 2 then
-    return "Series Status: Suspended (2)"
-  end
-  if value == 3 then
-    return "Series Status: Issued (3)"
-  end
-  if value == 4 then
-    return "Series Status: Delisted (4)"
-  end
-  if value == 5 then
-    return "Series Status: Locked (5)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.series_status.labels = {
+  [0] = "Series Status: Not Available (0)",
+  [1] = "Series Status: Active (1)",
+  [2] = "Series Status: Suspended (2)",
+  [3] = "Series Status: Issued (3)",
+  [4] = "Series Status: Delisted (4)",
+  [5] = "Series Status: Locked (5)",
+}
 
-  return "Series Status: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.series_status.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.series_status.labels[value] or "Series Status: Unknown("..value..")"
 end
 
 -- Dissect: Series Status
@@ -2942,15 +2618,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.session = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.session.size = 1
 
 -- Display: Session
-hkex_hkexderivatives_premiumretrans_omd_v1_47.session.display = function(value)
-  if value == 0 then
-    return "Session: T Session (0)"
-  end
-  if value == 1 then
-    return "Session: T Plus One Session (1)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.session.labels = {
+  [0] = "Session: T Session (0)",
+  [1] = "Session: T Plus One Session (1)",
+}
 
-  return "Session: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.session.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.session.labels[value] or "Session: Unknown("..value..")"
 end
 
 -- Dissect: Session
@@ -2972,18 +2646,14 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.session_status = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.session_status.size = 1
 
 -- Display: Session Status
-hkex_hkexderivatives_premiumretrans_omd_v1_47.session_status.display = function(value)
-  if value == 0 then
-    return "Session Status: Session Active (0)"
-  end
-  if value == 5 then
-    return "Session Status: Invalid Username Or Ip Address (5)"
-  end
-  if value == 100 then
-    return "Session Status: User Already Connected (100)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.session_status.labels = {
+  [0] = "Session Status: Session Active (0)",
+  [5] = "Session Status: Invalid Username Or Ip Address (5)",
+  [100] = "Session Status: User Already Connected (100)",
+}
 
-  return "Session Status: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.session_status.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.session_status.labels[value] or "Session Status: Unknown("..value..")"
 end
 
 -- Dissect: Session Status
@@ -3051,15 +2721,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.side = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.side.size = 1
 
 -- Display: Side
-hkex_hkexderivatives_premiumretrans_omd_v1_47.side.display = function(value)
-  if value == 0 then
-    return "Side: Bid (0)"
-  end
-  if value == 1 then
-    return "Side: Offer (1)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.side.labels = {
+  [0] = "Side: Bid (0)",
+  [1] = "Side: Offer (1)",
+}
 
-  return "Side: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.side.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -3081,15 +2749,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.source = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.source.size = 1
 
 -- Display: Source
-hkex_hkexderivatives_premiumretrans_omd_v1_47.source.display = function(value)
-  if value == "H" then
-    return "Source: Trading System (H)"
-  end
-  if value == "M" then
-    return "Source: Other Market Alerts (M)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.source.labels = {
+  ["H"] = "Source: Trading System (H)",
+  ["M"] = "Source: Other Market Alerts (M)",
+}
 
-  return "Source: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.source.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.source.labels[value] or "Source: Unknown("..value..")"
 end
 
 -- Dissect: Source
@@ -3111,99 +2777,41 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.state = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.state.size = 2
 
 -- Display: State
-hkex_hkexderivatives_premiumretrans_omd_v1_47.state.display = function(value)
-  if value == 1 then
-    return "State: Open Allocation (1)"
-  end
-  if value == 2 then
-    return "State: Market Closed (2)"
-  end
-  if value == 3 then
-    return "State: Market Open (3)"
-  end
-  if value == 4 then
-    return "State: Preopen Session (4)"
-  end
-  if value == 5 then
-    return "State: Preopen Allocation Session (5)"
-  end
-  if value == 6 then
-    return "State: Market Pause (6)"
-  end
-  if value == 7 then
-    return "State: Premarket Activities (7)"
-  end
-  if value == 8 then
-    return "State: Clearing Session Started (8)"
-  end
-  if value == 9 then
-    return "State: Clearing Session Closed (9)"
-  end
-  if value == 10 then
-    return "State: Ahft Market Closed (10)"
-  end
-  if value == 11 then
-    return "State: Ahft Reset Price Information (11)"
-  end
-  if value == 12 then
-    return "State: Ahft Inactive Non Order (12)"
-  end
-  if value == 13 then
-    return "State: Ahft Reset Price Information For Next Business Day (13)"
-  end
-  if value == 14 then
-    return "State: Ahft Market Open (14)"
-  end
-  if value == 15 then
-    return "State: Ahft Market Open Price Limit (15)"
-  end
-  if value == 16 then
-    return "State: Ahft Premarket Activities (16)"
-  end
-  if value == 17 then
-    return "State: Market Open With Price Controls (17)"
-  end
-  if value == 18 then
-    return "State: Market Closed Today (18)"
-  end
-  if value == 19 then
-    return "State: Market Open With Dynamic Price Banding Mechanism (19)"
-  end
-  if value == 20 then
-    return "State: Site Failover (20)"
-  end
-  if value == 21 then
-    return "State: Market Closed Today E (21)"
-  end
-  if value == 22 then
-    return "State: Ahft Market Closed E (22)"
-  end
-  if value == 23 then
-    return "State: Market Open With Dpbm And Vcm (23)"
-  end
-  if value == 24 then
-    return "State: Market Open With Vcm (24)"
-  end
-  if value == 25 then
-    return "State: Vcm Cool Off Status With Dynamic Price Banding Mechansim (25)"
-  end
-  if value == 26 then
-    return "State: Vcm Cool Off Status (26)"
-  end
-  if value == 27 then
-    return "State: Reset Counter For Vcm (27)"
-  end
-  if value == 28 then
-    return "State: Halt (28)"
-  end
-  if value == 29 then
-    return "State: Reset Price Information (29)"
-  end
-  if value == 30 then
-    return "State: Block Trade Only (30)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.state.labels = {
+  [1] = "State: Open Allocation (1)",
+  [2] = "State: Market Closed (2)",
+  [3] = "State: Market Open (3)",
+  [4] = "State: Preopen Session (4)",
+  [5] = "State: Preopen Allocation Session (5)",
+  [6] = "State: Market Pause (6)",
+  [7] = "State: Premarket Activities (7)",
+  [8] = "State: Clearing Session Started (8)",
+  [9] = "State: Clearing Session Closed (9)",
+  [10] = "State: Ahft Market Closed (10)",
+  [11] = "State: Ahft Reset Price Information (11)",
+  [12] = "State: Ahft Inactive Non Order (12)",
+  [13] = "State: Ahft Reset Price Information For Next Business Day (13)",
+  [14] = "State: Ahft Market Open (14)",
+  [15] = "State: Ahft Market Open Price Limit (15)",
+  [16] = "State: Ahft Premarket Activities (16)",
+  [17] = "State: Market Open With Price Controls (17)",
+  [18] = "State: Market Closed Today (18)",
+  [19] = "State: Market Open With Dynamic Price Banding Mechanism (19)",
+  [20] = "State: Site Failover (20)",
+  [21] = "State: Market Closed Today E (21)",
+  [22] = "State: Ahft Market Closed E (22)",
+  [23] = "State: Market Open With Dpbm And Vcm (23)",
+  [24] = "State: Market Open With Vcm (24)",
+  [25] = "State: Vcm Cool Off Status With Dynamic Price Banding Mechansim (25)",
+  [26] = "State: Vcm Cool Off Status (26)",
+  [27] = "State: Reset Counter For Vcm (27)",
+  [28] = "State: Halt (28)",
+  [29] = "State: Reset Price Information (29)",
+  [30] = "State: Block Trade Only (30)",
+}
 
-  return "State: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.state.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.state.labels[value] or "State: Unknown("..value..")"
 end
 
 -- Dissect: State
@@ -3225,27 +2833,17 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.state_level = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.state_level.size = 2
 
 -- Display: State Level
-hkex_hkexderivatives_premiumretrans_omd_v1_47.state_level.display = function(value)
-  if value == 1 then
-    return "State Level: Market (1)"
-  end
-  if value == 2 then
-    return "State Level: Instrument Type (2)"
-  end
-  if value == 3 then
-    return "State Level: Instrument Class (3)"
-  end
-  if value == 4 then
-    return "State Level: Instrument Series (4)"
-  end
-  if value == 5 then
-    return "State Level: Underlying (5)"
-  end
-  if value == 99 then
-    return "State Level: End Of Business Day (99)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.state_level.labels = {
+  [1] = "State Level: Market (1)",
+  [2] = "State Level: Instrument Type (2)",
+  [3] = "State Level: Instrument Class (3)",
+  [4] = "State Level: Instrument Series (4)",
+  [5] = "State Level: Underlying (5)",
+  [99] = "State Level: End Of Business Day (99)",
+}
 
-  return "State Level: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.state_level.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.state_level.labels[value] or "State Level: Unknown("..value..")"
 end
 
 -- Dissect: State Level
@@ -3290,15 +2888,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.suspended = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.suspended.size = 1
 
 -- Display: Suspended
-hkex_hkexderivatives_premiumretrans_omd_v1_47.suspended.display = function(value)
-  if value == "Y" then
-    return "Suspended: Yes (Y)"
-  end
-  if value == "N" then
-    return "Suspended: No (N)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.suspended.labels = {
+  ["Y"] = "Suspended: Yes (Y)",
+  ["N"] = "Suspended: No (N)",
+}
 
-  return "Suspended: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.suspended.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.suspended.labels[value] or "Suspended: Unknown("..value..")"
 end
 
 -- Dissect: Suspended
@@ -3320,18 +2916,14 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.suspension_indicator = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.suspension_indicator.size = 1
 
 -- Display: Suspension Indicator
-hkex_hkexderivatives_premiumretrans_omd_v1_47.suspension_indicator.display = function(value)
-  if value == 1 then
-    return "Suspension Indicator: Suspended For Trading (1)"
-  end
-  if value == 2 then
-    return "Suspension Indicator: Not Suspended (2)"
-  end
-  if value == 3 then
-    return "Suspension Indicator: Locked (3)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.suspension_indicator.labels = {
+  [1] = "Suspension Indicator: Suspended For Trading (1)",
+  [2] = "Suspension Indicator: Not Suspended (2)",
+  [3] = "Suspension Indicator: Locked (3)",
+}
 
-  return "Suspension Indicator: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.suspension_indicator.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.suspension_indicator.labels[value] or "Suspension Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Suspension Indicator
@@ -3399,15 +2991,13 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.tradable = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.tradable.size = 1
 
 -- Display: Tradable
-hkex_hkexderivatives_premiumretrans_omd_v1_47.tradable.display = function(value)
-  if value == 1 then
-    return "Tradable: Yes (1)"
-  end
-  if value == 2 then
-    return "Tradable: No (2)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.tradable.labels = {
+  [1] = "Tradable: Yes (1)",
+  [2] = "Tradable: No (2)",
+}
 
-  return "Tradable: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.tradable.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -3475,21 +3065,15 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_side = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_side.size = 1
 
 -- Display: Trade Side
-hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_side.display = function(value)
-  if value == 0 then
-    return "Trade Side: Not Available (0)"
-  end
-  if value == 1 then
-    return "Trade Side: Not Defined (1)"
-  end
-  if value == 2 then
-    return "Trade Side: Buy Order (2)"
-  end
-  if value == 3 then
-    return "Trade Side: Sell Order (3)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_side.labels = {
+  [0] = "Trade Side: Not Available (0)",
+  [1] = "Trade Side: Not Defined (1)",
+  [2] = "Trade Side: Buy Order (2)",
+  [3] = "Trade Side: Sell Order (3)",
+}
 
-  return "Trade Side: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_side.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_side.labels[value] or "Trade Side: Unknown("..value..")"
 end
 
 -- Dissect: Trade Side
@@ -3511,18 +3095,14 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_state = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_state.size = 1
 
 -- Display: Trade State
-hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_state.display = function(value)
-  if value == 1 then
-    return "Trade State: Given Up Trade (1)"
-  end
-  if value == 2 then
-    return "Trade State: Rectified (2)"
-  end
-  if value == 3 then
-    return "Trade State: Deleted (3)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_state.labels = {
+  [1] = "Trade State: Given Up Trade (1)",
+  [2] = "Trade State: Rectified (2)",
+  [3] = "Trade State: Deleted (3)",
+}
 
-  return "Trade State: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_state.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_state.labels[value] or "Trade State: Unknown("..value..")"
 end
 
 -- Dissect: Trade State
@@ -3613,36 +3193,20 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_price_unit = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_price_unit.size = 1
 
 -- Display: Underlying Price Unit
-hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_price_unit.display = function(value)
-  if value == 1 then
-    return "Underlying Price Unit: Price (1)"
-  end
-  if value == 2 then
-    return "Underlying Price Unit: Yield (2)"
-  end
-  if value == 3 then
-    return "Underlying Price Unit: Points (3)"
-  end
-  if value == 4 then
-    return "Underlying Price Unit: Yield Diff (4)"
-  end
-  if value == 5 then
-    return "Underlying Price Unit: Imm Index (5)"
-  end
-  if value == 6 then
-    return "Underlying Price Unit: Basis Points (6)"
-  end
-  if value == 7 then
-    return "Underlying Price Unit: Inverted Yield (7)"
-  end
-  if value == 8 then
-    return "Underlying Price Unit: Percentage Of Nominal (8)"
-  end
-  if value == 9 then
-    return "Underlying Price Unit: Dirty Price (9)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_price_unit.labels = {
+  [1] = "Underlying Price Unit: Price (1)",
+  [2] = "Underlying Price Unit: Yield (2)",
+  [3] = "Underlying Price Unit: Points (3)",
+  [4] = "Underlying Price Unit: Yield Diff (4)",
+  [5] = "Underlying Price Unit: Imm Index (5)",
+  [6] = "Underlying Price Unit: Basis Points (6)",
+  [7] = "Underlying Price Unit: Inverted Yield (7)",
+  [8] = "Underlying Price Unit: Percentage Of Nominal (8)",
+  [9] = "Underlying Price Unit: Dirty Price (9)",
+}
 
-  return "Underlying Price Unit: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_price_unit.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_price_unit.labels[value] or "Underlying Price Unit: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Price Unit
@@ -3664,45 +3228,23 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_type = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_type.size = 1
 
 -- Display: Underlying Type
-hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_type.display = function(value)
-  if value == 1 then
-    return "Underlying Type: Stock (1)"
-  end
-  if value == 2 then
-    return "Underlying Type: Currency (2)"
-  end
-  if value == 3 then
-    return "Underlying Type: Interest Rate (3)"
-  end
-  if value == 4 then
-    return "Underlying Type: Energy (4)"
-  end
-  if value == 5 then
-    return "Underlying Type: Soft And Agrics (5)"
-  end
-  if value == 6 then
-    return "Underlying Type: Metal (6)"
-  end
-  if value == 7 then
-    return "Underlying Type: Stock Index (7)"
-  end
-  if value == 8 then
-    return "Underlying Type: Currency Index (8)"
-  end
-  if value == 9 then
-    return "Underlying Type: Interest Rate Index (9)"
-  end
-  if value == 10 then
-    return "Underlying Type: Energy Index (10)"
-  end
-  if value == 11 then
-    return "Underlying Type: Softs And Agrics Index (11)"
-  end
-  if value == 12 then
-    return "Underlying Type: Metal Index (12)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_type.labels = {
+  [1] = "Underlying Type: Stock (1)",
+  [2] = "Underlying Type: Currency (2)",
+  [3] = "Underlying Type: Interest Rate (3)",
+  [4] = "Underlying Type: Energy (4)",
+  [5] = "Underlying Type: Soft And Agrics (5)",
+  [6] = "Underlying Type: Metal (6)",
+  [7] = "Underlying Type: Stock Index (7)",
+  [8] = "Underlying Type: Currency Index (8)",
+  [9] = "Underlying Type: Interest Rate Index (9)",
+  [10] = "Underlying Type: Energy Index (10)",
+  [11] = "Underlying Type: Softs And Agrics Index (11)",
+  [12] = "Underlying Type: Metal Index (12)",
+}
 
-  return "Underlying Type: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_type.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.underlying_type.labels[value] or "Underlying Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Type
@@ -3724,21 +3266,15 @@ hkex_hkexderivatives_premiumretrans_omd_v1_47.update_action = {}
 hkex_hkexderivatives_premiumretrans_omd_v1_47.update_action.size = 1
 
 -- Display: Update Action
-hkex_hkexderivatives_premiumretrans_omd_v1_47.update_action.display = function(value)
-  if value == 0 then
-    return "Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Update Action: Delete (2)"
-  end
-  if value == 74 then
-    return "Update Action: Clear (74)"
-  end
+hkex_hkexderivatives_premiumretrans_omd_v1_47.update_action.labels = {
+  [0] = "Update Action: New (0)",
+  [1] = "Update Action: Change (1)",
+  [2] = "Update Action: Delete (2)",
+  [74] = "Update Action: Clear (74)",
+}
 
-  return "Update Action: Unknown("..value..")"
+hkex_hkexderivatives_premiumretrans_omd_v1_47.update_action.display = function(value)
+  return hkex_hkexderivatives_premiumretrans_omd_v1_47.update_action.labels[value] or "Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Update Action
@@ -5588,102 +5124,37 @@ end
 hkex_hkexderivatives_premiumretrans_omd_v1_47.payload = {}
 
 -- Dissect: Payload
+hkex_hkexderivatives_premiumretrans_omd_v1_47.payload.dispatch = {
+  [353] = hkex_hkexderivatives_premiumretrans_omd_v1_47.aggregate_order_book_update_message.dissect,
+  [364] = hkex_hkexderivatives_premiumretrans_omd_v1_47.calculated_opening_price_message.dissect,
+  [100] = hkex_hkexderivatives_premiumretrans_omd_v1_47.sequence_reset.dissect,
+  [105] = hkex_hkexderivatives_premiumretrans_omd_v1_47.disaster_recovery_signal_message.dissect,
+  [367] = hkex_hkexderivatives_premiumretrans_omd_v1_47.implied_volatility_message.dissect,
+  [323] = hkex_hkexderivatives_premiumretrans_omd_v1_47.market_alert_message.dissect,
+  [366] = hkex_hkexderivatives_premiumretrans_omd_v1_47.open_interest_message.dissect,
+  [336] = hkex_hkexderivatives_premiumretrans_omd_v1_47.quote_request.dissect,
+  [301] = hkex_hkexderivatives_premiumretrans_omd_v1_47.commodity_definition_message.dissect,
+  [302] = hkex_hkexderivatives_premiumretrans_omd_v1_47.class_definition_message.dissect,
+  [303] = hkex_hkexderivatives_premiumretrans_omd_v1_47.series_definition_base_message.dissect,
+  [304] = hkex_hkexderivatives_premiumretrans_omd_v1_47.series_definition_extended_message.dissect,
+  [305] = hkex_hkexderivatives_premiumretrans_omd_v1_47.combination_definition_message.dissect,
+  [203] = hkex_hkexderivatives_premiumretrans_omd_v1_47.refresh_complete.dissect,
+  [101] = hkex_hkexderivatives_premiumretrans_omd_v1_47.logon.dissect,
+  [102] = hkex_hkexderivatives_premiumretrans_omd_v1_47.logon_response.dissect,
+  [201] = hkex_hkexderivatives_premiumretrans_omd_v1_47.retransmission_request.dissect,
+  [202] = hkex_hkexderivatives_premiumretrans_omd_v1_47.retransmission_response.dissect,
+  [363] = hkex_hkexderivatives_premiumretrans_omd_v1_47.series_statistics_message.dissect,
+  [320] = hkex_hkexderivatives_premiumretrans_omd_v1_47.market_status_message.dissect,
+  [321] = hkex_hkexderivatives_premiumretrans_omd_v1_47.series_status_message.dissect,
+  [322] = hkex_hkexderivatives_premiumretrans_omd_v1_47.commodity_status_message.dissect,
+  [350] = hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_message.dissect,
+  [356] = hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_amendment_message.dissect,
+}
+
 hkex_hkexderivatives_premiumretrans_omd_v1_47.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Aggregate Order Book Update Message
-  if msg_type == 353 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Calculated Opening Price Message
-  if msg_type == 364 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.calculated_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Reset
-  if msg_type == 100 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.sequence_reset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disaster Recovery Signal Message
-  if msg_type == 105 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.disaster_recovery_signal_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Volatility Message
-  if msg_type == 367 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.implied_volatility_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Alert Message
-  if msg_type == 323 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.market_alert_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if msg_type == 366 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request
-  if msg_type == 336 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Commodity Definition Message
-  if msg_type == 301 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.commodity_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Class Definition Message
-  if msg_type == 302 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.class_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Definition Base Message
-  if msg_type == 303 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.series_definition_base_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Definition Extended Message
-  if msg_type == 304 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.series_definition_extended_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Definition Message
-  if msg_type == 305 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.combination_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete
-  if msg_type == 203 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.refresh_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon
-  if msg_type == 101 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.logon.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response
-  if msg_type == 102 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.logon_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if msg_type == 201 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Response
-  if msg_type == 202 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.retransmission_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Statistics Message
-  if msg_type == 363 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.series_statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Status Message
-  if msg_type == 320 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.market_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Status Message
-  if msg_type == 321 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.series_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Commodity Status Message
-  if msg_type == 322 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.commodity_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if msg_type == 350 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Amendment Message
-  if msg_type == 356 then
-    return hkex_hkexderivatives_premiumretrans_omd_v1_47.trade_amendment_message.dissect(buffer, offset, packet, parent)
+  local dissect = hkex_hkexderivatives_premiumretrans_omd_v1_47.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

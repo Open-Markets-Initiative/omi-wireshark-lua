@@ -253,15 +253,13 @@ miax_emeraldoptions_topofmarket_mach_v1_3.active_on_miax = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.active_on_miax.size = 1
 
 -- Display: Active On Miax
-miax_emeraldoptions_topofmarket_mach_v1_3.active_on_miax.display = function(value)
-  if value == "A" then
-    return "Active On Miax: Active (A)"
-  end
-  if value == "I" then
-    return "Active On Miax: Inactive (I)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.active_on_miax.labels = {
+  ["A"] = "Active On Miax: Active (A)",
+  ["I"] = "Active On Miax: Inactive (I)",
+}
 
-  return "Active On Miax: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.active_on_miax.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.active_on_miax.labels[value] or "Active On Miax: Unknown("..value..")"
 end
 
 -- Dissect: Active On Miax
@@ -306,24 +304,16 @@ miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.size = 1
 
 -- Display: Bid Condition
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.display = function(value)
-  if value == "A" then
-    return "Bid Condition: Regular (A)"
-  end
-  if value == "B" then
-    return "Bid Condition: Public Customer Interest (B)"
-  end
-  if value == "C" then
-    return "Bid Condition: Not Firm (C)"
-  end
-  if value == "R" then
-    return "Bid Condition: Reserved (R)"
-  end
-  if value == "T" then
-    return "Bid Condition: Trading Halt (T)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.labels = {
+  ["A"] = "Bid Condition: Regular (A)",
+  ["B"] = "Bid Condition: Public Customer Interest (B)",
+  ["C"] = "Bid Condition: Not Firm (C)",
+  ["R"] = "Bid Condition: Reserved (R)",
+  ["T"] = "Bid Condition: Trading Halt (T)",
+}
 
-  return "Bid Condition: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.labels[value] or "Bid Condition: Unknown("..value..")"
 end
 
 -- Dissect: Bid Condition
@@ -495,15 +485,13 @@ miax_emeraldoptions_topofmarket_mach_v1_3.call_or_put = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.call_or_put.size = 1
 
 -- Display: Call Or Put
-miax_emeraldoptions_topofmarket_mach_v1_3.call_or_put.display = function(value)
-  if value == "C" then
-    return "Call Or Put: Call (C)"
-  end
-  if value == "P" then
-    return "Call Or Put: Put (P)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.call_or_put.labels = {
+  ["C"] = "Call Or Put: Call (C)",
+  ["P"] = "Call Or Put: Put (P)",
+}
 
-  return "Call Or Put: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.call_or_put.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.call_or_put.labels[value] or "Call Or Put: Unknown("..value..")"
 end
 
 -- Dissect: Call Or Put
@@ -594,24 +582,16 @@ miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size = 1
 
 -- Display: Ebbo Condition
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.display = function(value)
-  if value == "A" then
-    return "Ebbo Condition: Regular (A)"
-  end
-  if value == "B" then
-    return "Ebbo Condition: Public Customer Interest (B)"
-  end
-  if value == "C" then
-    return "Ebbo Condition: Not Firm (C)"
-  end
-  if value == "R" then
-    return "Ebbo Condition: Reserved (R)"
-  end
-  if value == "T" then
-    return "Ebbo Condition: Trading Halt (T)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.labels = {
+  ["A"] = "Ebbo Condition: Regular (A)",
+  ["B"] = "Ebbo Condition: Public Customer Interest (B)",
+  ["C"] = "Ebbo Condition: Not Firm (C)",
+  ["R"] = "Ebbo Condition: Reserved (R)",
+  ["T"] = "Ebbo Condition: Trading Halt (T)",
+}
 
-  return "Ebbo Condition: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.labels[value] or "Ebbo Condition: Unknown("..value..")"
 end
 
 -- Dissect: Ebbo Condition
@@ -783,18 +763,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.emerald_bbo_posting_increment_indicato
 miax_emeraldoptions_topofmarket_mach_v1_3.emerald_bbo_posting_increment_indicator.size = 1
 
 -- Display: Emerald Bbo Posting Increment Indicator
-miax_emeraldoptions_topofmarket_mach_v1_3.emerald_bbo_posting_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Emerald Bbo Posting Increment Indicator: Penny (P)"
-  end
-  if value == "N" then
-    return "Emerald Bbo Posting Increment Indicator: Penny Or Nickel (N)"
-  end
-  if value == "D" then
-    return "Emerald Bbo Posting Increment Indicator: Nickel Or Dime (D)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.emerald_bbo_posting_increment_indicator.labels = {
+  ["P"] = "Emerald Bbo Posting Increment Indicator: Penny (P)",
+  ["N"] = "Emerald Bbo Posting Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Emerald Bbo Posting Increment Indicator: Nickel Or Dime (D)",
+}
 
-  return "Emerald Bbo Posting Increment Indicator: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.emerald_bbo_posting_increment_indicator.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.emerald_bbo_posting_increment_indicator.labels[value] or "Emerald Bbo Posting Increment Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Emerald Bbo Posting Increment Indicator
@@ -839,15 +815,13 @@ miax_emeraldoptions_topofmarket_mach_v1_3.event_reason = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.event_reason.size = 1
 
 -- Display: Event Reason
-miax_emeraldoptions_topofmarket_mach_v1_3.event_reason.display = function(value)
-  if value == "A" then
-    return "Event Reason: Automatic (A)"
-  end
-  if value == "M" then
-    return "Event Reason: Manual (M)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.event_reason.labels = {
+  ["A"] = "Event Reason: Automatic (A)",
+  ["M"] = "Event Reason: Manual (M)",
+}
 
-  return "Event Reason: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.event_reason.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.event_reason.labels[value] or "Event Reason: Unknown("..value..")"
 end
 
 -- Dissect: Event Reason
@@ -961,18 +935,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.liquidity_acceptance_increment_indicat
 miax_emeraldoptions_topofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.size = 1
 
 -- Display: Liquidity Acceptance Increment Indicator
-miax_emeraldoptions_topofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Liquidity Acceptance Increment Indicator: Penny (P)"
-  end
-  if value == "N" then
-    return "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)"
-  end
-  if value == "D" then
-    return "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.labels = {
+  ["P"] = "Liquidity Acceptance Increment Indicator: Penny (P)",
+  ["N"] = "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)",
+}
 
-  return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.liquidity_acceptance_increment_indicator.labels[value] or "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Acceptance Increment Indicator
@@ -1097,15 +1067,13 @@ miax_emeraldoptions_topofmarket_mach_v1_3.long_term_option = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.long_term_option.size = 1
 
 -- Display: Long Term Option
-miax_emeraldoptions_topofmarket_mach_v1_3.long_term_option.display = function(value)
-  if value == "Y" then
-    return "Long Term Option: Far Month Expiration (Y)"
-  end
-  if value == "N" then
-    return "Long Term Option: Near Month Expiration (N)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.long_term_option.labels = {
+  ["Y"] = "Long Term Option: Far Month Expiration (Y)",
+  ["N"] = "Long Term Option: Near Month Expiration (N)",
+}
 
-  return "Long Term Option: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.long_term_option.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.long_term_option.labels[value] or "Long Term Option: Unknown("..value..")"
 end
 
 -- Dissect: Long Term Option
@@ -1150,57 +1118,27 @@ miax_emeraldoptions_topofmarket_mach_v1_3.message_type = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.message_type.size = 1
 
 -- Display: Message Type
-miax_emeraldoptions_topofmarket_mach_v1_3.message_type.display = function(value)
-  if value == "1" then
-    return "Message Type: System Time Message (1)"
-  end
-  if value == "P" then
-    return "Message Type: Simple Series Update Message (P)"
-  end
-  if value == "S" then
-    return "Message Type: System State Message (S)"
-  end
-  if value == "B" then
-    return "Message Type: Simple Top Of Market Best Bid Or Offer Compact Bid Message (B)"
-  end
-  if value == "h" then
-    return "Message Type: Simple Top Of Market Best Bid Or Offer Compact Bid With Priority Customer Message (h)"
-  end
-  if value == "O" then
-    return "Message Type: Simple Top Of Market Best Bid Or Offer Compact Offer Message (O)"
-  end
-  if value == "i" then
-    return "Message Type: Simple Top Of Market Best Bid Or Offer Compact Offer With Priority Customer Message (i)"
-  end
-  if value == "W" then
-    return "Message Type: Simple Top Of Market Best Bid Or Offer Wide Bid Message (W)"
-  end
-  if value == "j" then
-    return "Message Type: Simple Top Of Market Best Bid Or Offer Wide Bid With Priority Customer Message (j)"
-  end
-  if value == "A" then
-    return "Message Type: Simple Top Of Market Best Bid Or Offer Wide Offer Message (A)"
-  end
-  if value == "k" then
-    return "Message Type: Simple Top Of Market Best Bid Or Offer Wide Offer With Priority Customer Message (k)"
-  end
-  if value == "d" then
-    return "Message Type: Simple Double Sided Top Of Market Best Bid Or Offer Compact Message (d)"
-  end
-  if value == "D" then
-    return "Message Type: Simple Double Sided Top Of Market Best Bid Or Offer Wide Message (D)"
-  end
-  if value == "T" then
-    return "Message Type: Last Sale Message (T)"
-  end
-  if value == "X" then
-    return "Message Type: Trade Cancel Message (X)"
-  end
-  if value == "H" then
-    return "Message Type: Underlying Trading Status Notification Message (H)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.message_type.labels = {
+  ["1"] = "Message Type: System Time Message (1)",
+  ["P"] = "Message Type: Simple Series Update Message (P)",
+  ["S"] = "Message Type: System State Message (S)",
+  ["B"] = "Message Type: Simple Top Of Market Best Bid Or Offer Compact Bid Message (B)",
+  ["h"] = "Message Type: Simple Top Of Market Best Bid Or Offer Compact Bid With Priority Customer Message (h)",
+  ["O"] = "Message Type: Simple Top Of Market Best Bid Or Offer Compact Offer Message (O)",
+  ["i"] = "Message Type: Simple Top Of Market Best Bid Or Offer Compact Offer With Priority Customer Message (i)",
+  ["W"] = "Message Type: Simple Top Of Market Best Bid Or Offer Wide Bid Message (W)",
+  ["j"] = "Message Type: Simple Top Of Market Best Bid Or Offer Wide Bid With Priority Customer Message (j)",
+  ["A"] = "Message Type: Simple Top Of Market Best Bid Or Offer Wide Offer Message (A)",
+  ["k"] = "Message Type: Simple Top Of Market Best Bid Or Offer Wide Offer With Priority Customer Message (k)",
+  ["d"] = "Message Type: Simple Double Sided Top Of Market Best Bid Or Offer Compact Message (d)",
+  ["D"] = "Message Type: Simple Double Sided Top Of Market Best Bid Or Offer Wide Message (D)",
+  ["T"] = "Message Type: Last Sale Message (T)",
+  ["X"] = "Message Type: Trade Cancel Message (X)",
+  ["H"] = "Message Type: Underlying Trading Status Notification Message (H)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.message_type.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1268,24 +1206,16 @@ miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.size = 1
 
 -- Display: Offer Condition
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.display = function(value)
-  if value == "A" then
-    return "Offer Condition: Regular (A)"
-  end
-  if value == "B" then
-    return "Offer Condition: Public Customer Interest (B)"
-  end
-  if value == "C" then
-    return "Offer Condition: Not Firm (C)"
-  end
-  if value == "R" then
-    return "Offer Condition: Reserved (R)"
-  end
-  if value == "T" then
-    return "Offer Condition: Trading Halt (T)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.labels = {
+  ["A"] = "Offer Condition: Regular (A)",
+  ["B"] = "Offer Condition: Public Customer Interest (B)",
+  ["C"] = "Offer Condition: Not Firm (C)",
+  ["R"] = "Offer Condition: Reserved (R)",
+  ["T"] = "Offer Condition: Trading Halt (T)",
+}
 
-  return "Offer Condition: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.labels[value] or "Offer Condition: Unknown("..value..")"
 end
 
 -- Dissect: Offer Condition
@@ -1480,72 +1410,32 @@ miax_emeraldoptions_topofmarket_mach_v1_3.opening_underlying_market_code = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.opening_underlying_market_code.size = 1
 
 -- Display: Opening Underlying Market Code
-miax_emeraldoptions_topofmarket_mach_v1_3.opening_underlying_market_code.display = function(value)
-  if value == "A" then
-    return "Opening Underlying Market Code: Nyse Amex (A)"
-  end
-  if value == "B" then
-    return "Opening Underlying Market Code: Nasdaq Omx Bx (B)"
-  end
-  if value == "C" then
-    return "Opening Underlying Market Code: National Stock Exchange (C)"
-  end
-  if value == "D" then
-    return "Opening Underlying Market Code: Finra Adf (D)"
-  end
-  if value == "E" then
-    return "Opening Underlying Market Code: Market Independent (E)"
-  end
-  if value == "H" then
-    return "Opening Underlying Market Code: Miax Pearl Equities (H)"
-  end
-  if value == "I" then
-    return "Opening Underlying Market Code: International Securities Exchange (I)"
-  end
-  if value == "J" then
-    return "Opening Underlying Market Code: Edga Exchange Inc (J)"
-  end
-  if value == "K" then
-    return "Opening Underlying Market Code: Edgx Exchange Inc (K)"
-  end
-  if value == "L" then
-    return "Opening Underlying Market Code: Ltse (L)"
-  end
-  if value == "M" then
-    return "Opening Underlying Market Code: Chicago Stock Exchange (M)"
-  end
-  if value == "N" then
-    return "Opening Underlying Market Code: Nyse Euronext (N)"
-  end
-  if value == "P" then
-    return "Opening Underlying Market Code: Nyse Arca Exchange (P)"
-  end
-  if value == "Q" then
-    return "Opening Underlying Market Code: Nasdaq Omx Utp (Q)"
-  end
-  if value == "T" then
-    return "Opening Underlying Market Code: Nasdaq Omx Cta (T)"
-  end
-  if value == "U" then
-    return "Opening Underlying Market Code: Memx (U)"
-  end
-  if value == "V" then
-    return "Opening Underlying Market Code: Iex (V)"
-  end
-  if value == "W" then
-    return "Opening Underlying Market Code: Cboe Stock Exchange (W)"
-  end
-  if value == "X" then
-    return "Opening Underlying Market Code: Nasdaq Omx Phlx (X)"
-  end
-  if value == "Y" then
-    return "Opening Underlying Market Code: Bats Y (Y)"
-  end
-  if value == "Z" then
-    return "Opening Underlying Market Code: Bats (Z)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.opening_underlying_market_code.labels = {
+  ["A"] = "Opening Underlying Market Code: Nyse Amex (A)",
+  ["B"] = "Opening Underlying Market Code: Nasdaq Omx Bx (B)",
+  ["C"] = "Opening Underlying Market Code: National Stock Exchange (C)",
+  ["D"] = "Opening Underlying Market Code: Finra Adf (D)",
+  ["E"] = "Opening Underlying Market Code: Market Independent (E)",
+  ["H"] = "Opening Underlying Market Code: Miax Pearl Equities (H)",
+  ["I"] = "Opening Underlying Market Code: International Securities Exchange (I)",
+  ["J"] = "Opening Underlying Market Code: Edga Exchange Inc (J)",
+  ["K"] = "Opening Underlying Market Code: Edgx Exchange Inc (K)",
+  ["L"] = "Opening Underlying Market Code: Ltse (L)",
+  ["M"] = "Opening Underlying Market Code: Chicago Stock Exchange (M)",
+  ["N"] = "Opening Underlying Market Code: Nyse Euronext (N)",
+  ["P"] = "Opening Underlying Market Code: Nyse Arca Exchange (P)",
+  ["Q"] = "Opening Underlying Market Code: Nasdaq Omx Utp (Q)",
+  ["T"] = "Opening Underlying Market Code: Nasdaq Omx Cta (T)",
+  ["U"] = "Opening Underlying Market Code: Memx (U)",
+  ["V"] = "Opening Underlying Market Code: Iex (V)",
+  ["W"] = "Opening Underlying Market Code: Cboe Stock Exchange (W)",
+  ["X"] = "Opening Underlying Market Code: Nasdaq Omx Phlx (X)",
+  ["Y"] = "Opening Underlying Market Code: Bats Y (Y)",
+  ["Z"] = "Opening Underlying Market Code: Bats (Z)",
+}
 
-  return "Opening Underlying Market Code: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.opening_underlying_market_code.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.opening_underlying_market_code.labels[value] or "Opening Underlying Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Opening Underlying Market Code
@@ -1590,21 +1480,15 @@ miax_emeraldoptions_topofmarket_mach_v1_3.packet_type = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.packet_type.size = 1
 
 -- Display: Packet Type
-miax_emeraldoptions_topofmarket_mach_v1_3.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.packet_type.labels = {
+  [0] = "Packet Type: Heartbeat (0)",
+  [1] = "Packet Type: Start Of Session (1)",
+  [2] = "Packet Type: End Of Session (2)",
+  [3] = "Packet Type: Application Message (3)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.packet_type.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -1724,21 +1608,15 @@ miax_emeraldoptions_topofmarket_mach_v1_3.refresh_message_type = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.refresh_message_type.size = 1
 
 -- Display: Refresh Message Type
-miax_emeraldoptions_topofmarket_mach_v1_3.refresh_message_type.display = function(value)
-  if value == "P" then
-    return "Refresh Message Type: Simple Series Update Refresh (P)"
-  end
-  if value == "Q" then
-    return "Refresh Message Type: Simple Top Of Market Refresh (Q)"
-  end
-  if value == "U" then
-    return "Refresh Message Type: Underlying Trading Status Refresh (U)"
-  end
-  if value == "S" then
-    return "Refresh Message Type: System State Refresh (S)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.refresh_message_type.labels = {
+  ["P"] = "Refresh Message Type: Simple Series Update Refresh (P)",
+  ["Q"] = "Refresh Message Type: Simple Top Of Market Refresh (Q)",
+  ["U"] = "Refresh Message Type: Underlying Trading Status Refresh (U)",
+  ["S"] = "Refresh Message Type: System State Refresh (S)",
+}
 
-  return "Refresh Message Type: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.refresh_message_type.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.refresh_message_type.labels[value] or "Refresh Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Refresh Message Type
@@ -1829,15 +1707,13 @@ miax_emeraldoptions_topofmarket_mach_v1_3.restricted_option = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.restricted_option.size = 1
 
 -- Display: Restricted Option
-miax_emeraldoptions_topofmarket_mach_v1_3.restricted_option.display = function(value)
-  if value == "Y" then
-    return "Restricted Option: Accept Position Closing (Y)"
-  end
-  if value == "N" then
-    return "Restricted Option: Accept Open And Close (N)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.restricted_option.labels = {
+  ["Y"] = "Restricted Option: Accept Position Closing (Y)",
+  ["N"] = "Restricted Option: Accept Open And Close (N)",
+}
 
-  return "Restricted Option: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.restricted_option.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.restricted_option.labels[value] or "Restricted Option: Unknown("..value..")"
 end
 
 -- Dissect: Restricted Option
@@ -1988,45 +1864,23 @@ miax_emeraldoptions_topofmarket_mach_v1_3.sesm_packet_type = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.sesm_packet_type.size = 1
 
 -- Display: Sesm Packet Type
-miax_emeraldoptions_topofmarket_mach_v1_3.sesm_packet_type.display = function(value)
-  if value == "s" then
-    return "Sesm Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Sesm Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Sesm Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Sesm Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Sesm Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Sesm Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Sesm Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Sesm Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Sesm Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Sesm Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Sesm Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Sesm Packet Type: Test Packet (T)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.sesm_packet_type.labels = {
+  ["s"] = "Sesm Packet Type: Sequenced Data Packet (s)",
+  ["U"] = "Sesm Packet Type: Unsequenced Data Packet (U)",
+  ["l"] = "Sesm Packet Type: Login Request (l)",
+  ["r"] = "Sesm Packet Type: Login Response (r)",
+  ["c"] = "Sesm Packet Type: Synchronization Complete (c)",
+  ["a"] = "Sesm Packet Type: Retransmission Request (a)",
+  ["X"] = "Sesm Packet Type: Logout Request (X)",
+  ["G"] = "Sesm Packet Type: Goodbye Packet (G)",
+  ["u"] = "Sesm Packet Type: Trading Session Update (u)",
+  ["0"] = "Sesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Sesm Packet Type: Client Heartbeat (1)",
+  ["T"] = "Sesm Packet Type: Test Packet (T)",
+}
 
-  return "Sesm Packet Type: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.sesm_packet_type.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.sesm_packet_type.labels[value] or "Sesm Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Sesm Packet Type
@@ -2169,21 +2023,15 @@ miax_emeraldoptions_topofmarket_mach_v1_3.system_status = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.system_status.size = 1
 
 -- Display: System Status
-miax_emeraldoptions_topofmarket_mach_v1_3.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of System Hours (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of System Hours (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Of Test Session (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of Test Session (2)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.system_status.labels = {
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.system_status.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -2247,132 +2095,52 @@ miax_emeraldoptions_topofmarket_mach_v1_3.trade_condition = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.trade_condition.size = 1
 
 -- Display: Trade Condition
-miax_emeraldoptions_topofmarket_mach_v1_3.trade_condition.display = function(value)
-  if value == "A" then
-    return "Trade Condition: Cancel Of Trade Previously Reported Other Than As The Last Or Opening (A)"
-  end
-  if value == "B" then
-    return "Trade Condition: Late And Is Out Of Sequence (B)"
-  end
-  if value == "C" then
-    return "Trade Condition: Cancel Of The Last Reported Trade (C)"
-  end
-  if value == "D" then
-    return "Trade Condition: Late And Is In Correct Sequence (D)"
-  end
-  if value == "E" then
-    return "Trade Condition: Cancel Of The First Reported Trade (E)"
-  end
-  if value == "F" then
-    return "Trade Condition: Late Report Of The Opening Trade And Is Out Of Sequence (F)"
-  end
-  if value == "G" then
-    return "Trade Condition: Cancel Of The Only Reported Trade (G)"
-  end
-  if value == "H" then
-    return "Trade Condition: Late Report Of The Opening Trade And Is In Correct Sequence (H)"
-  end
-  if value == "I" then
-    return "Trade Condition: Auto (I)"
-  end
-  if value == "J" then
-    return "Trade Condition: Reopening Of An Option (J)"
-  end
-  if value == "K" then
-    return "Trade Condition: Reserved (K)"
-  end
-  if value == "L" then
-    return "Trade Condition: A Buy And A Sell In The Same Class (L)"
-  end
-  if value == "M" then
-    return "Trade Condition: A Buy And A Sell In A Put And A Call (M)"
-  end
-  if value == "N" then
-    return "Trade Condition: Reserved (N)"
-  end
-  if value == "O" then
-    return "Trade Condition: Reserved (O)"
-  end
-  if value == "P" then
-    return "Trade Condition: Buy Or Sell Of A Call Or Put (P)"
-  end
-  if value == "Q" then
-    return "Trade Condition: Buy Of A Call And A Sell Of A Put For The Same Underlying Stock Or Index (Q)"
-  end
-  if value == "R" then
-    return "Trade Condition: Execution Of An Order Which Was Stopped At A Price That Did Not Constitute A Trade Through On Another Market At The Time Of The Stop (R)"
-  end
-  if value == "S" then
-    return "Trade Condition: Execution Of An Iso Order (S)"
-  end
-  if value == "T" then
-    return "Trade Condition: Reserved (T)"
-  end
-  if value == "X" then
-    return "Trade Condition: Trade Through Exempt (X)"
-  end
-  if value == "a" then
-    return "Trade Condition: Paired Prime (a)"
-  end
-  if value == "b" then
-    return "Trade Condition: Iso Paired Prime (b)"
-  end
-  if value == "c" then
-    return "Trade Condition: Prime Customer To Customer Cross Or Prime Qcc (c)"
-  end
-  if value == "d" then
-    return "Trade Condition: Reserved (d)"
-  end
-  if value == "e" then
-    return "Trade Condition: Reserved (e)"
-  end
-  if value == "f" then
-    return "Trade Condition: Complex Transaction That Is Not Complex Stock Tied And Does Not Involve Legging (f)"
-  end
-  if value == "g" then
-    return "Trade Condition: Complex Prime Transaction That Is Not Complex Stock Tied And Does Not Involve Legging (g)"
-  end
-  if value == "h" then
-    return "Trade Condition: Complex Prime Customer To Customer Cross Or Complex Prime Qcc Transaction That Is Not Complex Stock Tied (h)"
-  end
-  if value == "i" then
-    return "Trade Condition: Reserved (i)"
-  end
-  if value == "j" then
-    return "Trade Condition: Complex Legging Transaction That Is Not Complex Stock Tied (j)"
-  end
-  if value == "k" then
-    return "Trade Condition: Complex Prime Stock Tied Transaction That Does Not Involve Legging (k)"
-  end
-  if value == "l" then
-    return "Trade Condition: Complex Prime Legging Transaction That Is Not Complex Stock Tied (l)"
-  end
-  if value == "m" then
-    return "Trade Condition: Reserved (m)"
-  end
-  if value == "n" then
-    return "Trade Condition: Complex Stock Tied Transaction That Does Not Involve Legging (n)"
-  end
-  if value == "o" then
-    return "Trade Condition: Complex Customer To Customer Cross Stock Tied Or Complex Qcc Stock Tied Transaction (o)"
-  end
-  if value == "p" then
-    return "Trade Condition: Reserved (p)"
-  end
-  if value == "q" then
-    return "Trade Condition: Reserved (q)"
-  end
-  if value == "r" then
-    return "Trade Condition: Reserved (r)"
-  end
-  if value == "s" then
-    return "Trade Condition: Reserved (s)"
-  end
-  if value == "t" then
-    return "Trade Condition: Reserved (t)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.trade_condition.labels = {
+  ["A"] = "Trade Condition: Cancel Of Trade Previously Reported Other Than As The Last Or Opening (A)",
+  ["B"] = "Trade Condition: Late And Is Out Of Sequence (B)",
+  ["C"] = "Trade Condition: Cancel Of The Last Reported Trade (C)",
+  ["D"] = "Trade Condition: Late And Is In Correct Sequence (D)",
+  ["E"] = "Trade Condition: Cancel Of The First Reported Trade (E)",
+  ["F"] = "Trade Condition: Late Report Of The Opening Trade And Is Out Of Sequence (F)",
+  ["G"] = "Trade Condition: Cancel Of The Only Reported Trade (G)",
+  ["H"] = "Trade Condition: Late Report Of The Opening Trade And Is In Correct Sequence (H)",
+  ["I"] = "Trade Condition: Auto (I)",
+  ["J"] = "Trade Condition: Reopening Of An Option (J)",
+  ["K"] = "Trade Condition: Reserved (K)",
+  ["L"] = "Trade Condition: A Buy And A Sell In The Same Class (L)",
+  ["M"] = "Trade Condition: A Buy And A Sell In A Put And A Call (M)",
+  ["N"] = "Trade Condition: Reserved (N)",
+  ["O"] = "Trade Condition: Reserved (O)",
+  ["P"] = "Trade Condition: Buy Or Sell Of A Call Or Put (P)",
+  ["Q"] = "Trade Condition: Buy Of A Call And A Sell Of A Put For The Same Underlying Stock Or Index (Q)",
+  ["R"] = "Trade Condition: Execution Of An Order Which Was Stopped At A Price That Did Not Constitute A Trade Through On Another Market At The Time Of The Stop (R)",
+  ["S"] = "Trade Condition: Execution Of An Iso Order (S)",
+  ["T"] = "Trade Condition: Reserved (T)",
+  ["X"] = "Trade Condition: Trade Through Exempt (X)",
+  ["a"] = "Trade Condition: Paired Prime (a)",
+  ["b"] = "Trade Condition: Iso Paired Prime (b)",
+  ["c"] = "Trade Condition: Prime Customer To Customer Cross Or Prime Qcc (c)",
+  ["d"] = "Trade Condition: Reserved (d)",
+  ["e"] = "Trade Condition: Reserved (e)",
+  ["f"] = "Trade Condition: Complex Transaction That Is Not Complex Stock Tied And Does Not Involve Legging (f)",
+  ["g"] = "Trade Condition: Complex Prime Transaction That Is Not Complex Stock Tied And Does Not Involve Legging (g)",
+  ["h"] = "Trade Condition: Complex Prime Customer To Customer Cross Or Complex Prime Qcc Transaction That Is Not Complex Stock Tied (h)",
+  ["i"] = "Trade Condition: Reserved (i)",
+  ["j"] = "Trade Condition: Complex Legging Transaction That Is Not Complex Stock Tied (j)",
+  ["k"] = "Trade Condition: Complex Prime Stock Tied Transaction That Does Not Involve Legging (k)",
+  ["l"] = "Trade Condition: Complex Prime Legging Transaction That Is Not Complex Stock Tied (l)",
+  ["m"] = "Trade Condition: Reserved (m)",
+  ["n"] = "Trade Condition: Complex Stock Tied Transaction That Does Not Involve Legging (n)",
+  ["o"] = "Trade Condition: Complex Customer To Customer Cross Stock Tied Or Complex Qcc Stock Tied Transaction (o)",
+  ["p"] = "Trade Condition: Reserved (p)",
+  ["q"] = "Trade Condition: Reserved (q)",
+  ["r"] = "Trade Condition: Reserved (r)",
+  ["s"] = "Trade Condition: Reserved (s)",
+  ["t"] = "Trade Condition: Reserved (t)",
+}
 
-  return "Trade Condition: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.trade_condition.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.trade_condition.labels[value] or "Trade Condition: Unknown("..value..")"
 end
 
 -- Dissect: Trade Condition
@@ -2492,18 +2260,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.trading_status = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.trading_status.size = 1
 
 -- Display: Trading Status
-miax_emeraldoptions_topofmarket_mach_v1_3.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "R" then
-    return "Trading Status: Resumed (R)"
-  end
-  if value == "O" then
-    return "Trading Status: Opened (O)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["R"] = "Trading Status: Resumed (R)",
+  ["O"] = "Trading Status: Opened (O)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.trading_status.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2548,18 +2312,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message_type = {}
 miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message_type.display = function(value)
-  if value == "R" then
-    return "Unsequenced Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Unsequenced Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
-  end
+miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message_type.labels = {
+  ["R"] = "Unsequenced Message Type: Refresh Request Message (R)",
+  ["r"] = "Unsequenced Message Type: Refresh Response Message (r)",
+  ["E"] = "Unsequenced Message Type: End Of Refresh Notification Message (E)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message_type.display = function(value)
+  return miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -4133,70 +3893,29 @@ end
 miax_emeraldoptions_topofmarket_mach_v1_3.data = {}
 
 -- Dissect: Data
+miax_emeraldoptions_topofmarket_mach_v1_3.data.dispatch = {
+  ["1"] = miax_emeraldoptions_topofmarket_mach_v1_3.system_time_message.dissect,
+  ["P"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_series_update_message.dissect,
+  ["S"] = miax_emeraldoptions_topofmarket_mach_v1_3.system_state_message.dissect,
+  ["B"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_bid_message.dissect,
+  ["h"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_bid_with_priority_customer_message.dissect,
+  ["O"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_offer_message.dissect,
+  ["i"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_offer_with_priority_customer_message.dissect,
+  ["W"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_bid_message.dissect,
+  ["j"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_bid_with_priority_customer_message.dissect,
+  ["A"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_offer_message.dissect,
+  ["k"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_offer_with_priority_customer_message.dissect,
+  ["d"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best_bid_or_offer_compact_message.dissect,
+  ["D"] = miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best_bid_or_offer_wide_message.dissect,
+  ["T"] = miax_emeraldoptions_topofmarket_mach_v1_3.last_sale_message.dissect,
+  ["X"] = miax_emeraldoptions_topofmarket_mach_v1_3.trade_cancel_message.dissect,
+  ["H"] = miax_emeraldoptions_topofmarket_mach_v1_3.underlying_trading_status_notification_message.dissect,
+}
+
 miax_emeraldoptions_topofmarket_mach_v1_3.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Time Message
-  if message_type == "1" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.system_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Series Update Message
-  if message_type == "P" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_series_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Message
-  if message_type == "S" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.system_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Top Of Market Best Bid Or Offer Compact Bid Message
-  if message_type == "B" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Top Of Market Best Bid Or Offer Compact Bid With Priority Customer Message
-  if message_type == "h" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_bid_with_priority_customer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Top Of Market Best Bid Or Offer Compact Offer Message
-  if message_type == "O" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Top Of Market Best Bid Or Offer Compact Offer With Priority Customer Message
-  if message_type == "i" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_offer_with_priority_customer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Top Of Market Best Bid Or Offer Wide Bid Message
-  if message_type == "W" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Top Of Market Best Bid Or Offer Wide Bid With Priority Customer Message
-  if message_type == "j" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_bid_with_priority_customer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Top Of Market Best Bid Or Offer Wide Offer Message
-  if message_type == "A" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Top Of Market Best Bid Or Offer Wide Offer With Priority Customer Message
-  if message_type == "k" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_offer_with_priority_customer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Double Sided Top Of Market Best Bid Or Offer Compact Message
-  if message_type == "d" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best_bid_or_offer_compact_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Double Sided Top Of Market Best Bid Or Offer Wide Message
-  if message_type == "D" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best_bid_or_offer_wide_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Sale Message
-  if message_type == "T" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == "X" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Trading Status Notification Message
-  if message_type == "H" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.underlying_trading_status_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_emeraldoptions_topofmarket_mach_v1_3.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4345,18 +4064,16 @@ end
 miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message.dispatch = {
+  ["R"] = miax_emeraldoptions_topofmarket_mach_v1_3.refresh_request_message.dissect,
+  ["r"] = miax_emeraldoptions_topofmarket_mach_v1_3.refresh_response_message.dissect,
+  ["E"] = miax_emeraldoptions_topofmarket_mach_v1_3.end_of_refresh_notification_message.dissect,
+}
+
 miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Refresh Request Message
-  if unsequenced_message_type == "R" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Response Message
-  if unsequenced_message_type == "r" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.refresh_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Refresh Notification Message
-  if unsequenced_message_type == "E" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.end_of_refresh_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4478,54 +4195,25 @@ end
 miax_emeraldoptions_topofmarket_mach_v1_3.sesm_payload = {}
 
 -- Dissect: Sesm Payload
+miax_emeraldoptions_topofmarket_mach_v1_3.sesm_payload.dispatch = {
+  ["s"] = miax_emeraldoptions_topofmarket_mach_v1_3.sequenced_data_packet.dissect,
+  ["U"] = miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_data_packet.dissect,
+  ["l"] = miax_emeraldoptions_topofmarket_mach_v1_3.login_request.dissect,
+  ["r"] = miax_emeraldoptions_topofmarket_mach_v1_3.login_response.dissect,
+  ["c"] = miax_emeraldoptions_topofmarket_mach_v1_3.synchronization_complete.dissect,
+  ["a"] = miax_emeraldoptions_topofmarket_mach_v1_3.retransmission_request.dissect,
+  ["X"] = miax_emeraldoptions_topofmarket_mach_v1_3.logout_request.dissect,
+  ["G"] = miax_emeraldoptions_topofmarket_mach_v1_3.goodbye_packet.dissect,
+  ["u"] = miax_emeraldoptions_topofmarket_mach_v1_3.trading_session_update.dissect,
+  ["0"] = miax_emeraldoptions_topofmarket_mach_v1_3.server_heartbeat.dissect,
+  ["1"] = miax_emeraldoptions_topofmarket_mach_v1_3.client_heartbeat.dissect,
+  ["T"] = miax_emeraldoptions_topofmarket_mach_v1_3.test_packet.dissect,
+}
+
 miax_emeraldoptions_topofmarket_mach_v1_3.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
-  -- Dissect Sequenced Data Packet
-  if sesm_packet_type == "s" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if sesm_packet_type == "U" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if sesm_packet_type == "l" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if sesm_packet_type == "r" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if sesm_packet_type == "c" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if sesm_packet_type == "a" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if sesm_packet_type == "X" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if sesm_packet_type == "G" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Update
-  if sesm_packet_type == "u" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.trading_session_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if sesm_packet_type == "0" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if sesm_packet_type == "1" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Packet
-  if sesm_packet_type == "T" then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.test_packet.dissect(buffer, offset, packet, parent)
+  local dissect = miax_emeraldoptions_topofmarket_mach_v1_3.sesm_payload.dispatch[sesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4742,22 +4430,17 @@ end
 miax_emeraldoptions_topofmarket_mach_v1_3.payload = {}
 
 -- Dissect: Payload
+miax_emeraldoptions_topofmarket_mach_v1_3.payload.dispatch = {
+  [0] = miax_emeraldoptions_topofmarket_mach_v1_3.heartbeat.dissect,
+  [1] = miax_emeraldoptions_topofmarket_mach_v1_3.start_of_session.dissect,
+  [2] = miax_emeraldoptions_topofmarket_mach_v1_3.end_of_session.dissect,
+  [3] = miax_emeraldoptions_topofmarket_mach_v1_3.application_message.dissect,
+}
+
 miax_emeraldoptions_topofmarket_mach_v1_3.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Heartbeat
-  if packet_type == 0 then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if packet_type == 1 then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if packet_type == 2 then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Message
-  if packet_type == 3 then
-    return miax_emeraldoptions_topofmarket_mach_v1_3.application_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_emeraldoptions_topofmarket_mach_v1_3.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

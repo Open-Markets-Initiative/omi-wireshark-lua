@@ -568,15 +568,13 @@ cme_globex_ilink3_sbe_v8_8.aggressor_indicator = {}
 cme_globex_ilink3_sbe_v8_8.aggressor_indicator.size = 1
 
 -- Display: Aggressor Indicator
-cme_globex_ilink3_sbe_v8_8.aggressor_indicator.display = function(value)
-  if value == 0 then
-    return "Aggressor Indicator: False (0)"
-  end
-  if value == 1 then
-    return "Aggressor Indicator: True (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.aggressor_indicator.labels = {
+  [0] = "Aggressor Indicator: False (0)",
+  [1] = "Aggressor Indicator: True (1)",
+}
 
-  return "Aggressor Indicator: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.aggressor_indicator.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.aggressor_indicator.labels[value] or "Aggressor Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Aggressor Indicator
@@ -598,15 +596,13 @@ cme_globex_ilink3_sbe_v8_8.auto_quote_request = {}
 cme_globex_ilink3_sbe_v8_8.auto_quote_request.size = 1
 
 -- Display: Auto Quote Request
-cme_globex_ilink3_sbe_v8_8.auto_quote_request.display = function(value)
-  if value == 0 then
-    return "Auto Quote Request: False (0)"
-  end
-  if value == 1 then
-    return "Auto Quote Request: True (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.auto_quote_request.labels = {
+  [0] = "Auto Quote Request: False (0)",
+  [1] = "Auto Quote Request: True (1)",
+}
 
-  return "Auto Quote Request: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.auto_quote_request.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.auto_quote_request.labels[value] or "Auto Quote Request: Unknown("..value..")"
 end
 
 -- Dissect: Auto Quote Request
@@ -1936,15 +1932,13 @@ cme_globex_ilink3_sbe_v8_8.exec_ack_status = {}
 cme_globex_ilink3_sbe_v8_8.exec_ack_status.size = 1
 
 -- Display: Exec Ack Status
-cme_globex_ilink3_sbe_v8_8.exec_ack_status.display = function(value)
-  if value == 1 then
-    return "Exec Ack Status: Accepted (1)"
-  end
-  if value == 2 then
-    return "Exec Ack Status: Rejected (2)"
-  end
+cme_globex_ilink3_sbe_v8_8.exec_ack_status.labels = {
+  [1] = "Exec Ack Status: Accepted (1)",
+  [2] = "Exec Ack Status: Rejected (2)",
+}
 
-  return "Exec Ack Status: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.exec_ack_status.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.exec_ack_status.labels[value] or "Exec Ack Status: Unknown("..value..")"
 end
 
 -- Dissect: Exec Ack Status
@@ -2660,15 +2654,13 @@ cme_globex_ilink3_sbe_v8_8.keep_alive_interval_lapsed = {}
 cme_globex_ilink3_sbe_v8_8.keep_alive_interval_lapsed.size = 1
 
 -- Display: Keep Alive Interval Lapsed
-cme_globex_ilink3_sbe_v8_8.keep_alive_interval_lapsed.display = function(value)
-  if value == 0 then
-    return "Keep Alive Interval Lapsed: Not Lapsed (0)"
-  end
-  if value == 1 then
-    return "Keep Alive Interval Lapsed: Lapsed (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.keep_alive_interval_lapsed.labels = {
+  [0] = "Keep Alive Interval Lapsed: Not Lapsed (0)",
+  [1] = "Keep Alive Interval Lapsed: Lapsed (1)",
+}
 
-  return "Keep Alive Interval Lapsed: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.keep_alive_interval_lapsed.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.keep_alive_interval_lapsed.labels[value] or "Keep Alive Interval Lapsed: Unknown("..value..")"
 end
 
 -- Dissect: Keep Alive Interval Lapsed
@@ -2690,15 +2682,13 @@ cme_globex_ilink3_sbe_v8_8.last_fragment = {}
 cme_globex_ilink3_sbe_v8_8.last_fragment.size = 1
 
 -- Display: Last Fragment
-cme_globex_ilink3_sbe_v8_8.last_fragment.display = function(value)
-  if value == 0 then
-    return "Last Fragment: False (0)"
-  end
-  if value == 1 then
-    return "Last Fragment: True (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.last_fragment.labels = {
+  [0] = "Last Fragment: False (0)",
+  [1] = "Last Fragment: True (1)",
+}
 
-  return "Last Fragment: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.last_fragment.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.last_fragment.labels[value] or "Last Fragment: Unknown("..value..")"
 end
 
 -- Dissect: Last Fragment
@@ -3049,18 +3039,14 @@ cme_globex_ilink3_sbe_v8_8.leg_side = {}
 cme_globex_ilink3_sbe_v8_8.leg_side.size = 1
 
 -- Display: Leg Side
-cme_globex_ilink3_sbe_v8_8.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell (2)"
-  end
-  if value == 7 then
-    return "Leg Side: Undisclosed (7)"
-  end
+cme_globex_ilink3_sbe_v8_8.leg_side.labels = {
+  [1] = "Leg Side: Buy (1)",
+  [2] = "Leg Side: Sell (2)",
+  [7] = "Leg Side: Undisclosed (7)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.leg_side.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -3376,15 +3362,13 @@ cme_globex_ilink3_sbe_v8_8.manual_order_indicator = {}
 cme_globex_ilink3_sbe_v8_8.manual_order_indicator.size = 1
 
 -- Display: Manual Order Indicator
-cme_globex_ilink3_sbe_v8_8.manual_order_indicator.display = function(value)
-  if value == 0 then
-    return "Manual Order Indicator: Automated (0)"
-  end
-  if value == 1 then
-    return "Manual Order Indicator: Manual (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.manual_order_indicator.labels = {
+  [0] = "Manual Order Indicator: Automated (0)",
+  [1] = "Manual Order Indicator: Manual (1)",
+}
 
-  return "Manual Order Indicator: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.manual_order_indicator.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.manual_order_indicator.labels[value] or "Manual Order Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Manual Order Indicator
@@ -3561,15 +3545,13 @@ cme_globex_ilink3_sbe_v8_8.mass_action_response = {}
 cme_globex_ilink3_sbe_v8_8.mass_action_response.size = 1
 
 -- Display: Mass Action Response
-cme_globex_ilink3_sbe_v8_8.mass_action_response.display = function(value)
-  if value == 0 then
-    return "Mass Action Response: Rejected (0)"
-  end
-  if value == 1 then
-    return "Mass Action Response: Accepted (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.mass_action_response.labels = {
+  [0] = "Mass Action Response: Rejected (0)",
+  [1] = "Mass Action Response: Accepted (1)",
+}
 
-  return "Mass Action Response: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.mass_action_response.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.mass_action_response.labels[value] or "Mass Action Response: Unknown("..value..")"
 end
 
 -- Dissect: Mass Action Response
@@ -3591,24 +3573,16 @@ cme_globex_ilink3_sbe_v8_8.mass_action_scope = {}
 cme_globex_ilink3_sbe_v8_8.mass_action_scope.size = 1
 
 -- Display: Mass Action Scope
-cme_globex_ilink3_sbe_v8_8.mass_action_scope.display = function(value)
-  if value == 1 then
-    return "Mass Action Scope: Instrument (1)"
-  end
-  if value == 7 then
-    return "Mass Action Scope: All (7)"
-  end
-  if value == 9 then
-    return "Mass Action Scope: Market Segment Id (9)"
-  end
-  if value == 10 then
-    return "Mass Action Scope: Instrument Group (10)"
-  end
-  if value == 100 then
-    return "Mass Action Scope: Quote Set Id (100)"
-  end
+cme_globex_ilink3_sbe_v8_8.mass_action_scope.labels = {
+  [1] = "Mass Action Scope: Instrument (1)",
+  [7] = "Mass Action Scope: All (7)",
+  [9] = "Mass Action Scope: Market Segment Id (9)",
+  [10] = "Mass Action Scope: Instrument Group (10)",
+  [100] = "Mass Action Scope: Quote Set Id (100)",
+}
 
-  return "Mass Action Scope: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.mass_action_scope.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.mass_action_scope.labels[value] or "Mass Action Scope: Unknown("..value..")"
 end
 
 -- Dissect: Mass Action Scope
@@ -3750,21 +3724,15 @@ cme_globex_ilink3_sbe_v8_8.mass_status_req_type = {}
 cme_globex_ilink3_sbe_v8_8.mass_status_req_type.size = 1
 
 -- Display: Mass Status Req Type
-cme_globex_ilink3_sbe_v8_8.mass_status_req_type.display = function(value)
-  if value == 1 then
-    return "Mass Status Req Type: Instrument (1)"
-  end
-  if value == 3 then
-    return "Mass Status Req Type: Instrument Group (3)"
-  end
-  if value == 7 then
-    return "Mass Status Req Type: All Orders (7)"
-  end
-  if value == 100 then
-    return "Mass Status Req Type: Market Segment (100)"
-  end
+cme_globex_ilink3_sbe_v8_8.mass_status_req_type.labels = {
+  [1] = "Mass Status Req Type: Instrument (1)",
+  [3] = "Mass Status Req Type: Instrument Group (3)",
+  [7] = "Mass Status Req Type: All Orders (7)",
+  [100] = "Mass Status Req Type: Market Segment (100)",
+}
 
-  return "Mass Status Req Type: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.mass_status_req_type.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.mass_status_req_type.labels[value] or "Mass Status Req Type: Unknown("..value..")"
 end
 
 -- Dissect: Mass Status Req Type
@@ -3994,15 +3962,13 @@ cme_globex_ilink3_sbe_v8_8.mm_protection_reset = {}
 cme_globex_ilink3_sbe_v8_8.mm_protection_reset.size = 1
 
 -- Display: Mm Protection Reset
-cme_globex_ilink3_sbe_v8_8.mm_protection_reset.display = function(value)
-  if value == 0 then
-    return "Mm Protection Reset: False (0)"
-  end
-  if value == 1 then
-    return "Mm Protection Reset: True (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.mm_protection_reset.labels = {
+  [0] = "Mm Protection Reset: False (0)",
+  [1] = "Mm Protection Reset: True (1)",
+}
 
-  return "Mm Protection Reset: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.mm_protection_reset.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.mm_protection_reset.labels[value] or "Mm Protection Reset: Unknown("..value..")"
 end
 
 -- Dissect: Mm Protection Reset
@@ -4257,15 +4223,13 @@ cme_globex_ilink3_sbe_v8_8.ofm_override = {}
 cme_globex_ilink3_sbe_v8_8.ofm_override.size = 1
 
 -- Display: Ofm Override
-cme_globex_ilink3_sbe_v8_8.ofm_override.display = function(value)
-  if value == 0 then
-    return "Ofm Override: Disabled (0)"
-  end
-  if value == 1 then
-    return "Ofm Override: Enabled (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.ofm_override.labels = {
+  [0] = "Ofm Override: Disabled (0)",
+  [1] = "Ofm Override: Enabled (1)",
+}
 
-  return "Ofm Override: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.ofm_override.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.ofm_override.labels[value] or "Ofm Override: Unknown("..value..")"
 end
 
 -- Dissect: Ofm Override
@@ -4461,15 +4425,13 @@ cme_globex_ilink3_sbe_v8_8.ord_status_trd = {}
 cme_globex_ilink3_sbe_v8_8.ord_status_trd.size = 1
 
 -- Display: Ord Status Trd
-cme_globex_ilink3_sbe_v8_8.ord_status_trd.display = function(value)
-  if value == 1 then
-    return "Ord Status Trd: Partially Filled (1)"
-  end
-  if value == 2 then
-    return "Ord Status Trd: Filled (2)"
-  end
+cme_globex_ilink3_sbe_v8_8.ord_status_trd.labels = {
+  [1] = "Ord Status Trd: Partially Filled (1)",
+  [2] = "Ord Status Trd: Filled (2)",
+}
 
-  return "Ord Status Trd: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.ord_status_trd.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.ord_status_trd.labels[value] or "Ord Status Trd: Unknown("..value..")"
 end
 
 -- Dissect: Ord Status Trd
@@ -5200,24 +5162,16 @@ cme_globex_ilink3_sbe_v8_8.party_detail_role = {}
 cme_globex_ilink3_sbe_v8_8.party_detail_role.size = 2
 
 -- Display: Party Detail Role
-cme_globex_ilink3_sbe_v8_8.party_detail_role.display = function(value)
-  if value == 1 then
-    return "Party Detail Role: Executing Firm (1)"
-  end
-  if value == 24 then
-    return "Party Detail Role: Customer Account (24)"
-  end
-  if value == 96 then
-    return "Party Detail Role: Take Up Firm (96)"
-  end
-  if value == 118 then
-    return "Party Detail Role: Operator (118)"
-  end
-  if value == 1000 then
-    return "Party Detail Role: Take Up Account (1000)"
-  end
+cme_globex_ilink3_sbe_v8_8.party_detail_role.labels = {
+  [1] = "Party Detail Role: Executing Firm (1)",
+  [24] = "Party Detail Role: Customer Account (24)",
+  [96] = "Party Detail Role: Take Up Firm (96)",
+  [118] = "Party Detail Role: Operator (118)",
+  [1000] = "Party Detail Role: Take Up Account (1000)",
+}
 
-  return "Party Detail Role: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.party_detail_role.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.party_detail_role.labels[value] or "Party Detail Role: Unknown("..value..")"
 end
 
 -- Dissect: Party Detail Role
@@ -5395,15 +5349,13 @@ cme_globex_ilink3_sbe_v8_8.poss_retrans_flag = {}
 cme_globex_ilink3_sbe_v8_8.poss_retrans_flag.size = 1
 
 -- Display: Poss Retrans Flag
-cme_globex_ilink3_sbe_v8_8.poss_retrans_flag.display = function(value)
-  if value == 0 then
-    return "Poss Retrans Flag: False (0)"
-  end
-  if value == 1 then
-    return "Poss Retrans Flag: True (1)"
-  end
+cme_globex_ilink3_sbe_v8_8.poss_retrans_flag.labels = {
+  [0] = "Poss Retrans Flag: False (0)",
+  [1] = "Poss Retrans Flag: True (1)",
+}
 
-  return "Poss Retrans Flag: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.poss_retrans_flag.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.poss_retrans_flag.labels[value] or "Poss Retrans Flag: Unknown("..value..")"
 end
 
 -- Dissect: Poss Retrans Flag
@@ -5567,15 +5519,13 @@ cme_globex_ilink3_sbe_v8_8.quote_ack_status = {}
 cme_globex_ilink3_sbe_v8_8.quote_ack_status.size = 1
 
 -- Display: Quote Ack Status
-cme_globex_ilink3_sbe_v8_8.quote_ack_status.display = function(value)
-  if value == 0 then
-    return "Quote Ack Status: Accepted (0)"
-  end
-  if value == 5 then
-    return "Quote Ack Status: Rejected (5)"
-  end
+cme_globex_ilink3_sbe_v8_8.quote_ack_status.labels = {
+  [0] = "Quote Ack Status: Accepted (0)",
+  [5] = "Quote Ack Status: Rejected (5)",
+}
 
-  return "Quote Ack Status: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.quote_ack_status.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.quote_ack_status.labels[value] or "Quote Ack Status: Unknown("..value..")"
 end
 
 -- Dissect: Quote Ack Status
@@ -5597,21 +5547,15 @@ cme_globex_ilink3_sbe_v8_8.quote_cancel_type = {}
 cme_globex_ilink3_sbe_v8_8.quote_cancel_type.size = 1
 
 -- Display: Quote Cancel Type
-cme_globex_ilink3_sbe_v8_8.quote_cancel_type.display = function(value)
-  if value == 1 then
-    return "Quote Cancel Type: Cancelper Instrument (1)"
-  end
-  if value == 3 then
-    return "Quote Cancel Type: Cancelper Instrumentgroup (3)"
-  end
-  if value == 4 then
-    return "Quote Cancel Type: Cancelallquotes (4)"
-  end
-  if value == 100 then
-    return "Quote Cancel Type: Cancelper Quote Set (100)"
-  end
+cme_globex_ilink3_sbe_v8_8.quote_cancel_type.labels = {
+  [1] = "Quote Cancel Type: Cancelper Instrument (1)",
+  [3] = "Quote Cancel Type: Cancelper Instrumentgroup (3)",
+  [4] = "Quote Cancel Type: Cancelallquotes (4)",
+  [100] = "Quote Cancel Type: Cancelper Quote Set (100)",
+}
 
-  return "Quote Cancel Type: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.quote_cancel_type.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.quote_cancel_type.labels[value] or "Quote Cancel Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Cancel Type
@@ -5633,24 +5577,16 @@ cme_globex_ilink3_sbe_v8_8.quote_cxl_status = {}
 cme_globex_ilink3_sbe_v8_8.quote_cxl_status.size = 1
 
 -- Display: Quote Cxl Status
-cme_globex_ilink3_sbe_v8_8.quote_cxl_status.display = function(value)
-  if value == 1 then
-    return "Quote Cxl Status: Cancelper Instrument (1)"
-  end
-  if value == 3 then
-    return "Quote Cxl Status: Cancelper Instrumentgroup (3)"
-  end
-  if value == 4 then
-    return "Quote Cxl Status: Cancelallquotes (4)"
-  end
-  if value == 5 then
-    return "Quote Cxl Status: Rejected (5)"
-  end
-  if value == 100 then
-    return "Quote Cxl Status: Cancelper Quote Set (100)"
-  end
+cme_globex_ilink3_sbe_v8_8.quote_cxl_status.labels = {
+  [1] = "Quote Cxl Status: Cancelper Instrument (1)",
+  [3] = "Quote Cxl Status: Cancelper Instrumentgroup (3)",
+  [4] = "Quote Cxl Status: Cancelallquotes (4)",
+  [5] = "Quote Cxl Status: Rejected (5)",
+  [100] = "Quote Cxl Status: Cancelper Quote Set (100)",
+}
 
-  return "Quote Cxl Status: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.quote_cxl_status.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.quote_cxl_status.labels[value] or "Quote Cxl Status: Unknown("..value..")"
 end
 
 -- Dissect: Quote Cxl Status
@@ -6063,21 +5999,15 @@ cme_globex_ilink3_sbe_v8_8.request_result = {}
 cme_globex_ilink3_sbe_v8_8.request_result.size = 1
 
 -- Display: Request Result
-cme_globex_ilink3_sbe_v8_8.request_result.display = function(value)
-  if value == 0 then
-    return "Request Result: Valid Request (0)"
-  end
-  if value == 2 then
-    return "Request Result: No Data Found That Matched Selection Criteria (2)"
-  end
-  if value == 3 then
-    return "Request Result: Not Authorizedto Retrieve Data (3)"
-  end
-  if value == 4 then
-    return "Request Result: Data Temporarily Unavailable (4)"
-  end
+cme_globex_ilink3_sbe_v8_8.request_result.labels = {
+  [0] = "Request Result: Valid Request (0)",
+  [2] = "Request Result: No Data Found That Matched Selection Criteria (2)",
+  [3] = "Request Result: Not Authorizedto Retrieve Data (3)",
+  [4] = "Request Result: Data Temporarily Unavailable (4)",
+}
 
-  return "Request Result: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.request_result.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.request_result.labels[value] or "Request Result: Unknown("..value..")"
 end
 
 -- Dissect: Request Result
@@ -6585,18 +6515,14 @@ cme_globex_ilink3_sbe_v8_8.security_response_type = {}
 cme_globex_ilink3_sbe_v8_8.security_response_type.size = 1
 
 -- Display: Security Response Type
-cme_globex_ilink3_sbe_v8_8.security_response_type.display = function(value)
-  if value == 1 then
-    return "Security Response Type: Accept Security Proposalasis (1)"
-  end
-  if value == 2 then
-    return "Security Response Type: Accept Securityproposalwithrevisionsasindicatedinthemessage (2)"
-  end
-  if value == 5 then
-    return "Security Response Type: Reject Security Proposal (5)"
-  end
+cme_globex_ilink3_sbe_v8_8.security_response_type.labels = {
+  [1] = "Security Response Type: Accept Security Proposalasis (1)",
+  [2] = "Security Response Type: Accept Securityproposalwithrevisionsasindicatedinthemessage (2)",
+  [5] = "Security Response Type: Reject Security Proposal (5)",
+}
 
-  return "Security Response Type: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.security_response_type.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.security_response_type.labels[value] or "Security Response Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Response Type
@@ -6998,18 +6924,14 @@ cme_globex_ilink3_sbe_v8_8.side = {}
 cme_globex_ilink3_sbe_v8_8.side.size = 1
 
 -- Display: Side
-cme_globex_ilink3_sbe_v8_8.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
-  if value == 7 then
-    return "Side: Undisclosed (7)"
-  end
+cme_globex_ilink3_sbe_v8_8.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+  [7] = "Side: Undisclosed (7)",
+}
 
-  return "Side: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.side.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -7064,15 +6986,13 @@ cme_globex_ilink3_sbe_v8_8.side_time_in_force = {}
 cme_globex_ilink3_sbe_v8_8.side_time_in_force.size = 1
 
 -- Display: Side Time In Force
-cme_globex_ilink3_sbe_v8_8.side_time_in_force.display = function(value)
-  if value == 0 then
-    return "Side Time In Force: Day (0)"
-  end
-  if value == 3 then
-    return "Side Time In Force: Fak (3)"
-  end
+cme_globex_ilink3_sbe_v8_8.side_time_in_force.labels = {
+  [0] = "Side Time In Force: Day (0)",
+  [3] = "Side Time In Force: Fak (3)",
+}
 
-  return "Side Time In Force: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.side_time_in_force.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.side_time_in_force.labels[value] or "Side Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Side Time In Force
@@ -7287,159 +7207,61 @@ cme_globex_ilink3_sbe_v8_8.template_id = {}
 cme_globex_ilink3_sbe_v8_8.template_id.size = 2
 
 -- Display: Template Id
-cme_globex_ilink3_sbe_v8_8.template_id.display = function(value)
-  if value == 500 then
-    return "Template Id: Negotiate (500)"
-  end
-  if value == 501 then
-    return "Template Id: Negotiation Response (501)"
-  end
-  if value == 502 then
-    return "Template Id: Negotiation Reject (502)"
-  end
-  if value == 503 then
-    return "Template Id: Establish (503)"
-  end
-  if value == 504 then
-    return "Template Id: Establishment Ack (504)"
-  end
-  if value == 505 then
-    return "Template Id: Establishment Reject (505)"
-  end
-  if value == 506 then
-    return "Template Id: Sequence (506)"
-  end
-  if value == 507 then
-    return "Template Id: Terminate (507)"
-  end
-  if value == 508 then
-    return "Template Id: Retransmit Request (508)"
-  end
-  if value == 509 then
-    return "Template Id: Retransmission (509)"
-  end
-  if value == 510 then
-    return "Template Id: Retransmit Reject (510)"
-  end
-  if value == 513 then
-    return "Template Id: Not Applied (513)"
-  end
-  if value == 514 then
-    return "Template Id: New Order Single (514)"
-  end
-  if value == 515 then
-    return "Template Id: Order Cancel Replace Request (515)"
-  end
-  if value == 516 then
-    return "Template Id: Order Cancel Request (516)"
-  end
-  if value == 517 then
-    return "Template Id: Mass Quote (517)"
-  end
-  if value == 518 then
-    return "Template Id: Party Details Definition Request (518)"
-  end
-  if value == 519 then
-    return "Template Id: Party Details Definition Request Ack (519)"
-  end
-  if value == 521 then
-    return "Template Id: Business Reject (521)"
-  end
-  if value == 522 then
-    return "Template Id: Execution Report New (522)"
-  end
-  if value == 523 then
-    return "Template Id: Execution Report Reject (523)"
-  end
-  if value == 524 then
-    return "Template Id: Execution Report Elimination (524)"
-  end
-  if value == 525 then
-    return "Template Id: Execution Report Trade Outright (525)"
-  end
-  if value == 526 then
-    return "Template Id: Execution Report Trade Spread (526)"
-  end
-  if value == 527 then
-    return "Template Id: Execution Report Trade Spread Leg (527)"
-  end
-  if value == 528 then
-    return "Template Id: Quote Cancel (528)"
-  end
-  if value == 529 then
-    return "Template Id: Order Mass Action Request (529)"
-  end
-  if value == 530 then
-    return "Template Id: Order Mass Status Request (530)"
-  end
-  if value == 531 then
-    return "Template Id: Execution Report Modify (531)"
-  end
-  if value == 532 then
-    return "Template Id: Execution Report Status (532)"
-  end
-  if value == 533 then
-    return "Template Id: Order Status Request (533)"
-  end
-  if value == 534 then
-    return "Template Id: Execution Report Cancel (534)"
-  end
-  if value == 535 then
-    return "Template Id: Order Cancel Reject (535)"
-  end
-  if value == 536 then
-    return "Template Id: Order Cancel Replace Reject (536)"
-  end
-  if value == 537 then
-    return "Template Id: Party Details List Request (537)"
-  end
-  if value == 538 then
-    return "Template Id: Party Details List Report (538)"
-  end
-  if value == 539 then
-    return "Template Id: Execution Ack (539)"
-  end
-  if value == 543 then
-    return "Template Id: Request For Quote (543)"
-  end
-  if value == 544 then
-    return "Template Id: New Order Cross (544)"
-  end
-  if value == 545 then
-    return "Template Id: Mass Quote Ack (545)"
-  end
-  if value == 546 then
-    return "Template Id: Request For Quote Ack (546)"
-  end
-  if value == 548 then
-    return "Template Id: Execution Report Trade Addendum Outright (548)"
-  end
-  if value == 549 then
-    return "Template Id: Execution Report Trade Addendum Spread (549)"
-  end
-  if value == 550 then
-    return "Template Id: Execution Report Trade Addendum Spread Leg (550)"
-  end
-  if value == 560 then
-    return "Template Id: Security Definition Request (560)"
-  end
-  if value == 561 then
-    return "Template Id: Security Definition Response (561)"
-  end
-  if value == 562 then
-    return "Template Id: Order Mass Action Report (562)"
-  end
-  if value == 563 then
-    return "Template Id: Quote Cancel Ack (563)"
-  end
-  if value == 564 then
-    return "Template Id: Execution Report Pending Cancel (564)"
-  end
-  if value == 565 then
-    return "Template Id: Execution Report Pending Replace (565)"
-  end
+cme_globex_ilink3_sbe_v8_8.template_id.labels = {
+  [500] = "Template Id: Negotiate (500)",
+  [501] = "Template Id: Negotiation Response (501)",
+  [502] = "Template Id: Negotiation Reject (502)",
+  [503] = "Template Id: Establish (503)",
+  [504] = "Template Id: Establishment Ack (504)",
+  [505] = "Template Id: Establishment Reject (505)",
+  [506] = "Template Id: Sequence (506)",
+  [507] = "Template Id: Terminate (507)",
+  [508] = "Template Id: Retransmit Request (508)",
+  [509] = "Template Id: Retransmission (509)",
+  [510] = "Template Id: Retransmit Reject (510)",
+  [513] = "Template Id: Not Applied (513)",
+  [514] = "Template Id: New Order Single (514)",
+  [515] = "Template Id: Order Cancel Replace Request (515)",
+  [516] = "Template Id: Order Cancel Request (516)",
+  [517] = "Template Id: Mass Quote (517)",
+  [518] = "Template Id: Party Details Definition Request (518)",
+  [519] = "Template Id: Party Details Definition Request Ack (519)",
+  [521] = "Template Id: Business Reject (521)",
+  [522] = "Template Id: Execution Report New (522)",
+  [523] = "Template Id: Execution Report Reject (523)",
+  [524] = "Template Id: Execution Report Elimination (524)",
+  [525] = "Template Id: Execution Report Trade Outright (525)",
+  [526] = "Template Id: Execution Report Trade Spread (526)",
+  [527] = "Template Id: Execution Report Trade Spread Leg (527)",
+  [528] = "Template Id: Quote Cancel (528)",
+  [529] = "Template Id: Order Mass Action Request (529)",
+  [530] = "Template Id: Order Mass Status Request (530)",
+  [531] = "Template Id: Execution Report Modify (531)",
+  [532] = "Template Id: Execution Report Status (532)",
+  [533] = "Template Id: Order Status Request (533)",
+  [534] = "Template Id: Execution Report Cancel (534)",
+  [535] = "Template Id: Order Cancel Reject (535)",
+  [536] = "Template Id: Order Cancel Replace Reject (536)",
+  [537] = "Template Id: Party Details List Request (537)",
+  [538] = "Template Id: Party Details List Report (538)",
+  [539] = "Template Id: Execution Ack (539)",
+  [543] = "Template Id: Request For Quote (543)",
+  [544] = "Template Id: New Order Cross (544)",
+  [545] = "Template Id: Mass Quote Ack (545)",
+  [546] = "Template Id: Request For Quote Ack (546)",
+  [548] = "Template Id: Execution Report Trade Addendum Outright (548)",
+  [549] = "Template Id: Execution Report Trade Addendum Spread (549)",
+  [550] = "Template Id: Execution Report Trade Addendum Spread Leg (550)",
+  [560] = "Template Id: Security Definition Request (560)",
+  [561] = "Template Id: Security Definition Response (561)",
+  [562] = "Template Id: Order Mass Action Report (562)",
+  [563] = "Template Id: Quote Cancel Ack (563)",
+  [564] = "Template Id: Execution Report Pending Cancel (564)",
+  [565] = "Template Id: Execution Report Pending Replace (565)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.template_id.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -7704,21 +7526,15 @@ cme_globex_ilink3_sbe_v8_8.trade_addendum = {}
 cme_globex_ilink3_sbe_v8_8.trade_addendum.size = 1
 
 -- Display: Trade Addendum
-cme_globex_ilink3_sbe_v8_8.trade_addendum.display = function(value)
-  if value == 4 then
-    return "Trade Addendum: Partially Filled (4)"
-  end
-  if value == 5 then
-    return "Trade Addendum: Filled (5)"
-  end
-  if value == 100 then
-    return "Trade Addendum: Trade Cancel (100)"
-  end
-  if value == 101 then
-    return "Trade Addendum: Trade Correction (101)"
-  end
+cme_globex_ilink3_sbe_v8_8.trade_addendum.labels = {
+  [4] = "Trade Addendum: Partially Filled (4)",
+  [5] = "Trade Addendum: Filled (5)",
+  [100] = "Trade Addendum: Trade Cancel (100)",
+  [101] = "Trade Addendum: Trade Correction (101)",
+}
 
-  return "Trade Addendum: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_8.trade_addendum.display = function(value)
+  return cme_globex_ilink3_sbe_v8_8.trade_addendum.labels[value] or "Trade Addendum: Unknown("..value..")"
 end
 
 -- Dissect: Trade Addendum
@@ -15543,130 +15359,44 @@ end
 cme_globex_ilink3_sbe_v8_8.server_payload = {}
 
 -- Dissect: Server Payload
+cme_globex_ilink3_sbe_v8_8.server_payload.dispatch = {
+  [501] = cme_globex_ilink3_sbe_v8_8.negotiation_response.dissect,
+  [502] = cme_globex_ilink3_sbe_v8_8.negotiation_reject.dissect,
+  [504] = cme_globex_ilink3_sbe_v8_8.establishment_ack.dissect,
+  [505] = cme_globex_ilink3_sbe_v8_8.establishment_reject.dissect,
+  [506] = cme_globex_ilink3_sbe_v8_8.sequence.dissect,
+  [507] = cme_globex_ilink3_sbe_v8_8.terminate.dissect,
+  [509] = cme_globex_ilink3_sbe_v8_8.retransmission.dissect,
+  [510] = cme_globex_ilink3_sbe_v8_8.retransmit_reject.dissect,
+  [513] = cme_globex_ilink3_sbe_v8_8.not_applied.dissect,
+  [519] = cme_globex_ilink3_sbe_v8_8.party_details_definition_request_ack.dissect,
+  [521] = cme_globex_ilink3_sbe_v8_8.business_reject.dissect,
+  [522] = cme_globex_ilink3_sbe_v8_8.execution_report_new.dissect,
+  [523] = cme_globex_ilink3_sbe_v8_8.execution_report_reject.dissect,
+  [524] = cme_globex_ilink3_sbe_v8_8.execution_report_elimination.dissect,
+  [525] = cme_globex_ilink3_sbe_v8_8.execution_report_trade_outright.dissect,
+  [526] = cme_globex_ilink3_sbe_v8_8.execution_report_trade_spread.dissect,
+  [527] = cme_globex_ilink3_sbe_v8_8.execution_report_trade_spread_leg.dissect,
+  [531] = cme_globex_ilink3_sbe_v8_8.execution_report_modify.dissect,
+  [532] = cme_globex_ilink3_sbe_v8_8.execution_report_status.dissect,
+  [534] = cme_globex_ilink3_sbe_v8_8.execution_report_cancel.dissect,
+  [535] = cme_globex_ilink3_sbe_v8_8.order_cancel_reject.dissect,
+  [536] = cme_globex_ilink3_sbe_v8_8.order_cancel_replace_reject.dissect,
+  [538] = cme_globex_ilink3_sbe_v8_8.party_details_list_report.dissect,
+  [545] = cme_globex_ilink3_sbe_v8_8.mass_quote_ack.dissect,
+  [546] = cme_globex_ilink3_sbe_v8_8.request_for_quote_ack.dissect,
+  [548] = cme_globex_ilink3_sbe_v8_8.execution_report_trade_addendum_outright.dissect,
+  [549] = cme_globex_ilink3_sbe_v8_8.execution_report_trade_addendum_spread.dissect,
+  [550] = cme_globex_ilink3_sbe_v8_8.execution_report_trade_addendum_spread_leg.dissect,
+  [561] = cme_globex_ilink3_sbe_v8_8.security_definition_response.dissect,
+  [562] = cme_globex_ilink3_sbe_v8_8.order_mass_action_report.dissect,
+  [563] = cme_globex_ilink3_sbe_v8_8.quote_cancel_ack.dissect,
+}
+
 cme_globex_ilink3_sbe_v8_8.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Negotiation Response
-  if template_id == 501 then
-    return cme_globex_ilink3_sbe_v8_8.negotiation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Negotiation Reject
-  if template_id == 502 then
-    return cme_globex_ilink3_sbe_v8_8.negotiation_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Establishment Ack
-  if template_id == 504 then
-    return cme_globex_ilink3_sbe_v8_8.establishment_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Establishment Reject
-  if template_id == 505 then
-    return cme_globex_ilink3_sbe_v8_8.establishment_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence
-  if template_id == 506 then
-    return cme_globex_ilink3_sbe_v8_8.sequence.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate
-  if template_id == 507 then
-    return cme_globex_ilink3_sbe_v8_8.terminate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission
-  if template_id == 509 then
-    return cme_globex_ilink3_sbe_v8_8.retransmission.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Reject
-  if template_id == 510 then
-    return cme_globex_ilink3_sbe_v8_8.retransmit_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Not Applied
-  if template_id == 513 then
-    return cme_globex_ilink3_sbe_v8_8.not_applied.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Details Definition Request Ack
-  if template_id == 519 then
-    return cme_globex_ilink3_sbe_v8_8.party_details_definition_request_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Business Reject
-  if template_id == 521 then
-    return cme_globex_ilink3_sbe_v8_8.business_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report New
-  if template_id == 522 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_new.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Reject
-  if template_id == 523 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Elimination
-  if template_id == 524 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_elimination.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Outright
-  if template_id == 525 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_trade_outright.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Spread
-  if template_id == 526 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_trade_spread.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Spread Leg
-  if template_id == 527 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_trade_spread_leg.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Modify
-  if template_id == 531 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_modify.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Status
-  if template_id == 532 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Cancel
-  if template_id == 534 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject
-  if template_id == 535 then
-    return cme_globex_ilink3_sbe_v8_8.order_cancel_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Replace Reject
-  if template_id == 536 then
-    return cme_globex_ilink3_sbe_v8_8.order_cancel_replace_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Details List Report
-  if template_id == 538 then
-    return cme_globex_ilink3_sbe_v8_8.party_details_list_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Ack
-  if template_id == 545 then
-    return cme_globex_ilink3_sbe_v8_8.mass_quote_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Quote Ack
-  if template_id == 546 then
-    return cme_globex_ilink3_sbe_v8_8.request_for_quote_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Addendum Outright
-  if template_id == 548 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_trade_addendum_outright.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Addendum Spread
-  if template_id == 549 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_trade_addendum_spread.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Addendum Spread Leg
-  if template_id == 550 then
-    return cme_globex_ilink3_sbe_v8_8.execution_report_trade_addendum_spread_leg.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Response
-  if template_id == 561 then
-    return cme_globex_ilink3_sbe_v8_8.security_definition_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Action Report
-  if template_id == 562 then
-    return cme_globex_ilink3_sbe_v8_8.order_mass_action_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancel Ack
-  if template_id == 563 then
-    return cme_globex_ilink3_sbe_v8_8.quote_cancel_ack.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_ilink3_sbe_v8_8.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -18572,82 +18302,32 @@ end
 cme_globex_ilink3_sbe_v8_8.client_payload = {}
 
 -- Dissect: Client Payload
+cme_globex_ilink3_sbe_v8_8.client_payload.dispatch = {
+  [500] = cme_globex_ilink3_sbe_v8_8.negotiate.dissect,
+  [503] = cme_globex_ilink3_sbe_v8_8.establish.dissect,
+  [506] = cme_globex_ilink3_sbe_v8_8.sequence.dissect,
+  [507] = cme_globex_ilink3_sbe_v8_8.terminate.dissect,
+  [508] = cme_globex_ilink3_sbe_v8_8.retransmit_request.dissect,
+  [514] = cme_globex_ilink3_sbe_v8_8.new_order_single.dissect,
+  [515] = cme_globex_ilink3_sbe_v8_8.order_cancel_replace_request.dissect,
+  [516] = cme_globex_ilink3_sbe_v8_8.order_cancel_request.dissect,
+  [517] = cme_globex_ilink3_sbe_v8_8.mass_quote.dissect,
+  [518] = cme_globex_ilink3_sbe_v8_8.party_details_definition_request.dissect,
+  [528] = cme_globex_ilink3_sbe_v8_8.quote_cancel.dissect,
+  [529] = cme_globex_ilink3_sbe_v8_8.order_mass_action_request.dissect,
+  [530] = cme_globex_ilink3_sbe_v8_8.order_mass_status_request.dissect,
+  [533] = cme_globex_ilink3_sbe_v8_8.order_status_request.dissect,
+  [537] = cme_globex_ilink3_sbe_v8_8.party_details_list_request.dissect,
+  [539] = cme_globex_ilink3_sbe_v8_8.execution_ack.dissect,
+  [543] = cme_globex_ilink3_sbe_v8_8.request_for_quote.dissect,
+  [544] = cme_globex_ilink3_sbe_v8_8.new_order_cross.dissect,
+  [560] = cme_globex_ilink3_sbe_v8_8.security_definition_request.dissect,
+}
+
 cme_globex_ilink3_sbe_v8_8.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Negotiate
-  if template_id == 500 then
-    return cme_globex_ilink3_sbe_v8_8.negotiate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Establish
-  if template_id == 503 then
-    return cme_globex_ilink3_sbe_v8_8.establish.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence
-  if template_id == 506 then
-    return cme_globex_ilink3_sbe_v8_8.sequence.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate
-  if template_id == 507 then
-    return cme_globex_ilink3_sbe_v8_8.terminate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Request
-  if template_id == 508 then
-    return cme_globex_ilink3_sbe_v8_8.retransmit_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Single
-  if template_id == 514 then
-    return cme_globex_ilink3_sbe_v8_8.new_order_single.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Replace Request
-  if template_id == 515 then
-    return cme_globex_ilink3_sbe_v8_8.order_cancel_replace_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Request
-  if template_id == 516 then
-    return cme_globex_ilink3_sbe_v8_8.order_cancel_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote
-  if template_id == 517 then
-    return cme_globex_ilink3_sbe_v8_8.mass_quote.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Details Definition Request
-  if template_id == 518 then
-    return cme_globex_ilink3_sbe_v8_8.party_details_definition_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancel
-  if template_id == 528 then
-    return cme_globex_ilink3_sbe_v8_8.quote_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Action Request
-  if template_id == 529 then
-    return cme_globex_ilink3_sbe_v8_8.order_mass_action_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Status Request
-  if template_id == 530 then
-    return cme_globex_ilink3_sbe_v8_8.order_mass_status_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Status Request
-  if template_id == 533 then
-    return cme_globex_ilink3_sbe_v8_8.order_status_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Details List Request
-  if template_id == 537 then
-    return cme_globex_ilink3_sbe_v8_8.party_details_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Ack
-  if template_id == 539 then
-    return cme_globex_ilink3_sbe_v8_8.execution_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Quote
-  if template_id == 543 then
-    return cme_globex_ilink3_sbe_v8_8.request_for_quote.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Cross
-  if template_id == 544 then
-    return cme_globex_ilink3_sbe_v8_8.new_order_cross.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Request
-  if template_id == 560 then
-    return cme_globex_ilink3_sbe_v8_8.security_definition_request.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_ilink3_sbe_v8_8.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

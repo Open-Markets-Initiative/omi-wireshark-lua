@@ -373,18 +373,14 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.index_source = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.index_source.size = 1
 
 -- Display: Index Source
-hkex_hkexsecurities_indexrefresh_omd_v1_44.index_source.display = function(value)
-  if value == "C" then
-    return "Index Source: Csi And Ces (C)"
-  end
-  if value == "H" then
-    return "Index Source: Hsi (H)"
-  end
-  if value == "S" then
-    return "Index Source: S And P (S)"
-  end
+hkex_hkexsecurities_indexrefresh_omd_v1_44.index_source.labels = {
+  ["C"] = "Index Source: Csi And Ces (C)",
+  ["H"] = "Index Source: Hsi (H)",
+  ["S"] = "Index Source: S And P (S)",
+}
 
-  return "Index Source: Unknown("..value..")"
+hkex_hkexsecurities_indexrefresh_omd_v1_44.index_source.display = function(value)
+  return hkex_hkexsecurities_indexrefresh_omd_v1_44.index_source.labels[value] or "Index Source: Unknown("..value..")"
 end
 
 -- Dissect: Index Source
@@ -406,30 +402,18 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.index_status = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.index_status.size = 1
 
 -- Display: Index Status
-hkex_hkexsecurities_indexrefresh_omd_v1_44.index_status.display = function(value)
-  if value == "C" then
-    return "Index Status: Closing Value (C)"
-  end
-  if value == "I" then
-    return "Index Status: Indicative (I)"
-  end
-  if value == "O" then
-    return "Index Status: Opening Index (O)"
-  end
-  if value == "P" then
-    return "Index Status: Last Close Value Previous Session (P)"
-  end
-  if value == "R" then
-    return "Index Status: Preliminary Close (R)"
-  end
-  if value == "S" then
-    return "Index Status: Stop Loss Index (S)"
-  end
-  if value == "T" then
-    return "Index Status: Realtime Index Value (T)"
-  end
+hkex_hkexsecurities_indexrefresh_omd_v1_44.index_status.labels = {
+  ["C"] = "Index Status: Closing Value (C)",
+  ["I"] = "Index Status: Indicative (I)",
+  ["O"] = "Index Status: Opening Index (O)",
+  ["P"] = "Index Status: Last Close Value Previous Session (P)",
+  ["R"] = "Index Status: Preliminary Close (R)",
+  ["S"] = "Index Status: Stop Loss Index (S)",
+  ["T"] = "Index Status: Realtime Index Value (T)",
+}
 
-  return "Index Status: Unknown("..value..")"
+hkex_hkexsecurities_indexrefresh_omd_v1_44.index_status.display = function(value)
+  return hkex_hkexsecurities_indexrefresh_omd_v1_44.index_status.labels[value] or "Index Status: Unknown("..value..")"
 end
 
 -- Dissect: Index Status
@@ -653,18 +637,14 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.msg_type = {}
 hkex_hkexsecurities_indexrefresh_omd_v1_44.msg_type.size = 2
 
 -- Display: Msg Type
-hkex_hkexsecurities_indexrefresh_omd_v1_44.msg_type.display = function(value)
-  if value == 70 then
-    return "Msg Type: Index Definition Message (70)"
-  end
-  if value == 71 then
-    return "Msg Type: Index Data Message (71)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete Message (203)"
-  end
+hkex_hkexsecurities_indexrefresh_omd_v1_44.msg_type.labels = {
+  [70] = "Msg Type: Index Definition Message (70)",
+  [71] = "Msg Type: Index Data Message (71)",
+  [203] = "Msg Type: Refresh Complete Message (203)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+hkex_hkexsecurities_indexrefresh_omd_v1_44.msg_type.display = function(value)
+  return hkex_hkexsecurities_indexrefresh_omd_v1_44.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -1066,18 +1046,16 @@ end
 hkex_hkexsecurities_indexrefresh_omd_v1_44.payload = {}
 
 -- Dissect: Payload
+hkex_hkexsecurities_indexrefresh_omd_v1_44.payload.dispatch = {
+  [70] = hkex_hkexsecurities_indexrefresh_omd_v1_44.index_definition_message.dissect,
+  [71] = hkex_hkexsecurities_indexrefresh_omd_v1_44.index_data_message.dissect,
+  [203] = hkex_hkexsecurities_indexrefresh_omd_v1_44.refresh_complete_message.dissect,
+}
+
 hkex_hkexsecurities_indexrefresh_omd_v1_44.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Index Definition Message
-  if msg_type == 70 then
-    return hkex_hkexsecurities_indexrefresh_omd_v1_44.index_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Data Message
-  if msg_type == 71 then
-    return hkex_hkexsecurities_indexrefresh_omd_v1_44.index_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete Message
-  if msg_type == 203 then
-    return hkex_hkexsecurities_indexrefresh_omd_v1_44.refresh_complete_message.dissect(buffer, offset, packet, parent)
+  local dissect = hkex_hkexsecurities_indexrefresh_omd_v1_44.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

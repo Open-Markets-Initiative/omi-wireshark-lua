@@ -449,15 +449,13 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source = {}
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.size = 1
 
 -- Display: Data Source
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.display = function(value)
-  if value == "C" then
-    return "Data Source: Cta (C)"
-  end
-  if value == "U" then
-    return "Data Source: Utp (U)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.labels = {
+  ["C"] = "Data Source: Cta (C)",
+  ["U"] = "Data Source: Utp (U)",
+}
 
-  return "Data Source: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.data_source.labels[value] or "Data Source: Unknown("..value..")"
 end
 
 -- Dissect: Data Source
@@ -665,30 +663,18 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center = {
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.size = 1
 
 -- Display: Market Center
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.display = function(value)
-  if value == "*" then
-    return "Market Center: All Cboe Markets (*)"
-  end
-  if value == "Y" then
-    return "Market Center: Byx (Y)"
-  end
-  if value == "Z" then
-    return "Market Center: Bzx (Z)"
-  end
-  if value == "A" then
-    return "Market Center: Edga (A)"
-  end
-  if value == "X" then
-    return "Market Center: Edgx (X)"
-  end
-  if value == "C" then
-    return "Market Center: Cta (C)"
-  end
-  if value == "U" then
-    return "Market Center: Utp (U)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.labels = {
+  ["*"] = "Market Center: All Cboe Markets (*)",
+  ["Y"] = "Market Center: Byx (Y)",
+  ["Z"] = "Market Center: Bzx (Z)",
+  ["A"] = "Market Center: Edga (A)",
+  ["X"] = "Market Center: Edgx (X)",
+  ["C"] = "Market Center: Cta (C)",
+  ["U"] = "Market Center: Utp (U)",
+}
 
-  return "Market Center: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_center.labels[value] or "Market Center: Unknown("..value..")"
 end
 
 -- Dissect: Market Center
@@ -733,18 +719,14 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status = {
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.size = 1
 
 -- Display: Market Status
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.display = function(value)
-  if value == "N" then
-    return "Market Status: Normal (N)"
-  end
-  if value == "E" then
-    return "Market Status: Excluded From Symbol Summary And Adap Updates (E)"
-  end
-  if value == "I" then
-    return "Market Status: Incomplete (I)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.labels = {
+  ["N"] = "Market Status: Normal (N)",
+  ["E"] = "Market Status: Excluded From Symbol Summary And Adap Updates (E)",
+  ["I"] = "Market Status: Incomplete (I)",
+}
 
-  return "Market Status: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.market_status.labels[value] or "Market Status: Unknown("..value..")"
 end
 
 -- Dissect: Market Status
@@ -812,42 +794,22 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type = {}
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.size = 1
 
 -- Display: Message Type
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.display = function(value)
-  if value == 0xA2 then
-    return "Message Type: Clear Quote Message (0xA2)"
-  end
-  if value == 0xE7 then
-    return "Message Type: Fractional Symbol Summary Message (0xE7)"
-  end
-  if value == 0xA5 then
-    return "Message Type: Best Quote Update Message (0xA5)"
-  end
-  if value == 0xA6 then
-    return "Message Type: Cboe Market Status Message (0xA6)"
-  end
-  if value == 0xA7 then
-    return "Message Type: Adap Message (0xA7)"
-  end
-  if value == 0xA8 then
-    return "Message Type: Rpi Message (0xA8)"
-  end
-  if value == 0xE8 then
-    return "Message Type: Fractional Trade Message (0xE8)"
-  end
-  if value == 0xE9 then
-    return "Message Type: Fractional Trade Break Message (0xE9)"
-  end
-  if value == 0xAB then
-    return "Message Type: Trading Status Message (0xAB)"
-  end
-  if value == 0xB0 then
-    return "Message Type: Opening Closing Price Message (0xB0)"
-  end
-  if value == 0xEA then
-    return "Message Type: Fractional End Of Day Summary Message (0xEA)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.labels = {
+  [0xA2] = "Message Type: Clear Quote Message (0xA2)",
+  [0xE7] = "Message Type: Fractional Symbol Summary Message (0xE7)",
+  [0xA5] = "Message Type: Best Quote Update Message (0xA5)",
+  [0xA6] = "Message Type: Cboe Market Status Message (0xA6)",
+  [0xA7] = "Message Type: Adap Message (0xA7)",
+  [0xA8] = "Message Type: Rpi Message (0xA8)",
+  [0xE8] = "Message Type: Fractional Trade Message (0xE8)",
+  [0xE9] = "Message Type: Fractional Trade Break Message (0xE9)",
+  [0xAB] = "Message Type: Trading Status Message (0xAB)",
+  [0xB0] = "Message Type: Opening Closing Price Message (0xB0)",
+  [0xEA] = "Message Type: Fractional End Of Day Summary Message (0xEA)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -898,18 +860,14 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indica
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.size = 1
 
 -- Display: Open Close Indicator
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.display = function(value)
-  if value == "O" then
-    return "Open Close Indicator: Opening Price (O)"
-  end
-  if value == "C" then
-    return "Open Close Indicator: Closing Price (C)"
-  end
-  if value == "F" then
-    return "Open Close Indicator: First Regular Hours Trade (F)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.labels = {
+  ["O"] = "Open Close Indicator: Opening Price (O)",
+  ["C"] = "Open Close Indicator: Closing Price (C)",
+  ["F"] = "Open Close Indicator: First Regular Hours Trade (F)",
+}
 
-  return "Open Close Indicator: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.open_close_indicator.labels[value] or "Open Close Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Open Close Indicator
@@ -1064,15 +1022,13 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action = 
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Effect (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Effect (0)",
+  ["1"] = "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -1117,21 +1073,15 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_impr
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.size = 1
 
 -- Display: Retail Price Improvement
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.display = function(value)
-  if value == "B" then
-    return "Retail Price Improvement: Buy Side Rpi (B)"
-  end
-  if value == "S" then
-    return "Retail Price Improvement: Sell Side Rpi (S)"
-  end
-  if value == "A" then
-    return "Retail Price Improvement: Buy And Sell Rpi (A)"
-  end
-  if value == "N" then
-    return "Retail Price Improvement: No Rpi (N)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.labels = {
+  ["B"] = "Retail Price Improvement: Buy Side Rpi (B)",
+  ["S"] = "Retail Price Improvement: Sell Side Rpi (S)",
+  ["A"] = "Retail Price Improvement: Buy And Sell Rpi (A)",
+  ["N"] = "Retail Price Improvement: No Rpi (N)",
+}
 
-  return "Retail Price Improvement: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.retail_price_improvement.labels[value] or "Retail Price Improvement: Unknown("..value..")"
 end
 
 -- Dissect: Retail Price Improvement
@@ -1176,15 +1126,13 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.size = 1
 
 -- Display: Session Indicator
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.display = function(value)
-  if value == "R" then
-    return "Session Indicator: Regular Trading Session (R)"
-  end
-  if value == "P" then
-    return "Session Indicator: Pre Or Postmarket Session (P)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.labels = {
+  ["R"] = "Session Indicator: Regular Trading Session (R)",
+  ["P"] = "Session Indicator: Pre Or Postmarket Session (P)",
+}
 
-  return "Session Indicator: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.session_indicator.labels[value] or "Session Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Session Indicator
@@ -1206,15 +1154,13 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side = {}
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.size = 1
 
 -- Display: Side
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Side (S)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.labels = {
+  ["B"] = "Side: Buy Side (B)",
+  ["S"] = "Side: Sell Side (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1236,15 +1182,13 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator = 
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Side (S)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Side (B)",
+  ["S"] = "Side Indicator: Sell Side (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1313,24 +1257,16 @@ cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status = 
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.display = function(value)
-  if value == "A" then
-    return "Trading Status: Accepting Orders For Queuing (A)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Trading Status: Quote Only (Q)"
-  end
-  if value == "S" then
-    return "Trading Status: Exchange Specific Suspension (S)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.labels = {
+  ["A"] = "Trading Status: Accepting Orders For Queuing (A)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["Q"] = "Trading Status: Quote Only (Q)",
+  ["S"] = "Trading Status: Exchange Specific Suspension (S)",
+  ["T"] = "Trading Status: Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.display = function(value)
+  return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1970,14 +1906,15 @@ end
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_update = {}
 
 -- Dissect: Adap Update
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_update.dispatch = {
+  [10] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.dissect,
+  [18] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.dissect,
+}
+
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_update.dissect = function(buffer, offset, packet, parent, adap_block_size)
-  -- Dissect Short Update Adap Block
-  if adap_block_size == 10 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.short_update_adap_block.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Update Adap Block
-  if adap_block_size == 18 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.long_update_adap_block.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_update.dispatch[adap_block_size]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2452,50 +2389,24 @@ end
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.payload = {}
 
 -- Dissect: Payload
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.payload.dispatch = {
+  [0xA2] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.dissect,
+  [0xE7] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.dissect,
+  [0xA5] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.dissect,
+  [0xA6] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.dissect,
+  [0xA7] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.dissect,
+  [0xA8] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.dissect,
+  [0xE8] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.dissect,
+  [0xE9] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.dissect,
+  [0xAB] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.dissect,
+  [0xB0] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.dissect,
+  [0xEA] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.dissect,
+}
+
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Clear Quote Message
-  if message_type == 0xA2 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.clear_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Symbol Summary Message
-  if message_type == 0xE7 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_symbol_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Quote Update Message
-  if message_type == 0xA5 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.best_quote_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cboe Market Status Message
-  if message_type == 0xA6 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.cboe_market_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Adap Message
-  if message_type == 0xA7 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.adap_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rpi Message
-  if message_type == 0xA8 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.rpi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Trade Message
-  if message_type == 0xE8 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Trade Break Message
-  if message_type == 0xE9 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0xAB then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Closing Price Message
-  if message_type == 0xB0 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.opening_closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional End Of Day Summary Message
-  if message_type == 0xEA then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.fractional_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2634,10 +2545,14 @@ end
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.messages = {}
 
 -- Dissect: Messages
+cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.messages.dispatch = {
+  [0] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.heartbeat.dissect,
+}
+
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_16.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

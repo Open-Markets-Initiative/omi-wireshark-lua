@@ -241,21 +241,15 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_type = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction (H)"
-  end
-  if value == "V" then
-    return "Auction Type: Volatility Auction (V)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["H"] = "Auction Type: Halt Auction (H)",
+  ["V"] = "Auction Type: Volatility Auction (V)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_type.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -277,18 +271,14 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_trade_timing_indicator = {
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_trade_timing_indicator.size = 1
 
 -- Display: Bats Trade Timing Indicator
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_trade_timing_indicator.display = function(value)
-  if value == "1" then
-    return "Bats Trade Timing Indicator: The Trade Was Reported To Bats Chi X Europe Late (1)"
-  end
-  if value == "2" then
-    return "Bats Trade Timing Indicator: The Trade Was Reported To Bats Chi X Europe Out Of The Main Session (2)"
-  end
-  if value == "-" then
-    return "Bats Trade Timing Indicator: Otherwise Note This Flag Is Not Defined By Mmt (-)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_trade_timing_indicator.labels = {
+  ["1"] = "Bats Trade Timing Indicator: The Trade Was Reported To Bats Chi X Europe Late (1)",
+  ["2"] = "Bats Trade Timing Indicator: The Trade Was Reported To Bats Chi X Europe Out Of The Main Session (2)",
+  ["-"] = "Bats Trade Timing Indicator: Otherwise Note This Flag Is Not Defined By Mmt (-)",
+}
 
-  return "Bats Trade Timing Indicator: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_trade_timing_indicator.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_trade_timing_indicator.labels[value] or "Bats Trade Timing Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bats Trade Timing Indicator
@@ -310,12 +300,12 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_transaction_sub_category =
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_transaction_sub_category.size = 1
 
 -- Display: Bats Transaction Sub Category
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_transaction_sub_category.display = function(value)
-  if value == "-" then
-    return "Bats Transaction Sub Category: Not Defined Note This Flag Is Not Defined By Mmt And Is Reserved For Future Use (-)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_transaction_sub_category.labels = {
+  ["-"] = "Bats Transaction Sub Category: Not Defined Note This Flag Is Not Defined By Mmt And Is Reserved For Future Use (-)",
+}
 
-  return "Bats Transaction Sub Category: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_transaction_sub_category.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.bats_transaction_sub_category.labels[value] or "Bats Transaction Sub Category: Unknown("..value..")"
 end
 
 -- Dissect: Bats Transaction Sub Category
@@ -337,15 +327,13 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.benchmark_indicator = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.benchmark_indicator.size = 1
 
 -- Display: Benchmark Indicator
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.benchmark_indicator.display = function(value)
-  if value == "B" then
-    return "Benchmark Indicator: Benchmark Trade If Optionally Set By Reporting Party (B)"
-  end
-  if value == "-" then
-    return "Benchmark Indicator: Not Specified (-)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.benchmark_indicator.labels = {
+  ["B"] = "Benchmark Indicator: Benchmark Trade If Optionally Set By Reporting Party (B)",
+  ["-"] = "Benchmark Indicator: Not Specified (-)",
+}
 
-  return "Benchmark Indicator: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.benchmark_indicator.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.benchmark_indicator.labels[value] or "Benchmark Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Benchmark Indicator
@@ -436,15 +424,13 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.crossing_trade = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.crossing_trade.size = 1
 
 -- Display: Crossing Trade
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.crossing_trade.display = function(value)
-  if value == "X" then
-    return "Crossing Trade: Crossing Trade (X)"
-  end
-  if value == "-" then
-    return "Crossing Trade: Not Specified (-)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.crossing_trade.labels = {
+  ["X"] = "Crossing Trade: Crossing Trade (X)",
+  ["-"] = "Crossing Trade: Not Specified (-)",
+}
 
-  return "Crossing Trade: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.crossing_trade.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.crossing_trade.labels[value] or "Crossing Trade: Unknown("..value..")"
 end
 
 -- Dissect: Crossing Trade
@@ -489,15 +475,13 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.ex_cum_dividend = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.ex_cum_dividend.size = 1
 
 -- Display: Ex Cum Dividend
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.ex_cum_dividend.display = function(value)
-  if value == "E" then
-    return "Ex Cum Dividend: Ex Cum Dividend If Optionally Set By Reporting Party (E)"
-  end
-  if value == "-" then
-    return "Ex Cum Dividend: Not Specified (-)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.ex_cum_dividend.labels = {
+  ["E"] = "Ex Cum Dividend: Ex Cum Dividend If Optionally Set By Reporting Party (E)",
+  ["-"] = "Ex Cum Dividend: Not Specified (-)",
+}
 
-  return "Ex Cum Dividend: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.ex_cum_dividend.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.ex_cum_dividend.labels[value] or "Ex Cum Dividend: Unknown("..value..")"
 end
 
 -- Dissect: Ex Cum Dividend
@@ -634,21 +618,15 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.market_mechanism = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.market_mechanism.size = 1
 
 -- Display: Market Mechanism
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.market_mechanism.display = function(value)
-  if value == "1" then
-    return "Market Mechanism: Central Limit Order Book (1)"
-  end
-  if value == "2" then
-    return "Market Mechanism: Quote Driven Market (2)"
-  end
-  if value == "3" then
-    return "Market Mechanism: Dark Order Book (3)"
-  end
-  if value == "4" then
-    return "Market Mechanism: Off Book (4)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.market_mechanism.labels = {
+  ["1"] = "Market Mechanism: Central Limit Order Book (1)",
+  ["2"] = "Market Mechanism: Quote Driven Market (2)",
+  ["3"] = "Market Mechanism: Dark Order Book (3)",
+  ["4"] = "Market Mechanism: Off Book (4)",
+}
 
-  return "Market Mechanism: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.market_mechanism.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.market_mechanism.labels[value] or "Market Mechanism: Unknown("..value..")"
 end
 
 -- Dissect: Market Mechanism
@@ -716,72 +694,32 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.message_type = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.message_type.size = 1
 
 -- Display: Message Type
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x40 then
-    return "Message Type: Add Order Long Message (0x40)"
-  end
-  if value == 0x22 then
-    return "Message Type: Add Order Short Message (0x22)"
-  end
-  if value == 0x2f then
-    return "Message Type: Add Order Expanded Message (0x2f)"
-  end
-  if value == 0x23 then
-    return "Message Type: Order Executed Message (0x23)"
-  end
-  if value == 0x24 then
-    return "Message Type: Order Executed At Price Size Message (0x24)"
-  end
-  if value == 0x25 then
-    return "Message Type: Reduce Size Long Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Reduce Size Short Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Modify Order Long Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Modify Order Short Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: Delete Order Message (0x29)"
-  end
-  if value == 0x41 then
-    return "Message Type: Trade Long Message (0x41)"
-  end
-  if value == 0x2B then
-    return "Message Type: Trade Short Message (0x2B)"
-  end
-  if value == 0x2C then
-    return "Message Type: Trade Break Message (0x2C)"
-  end
-  if value == 0x32 then
-    return "Message Type: Trade Report Message (0x32)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0x34 then
-    return "Message Type: Statistics Message (0x34)"
-  end
-  if value == 0x95 then
-    return "Message Type: Auction Update Message (0x95)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.message_type.labels = {
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0x40] = "Message Type: Add Order Long Message (0x40)",
+  [0x22] = "Message Type: Add Order Short Message (0x22)",
+  [0x2f] = "Message Type: Add Order Expanded Message (0x2f)",
+  [0x23] = "Message Type: Order Executed Message (0x23)",
+  [0x24] = "Message Type: Order Executed At Price Size Message (0x24)",
+  [0x25] = "Message Type: Reduce Size Long Message (0x25)",
+  [0x26] = "Message Type: Reduce Size Short Message (0x26)",
+  [0x27] = "Message Type: Modify Order Long Message (0x27)",
+  [0x28] = "Message Type: Modify Order Short Message (0x28)",
+  [0x29] = "Message Type: Delete Order Message (0x29)",
+  [0x41] = "Message Type: Trade Long Message (0x41)",
+  [0x2B] = "Message Type: Trade Short Message (0x2B)",
+  [0x2C] = "Message Type: Trade Break Message (0x2C)",
+  [0x32] = "Message Type: Trade Report Message (0x32)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+  [0x31] = "Message Type: Trading Status Message (0x31)",
+  [0x34] = "Message Type: Statistics Message (0x34)",
+  [0x95] = "Message Type: Auction Update Message (0x95)",
+  [0x96] = "Message Type: Auction Summary Message (0x96)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.message_type.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -803,18 +741,14 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modification_indicator = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modification_indicator.size = 1
 
 -- Display: Modification Indicator
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modification_indicator.display = function(value)
-  if value == "A" then
-    return "Modification Indicator: Indicates A Modification Of A Previously Reported Trade (A)"
-  end
-  if value == "C" then
-    return "Modification Indicator: Indicates A Cancellation Of A Previously Reported Trade (C)"
-  end
-  if value == "-" then
-    return "Modification Indicator: Not Specified (-)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modification_indicator.labels = {
+  ["A"] = "Modification Indicator: Indicates A Modification Of A Previously Reported Trade (A)",
+  ["C"] = "Modification Indicator: Indicates A Cancellation Of A Previously Reported Trade (C)",
+  ["-"] = "Modification Indicator: Not Specified (-)",
+}
 
-  return "Modification Indicator: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modification_indicator.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modification_indicator.labels[value] or "Modification Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Modification Indicator
@@ -836,15 +770,13 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.negotiated_trade = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.negotiated_trade.size = 1
 
 -- Display: Negotiated Trade
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.negotiated_trade.display = function(value)
-  if value == "N" then
-    return "Negotiated Trade: Negotiated Trade (N)"
-  end
-  if value == "-" then
-    return "Negotiated Trade: Not Specified (-)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.negotiated_trade.labels = {
+  ["N"] = "Negotiated Trade: Negotiated Trade (N)",
+  ["-"] = "Negotiated Trade: Not Specified (-)",
+}
 
-  return "Negotiated Trade: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.negotiated_trade.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.negotiated_trade.labels[value] or "Negotiated Trade: Unknown("..value..")"
 end
 
 -- Dissect: Negotiated Trade
@@ -935,15 +867,13 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.price_determination = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.price_determination.size = 1
 
 -- Display: Price Determination
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.price_determination.display = function(value)
-  if value == "0" then
-    return "Price Determination: Normal (0)"
-  end
-  if value == "1" then
-    return "Price Determination: Manual Price Override By Market Supervision (1)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.price_determination.labels = {
+  ["0"] = "Price Determination: Normal (0)",
+  ["1"] = "Price Determination: Manual Price Override By Market Supervision (1)",
+}
 
-  return "Price Determination: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.price_determination.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.price_determination.labels[value] or "Price Determination: Unknown("..value..")"
 end
 
 -- Dissect: Price Determination
@@ -1023,15 +953,13 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.publication_mode = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.publication_mode.size = 1
 
 -- Display: Publication Mode
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.publication_mode.display = function(value)
-  if value == "1" then
-    return "Publication Mode: Trade Report Has Been Delayed At The Request Of The Reporting Party (1)"
-  end
-  if value == "-" then
-    return "Publication Mode: Not Specified (-)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.publication_mode.labels = {
+  ["1"] = "Publication Mode: Trade Report Has Been Delayed At The Request Of The Reporting Party (1)",
+  ["-"] = "Publication Mode: Not Specified (-)",
+}
 
-  return "Publication Mode: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.publication_mode.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.publication_mode.labels[value] or "Publication Mode: Unknown("..value..")"
 end
 
 -- Dissect: Publication Mode
@@ -1306,15 +1234,13 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.side_indicator = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.side_indicator.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1336,24 +1262,16 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.statistic_type = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.statistic_type.size = 1
 
 -- Display: Statistic Type
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.statistic_type.display = function(value)
-  if value == "C" then
-    return "Statistic Type: Closing Price (C)"
-  end
-  if value == "H" then
-    return "Statistic Type: High Price (H)"
-  end
-  if value == "L" then
-    return "Statistic Type: Low Price (L)"
-  end
-  if value == "O" then
-    return "Statistic Type: Opening Price (O)"
-  end
-  if value == "P" then
-    return "Statistic Type: Previous Closing Price (P)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.statistic_type.labels = {
+  ["C"] = "Statistic Type: Closing Price (C)",
+  ["H"] = "Statistic Type: High Price (H)",
+  ["L"] = "Statistic Type: Low Price (L)",
+  ["O"] = "Statistic Type: Opening Price (O)",
+  ["P"] = "Statistic Type: Previous Closing Price (P)",
+}
 
-  return "Statistic Type: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.statistic_type.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.statistic_type.labels[value] or "Statistic Type: Unknown("..value..")"
 end
 
 -- Dissect: Statistic Type
@@ -1375,42 +1293,22 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.status = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.status.size = 1
 
 -- Display: Status
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.status.display = function(value)
-  if value == "T" then
-    return "Status: Trading (T)"
-  end
-  if value == "R" then
-    return "Status: Off Book Reporting (R)"
-  end
-  if value == "C" then
-    return "Status: Closed (C)"
-  end
-  if value == "S" then
-    return "Status: Suspension (S)"
-  end
-  if value == "N" then
-    return "Status: No Reference Price (N)"
-  end
-  if value == "V" then
-    return "Status: Volatility Interruption (V)"
-  end
-  if value == "O" then
-    return "Status: Opening Auction (O)"
-  end
-  if value == "E" then
-    return "Status: Closing Auction (E)"
-  end
-  if value == "H" then
-    return "Status: Halt (H)"
-  end
-  if value == "M" then
-    return "Status: Market Order Imbalance Extension (M)"
-  end
-  if value == "P" then
-    return "Status: Price Monitoring Extension (P)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.status.labels = {
+  ["T"] = "Status: Trading (T)",
+  ["R"] = "Status: Off Book Reporting (R)",
+  ["C"] = "Status: Closed (C)",
+  ["S"] = "Status: Suspension (S)",
+  ["N"] = "Status: No Reference Price (N)",
+  ["V"] = "Status: Volatility Interruption (V)",
+  ["O"] = "Status: Opening Auction (O)",
+  ["E"] = "Status: Closing Auction (E)",
+  ["H"] = "Status: Halt (H)",
+  ["M"] = "Status: Market Order Imbalance Extension (M)",
+  ["P"] = "Status: Price Monitoring Extension (P)",
+}
 
-  return "Status: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.status.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -1580,39 +1478,21 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trading_mode = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trading_mode.size = 1
 
 -- Display: Trading Mode
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trading_mode.display = function(value)
-  if value == "2" then
-    return "Trading Mode: Continuous Trading (2)"
-  end
-  if value == "3" then
-    return "Trading Mode: At Market Close Trading (3)"
-  end
-  if value == "4" then
-    return "Trading Mode: Out Of Main Session (4)"
-  end
-  if value == "5" then
-    return "Trading Mode: Trade Reporting On Exchange (5)"
-  end
-  if value == "6" then
-    return "Trading Mode: Trade Reporting Off Exchange (6)"
-  end
-  if value == "7" then
-    return "Trading Mode: Trade Reporting Systematic Internalizer (7)"
-  end
-  if value == "O" then
-    return "Trading Mode: Scheduled Opening Auction (O)"
-  end
-  if value == "K" then
-    return "Trading Mode: Scheduled Closing Auction (K)"
-  end
-  if value == "I" then
-    return "Trading Mode: Scheduled Intraday Auction (I)"
-  end
-  if value == "U" then
-    return "Trading Mode: Unscheduled Auction (U)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trading_mode.labels = {
+  ["2"] = "Trading Mode: Continuous Trading (2)",
+  ["3"] = "Trading Mode: At Market Close Trading (3)",
+  ["4"] = "Trading Mode: Out Of Main Session (4)",
+  ["5"] = "Trading Mode: Trade Reporting On Exchange (5)",
+  ["6"] = "Trading Mode: Trade Reporting Off Exchange (6)",
+  ["7"] = "Trading Mode: Trade Reporting Systematic Internalizer (7)",
+  ["O"] = "Trading Mode: Scheduled Opening Auction (O)",
+  ["K"] = "Trading Mode: Scheduled Closing Auction (K)",
+  ["I"] = "Trading Mode: Scheduled Intraday Auction (I)",
+  ["U"] = "Trading Mode: Unscheduled Auction (U)",
+}
 
-  return "Trading Mode: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trading_mode.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trading_mode.labels[value] or "Trading Mode: Unknown("..value..")"
 end
 
 -- Dissect: Trading Mode
@@ -1634,24 +1514,16 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_2.transaction_category = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.transaction_category.size = 1
 
 -- Display: Transaction Category
-cboe_bxeequities_multicastdepthofbook_pitch_v6_2.transaction_category.display = function(value)
-  if value == "P" then
-    return "Transaction Category: Plain Vanilla Trade (P)"
-  end
-  if value == "D" then
-    return "Transaction Category: Dark Trade (D)"
-  end
-  if value == "T" then
-    return "Transaction Category: Technical Trade (T)"
-  end
-  if value == "G" then
-    return "Transaction Category: Giveup Givein Trade (G)"
-  end
-  if value == "F" then
-    return "Transaction Category: Trade With Conditions (F)"
-  end
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.transaction_category.labels = {
+  ["P"] = "Transaction Category: Plain Vanilla Trade (P)",
+  ["D"] = "Transaction Category: Dark Trade (D)",
+  ["T"] = "Transaction Category: Technical Trade (T)",
+  ["G"] = "Transaction Category: Giveup Givein Trade (G)",
+  ["F"] = "Transaction Category: Trade With Conditions (F)",
+}
 
-  return "Transaction Category: Unknown("..value..")"
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.transaction_category.display = function(value)
+  return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.transaction_category.labels[value] or "Transaction Category: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Category
@@ -3146,90 +3018,34 @@ end
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.payload = {}
 
 -- Dissect: Payload
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.payload.dispatch = {
+  [0x20] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.time_message.dissect,
+  [0x97] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.unit_clear_message.dissect,
+  [0x40] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.add_order_long_message.dissect,
+  [0x22] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.add_order_short_message.dissect,
+  [0x2f] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.add_order_expanded_message.dissect,
+  [0x23] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.order_executed_message.dissect,
+  [0x24] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.order_executed_at_price_size_message.dissect,
+  [0x25] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.reduce_size_long_message.dissect,
+  [0x26] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.reduce_size_short_message.dissect,
+  [0x27] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modify_order_long_message.dissect,
+  [0x28] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modify_order_short_message.dissect,
+  [0x29] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.delete_order_message.dissect,
+  [0x41] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trade_long_message.dissect,
+  [0x2B] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trade_short_message.dissect,
+  [0x2C] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trade_break_message.dissect,
+  [0x32] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trade_report_message.dissect,
+  [0x2D] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.end_of_session_message.dissect,
+  [0x31] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trading_status_message.dissect,
+  [0x34] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.statistics_message.dissect,
+  [0x95] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_update_message.dissect,
+  [0x96] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_summary_message.dissect,
+}
+
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Long Message
-  if message_type == 0x40 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.add_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Short Message
-  if message_type == 0x22 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.add_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Expanded Message
-  if message_type == 0x2f then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.add_order_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 0x23 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed At Price Size Message
-  if message_type == 0x24 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Long Message
-  if message_type == 0x25 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.reduce_size_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Short Message
-  if message_type == 0x26 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.reduce_size_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Long Message
-  if message_type == 0x27 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modify_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Short Message
-  if message_type == 0x28 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.modify_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 0x29 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Long Message
-  if message_type == 0x41 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trade_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Short Message
-  if message_type == 0x2B then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trade_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == 0x2C then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == 0x32 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.end_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x31 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if message_type == 0x34 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Update Message
-  if message_type == 0x95 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.auction_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3368,10 +3184,14 @@ end
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.messages = {}
 
 -- Dissect: Messages
+cboe_bxeequities_multicastdepthofbook_pitch_v6_2.messages.dispatch = {
+  [0] = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.heartbeat.dissect,
+}
+
 cboe_bxeequities_multicastdepthofbook_pitch_v6_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_bxeequities_multicastdepthofbook_pitch_v6_2.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bxeequities_multicastdepthofbook_pitch_v6_2.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

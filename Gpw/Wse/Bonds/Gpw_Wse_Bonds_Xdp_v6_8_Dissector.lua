@@ -229,24 +229,16 @@ gpw_wse_bonds_xdp_v6_8.delivery_flag = {}
 gpw_wse_bonds_xdp_v6_8.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-gpw_wse_bonds_xdp_v6_8.delivery_flag.display = function(value)
-  if value == 0 then
-    return "Delivery Flag: Real Time Message Uncompressed (0)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Retransmission Message Uncompressed (2)"
-  end
-  if value == 16 then
-    return "Delivery Flag: Real Time Message Zlib Compressed (16)"
-  end
-  if value == 17 then
-    return "Delivery Flag: Refresh Message Zlib Compressed (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Retransmission Message Compressed (18)"
-  end
+gpw_wse_bonds_xdp_v6_8.delivery_flag.labels = {
+  [0] = "Delivery Flag: Real Time Message Uncompressed (0)",
+  [2] = "Delivery Flag: Retransmission Message Uncompressed (2)",
+  [16] = "Delivery Flag: Real Time Message Zlib Compressed (16)",
+  [17] = "Delivery Flag: Refresh Message Zlib Compressed (17)",
+  [18] = "Delivery Flag: Retransmission Message Compressed (18)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+gpw_wse_bonds_xdp_v6_8.delivery_flag.display = function(value)
+  return gpw_wse_bonds_xdp_v6_8.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -337,15 +329,13 @@ gpw_wse_bonds_xdp_v6_8.message_type = {}
 gpw_wse_bonds_xdp_v6_8.message_type.size = 2
 
 -- Display: Message Type
-gpw_wse_bonds_xdp_v6_8.message_type.display = function(value)
-  if value == 601 then
-    return "Message Type: Accrued Interest Message (601)"
-  end
-  if value == 602 then
-    return "Message Type: Interest For Settlement Day Message (602)"
-  end
+gpw_wse_bonds_xdp_v6_8.message_type.labels = {
+  [601] = "Message Type: Accrued Interest Message (601)",
+  [602] = "Message Type: Interest For Settlement Day Message (602)",
+}
 
-  return "Message Type: Unknown("..value..")"
+gpw_wse_bonds_xdp_v6_8.message_type.display = function(value)
+  return gpw_wse_bonds_xdp_v6_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -459,12 +449,12 @@ gpw_wse_bonds_xdp_v6_8.packet_type = {}
 gpw_wse_bonds_xdp_v6_8.packet_type.size = 2
 
 -- Display: Packet Type
-gpw_wse_bonds_xdp_v6_8.packet_type.display = function(value)
-  if value == 501 then
-    return "Packet Type: Market Data Messages (501)"
-  end
+gpw_wse_bonds_xdp_v6_8.packet_type.labels = {
+  [501] = "Packet Type: Market Data Messages (501)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+gpw_wse_bonds_xdp_v6_8.packet_type.display = function(value)
+  return gpw_wse_bonds_xdp_v6_8.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -717,18 +707,14 @@ gpw_wse_bonds_xdp_v6_8.system_id = {}
 gpw_wse_bonds_xdp_v6_8.system_id.size = 4
 
 -- Display: System Id
-gpw_wse_bonds_xdp_v6_8.system_id.display = function(value)
-  if value == 1 then
-    return "System Id: All Non Utp Systems (1)"
-  end
-  if value == 11 then
-    return "System Id: Utp Trading Unit 1 (11)"
-  end
-  if value == 12 then
-    return "System Id: Utp Trading Unit 2 (12)"
-  end
+gpw_wse_bonds_xdp_v6_8.system_id.labels = {
+  [1] = "System Id: All Non Utp Systems (1)",
+  [11] = "System Id: Utp Trading Unit 1 (11)",
+  [12] = "System Id: Utp Trading Unit 2 (12)",
+}
 
-  return "System Id: Unknown("..value..")"
+gpw_wse_bonds_xdp_v6_8.system_id.display = function(value)
+  return gpw_wse_bonds_xdp_v6_8.system_id.labels[value] or "System Id: Unknown("..value..")"
 end
 
 -- Dissect: System Id
@@ -956,14 +942,15 @@ end
 gpw_wse_bonds_xdp_v6_8.payload = {}
 
 -- Dissect: Payload
+gpw_wse_bonds_xdp_v6_8.payload.dispatch = {
+  [601] = gpw_wse_bonds_xdp_v6_8.accrued_interest_message.dissect,
+  [602] = gpw_wse_bonds_xdp_v6_8.interest_for_settlement_day_message.dissect,
+}
+
 gpw_wse_bonds_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Accrued Interest Message
-  if message_type == 601 then
-    return gpw_wse_bonds_xdp_v6_8.accrued_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Interest For Settlement Day Message
-  if message_type == 602 then
-    return gpw_wse_bonds_xdp_v6_8.interest_for_settlement_day_message.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_wse_bonds_xdp_v6_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

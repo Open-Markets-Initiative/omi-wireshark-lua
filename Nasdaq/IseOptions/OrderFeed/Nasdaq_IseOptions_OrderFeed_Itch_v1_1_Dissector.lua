@@ -189,18 +189,14 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event.size = 1
 
 -- Display: Auction Event
-nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event.display = function(value)
-  if value == "S" then
-    return "Auction Event: Start (S)"
-  end
-  if value == "U" then
-    return "Auction Event: Auction Update (U)"
-  end
-  if value == "E" then
-    return "Auction Event: End Of Auction (E)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event.labels = {
+  ["S"] = "Auction Event: Start (S)",
+  ["U"] = "Auction Event: Auction Update (U)",
+  ["E"] = "Auction Event: End Of Auction (E)",
+}
 
-  return "Auction Event: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event.labels[value] or "Auction Event: Unknown("..value..")"
 end
 
 -- Dissect: Auction Event
@@ -245,15 +241,13 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.size = 1
 
 -- Display: Closing Only
-nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.display = function(value)
-  if value == "Y" then
-    return "Closing Only: Closing Position Only (Y)"
-  end
-  if value == "N" then
-    return "Closing Only: Not Closing Position Only (N)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.labels = {
+  ["Y"] = "Closing Only: Closing Position Only (Y)",
+  ["N"] = "Closing Only: Not Closing Position Only (N)",
+}
 
-  return "Closing Only: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.labels[value] or "Closing Only: Unknown("..value..")"
 end
 
 -- Dissect: Closing Only
@@ -367,15 +361,13 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading On The Options System (T)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Trading On The Options System (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -420,33 +412,19 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.event_code = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: Start Of Normal Hours Closing Process (N)",
+  ["L"] = "Event Code: Start Of Late Hours Closing Process (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -593,15 +571,13 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy Imbalance (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell Imbalance (S)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.labels = {
+  ["B"] = "Imbalance Direction: Buy Imbalance (B)",
+  ["S"] = "Imbalance Direction: Sell Imbalance (S)",
+}
 
-  return "Imbalance Direction: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.labels[value] or "Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Direction
@@ -721,30 +697,18 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.message_type = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Option Directory Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Security Open Closed Message (O)"
-  end
-  if value == "N" then
-    return "Message Type: Opening Imbalance Message (N)"
-  end
-  if value == "B" then
-    return "Message Type: Order On Book Message (B)"
-  end
-  if value == "A" then
-    return "Message Type: Auction Message (A)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["D"] = "Message Type: Option Directory Message (D)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["O"] = "Message Type: Security Open Closed Message (O)",
+  ["N"] = "Message Type: Opening Imbalance Message (N)",
+  ["B"] = "Message Type: Order On Book Message (B)",
+  ["A"] = "Message Type: Auction Message (A)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -766,18 +730,14 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.mpv = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -822,15 +782,13 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.open_state = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.size = 1
 
 -- Display: Open State
-nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open For Auto Execution (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed For Auto Execution (N)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.labels = {
+  ["Y"] = "Open State: Open For Auto Execution (Y)",
+  ["N"] = "Open State: Closed For Auto Execution (N)",
+}
 
-  return "Open State: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.labels[value] or "Open State: Unknown("..value..")"
 end
 
 -- Dissect: Open State
@@ -852,15 +810,13 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.size = 1
 
 -- Display: Option Closing Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late (L)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.labels = {
+  ["N"] = "Option Closing Type: Normal (N)",
+  ["L"] = "Option Closing Type: Late (L)",
+}
 
-  return "Option Closing Type: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.labels[value] or "Option Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Closing Type
@@ -905,15 +861,13 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.option_type = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -935,33 +889,19 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.size = 1
 
 -- Display: Order Capacity
-nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.display = function(value)
-  if value == "C" then
-    return "Order Capacity: Customer (C)"
-  end
-  if value == "D" then
-    return "Order Capacity: Customer Professional (D)"
-  end
-  if value == "F" then
-    return "Order Capacity: Firm (F)"
-  end
-  if value == "B" then
-    return "Order Capacity: Broker Dealer Customer (B)"
-  end
-  if value == "K" then
-    return "Order Capacity: Broker Dealer Firm (K)"
-  end
-  if value == "E" then
-    return "Order Capacity: Proprietary (E)"
-  end
-  if value == "N" then
-    return "Order Capacity: Away Market Maker (N)"
-  end
-  if value == "M" then
-    return "Order Capacity: Market Maker (M)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.labels = {
+  ["C"] = "Order Capacity: Customer (C)",
+  ["D"] = "Order Capacity: Customer Professional (D)",
+  ["F"] = "Order Capacity: Firm (F)",
+  ["B"] = "Order Capacity: Broker Dealer Customer (B)",
+  ["K"] = "Order Capacity: Broker Dealer Firm (K)",
+  ["E"] = "Order Capacity: Proprietary (E)",
+  ["N"] = "Order Capacity: Away Market Maker (N)",
+  ["M"] = "Order Capacity: Market Maker (M)",
+}
 
-  return "Order Capacity: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.labels[value] or "Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Order Capacity
@@ -983,15 +923,13 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.order_type = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.size = 1
 
 -- Display: Order Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.display = function(value)
-  if value == "M" then
-    return "Order Type: Market (M)"
-  end
-  if value == "L" then
-    return "Order Type: Limit (L)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.labels = {
+  ["M"] = "Order Type: Market (M)",
+  ["L"] = "Order Type: Limit (L)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1399,15 +1337,13 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.tradable = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -1429,21 +1365,15 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type = {}
 nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.size = 1
 
 -- Display: Trading Type
-nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.display = function(value)
-  if value == "E" then
-    return "Trading Type: Equity (E)"
-  end
-  if value == "I" then
-    return "Trading Type: Index (I)"
-  end
-  if value == "F" then
-    return "Trading Type: Etf (F)"
-  end
-  if value == "C" then
-    return "Trading Type: Currency (C)"
-  end
+nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.labels = {
+  ["E"] = "Trading Type: Equity (E)",
+  ["I"] = "Trading Type: Index (I)",
+  ["F"] = "Trading Type: Etf (F)",
+  ["C"] = "Trading Type: Currency (C)",
+}
 
-  return "Trading Type: Unknown("..value..")"
+nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.display = function(value)
+  return nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.labels[value] or "Trading Type: Unknown("..value..")"
 end
 
 -- Dissect: Trading Type
@@ -2082,34 +2012,20 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.payload = {}
 
 -- Dissect: Payload
+nasdaq_iseoptions_orderfeed_itch_v1_1.payload.dispatch = {
+  ["S"] = nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.dissect,
+  ["D"] = nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.dissect,
+  ["H"] = nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.dissect,
+  ["O"] = nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.dissect,
+  ["N"] = nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.dissect,
+  ["B"] = nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.dissect,
+  ["A"] = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_message.dissect,
+}
+
 nasdaq_iseoptions_orderfeed_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Directory Message
-  if message_type == "D" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Closed Message
-  if message_type == "O" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Imbalance Message
-  if message_type == "N" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order On Book Message
-  if message_type == "B" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Message
-  if message_type == "A" then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.auction_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_orderfeed_itch_v1_1.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2265,14 +2181,15 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.messages = {}
 
 -- Dissect: Messages
+nasdaq_iseoptions_orderfeed_itch_v1_1.messages.dispatch = {
+  [0] = nasdaq_iseoptions_orderfeed_itch_v1_1.heartbeat.dissect,
+  [65535] = nasdaq_iseoptions_orderfeed_itch_v1_1.end_of_session.dissect,
+}
+
 nasdaq_iseoptions_orderfeed_itch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_iseoptions_orderfeed_itch_v1_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_orderfeed_itch_v1_1.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

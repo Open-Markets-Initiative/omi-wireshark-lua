@@ -287,15 +287,13 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.authenticity = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.authenticity.size = 1
 
 -- Display: Authenticity
-nasdaq_psxequities_totalview_itch_v5_0_2018.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.authenticity.labels = {
+  ["P"] = "Authenticity: Live Production (P)",
+  ["T"] = "Authenticity: Test (T)",
+}
 
-  return "Authenticity: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.authenticity.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.authenticity.labels[value] or "Authenticity: Unknown("..value..")"
 end
 
 -- Dissect: Authenticity
@@ -317,18 +315,14 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.breached_level = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.breached_level.size = 1
 
 -- Display: Breached Level
-nasdaq_psxequities_totalview_itch_v5_0_2018.breached_level.display = function(value)
-  if value == "1" then
-    return "Breached Level: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Breached Level: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Breached Level: Level 3 (3)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.breached_level.labels = {
+  ["1"] = "Breached Level: Level 1 (1)",
+  ["2"] = "Breached Level: Level 2 (2)",
+  ["3"] = "Breached Level: Level 3 (3)",
+}
 
-  return "Breached Level: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.breached_level.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.breached_level.labels[value] or "Breached Level: Unknown("..value..")"
 end
 
 -- Dissect: Breached Level
@@ -350,15 +344,13 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -455,21 +447,15 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.cross_type = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_psxequities_totalview_itch_v5_0_2018.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Opening Cross (O)"
-  end
-  if value == "C" then
-    return "Cross Type: Closing Cross (C)"
-  end
-  if value == "H" then
-    return "Cross Type: Cross Halted Or Paused (H)"
-  end
-  if value == "I" then
-    return "Cross Type: Intraday Cross And Post Close Cross (I)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.cross_type.labels = {
+  ["O"] = "Cross Type: Opening Cross (O)",
+  ["C"] = "Cross Type: Closing Cross (C)",
+  ["H"] = "Cross Type: Cross Halted Or Paused (H)",
+  ["I"] = "Cross Type: Intraday Cross And Post Close Cross (I)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.cross_type.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -576,27 +562,17 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.event_code = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_psxequities_totalview_itch_v5_0_2018.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.event_code.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -756,21 +732,15 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.imbalance_direction = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_psxequities_totalview_itch_v5_0_2018.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell (S)"
-  end
-  if value == "N" then
-    return "Imbalance Direction: No Imbalance (N)"
-  end
-  if value == "O" then
-    return "Imbalance Direction: Insufficient Orders (O)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.imbalance_direction.labels = {
+  ["B"] = "Imbalance Direction: Buy (B)",
+  ["S"] = "Imbalance Direction: Sell (S)",
+  ["N"] = "Imbalance Direction: No Imbalance (N)",
+  ["O"] = "Imbalance Direction: Insufficient Orders (O)",
+}
 
-  return "Imbalance Direction: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.imbalance_direction.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.imbalance_direction.labels[value] or "Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Direction
@@ -815,15 +785,13 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.inverse_indicator = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.inverse_indicator.size = 1
 
 -- Display: Inverse Indicator
-nasdaq_psxequities_totalview_itch_v5_0_2018.inverse_indicator.display = function(value)
-  if value == "Y" then
-    return "Inverse Indicator: Inverse Etp (Y)"
-  end
-  if value == "N" then
-    return "Inverse Indicator: Not Inverse Etp (N)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.inverse_indicator.labels = {
+  ["Y"] = "Inverse Indicator: Inverse Etp (Y)",
+  ["N"] = "Inverse Indicator: Not Inverse Etp (N)",
+}
 
-  return "Inverse Indicator: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.inverse_indicator.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.inverse_indicator.labels[value] or "Inverse Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Inverse Indicator
@@ -1147,18 +1115,14 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.market_code = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.market_code.size = 1
 
 -- Display: Market Code
-nasdaq_psxequities_totalview_itch_v5_0_2018.market_code.display = function(value)
-  if value == "Q" then
-    return "Market Code: Nasdaq (Q)"
-  end
-  if value == "B" then
-    return "Market Code: Bx (B)"
-  end
-  if value == "X" then
-    return "Market Code: Psx (X)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.market_code.labels = {
+  ["Q"] = "Market Code: Nasdaq (Q)",
+  ["B"] = "Market Code: Bx (B)",
+  ["X"] = "Market Code: Psx (X)",
+}
 
-  return "Market Code: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.market_code.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.market_code.labels[value] or "Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Market Code
@@ -1180,24 +1144,16 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.market_maker_mode = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.market_maker_mode.size = 1
 
 -- Display: Market Maker Mode
-nasdaq_psxequities_totalview_itch_v5_0_2018.market_maker_mode.display = function(value)
-  if value == "N" then
-    return "Market Maker Mode: Normal (N)"
-  end
-  if value == "P" then
-    return "Market Maker Mode: Passive (P)"
-  end
-  if value == "S" then
-    return "Market Maker Mode: Syndicate (S)"
-  end
-  if value == "R" then
-    return "Market Maker Mode: Pre Syndicate (R)"
-  end
-  if value == "L" then
-    return "Market Maker Mode: Penalty (L)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.market_maker_mode.labels = {
+  ["N"] = "Market Maker Mode: Normal (N)",
+  ["P"] = "Market Maker Mode: Passive (P)",
+  ["S"] = "Market Maker Mode: Syndicate (S)",
+  ["R"] = "Market Maker Mode: Pre Syndicate (R)",
+  ["L"] = "Market Maker Mode: Penalty (L)",
+}
 
-  return "Market Maker Mode: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.market_maker_mode.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.market_maker_mode.labels[value] or "Market Maker Mode: Unknown("..value..")"
 end
 
 -- Dissect: Market Maker Mode
@@ -1219,24 +1175,16 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_state = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_state.size = 1
 
 -- Display: Market Participant State
-nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_state.display = function(value)
-  if value == "A" then
-    return "Market Participant State: Active (A)"
-  end
-  if value == "E" then
-    return "Market Participant State: Excused Withdrawn (E)"
-  end
-  if value == "W" then
-    return "Market Participant State: Withdrawn (W)"
-  end
-  if value == "S" then
-    return "Market Participant State: Suspended (S)"
-  end
-  if value == "D" then
-    return "Market Participant State: Deleted (D)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_state.labels = {
+  ["A"] = "Market Participant State: Active (A)",
+  ["E"] = "Market Participant State: Excused Withdrawn (E)",
+  ["W"] = "Market Participant State: Withdrawn (W)",
+  ["S"] = "Market Participant State: Suspended (S)",
+  ["D"] = "Market Participant State: Deleted (D)",
+}
 
-  return "Market Participant State: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_state.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_state.labels[value] or "Market Participant State: Unknown("..value..")"
 end
 
 -- Dissect: Market Participant State
@@ -1327,69 +1275,31 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.message_type = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_psxequities_totalview_itch_v5_0_2018.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
-  end
-  if value == "L" then
-    return "Message Type: Market Participant Position Message (L)"
-  end
-  if value == "V" then
-    return "Message Type: Mwcb Decline Level Message (V)"
-  end
-  if value == "W" then
-    return "Message Type: Mwcb Status Level Message (W)"
-  end
-  if value == "J" then
-    return "Message Type: Luld Auction Collar Message (J)"
-  end
-  if value == "h" then
-    return "Message Type: Operational Halt Message (h)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order No Mpid Attribution Message (A)"
-  end
-  if value == "F" then
-    return "Message Type: Add Order With Mpid Attribution Message (F)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message Non Cross (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Cross Trade Message (Q)"
-  end
-  if value == "B" then
-    return "Message Type: Broken Trade Message (B)"
-  end
-  if value == "I" then
-    return "Message Type: Net Order Imbalance Indicator Message (I)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["Y"] = "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)",
+  ["L"] = "Message Type: Market Participant Position Message (L)",
+  ["V"] = "Message Type: Mwcb Decline Level Message (V)",
+  ["W"] = "Message Type: Mwcb Status Level Message (W)",
+  ["J"] = "Message Type: Luld Auction Collar Message (J)",
+  ["h"] = "Message Type: Operational Halt Message (h)",
+  ["A"] = "Message Type: Add Order No Mpid Attribution Message (A)",
+  ["F"] = "Message Type: Add Order With Mpid Attribution Message (F)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["P"] = "Message Type: Trade Message Non Cross (P)",
+  ["Q"] = "Message Type: Cross Trade Message (Q)",
+  ["B"] = "Message Type: Broken Trade Message (B)",
+  ["I"] = "Message Type: Net Order Imbalance Indicator Message (I)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.message_type.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1486,15 +1396,13 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_action = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_action.size = 1
 
 -- Display: Operational Halt Action
-nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_action.display = function(value)
-  if value == "H" then
-    return "Operational Halt Action: Halted (H)"
-  end
-  if value == "T" then
-    return "Operational Halt Action: Resumed (T)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_action.labels = {
+  ["H"] = "Operational Halt Action: Halted (H)",
+  ["T"] = "Operational Halt Action: Resumed (T)",
+}
 
-  return "Operational Halt Action: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_action.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_action.labels[value] or "Operational Halt Action: Unknown("..value..")"
 end
 
 -- Dissect: Operational Halt Action
@@ -1680,15 +1588,13 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.primary_market_maker = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.primary_market_maker.size = 1
 
 -- Display: Primary Market Maker
-nasdaq_psxequities_totalview_itch_v5_0_2018.primary_market_maker.display = function(value)
-  if value == "Y" then
-    return "Primary Market Maker: Primary (Y)"
-  end
-  if value == "N" then
-    return "Primary Market Maker: Non Primary (N)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.primary_market_maker.labels = {
+  ["Y"] = "Primary Market Maker: Primary (Y)",
+  ["N"] = "Primary Market Maker: Non Primary (N)",
+}
 
-  return "Primary Market Maker: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.primary_market_maker.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.primary_market_maker.labels[value] or "Primary Market Maker: Unknown("..value..")"
 end
 
 -- Dissect: Primary Market Maker
@@ -1710,15 +1616,13 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.printable = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.printable.size = 1
 
 -- Display: Printable
-nasdaq_psxequities_totalview_itch_v5_0_2018.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.printable.labels = {
+  ["N"] = "Printable: Non Printable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.printable.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1763,18 +1667,14 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_action = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Short Sale Price Test Restriction (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Test Restriction Remains (2)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test (0)",
+  ["1"] = "Reg Sho Action: Reg Sho Short Sale Price Test Restriction (1)",
+  ["2"] = "Reg Sho Action: Test Restriction Remains (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_action.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -1842,15 +1742,13 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.round_lots_only = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.round_lots_only.size = 1
 
 -- Display: Round Lots Only
-nasdaq_psxequities_totalview_itch_v5_0_2018.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Yes (Y)"
-  end
-  if value == "N" then
-    return "Round Lots Only: No (N)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.round_lots_only.labels = {
+  ["Y"] = "Round Lots Only: Yes (Y)",
+  ["N"] = "Round Lots Only: No (N)",
+}
 
-  return "Round Lots Only: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.round_lots_only.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.round_lots_only.labels[value] or "Round Lots Only: Unknown("..value..")"
 end
 
 -- Dissect: Round Lots Only
@@ -2102,21 +2000,15 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.trading_state = {}
 nasdaq_psxequities_totalview_itch_v5_0_2018.trading_state.size = 1
 
 -- Display: Trading State
-nasdaq_psxequities_totalview_itch_v5_0_2018.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "P" then
-    return "Trading State: Paused (P)"
-  end
-  if value == "Q" then
-    return "Trading State: Quotation Only Period (Q)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+nasdaq_psxequities_totalview_itch_v5_0_2018.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["P"] = "Trading State: Paused (P)",
+  ["Q"] = "Trading State: Quotation Only Period (Q)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nasdaq_psxequities_totalview_itch_v5_0_2018.trading_state.display = function(value)
+  return nasdaq_psxequities_totalview_itch_v5_0_2018.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -3469,86 +3361,33 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.payload = {}
 
 -- Dissect: Payload
+nasdaq_psxequities_totalview_itch_v5_0_2018.payload.dispatch = {
+  ["S"] = nasdaq_psxequities_totalview_itch_v5_0_2018.system_event_message.dissect,
+  ["R"] = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_directory_message.dissect,
+  ["H"] = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_trading_action_message.dissect,
+  ["Y"] = nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["L"] = nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_position_message.dissect,
+  ["V"] = nasdaq_psxequities_totalview_itch_v5_0_2018.mwcb_decline_level_message.dissect,
+  ["W"] = nasdaq_psxequities_totalview_itch_v5_0_2018.mwcb_status_level_message.dissect,
+  ["J"] = nasdaq_psxequities_totalview_itch_v5_0_2018.luld_auction_collar_message.dissect,
+  ["h"] = nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_message.dissect,
+  ["A"] = nasdaq_psxequities_totalview_itch_v5_0_2018.add_order_no_mpid_attribution_message.dissect,
+  ["F"] = nasdaq_psxequities_totalview_itch_v5_0_2018.add_order_with_mpid_attribution_message.dissect,
+  ["E"] = nasdaq_psxequities_totalview_itch_v5_0_2018.order_executed_message.dissect,
+  ["C"] = nasdaq_psxequities_totalview_itch_v5_0_2018.order_executed_with_price_message.dissect,
+  ["X"] = nasdaq_psxequities_totalview_itch_v5_0_2018.order_cancel_message.dissect,
+  ["D"] = nasdaq_psxequities_totalview_itch_v5_0_2018.order_delete_message.dissect,
+  ["U"] = nasdaq_psxequities_totalview_itch_v5_0_2018.order_replace_message.dissect,
+  ["P"] = nasdaq_psxequities_totalview_itch_v5_0_2018.trade_message_non_cross.dissect,
+  ["Q"] = nasdaq_psxequities_totalview_itch_v5_0_2018.cross_trade_message.dissect,
+  ["B"] = nasdaq_psxequities_totalview_itch_v5_0_2018.broken_trade_message.dissect,
+  ["I"] = nasdaq_psxequities_totalview_itch_v5_0_2018.net_order_imbalance_indicator_message.dissect,
+}
+
 nasdaq_psxequities_totalview_itch_v5_0_2018.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Participant Position Message
-  if message_type == "L" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_position_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mwcb Decline Level Message
-  if message_type == "V" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.mwcb_decline_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mwcb Status Level Message
-  if message_type == "W" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.mwcb_status_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Luld Auction Collar Message
-  if message_type == "J" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.luld_auction_collar_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Operational Halt Message
-  if message_type == "h" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order No Mpid Attribution Message
-  if message_type == "A" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.add_order_no_mpid_attribution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order With Mpid Attribution Message
-  if message_type == "F" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.add_order_with_mpid_attribution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message Non Cross
-  if message_type == "P" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.trade_message_non_cross.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.cross_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if message_type == "B" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Order Imbalance Indicator Message
-  if message_type == "I" then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.net_order_imbalance_indicator_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_totalview_itch_v5_0_2018.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3704,14 +3543,15 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.messages = {}
 
 -- Dissect: Messages
+nasdaq_psxequities_totalview_itch_v5_0_2018.messages.dispatch = {
+  [0] = nasdaq_psxequities_totalview_itch_v5_0_2018.heartbeat.dissect,
+  [65535] = nasdaq_psxequities_totalview_itch_v5_0_2018.end_of_session.dissect,
+}
+
 nasdaq_psxequities_totalview_itch_v5_0_2018.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_psxequities_totalview_itch_v5_0_2018.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_totalview_itch_v5_0_2018.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

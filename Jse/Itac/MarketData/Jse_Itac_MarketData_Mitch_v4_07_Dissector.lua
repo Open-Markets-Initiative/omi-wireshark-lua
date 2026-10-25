@@ -254,15 +254,13 @@ jse_itac_marketdata_mitch_v4_07.action = {}
 jse_itac_marketdata_mitch_v4_07.action.size = 1
 
 -- Display: Action
-jse_itac_marketdata_mitch_v4_07.action.display = function(value)
-  if value == "1" then
-    return "Action: Update (1)"
-  end
-  if value == "2" then
-    return "Action: Delete (2)"
-  end
+jse_itac_marketdata_mitch_v4_07.action.labels = {
+  ["1"] = "Action: Update (1)",
+  ["2"] = "Action: Delete (2)",
+}
 
-  return "Action: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.action.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -284,15 +282,13 @@ jse_itac_marketdata_mitch_v4_07.action_type = {}
 jse_itac_marketdata_mitch_v4_07.action_type.size = 1
 
 -- Display: Action Type
-jse_itac_marketdata_mitch_v4_07.action_type.display = function(value)
-  if value == "C" then
-    return "Action Type: Cancelled Trade (C)"
-  end
-  if value == "N" then
-    return "Action Type: Trade (N)"
-  end
+jse_itac_marketdata_mitch_v4_07.action_type.labels = {
+  ["C"] = "Action Type: Cancelled Trade (C)",
+  ["N"] = "Action Type: Trade (N)",
+}
 
-  return "Action Type: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.action_type.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.action_type.labels[value] or "Action Type: Unknown("..value..")"
 end
 
 -- Dissect: Action Type
@@ -337,30 +333,18 @@ jse_itac_marketdata_mitch_v4_07.auction_type = {}
 jse_itac_marketdata_mitch_v4_07.auction_type.size = 1
 
 -- Display: Auction Type
-jse_itac_marketdata_mitch_v4_07.auction_type.display = function(value)
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "A" then
-    return "Auction Type: Volatility Auction (A)"
-  end
-  if value == "E" then
-    return "Auction Type: Re Opening Auction (E)"
-  end
-  if value == "K" then
-    return "Auction Type: Intra Day Auction (K)"
-  end
-  if value == "L" then
-    return "Auction Type: Futures Close Out Auction (L)"
-  end
-  if value == "D" then
-    return "Auction Type: End Of Day Volume Auction Call (D)"
-  end
+jse_itac_marketdata_mitch_v4_07.auction_type.labels = {
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["A"] = "Auction Type: Volatility Auction (A)",
+  ["E"] = "Auction Type: Re Opening Auction (E)",
+  ["K"] = "Auction Type: Intra Day Auction (K)",
+  ["L"] = "Auction Type: Futures Close Out Auction (L)",
+  ["D"] = "Auction Type: End Of Day Volume Auction Call (D)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.auction_type.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -382,15 +366,13 @@ jse_itac_marketdata_mitch_v4_07.book_level = {}
 jse_itac_marketdata_mitch_v4_07.book_level.size = 1
 
 -- Display: Book Level
-jse_itac_marketdata_mitch_v4_07.book_level.display = function(value)
-  if value == "0" then
-    return "Book Level: Market By Order (0)"
-  end
-  if value == "1" then
-    return "Book Level: Top Of Book (1)"
-  end
+jse_itac_marketdata_mitch_v4_07.book_level.labels = {
+  ["0"] = "Book Level: Market By Order (0)",
+  ["1"] = "Book Level: Top Of Book (1)",
+}
 
-  return "Book Level: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.book_level.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.book_level.labels[value] or "Book Level: Unknown("..value..")"
 end
 
 -- Dissect: Book Level
@@ -412,24 +394,16 @@ jse_itac_marketdata_mitch_v4_07.book_type = {}
 jse_itac_marketdata_mitch_v4_07.book_type.size = 1
 
 -- Display: Book Type
-jse_itac_marketdata_mitch_v4_07.book_type.display = function(value)
-  if value == 1 then
-    return "Book Type: On Book (1)"
-  end
-  if value == 2 then
-    return "Book Type: Off Book (2)"
-  end
-  if value == 9 then
-    return "Book Type: Bulletin Board (9)"
-  end
-  if value == 11 then
-    return "Book Type: Negotiated Trades (11)"
-  end
-  if value == 51 then
-    return "Book Type: Fx Auction (51)"
-  end
+jse_itac_marketdata_mitch_v4_07.book_type.labels = {
+  [1] = "Book Type: On Book (1)",
+  [2] = "Book Type: Off Book (2)",
+  [9] = "Book Type: Bulletin Board (9)",
+  [11] = "Book Type: Negotiated Trades (11)",
+  [51] = "Book Type: Fx Auction (51)",
+}
 
-  return "Book Type: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.book_type.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.book_type.labels[value] or "Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Book Type
@@ -589,15 +563,13 @@ jse_itac_marketdata_mitch_v4_07.event_code = {}
 jse_itac_marketdata_mitch_v4_07.event_code.size = 1
 
 -- Display: Event Code
-jse_itac_marketdata_mitch_v4_07.event_code.display = function(value)
-  if value == "C" then
-    return "Event Code: End Of Day (C)"
-  end
-  if value == "O" then
-    return "Event Code: Start Of Day (O)"
-  end
+jse_itac_marketdata_mitch_v4_07.event_code.labels = {
+  ["C"] = "Event Code: End Of Day (C)",
+  ["O"] = "Event Code: Start Of Day (O)",
+}
 
-  return "Event Code: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.event_code.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -790,12 +762,12 @@ jse_itac_marketdata_mitch_v4_07.imbalance_direction = {}
 jse_itac_marketdata_mitch_v4_07.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-jse_itac_marketdata_mitch_v4_07.imbalance_direction.display = function(value)
-  if value == "O" then
-    return "Imbalance Direction: Insufficient Orders For Auction (O)"
-  end
+jse_itac_marketdata_mitch_v4_07.imbalance_direction.labels = {
+  ["O"] = "Imbalance Direction: Insufficient Orders For Auction (O)",
+}
 
-  return "Imbalance Direction: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.imbalance_direction.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.imbalance_direction.labels[value] or "Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Direction
@@ -1208,96 +1180,40 @@ jse_itac_marketdata_mitch_v4_07.message_type = {}
 jse_itac_marketdata_mitch_v4_07.message_type.size = 1
 
 -- Display: Message Type
-jse_itac_marketdata_mitch_v4_07.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Request Message (0x01)"
-  end
-  if value == 0x03 then
-    return "Message Type: Replay Request Message (0x03)"
-  end
-  if value == 0x81 then
-    return "Message Type: Snapshot Request Message (0x81)"
-  end
-  if value == 0x05 then
-    return "Message Type: Logout Request Message (0x05)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x04 then
-    return "Message Type: Replay Response Message (0x04)"
-  end
-  if value == 0x82 then
-    return "Message Type: Snapshot Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Snapshot Complete Message (0x83)"
-  end
-  if value == 0x54 then
-    return "Message Type: Time Message (0x54)"
-  end
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x52 then
-    return "Message Type: Symbol Directory Message (0x52)"
-  end
-  if value == 0x48 then
-    return "Message Type: Symbol Status Message (0x48)"
-  end
-  if value == 0x41 then
-    return "Message Type: Add Order Message (0x41)"
-  end
-  if value == 0x46 then
-    return "Message Type: Add Attributed Order Message (0x46)"
-  end
-  if value == 0x44 then
-    return "Message Type: Order Deleted Message (0x44)"
-  end
-  if value == 0x55 then
-    return "Message Type: Order Modified Message (0x55)"
-  end
-  if value == 0x79 then
-    return "Message Type: Order Book Clear Message (0x79)"
-  end
-  if value == 0x45 then
-    return "Message Type: Order Executed Message (0x45)"
-  end
-  if value == 0x43 then
-    return "Message Type: Order Executed With Price Size Message (0x43)"
-  end
-  if value == 0x50 then
-    return "Message Type: Trade Message (0x50)"
-  end
-  if value == 0x51 then
-    return "Message Type: Auction Trade Message (0x51)"
-  end
-  if value == 0x78 then
-    return "Message Type: Off Book Trade Message (0x78)"
-  end
-  if value == 0x76 then
-    return "Message Type: Recovery Trade Message (0x76)"
-  end
-  if value == 0x49 then
-    return "Message Type: Auction Info Message (0x49)"
-  end
-  if value == 0x77 then
-    return "Message Type: Statistics Message (0x77)"
-  end
-  if value == 0x80 then
-    return "Message Type: Extended Statistics Message (0x80)"
-  end
-  if value == 0x75 then
-    return "Message Type: News Message (0x75)"
-  end
-  if value == 0x71 then
-    return "Message Type: Top Of Book Message (0x71)"
-  end
-  if value == 0x69 then
-    return "Message Type: Indicative Quote Info Message (0x69)"
-  end
+jse_itac_marketdata_mitch_v4_07.message_type.labels = {
+  [0x01] = "Message Type: Login Request Message (0x01)",
+  [0x03] = "Message Type: Replay Request Message (0x03)",
+  [0x81] = "Message Type: Snapshot Request Message (0x81)",
+  [0x05] = "Message Type: Logout Request Message (0x05)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x04] = "Message Type: Replay Response Message (0x04)",
+  [0x82] = "Message Type: Snapshot Response Message (0x82)",
+  [0x83] = "Message Type: Snapshot Complete Message (0x83)",
+  [0x54] = "Message Type: Time Message (0x54)",
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x52] = "Message Type: Symbol Directory Message (0x52)",
+  [0x48] = "Message Type: Symbol Status Message (0x48)",
+  [0x41] = "Message Type: Add Order Message (0x41)",
+  [0x46] = "Message Type: Add Attributed Order Message (0x46)",
+  [0x44] = "Message Type: Order Deleted Message (0x44)",
+  [0x55] = "Message Type: Order Modified Message (0x55)",
+  [0x79] = "Message Type: Order Book Clear Message (0x79)",
+  [0x45] = "Message Type: Order Executed Message (0x45)",
+  [0x43] = "Message Type: Order Executed With Price Size Message (0x43)",
+  [0x50] = "Message Type: Trade Message (0x50)",
+  [0x51] = "Message Type: Auction Trade Message (0x51)",
+  [0x78] = "Message Type: Off Book Trade Message (0x78)",
+  [0x76] = "Message Type: Recovery Trade Message (0x76)",
+  [0x49] = "Message Type: Auction Info Message (0x49)",
+  [0x77] = "Message Type: Statistics Message (0x77)",
+  [0x80] = "Message Type: Extended Statistics Message (0x80)",
+  [0x75] = "Message Type: News Message (0x75)",
+  [0x71] = "Message Type: Top Of Book Message (0x71)",
+  [0x69] = "Message Type: Indicative Quote Info Message (0x69)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+jse_itac_marketdata_mitch_v4_07.message_type.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1515,72 +1431,32 @@ jse_itac_marketdata_mitch_v4_07.off_book_trade_type = {}
 jse_itac_marketdata_mitch_v4_07.off_book_trade_type.size = 4
 
 -- Display: Off Book Trade Type
-jse_itac_marketdata_mitch_v4_07.off_book_trade_type.display = function(value)
-  if value == "17" then
-    return "Off Book Trade Type: Off Book Post Contra Trade (17)"
-  end
-  if value == "24" then
-    return "Off Book Trade Type: On Book Post Contra Trade (24)"
-  end
-  if value == "2001" then
-    return "Off Book Trade Type: Block Trade (2001)"
-  end
-  if value == "2002" then
-    return "Off Book Trade Type: Corporate Finance Trade (2002)"
-  end
-  if value == "2003" then
-    return "Off Book Trade Type: Late Trade (2003)"
-  end
-  if value == "2004" then
-    return "Off Book Trade Type: Namibia Trade (2004)"
-  end
-  if value == "2005" then
-    return "Off Book Trade Type: Delta Trade (2005)"
-  end
-  if value == "2006" then
-    return "Off Book Trade Type: Off Order Book Principal Trade (2006)"
-  end
-  if value == "2007" then
-    return "Off Book Trade Type: Option Exercised (2007)"
-  end
-  if value == "2008" then
-    return "Off Book Trade Type: Trade Option Exercised (2008)"
-  end
-  if value == "2009" then
-    return "Off Book Trade Type: Portfolio Trade (2009)"
-  end
-  if value == "2011" then
-    return "Off Book Trade Type: Warrant Exercised (2011)"
-  end
-  if value == "2013" then
-    return "Off Book Trade Type: Give Up Trade (2013)"
-  end
-  if value == "3001" then
-    return "Off Book Trade Type: Book Build (3001)"
-  end
-  if value == "3015" then
-    return "Off Book Trade Type: Off Book Post Contra Trade Non Published (3015)"
-  end
-  if value == "4001" then
-    return "Off Book Trade Type: Generic Reported Trade (4001)"
-  end
-  if value == "4004" then
-    return "Off Book Trade Type: Back To Back With An Otc Transaction (4004)"
-  end
-  if value == "4006" then
-    return "Off Book Trade Type: Member Is Buyer And Seller For Two Different Clients (4006)"
-  end
-  if value == "4007" then
-    return "Off Book Trade Type: Repurchase Agreement Or Sell Buy Back (4007)"
-  end
-  if value == "4008" then
-    return "Off Book Trade Type: Reverse Repurchase Agreement (4008)"
-  end
-  if value == "4009" then
-    return "Off Book Trade Type: Single Equity Security Transaction (4009)"
-  end
+jse_itac_marketdata_mitch_v4_07.off_book_trade_type.labels = {
+  ["17"] = "Off Book Trade Type: Off Book Post Contra Trade (17)",
+  ["24"] = "Off Book Trade Type: On Book Post Contra Trade (24)",
+  ["2001"] = "Off Book Trade Type: Block Trade (2001)",
+  ["2002"] = "Off Book Trade Type: Corporate Finance Trade (2002)",
+  ["2003"] = "Off Book Trade Type: Late Trade (2003)",
+  ["2004"] = "Off Book Trade Type: Namibia Trade (2004)",
+  ["2005"] = "Off Book Trade Type: Delta Trade (2005)",
+  ["2006"] = "Off Book Trade Type: Off Order Book Principal Trade (2006)",
+  ["2007"] = "Off Book Trade Type: Option Exercised (2007)",
+  ["2008"] = "Off Book Trade Type: Trade Option Exercised (2008)",
+  ["2009"] = "Off Book Trade Type: Portfolio Trade (2009)",
+  ["2011"] = "Off Book Trade Type: Warrant Exercised (2011)",
+  ["2013"] = "Off Book Trade Type: Give Up Trade (2013)",
+  ["3001"] = "Off Book Trade Type: Book Build (3001)",
+  ["3015"] = "Off Book Trade Type: Off Book Post Contra Trade Non Published (3015)",
+  ["4001"] = "Off Book Trade Type: Generic Reported Trade (4001)",
+  ["4004"] = "Off Book Trade Type: Back To Back With An Otc Transaction (4004)",
+  ["4006"] = "Off Book Trade Type: Member Is Buyer And Seller For Two Different Clients (4006)",
+  ["4007"] = "Off Book Trade Type: Repurchase Agreement Or Sell Buy Back (4007)",
+  ["4008"] = "Off Book Trade Type: Reverse Repurchase Agreement (4008)",
+  ["4009"] = "Off Book Trade Type: Single Equity Security Transaction (4009)",
+}
 
-  return "Off Book Trade Type: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.off_book_trade_type.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.off_book_trade_type.labels[value] or "Off Book Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Off Book Trade Type
@@ -1602,48 +1478,24 @@ jse_itac_marketdata_mitch_v4_07.open_close_indicator = {}
 jse_itac_marketdata_mitch_v4_07.open_close_indicator.size = 1
 
 -- Display: Open Close Indicator
-jse_itac_marketdata_mitch_v4_07.open_close_indicator.display = function(value)
-  if value == "A" then
-    return "Open Close Indicator: Ut (A)"
-  end
-  if value == "B" then
-    return "Open Close Indicator: At (B)"
-  end
-  if value == "C" then
-    return "Open Close Indicator: Mid Of Bbo (C)"
-  end
-  if value == "D" then
-    return "Open Close Indicator: Last At (D)"
-  end
-  if value == "E" then
-    return "Open Close Indicator: Last Ut (E)"
-  end
-  if value == "F" then
-    return "Open Close Indicator: Manual (F)"
-  end
-  if value == "H" then
-    return "Open Close Indicator: Vwap (H)"
-  end
-  if value == "I" then
-    return "Open Close Indicator: Previous Close (I)"
-  end
-  if value == "J" then
-    return "Open Close Indicator: Zero (J)"
-  end
-  if value == "L" then
-    return "Open Close Indicator: Vwap Of N Volume (L)"
-  end
-  if value == "U" then
-    return "Open Close Indicator: Best Bid (U)"
-  end
-  if value == "V" then
-    return "Open Close Indicator: Best Offer (V)"
-  end
-  if value == "Y" then
-    return "Open Close Indicator: Reference Price (Y)"
-  end
+jse_itac_marketdata_mitch_v4_07.open_close_indicator.labels = {
+  ["A"] = "Open Close Indicator: Ut (A)",
+  ["B"] = "Open Close Indicator: At (B)",
+  ["C"] = "Open Close Indicator: Mid Of Bbo (C)",
+  ["D"] = "Open Close Indicator: Last At (D)",
+  ["E"] = "Open Close Indicator: Last Ut (E)",
+  ["F"] = "Open Close Indicator: Manual (F)",
+  ["H"] = "Open Close Indicator: Vwap (H)",
+  ["I"] = "Open Close Indicator: Previous Close (I)",
+  ["J"] = "Open Close Indicator: Zero (J)",
+  ["L"] = "Open Close Indicator: Vwap Of N Volume (L)",
+  ["U"] = "Open Close Indicator: Best Bid (U)",
+  ["V"] = "Open Close Indicator: Best Offer (V)",
+  ["Y"] = "Open Close Indicator: Reference Price (Y)",
+}
 
-  return "Open Close Indicator: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.open_close_indicator.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.open_close_indicator.labels[value] or "Open Close Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Open Close Indicator
@@ -1859,15 +1711,13 @@ jse_itac_marketdata_mitch_v4_07.printable = {}
 jse_itac_marketdata_mitch_v4_07.printable.size = 1
 
 -- Display: Printable
-jse_itac_marketdata_mitch_v4_07.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+jse_itac_marketdata_mitch_v4_07.printable.labels = {
+  ["N"] = "Printable: Non Printable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.printable.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -2280,30 +2130,18 @@ jse_itac_marketdata_mitch_v4_07.session_change_reason = {}
 jse_itac_marketdata_mitch_v4_07.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-jse_itac_marketdata_mitch_v4_07.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 5 then
-    return "Session Change Reason: Circuit Breaker Tripped (5)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable Recovery Service Only (9)"
-  end
+jse_itac_marketdata_mitch_v4_07.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [5] = "Session Change Reason: Circuit Breaker Tripped (5)",
+  [9] = "Session Change Reason: Unavailable Recovery Service Only (9)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.session_change_reason.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -2358,15 +2196,13 @@ jse_itac_marketdata_mitch_v4_07.side = {}
 jse_itac_marketdata_mitch_v4_07.side.size = 1
 
 -- Display: Side
-jse_itac_marketdata_mitch_v4_07.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
+jse_itac_marketdata_mitch_v4_07.side.labels = {
+  ["B"] = "Side: Buy Order (B)",
+  ["S"] = "Side: Sell Order (S)",
+}
 
-  return "Side: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.side.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2388,30 +2224,18 @@ jse_itac_marketdata_mitch_v4_07.snapshot_type = {}
 jse_itac_marketdata_mitch_v4_07.snapshot_type.size = 1
 
 -- Display: Snapshot Type
-jse_itac_marketdata_mitch_v4_07.snapshot_type.display = function(value)
-  if value == 0 then
-    return "Snapshot Type: Order Book (0)"
-  end
-  if value == 1 then
-    return "Snapshot Type: Instrument Status (1)"
-  end
-  if value == 2 then
-    return "Snapshot Type: Instrument (2)"
-  end
-  if value == 3 then
-    return "Snapshot Type: Trades (3)"
-  end
-  if value == 4 then
-    return "Snapshot Type: Statistics (4)"
-  end
-  if value == 5 then
-    return "Snapshot Type: News (5)"
-  end
-  if value == 8 then
-    return "Snapshot Type: Top Of Book (8)"
-  end
+jse_itac_marketdata_mitch_v4_07.snapshot_type.labels = {
+  [0] = "Snapshot Type: Order Book (0)",
+  [1] = "Snapshot Type: Instrument Status (1)",
+  [2] = "Snapshot Type: Instrument (2)",
+  [3] = "Snapshot Type: Trades (3)",
+  [4] = "Snapshot Type: Statistics (4)",
+  [5] = "Snapshot Type: News (5)",
+  [8] = "Snapshot Type: Top Of Book (8)",
+}
 
-  return "Snapshot Type: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.snapshot_type.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.snapshot_type.labels[value] or "Snapshot Type: Unknown("..value..")"
 end
 
 -- Dissect: Snapshot Type
@@ -2456,15 +2280,13 @@ jse_itac_marketdata_mitch_v4_07.statistic_type = {}
 jse_itac_marketdata_mitch_v4_07.statistic_type.size = 1
 
 -- Display: Statistic Type
-jse_itac_marketdata_mitch_v4_07.statistic_type.display = function(value)
-  if value == "O" then
-    return "Statistic Type: Opening Price (O)"
-  end
-  if value == "C" then
-    return "Statistic Type: Closing Price (C)"
-  end
+jse_itac_marketdata_mitch_v4_07.statistic_type.labels = {
+  ["O"] = "Statistic Type: Opening Price (O)",
+  ["C"] = "Statistic Type: Closing Price (C)",
+}
 
-  return "Statistic Type: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.statistic_type.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.statistic_type.labels[value] or "Statistic Type: Unknown("..value..")"
 end
 
 -- Dissect: Statistic Type
@@ -2532,24 +2354,16 @@ jse_itac_marketdata_mitch_v4_07.sub_book = {}
 jse_itac_marketdata_mitch_v4_07.sub_book.size = 1
 
 -- Display: Sub Book
-jse_itac_marketdata_mitch_v4_07.sub_book.display = function(value)
-  if value == 1 then
-    return "Sub Book: Regular (1)"
-  end
-  if value == 2 then
-    return "Sub Book: Off Book (2)"
-  end
-  if value == 9 then
-    return "Sub Book: Bulletin Board (9)"
-  end
-  if value == 11 then
-    return "Sub Book: Negotiated Trades (11)"
-  end
-  if value == 51 then
-    return "Sub Book: Fx Auction (51)"
-  end
+jse_itac_marketdata_mitch_v4_07.sub_book.labels = {
+  [1] = "Sub Book: Regular (1)",
+  [2] = "Sub Book: Off Book (2)",
+  [9] = "Sub Book: Bulletin Board (9)",
+  [11] = "Sub Book: Negotiated Trades (11)",
+  [51] = "Sub Book: Fx Auction (51)",
+}
 
-  return "Sub Book: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.sub_book.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.sub_book.labels[value] or "Sub Book: Unknown("..value..")"
 end
 
 -- Dissect: Sub Book
@@ -2791,21 +2605,15 @@ jse_itac_marketdata_mitch_v4_07.trade_sub_type = {}
 jse_itac_marketdata_mitch_v4_07.trade_sub_type.size = 4
 
 -- Display: Trade Sub Type
-jse_itac_marketdata_mitch_v4_07.trade_sub_type.display = function(value)
-  if value == "0001" then
-    return "Trade Sub Type: Regular (0001)"
-  end
-  if value == "0002" then
-    return "Trade Sub Type: Exchange For Physical (0002)"
-  end
-  if value == "0003" then
-    return "Trade Sub Type: Repo (0003)"
-  end
-  if value == "0004" then
-    return "Trade Sub Type: Sharia (0004)"
-  end
+jse_itac_marketdata_mitch_v4_07.trade_sub_type.labels = {
+  ["0001"] = "Trade Sub Type: Regular (0001)",
+  ["0002"] = "Trade Sub Type: Exchange For Physical (0002)",
+  ["0003"] = "Trade Sub Type: Repo (0003)",
+  ["0004"] = "Trade Sub Type: Sharia (0004)",
+}
 
-  return "Trade Sub Type: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.trade_sub_type.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.trade_sub_type.labels[value] or "Trade Sub Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Sub Type
@@ -2850,66 +2658,30 @@ jse_itac_marketdata_mitch_v4_07.trading_status = {}
 jse_itac_marketdata_mitch_v4_07.trading_status.size = 1
 
 -- Display: Trading Status
-jse_itac_marketdata_mitch_v4_07.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halt (H)"
-  end
-  if value == "T" then
-    return "Trading Status: Regular Trading Or Start Trade Reporting (T)"
-  end
-  if value == "a" then
-    return "Trading Status: Opening Auction Call (a)"
-  end
-  if value == "b" then
-    return "Trading Status: Post Close (b)"
-  end
-  if value == "c" then
-    return "Trading Status: Market Close (c)"
-  end
-  if value == "d" then
-    return "Trading Status: Closing Auction Call (d)"
-  end
-  if value == "e" then
-    return "Trading Status: Volatility Auction Call (e)"
-  end
-  if value == "E" then
-    return "Trading Status: End Of Day Volume Auction Call (E)"
-  end
-  if value == "f" then
-    return "Trading Status: Re Opening Auction Call (f)"
-  end
-  if value == "l" then
-    return "Trading Status: Pause (l)"
-  end
-  if value == "p" then
-    return "Trading Status: Futures Close Out (p)"
-  end
-  if value == "s" then
-    return "Trading Status: Closing Price Cross (s)"
-  end
-  if value == "u" then
-    return "Trading Status: Intra Day Auction Call (u)"
-  end
-  if value == "v" then
-    return "Trading Status: End Trade Reporting (v)"
-  end
-  if value == "w" then
-    return "Trading Status: No Active Session (w)"
-  end
-  if value == "x" then
-    return "Trading Status: End Of Post Close (x)"
-  end
-  if value == "y" then
-    return "Trading Status: Start Of Trading (y)"
-  end
-  if value == "z" then
-    return "Trading Status: Closing Price Publication (z)"
-  end
-  if value == "Z" then
-    return "Trading Status: Fx Auction Call (Z)"
-  end
+jse_itac_marketdata_mitch_v4_07.trading_status.labels = {
+  ["H"] = "Trading Status: Halt (H)",
+  ["T"] = "Trading Status: Regular Trading Or Start Trade Reporting (T)",
+  ["a"] = "Trading Status: Opening Auction Call (a)",
+  ["b"] = "Trading Status: Post Close (b)",
+  ["c"] = "Trading Status: Market Close (c)",
+  ["d"] = "Trading Status: Closing Auction Call (d)",
+  ["e"] = "Trading Status: Volatility Auction Call (e)",
+  ["E"] = "Trading Status: End Of Day Volume Auction Call (E)",
+  ["f"] = "Trading Status: Re Opening Auction Call (f)",
+  ["l"] = "Trading Status: Pause (l)",
+  ["p"] = "Trading Status: Futures Close Out (p)",
+  ["s"] = "Trading Status: Closing Price Cross (s)",
+  ["u"] = "Trading Status: Intra Day Auction Call (u)",
+  ["v"] = "Trading Status: End Trade Reporting (v)",
+  ["w"] = "Trading Status: No Active Session (w)",
+  ["x"] = "Trading Status: End Of Post Close (x)",
+  ["y"] = "Trading Status: Start Of Trading (y)",
+  ["z"] = "Trading Status: Closing Price Publication (z)",
+  ["Z"] = "Trading Status: Fx Auction Call (Z)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.trading_status.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -3029,18 +2801,14 @@ jse_itac_marketdata_mitch_v4_07.urgency = {}
 jse_itac_marketdata_mitch_v4_07.urgency.size = 1
 
 -- Display: Urgency
-jse_itac_marketdata_mitch_v4_07.urgency.display = function(value)
-  if value == "0" then
-    return "Urgency: Regular (0)"
-  end
-  if value == "1" then
-    return "Urgency: High Priority (1)"
-  end
-  if value == "2" then
-    return "Urgency: Low Priority (2)"
-  end
+jse_itac_marketdata_mitch_v4_07.urgency.labels = {
+  ["0"] = "Urgency: Regular (0)",
+  ["1"] = "Urgency: High Priority (1)",
+  ["2"] = "Urgency: Low Priority (2)",
+}
 
-  return "Urgency: Unknown("..value..")"
+jse_itac_marketdata_mitch_v4_07.urgency.display = function(value)
+  return jse_itac_marketdata_mitch_v4_07.urgency.labels[value] or "Urgency: Unknown("..value..")"
 end
 
 -- Dissect: Urgency
@@ -5702,122 +5470,42 @@ end
 jse_itac_marketdata_mitch_v4_07.payload = {}
 
 -- Dissect: Payload
+jse_itac_marketdata_mitch_v4_07.payload.dispatch = {
+  [0x01] = jse_itac_marketdata_mitch_v4_07.login_request_message.dissect,
+  [0x03] = jse_itac_marketdata_mitch_v4_07.replay_request_message.dissect,
+  [0x81] = jse_itac_marketdata_mitch_v4_07.snapshot_request_message.dissect,
+  [0x05] = jse_itac_marketdata_mitch_v4_07.logout_request_message.dissect,
+  [0x02] = jse_itac_marketdata_mitch_v4_07.login_response_message.dissect,
+  [0x04] = jse_itac_marketdata_mitch_v4_07.replay_response_message.dissect,
+  [0x82] = jse_itac_marketdata_mitch_v4_07.snapshot_response_message.dissect,
+  [0x83] = jse_itac_marketdata_mitch_v4_07.snapshot_complete_message.dissect,
+  [0x54] = jse_itac_marketdata_mitch_v4_07.time_message.dissect,
+  [0x53] = jse_itac_marketdata_mitch_v4_07.system_event_message.dissect,
+  [0x52] = jse_itac_marketdata_mitch_v4_07.symbol_directory_message.dissect,
+  [0x48] = jse_itac_marketdata_mitch_v4_07.symbol_status_message.dissect,
+  [0x41] = jse_itac_marketdata_mitch_v4_07.add_order_message.dissect,
+  [0x46] = jse_itac_marketdata_mitch_v4_07.add_attributed_order_message.dissect,
+  [0x44] = jse_itac_marketdata_mitch_v4_07.order_deleted_message.dissect,
+  [0x55] = jse_itac_marketdata_mitch_v4_07.order_modified_message.dissect,
+  [0x79] = jse_itac_marketdata_mitch_v4_07.order_book_clear_message.dissect,
+  [0x45] = jse_itac_marketdata_mitch_v4_07.order_executed_message.dissect,
+  [0x43] = jse_itac_marketdata_mitch_v4_07.order_executed_with_price_size_message.dissect,
+  [0x50] = jse_itac_marketdata_mitch_v4_07.trade_message.dissect,
+  [0x51] = jse_itac_marketdata_mitch_v4_07.auction_trade_message.dissect,
+  [0x78] = jse_itac_marketdata_mitch_v4_07.off_book_trade_message.dissect,
+  [0x76] = jse_itac_marketdata_mitch_v4_07.recovery_trade_message.dissect,
+  [0x49] = jse_itac_marketdata_mitch_v4_07.auction_info_message.dissect,
+  [0x77] = jse_itac_marketdata_mitch_v4_07.statistics_message.dissect,
+  [0x80] = jse_itac_marketdata_mitch_v4_07.extended_statistics_message.dissect,
+  [0x75] = jse_itac_marketdata_mitch_v4_07.news_message.dissect,
+  [0x71] = jse_itac_marketdata_mitch_v4_07.top_of_book_message.dissect,
+  [0x69] = jse_itac_marketdata_mitch_v4_07.indicative_quote_info_message.dissect,
+}
+
 jse_itac_marketdata_mitch_v4_07.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 0x01 then
-    return jse_itac_marketdata_mitch_v4_07.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Message
-  if message_type == 0x03 then
-    return jse_itac_marketdata_mitch_v4_07.replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Request Message
-  if message_type == 0x81 then
-    return jse_itac_marketdata_mitch_v4_07.snapshot_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Message
-  if message_type == 0x05 then
-    return jse_itac_marketdata_mitch_v4_07.logout_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return jse_itac_marketdata_mitch_v4_07.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Response Message
-  if message_type == 0x04 then
-    return jse_itac_marketdata_mitch_v4_07.replay_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Response Message
-  if message_type == 0x82 then
-    return jse_itac_marketdata_mitch_v4_07.snapshot_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Complete Message
-  if message_type == 0x83 then
-    return jse_itac_marketdata_mitch_v4_07.snapshot_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Message
-  if message_type == 0x54 then
-    return jse_itac_marketdata_mitch_v4_07.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return jse_itac_marketdata_mitch_v4_07.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Directory Message
-  if message_type == 0x52 then
-    return jse_itac_marketdata_mitch_v4_07.symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Status Message
-  if message_type == 0x48 then
-    return jse_itac_marketdata_mitch_v4_07.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 0x41 then
-    return jse_itac_marketdata_mitch_v4_07.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Attributed Order Message
-  if message_type == 0x46 then
-    return jse_itac_marketdata_mitch_v4_07.add_attributed_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Deleted Message
-  if message_type == 0x44 then
-    return jse_itac_marketdata_mitch_v4_07.order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Message
-  if message_type == 0x55 then
-    return jse_itac_marketdata_mitch_v4_07.order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Clear Message
-  if message_type == 0x79 then
-    return jse_itac_marketdata_mitch_v4_07.order_book_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 0x45 then
-    return jse_itac_marketdata_mitch_v4_07.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Size Message
-  if message_type == 0x43 then
-    return jse_itac_marketdata_mitch_v4_07.order_executed_with_price_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0x50 then
-    return jse_itac_marketdata_mitch_v4_07.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Trade Message
-  if message_type == 0x51 then
-    return jse_itac_marketdata_mitch_v4_07.auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Off Book Trade Message
-  if message_type == 0x78 then
-    return jse_itac_marketdata_mitch_v4_07.off_book_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Recovery Trade Message
-  if message_type == 0x76 then
-    return jse_itac_marketdata_mitch_v4_07.recovery_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Info Message
-  if message_type == 0x49 then
-    return jse_itac_marketdata_mitch_v4_07.auction_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if message_type == 0x77 then
-    return jse_itac_marketdata_mitch_v4_07.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Statistics Message
-  if message_type == 0x80 then
-    return jse_itac_marketdata_mitch_v4_07.extended_statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Message
-  if message_type == 0x75 then
-    return jse_itac_marketdata_mitch_v4_07.news_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book Message
-  if message_type == 0x71 then
-    return jse_itac_marketdata_mitch_v4_07.top_of_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Quote Info Message
-  if message_type == 0x69 then
-    return jse_itac_marketdata_mitch_v4_07.indicative_quote_info_message.dissect(buffer, offset, packet, parent)
+  local dissect = jse_itac_marketdata_mitch_v4_07.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

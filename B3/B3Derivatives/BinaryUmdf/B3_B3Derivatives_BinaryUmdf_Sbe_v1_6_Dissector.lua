@@ -347,18 +347,14 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.aggressor_side = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.aggressor_side.size = 1
 
 -- Display: Aggressor Side
-b3_b3derivatives_binaryumdf_sbe_v1_6.aggressor_side.display = function(value)
-  if value == 0 then
-    return "Aggressor Side: No Aggressor (0)"
-  end
-  if value == 1 then
-    return "Aggressor Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Aggressor Side: Sell (2)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.aggressor_side.labels = {
+  [0] = "Aggressor Side: No Aggressor (0)",
+  [1] = "Aggressor Side: Buy (1)",
+  [2] = "Aggressor Side: Sell (2)",
+}
 
-  return "Aggressor Side: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.aggressor_side.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.aggressor_side.labels[value] or "Aggressor Side: Unknown("..value..")"
 end
 
 -- Dissect: Aggressor Side
@@ -1157,15 +1153,13 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_type = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_type.size = 1
 
 -- Display: Instr Attrib Type
-b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_type.display = function(value)
-  if value == 24 then
-    return "Instr Attrib Type: Trade Type Eligibility (24)"
-  end
-  if value == 34 then
-    return "Instr Attrib Type: Gtd Gtc Eligibility (34)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_type.labels = {
+  [24] = "Instr Attrib Type: Trade Type Eligibility (24)",
+  [34] = "Instr Attrib Type: Gtd Gtc Eligibility (34)",
+}
 
-  return "Instr Attrib Type: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_type.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_type.labels[value] or "Instr Attrib Type: Unknown("..value..")"
 end
 
 -- Dissect: Instr Attrib Type
@@ -1187,24 +1181,16 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_value = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_value.size = 1
 
 -- Display: Instr Attrib Value
-b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_value.display = function(value)
-  if value == 1 then
-    return "Instr Attrib Value: Electronic Match Or Gtd Gtc Eligible (1)"
-  end
-  if value == 2 then
-    return "Instr Attrib Value: Order Cross Eligible (2)"
-  end
-  if value == 3 then
-    return "Instr Attrib Value: Block Trade Eligible (3)"
-  end
-  if value == 14 then
-    return "Instr Attrib Value: Flag Rfq For Cross Eligible (14)"
-  end
-  if value == 17 then
-    return "Instr Attrib Value: Negotiated Quote Eligible (17)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_value.labels = {
+  [1] = "Instr Attrib Value: Electronic Match Or Gtd Gtc Eligible (1)",
+  [2] = "Instr Attrib Value: Order Cross Eligible (2)",
+  [3] = "Instr Attrib Value: Block Trade Eligible (3)",
+  [14] = "Instr Attrib Value: Flag Rfq For Cross Eligible (14)",
+  [17] = "Instr Attrib Value: Negotiated Quote Eligible (17)",
+}
 
-  return "Instr Attrib Value: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_value.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.instr_attrib_value.labels[value] or "Instr Attrib Value: Unknown("..value..")"
 end
 
 -- Dissect: Instr Attrib Value
@@ -1530,60 +1516,28 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.leg_security_type = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.leg_security_type.size = 1
 
 -- Display: Leg Security Type
-b3_b3derivatives_binaryumdf_sbe_v1_6.leg_security_type.display = function(value)
-  if value == 1 then
-    return "Leg Security Type: Cash (1)"
-  end
-  if value == 2 then
-    return "Leg Security Type: Corp (2)"
-  end
-  if value == 3 then
-    return "Leg Security Type: Cs (3)"
-  end
-  if value == 4 then
-    return "Leg Security Type: Dterm (4)"
-  end
-  if value == 5 then
-    return "Leg Security Type: Etf (5)"
-  end
-  if value == 6 then
-    return "Leg Security Type: Fopt (6)"
-  end
-  if value == 7 then
-    return "Leg Security Type: Forward (7)"
-  end
-  if value == 8 then
-    return "Leg Security Type: Fut (8)"
-  end
-  if value == 9 then
-    return "Leg Security Type: Index (9)"
-  end
-  if value == 10 then
-    return "Leg Security Type: Indexopt (10)"
-  end
-  if value == 11 then
-    return "Leg Security Type: Mleg (11)"
-  end
-  if value == 12 then
-    return "Leg Security Type: Opt (12)"
-  end
-  if value == 13 then
-    return "Leg Security Type: Optexer (13)"
-  end
-  if value == 14 then
-    return "Leg Security Type: Ps (14)"
-  end
-  if value == 15 then
-    return "Leg Security Type: Secloan (15)"
-  end
-  if value == 16 then
-    return "Leg Security Type: Sopt (16)"
-  end
-  if value == 17 then
-    return "Leg Security Type: Spot (17)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.leg_security_type.labels = {
+  [1] = "Leg Security Type: Cash (1)",
+  [2] = "Leg Security Type: Corp (2)",
+  [3] = "Leg Security Type: Cs (3)",
+  [4] = "Leg Security Type: Dterm (4)",
+  [5] = "Leg Security Type: Etf (5)",
+  [6] = "Leg Security Type: Fopt (6)",
+  [7] = "Leg Security Type: Forward (7)",
+  [8] = "Leg Security Type: Fut (8)",
+  [9] = "Leg Security Type: Index (9)",
+  [10] = "Leg Security Type: Indexopt (10)",
+  [11] = "Leg Security Type: Mleg (11)",
+  [12] = "Leg Security Type: Opt (12)",
+  [13] = "Leg Security Type: Optexer (13)",
+  [14] = "Leg Security Type: Ps (14)",
+  [15] = "Leg Security Type: Secloan (15)",
+  [16] = "Leg Security Type: Sopt (16)",
+  [17] = "Leg Security Type: Spot (17)",
+}
 
-  return "Leg Security Type: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.leg_security_type.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.leg_security_type.labels[value] or "Leg Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Leg Security Type
@@ -1605,15 +1559,13 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.leg_side = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.leg_side.size = 1
 
 -- Display: Leg Side
-b3_b3derivatives_binaryumdf_sbe_v1_6.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell (2)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.leg_side.labels = {
+  [1] = "Leg Side: Buy (1)",
+  [2] = "Leg Side: Sell (2)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.leg_side.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -2289,27 +2241,17 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.md_update_action = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.md_update_action.size = 1
 
 -- Display: Md Update Action
-b3_b3derivatives_binaryumdf_sbe_v1_6.md_update_action.display = function(value)
-  if value == 0 then
-    return "Md Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Md Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Md Update Action: Delete (2)"
-  end
-  if value == 3 then
-    return "Md Update Action: Delete Thru (3)"
-  end
-  if value == 4 then
-    return "Md Update Action: Delete From (4)"
-  end
-  if value == 5 then
-    return "Md Update Action: Overlay (5)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.md_update_action.labels = {
+  [0] = "Md Update Action: New (0)",
+  [1] = "Md Update Action: Change (1)",
+  [2] = "Md Update Action: Delete (2)",
+  [3] = "Md Update Action: Delete Thru (3)",
+  [4] = "Md Update Action: Delete From (4)",
+  [5] = "Md Update Action: Overlay (5)",
+}
 
-  return "Md Update Action: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.md_update_action.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.md_update_action.labels[value] or "Md Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Md Update Action
@@ -2673,54 +2615,26 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.news_source = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.news_source.size = 1
 
 -- Display: News Source
-b3_b3derivatives_binaryumdf_sbe_v1_6.news_source.display = function(value)
-  if value == 0 then
-    return "News Source: Other (0)"
-  end
-  if value == 1 then
-    return "News Source: Dcm (1)"
-  end
-  if value == 2 then
-    return "News Source: Bbmnet (2)"
-  end
-  if value == 3 then
-    return "News Source: Market Surveillance (3)"
-  end
-  if value == 4 then
-    return "News Source: Internet (4)"
-  end
-  if value == 5 then
-    return "News Source: Dpr Ve (5)"
-  end
-  if value == 19 then
-    return "News Source: Mkt Ops Fx Agency (19)"
-  end
-  if value == 20 then
-    return "News Source: Mkt Ops Derivatives Agency (20)"
-  end
-  if value == 11 then
-    return "News Source: Over The Counter News Agency (11)"
-  end
-  if value == 13 then
-    return "News Source: Electronic Purchase Exchange (13)"
-  end
-  if value == 14 then
-    return "News Source: Cblc News Agency (14)"
-  end
-  if value == 15 then
-    return "News Source: Bovespa Index Agency (15)"
-  end
-  if value == 16 then
-    return "News Source: Bovespa Institutional Agency (16)"
-  end
-  if value == 17 then
-    return "News Source: Mkt Ops Equities Agency (17)"
-  end
-  if value == 18 then
-    return "News Source: Bovespa Companies Agency (18)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.news_source.labels = {
+  [0] = "News Source: Other (0)",
+  [1] = "News Source: Dcm (1)",
+  [2] = "News Source: Bbmnet (2)",
+  [3] = "News Source: Market Surveillance (3)",
+  [4] = "News Source: Internet (4)",
+  [5] = "News Source: Dpr Ve (5)",
+  [19] = "News Source: Mkt Ops Fx Agency (19)",
+  [20] = "News Source: Mkt Ops Derivatives Agency (20)",
+  [11] = "News Source: Over The Counter News Agency (11)",
+  [13] = "News Source: Electronic Purchase Exchange (13)",
+  [14] = "News Source: Cblc News Agency (14)",
+  [15] = "News Source: Bovespa Index Agency (15)",
+  [16] = "News Source: Bovespa Institutional Agency (16)",
+  [17] = "News Source: Mkt Ops Equities Agency (17)",
+  [18] = "News Source: Bovespa Companies Agency (18)",
+}
 
-  return "News Source: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.news_source.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.news_source.labels[value] or "News Source: Unknown("..value..")"
 end
 
 -- Dissect: News Source
@@ -3092,24 +3006,16 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.open_close_settl_flag = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.open_close_settl_flag.size = 1
 
 -- Display: Open Close Settl Flag
-b3_b3derivatives_binaryumdf_sbe_v1_6.open_close_settl_flag.display = function(value)
-  if value == 0 then
-    return "Open Close Settl Flag: Daily (0)"
-  end
-  if value == 1 then
-    return "Open Close Settl Flag: Session (1)"
-  end
-  if value == 3 then
-    return "Open Close Settl Flag: Expected Entry (3)"
-  end
-  if value == 4 then
-    return "Open Close Settl Flag: Entry From Previous Business Day (4)"
-  end
-  if value == 5 then
-    return "Open Close Settl Flag: Theoretical Price (5)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.open_close_settl_flag.labels = {
+  [0] = "Open Close Settl Flag: Daily (0)",
+  [1] = "Open Close Settl Flag: Session (1)",
+  [3] = "Open Close Settl Flag: Expected Entry (3)",
+  [4] = "Open Close Settl Flag: Entry From Previous Business Day (4)",
+  [5] = "Open Close Settl Flag: Theoretical Price (5)",
+}
 
-  return "Open Close Settl Flag: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.open_close_settl_flag.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.open_close_settl_flag.labels[value] or "Open Close Settl Flag: Unknown("..value..")"
 end
 
 -- Dissect: Open Close Settl Flag
@@ -3463,33 +3369,19 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.product = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.product.size = 1
 
 -- Display: Product
-b3_b3derivatives_binaryumdf_sbe_v1_6.product.display = function(value)
-  if value == 2 then
-    return "Product: Commodity (2)"
-  end
-  if value == 3 then
-    return "Product: Corporate (3)"
-  end
-  if value == 4 then
-    return "Product: Currency (4)"
-  end
-  if value == 5 then
-    return "Product: Equity (5)"
-  end
-  if value == 6 then
-    return "Product: Government (6)"
-  end
-  if value == 7 then
-    return "Product: Index (7)"
-  end
-  if value == 15 then
-    return "Product: Economic Indicator (15)"
-  end
-  if value == 16 then
-    return "Product: Multileg (16)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.product.labels = {
+  [2] = "Product: Commodity (2)",
+  [3] = "Product: Corporate (3)",
+  [4] = "Product: Currency (4)",
+  [5] = "Product: Equity (5)",
+  [6] = "Product: Government (6)",
+  [7] = "Product: Index (7)",
+  [15] = "Product: Economic Indicator (15)",
+  [16] = "Product: Multileg (16)",
+}
 
-  return "Product: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.product.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.product.labels[value] or "Product: Unknown("..value..")"
 end
 
 -- Dissect: Product
@@ -3964,30 +3856,18 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.security_trading_status = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-b3_b3derivatives_binaryumdf_sbe_v1_6.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Pause (2)"
-  end
-  if value == 4 then
-    return "Security Trading Status: Close (4)"
-  end
-  if value == 17 then
-    return "Security Trading Status: Open (17)"
-  end
-  if value == 18 then
-    return "Security Trading Status: Forbidden (18)"
-  end
-  if value == 20 then
-    return "Security Trading Status: Unknown Or Invalid (20)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Reserved (21)"
-  end
-  if value == 101 then
-    return "Security Trading Status: Final Closing Call (101)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.security_trading_status.labels = {
+  [2] = "Security Trading Status: Pause (2)",
+  [4] = "Security Trading Status: Close (4)",
+  [17] = "Security Trading Status: Open (17)",
+  [18] = "Security Trading Status: Forbidden (18)",
+  [20] = "Security Trading Status: Unknown Or Invalid (20)",
+  [21] = "Security Trading Status: Reserved (21)",
+  [101] = "Security Trading Status: Final Closing Call (101)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.security_trading_status.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -4009,60 +3889,28 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.security_type = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.security_type.size = 1
 
 -- Display: Security Type
-b3_b3derivatives_binaryumdf_sbe_v1_6.security_type.display = function(value)
-  if value == 1 then
-    return "Security Type: Cash (1)"
-  end
-  if value == 2 then
-    return "Security Type: Corp (2)"
-  end
-  if value == 3 then
-    return "Security Type: Cs (3)"
-  end
-  if value == 4 then
-    return "Security Type: Dterm (4)"
-  end
-  if value == 5 then
-    return "Security Type: Etf (5)"
-  end
-  if value == 6 then
-    return "Security Type: Fopt (6)"
-  end
-  if value == 7 then
-    return "Security Type: Forward (7)"
-  end
-  if value == 8 then
-    return "Security Type: Fut (8)"
-  end
-  if value == 9 then
-    return "Security Type: Index (9)"
-  end
-  if value == 10 then
-    return "Security Type: Indexopt (10)"
-  end
-  if value == 11 then
-    return "Security Type: Mleg (11)"
-  end
-  if value == 12 then
-    return "Security Type: Opt (12)"
-  end
-  if value == 13 then
-    return "Security Type: Optexer (13)"
-  end
-  if value == 14 then
-    return "Security Type: Ps (14)"
-  end
-  if value == 15 then
-    return "Security Type: Secloan (15)"
-  end
-  if value == 16 then
-    return "Security Type: Sopt (16)"
-  end
-  if value == 17 then
-    return "Security Type: Spot (17)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.security_type.labels = {
+  [1] = "Security Type: Cash (1)",
+  [2] = "Security Type: Corp (2)",
+  [3] = "Security Type: Cs (3)",
+  [4] = "Security Type: Dterm (4)",
+  [5] = "Security Type: Etf (5)",
+  [6] = "Security Type: Fopt (6)",
+  [7] = "Security Type: Forward (7)",
+  [8] = "Security Type: Fut (8)",
+  [9] = "Security Type: Index (9)",
+  [10] = "Security Type: Indexopt (10)",
+  [11] = "Security Type: Mleg (11)",
+  [12] = "Security Type: Opt (12)",
+  [13] = "Security Type: Optexer (13)",
+  [14] = "Security Type: Ps (14)",
+  [15] = "Security Type: Secloan (15)",
+  [16] = "Security Type: Sopt (16)",
+  [17] = "Security Type: Spot (17)",
+}
 
-  return "Security Type: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.security_type.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -4496,90 +4344,38 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.template_id = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.template_id.size = 2
 
 -- Display: Template Id
-b3_b3derivatives_binaryumdf_sbe_v1_6.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Sequence Reset 1 Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Sequence 2 Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Security Status 3 Message (3)"
-  end
-  if value == 10 then
-    return "Template Id: Security Group Phase 10 Message (10)"
-  end
-  if value == 4 then
-    return "Template Id: DeprecatedSecurity Definition Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: News 5 Message (5)"
-  end
-  if value == 9 then
-    return "Template Id: Empty Book 9 Message (9)"
-  end
-  if value == 11 then
-    return "Template Id: Channel Reset 11 Message (11)"
-  end
-  if value == 15 then
-    return "Template Id: Opening Price 15 Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Theoretical Opening Price 16 Message (16)"
-  end
-  if value == 17 then
-    return "Template Id: Closing Price 17 Message (17)"
-  end
-  if value == 19 then
-    return "Template Id: Auction Imbalance 19 Message (19)"
-  end
-  if value == 20 then
-    return "Template Id: Price Band 20 Message (20)"
-  end
-  if value == 21 then
-    return "Template Id: Quantity Band 21 Message (21)"
-  end
-  if value == 24 then
-    return "Template Id: High Price 24 Message (24)"
-  end
-  if value == 25 then
-    return "Template Id: Low Price 25 Message (25)"
-  end
-  if value == 27 then
-    return "Template Id: Last Trade Price 27 Message (27)"
-  end
-  if value == 30 then
-    return "Template Id: Snapshot Full Refresh Header 30 Message (30)"
-  end
-  if value == 50 then
-    return "Template Id: Order Mb O 50 Message (50)"
-  end
-  if value == 51 then
-    return "Template Id: Delete Order Mb O 51 Message (51)"
-  end
-  if value == 52 then
-    return "Template Id: Mass Delete Orders Mb O 52 Message (52)"
-  end
-  if value == 53 then
-    return "Template Id: Trade 53 Message (53)"
-  end
-  if value == 54 then
-    return "Template Id: Forward Trade 54 Message (54)"
-  end
-  if value == 55 then
-    return "Template Id: Execution Summary 55 Message (55)"
-  end
-  if value == 56 then
-    return "Template Id: Execution Statistics 56 Message (56)"
-  end
-  if value == 57 then
-    return "Template Id: Trade Bust 57 Message (57)"
-  end
-  if value == 71 then
-    return "Template Id: Snapshot Full Refresh Orders Mb O 71 Message (71)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.template_id.labels = {
+  [1] = "Template Id: Sequence Reset 1 Message (1)",
+  [2] = "Template Id: Sequence 2 Message (2)",
+  [3] = "Template Id: Security Status 3 Message (3)",
+  [10] = "Template Id: Security Group Phase 10 Message (10)",
+  [4] = "Template Id: DeprecatedSecurity Definition Message (4)",
+  [5] = "Template Id: News 5 Message (5)",
+  [9] = "Template Id: Empty Book 9 Message (9)",
+  [11] = "Template Id: Channel Reset 11 Message (11)",
+  [15] = "Template Id: Opening Price 15 Message (15)",
+  [16] = "Template Id: Theoretical Opening Price 16 Message (16)",
+  [17] = "Template Id: Closing Price 17 Message (17)",
+  [19] = "Template Id: Auction Imbalance 19 Message (19)",
+  [20] = "Template Id: Price Band 20 Message (20)",
+  [21] = "Template Id: Quantity Band 21 Message (21)",
+  [24] = "Template Id: High Price 24 Message (24)",
+  [25] = "Template Id: Low Price 25 Message (25)",
+  [27] = "Template Id: Last Trade Price 27 Message (27)",
+  [30] = "Template Id: Snapshot Full Refresh Header 30 Message (30)",
+  [50] = "Template Id: Order Mb O 50 Message (50)",
+  [51] = "Template Id: Delete Order Mb O 51 Message (51)",
+  [52] = "Template Id: Mass Delete Orders Mb O 52 Message (52)",
+  [53] = "Template Id: Trade 53 Message (53)",
+  [54] = "Template Id: Forward Trade 54 Message (54)",
+  [55] = "Template Id: Execution Summary 55 Message (55)",
+  [56] = "Template Id: Execution Statistics 56 Message (56)",
+  [57] = "Template Id: Trade Bust 57 Message (57)",
+  [71] = "Template Id: Snapshot Full Refresh Orders Mb O 71 Message (71)",
+}
 
-  return "Template Id: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.template_id.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -4976,15 +4772,13 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_id = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_id.size = 1
 
 -- Display: Trading Session Id
-b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Id: Regular Trading Session (1)"
-  end
-  if value == 6 then
-    return "Trading Session Id: Non Regular Trading Session (6)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_id.labels = {
+  [1] = "Trading Session Id: Regular Trading Session (1)",
+  [6] = "Trading Session Id: Non Regular Trading Session (6)",
+}
 
-  return "Trading Session Id: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_id.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_id.labels[value] or "Trading Session Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Id
@@ -5006,30 +4800,18 @@ b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_sub_id = {}
 b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
-b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_sub_id.display = function(value)
-  if value == 2 then
-    return "Trading Session Sub Id: Pause (2)"
-  end
-  if value == 4 then
-    return "Trading Session Sub Id: Close (4)"
-  end
-  if value == 17 then
-    return "Trading Session Sub Id: Open (17)"
-  end
-  if value == 18 then
-    return "Trading Session Sub Id: Forbidden (18)"
-  end
-  if value == 20 then
-    return "Trading Session Sub Id: Unknown Or Invalid (20)"
-  end
-  if value == 21 then
-    return "Trading Session Sub Id: Reserved (21)"
-  end
-  if value == 101 then
-    return "Trading Session Sub Id: Final Closing Call (101)"
-  end
+b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_sub_id.labels = {
+  [2] = "Trading Session Sub Id: Pause (2)",
+  [4] = "Trading Session Sub Id: Close (4)",
+  [17] = "Trading Session Sub Id: Open (17)",
+  [18] = "Trading Session Sub Id: Forbidden (18)",
+  [20] = "Trading Session Sub Id: Unknown Or Invalid (20)",
+  [21] = "Trading Session Sub Id: Reserved (21)",
+  [101] = "Trading Session Sub Id: Final Closing Call (101)",
+}
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_sub_id.display = function(value)
+  return b3_b3derivatives_binaryumdf_sbe_v1_6.trading_session_sub_id.labels[value] or "Trading Session Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Sub Id
@@ -8742,114 +8524,40 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_6.payload = {}
 
 -- Dissect: Payload
+b3_b3derivatives_binaryumdf_sbe_v1_6.payload.dispatch = {
+  [1] = b3_b3derivatives_binaryumdf_sbe_v1_6.sequence_reset_message.dissect,
+  [2] = b3_b3derivatives_binaryumdf_sbe_v1_6.sequence_message.dissect,
+  [3] = b3_b3derivatives_binaryumdf_sbe_v1_6.security_status_3_message.dissect,
+  [10] = b3_b3derivatives_binaryumdf_sbe_v1_6.security_group_phase_10_message.dissect,
+  [4] = b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_security_definition_message.dissect,
+  [5] = b3_b3derivatives_binaryumdf_sbe_v1_6.news_5_message.dissect,
+  [9] = b3_b3derivatives_binaryumdf_sbe_v1_6.empty_book_message.dissect,
+  [11] = b3_b3derivatives_binaryumdf_sbe_v1_6.channel_reset_11_message.dissect,
+  [15] = b3_b3derivatives_binaryumdf_sbe_v1_6.opening_price_15_message.dissect,
+  [16] = b3_b3derivatives_binaryumdf_sbe_v1_6.theoretical_opening_price_16_message.dissect,
+  [17] = b3_b3derivatives_binaryumdf_sbe_v1_6.closing_price_17_message.dissect,
+  [19] = b3_b3derivatives_binaryumdf_sbe_v1_6.auction_imbalance_19_message.dissect,
+  [20] = b3_b3derivatives_binaryumdf_sbe_v1_6.price_band_20_message.dissect,
+  [21] = b3_b3derivatives_binaryumdf_sbe_v1_6.quantity_band_21_message.dissect,
+  [24] = b3_b3derivatives_binaryumdf_sbe_v1_6.high_price_24_message.dissect,
+  [25] = b3_b3derivatives_binaryumdf_sbe_v1_6.low_price_25_message.dissect,
+  [27] = b3_b3derivatives_binaryumdf_sbe_v1_6.last_trade_price_27_message.dissect,
+  [30] = b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_header_30_message.dissect,
+  [50] = b3_b3derivatives_binaryumdf_sbe_v1_6.order_mb_o_50_message.dissect,
+  [51] = b3_b3derivatives_binaryumdf_sbe_v1_6.delete_order_mb_o_51_message.dissect,
+  [52] = b3_b3derivatives_binaryumdf_sbe_v1_6.mass_delete_orders_mb_o_52_message.dissect,
+  [53] = b3_b3derivatives_binaryumdf_sbe_v1_6.trade_53_message.dissect,
+  [54] = b3_b3derivatives_binaryumdf_sbe_v1_6.forward_trade_54_message.dissect,
+  [55] = b3_b3derivatives_binaryumdf_sbe_v1_6.execution_summary_55_message.dissect,
+  [56] = b3_b3derivatives_binaryumdf_sbe_v1_6.execution_statistics_56_message.dissect,
+  [57] = b3_b3derivatives_binaryumdf_sbe_v1_6.trade_bust_57_message.dissect,
+  [71] = b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message.dissect,
+}
+
 b3_b3derivatives_binaryumdf_sbe_v1_6.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Sequence Reset Message
-  if template_id == 1 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Message
-  if template_id == 2 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.sequence_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status 3 Message
-  if template_id == 3 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.security_status_3_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Group Phase 10 Message
-  if template_id == 10 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.security_group_phase_10_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Deprecated Security Definition Message
-  if template_id == 4 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.deprecated_security_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News 5 Message
-  if template_id == 5 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.news_5_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Empty Book Message
-  if template_id == 9 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.empty_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Channel Reset 11 Message
-  if template_id == 11 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.channel_reset_11_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price 15 Message
-  if template_id == 15 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.opening_price_15_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Theoretical Opening Price 16 Message
-  if template_id == 16 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.theoretical_opening_price_16_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price 17 Message
-  if template_id == 17 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.closing_price_17_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Imbalance 19 Message
-  if template_id == 19 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.auction_imbalance_19_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Band 20 Message
-  if template_id == 20 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.price_band_20_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quantity Band 21 Message
-  if template_id == 21 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.quantity_band_21_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price 24 Message
-  if template_id == 24 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.high_price_24_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price 25 Message
-  if template_id == 25 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.low_price_25_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Trade Price 27 Message
-  if template_id == 27 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.last_trade_price_27_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Header 30 Message
-  if template_id == 30 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_header_30_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mb O 50 Message
-  if template_id == 50 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.order_mb_o_50_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Mb O 51 Message
-  if template_id == 51 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.delete_order_mb_o_51_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Delete Orders Mb O 52 Message
-  if template_id == 52 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.mass_delete_orders_mb_o_52_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade 53 Message
-  if template_id == 53 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.trade_53_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forward Trade 54 Message
-  if template_id == 54 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.forward_trade_54_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Summary 55 Message
-  if template_id == 55 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.execution_summary_55_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Statistics 56 Message
-  if template_id == 56 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.execution_statistics_56_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust 57 Message
-  if template_id == 57 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.trade_bust_57_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Orders Mb O 71 Message
-  if template_id == 71 then
-    return b3_b3derivatives_binaryumdf_sbe_v1_6.snapshot_full_refresh_orders_mb_o_71_message.dissect(buffer, offset, packet, parent)
+  local dissect = b3_b3derivatives_binaryumdf_sbe_v1_6.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

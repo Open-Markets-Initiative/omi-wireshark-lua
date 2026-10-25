@@ -1952,15 +1952,13 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.option_expiry_type = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.option_expiry_type.size = 1
 
 -- Display: Option Expiry Type
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.option_expiry_type.display = function(value)
-  if value == 0 then
-    return "Option Expiry Type: Weekly (0)"
-  end
-  if value == 1 then
-    return "Option Expiry Type: Monthly (1)"
-  end
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.option_expiry_type.labels = {
+  [0] = "Option Expiry Type: Weekly (0)",
+  [1] = "Option Expiry Type: Monthly (1)",
+}
 
-  return "Option Expiry Type: Unknown("..value..")"
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.option_expiry_type.display = function(value)
+  return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.option_expiry_type.labels[value] or "Option Expiry Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Expiry Type
@@ -2183,30 +2181,18 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.product_group = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.product_group.size = 1
 
 -- Display: Product Group
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.product_group.display = function(value)
-  if value == 0 then
-    return "Product Group: Currency (0)"
-  end
-  if value == 1 then
-    return "Product Group: Equity (1)"
-  end
-  if value == 2 then
-    return "Product Group: Energy (2)"
-  end
-  if value == 3 then
-    return "Product Group: Metals (3)"
-  end
-  if value == 4 then
-    return "Product Group: Interest Rate (4)"
-  end
-  if value == 5 then
-    return "Product Group: Agriculture (5)"
-  end
-  if value == 6 then
-    return "Product Group: Crypto (6)"
-  end
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.product_group.labels = {
+  [0] = "Product Group: Currency (0)",
+  [1] = "Product Group: Equity (1)",
+  [2] = "Product Group: Energy (2)",
+  [3] = "Product Group: Metals (3)",
+  [4] = "Product Group: Interest Rate (4)",
+  [5] = "Product Group: Agriculture (5)",
+  [6] = "Product Group: Crypto (6)",
+}
 
-  return "Product Group: Unknown("..value..")"
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.product_group.display = function(value)
+  return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.product_group.labels[value] or "Product Group: Unknown("..value..")"
 end
 
 -- Dissect: Product Group
@@ -2274,21 +2260,15 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.reason = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.reason.size = 1
 
 -- Display: Reason
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.reason.display = function(value)
-  if value == 1 then
-    return "Reason: Seq Too Low (1)"
-  end
-  if value == 2 then
-    return "Reason: Seq Too High (2)"
-  end
-  if value == 3 then
-    return "Reason: Rate Limit Exceeded (3)"
-  end
-  if value == 4 then
-    return "Reason: Other Error (4)"
-  end
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.reason.labels = {
+  [1] = "Reason: Seq Too Low (1)",
+  [2] = "Reason: Seq Too High (2)",
+  [3] = "Reason: Rate Limit Exceeded (3)",
+  [4] = "Reason: Other Error (4)",
+}
 
-  return "Reason: Unknown("..value..")"
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.reason.display = function(value)
+  return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -2572,15 +2552,13 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_buy_convention = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_buy_convention.size = 1
 
 -- Display: Spread Buy Convention
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_buy_convention.display = function(value)
-  if value == 1 then
-    return "Spread Buy Convention: Use Far Bid (1)"
-  end
-  if value == -1 then
-    return "Spread Buy Convention: Use Near Bid (-1)"
-  end
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_buy_convention.labels = {
+  [1] = "Spread Buy Convention: Use Far Bid (1)",
+  [-1] = "Spread Buy Convention: Use Near Bid (-1)",
+}
 
-  return "Spread Buy Convention: Unknown("..value..")"
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_buy_convention.display = function(value)
+  return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_buy_convention.labels[value] or "Spread Buy Convention: Unknown("..value..")"
 end
 
 -- Dissect: Spread Buy Convention
@@ -2728,78 +2706,34 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.template_id = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.template_id.size = 2
 
 -- Display: Template Id
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.template_id.display = function(value)
-  if value == 10 then
-    return "Template Id: Outright Instrument Definition Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Spread Instrument Definition Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Option Instrument Definition Message (12)"
-  end
-  if value == 17 then
-    return "Template Id: Trading Status Update Message (17)"
-  end
-  if value == 20 then
-    return "Template Id: Order Put Message (20)"
-  end
-  if value == 21 then
-    return "Template Id: Order Delete Message (21)"
-  end
-  if value == 22 then
-    return "Template Id: Implied Order Update Message (22)"
-  end
-  if value == 33 then
-    return "Template Id: Trade Summary Message (33)"
-  end
-  if value == 30 then
-    return "Template Id: Trade Message (30)"
-  end
-  if value == 31 then
-    return "Template Id: Trade Amend Message (31)"
-  end
-  if value == 34 then
-    return "Template Id: Spread Trade Amend Message (34)"
-  end
-  if value == 32 then
-    return "Template Id: Trade Bust Message (32)"
-  end
-  if value == 40 then
-    return "Template Id: Market Stat Message (40)"
-  end
-  if value == 41 then
-    return "Template Id: Trade Session Volume Message (41)"
-  end
-  if value == 42 then
-    return "Template Id: Open Interest Message (42)"
-  end
-  if value == 110 then
-    return "Template Id: Start Of Outright Instrument Snapshot Message (110)"
-  end
-  if value == 111 then
-    return "Template Id: Start Of Spread Instrument Snapshot Message (111)"
-  end
-  if value == 112 then
-    return "Template Id: Start Of Option Instrument Snapshot Message (112)"
-  end
-  if value == 120 then
-    return "Template Id: Order Snapshot Message (120)"
-  end
-  if value == 122 then
-    return "Template Id: End Of Snapshot Message (122)"
-  end
-  if value == 124 then
-    return "Template Id: End Of Cycle Message (124)"
-  end
-  if value == 200 then
-    return "Template Id: Retransmit Request Message (200)"
-  end
-  if value == 202 then
-    return "Template Id: Retransmit Reject Message (202)"
-  end
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.template_id.labels = {
+  [10] = "Template Id: Outright Instrument Definition Message (10)",
+  [11] = "Template Id: Spread Instrument Definition Message (11)",
+  [12] = "Template Id: Option Instrument Definition Message (12)",
+  [17] = "Template Id: Trading Status Update Message (17)",
+  [20] = "Template Id: Order Put Message (20)",
+  [21] = "Template Id: Order Delete Message (21)",
+  [22] = "Template Id: Implied Order Update Message (22)",
+  [33] = "Template Id: Trade Summary Message (33)",
+  [30] = "Template Id: Trade Message (30)",
+  [31] = "Template Id: Trade Amend Message (31)",
+  [34] = "Template Id: Spread Trade Amend Message (34)",
+  [32] = "Template Id: Trade Bust Message (32)",
+  [40] = "Template Id: Market Stat Message (40)",
+  [41] = "Template Id: Trade Session Volume Message (41)",
+  [42] = "Template Id: Open Interest Message (42)",
+  [110] = "Template Id: Start Of Outright Instrument Snapshot Message (110)",
+  [111] = "Template Id: Start Of Spread Instrument Snapshot Message (111)",
+  [112] = "Template Id: Start Of Option Instrument Snapshot Message (112)",
+  [120] = "Template Id: Order Snapshot Message (120)",
+  [122] = "Template Id: End Of Snapshot Message (122)",
+  [124] = "Template Id: End Of Cycle Message (124)",
+  [200] = "Template Id: Retransmit Request Message (200)",
+  [202] = "Template Id: Retransmit Reject Message (202)",
+}
 
-  return "Template Id: Unknown("..value..")"
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.template_id.display = function(value)
+  return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2896,30 +2830,18 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trading_status = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trading_status.size = 1
 
 -- Display: Trading Status
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trading_status.display = function(value)
-  if value == 0 then
-    return "Trading Status: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Trading Status: Open (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Halt (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Pause (3)"
-  end
-  if value == 4 then
-    return "Trading Status: Close (4)"
-  end
-  if value == 5 then
-    return "Trading Status: Pre Open No Cancel (5)"
-  end
-  if value == 6 then
-    return "Trading Status: Expired (6)"
-  end
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trading_status.labels = {
+  [0] = "Trading Status: Pre Open (0)",
+  [1] = "Trading Status: Open (1)",
+  [2] = "Trading Status: Halt (2)",
+  [3] = "Trading Status: Pause (3)",
+  [4] = "Trading Status: Close (4)",
+  [5] = "Trading Status: Pre Open No Cancel (5)",
+  [6] = "Trading Status: Expired (6)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trading_status.display = function(value)
+  return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -4987,98 +4909,36 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.payload = {}
 
 -- Dissect: Payload
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.payload.dispatch = {
+  [10] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.outright_instrument_definition_message.dissect,
+  [11] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_instrument_definition_message.dissect,
+  [12] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.option_instrument_definition_message.dissect,
+  [17] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trading_status_update_message.dissect,
+  [20] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.order_put_message.dissect,
+  [21] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.order_delete_message.dissect,
+  [22] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.implied_order_update_message.dissect,
+  [33] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_summary_message.dissect,
+  [30] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_message.dissect,
+  [31] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_amend_message.dissect,
+  [34] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_trade_amend_message.dissect,
+  [32] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_bust_message.dissect,
+  [40] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.market_stat_message.dissect,
+  [41] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_session_volume_message.dissect,
+  [42] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.open_interest_message.dissect,
+  [110] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.start_of_outright_instrument_snapshot_message.dissect,
+  [111] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.start_of_spread_instrument_snapshot_message.dissect,
+  [112] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.start_of_option_instrument_snapshot_message.dissect,
+  [120] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.order_snapshot_message.dissect,
+  [122] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.end_of_snapshot_message.dissect,
+  [124] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.end_of_cycle_message.dissect,
+  [200] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.retransmit_request_message.dissect,
+  [202] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.retransmit_reject_message.dissect,
+}
+
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Outright Instrument Definition Message
-  if template_id == 10 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.outright_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Instrument Definition Message
-  if template_id == 11 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Instrument Definition Message
-  if template_id == 12 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.option_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Update Message
-  if template_id == 17 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trading_status_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Put Message
-  if template_id == 20 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.order_put_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if template_id == 21 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Order Update Message
-  if template_id == 22 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.implied_order_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Summary Message
-  if template_id == 33 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if template_id == 30 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Amend Message
-  if template_id == 31 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_amend_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Trade Amend Message
-  if template_id == 34 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.spread_trade_amend_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Message
-  if template_id == 32 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_bust_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Stat Message
-  if template_id == 40 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.market_stat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Session Volume Message
-  if template_id == 41 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.trade_session_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if template_id == 42 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Outright Instrument Snapshot Message
-  if template_id == 110 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.start_of_outright_instrument_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Spread Instrument Snapshot Message
-  if template_id == 111 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.start_of_spread_instrument_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Option Instrument Snapshot Message
-  if template_id == 112 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.start_of_option_instrument_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Snapshot Message
-  if template_id == 120 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.order_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Snapshot Message
-  if template_id == 122 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.end_of_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Cycle Message
-  if template_id == 124 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.end_of_cycle_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Request Message
-  if template_id == 200 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.retransmit_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Reject Message
-  if template_id == 202 then
-    return coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.retransmit_reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

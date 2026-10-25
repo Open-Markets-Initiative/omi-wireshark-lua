@@ -452,21 +452,15 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.auction_type = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.auction_type.size = 1
 
 -- Display: Auction Type
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening (O)"
-  end
-  if value == "R" then
-    return "Auction Type: Reopening (R)"
-  end
-  if value == "I" then
-    return "Auction Type: Exposure (I)"
-  end
-  if value == "P" then
-    return "Auction Type: Price Improvement (P)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.auction_type.labels = {
+  ["O"] = "Auction Type: Opening (O)",
+  ["R"] = "Auction Type: Reopening (R)",
+  ["I"] = "Auction Type: Exposure (I)",
+  ["P"] = "Auction Type: Price Improvement (P)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.auction_type.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -661,15 +655,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.buy_sell_indicator = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -714,18 +706,14 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.change_reason = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.change_reason.size = 1
 
 -- Display: Change Reason
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.change_reason.display = function(value)
-  if value == "U" then
-    return "Change Reason: User (U)"
-  end
-  if value == "R" then
-    return "Change Reason: Reprice (R)"
-  end
-  if value == "S" then
-    return "Change Reason: Suspend (S)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.change_reason.labels = {
+  ["U"] = "Change Reason: User (U)",
+  ["R"] = "Change Reason: Reprice (R)",
+  ["S"] = "Change Reason: Suspend (S)",
+}
 
-  return "Change Reason: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.change_reason.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.change_reason.labels[value] or "Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Change Reason
@@ -770,15 +758,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Bx Opening Reopening (O)"
-  end
-  if value == "P" then
-    return "Cross Type: Bx Opening Reopening (P)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.labels = {
+  ["O"] = "Cross Type: Bx Opening Reopening (O)",
+  ["P"] = "Cross Type: Bx Opening Reopening (P)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -800,27 +786,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
-  if value == "B" then
-    return "Current Trading State: Buy Side Trading Suspended (B)"
-  end
-  if value == "S" then
-    return "Current Trading State: Sell Side Trading Suspended (S)"
-  end
-  if value == "Y" then
-    return "Current Trading State: Open (Y)"
-  end
-  if value == "N" then
-    return "Current Trading State: Closed (N)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt (H)",
+  ["T"] = "Current Trading State: Trading (T)",
+  ["B"] = "Current Trading State: Buy Side Trading Suspended (B)",
+  ["S"] = "Current Trading State: Sell Side Trading Suspended (S)",
+  ["Y"] = "Current Trading State: Open (Y)",
+  ["N"] = "Current Trading State: Closed (N)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -842,24 +818,16 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.size = 1
 
 -- Display: Customer Firm Indicator
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.display = function(value)
-  if value == "C" then
-    return "Customer Firm Indicator: Customer (C)"
-  end
-  if value == "F" then
-    return "Customer Firm Indicator: Firm Joint (F)"
-  end
-  if value == "M" then
-    return "Customer Firm Indicator: Onfloor (M)"
-  end
-  if value == "P" then
-    return "Customer Firm Indicator: Professional (P)"
-  end
-  if value == "B" then
-    return "Customer Firm Indicator: Broker Dealer Non Registered (B)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.labels = {
+  ["C"] = "Customer Firm Indicator: Customer (C)",
+  ["F"] = "Customer Firm Indicator: Firm Joint (F)",
+  ["M"] = "Customer Firm Indicator: Onfloor (M)",
+  ["P"] = "Customer Firm Indicator: Professional (P)",
+  ["B"] = "Customer Firm Indicator: Broker Dealer Non Registered (B)",
+}
 
-  return "Customer Firm Indicator: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.labels[value] or "Customer Firm Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Firm Indicator
@@ -881,27 +849,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1044,15 +1002,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_direction = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell (S)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_direction.labels = {
+  ["B"] = "Imbalance Direction: Buy (B)",
+  ["S"] = "Imbalance Direction: Sell (S)",
+}
 
-  return "Imbalance Direction: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_direction.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_direction.labels[value] or "Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Direction
@@ -1126,15 +1082,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.market_side = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.market_side.size = 1
 
 -- Display: Market Side
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.market_side.display = function(value)
-  if value == "B" then
-    return "Market Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Market Side: Sell (S)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.market_side.labels = {
+  ["B"] = "Market Side: Buy (B)",
+  ["S"] = "Market Side: Sell (S)",
+}
 
-  return "Market Side: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.market_side.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.market_side.labels[value] or "Market Side: Unknown("..value..")"
 end
 
 -- Dissect: Market Side
@@ -1225,84 +1179,36 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.message_type = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Message Type: Base Reference Message (L)"
-  end
-  if value == "R" then
-    return "Message Type: Option Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Option Open Message (O)"
-  end
-  if value == "a" then
-    return "Message Type: Add Order Message Short Form (a)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message Long Form (A)"
-  end
-  if value == "j" then
-    return "Message Type: Add Quote Message Short Form (j)"
-  end
-  if value == "J" then
-    return "Message Type: Add Quote Message Long Form (J)"
-  end
-  if value == "E" then
-    return "Message Type: Single Side Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Single Side Order Executed With Price Message (C)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "u" then
-    return "Message Type: Single Side Replace Message Short Form (u)"
-  end
-  if value == "U" then
-    return "Message Type: Single Side Replace Message Long Form (U)"
-  end
-  if value == "D" then
-    return "Message Type: Single Side Delete Message (D)"
-  end
-  if value == "G" then
-    return "Message Type: Single Side Update Message (G)"
-  end
-  if value == "k" then
-    return "Message Type: Quote Replace Message Short Form (k)"
-  end
-  if value == "K" then
-    return "Message Type: Quote Replace Message Long Form (K)"
-  end
-  if value == "Y" then
-    return "Message Type: Quote Delete Message (Y)"
-  end
-  if value == "Z" then
-    return "Message Type: Block Delete Message (Z)"
-  end
-  if value == "P" then
-    return "Message Type: Non Auction Options Trade Message (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Options Cross Trade Message (Q)"
-  end
-  if value == "B" then
-    return "Message Type: Broken Trade Or Order Execution Message (B)"
-  end
-  if value == "I" then
-    return "Message Type: Net Order Imbalance Indicator Message (I)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["L"] = "Message Type: Base Reference Message (L)",
+  ["R"] = "Message Type: Option Directory Message (R)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["O"] = "Message Type: Option Open Message (O)",
+  ["a"] = "Message Type: Add Order Message Short Form (a)",
+  ["A"] = "Message Type: Add Order Message Long Form (A)",
+  ["j"] = "Message Type: Add Quote Message Short Form (j)",
+  ["J"] = "Message Type: Add Quote Message Long Form (J)",
+  ["E"] = "Message Type: Single Side Executed Message (E)",
+  ["C"] = "Message Type: Single Side Order Executed With Price Message (C)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["u"] = "Message Type: Single Side Replace Message Short Form (u)",
+  ["U"] = "Message Type: Single Side Replace Message Long Form (U)",
+  ["D"] = "Message Type: Single Side Delete Message (D)",
+  ["G"] = "Message Type: Single Side Update Message (G)",
+  ["k"] = "Message Type: Quote Replace Message Short Form (k)",
+  ["K"] = "Message Type: Quote Replace Message Long Form (K)",
+  ["Y"] = "Message Type: Quote Delete Message (Y)",
+  ["Z"] = "Message Type: Block Delete Message (Z)",
+  ["P"] = "Message Type: Non Auction Options Trade Message (P)",
+  ["Q"] = "Message Type: Options Cross Trade Message (Q)",
+  ["B"] = "Message Type: Broken Trade Or Order Execution Message (B)",
+  ["I"] = "Message Type: Net Order Imbalance Indicator Message (I)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.message_type.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1324,18 +1230,14 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.mpv = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Pilot (P)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.mpv.labels = {
+  ["E"] = "Mpv: Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.mpv.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -1449,15 +1351,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_type = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_type.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1479,15 +1379,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_closing_type = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_closing_type.size = 1
 
 -- Display: Options Closing Type
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_closing_type.display = function(value)
-  if value == "N" then
-    return "Options Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Options Closing Type: Late (L)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_closing_type.labels = {
+  ["N"] = "Options Closing Type: Normal (N)",
+  ["L"] = "Options Closing Type: Late (L)",
+}
 
-  return "Options Closing Type: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_closing_type.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_closing_type.labels[value] or "Options Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Options Closing Type
@@ -1682,15 +1580,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable.size = 1
 
 -- Display: Printable
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Nonprintable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable.labels = {
+  ["N"] = "Printable: Nonprintable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1945,15 +1841,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.tradable = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.tradable.display = function(value)
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
-  if value == "Y" then
-    return "Tradable: Is Tradable (Y)"
-  end
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.tradable.labels = {
+  ["N"] = "Tradable: Not Tradable (N)",
+  ["Y"] = "Tradable: Is Tradable (Y)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.tradable.display = function(value)
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -3552,106 +3446,38 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.payload = {}
 
 -- Dissect: Payload
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.payload.dispatch = {
+  ["T"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.seconds_message.dissect,
+  ["S"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.system_event_message.dissect,
+  ["L"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.base_reference_message.dissect,
+  ["R"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_directory_message.dissect,
+  ["H"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.trading_action_message.dissect,
+  ["O"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_open_message.dissect,
+  ["a"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_order_message_short_form.dissect,
+  ["A"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_order_message_long_form.dissect,
+  ["j"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form.dissect,
+  ["J"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_quote_message_long_form.dissect,
+  ["E"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_executed_message.dissect,
+  ["C"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_message.dissect,
+  ["X"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.order_cancel_message.dissect,
+  ["u"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form.dissect,
+  ["U"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.dissect,
+  ["D"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_delete_message.dissect,
+  ["G"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_update_message.dissect,
+  ["k"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.dissect,
+  ["K"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form.dissect,
+  ["Y"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_delete_message.dissect,
+  ["Z"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.block_delete_message.dissect,
+  ["P"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message.dissect,
+  ["Q"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_cross_trade_message.dissect,
+  ["B"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message.dissect,
+  ["I"] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.dissect,
+}
+
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Base Reference Message
-  if message_type == "L" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.base_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Directory Message
-  if message_type == "R" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Open Message
-  if message_type == "O" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message Short Form
-  if message_type == "a" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_order_message_short_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message Long Form
-  if message_type == "A" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_order_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Message Short Form
-  if message_type == "j" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Message Long Form
-  if message_type == "J" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_quote_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed Message
-  if message_type == "E" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Order Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Message Short Form
-  if message_type == "u" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Message Long Form
-  if message_type == "U" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Delete Message
-  if message_type == "D" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Message
-  if message_type == "G" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Message Short Form
-  if message_type == "k" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Message Long Form
-  if message_type == "K" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Delete Message
-  if message_type == "Y" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Block Delete Message
-  if message_type == "Z" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.block_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Non Auction Options Trade Message
-  if message_type == "P" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_cross_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Or Order Execution Message
-  if message_type == "B" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Order Imbalance Indicator Message
-  if message_type == "I" then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_depthofmarket_itch_v1_3.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3807,14 +3633,15 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.messages = {}
 
 -- Dissect: Messages
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.messages.dispatch = {
+  [0] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.heartbeat.dissect,
+  [65535] = nasdaq_ntxoptions_depthofmarket_itch_v1_3.end_of_session.dissect,
+}
+
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_ntxoptions_depthofmarket_itch_v1_3.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_depthofmarket_itch_v1_3.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

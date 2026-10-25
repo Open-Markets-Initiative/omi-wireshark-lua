@@ -540,24 +540,16 @@ athex_athexsecurities_realtime_ids_v5_2.board_id = {}
 athex_athexsecurities_realtime_ids_v5_2.board_id.size = 1
 
 -- Display: Board Id
-athex_athexsecurities_realtime_ids_v5_2.board_id.display = function(value)
-  if value == "M" then
-    return "Board Id: Main Board (M)"
-  end
-  if value == "O" then
-    return "Board Id: Odd Lot Board (O)"
-  end
-  if value == "B" then
-    return "Board Id: Pre Agreed Board (B)"
-  end
-  if value == "S" then
-    return "Board Id: Special Terms Board (S)"
-  end
-  if value == "F" then
-    return "Board Id: Forced Sales Board (F)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.board_id.labels = {
+  ["M"] = "Board Id: Main Board (M)",
+  ["O"] = "Board Id: Odd Lot Board (O)",
+  ["B"] = "Board Id: Pre Agreed Board (B)",
+  ["S"] = "Board Id: Special Terms Board (S)",
+  ["F"] = "Board Id: Forced Sales Board (F)",
+}
 
-  return "Board Id: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.board_id.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.board_id.labels[value] or "Board Id: Unknown("..value..")"
 end
 
 -- Dissect: Board Id
@@ -579,12 +571,12 @@ athex_athexsecurities_realtime_ids_v5_2.buy_algo_flag = {}
 athex_athexsecurities_realtime_ids_v5_2.buy_algo_flag.size = 1
 
 -- Display: Buy Algo Flag
-athex_athexsecurities_realtime_ids_v5_2.buy_algo_flag.display = function(value)
-  if value == "Y" then
-    return "Buy Algo Flag: Flag On (Y)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.buy_algo_flag.labels = {
+  ["Y"] = "Buy Algo Flag: Flag On (Y)",
+}
 
-  return "Buy Algo Flag: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.buy_algo_flag.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.buy_algo_flag.labels[value] or "Buy Algo Flag: Unknown("..value..")"
 end
 
 -- Dissect: Buy Algo Flag
@@ -664,18 +656,14 @@ athex_athexsecurities_realtime_ids_v5_2.buy_order_type = {}
 athex_athexsecurities_realtime_ids_v5_2.buy_order_type.size = 1
 
 -- Display: Buy Order Type
-athex_athexsecurities_realtime_ids_v5_2.buy_order_type.display = function(value)
-  if value == "B" then
-    return "Buy Order Type: Strategy (B)"
-  end
-  if value == "Q" then
-    return "Buy Order Type: Quote (Q)"
-  end
-  if value == "N" then
-    return "Buy Order Type: Normal (N)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.buy_order_type.labels = {
+  ["B"] = "Buy Order Type: Strategy (B)",
+  ["Q"] = "Buy Order Type: Quote (Q)",
+  ["N"] = "Buy Order Type: Normal (N)",
+}
 
-  return "Buy Order Type: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.buy_order_type.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.buy_order_type.labels[value] or "Buy Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Buy Order Type
@@ -925,12 +913,12 @@ athex_athexsecurities_realtime_ids_v5_2.dupl_flag = {}
 athex_athexsecurities_realtime_ids_v5_2.dupl_flag.size = 1
 
 -- Display: Dupl Flag
-athex_athexsecurities_realtime_ids_v5_2.dupl_flag.display = function(value)
-  if value == "Y" then
-    return "Dupl Flag: Flag On (Y)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.dupl_flag.labels = {
+  ["Y"] = "Dupl Flag: Flag On (Y)",
+}
 
-  return "Dupl Flag: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.dupl_flag.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.dupl_flag.labels[value] or "Dupl Flag: Unknown("..value..")"
 end
 
 -- Dissect: Dupl Flag
@@ -1164,21 +1152,15 @@ athex_athexsecurities_realtime_ids_v5_2.instrument_status = {}
 athex_athexsecurities_realtime_ids_v5_2.instrument_status.size = 1
 
 -- Display: Instrument Status
-athex_athexsecurities_realtime_ids_v5_2.instrument_status.display = function(value)
-  if value == "A" then
-    return "Instrument Status: Active (A)"
-  end
-  if value == "H" then
-    return "Instrument Status: Halt (H)"
-  end
-  if value == "S" then
-    return "Instrument Status: Suspended (S)"
-  end
-  if value == "R" then
-    return "Instrument Status: Resumed (R)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.instrument_status.labels = {
+  ["A"] = "Instrument Status: Active (A)",
+  ["H"] = "Instrument Status: Halt (H)",
+  ["S"] = "Instrument Status: Suspended (S)",
+  ["R"] = "Instrument Status: Resumed (R)",
+}
 
-  return "Instrument Status: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.instrument_status.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.instrument_status.labels[value] or "Instrument Status: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Status
@@ -1368,30 +1350,18 @@ athex_athexsecurities_realtime_ids_v5_2.market_status = {}
 athex_athexsecurities_realtime_ids_v5_2.market_status.size = 1
 
 -- Display: Market Status
-athex_athexsecurities_realtime_ids_v5_2.market_status.display = function(value)
-  if value == "P" then
-    return "Market Status: Pre Call (P)"
-  end
-  if value == "J" then
-    return "Market Status: Projected Auction (J)"
-  end
-  if value == "T" then
-    return "Market Status: Continuous (T)"
-  end
-  if value == "C" then
-    return "Market Status: Closing Price Trading (C)"
-  end
-  if value == "R" then
-    return "Market Status: Run Off (R)"
-  end
-  if value == "E" then
-    return "Market Status: End Of Day (E)"
-  end
-  if value == "H" then
-    return "Market Status: Halt (H)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.market_status.labels = {
+  ["P"] = "Market Status: Pre Call (P)",
+  ["J"] = "Market Status: Projected Auction (J)",
+  ["T"] = "Market Status: Continuous (T)",
+  ["C"] = "Market Status: Closing Price Trading (C)",
+  ["R"] = "Market Status: Run Off (R)",
+  ["E"] = "Market Status: End Of Day (E)",
+  ["H"] = "Market Status: Halt (H)",
+}
 
-  return "Market Status: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.market_status.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.market_status.labels[value] or "Market Status: Unknown("..value..")"
 end
 
 -- Dissect: Market Status
@@ -1451,51 +1421,25 @@ athex_athexsecurities_realtime_ids_v5_2.message_category = {}
 athex_athexsecurities_realtime_ids_v5_2.message_category.size = 1
 
 -- Display: Message Category
-athex_athexsecurities_realtime_ids_v5_2.message_category.display = function(value)
-  if value == "K" then
-    return "Message Category: Control Message (K)"
-  end
-  if value == "A" then
-    return "Message Category: Trade Message (A)"
-  end
-  if value == "B" then
-    return "Message Category: Quote Message (B)"
-  end
-  if value == "C" then
-    return "Message Category: Index Message (C)"
-  end
-  if value == "G" then
-    return "Message Category: Instrument Summary Message (G)"
-  end
-  if value == "I" then
-    return "Message Category: Cancelled Trade Message (I)"
-  end
-  if value == "L" then
-    return "Message Category: Closing Price Message (L)"
-  end
-  if value == "M" then
-    return "Message Category: Projected Auction Auction Open Projected Close Price Message (M)"
-  end
-  if value == "N" then
-    return "Message Category: High Low Limit Modification Message (N)"
-  end
-  if value == "O" then
-    return "Message Category: Instrument State Message (O)"
-  end
-  if value == "P" then
-    return "Message Category: Market Status Message (P)"
-  end
-  if value == "Q" then
-    return "Message Category: Order Message (Q)"
-  end
-  if value == "R" then
-    return "Message Category: Cancelled Order Message (R)"
-  end
-  if value == "S" then
-    return "Message Category: Exchange Notifications Message (S)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.message_category.labels = {
+  ["K"] = "Message Category: Control Message (K)",
+  ["A"] = "Message Category: Trade Message (A)",
+  ["B"] = "Message Category: Quote Message (B)",
+  ["C"] = "Message Category: Index Message (C)",
+  ["G"] = "Message Category: Instrument Summary Message (G)",
+  ["I"] = "Message Category: Cancelled Trade Message (I)",
+  ["L"] = "Message Category: Closing Price Message (L)",
+  ["M"] = "Message Category: Projected Auction Auction Open Projected Close Price Message (M)",
+  ["N"] = "Message Category: High Low Limit Modification Message (N)",
+  ["O"] = "Message Category: Instrument State Message (O)",
+  ["P"] = "Message Category: Market Status Message (P)",
+  ["Q"] = "Message Category: Order Message (Q)",
+  ["R"] = "Message Category: Cancelled Order Message (R)",
+  ["S"] = "Message Category: Exchange Notifications Message (S)",
+}
 
-  return "Message Category: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.message_category.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -1605,21 +1549,15 @@ athex_athexsecurities_realtime_ids_v5_2.message_type = {}
 athex_athexsecurities_realtime_ids_v5_2.message_type.size = 1
 
 -- Display: Message Type
-athex_athexsecurities_realtime_ids_v5_2.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Start Of Day Control Message (A)"
-  end
-  if value == "F" then
-    return "Message Type: Administrative Message (F)"
-  end
-  if value == "H" then
-    return "Message Type: End Of Day Control Message (H)"
-  end
-  if value == "T" then
-    return "Message Type: Line Verification Control Message (T)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.message_type.labels = {
+  ["A"] = "Message Type: Start Of Day Control Message (A)",
+  ["F"] = "Message Type: Administrative Message (F)",
+  ["H"] = "Message Type: End Of Day Control Message (H)",
+  ["T"] = "Message Type: Line Verification Control Message (T)",
+}
 
-  return "Message Type: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.message_type.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1821,18 +1759,14 @@ athex_athexsecurities_realtime_ids_v5_2.order_lifetime = {}
 athex_athexsecurities_realtime_ids_v5_2.order_lifetime.size = 1
 
 -- Display: Order Lifetime
-athex_athexsecurities_realtime_ids_v5_2.order_lifetime.display = function(value)
-  if value == "D" then
-    return "Order Lifetime: Day (D)"
-  end
-  if value == "C" then
-    return "Order Lifetime: Good Till Cancel (C)"
-  end
-  if value == "E" then
-    return "Order Lifetime: Good Till Date (E)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.order_lifetime.labels = {
+  ["D"] = "Order Lifetime: Day (D)",
+  ["C"] = "Order Lifetime: Good Till Cancel (C)",
+  ["E"] = "Order Lifetime: Good Till Date (E)",
+}
 
-  return "Order Lifetime: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.order_lifetime.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.order_lifetime.labels[value] or "Order Lifetime: Unknown("..value..")"
 end
 
 -- Dissect: Order Lifetime
@@ -1939,21 +1873,15 @@ athex_athexsecurities_realtime_ids_v5_2.order_status = {}
 athex_athexsecurities_realtime_ids_v5_2.order_status.size = 2
 
 -- Display: Order Status
-athex_athexsecurities_realtime_ids_v5_2.order_status.display = function(value)
-  if value == "N" then
-    return "Order Status: Not Released (N)"
-  end
-  if value == "I" then
-    return "Order Status: Inactive (I)"
-  end
-  if value == "O" then
-    return "Order Status: Open (O)"
-  end
-  if value == "EP" then
-    return "Order Status: Good Till Date Expired (EP)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.order_status.labels = {
+  ["N"] = "Order Status: Not Released (N)",
+  ["I"] = "Order Status: Inactive (I)",
+  ["O"] = "Order Status: Open (O)",
+  ["EP"] = "Order Status: Good Till Date Expired (EP)",
+}
 
-  return "Order Status: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.order_status.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.order_status.labels[value] or "Order Status: Unknown("..value..")"
 end
 
 -- Dissect: Order Status
@@ -1975,18 +1903,14 @@ athex_athexsecurities_realtime_ids_v5_2.order_type = {}
 athex_athexsecurities_realtime_ids_v5_2.order_type.size = 1
 
 -- Display: Order Type
-athex_athexsecurities_realtime_ids_v5_2.order_type.display = function(value)
-  if value == "B" then
-    return "Order Type: Strategy (B)"
-  end
-  if value == "Q" then
-    return "Order Type: Quote (Q)"
-  end
-  if value == "N" then
-    return "Order Type: Normal (N)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.order_type.labels = {
+  ["B"] = "Order Type: Strategy (B)",
+  ["Q"] = "Order Type: Quote (Q)",
+  ["N"] = "Order Type: Normal (N)",
+}
 
-  return "Order Type: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.order_type.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -2008,21 +1932,15 @@ athex_athexsecurities_realtime_ids_v5_2.original_price_type = {}
 athex_athexsecurities_realtime_ids_v5_2.original_price_type.size = 1
 
 -- Display: Original Price Type
-athex_athexsecurities_realtime_ids_v5_2.original_price_type.display = function(value)
-  if value == "L" then
-    return "Original Price Type: Limit Price (L)"
-  end
-  if value == "M" then
-    return "Original Price Type: Market (M)"
-  end
-  if value == "O" then
-    return "Original Price Type: At The Open (O)"
-  end
-  if value == "C" then
-    return "Original Price Type: At The Close (C)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.original_price_type.labels = {
+  ["L"] = "Original Price Type: Limit Price (L)",
+  ["M"] = "Original Price Type: Market (M)",
+  ["O"] = "Original Price Type: At The Open (O)",
+  ["C"] = "Original Price Type: At The Close (C)",
+}
 
-  return "Original Price Type: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.original_price_type.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.original_price_type.labels[value] or "Original Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Original Price Type
@@ -2124,18 +2042,14 @@ athex_athexsecurities_realtime_ids_v5_2.price_flag = {}
 athex_athexsecurities_realtime_ids_v5_2.price_flag.size = 1
 
 -- Display: Price Flag
-athex_athexsecurities_realtime_ids_v5_2.price_flag.display = function(value)
-  if value == "0" then
-    return "Price Flag: Projected Auction Price (0)"
-  end
-  if value == "1" then
-    return "Price Flag: Auction Open Price (1)"
-  end
-  if value == "2" then
-    return "Price Flag: Projected Close (2)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.price_flag.labels = {
+  ["0"] = "Price Flag: Projected Auction Price (0)",
+  ["1"] = "Price Flag: Auction Open Price (1)",
+  ["2"] = "Price Flag: Projected Close (2)",
+}
 
-  return "Price Flag: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.price_flag.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.price_flag.labels[value] or "Price Flag: Unknown("..value..")"
 end
 
 -- Dissect: Price Flag
@@ -2238,12 +2152,12 @@ athex_athexsecurities_realtime_ids_v5_2.sdiv_flag = {}
 athex_athexsecurities_realtime_ids_v5_2.sdiv_flag.size = 1
 
 -- Display: Sdiv Flag
-athex_athexsecurities_realtime_ids_v5_2.sdiv_flag.display = function(value)
-  if value == "Y" then
-    return "Sdiv Flag: Flag On (Y)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.sdiv_flag.labels = {
+  ["Y"] = "Sdiv Flag: Flag On (Y)",
+}
 
-  return "Sdiv Flag: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.sdiv_flag.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.sdiv_flag.labels[value] or "Sdiv Flag: Unknown("..value..")"
 end
 
 -- Dissect: Sdiv Flag
@@ -2265,12 +2179,12 @@ athex_athexsecurities_realtime_ids_v5_2.sell_algo_flag = {}
 athex_athexsecurities_realtime_ids_v5_2.sell_algo_flag.size = 1
 
 -- Display: Sell Algo Flag
-athex_athexsecurities_realtime_ids_v5_2.sell_algo_flag.display = function(value)
-  if value == "Y" then
-    return "Sell Algo Flag: Flag On (Y)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.sell_algo_flag.labels = {
+  ["Y"] = "Sell Algo Flag: Flag On (Y)",
+}
 
-  return "Sell Algo Flag: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.sell_algo_flag.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.sell_algo_flag.labels[value] or "Sell Algo Flag: Unknown("..value..")"
 end
 
 -- Dissect: Sell Algo Flag
@@ -2350,18 +2264,14 @@ athex_athexsecurities_realtime_ids_v5_2.sell_order_type = {}
 athex_athexsecurities_realtime_ids_v5_2.sell_order_type.size = 1
 
 -- Display: Sell Order Type
-athex_athexsecurities_realtime_ids_v5_2.sell_order_type.display = function(value)
-  if value == "B" then
-    return "Sell Order Type: Strategy (B)"
-  end
-  if value == "Q" then
-    return "Sell Order Type: Quote (Q)"
-  end
-  if value == "N" then
-    return "Sell Order Type: Normal (N)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.sell_order_type.labels = {
+  ["B"] = "Sell Order Type: Strategy (B)",
+  ["Q"] = "Sell Order Type: Quote (Q)",
+  ["N"] = "Sell Order Type: Normal (N)",
+}
 
-  return "Sell Order Type: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.sell_order_type.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.sell_order_type.labels[value] or "Sell Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Sell Order Type
@@ -2383,15 +2293,13 @@ athex_athexsecurities_realtime_ids_v5_2.side = {}
 athex_athexsecurities_realtime_ids_v5_2.side.size = 1
 
 -- Display: Side
-athex_athexsecurities_realtime_ids_v5_2.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.side.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2440,33 +2348,19 @@ athex_athexsecurities_realtime_ids_v5_2.special_conditions = {}
 athex_athexsecurities_realtime_ids_v5_2.special_conditions.size = 1
 
 -- Display: Special Conditions
-athex_athexsecurities_realtime_ids_v5_2.special_conditions.display = function(value)
-  if value == "N" then
-    return "Special Conditions: None (N)"
-  end
-  if value == "F" then
-    return "Special Conditions: Fill Or Kill (F)"
-  end
-  if value == "I" then
-    return "Special Conditions: Immediate Or Cancel (I)"
-  end
-  if value == "S" then
-    return "Special Conditions: Stop Instrument (S)"
-  end
-  if value == "D" then
-    return "Special Conditions: Stop Index (D)"
-  end
-  if value == "A" then
-    return "Special Conditions: All Or None (A)"
-  end
-  if value == "M" then
-    return "Special Conditions: Minimum Fill (M)"
-  end
-  if value == "O" then
-    return "Special Conditions: Multiple Of (O)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.special_conditions.labels = {
+  ["N"] = "Special Conditions: None (N)",
+  ["F"] = "Special Conditions: Fill Or Kill (F)",
+  ["I"] = "Special Conditions: Immediate Or Cancel (I)",
+  ["S"] = "Special Conditions: Stop Instrument (S)",
+  ["D"] = "Special Conditions: Stop Index (D)",
+  ["A"] = "Special Conditions: All Or None (A)",
+  ["M"] = "Special Conditions: Minimum Fill (M)",
+  ["O"] = "Special Conditions: Multiple Of (O)",
+}
 
-  return "Special Conditions: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.special_conditions.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.special_conditions.labels[value] or "Special Conditions: Unknown("..value..")"
 end
 
 -- Dissect: Special Conditions
@@ -2768,15 +2662,13 @@ athex_athexsecurities_realtime_ids_v5_2.trade_source = {}
 athex_athexsecurities_realtime_ids_v5_2.trade_source.size = 1
 
 -- Display: Trade Source
-athex_athexsecurities_realtime_ids_v5_2.trade_source.display = function(value)
-  if value == "T" then
-    return "Trade Source: Trading Platform (T)"
-  end
-  if value == "C" then
-    return "Trade Source: Clearing System (C)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.trade_source.labels = {
+  ["T"] = "Trade Source: Trading Platform (T)",
+  ["C"] = "Trade Source: Clearing System (C)",
+}
 
-  return "Trade Source: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.trade_source.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.trade_source.labels[value] or "Trade Source: Unknown("..value..")"
 end
 
 -- Dissect: Trade Source
@@ -2798,18 +2690,14 @@ athex_athexsecurities_realtime_ids_v5_2.trade_type = {}
 athex_athexsecurities_realtime_ids_v5_2.trade_type.size = 1
 
 -- Display: Trade Type
-athex_athexsecurities_realtime_ids_v5_2.trade_type.display = function(value)
-  if value == "N" then
-    return "Trade Type: New (N)"
-  end
-  if value == "E" then
-    return "Trade Type: Edit (E)"
-  end
-  if value == "C" then
-    return "Trade Type: Cancel (C)"
-  end
+athex_athexsecurities_realtime_ids_v5_2.trade_type.labels = {
+  ["N"] = "Trade Type: New (N)",
+  ["E"] = "Trade Type: Edit (E)",
+  ["C"] = "Trade Type: Cancel (C)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+athex_athexsecurities_realtime_ids_v5_2.trade_type.display = function(value)
+  return athex_athexsecurities_realtime_ids_v5_2.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -4202,22 +4090,17 @@ end
 athex_athexsecurities_realtime_ids_v5_2.control_message_text = {}
 
 -- Dissect: Control Message Text
+athex_athexsecurities_realtime_ids_v5_2.control_message_text.dispatch = {
+  ["A"] = athex_athexsecurities_realtime_ids_v5_2.start_of_day_control_message.dissect,
+  ["F"] = athex_athexsecurities_realtime_ids_v5_2.administrative_message.dissect,
+  ["H"] = athex_athexsecurities_realtime_ids_v5_2.end_of_day_control_message.dissect,
+  ["T"] = athex_athexsecurities_realtime_ids_v5_2.line_verification_control_message.dissect,
+}
+
 athex_athexsecurities_realtime_ids_v5_2.control_message_text.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Start Of Day Control Message
-  if message_type == "A" then
-    return athex_athexsecurities_realtime_ids_v5_2.start_of_day_control_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Administrative Message
-  if message_type == "F" then
-    return athex_athexsecurities_realtime_ids_v5_2.administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Control Message
-  if message_type == "H" then
-    return athex_athexsecurities_realtime_ids_v5_2.end_of_day_control_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Line Verification Control Message
-  if message_type == "T" then
-    return athex_athexsecurities_realtime_ids_v5_2.line_verification_control_message.dissect(buffer, offset, packet, parent)
+  local dissect = athex_athexsecurities_realtime_ids_v5_2.control_message_text.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4280,62 +4163,27 @@ end
 athex_athexsecurities_realtime_ids_v5_2.message_text = {}
 
 -- Dissect: Message Text
+athex_athexsecurities_realtime_ids_v5_2.message_text.dispatch = {
+  ["K"] = athex_athexsecurities_realtime_ids_v5_2.control_message.dissect,
+  ["A"] = athex_athexsecurities_realtime_ids_v5_2.trade_message.dissect,
+  ["B"] = athex_athexsecurities_realtime_ids_v5_2.quote_message.dissect,
+  ["C"] = athex_athexsecurities_realtime_ids_v5_2.index_message.dissect,
+  ["G"] = athex_athexsecurities_realtime_ids_v5_2.instrument_summary_message.dissect,
+  ["I"] = athex_athexsecurities_realtime_ids_v5_2.cancelled_trade_message.dissect,
+  ["L"] = athex_athexsecurities_realtime_ids_v5_2.closing_price_message.dissect,
+  ["M"] = athex_athexsecurities_realtime_ids_v5_2.projected_auction_auction_open_projected_close_price_message.dissect,
+  ["N"] = athex_athexsecurities_realtime_ids_v5_2.high_low_limit_modification_message.dissect,
+  ["O"] = athex_athexsecurities_realtime_ids_v5_2.instrument_state_message.dissect,
+  ["P"] = athex_athexsecurities_realtime_ids_v5_2.market_status_message.dissect,
+  ["Q"] = athex_athexsecurities_realtime_ids_v5_2.order_message.dissect,
+  ["R"] = athex_athexsecurities_realtime_ids_v5_2.cancelled_order_message.dissect,
+  ["S"] = athex_athexsecurities_realtime_ids_v5_2.exchange_notifications_message.dissect,
+}
+
 athex_athexsecurities_realtime_ids_v5_2.message_text.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Control Message
-  if message_category == "K" then
-    return athex_athexsecurities_realtime_ids_v5_2.control_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_category == "A" then
-    return athex_athexsecurities_realtime_ids_v5_2.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Message
-  if message_category == "B" then
-    return athex_athexsecurities_realtime_ids_v5_2.quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Message
-  if message_category == "C" then
-    return athex_athexsecurities_realtime_ids_v5_2.index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Summary Message
-  if message_category == "G" then
-    return athex_athexsecurities_realtime_ids_v5_2.instrument_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancelled Trade Message
-  if message_category == "I" then
-    return athex_athexsecurities_realtime_ids_v5_2.cancelled_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price Message
-  if message_category == "L" then
-    return athex_athexsecurities_realtime_ids_v5_2.closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Projected Auction Auction Open Projected Close Price Message
-  if message_category == "M" then
-    return athex_athexsecurities_realtime_ids_v5_2.projected_auction_auction_open_projected_close_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Low Limit Modification Message
-  if message_category == "N" then
-    return athex_athexsecurities_realtime_ids_v5_2.high_low_limit_modification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument State Message
-  if message_category == "O" then
-    return athex_athexsecurities_realtime_ids_v5_2.instrument_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Status Message
-  if message_category == "P" then
-    return athex_athexsecurities_realtime_ids_v5_2.market_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Message
-  if message_category == "Q" then
-    return athex_athexsecurities_realtime_ids_v5_2.order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancelled Order Message
-  if message_category == "R" then
-    return athex_athexsecurities_realtime_ids_v5_2.cancelled_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Exchange Notifications Message
-  if message_category == "S" then
-    return athex_athexsecurities_realtime_ids_v5_2.exchange_notifications_message.dissect(buffer, offset, packet, parent)
+  local dissect = athex_athexsecurities_realtime_ids_v5_2.message_text.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

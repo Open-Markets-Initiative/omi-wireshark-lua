@@ -177,18 +177,14 @@ blueoceanats_commonheader_udp_v1_1.message_type = {}
 blueoceanats_commonheader_udp_v1_1.message_type.size = 1
 
 -- Display: Message Type
-blueoceanats_commonheader_udp_v1_1.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
+blueoceanats_commonheader_udp_v1_1.message_type.labels = {
+  [0] = "Message Type: Heartbeat Message (0)",
+  [1] = "Message Type: Session Shutdown Message (1)",
+  [2] = "Message Type: Sequenced Message (2)",
+}
 
-  return "Message Type: Unknown("..value..")"
+blueoceanats_commonheader_udp_v1_1.message_type.display = function(value)
+  return blueoceanats_commonheader_udp_v1_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -592,18 +588,16 @@ end
 blueoceanats_commonheader_udp_v1_1.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
+blueoceanats_commonheader_udp_v1_1.sequenced_messages.dispatch = {
+  [0] = blueoceanats_commonheader_udp_v1_1.heartbeat.dissect,
+  [1] = blueoceanats_commonheader_udp_v1_1.session_shutdown.dissect,
+  [2] = blueoceanats_commonheader_udp_v1_1.sequenced_message.dissect,
+}
+
 blueoceanats_commonheader_udp_v1_1.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Heartbeat
-  if message_type == 0 then
-    return blueoceanats_commonheader_udp_v1_1.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Shutdown
-  if message_type == 1 then
-    return blueoceanats_commonheader_udp_v1_1.session_shutdown.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 2 then
-    return blueoceanats_commonheader_udp_v1_1.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = blueoceanats_commonheader_udp_v1_1.sequenced_messages.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

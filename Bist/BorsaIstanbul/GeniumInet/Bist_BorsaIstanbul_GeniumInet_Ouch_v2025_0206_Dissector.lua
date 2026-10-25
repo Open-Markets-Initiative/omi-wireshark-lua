@@ -421,30 +421,18 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_category = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_category.size = 1
 
 -- Display: Client Category
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_category.display = function(value)
-  if value == 1 then
-    return "Client Category: Client (1)"
-  end
-  if value == 2 then
-    return "Client Category: House (2)"
-  end
-  if value == 7 then
-    return "Client Category: Fund (7)"
-  end
-  if value == 9 then
-    return "Client Category: Investment Trust (9)"
-  end
-  if value == 10 then
-    return "Client Category: Primary Dealer Govt (10)"
-  end
-  if value == 11 then
-    return "Client Category: Primary Dealer Corp (11)"
-  end
-  if value == 12 then
-    return "Client Category: Portfolio Mgmt Company (12)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_category.labels = {
+  [1] = "Client Category: Client (1)",
+  [2] = "Client Category: House (2)",
+  [7] = "Client Category: Fund (7)",
+  [9] = "Client Category: Investment Trust (9)",
+  [10] = "Client Category: Primary Dealer Govt (10)",
+  [11] = "Client Category: Primary Dealer Corp (11)",
+  [12] = "Client Category: Portfolio Mgmt Company (12)",
+}
 
-  return "Client Category: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_category.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_category.labels[value] or "Client Category: Unknown("..value..")"
 end
 
 -- Dissect: Client Category
@@ -466,24 +454,16 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_packet_type = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_packet_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -709,15 +689,13 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.off_hours = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.off_hours.size = 1
 
 -- Display: Off Hours
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.off_hours.display = function(value)
-  if value == 0 then
-    return "Off Hours: Normal Hours (0)"
-  end
-  if value == 1 then
-    return "Off Hours: Off Hour Orders (1)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.off_hours.labels = {
+  [0] = "Off Hours: Normal Hours (0)",
+  [1] = "Off Hours: Off Hour Orders (1)",
+}
 
-  return "Off Hours: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.off_hours.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.off_hours.labels[value] or "Off Hours: Unknown("..value..")"
 end
 
 -- Dissect: Off Hours
@@ -791,18 +769,14 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.open_close = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.open_close.size = 1
 
 -- Display: Open Close
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.open_close.display = function(value)
-  if value == 0 then
-    return "Open Close: Default (0)"
-  end
-  if value == 1 then
-    return "Open Close: Open (1)"
-  end
-  if value == 2 then
-    return "Open Close: Close Net (2)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.open_close.labels = {
+  [0] = "Open Close: Default (0)",
+  [1] = "Open Close: Open (1)",
+  [2] = "Open Close: Close Net (2)",
+}
 
-  return "Open Close: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.open_close.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.open_close.labels[value] or "Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Open Close
@@ -870,21 +844,15 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_state = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_state.size = 1
 
 -- Display: Order State
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_state.display = function(value)
-  if value == 1 then
-    return "Order State: On Book (1)"
-  end
-  if value == 2 then
-    return "Order State: Not On Book (2)"
-  end
-  if value == 98 then
-    return "Order State: Paused (98)"
-  end
-  if value == 99 then
-    return "Order State: Ouch Order Ownership Lost (99)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_state.labels = {
+  [1] = "Order State: On Book (1)",
+  [2] = "Order State: Not On Book (2)",
+  [98] = "Order State: Paused (98)",
+  [99] = "Order State: Ouch Order Ownership Lost (99)",
+}
 
-  return "Order State: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_state.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -1073,15 +1041,13 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side.size = 1
 
 -- Display: Quote Side
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side.display = function(value)
-  if value == "B" then
-    return "Quote Side: Bid (B)"
-  end
-  if value == "S" then
-    return "Quote Side: Offer (S)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side.labels = {
+  ["B"] = "Quote Side: Bid (B)",
+  ["S"] = "Quote Side: Offer (S)",
+}
 
-  return "Quote Side: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side.labels[value] or "Quote Side: Unknown("..value..")"
 end
 
 -- Dissect: Quote Side
@@ -1103,27 +1069,17 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_status = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_status.size = 4
 
 -- Display: Quote Status
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_status.display = function(value)
-  if value == 0 then
-    return "Quote Status: Accept (0)"
-  end
-  if value == 1 then
-    return "Quote Status: Updated (1)"
-  end
-  if value == 2 then
-    return "Quote Status: Canceled (2)"
-  end
-  if value == 3 then
-    return "Quote Status: Unsolicited Update (3)"
-  end
-  if value == 4 then
-    return "Quote Status: Unsolicited Cancel (4)"
-  end
-  if value == 5 then
-    return "Quote Status: Traded (5)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_status.labels = {
+  [0] = "Quote Status: Accept (0)",
+  [1] = "Quote Status: Updated (1)",
+  [2] = "Quote Status: Canceled (2)",
+  [3] = "Quote Status: Unsolicited Update (3)",
+  [4] = "Quote Status: Unsolicited Cancel (4)",
+  [5] = "Quote Status: Traded (5)",
+}
 
-  return "Quote Status: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_status.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_status.labels[value] or "Quote Status: Unknown("..value..")"
 end
 
 -- Dissect: Quote Status
@@ -1145,165 +1101,63 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.reason = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.reason.size = 1
 
 -- Display: Reason
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.reason.display = function(value)
-  if value == 1 then
-    return "Reason: Canceled By User Or Other User (1)"
-  end
-  if value == 3 then
-    return "Reason: Trade (3)"
-  end
-  if value == 4 then
-    return "Reason: Inactivate (4)"
-  end
-  if value == 5 then
-    return "Reason: Replaced By User (5)"
-  end
-  if value == 6 then
-    return "Reason: New (6)"
-  end
-  if value == 8 then
-    return "Reason: Converted By System (8)"
-  end
-  if value == 9 then
-    return "Reason: Canceled By System (9)"
-  end
-  if value == 10 then
-    return "Reason: Canceled By Proxy (10)"
-  end
-  if value == 11 then
-    return "Reason: Bait Recalculated (11)"
-  end
-  if value == 12 then
-    return "Reason: Triggered By System (12)"
-  end
-  if value == 13 then
-    return "Reason: Refreshed By System (13)"
-  end
-  if value == 15 then
-    return "Reason: Canceled By System Limit Change (15)"
-  end
-  if value == 17 then
-    return "Reason: Linked Leg Canceled (17)"
-  end
-  if value == 18 then
-    return "Reason: Linked Leg Modified (18)"
-  end
-  if value == 19 then
-    return "Reason: Expired (19)"
-  end
-  if value == 20 then
-    return "Reason: Canceled Due To Iss (20)"
-  end
-  if value == 21 then
-    return "Reason: Inactivated Due To Iss (21)"
-  end
-  if value == 23 then
-    return "Reason: Inactivated Due To Purge (23)"
-  end
-  if value == 24 then
-    return "Reason: Inactivated Day Order (24)"
-  end
-  if value == 25 then
-    return "Reason: Inactivated Due To Delist (25)"
-  end
-  if value == 26 then
-    return "Reason: Inactivated Due To Expiry (26)"
-  end
-  if value == 27 then
-    return "Reason: Inactivated Due To Outside Limits (27)"
-  end
-  if value == 28 then
-    return "Reason: Transfer Of Ownership (28)"
-  end
-  if value == 29 then
-    return "Reason: New Inactive (29)"
-  end
-  if value == 30 then
-    return "Reason: Reloaded (30)"
-  end
-  if value == 31 then
-    return "Reason: Reloaded Intraday (31)"
-  end
-  if value == 34 then
-    return "Reason: Canceled After Auction (34)"
-  end
-  if value == 35 then
-    return "Reason: Inactivated Due To Outside Price Limits (35)"
-  end
-  if value == 36 then
-    return "Reason: Activated Due To Outside Limits (36)"
-  end
-  if value == 37 then
-    return "Reason: Trigger On Session Order Triggered (37)"
-  end
-  if value == 39 then
-    return "Reason: Undisclosed Quantity Order Converted (39)"
-  end
-  if value == 40 then
-    return "Reason: Inactivated Due To Order Value (40)"
-  end
-  if value == 41 then
-    return "Reason: Canceled By System Delta Protection (41)"
-  end
-  if value == 42 then
-    return "Reason: Canceled By System Quantity Protection (42)"
-  end
-  if value == 43 then
-    return "Reason: Internal Crossing Delete (43)"
-  end
-  if value == 44 then
-    return "Reason: Canceled Due To Participant Block On Market (44)"
-  end
-  if value == 45 then
-    return "Reason: Inactivated Due To Participant Block On Market (45)"
-  end
-  if value == 46 then
-    return "Reason: Order Deleted Due To Smp (46)"
-  end
-  if value == 52 then
-    return "Reason: Paused (52)"
-  end
-  if value == 53 then
-    return "Reason: Activated Paused Order (53)"
-  end
-  if value == 56 then
-    return "Reason: Linked Leg Activated (56)"
-  end
-  if value == 115 then
-    return "Reason: Deleted Ptrm Misc (115)"
-  end
-  if value == 116 then
-    return "Reason: Deleted Ptrm User Limits Auto (116)"
-  end
-  if value == 117 then
-    return "Reason: Deleted Ptrm User Limits Manual (117)"
-  end
-  if value == 118 then
-    return "Reason: Deleted Ptrm Market Limits (118)"
-  end
-  if value == 119 then
-    return "Reason: Deleted Ptrm Investor Limits (119)"
-  end
-  if value == 120 then
-    return "Reason: Deleted Ptrm Margin Breach (120)"
-  end
-  if value == 121 then
-    return "Reason: Deleted Ptrm Participant Suspension (121)"
-  end
-  if value == 122 then
-    return "Reason: Deleted Ptrm Mra Suspension (122)"
-  end
-  if value == 123 then
-    return "Reason: Deleted Ptrm Mca Suspension (123)"
-  end
-  if value == 124 then
-    return "Reason: Deleted Ptrm Ta Suspension (124)"
-  end
-  if value == 125 then
-    return "Reason: Canceled By Ptrm Suspension Product Due To Investor Position Value Limit (125)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.reason.labels = {
+  [1] = "Reason: Canceled By User Or Other User (1)",
+  [3] = "Reason: Trade (3)",
+  [4] = "Reason: Inactivate (4)",
+  [5] = "Reason: Replaced By User (5)",
+  [6] = "Reason: New (6)",
+  [8] = "Reason: Converted By System (8)",
+  [9] = "Reason: Canceled By System (9)",
+  [10] = "Reason: Canceled By Proxy (10)",
+  [11] = "Reason: Bait Recalculated (11)",
+  [12] = "Reason: Triggered By System (12)",
+  [13] = "Reason: Refreshed By System (13)",
+  [15] = "Reason: Canceled By System Limit Change (15)",
+  [17] = "Reason: Linked Leg Canceled (17)",
+  [18] = "Reason: Linked Leg Modified (18)",
+  [19] = "Reason: Expired (19)",
+  [20] = "Reason: Canceled Due To Iss (20)",
+  [21] = "Reason: Inactivated Due To Iss (21)",
+  [23] = "Reason: Inactivated Due To Purge (23)",
+  [24] = "Reason: Inactivated Day Order (24)",
+  [25] = "Reason: Inactivated Due To Delist (25)",
+  [26] = "Reason: Inactivated Due To Expiry (26)",
+  [27] = "Reason: Inactivated Due To Outside Limits (27)",
+  [28] = "Reason: Transfer Of Ownership (28)",
+  [29] = "Reason: New Inactive (29)",
+  [30] = "Reason: Reloaded (30)",
+  [31] = "Reason: Reloaded Intraday (31)",
+  [34] = "Reason: Canceled After Auction (34)",
+  [35] = "Reason: Inactivated Due To Outside Price Limits (35)",
+  [36] = "Reason: Activated Due To Outside Limits (36)",
+  [37] = "Reason: Trigger On Session Order Triggered (37)",
+  [39] = "Reason: Undisclosed Quantity Order Converted (39)",
+  [40] = "Reason: Inactivated Due To Order Value (40)",
+  [41] = "Reason: Canceled By System Delta Protection (41)",
+  [42] = "Reason: Canceled By System Quantity Protection (42)",
+  [43] = "Reason: Internal Crossing Delete (43)",
+  [44] = "Reason: Canceled Due To Participant Block On Market (44)",
+  [45] = "Reason: Inactivated Due To Participant Block On Market (45)",
+  [46] = "Reason: Order Deleted Due To Smp (46)",
+  [52] = "Reason: Paused (52)",
+  [53] = "Reason: Activated Paused Order (53)",
+  [56] = "Reason: Linked Leg Activated (56)",
+  [115] = "Reason: Deleted Ptrm Misc (115)",
+  [116] = "Reason: Deleted Ptrm User Limits Auto (116)",
+  [117] = "Reason: Deleted Ptrm User Limits Manual (117)",
+  [118] = "Reason: Deleted Ptrm Market Limits (118)",
+  [119] = "Reason: Deleted Ptrm Investor Limits (119)",
+  [120] = "Reason: Deleted Ptrm Margin Breach (120)",
+  [121] = "Reason: Deleted Ptrm Participant Suspension (121)",
+  [122] = "Reason: Deleted Ptrm Mra Suspension (122)",
+  [123] = "Reason: Deleted Ptrm Mca Suspension (123)",
+  [124] = "Reason: Deleted Ptrm Ta Suspension (124)",
+  [125] = "Reason: Canceled By Ptrm Suspension Product Due To Investor Position Value Limit (125)",
+}
 
-  return "Reason: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.reason.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1348,15 +1202,13 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.reject_reason_code = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.reject_reason_code.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1378,21 +1230,15 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_open_close = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_open_close.size = 1
 
 -- Display: Replace Open Close
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_open_close.display = function(value)
-  if value == 0 then
-    return "Replace Open Close: No Change (0)"
-  end
-  if value == 1 then
-    return "Replace Open Close: Open (1)"
-  end
-  if value == 2 then
-    return "Replace Open Close: Close Net (2)"
-  end
-  if value == 4 then
-    return "Replace Open Close: Default (4)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_open_close.labels = {
+  [0] = "Replace Open Close: No Change (0)",
+  [1] = "Replace Open Close: Open (1)",
+  [2] = "Replace Open Close: Close Net (2)",
+  [4] = "Replace Open Close: Default (4)",
+}
 
-  return "Replace Open Close: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_open_close.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_open_close.labels[value] or "Replace Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Replace Open Close
@@ -1560,30 +1406,18 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message_type = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message_type.display = function(value)
-  if value == "A" then
-    return "Sequenced Message Type: Order Accepted (A)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Order Rejected (J)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replaced (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Order Canceled (C)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed (E)"
-  end
-  if value == "K" then
-    return "Sequenced Message Type: Mass Quote Acknowledgement (K)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Mass Quote Rejection (R)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message_type.labels = {
+  ["A"] = "Sequenced Message Type: Order Accepted (A)",
+  ["J"] = "Sequenced Message Type: Order Rejected (J)",
+  ["U"] = "Sequenced Message Type: Order Replaced (U)",
+  ["C"] = "Sequenced Message Type: Order Canceled (C)",
+  ["E"] = "Sequenced Message Type: Order Executed (E)",
+  ["K"] = "Sequenced Message Type: Mass Quote Acknowledgement (K)",
+  ["R"] = "Sequenced Message Type: Mass Quote Rejection (R)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1605,27 +1439,17 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_packet_type = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_packet_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1647,18 +1471,14 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.side = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.side.size = 1
 
 -- Display: Side
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "T" then
-    return "Side: Short Sell (T)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["T"] = "Side: Short Sell (T)",
+}
 
-  return "Side: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.side.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1703,18 +1523,14 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_level = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_level.size = 1
 
 -- Display: Smp Level
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_level.display = function(value)
-  if value == 0 then
-    return "Smp Level: Empty (0)"
-  end
-  if value == 1 then
-    return "Smp Level: Within A Member (1)"
-  end
-  if value == 2 then
-    return "Smp Level: Across Members (2)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_level.labels = {
+  [0] = "Smp Level: Empty (0)",
+  [1] = "Smp Level: Within A Member (1)",
+  [2] = "Smp Level: Across Members (2)",
+}
 
-  return "Smp Level: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_level.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_level.labels[value] or "Smp Level: Unknown("..value..")"
 end
 
 -- Dissect: Smp Level
@@ -1736,21 +1552,15 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_method = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_method.size = 1
 
 -- Display: Smp Method
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_method.display = function(value)
-  if value == 0 then
-    return "Smp Method: Empty (0)"
-  end
-  if value == 1 then
-    return "Smp Method: Cancel Aggressive (1)"
-  end
-  if value == 2 then
-    return "Smp Method: Cancel Passive (2)"
-  end
-  if value == 3 then
-    return "Smp Method: Cancel Both (3)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_method.labels = {
+  [0] = "Smp Method: Empty (0)",
+  [1] = "Smp Method: Cancel Aggressive (1)",
+  [2] = "Smp Method: Cancel Passive (2)",
+  [3] = "Smp Method: Cancel Both (3)",
+}
 
-  return "Smp Method: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_method.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_method.labels[value] or "Smp Method: Unknown("..value..")"
 end
 
 -- Dissect: Smp Method
@@ -1772,18 +1582,14 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.time_in_force = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.time_in_force.size = 1
 
 -- Display: Time In Force
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 3 then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fill Or Kill (4)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.time_in_force.labels = {
+  [0] = "Time In Force: Day (0)",
+  [3] = "Time In Force: Immediate Or Cancel (3)",
+  [4] = "Time In Force: Fill Or Kill (4)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.time_in_force.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -1857,24 +1663,16 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message_type = {}
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order (X)"
-  end
-  if value == "Y" then
-    return "Unsequenced Message Type: Cancel By Order Id (Y)"
-  end
-  if value == "Q" then
-    return "Unsequenced Message Type: Mass Quote (Q)"
-  end
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order (O)",
+  ["U"] = "Unsequenced Message Type: Replace Order (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order (X)",
+  ["Y"] = "Unsequenced Message Type: Cancel By Order Id (Y)",
+  ["Q"] = "Unsequenced Message Type: Mass Quote (Q)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message_type.display = function(value)
+  return bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2471,34 +2269,20 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message.dispatch = {
+  ["A"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_accepted.dissect,
+  ["J"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_rejected.dissect,
+  ["U"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_replaced.dissect,
+  ["C"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_canceled.dissect,
+  ["E"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_executed.dissect,
+  ["K"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.mass_quote_acknowledgement.dissect,
+  ["R"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.mass_quote_rejection.dissect,
+}
+
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Order Accepted
-  if sequenced_message_type == "A" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_accepted.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected
-  if sequenced_message_type == "J" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_rejected.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced
-  if sequenced_message_type == "U" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_replaced.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled
-  if sequenced_message_type == "C" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_canceled.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed
-  if sequenced_message_type == "E" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_executed.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Acknowledgement
-  if sequenced_message_type == "K" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.mass_quote_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Rejection
-  if sequenced_message_type == "R" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.mass_quote_rejection.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2741,30 +2525,19 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload = {}
 
 -- Dissect: Server Payload
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload.dispatch = {
+  ["+"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.dissect,
+  ["A"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.login_accepted_packet.dissect,
+  ["J"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.login_rejected_packet.dissect,
+  ["S"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_data_packet.dissect,
+  ["H"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_heartbeat.dissect,
+  ["Z"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.end_of_session.dissect,
+}
+
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3372,26 +3145,18 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message.dispatch = {
+  ["O"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.enter_order.dissect,
+  ["U"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_order.dissect,
+  ["X"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.cancel_order.dissect,
+  ["Y"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.cancel_by_order_id.dissect,
+  ["Q"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.mass_quote.dissect,
+}
+
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order
-  if unsequenced_message_type == "O" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.enter_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order
-  if unsequenced_message_type == "U" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order
-  if unsequenced_message_type == "X" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.cancel_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel By Order Id
-  if unsequenced_message_type == "Y" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.cancel_by_order_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote
-  if unsequenced_message_type == "Q" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.mass_quote.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3506,26 +3271,18 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload = {}
 
 -- Dissect: Client Payload
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload.dispatch = {
+  ["+"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.dissect,
+  ["L"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.login_request_packet.dissect,
+  ["U"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_data_packet.dissect,
+  ["R"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_heartbeat.dissect,
+  ["O"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.logout_request.dissect,
+}
+
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return bist_borsaistanbul_geniuminet_ouch_v2025_0206.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

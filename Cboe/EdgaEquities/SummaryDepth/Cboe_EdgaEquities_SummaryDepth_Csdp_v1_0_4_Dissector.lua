@@ -411,18 +411,14 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.market_status = {}
 cboe_edgaequities_summarydepth_csdp_v1_0_4.market_status.size = 1
 
 -- Display: Market Status
-cboe_edgaequities_summarydepth_csdp_v1_0_4.market_status.display = function(value)
-  if value == "N" then
-    return "Market Status: Normal (N)"
-  end
-  if value == "E" then
-    return "Market Status: Excluded From Adap Updates (E)"
-  end
-  if value == "I" then
-    return "Market Status: Incomplete (I)"
-  end
+cboe_edgaequities_summarydepth_csdp_v1_0_4.market_status.labels = {
+  ["N"] = "Market Status: Normal (N)",
+  ["E"] = "Market Status: Excluded From Adap Updates (E)",
+  ["I"] = "Market Status: Incomplete (I)",
+}
 
-  return "Market Status: Unknown("..value..")"
+cboe_edgaequities_summarydepth_csdp_v1_0_4.market_status.display = function(value)
+  return cboe_edgaequities_summarydepth_csdp_v1_0_4.market_status.labels[value] or "Market Status: Unknown("..value..")"
 end
 
 -- Dissect: Market Status
@@ -490,30 +486,18 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type = {}
 cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type.display = function(value)
-  if value == 0xA2 then
-    return "Message Type: Clear Quote Message (0xA2)"
-  end
-  if value == 0xA6 then
-    return "Message Type: Cboe Market Status Message (0xA6)"
-  end
-  if value == 0xA7 then
-    return "Message Type: Adap Message (0xA7)"
-  end
-  if value == 0xA8 then
-    return "Message Type: Rpi Message (0xA8)"
-  end
-  if value == 0xA9 then
-    return "Message Type: Trade Message (0xA9)"
-  end
-  if value == 0xAA then
-    return "Message Type: Trade Break Message (0xAA)"
-  end
-  if value == 0xAB then
-    return "Message Type: Trading Status Message (0xAB)"
-  end
+cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type.labels = {
+  [0xA2] = "Message Type: Clear Quote Message (0xA2)",
+  [0xA6] = "Message Type: Cboe Market Status Message (0xA6)",
+  [0xA7] = "Message Type: Adap Message (0xA7)",
+  [0xA8] = "Message Type: Rpi Message (0xA8)",
+  [0xA9] = "Message Type: Trade Message (0xA9)",
+  [0xAA] = "Message Type: Trade Break Message (0xAA)",
+  [0xAB] = "Message Type: Trading Status Message (0xAB)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type.display = function(value)
+  return cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -639,15 +623,13 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.reg_sho_action = {}
 cboe_edgaequities_summarydepth_csdp_v1_0_4.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-cboe_edgaequities_summarydepth_csdp_v1_0_4.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Effect (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
-  end
+cboe_edgaequities_summarydepth_csdp_v1_0_4.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Effect (0)",
+  ["1"] = "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+cboe_edgaequities_summarydepth_csdp_v1_0_4.reg_sho_action.display = function(value)
+  return cboe_edgaequities_summarydepth_csdp_v1_0_4.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -715,21 +697,15 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.retail_price_improvement = {}
 cboe_edgaequities_summarydepth_csdp_v1_0_4.retail_price_improvement.size = 1
 
 -- Display: Retail Price Improvement
-cboe_edgaequities_summarydepth_csdp_v1_0_4.retail_price_improvement.display = function(value)
-  if value == "B" then
-    return "Retail Price Improvement: Buy Side Rpi (B)"
-  end
-  if value == "S" then
-    return "Retail Price Improvement: Sell Side Rpi (S)"
-  end
-  if value == "A" then
-    return "Retail Price Improvement: Buy And Sell Rpi (A)"
-  end
-  if value == "N" then
-    return "Retail Price Improvement: No Rpi (N)"
-  end
+cboe_edgaequities_summarydepth_csdp_v1_0_4.retail_price_improvement.labels = {
+  ["B"] = "Retail Price Improvement: Buy Side Rpi (B)",
+  ["S"] = "Retail Price Improvement: Sell Side Rpi (S)",
+  ["A"] = "Retail Price Improvement: Buy And Sell Rpi (A)",
+  ["N"] = "Retail Price Improvement: No Rpi (N)",
+}
 
-  return "Retail Price Improvement: Unknown("..value..")"
+cboe_edgaequities_summarydepth_csdp_v1_0_4.retail_price_improvement.display = function(value)
+  return cboe_edgaequities_summarydepth_csdp_v1_0_4.retail_price_improvement.labels[value] or "Retail Price Improvement: Unknown("..value..")"
 end
 
 -- Dissect: Retail Price Improvement
@@ -774,15 +750,13 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.session_indicator = {}
 cboe_edgaequities_summarydepth_csdp_v1_0_4.session_indicator.size = 1
 
 -- Display: Session Indicator
-cboe_edgaequities_summarydepth_csdp_v1_0_4.session_indicator.display = function(value)
-  if value == "R" then
-    return "Session Indicator: Regular Trading Session (R)"
-  end
-  if value == "P" then
-    return "Session Indicator: Pre Or Post Market Session (P)"
-  end
+cboe_edgaequities_summarydepth_csdp_v1_0_4.session_indicator.labels = {
+  ["R"] = "Session Indicator: Regular Trading Session (R)",
+  ["P"] = "Session Indicator: Pre Or Post Market Session (P)",
+}
 
-  return "Session Indicator: Unknown("..value..")"
+cboe_edgaequities_summarydepth_csdp_v1_0_4.session_indicator.display = function(value)
+  return cboe_edgaequities_summarydepth_csdp_v1_0_4.session_indicator.labels[value] or "Session Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Session Indicator
@@ -1370,14 +1344,15 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_update = {}
 
 -- Dissect: Adap Update
+cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_update.dispatch = {
+  [10] = cboe_edgaequities_summarydepth_csdp_v1_0_4.short_update_adap_block.dissect,
+  [18] = cboe_edgaequities_summarydepth_csdp_v1_0_4.long_update_adap_block.dissect,
+}
+
 cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_update.dissect = function(buffer, offset, packet, parent, adap_block_size)
-  -- Dissect Short Update Adap Block
-  if adap_block_size == 10 then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.short_update_adap_block.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Update Adap Block
-  if adap_block_size == 18 then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.long_update_adap_block.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_update.dispatch[adap_block_size]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1678,34 +1653,20 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.payload = {}
 
 -- Dissect: Payload
+cboe_edgaequities_summarydepth_csdp_v1_0_4.payload.dispatch = {
+  [0xA2] = cboe_edgaequities_summarydepth_csdp_v1_0_4.clear_quote_message.dissect,
+  [0xA6] = cboe_edgaequities_summarydepth_csdp_v1_0_4.cboe_market_status_message.dissect,
+  [0xA7] = cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_message.dissect,
+  [0xA8] = cboe_edgaequities_summarydepth_csdp_v1_0_4.rpi_message.dissect,
+  [0xA9] = cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_message.dissect,
+  [0xAA] = cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_break_message.dissect,
+  [0xAB] = cboe_edgaequities_summarydepth_csdp_v1_0_4.trading_status_message.dissect,
+}
+
 cboe_edgaequities_summarydepth_csdp_v1_0_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Clear Quote Message
-  if message_type == 0xA2 then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.clear_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cboe Market Status Message
-  if message_type == 0xA6 then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.cboe_market_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Adap Message
-  if message_type == 0xA7 then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rpi Message
-  if message_type == 0xA8 then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.rpi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0xA9 then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == 0xAA then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0xAB then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.trading_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgaequities_summarydepth_csdp_v1_0_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1844,10 +1805,14 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.messages = {}
 
 -- Dissect: Messages
+cboe_edgaequities_summarydepth_csdp_v1_0_4.messages.dispatch = {
+  [0] = cboe_edgaequities_summarydepth_csdp_v1_0_4.heartbeat.dissect,
+}
+
 cboe_edgaequities_summarydepth_csdp_v1_0_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_edgaequities_summarydepth_csdp_v1_0_4.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgaequities_summarydepth_csdp_v1_0_4.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

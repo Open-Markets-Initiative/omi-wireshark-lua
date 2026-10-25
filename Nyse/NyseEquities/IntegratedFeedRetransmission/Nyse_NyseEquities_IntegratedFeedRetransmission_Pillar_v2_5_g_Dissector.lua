@@ -300,21 +300,15 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.auction_status = {}
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.auction_status.size = 1
 
 -- Display: Auction Status
-nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.auction_status.display = function(value)
-  if value == 0 then
-    return "Auction Status: Will Run As Always For Open And Close (0)"
-  end
-  if value == 1 then
-    return "Auction Status: Will Run Interest Exists Inside Or At The Collars Or Is Fully Paired Off (1)"
-  end
-  if value == 2 then
-    return "Auction Status: Will Not Run Because There Is An Imbalance Through The Collars (2)"
-  end
-  if value == 3 then
-    return "Auction Status: Will Not Run Will Transition To The Closing Auction Instead (3)"
-  end
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.auction_status.labels = {
+  [0] = "Auction Status: Will Run As Always For Open And Close (0)",
+  [1] = "Auction Status: Will Run Interest Exists Inside Or At The Collars Or Is Fully Paired Off (1)",
+  [2] = "Auction Status: Will Not Run Because There Is An Imbalance Through The Collars (2)",
+  [3] = "Auction Status: Will Not Run Will Transition To The Closing Auction Instead (3)",
+}
 
-  return "Auction Status: Unknown("..value..")"
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.auction_status.display = function(value)
+  return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.auction_status.labels[value] or "Auction Status: Unknown("..value..")"
 end
 
 -- Dissect: Auction Status
@@ -555,42 +549,22 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.delivery_flag = {}
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Pillar Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.delivery_flag.display = function(value)
+  return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -719,15 +693,13 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.freeze_status = {}
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.freeze_status.size = 1
 
 -- Display: Freeze Status
-nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.freeze_status.display = function(value)
-  if value == 0 then
-    return "Freeze Status: Imbalance Freeze Not In Effect (0)"
-  end
-  if value == 1 then
-    return "Freeze Status: Imbalance Freeze Is In Effect (1)"
-  end
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.freeze_status.labels = {
+  [0] = "Freeze Status: Imbalance Freeze Not In Effect (0)",
+  [1] = "Freeze Status: Imbalance Freeze Is In Effect (1)",
+}
 
-  return "Freeze Status: Unknown("..value..")"
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.freeze_status.display = function(value)
+  return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.freeze_status.labels[value] or "Freeze Status: Unknown("..value..")"
 end
 
 -- Dissect: Freeze Status
@@ -975,33 +947,19 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.market_id = {}
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.market_id.size = 2
 
 -- Display: Market Id
-nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Equities (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Texas Equities (11)"
-  end
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.market_id.labels = {
+  [1] = "Market Id: Nyse Equities (1)",
+  [3] = "Market Id: Nyse Arca Equities (3)",
+  [4] = "Market Id: Nyse Arca Options (4)",
+  [5] = "Market Id: Nyse Bonds (5)",
+  [8] = "Market Id: Nyse American Options (8)",
+  [9] = "Market Id: Nyse American Equities (9)",
+  [10] = "Market Id: Nyse National Equities (10)",
+  [11] = "Market Id: Nyse Texas Equities (11)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.market_id.display = function(value)
+  return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -1121,63 +1079,29 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.message_type = {}
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.message_type.size = 2
 
 -- Display: Message Type
-nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Source Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 32 then
-    return "Message Type: Symbol Clear Message (32)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 100 then
-    return "Message Type: Add Order Message (100)"
-  end
-  if value == 101 then
-    return "Message Type: Modify Order Message (101)"
-  end
-  if value == 102 then
-    return "Message Type: Delete Order Message (102)"
-  end
-  if value == 103 then
-    return "Message Type: Order Execution Message (103)"
-  end
-  if value == 104 then
-    return "Message Type: Replace Order Message (104)"
-  end
-  if value == 105 then
-    return "Message Type: Imbalance Message (105)"
-  end
-  if value == 106 then
-    return "Message Type: Add Order Refresh Message (106)"
-  end
-  if value == 110 then
-    return "Message Type: Non Displayed Trade Message (110)"
-  end
-  if value == 111 then
-    return "Message Type: Cross Trade Message (111)"
-  end
-  if value == 112 then
-    return "Message Type: Trade Cancel Message (112)"
-  end
-  if value == 113 then
-    return "Message Type: Cross Correction Message (113)"
-  end
-  if value == 114 then
-    return "Message Type: Retail Price Improvement Message (114)"
-  end
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [2] = "Message Type: Source Time Reference Message (2)",
+  [3] = "Message Type: Symbol Index Mapping Message (3)",
+  [32] = "Message Type: Symbol Clear Message (32)",
+  [34] = "Message Type: Security Status Message (34)",
+  [31] = "Message Type: Message Unavailable Message (31)",
+  [100] = "Message Type: Add Order Message (100)",
+  [101] = "Message Type: Modify Order Message (101)",
+  [102] = "Message Type: Delete Order Message (102)",
+  [103] = "Message Type: Order Execution Message (103)",
+  [104] = "Message Type: Replace Order Message (104)",
+  [105] = "Message Type: Imbalance Message (105)",
+  [106] = "Message Type: Add Order Refresh Message (106)",
+  [110] = "Message Type: Non Displayed Trade Message (110)",
+  [111] = "Message Type: Cross Trade Message (111)",
+  [112] = "Message Type: Trade Cancel Message (112)",
+  [113] = "Message Type: Cross Correction Message (113)",
+  [114] = "Message Type: Retail Price Improvement Message (114)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.message_type.display = function(value)
+  return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1544,18 +1468,14 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.price_resolution = 
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.price_resolution.labels = {
+  [0] = "Price Resolution: All Penny (0)",
+  [1] = "Price Resolution: Penny Nickel (1)",
+  [5] = "Price Resolution: Nickel Dime (5)",
+}
 
-  return "Price Resolution: Unknown("..value..")"
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.price_resolution.display = function(value)
+  return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.price_resolution.labels[value] or "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1600,15 +1520,13 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.printable_flag = {}
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.printable_flag.size = 1
 
 -- Display: Printable Flag
-nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.printable_flag.display = function(value)
-  if value == 0 then
-    return "Printable Flag: Not Printed To The Sip (0)"
-  end
-  if value == 1 then
-    return "Printable Flag: Printed To The Sip (1)"
-  end
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.printable_flag.labels = {
+  [0] = "Printable Flag: Not Printed To The Sip (0)",
+  [1] = "Printable Flag: Printed To The Sip (1)",
+}
 
-  return "Printable Flag: Unknown("..value..")"
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.printable_flag.display = function(value)
+  return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.printable_flag.labels[value] or "Printable Flag: Unknown("..value..")"
 end
 
 -- Dissect: Printable Flag
@@ -4602,78 +4520,31 @@ end
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.payload = {}
 
 -- Dissect: Payload
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.payload.dispatch = {
+  [1] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.sequence_number_reset_message.dissect,
+  [2] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.source_time_reference_message.dissect,
+  [3] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index_mapping_message.dissect,
+  [32] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.symbol_clear_message.dissect,
+  [34] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.security_status_message.dissect,
+  [31] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.message_unavailable_message.dissect,
+  [100] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.add_order_message.dissect,
+  [101] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.modify_order_message.dissect,
+  [102] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.delete_order_message.dissect,
+  [103] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.order_execution_message.dissect,
+  [104] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.replace_order_message.dissect,
+  [105] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.imbalance_message.dissect,
+  [106] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.add_order_refresh_message.dissect,
+  [110] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.non_displayed_trade_message.dissect,
+  [111] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.cross_trade_message.dissect,
+  [112] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.trade_cancel_message.dissect,
+  [113] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.cross_correction_message.dissect,
+  [114] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.retail_price_improvement_message.dissect,
+}
+
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Source Time Reference Message
-  if message_type == 2 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.source_time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Clear Message
-  if message_type == 32 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 34 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if message_type == 31 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 100 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 101 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 102 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if message_type == 103 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if message_type == 104 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Imbalance Message
-  if message_type == 105 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Refresh Message
-  if message_type == 106 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.add_order_refresh_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Non Displayed Trade Message
-  if message_type == 110 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.non_displayed_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Trade Message
-  if message_type == 111 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.cross_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == 112 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Correction Message
-  if message_type == 113 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.cross_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retail Price Improvement Message
-  if message_type == 114 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.retail_price_improvement_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4812,10 +4683,14 @@ end
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.messages = {}
 
 -- Dissect: Messages
+nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.messages.dispatch = {
+  [1] = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.heartbeat.dissect,
+}
+
 nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
-  -- Dissect Heartbeat
-  if delivery_flag == 1 then
-    return nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.messages.dispatch[delivery_flag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

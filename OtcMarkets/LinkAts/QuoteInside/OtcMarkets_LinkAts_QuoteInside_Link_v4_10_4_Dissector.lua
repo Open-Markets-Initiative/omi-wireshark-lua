@@ -245,15 +245,13 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.asset_class = {}
 otcmarkets_linkats_quoteinside_link_v4_10_4.asset_class.size = 1
 
 -- Display: Asset Class
-otcmarkets_linkats_quoteinside_link_v4_10_4.asset_class.display = function(value)
-  if value == 1 then
-    return "Asset Class: Equity (1)"
-  end
-  if value == 2 then
-    return "Asset Class: Fixed Income (2)"
-  end
+otcmarkets_linkats_quoteinside_link_v4_10_4.asset_class.labels = {
+  [1] = "Asset Class: Equity (1)",
+  [2] = "Asset Class: Fixed Income (2)",
+}
 
-  return "Asset Class: Unknown("..value..")"
+otcmarkets_linkats_quoteinside_link_v4_10_4.asset_class.display = function(value)
+  return otcmarkets_linkats_quoteinside_link_v4_10_4.asset_class.labels[value] or "Asset Class: Unknown("..value..")"
 end
 
 -- Dissect: Asset Class
@@ -396,18 +394,14 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.inside_action = {}
 otcmarkets_linkats_quoteinside_link_v4_10_4.inside_action.size = 1
 
 -- Display: Inside Action
-otcmarkets_linkats_quoteinside_link_v4_10_4.inside_action.display = function(value)
-  if value == 2 then
-    return "Inside Action: Add (2)"
-  end
-  if value == 3 then
-    return "Inside Action: Delete (3)"
-  end
-  if value == 4 then
-    return "Inside Action: Spin (4)"
-  end
+otcmarkets_linkats_quoteinside_link_v4_10_4.inside_action.labels = {
+  [2] = "Inside Action: Add (2)",
+  [3] = "Inside Action: Delete (3)",
+  [4] = "Inside Action: Spin (4)",
+}
 
-  return "Inside Action: Unknown("..value..")"
+otcmarkets_linkats_quoteinside_link_v4_10_4.inside_action.display = function(value)
+  return otcmarkets_linkats_quoteinside_link_v4_10_4.inside_action.labels[value] or "Inside Action: Unknown("..value..")"
 end
 
 -- Dissect: Inside Action
@@ -636,30 +630,18 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.message_type = {}
 otcmarkets_linkats_quoteinside_link_v4_10_4.message_type.size = 1
 
 -- Display: Message Type
-otcmarkets_linkats_quoteinside_link_v4_10_4.message_type.display = function(value)
-  if value == 11 then
-    return "Message Type: Start Of Spin Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: End Of Spin Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Market Open Message (13)"
-  end
-  if value == 14 then
-    return "Message Type: Market Close Message (14)"
-  end
-  if value == 9 then
-    return "Message Type: Security Message (9)"
-  end
-  if value == 3 then
-    return "Message Type: Inside Message (3)"
-  end
-  if value == 4 then
-    return "Message Type: Inside Update Message (4)"
-  end
+otcmarkets_linkats_quoteinside_link_v4_10_4.message_type.labels = {
+  [11] = "Message Type: Start Of Spin Message (11)",
+  [12] = "Message Type: End Of Spin Message (12)",
+  [13] = "Message Type: Market Open Message (13)",
+  [14] = "Message Type: Market Close Message (14)",
+  [9] = "Message Type: Security Message (9)",
+  [3] = "Message Type: Inside Message (3)",
+  [4] = "Message Type: Inside Update Message (4)",
+}
 
-  return "Message Type: Unknown("..value..")"
+otcmarkets_linkats_quoteinside_link_v4_10_4.message_type.display = function(value)
+  return otcmarkets_linkats_quoteinside_link_v4_10_4.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -799,42 +781,22 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status = {}
 otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status.size = 1
 
 -- Display: Reporting Status
-otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status.display = function(value)
-  if value == "A" then
-    return "Reporting Status: Alternative Reporting (A)"
-  end
-  if value == "B" then
-    return "Reporting Status: Bank Thrift (B)"
-  end
-  if value == "C" then
-    return "Reporting Status: Sec Reporting Reg Cf (C)"
-  end
-  if value == "F" then
-    return "Reporting Status: Sec Reporting (F)"
-  end
-  if value == "G" then
-    return "Reporting Status: International Reporting (G)"
-  end
-  if value == "I" then
-    return "Reporting Status: Insurance Company (I)"
-  end
-  if value == "N" then
-    return "Reporting Status: No Reporting (N)"
-  end
-  if value == "O" then
-    return "Reporting Status: Other Reporting (O)"
-  end
-  if value == "R" then
-    return "Reporting Status: Finra Reporting (R)"
-  end
-  if value == "V" then
-    return "Reporting Status: Sec Investment Company (V)"
-  end
-  if value == "W" then
-    return "Reporting Status: Sec Reporting Reg A (W)"
-  end
+otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status.labels = {
+  ["A"] = "Reporting Status: Alternative Reporting (A)",
+  ["B"] = "Reporting Status: Bank Thrift (B)",
+  ["C"] = "Reporting Status: Sec Reporting Reg Cf (C)",
+  ["F"] = "Reporting Status: Sec Reporting (F)",
+  ["G"] = "Reporting Status: International Reporting (G)",
+  ["I"] = "Reporting Status: Insurance Company (I)",
+  ["N"] = "Reporting Status: No Reporting (N)",
+  ["O"] = "Reporting Status: Other Reporting (O)",
+  ["R"] = "Reporting Status: Finra Reporting (R)",
+  ["V"] = "Reporting Status: Sec Investment Company (V)",
+  ["W"] = "Reporting Status: Sec Reporting Reg A (W)",
+}
 
-  return "Reporting Status: Unknown("..value..")"
+otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status.display = function(value)
+  return otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status.labels[value] or "Reporting Status: Unknown("..value..")"
 end
 
 -- Dissect: Reporting Status
@@ -856,21 +818,15 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.security_action = {}
 otcmarkets_linkats_quoteinside_link_v4_10_4.security_action.size = 1
 
 -- Display: Security Action
-otcmarkets_linkats_quoteinside_link_v4_10_4.security_action.display = function(value)
-  if value == 1 then
-    return "Security Action: Update (1)"
-  end
-  if value == 2 then
-    return "Security Action: Add (2)"
-  end
-  if value == 3 then
-    return "Security Action: Delete (3)"
-  end
-  if value == 4 then
-    return "Security Action: Spin (4)"
-  end
+otcmarkets_linkats_quoteinside_link_v4_10_4.security_action.labels = {
+  [1] = "Security Action: Update (1)",
+  [2] = "Security Action: Add (2)",
+  [3] = "Security Action: Delete (3)",
+  [4] = "Security Action: Spin (4)",
+}
 
-  return "Security Action: Unknown("..value..")"
+otcmarkets_linkats_quoteinside_link_v4_10_4.security_action.display = function(value)
+  return otcmarkets_linkats_quoteinside_link_v4_10_4.security_action.labels[value] or "Security Action: Unknown("..value..")"
 end
 
 -- Dissect: Security Action
@@ -915,30 +871,18 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.security_status = {}
 otcmarkets_linkats_quoteinside_link_v4_10_4.security_status.size = 1
 
 -- Display: Security Status
-otcmarkets_linkats_quoteinside_link_v4_10_4.security_status.display = function(value)
-  if value == "A" then
-    return "Security Status: Active (A)"
-  end
-  if value == "Q" then
-    return "Security Status: Quote Only (Q)"
-  end
-  if value == "S" then
-    return "Security Status: Suspended (S)"
-  end
-  if value == "H" then
-    return "Security Status: Halted (H)"
-  end
-  if value == "I" then
-    return "Security Status: Internal Halt (I)"
-  end
-  if value == "R" then
-    return "Security Status: Revoked (R)"
-  end
-  if value == "D" then
-    return "Security Status: Deleted (D)"
-  end
+otcmarkets_linkats_quoteinside_link_v4_10_4.security_status.labels = {
+  ["A"] = "Security Status: Active (A)",
+  ["Q"] = "Security Status: Quote Only (Q)",
+  ["S"] = "Security Status: Suspended (S)",
+  ["H"] = "Security Status: Halted (H)",
+  ["I"] = "Security Status: Internal Halt (I)",
+  ["R"] = "Security Status: Revoked (R)",
+  ["D"] = "Security Status: Deleted (D)",
+}
 
-  return "Security Status: Unknown("..value..")"
+otcmarkets_linkats_quoteinside_link_v4_10_4.security_status.display = function(value)
+  return otcmarkets_linkats_quoteinside_link_v4_10_4.security_status.labels[value] or "Security Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Status
@@ -1098,18 +1042,14 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.spin_type = {}
 otcmarkets_linkats_quoteinside_link_v4_10_4.spin_type.size = 1
 
 -- Display: Spin Type
-otcmarkets_linkats_quoteinside_link_v4_10_4.spin_type.display = function(value)
-  if value == 1 then
-    return "Spin Type: Reference (1)"
-  end
-  if value == 2 then
-    return "Spin Type: Market Data (2)"
-  end
-  if value == 3 then
-    return "Spin Type: Opening (3)"
-  end
+otcmarkets_linkats_quoteinside_link_v4_10_4.spin_type.labels = {
+  [1] = "Spin Type: Reference (1)",
+  [2] = "Spin Type: Market Data (2)",
+  [3] = "Spin Type: Opening (3)",
+}
 
-  return "Spin Type: Unknown("..value..")"
+otcmarkets_linkats_quoteinside_link_v4_10_4.spin_type.display = function(value)
+  return otcmarkets_linkats_quoteinside_link_v4_10_4.spin_type.labels[value] or "Spin Type: Unknown("..value..")"
 end
 
 -- Dissect: Spin Type
@@ -1154,48 +1094,24 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.tier = {}
 otcmarkets_linkats_quoteinside_link_v4_10_4.tier.size = 1
 
 -- Display: Tier
-otcmarkets_linkats_quoteinside_link_v4_10_4.tier.display = function(value)
-  if value == 0 then
-    return "Tier: No Tier (0)"
-  end
-  if value == 1 then
-    return "Tier: Otcqxus Premier (1)"
-  end
-  if value == 2 then
-    return "Tier: Otcqxus (2)"
-  end
-  if value == 5 then
-    return "Tier: Otcqx International Premier (5)"
-  end
-  if value == 6 then
-    return "Tier: Otcqx International (6)"
-  end
-  if value == 10 then
-    return "Tier: Otcqb (10)"
-  end
-  if value == 11 then
-    return "Tier: Otcbb Only (11)"
-  end
-  if value == 20 then
-    return "Tier: Pink Current (20)"
-  end
-  if value == 21 then
-    return "Tier: Pink Limited (21)"
-  end
-  if value == 22 then
-    return "Tier: Pink No Information (22)"
-  end
-  if value == 30 then
-    return "Tier: Grey Market (30)"
-  end
-  if value == 40 then
-    return "Tier: Expert Market (40)"
-  end
-  if value == 50 then
-    return "Tier: Otc Bonds (50)"
-  end
+otcmarkets_linkats_quoteinside_link_v4_10_4.tier.labels = {
+  [0] = "Tier: No Tier (0)",
+  [1] = "Tier: Otcqxus Premier (1)",
+  [2] = "Tier: Otcqxus (2)",
+  [5] = "Tier: Otcqx International Premier (5)",
+  [6] = "Tier: Otcqx International (6)",
+  [10] = "Tier: Otcqb (10)",
+  [11] = "Tier: Otcbb Only (11)",
+  [20] = "Tier: Pink Current (20)",
+  [21] = "Tier: Pink Limited (21)",
+  [22] = "Tier: Pink No Information (22)",
+  [30] = "Tier: Grey Market (30)",
+  [40] = "Tier: Expert Market (40)",
+  [50] = "Tier: Otc Bonds (50)",
+}
 
-  return "Tier: Unknown("..value..")"
+otcmarkets_linkats_quoteinside_link_v4_10_4.tier.display = function(value)
+  return otcmarkets_linkats_quoteinside_link_v4_10_4.tier.labels[value] or "Tier: Unknown("..value..")"
 end
 
 -- Dissect: Tier
@@ -1821,34 +1737,20 @@ end
 otcmarkets_linkats_quoteinside_link_v4_10_4.payload = {}
 
 -- Dissect: Payload
+otcmarkets_linkats_quoteinside_link_v4_10_4.payload.dispatch = {
+  [11] = otcmarkets_linkats_quoteinside_link_v4_10_4.start_of_spin_message.dissect,
+  [12] = otcmarkets_linkats_quoteinside_link_v4_10_4.end_of_spin_message.dissect,
+  [13] = otcmarkets_linkats_quoteinside_link_v4_10_4.market_open_message.dissect,
+  [14] = otcmarkets_linkats_quoteinside_link_v4_10_4.market_close_message.dissect,
+  [9] = otcmarkets_linkats_quoteinside_link_v4_10_4.security_message.dissect,
+  [3] = otcmarkets_linkats_quoteinside_link_v4_10_4.inside_message.dissect,
+  [4] = otcmarkets_linkats_quoteinside_link_v4_10_4.inside_update_message.dissect,
+}
+
 otcmarkets_linkats_quoteinside_link_v4_10_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Start Of Spin Message
-  if message_type == 11 then
-    return otcmarkets_linkats_quoteinside_link_v4_10_4.start_of_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Spin Message
-  if message_type == 12 then
-    return otcmarkets_linkats_quoteinside_link_v4_10_4.end_of_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Open Message
-  if message_type == 13 then
-    return otcmarkets_linkats_quoteinside_link_v4_10_4.market_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Close Message
-  if message_type == 14 then
-    return otcmarkets_linkats_quoteinside_link_v4_10_4.market_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Message
-  if message_type == 9 then
-    return otcmarkets_linkats_quoteinside_link_v4_10_4.security_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inside Message
-  if message_type == 3 then
-    return otcmarkets_linkats_quoteinside_link_v4_10_4.inside_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inside Update Message
-  if message_type == 4 then
-    return otcmarkets_linkats_quoteinside_link_v4_10_4.inside_update_message.dissect(buffer, offset, packet, parent)
+  local dissect = otcmarkets_linkats_quoteinside_link_v4_10_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1981,10 +1883,14 @@ end
 otcmarkets_linkats_quoteinside_link_v4_10_4.message_block = {}
 
 -- Dissect: Message Block
+otcmarkets_linkats_quoteinside_link_v4_10_4.message_block.dispatch = {
+  [1] = otcmarkets_linkats_quoteinside_link_v4_10_4.heartbeat_packet.dissect,
+}
+
 otcmarkets_linkats_quoteinside_link_v4_10_4.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
-  -- Dissect Heartbeat Packet
-  if bit.band(packet_flag, 0x01) == 1 then
-    return otcmarkets_linkats_quoteinside_link_v4_10_4.heartbeat_packet.dissect(buffer, offset, packet, parent)
+  local dissect = otcmarkets_linkats_quoteinside_link_v4_10_4.message_block.dispatch[bit.band(packet_flag, 0x01)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

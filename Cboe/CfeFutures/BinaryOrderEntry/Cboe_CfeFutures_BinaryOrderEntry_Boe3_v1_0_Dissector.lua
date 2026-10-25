@@ -1214,87 +1214,37 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message_type = {}
 cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message_type.size = 2
 
 -- Display: Exchange Message Type
-cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message_type.display = function(value)
-  if value == 501 then
-    return "Message Type: Login Response Message (501)"
-  end
-  if value == 502 then
-    return "Message Type: Replay Complete Message (502)"
-  end
-  if value == 503 then
-    return "Message Type: Logout Response Message (503)"
-  end
-  if value == 504 then
-    return "Message Type: Server Heartbeat Message (504)"
-  end
-  if value == 1501 then
-    return "Message Type: Order Acknowledgement Message (1501)"
-  end
-  if value == 1502 then
-    return "Message Type: Order Rejected Message (1502)"
-  end
-  if value == 1503 then
-    return "Message Type: Order Modified Message (1503)"
-  end
-  if value == 1504 then
-    return "Message Type: Modify Rejected Message (1504)"
-  end
-  if value == 1505 then
-    return "Message Type: Order Execution Message (1505)"
-  end
-  if value == 1506 then
-    return "Message Type: Order Cancelled Message (1506)"
-  end
-  if value == 1507 then
-    return "Message Type: Cancel Rejected Message (1507)"
-  end
-  if value == 1508 then
-    return "Message Type: Mass Cancel Acknowledgement Message (1508)"
-  end
-  if value == 1509 then
-    return "Message Type: Mass Cancel Rejected Message (1509)"
-  end
-  if value == 1510 then
-    return "Message Type: Purge Acknowledgement Message (1510)"
-  end
-  if value == 1511 then
-    return "Message Type: Purge Rejected Message (1511)"
-  end
-  if value == 1512 then
-    return "Message Type: Trade Cancel Or Correct Message (1512)"
-  end
-  if value == 1513 then
-    return "Message Type: Tas Restatement Message (1513)"
-  end
-  if value == 1514 then
-    return "Message Type: Variance Restatement Message (1514)"
-  end
-  if value == 1515 then
-    return "Message Type: Quote Update Acknowledgement Message (1515)"
-  end
-  if value == 1516 then
-    return "Message Type: Quote Update Rejected Message (1516)"
-  end
-  if value == 1517 then
-    return "Message Type: Quote Restated Message (1517)"
-  end
-  if value == 1518 then
-    return "Message Type: Quote Execution Message (1518)"
-  end
-  if value == 1519 then
-    return "Message Type: Quote Cancelled Message (1519)"
-  end
-  if value == 1520 then
-    return "Message Type: Tas Quote Restatement Message (1520)"
-  end
-  if value == 1521 then
-    return "Message Type: Variance Quote Restatement Message (1521)"
-  end
-  if value == 1522 then
-    return "Message Type: Reset Risk Acknowledgement Message (1522)"
-  end
+cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message_type.labels = {
+  [501] = "Message Type: Login Response Message (501)",
+  [502] = "Message Type: Replay Complete Message (502)",
+  [503] = "Message Type: Logout Response Message (503)",
+  [504] = "Message Type: Server Heartbeat Message (504)",
+  [1501] = "Message Type: Order Acknowledgement Message (1501)",
+  [1502] = "Message Type: Order Rejected Message (1502)",
+  [1503] = "Message Type: Order Modified Message (1503)",
+  [1504] = "Message Type: Modify Rejected Message (1504)",
+  [1505] = "Message Type: Order Execution Message (1505)",
+  [1506] = "Message Type: Order Cancelled Message (1506)",
+  [1507] = "Message Type: Cancel Rejected Message (1507)",
+  [1508] = "Message Type: Mass Cancel Acknowledgement Message (1508)",
+  [1509] = "Message Type: Mass Cancel Rejected Message (1509)",
+  [1510] = "Message Type: Purge Acknowledgement Message (1510)",
+  [1511] = "Message Type: Purge Rejected Message (1511)",
+  [1512] = "Message Type: Trade Cancel Or Correct Message (1512)",
+  [1513] = "Message Type: Tas Restatement Message (1513)",
+  [1514] = "Message Type: Variance Restatement Message (1514)",
+  [1515] = "Message Type: Quote Update Acknowledgement Message (1515)",
+  [1516] = "Message Type: Quote Update Rejected Message (1516)",
+  [1517] = "Message Type: Quote Restated Message (1517)",
+  [1518] = "Message Type: Quote Execution Message (1518)",
+  [1519] = "Message Type: Quote Cancelled Message (1519)",
+  [1520] = "Message Type: Tas Quote Restatement Message (1520)",
+  [1521] = "Message Type: Variance Quote Restatement Message (1521)",
+  [1522] = "Message Type: Reset Risk Acknowledgement Message (1522)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message_type.display = function(value)
+  return cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Message Type
@@ -1425,39 +1375,21 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message_type = {}
 cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message_type.size = 2
 
 -- Display: Firm Message Type
-cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Logout Request Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Client Heartbeat Message (3)"
-  end
-  if value == 1001 then
-    return "Message Type: New Order Message (1001)"
-  end
-  if value == 1002 then
-    return "Message Type: Modify Order Message (1002)"
-  end
-  if value == 1003 then
-    return "Message Type: Cancel Order Message (1003)"
-  end
-  if value == 1004 then
-    return "Message Type: Mass Cancel Order Message (1004)"
-  end
-  if value == 1005 then
-    return "Message Type: Purge Orders Message (1005)"
-  end
-  if value == 1006 then
-    return "Message Type: Quote Update Message (1006)"
-  end
-  if value == 1007 then
-    return "Message Type: Reset Risk Message (1007)"
-  end
+cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message_type.labels = {
+  [1] = "Message Type: Login Request Message (1)",
+  [2] = "Message Type: Logout Request Message (2)",
+  [3] = "Message Type: Client Heartbeat Message (3)",
+  [1001] = "Message Type: New Order Message (1001)",
+  [1002] = "Message Type: Modify Order Message (1002)",
+  [1003] = "Message Type: Cancel Order Message (1003)",
+  [1004] = "Message Type: Mass Cancel Order Message (1004)",
+  [1005] = "Message Type: Purge Orders Message (1005)",
+  [1006] = "Message Type: Quote Update Message (1006)",
+  [1007] = "Message Type: Reset Risk Message (1007)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message_type.display = function(value)
+  return cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Firm Message Type
@@ -1764,33 +1696,19 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_status = {}
 cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Accepted (A)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "D" then
-    return "Login Response Status: Disabled (D)"
-  end
-  if value == "I" then
-    return "Login Response Status: Invalid Unit (I)"
-  end
-  if value == "M" then
-    return "Login Response Status: Invalid Message (M)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized (N)"
-  end
-  if value == "Q" then
-    return "Login Response Status: Sequence Ahead (Q)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_status.labels = {
+  ["A"] = "Login Response Status: Accepted (A)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["D"] = "Login Response Status: Disabled (D)",
+  ["I"] = "Login Response Status: Invalid Unit (I)",
+  ["M"] = "Login Response Status: Invalid Message (M)",
+  ["N"] = "Login Response Status: Not Authorized (N)",
+  ["Q"] = "Login Response Status: Sequence Ahead (Q)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_status.display = function(value)
+  return cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -1851,18 +1769,14 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_reason = {}
 cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_reason.size = 1
 
 -- Display: Logout Reason
-cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_reason.display = function(value)
-  if value == "U" then
-    return "Logout Reason: User Requested (U)"
-  end
-  if value == "A" then
-    return "Logout Reason: Administrative (A)"
-  end
-  if value == "!" then
-    return "Logout Reason: Protocol Violation (!)"
-  end
+cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_reason.labels = {
+  ["U"] = "Logout Reason: User Requested (U)",
+  ["A"] = "Logout Reason: Administrative (A)",
+  ["!"] = "Logout Reason: Protocol Violation (!)",
+}
 
-  return "Logout Reason: Unknown("..value..")"
+cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_reason.display = function(value)
+  return cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_reason.labels[value] or "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -3345,18 +3259,14 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_unspecified_unit = {}
 cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_unspecified_unit.size = 1
 
 -- Display: Replay Unspecified Unit
-cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_unspecified_unit.display = function(value)
-  if value == "F" then
-    return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
-  end
-  if value == "R" then
-    return "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)"
-  end
-  if value == "S" then
-    return "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)"
-  end
+cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_unspecified_unit.labels = {
+  ["F"] = "Replay Unspecified Unit: Fail If Unit Not Specified (F)",
+  ["R"] = "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)",
+  ["S"] = "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)",
+}
 
-  return "Replay Unspecified Unit: Unknown("..value..")"
+cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_unspecified_unit.display = function(value)
+  return cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_unspecified_unit.labels[value] or "Replay Unspecified Unit: Unknown("..value..")"
 end
 
 -- Dissect: Replay Unspecified Unit
@@ -3468,27 +3378,17 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_reset = {}
 cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_reset.size = 8
 
 -- Display: Risk Reset
-cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_reset.display = function(value)
-  if value == "S" then
-    return "Risk Reset: Productlevel (S)"
-  end
-  if value == "F" then
-    return "Risk Reset: Firmlevel (F)"
-  end
-  if value == "C" then
-    return "Risk Reset: Custom Group Id (C)"
-  end
-  if value == "R" then
-    return "Risk Reset: Productlevel Options (R)"
-  end
-  if value == "I" then
-    return "Risk Reset: Firmlevel Options (I)"
-  end
-  if value == "D" then
-    return "Risk Reset: Custom Group Id Options (D)"
-  end
+cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_reset.labels = {
+  ["S"] = "Risk Reset: Productlevel (S)",
+  ["F"] = "Risk Reset: Firmlevel (F)",
+  ["C"] = "Risk Reset: Custom Group Id (C)",
+  ["R"] = "Risk Reset: Productlevel Options (R)",
+  ["I"] = "Risk Reset: Firmlevel Options (I)",
+  ["D"] = "Risk Reset: Custom Group Id Options (D)",
+}
 
-  return "Risk Reset: Unknown("..value..")"
+cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_reset.display = function(value)
+  return cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_reset.labels[value] or "Risk Reset: Unknown("..value..")"
 end
 
 -- Dissect: Risk Reset
@@ -6168,110 +6068,39 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message = {}
 
 -- Dissect: Exchange Message
+cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message.dispatch = {
+  [501] = cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_message.dissect,
+  [502] = cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_complete.dissect,
+  [503] = cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_response_message.dissect,
+  [504] = cboe_cfefutures_binaryorderentry_boe3_v1_0.server_heartbeat.dissect,
+  [1501] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.dissect,
+  [1502] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.dissect,
+  [1503] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.dissect,
+  [1504] = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.dissect,
+  [1505] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.dissect,
+  [1506] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.dissect,
+  [1507] = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.dissect,
+  [1508] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.dissect,
+  [1509] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.dissect,
+  [1510] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.dissect,
+  [1511] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.dissect,
+  [1512] = cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.dissect,
+  [1513] = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.dissect,
+  [1514] = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.dissect,
+  [1515] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.dissect,
+  [1516] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.dissect,
+  [1517] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.dissect,
+  [1518] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.dissect,
+  [1519] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.dissect,
+  [1520] = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.dissect,
+  [1521] = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.dissect,
+  [1522] = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.dissect,
+}
+
 cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
-  -- Dissect Login Response Message
-  if exchange_message_type == 501 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete
-  if exchange_message_type == 502 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if exchange_message_type == 503 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if exchange_message_type == 504 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement Message
-  if exchange_message_type == 1501 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Message
-  if exchange_message_type == 1502 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Message
-  if exchange_message_type == 1503 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Rejected Message
-  if exchange_message_type == 1504 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if exchange_message_type == 1505 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Message
-  if exchange_message_type == 1506 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Message
-  if exchange_message_type == 1507 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Acknowledgement Message
-  if exchange_message_type == 1508 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Rejected Message
-  if exchange_message_type == 1509 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Acknowledgement Message
-  if exchange_message_type == 1510 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Rejected Message
-  if exchange_message_type == 1511 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Or Correct Message
-  if exchange_message_type == 1512 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tas Restatement Message
-  if exchange_message_type == 1513 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Variance Restatement Message
-  if exchange_message_type == 1514 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Acknowledgement Message
-  if exchange_message_type == 1515 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Rejected Message
-  if exchange_message_type == 1516 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Restated Message
-  if exchange_message_type == 1517 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Execution Message
-  if exchange_message_type == 1518 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancelled Message
-  if exchange_message_type == 1519 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tas Quote Restatement Message
-  if exchange_message_type == 1520 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Variance Quote Restatement Message
-  if exchange_message_type == 1521 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Risk Acknowledgement Message
-  if exchange_message_type == 1522 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message.dispatch[exchange_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7189,46 +7018,23 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message = {}
 
 -- Dissect: Firm Message
+cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message.dispatch = {
+  [1] = cboe_cfefutures_binaryorderentry_boe3_v1_0.login_request_message.dissect,
+  [2] = cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_request.dissect,
+  [3] = cboe_cfefutures_binaryorderentry_boe3_v1_0.client_heartbeat.dissect,
+  [1001] = cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.dissect,
+  [1002] = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.dissect,
+  [1003] = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.dissect,
+  [1004] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.dissect,
+  [1005] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.dissect,
+  [1006] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.dissect,
+  [1007] = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.dissect,
+}
+
 cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
-  -- Dissect Login Request Message
-  if firm_message_type == 1 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if firm_message_type == 2 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if firm_message_type == 3 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Message
-  if firm_message_type == 1001 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if firm_message_type == 1002 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if firm_message_type == 1003 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Order Message
-  if firm_message_type == 1004 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Orders Message
-  if firm_message_type == 1005 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Update Message
-  if firm_message_type == 1006 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Risk Message
-  if firm_message_type == 1007 then
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message.dispatch[firm_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

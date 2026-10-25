@@ -532,15 +532,13 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.auction_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.auction_type.size = 1
 
 -- Display: Auction Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening (O)"
-  end
-  if value == "R" then
-    return "Auction Type: Reopening (R)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.auction_type.labels = {
+  ["O"] = "Auction Type: Opening (O)",
+  ["R"] = "Auction Type: Reopening (R)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.auction_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -712,18 +710,14 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.change_reason = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.change_reason.size = 1
 
 -- Display: Change Reason
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.change_reason.display = function(value)
-  if value == "U" then
-    return "Change Reason: User (U)"
-  end
-  if value == "R" then
-    return "Change Reason: Reprice (R)"
-  end
-  if value == "S" then
-    return "Change Reason: Suspend (S)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.change_reason.labels = {
+  ["U"] = "Change Reason: User (U)",
+  ["R"] = "Change Reason: Reprice (R)",
+  ["S"] = "Change Reason: Suspend (S)",
+}
 
-  return "Change Reason: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.change_reason.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.change_reason.labels[value] or "Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Change Reason
@@ -745,24 +739,16 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_packet_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_packet_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -784,18 +770,14 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.closing_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.closing_type.size = 1
 
 -- Display: Closing Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.closing_type.display = function(value)
-  if value == "N" then
-    return "Closing Type: Normal Hours (N)"
-  end
-  if value == "L" then
-    return "Closing Type: Late Hours (L)"
-  end
-  if value == "W" then
-    return "Closing Type: Wco Early Closing (W)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.closing_type.labels = {
+  ["N"] = "Closing Type: Normal Hours (N)",
+  ["L"] = "Closing Type: Late Hours (L)",
+  ["W"] = "Closing Type: Wco Early Closing (W)",
+}
 
-  return "Closing Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.closing_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.closing_type.labels[value] or "Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Closing Type
@@ -840,36 +822,20 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.cross_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.cross_type.display = function(value)
-  if value == "B" then
-    return "Cross Type: Block Auction (B)"
-  end
-  if value == "O" then
-    return "Cross Type: Opening Auction (O)"
-  end
-  if value == "R" then
-    return "Cross Type: Re Opening Auction (R)"
-  end
-  if value == "P" then
-    return "Cross Type: Price Improvement Auction (P)"
-  end
-  if value == "C" then
-    return "Cross Type: Facilitation (C)"
-  end
-  if value == "S" then
-    return "Cross Type: Solicitation (S)"
-  end
-  if value == "X" then
-    return "Cross Type: Flex Auction (X)"
-  end
-  if value == "N" then
-    return "Cross Type: None (N)"
-  end
-  if value == "E" then
-    return "Cross Type: Complex Exposure Auction (E)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.cross_type.labels = {
+  ["B"] = "Cross Type: Block Auction (B)",
+  ["O"] = "Cross Type: Opening Auction (O)",
+  ["R"] = "Cross Type: Re Opening Auction (R)",
+  ["P"] = "Cross Type: Price Improvement Auction (P)",
+  ["C"] = "Cross Type: Facilitation (C)",
+  ["S"] = "Cross Type: Solicitation (S)",
+  ["X"] = "Cross Type: Flex Auction (X)",
+  ["N"] = "Cross Type: None (N)",
+  ["E"] = "Cross Type: Complex Exposure Auction (E)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.cross_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -891,33 +857,19 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.current_trading_state = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.current_trading_state.display = function(value)
-  if value == "B" then
-    return "Current Trading State: Buy Side Suspended (B)"
-  end
-  if value == "S" then
-    return "Current Trading State: Sell Side Suspended (S)"
-  end
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Continuous Trading (T)"
-  end
-  if value == "I" then
-    return "Current Trading State: Pre Open (I)"
-  end
-  if value == "O" then
-    return "Current Trading State: Opening Auction (O)"
-  end
-  if value == "R" then
-    return "Current Trading State: Re Opening (R)"
-  end
-  if value == "X" then
-    return "Current Trading State: Closed (X)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.current_trading_state.labels = {
+  ["B"] = "Current Trading State: Buy Side Suspended (B)",
+  ["S"] = "Current Trading State: Sell Side Suspended (S)",
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Continuous Trading (T)",
+  ["I"] = "Current Trading State: Pre Open (I)",
+  ["O"] = "Current Trading State: Opening Auction (O)",
+  ["R"] = "Current Trading State: Re Opening (R)",
+  ["X"] = "Current Trading State: Closed (X)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.current_trading_state.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -981,33 +933,19 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.event_code = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: Start Of Normal Hours Closing Process (N)",
+  ["L"] = "Event Code: Start Of Late Hours Closing Process (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.event_code.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1265,66 +1203,30 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.message_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "m" then
-    return "Message Type: Derivative Directory Message (m)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "r" then
-    return "Message Type: Add Order Short Form Message (r)"
-  end
-  if value == "o" then
-    return "Message Type: Add Order Long Form Message (o)"
-  end
-  if value == "j" then
-    return "Message Type: Add Quote Short Form Message (j)"
-  end
-  if value == "J" then
-    return "Message Type: Add Quote Long Form Message (J)"
-  end
-  if value == "e" then
-    return "Message Type: Single Side Executed Message (e)"
-  end
-  if value == "c" then
-    return "Message Type: Single Side Executed With Price Message (c)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "u" then
-    return "Message Type: Single Side Replace Short Form Message (u)"
-  end
-  if value == "U" then
-    return "Message Type: Single Side Replace Long Form Message (U)"
-  end
-  if value == "D" then
-    return "Message Type: Single Side Delete Message (D)"
-  end
-  if value == "G" then
-    return "Message Type: Single Side Update Message (G)"
-  end
-  if value == "k" then
-    return "Message Type: Quote Replace Short Form Message (k)"
-  end
-  if value == "K" then
-    return "Message Type: Quote Replace Long Form Message (K)"
-  end
-  if value == "Y" then
-    return "Message Type: Quote Delete Message (Y)"
-  end
-  if value == "q" then
-    return "Message Type: Trade Message (q)"
-  end
-  if value == "O" then
-    return "Message Type: Net Order Imbalance Message (O)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["m"] = "Message Type: Derivative Directory Message (m)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["r"] = "Message Type: Add Order Short Form Message (r)",
+  ["o"] = "Message Type: Add Order Long Form Message (o)",
+  ["j"] = "Message Type: Add Quote Short Form Message (j)",
+  ["J"] = "Message Type: Add Quote Long Form Message (J)",
+  ["e"] = "Message Type: Single Side Executed Message (e)",
+  ["c"] = "Message Type: Single Side Executed With Price Message (c)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["u"] = "Message Type: Single Side Replace Short Form Message (u)",
+  ["U"] = "Message Type: Single Side Replace Long Form Message (U)",
+  ["D"] = "Message Type: Single Side Delete Message (D)",
+  ["G"] = "Message Type: Single Side Update Message (G)",
+  ["k"] = "Message Type: Quote Replace Short Form Message (k)",
+  ["K"] = "Message Type: Quote Replace Long Form Message (K)",
+  ["Y"] = "Message Type: Quote Delete Message (Y)",
+  ["q"] = "Message Type: Trade Message (q)",
+  ["O"] = "Message Type: Net Order Imbalance Message (O)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.message_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1346,18 +1248,14 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.mpv = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.mpv.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -1402,18 +1300,14 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.option_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == "N" then
-    return "Option Type: Not Applicable (N)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+  ["N"] = "Option Type: Not Applicable (N)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.option_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1708,15 +1602,13 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.printable = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.printable.size = 1
 
 -- Display: Printable
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.printable.labels = {
+  ["N"] = "Printable: Non Printable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.printable.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1738,15 +1630,13 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.reject_reason_code = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.reject_reason_code.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1914,69 +1804,31 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "m" then
-    return "Sequenced Message Type: Derivative Directory Message (m)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading Action Message (H)"
-  end
-  if value == "r" then
-    return "Sequenced Message Type: Add Order Short Form Message (r)"
-  end
-  if value == "o" then
-    return "Sequenced Message Type: Add Order Long Form Message (o)"
-  end
-  if value == "j" then
-    return "Sequenced Message Type: Add Quote Short Form Message (j)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Add Quote Long Form Message (J)"
-  end
-  if value == "e" then
-    return "Sequenced Message Type: Single Side Executed Message (e)"
-  end
-  if value == "c" then
-    return "Sequenced Message Type: Single Side Executed With Price Message (c)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Order Cancel Message (X)"
-  end
-  if value == "u" then
-    return "Sequenced Message Type: Single Side Replace Short Form Message (u)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Single Side Replace Long Form Message (U)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Single Side Delete Message (D)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Single Side Update Message (G)"
-  end
-  if value == "k" then
-    return "Sequenced Message Type: Quote Replace Short Form Message (k)"
-  end
-  if value == "K" then
-    return "Sequenced Message Type: Quote Replace Long Form Message (K)"
-  end
-  if value == "Y" then
-    return "Sequenced Message Type: Quote Delete Message (Y)"
-  end
-  if value == "q" then
-    return "Sequenced Message Type: Trade Message (q)"
-  end
-  if value == "O" then
-    return "Sequenced Message Type: Net Order Imbalance Message (O)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: End Of Replay Sequence Message (M)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["m"] = "Sequenced Message Type: Derivative Directory Message (m)",
+  ["H"] = "Sequenced Message Type: Trading Action Message (H)",
+  ["r"] = "Sequenced Message Type: Add Order Short Form Message (r)",
+  ["o"] = "Sequenced Message Type: Add Order Long Form Message (o)",
+  ["j"] = "Sequenced Message Type: Add Quote Short Form Message (j)",
+  ["J"] = "Sequenced Message Type: Add Quote Long Form Message (J)",
+  ["e"] = "Sequenced Message Type: Single Side Executed Message (e)",
+  ["c"] = "Sequenced Message Type: Single Side Executed With Price Message (c)",
+  ["X"] = "Sequenced Message Type: Order Cancel Message (X)",
+  ["u"] = "Sequenced Message Type: Single Side Replace Short Form Message (u)",
+  ["U"] = "Sequenced Message Type: Single Side Replace Long Form Message (U)",
+  ["D"] = "Sequenced Message Type: Single Side Delete Message (D)",
+  ["G"] = "Sequenced Message Type: Single Side Update Message (G)",
+  ["k"] = "Sequenced Message Type: Quote Replace Short Form Message (k)",
+  ["K"] = "Sequenced Message Type: Quote Replace Long Form Message (K)",
+  ["Y"] = "Sequenced Message Type: Quote Delete Message (Y)",
+  ["q"] = "Sequenced Message Type: Trade Message (q)",
+  ["O"] = "Sequenced Message Type: Net Order Imbalance Message (O)",
+  ["M"] = "Sequenced Message Type: End Of Replay Sequence Message (M)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1998,27 +1850,17 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_packet_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_packet_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2079,21 +1921,15 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.side = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.side.size = 1
 
 -- Display: Side
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "M" then
-    return "Side: Buy Implied (M)"
-  end
-  if value == "N" then
-    return "Side: Sell Implied (N)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["M"] = "Side: Buy Implied (M)",
+  ["N"] = "Side: Sell Implied (N)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.side.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2115,15 +1951,13 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.side_imbalance_direction = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.side_imbalance_direction.size = 1
 
 -- Display: Side Imbalance Direction
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.side_imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Side Imbalance Direction: Buy (B)"
-  end
-  if value == "S" then
-    return "Side Imbalance Direction: Sell (S)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.side_imbalance_direction.labels = {
+  ["B"] = "Side Imbalance Direction: Buy (B)",
+  ["S"] = "Side Imbalance Direction: Sell (S)",
+}
 
-  return "Side Imbalance Direction: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.side_imbalance_direction.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.side_imbalance_direction.labels[value] or "Side Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Side Imbalance Direction
@@ -2234,15 +2068,13 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.tradable = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.tradable.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -2287,12 +2119,12 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_type = {}
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_type.size = 1
 
 -- Display: Trade Type
-nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_type.display = function(value)
-  if value == "E" then
-    return "Trade Type: Electronic Trade (E)"
-  end
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_type.labels = {
+  ["E"] = "Trade Type: Electronic Trade (E)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_type.display = function(value)
+  return nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -3774,82 +3606,32 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.udp_payload = {}
 
 -- Dissect: Udp Payload
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.udp_payload.dispatch = {
+  ["S"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.system_event_message.dissect,
+  ["m"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.derivative_directory_message.dissect,
+  ["H"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.trading_action_message.dissect,
+  ["r"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_order_short_form_message.dissect,
+  ["o"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_order_long_form_message.dissect,
+  ["j"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_quote_short_form_message.dissect,
+  ["J"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_quote_long_form_message.dissect,
+  ["e"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_executed_message.dissect,
+  ["c"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_executed_with_price_message.dissect,
+  ["X"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.order_cancel_message.dissect,
+  ["u"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_replace_short_form_message.dissect,
+  ["U"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_replace_long_form_message.dissect,
+  ["D"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_delete_message.dissect,
+  ["G"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_update_message.dissect,
+  ["k"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_replace_short_form_message.dissect,
+  ["K"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_replace_long_form_message.dissect,
+  ["Y"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_delete_message.dissect,
+  ["q"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_message.dissect,
+  ["O"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.net_order_imbalance_message.dissect,
+}
+
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Derivative Directory Message
-  if message_type == "m" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.derivative_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Short Form Message
-  if message_type == "r" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_order_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Long Form Message
-  if message_type == "o" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_order_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Short Form Message
-  if message_type == "j" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_quote_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Long Form Message
-  if message_type == "J" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_quote_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed Message
-  if message_type == "e" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed With Price Message
-  if message_type == "c" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Short Form Message
-  if message_type == "u" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_replace_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Long Form Message
-  if message_type == "U" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_replace_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Delete Message
-  if message_type == "D" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Message
-  if message_type == "G" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Short Form Message
-  if message_type == "k" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_replace_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Long Form Message
-  if message_type == "K" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_replace_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Delete Message
-  if message_type == "Y" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "q" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Order Imbalance Message
-  if message_type == "O" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.net_order_imbalance_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_depthofmarket_itch_v2_1.udp_payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4005,14 +3787,15 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.messages = {}
 
 -- Dissect: Messages
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.messages.dispatch = {
+  [0] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.heartbeat.dissect,
+  [65535] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.end_of_session.dissect,
+}
+
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_depthofmarket_itch_v2_1.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
@@ -4182,86 +3965,33 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message.dispatch = {
+  ["S"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.system_event_message.dissect,
+  ["m"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.derivative_directory_message.dissect,
+  ["H"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.trading_action_message.dissect,
+  ["r"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_order_short_form_message.dissect,
+  ["o"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_order_long_form_message.dissect,
+  ["j"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_quote_short_form_message.dissect,
+  ["J"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_quote_long_form_message.dissect,
+  ["e"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_executed_message.dissect,
+  ["c"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_executed_with_price_message.dissect,
+  ["X"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.order_cancel_message.dissect,
+  ["u"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_replace_short_form_message.dissect,
+  ["U"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_replace_long_form_message.dissect,
+  ["D"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_delete_message.dissect,
+  ["G"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_update_message.dissect,
+  ["k"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_replace_short_form_message.dissect,
+  ["K"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_replace_long_form_message.dissect,
+  ["Y"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_delete_message.dissect,
+  ["q"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_message.dissect,
+  ["O"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.net_order_imbalance_message.dissect,
+  ["M"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.end_of_replay_sequence_message.dissect,
+}
+
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Derivative Directory Message
-  if sequenced_message_type == "m" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.derivative_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Short Form Message
-  if sequenced_message_type == "r" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_order_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Long Form Message
-  if sequenced_message_type == "o" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_order_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Short Form Message
-  if sequenced_message_type == "j" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_quote_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Quote Long Form Message
-  if sequenced_message_type == "J" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.add_quote_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed Message
-  if sequenced_message_type == "e" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Executed With Price Message
-  if sequenced_message_type == "c" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if sequenced_message_type == "X" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Short Form Message
-  if sequenced_message_type == "u" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_replace_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Replace Long Form Message
-  if sequenced_message_type == "U" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_replace_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Delete Message
-  if sequenced_message_type == "D" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Message
-  if sequenced_message_type == "G" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.single_side_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Short Form Message
-  if sequenced_message_type == "k" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_replace_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Replace Long Form Message
-  if sequenced_message_type == "K" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_replace_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Delete Message
-  if sequenced_message_type == "Y" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.quote_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if sequenced_message_type == "q" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Order Imbalance Message
-  if sequenced_message_type == "O" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.net_order_imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Replay Sequence Message
-  if sequenced_message_type == "M" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.end_of_replay_sequence_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4504,30 +4234,19 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_payload.dispatch = {
+  ["+"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.debug_packet.dissect,
+  ["A"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.login_accepted_packet.dissect,
+  ["J"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.login_rejected_packet.dissect,
+  ["S"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.end_of_session_packet.dissect,
+}
+
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4838,26 +4557,18 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_payload.dispatch = {
+  ["+"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.debug_packet.dissect,
+  ["L"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.login_request_packet.dissect,
+  ["U"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_phlxoptions_depthofmarket_itch_v2_1.logout_request_packet.dissect,
+}
+
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_phlxoptions_depthofmarket_itch_v2_1.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_depthofmarket_itch_v2_1.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

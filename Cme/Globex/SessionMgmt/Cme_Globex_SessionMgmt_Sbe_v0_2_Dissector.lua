@@ -264,21 +264,15 @@ cme_globex_sessionmgmt_sbe_v0_2.error_codes = {}
 cme_globex_sessionmgmt_sbe_v0_2.error_codes.size = 1
 
 -- Display: Error Codes
-cme_globex_sessionmgmt_sbe_v0_2.error_codes.display = function(value)
-  if value == 0 then
-    return "Error Codes: Hmac Reject (0)"
-  end
-  if value == 1 then
-    return "Error Codes: Invalid Value (1)"
-  end
-  if value == 2 then
-    return "Error Codes: Slow Connection (2)"
-  end
-  if value == 3 then
-    return "Error Codes: Other (3)"
-  end
+cme_globex_sessionmgmt_sbe_v0_2.error_codes.labels = {
+  [0] = "Error Codes: Hmac Reject (0)",
+  [1] = "Error Codes: Invalid Value (1)",
+  [2] = "Error Codes: Slow Connection (2)",
+  [3] = "Error Codes: Other (3)",
+}
 
-  return "Error Codes: Unknown("..value..")"
+cme_globex_sessionmgmt_sbe_v0_2.error_codes.display = function(value)
+  return cme_globex_sessionmgmt_sbe_v0_2.error_codes.labels[value] or "Error Codes: Unknown("..value..")"
 end
 
 -- Dissect: Error Codes
@@ -429,15 +423,13 @@ cme_globex_sessionmgmt_sbe_v0_2.md_req_id_status = {}
 cme_globex_sessionmgmt_sbe_v0_2.md_req_id_status.size = 1
 
 -- Display: Md Req Id Status
-cme_globex_sessionmgmt_sbe_v0_2.md_req_id_status.display = function(value)
-  if value == 0 then
-    return "Md Req Id Status: Full Ack (0)"
-  end
-  if value == 1 then
-    return "Md Req Id Status: Partial Ack (1)"
-  end
+cme_globex_sessionmgmt_sbe_v0_2.md_req_id_status.labels = {
+  [0] = "Md Req Id Status: Full Ack (0)",
+  [1] = "Md Req Id Status: Partial Ack (1)",
+}
 
-  return "Md Req Id Status: Unknown("..value..")"
+cme_globex_sessionmgmt_sbe_v0_2.md_req_id_status.display = function(value)
+  return cme_globex_sessionmgmt_sbe_v0_2.md_req_id_status.labels[value] or "Md Req Id Status: Unknown("..value..")"
 end
 
 -- Dissect: Md Req Id Status
@@ -459,21 +451,15 @@ cme_globex_sessionmgmt_sbe_v0_2.md_req_rej_reason = {}
 cme_globex_sessionmgmt_sbe_v0_2.md_req_rej_reason.size = 1
 
 -- Display: Md Req Rej Reason
-cme_globex_sessionmgmt_sbe_v0_2.md_req_rej_reason.display = function(value)
-  if value == 0 then
-    return "Md Req Rej Reason: Unknown Security (0)"
-  end
-  if value == 1 then
-    return "Md Req Rej Reason: Unknown Message (1)"
-  end
-  if value == 2 then
-    return "Md Req Rej Reason: Unsupported Scope (2)"
-  end
-  if value == 3 then
-    return "Md Req Rej Reason: Other (3)"
-  end
+cme_globex_sessionmgmt_sbe_v0_2.md_req_rej_reason.labels = {
+  [0] = "Md Req Rej Reason: Unknown Security (0)",
+  [1] = "Md Req Rej Reason: Unknown Message (1)",
+  [2] = "Md Req Rej Reason: Unsupported Scope (2)",
+  [3] = "Md Req Rej Reason: Other (3)",
+}
 
-  return "Md Req Rej Reason: Unknown("..value..")"
+cme_globex_sessionmgmt_sbe_v0_2.md_req_rej_reason.display = function(value)
+  return cme_globex_sessionmgmt_sbe_v0_2.md_req_rej_reason.labels[value] or "Md Req Rej Reason: Unknown("..value..")"
 end
 
 -- Dissect: Md Req Rej Reason
@@ -853,18 +839,14 @@ cme_globex_sessionmgmt_sbe_v0_2.subscription_req_type = {}
 cme_globex_sessionmgmt_sbe_v0_2.subscription_req_type.size = 1
 
 -- Display: Subscription Req Type
-cme_globex_sessionmgmt_sbe_v0_2.subscription_req_type.display = function(value)
-  if value == 0 then
-    return "Subscription Req Type: Snapshot (0)"
-  end
-  if value == 1 then
-    return "Subscription Req Type: Snapshot And Updates (1)"
-  end
-  if value == 2 then
-    return "Subscription Req Type: Unsubscribe (2)"
-  end
+cme_globex_sessionmgmt_sbe_v0_2.subscription_req_type.labels = {
+  [0] = "Subscription Req Type: Snapshot (0)",
+  [1] = "Subscription Req Type: Snapshot And Updates (1)",
+  [2] = "Subscription Req Type: Unsubscribe (2)",
+}
 
-  return "Subscription Req Type: Unknown("..value..")"
+cme_globex_sessionmgmt_sbe_v0_2.subscription_req_type.display = function(value)
+  return cme_globex_sessionmgmt_sbe_v0_2.subscription_req_type.labels[value] or "Subscription Req Type: Unknown("..value..")"
 end
 
 -- Dissect: Subscription Req Type
@@ -886,39 +868,21 @@ cme_globex_sessionmgmt_sbe_v0_2.template_id = {}
 cme_globex_sessionmgmt_sbe_v0_2.template_id.size = 2
 
 -- Display: Template Id
-cme_globex_sessionmgmt_sbe_v0_2.template_id.display = function(value)
-  if value == 200 then
-    return "Template Id: Negotiate (200)"
-  end
-  if value == 201 then
-    return "Template Id: Negotiation Reject (201)"
-  end
-  if value == 202 then
-    return "Template Id: Negotiation Response (202)"
-  end
-  if value == 203 then
-    return "Template Id: Terminate (203)"
-  end
-  if value == 205 then
-    return "Template Id: Market Data Request (205)"
-  end
-  if value == 206 then
-    return "Template Id: Request Ack (206)"
-  end
-  if value == 207 then
-    return "Template Id: Request Reject (207)"
-  end
-  if value == 208 then
-    return "Template Id: Security List Request (208)"
-  end
-  if value == 209 then
-    return "Template Id: Security Status Request (209)"
-  end
-  if value == 210 then
-    return "Template Id: Subscriber Heartbeat (210)"
-  end
+cme_globex_sessionmgmt_sbe_v0_2.template_id.labels = {
+  [200] = "Template Id: Negotiate (200)",
+  [201] = "Template Id: Negotiation Reject (201)",
+  [202] = "Template Id: Negotiation Response (202)",
+  [203] = "Template Id: Terminate (203)",
+  [205] = "Template Id: Market Data Request (205)",
+  [206] = "Template Id: Request Ack (206)",
+  [207] = "Template Id: Request Reject (207)",
+  [208] = "Template Id: Security List Request (208)",
+  [209] = "Template Id: Security Status Request (209)",
+  [210] = "Template Id: Subscriber Heartbeat (210)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cme_globex_sessionmgmt_sbe_v0_2.template_id.display = function(value)
+  return cme_globex_sessionmgmt_sbe_v0_2.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1558,26 +1522,18 @@ end
 cme_globex_sessionmgmt_sbe_v0_2.server_payload = {}
 
 -- Dissect: Server Payload
+cme_globex_sessionmgmt_sbe_v0_2.server_payload.dispatch = {
+  [201] = cme_globex_sessionmgmt_sbe_v0_2.negotiation_reject.dissect,
+  [202] = cme_globex_sessionmgmt_sbe_v0_2.negotiation_response.dissect,
+  [203] = cme_globex_sessionmgmt_sbe_v0_2.terminate.dissect,
+  [206] = cme_globex_sessionmgmt_sbe_v0_2.request_ack.dissect,
+  [207] = cme_globex_sessionmgmt_sbe_v0_2.request_reject.dissect,
+}
+
 cme_globex_sessionmgmt_sbe_v0_2.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Negotiation Reject
-  if template_id == 201 then
-    return cme_globex_sessionmgmt_sbe_v0_2.negotiation_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Negotiation Response
-  if template_id == 202 then
-    return cme_globex_sessionmgmt_sbe_v0_2.negotiation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate
-  if template_id == 203 then
-    return cme_globex_sessionmgmt_sbe_v0_2.terminate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Ack
-  if template_id == 206 then
-    return cme_globex_sessionmgmt_sbe_v0_2.request_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Reject
-  if template_id == 207 then
-    return cme_globex_sessionmgmt_sbe_v0_2.request_reject.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_sessionmgmt_sbe_v0_2.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2763,30 +2719,19 @@ end
 cme_globex_sessionmgmt_sbe_v0_2.client_payload = {}
 
 -- Dissect: Client Payload
+cme_globex_sessionmgmt_sbe_v0_2.client_payload.dispatch = {
+  [200] = cme_globex_sessionmgmt_sbe_v0_2.negotiate.dissect,
+  [203] = cme_globex_sessionmgmt_sbe_v0_2.terminate.dissect,
+  [205] = cme_globex_sessionmgmt_sbe_v0_2.market_data_request.dissect,
+  [208] = cme_globex_sessionmgmt_sbe_v0_2.security_list_request.dissect,
+  [209] = cme_globex_sessionmgmt_sbe_v0_2.security_status_request.dissect,
+  [210] = cme_globex_sessionmgmt_sbe_v0_2.subscriber_heartbeat.dissect,
+}
+
 cme_globex_sessionmgmt_sbe_v0_2.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Negotiate
-  if template_id == 200 then
-    return cme_globex_sessionmgmt_sbe_v0_2.negotiate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate
-  if template_id == 203 then
-    return cme_globex_sessionmgmt_sbe_v0_2.terminate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Data Request
-  if template_id == 205 then
-    return cme_globex_sessionmgmt_sbe_v0_2.market_data_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Request
-  if template_id == 208 then
-    return cme_globex_sessionmgmt_sbe_v0_2.security_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Request
-  if template_id == 209 then
-    return cme_globex_sessionmgmt_sbe_v0_2.security_status_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscriber Heartbeat
-  if template_id == 210 then
-    return cme_globex_sessionmgmt_sbe_v0_2.subscriber_heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_sessionmgmt_sbe_v0_2.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

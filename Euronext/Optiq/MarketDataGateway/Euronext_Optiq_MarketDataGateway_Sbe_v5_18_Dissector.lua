@@ -651,33 +651,19 @@ euronext_optiq_marketdatagateway_sbe_v5_18.account_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.account_type.size = 1
 
 -- Display: Account Type
-euronext_optiq_marketdatagateway_sbe_v5_18.account_type.display = function(value)
-  if value == 1 then
-    return "Account Type: Client (1)"
-  end
-  if value == 2 then
-    return "Account Type: House (2)"
-  end
-  if value == 4 then
-    return "Account Type: Ro (4)"
-  end
-  if value == 6 then
-    return "Account Type: Liquidity Provider (6)"
-  end
-  if value == 7 then
-    return "Account Type: Related Party (7)"
-  end
-  if value == 8 then
-    return "Account Type: Structured Product Market Maker (8)"
-  end
-  if value == 14 then
-    return "Account Type: Omega Client (14)"
-  end
-  if value == 15 then
-    return "Account Type: Ceres Client (15)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.account_type.labels = {
+  [1] = "Account Type: Client (1)",
+  [2] = "Account Type: House (2)",
+  [4] = "Account Type: Ro (4)",
+  [6] = "Account Type: Liquidity Provider (6)",
+  [7] = "Account Type: Related Party (7)",
+  [8] = "Account Type: Structured Product Market Maker (8)",
+  [14] = "Account Type: Omega Client (14)",
+  [15] = "Account Type: Ceres Client (15)",
+}
 
-  return "Account Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.account_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.account_type.labels[value] or "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -699,33 +685,19 @@ euronext_optiq_marketdatagateway_sbe_v5_18.action_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.action_type.size = 1
 
 -- Display: Action Type
-euronext_optiq_marketdatagateway_sbe_v5_18.action_type.display = function(value)
-  if value == 1 then
-    return "Action Type: New Order (1)"
-  end
-  if value == 2 then
-    return "Action Type: Deletion Of Identified Order (2)"
-  end
-  if value == 3 then
-    return "Action Type: Deletion Of All Orders By Side (3)"
-  end
-  if value == 4 then
-    return "Action Type: Modification Of Existing Order Without Loss Of Priority (4)"
-  end
-  if value == 5 then
-    return "Action Type: Retransmission Of All Orders (5)"
-  end
-  if value == 6 then
-    return "Action Type: Modification Of Existing Order With Loss Of Priority (6)"
-  end
-  if value == 7 then
-    return "Action Type: Rfq Answercreation (7)"
-  end
-  if value == 8 then
-    return "Action Type: Rfq Answerdeletion (8)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.action_type.labels = {
+  [1] = "Action Type: New Order (1)",
+  [2] = "Action Type: Deletion Of Identified Order (2)",
+  [3] = "Action Type: Deletion Of All Orders By Side (3)",
+  [4] = "Action Type: Modification Of Existing Order Without Loss Of Priority (4)",
+  [5] = "Action Type: Retransmission Of All Orders (5)",
+  [6] = "Action Type: Modification Of Existing Order With Loss Of Priority (6)",
+  [7] = "Action Type: Rfq Answercreation (7)",
+  [8] = "Action Type: Rfq Answerdeletion (8)",
+}
 
-  return "Action Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.action_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.action_type.labels[value] or "Action Type: Unknown("..value..")"
 end
 
 -- Dissect: Action Type
@@ -1130,18 +1102,14 @@ euronext_optiq_marketdatagateway_sbe_v5_18.change_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.change_type.size = 1
 
 -- Display: Change Type
-euronext_optiq_marketdatagateway_sbe_v5_18.change_type.display = function(value)
-  if value == 0 then
-    return "Change Type: Status Changes (0)"
-  end
-  if value == 1 then
-    return "Change Type: Scheduled Event Notification (1)"
-  end
-  if value == 2 then
-    return "Change Type: Status Changeand Scheduled Event Notification (2)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.change_type.labels = {
+  [0] = "Change Type: Status Changes (0)",
+  [1] = "Change Type: Scheduled Event Notification (1)",
+  [2] = "Change Type: Status Changeand Scheduled Event Notification (2)",
+}
 
-  return "Change Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.change_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.change_type.labels[value] or "Change Type: Unknown("..value..")"
 end
 
 -- Dissect: Change Type
@@ -1493,21 +1461,15 @@ euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type.size = 1
 
 -- Display: Contract Trading Type
-euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type.display = function(value)
-  if value == 1 then
-    return "Contract Trading Type: Tradedasanoutright (1)"
-  end
-  if value == 2 then
-    return "Contract Trading Type: Nottradedbutlistedincontractdata Tradersmaysubscribeto (2)"
-  end
-  if value == 3 then
-    return "Contract Trading Type: Tradedasasimpleintercommodityspread (3)"
-  end
-  if value == 4 then
-    return "Contract Trading Type: Tradedasanintercommodityspread (4)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type.labels = {
+  [1] = "Contract Trading Type: Tradedasanoutright (1)",
+  [2] = "Contract Trading Type: Nottradedbutlistedincontractdata Tradersmaysubscribeto (2)",
+  [3] = "Contract Trading Type: Tradedasasimpleintercommodityspread (3)",
+  [4] = "Contract Trading Type: Tradedasanintercommodityspread (4)",
+}
 
-  return "Contract Trading Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type.labels[value] or "Contract Trading Type: Unknown("..value..")"
 end
 
 -- Dissect: Contract Trading Type
@@ -3133,39 +3095,21 @@ euronext_optiq_marketdatagateway_sbe_v5_18.emm = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.emm.size = 1
 
 -- Display: Emm
-euronext_optiq_marketdatagateway_sbe_v5_18.emm.display = function(value)
-  if value == 1 then
-    return "Emm: Cashand Derivative Central Order Book (1)"
-  end
-  if value == 2 then
-    return "Emm: Nav Trading Facility (2)"
-  end
-  if value == 4 then
-    return "Emm: Derivatives Wholesales (4)"
-  end
-  if value == 5 then
-    return "Emm: Cash On Exchange Offbook (5)"
-  end
-  if value == 6 then
-    return "Emm: Euronextoffexchangetradereports (6)"
-  end
-  if value == 7 then
-    return "Emm: Derivatives On Exchange Offbook (7)"
-  end
-  if value == 8 then
-    return "Emm: Etfmtfnav Central Order Book (8)"
-  end
-  if value == 9 then
-    return "Emm: Listednottraded (9)"
-  end
-  if value == 15 then
-    return "Emm: Delta Neutral Contingency Leg (15)"
-  end
-  if value == 99 then
-    return "Emm: Not Applicable (99)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.emm.labels = {
+  [1] = "Emm: Cashand Derivative Central Order Book (1)",
+  [2] = "Emm: Nav Trading Facility (2)",
+  [4] = "Emm: Derivatives Wholesales (4)",
+  [5] = "Emm: Cash On Exchange Offbook (5)",
+  [6] = "Emm: Euronextoffexchangetradereports (6)",
+  [7] = "Emm: Derivatives On Exchange Offbook (7)",
+  [8] = "Emm: Etfmtfnav Central Order Book (8)",
+  [9] = "Emm: Listednottraded (9)",
+  [15] = "Emm: Delta Neutral Contingency Leg (15)",
+  [99] = "Emm: Not Applicable (99)",
+}
 
-  return "Emm: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.emm.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.emm.labels[value] or "Emm: Unknown("..value..")"
 end
 
 -- Dissect: Emm
@@ -4073,33 +4017,19 @@ euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type.size = 1
 
 -- Display: Index Level Type
-euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type.display = function(value)
-  if value == 0 then
-    return "Index Level Type: Indicative Index (0)"
-  end
-  if value == 1 then
-    return "Index Level Type: Official Opening Index (1)"
-  end
-  if value == 2 then
-    return "Index Level Type: Real Time Index (2)"
-  end
-  if value == 3 then
-    return "Index Level Type: Automatic Indicative Index (3)"
-  end
-  if value == 4 then
-    return "Index Level Type: Preliminary Reference Index (4)"
-  end
-  if value == 5 then
-    return "Index Level Type: Closing Reference Index (5)"
-  end
-  if value == 6 then
-    return "Index Level Type: Confirmed Reference Index (6)"
-  end
-  if value == 7 then
-    return "Index Level Type: Options Liquidation Index (7)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type.labels = {
+  [0] = "Index Level Type: Indicative Index (0)",
+  [1] = "Index Level Type: Official Opening Index (1)",
+  [2] = "Index Level Type: Real Time Index (2)",
+  [3] = "Index Level Type: Automatic Indicative Index (3)",
+  [4] = "Index Level Type: Preliminary Reference Index (4)",
+  [5] = "Index Level Type: Closing Reference Index (5)",
+  [6] = "Index Level Type: Confirmed Reference Index (6)",
+  [7] = "Index Level Type: Options Liquidation Index (7)",
+}
 
-  return "Index Level Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type.labels[value] or "Index Level Type: Unknown("..value..")"
 end
 
 -- Dissect: Index Level Type
@@ -4121,30 +4051,18 @@ euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code.size = 1
 
 -- Display: Index Price Code
-euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code.display = function(value)
-  if value == 0 then
-    return "Index Price Code: Only Index (0)"
-  end
-  if value == 1 then
-    return "Index Price Code: Indexand Session High (1)"
-  end
-  if value == 2 then
-    return "Index Price Code: Indexand Session Low (2)"
-  end
-  if value == 3 then
-    return "Index Price Code: Indexand Session Highand Lowtypicallyfirstprice (3)"
-  end
-  if value == 4 then
-    return "Index Price Code: Only Session High (4)"
-  end
-  if value == 5 then
-    return "Index Price Code: Only Session Low (5)"
-  end
-  if value == 6 then
-    return "Index Price Code: Previous Day Close (6)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code.labels = {
+  [0] = "Index Price Code: Only Index (0)",
+  [1] = "Index Price Code: Indexand Session High (1)",
+  [2] = "Index Price Code: Indexand Session Low (2)",
+  [3] = "Index Price Code: Indexand Session Highand Lowtypicallyfirstprice (3)",
+  [4] = "Index Price Code: Only Session High (4)",
+  [5] = "Index Price Code: Only Session Low (5)",
+  [6] = "Index Price Code: Previous Day Close (6)",
+}
 
-  return "Index Price Code: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code.labels[value] or "Index Price Code: Unknown("..value..")"
 end
 
 -- Dissect: Index Price Code
@@ -4214,45 +4132,23 @@ euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category.size = 1
 
 -- Display: Instrument Category
-euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category.display = function(value)
-  if value == 1 then
-    return "Instrument Category: Equities (1)"
-  end
-  if value == 2 then
-    return "Instrument Category: Fixed Income (2)"
-  end
-  if value == 3 then
-    return "Instrument Category: Warrants And Certificates (3)"
-  end
-  if value == 6 then
-    return "Instrument Category: Trackers (6)"
-  end
-  if value == 7 then
-    return "Instrument Category: Futures (7)"
-  end
-  if value == 10 then
-    return "Instrument Category: Options (10)"
-  end
-  if value == 11 then
-    return "Instrument Category: Indices (11)"
-  end
-  if value == 12 then
-    return "Instrument Category: Euronext Funds Services (12)"
-  end
-  if value == 14 then
-    return "Instrument Category: Inav Indicative Net Asset Value (14)"
-  end
-  if value == 15 then
-    return "Instrument Category: Fund (15)"
-  end
-  if value == 16 then
-    return "Instrument Category: Forex (16)"
-  end
-  if value == 254 then
-    return "Instrument Category: Miscellaneous (254)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category.labels = {
+  [1] = "Instrument Category: Equities (1)",
+  [2] = "Instrument Category: Fixed Income (2)",
+  [3] = "Instrument Category: Warrants And Certificates (3)",
+  [6] = "Instrument Category: Trackers (6)",
+  [7] = "Instrument Category: Futures (7)",
+  [10] = "Instrument Category: Options (10)",
+  [11] = "Instrument Category: Indices (11)",
+  [12] = "Instrument Category: Euronext Funds Services (12)",
+  [14] = "Instrument Category: Inav Indicative Net Asset Value (14)",
+  [15] = "Instrument Category: Fund (15)",
+  [16] = "Instrument Category: Forex (16)",
+  [254] = "Instrument Category: Miscellaneous (254)",
+}
 
-  return "Instrument Category: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category.labels[value] or "Instrument Category: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Category
@@ -7812,57 +7708,27 @@ euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment.size = 1
 
 -- Display: Optiq Segment
-euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment.display = function(value)
-  if value == 1 then
-    return "Optiq Segment: Equities (1)"
-  end
-  if value == 2 then
-    return "Optiq Segment: Funds (2)"
-  end
-  if value == 3 then
-    return "Optiq Segment: Fixed Income (3)"
-  end
-  if value == 4 then
-    return "Optiq Segment: Warrantsand Certificates (4)"
-  end
-  if value == 5 then
-    return "Optiq Segment: Boursede Luxembourg (5)"
-  end
-  if value == 6 then
-    return "Optiq Segment: Options (6)"
-  end
-  if value == 7 then
-    return "Optiq Segment: Futures (7)"
-  end
-  if value == 8 then
-    return "Optiq Segment: Commodities (8)"
-  end
-  if value == 9 then
-    return "Optiq Segment: Indices (9)"
-  end
-  if value == 10 then
-    return "Optiq Segment: Trade Reportingand Publication (10)"
-  end
-  if value == 14 then
-    return "Optiq Segment: Block (14)"
-  end
-  if value == 11 then
-    return "Optiq Segment: Index Derivatives (11)"
-  end
-  if value == 12 then
-    return "Optiq Segment: Equity Derivatives (12)"
-  end
-  if value == 13 then
-    return "Optiq Segment: Financial Derivatives (13)"
-  end
-  if value == 15 then
-    return "Optiq Segment: Forex (15)"
-  end
-  if value == 16 then
-    return "Optiq Segment: Ibf (16)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment.labels = {
+  [1] = "Optiq Segment: Equities (1)",
+  [2] = "Optiq Segment: Funds (2)",
+  [3] = "Optiq Segment: Fixed Income (3)",
+  [4] = "Optiq Segment: Warrantsand Certificates (4)",
+  [5] = "Optiq Segment: Boursede Luxembourg (5)",
+  [6] = "Optiq Segment: Options (6)",
+  [7] = "Optiq Segment: Futures (7)",
+  [8] = "Optiq Segment: Commodities (8)",
+  [9] = "Optiq Segment: Indices (9)",
+  [10] = "Optiq Segment: Trade Reportingand Publication (10)",
+  [14] = "Optiq Segment: Block (14)",
+  [11] = "Optiq Segment: Index Derivatives (11)",
+  [12] = "Optiq Segment: Equity Derivatives (12)",
+  [13] = "Optiq Segment: Financial Derivatives (13)",
+  [15] = "Optiq Segment: Forex (15)",
+  [16] = "Optiq Segment: Ibf (16)",
+}
 
-  return "Optiq Segment: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment.labels[value] or "Optiq Segment: Unknown("..value..")"
 end
 
 -- Dissect: Optiq Segment
@@ -8364,27 +8230,17 @@ euronext_optiq_marketdatagateway_sbe_v5_18.phase_id = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.phase_id.size = 1
 
 -- Display: Phase Id
-euronext_optiq_marketdatagateway_sbe_v5_18.phase_id.display = function(value)
-  if value == 1 then
-    return "Phase Id: Inaccessible (1)"
-  end
-  if value == 2 then
-    return "Phase Id: Closed (2)"
-  end
-  if value == 3 then
-    return "Phase Id: Call (3)"
-  end
-  if value == 4 then
-    return "Phase Id: Uncrossing (4)"
-  end
-  if value == 5 then
-    return "Phase Id: Continuous (5)"
-  end
-  if value == 7 then
-    return "Phase Id: Continuous Uncrossing (7)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.phase_id.labels = {
+  [1] = "Phase Id: Inaccessible (1)",
+  [2] = "Phase Id: Closed (2)",
+  [3] = "Phase Id: Call (3)",
+  [4] = "Phase Id: Uncrossing (4)",
+  [5] = "Phase Id: Continuous (5)",
+  [7] = "Phase Id: Continuous Uncrossing (7)",
+}
 
-  return "Phase Id: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.phase_id.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.phase_id.labels[value] or "Phase Id: Unknown("..value..")"
 end
 
 -- Dissect: Phase Id
@@ -8762,78 +8618,34 @@ euronext_optiq_marketdatagateway_sbe_v5_18.price_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.price_type.size = 1
 
 -- Display: Price Type
-euronext_optiq_marketdatagateway_sbe_v5_18.price_type.display = function(value)
-  if value == 2 then
-    return "Price Type: Official Daily (2)"
-  end
-  if value == 4 then
-    return "Price Type: Official Market Close (4)"
-  end
-  if value == 6 then
-    return "Price Type: Official Expiry (6)"
-  end
-  if value == 7 then
-    return "Price Type: Provisional Intraday (7)"
-  end
-  if value == 8 then
-    return "Price Type: Official Intraday (8)"
-  end
-  if value == 9 then
-    return "Price Type: Official Ydsp (9)"
-  end
-  if value == 10 then
-    return "Price Type: Na Vfortheinstrumentseligibletothe Nav Trading Facility (10)"
-  end
-  if value == 12 then
-    return "Price Type: Adjusted Closing Price (12)"
-  end
-  if value == 13 then
-    return "Price Type: Subscription Price (13)"
-  end
-  if value == 14 then
-    return "Price Type: Indicative Matching Price (14)"
-  end
-  if value == 19 then
-    return "Price Type: Min Price Outof Session Trades (19)"
-  end
-  if value == 20 then
-    return "Price Type: Max Price Outof Session Trades (20)"
-  end
-  if value == 21 then
-    return "Price Type: Min Price Outof Session Block Trades (21)"
-  end
-  if value == 22 then
-    return "Price Type: Max Price Outof Session Block Trades (22)"
-  end
-  if value == 23 then
-    return "Price Type: Valuation Price (23)"
-  end
-  if value == 24 then
-    return "Price Type: Fund Subscription (24)"
-  end
-  if value == 25 then
-    return "Price Type: Fund Redemption (25)"
-  end
-  if value == 26 then
-    return "Price Type: Uncrossing Price (26)"
-  end
-  if value == 27 then
-    return "Price Type: Last Traded Price (27)"
-  end
-  if value == 28 then
-    return "Price Type: Aip (28)"
-  end
-  if value == 30 then
-    return "Price Type: Net Asset Value (30)"
-  end
-  if value == 31 then
-    return "Price Type: External Reference Price (31)"
-  end
-  if value == 33 then
-    return "Price Type: Closing Price (33)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.price_type.labels = {
+  [2] = "Price Type: Official Daily (2)",
+  [4] = "Price Type: Official Market Close (4)",
+  [6] = "Price Type: Official Expiry (6)",
+  [7] = "Price Type: Provisional Intraday (7)",
+  [8] = "Price Type: Official Intraday (8)",
+  [9] = "Price Type: Official Ydsp (9)",
+  [10] = "Price Type: Na Vfortheinstrumentseligibletothe Nav Trading Facility (10)",
+  [12] = "Price Type: Adjusted Closing Price (12)",
+  [13] = "Price Type: Subscription Price (13)",
+  [14] = "Price Type: Indicative Matching Price (14)",
+  [19] = "Price Type: Min Price Outof Session Trades (19)",
+  [20] = "Price Type: Max Price Outof Session Trades (20)",
+  [21] = "Price Type: Min Price Outof Session Block Trades (21)",
+  [22] = "Price Type: Max Price Outof Session Block Trades (22)",
+  [23] = "Price Type: Valuation Price (23)",
+  [24] = "Price Type: Fund Subscription (24)",
+  [25] = "Price Type: Fund Redemption (25)",
+  [26] = "Price Type: Uncrossing Price (26)",
+  [27] = "Price Type: Last Traded Price (27)",
+  [28] = "Price Type: Aip (28)",
+  [30] = "Price Type: Net Asset Value (30)",
+  [31] = "Price Type: External Reference Price (31)",
+  [33] = "Price Type: Closing Price (33)",
+}
 
-  return "Price Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.price_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -8855,18 +8667,14 @@ euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm.size = 1
 
 -- Display: Pricing Algorithm
-euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm.display = function(value)
-  if value == 0 then
-    return "Pricing Algorithm: Standard (0)"
-  end
-  if value == 1 then
-    return "Pricing Algorithm: Total Return Future (1)"
-  end
-  if value == 2 then
-    return "Pricing Algorithm: Market On Close (2)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm.labels = {
+  [0] = "Pricing Algorithm: Standard (0)",
+  [1] = "Pricing Algorithm: Total Return Future (1)",
+  [2] = "Pricing Algorithm: Market On Close (2)",
+}
 
-  return "Pricing Algorithm: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm.labels[value] or "Pricing Algorithm: Unknown("..value..")"
 end
 
 -- Dissect: Pricing Algorithm
@@ -9120,21 +8928,15 @@ euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type.size = 1
 
 -- Display: Quote Update Type
-euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type.display = function(value)
-  if value == 1 then
-    return "Quote Update Type: Best Bid (1)"
-  end
-  if value == 2 then
-    return "Quote Update Type: Best Offer (2)"
-  end
-  if value == 5 then
-    return "Quote Update Type: Cancel Bid (5)"
-  end
-  if value == 6 then
-    return "Quote Update Type: Cancel Offer (6)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type.labels = {
+  [1] = "Quote Update Type: Best Bid (1)",
+  [2] = "Quote Update Type: Best Offer (2)",
+  [5] = "Quote Update Type: Cancel Bid (5)",
+  [6] = "Quote Update Type: Cancel Offer (6)",
+}
 
-  return "Quote Update Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type.labels[value] or "Quote Update Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Update Type
@@ -9840,39 +9642,21 @@ euronext_optiq_marketdatagateway_sbe_v5_18.session = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.session.size = 1
 
 -- Display: Session
-euronext_optiq_marketdatagateway_sbe_v5_18.session.display = function(value)
-  if value == 0 then
-    return "Session: Session 0 (0)"
-  end
-  if value == 1 then
-    return "Session: Session 1 (1)"
-  end
-  if value == 2 then
-    return "Session: Session 2 (2)"
-  end
-  if value == 3 then
-    return "Session: Session 3 (3)"
-  end
-  if value == 4 then
-    return "Session: Session 4 (4)"
-  end
-  if value == 5 then
-    return "Session: Session 5 (5)"
-  end
-  if value == 6 then
-    return "Session: Session 6 (6)"
-  end
-  if value == 7 then
-    return "Session: Session 7 (7)"
-  end
-  if value == 8 then
-    return "Session: Session 8 (8)"
-  end
-  if value == 9 then
-    return "Session: Session 9 (9)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.session.labels = {
+  [0] = "Session: Session 0 (0)",
+  [1] = "Session: Session 1 (1)",
+  [2] = "Session: Session 2 (2)",
+  [3] = "Session: Session 3 (3)",
+  [4] = "Session: Session 4 (4)",
+  [5] = "Session: Session 5 (5)",
+  [6] = "Session: Session 6 (6)",
+  [7] = "Session: Session 7 (7)",
+  [8] = "Session: Session 8 (8)",
+  [9] = "Session: Session 9 (9)",
+}
 
-  return "Session: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.session.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.session.labels[value] or "Session: Unknown("..value..")"
 end
 
 -- Dissect: Session
@@ -10127,54 +9911,26 @@ euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type.size = 1
 
 -- Display: Stats Update Type
-euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type.display = function(value)
-  if value == 5 then
-    return "Stats Update Type: Daily High (5)"
-  end
-  if value == 6 then
-    return "Stats Update Type: Daily Low (6)"
-  end
-  if value == 7 then
-    return "Stats Update Type: Yearly High (7)"
-  end
-  if value == 8 then
-    return "Stats Update Type: Yearly Low (8)"
-  end
-  if value == 9 then
-    return "Stats Update Type: Lifetime High (9)"
-  end
-  if value == 10 then
-    return "Stats Update Type: Lifetime Low (10)"
-  end
-  if value == 14 then
-    return "Stats Update Type: Variation Last Price (14)"
-  end
-  if value == 15 then
-    return "Stats Update Type: Open Price (15)"
-  end
-  if value == 16 then
-    return "Stats Update Type: Trade Count (16)"
-  end
-  if value == 17 then
-    return "Stats Update Type: Last Traded Price (17)"
-  end
-  if value == 18 then
-    return "Stats Update Type: Percent Variation Previous Close (18)"
-  end
-  if value == 19 then
-    return "Stats Update Type: Off Book Cumul Qty (19)"
-  end
-  if value == 21 then
-    return "Stats Update Type: On Book Auction Cumul Qty (21)"
-  end
-  if value == 22 then
-    return "Stats Update Type: On Book Continuous Cumul Qty (22)"
-  end
-  if value == 23 then
-    return "Stats Update Type: Onand Off Book Cumul Qty (23)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type.labels = {
+  [5] = "Stats Update Type: Daily High (5)",
+  [6] = "Stats Update Type: Daily Low (6)",
+  [7] = "Stats Update Type: Yearly High (7)",
+  [8] = "Stats Update Type: Yearly Low (8)",
+  [9] = "Stats Update Type: Lifetime High (9)",
+  [10] = "Stats Update Type: Lifetime Low (10)",
+  [14] = "Stats Update Type: Variation Last Price (14)",
+  [15] = "Stats Update Type: Open Price (15)",
+  [16] = "Stats Update Type: Trade Count (16)",
+  [17] = "Stats Update Type: Last Traded Price (17)",
+  [18] = "Stats Update Type: Percent Variation Previous Close (18)",
+  [19] = "Stats Update Type: Off Book Cumul Qty (19)",
+  [21] = "Stats Update Type: On Book Auction Cumul Qty (21)",
+  [22] = "Stats Update Type: On Book Continuous Cumul Qty (22)",
+  [23] = "Stats Update Type: Onand Off Book Cumul Qty (23)",
+}
 
-  return "Stats Update Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type.labels[value] or "Stats Update Type: Unknown("..value..")"
 end
 
 -- Dissect: Stats Update Type
@@ -10760,18 +10516,14 @@ euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type.size = 1
 
 -- Display: Technical Notification Type
-euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type.display = function(value)
-  if value == 1 then
-    return "Technical Notification Type: Instrument Book Retransmission End (1)"
-  end
-  if value == 10 then
-    return "Technical Notification Type: Trade Retransmission Start (10)"
-  end
-  if value == 11 then
-    return "Technical Notification Type: Trade Retransmission End (11)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type.labels = {
+  [1] = "Technical Notification Type: Instrument Book Retransmission End (1)",
+  [10] = "Technical Notification Type: Trade Retransmission Start (10)",
+  [11] = "Technical Notification Type: Trade Retransmission End (11)",
+}
 
-  return "Technical Notification Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type.labels[value] or "Technical Notification Type: Unknown("..value..")"
 end
 
 -- Dissect: Technical Notification Type
@@ -10793,93 +10545,39 @@ euronext_optiq_marketdatagateway_sbe_v5_18.template_id = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.template_id.size = 2
 
 -- Display: Template Id
-euronext_optiq_marketdatagateway_sbe_v5_18.template_id.display = function(value)
-  if value == 1103 then
-    return "Template Id: Health Status Message (1103)"
-  end
-  if value == 1101 then
-    return "Template Id: Start Of Day Message (1101)"
-  end
-  if value == 1102 then
-    return "Template Id: End Of Day Message (1102)"
-  end
-  if value == 1106 then
-    return "Template Id: Technical Notification Message (1106)"
-  end
-  if value == 1001 then
-    return "Template Id: Market Update Message (1001)"
-  end
-  if value == 1002 then
-    return "Template Id: Order Update Message (1002)"
-  end
-  if value == 1003 then
-    return "Template Id: Price Update Message (1003)"
-  end
-  if value == 1004 then
-    return "Template Id: Full Trade Information Message (1004)"
-  end
-  if value == 1005 then
-    return "Template Id: Market Status Change Message (1005)"
-  end
-  if value == 1006 then
-    return "Template Id: Timetable Message (1006)"
-  end
-  if value == 1007 then
-    return "Template Id: Standing Data Message (1007)"
-  end
-  if value == 1008 then
-    return "Template Id: Real Time Index Message (1008)"
-  end
-  if value == 1009 then
-    return "Template Id: Statistics Message (1009)"
-  end
-  if value == 1011 then
-    return "Template Id: Index Summary Message (1011)"
-  end
-  if value == 1012 then
-    return "Template Id: Strategy Standing Data Message (1012)"
-  end
-  if value == 1013 then
-    return "Template Id: Contract Standing Data Message (1013)"
-  end
-  if value == 1014 then
-    return "Template Id: Outright Standing Data Message (1014)"
-  end
-  if value == 1015 then
-    return "Template Id: Long Order Update Message (1015)"
-  end
-  if value == 1016 then
-    return "Template Id: Lis Package Structure Message (1016)"
-  end
-  if value == 1026 then
-    return "Template Id: Apa Quotes Message (1026)"
-  end
-  if value == 1027 then
-    return "Template Id: Apa Standing Data Message (1027)"
-  end
-  if value == 1028 then
-    return "Template Id: Apa Full Trade Information Message (1028)"
-  end
-  if value == 1201 then
-    return "Template Id: Bf Instrument Reference Message (1201)"
-  end
-  if value == 1202 then
-    return "Template Id: Bf Trade Message (1202)"
-  end
-  if value == 1203 then
-    return "Template Id: Bfnav Message (1203)"
-  end
-  if value == 1204 then
-    return "Template Id: Bf Instrument Suspension Message (1204)"
-  end
-  if value == 2101 then
-    return "Template Id: Start Of Snapshot Message (2101)"
-  end
-  if value == 2102 then
-    return "Template Id: End Of Snapshot Message (2102)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.template_id.labels = {
+  [1103] = "Template Id: Health Status Message (1103)",
+  [1101] = "Template Id: Start Of Day Message (1101)",
+  [1102] = "Template Id: End Of Day Message (1102)",
+  [1106] = "Template Id: Technical Notification Message (1106)",
+  [1001] = "Template Id: Market Update Message (1001)",
+  [1002] = "Template Id: Order Update Message (1002)",
+  [1003] = "Template Id: Price Update Message (1003)",
+  [1004] = "Template Id: Full Trade Information Message (1004)",
+  [1005] = "Template Id: Market Status Change Message (1005)",
+  [1006] = "Template Id: Timetable Message (1006)",
+  [1007] = "Template Id: Standing Data Message (1007)",
+  [1008] = "Template Id: Real Time Index Message (1008)",
+  [1009] = "Template Id: Statistics Message (1009)",
+  [1011] = "Template Id: Index Summary Message (1011)",
+  [1012] = "Template Id: Strategy Standing Data Message (1012)",
+  [1013] = "Template Id: Contract Standing Data Message (1013)",
+  [1014] = "Template Id: Outright Standing Data Message (1014)",
+  [1015] = "Template Id: Long Order Update Message (1015)",
+  [1016] = "Template Id: Lis Package Structure Message (1016)",
+  [1026] = "Template Id: Apa Quotes Message (1026)",
+  [1027] = "Template Id: Apa Standing Data Message (1027)",
+  [1028] = "Template Id: Apa Full Trade Information Message (1028)",
+  [1201] = "Template Id: Bf Instrument Reference Message (1201)",
+  [1202] = "Template Id: Bf Trade Message (1202)",
+  [1203] = "Template Id: Bfnav Message (1203)",
+  [1204] = "Template Id: Bf Instrument Suspension Message (1204)",
+  [2101] = "Template Id: Start Of Snapshot Message (2101)",
+  [2102] = "Template Id: End Of Snapshot Message (2102)",
+}
 
-  return "Template Id: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.template_id.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -11052,153 +10750,59 @@ euronext_optiq_marketdatagateway_sbe_v5_18.trade_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.trade_type.size = 1
 
 -- Display: Trade Type
-euronext_optiq_marketdatagateway_sbe_v5_18.trade_type.display = function(value)
-  if value == 1 then
-    return "Trade Type: Conventional Trade (1)"
-  end
-  if value == 2 then
-    return "Trade Type: Largein Scale Li S Trade (2)"
-  end
-  if value == 3 then
-    return "Trade Type: Basis Trade (3)"
-  end
-  if value == 4 then
-    return "Trade Type: Largein Scale Li S Package Trade (4)"
-  end
-  if value == 5 then
-    return "Trade Type: Guaranteed Cross Trade (5)"
-  end
-  if value == 6 then
-    return "Trade Type: Against Actual Trade (6)"
-  end
-  if value == 7 then
-    return "Trade Type: Asset Allocation Trade (7)"
-  end
-  if value == 9 then
-    return "Trade Type: Exchangefor Swap Trade (9)"
-  end
-  if value == 10 then
-    return "Trade Type: Exchangefor Physical Trade Cash Leg (10)"
-  end
-  if value == 11 then
-    return "Trade Type: Strategy Leg Conventional Trade (11)"
-  end
-  if value == 12 then
-    return "Trade Type: Strategy Leg Largein Scale Li S Trade (12)"
-  end
-  if value == 13 then
-    return "Trade Type: Strategy Leg Basis Trade (13)"
-  end
-  if value == 14 then
-    return "Trade Type: Strategy Leg Guaranteed Cross Trade (14)"
-  end
-  if value == 15 then
-    return "Trade Type: Strategy Leg Against Actual Trade (15)"
-  end
-  if value == 16 then
-    return "Trade Type: Strategy Leg Asset Allocation Trade (16)"
-  end
-  if value == 18 then
-    return "Trade Type: Strategy Leg Exchange For Swap Trade (18)"
-  end
-  if value == 19 then
-    return "Trade Type: Strategy Leg Exchange For Physical Trade (19)"
-  end
-  if value == 20 then
-    return "Trade Type: Bo B Trade (20)"
-  end
-  if value == 22 then
-    return "Trade Type: Atom X Trade (22)"
-  end
-  if value == 24 then
-    return "Trade Type: Trade Cancellation (24)"
-  end
-  if value == 25 then
-    return "Trade Type: Outof Market Trade (25)"
-  end
-  if value == 26 then
-    return "Trade Type: Delta Neutral Trade Underlying Cash Leg (26)"
-  end
-  if value == 27 then
-    return "Trade Type: Market Vwap Operation Trade (27)"
-  end
-  if value == 28 then
-    return "Trade Type: Euronext Fund Service Trade (28)"
-  end
-  if value == 29 then
-    return "Trade Type: Secondary Listing Trade (29)"
-  end
-  if value == 30 then
-    return "Trade Type: Requestfor Cross Trade (30)"
-  end
-  if value == 31 then
-    return "Trade Type: Requestforcrossstrategy Leg Trade (31)"
-  end
-  if value == 32 then
-    return "Trade Type: Trade Publication (32)"
-  end
-  if value == 33 then
-    return "Trade Type: Dark Trade (33)"
-  end
-  if value == 34 then
-    return "Trade Type: Delta Neutral Trade Underlying Future Leg (34)"
-  end
-  if value == 36 then
-    return "Trade Type: Total Traded Volume (36)"
-  end
-  if value == 37 then
-    return "Trade Type: Etfmtfnav Tradepriceinbp (37)"
-  end
-  if value == 38 then
-    return "Trade Type: Etfmtfnav Dark Tradepriceinbp (38)"
-  end
-  if value == 39 then
-    return "Trade Type: Guaranteed Cross Negotiateddeal Nliq (39)"
-  end
-  if value == 40 then
-    return "Trade Type: Guaranteed Cross Negotiateddeal Oilq (40)"
-  end
-  if value == 41 then
-    return "Trade Type: Largein Scale Trade (41)"
-  end
-  if value == 42 then
-    return "Trade Type: Largein Scale Tradeinbasispoints (42)"
-  end
-  if value == 43 then
-    return "Trade Type: Largein Scale Package Tradeinbasispoints (43)"
-  end
-  if value == 44 then
-    return "Trade Type: Strategy Leg Largein Scale Tradeinbasispoints (44)"
-  end
-  if value == 45 then
-    return "Trade Type: Trade Reversal (45)"
-  end
-  if value == 46 then
-    return "Trade Type: Non Standard Settlement (46)"
-  end
-  if value == 47 then
-    return "Trade Type: Repurchase Agreement Repo (47)"
-  end
-  if value == 48 then
-    return "Trade Type: Exchange Granted Trade (48)"
-  end
-  if value == 49 then
-    return "Trade Type: Other (49)"
-  end
-  if value == 50 then
-    return "Trade Type: Odd Lot (50)"
-  end
-  if value == 100 then
-    return "Trade Type: Conventional Trade Provisionalprice (100)"
-  end
-  if value == 101 then
-    return "Trade Type: Largein Scale Li S Trade Provisionalprice (101)"
-  end
-  if value == 102 then
-    return "Trade Type: Largein Scale Li S Package Trade Provisionalprice (102)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.trade_type.labels = {
+  [1] = "Trade Type: Conventional Trade (1)",
+  [2] = "Trade Type: Largein Scale Li S Trade (2)",
+  [3] = "Trade Type: Basis Trade (3)",
+  [4] = "Trade Type: Largein Scale Li S Package Trade (4)",
+  [5] = "Trade Type: Guaranteed Cross Trade (5)",
+  [6] = "Trade Type: Against Actual Trade (6)",
+  [7] = "Trade Type: Asset Allocation Trade (7)",
+  [9] = "Trade Type: Exchangefor Swap Trade (9)",
+  [10] = "Trade Type: Exchangefor Physical Trade Cash Leg (10)",
+  [11] = "Trade Type: Strategy Leg Conventional Trade (11)",
+  [12] = "Trade Type: Strategy Leg Largein Scale Li S Trade (12)",
+  [13] = "Trade Type: Strategy Leg Basis Trade (13)",
+  [14] = "Trade Type: Strategy Leg Guaranteed Cross Trade (14)",
+  [15] = "Trade Type: Strategy Leg Against Actual Trade (15)",
+  [16] = "Trade Type: Strategy Leg Asset Allocation Trade (16)",
+  [18] = "Trade Type: Strategy Leg Exchange For Swap Trade (18)",
+  [19] = "Trade Type: Strategy Leg Exchange For Physical Trade (19)",
+  [20] = "Trade Type: Bo B Trade (20)",
+  [22] = "Trade Type: Atom X Trade (22)",
+  [24] = "Trade Type: Trade Cancellation (24)",
+  [25] = "Trade Type: Outof Market Trade (25)",
+  [26] = "Trade Type: Delta Neutral Trade Underlying Cash Leg (26)",
+  [27] = "Trade Type: Market Vwap Operation Trade (27)",
+  [28] = "Trade Type: Euronext Fund Service Trade (28)",
+  [29] = "Trade Type: Secondary Listing Trade (29)",
+  [30] = "Trade Type: Requestfor Cross Trade (30)",
+  [31] = "Trade Type: Requestforcrossstrategy Leg Trade (31)",
+  [32] = "Trade Type: Trade Publication (32)",
+  [33] = "Trade Type: Dark Trade (33)",
+  [34] = "Trade Type: Delta Neutral Trade Underlying Future Leg (34)",
+  [36] = "Trade Type: Total Traded Volume (36)",
+  [37] = "Trade Type: Etfmtfnav Tradepriceinbp (37)",
+  [38] = "Trade Type: Etfmtfnav Dark Tradepriceinbp (38)",
+  [39] = "Trade Type: Guaranteed Cross Negotiateddeal Nliq (39)",
+  [40] = "Trade Type: Guaranteed Cross Negotiateddeal Oilq (40)",
+  [41] = "Trade Type: Largein Scale Trade (41)",
+  [42] = "Trade Type: Largein Scale Tradeinbasispoints (42)",
+  [43] = "Trade Type: Largein Scale Package Tradeinbasispoints (43)",
+  [44] = "Trade Type: Strategy Leg Largein Scale Tradeinbasispoints (44)",
+  [45] = "Trade Type: Trade Reversal (45)",
+  [46] = "Trade Type: Non Standard Settlement (46)",
+  [47] = "Trade Type: Repurchase Agreement Repo (47)",
+  [48] = "Trade Type: Exchange Granted Trade (48)",
+  [49] = "Trade Type: Other (49)",
+  [50] = "Trade Type: Odd Lot (50)",
+  [100] = "Trade Type: Conventional Trade Provisionalprice (100)",
+  [101] = "Trade Type: Largein Scale Li S Trade Provisionalprice (101)",
+  [102] = "Trade Type: Largein Scale Li S Package Trade Provisionalprice (102)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.trade_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -11409,18 +11013,14 @@ euronext_optiq_marketdatagateway_sbe_v5_18.trading_period = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.trading_period.size = 1
 
 -- Display: Trading Period
-euronext_optiq_marketdatagateway_sbe_v5_18.trading_period.display = function(value)
-  if value == 1 then
-    return "Trading Period: Opening (1)"
-  end
-  if value == 2 then
-    return "Trading Period: Standard (2)"
-  end
-  if value == 3 then
-    return "Trading Period: Closing (3)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.trading_period.labels = {
+  [1] = "Trading Period: Opening (1)",
+  [2] = "Trading Period: Standard (2)",
+  [3] = "Trading Period: Closing (3)",
+}
 
-  return "Trading Period: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.trading_period.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.trading_period.labels[value] or "Trading Period: Unknown("..value..")"
 end
 
 -- Dissect: Trading Period
@@ -12254,285 +11854,103 @@ euronext_optiq_marketdatagateway_sbe_v5_18.update_type = {}
 euronext_optiq_marketdatagateway_sbe_v5_18.update_type.size = 1
 
 -- Display: Update Type
-euronext_optiq_marketdatagateway_sbe_v5_18.update_type.display = function(value)
-  if value == 1 then
-    return "Update Type: Best Bid (1)"
-  end
-  if value == 2 then
-    return "Update Type: Best Offer (2)"
-  end
-  if value == 3 then
-    return "Update Type: New Bid (3)"
-  end
-  if value == 4 then
-    return "Update Type: New Offer (4)"
-  end
-  if value == 5 then
-    return "Update Type: Updated Bid (5)"
-  end
-  if value == 6 then
-    return "Update Type: Updated Offer (6)"
-  end
-  if value == 7 then
-    return "Update Type: Total Traded Volume (7)"
-  end
-  if value == 8 then
-    return "Update Type: Implied Bid (8)"
-  end
-  if value == 9 then
-    return "Update Type: Implied Offer (9)"
-  end
-  if value == 10 then
-    return "Update Type: Requestfor Quote (10)"
-  end
-  if value == 11 then
-    return "Update Type: Requestfor Quote Bid (11)"
-  end
-  if value == 12 then
-    return "Update Type: Requestfor Size (12)"
-  end
-  if value == 13 then
-    return "Update Type: Requestfor Quote Offer (13)"
-  end
-  if value == 14 then
-    return "Update Type: High Dynamic Collar (14)"
-  end
-  if value == 15 then
-    return "Update Type: Low Dynamic Collar (15)"
-  end
-  if value == 16 then
-    return "Update Type: New Bid Rlp (16)"
-  end
-  if value == 17 then
-    return "Update Type: New Offer Rlp (17)"
-  end
-  if value == 18 then
-    return "Update Type: Updated Bid Rlp (18)"
-  end
-  if value == 19 then
-    return "Update Type: Updated Offer Rlp (19)"
-  end
-  if value == 24 then
-    return "Update Type: Conventional Trade (24)"
-  end
-  if value == 25 then
-    return "Update Type: Requestfor Cross Rfc Queued (25)"
-  end
-  if value == 26 then
-    return "Update Type: Requestfor Cross Rfc (26)"
-  end
-  if value == 27 then
-    return "Update Type: Largein Scale Li S Trade (27)"
-  end
-  if value == 28 then
-    return "Update Type: Basis Trade (28)"
-  end
-  if value == 29 then
-    return "Update Type: Largein Scale Li S Package Trade (29)"
-  end
-  if value == 30 then
-    return "Update Type: Guaranteed Cross Trade (30)"
-  end
-  if value == 31 then
-    return "Update Type: Against Actual Trade (31)"
-  end
-  if value == 32 then
-    return "Update Type: Asset Allocation Trade (32)"
-  end
-  if value == 34 then
-    return "Update Type: Exchangefor Swap Trade (34)"
-  end
-  if value == 35 then
-    return "Update Type: Dark Trade (35)"
-  end
-  if value == 36 then
-    return "Update Type: Exchangefor Physical Trade Cash Leg (36)"
-  end
-  if value == 37 then
-    return "Update Type: Strategy Leg Conventional Trade (37)"
-  end
-  if value == 38 then
-    return "Update Type: Strategy Leg Largein Scale Li S Trade (38)"
-  end
-  if value == 39 then
-    return "Update Type: Strategy Leg Basis Trade (39)"
-  end
-  if value == 40 then
-    return "Update Type: Strategy Leg Guaranteed Cross Trade (40)"
-  end
-  if value == 41 then
-    return "Update Type: Strategy Leg Against Actual Trade (41)"
-  end
-  if value == 42 then
-    return "Update Type: Strategy Leg Asset Allocation Trade (42)"
-  end
-  if value == 44 then
-    return "Update Type: Strategy Leg Exchange For Swap Trade (44)"
-  end
-  if value == 45 then
-    return "Update Type: Strategy Leg Exchange For Physical Trade (45)"
-  end
-  if value == 46 then
-    return "Update Type: Bo B Trade (46)"
-  end
-  if value == 48 then
-    return "Update Type: Atom X Trade (48)"
-  end
-  if value == 50 then
-    return "Update Type: Trade Cancellation (50)"
-  end
-  if value == 51 then
-    return "Update Type: Outof Market Trade (51)"
-  end
-  if value == 52 then
-    return "Update Type: Delta Neutral Trade Underlying Cash Leg (52)"
-  end
-  if value == 53 then
-    return "Update Type: Delta Neutral Trade Underlying Future Leg (53)"
-  end
-  if value == 54 then
-    return "Update Type: Euronext Fund Service Trade (54)"
-  end
-  if value == 55 then
-    return "Update Type: Secondary Listing Trade (55)"
-  end
-  if value == 56 then
-    return "Update Type: Requestfor Cross Trade (56)"
-  end
-  if value == 57 then
-    return "Update Type: Requestfor Cross Strategy Leg Trade (57)"
-  end
-  if value == 58 then
-    return "Update Type: New Bid With Liquidity Provider (58)"
-  end
-  if value == 59 then
-    return "Update Type: New Offer With Liquidity Provider (59)"
-  end
-  if value == 60 then
-    return "Update Type: Updated Bid With Liquidity Provider (60)"
-  end
-  if value == 61 then
-    return "Update Type: Updated Offer With Liquidity Provider (61)"
-  end
-  if value == 63 then
-    return "Update Type: Low Static Collar (63)"
-  end
-  if value == 64 then
-    return "Update Type: High Static Collar (64)"
-  end
-  if value == 65 then
-    return "Update Type: Market Vwap Operation Trade (65)"
-  end
-  if value == 66 then
-    return "Update Type: Requestfor Size Bid (66)"
-  end
-  if value == 67 then
-    return "Update Type: Requestfor Size Offer (67)"
-  end
-  if value == 70 then
-    return "Update Type: Low Lp Collar (70)"
-  end
-  if value == 71 then
-    return "Update Type: High Lp Collar (71)"
-  end
-  if value == 72 then
-    return "Update Type: Etfmtfnav Tradepriceinbp (72)"
-  end
-  if value == 73 then
-    return "Update Type: Etfmtfnav Dark Tradepriceinbp (73)"
-  end
-  if value == 74 then
-    return "Update Type: New Bidon Wholesale Rfc (74)"
-  end
-  if value == 75 then
-    return "Update Type: New Offeron Wholesale Rfc (75)"
-  end
-  if value == 76 then
-    return "Update Type: Updated Bidon Wholesale Rfc (76)"
-  end
-  if value == 77 then
-    return "Update Type: Updated Offeron Wholesale Rfc (77)"
-  end
-  if value == 78 then
-    return "Update Type: Clear Wholesale Rfc (78)"
-  end
-  if value == 79 then
-    return "Update Type: Guaranteed Cross Negotiateddeal Nliq (79)"
-  end
-  if value == 80 then
-    return "Update Type: Guaranteed Cross Negotiateddeal Oilq (80)"
-  end
-  if value == 81 then
-    return "Update Type: Largein Scale Trade (81)"
-  end
-  if value == 82 then
-    return "Update Type: Largein Scale Tradeinbasispoints (82)"
-  end
-  if value == 83 then
-    return "Update Type: Largein Scale Package Tradeinbasispoints (83)"
-  end
-  if value == 84 then
-    return "Update Type: Strategy Leg Largein Scale Tradeinbasispoints (84)"
-  end
-  if value == 86 then
-    return "Update Type: New Bid Rfq Answer (86)"
-  end
-  if value == 87 then
-    return "Update Type: New Offer Rfq Answer (87)"
-  end
-  if value == 88 then
-    return "Update Type: Updated Bid Rfq Answer (88)"
-  end
-  if value == 89 then
-    return "Update Type: Updated Offer Rfq Answer (89)"
-  end
-  if value == 90 then
-    return "Update Type: Bid Execution Summary (90)"
-  end
-  if value == 91 then
-    return "Update Type: Aqs Expansion Factor (91)"
-  end
-  if value == 92 then
-    return "Update Type: Collars Expansion Factor (92)"
-  end
-  if value == 93 then
-    return "Update Type: Collars Enabled (93)"
-  end
-  if value == 94 then
-    return "Update Type: Collars Disabled (94)"
-  end
-  if value == 95 then
-    return "Update Type: Dcrp Inter Month Spread (95)"
-  end
-  if value == 96 then
-    return "Update Type: Fsp Reference Price (96)"
-  end
-  if value == 97 then
-    return "Update Type: Offer Execution Summary (97)"
-  end
-  if value == 98 then
-    return "Update Type: Fsp Triggered (98)"
-  end
-  if value == 99 then
-    return "Update Type: Mid Point Bbo (99)"
-  end
-  if value == 100 then
-    return "Update Type: Conventional Trade Provisionalprice (100)"
-  end
-  if value == 101 then
-    return "Update Type: High Order Price Control Collar (101)"
-  end
-  if value == 102 then
-    return "Update Type: Low Order Price Control Collar (102)"
-  end
-  if value == 103 then
-    return "Update Type: Order Price Control Collar Reference Price (103)"
-  end
-  if value == 254 then
-    return "Update Type: Clear Book (254)"
-  end
+euronext_optiq_marketdatagateway_sbe_v5_18.update_type.labels = {
+  [1] = "Update Type: Best Bid (1)",
+  [2] = "Update Type: Best Offer (2)",
+  [3] = "Update Type: New Bid (3)",
+  [4] = "Update Type: New Offer (4)",
+  [5] = "Update Type: Updated Bid (5)",
+  [6] = "Update Type: Updated Offer (6)",
+  [7] = "Update Type: Total Traded Volume (7)",
+  [8] = "Update Type: Implied Bid (8)",
+  [9] = "Update Type: Implied Offer (9)",
+  [10] = "Update Type: Requestfor Quote (10)",
+  [11] = "Update Type: Requestfor Quote Bid (11)",
+  [12] = "Update Type: Requestfor Size (12)",
+  [13] = "Update Type: Requestfor Quote Offer (13)",
+  [14] = "Update Type: High Dynamic Collar (14)",
+  [15] = "Update Type: Low Dynamic Collar (15)",
+  [16] = "Update Type: New Bid Rlp (16)",
+  [17] = "Update Type: New Offer Rlp (17)",
+  [18] = "Update Type: Updated Bid Rlp (18)",
+  [19] = "Update Type: Updated Offer Rlp (19)",
+  [24] = "Update Type: Conventional Trade (24)",
+  [25] = "Update Type: Requestfor Cross Rfc Queued (25)",
+  [26] = "Update Type: Requestfor Cross Rfc (26)",
+  [27] = "Update Type: Largein Scale Li S Trade (27)",
+  [28] = "Update Type: Basis Trade (28)",
+  [29] = "Update Type: Largein Scale Li S Package Trade (29)",
+  [30] = "Update Type: Guaranteed Cross Trade (30)",
+  [31] = "Update Type: Against Actual Trade (31)",
+  [32] = "Update Type: Asset Allocation Trade (32)",
+  [34] = "Update Type: Exchangefor Swap Trade (34)",
+  [35] = "Update Type: Dark Trade (35)",
+  [36] = "Update Type: Exchangefor Physical Trade Cash Leg (36)",
+  [37] = "Update Type: Strategy Leg Conventional Trade (37)",
+  [38] = "Update Type: Strategy Leg Largein Scale Li S Trade (38)",
+  [39] = "Update Type: Strategy Leg Basis Trade (39)",
+  [40] = "Update Type: Strategy Leg Guaranteed Cross Trade (40)",
+  [41] = "Update Type: Strategy Leg Against Actual Trade (41)",
+  [42] = "Update Type: Strategy Leg Asset Allocation Trade (42)",
+  [44] = "Update Type: Strategy Leg Exchange For Swap Trade (44)",
+  [45] = "Update Type: Strategy Leg Exchange For Physical Trade (45)",
+  [46] = "Update Type: Bo B Trade (46)",
+  [48] = "Update Type: Atom X Trade (48)",
+  [50] = "Update Type: Trade Cancellation (50)",
+  [51] = "Update Type: Outof Market Trade (51)",
+  [52] = "Update Type: Delta Neutral Trade Underlying Cash Leg (52)",
+  [53] = "Update Type: Delta Neutral Trade Underlying Future Leg (53)",
+  [54] = "Update Type: Euronext Fund Service Trade (54)",
+  [55] = "Update Type: Secondary Listing Trade (55)",
+  [56] = "Update Type: Requestfor Cross Trade (56)",
+  [57] = "Update Type: Requestfor Cross Strategy Leg Trade (57)",
+  [58] = "Update Type: New Bid With Liquidity Provider (58)",
+  [59] = "Update Type: New Offer With Liquidity Provider (59)",
+  [60] = "Update Type: Updated Bid With Liquidity Provider (60)",
+  [61] = "Update Type: Updated Offer With Liquidity Provider (61)",
+  [63] = "Update Type: Low Static Collar (63)",
+  [64] = "Update Type: High Static Collar (64)",
+  [65] = "Update Type: Market Vwap Operation Trade (65)",
+  [66] = "Update Type: Requestfor Size Bid (66)",
+  [67] = "Update Type: Requestfor Size Offer (67)",
+  [70] = "Update Type: Low Lp Collar (70)",
+  [71] = "Update Type: High Lp Collar (71)",
+  [72] = "Update Type: Etfmtfnav Tradepriceinbp (72)",
+  [73] = "Update Type: Etfmtfnav Dark Tradepriceinbp (73)",
+  [74] = "Update Type: New Bidon Wholesale Rfc (74)",
+  [75] = "Update Type: New Offeron Wholesale Rfc (75)",
+  [76] = "Update Type: Updated Bidon Wholesale Rfc (76)",
+  [77] = "Update Type: Updated Offeron Wholesale Rfc (77)",
+  [78] = "Update Type: Clear Wholesale Rfc (78)",
+  [79] = "Update Type: Guaranteed Cross Negotiateddeal Nliq (79)",
+  [80] = "Update Type: Guaranteed Cross Negotiateddeal Oilq (80)",
+  [81] = "Update Type: Largein Scale Trade (81)",
+  [82] = "Update Type: Largein Scale Tradeinbasispoints (82)",
+  [83] = "Update Type: Largein Scale Package Tradeinbasispoints (83)",
+  [84] = "Update Type: Strategy Leg Largein Scale Tradeinbasispoints (84)",
+  [86] = "Update Type: New Bid Rfq Answer (86)",
+  [87] = "Update Type: New Offer Rfq Answer (87)",
+  [88] = "Update Type: Updated Bid Rfq Answer (88)",
+  [89] = "Update Type: Updated Offer Rfq Answer (89)",
+  [90] = "Update Type: Bid Execution Summary (90)",
+  [91] = "Update Type: Aqs Expansion Factor (91)",
+  [92] = "Update Type: Collars Expansion Factor (92)",
+  [93] = "Update Type: Collars Enabled (93)",
+  [94] = "Update Type: Collars Disabled (94)",
+  [95] = "Update Type: Dcrp Inter Month Spread (95)",
+  [96] = "Update Type: Fsp Reference Price (96)",
+  [97] = "Update Type: Offer Execution Summary (97)",
+  [98] = "Update Type: Fsp Triggered (98)",
+  [99] = "Update Type: Mid Point Bbo (99)",
+  [100] = "Update Type: Conventional Trade Provisionalprice (100)",
+  [101] = "Update Type: High Order Price Control Collar (101)",
+  [102] = "Update Type: Low Order Price Control Collar (102)",
+  [103] = "Update Type: Order Price Control Collar Reference Price (103)",
+  [254] = "Update Type: Clear Book (254)",
+}
 
-  return "Update Type: Unknown("..value..")"
+euronext_optiq_marketdatagateway_sbe_v5_18.update_type.display = function(value)
+  return euronext_optiq_marketdatagateway_sbe_v5_18.update_type.labels[value] or "Update Type: Unknown("..value..")"
 end
 
 -- Dissect: Update Type
@@ -18095,118 +17513,41 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.payload = {}
 
 -- Dissect: Payload
+euronext_optiq_marketdatagateway_sbe_v5_18.payload.dispatch = {
+  [1101] = euronext_optiq_marketdatagateway_sbe_v5_18.start_of_day_message.dissect,
+  [1102] = euronext_optiq_marketdatagateway_sbe_v5_18.end_of_day_message.dissect,
+  [1103] = euronext_optiq_marketdatagateway_sbe_v5_18.health_status_message.dissect,
+  [1106] = euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_message.dissect,
+  [1001] = euronext_optiq_marketdatagateway_sbe_v5_18.market_update_message.dissect,
+  [1002] = euronext_optiq_marketdatagateway_sbe_v5_18.order_update_message.dissect,
+  [1003] = euronext_optiq_marketdatagateway_sbe_v5_18.price_update_message.dissect,
+  [1004] = euronext_optiq_marketdatagateway_sbe_v5_18.full_trade_information_message.dissect,
+  [1005] = euronext_optiq_marketdatagateway_sbe_v5_18.market_status_change_message.dissect,
+  [1006] = euronext_optiq_marketdatagateway_sbe_v5_18.timetable_message.dissect,
+  [1007] = euronext_optiq_marketdatagateway_sbe_v5_18.standing_data_message.dissect,
+  [1008] = euronext_optiq_marketdatagateway_sbe_v5_18.real_time_index_message.dissect,
+  [1009] = euronext_optiq_marketdatagateway_sbe_v5_18.statistics_message.dissect,
+  [1011] = euronext_optiq_marketdatagateway_sbe_v5_18.index_summary_message.dissect,
+  [1012] = euronext_optiq_marketdatagateway_sbe_v5_18.strategy_standing_data_message.dissect,
+  [1013] = euronext_optiq_marketdatagateway_sbe_v5_18.contract_standing_data_message.dissect,
+  [1014] = euronext_optiq_marketdatagateway_sbe_v5_18.outright_standing_data_message.dissect,
+  [1015] = euronext_optiq_marketdatagateway_sbe_v5_18.long_order_update_message.dissect,
+  [1016] = euronext_optiq_marketdatagateway_sbe_v5_18.lis_package_structure_message.dissect,
+  [1026] = euronext_optiq_marketdatagateway_sbe_v5_18.apa_quotes_message.dissect,
+  [1027] = euronext_optiq_marketdatagateway_sbe_v5_18.apa_standing_data_message.dissect,
+  [1028] = euronext_optiq_marketdatagateway_sbe_v5_18.apa_full_trade_information_message.dissect,
+  [1201] = euronext_optiq_marketdatagateway_sbe_v5_18.bf_instrument_reference_message.dissect,
+  [1202] = euronext_optiq_marketdatagateway_sbe_v5_18.bf_trade_message.dissect,
+  [1203] = euronext_optiq_marketdatagateway_sbe_v5_18.bfnav_message.dissect,
+  [1204] = euronext_optiq_marketdatagateway_sbe_v5_18.bf_instrument_suspension_message.dissect,
+  [2101] = euronext_optiq_marketdatagateway_sbe_v5_18.start_of_snapshot_message.dissect,
+  [2102] = euronext_optiq_marketdatagateway_sbe_v5_18.end_of_snapshot_message.dissect,
+}
+
 euronext_optiq_marketdatagateway_sbe_v5_18.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Start Of Day Message
-  if template_id == 1101 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if template_id == 1102 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Health Status Message
-  if template_id == 1103 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.health_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Technical Notification Message
-  if template_id == 1106 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Update Message
-  if template_id == 1001 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.market_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Update Message
-  if template_id == 1002 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.order_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Update Message
-  if template_id == 1003 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.price_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Full Trade Information Message
-  if template_id == 1004 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.full_trade_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Status Change Message
-  if template_id == 1005 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.market_status_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Timetable Message
-  if template_id == 1006 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.timetable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Standing Data Message
-  if template_id == 1007 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.standing_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Real Time Index Message
-  if template_id == 1008 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.real_time_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if template_id == 1009 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Summary Message
-  if template_id == 1011 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.index_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Standing Data Message
-  if template_id == 1012 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.strategy_standing_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Contract Standing Data Message
-  if template_id == 1013 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.contract_standing_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Standing Data Message
-  if template_id == 1014 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.outright_standing_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Order Update Message
-  if template_id == 1015 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.long_order_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Lis Package Structure Message
-  if template_id == 1016 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.lis_package_structure_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Apa Quotes Message
-  if template_id == 1026 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.apa_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Apa Standing Data Message
-  if template_id == 1027 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.apa_standing_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Apa Full Trade Information Message
-  if template_id == 1028 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.apa_full_trade_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bf Instrument Reference Message
-  if template_id == 1201 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.bf_instrument_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bf Trade Message
-  if template_id == 1202 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.bf_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bfnav Message
-  if template_id == 1203 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.bfnav_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bf Instrument Suspension Message
-  if template_id == 1204 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.bf_instrument_suspension_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Snapshot Message
-  if template_id == 2101 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.start_of_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Snapshot Message
-  if template_id == 2102 then
-    return euronext_optiq_marketdatagateway_sbe_v5_18.end_of_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = euronext_optiq_marketdatagateway_sbe_v5_18.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

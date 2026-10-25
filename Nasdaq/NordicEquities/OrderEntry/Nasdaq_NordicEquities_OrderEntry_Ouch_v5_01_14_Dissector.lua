@@ -444,15 +444,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.algo_indicator = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.algo_indicator.size = 1
 
 -- Display: Algo Indicator
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.algo_indicator.display = function(value)
-  if value == "-" then
-    return "Algo Indicator: No Algo (-)"
-  end
-  if value == "H" then
-    return "Algo Indicator: Algo (H)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.algo_indicator.labels = {
+  ["-"] = "Algo Indicator: No Algo (-)",
+  ["H"] = "Algo Indicator: Algo (H)",
+}
 
-  return "Algo Indicator: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.algo_indicator.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.algo_indicator.labels[value] or "Algo Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Algo Indicator
@@ -497,18 +495,14 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.broken_trade_reason = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.broken_trade_reason.size = 1
 
 -- Display: Broken Trade Reason
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.broken_trade_reason.display = function(value)
-  if value == "E" then
-    return "Broken Trade Reason: Erroneous (E)"
-  end
-  if value == "C" then
-    return "Broken Trade Reason: Consent (C)"
-  end
-  if value == "S" then
-    return "Broken Trade Reason: Supervisory (S)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.broken_trade_reason.labels = {
+  ["E"] = "Broken Trade Reason: Erroneous (E)",
+  ["C"] = "Broken Trade Reason: Consent (C)",
+  ["S"] = "Broken Trade Reason: Supervisory (S)",
+}
 
-  return "Broken Trade Reason: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.broken_trade_reason.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.broken_trade_reason.labels[value] or "Broken Trade Reason: Unknown("..value..")"
 end
 
 -- Dissect: Broken Trade Reason
@@ -530,15 +524,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell Order (S)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy Order (B)",
+  ["S"] = "Buy Sell Indicator: Sell Order (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -560,12 +552,12 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_pending_reason = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_pending_reason.size = 1
 
 -- Display: Cancel Pending Reason
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_pending_reason.display = function(value)
-  if value == "A" then
-    return "Cancel Pending Reason: Cancel Pending Completion Of Auction On Demand (A)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_pending_reason.labels = {
+  ["A"] = "Cancel Pending Reason: Cancel Pending Completion Of Auction On Demand (A)",
+}
 
-  return "Cancel Pending Reason: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_pending_reason.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_pending_reason.labels[value] or "Cancel Pending Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Pending Reason
@@ -587,33 +579,19 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_reason = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_reason.display = function(value)
-  if value == "U" then
-    return "Cancel Reason: User Requested Cancel (U)"
-  end
-  if value == "I" then
-    return "Cancel Reason: Immediate Or Cancel Order (I)"
-  end
-  if value == "T" then
-    return "Cancel Reason: Timeout (T)"
-  end
-  if value == "S" then
-    return "Cancel Reason: Supervisory (S)"
-  end
-  if value == "Q" then
-    return "Cancel Reason: Self Match Prevention (Q)"
-  end
-  if value == "L" then
-    return "Cancel Reason: Hidden Peg Not Lis (L)"
-  end
-  if value == "N" then
-    return "Cancel Reason: Bad Quote (N)"
-  end
-  if value == "R" then
-    return "Cancel Reason: State Management (R)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_reason.labels = {
+  ["U"] = "Cancel Reason: User Requested Cancel (U)",
+  ["I"] = "Cancel Reason: Immediate Or Cancel Order (I)",
+  ["T"] = "Cancel Reason: Timeout (T)",
+  ["S"] = "Cancel Reason: Supervisory (S)",
+  ["Q"] = "Cancel Reason: Self Match Prevention (Q)",
+  ["L"] = "Cancel Reason: Hidden Peg Not Lis (L)",
+  ["N"] = "Cancel Reason: Bad Quote (N)",
+  ["R"] = "Cancel Reason: State Management (R)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_reason.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -658,33 +636,19 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.capacity = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.capacity.size = 1
 
 -- Display: Capacity
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.capacity.display = function(value)
-  if value == "1" then
-    return "Capacity: Client (1)"
-  end
-  if value == "2" then
-    return "Capacity: Own Account (2)"
-  end
-  if value == "3" then
-    return "Capacity: Market Maker (3)"
-  end
-  if value == "4" then
-    return "Capacity: Issuer Holding (4)"
-  end
-  if value == "6" then
-    return "Capacity: Issue Price Stabilizing (6)"
-  end
-  if value == "7" then
-    return "Capacity: Riskless Principal (7)"
-  end
-  if value == "8" then
-    return "Capacity: Issuer Holding Deal (8)"
-  end
-  if value == "9" then
-    return "Capacity: Issue Price Stabilizing Deal (9)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.capacity.labels = {
+  ["1"] = "Capacity: Client (1)",
+  ["2"] = "Capacity: Own Account (2)",
+  ["3"] = "Capacity: Market Maker (3)",
+  ["4"] = "Capacity: Issuer Holding (4)",
+  ["6"] = "Capacity: Issue Price Stabilizing (6)",
+  ["7"] = "Capacity: Riskless Principal (7)",
+  ["8"] = "Capacity: Issuer Holding Deal (8)",
+  ["9"] = "Capacity: Issue Price Stabilizing Deal (9)",
+}
 
-  return "Capacity: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.capacity.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -706,15 +670,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account_type_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account_type_value.size = 1
 
 -- Display: Clearing Account Type Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account_type_value.display = function(value)
-  if value == "1" then
-    return "Clearing Account Type Value: Customer Client (1)"
-  end
-  if value == "2" then
-    return "Clearing Account Type Value: Firm House (2)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account_type_value.labels = {
+  ["1"] = "Clearing Account Type Value: Customer Client (1)",
+  ["2"] = "Clearing Account Type Value: Firm House (2)",
+}
 
-  return "Clearing Account Type Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account_type_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account_type_value.labels[value] or "Clearing Account Type Value: Unknown("..value..")"
 end
 
 -- Dissect: Clearing Account Type Value
@@ -805,24 +767,16 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet_type = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet_type.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -890,24 +844,16 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.cross_type_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.cross_type_value.size = 1
 
 -- Display: Cross Type Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.cross_type_value.display = function(value)
-  if value == "C" then
-    return "Cross Type Value: Closing Cross (C)"
-  end
-  if value == "O" then
-    return "Cross Type Value: Opening Cross (O)"
-  end
-  if value == "I" then
-    return "Cross Type Value: Scheduled Intraday Cross (I)"
-  end
-  if value == "H" then
-    return "Cross Type Value: Halt Cross (H)"
-  end
-  if value == "A" then
-    return "Cross Type Value: Auction On Demand (A)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.cross_type_value.labels = {
+  ["C"] = "Cross Type Value: Closing Cross (C)",
+  ["O"] = "Cross Type Value: Opening Cross (O)",
+  ["I"] = "Cross Type Value: Scheduled Intraday Cross (I)",
+  ["H"] = "Cross Type Value: Halt Cross (H)",
+  ["A"] = "Cross Type Value: Auction On Demand (A)",
+}
 
-  return "Cross Type Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.cross_type_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cross_type_value.labels[value] or "Cross Type Value: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type Value
@@ -952,12 +898,12 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.customer_order_capacity_value = {
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.customer_order_capacity_value.size = 1
 
 -- Display: Customer Order Capacity Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.customer_order_capacity_value.display = function(value)
-  if value == "5" then
-    return "Customer Order Capacity Value: Retail Customer (5)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.customer_order_capacity_value.labels = {
+  ["5"] = "Customer Order Capacity Value: Retail Customer (5)",
+}
 
-  return "Customer Order Capacity Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.customer_order_capacity_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.customer_order_capacity_value.labels[value] or "Customer Order Capacity Value: Unknown("..value..")"
 end
 
 -- Dissect: Customer Order Capacity Value
@@ -979,24 +925,16 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator_value.size = 1
 
 -- Display: Dea Indicator Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator_value.display = function(value)
-  if value == "1" then
-    return "Dea Indicator Value: Order Received From A Customer (1)"
-  end
-  if value == "2" then
-    return "Dea Indicator Value: Order Received From Within The Firm (2)"
-  end
-  if value == "3" then
-    return "Dea Indicator Value: Order Received From Another Broker Dealer (3)"
-  end
-  if value == "4" then
-    return "Dea Indicator Value: Order Received From A Customer Or Originated With The Firm (4)"
-  end
-  if value == "5" then
-    return "Dea Indicator Value: Order Received From A Direct Access Or Sponsored Access Customer (5)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator_value.labels = {
+  ["1"] = "Dea Indicator Value: Order Received From A Customer (1)",
+  ["2"] = "Dea Indicator Value: Order Received From Within The Firm (2)",
+  ["3"] = "Dea Indicator Value: Order Received From Another Broker Dealer (3)",
+  ["4"] = "Dea Indicator Value: Order Received From A Customer Or Originated With The Firm (4)",
+  ["5"] = "Dea Indicator Value: Order Received From A Direct Access Or Sponsored Access Customer (5)",
+}
 
-  return "Dea Indicator Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator_value.labels[value] or "Dea Indicator Value: Unknown("..value..")"
 end
 
 -- Dissect: Dea Indicator Value
@@ -1112,21 +1050,15 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_value.size = 1
 
 -- Display: Display Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_value.display = function(value)
-  if value == "Y" then
-    return "Display Value: Display (Y)"
-  end
-  if value == "N" then
-    return "Display Value: Non Display (N)"
-  end
-  if value == "A" then
-    return "Display Value: Auction On Demand (A)"
-  end
-  if value == "M" then
-    return "Display Value: Nordic Mid (M)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_value.labels = {
+  ["Y"] = "Display Value: Display (Y)",
+  ["N"] = "Display Value: Non Display (N)",
+  ["A"] = "Display Value: Auction On Demand (A)",
+  ["M"] = "Display Value: Nordic Mid (M)",
+}
 
-  return "Display Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_value.labels[value] or "Display Value: Unknown("..value..")"
 end
 
 -- Dissect: Display Value
@@ -1148,15 +1080,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.event_code = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.event_code.display = function(value)
-  if value == "S" then
-    return "Event Code: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Event Code: End Of Day (E)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.event_code.labels = {
+  ["S"] = "Event Code: Start Of Day (S)",
+  ["E"] = "Event Code: End Of Day (E)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.event_code.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1437,15 +1367,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator_val
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator_value.size = 1
 
 -- Display: Liquidity Provision Indicator Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator_value.display = function(value)
-  if value == "N" then
-    return "Liquidity Provision Indicator Value: No Liquidity Provision (N)"
-  end
-  if value == "Y" then
-    return "Liquidity Provision Indicator Value: Liquidity Provision (Y)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator_value.labels = {
+  ["N"] = "Liquidity Provision Indicator Value: No Liquidity Provision (N)",
+  ["Y"] = "Liquidity Provision Indicator Value: Liquidity Provision (Y)",
+}
 
-  return "Liquidity Provision Indicator Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator_value.labels[value] or "Liquidity Provision Indicator Value: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Provision Indicator Value
@@ -1628,24 +1556,16 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition_value.size = 1
 
 -- Display: Order Condition Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition_value.display = function(value)
-  if value == "W" then
-    return "Order Condition Value: Market Maker Order (W)"
-  end
-  if value == "U" then
-    return "Order Condition Value: Market Maker Order Refresh (U)"
-  end
-  if value == "P" then
-    return "Order Condition Value: Topof Book (P)"
-  end
-  if value == "Q" then
-    return "Order Condition Value: Darklit Sweep (Q)"
-  end
-  if value == "T" then
-    return "Order Condition Value: Trade Now (T)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition_value.labels = {
+  ["W"] = "Order Condition Value: Market Maker Order (W)",
+  ["U"] = "Order Condition Value: Market Maker Order Refresh (U)",
+  ["P"] = "Order Condition Value: Topof Book (P)",
+  ["Q"] = "Order Condition Value: Darklit Sweep (Q)",
+  ["T"] = "Order Condition Value: Trade Now (T)",
+}
 
-  return "Order Condition Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition_value.labels[value] or "Order Condition Value: Unknown("..value..")"
 end
 
 -- Dissect: Order Condition Value
@@ -1854,18 +1774,14 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_type_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_type_value.size = 1
 
 -- Display: Peg Type Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_type_value.display = function(value)
-  if value == "M" then
-    return "Peg Type Value: Midpoint (M)"
-  end
-  if value == "P" then
-    return "Peg Type Value: Market (P)"
-  end
-  if value == "R" then
-    return "Peg Type Value: Primary (R)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_type_value.labels = {
+  ["M"] = "Peg Type Value: Midpoint (M)",
+  ["P"] = "Peg Type Value: Market (P)",
+  ["R"] = "Peg Type Value: Primary (R)",
+}
 
-  return "Peg Type Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_type_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_type_value.labels[value] or "Peg Type Value: Unknown("..value..")"
 end
 
 -- Dissect: Peg Type Value
@@ -1985,15 +1901,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.reject_reason_code = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.reject_reason_code.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2115,15 +2029,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.restate_reason = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.restate_reason.size = 1
 
 -- Display: Restate Reason
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.restate_reason.display = function(value)
-  if value == "R" then
-    return "Restate Reason: Refresh Of Display (R)"
-  end
-  if value == "P" then
-    return "Restate Reason: Update Of Displayed Price (P)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.restate_reason.labels = {
+  ["R"] = "Restate Reason: Refresh Of Display (R)",
+  ["P"] = "Restate Reason: Update Of Displayed Price (P)",
+}
 
-  return "Restate Reason: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.restate_reason.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.restate_reason.labels[value] or "Restate Reason: Unknown("..value..")"
 end
 
 -- Dissect: Restate Reason
@@ -2168,54 +2080,26 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message_type = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Order Accepted Message (A)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Cancelled Order Message (C)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Cancel Pending Message (P)"
-  end
-  if value == "N" then
-    return "Sequenced Message Type: Replace Pending Message (N)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Executed Order Message (E)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Broken Trade Message (B)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Rejected Order Message (J)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Cancel Rejected Message (I)"
-  end
-  if value == "T" then
-    return "Sequenced Message Type: Order Restated Message (T)"
-  end
-  if value == "W" then
-    return "Sequenced Message Type: Mmo Refresh Request Message (W)"
-  end
-  if value == "Q" then
-    return "Sequenced Message Type: Account Query Response Message (Q)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Gtc Cancelled Message (G)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Response To Mmi Notification Message (R)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["A"] = "Sequenced Message Type: Order Accepted Message (A)",
+  ["U"] = "Sequenced Message Type: Order Replaced Message (U)",
+  ["C"] = "Sequenced Message Type: Cancelled Order Message (C)",
+  ["P"] = "Sequenced Message Type: Cancel Pending Message (P)",
+  ["N"] = "Sequenced Message Type: Replace Pending Message (N)",
+  ["E"] = "Sequenced Message Type: Executed Order Message (E)",
+  ["B"] = "Sequenced Message Type: Broken Trade Message (B)",
+  ["J"] = "Sequenced Message Type: Rejected Order Message (J)",
+  ["I"] = "Sequenced Message Type: Cancel Rejected Message (I)",
+  ["T"] = "Sequenced Message Type: Order Restated Message (T)",
+  ["W"] = "Sequenced Message Type: Mmo Refresh Request Message (W)",
+  ["Q"] = "Sequenced Message Type: Account Query Response Message (Q)",
+  ["G"] = "Sequenced Message Type: Gtc Cancelled Message (G)",
+  ["R"] = "Sequenced Message Type: Response To Mmi Notification Message (R)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message_type.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -2237,27 +2121,17 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet_type = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet_type.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2279,21 +2153,15 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_action_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_action_value.size = 1
 
 -- Display: Stp Action Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_action_value.display = function(value)
-  if value == "1" then
-    return "Stp Action Value: Cancel Passive Order (1)"
-  end
-  if value == "2" then
-    return "Stp Action Value: Cancel Aggressive Order (2)"
-  end
-  if value == "3" then
-    return "Stp Action Value: Cancel Both Orders (3)"
-  end
-  if value == "4" then
-    return "Stp Action Value: Create A Transfer Transaction (4)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_action_value.labels = {
+  ["1"] = "Stp Action Value: Cancel Passive Order (1)",
+  ["2"] = "Stp Action Value: Cancel Aggressive Order (2)",
+  ["3"] = "Stp Action Value: Cancel Both Orders (3)",
+  ["4"] = "Stp Action Value: Create A Transfer Transaction (4)",
+}
 
-  return "Stp Action Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_action_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_action_value.labels[value] or "Stp Action Value: Unknown("..value..")"
 end
 
 -- Dissect: Stp Action Value
@@ -2315,18 +2183,14 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_level_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_level_value.size = 1
 
 -- Display: Stp Level Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_level_value.display = function(value)
-  if value == "1" then
-    return "Stp Level Value: Mpid And Trader (1)"
-  end
-  if value == "2" then
-    return "Stp Level Value: Mpid (2)"
-  end
-  if value == "3" then
-    return "Stp Level Value: Specified Trader Group (3)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_level_value.labels = {
+  ["1"] = "Stp Level Value: Mpid And Trader (1)",
+  ["2"] = "Stp Level Value: Mpid (2)",
+  ["3"] = "Stp Level Value: Specified Trader Group (3)",
+}
 
-  return "Stp Level Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_level_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_level_value.labels[value] or "Stp Level Value: Unknown("..value..")"
 end
 
 -- Dissect: Stp Level Value
@@ -2394,24 +2258,16 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.time_in_force_value = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.time_in_force_value.size = 1
 
 -- Display: Time In Force Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.time_in_force_value.display = function(value)
-  if value == "0" then
-    return "Time In Force Value: Day (0)"
-  end
-  if value == "1" then
-    return "Time In Force Value: Gtc Good Till Cancelled (1)"
-  end
-  if value == "3" then
-    return "Time In Force Value: Ioc Immediate Or Cancel (3)"
-  end
-  if value == "6" then
-    return "Time In Force Value: Gtt Good Till Time (6)"
-  end
-  if value == "B" then
-    return "Time In Force Value: Gfa Good For Auction (B)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.time_in_force_value.labels = {
+  ["0"] = "Time In Force Value: Day (0)",
+  ["1"] = "Time In Force Value: Gtc Good Till Cancelled (1)",
+  ["3"] = "Time In Force Value: Ioc Immediate Or Cancel (3)",
+  ["6"] = "Time In Force Value: Gtt Good Till Time (6)",
+  ["B"] = "Time In Force Value: Gfa Good For Auction (B)",
+}
 
-  return "Time In Force Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.time_in_force_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.time_in_force_value.labels[value] or "Time In Force Value: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force Value
@@ -2476,15 +2332,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_at_closing_price_value = 
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_at_closing_price_value.size = 1
 
 -- Display: Trading At Closing Price Value
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_at_closing_price_value.display = function(value)
-  if value == "Y" then
-    return "Trading At Closing Price Value: Participate In Trading At Closing Price (Y)"
-  end
-  if value == "N" then
-    return "Trading At Closing Price Value: Do Not Participate In Trading At Closing Price (N)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_at_closing_price_value.labels = {
+  ["Y"] = "Trading At Closing Price Value: Participate In Trading At Closing Price (Y)",
+  ["N"] = "Trading At Closing Price Value: Do Not Participate In Trading At Closing Price (N)",
+}
 
-  return "Trading At Closing Price Value: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_at_closing_price_value.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_at_closing_price_value.labels[value] or "Trading At Closing Price Value: Unknown("..value..")"
 end
 
 -- Dissect: Trading At Closing Price Value
@@ -2506,27 +2360,17 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_mode = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_mode.size = 1
 
 -- Display: Trading Mode
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_mode.display = function(value)
-  if value == "O" then
-    return "Trading Mode: Opening Auction (O)"
-  end
-  if value == "I" then
-    return "Trading Mode: Scheduled Intraday Auction (I)"
-  end
-  if value == "U" then
-    return "Trading Mode: Unscheduled Auction (U)"
-  end
-  if value == "2" then
-    return "Trading Mode: Continuous Trading (2)"
-  end
-  if value == "3" then
-    return "Trading Mode: At Market Close Trading (3)"
-  end
-  if value == "P" then
-    return "Trading Mode: On Demand Auction (P)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_mode.labels = {
+  ["O"] = "Trading Mode: Opening Auction (O)",
+  ["I"] = "Trading Mode: Scheduled Intraday Auction (I)",
+  ["U"] = "Trading Mode: Unscheduled Auction (U)",
+  ["2"] = "Trading Mode: Continuous Trading (2)",
+  ["3"] = "Trading Mode: At Market Close Trading (3)",
+  ["P"] = "Trading Mode: On Demand Auction (P)",
+}
 
-  return "Trading Mode: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_mode.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_mode.labels[value] or "Trading Mode: Unknown("..value..")"
 end
 
 -- Dissect: Trading Mode
@@ -2548,15 +2392,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_category = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_category.size = 1
 
 -- Display: Transaction Category
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_category.display = function(value)
-  if value == "D" then
-    return "Transaction Category: Dark Trade (D)"
-  end
-  if value == "-" then
-    return "Transaction Category: None Apply (-)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_category.labels = {
+  ["D"] = "Transaction Category: Dark Trade (D)",
+  ["-"] = "Transaction Category: None Apply (-)",
+}
 
-  return "Transaction Category: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_category.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_category.labels[value] or "Transaction Category: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Category
@@ -2578,15 +2420,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_type_algo_indicator =
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_type_algo_indicator.size = 1
 
 -- Display: Transaction Type Algo Indicator
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_type_algo_indicator.display = function(value)
-  if value == "H" then
-    return "Transaction Type Algo Indicator: Algorithmic Trade (H)"
-  end
-  if value == "-" then
-    return "Transaction Type Algo Indicator: No Algorithmic Trade (-)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_type_algo_indicator.labels = {
+  ["H"] = "Transaction Type Algo Indicator: Algorithmic Trade (H)",
+  ["-"] = "Transaction Type Algo Indicator: No Algorithmic Trade (-)",
+}
 
-  return "Transaction Type Algo Indicator: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_type_algo_indicator.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.transaction_type_algo_indicator.labels[value] or "Transaction Type Algo Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Type Algo Indicator
@@ -2608,24 +2448,16 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message_type = {}
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
-  if value == "Q" then
-    return "Unsequenced Message Type: Account Query Message (Q)"
-  end
-  if value == "M" then
-    return "Unsequenced Message Type: Mmi Notification Request Message (M)"
-  end
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order Message (O)",
+  ["U"] = "Unsequenced Message Type: Replace Order Message (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order Message (X)",
+  ["Q"] = "Unsequenced Message Type: Account Query Message (Q)",
+  ["M"] = "Unsequenced Message Type: Mmi Notification Request Message (M)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message_type.display = function(value)
+  return nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -4145,122 +3977,42 @@ end
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.value_payload = {}
 
 -- Dissect: Value Payload
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.value_payload.dispatch = {
+  [1] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account.dissect,
+  [2] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account_type.dissect,
+  [3] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_firm.dissect,
+  [4] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_reference.dissect,
+  [5] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.cross_type.dissect,
+  [6] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator.dissect,
+  [7] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.display.dissect,
+  [8] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_price.dissect,
+  [9] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_quantity.dissect,
+  [10] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.expire_time.dissect,
+  [11] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.dissect,
+  [12] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator.dissect,
+  [13] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.max_floor.dissect,
+  [14] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.minimum_quantity.dissect,
+  [15] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_reference.dissect,
+  [16] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.original_order_entry_date.dissect,
+  [17] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.original_order_reference_number.dissect,
+  [18] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_difference.dissect,
+  [19] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_type.dissect,
+  [20] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.random_reserve.dissect,
+  [21] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.secondary_order_reference_number.dissect,
+  [22] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_action.dissect,
+  [23] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_level.dissect,
+  [24] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_trader_group.dissect,
+  [25] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.time_in_force.dissect,
+  [26] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_at_closing_price.dissect,
+  [27] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition.dissect,
+  [28] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.cumulative_quantity.dissect,
+  [29] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.customer_order_capacity.dissect,
+}
+
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.value_payload.dissect = function(buffer, offset, packet, parent, tag)
-  -- Dissect Clearing Account
-  if tag == 1 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clearing Account Type
-  if tag == 2 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_account_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clearing Firm
-  if tag == 3 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.clearing_firm.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Reference
-  if tag == 4 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_reference.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Type
-  if tag == 5 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cross_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dea Indicator
-  if tag == 6 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display
-  if tag == 7 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.display.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display Price
-  if tag == 8 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display Quantity
-  if tag == 9 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.display_quantity.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if tag == 10 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Firm
-  if tag == 11 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Liquidity Provision Indicator
-  if tag == 12 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if tag == 13 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Quantity
-  if tag == 14 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.minimum_quantity.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Reference
-  if tag == 15 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_reference.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Original Order Entry Date
-  if tag == 16 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.original_order_entry_date.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Original Order Reference Number
-  if tag == 17 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.original_order_reference_number.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Difference
-  if tag == 18 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_difference.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Type
-  if tag == 19 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.peg_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Random Reserve
-  if tag == 20 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.random_reserve.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secondary Order Reference Number
-  if tag == 21 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.secondary_order_reference_number.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stp Action
-  if tag == 22 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_action.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stp Level
-  if tag == 23 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_level.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stp Trader Group
-  if tag == 24 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.stp_trader_group.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time In Force
-  if tag == 25 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.time_in_force.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading At Closing Price
-  if tag == 26 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.trading_at_closing_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Condition
-  if tag == 27 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_condition.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cumulative Quantity
-  if tag == 28 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cumulative_quantity.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Order Capacity
-  if tag == 29 then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.customer_order_capacity.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_orderentry_ouch_v5_01_14.value_payload.dispatch[tag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5127,66 +4879,28 @@ end
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.system_event_message.dissect,
+  ["A"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_accepted_message.dissect,
+  ["U"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_replaced_message.dissect,
+  ["C"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancelled_order_message.dissect,
+  ["P"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_pending_message.dissect,
+  ["N"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.replace_pending_message.dissect,
+  ["E"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.executed_order_message.dissect,
+  ["B"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.broken_trade_message.dissect,
+  ["J"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.rejected_order_message.dissect,
+  ["I"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_rejected_message.dissect,
+  ["T"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_restated_message.dissect,
+  ["W"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmo_refresh_request_message.dissect,
+  ["Q"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_response_message.dissect,
+  ["G"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.gtc_cancelled_message.dissect,
+  ["R"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.response_to_mmi_notification_message.dissect,
+}
+
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Accepted Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if sequenced_message_type == "U" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancelled Order Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancelled_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Pending Message
-  if sequenced_message_type == "P" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_pending_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Pending Message
-  if sequenced_message_type == "N" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.replace_pending_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Executed Order Message
-  if sequenced_message_type == "E" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.executed_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rejected Order Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.rejected_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Message
-  if sequenced_message_type == "I" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Message
-  if sequenced_message_type == "T" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mmo Refresh Request Message
-  if sequenced_message_type == "W" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmo_refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Query Response Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gtc Cancelled Message
-  if sequenced_message_type == "G" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.gtc_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Response To Mmi Notification Message
-  if sequenced_message_type == "R" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.response_to_mmi_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5429,30 +5143,19 @@ end
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_payload.dispatch = {
+  ["+"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.dissect,
+  ["A"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_heartbeat.dissect,
+  ["Z"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.end_of_session.dissect,
+}
+
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5950,26 +5653,18 @@ end
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message.dispatch = {
+  ["O"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.enter_order_message.dissect,
+  ["U"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.replace_order_message.dissect,
+  ["X"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_order_message.dissect,
+  ["Q"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_message.dissect,
+  ["M"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmi_notification_request_message.dissect,
+}
+
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if unsequenced_message_type == "U" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Query Message
-  if unsequenced_message_type == "Q" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mmi Notification Request Message
-  if unsequenced_message_type == "M" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmi_notification_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6084,26 +5779,18 @@ end
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_payload.dispatch = {
+  ["+"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.dissect,
+  ["L"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.login_request_packet.dissect,
+  ["U"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_heartbeat.dissect,
+  ["O"] = nasdaq_nordicequities_orderentry_ouch_v5_01_14.logout_request.dissect,
+}
+
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

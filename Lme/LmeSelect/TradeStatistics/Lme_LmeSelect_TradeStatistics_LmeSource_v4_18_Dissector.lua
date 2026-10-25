@@ -197,15 +197,13 @@ lme_lmeselect_tradestatistics_lmesource_v4_18.msg_type = {}
 lme_lmeselect_tradestatistics_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_tradestatistics_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 352 then
-    return "Msg Type: Trade Statistics Intraday Message (352)"
-  end
+lme_lmeselect_tradestatistics_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [352] = "Msg Type: Trade Statistics Intraday Message (352)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_tradestatistics_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_tradestatistics_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -454,18 +452,14 @@ lme_lmeselect_tradestatistics_lmesource_v4_18.trading_venue = {}
 lme_lmeselect_tradestatistics_lmesource_v4_18.trading_venue.size = 2
 
 -- Display: Trading Venue
-lme_lmeselect_tradestatistics_lmesource_v4_18.trading_venue.display = function(value)
-  if value == "EL" then
-    return "Trading Venue: Electronic (EL)"
-  end
-  if value == "RK" then
-    return "Trading Venue: Ring (RK)"
-  end
-  if value == "IO" then
-    return "Trading Venue: Inter Office (IO)"
-  end
+lme_lmeselect_tradestatistics_lmesource_v4_18.trading_venue.labels = {
+  ["EL"] = "Trading Venue: Electronic (EL)",
+  ["RK"] = "Trading Venue: Ring (RK)",
+  ["IO"] = "Trading Venue: Inter Office (IO)",
+}
 
-  return "Trading Venue: Unknown("..value..")"
+lme_lmeselect_tradestatistics_lmesource_v4_18.trading_venue.display = function(value)
+  return lme_lmeselect_tradestatistics_lmesource_v4_18.trading_venue.labels[value] or "Trading Venue: Unknown("..value..")"
 end
 
 -- Dissect: Trading Venue
@@ -589,14 +583,15 @@ end
 lme_lmeselect_tradestatistics_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_tradestatistics_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_tradestatistics_lmesource_v4_18.sequence_reset_message.dissect,
+  [352] = lme_lmeselect_tradestatistics_lmesource_v4_18.trade_statistics_intraday_message.dissect,
+}
+
 lme_lmeselect_tradestatistics_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_tradestatistics_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Statistics Intraday Message
-  if msg_type == 352 then
-    return lme_lmeselect_tradestatistics_lmesource_v4_18.trade_statistics_intraday_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_tradestatistics_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

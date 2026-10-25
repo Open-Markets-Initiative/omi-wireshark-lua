@@ -347,27 +347,17 @@ biva_bivaequities_orderentry_ouch_v1_05.account_type = {}
 biva_bivaequities_orderentry_ouch_v1_05.account_type.size = 1
 
 -- Display: Account Type
-biva_bivaequities_orderentry_ouch_v1_05.account_type.display = function(value)
-  if value == "C" then
-    return "Account Type: Client (C)"
-  end
-  if value == "H" then
-    return "Account Type: House (H)"
-  end
-  if value == "O" then
-    return "Account Type: Other (O)"
-  end
-  if value == "Y" then
-    return "Account Type: Strategy (Y)"
-  end
-  if value == "M" then
-    return "Account Type: Market Maker (M)"
-  end
-  if value == "S" then
-    return "Account Type: Stabilisation (S)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.account_type.labels = {
+  ["C"] = "Account Type: Client (C)",
+  ["H"] = "Account Type: House (H)",
+  ["O"] = "Account Type: Other (O)",
+  ["Y"] = "Account Type: Strategy (Y)",
+  ["M"] = "Account Type: Market Maker (M)",
+  ["S"] = "Account Type: Stabilisation (S)",
+}
 
-  return "Account Type: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.account_type.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.account_type.labels[value] or "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -389,15 +379,13 @@ biva_bivaequities_orderentry_ouch_v1_05.broken_trade_reason = {}
 biva_bivaequities_orderentry_ouch_v1_05.broken_trade_reason.size = 1
 
 -- Display: Broken Trade Reason
-biva_bivaequities_orderentry_ouch_v1_05.broken_trade_reason.display = function(value)
-  if value == "C" then
-    return "Broken Trade Reason: Consent Both Parties Agreed To Break The Trade (C)"
-  end
-  if value == "S" then
-    return "Broken Trade Reason: Supervisory Broken By Biva Market Control (S)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.broken_trade_reason.labels = {
+  ["C"] = "Broken Trade Reason: Consent Both Parties Agreed To Break The Trade (C)",
+  ["S"] = "Broken Trade Reason: Supervisory Broken By Biva Market Control (S)",
+}
 
-  return "Broken Trade Reason: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.broken_trade_reason.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.broken_trade_reason.labels[value] or "Broken Trade Reason: Unknown("..value..")"
 end
 
 -- Dissect: Broken Trade Reason
@@ -419,45 +407,23 @@ biva_bivaequities_orderentry_ouch_v1_05.canceled_reason = {}
 biva_bivaequities_orderentry_ouch_v1_05.canceled_reason.size = 1
 
 -- Display: Canceled Reason
-biva_bivaequities_orderentry_ouch_v1_05.canceled_reason.display = function(value)
-  if value == "U" then
-    return "Canceled Reason: User Requested Cancel (U)"
-  end
-  if value == "I" then
-    return "Canceled Reason: Immediate Order Expired (I)"
-  end
-  if value == "T" then
-    return "Canceled Reason: Timeout Session Or Day Order Expired (T)"
-  end
-  if value == "S" then
-    return "Canceled Reason: Supervisory (S)"
-  end
-  if value == "L" then
-    return "Canceled Reason: User Logged Off (L)"
-  end
-  if value == "Z" then
-    return "Canceled Reason: Invalid Quantity Or Quantity Exceeds Maximum Limit (Z)"
-  end
-  if value == "R" then
-    return "Canceled Reason: Order Not Allowed At This Time (R)"
-  end
-  if value == "X" then
-    return "Canceled Reason: Invalid Price (X)"
-  end
-  if value == "N" then
-    return "Canceled Reason: Invalid Minimum Quantity (N)"
-  end
-  if value == "Y" then
-    return "Canceled Reason: Invalid Order Type (Y)"
-  end
-  if value == "F" then
-    return "Canceled Reason: Flow Control In Place For User (F)"
-  end
-  if value == "W" then
-    return "Canceled Reason: Unknown (W)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.canceled_reason.labels = {
+  ["U"] = "Canceled Reason: User Requested Cancel (U)",
+  ["I"] = "Canceled Reason: Immediate Order Expired (I)",
+  ["T"] = "Canceled Reason: Timeout Session Or Day Order Expired (T)",
+  ["S"] = "Canceled Reason: Supervisory (S)",
+  ["L"] = "Canceled Reason: User Logged Off (L)",
+  ["Z"] = "Canceled Reason: Invalid Quantity Or Quantity Exceeds Maximum Limit (Z)",
+  ["R"] = "Canceled Reason: Order Not Allowed At This Time (R)",
+  ["X"] = "Canceled Reason: Invalid Price (X)",
+  ["N"] = "Canceled Reason: Invalid Minimum Quantity (N)",
+  ["Y"] = "Canceled Reason: Invalid Order Type (Y)",
+  ["F"] = "Canceled Reason: Flow Control In Place For User (F)",
+  ["W"] = "Canceled Reason: Unknown (W)",
+}
 
-  return "Canceled Reason: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.canceled_reason.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.canceled_reason.labels[value] or "Canceled Reason: Unknown("..value..")"
 end
 
 -- Dissect: Canceled Reason
@@ -502,24 +468,16 @@ biva_bivaequities_orderentry_ouch_v1_05.client_packet_type = {}
 biva_bivaequities_orderentry_ouch_v1_05.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-biva_bivaequities_orderentry_ouch_v1_05.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.client_packet_type.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -583,15 +541,13 @@ biva_bivaequities_orderentry_ouch_v1_05.event_code = {}
 biva_bivaequities_orderentry_ouch_v1_05.event_code.size = 1
 
 -- Display: Event Code
-biva_bivaequities_orderentry_ouch_v1_05.event_code.display = function(value)
-  if value == "S" then
-    return "Event Code: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Event Code: End Of Day (E)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.event_code.labels = {
+  ["S"] = "Event Code: Start Of Day (S)",
+  ["E"] = "Event Code: End Of Day (E)",
+}
 
-  return "Event Code: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.event_code.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -682,18 +638,14 @@ biva_bivaequities_orderentry_ouch_v1_05.liquidity_flag = {}
 biva_bivaequities_orderentry_ouch_v1_05.liquidity_flag.size = 1
 
 -- Display: Liquidity Flag
-biva_bivaequities_orderentry_ouch_v1_05.liquidity_flag.display = function(value)
-  if value == "A" then
-    return "Liquidity Flag: Added For The Passive Firm (A)"
-  end
-  if value == "R" then
-    return "Liquidity Flag: Removed For The Aggressor (R)"
-  end
-  if value == "U" then
-    return "Liquidity Flag: Uncross For Auction Executions (U)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.liquidity_flag.labels = {
+  ["A"] = "Liquidity Flag: Added For The Passive Firm (A)",
+  ["R"] = "Liquidity Flag: Removed For The Aggressor (R)",
+  ["U"] = "Liquidity Flag: Uncross For Auction Executions (U)",
+}
 
-  return "Liquidity Flag: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.liquidity_flag.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.liquidity_flag.labels[value] or "Liquidity Flag: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Flag
@@ -784,15 +736,13 @@ biva_bivaequities_orderentry_ouch_v1_05.order_state = {}
 biva_bivaequities_orderentry_ouch_v1_05.order_state.size = 1
 
 -- Display: Order State
-biva_bivaequities_orderentry_ouch_v1_05.order_state.display = function(value)
-  if value == "L" then
-    return "Order State: Live (L)"
-  end
-  if value == "D" then
-    return "Order State: Dead (D)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.order_state.labels = {
+  ["L"] = "Order State: Live (L)",
+  ["D"] = "Order State: Dead (D)",
+}
 
-  return "Order State: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.order_state.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -837,18 +787,14 @@ biva_bivaequities_orderentry_ouch_v1_05.order_verb = {}
 biva_bivaequities_orderentry_ouch_v1_05.order_verb.size = 1
 
 -- Display: Order Verb
-biva_bivaequities_orderentry_ouch_v1_05.order_verb.display = function(value)
-  if value == "B" then
-    return "Order Verb: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Verb: Sell (S)"
-  end
-  if value == "T" then
-    return "Order Verb: Short Sell (T)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.order_verb.labels = {
+  ["B"] = "Order Verb: Buy (B)",
+  ["S"] = "Order Verb: Sell (S)",
+  ["T"] = "Order Verb: Short Sell (T)",
+}
 
-  return "Order Verb: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.order_verb.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.order_verb.labels[value] or "Order Verb: Unknown("..value..")"
 end
 
 -- Dissect: Order Verb
@@ -1008,15 +954,13 @@ biva_bivaequities_orderentry_ouch_v1_05.reject_reason_code = {}
 biva_bivaequities_orderentry_ouch_v1_05.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-biva_bivaequities_orderentry_ouch_v1_05.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.reject_reason_code.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1038,36 +982,20 @@ biva_bivaequities_orderentry_ouch_v1_05.rejected_reason = {}
 biva_bivaequities_orderentry_ouch_v1_05.rejected_reason.size = 1
 
 -- Display: Rejected Reason
-biva_bivaequities_orderentry_ouch_v1_05.rejected_reason.display = function(value)
-  if value == "H" then
-    return "Rejected Reason: Secboard Instrument Board Or Market Not Tradeable (H)"
-  end
-  if value == "Z" then
-    return "Rejected Reason: Invalid Quantity Or Quantity Exceeds Maximum Limit (Z)"
-  end
-  if value == "S" then
-    return "Rejected Reason: Invalid Orderbook Identifier (S)"
-  end
-  if value == "R" then
-    return "Rejected Reason: Order Not Allowed At This Time (R)"
-  end
-  if value == "X" then
-    return "Rejected Reason: Invalid Price (X)"
-  end
-  if value == "N" then
-    return "Rejected Reason: Invalid Minimum Quantity (N)"
-  end
-  if value == "Y" then
-    return "Rejected Reason: Invalid Order Type (Y)"
-  end
-  if value == "F" then
-    return "Rejected Reason: Flow Control In Place For User (F)"
-  end
-  if value == "W" then
-    return "Rejected Reason: Unknown (W)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.rejected_reason.labels = {
+  ["H"] = "Rejected Reason: Secboard Instrument Board Or Market Not Tradeable (H)",
+  ["Z"] = "Rejected Reason: Invalid Quantity Or Quantity Exceeds Maximum Limit (Z)",
+  ["S"] = "Rejected Reason: Invalid Orderbook Identifier (S)",
+  ["R"] = "Rejected Reason: Order Not Allowed At This Time (R)",
+  ["X"] = "Rejected Reason: Invalid Price (X)",
+  ["N"] = "Rejected Reason: Invalid Minimum Quantity (N)",
+  ["Y"] = "Rejected Reason: Invalid Order Type (Y)",
+  ["F"] = "Rejected Reason: Flow Control In Place For User (F)",
+  ["W"] = "Rejected Reason: Unknown (W)",
+}
 
-  return "Rejected Reason: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.rejected_reason.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.rejected_reason.labels[value] or "Rejected Reason: Unknown("..value..")"
 end
 
 -- Dissect: Rejected Reason
@@ -1166,30 +1094,18 @@ biva_bivaequities_orderentry_ouch_v1_05.sequenced_message_type = {}
 biva_bivaequities_orderentry_ouch_v1_05.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-biva_bivaequities_orderentry_ouch_v1_05.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Accepted Message (A)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Canceled Message (C)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Executed Order Message (E)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Broken Trade Message (B)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Rejected Order Message (J)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["A"] = "Sequenced Message Type: Accepted Message (A)",
+  ["U"] = "Sequenced Message Type: Replaced Message (U)",
+  ["C"] = "Sequenced Message Type: Canceled Message (C)",
+  ["E"] = "Sequenced Message Type: Executed Order Message (E)",
+  ["B"] = "Sequenced Message Type: Broken Trade Message (B)",
+  ["J"] = "Sequenced Message Type: Rejected Order Message (J)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.sequenced_message_type.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1211,27 +1127,17 @@ biva_bivaequities_orderentry_ouch_v1_05.server_packet_type = {}
 biva_bivaequities_orderentry_ouch_v1_05.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-biva_bivaequities_orderentry_ouch_v1_05.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.server_packet_type.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1253,18 +1159,14 @@ biva_bivaequities_orderentry_ouch_v1_05.time_in_force = {}
 biva_bivaequities_orderentry_ouch_v1_05.time_in_force.size = 4
 
 -- Display: Time In Force
-biva_bivaequities_orderentry_ouch_v1_05.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Immediate (0)"
-  end
-  if value == 99997 then
-    return "Time In Force: Session (99997)"
-  end
-  if value == 99998 then
-    return "Time In Force: Day (99998)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.time_in_force.labels = {
+  [0] = "Time In Force: Immediate (0)",
+  [99997] = "Time In Force: Session (99997)",
+  [99998] = "Time In Force: Day (99998)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.time_in_force.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -1329,18 +1231,14 @@ biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message_type = {}
 biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
+biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order Message (O)",
+  ["U"] = "Unsequenced Message Type: Replace Order Message (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order Message (X)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message_type.display = function(value)
+  return biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -1841,34 +1739,20 @@ end
 biva_bivaequities_orderentry_ouch_v1_05.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+biva_bivaequities_orderentry_ouch_v1_05.sequenced_message.dispatch = {
+  ["S"] = biva_bivaequities_orderentry_ouch_v1_05.system_event_message.dissect,
+  ["A"] = biva_bivaequities_orderentry_ouch_v1_05.accepted_message.dissect,
+  ["U"] = biva_bivaequities_orderentry_ouch_v1_05.replaced_message.dissect,
+  ["C"] = biva_bivaequities_orderentry_ouch_v1_05.canceled_message.dissect,
+  ["E"] = biva_bivaequities_orderentry_ouch_v1_05.executed_order_message.dissect,
+  ["B"] = biva_bivaequities_orderentry_ouch_v1_05.broken_trade_message.dissect,
+  ["J"] = biva_bivaequities_orderentry_ouch_v1_05.rejected_order_message.dissect,
+}
+
 biva_bivaequities_orderentry_ouch_v1_05.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return biva_bivaequities_orderentry_ouch_v1_05.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Accepted Message
-  if sequenced_message_type == "A" then
-    return biva_bivaequities_orderentry_ouch_v1_05.accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replaced Message
-  if sequenced_message_type == "U" then
-    return biva_bivaequities_orderentry_ouch_v1_05.replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Canceled Message
-  if sequenced_message_type == "C" then
-    return biva_bivaequities_orderentry_ouch_v1_05.canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Executed Order Message
-  if sequenced_message_type == "E" then
-    return biva_bivaequities_orderentry_ouch_v1_05.executed_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if sequenced_message_type == "B" then
-    return biva_bivaequities_orderentry_ouch_v1_05.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rejected Order Message
-  if sequenced_message_type == "J" then
-    return biva_bivaequities_orderentry_ouch_v1_05.rejected_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_orderentry_ouch_v1_05.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2111,30 +1995,19 @@ end
 biva_bivaequities_orderentry_ouch_v1_05.server_payload = {}
 
 -- Dissect: Server Payload
+biva_bivaequities_orderentry_ouch_v1_05.server_payload.dispatch = {
+  ["+"] = biva_bivaequities_orderentry_ouch_v1_05.debug_packet.dissect,
+  ["A"] = biva_bivaequities_orderentry_ouch_v1_05.login_accepted_packet.dissect,
+  ["J"] = biva_bivaequities_orderentry_ouch_v1_05.login_rejected_packet.dissect,
+  ["S"] = biva_bivaequities_orderentry_ouch_v1_05.sequenced_data_packet.dissect,
+  ["H"] = biva_bivaequities_orderentry_ouch_v1_05.server_heartbeat.dissect,
+  ["Z"] = biva_bivaequities_orderentry_ouch_v1_05.end_of_session.dissect,
+}
+
 biva_bivaequities_orderentry_ouch_v1_05.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return biva_bivaequities_orderentry_ouch_v1_05.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return biva_bivaequities_orderentry_ouch_v1_05.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return biva_bivaequities_orderentry_ouch_v1_05.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return biva_bivaequities_orderentry_ouch_v1_05.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return biva_bivaequities_orderentry_ouch_v1_05.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return biva_bivaequities_orderentry_ouch_v1_05.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_orderentry_ouch_v1_05.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2502,18 +2375,16 @@ end
 biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message.dispatch = {
+  ["O"] = biva_bivaequities_orderentry_ouch_v1_05.enter_order_message.dissect,
+  ["U"] = biva_bivaequities_orderentry_ouch_v1_05.replace_order_message.dissect,
+  ["X"] = biva_bivaequities_orderentry_ouch_v1_05.cancel_order_message.dissect,
+}
+
 biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return biva_bivaequities_orderentry_ouch_v1_05.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if unsequenced_message_type == "U" then
-    return biva_bivaequities_orderentry_ouch_v1_05.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return biva_bivaequities_orderentry_ouch_v1_05.cancel_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2628,26 +2499,18 @@ end
 biva_bivaequities_orderentry_ouch_v1_05.client_payload = {}
 
 -- Dissect: Client Payload
+biva_bivaequities_orderentry_ouch_v1_05.client_payload.dispatch = {
+  ["+"] = biva_bivaequities_orderentry_ouch_v1_05.debug_packet.dissect,
+  ["L"] = biva_bivaequities_orderentry_ouch_v1_05.login_request_packet.dissect,
+  ["U"] = biva_bivaequities_orderentry_ouch_v1_05.unsequenced_data_packet.dissect,
+  ["R"] = biva_bivaequities_orderentry_ouch_v1_05.client_heartbeat.dissect,
+  ["O"] = biva_bivaequities_orderentry_ouch_v1_05.logout_request.dissect,
+}
+
 biva_bivaequities_orderentry_ouch_v1_05.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return biva_bivaequities_orderentry_ouch_v1_05.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return biva_bivaequities_orderentry_ouch_v1_05.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return biva_bivaequities_orderentry_ouch_v1_05.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return biva_bivaequities_orderentry_ouch_v1_05.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return biva_bivaequities_orderentry_ouch_v1_05.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_orderentry_ouch_v1_05.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

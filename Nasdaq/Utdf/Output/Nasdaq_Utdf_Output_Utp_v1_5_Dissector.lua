@@ -301,15 +301,13 @@ nasdaq_utdf_output_utp_v1_5.as_of_action = {}
 nasdaq_utdf_output_utp_v1_5.as_of_action.size = 1
 
 -- Display: As Of Action
-nasdaq_utdf_output_utp_v1_5.as_of_action.display = function(value)
-  if value == "A" then
-    return "As Of Action: Trade Addition (A)"
-  end
-  if value == "C" then
-    return "As Of Action: Trade Cancel (C)"
-  end
+nasdaq_utdf_output_utp_v1_5.as_of_action.labels = {
+  ["A"] = "As Of Action: Trade Addition (A)",
+  ["C"] = "As Of Action: Trade Cancel (C)",
+}
 
-  return "As Of Action: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.as_of_action.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.as_of_action.labels[value] or "As Of Action: Unknown("..value..")"
 end
 
 -- Dissect: As Of Action
@@ -331,21 +329,15 @@ nasdaq_utdf_output_utp_v1_5.authenticity = {}
 nasdaq_utdf_output_utp_v1_5.authenticity.size = 1
 
 -- Display: Authenticity
-nasdaq_utdf_output_utp_v1_5.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
-  if value == "D" then
-    return "Authenticity: Demo (D)"
-  end
-  if value == "X" then
-    return "Authenticity: Deleted (X)"
-  end
+nasdaq_utdf_output_utp_v1_5.authenticity.labels = {
+  ["P"] = "Authenticity: Production (P)",
+  ["T"] = "Authenticity: Test (T)",
+  ["D"] = "Authenticity: Demo (D)",
+  ["X"] = "Authenticity: Deleted (X)",
+}
 
-  return "Authenticity: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.authenticity.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.authenticity.labels[value] or "Authenticity: Unknown("..value..")"
 end
 
 -- Dissect: Authenticity
@@ -564,33 +556,19 @@ nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator = {}
 nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.size = 1
 
 -- Display: Consolidated Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.display = function(value)
-  if value == "0" then
-    return "Consolidated Price Change Indicator: No Prices Changed (0)"
-  end
-  if value == "1" then
-    return "Consolidated Price Change Indicator: Consolidated Last Price Changed (1)"
-  end
-  if value == "2" then
-    return "Consolidated Price Change Indicator: Consolidated Low Price Changed (2)"
-  end
-  if value == "3" then
-    return "Consolidated Price Change Indicator: Consolidated Last And Consolidated Low Prices Changed (3)"
-  end
-  if value == "4" then
-    return "Consolidated Price Change Indicator: Consolidated High Price Changed (4)"
-  end
-  if value == "5" then
-    return "Consolidated Price Change Indicator: Consolidated Last And Consolidated High Prices Changed (5)"
-  end
-  if value == "6" then
-    return "Consolidated Price Change Indicator: Consolidated High And Consolidated Low Prices Changed (6)"
-  end
-  if value == "7" then
-    return "Consolidated Price Change Indicator: All Consolidated Prices Changed (7)"
-  end
+nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.labels = {
+  ["0"] = "Consolidated Price Change Indicator: No Prices Changed (0)",
+  ["1"] = "Consolidated Price Change Indicator: Consolidated Last Price Changed (1)",
+  ["2"] = "Consolidated Price Change Indicator: Consolidated Low Price Changed (2)",
+  ["3"] = "Consolidated Price Change Indicator: Consolidated Last And Consolidated Low Prices Changed (3)",
+  ["4"] = "Consolidated Price Change Indicator: Consolidated High Price Changed (4)",
+  ["5"] = "Consolidated Price Change Indicator: Consolidated Last And Consolidated High Prices Changed (5)",
+  ["6"] = "Consolidated Price Change Indicator: Consolidated High And Consolidated Low Prices Changed (6)",
+  ["7"] = "Consolidated Price Change Indicator: All Consolidated Prices Changed (7)",
+}
 
-  return "Consolidated Price Change Indicator: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.consolidated_price_change_indicator.labels[value] or "Consolidated Price Change Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Consolidated Price Change Indicator
@@ -901,36 +879,20 @@ nasdaq_utdf_output_utp_v1_5.financial_status_indicator = {}
 nasdaq_utdf_output_utp_v1_5.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
-nasdaq_utdf_output_utp_v1_5.financial_status_indicator.display = function(value)
-  if value == "C" then
-    return "Financial Status Indicator: Creations And Or Redemptions Suspended (C)"
-  end
-  if value == "D" then
-    return "Financial Status Indicator: Deficient (D)"
-  end
-  if value == "E" then
-    return "Financial Status Indicator: Delinquent (E)"
-  end
-  if value == "Q" then
-    return "Financial Status Indicator: Bankrupt (Q)"
-  end
-  if value == "N" then
-    return "Financial Status Indicator: Normal (N)"
-  end
-  if value == "G" then
-    return "Financial Status Indicator: Deficient And Bankrupt (G)"
-  end
-  if value == "H" then
-    return "Financial Status Indicator: Deficient And Delinquent (H)"
-  end
-  if value == "J" then
-    return "Financial Status Indicator: Delinquent And Bankrupt (J)"
-  end
-  if value == "K" then
-    return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
-  end
+nasdaq_utdf_output_utp_v1_5.financial_status_indicator.labels = {
+  ["C"] = "Financial Status Indicator: Creations And Or Redemptions Suspended (C)",
+  ["D"] = "Financial Status Indicator: Deficient (D)",
+  ["E"] = "Financial Status Indicator: Delinquent (E)",
+  ["Q"] = "Financial Status Indicator: Bankrupt (Q)",
+  ["N"] = "Financial Status Indicator: Normal (N)",
+  ["G"] = "Financial Status Indicator: Deficient And Bankrupt (G)",
+  ["H"] = "Financial Status Indicator: Deficient And Delinquent (H)",
+  ["J"] = "Financial Status Indicator: Delinquent And Bankrupt (J)",
+  ["K"] = "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)",
+}
 
-  return "Financial Status Indicator: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.financial_status_indicator.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.financial_status_indicator.labels[value] or "Financial Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Financial Status Indicator
@@ -1022,57 +984,27 @@ nasdaq_utdf_output_utp_v1_5.issue_type = {}
 nasdaq_utdf_output_utp_v1_5.issue_type.size = 1
 
 -- Display: Issue Type
-nasdaq_utdf_output_utp_v1_5.issue_type.display = function(value)
-  if value == "A" then
-    return "Issue Type: American Depository Receipt (A)"
-  end
-  if value == "B" then
-    return "Issue Type: Bond (B)"
-  end
-  if value == "C" then
-    return "Issue Type: Common Stock (C)"
-  end
-  if value == "F" then
-    return "Issue Type: Depository Receipt (F)"
-  end
-  if value == "I" then
-    return "Issue Type: Rule 144a (I)"
-  end
-  if value == "L" then
-    return "Issue Type: Limited Partnership (L)"
-  end
-  if value == "N" then
-    return "Issue Type: Note (N)"
-  end
-  if value == "O" then
-    return "Issue Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Issue Type: Preferred Stock (P)"
-  end
-  if value == "Q" then
-    return "Issue Type: Other Securities (Q)"
-  end
-  if value == "R" then
-    return "Issue Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Issue Type: Shares Of Beneficial Interest (S)"
-  end
-  if value == "T" then
-    return "Issue Type: Convertible Debenture (T)"
-  end
-  if value == "U" then
-    return "Issue Type: Unit (U)"
-  end
-  if value == "V" then
-    return "Issue Type: Units Of Beneficial Interest (V)"
-  end
-  if value == "W" then
-    return "Issue Type: Warrant (W)"
-  end
+nasdaq_utdf_output_utp_v1_5.issue_type.labels = {
+  ["A"] = "Issue Type: American Depository Receipt (A)",
+  ["B"] = "Issue Type: Bond (B)",
+  ["C"] = "Issue Type: Common Stock (C)",
+  ["F"] = "Issue Type: Depository Receipt (F)",
+  ["I"] = "Issue Type: Rule 144a (I)",
+  ["L"] = "Issue Type: Limited Partnership (L)",
+  ["N"] = "Issue Type: Note (N)",
+  ["O"] = "Issue Type: Ordinary Shares (O)",
+  ["P"] = "Issue Type: Preferred Stock (P)",
+  ["Q"] = "Issue Type: Other Securities (Q)",
+  ["R"] = "Issue Type: Rights (R)",
+  ["S"] = "Issue Type: Shares Of Beneficial Interest (S)",
+  ["T"] = "Issue Type: Convertible Debenture (T)",
+  ["U"] = "Issue Type: Unit (U)",
+  ["V"] = "Issue Type: Units Of Beneficial Interest (V)",
+  ["W"] = "Issue Type: Warrant (W)",
+}
 
-  return "Issue Type: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.issue_type.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.issue_type.labels[value] or "Issue Type: Unknown("..value..")"
 end
 
 -- Dissect: Issue Type
@@ -1506,69 +1438,31 @@ nasdaq_utdf_output_utp_v1_5.market_center_originator_id = {}
 nasdaq_utdf_output_utp_v1_5.market_center_originator_id.size = 1
 
 -- Display: Market Center Originator Id
-nasdaq_utdf_output_utp_v1_5.market_center_originator_id.display = function(value)
-  if value == "Y" then
-    return "Market Center Originator Id: Byx (Y)"
-  end
-  if value == "Z" then
-    return "Market Center Originator Id: Bzx (Z)"
-  end
-  if value == "J" then
-    return "Market Center Originator Id: Edga (J)"
-  end
-  if value == "K" then
-    return "Market Center Originator Id: Edgx (K)"
-  end
-  if value == "W" then
-    return "Market Center Originator Id: Cboe (W)"
-  end
-  if value == "B" then
-    return "Market Center Originator Id: Bx (B)"
-  end
-  if value == "X" then
-    return "Market Center Originator Id: Phlx (X)"
-  end
-  if value == "Q" then
-    return "Market Center Originator Id: Nasdaq (Q)"
-  end
-  if value == "I" then
-    return "Market Center Originator Id: Ise (I)"
-  end
-  if value == "N" then
-    return "Market Center Originator Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Market Center Originator Id: Arca (P)"
-  end
-  if value == "A" then
-    return "Market Center Originator Id: American (A)"
-  end
-  if value == "C" then
-    return "Market Center Originator Id: National (C)"
-  end
-  if value == "M" then
-    return "Market Center Originator Id: Chicago (M)"
-  end
-  if value == "D" then
-    return "Market Center Originator Id: Finra (D)"
-  end
-  if value == "V" then
-    return "Market Center Originator Id: Iex (V)"
-  end
-  if value == "L" then
-    return "Market Center Originator Id: Ltse (L)"
-  end
-  if value == "H" then
-    return "Market Center Originator Id: Pearl (H)"
-  end
-  if value == "U" then
-    return "Market Center Originator Id: Memx (U)"
-  end
-  if value == "E" then
-    return "Market Center Originator Id: Market Independent (E)"
-  end
+nasdaq_utdf_output_utp_v1_5.market_center_originator_id.labels = {
+  ["Y"] = "Market Center Originator Id: Byx (Y)",
+  ["Z"] = "Market Center Originator Id: Bzx (Z)",
+  ["J"] = "Market Center Originator Id: Edga (J)",
+  ["K"] = "Market Center Originator Id: Edgx (K)",
+  ["W"] = "Market Center Originator Id: Cboe (W)",
+  ["B"] = "Market Center Originator Id: Bx (B)",
+  ["X"] = "Market Center Originator Id: Phlx (X)",
+  ["Q"] = "Market Center Originator Id: Nasdaq (Q)",
+  ["I"] = "Market Center Originator Id: Ise (I)",
+  ["N"] = "Market Center Originator Id: Nyse (N)",
+  ["P"] = "Market Center Originator Id: Arca (P)",
+  ["A"] = "Market Center Originator Id: American (A)",
+  ["C"] = "Market Center Originator Id: National (C)",
+  ["M"] = "Market Center Originator Id: Chicago (M)",
+  ["D"] = "Market Center Originator Id: Finra (D)",
+  ["V"] = "Market Center Originator Id: Iex (V)",
+  ["L"] = "Market Center Originator Id: Ltse (L)",
+  ["H"] = "Market Center Originator Id: Pearl (H)",
+  ["U"] = "Market Center Originator Id: Memx (U)",
+  ["E"] = "Market Center Originator Id: Market Independent (E)",
+}
 
-  return "Market Center Originator Id: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.market_center_originator_id.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.market_center_originator_id.labels[value] or "Market Center Originator Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Center Originator Id
@@ -1735,18 +1629,14 @@ nasdaq_utdf_output_utp_v1_5.market_tier = {}
 nasdaq_utdf_output_utp_v1_5.market_tier.size = 1
 
 -- Display: Market Tier
-nasdaq_utdf_output_utp_v1_5.market_tier.display = function(value)
-  if value == "Q" then
-    return "Market Tier: Nasdaq Global Select Market (Q)"
-  end
-  if value == "G" then
-    return "Market Tier: Nasdaq Global Market (G)"
-  end
-  if value == "S" then
-    return "Market Tier: Nasdaq Capital Market (S)"
-  end
+nasdaq_utdf_output_utp_v1_5.market_tier.labels = {
+  ["Q"] = "Market Tier: Nasdaq Global Select Market (Q)",
+  ["G"] = "Market Tier: Nasdaq Global Market (G)",
+  ["S"] = "Market Tier: Nasdaq Capital Market (S)",
+}
 
-  return "Market Tier: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.market_tier.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.market_tier.labels[value] or "Market Tier: Unknown("..value..")"
 end
 
 -- Dissect: Market Tier
@@ -1906,18 +1796,14 @@ nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator = {}
 nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.size = 1
 
 -- Display: Mwcb Status Level Indicator
-nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.display = function(value)
-  if value == "1" then
-    return "Mwcb Status Level Indicator: Level 1 Breached (1)"
-  end
-  if value == "2" then
-    return "Mwcb Status Level Indicator: Level 2 Breached (2)"
-  end
-  if value == "3" then
-    return "Mwcb Status Level Indicator: Level 3 Breached (3)"
-  end
+nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.labels = {
+  ["1"] = "Mwcb Status Level Indicator: Level 1 Breached (1)",
+  ["2"] = "Mwcb Status Level Indicator: Level 2 Breached (2)",
+  ["3"] = "Mwcb Status Level Indicator: Level 3 Breached (3)",
+}
 
-  return "Mwcb Status Level Indicator: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.mwcb_status_level_indicator.labels[value] or "Mwcb Status Level Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Mwcb Status Level Indicator
@@ -2129,33 +2015,19 @@ nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator = {}
 nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.size = 1
 
 -- Display: Participant Price Change Indicator
-nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.display = function(value)
-  if value == "0" then
-    return "Participant Price Change Indicator: No Prices Changed (0)"
-  end
-  if value == "1" then
-    return "Participant Price Change Indicator: Participant Last Price Changed (1)"
-  end
-  if value == "2" then
-    return "Participant Price Change Indicator: Participant Low Price Changed (2)"
-  end
-  if value == "3" then
-    return "Participant Price Change Indicator: Participant Last And Low Prices Changed (3)"
-  end
-  if value == "4" then
-    return "Participant Price Change Indicator: Participant High Price Changed (4)"
-  end
-  if value == "5" then
-    return "Participant Price Change Indicator: Participant Last And High Prices Changed (5)"
-  end
-  if value == "6" then
-    return "Participant Price Change Indicator: Participant High And Low Prices Changed (6)"
-  end
-  if value == "7" then
-    return "Participant Price Change Indicator: All Participant Prices Changed (7)"
-  end
+nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.labels = {
+  ["0"] = "Participant Price Change Indicator: No Prices Changed (0)",
+  ["1"] = "Participant Price Change Indicator: Participant Last Price Changed (1)",
+  ["2"] = "Participant Price Change Indicator: Participant Low Price Changed (2)",
+  ["3"] = "Participant Price Change Indicator: Participant Last And Low Prices Changed (3)",
+  ["4"] = "Participant Price Change Indicator: Participant High Price Changed (4)",
+  ["5"] = "Participant Price Change Indicator: Participant Last And High Prices Changed (5)",
+  ["6"] = "Participant Price Change Indicator: Participant High And Low Prices Changed (6)",
+  ["7"] = "Participant Price Change Indicator: All Participant Prices Changed (7)",
+}
 
-  return "Participant Price Change Indicator: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.participant_price_change_indicator.labels[value] or "Participant Price Change Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Participant Price Change Indicator
@@ -2224,18 +2096,14 @@ nasdaq_utdf_output_utp_v1_5.reg_sho_action = {}
 nasdaq_utdf_output_utp_v1_5.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_utdf_output_utp_v1_5.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Effect (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho In Effect Due To An Intra Day Price Drop (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)"
-  end
+nasdaq_utdf_output_utp_v1_5.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Effect (0)",
+  ["1"] = "Reg Sho Action: Reg Sho In Effect Due To An Intra Day Price Drop (1)",
+  ["2"] = "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.reg_sho_action.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -2779,21 +2647,15 @@ nasdaq_utdf_output_utp_v1_5.trading_action_code = {}
 nasdaq_utdf_output_utp_v1_5.trading_action_code.size = 1
 
 -- Display: Trading Action Code
-nasdaq_utdf_output_utp_v1_5.trading_action_code.display = function(value)
-  if value == "H" then
-    return "Trading Action Code: Trading Halt (H)"
-  end
-  if value == "Q" then
-    return "Trading Action Code: Quotation Resumption Including After Ema (Q)"
-  end
-  if value == "T" then
-    return "Trading Action Code: Trading Resumption (T)"
-  end
-  if value == "P" then
-    return "Trading Action Code: Volatility Trading Pause (P)"
-  end
+nasdaq_utdf_output_utp_v1_5.trading_action_code.labels = {
+  ["H"] = "Trading Action Code: Trading Halt (H)",
+  ["Q"] = "Trading Action Code: Quotation Resumption Including After Ema (Q)",
+  ["T"] = "Trading Action Code: Trading Resumption (T)",
+  ["P"] = "Trading Action Code: Volatility Trading Pause (P)",
+}
 
-  return "Trading Action Code: Unknown("..value..")"
+nasdaq_utdf_output_utp_v1_5.trading_action_code.display = function(value)
+  return nasdaq_utdf_output_utp_v1_5.trading_action_code.labels[value] or "Trading Action Code: Unknown("..value..")"
 end
 
 -- Dissect: Trading Action Code
@@ -3275,34 +3137,20 @@ end
 nasdaq_utdf_output_utp_v1_5.control_message_payload = {}
 
 -- Dissect: Control Message Payload
+nasdaq_utdf_output_utp_v1_5.control_message_payload.dispatch = {
+  ["I"] = nasdaq_utdf_output_utp_v1_5.start_of_day_message.dissect,
+  ["J"] = nasdaq_utdf_output_utp_v1_5.end_of_day_message.dissect,
+  ["O"] = nasdaq_utdf_output_utp_v1_5.market_session_open_message.dissect,
+  ["C"] = nasdaq_utdf_output_utp_v1_5.market_session_close_message.dissect,
+  ["Z"] = nasdaq_utdf_output_utp_v1_5.end_of_transmissions_message.dissect,
+  ["X"] = nasdaq_utdf_output_utp_v1_5.end_of_trade_reporting_message.dissect,
+  ["S"] = nasdaq_utdf_output_utp_v1_5.end_of_consolidated_last_sale_eligibility.dissect,
+}
+
 nasdaq_utdf_output_utp_v1_5.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Dissect Start Of Day Message
-  if control_message_type == "I" then
-    return nasdaq_utdf_output_utp_v1_5.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if control_message_type == "J" then
-    return nasdaq_utdf_output_utp_v1_5.end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Open Message
-  if control_message_type == "O" then
-    return nasdaq_utdf_output_utp_v1_5.market_session_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Close Message
-  if control_message_type == "C" then
-    return nasdaq_utdf_output_utp_v1_5.market_session_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Transmissions Message
-  if control_message_type == "Z" then
-    return nasdaq_utdf_output_utp_v1_5.end_of_transmissions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Trade Reporting Message
-  if control_message_type == "X" then
-    return nasdaq_utdf_output_utp_v1_5.end_of_trade_reporting_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Consolidated Last Sale Eligibility
-  if control_message_type == "S" then
-    return nasdaq_utdf_output_utp_v1_5.end_of_consolidated_last_sale_eligibility.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utdf_output_utp_v1_5.control_message_payload.dispatch[control_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3479,10 +3327,14 @@ end
 nasdaq_utdf_output_utp_v1_5.volume_message_payload = {}
 
 -- Dissect: Volume Message Payload
+nasdaq_utdf_output_utp_v1_5.volume_message_payload.dispatch = {
+  ["M"] = nasdaq_utdf_output_utp_v1_5.total_consolidated_and_market_center_volume_message.dissect,
+}
+
 nasdaq_utdf_output_utp_v1_5.volume_message_payload.dissect = function(buffer, offset, packet, parent, volume_message_type)
-  -- Dissect Total Consolidated And Market Center Volume Message
-  if volume_message_type == "M" then
-    return nasdaq_utdf_output_utp_v1_5.total_consolidated_and_market_center_volume_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utdf_output_utp_v1_5.volume_message_payload.dispatch[volume_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4225,46 +4077,23 @@ end
 nasdaq_utdf_output_utp_v1_5.administrative_message_payload = {}
 
 -- Dissect: Administrative Message Payload
+nasdaq_utdf_output_utp_v1_5.administrative_message_payload.dispatch = {
+  ["A"] = nasdaq_utdf_output_utp_v1_5.general_administrative_message.dissect,
+  ["H"] = nasdaq_utdf_output_utp_v1_5.cross_sro_trading_action_message.dissect,
+  ["K"] = nasdaq_utdf_output_utp_v1_5.market_center_trading_action_message.dissect,
+  ["B"] = nasdaq_utdf_output_utp_v1_5.issue_symbol_directory_message.dissect,
+  ["V"] = nasdaq_utdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["P"] = nasdaq_utdf_output_utp_v1_5.limit_up_limit_down_price_band_message.dissect,
+  ["C"] = nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.dissect,
+  ["D"] = nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.dissect,
+  ["E"] = nasdaq_utdf_output_utp_v1_5.auction_collar_message.dissect,
+  ["Z"] = nasdaq_utdf_output_utp_v1_5.closing_trade_summary_report_message.dissect,
+}
+
 nasdaq_utdf_output_utp_v1_5.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect General Administrative Message
-  if administrative_message_type == "A" then
-    return nasdaq_utdf_output_utp_v1_5.general_administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Sro Trading Action Message
-  if administrative_message_type == "H" then
-    return nasdaq_utdf_output_utp_v1_5.cross_sro_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Center Trading Action Message
-  if administrative_message_type == "K" then
-    return nasdaq_utdf_output_utp_v1_5.market_center_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Symbol Directory Message
-  if administrative_message_type == "B" then
-    return nasdaq_utdf_output_utp_v1_5.issue_symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Regulation Sho Short Sale Price Test Restricted Indicator Message
-  if administrative_message_type == "V" then
-    return nasdaq_utdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Up Limit Down Price Band Message
-  if administrative_message_type == "P" then
-    return nasdaq_utdf_output_utp_v1_5.limit_up_limit_down_price_band_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Decline Level Message
-  if administrative_message_type == "C" then
-    return nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Status Message
-  if administrative_message_type == "D" then
-    return nasdaq_utdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Collar Message
-  if administrative_message_type == "E" then
-    return nasdaq_utdf_output_utp_v1_5.auction_collar_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Trade Summary Report Message
-  if administrative_message_type == "Z" then
-    return nasdaq_utdf_output_utp_v1_5.closing_trade_summary_report_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utdf_output_utp_v1_5.administrative_message_payload.dispatch[administrative_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4971,26 +4800,18 @@ end
 nasdaq_utdf_output_utp_v1_5.trade_message_payload = {}
 
 -- Dissect: Trade Message Payload
+nasdaq_utdf_output_utp_v1_5.trade_message_payload.dispatch = {
+  ["A"] = nasdaq_utdf_output_utp_v1_5.trade_report_message_short_form_message.dissect,
+  ["W"] = nasdaq_utdf_output_utp_v1_5.trade_report_message_long_form_message.dissect,
+  ["Z"] = nasdaq_utdf_output_utp_v1_5.trade_cancel_error_message.dissect,
+  ["Y"] = nasdaq_utdf_output_utp_v1_5.trade_correction_message.dissect,
+  ["H"] = nasdaq_utdf_output_utp_v1_5.prior_day_as_of_trade_message.dissect,
+}
+
 nasdaq_utdf_output_utp_v1_5.trade_message_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  -- Dissect Trade Report Message Short Form Message
-  if trade_message_type == "A" then
-    return nasdaq_utdf_output_utp_v1_5.trade_report_message_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message Long Form Message
-  if trade_message_type == "W" then
-    return nasdaq_utdf_output_utp_v1_5.trade_report_message_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error Message
-  if trade_message_type == "Z" then
-    return nasdaq_utdf_output_utp_v1_5.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if trade_message_type == "Y" then
-    return nasdaq_utdf_output_utp_v1_5.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Prior Day As Of Trade Message
-  if trade_message_type == "H" then
-    return nasdaq_utdf_output_utp_v1_5.prior_day_as_of_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utdf_output_utp_v1_5.trade_message_payload.dispatch[trade_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5053,22 +4874,17 @@ end
 nasdaq_utdf_output_utp_v1_5.payload = {}
 
 -- Dissect: Payload
+nasdaq_utdf_output_utp_v1_5.payload.dispatch = {
+  ["T"] = nasdaq_utdf_output_utp_v1_5.trade_message.dissect,
+  ["A"] = nasdaq_utdf_output_utp_v1_5.administrative_message.dissect,
+  ["V"] = nasdaq_utdf_output_utp_v1_5.volume_message.dissect,
+  ["C"] = nasdaq_utdf_output_utp_v1_5.control_message.dissect,
+}
+
 nasdaq_utdf_output_utp_v1_5.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Trade Message
-  if message_category == "T" then
-    return nasdaq_utdf_output_utp_v1_5.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Administrative Message
-  if message_category == "A" then
-    return nasdaq_utdf_output_utp_v1_5.administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Volume Message
-  if message_category == "V" then
-    return nasdaq_utdf_output_utp_v1_5.volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if message_category == "C" then
-    return nasdaq_utdf_output_utp_v1_5.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utdf_output_utp_v1_5.payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

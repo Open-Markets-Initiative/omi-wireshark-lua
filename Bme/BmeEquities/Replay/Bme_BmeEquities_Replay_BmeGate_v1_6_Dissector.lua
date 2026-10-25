@@ -450,114 +450,46 @@ bme_bmeequities_replay_bmegate_v1_6.amended_trade_type = {}
 bme_bmeequities_replay_bmegate_v1_6.amended_trade_type.size = 1
 
 -- Display: Amended Trade Type
-bme_bmeequities_replay_bmegate_v1_6.amended_trade_type.display = function(value)
-  if value == "M" then
-    return "Amended Trade Type: Market (M)"
-  end
-  if value == "X" then
-    return "Amended Trade Type: Cancellation (X)"
-  end
-  if value == "T" then
-    return "Amended Trade Type: Trade Amendment (T)"
-  end
-  if value == "H" then
-    return "Amended Trade Type: Block Trade (H)"
-  end
-  if value == "1" then
-    return "Amended Trade Type: Communicated Application (1)"
-  end
-  if value == "2" then
-    return "Amended Trade Type: Authorised Application Trades (2)"
-  end
-  if value == "3" then
-    return "Amended Trade Type: Authorised Application Corporate Interest (3)"
-  end
-  if value == "4" then
-    return "Amended Trade Type: Authorised Application Execution Of Contracts (4)"
-  end
-  if value == "5" then
-    return "Amended Trade Type: Authorised Application Other Causes (5)"
-  end
-  if value == "6" then
-    return "Amended Trade Type: Validation Communicated (6)"
-  end
-  if value == "7" then
-    return "Amended Trade Type: Authorised Validation Trades (7)"
-  end
-  if value == "8" then
-    return "Amended Trade Type: Authorised Validation Corporate Interest (8)"
-  end
-  if value == "9" then
-    return "Amended Trade Type: Authorised Validation Execution Of Contracts (9)"
-  end
-  if value == "0" then
-    return "Amended Trade Type: Authorised Validation Other Causes (0)"
-  end
-  if value == "A" then
-    return "Amended Trade Type: Transaction Between Members Communicated (A)"
-  end
-  if value == "B" then
-    return "Amended Trade Type: Transaction Between Members Trades (B)"
-  end
-  if value == "C" then
-    return "Amended Trade Type: Transaction Between Members Corporate Interest (C)"
-  end
-  if value == "F" then
-    return "Amended Trade Type: Transaction Between Members Execution Of Contracts (F)"
-  end
-  if value == "G" then
-    return "Amended Trade Type: Transaction Between Members Other Causes (G)"
-  end
-  if value == "I" then
-    return "Amended Trade Type: Application To Cater For A Linked Position (I)"
-  end
-  if value == "J" then
-    return "Amended Trade Type: Transaction To Cater For A Linked Position (J)"
-  end
-  if value == "E" then
-    return "Amended Trade Type: Transaction Of Exercise Of Options (E)"
-  end
-  if value == "N" then
-    return "Amended Trade Type: Public Share Bid Offer Type Transaction (N)"
-  end
-  if value == "O" then
-    return "Amended Trade Type: Public Share Ask Offer Type Transaction (O)"
-  end
-  if value == "P" then
-    return "Amended Trade Type: Public Share Subscription Offer Type Transaction (P)"
-  end
-  if value == "L" then
-    return "Amended Trade Type: Special Trades Delta Type (L)"
-  end
-  if value == "a" then
-    return "Amended Trade Type: Net Asset Value Special Trade D Plus 1 (a)"
-  end
-  if value == "b" then
-    return "Amended Trade Type: Net Asset Value Special Trade D Plus 2 (b)"
-  end
-  if value == "c" then
-    return "Amended Trade Type: Net Asset Value Special Trade D Plus 3 (c)"
-  end
-  if value == "D" then
-    return "Amended Trade Type: Application Without CCP (D)"
-  end
-  if value == "K" then
-    return "Amended Trade Type: Transaction Without CCP (K)"
-  end
-  if value == "d" then
-    return "Amended Trade Type: Investment Fund D Plus 1 (d)"
-  end
-  if value == "e" then
-    return "Amended Trade Type: Investment Fund D Plus 2 (e)"
-  end
-  if value == "f" then
-    return "Amended Trade Type: Investment Fund D Plus 3 (f)"
-  end
-  if value == "W" then
-    return "Amended Trade Type: VWAP (W)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.amended_trade_type.labels = {
+  ["M"] = "Amended Trade Type: Market (M)",
+  ["X"] = "Amended Trade Type: Cancellation (X)",
+  ["T"] = "Amended Trade Type: Trade Amendment (T)",
+  ["H"] = "Amended Trade Type: Block Trade (H)",
+  ["1"] = "Amended Trade Type: Communicated Application (1)",
+  ["2"] = "Amended Trade Type: Authorised Application Trades (2)",
+  ["3"] = "Amended Trade Type: Authorised Application Corporate Interest (3)",
+  ["4"] = "Amended Trade Type: Authorised Application Execution Of Contracts (4)",
+  ["5"] = "Amended Trade Type: Authorised Application Other Causes (5)",
+  ["6"] = "Amended Trade Type: Validation Communicated (6)",
+  ["7"] = "Amended Trade Type: Authorised Validation Trades (7)",
+  ["8"] = "Amended Trade Type: Authorised Validation Corporate Interest (8)",
+  ["9"] = "Amended Trade Type: Authorised Validation Execution Of Contracts (9)",
+  ["0"] = "Amended Trade Type: Authorised Validation Other Causes (0)",
+  ["A"] = "Amended Trade Type: Transaction Between Members Communicated (A)",
+  ["B"] = "Amended Trade Type: Transaction Between Members Trades (B)",
+  ["C"] = "Amended Trade Type: Transaction Between Members Corporate Interest (C)",
+  ["F"] = "Amended Trade Type: Transaction Between Members Execution Of Contracts (F)",
+  ["G"] = "Amended Trade Type: Transaction Between Members Other Causes (G)",
+  ["I"] = "Amended Trade Type: Application To Cater For A Linked Position (I)",
+  ["J"] = "Amended Trade Type: Transaction To Cater For A Linked Position (J)",
+  ["E"] = "Amended Trade Type: Transaction Of Exercise Of Options (E)",
+  ["N"] = "Amended Trade Type: Public Share Bid Offer Type Transaction (N)",
+  ["O"] = "Amended Trade Type: Public Share Ask Offer Type Transaction (O)",
+  ["P"] = "Amended Trade Type: Public Share Subscription Offer Type Transaction (P)",
+  ["L"] = "Amended Trade Type: Special Trades Delta Type (L)",
+  ["a"] = "Amended Trade Type: Net Asset Value Special Trade D Plus 1 (a)",
+  ["b"] = "Amended Trade Type: Net Asset Value Special Trade D Plus 2 (b)",
+  ["c"] = "Amended Trade Type: Net Asset Value Special Trade D Plus 3 (c)",
+  ["D"] = "Amended Trade Type: Application Without CCP (D)",
+  ["K"] = "Amended Trade Type: Transaction Without CCP (K)",
+  ["d"] = "Amended Trade Type: Investment Fund D Plus 1 (d)",
+  ["e"] = "Amended Trade Type: Investment Fund D Plus 2 (e)",
+  ["f"] = "Amended Trade Type: Investment Fund D Plus 3 (f)",
+  ["W"] = "Amended Trade Type: VWAP (W)",
+}
 
-  return "Amended Trade Type: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.amended_trade_type.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.amended_trade_type.labels[value] or "Amended Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Amended Trade Type
@@ -688,27 +620,17 @@ bme_bmeequities_replay_bmegate_v1_6.auction_origin = {}
 bme_bmeequities_replay_bmegate_v1_6.auction_origin.size = 1
 
 -- Display: Auction Origin
-bme_bmeequities_replay_bmegate_v1_6.auction_origin.display = function(value)
-  if value == 0 then
-    return "Auction Origin: No Auction (0)"
-  end
-  if value == 100 then
-    return "Auction Origin: Manual Auction (100)"
-  end
-  if value == 101 then
-    return "Auction Origin: Opening Auction Is Extended (101)"
-  end
-  if value == 102 then
-    return "Auction Origin: Closing Auction Is Extended (102)"
-  end
-  if value == 103 then
-    return "Auction Origin: Volatility Auction (103)"
-  end
-  if value == 200 then
-    return "Auction Origin: Other (200)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.auction_origin.labels = {
+  [0] = "Auction Origin: No Auction (0)",
+  [100] = "Auction Origin: Manual Auction (100)",
+  [101] = "Auction Origin: Opening Auction Is Extended (101)",
+  [102] = "Auction Origin: Closing Auction Is Extended (102)",
+  [103] = "Auction Origin: Volatility Auction (103)",
+  [200] = "Auction Origin: Other (200)",
+}
 
-  return "Auction Origin: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.auction_origin.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.auction_origin.labels[value] or "Auction Origin: Unknown("..value..")"
 end
 
 -- Dissect: Auction Origin
@@ -1162,21 +1084,15 @@ bme_bmeequities_replay_bmegate_v1_6.buyer_bolsa_code = {}
 bme_bmeequities_replay_bmegate_v1_6.buyer_bolsa_code.size = 1
 
 -- Display: Buyer Bolsa Code
-bme_bmeequities_replay_bmegate_v1_6.buyer_bolsa_code.display = function(value)
-  if value == "3" then
-    return "Buyer Bolsa Code: Valencia (3)"
-  end
-  if value == "4" then
-    return "Buyer Bolsa Code: Barcelona (4)"
-  end
-  if value == "5" then
-    return "Buyer Bolsa Code: Bilbao (5)"
-  end
-  if value == "6" then
-    return "Buyer Bolsa Code: Madrid (6)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.buyer_bolsa_code.labels = {
+  ["3"] = "Buyer Bolsa Code: Valencia (3)",
+  ["4"] = "Buyer Bolsa Code: Barcelona (4)",
+  ["5"] = "Buyer Bolsa Code: Bilbao (5)",
+  ["6"] = "Buyer Bolsa Code: Madrid (6)",
+}
 
-  return "Buyer Bolsa Code: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.buyer_bolsa_code.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.buyer_bolsa_code.labels[value] or "Buyer Bolsa Code: Unknown("..value..")"
 end
 
 -- Dissect: Buyer Bolsa Code
@@ -1237,18 +1153,14 @@ bme_bmeequities_replay_bmegate_v1_6.commodity_derivative_indicator = {}
 bme_bmeequities_replay_bmegate_v1_6.commodity_derivative_indicator.size = 1
 
 -- Display: Commodity Derivative Indicator
-bme_bmeequities_replay_bmegate_v1_6.commodity_derivative_indicator.display = function(value)
-  if value == "S" then
-    return "Commodity Derivative Indicator: Commodity Derivative (S)"
-  end
-  if value == "N" then
-    return "Commodity Derivative Indicator: Non Derivative (N)"
-  end
-  if value == "D" then
-    return "Commodity Derivative Indicator: Derivative (D)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.commodity_derivative_indicator.labels = {
+  ["S"] = "Commodity Derivative Indicator: Commodity Derivative (S)",
+  ["N"] = "Commodity Derivative Indicator: Non Derivative (N)",
+  ["D"] = "Commodity Derivative Indicator: Derivative (D)",
+}
 
-  return "Commodity Derivative Indicator: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.commodity_derivative_indicator.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.commodity_derivative_indicator.labels[value] or "Commodity Derivative Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Commodity Derivative Indicator
@@ -1371,78 +1283,34 @@ bme_bmeequities_replay_bmegate_v1_6.data_code = {}
 bme_bmeequities_replay_bmegate_v1_6.data_code.size = 1
 
 -- Display: Data Code
-bme_bmeequities_replay_bmegate_v1_6.data_code.display = function(value)
-  if value == "D" then
-    return "Data Code: Average Price (D)"
-  end
-  if value == "d" then
-    return "Data Code: Previous Forward Price (d)"
-  end
-  if value == "E" then
-    return "Data Code: Published Cash Amount (E)"
-  end
-  if value == "e" then
-    return "Data Code: Order Modality Cash Amount (e)"
-  end
-  if value == "f" then
-    return "Data Code: End Of Session Indicator (f)"
-  end
-  if value == "G" then
-    return "Data Code: First (G)"
-  end
-  if value == "H" then
-    return "Data Code: High (H)"
-  end
-  if value == "h" then
-    return "Data Code: Maximum Bid (h)"
-  end
-  if value == "J" then
-    return "Data Code: Not Published Volume (J)"
-  end
-  if value == "M" then
-    return "Data Code: Last (M)"
-  end
-  if value == "N" then
-    return "Data Code: Number Of Trades (N)"
-  end
-  if value == "Q" then
-    return "Data Code: Previous Closing Price (Q)"
-  end
-  if value == "R" then
-    return "Data Code: Opening Volatility (R)"
-  end
-  if value == "V" then
-    return "Data Code: Published Volume (V)"
-  end
-  if value == "v" then
-    return "Data Code: Published Volume Order Modality (v)"
-  end
-  if value == "W" then
-    return "Data Code: Volume Of Last Trade (W)"
-  end
-  if value == "Z" then
-    return "Data Code: Low (Z)"
-  end
-  if value == "z" then
-    return "Data Code: Minimum Ask (z)"
-  end
-  if value == "j" then
-    return "Data Code: Closing Price (j)"
-  end
-  if value == "k" then
-    return "Data Code: Closing Yield (k)"
-  end
-  if value == "l" then
-    return "Data Code: Volatility (l)"
-  end
-  if value == "m" then
-    return "Data Code: Delta (m)"
-  end
-  if value == "n" then
-    return "Data Code: Forward Price (n)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.data_code.labels = {
+  ["D"] = "Data Code: Average Price (D)",
+  ["d"] = "Data Code: Previous Forward Price (d)",
+  ["E"] = "Data Code: Published Cash Amount (E)",
+  ["e"] = "Data Code: Order Modality Cash Amount (e)",
+  ["f"] = "Data Code: End Of Session Indicator (f)",
+  ["G"] = "Data Code: First (G)",
+  ["H"] = "Data Code: High (H)",
+  ["h"] = "Data Code: Maximum Bid (h)",
+  ["J"] = "Data Code: Not Published Volume (J)",
+  ["M"] = "Data Code: Last (M)",
+  ["N"] = "Data Code: Number Of Trades (N)",
+  ["Q"] = "Data Code: Previous Closing Price (Q)",
+  ["R"] = "Data Code: Opening Volatility (R)",
+  ["V"] = "Data Code: Published Volume (V)",
+  ["v"] = "Data Code: Published Volume Order Modality (v)",
+  ["W"] = "Data Code: Volume Of Last Trade (W)",
+  ["Z"] = "Data Code: Low (Z)",
+  ["z"] = "Data Code: Minimum Ask (z)",
+  ["j"] = "Data Code: Closing Price (j)",
+  ["k"] = "Data Code: Closing Yield (k)",
+  ["l"] = "Data Code: Volatility (l)",
+  ["m"] = "Data Code: Delta (m)",
+  ["n"] = "Data Code: Forward Price (n)",
+}
 
-  return "Data Code: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.data_code.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.data_code.labels[value] or "Data Code: Unknown("..value..")"
 end
 
 -- Dissect: Data Code
@@ -1537,36 +1405,20 @@ bme_bmeequities_replay_bmegate_v1_6.designation = {}
 bme_bmeequities_replay_bmegate_v1_6.designation.size = 1
 
 -- Display: Designation
-bme_bmeequities_replay_bmegate_v1_6.designation.display = function(value)
-  if value == "1" then
-    return "Designation: Trade During Open Market (1)"
-  end
-  if value == "2" then
-    return "Designation: Trade During Opening Auction (2)"
-  end
-  if value == "3" then
-    return "Designation: Trade During Closing Auction (3)"
-  end
-  if value == "4" then
-    return "Designation: Trade During Volatility Auction (4)"
-  end
-  if value == "5" then
-    return "Designation: Trade During Manual Auction (5)"
-  end
-  if value == "6" then
-    return "Designation: Trade During Opening Auction Extension (6)"
-  end
-  if value == "7" then
-    return "Designation: Trade During Closing Auction Extension (7)"
-  end
-  if value == "8" then
-    return "Designation: Trade During Tal Period (8)"
-  end
-  if value == "C" then
-    return "Designation: Trade In Spain At Mid Dark Book (C)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.designation.labels = {
+  ["1"] = "Designation: Trade During Open Market (1)",
+  ["2"] = "Designation: Trade During Opening Auction (2)",
+  ["3"] = "Designation: Trade During Closing Auction (3)",
+  ["4"] = "Designation: Trade During Volatility Auction (4)",
+  ["5"] = "Designation: Trade During Manual Auction (5)",
+  ["6"] = "Designation: Trade During Opening Auction Extension (6)",
+  ["7"] = "Designation: Trade During Closing Auction Extension (7)",
+  ["8"] = "Designation: Trade During Tal Period (8)",
+  ["C"] = "Designation: Trade In Spain At Mid Dark Book (C)",
+}
 
-  return "Designation: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.designation.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.designation.labels[value] or "Designation: Unknown("..value..")"
 end
 
 -- Dissect: Designation
@@ -1856,21 +1708,15 @@ bme_bmeequities_replay_bmegate_v1_6.exemption_situation = {}
 bme_bmeequities_replay_bmegate_v1_6.exemption_situation.size = 1
 
 -- Display: Exemption Situation
-bme_bmeequities_replay_bmegate_v1_6.exemption_situation.display = function(value)
-  if value == "0" then
-    return "Exemption Situation: Specialists Non Exempted (0)"
-  end
-  if value == "1" then
-    return "Exemption Situation: Specialists Exempted In The Buy Side (1)"
-  end
-  if value == "2" then
-    return "Exemption Situation: Specialists Exempted In The Sell Side (2)"
-  end
-  if value == "3" then
-    return "Exemption Situation: Specialists Exempted In Both Sides Buy And Sell (3)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.exemption_situation.labels = {
+  ["0"] = "Exemption Situation: Specialists Non Exempted (0)",
+  ["1"] = "Exemption Situation: Specialists Exempted In The Buy Side (1)",
+  ["2"] = "Exemption Situation: Specialists Exempted In The Sell Side (2)",
+  ["3"] = "Exemption Situation: Specialists Exempted In Both Sides Buy And Sell (3)",
+}
 
-  return "Exemption Situation: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.exemption_situation.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.exemption_situation.labels[value] or "Exemption Situation: Unknown("..value..")"
 end
 
 -- Dissect: Exemption Situation
@@ -1892,21 +1738,15 @@ bme_bmeequities_replay_bmegate_v1_6.exercise_style = {}
 bme_bmeequities_replay_bmegate_v1_6.exercise_style.size = 1
 
 -- Display: Exercise Style
-bme_bmeequities_replay_bmegate_v1_6.exercise_style.display = function(value)
-  if value == "A" then
-    return "Exercise Style: American (A)"
-  end
-  if value == "E" then
-    return "Exercise Style: European (E)"
-  end
-  if value == "B" then
-    return "Exercise Style: Bermudas (B)"
-  end
-  if value == "O" then
-    return "Exercise Style: Others (O)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.exercise_style.labels = {
+  ["A"] = "Exercise Style: American (A)",
+  ["E"] = "Exercise Style: European (E)",
+  ["B"] = "Exercise Style: Bermudas (B)",
+  ["O"] = "Exercise Style: Others (O)",
+}
 
-  return "Exercise Style: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.exercise_style.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.exercise_style.labels[value] or "Exercise Style: Unknown("..value..")"
 end
 
 -- Dissect: Exercise Style
@@ -2841,33 +2681,19 @@ bme_bmeequities_replay_bmegate_v1_6.logout_reason = {}
 bme_bmeequities_replay_bmegate_v1_6.logout_reason.size = 1
 
 -- Display: Logout Reason
-bme_bmeequities_replay_bmegate_v1_6.logout_reason.display = function(value)
-  if value == 0 then
-    return "Logout Reason: Termination After A Solicited Logout Request (0)"
-  end
-  if value == 1 then
-    return "Logout Reason: End Of Session Termination In Recovery Server End Of Recovery Snapshot (1)"
-  end
-  if value == 2 then
-    return "Logout Reason: Timeout Connection Lost (2)"
-  end
-  if value == 3 then
-    return "Logout Reason: Lack Of Heartbeat (3)"
-  end
-  if value == 16 then
-    return "Logout Reason: Invalid Username Or Password (16)"
-  end
-  if value == 17 then
-    return "Logout Reason: Invalid Expected Sequence Number (17)"
-  end
-  if value == 18 then
-    return "Logout Reason: Invalid Protocol Version (18)"
-  end
-  if value == 19 then
-    return "Logout Reason: New Connection From User (19)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.logout_reason.labels = {
+  [0] = "Logout Reason: Termination After A Solicited Logout Request (0)",
+  [1] = "Logout Reason: End Of Session Termination In Recovery Server End Of Recovery Snapshot (1)",
+  [2] = "Logout Reason: Timeout Connection Lost (2)",
+  [3] = "Logout Reason: Lack Of Heartbeat (3)",
+  [16] = "Logout Reason: Invalid Username Or Password (16)",
+  [17] = "Logout Reason: Invalid Expected Sequence Number (17)",
+  [18] = "Logout Reason: Invalid Protocol Version (18)",
+  [19] = "Logout Reason: New Connection From User (19)",
+}
 
-  return "Logout Reason: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.logout_reason.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.logout_reason.labels[value] or "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -2918,12 +2744,12 @@ bme_bmeequities_replay_bmegate_v1_6.market_id = {}
 bme_bmeequities_replay_bmegate_v1_6.market_id.size = 4
 
 -- Display: Market Id
-bme_bmeequities_replay_bmegate_v1_6.market_id.display = function(value)
-  if value == "BMEX" then
-    return "Market Id: BMEX (BMEX)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.market_id.labels = {
+  ["BMEX"] = "Market Id: BMEX (BMEX)",
+}
 
-  return "Market Id: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.market_id.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -2956,21 +2782,15 @@ bme_bmeequities_replay_bmegate_v1_6.market_mechanism = {}
 bme_bmeequities_replay_bmegate_v1_6.market_mechanism.size = 1
 
 -- Display: Market Mechanism
-bme_bmeequities_replay_bmegate_v1_6.market_mechanism.display = function(value)
-  if value == "0" then
-    return "Market Mechanism: Central Limit Order Book (0)"
-  end
-  if value == "4" then
-    return "Market Mechanism: Dark Order Book (4)"
-  end
-  if value == "1" then
-    return "Market Mechanism: Off Book Messaging Trading (1)"
-  end
-  if value == "5" then
-    return "Market Mechanism: Periodic Auction (5)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.market_mechanism.labels = {
+  ["0"] = "Market Mechanism: Central Limit Order Book (0)",
+  ["4"] = "Market Mechanism: Dark Order Book (4)",
+  ["1"] = "Market Mechanism: Off Book Messaging Trading (1)",
+  ["5"] = "Market Mechanism: Periodic Auction (5)",
+}
 
-  return "Market Mechanism: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.market_mechanism.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.market_mechanism.labels[value] or "Market Mechanism: Unknown("..value..")"
 end
 
 -- Dissect: Market Mechanism
@@ -2992,36 +2812,20 @@ bme_bmeequities_replay_bmegate_v1_6.market_segment_id = {}
 bme_bmeequities_replay_bmegate_v1_6.market_segment_id.size = 4
 
 -- Display: Market Segment Id
-bme_bmeequities_replay_bmegate_v1_6.market_segment_id.display = function(value)
-  if value == "XMAD" then
-    return "Market Segment Id: Bolsa De Madrid (XMAD)"
-  end
-  if value == "XBAR" then
-    return "Market Segment Id: Bolsa De Barcelona (XBAR)"
-  end
-  if value == "XBIL" then
-    return "Market Segment Id: Bolsa De Valores De Bilbao (XBIL)"
-  end
-  if value == "XVAL" then
-    return "Market Segment Id: Bolsa De Valencia (XVAL)"
-  end
-  if value == "MABX" then
-    return "Market Segment Id: Mercado Alternativo Bursátil (MABX)"
-  end
-  if value == "XLAT" then
-    return "Market Segment Id: Latibex (XLAT)"
-  end
-  if value == "GROW" then
-    return "Market Segment Id: Bme Growth (GROW)"
-  end
-  if value == "SCLE" then
-    return "Market Segment Id: Bme Scale Up (SCLE)"
-  end
-  if value == "DMAD" then
-    return "Market Segment Id: Bolsa De Madrid Dark Book (DMAD)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.market_segment_id.labels = {
+  ["XMAD"] = "Market Segment Id: Bolsa De Madrid (XMAD)",
+  ["XBAR"] = "Market Segment Id: Bolsa De Barcelona (XBAR)",
+  ["XBIL"] = "Market Segment Id: Bolsa De Valores De Bilbao (XBIL)",
+  ["XVAL"] = "Market Segment Id: Bolsa De Valencia (XVAL)",
+  ["MABX"] = "Market Segment Id: Mercado Alternativo Bursátil (MABX)",
+  ["XLAT"] = "Market Segment Id: Latibex (XLAT)",
+  ["GROW"] = "Market Segment Id: Bme Growth (GROW)",
+  ["SCLE"] = "Market Segment Id: Bme Scale Up (SCLE)",
+  ["DMAD"] = "Market Segment Id: Bolsa De Madrid Dark Book (DMAD)",
+}
 
-  return "Market Segment Id: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.market_segment_id.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.market_segment_id.labels[value] or "Market Segment Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Segment Id
@@ -3178,84 +2982,36 @@ bme_bmeequities_replay_bmegate_v1_6.message_type = {}
 bme_bmeequities_replay_bmegate_v1_6.message_type.size = 1
 
 -- Display: Message Type
-bme_bmeequities_replay_bmegate_v1_6.message_type.display = function(value)
-  if value == 0x08 then
-    return "Message Type: Logon Response Message (0x08)"
-  end
-  if value == 0x0B then
-    return "Message Type: Logout Response Message (0x0B)"
-  end
-  if value == 0x30 then
-    return "Message Type: Heartbeat Message (0x30)"
-  end
-  if value == 0x0A then
-    return "Message Type: Network Status Message (0x0A)"
-  end
-  if value == 0x41 then
-    return "Message Type: Logon Message (0x41)"
-  end
-  if value == 0x35 then
-    return "Message Type: Logout Message (0x35)"
-  end
-  if value == 0x0D then
-    return "Message Type: Reject Message (0x0D)"
-  end
-  if value == 0x09 then
-    return "Message Type: Replay Request Message (0x09)"
-  end
-  if value == 0x0C then
-    return "Message Type: Replay Request Ack Nack Message (0x0C)"
-  end
-  if value == 0x68 then
-    return "Message Type: Trading Session Status Message (0x68)"
-  end
-  if value == 0x42 then
-    return "Message Type: News Message (0x42)"
-  end
-  if value == 0x78 then
-    return "Message Type: Security List Cancellation Report Message (0x78)"
-  end
-  if value == 0x84 then
-    return "Message Type: Statistics Message (0x84)"
-  end
-  if value == 0x79 then
-    return "Message Type: Security List Message (0x79)"
-  end
-  if value == 0x80 then
-    return "Message Type: Security List Update Report Message (0x80)"
-  end
-  if value == 0x66 then
-    return "Message Type: Security Status Message (0x66)"
-  end
-  if value == 0x81 then
-    return "Message Type: Order Book Clear Message (0x81)"
-  end
-  if value == 0x03 then
-    return "Message Type: Order Market Pre Transparency Information Message (0x03)"
-  end
-  if value == 0x07 then
-    return "Message Type: Quote Market Pre Transparency Information Message (0x07)"
-  end
-  if value == 0x01 then
-    return "Message Type: Order Cancellation Market Member Message (0x01)"
-  end
-  if value == 0x05 then
-    return "Message Type: Quote Cancellation Market Member Message (0x05)"
-  end
-  if value == 0x10 then
-    return "Message Type: Trade Market Post Transparency Information Topofbook Message (0x10)"
-  end
-  if value == 0x18 then
-    return "Message Type: Trade Trade Amendment Or Cancellation Message (0x18)"
-  end
-  if value == 0x11 then
-    return "Message Type: Trade Market Post Transparency Information Full Depth Message (0x11)"
-  end
-  if value == 0x82 then
-    return "Message Type: Topofbook Message (0x82)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.message_type.labels = {
+  [0x08] = "Message Type: Logon Response Message (0x08)",
+  [0x0B] = "Message Type: Logout Response Message (0x0B)",
+  [0x30] = "Message Type: Heartbeat Message (0x30)",
+  [0x0A] = "Message Type: Network Status Message (0x0A)",
+  [0x41] = "Message Type: Logon Message (0x41)",
+  [0x35] = "Message Type: Logout Message (0x35)",
+  [0x0D] = "Message Type: Reject Message (0x0D)",
+  [0x09] = "Message Type: Replay Request Message (0x09)",
+  [0x0C] = "Message Type: Replay Request Ack Nack Message (0x0C)",
+  [0x68] = "Message Type: Trading Session Status Message (0x68)",
+  [0x42] = "Message Type: News Message (0x42)",
+  [0x78] = "Message Type: Security List Cancellation Report Message (0x78)",
+  [0x84] = "Message Type: Statistics Message (0x84)",
+  [0x79] = "Message Type: Security List Message (0x79)",
+  [0x80] = "Message Type: Security List Update Report Message (0x80)",
+  [0x66] = "Message Type: Security Status Message (0x66)",
+  [0x81] = "Message Type: Order Book Clear Message (0x81)",
+  [0x03] = "Message Type: Order Market Pre Transparency Information Message (0x03)",
+  [0x07] = "Message Type: Quote Market Pre Transparency Information Message (0x07)",
+  [0x01] = "Message Type: Order Cancellation Market Member Message (0x01)",
+  [0x05] = "Message Type: Quote Cancellation Market Member Message (0x05)",
+  [0x10] = "Message Type: Trade Market Post Transparency Information Topofbook Message (0x10)",
+  [0x18] = "Message Type: Trade Trade Amendment Or Cancellation Message (0x18)",
+  [0x11] = "Message Type: Trade Market Post Transparency Information Full Depth Message (0x11)",
+  [0x82] = "Message Type: Topofbook Message (0x82)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+bme_bmeequities_replay_bmegate_v1_6.message_type.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -3421,18 +3177,14 @@ bme_bmeequities_replay_bmegate_v1_6.nav_communication_term = {}
 bme_bmeequities_replay_bmegate_v1_6.nav_communication_term.size = 1
 
 -- Display: Nav Communication Term
-bme_bmeequities_replay_bmegate_v1_6.nav_communication_term.display = function(value)
-  if value == "1" then
-    return "Nav Communication Term: D 1 (1)"
-  end
-  if value == "2" then
-    return "Nav Communication Term: D 2 (2)"
-  end
-  if value == "3" then
-    return "Nav Communication Term: D 3 (3)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.nav_communication_term.labels = {
+  ["1"] = "Nav Communication Term: D 1 (1)",
+  ["2"] = "Nav Communication Term: D 2 (2)",
+  ["3"] = "Nav Communication Term: D 3 (3)",
+}
 
-  return "Nav Communication Term: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.nav_communication_term.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.nav_communication_term.labels[value] or "Nav Communication Term: Unknown("..value..")"
 end
 
 -- Dissect: Nav Communication Term
@@ -3526,21 +3278,15 @@ bme_bmeequities_replay_bmegate_v1_6.network_status_value = {}
 bme_bmeequities_replay_bmegate_v1_6.network_status_value.size = 1
 
 -- Display: Network Status Value
-bme_bmeequities_replay_bmegate_v1_6.network_status_value.display = function(value)
-  if value == 1 then
-    return "Network Status Value: Connected (1)"
-  end
-  if value == 2 then
-    return "Network Status Value: Not Connected Down Expected Up (2)"
-  end
-  if value == 3 then
-    return "Network Status Value: Not Connected Down Expected Down (3)"
-  end
-  if value == 4 then
-    return "Network Status Value: In Process (4)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.network_status_value.labels = {
+  [1] = "Network Status Value: Connected (1)",
+  [2] = "Network Status Value: Not Connected Down Expected Up (2)",
+  [3] = "Network Status Value: Not Connected Down Expected Down (3)",
+  [4] = "Network Status Value: In Process (4)",
+}
 
-  return "Network Status Value: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.network_status_value.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.network_status_value.labels[value] or "Network Status Value: Unknown("..value..")"
 end
 
 -- Dissect: Network Status Value
@@ -3601,24 +3347,16 @@ bme_bmeequities_replay_bmegate_v1_6.non_availability_reason = {}
 bme_bmeequities_replay_bmegate_v1_6.non_availability_reason.size = 1
 
 -- Display: Non Availability Reason
-bme_bmeequities_replay_bmegate_v1_6.non_availability_reason.display = function(value)
-  if value == 0 then
-    return "Non Availability Reason: Not Halted (0)"
-  end
-  if value == 100 then
-    return "Non Availability Reason: Halted By Regulator (100)"
-  end
-  if value == 101 then
-    return "Non Availability Reason: Halted By Market Surveillance (101)"
-  end
-  if value == 102 then
-    return "Non Availability Reason: Knockout (102)"
-  end
-  if value == 103 then
-    return "Non Availability Reason: Knockin Pending (103)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.non_availability_reason.labels = {
+  [0] = "Non Availability Reason: Not Halted (0)",
+  [100] = "Non Availability Reason: Halted By Regulator (100)",
+  [101] = "Non Availability Reason: Halted By Market Surveillance (101)",
+  [102] = "Non Availability Reason: Knockout (102)",
+  [103] = "Non Availability Reason: Knockin Pending (103)",
+}
 
-  return "Non Availability Reason: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.non_availability_reason.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.non_availability_reason.labels[value] or "Non Availability Reason: Unknown("..value..")"
 end
 
 -- Dissect: Non Availability Reason
@@ -3881,18 +3619,14 @@ bme_bmeequities_replay_bmegate_v1_6.pre_trade_transparency_waiver = {}
 bme_bmeequities_replay_bmegate_v1_6.pre_trade_transparency_waiver.size = 1
 
 -- Display: Pre Trade Transparency Waiver
-bme_bmeequities_replay_bmegate_v1_6.pre_trade_transparency_waiver.display = function(value)
-  if value == "0" then
-    return "Pre Trade Transparency Waiver: Negotiated Trade In Liquid Financial Instruments Nliq (0)"
-  end
-  if value == "1" then
-    return "Pre Trade Transparency Waiver: Negotiated Trade In Illiquid Financial Instruments Oilq (1)"
-  end
-  if value == "2" then
-    return "Pre Trade Transparency Waiver: Negotiated Trade Other Than Current Market Price PRIC (2)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.pre_trade_transparency_waiver.labels = {
+  ["0"] = "Pre Trade Transparency Waiver: Negotiated Trade In Liquid Financial Instruments Nliq (0)",
+  ["1"] = "Pre Trade Transparency Waiver: Negotiated Trade In Illiquid Financial Instruments Oilq (1)",
+  ["2"] = "Pre Trade Transparency Waiver: Negotiated Trade Other Than Current Market Price PRIC (2)",
+}
 
-  return "Pre Trade Transparency Waiver: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.pre_trade_transparency_waiver.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.pre_trade_transparency_waiver.labels[value] or "Pre Trade Transparency Waiver: Unknown("..value..")"
 end
 
 -- Dissect: Pre Trade Transparency Waiver
@@ -3972,30 +3706,18 @@ bme_bmeequities_replay_bmegate_v1_6.price_tick_rule = {}
 bme_bmeequities_replay_bmegate_v1_6.price_tick_rule.size = 1
 
 -- Display: Price Tick Rule
-bme_bmeequities_replay_bmegate_v1_6.price_tick_rule.display = function(value)
-  if value == 1 then
-    return "Price Tick Rule: Tick Rule 1 (1)"
-  end
-  if value == 2 then
-    return "Price Tick Rule: Tick Rule 2 (2)"
-  end
-  if value == 3 then
-    return "Price Tick Rule: Tick Rule 3 (3)"
-  end
-  if value == 4 then
-    return "Price Tick Rule: Tick Rule 4 (4)"
-  end
-  if value == 5 then
-    return "Price Tick Rule: Tick Rule 5 (5)"
-  end
-  if value == 6 then
-    return "Price Tick Rule: Tick Rule 6 (6)"
-  end
-  if value == 7 then
-    return "Price Tick Rule: Tick Rule 7 (7)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.price_tick_rule.labels = {
+  [1] = "Price Tick Rule: Tick Rule 1 (1)",
+  [2] = "Price Tick Rule: Tick Rule 2 (2)",
+  [3] = "Price Tick Rule: Tick Rule 3 (3)",
+  [4] = "Price Tick Rule: Tick Rule 4 (4)",
+  [5] = "Price Tick Rule: Tick Rule 5 (5)",
+  [6] = "Price Tick Rule: Tick Rule 6 (6)",
+  [7] = "Price Tick Rule: Tick Rule 7 (7)",
+}
 
-  return "Price Tick Rule: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.price_tick_rule.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.price_tick_rule.labels[value] or "Price Tick Rule: Unknown("..value..")"
 end
 
 -- Dissect: Price Tick Rule
@@ -4063,24 +3785,16 @@ bme_bmeequities_replay_bmegate_v1_6.protocol_version = {}
 bme_bmeequities_replay_bmegate_v1_6.protocol_version.size = 6
 
 -- Display: Protocol Version
-bme_bmeequities_replay_bmegate_v1_6.protocol_version.display = function(value)
-  if value == "BBP001" then
-    return "Protocol Version: BBP001 (BBP001)"
-  end
-  if value == "BP1.3W" then
-    return "Protocol Version: BP13W (BP1.3W)"
-  end
-  if value == "BP1.4W" then
-    return "Protocol Version: BP14W (BP1.4W)"
-  end
-  if value == "BP1.5W" then
-    return "Protocol Version: BP15W (BP1.5W)"
-  end
-  if value == "BP1.6W" then
-    return "Protocol Version: BP16W (BP1.6W)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.protocol_version.labels = {
+  ["BBP001"] = "Protocol Version: BBP001 (BBP001)",
+  ["BP1.3W"] = "Protocol Version: BP13W (BP1.3W)",
+  ["BP1.4W"] = "Protocol Version: BP14W (BP1.4W)",
+  ["BP1.5W"] = "Protocol Version: BP15W (BP1.5W)",
+  ["BP1.6W"] = "Protocol Version: BP16W (BP1.6W)",
+}
 
-  return "Protocol Version: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.protocol_version.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.protocol_version.labels[value] or "Protocol Version: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Version
@@ -4137,18 +3851,14 @@ bme_bmeequities_replay_bmegate_v1_6.put_or_call = {}
 bme_bmeequities_replay_bmegate_v1_6.put_or_call.size = 1
 
 -- Display: Put Or Call
-bme_bmeequities_replay_bmegate_v1_6.put_or_call.display = function(value)
-  if value == "C" then
-    return "Put Or Call: Call (C)"
-  end
-  if value == "P" then
-    return "Put Or Call: Put (P)"
-  end
-  if value == "O" then
-    return "Put Or Call: Other (O)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.put_or_call.labels = {
+  ["C"] = "Put Or Call: Call (C)",
+  ["P"] = "Put Or Call: Put (P)",
+  ["O"] = "Put Or Call: Other (O)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.put_or_call.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -4199,21 +3909,15 @@ bme_bmeequities_replay_bmegate_v1_6.reference_trading_venue = {}
 bme_bmeequities_replay_bmegate_v1_6.reference_trading_venue.size = 1
 
 -- Display: Reference Trading Venue
-bme_bmeequities_replay_bmegate_v1_6.reference_trading_venue.display = function(value)
-  if value == "1" then
-    return "Reference Trading Venue: Valencia (1)"
-  end
-  if value == "2" then
-    return "Reference Trading Venue: Bilbao (2)"
-  end
-  if value == "4" then
-    return "Reference Trading Venue: Barcelona (4)"
-  end
-  if value == "8" then
-    return "Reference Trading Venue: Madrid (8)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.reference_trading_venue.labels = {
+  ["1"] = "Reference Trading Venue: Valencia (1)",
+  ["2"] = "Reference Trading Venue: Bilbao (2)",
+  ["4"] = "Reference Trading Venue: Barcelona (4)",
+  ["8"] = "Reference Trading Venue: Madrid (8)",
+}
 
-  return "Reference Trading Venue: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.reference_trading_venue.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.reference_trading_venue.labels[value] or "Reference Trading Venue: Unknown("..value..")"
 end
 
 -- Dissect: Reference Trading Venue
@@ -4493,69 +4197,31 @@ bme_bmeequities_replay_bmegate_v1_6.security_group = {}
 bme_bmeequities_replay_bmegate_v1_6.security_group.size = 2
 
 -- Display: Security Group
-bme_bmeequities_replay_bmegate_v1_6.security_group.display = function(value)
-  if value == "AC" then
-    return "Security Group: Shares (AC)"
-  end
-  if value == "CE" then
-    return "Security Group: Electronic Pits (CE)"
-  end
-  if value == "CP" then
-    return "Security Group: Cuotas Participativas Savings Banks Shares (CP)"
-  end
-  if value == "DE" then
-    return "Security Group: Rights (DE)"
-  end
-  if value == "NC" then
-    return "Security Group: Non Traded Funds (NC)"
-  end
-  if value == "SY" then
-    return "Security Group: Underlyings (SY)"
-  end
-  if value == "OA" then
-    return "Security Group: ETFs (OA)"
-  end
-  if value == "WA" then
-    return "Security Group: Warrants (WA)"
-  end
-  if value == "WC" then
-    return "Security Group: Certificates (WC)"
-  end
-  if value == "WO" then
-    return "Security Group: Other (WO)"
-  end
-  if value == "EE" then
-    return "Security Group: Growth Companies (EE)"
-  end
-  if value == "FC" then
-    return "Security Group: Venture Capital (FC)"
-  end
-  if value == "FO" then
-    return "Security Group: Listed Investment Funds (FO)"
-  end
-  if value == "IC" then
-    return "Security Group: Funds Of Hedge Funds (IC)"
-  end
-  if value == "IL" then
-    return "Security Group: Hedge Funds (IL)"
-  end
-  if value == "SI" then
-    return "Security Group: SICAVs (SI)"
-  end
-  if value == "SO" then
-    return "Security Group: SOCIMI (SO)"
-  end
-  if value == "SC" then
-    return "Security Group: BME ScaleUp (SC)"
-  end
-  if value == "AL" then
-    return "Security Group: LATIBEX Shares (AL)"
-  end
-  if value == "DL" then
-    return "Security Group: LATIBEX Rights (DL)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.security_group.labels = {
+  ["AC"] = "Security Group: Shares (AC)",
+  ["CE"] = "Security Group: Electronic Pits (CE)",
+  ["CP"] = "Security Group: Cuotas Participativas Savings Banks Shares (CP)",
+  ["DE"] = "Security Group: Rights (DE)",
+  ["NC"] = "Security Group: Non Traded Funds (NC)",
+  ["SY"] = "Security Group: Underlyings (SY)",
+  ["OA"] = "Security Group: ETFs (OA)",
+  ["WA"] = "Security Group: Warrants (WA)",
+  ["WC"] = "Security Group: Certificates (WC)",
+  ["WO"] = "Security Group: Other (WO)",
+  ["EE"] = "Security Group: Growth Companies (EE)",
+  ["FC"] = "Security Group: Venture Capital (FC)",
+  ["FO"] = "Security Group: Listed Investment Funds (FO)",
+  ["IC"] = "Security Group: Funds Of Hedge Funds (IC)",
+  ["IL"] = "Security Group: Hedge Funds (IL)",
+  ["SI"] = "Security Group: SICAVs (SI)",
+  ["SO"] = "Security Group: SOCIMI (SO)",
+  ["SC"] = "Security Group: BME ScaleUp (SC)",
+  ["AL"] = "Security Group: LATIBEX Shares (AL)",
+  ["DL"] = "Security Group: LATIBEX Rights (DL)",
+}
 
-  return "Security Group: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.security_group.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.security_group.labels[value] or "Security Group: Unknown("..value..")"
 end
 
 -- Dissect: Security Group
@@ -4627,15 +4293,13 @@ bme_bmeequities_replay_bmegate_v1_6.security_status = {}
 bme_bmeequities_replay_bmegate_v1_6.security_status.size = 1
 
 -- Display: Security Status
-bme_bmeequities_replay_bmegate_v1_6.security_status.display = function(value)
-  if value == "1" then
-    return "Security Status: Active (1)"
-  end
-  if value == "2" then
-    return "Security Status: Inactive Provissionaly Assumed (2)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.security_status.labels = {
+  ["1"] = "Security Status: Active (1)",
+  ["2"] = "Security Status: Inactive Provissionaly Assumed (2)",
+}
 
-  return "Security Status: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.security_status.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.security_status.labels[value] or "Security Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Status
@@ -4657,81 +4321,35 @@ bme_bmeequities_replay_bmegate_v1_6.security_sub_type = {}
 bme_bmeequities_replay_bmegate_v1_6.security_sub_type.size = 2
 
 -- Display: Security Sub Type
-bme_bmeequities_replay_bmegate_v1_6.security_sub_type.display = function(value)
-  if value == "AE" then
-    return "Security Sub Type: Spanish Stocks (AE)"
-  end
-  if value == "AI" then
-    return "Security Sub Type: Foreign Stocks (AI)"
-  end
-  if value == "CV" then
-    return "Security Sub Type: Basket (CV)"
-  end
-  if value == "II" then
-    return "Security Sub Type: Foreign Index (II)"
-  end
-  if value == "IN" then
-    return "Security Sub Type: Domestic Index (IN)"
-  end
-  if value == "MP" then
-    return "Security Sub Type: Commodities (MP)"
-  end
-  if value == "OT" then
-    return "Security Sub Type: Other (OT)"
-  end
-  if value == "TC" then
-    return "Security Sub Type: Currency And Exchange Rates (TC)"
-  end
-  if value == "TI" then
-    return "Security Sub Type: Interest Rate (TI)"
-  end
-  if value == "A" then
-    return "Security Sub Type: Dj Indust Av (A)"
-  end
-  if value == "B" then
-    return "Security Sub Type: Latibex As (B)"
-  end
-  if value == "C" then
-    return "Security Sub Type: Ibex Medium Cap (C)"
-  end
-  if value == "D" then
-    return "Security Sub Type: Ibex Top Dividendo (D)"
-  end
-  if value == "E" then
-    return "Security Sub Type: Eurostoxx 50 (E)"
-  end
-  if value == "H" then
-    return "Security Sub Type: Ibex Impacto (H)"
-  end
-  if value == "I" then
-    return "Security Sub Type: Ibex 35 (I)"
-  end
-  if value == "L" then
-    return "Security Sub Type: Latibex Bras (L)"
-  end
-  if value == "N" then
-    return "Security Sub Type: Ftse 4 Good Ibx (N)"
-  end
-  if value == "O" then
-    return "Security Sub Type: Afimonetario (O)"
-  end
-  if value == "Q" then
-    return "Security Sub Type: Nasdaq 100 (Q)"
-  end
-  if value == "R" then
-    return "Security Sub Type: Afibonos (R)"
-  end
-  if value == "S" then
-    return "Security Sub Type: Ibex Small Cap (S)"
-  end
-  if value == "T" then
-    return "Security Sub Type: Latibex Top (T)"
-  end
-  if value == "Z" then
-    return "Security Sub Type: Generic (Z)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.security_sub_type.labels = {
+  ["AE"] = "Security Sub Type: Spanish Stocks (AE)",
+  ["AI"] = "Security Sub Type: Foreign Stocks (AI)",
+  ["CV"] = "Security Sub Type: Basket (CV)",
+  ["II"] = "Security Sub Type: Foreign Index (II)",
+  ["IN"] = "Security Sub Type: Domestic Index (IN)",
+  ["MP"] = "Security Sub Type: Commodities (MP)",
+  ["OT"] = "Security Sub Type: Other (OT)",
+  ["TC"] = "Security Sub Type: Currency And Exchange Rates (TC)",
+  ["TI"] = "Security Sub Type: Interest Rate (TI)",
+  ["A"] = "Security Sub Type: Dj Indust Av (A)",
+  ["B"] = "Security Sub Type: Latibex As (B)",
+  ["C"] = "Security Sub Type: Ibex Medium Cap (C)",
+  ["D"] = "Security Sub Type: Ibex Top Dividendo (D)",
+  ["E"] = "Security Sub Type: Eurostoxx 50 (E)",
+  ["H"] = "Security Sub Type: Ibex Impacto (H)",
+  ["I"] = "Security Sub Type: Ibex 35 (I)",
+  ["L"] = "Security Sub Type: Latibex Bras (L)",
+  ["N"] = "Security Sub Type: Ftse 4 Good Ibx (N)",
+  ["O"] = "Security Sub Type: Afimonetario (O)",
+  ["Q"] = "Security Sub Type: Nasdaq 100 (Q)",
+  ["R"] = "Security Sub Type: Afibonos (R)",
+  ["S"] = "Security Sub Type: Ibex Small Cap (S)",
+  ["T"] = "Security Sub Type: Latibex Top (T)",
+  ["Z"] = "Security Sub Type: Generic (Z)",
+}
 
-  return "Security Sub Type: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.security_sub_type.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.security_sub_type.labels[value] or "Security Sub Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Sub Type
@@ -4764,33 +4382,19 @@ bme_bmeequities_replay_bmegate_v1_6.security_trading_status = {}
 bme_bmeequities_replay_bmegate_v1_6.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-bme_bmeequities_replay_bmegate_v1_6.security_trading_status.display = function(value)
-  if value == 17 then
-    return "Security Trading Status: Ready To Trade (17)"
-  end
-  if value == 18 then
-    return "Security Trading Status: Not Available For Trading (18)"
-  end
-  if value == 19 then
-    return "Security Trading Status: Not Traded On This Segment (19)"
-  end
-  if value == 20 then
-    return "Security Trading Status: Unknown Or Invalid (20)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Pre Open (21)"
-  end
-  if value == 26 then
-    return "Security Trading Status: Postclose Ready To Trade In Tal (26)"
-  end
-  if value == 23 then
-    return "Security Trading Status: Fast Market (23)"
-  end
-  if value == 100 then
-    return "Security Trading Status: Extraordinary Market Conditions (100)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.security_trading_status.labels = {
+  [17] = "Security Trading Status: Ready To Trade (17)",
+  [18] = "Security Trading Status: Not Available For Trading (18)",
+  [19] = "Security Trading Status: Not Traded On This Segment (19)",
+  [20] = "Security Trading Status: Unknown Or Invalid (20)",
+  [21] = "Security Trading Status: Pre Open (21)",
+  [26] = "Security Trading Status: Postclose Ready To Trade In Tal (26)",
+  [23] = "Security Trading Status: Fast Market (23)",
+  [100] = "Security Trading Status: Extraordinary Market Conditions (100)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.security_trading_status.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -4812,96 +4416,40 @@ bme_bmeequities_replay_bmegate_v1_6.security_type = {}
 bme_bmeequities_replay_bmegate_v1_6.security_type.size = 2
 
 -- Display: Security Type
-bme_bmeequities_replay_bmegate_v1_6.security_type.display = function(value)
-  if value == "A" then
-    return "Security Type: Stocks (A)"
-  end
-  if value == "B" then
-    return "Security Type: Structured Bonds (B)"
-  end
-  if value == "C" then
-    return "Security Type: Certificates (C)"
-  end
-  if value == "D" then
-    return "Security Type: Subscription Rights (D)"
-  end
-  if value == "E" then
-    return "Security Type: Hedge Funds (E)"
-  end
-  if value == "F" then
-    return "Security Type: Funds (F)"
-  end
-  if value == "FA" then
-    return "Security Type: Listed Investment Funds (FA)"
-  end
-  if value == "G" then
-    return "Security Type: Discount (G)"
-  end
-  if value == "H" then
-    return "Security Type: Bonus Cap (H)"
-  end
-  if value == "I" then
-    return "Security Type: Inlines (I)"
-  end
-  if value == "J" then
-    return "Security Type: Stay Low (J)"
-  end
-  if value == "K" then
-    return "Security Type: Bonus (K)"
-  end
-  if value == "L" then
-    return "Security Type: Sprint (L)"
-  end
-  if value == "M" then
-    return "Security Type: Very New Shares (M)"
-  end
-  if value == "N" then
-    return "Security Type: New Stocks (N)"
-  end
-  if value == "O" then
-    return "Security Type: Other Products (O)"
-  end
-  if value == "P" then
-    return "Security Type: Turbo Pros (P)"
-  end
-  if value == "R" then
-    return "Security Type: Preferred Shares (R)"
-  end
-  if value == "S" then
-    return "Security Type: Underlyings (S)"
-  end
-  if value == "T" then
-    return "Security Type: Turbo Warrants (T)"
-  end
-  if value == "U" then
-    return "Security Type: Cuotas Participativas Savings Banks Shares (U)"
-  end
-  if value == "V" then
-    return "Security Type: Convertible Bond Rights (V)"
-  end
-  if value == "W" then
-    return "Security Type: Warrants (W)"
-  end
-  if value == "X" then
-    return "Security Type: Participations (X)"
-  end
-  if value == "Y" then
-    return "Security Type: Stay High (Y)"
-  end
-  if value == "Z" then
-    return "Security Type: Multi (Z)"
-  end
-  if value == "1" then
-    return "Security Type: Sica Vs Vl D 1 (1)"
-  end
-  if value == "2" then
-    return "Security Type: Sica Vs Vl D 2 (2)"
-  end
-  if value == "3" then
-    return "Security Type: Sica Vs Vl D 3 (3)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.security_type.labels = {
+  ["A"] = "Security Type: Stocks (A)",
+  ["B"] = "Security Type: Structured Bonds (B)",
+  ["C"] = "Security Type: Certificates (C)",
+  ["D"] = "Security Type: Subscription Rights (D)",
+  ["E"] = "Security Type: Hedge Funds (E)",
+  ["F"] = "Security Type: Funds (F)",
+  ["FA"] = "Security Type: Listed Investment Funds (FA)",
+  ["G"] = "Security Type: Discount (G)",
+  ["H"] = "Security Type: Bonus Cap (H)",
+  ["I"] = "Security Type: Inlines (I)",
+  ["J"] = "Security Type: Stay Low (J)",
+  ["K"] = "Security Type: Bonus (K)",
+  ["L"] = "Security Type: Sprint (L)",
+  ["M"] = "Security Type: Very New Shares (M)",
+  ["N"] = "Security Type: New Stocks (N)",
+  ["O"] = "Security Type: Other Products (O)",
+  ["P"] = "Security Type: Turbo Pros (P)",
+  ["R"] = "Security Type: Preferred Shares (R)",
+  ["S"] = "Security Type: Underlyings (S)",
+  ["T"] = "Security Type: Turbo Warrants (T)",
+  ["U"] = "Security Type: Cuotas Participativas Savings Banks Shares (U)",
+  ["V"] = "Security Type: Convertible Bond Rights (V)",
+  ["W"] = "Security Type: Warrants (W)",
+  ["X"] = "Security Type: Participations (X)",
+  ["Y"] = "Security Type: Stay High (Y)",
+  ["Z"] = "Security Type: Multi (Z)",
+  ["1"] = "Security Type: Sica Vs Vl D 1 (1)",
+  ["2"] = "Security Type: Sica Vs Vl D 2 (2)",
+  ["3"] = "Security Type: Sica Vs Vl D 3 (3)",
+}
 
-  return "Security Type: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.security_type.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -5059,24 +4607,16 @@ bme_bmeequities_replay_bmegate_v1_6.session_reject_reason = {}
 bme_bmeequities_replay_bmegate_v1_6.session_reject_reason.size = 1
 
 -- Display: Session Reject Reason
-bme_bmeequities_replay_bmegate_v1_6.session_reject_reason.display = function(value)
-  if value == 11 then
-    return "Session Reject Reason: Invalid Msg Type (11)"
-  end
-  if value == 30 then
-    return "Session Reject Reason: Wrong Message Size (30)"
-  end
-  if value == 31 then
-    return "Session Reject Reason: Throttle Limit Exceeded (31)"
-  end
-  if value == 33 then
-    return "Session Reject Reason: Invalid Client Session Status (33)"
-  end
-  if value == 99 then
-    return "Session Reject Reason: Other (99)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.session_reject_reason.labels = {
+  [11] = "Session Reject Reason: Invalid Msg Type (11)",
+  [30] = "Session Reject Reason: Wrong Message Size (30)",
+  [31] = "Session Reject Reason: Throttle Limit Exceeded (31)",
+  [33] = "Session Reject Reason: Invalid Client Session Status (33)",
+  [99] = "Session Reject Reason: Other (99)",
+}
 
-  return "Session Reject Reason: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.session_reject_reason.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.session_reject_reason.labels[value] or "Session Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Reject Reason
@@ -5121,15 +4661,13 @@ bme_bmeequities_replay_bmegate_v1_6.settlement_system = {}
 bme_bmeequities_replay_bmegate_v1_6.settlement_system.size = 1
 
 -- Display: Settlement System
-bme_bmeequities_replay_bmegate_v1_6.settlement_system.display = function(value)
-  if value == "F" then
-    return "Settlement System: Iberclear (F)"
-  end
-  if value == "L" then
-    return "Settlement System: Iberclear Latibex (L)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.settlement_system.labels = {
+  ["F"] = "Settlement System: Iberclear (F)",
+  ["L"] = "Settlement System: Iberclear Latibex (L)",
+}
 
-  return "Settlement System: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.settlement_system.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.settlement_system.labels[value] or "Settlement System: Unknown("..value..")"
 end
 
 -- Dissect: Settlement System
@@ -5401,15 +4939,13 @@ bme_bmeequities_replay_bmegate_v1_6.static_range_type = {}
 bme_bmeequities_replay_bmegate_v1_6.static_range_type.size = 1
 
 -- Display: Static Range Type
-bme_bmeequities_replay_bmegate_v1_6.static_range_type.display = function(value)
-  if value == "P" then
-    return "Static Range Type: Percentage (P)"
-  end
-  if value == "T" then
-    return "Static Range Type: Price (T)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.static_range_type.labels = {
+  ["P"] = "Static Range Type: Percentage (P)",
+  ["T"] = "Static Range Type: Price (T)",
+}
 
-  return "Static Range Type: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.static_range_type.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.static_range_type.labels[value] or "Static Range Type: Unknown("..value..")"
 end
 
 -- Dissect: Static Range Type
@@ -5662,15 +5198,13 @@ bme_bmeequities_replay_bmegate_v1_6.test_production_ind = {}
 bme_bmeequities_replay_bmegate_v1_6.test_production_ind.size = 1
 
 -- Display: Test Production Ind
-bme_bmeequities_replay_bmegate_v1_6.test_production_ind.display = function(value)
-  if value == "T" then
-    return "Test Production Ind: Test (T)"
-  end
-  if value == "P" then
-    return "Test Production Ind: Production (P)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.test_production_ind.labels = {
+  ["T"] = "Test Production Ind: Test (T)",
+  ["P"] = "Test Production Ind: Production (P)",
+}
 
-  return "Test Production Ind: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.test_production_ind.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.test_production_ind.labels[value] or "Test Production Ind: Unknown("..value..")"
 end
 
 -- Dissect: Test Production Ind
@@ -5731,27 +5265,17 @@ bme_bmeequities_replay_bmegate_v1_6.trad_ses_status = {}
 bme_bmeequities_replay_bmegate_v1_6.trad_ses_status.size = 1
 
 -- Display: Trad Ses Status
-bme_bmeequities_replay_bmegate_v1_6.trad_ses_status.display = function(value)
-  if value == 1 then
-    return "Trad Ses Status: Halted (1)"
-  end
-  if value == 2 then
-    return "Trad Ses Status: Open (2)"
-  end
-  if value == 3 then
-    return "Trad Ses Status: Closed (3)"
-  end
-  if value == 4 then
-    return "Trad Ses Status: Pre Open Not Started (4)"
-  end
-  if value == 5 then
-    return "Trad Ses Status: Pre Close (5)"
-  end
-  if value == 6 then
-    return "Trad Ses Status: Request Rejected (6)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.trad_ses_status.labels = {
+  [1] = "Trad Ses Status: Halted (1)",
+  [2] = "Trad Ses Status: Open (2)",
+  [3] = "Trad Ses Status: Closed (3)",
+  [4] = "Trad Ses Status: Pre Open Not Started (4)",
+  [5] = "Trad Ses Status: Pre Close (5)",
+  [6] = "Trad Ses Status: Request Rejected (6)",
+}
 
-  return "Trad Ses Status: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.trad_ses_status.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.trad_ses_status.labels[value] or "Trad Ses Status: Unknown("..value..")"
 end
 
 -- Dissect: Trad Ses Status
@@ -5853,114 +5377,46 @@ bme_bmeequities_replay_bmegate_v1_6.trade_type = {}
 bme_bmeequities_replay_bmegate_v1_6.trade_type.size = 1
 
 -- Display: Trade Type
-bme_bmeequities_replay_bmegate_v1_6.trade_type.display = function(value)
-  if value == "M" then
-    return "Trade Type: Market (M)"
-  end
-  if value == "X" then
-    return "Trade Type: Cancellation (X)"
-  end
-  if value == "T" then
-    return "Trade Type: Trade Amendment (T)"
-  end
-  if value == "H" then
-    return "Trade Type: Block Trade (H)"
-  end
-  if value == "1" then
-    return "Trade Type: Communicated Application (1)"
-  end
-  if value == "2" then
-    return "Trade Type: Authorised Application Trades (2)"
-  end
-  if value == "3" then
-    return "Trade Type: Authorised Application Corporate Interest (3)"
-  end
-  if value == "4" then
-    return "Trade Type: Authorised Application Execution Of Contracts (4)"
-  end
-  if value == "5" then
-    return "Trade Type: Authorised Application Other Causes (5)"
-  end
-  if value == "6" then
-    return "Trade Type: Validation Communicated (6)"
-  end
-  if value == "7" then
-    return "Trade Type: Authorised Validation Trades (7)"
-  end
-  if value == "8" then
-    return "Trade Type: Authorised Validation Corporate Interest (8)"
-  end
-  if value == "9" then
-    return "Trade Type: Authorised Validation Execution Of Contracts (9)"
-  end
-  if value == "0" then
-    return "Trade Type: Authorised Validation Other Causes (0)"
-  end
-  if value == "A" then
-    return "Trade Type: Transaction Between Members Communicated (A)"
-  end
-  if value == "B" then
-    return "Trade Type: Transaction Between Members Trades (B)"
-  end
-  if value == "C" then
-    return "Trade Type: Transaction Between Members Corporate Interest (C)"
-  end
-  if value == "F" then
-    return "Trade Type: Transaction Between Members Execution Of Contracts (F)"
-  end
-  if value == "G" then
-    return "Trade Type: Transaction Between Members Other Causes (G)"
-  end
-  if value == "I" then
-    return "Trade Type: Application To Cater For A Linked Position (I)"
-  end
-  if value == "J" then
-    return "Trade Type: Transaction To Cater For A Linked Position (J)"
-  end
-  if value == "E" then
-    return "Trade Type: Transaction Of Exercise Of Options (E)"
-  end
-  if value == "N" then
-    return "Trade Type: Public Share Bid Offer Type Transaction (N)"
-  end
-  if value == "O" then
-    return "Trade Type: Public Share Ask Offer Type Transaction (O)"
-  end
-  if value == "P" then
-    return "Trade Type: Public Share Subscription Offer Type Transaction (P)"
-  end
-  if value == "L" then
-    return "Trade Type: Special Trades Delta Type (L)"
-  end
-  if value == "a" then
-    return "Trade Type: Net Asset Value Special Trade D Plus 1 (a)"
-  end
-  if value == "b" then
-    return "Trade Type: Net Asset Value Special Trade D Plus 2 (b)"
-  end
-  if value == "c" then
-    return "Trade Type: Net Asset Value Special Trade D Plus 3 (c)"
-  end
-  if value == "D" then
-    return "Trade Type: Application Without CCP (D)"
-  end
-  if value == "K" then
-    return "Trade Type: Transaction Without CCP (K)"
-  end
-  if value == "d" then
-    return "Trade Type: Investment Fund D Plus 1 (d)"
-  end
-  if value == "e" then
-    return "Trade Type: Investment Fund D Plus 2 (e)"
-  end
-  if value == "f" then
-    return "Trade Type: Investment Fund D Plus 3 (f)"
-  end
-  if value == "W" then
-    return "Trade Type: VWAP (W)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.trade_type.labels = {
+  ["M"] = "Trade Type: Market (M)",
+  ["X"] = "Trade Type: Cancellation (X)",
+  ["T"] = "Trade Type: Trade Amendment (T)",
+  ["H"] = "Trade Type: Block Trade (H)",
+  ["1"] = "Trade Type: Communicated Application (1)",
+  ["2"] = "Trade Type: Authorised Application Trades (2)",
+  ["3"] = "Trade Type: Authorised Application Corporate Interest (3)",
+  ["4"] = "Trade Type: Authorised Application Execution Of Contracts (4)",
+  ["5"] = "Trade Type: Authorised Application Other Causes (5)",
+  ["6"] = "Trade Type: Validation Communicated (6)",
+  ["7"] = "Trade Type: Authorised Validation Trades (7)",
+  ["8"] = "Trade Type: Authorised Validation Corporate Interest (8)",
+  ["9"] = "Trade Type: Authorised Validation Execution Of Contracts (9)",
+  ["0"] = "Trade Type: Authorised Validation Other Causes (0)",
+  ["A"] = "Trade Type: Transaction Between Members Communicated (A)",
+  ["B"] = "Trade Type: Transaction Between Members Trades (B)",
+  ["C"] = "Trade Type: Transaction Between Members Corporate Interest (C)",
+  ["F"] = "Trade Type: Transaction Between Members Execution Of Contracts (F)",
+  ["G"] = "Trade Type: Transaction Between Members Other Causes (G)",
+  ["I"] = "Trade Type: Application To Cater For A Linked Position (I)",
+  ["J"] = "Trade Type: Transaction To Cater For A Linked Position (J)",
+  ["E"] = "Trade Type: Transaction Of Exercise Of Options (E)",
+  ["N"] = "Trade Type: Public Share Bid Offer Type Transaction (N)",
+  ["O"] = "Trade Type: Public Share Ask Offer Type Transaction (O)",
+  ["P"] = "Trade Type: Public Share Subscription Offer Type Transaction (P)",
+  ["L"] = "Trade Type: Special Trades Delta Type (L)",
+  ["a"] = "Trade Type: Net Asset Value Special Trade D Plus 1 (a)",
+  ["b"] = "Trade Type: Net Asset Value Special Trade D Plus 2 (b)",
+  ["c"] = "Trade Type: Net Asset Value Special Trade D Plus 3 (c)",
+  ["D"] = "Trade Type: Application Without CCP (D)",
+  ["K"] = "Trade Type: Transaction Without CCP (K)",
+  ["d"] = "Trade Type: Investment Fund D Plus 1 (d)",
+  ["e"] = "Trade Type: Investment Fund D Plus 2 (e)",
+  ["f"] = "Trade Type: Investment Fund D Plus 3 (f)",
+  ["W"] = "Trade Type: VWAP (W)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.trade_type.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -6015,54 +5471,26 @@ bme_bmeequities_replay_bmegate_v1_6.trading_scope = {}
 bme_bmeequities_replay_bmegate_v1_6.trading_scope.size = 1
 
 -- Display: Trading Scope
-bme_bmeequities_replay_bmegate_v1_6.trading_scope.display = function(value)
-  if value == 1 then
-    return "Trading Scope: Valencia (1)"
-  end
-  if value == 2 then
-    return "Trading Scope: Bilbao (2)"
-  end
-  if value == 3 then
-    return "Trading Scope: Valencia And Bilbao (3)"
-  end
-  if value == 4 then
-    return "Trading Scope: Barcelona (4)"
-  end
-  if value == 5 then
-    return "Trading Scope: Valencia And Barcelona (5)"
-  end
-  if value == 6 then
-    return "Trading Scope: Bilbao And Barcelona (6)"
-  end
-  if value == 7 then
-    return "Trading Scope: Valencia Bilbao And Barcelona (7)"
-  end
-  if value == 8 then
-    return "Trading Scope: Madrid (8)"
-  end
-  if value == 9 then
-    return "Trading Scope: Valencia And Madrid (9)"
-  end
-  if value == A then
-    return "Trading Scope: Bilbao And Madrid (A)"
-  end
-  if value == B then
-    return "Trading Scope: Valencia Bilbao And Madrid (B)"
-  end
-  if value == C then
-    return "Trading Scope: Barcelona And Madrid (C)"
-  end
-  if value == D then
-    return "Trading Scope: Valencia Barcelona And Madrid (D)"
-  end
-  if value == E then
-    return "Trading Scope: Bilbao Barcelona And Madrid (E)"
-  end
-  if value == F then
-    return "Trading Scope: Valencia Bilbao Barcelona And Madrid (F)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.trading_scope.labels = {
+  [1] = "Trading Scope: Valencia (1)",
+  [2] = "Trading Scope: Bilbao (2)",
+  [3] = "Trading Scope: Valencia And Bilbao (3)",
+  [4] = "Trading Scope: Barcelona (4)",
+  [5] = "Trading Scope: Valencia And Barcelona (5)",
+  [6] = "Trading Scope: Bilbao And Barcelona (6)",
+  [7] = "Trading Scope: Valencia Bilbao And Barcelona (7)",
+  [8] = "Trading Scope: Madrid (8)",
+  [9] = "Trading Scope: Valencia And Madrid (9)",
+  [A] = "Trading Scope: Bilbao And Madrid (A)",
+  [B] = "Trading Scope: Valencia Bilbao And Madrid (B)",
+  [C] = "Trading Scope: Barcelona And Madrid (C)",
+  [D] = "Trading Scope: Valencia Barcelona And Madrid (D)",
+  [E] = "Trading Scope: Bilbao Barcelona And Madrid (E)",
+  [F] = "Trading Scope: Valencia Bilbao Barcelona And Madrid (F)",
+}
 
-  return "Trading Scope: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.trading_scope.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.trading_scope.labels[value] or "Trading Scope: Unknown("..value..")"
 end
 
 -- Dissect: Trading Scope
@@ -6084,30 +5512,18 @@ bme_bmeequities_replay_bmegate_v1_6.trading_session_id = {}
 bme_bmeequities_replay_bmegate_v1_6.trading_session_id.size = 1
 
 -- Display: Trading Session Id
-bme_bmeequities_replay_bmegate_v1_6.trading_session_id.display = function(value)
-  if value == 100 then
-    return "Trading Session Id: Continuous Trading (100)"
-  end
-  if value == 101 then
-    return "Trading Session Id: Fixing (101)"
-  end
-  if value == 102 then
-    return "Trading Session Id: Block Trades (102)"
-  end
-  if value == 103 then
-    return "Trading Session Id: Special Operations (103)"
-  end
-  if value == 104 then
-    return "Trading Session Id: Positions At Net Asset Value (104)"
-  end
-  if value == 113 then
-    return "Trading Session Id: Fixing Funds (113)"
-  end
-  if value == 119 then
-    return "Trading Session Id: Single Fixing (119)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.trading_session_id.labels = {
+  [100] = "Trading Session Id: Continuous Trading (100)",
+  [101] = "Trading Session Id: Fixing (101)",
+  [102] = "Trading Session Id: Block Trades (102)",
+  [103] = "Trading Session Id: Special Operations (103)",
+  [104] = "Trading Session Id: Positions At Net Asset Value (104)",
+  [113] = "Trading Session Id: Fixing Funds (113)",
+  [119] = "Trading Session Id: Single Fixing (119)",
+}
 
-  return "Trading Session Id: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.trading_session_id.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.trading_session_id.labels[value] or "Trading Session Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Id
@@ -6129,48 +5545,24 @@ bme_bmeequities_replay_bmegate_v1_6.trading_session_sub_id = {}
 bme_bmeequities_replay_bmegate_v1_6.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
-bme_bmeequities_replay_bmegate_v1_6.trading_session_sub_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Sub Id: Pre Trading Not Started (1)"
-  end
-  if value == 2 then
-    return "Trading Session Sub Id: Scheduled Opening Auction (2)"
-  end
-  if value == 3 then
-    return "Trading Session Sub Id: Continuous Trading (3)"
-  end
-  if value == 4 then
-    return "Trading Session Sub Id: Scheduled Closing Auction (4)"
-  end
-  if value == 5 then
-    return "Trading Session Sub Id: Post Trading (5)"
-  end
-  if value == 6 then
-    return "Trading Session Sub Id: Scheduled Intraday Auction (6)"
-  end
-  if value == 9 then
-    return "Trading Session Sub Id: Unscheduled Intraday Auction (9)"
-  end
-  if value == 100 then
-    return "Trading Session Sub Id: Trading Period At Closing Price Tal (100)"
-  end
-  if value == 101 then
-    return "Trading Session Sub Id: End Of Closing Auction Beginning Of TAL (101)"
-  end
-  if value == 201 then
-    return "Trading Session Sub Id: Publication Of Previous Day Special Operations (201)"
-  end
-  if value == 202 then
-    return "Trading Session Sub Id: Not Started (202)"
-  end
-  if value == 203 then
-    return "Trading Session Sub Id: Open (203)"
-  end
-  if value == 204 then
-    return "Trading Session Sub Id: Closed (204)"
-  end
+bme_bmeequities_replay_bmegate_v1_6.trading_session_sub_id.labels = {
+  [1] = "Trading Session Sub Id: Pre Trading Not Started (1)",
+  [2] = "Trading Session Sub Id: Scheduled Opening Auction (2)",
+  [3] = "Trading Session Sub Id: Continuous Trading (3)",
+  [4] = "Trading Session Sub Id: Scheduled Closing Auction (4)",
+  [5] = "Trading Session Sub Id: Post Trading (5)",
+  [6] = "Trading Session Sub Id: Scheduled Intraday Auction (6)",
+  [9] = "Trading Session Sub Id: Unscheduled Intraday Auction (9)",
+  [100] = "Trading Session Sub Id: Trading Period At Closing Price Tal (100)",
+  [101] = "Trading Session Sub Id: End Of Closing Auction Beginning Of TAL (101)",
+  [201] = "Trading Session Sub Id: Publication Of Previous Day Special Operations (201)",
+  [202] = "Trading Session Sub Id: Not Started (202)",
+  [203] = "Trading Session Sub Id: Open (203)",
+  [204] = "Trading Session Sub Id: Closed (204)",
+}
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+bme_bmeequities_replay_bmegate_v1_6.trading_session_sub_id.display = function(value)
+  return bme_bmeequities_replay_bmegate_v1_6.trading_session_sub_id.labels[value] or "Trading Session Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Sub Id
@@ -8922,106 +8314,38 @@ end
 bme_bmeequities_replay_bmegate_v1_6.payload = {}
 
 -- Dissect: Payload
+bme_bmeequities_replay_bmegate_v1_6.payload.dispatch = {
+  [0x08] = bme_bmeequities_replay_bmegate_v1_6.logon_response_message.dissect,
+  [0x0B] = bme_bmeequities_replay_bmegate_v1_6.logout_response_message.dissect,
+  [0x30] = bme_bmeequities_replay_bmegate_v1_6.heartbeat_message.dissect,
+  [0x0A] = bme_bmeequities_replay_bmegate_v1_6.network_status_message.dissect,
+  [0x41] = bme_bmeequities_replay_bmegate_v1_6.logon_message.dissect,
+  [0x35] = bme_bmeequities_replay_bmegate_v1_6.logout_message.dissect,
+  [0x0D] = bme_bmeequities_replay_bmegate_v1_6.reject_message.dissect,
+  [0x09] = bme_bmeequities_replay_bmegate_v1_6.replay_request_message.dissect,
+  [0x0C] = bme_bmeequities_replay_bmegate_v1_6.replay_request_ack_nack_message.dissect,
+  [0x68] = bme_bmeequities_replay_bmegate_v1_6.trading_session_status_message.dissect,
+  [0x42] = bme_bmeequities_replay_bmegate_v1_6.news_message.dissect,
+  [0x78] = bme_bmeequities_replay_bmegate_v1_6.security_list_cancellation_report_message.dissect,
+  [0x84] = bme_bmeequities_replay_bmegate_v1_6.statistics_message.dissect,
+  [0x79] = bme_bmeequities_replay_bmegate_v1_6.security_list_message.dissect,
+  [0x80] = bme_bmeequities_replay_bmegate_v1_6.security_list_update_report_message.dissect,
+  [0x66] = bme_bmeequities_replay_bmegate_v1_6.security_status_message.dissect,
+  [0x81] = bme_bmeequities_replay_bmegate_v1_6.order_book_clear_message.dissect,
+  [0x03] = bme_bmeequities_replay_bmegate_v1_6.order_market_pre_transparency_information_message.dissect,
+  [0x07] = bme_bmeequities_replay_bmegate_v1_6.quote_market_pre_transparency_information_message.dissect,
+  [0x01] = bme_bmeequities_replay_bmegate_v1_6.order_cancellation_market_member_message.dissect,
+  [0x05] = bme_bmeequities_replay_bmegate_v1_6.quote_cancellation_market_member_message.dissect,
+  [0x10] = bme_bmeequities_replay_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect,
+  [0x18] = bme_bmeequities_replay_bmegate_v1_6.trade_trade_amendment_or_cancellation_message.dissect,
+  [0x11] = bme_bmeequities_replay_bmegate_v1_6.trade_market_post_transparency_information_full_depth_message.dissect,
+  [0x82] = bme_bmeequities_replay_bmegate_v1_6.topofbook_message.dissect,
+}
+
 bme_bmeequities_replay_bmegate_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon Response Message
-  if message_type == 0x08 then
-    return bme_bmeequities_replay_bmegate_v1_6.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if message_type == 0x0B then
-    return bme_bmeequities_replay_bmegate_v1_6.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == 0x30 then
-    return bme_bmeequities_replay_bmegate_v1_6.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Network Status Message
-  if message_type == 0x0A then
-    return bme_bmeequities_replay_bmegate_v1_6.network_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Message
-  if message_type == 0x41 then
-    return bme_bmeequities_replay_bmegate_v1_6.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if message_type == 0x35 then
-    return bme_bmeequities_replay_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if message_type == 0x0D then
-    return bme_bmeequities_replay_bmegate_v1_6.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Message
-  if message_type == 0x09 then
-    return bme_bmeequities_replay_bmegate_v1_6.replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Ack Nack Message
-  if message_type == 0x0C then
-    return bme_bmeequities_replay_bmegate_v1_6.replay_request_ack_nack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if message_type == 0x68 then
-    return bme_bmeequities_replay_bmegate_v1_6.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Message
-  if message_type == 0x42 then
-    return bme_bmeequities_replay_bmegate_v1_6.news_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Cancellation Report Message
-  if message_type == 0x78 then
-    return bme_bmeequities_replay_bmegate_v1_6.security_list_cancellation_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if message_type == 0x84 then
-    return bme_bmeequities_replay_bmegate_v1_6.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Message
-  if message_type == 0x79 then
-    return bme_bmeequities_replay_bmegate_v1_6.security_list_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Update Report Message
-  if message_type == 0x80 then
-    return bme_bmeequities_replay_bmegate_v1_6.security_list_update_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 0x66 then
-    return bme_bmeequities_replay_bmegate_v1_6.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Clear Message
-  if message_type == 0x81 then
-    return bme_bmeequities_replay_bmegate_v1_6.order_book_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Market Pre Transparency Information Message
-  if message_type == 0x03 then
-    return bme_bmeequities_replay_bmegate_v1_6.order_market_pre_transparency_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Market Pre Transparency Information Message
-  if message_type == 0x07 then
-    return bme_bmeequities_replay_bmegate_v1_6.quote_market_pre_transparency_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Market Member Message
-  if message_type == 0x01 then
-    return bme_bmeequities_replay_bmegate_v1_6.order_cancellation_market_member_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancellation Market Member Message
-  if message_type == 0x05 then
-    return bme_bmeequities_replay_bmegate_v1_6.quote_cancellation_market_member_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Market Post Transparency Information Topofbook Message
-  if message_type == 0x10 then
-    return bme_bmeequities_replay_bmegate_v1_6.trade_market_post_transparency_information_topofbook_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Trade Amendment Or Cancellation Message
-  if message_type == 0x18 then
-    return bme_bmeequities_replay_bmegate_v1_6.trade_trade_amendment_or_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Market Post Transparency Information Full Depth Message
-  if message_type == 0x11 then
-    return bme_bmeequities_replay_bmegate_v1_6.trade_market_post_transparency_information_full_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Topofbook Message
-  if message_type == 0x82 then
-    return bme_bmeequities_replay_bmegate_v1_6.topofbook_message.dissect(buffer, offset, packet, parent)
+  local dissect = bme_bmeequities_replay_bmegate_v1_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

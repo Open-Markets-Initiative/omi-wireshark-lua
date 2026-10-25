@@ -471,21 +471,15 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.halt_status = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.halt_status.size = 1
 
 -- Display: Halt Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.halt_status.display = function(value)
-  if value == "H" then
-    return "Halt Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Halt Status: Quote Only (Q)"
-  end
-  if value == "R" then
-    return "Halt Status: Opening Rotation (R)"
-  end
-  if value == "T" then
-    return "Halt Status: Trading (T)"
-  end
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.halt_status.labels = {
+  ["H"] = "Halt Status: Halted (H)",
+  ["Q"] = "Halt Status: Quote Only (Q)",
+  ["R"] = "Halt Status: Opening Rotation (R)",
+  ["T"] = "Halt Status: Trading (T)",
+}
 
-  return "Halt Status: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.halt_status.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.halt_status.labels[value] or "Halt Status: Unknown("..value..")"
 end
 
 -- Dissect: Halt Status
@@ -625,21 +619,15 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_center = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_center.size = 1
 
 -- Display: Market Center
-cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_center.display = function(value)
-  if value == "B" then
-    return "Market Center: C 1 (B)"
-  end
-  if value == "W" then
-    return "Market Center: C 2 (W)"
-  end
-  if value == "X" then
-    return "Market Center: Edgx (X)"
-  end
-  if value == "Z" then
-    return "Market Center: Bzx (Z)"
-  end
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_center.labels = {
+  ["B"] = "Market Center: C 1 (B)",
+  ["W"] = "Market Center: C 2 (W)",
+  ["X"] = "Market Center: Edgx (X)",
+  ["Z"] = "Market Center: Bzx (Z)",
+}
 
-  return "Market Center: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_center.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_center.labels[value] or "Market Center: Unknown("..value..")"
 end
 
 -- Dissect: Market Center
@@ -684,18 +672,14 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_status = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_status.size = 1
 
 -- Display: Market Status
-cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_status.display = function(value)
-  if value == "N" then
-    return "Market Status: Normal (N)"
-  end
-  if value == "E" then
-    return "Market Status: Excluded From Symbol Summary Updates (E)"
-  end
-  if value == "I" then
-    return "Market Status: Incomplete (I)"
-  end
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_status.labels = {
+  ["N"] = "Market Status: Normal (N)",
+  ["E"] = "Market Status: Excluded From Symbol Summary Updates (E)",
+  ["I"] = "Market Status: Incomplete (I)",
+}
 
-  return "Market Status: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_status.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.market_status.labels[value] or "Market Status: Unknown("..value..")"
 end
 
 -- Dissect: Market Status
@@ -763,30 +747,18 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.size = 1
 
 -- Display: Message Type
-cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.display = function(value)
-  if value == 0xA4 then
-    return "Message Type: Short Symbol Summary Message (0xA4)"
-  end
-  if value == 0xA3 then
-    return "Message Type: Long Symbol Summary Message (0xA3)"
-  end
-  if value == 0xA5 then
-    return "Message Type: Best Quote Update Message (0xA5)"
-  end
-  if value == 0xA6 then
-    return "Message Type: Cboe Market Status Message (0xA6)"
-  end
-  if value == 0xA9 then
-    return "Message Type: Trade Message (0xA9)"
-  end
-  if value == 0xAA then
-    return "Message Type: Trade Break Message (0xAA)"
-  end
-  if value == 0xAB then
-    return "Message Type: Trading Status Message (0xAB)"
-  end
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.labels = {
+  [0xA4] = "Message Type: Short Symbol Summary Message (0xA4)",
+  [0xA3] = "Message Type: Long Symbol Summary Message (0xA3)",
+  [0xA5] = "Message Type: Best Quote Update Message (0xA5)",
+  [0xA6] = "Message Type: Cboe Market Status Message (0xA6)",
+  [0xA9] = "Message Type: Trade Message (0xA9)",
+  [0xAA] = "Message Type: Trade Break Message (0xAA)",
+  [0xAB] = "Message Type: Trading Status Message (0xAB)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -923,15 +895,13 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.side_indicator = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Side (S)"
-  end
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Side (B)",
+  ["S"] = "Side Indicator: Sell Side (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.side_indicator.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1019,84 +989,36 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_condition = {}
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_condition.size = 1
 
 -- Display: Trade Condition
-cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_condition.display = function(value)
-  if value == "a" then
-    return "Trade Condition: Single Leg Auction Non Iso (a)"
-  end
-  if value == "b" then
-    return "Trade Condition: Single Leg Auction Iso (b)"
-  end
-  if value == "c" then
-    return "Trade Condition: Single Leg Cross Non Iso (c)"
-  end
-  if value == "d" then
-    return "Trade Condition: Single Leg Cross Iso (d)"
-  end
-  if value == "e" then
-    return "Trade Condition: Single Leg Floor Trade (e)"
-  end
-  if value == "f" then
-    return "Trade Condition: Complex To Complex Electronic Trade (f)"
-  end
-  if value == "g" then
-    return "Trade Condition: Complex Auction Trade (g)"
-  end
-  if value == "h" then
-    return "Trade Condition: Complex Cross (h)"
-  end
-  if value == "i" then
-    return "Trade Condition: Complex Floor Trade (i)"
-  end
-  if value == "j" then
-    return "Trade Condition: Complex Electronic Trade Against Single Legs (j)"
-  end
-  if value == "k" then
-    return "Trade Condition: Complex With Stock Options Auction Trade (k)"
-  end
-  if value == "m" then
-    return "Trade Condition: Complex Floor Trade Against Single Legs (m)"
-  end
-  if value == "n" then
-    return "Trade Condition: Complex With Stock Electronic Trade (n)"
-  end
-  if value == "o" then
-    return "Trade Condition: Complex With Stock Cross (o)"
-  end
-  if value == "p" then
-    return "Trade Condition: Complex With Stock Floor Trade (p)"
-  end
-  if value == "t" then
-    return "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)"
-  end
-  if value == "u" then
-    return "Trade Condition: Multilateral Compression Trade Of Proprietary Products (u)"
-  end
-  if value == "v" then
-    return "Trade Condition: Extended Hours Trade (v)"
-  end
-  if value == "I" then
-    return "Trade Condition: Electronic Trade (I)"
-  end
-  if value == "K" then
-    return "Trade Condition: Cabinet Order (K)"
-  end
-  if value == "M" then
-    return "Trade Condition: Future Options Auction Trade Electronic Execution Of A Multi Leg Futureoptions Order Traded In A Two Sided Auction (M)"
-  end
-  if value == "N" then
-    return "Trade Condition: Future Options Auto Electronic Trade Electronic Execution Of A Multi Leg Futureoptions Order Traded On The Complex Book Or In A Coa (N)"
-  end
-  if value == "O" then
-    return "Trade Condition: Opening Trade (O)"
-  end
-  if value == "P" then
-    return "Trade Condition: Future Options Cross Electronic Execution Of A Multi Leg Futureoptions Order Traded In A Two Sided Crossing Mechanism That Does Not Go Through An Exposure Period (P)"
-  end
-  if value == "S" then
-    return "Trade Condition: Iso (S)"
-  end
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_condition.labels = {
+  ["a"] = "Trade Condition: Single Leg Auction Non Iso (a)",
+  ["b"] = "Trade Condition: Single Leg Auction Iso (b)",
+  ["c"] = "Trade Condition: Single Leg Cross Non Iso (c)",
+  ["d"] = "Trade Condition: Single Leg Cross Iso (d)",
+  ["e"] = "Trade Condition: Single Leg Floor Trade (e)",
+  ["f"] = "Trade Condition: Complex To Complex Electronic Trade (f)",
+  ["g"] = "Trade Condition: Complex Auction Trade (g)",
+  ["h"] = "Trade Condition: Complex Cross (h)",
+  ["i"] = "Trade Condition: Complex Floor Trade (i)",
+  ["j"] = "Trade Condition: Complex Electronic Trade Against Single Legs (j)",
+  ["k"] = "Trade Condition: Complex With Stock Options Auction Trade (k)",
+  ["m"] = "Trade Condition: Complex Floor Trade Against Single Legs (m)",
+  ["n"] = "Trade Condition: Complex With Stock Electronic Trade (n)",
+  ["o"] = "Trade Condition: Complex With Stock Cross (o)",
+  ["p"] = "Trade Condition: Complex With Stock Floor Trade (p)",
+  ["t"] = "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)",
+  ["u"] = "Trade Condition: Multilateral Compression Trade Of Proprietary Products (u)",
+  ["v"] = "Trade Condition: Extended Hours Trade (v)",
+  ["I"] = "Trade Condition: Electronic Trade (I)",
+  ["K"] = "Trade Condition: Cabinet Order (K)",
+  ["M"] = "Trade Condition: Future Options Auction Trade Electronic Execution Of A Multi Leg Futureoptions Order Traded In A Two Sided Auction (M)",
+  ["N"] = "Trade Condition: Future Options Auto Electronic Trade Electronic Execution Of A Multi Leg Futureoptions Order Traded On The Complex Book Or In A Coa (N)",
+  ["O"] = "Trade Condition: Opening Trade (O)",
+  ["P"] = "Trade Condition: Future Options Cross Electronic Execution Of A Multi Leg Futureoptions Order Traded In A Two Sided Crossing Mechanism That Does Not Go Through An Exposure Period (P)",
+  ["S"] = "Trade Condition: Iso (S)",
+}
 
-  return "Trade Condition: Unknown("..value..")"
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_condition.display = function(value)
+  return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_condition.labels[value] or "Trade Condition: Unknown("..value..")"
 end
 
 -- Dissect: Trade Condition
@@ -1618,34 +1540,20 @@ end
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.payload = {}
 
 -- Dissect: Payload
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.payload.dispatch = {
+  [0xA4] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.short_symbol_summary_message.dissect,
+  [0xA3] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.long_symbol_summary_message.dissect,
+  [0xA5] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.best_quote_update_message.dissect,
+  [0xA6] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.cboe_market_status_message.dissect,
+  [0xA9] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_message.dissect,
+  [0xAA] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_break_message.dissect,
+  [0xAB] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trading_status_message.dissect,
+}
+
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Short Symbol Summary Message
-  if message_type == 0xA4 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.short_symbol_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Symbol Summary Message
-  if message_type == 0xA3 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.long_symbol_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Quote Update Message
-  if message_type == 0xA5 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.best_quote_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cboe Market Status Message
-  if message_type == 0xA6 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.cboe_market_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0xA9 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == 0xAA then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0xAB then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.trading_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1784,10 +1692,14 @@ end
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.messages = {}
 
 -- Dissect: Messages
+cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.messages.dispatch = {
+  [0] = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.heartbeat.dissect,
+}
+
 cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_titaniumconsolidated_oneoptions_pitch_v1_1_19.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

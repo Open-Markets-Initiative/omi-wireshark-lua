@@ -341,27 +341,17 @@ box_boxoptions_solaorderentry_sail_v2_25.account_type = {}
 box_boxoptions_solaorderentry_sail_v2_25.account_type.size = 1
 
 -- Display: Account Type
-box_boxoptions_solaorderentry_sail_v2_25.account_type.display = function(value)
-  if value == "6" then
-    return "Account Type: Public Customer (6)"
-  end
-  if value == "7" then
-    return "Account Type: Broker Dealer (7)"
-  end
-  if value == "8" then
-    return "Account Type: Market Maker (8)"
-  end
-  if value == "T" then
-    return "Account Type: Professional Customer (T)"
-  end
-  if value == "W" then
-    return "Account Type: Broker Dealer Cleared As Customer (W)"
-  end
-  if value == "X" then
-    return "Account Type: Away Market Maker (X)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.account_type.labels = {
+  ["6"] = "Account Type: Public Customer (6)",
+  ["7"] = "Account Type: Broker Dealer (7)",
+  ["8"] = "Account Type: Market Maker (8)",
+  ["T"] = "Account Type: Professional Customer (T)",
+  ["W"] = "Account Type: Broker Dealer Cleared As Customer (W)",
+  ["X"] = "Account Type: Away Market Maker (X)",
+}
 
-  return "Account Type: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.account_type.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.account_type.labels[value] or "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -406,18 +396,14 @@ box_boxoptions_solaorderentry_sail_v2_25.action = {}
 box_boxoptions_solaorderentry_sail_v2_25.action.size = 1
 
 -- Display: Action
-box_boxoptions_solaorderentry_sail_v2_25.action.display = function(value)
-  if value == "Q" then
-    return "Action: Quantity Update (Q)"
-  end
-  if value == "S" then
-    return "Action: Shelved (S)"
-  end
-  if value == "U" then
-    return "Action: Unshelved (U)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.action.labels = {
+  ["Q"] = "Action: Quantity Update (Q)",
+  ["S"] = "Action: Shelved (S)",
+  ["U"] = "Action: Unshelved (U)",
+}
 
-  return "Action: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.action.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -439,15 +425,13 @@ box_boxoptions_solaorderentry_sail_v2_25.active_y_on_n_off = {}
 box_boxoptions_solaorderentry_sail_v2_25.active_y_on_n_off.size = 1
 
 -- Display: Active Y On N Off
-box_boxoptions_solaorderentry_sail_v2_25.active_y_on_n_off.display = function(value)
-  if value == "Y" then
-    return "Active Y On N Off: Yes (Y)"
-  end
-  if value == "N" then
-    return "Active Y On N Off: No (N)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.active_y_on_n_off.labels = {
+  ["Y"] = "Active Y On N Off: Yes (Y)",
+  ["N"] = "Active Y On N Off: No (N)",
+}
 
-  return "Active Y On N Off: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.active_y_on_n_off.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.active_y_on_n_off.labels[value] or "Active Y On N Off: Unknown("..value..")"
 end
 
 -- Dissect: Active Y On N Off
@@ -948,27 +932,17 @@ box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type = {}
 box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.size = 1
 
 -- Display: Counterpart Account Type
-box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.display = function(value)
-  if value == "6" then
-    return "Counterpart Account Type: Public Customer (6)"
-  end
-  if value == "7" then
-    return "Counterpart Account Type: Broker Dealer (7)"
-  end
-  if value == "8" then
-    return "Counterpart Account Type: Market Maker (8)"
-  end
-  if value == "T" then
-    return "Counterpart Account Type: Professional Customer (T)"
-  end
-  if value == "W" then
-    return "Counterpart Account Type: Broker Dealer Cleared As Customer (W)"
-  end
-  if value == "X" then
-    return "Counterpart Account Type: Away Market Maker (X)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.labels = {
+  ["6"] = "Counterpart Account Type: Public Customer (6)",
+  ["7"] = "Counterpart Account Type: Broker Dealer (7)",
+  ["8"] = "Counterpart Account Type: Market Maker (8)",
+  ["T"] = "Counterpart Account Type: Professional Customer (T)",
+  ["W"] = "Counterpart Account Type: Broker Dealer Cleared As Customer (W)",
+  ["X"] = "Counterpart Account Type: Away Market Maker (X)",
+}
 
-  return "Counterpart Account Type: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.labels[value] or "Counterpart Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Counterpart Account Type
@@ -1044,21 +1018,15 @@ box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_note_cancel_q
 box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_note_cancel_quotes_only_q_quotes_only.size = 1
 
 -- Display: Disconnection Instruction Note Cancel Quotes Only Q Quotes Only
-box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_note_cancel_quotes_only_q_quotes_only.display = function(value)
-  if value == "A" then
-    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: All (A)"
-  end
-  if value == "L" then
-    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Locked (L)"
-  end
-  if value == "O" then
-    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Orders Only (O)"
-  end
-  if value == "Q" then
-    return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Quotes Only (Q)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_note_cancel_quotes_only_q_quotes_only.labels = {
+  ["A"] = "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: All (A)",
+  ["L"] = "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Locked (L)",
+  ["O"] = "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Orders Only (O)",
+  ["Q"] = "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Quotes Only (Q)",
+}
 
-  return "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_note_cancel_quotes_only_q_quotes_only.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_note_cancel_quotes_only_q_quotes_only.labels[value] or "Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Unknown("..value..")"
 end
 
 -- Dissect: Disconnection Instruction Note Cancel Quotes Only Q Quotes Only
@@ -1080,27 +1048,17 @@ box_boxoptions_solaorderentry_sail_v2_25.duration_type = {}
 box_boxoptions_solaorderentry_sail_v2_25.duration_type.size = 1
 
 -- Display: Duration Type
-box_boxoptions_solaorderentry_sail_v2_25.duration_type.display = function(value)
-  if value == "A" then
-    return "Duration Type: Auction Or Kill (A)"
-  end
-  if value == "D" then
-    return "Duration Type: Order Is Valid Until Gtd Date Gtd (D)"
-  end
-  if value == "E" then
-    return "Duration Type: Immediate Order Cannot Be Booked Fak (E)"
-  end
-  if value == "F" then
-    return "Duration Type: Valid Until Instrument Expiration Gtc (F)"
-  end
-  if value == "J" then
-    return "Duration Type: Valid For The Current Day Only Day (J)"
-  end
-  if value == "W" then
-    return "Duration Type: Valid For The Current Session Order Only (W)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.duration_type.labels = {
+  ["A"] = "Duration Type: Auction Or Kill (A)",
+  ["D"] = "Duration Type: Order Is Valid Until Gtd Date Gtd (D)",
+  ["E"] = "Duration Type: Immediate Order Cannot Be Booked Fak (E)",
+  ["F"] = "Duration Type: Valid Until Instrument Expiration Gtc (F)",
+  ["J"] = "Duration Type: Valid For The Current Day Only Day (J)",
+  ["W"] = "Duration Type: Valid For The Current Session Order Only (W)",
+}
 
-  return "Duration Type: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.duration_type.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.duration_type.labels[value] or "Duration Type: Unknown("..value..")"
 end
 
 -- Dissect: Duration Type
@@ -1122,15 +1080,13 @@ box_boxoptions_solaorderentry_sail_v2_25.enabled_y_yes_n_no = {}
 box_boxoptions_solaorderentry_sail_v2_25.enabled_y_yes_n_no.size = 1
 
 -- Display: Enabled Y Yes N No
-box_boxoptions_solaorderentry_sail_v2_25.enabled_y_yes_n_no.display = function(value)
-  if value == "Y" then
-    return "Enabled Y Yes N No: Yes (Y)"
-  end
-  if value == "N" then
-    return "Enabled Y Yes N No: No (N)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.enabled_y_yes_n_no.labels = {
+  ["Y"] = "Enabled Y Yes N No: Yes (Y)",
+  ["N"] = "Enabled Y Yes N No: No (N)",
+}
 
-  return "Enabled Y Yes N No: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.enabled_y_yes_n_no.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.enabled_y_yes_n_no.labels[value] or "Enabled Y Yes N No: Unknown("..value..")"
 end
 
 -- Dissect: Enabled Y Yes N No
@@ -1523,39 +1479,21 @@ box_boxoptions_solaorderentry_sail_v2_25.group_state = {}
 box_boxoptions_solaorderentry_sail_v2_25.group_state.size = 1
 
 -- Display: Group State
-box_boxoptions_solaorderentry_sail_v2_25.group_state.display = function(value)
-  if value == "B" then
-    return "Group State: Post Session (B)"
-  end
-  if value == "C" then
-    return "Group State: Consultation Start (C)"
-  end
-  if value == "F" then
-    return "Group State: Consultation End (F)"
-  end
-  if value == "I" then
-    return "Group State: Prohibited (I)"
-  end
-  if value == "M" then
-    return "Group State: Minibatch (M)"
-  end
-  if value == "N" then
-    return "Group State: Market Operation Center Intervention (N)"
-  end
-  if value == "O" then
-    return "Group State: Opening (O)"
-  end
-  if value == "P" then
-    return "Group State: Preopening (P)"
-  end
-  if value == "S" then
-    return "Group State: Continuous Trading Session (S)"
-  end
-  if value == "Z" then
-    return "Group State: Interrupted (Z)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.group_state.labels = {
+  ["B"] = "Group State: Post Session (B)",
+  ["C"] = "Group State: Consultation Start (C)",
+  ["F"] = "Group State: Consultation End (F)",
+  ["I"] = "Group State: Prohibited (I)",
+  ["M"] = "Group State: Minibatch (M)",
+  ["N"] = "Group State: Market Operation Center Intervention (N)",
+  ["O"] = "Group State: Opening (O)",
+  ["P"] = "Group State: Preopening (P)",
+  ["S"] = "Group State: Continuous Trading Session (S)",
+  ["Z"] = "Group State: Interrupted (Z)",
+}
 
-  return "Group State: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.group_state.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.group_state.labels[value] or "Group State: Unknown("..value..")"
 end
 
 -- Dissect: Group State
@@ -1600,15 +1538,13 @@ box_boxoptions_solaorderentry_sail_v2_25.hedge_spec = {}
 box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.size = 1
 
 -- Display: Hedge Spec
-box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.display = function(value)
-  if value == "H" then
-    return "Hedge Spec: Hedger (H)"
-  end
-  if value == "S" then
-    return "Hedge Spec: Speculator (S)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.labels = {
+  ["H"] = "Hedge Spec: Hedger (H)",
+  ["S"] = "Hedge Spec: Speculator (S)",
+}
 
-  return "Hedge Spec: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.labels[value] or "Hedge Spec: Unknown("..value..")"
 end
 
 -- Dissect: Hedge Spec
@@ -1966,15 +1902,13 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_verb = {}
 box_boxoptions_solaorderentry_sail_v2_25.leg_verb.size = 1
 
 -- Display: Leg Verb
-box_boxoptions_solaorderentry_sail_v2_25.leg_verb.display = function(value)
-  if value == "B" then
-    return "Leg Verb: Buy (B)"
-  end
-  if value == "S" then
-    return "Leg Verb: Sell (S)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.leg_verb.labels = {
+  ["B"] = "Leg Verb: Buy (B)",
+  ["S"] = "Leg Verb: Sell (S)",
+}
 
-  return "Leg Verb: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.leg_verb.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.leg_verb.labels[value] or "Leg Verb: Unknown("..value..")"
 end
 
 -- Dissect: Leg Verb
@@ -1996,15 +1930,13 @@ box_boxoptions_solaorderentry_sail_v2_25.liquidity_status = {}
 box_boxoptions_solaorderentry_sail_v2_25.liquidity_status.size = 1
 
 -- Display: Liquidity Status
-box_boxoptions_solaorderentry_sail_v2_25.liquidity_status.display = function(value)
-  if value == "M" then
-    return "Liquidity Status: Maker (M)"
-  end
-  if value == "T" then
-    return "Liquidity Status: Taker (T)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.liquidity_status.labels = {
+  ["M"] = "Liquidity Status: Maker (M)",
+  ["T"] = "Liquidity Status: Taker (T)",
+}
 
-  return "Liquidity Status: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.liquidity_status.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.liquidity_status.labels[value] or "Liquidity Status: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Status
@@ -2283,171 +2215,65 @@ box_boxoptions_solaorderentry_sail_v2_25.message_type = {}
 box_boxoptions_solaorderentry_sail_v2_25.message_type.size = 2
 
 -- Display: Message Type
-box_boxoptions_solaorderentry_sail_v2_25.message_type.display = function(value)
-  if value == "TC" then
-    return "Message Type: User Connection (TC)"
-  end
-  if value == "TD" then
-    return "Message Type: User Disconnection (TD)"
-  end
-  if value == "TA" then
-    return "Message Type: Disconnection Instruction (TA)"
-  end
-  if value == "TH" then
-    return "Message Type: Heartbeat Question (TH)"
-  end
-  if value == "TI" then
-    return "Message Type: Heartbeat Response (TI)"
-  end
-  if value == "TO" then
-    return "Message Type: Out Of Sequence (TO)"
-  end
-  if value == "TE" then
-    return "Message Type: Technical Error Notice (TE)"
-  end
-  if value == "TM" then
-    return "Message Type: Disconnection Instruction Acknowledgement (TM)"
-  end
-  if value == "TK" then
-    return "Message Type: Connection Acknowledgement (TK)"
-  end
-  if value == "TL" then
-    return "Message Type: Disconnection Acknowledgement (TL)"
-  end
-  if value == "TT" then
-    return "Message Type: End Of Transmission (TT)"
-  end
-  if value == "BD" then
-    return "Message Type: Bulk Quote Data (BD)"
-  end
-  if value == "ER" then
-    return "Message Type: Error Notice (ER)"
-  end
-  if value == "GC" then
-    return "Message Type: Global Cancellation (GC)"
-  end
-  if value == "GZ" then
-    return "Message Type: User Global Cancellation (GZ)"
-  end
-  if value == "KD" then
-    return "Message Type: Bulk Quote Data Acknowledgement (KD)"
-  end
-  if value == "KE" then
-    return "Message Type: Order Acknowledgement (KE)"
-  end
-  if value == "KG" then
-    return "Message Type: Global Cancellation Confirmation (KG)"
-  end
-  if value == "KI" then
-    return "Message Type: Improvement Order Acknowlegment (KI)"
-  end
-  if value == "KM" then
-    return "Message Type: Order Modification Acknowledgement (KM)"
-  end
-  if value == "KN" then
-    return "Message Type: New Complex Order Instrument Acknowledgement (KN)"
-  end
-  if value == "KO" then
-    return "Message Type: Standard Acknowledgement (KO)"
-  end
-  if value == "KQ" then
-    return "Message Type: Directed Routed Order Rejection And Quote (KQ)"
-  end
-  if value == "KT" then
-    return "Message Type: Complex Order Auction Acknowledgement (KT)"
-  end
-  if value == "KY" then
-    return "Message Type: Auction Or Improvement Cancellation Acknowledgement (KY)"
-  end
-  if value == "KZ" then
-    return "Message Type: Order Cancellation Acknowledgement (KZ)"
-  end
-  if value == "LA" then
-    return "Message Type: Bulk Quote Acknowledgement (LA)"
-  end
-  if value == "MU" then
-    return "Message Type: Trader Status (MU)"
-  end
-  if value == "NC" then
-    return "Message Type: Directed Order Cancellation Notice (NC)"
-  end
-  if value == "ND" then
-    return "Message Type: Directed Order Notice (ND)"
-  end
-  if value == "NE" then
-    return "Message Type: Excluded Instrument Notice (NE)"
-  end
-  if value == "NG" then
-    return "Message Type: Group State Change (NG)"
-  end
-  if value == "NL" then
-    return "Message Type: Leg Execution Notice (NL)"
-  end
-  if value == "NP" then
-    return "Message Type: Cancellation Of All Quotes Notices (NP)"
-  end
-  if value == "NQ" then
-    return "Message Type: Quality Market Maker Notification (NQ)"
-  end
-  if value == "NT" then
-    return "Message Type: Execution Notice (NT)"
-  end
-  if value == "NU" then
-    return "Message Type: Quote Notice (NU)"
-  end
-  if value == "NX" then
-    return "Message Type: Execution Cancellation Notice (NX)"
-  end
-  if value == "NY" then
-    return "Message Type: Leg Execution Cancellation Notice (NY)"
-  end
-  if value == "NZ" then
-    return "Message Type: Order Cancellation Notice By System (NZ)"
-  end
-  if value == "OA" then
-    return "Message Type: Auction Entry (OA)"
-  end
-  if value == "OD" then
-    return "Message Type: Directed Order Acceptation (OD)"
-  end
-  if value == "OE" then
-    return "Message Type: Order Entry (OE)"
-  end
-  if value == "OI" then
-    return "Message Type: Improvement Order Entry (OI)"
-  end
-  if value == "OM" then
-    return "Message Type: Order Modification (OM)"
-  end
-  if value == "ON" then
-    return "Message Type: New Complex Order Instrument (ON)"
-  end
-  if value == "OT" then
-    return "Message Type: Complex Order Auction Entry (OT)"
-  end
-  if value == "QP" then
-    return "Message Type: Bulk Quote (QP)"
-  end
-  if value == "RE" then
-    return "Message Type: Executing Participant Connection (RE)"
-  end
-  if value == "RF" then
-    return "Message Type: Executing Participant Disconnection (RF)"
-  end
-  if value == "RP" then
-    return "Message Type: Market Maker Protection Subscription (RP)"
-  end
-  if value == "RQ" then
-    return "Message Type: Request For Quote (RQ)"
-  end
-  if value == "XE" then
-    return "Message Type: Order Cancellation (XE)"
-  end
-  if value == "XI" then
-    return "Message Type: Improvement Order Cancellation (XI)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.message_type.labels = {
+  ["TC"] = "Message Type: User Connection (TC)",
+  ["TD"] = "Message Type: User Disconnection (TD)",
+  ["TA"] = "Message Type: Disconnection Instruction (TA)",
+  ["TH"] = "Message Type: Heartbeat Question (TH)",
+  ["TI"] = "Message Type: Heartbeat Response (TI)",
+  ["TO"] = "Message Type: Out Of Sequence (TO)",
+  ["TE"] = "Message Type: Technical Error Notice (TE)",
+  ["TM"] = "Message Type: Disconnection Instruction Acknowledgement (TM)",
+  ["TK"] = "Message Type: Connection Acknowledgement (TK)",
+  ["TL"] = "Message Type: Disconnection Acknowledgement (TL)",
+  ["TT"] = "Message Type: End Of Transmission (TT)",
+  ["BD"] = "Message Type: Bulk Quote Data (BD)",
+  ["ER"] = "Message Type: Error Notice (ER)",
+  ["GC"] = "Message Type: Global Cancellation (GC)",
+  ["GZ"] = "Message Type: User Global Cancellation (GZ)",
+  ["KD"] = "Message Type: Bulk Quote Data Acknowledgement (KD)",
+  ["KE"] = "Message Type: Order Acknowledgement (KE)",
+  ["KG"] = "Message Type: Global Cancellation Confirmation (KG)",
+  ["KI"] = "Message Type: Improvement Order Acknowlegment (KI)",
+  ["KM"] = "Message Type: Order Modification Acknowledgement (KM)",
+  ["KN"] = "Message Type: New Complex Order Instrument Acknowledgement (KN)",
+  ["KO"] = "Message Type: Standard Acknowledgement (KO)",
+  ["KQ"] = "Message Type: Directed Routed Order Rejection And Quote (KQ)",
+  ["KT"] = "Message Type: Complex Order Auction Acknowledgement (KT)",
+  ["KY"] = "Message Type: Auction Or Improvement Cancellation Acknowledgement (KY)",
+  ["KZ"] = "Message Type: Order Cancellation Acknowledgement (KZ)",
+  ["LA"] = "Message Type: Bulk Quote Acknowledgement (LA)",
+  ["MU"] = "Message Type: Trader Status (MU)",
+  ["NC"] = "Message Type: Directed Order Cancellation Notice (NC)",
+  ["ND"] = "Message Type: Directed Order Notice (ND)",
+  ["NE"] = "Message Type: Excluded Instrument Notice (NE)",
+  ["NG"] = "Message Type: Group State Change (NG)",
+  ["NL"] = "Message Type: Leg Execution Notice (NL)",
+  ["NP"] = "Message Type: Cancellation Of All Quotes Notices (NP)",
+  ["NQ"] = "Message Type: Quality Market Maker Notification (NQ)",
+  ["NT"] = "Message Type: Execution Notice (NT)",
+  ["NU"] = "Message Type: Quote Notice (NU)",
+  ["NX"] = "Message Type: Execution Cancellation Notice (NX)",
+  ["NY"] = "Message Type: Leg Execution Cancellation Notice (NY)",
+  ["NZ"] = "Message Type: Order Cancellation Notice By System (NZ)",
+  ["OA"] = "Message Type: Auction Entry (OA)",
+  ["OD"] = "Message Type: Directed Order Acceptation (OD)",
+  ["OE"] = "Message Type: Order Entry (OE)",
+  ["OI"] = "Message Type: Improvement Order Entry (OI)",
+  ["OM"] = "Message Type: Order Modification (OM)",
+  ["ON"] = "Message Type: New Complex Order Instrument (ON)",
+  ["OT"] = "Message Type: Complex Order Auction Entry (OT)",
+  ["QP"] = "Message Type: Bulk Quote (QP)",
+  ["RE"] = "Message Type: Executing Participant Connection (RE)",
+  ["RF"] = "Message Type: Executing Participant Disconnection (RF)",
+  ["RP"] = "Message Type: Market Maker Protection Subscription (RP)",
+  ["RQ"] = "Message Type: Request For Quote (RQ)",
+  ["XE"] = "Message Type: Order Cancellation (XE)",
+  ["XI"] = "Message Type: Improvement Order Cancellation (XI)",
+}
 
-  return "Message Type: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.message_type.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -2809,81 +2635,35 @@ box_boxoptions_solaorderentry_sail_v2_25.open_close = {}
 box_boxoptions_solaorderentry_sail_v2_25.open_close.size = 1
 
 -- Display: Open Close
-box_boxoptions_solaorderentry_sail_v2_25.open_close.display = function(value)
-  if value == "C" then
-    return "Open Close: Close All Legs Or Single Instrument (C)"
-  end
-  if value == "O" then
-    return "Open Close: Open All Legs Or Single Instrument For Complex Orders Must Be Used It Indicates That The Open Close Positions Are Specified In The Post Trading Instruction Field For Legacy Support The Following Values Are Still Supported For Complex Orders (O)"
-  end
-  if value == "1" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Close (1)"
-  end
-  if value == "2" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Open (2)"
-  end
-  if value == "3" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Open 3 Rd Leg Close (3)"
-  end
-  if value == "4" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Open (4)"
-  end
-  if value == "5" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Close (5)"
-  end
-  if value == "6" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Open (6)"
-  end
-  if value == "7" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Close (7)"
-  end
-  if value == "8" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Close 3 Rd Leg Open (8)"
-  end
-  if value == "A" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Open 3 Rd Leg Open 4 Th Leg Close (A)"
-  end
-  if value == "B" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Open 3 Rd Leg Close 4 Th Leg Open (B)"
-  end
-  if value == "D" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Open 3 Rd Leg Close 4 Th Leg Close (D)"
-  end
-  if value == "E" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Open 4 Th Leg Open (E)"
-  end
-  if value == "F" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Open 4 Th Leg Close (F)"
-  end
-  if value == "G" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Close 4 Th Leg Open (G)"
-  end
-  if value == "H" then
-    return "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Close 4 Th Leg Close (H)"
-  end
-  if value == "I" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Open 4 Th Leg Open (I)"
-  end
-  if value == "J" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Open 4 Th Leg Close (J)"
-  end
-  if value == "K" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Close 4 Th Leg Open (K)"
-  end
-  if value == "L" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Close 4 Th Leg Close (L)"
-  end
-  if value == "M" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Close 3 Rd Leg Open 4 Th Leg Open (M)"
-  end
-  if value == "N" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Close 3 Rd Leg Open 4 Th Leg Close (N)"
-  end
-  if value == "P" then
-    return "Open Close: Legs 1 St Leg Close 2 Nd Leg Close 3 Rd Leg Close 4 Th Leg Open (P)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.open_close.labels = {
+  ["C"] = "Open Close: Close All Legs Or Single Instrument (C)",
+  ["O"] = "Open Close: Open All Legs Or Single Instrument For Complex Orders Must Be Used It Indicates That The Open Close Positions Are Specified In The Post Trading Instruction Field For Legacy Support The Following Values Are Still Supported For Complex Orders (O)",
+  ["1"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Close (1)",
+  ["2"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Open (2)",
+  ["3"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Open 3 Rd Leg Close (3)",
+  ["4"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Open (4)",
+  ["5"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Close (5)",
+  ["6"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Open (6)",
+  ["7"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Close (7)",
+  ["8"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Close 3 Rd Leg Open (8)",
+  ["A"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Open 3 Rd Leg Open 4 Th Leg Close (A)",
+  ["B"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Open 3 Rd Leg Close 4 Th Leg Open (B)",
+  ["D"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Open 3 Rd Leg Close 4 Th Leg Close (D)",
+  ["E"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Open 4 Th Leg Open (E)",
+  ["F"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Open 4 Th Leg Close (F)",
+  ["G"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Close 4 Th Leg Open (G)",
+  ["H"] = "Open Close: Legs 1 St Leg Open 2 Nd Leg Close 3 Rd Leg Close 4 Th Leg Close (H)",
+  ["I"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Open 4 Th Leg Open (I)",
+  ["J"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Open 4 Th Leg Close (J)",
+  ["K"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Close 4 Th Leg Open (K)",
+  ["L"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Open 3 Rd Leg Close 4 Th Leg Close (L)",
+  ["M"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Close 3 Rd Leg Open 4 Th Leg Open (M)",
+  ["N"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Close 3 Rd Leg Open 4 Th Leg Close (N)",
+  ["P"] = "Open Close: Legs 1 St Leg Close 2 Nd Leg Close 3 Rd Leg Close 4 Th Leg Open (P)",
+}
 
-  return "Open Close: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.open_close.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.open_close.labels[value] or "Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Open Close
@@ -2956,15 +2736,13 @@ box_boxoptions_solaorderentry_sail_v2_25.order_type = {}
 box_boxoptions_solaorderentry_sail_v2_25.order_type.size = 1
 
 -- Display: Order Type
-box_boxoptions_solaorderentry_sail_v2_25.order_type.display = function(value)
-  if value == "O" then
-    return "Order Type: Order (O)"
-  end
-  if value == "Q" then
-    return "Order Type: Quote (Q)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.order_type.labels = {
+  ["O"] = "Order Type: Order (O)",
+  ["Q"] = "Order Type: Quote (Q)",
+}
 
-  return "Order Type: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.order_type.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -3337,18 +3115,14 @@ box_boxoptions_solaorderentry_sail_v2_25.price_type = {}
 box_boxoptions_solaorderentry_sail_v2_25.price_type.size = 1
 
 -- Display: Price Type
-box_boxoptions_solaorderentry_sail_v2_25.price_type.display = function(value)
-  if value == "L" then
-    return "Price Type: Limit Price Set In Message (L)"
-  end
-  if value == "O" then
-    return "Price Type: At Opening Price (O)"
-  end
-  if value == "W" then
-    return "Price Type: At Any Price Market Order (W)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.price_type.labels = {
+  ["L"] = "Price Type: Limit Price Set In Message (L)",
+  ["O"] = "Price Type: At Opening Price (O)",
+  ["W"] = "Price Type: At Any Price Market Order (W)",
+}
 
-  return "Price Type: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.price_type.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -3370,18 +3144,14 @@ box_boxoptions_solaorderentry_sail_v2_25.protection_type_advanced_normal = {}
 box_boxoptions_solaorderentry_sail_v2_25.protection_type_advanced_normal.size = 1
 
 -- Display: Protection Type Advanced Normal
-box_boxoptions_solaorderentry_sail_v2_25.protection_type_advanced_normal.display = function(value)
-  if value == "A" then
-    return "Protection Type Advanced Normal: Advanced Protection (A)"
-  end
-  if value == "C" then
-    return "Protection Type Advanced Normal: Functionally Equivalent To N (C)"
-  end
-  if value == "N" then
-    return "Protection Type Advanced Normal: Standard Protection (N)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.protection_type_advanced_normal.labels = {
+  ["A"] = "Protection Type Advanced Normal: Advanced Protection (A)",
+  ["C"] = "Protection Type Advanced Normal: Functionally Equivalent To N (C)",
+  ["N"] = "Protection Type Advanced Normal: Standard Protection (N)",
+}
 
-  return "Protection Type Advanced Normal: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.protection_type_advanced_normal.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.protection_type_advanced_normal.labels[value] or "Protection Type Advanced Normal: Unknown("..value..")"
 end
 
 -- Dissect: Protection Type Advanced Normal
@@ -3403,12 +3173,12 @@ box_boxoptions_solaorderentry_sail_v2_25.protocol_version = {}
 box_boxoptions_solaorderentry_sail_v2_25.protocol_version.size = 2
 
 -- Display: Protocol Version
-box_boxoptions_solaorderentry_sail_v2_25.protocol_version.display = function(value)
-  if value == "ID" then
-    return "Protocol Version: Versions A 0 A 1 A 2 And A 5 Are No Longer Supported A 6 Includes Complex Order A 7 A 8 B 1 B 3 (ID)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.protocol_version.labels = {
+  ["ID"] = "Protocol Version: Versions A 0 A 1 A 2 And A 5 Are No Longer Supported A 6 Includes Complex Order A 7 A 8 B 1 B 3 (ID)",
+}
 
-  return "Protocol Version: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.protocol_version.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.protocol_version.labels[value] or "Protocol Version: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Version
@@ -3633,57 +3403,27 @@ box_boxoptions_solaorderentry_sail_v2_25.quote_cancel_reason = {}
 box_boxoptions_solaorderentry_sail_v2_25.quote_cancel_reason.size = 1
 
 -- Display: Quote Cancel Reason
-box_boxoptions_solaorderentry_sail_v2_25.quote_cancel_reason.display = function(value)
-  if value == "A" then
-    return "Quote Cancel Reason: Cancelled By The Trader (A)"
-  end
-  if value == "D" then
-    return "Quote Cancel Reason: Mmp Percent Of Quote Has Been Reached (D)"
-  end
-  if value == "E" then
-    return "Quote Cancel Reason: Maximum Triggers Protection Limit Exceeded (E)"
-  end
-  if value == "G" then
-    return "Quote Cancel Reason: Cancelled By Supervisor (G)"
-  end
-  if value == "I" then
-    return "Quote Cancel Reason: Eliminated On Disconnect (I)"
-  end
-  if value == "L" then
-    return "Quote Cancel Reason: Traded Activity Protection Limit Exceeded (L)"
-  end
-  if value == "M" then
-    return "Quote Cancel Reason: Cancelled By The Box Market Operations Center Moc (M)"
-  end
-  if value == "O" then
-    return "Quote Cancel Reason: Eliminated Due To Drill Through Protection (O)"
-  end
-  if value == "P" then
-    return "Quote Cancel Reason: Mmp Max Number Of Trades Has Been Reached (P)"
-  end
-  if value == "Q" then
-    return "Quote Cancel Reason: Quotes Cancelled (Q)"
-  end
-  if value == "R" then
-    return "Quote Cancel Reason: Mmp Max Value Has Been Reached (R)"
-  end
-  if value == "S" then
-    return "Quote Cancel Reason: Cancelled By The System (S)"
-  end
-  if value == "T" then
-    return "Quote Cancel Reason: Mmp Max Volume Has Been Reached (T)"
-  end
-  if value == "N" then
-    return "Quote Cancel Reason: Mmp Max Delta Volume Has Been Reached (N)"
-  end
-  if value == "V" then
-    return "Quote Cancel Reason: Mmp Max Delta Value Has Been Reached (V)"
-  end
-  if value == "W" then
-    return "Quote Cancel Reason: Cancel Pending (W)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.quote_cancel_reason.labels = {
+  ["A"] = "Quote Cancel Reason: Cancelled By The Trader (A)",
+  ["D"] = "Quote Cancel Reason: Mmp Percent Of Quote Has Been Reached (D)",
+  ["E"] = "Quote Cancel Reason: Maximum Triggers Protection Limit Exceeded (E)",
+  ["G"] = "Quote Cancel Reason: Cancelled By Supervisor (G)",
+  ["I"] = "Quote Cancel Reason: Eliminated On Disconnect (I)",
+  ["L"] = "Quote Cancel Reason: Traded Activity Protection Limit Exceeded (L)",
+  ["M"] = "Quote Cancel Reason: Cancelled By The Box Market Operations Center Moc (M)",
+  ["O"] = "Quote Cancel Reason: Eliminated Due To Drill Through Protection (O)",
+  ["P"] = "Quote Cancel Reason: Mmp Max Number Of Trades Has Been Reached (P)",
+  ["Q"] = "Quote Cancel Reason: Quotes Cancelled (Q)",
+  ["R"] = "Quote Cancel Reason: Mmp Max Value Has Been Reached (R)",
+  ["S"] = "Quote Cancel Reason: Cancelled By The System (S)",
+  ["T"] = "Quote Cancel Reason: Mmp Max Volume Has Been Reached (T)",
+  ["N"] = "Quote Cancel Reason: Mmp Max Delta Volume Has Been Reached (N)",
+  ["V"] = "Quote Cancel Reason: Mmp Max Delta Value Has Been Reached (V)",
+  ["W"] = "Quote Cancel Reason: Cancel Pending (W)",
+}
 
-  return "Quote Cancel Reason: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.quote_cancel_reason.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.quote_cancel_reason.labels[value] or "Quote Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Quote Cancel Reason
@@ -3941,15 +3681,13 @@ box_boxoptions_solaorderentry_sail_v2_25.rejection_code = {}
 box_boxoptions_solaorderentry_sail_v2_25.rejection_code.size = 4
 
 -- Display: Rejection Code
-box_boxoptions_solaorderentry_sail_v2_25.rejection_code.display = function(value)
-  if value == 0001 then
-    return "Rejection Code: Executing Participant Discretion (0001)"
-  end
-  if value == 0002 then
-    return "Rejection Code: Auction Order Failed (0002)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.rejection_code.labels = {
+  [0001] = "Rejection Code: Executing Participant Discretion (0001)",
+  [0002] = "Rejection Code: Auction Order Failed (0002)",
+}
 
-  return "Rejection Code: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.rejection_code.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.rejection_code.labels[value] or "Rejection Code: Unknown("..value..")"
 end
 
 -- Dissect: Rejection Code
@@ -4140,15 +3878,13 @@ box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out = {}
 box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.size = 1
 
 -- Display: Risk Team Lock Out
-box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.display = function(value)
-  if value == "L" then
-    return "Risk Team Lock Out: Locked (L)"
-  end
-  if value == "U" then
-    return "Risk Team Lock Out: Unlocked The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (U)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.labels = {
+  ["L"] = "Risk Team Lock Out: Locked (L)",
+  ["U"] = "Risk Team Lock Out: Unlocked The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (U)",
+}
 
-  return "Risk Team Lock Out: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.labels[value] or "Risk Team Lock Out: Unknown("..value..")"
 end
 
 -- Dissect: Risk Team Lock Out
@@ -4272,33 +4008,19 @@ box_boxoptions_solaorderentry_sail_v2_25.special_price_term = {}
 box_boxoptions_solaorderentry_sail_v2_25.special_price_term.size = 1
 
 -- Display: Special Price Term
-box_boxoptions_solaorderentry_sail_v2_25.special_price_term.display = function(value)
-  if value == "B" then
-    return "Special Price Term: Solicitation Auction (B)"
-  end
-  if value == "C" then
-    return "Special Price Term: Facilitation Auction (C)"
-  end
-  if value == "G" then
-    return "Special Price Term: Regular Pip (G)"
-  end
-  if value == "X" then
-    return "Special Price Term: Customer Cross Order Or Qualified Contingent Cross Order (X)"
-  end
-  if value == "O" then
-    return "Special Price Term: Directed Order (O)"
-  end
-  if value == "P" then
-    return "Special Price Term: Preferenced Order (P)"
-  end
-  if value == "R" then
-    return "Special Price Term: Floor Trade (R)"
-  end
-  if value == "A" then
-    return "Special Price Term: Indication Of Interest (A)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.special_price_term.labels = {
+  ["B"] = "Special Price Term: Solicitation Auction (B)",
+  ["C"] = "Special Price Term: Facilitation Auction (C)",
+  ["G"] = "Special Price Term: Regular Pip (G)",
+  ["X"] = "Special Price Term: Customer Cross Order Or Qualified Contingent Cross Order (X)",
+  ["O"] = "Special Price Term: Directed Order (O)",
+  ["P"] = "Special Price Term: Preferenced Order (P)",
+  ["R"] = "Special Price Term: Floor Trade (R)",
+  ["A"] = "Special Price Term: Indication Of Interest (A)",
+}
 
-  return "Special Price Term: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.special_price_term.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.special_price_term.labels[value] or "Special Price Term: Unknown("..value..")"
 end
 
 -- Dissect: Special Price Term
@@ -4320,33 +4042,19 @@ box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator = {}
 box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator.size = 1
 
 -- Display: Special Trade Indicator
-box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator.display = function(value)
-  if value == "A" then
-    return "Special Trade Indicator: As Of Trade (A)"
-  end
-  if value == "B" then
-    return "Special Trade Indicator: Block Trade (B)"
-  end
-  if value == "L" then
-    return "Special Trade Indicator: Late Trade (L)"
-  end
-  if value == "O" then
-    return "Special Trade Indicator: Hidden Trade (O)"
-  end
-  if value == "S" then
-    return "Special Trade Indicator: Size Adjustment Trade (S)"
-  end
-  if value == "R" then
-    return "Special Trade Indicator: Floor Trade (R)"
-  end
-  if value == "D" then
-    return "Special Trade Indicator: Customer Cross Order Or Qualified Contingent Cross Order Applies To Solicitation Facilitation And Floor Trade Only (D)"
-  end
-  if value == "g" then
-    return "Special Trade Indicator: Contingent Trade Trade Was Not Controlled Against The Nbbo (g)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator.labels = {
+  ["A"] = "Special Trade Indicator: As Of Trade (A)",
+  ["B"] = "Special Trade Indicator: Block Trade (B)",
+  ["L"] = "Special Trade Indicator: Late Trade (L)",
+  ["O"] = "Special Trade Indicator: Hidden Trade (O)",
+  ["S"] = "Special Trade Indicator: Size Adjustment Trade (S)",
+  ["R"] = "Special Trade Indicator: Floor Trade (R)",
+  ["D"] = "Special Trade Indicator: Customer Cross Order Or Qualified Contingent Cross Order Applies To Solicitation Facilitation And Floor Trade Only (D)",
+  ["g"] = "Special Trade Indicator: Contingent Trade Trade Was Not Controlled Against The Nbbo (g)",
+}
 
-  return "Special Trade Indicator: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator.labels[value] or "Special Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Special Trade Indicator
@@ -4399,57 +4107,27 @@ box_boxoptions_solaorderentry_sail_v2_25.status = {}
 box_boxoptions_solaorderentry_sail_v2_25.status.size = 1
 
 -- Display: Status
-box_boxoptions_solaorderentry_sail_v2_25.status.display = function(value)
-  if value == "A" then
-    return "Status: Order Cancelled By The Trader Or At The End Of The Exposition Phase (A)"
-  end
-  if value == "B" then
-    return "Status: Order Has Been Eliminated By The Trading System Due To Invalid Out Of Limits Price (B)"
-  end
-  if value == "D" then
-    return "Status: The Order Is A Directed Routed Order And Has Been Received By Executing Participant (D)"
-  end
-  if value == "E" then
-    return "Status: The Order Has Been Eliminated By The Trading System (E)"
-  end
-  if value == "G" then
-    return "Status: Cancelled By Supervisor (G)"
-  end
-  if value == "I" then
-    return "Status: Session Order Has Been Cancelled When The Participant Closes Or Loses His Connection To The Sola Trading System (I)"
-  end
-  if value == "J" then
-    return "Status: Eliminated Due To Maximum Nb Triggers Limit Exceeded (J)"
-  end
-  if value == "K" then
-    return "Status: Eliminated Due To Trade Activity Limit Exceeded (K)"
-  end
-  if value == "L" then
-    return "Status: Order Has Been Sent To The Away Exchange (L)"
-  end
-  if value == "M" then
-    return "Status: Cancelled By The Box Market Operations Center Moc (M)"
-  end
-  if value == "O" then
-    return "Status: Eliminated Due To Drill Through Protection (O)"
-  end
-  if value == "P" then
-    return "Status: Order Is Being Exposed (P)"
-  end
-  if value == "R" then
-    return "Status: Order Is Eliminated Due To Trading Restriction (R)"
-  end
-  if value == "T" then
-    return "Status: Eliminated Due To Trade Limit Exceeded (T)"
-  end
-  if value == "W" then
-    return "Status: Cancel Pending (W)"
-  end
-  if value == "X" then
-    return "Status: Order Executed In Full Or Partially And The Remaining Part Could Not Be Put In The Order Book Fill Kill The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (X)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.status.labels = {
+  ["A"] = "Status: Order Cancelled By The Trader Or At The End Of The Exposition Phase (A)",
+  ["B"] = "Status: Order Has Been Eliminated By The Trading System Due To Invalid Out Of Limits Price (B)",
+  ["D"] = "Status: The Order Is A Directed Routed Order And Has Been Received By Executing Participant (D)",
+  ["E"] = "Status: The Order Has Been Eliminated By The Trading System (E)",
+  ["G"] = "Status: Cancelled By Supervisor (G)",
+  ["I"] = "Status: Session Order Has Been Cancelled When The Participant Closes Or Loses His Connection To The Sola Trading System (I)",
+  ["J"] = "Status: Eliminated Due To Maximum Nb Triggers Limit Exceeded (J)",
+  ["K"] = "Status: Eliminated Due To Trade Activity Limit Exceeded (K)",
+  ["L"] = "Status: Order Has Been Sent To The Away Exchange (L)",
+  ["M"] = "Status: Cancelled By The Box Market Operations Center Moc (M)",
+  ["O"] = "Status: Eliminated Due To Drill Through Protection (O)",
+  ["P"] = "Status: Order Is Being Exposed (P)",
+  ["R"] = "Status: Order Is Eliminated Due To Trading Restriction (R)",
+  ["T"] = "Status: Eliminated Due To Trade Limit Exceeded (T)",
+  ["W"] = "Status: Cancel Pending (W)",
+  ["X"] = "Status: Order Executed In Full Or Partially And The Remaining Part Could Not Be Put In The Order Book Fill Kill The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (X)",
+}
 
-  return "Status: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.status.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -4553,15 +4231,13 @@ box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side = {}
 box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.size = 1
 
 -- Display: Strategy Verb Side
-box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.display = function(value)
-  if value == "B" then
-    return "Strategy Verb Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Strategy Verb Side: Sell (S)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.labels = {
+  ["B"] = "Strategy Verb Side: Buy (B)",
+  ["S"] = "Strategy Verb Side: Sell (S)",
+}
 
-  return "Strategy Verb Side: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.labels[value] or "Strategy Verb Side: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Verb Side
@@ -4874,27 +4550,17 @@ box_boxoptions_solaorderentry_sail_v2_25.trade_type = {}
 box_boxoptions_solaorderentry_sail_v2_25.trade_type.size = 1
 
 -- Display: Trade Type
-box_boxoptions_solaorderentry_sail_v2_25.trade_type.display = function(value)
-  if value == "A" then
-    return "Trade Type: Traded During A Guaranteed Auction (A)"
-  end
-  if value == "B" then
-    return "Trade Type: Solicitation Auction (B)"
-  end
-  if value == "C" then
-    return "Trade Type: Facilitation Auction (C)"
-  end
-  if value == "F" then
-    return "Trade Type: Traded During Continuous Trading Following Fifo Algorithm (F)"
-  end
-  if value == "M" then
-    return "Trade Type: Trade Entered By Market Operations (M)"
-  end
-  if value == "O" then
-    return "Trade Type: Traded During Opening (O)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.trade_type.labels = {
+  ["A"] = "Trade Type: Traded During A Guaranteed Auction (A)",
+  ["B"] = "Trade Type: Solicitation Auction (B)",
+  ["C"] = "Trade Type: Facilitation Auction (C)",
+  ["F"] = "Trade Type: Traded During Continuous Trading Following Fifo Algorithm (F)",
+  ["M"] = "Trade Type: Trade Entered By Market Operations (M)",
+  ["O"] = "Trade Type: Traded During Opening (O)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.trade_type.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -4939,15 +4605,13 @@ box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out = {}
 box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.size = 1
 
 -- Display: Trader Lock Out
-box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.display = function(value)
-  if value == "L" then
-    return "Trader Lock Out: Locked (L)"
-  end
-  if value == "U" then
-    return "Trader Lock Out: Unlocked The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (U)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.labels = {
+  ["L"] = "Trader Lock Out: Locked (L)",
+  ["U"] = "Trader Lock Out: Unlocked The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (U)",
+}
 
-  return "Trader Lock Out: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.labels[value] or "Trader Lock Out: Unknown("..value..")"
 end
 
 -- Dissect: Trader Lock Out
@@ -4969,21 +4633,15 @@ box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation = {}
 box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation.size = 1
 
 -- Display: Type Of Cancellation
-box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation.display = function(value)
-  if value == "A" then
-    return "Type Of Cancellation: All (A)"
-  end
-  if value == "L" then
-    return "Type Of Cancellation: Locked (L)"
-  end
-  if value == "O" then
-    return "Type Of Cancellation: Orders Only (O)"
-  end
-  if value == "Q" then
-    return "Type Of Cancellation: Quotes Only (Q)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation.labels = {
+  ["A"] = "Type Of Cancellation: All (A)",
+  ["L"] = "Type Of Cancellation: Locked (L)",
+  ["O"] = "Type Of Cancellation: Orders Only (O)",
+  ["Q"] = "Type Of Cancellation: Quotes Only (Q)",
+}
 
-  return "Type Of Cancellation: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation.labels[value] or "Type Of Cancellation: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Cancellation
@@ -5090,15 +4748,13 @@ box_boxoptions_solaorderentry_sail_v2_25.verb = {}
 box_boxoptions_solaorderentry_sail_v2_25.verb.size = 1
 
 -- Display: Verb
-box_boxoptions_solaorderentry_sail_v2_25.verb.display = function(value)
-  if value == "B" then
-    return "Verb: Buy (B)"
-  end
-  if value == "S" then
-    return "Verb: Sell (S)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.verb.labels = {
+  ["B"] = "Verb: Buy (B)",
+  ["S"] = "Verb: Sell (S)",
+}
 
-  return "Verb: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.verb.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.verb.labels[value] or "Verb: Unknown("..value..")"
 end
 
 -- Dissect: Verb
@@ -5120,15 +4776,13 @@ box_boxoptions_solaorderentry_sail_v2_25.verb_side = {}
 box_boxoptions_solaorderentry_sail_v2_25.verb_side.size = 1
 
 -- Display: Verb Side
-box_boxoptions_solaorderentry_sail_v2_25.verb_side.display = function(value)
-  if value == "B" then
-    return "Verb Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Verb Side: Sell (S)"
-  end
+box_boxoptions_solaorderentry_sail_v2_25.verb_side.labels = {
+  ["B"] = "Verb Side: Buy (B)",
+  ["S"] = "Verb Side: Sell (S)",
+}
 
-  return "Verb Side: Unknown("..value..")"
+box_boxoptions_solaorderentry_sail_v2_25.verb_side.display = function(value)
+  return box_boxoptions_solaorderentry_sail_v2_25.verb_side.labels[value] or "Verb Side: Unknown("..value..")"
 end
 
 -- Dissect: Verb Side
@@ -7737,134 +7391,45 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.exchange_message = {}
 
 -- Dissect: Exchange Message
+box_boxoptions_solaorderentry_sail_v2_25.exchange_message.dispatch = {
+  ["TH"] = box_boxoptions_solaorderentry_sail_v2_25.heartbeat_question.dissect,
+  ["TO"] = box_boxoptions_solaorderentry_sail_v2_25.out_of_sequence.dissect,
+  ["TE"] = box_boxoptions_solaorderentry_sail_v2_25.technical_error_notice.dissect,
+  ["TM"] = box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_acknowledgement.dissect,
+  ["TK"] = box_boxoptions_solaorderentry_sail_v2_25.connection_acknowledgement.dissect,
+  ["TL"] = box_boxoptions_solaorderentry_sail_v2_25.disconnection_acknowledgement.dissect,
+  ["TT"] = box_boxoptions_solaorderentry_sail_v2_25.end_of_transmission.dissect,
+  ["ER"] = box_boxoptions_solaorderentry_sail_v2_25.error_notice.dissect,
+  ["KD"] = box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data_acknowledgement.dissect,
+  ["KE"] = box_boxoptions_solaorderentry_sail_v2_25.order_acknowledgement.dissect,
+  ["KG"] = box_boxoptions_solaorderentry_sail_v2_25.global_cancellation_confirmation.dissect,
+  ["KI"] = box_boxoptions_solaorderentry_sail_v2_25.improvement_order_acknowlegment.dissect,
+  ["KM"] = box_boxoptions_solaorderentry_sail_v2_25.order_modification_acknowledgement.dissect,
+  ["KN"] = box_boxoptions_solaorderentry_sail_v2_25.new_complex_order_instrument_acknowledgement.dissect,
+  ["KO"] = box_boxoptions_solaorderentry_sail_v2_25.standard_acknowledgement.dissect,
+  ["KT"] = box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_acknowledgement.dissect,
+  ["KY"] = box_boxoptions_solaorderentry_sail_v2_25.auction_or_improvement_cancellation_acknowledgement.dissect,
+  ["KZ"] = box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_acknowledgement.dissect,
+  ["LA"] = box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_acknowledgement.dissect,
+  ["MU"] = box_boxoptions_solaorderentry_sail_v2_25.trader_status.dissect,
+  ["NC"] = box_boxoptions_solaorderentry_sail_v2_25.directed_order_cancellation_notice.dissect,
+  ["ND"] = box_boxoptions_solaorderentry_sail_v2_25.directed_order_notice.dissect,
+  ["NE"] = box_boxoptions_solaorderentry_sail_v2_25.excluded_instrument_notice.dissect,
+  ["NG"] = box_boxoptions_solaorderentry_sail_v2_25.group_state_change.dissect,
+  ["NL"] = box_boxoptions_solaorderentry_sail_v2_25.leg_execution_notice.dissect,
+  ["NP"] = box_boxoptions_solaorderentry_sail_v2_25.cancellation_of_all_quotes_notices.dissect,
+  ["NQ"] = box_boxoptions_solaorderentry_sail_v2_25.quality_market_maker_notification.dissect,
+  ["NT"] = box_boxoptions_solaorderentry_sail_v2_25.execution_notice.dissect,
+  ["NU"] = box_boxoptions_solaorderentry_sail_v2_25.quote_notice.dissect,
+  ["NX"] = box_boxoptions_solaorderentry_sail_v2_25.execution_cancellation_notice.dissect,
+  ["NY"] = box_boxoptions_solaorderentry_sail_v2_25.leg_execution_cancellation_notice.dissect,
+  ["NZ"] = box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_notice_by_system.dissect,
+}
+
 box_boxoptions_solaorderentry_sail_v2_25.exchange_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Heartbeat Question
-  if message_type == "TH" then
-    return box_boxoptions_solaorderentry_sail_v2_25.heartbeat_question.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Out Of Sequence
-  if message_type == "TO" then
-    return box_boxoptions_solaorderentry_sail_v2_25.out_of_sequence.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Technical Error Notice
-  if message_type == "TE" then
-    return box_boxoptions_solaorderentry_sail_v2_25.technical_error_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disconnection Instruction Acknowledgement
-  if message_type == "TM" then
-    return box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Connection Acknowledgement
-  if message_type == "TK" then
-    return box_boxoptions_solaorderentry_sail_v2_25.connection_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disconnection Acknowledgement
-  if message_type == "TL" then
-    return box_boxoptions_solaorderentry_sail_v2_25.disconnection_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Transmission
-  if message_type == "TT" then
-    return box_boxoptions_solaorderentry_sail_v2_25.end_of_transmission.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Error Notice
-  if message_type == "ER" then
-    return box_boxoptions_solaorderentry_sail_v2_25.error_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Data Acknowledgement
-  if message_type == "KD" then
-    return box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement
-  if message_type == "KE" then
-    return box_boxoptions_solaorderentry_sail_v2_25.order_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Cancellation Confirmation
-  if message_type == "KG" then
-    return box_boxoptions_solaorderentry_sail_v2_25.global_cancellation_confirmation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Improvement Order Acknowlegment
-  if message_type == "KI" then
-    return box_boxoptions_solaorderentry_sail_v2_25.improvement_order_acknowlegment.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modification Acknowledgement
-  if message_type == "KM" then
-    return box_boxoptions_solaorderentry_sail_v2_25.order_modification_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Complex Order Instrument Acknowledgement
-  if message_type == "KN" then
-    return box_boxoptions_solaorderentry_sail_v2_25.new_complex_order_instrument_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Standard Acknowledgement
-  if message_type == "KO" then
-    return box_boxoptions_solaorderentry_sail_v2_25.standard_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Auction Acknowledgement
-  if message_type == "KT" then
-    return box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Or Improvement Cancellation Acknowledgement
-  if message_type == "KY" then
-    return box_boxoptions_solaorderentry_sail_v2_25.auction_or_improvement_cancellation_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Acknowledgement
-  if message_type == "KZ" then
-    return box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Acknowledgement
-  if message_type == "LA" then
-    return box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trader Status
-  if message_type == "MU" then
-    return box_boxoptions_solaorderentry_sail_v2_25.trader_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Directed Order Cancellation Notice
-  if message_type == "NC" then
-    return box_boxoptions_solaorderentry_sail_v2_25.directed_order_cancellation_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Directed Order Notice
-  if message_type == "ND" then
-    return box_boxoptions_solaorderentry_sail_v2_25.directed_order_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Excluded Instrument Notice
-  if message_type == "NE" then
-    return box_boxoptions_solaorderentry_sail_v2_25.excluded_instrument_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group State Change
-  if message_type == "NG" then
-    return box_boxoptions_solaorderentry_sail_v2_25.group_state_change.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Execution Notice
-  if message_type == "NL" then
-    return box_boxoptions_solaorderentry_sail_v2_25.leg_execution_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancellation Of All Quotes Notices
-  if message_type == "NP" then
-    return box_boxoptions_solaorderentry_sail_v2_25.cancellation_of_all_quotes_notices.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quality Market Maker Notification
-  if message_type == "NQ" then
-    return box_boxoptions_solaorderentry_sail_v2_25.quality_market_maker_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Notice
-  if message_type == "NT" then
-    return box_boxoptions_solaorderentry_sail_v2_25.execution_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Notice
-  if message_type == "NU" then
-    return box_boxoptions_solaorderentry_sail_v2_25.quote_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Cancellation Notice
-  if message_type == "NX" then
-    return box_boxoptions_solaorderentry_sail_v2_25.execution_cancellation_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Execution Cancellation Notice
-  if message_type == "NY" then
-    return box_boxoptions_solaorderentry_sail_v2_25.leg_execution_cancellation_notice.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Notice By System
-  if message_type == "NZ" then
-    return box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_notice_by_system.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solaorderentry_sail_v2_25.exchange_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -10072,94 +9637,35 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.firm_message = {}
 
 -- Dissect: Firm Message
+box_boxoptions_solaorderentry_sail_v2_25.firm_message.dispatch = {
+  ["TC"] = box_boxoptions_solaorderentry_sail_v2_25.user_connection.dissect,
+  ["TD"] = box_boxoptions_solaorderentry_sail_v2_25.user_disconnection.dissect,
+  ["TA"] = box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction.dissect,
+  ["TI"] = box_boxoptions_solaorderentry_sail_v2_25.heartbeat_response.dissect,
+  ["BD"] = box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data.dissect,
+  ["GC"] = box_boxoptions_solaorderentry_sail_v2_25.global_cancellation.dissect,
+  ["GZ"] = box_boxoptions_solaorderentry_sail_v2_25.user_global_cancellation.dissect,
+  ["KQ"] = box_boxoptions_solaorderentry_sail_v2_25.directed_routed_order_rejection_and_quote.dissect,
+  ["OA"] = box_boxoptions_solaorderentry_sail_v2_25.auction_entry.dissect,
+  ["OD"] = box_boxoptions_solaorderentry_sail_v2_25.directed_order_acceptation.dissect,
+  ["OE"] = box_boxoptions_solaorderentry_sail_v2_25.order_entry.dissect,
+  ["OI"] = box_boxoptions_solaorderentry_sail_v2_25.improvement_order_entry.dissect,
+  ["OM"] = box_boxoptions_solaorderentry_sail_v2_25.order_modification.dissect,
+  ["ON"] = box_boxoptions_solaorderentry_sail_v2_25.new_complex_order_instrument.dissect,
+  ["OT"] = box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_entry.dissect,
+  ["QP"] = box_boxoptions_solaorderentry_sail_v2_25.bulk_quote.dissect,
+  ["RE"] = box_boxoptions_solaorderentry_sail_v2_25.executing_participant_connection.dissect,
+  ["RF"] = box_boxoptions_solaorderentry_sail_v2_25.executing_participant_disconnection.dissect,
+  ["RP"] = box_boxoptions_solaorderentry_sail_v2_25.market_maker_protection_subscription.dissect,
+  ["RQ"] = box_boxoptions_solaorderentry_sail_v2_25.request_for_quote.dissect,
+  ["XE"] = box_boxoptions_solaorderentry_sail_v2_25.order_cancellation.dissect,
+  ["XI"] = box_boxoptions_solaorderentry_sail_v2_25.improvement_order_cancellation.dissect,
+}
+
 box_boxoptions_solaorderentry_sail_v2_25.firm_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect User Connection
-  if message_type == "TC" then
-    return box_boxoptions_solaorderentry_sail_v2_25.user_connection.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Disconnection
-  if message_type == "TD" then
-    return box_boxoptions_solaorderentry_sail_v2_25.user_disconnection.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disconnection Instruction
-  if message_type == "TA" then
-    return box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response
-  if message_type == "TI" then
-    return box_boxoptions_solaorderentry_sail_v2_25.heartbeat_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Data
-  if message_type == "BD" then
-    return box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Cancellation
-  if message_type == "GC" then
-    return box_boxoptions_solaorderentry_sail_v2_25.global_cancellation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Global Cancellation
-  if message_type == "GZ" then
-    return box_boxoptions_solaorderentry_sail_v2_25.user_global_cancellation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Directed Routed Order Rejection And Quote
-  if message_type == "KQ" then
-    return box_boxoptions_solaorderentry_sail_v2_25.directed_routed_order_rejection_and_quote.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Entry
-  if message_type == "OA" then
-    return box_boxoptions_solaorderentry_sail_v2_25.auction_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Directed Order Acceptation
-  if message_type == "OD" then
-    return box_boxoptions_solaorderentry_sail_v2_25.directed_order_acceptation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry
-  if message_type == "OE" then
-    return box_boxoptions_solaorderentry_sail_v2_25.order_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Improvement Order Entry
-  if message_type == "OI" then
-    return box_boxoptions_solaorderentry_sail_v2_25.improvement_order_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modification
-  if message_type == "OM" then
-    return box_boxoptions_solaorderentry_sail_v2_25.order_modification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Complex Order Instrument
-  if message_type == "ON" then
-    return box_boxoptions_solaorderentry_sail_v2_25.new_complex_order_instrument.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Auction Entry
-  if message_type == "OT" then
-    return box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_entry.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote
-  if message_type == "QP" then
-    return box_boxoptions_solaorderentry_sail_v2_25.bulk_quote.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Executing Participant Connection
-  if message_type == "RE" then
-    return box_boxoptions_solaorderentry_sail_v2_25.executing_participant_connection.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Executing Participant Disconnection
-  if message_type == "RF" then
-    return box_boxoptions_solaorderentry_sail_v2_25.executing_participant_disconnection.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Maker Protection Subscription
-  if message_type == "RP" then
-    return box_boxoptions_solaorderentry_sail_v2_25.market_maker_protection_subscription.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Quote
-  if message_type == "RQ" then
-    return box_boxoptions_solaorderentry_sail_v2_25.request_for_quote.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation
-  if message_type == "XE" then
-    return box_boxoptions_solaorderentry_sail_v2_25.order_cancellation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Improvement Order Cancellation
-  if message_type == "XI" then
-    return box_boxoptions_solaorderentry_sail_v2_25.improvement_order_cancellation.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solaorderentry_sail_v2_25.firm_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

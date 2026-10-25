@@ -395,15 +395,13 @@ binance_binancespot_marketdata_sbe_v1_0.is_buyer_maker = {}
 binance_binancespot_marketdata_sbe_v1_0.is_buyer_maker.size = 1
 
 -- Display: Is Buyer Maker
-binance_binancespot_marketdata_sbe_v1_0.is_buyer_maker.display = function(value)
-  if value == 0 then
-    return "Is Buyer Maker: False (0)"
-  end
-  if value == 1 then
-    return "Is Buyer Maker: True (1)"
-  end
+binance_binancespot_marketdata_sbe_v1_0.is_buyer_maker.labels = {
+  [0] = "Is Buyer Maker: False (0)",
+  [1] = "Is Buyer Maker: True (1)",
+}
 
-  return "Is Buyer Maker: Unknown("..value..")"
+binance_binancespot_marketdata_sbe_v1_0.is_buyer_maker.display = function(value)
+  return binance_binancespot_marketdata_sbe_v1_0.is_buyer_maker.labels[value] or "Is Buyer Maker: Unknown("..value..")"
 end
 
 -- Dissect: Is Buyer Maker
@@ -675,21 +673,15 @@ binance_binancespot_marketdata_sbe_v1_0.template_id = {}
 binance_binancespot_marketdata_sbe_v1_0.template_id.size = 2
 
 -- Display: Template Id
-binance_binancespot_marketdata_sbe_v1_0.template_id.display = function(value)
-  if value == 10000 then
-    return "Template Id: Trades Stream Event Message (10000)"
-  end
-  if value == 10001 then
-    return "Template Id: Best Bid Ask Stream Event Message (10001)"
-  end
-  if value == 10002 then
-    return "Template Id: Depth Snapshot Stream Event Message (10002)"
-  end
-  if value == 10003 then
-    return "Template Id: Depth Diff Stream Event Message (10003)"
-  end
+binance_binancespot_marketdata_sbe_v1_0.template_id.labels = {
+  [10000] = "Template Id: Trades Stream Event Message (10000)",
+  [10001] = "Template Id: Best Bid Ask Stream Event Message (10001)",
+  [10002] = "Template Id: Depth Snapshot Stream Event Message (10002)",
+  [10003] = "Template Id: Depth Diff Stream Event Message (10003)",
+}
 
-  return "Template Id: Unknown("..value..")"
+binance_binancespot_marketdata_sbe_v1_0.template_id.display = function(value)
+  return binance_binancespot_marketdata_sbe_v1_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2066,22 +2058,17 @@ end
 binance_binancespot_marketdata_sbe_v1_0.payload = {}
 
 -- Dissect: Payload
+binance_binancespot_marketdata_sbe_v1_0.payload.dispatch = {
+  [10000] = binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message.dissect,
+  [10001] = binance_binancespot_marketdata_sbe_v1_0.best_bid_ask_stream_event_message.dissect,
+  [10002] = binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message.dissect,
+  [10003] = binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message.dissect,
+}
+
 binance_binancespot_marketdata_sbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Trades Stream Event Message
-  if template_id == 10000 then
-    return binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Ask Stream Event Message
-  if template_id == 10001 then
-    return binance_binancespot_marketdata_sbe_v1_0.best_bid_ask_stream_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Depth Snapshot Stream Event Message
-  if template_id == 10002 then
-    return binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Depth Diff Stream Event Message
-  if template_id == 10003 then
-    return binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message.dissect(buffer, offset, packet, parent)
+  local dissect = binance_binancespot_marketdata_sbe_v1_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

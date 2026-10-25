@@ -241,24 +241,16 @@ cixats_cixaspen_snapshot_tcpout_v1_1.event = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.event.size = 1
 
 -- Display: Event
-cixats_cixaspen_snapshot_tcpout_v1_1.event.display = function(value)
-  if value == "O" then
-    return "Event: Start Of Session (O)"
-  end
-  if value == "S" then
-    return "Event: Market Accepting Orders (S)"
-  end
-  if value == "Q" then
-    return "Event: Market Open For Trading (Q)"
-  end
-  if value == "E" then
-    return "Event: Market Closed For Trading (E)"
-  end
-  if value == "C" then
-    return "Event: End Of Session (C)"
-  end
+cixats_cixaspen_snapshot_tcpout_v1_1.event.labels = {
+  ["O"] = "Event: Start Of Session (O)",
+  ["S"] = "Event: Market Accepting Orders (S)",
+  ["Q"] = "Event: Market Open For Trading (Q)",
+  ["E"] = "Event: Market Closed For Trading (E)",
+  ["C"] = "Event: End Of Session (C)",
+}
 
-  return "Event: Unknown("..value..")"
+cixats_cixaspen_snapshot_tcpout_v1_1.event.display = function(value)
+  return cixats_cixaspen_snapshot_tcpout_v1_1.event.labels[value] or "Event: Unknown("..value..")"
 end
 
 -- Dissect: Event
@@ -303,27 +295,17 @@ cixats_cixaspen_snapshot_tcpout_v1_1.feed_identifier = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.feed_identifier.size = 1
 
 -- Display: Feed Identifier
-cixats_cixaspen_snapshot_tcpout_v1_1.feed_identifier.display = function(value)
-  if value == "A" then
-    return "Feed Identifier: Aspen (A)"
-  end
-  if value == "V" then
-    return "Feed Identifier: Aspen Vert (V)"
-  end
-  if value == "M" then
-    return "Feed Identifier: Midpoint (M)"
-  end
-  if value == "B" then
-    return "Feed Identifier: Aspen Uat (B)"
-  end
-  if value == "W" then
-    return "Feed Identifier: Aspen Vert Uat (W)"
-  end
-  if value == "N" then
-    return "Feed Identifier: Midpoint Uat (N)"
-  end
+cixats_cixaspen_snapshot_tcpout_v1_1.feed_identifier.labels = {
+  ["A"] = "Feed Identifier: Aspen (A)",
+  ["V"] = "Feed Identifier: Aspen Vert (V)",
+  ["M"] = "Feed Identifier: Midpoint (M)",
+  ["B"] = "Feed Identifier: Aspen Uat (B)",
+  ["W"] = "Feed Identifier: Aspen Vert Uat (W)",
+  ["N"] = "Feed Identifier: Midpoint Uat (N)",
+}
 
-  return "Feed Identifier: Unknown("..value..")"
+cixats_cixaspen_snapshot_tcpout_v1_1.feed_identifier.display = function(value)
+  return cixats_cixaspen_snapshot_tcpout_v1_1.feed_identifier.labels[value] or "Feed Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Feed Identifier
@@ -391,21 +373,15 @@ cixats_cixaspen_snapshot_tcpout_v1_1.listing_market = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.listing_market.size = 1
 
 -- Display: Listing Market
-cixats_cixaspen_snapshot_tcpout_v1_1.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Venture (V)"
-  end
-  if value == "C" then
-    return "Listing Market: Cse (C)"
-  end
-  if value == "N" then
-    return "Listing Market: Neo (N)"
-  end
+cixats_cixaspen_snapshot_tcpout_v1_1.listing_market.labels = {
+  ["T"] = "Listing Market: Tsx (T)",
+  ["V"] = "Listing Market: Venture (V)",
+  ["C"] = "Listing Market: Cse (C)",
+  ["N"] = "Listing Market: Neo (N)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+cixats_cixaspen_snapshot_tcpout_v1_1.listing_market.display = function(value)
+  return cixats_cixaspen_snapshot_tcpout_v1_1.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -458,33 +434,19 @@ cixats_cixaspen_snapshot_tcpout_v1_1.message_type = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.message_type.size = 1
 
 -- Display: Message Type
-cixats_cixaspen_snapshot_tcpout_v1_1.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Market Event Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Symbol Information Message (B)"
-  end
-  if value == "C" then
-    return "Message Type: Symbol State Message (C)"
-  end
-  if value == "D" then
-    return "Message Type: New Order Add Message (D)"
-  end
-  if value == "F" then
-    return "Message Type: Order Partial Cancel Message (F)"
-  end
-  if value == "G" then
-    return "Message Type: Order Cancel All Message (G)"
-  end
-  if value == "J" then
-    return "Message Type: Order Executed Message (J)"
-  end
-  if value == "X" then
-    return "Message Type: End Of Snapshot Message (X)"
-  end
+cixats_cixaspen_snapshot_tcpout_v1_1.message_type.labels = {
+  ["A"] = "Message Type: Market Event Message (A)",
+  ["B"] = "Message Type: Symbol Information Message (B)",
+  ["C"] = "Message Type: Symbol State Message (C)",
+  ["D"] = "Message Type: New Order Add Message (D)",
+  ["F"] = "Message Type: Order Partial Cancel Message (F)",
+  ["G"] = "Message Type: Order Cancel All Message (G)",
+  ["J"] = "Message Type: Order Executed Message (J)",
+  ["X"] = "Message Type: End Of Snapshot Message (X)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cixats_cixaspen_snapshot_tcpout_v1_1.message_type.display = function(value)
+  return cixats_cixaspen_snapshot_tcpout_v1_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -560,27 +522,17 @@ cixats_cixaspen_snapshot_tcpout_v1_1.packet_type = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.packet_type.size = 1
 
 -- Display: Packet Type
-cixats_cixaspen_snapshot_tcpout_v1_1.packet_type.display = function(value)
-  if value == "L" then
-    return "Packet Type: Login Message (L)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Message (R)"
-  end
-  if value == "A" then
-    return "Packet Type: Successful Login Message (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Reject Message (J)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Message (H)"
-  end
-  if value == "S" then
-    return "Packet Type: Binary Data Message (S)"
-  end
+cixats_cixaspen_snapshot_tcpout_v1_1.packet_type.labels = {
+  ["L"] = "Packet Type: Login Message (L)",
+  ["R"] = "Packet Type: Client Heartbeat Message (R)",
+  ["A"] = "Packet Type: Successful Login Message (A)",
+  ["J"] = "Packet Type: Login Reject Message (J)",
+  ["H"] = "Packet Type: Server Heartbeat Message (H)",
+  ["S"] = "Packet Type: Binary Data Message (S)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+cixats_cixaspen_snapshot_tcpout_v1_1.packet_type.display = function(value)
+  return cixats_cixaspen_snapshot_tcpout_v1_1.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -712,18 +664,14 @@ cixats_cixaspen_snapshot_tcpout_v1_1.reason_code = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.reason_code.size = 1
 
 -- Display: Reason Code
-cixats_cixaspen_snapshot_tcpout_v1_1.reason_code.display = function(value)
-  if value == "A" then
-    return "Reason Code: Invalid User Password (A)"
-  end
-  if value == "B" then
-    return "Reason Code: Invalid Sequence (B)"
-  end
-  if value == "S" then
-    return "Reason Code: Invalid Market Day Feed Id (S)"
-  end
+cixats_cixaspen_snapshot_tcpout_v1_1.reason_code.labels = {
+  ["A"] = "Reason Code: Invalid User Password (A)",
+  ["B"] = "Reason Code: Invalid Sequence (B)",
+  ["S"] = "Reason Code: Invalid Market Day Feed Id (S)",
+}
 
-  return "Reason Code: Unknown("..value..")"
+cixats_cixaspen_snapshot_tcpout_v1_1.reason_code.display = function(value)
+  return cixats_cixaspen_snapshot_tcpout_v1_1.reason_code.labels[value] or "Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reason Code
@@ -845,15 +793,13 @@ cixats_cixaspen_snapshot_tcpout_v1_1.side = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.side.size = 1
 
 -- Display: Side
-cixats_cixaspen_snapshot_tcpout_v1_1.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+cixats_cixaspen_snapshot_tcpout_v1_1.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cixats_cixaspen_snapshot_tcpout_v1_1.side.display = function(value)
+  return cixats_cixaspen_snapshot_tcpout_v1_1.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -875,15 +821,13 @@ cixats_cixaspen_snapshot_tcpout_v1_1.state = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.state.size = 1
 
 -- Display: State
-cixats_cixaspen_snapshot_tcpout_v1_1.state.display = function(value)
-  if value == "H" then
-    return "State: Halted (H)"
-  end
-  if value == "T" then
-    return "State: Trading (T)"
-  end
+cixats_cixaspen_snapshot_tcpout_v1_1.state.labels = {
+  ["H"] = "State: Halted (H)",
+  ["T"] = "State: Trading (T)",
+}
 
-  return "State: Unknown("..value..")"
+cixats_cixaspen_snapshot_tcpout_v1_1.state.display = function(value)
+  return cixats_cixaspen_snapshot_tcpout_v1_1.state.labels[value] or "State: Unknown("..value..")"
 end
 
 -- Dissect: State
@@ -1436,38 +1380,21 @@ end
 cixats_cixaspen_snapshot_tcpout_v1_1.payload = {}
 
 -- Dissect: Payload
+cixats_cixaspen_snapshot_tcpout_v1_1.payload.dispatch = {
+  ["A"] = cixats_cixaspen_snapshot_tcpout_v1_1.market_event_message.dissect,
+  ["B"] = cixats_cixaspen_snapshot_tcpout_v1_1.symbol_information_message.dissect,
+  ["C"] = cixats_cixaspen_snapshot_tcpout_v1_1.symbol_state_message.dissect,
+  ["D"] = cixats_cixaspen_snapshot_tcpout_v1_1.new_order_add_message.dissect,
+  ["F"] = cixats_cixaspen_snapshot_tcpout_v1_1.order_partial_cancel_message.dissect,
+  ["G"] = cixats_cixaspen_snapshot_tcpout_v1_1.order_cancel_all_message.dissect,
+  ["J"] = cixats_cixaspen_snapshot_tcpout_v1_1.order_executed_message.dissect,
+  ["X"] = cixats_cixaspen_snapshot_tcpout_v1_1.end_of_snapshot_message.dissect,
+}
+
 cixats_cixaspen_snapshot_tcpout_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Market Event Message
-  if message_type == "A" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.market_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Information Message
-  if message_type == "B" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.symbol_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol State Message
-  if message_type == "C" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.symbol_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Add Message
-  if message_type == "D" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.new_order_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Partial Cancel Message
-  if message_type == "F" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.order_partial_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel All Message
-  if message_type == "G" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.order_cancel_all_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "J" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Snapshot Message
-  if message_type == "X" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.end_of_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = cixats_cixaspen_snapshot_tcpout_v1_1.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1708,30 +1635,19 @@ end
 cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload = {}
 
 -- Dissect: Packet Payload
+cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dispatch = {
+  ["L"] = cixats_cixaspen_snapshot_tcpout_v1_1.login_message.dissect,
+  ["R"] = cixats_cixaspen_snapshot_tcpout_v1_1.client_heartbeat_message.dissect,
+  ["A"] = cixats_cixaspen_snapshot_tcpout_v1_1.successful_login_message.dissect,
+  ["J"] = cixats_cixaspen_snapshot_tcpout_v1_1.login_reject_message.dissect,
+  ["H"] = cixats_cixaspen_snapshot_tcpout_v1_1.server_heartbeat_message.dissect,
+  ["S"] = cixats_cixaspen_snapshot_tcpout_v1_1.binary_data_message.dissect,
+}
+
 cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Login Message
-  if packet_type == "L" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Message
-  if packet_type == "R" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.client_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Successful Login Message
-  if packet_type == "A" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.successful_login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Reject Message
-  if packet_type == "J" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.login_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Message
-  if packet_type == "H" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.server_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Binary Data Message
-  if packet_type == "S" then
-    return cixats_cixaspen_snapshot_tcpout_v1_1.binary_data_message.dissect(buffer, offset, packet, parent)
+  local dissect = cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

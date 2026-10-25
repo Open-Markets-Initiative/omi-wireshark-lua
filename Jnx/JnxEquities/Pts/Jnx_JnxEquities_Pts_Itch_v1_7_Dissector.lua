@@ -375,15 +375,13 @@ jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator = {}
 jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -405,24 +403,16 @@ jnx_jnxequities_pts_itch_v1_7.client_packet_type = {}
 jnx_jnxequities_pts_itch_v1_7.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-jnx_jnxequities_pts_itch_v1_7.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+jnx_jnxequities_pts_itch_v1_7.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.client_packet_type.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -486,21 +476,15 @@ jnx_jnxequities_pts_itch_v1_7.group = {}
 jnx_jnxequities_pts_itch_v1_7.group.size = 4
 
 -- Display: Group
-jnx_jnxequities_pts_itch_v1_7.group.display = function(value)
-  if value == "DAY" then
-    return "Group: Daytime Market (DAY)"
-  end
-  if value == "NGHT" then
-    return "Group: Nighttime Market (NGHT)"
-  end
-  if value == "DAYX" then
-    return "Group: X Market (DAYX)"
-  end
-  if value == "DAYU" then
-    return "Group: U Market (DAYU)"
-  end
+jnx_jnxequities_pts_itch_v1_7.group.labels = {
+  ["DAY"] = "Group: Daytime Market (DAY)",
+  ["NGHT"] = "Group: Nighttime Market (NGHT)",
+  ["DAYX"] = "Group: X Market (DAYX)",
+  ["DAYU"] = "Group: U Market (DAYU)",
+}
 
-  return "Group: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.group.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.group.labels[value] or "Group: Unknown("..value..")"
 end
 
 -- Dissect: Group
@@ -620,42 +604,22 @@ jnx_jnxequities_pts_itch_v1_7.message_type = {}
 jnx_jnxequities_pts_itch_v1_7.message_type.size = 1
 
 -- Display: Message Type
-jnx_jnxequities_pts_itch_v1_7.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Message Type: Price Tick Size Message (L)"
-  end
-  if value == "R" then
-    return "Message Type: Orderbook Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Trading State Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Short Selling Price Restriction State Message (Y)"
-  end
-  if value == "A" then
-    return "Message Type: Order Added Without Attributes Message (A)"
-  end
-  if value == "F" then
-    return "Message Type: Order Added With Attributes Message (F)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "D" then
-    return "Message Type: Order Deleted Message (D)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replaced Message (U)"
-  end
+jnx_jnxequities_pts_itch_v1_7.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["L"] = "Message Type: Price Tick Size Message (L)",
+  ["R"] = "Message Type: Orderbook Directory Message (R)",
+  ["H"] = "Message Type: Trading State Message (H)",
+  ["Y"] = "Message Type: Short Selling Price Restriction State Message (Y)",
+  ["A"] = "Message Type: Order Added Without Attributes Message (A)",
+  ["F"] = "Message Type: Order Added With Attributes Message (F)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["D"] = "Message Type: Order Deleted Message (D)",
+  ["U"] = "Message Type: Order Replaced Message (U)",
+}
 
-  return "Message Type: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.message_type.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -746,12 +710,12 @@ jnx_jnxequities_pts_itch_v1_7.order_type = {}
 jnx_jnxequities_pts_itch_v1_7.order_type.size = 1
 
 -- Display: Order Type
-jnx_jnxequities_pts_itch_v1_7.order_type.display = function(value)
-  if value == "Q" then
-    return "Order Type: Dlp Order (Q)"
-  end
+jnx_jnxequities_pts_itch_v1_7.order_type.labels = {
+  ["Q"] = "Order Type: Dlp Order (Q)",
+}
 
-  return "Order Type: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.order_type.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1044,15 +1008,13 @@ jnx_jnxequities_pts_itch_v1_7.reject_reason_code = {}
 jnx_jnxequities_pts_itch_v1_7.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-jnx_jnxequities_pts_itch_v1_7.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+jnx_jnxequities_pts_itch_v1_7.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.reject_reason_code.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1207,42 +1169,22 @@ jnx_jnxequities_pts_itch_v1_7.sequenced_message_type = {}
 jnx_jnxequities_pts_itch_v1_7.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-jnx_jnxequities_pts_itch_v1_7.sequenced_message_type.display = function(value)
-  if value == "T" then
-    return "Sequenced Message Type: Timestamp Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Sequenced Message Type: Price Tick Size Message (L)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Orderbook Directory Message (R)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading State Message (H)"
-  end
-  if value == "Y" then
-    return "Sequenced Message Type: Short Selling Price Restriction State Message (Y)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Order Added Without Attributes Message (A)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Order Added With Attributes Message (F)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed Message (E)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Order Deleted Message (D)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replaced Message (U)"
-  end
+jnx_jnxequities_pts_itch_v1_7.sequenced_message_type.labels = {
+  ["T"] = "Sequenced Message Type: Timestamp Seconds Message (T)",
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["L"] = "Sequenced Message Type: Price Tick Size Message (L)",
+  ["R"] = "Sequenced Message Type: Orderbook Directory Message (R)",
+  ["H"] = "Sequenced Message Type: Trading State Message (H)",
+  ["Y"] = "Sequenced Message Type: Short Selling Price Restriction State Message (Y)",
+  ["A"] = "Sequenced Message Type: Order Added Without Attributes Message (A)",
+  ["F"] = "Sequenced Message Type: Order Added With Attributes Message (F)",
+  ["E"] = "Sequenced Message Type: Order Executed Message (E)",
+  ["D"] = "Sequenced Message Type: Order Deleted Message (D)",
+  ["U"] = "Sequenced Message Type: Order Replaced Message (U)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.sequenced_message_type.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1264,27 +1206,17 @@ jnx_jnxequities_pts_itch_v1_7.server_packet_type = {}
 jnx_jnxequities_pts_itch_v1_7.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-jnx_jnxequities_pts_itch_v1_7.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+jnx_jnxequities_pts_itch_v1_7.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.server_packet_type.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1345,15 +1277,13 @@ jnx_jnxequities_pts_itch_v1_7.short_selling_state = {}
 jnx_jnxequities_pts_itch_v1_7.short_selling_state.size = 1
 
 -- Display: Short Selling State
-jnx_jnxequities_pts_itch_v1_7.short_selling_state.display = function(value)
-  if value == "0" then
-    return "Short Selling State: No Price Restriction (0)"
-  end
-  if value == "1" then
-    return "Short Selling State: Price Restriction In Effect (1)"
-  end
+jnx_jnxequities_pts_itch_v1_7.short_selling_state.labels = {
+  ["0"] = "Short Selling State: No Price Restriction (0)",
+  ["1"] = "Short Selling State: Price Restriction In Effect (1)",
+}
 
-  return "Short Selling State: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.short_selling_state.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.short_selling_state.labels[value] or "Short Selling State: Unknown("..value..")"
 end
 
 -- Dissect: Short Selling State
@@ -1375,27 +1305,17 @@ jnx_jnxequities_pts_itch_v1_7.system_event = {}
 jnx_jnxequities_pts_itch_v1_7.system_event.size = 1
 
 -- Display: System Event
-jnx_jnxequities_pts_itch_v1_7.system_event.display = function(value)
-  if value == "O" then
-    return "System Event: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "System Event: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "System Event: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "System Event: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "System Event: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "System Event: End Of Messages (C)"
-  end
+jnx_jnxequities_pts_itch_v1_7.system_event.labels = {
+  ["O"] = "System Event: Start Of Messages (O)",
+  ["S"] = "System Event: Start Of System Hours (S)",
+  ["Q"] = "System Event: Start Of Market Hours (Q)",
+  ["M"] = "System Event: End Of Market Hours (M)",
+  ["E"] = "System Event: End Of System Hours (E)",
+  ["C"] = "System Event: End Of Messages (C)",
+}
 
-  return "System Event: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.system_event.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.system_event.labels[value] or "System Event: Unknown("..value..")"
 end
 
 -- Dissect: System Event
@@ -1417,15 +1337,13 @@ jnx_jnxequities_pts_itch_v1_7.trading_state = {}
 jnx_jnxequities_pts_itch_v1_7.trading_state.size = 1
 
 -- Display: Trading State
-jnx_jnxequities_pts_itch_v1_7.trading_state.display = function(value)
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
-  if value == "V" then
-    return "Trading State: Suspended (V)"
-  end
+jnx_jnxequities_pts_itch_v1_7.trading_state.labels = {
+  ["T"] = "Trading State: Trading (T)",
+  ["V"] = "Trading State: Suspended (V)",
+}
 
-  return "Trading State: Unknown("..value..")"
+jnx_jnxequities_pts_itch_v1_7.trading_state.display = function(value)
+  return jnx_jnxequities_pts_itch_v1_7.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -2213,50 +2131,24 @@ end
 jnx_jnxequities_pts_itch_v1_7.udp_payload = {}
 
 -- Dissect: Udp Payload
+jnx_jnxequities_pts_itch_v1_7.udp_payload.dispatch = {
+  ["T"] = jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect,
+  ["S"] = jnx_jnxequities_pts_itch_v1_7.system_event_message.dissect,
+  ["L"] = jnx_jnxequities_pts_itch_v1_7.price_tick_size_message.dissect,
+  ["R"] = jnx_jnxequities_pts_itch_v1_7.orderbook_directory_message.dissect,
+  ["H"] = jnx_jnxequities_pts_itch_v1_7.trading_state_message.dissect,
+  ["Y"] = jnx_jnxequities_pts_itch_v1_7.short_selling_price_restriction_state_message.dissect,
+  ["A"] = jnx_jnxequities_pts_itch_v1_7.order_added_without_attributes_message.dissect,
+  ["F"] = jnx_jnxequities_pts_itch_v1_7.order_added_with_attributes_message.dissect,
+  ["E"] = jnx_jnxequities_pts_itch_v1_7.order_executed_message.dissect,
+  ["D"] = jnx_jnxequities_pts_itch_v1_7.order_deleted_message.dissect,
+  ["U"] = jnx_jnxequities_pts_itch_v1_7.order_replaced_message.dissect,
+}
+
 jnx_jnxequities_pts_itch_v1_7.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return jnx_jnxequities_pts_itch_v1_7.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Tick Size Message
-  if message_type == "L" then
-    return jnx_jnxequities_pts_itch_v1_7.price_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Directory Message
-  if message_type == "R" then
-    return jnx_jnxequities_pts_itch_v1_7.orderbook_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading State Message
-  if message_type == "H" then
-    return jnx_jnxequities_pts_itch_v1_7.trading_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Selling Price Restriction State Message
-  if message_type == "Y" then
-    return jnx_jnxequities_pts_itch_v1_7.short_selling_price_restriction_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added Without Attributes Message
-  if message_type == "A" then
-    return jnx_jnxequities_pts_itch_v1_7.order_added_without_attributes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added With Attributes Message
-  if message_type == "F" then
-    return jnx_jnxequities_pts_itch_v1_7.order_added_with_attributes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return jnx_jnxequities_pts_itch_v1_7.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Deleted Message
-  if message_type == "D" then
-    return jnx_jnxequities_pts_itch_v1_7.order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if message_type == "U" then
-    return jnx_jnxequities_pts_itch_v1_7.order_replaced_message.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxequities_pts_itch_v1_7.udp_payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2412,14 +2304,15 @@ end
 jnx_jnxequities_pts_itch_v1_7.messages = {}
 
 -- Dissect: Messages
+jnx_jnxequities_pts_itch_v1_7.messages.dispatch = {
+  [0] = jnx_jnxequities_pts_itch_v1_7.heartbeat.dissect,
+  [65535] = jnx_jnxequities_pts_itch_v1_7.end_of_session.dissect,
+}
+
 jnx_jnxequities_pts_itch_v1_7.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return jnx_jnxequities_pts_itch_v1_7.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return jnx_jnxequities_pts_itch_v1_7.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxequities_pts_itch_v1_7.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
@@ -2557,50 +2450,24 @@ end
 jnx_jnxequities_pts_itch_v1_7.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+jnx_jnxequities_pts_itch_v1_7.sequenced_message.dispatch = {
+  ["T"] = jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect,
+  ["S"] = jnx_jnxequities_pts_itch_v1_7.system_event_message.dissect,
+  ["L"] = jnx_jnxequities_pts_itch_v1_7.price_tick_size_message.dissect,
+  ["R"] = jnx_jnxequities_pts_itch_v1_7.orderbook_directory_message.dissect,
+  ["H"] = jnx_jnxequities_pts_itch_v1_7.trading_state_message.dissect,
+  ["Y"] = jnx_jnxequities_pts_itch_v1_7.short_selling_price_restriction_state_message.dissect,
+  ["A"] = jnx_jnxequities_pts_itch_v1_7.order_added_without_attributes_message.dissect,
+  ["F"] = jnx_jnxequities_pts_itch_v1_7.order_added_with_attributes_message.dissect,
+  ["E"] = jnx_jnxequities_pts_itch_v1_7.order_executed_message.dissect,
+  ["D"] = jnx_jnxequities_pts_itch_v1_7.order_deleted_message.dissect,
+  ["U"] = jnx_jnxequities_pts_itch_v1_7.order_replaced_message.dissect,
+}
+
 jnx_jnxequities_pts_itch_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Seconds Message
-  if sequenced_message_type == "T" then
-    return jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return jnx_jnxequities_pts_itch_v1_7.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Tick Size Message
-  if sequenced_message_type == "L" then
-    return jnx_jnxequities_pts_itch_v1_7.price_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Directory Message
-  if sequenced_message_type == "R" then
-    return jnx_jnxequities_pts_itch_v1_7.orderbook_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading State Message
-  if sequenced_message_type == "H" then
-    return jnx_jnxequities_pts_itch_v1_7.trading_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Selling Price Restriction State Message
-  if sequenced_message_type == "Y" then
-    return jnx_jnxequities_pts_itch_v1_7.short_selling_price_restriction_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added Without Attributes Message
-  if sequenced_message_type == "A" then
-    return jnx_jnxequities_pts_itch_v1_7.order_added_without_attributes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added With Attributes Message
-  if sequenced_message_type == "F" then
-    return jnx_jnxequities_pts_itch_v1_7.order_added_with_attributes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if sequenced_message_type == "E" then
-    return jnx_jnxequities_pts_itch_v1_7.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Deleted Message
-  if sequenced_message_type == "D" then
-    return jnx_jnxequities_pts_itch_v1_7.order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if sequenced_message_type == "U" then
-    return jnx_jnxequities_pts_itch_v1_7.order_replaced_message.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxequities_pts_itch_v1_7.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2843,30 +2710,19 @@ end
 jnx_jnxequities_pts_itch_v1_7.server_payload = {}
 
 -- Dissect: Server Payload
+jnx_jnxequities_pts_itch_v1_7.server_payload.dispatch = {
+  ["+"] = jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect,
+  ["A"] = jnx_jnxequities_pts_itch_v1_7.login_accepted_packet.dissect,
+  ["J"] = jnx_jnxequities_pts_itch_v1_7.login_rejected_packet.dissect,
+  ["S"] = jnx_jnxequities_pts_itch_v1_7.sequenced_data_packet.dissect,
+  ["H"] = jnx_jnxequities_pts_itch_v1_7.server_heartbeat_packet.dissect,
+  ["Z"] = jnx_jnxequities_pts_itch_v1_7.end_of_session_packet.dissect,
+}
+
 jnx_jnxequities_pts_itch_v1_7.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return jnx_jnxequities_pts_itch_v1_7.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return jnx_jnxequities_pts_itch_v1_7.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return jnx_jnxequities_pts_itch_v1_7.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return jnx_jnxequities_pts_itch_v1_7.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return jnx_jnxequities_pts_itch_v1_7.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxequities_pts_itch_v1_7.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3179,26 +3035,18 @@ end
 jnx_jnxequities_pts_itch_v1_7.client_payload = {}
 
 -- Dissect: Client Payload
+jnx_jnxequities_pts_itch_v1_7.client_payload.dispatch = {
+  ["+"] = jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect,
+  ["L"] = jnx_jnxequities_pts_itch_v1_7.login_request_packet.dissect,
+  ["U"] = jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.dissect,
+  ["R"] = jnx_jnxequities_pts_itch_v1_7.client_heartbeat_packet.dissect,
+  ["O"] = jnx_jnxequities_pts_itch_v1_7.logout_request_packet.dissect,
+}
+
 jnx_jnxequities_pts_itch_v1_7.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return jnx_jnxequities_pts_itch_v1_7.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return jnx_jnxequities_pts_itch_v1_7.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return jnx_jnxequities_pts_itch_v1_7.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return jnx_jnxequities_pts_itch_v1_7.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxequities_pts_itch_v1_7.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

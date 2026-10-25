@@ -531,15 +531,13 @@ asx_asxderivatives_ntp_itch_v1_05.buyer_side = {}
 asx_asxderivatives_ntp_itch_v1_05.buyer_side.size = 1
 
 -- Display: Buyer Side
-asx_asxderivatives_ntp_itch_v1_05.buyer_side.display = function(value)
-  if value == "S" then
-    return "Buyer Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Buyer Side: Buy (B)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.buyer_side.labels = {
+  ["S"] = "Buyer Side: Sell (S)",
+  ["B"] = "Buyer Side: Buy (B)",
+}
 
-  return "Buyer Side: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.buyer_side.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.buyer_side.labels[value] or "Buyer Side: Unknown("..value..")"
 end
 
 -- Dissect: Buyer Side
@@ -838,12 +836,12 @@ asx_asxderivatives_ntp_itch_v1_05.event_code = {}
 asx_asxderivatives_ntp_itch_v1_05.event_code.size = 1
 
 -- Display: Event Code
-asx_asxderivatives_ntp_itch_v1_05.event_code.display = function(value)
-  if value == "C" then
-    return "Event Code: Business Trade Date Has Ended (C)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.event_code.labels = {
+  ["C"] = "Event Code: Business Trade Date Has Ended (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.event_code.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -934,45 +932,23 @@ asx_asxderivatives_ntp_itch_v1_05.expiry_month = {}
 asx_asxderivatives_ntp_itch_v1_05.expiry_month.size = 1
 
 -- Display: Expiry Month
-asx_asxderivatives_ntp_itch_v1_05.expiry_month.display = function(value)
-  if value == 1 then
-    return "Expiry Month: Jan (1)"
-  end
-  if value == 2 then
-    return "Expiry Month: Feb (2)"
-  end
-  if value == 3 then
-    return "Expiry Month: Mar (3)"
-  end
-  if value == 4 then
-    return "Expiry Month: Apr (4)"
-  end
-  if value == 5 then
-    return "Expiry Month: May (5)"
-  end
-  if value == 6 then
-    return "Expiry Month: Jun (6)"
-  end
-  if value == 7 then
-    return "Expiry Month: Jul (7)"
-  end
-  if value == 8 then
-    return "Expiry Month: Aug (8)"
-  end
-  if value == 9 then
-    return "Expiry Month: Sep (9)"
-  end
-  if value == 10 then
-    return "Expiry Month: Oct (10)"
-  end
-  if value == 11 then
-    return "Expiry Month: Nov (11)"
-  end
-  if value == 12 then
-    return "Expiry Month: Dec (12)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.expiry_month.labels = {
+  [1] = "Expiry Month: Jan (1)",
+  [2] = "Expiry Month: Feb (2)",
+  [3] = "Expiry Month: Mar (3)",
+  [4] = "Expiry Month: Apr (4)",
+  [5] = "Expiry Month: May (5)",
+  [6] = "Expiry Month: Jun (6)",
+  [7] = "Expiry Month: Jul (7)",
+  [8] = "Expiry Month: Aug (8)",
+  [9] = "Expiry Month: Sep (9)",
+  [10] = "Expiry Month: Oct (10)",
+  [11] = "Expiry Month: Nov (11)",
+  [12] = "Expiry Month: Dec (12)",
+}
 
-  return "Expiry Month: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.expiry_month.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.expiry_month.labels[value] or "Expiry Month: Unknown("..value..")"
 end
 
 -- Dissect: Expiry Month
@@ -1357,87 +1333,37 @@ asx_asxderivatives_ntp_itch_v1_05.message_type = {}
 asx_asxderivatives_ntp_itch_v1_05.message_type.size = 1
 
 -- Display: Message Type
-asx_asxderivatives_ntp_itch_v1_05.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: End Of Business Trade Date Message (S)"
-  end
-  if value == "f" then
-    return "Message Type: Future Symbol Directory Message (f)"
-  end
-  if value == "h" then
-    return "Message Type: Options Symbol Directory Message (h)"
-  end
-  if value == "M" then
-    return "Message Type: Combination Symbol Directory Message (M)"
-  end
-  if value == "m" then
-    return "Message Type: Bundles Symbol Directory (m)"
-  end
-  if value == "O" then
-    return "Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "X" then
-    return "Message Type: Order Volume Cancelled Message (X)"
-  end
-  if value == "D" then
-    return "Message Type: Order Deleted Message (D)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Auction Order Executed Message (C)"
-  end
-  if value == "e" then
-    return "Message Type: Combination Order Executed Message (e)"
-  end
-  if value == "j" then
-    return "Message Type: Implied Order Added Message (j)"
-  end
-  if value == "l" then
-    return "Message Type: Implied Order Replaced Message (l)"
-  end
-  if value == "k" then
-    return "Message Type: Implied Order Deleted Message (k)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Executed Message (P)"
-  end
-  if value == "p" then
-    return "Message Type: Combination Trade Executed Message (p)"
-  end
-  if value == "B" then
-    return "Message Type: Trade Cancellation Message (B)"
-  end
-  if value == "Z" then
-    return "Message Type: Equilibrium Price Message (Z)"
-  end
-  if value == "t" then
-    return "Message Type: Open High Low Last Trade Adjustment Message (t)"
-  end
-  if value == "Y" then
-    return "Message Type: Market Settlement Message (Y)"
-  end
-  if value == "x" then
-    return "Message Type: Text Message (x)"
-  end
-  if value == "q" then
-    return "Message Type: Request For Quote Message (q)"
-  end
-  if value == "W" then
-    return "Message Type: Anomalous Order Threshold Publish Message (W)"
-  end
-  if value == "V" then
-    return "Message Type: Volume And Open Interest Message (V)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["S"] = "Message Type: End Of Business Trade Date Message (S)",
+  ["f"] = "Message Type: Future Symbol Directory Message (f)",
+  ["h"] = "Message Type: Options Symbol Directory Message (h)",
+  ["M"] = "Message Type: Combination Symbol Directory Message (M)",
+  ["m"] = "Message Type: Bundles Symbol Directory (m)",
+  ["O"] = "Message Type: Order Book State Message (O)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["X"] = "Message Type: Order Volume Cancelled Message (X)",
+  ["D"] = "Message Type: Order Deleted Message (D)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Auction Order Executed Message (C)",
+  ["e"] = "Message Type: Combination Order Executed Message (e)",
+  ["j"] = "Message Type: Implied Order Added Message (j)",
+  ["l"] = "Message Type: Implied Order Replaced Message (l)",
+  ["k"] = "Message Type: Implied Order Deleted Message (k)",
+  ["P"] = "Message Type: Trade Executed Message (P)",
+  ["p"] = "Message Type: Combination Trade Executed Message (p)",
+  ["B"] = "Message Type: Trade Cancellation Message (B)",
+  ["Z"] = "Message Type: Equilibrium Price Message (Z)",
+  ["t"] = "Message Type: Open High Low Last Trade Adjustment Message (t)",
+  ["Y"] = "Message Type: Market Settlement Message (Y)",
+  ["x"] = "Message Type: Text Message (x)",
+  ["q"] = "Message Type: Request For Quote Message (q)",
+  ["W"] = "Message Type: Anomalous Order Threshold Publish Message (W)",
+  ["V"] = "Message Type: Volume And Open Interest Message (V)",
+}
 
-  return "Message Type: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.message_type.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1557,15 +1483,13 @@ asx_asxderivatives_ntp_itch_v1_05.opposite_side = {}
 asx_asxderivatives_ntp_itch_v1_05.opposite_side.size = 1
 
 -- Display: Opposite Side
-asx_asxderivatives_ntp_itch_v1_05.opposite_side.display = function(value)
-  if value == "S" then
-    return "Opposite Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Opposite Side: Buy (B)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.opposite_side.labels = {
+  ["S"] = "Opposite Side: Sell (S)",
+  ["B"] = "Opposite Side: Buy (B)",
+}
 
-  return "Opposite Side: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.opposite_side.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.opposite_side.labels[value] or "Opposite Side: Unknown("..value..")"
 end
 
 -- Dissect: Opposite Side
@@ -1610,15 +1534,13 @@ asx_asxderivatives_ntp_itch_v1_05.option_type = {}
 asx_asxderivatives_ntp_itch_v1_05.option_type.size = 1
 
 -- Display: Option Type
-asx_asxderivatives_ntp_itch_v1_05.option_type.display = function(value)
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.option_type.labels = {
+  ["P"] = "Option Type: Put (P)",
+  ["C"] = "Option Type: Call (C)",
+}
 
-  return "Option Type: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.option_type.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1859,21 +1781,15 @@ asx_asxderivatives_ntp_itch_v1_05.price_method = {}
 asx_asxderivatives_ntp_itch_v1_05.price_method.size = 1
 
 -- Display: Price Method
-asx_asxderivatives_ntp_itch_v1_05.price_method.display = function(value)
-  if value == 0 then
-    return "Price Method: Net Price (0)"
-  end
-  if value == 2 then
-    return "Price Method: Yield Difference (2)"
-  end
-  if value == 3 then
-    return "Price Method: Individual (3)"
-  end
-  if value == 4 then
-    return "Price Method: Average Price (4)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.price_method.labels = {
+  [0] = "Price Method: Net Price (0)",
+  [2] = "Price Method: Yield Difference (2)",
+  [3] = "Price Method: Individual (3)",
+  [4] = "Price Method: Average Price (4)",
+}
 
-  return "Price Method: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.price_method.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.price_method.labels[value] or "Price Method: Unknown("..value..")"
 end
 
 -- Dissect: Price Method
@@ -2016,21 +1932,15 @@ asx_asxderivatives_ntp_itch_v1_05.rfq_side = {}
 asx_asxderivatives_ntp_itch_v1_05.rfq_side.size = 1
 
 -- Display: Rfq Side
-asx_asxderivatives_ntp_itch_v1_05.rfq_side.display = function(value)
-  if value == "T" then
-    return "Rfq Side: Two Sided Quote (T)"
-  end
-  if value == "B" then
-    return "Rfq Side: Bid Quote (B)"
-  end
-  if value == "S" then
-    return "Rfq Side: Ask Quote (S)"
-  end
-  if value == "X" then
-    return "Rfq Side: Crossing (X)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.rfq_side.labels = {
+  ["T"] = "Rfq Side: Two Sided Quote (T)",
+  ["B"] = "Rfq Side: Bid Quote (B)",
+  ["S"] = "Rfq Side: Ask Quote (S)",
+  ["X"] = "Rfq Side: Crossing (X)",
+}
 
-  return "Rfq Side: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.rfq_side.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.rfq_side.labels[value] or "Rfq Side: Unknown("..value..")"
 end
 
 -- Dissect: Rfq Side
@@ -2158,15 +2068,13 @@ asx_asxderivatives_ntp_itch_v1_05.seller_side = {}
 asx_asxderivatives_ntp_itch_v1_05.seller_side.size = 1
 
 -- Display: Seller Side
-asx_asxderivatives_ntp_itch_v1_05.seller_side.display = function(value)
-  if value == "S" then
-    return "Seller Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Seller Side: Buy (B)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.seller_side.labels = {
+  ["S"] = "Seller Side: Sell (S)",
+  ["B"] = "Seller Side: Buy (B)",
+}
 
-  return "Seller Side: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.seller_side.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.seller_side.labels[value] or "Seller Side: Unknown("..value..")"
 end
 
 -- Dissect: Seller Side
@@ -2273,27 +2181,17 @@ asx_asxderivatives_ntp_itch_v1_05.session_state = {}
 asx_asxderivatives_ntp_itch_v1_05.session_state.size = 1
 
 -- Display: Session State
-asx_asxderivatives_ntp_itch_v1_05.session_state.display = function(value)
-  if value == "P" then
-    return "Session State: Pre Open (P)"
-  end
-  if value == "O" then
-    return "Session State: Opened (O)"
-  end
-  if value == "R" then
-    return "Session State: Regulatory Halt (R)"
-  end
-  if value == "H" then
-    return "Session State: Halted (H)"
-  end
-  if value == "C" then
-    return "Session State: Closed (C)"
-  end
-  if value == "M" then
-    return "Session State: Maintenance (M)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.session_state.labels = {
+  ["P"] = "Session State: Pre Open (P)",
+  ["O"] = "Session State: Opened (O)",
+  ["R"] = "Session State: Regulatory Halt (R)",
+  ["H"] = "Session State: Halted (H)",
+  ["C"] = "Session State: Closed (C)",
+  ["M"] = "Session State: Maintenance (M)",
+}
 
-  return "Session State: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.session_state.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.session_state.labels[value] or "Session State: Unknown("..value..")"
 end
 
 -- Dissect: Session State
@@ -2315,15 +2213,13 @@ asx_asxderivatives_ntp_itch_v1_05.side = {}
 asx_asxderivatives_ntp_itch_v1_05.side.size = 1
 
 -- Display: Side
-asx_asxderivatives_ntp_itch_v1_05.side.display = function(value)
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.side.labels = {
+  ["S"] = "Side: Sell (S)",
+  ["B"] = "Side: Buy (B)",
+}
 
-  return "Side: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.side.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2643,45 +2539,23 @@ asx_asxderivatives_ntp_itch_v1_05.trade_type = {}
 asx_asxderivatives_ntp_itch_v1_05.trade_type.size = 1
 
 -- Display: Trade Type
-asx_asxderivatives_ntp_itch_v1_05.trade_type.display = function(value)
-  if value == "T" then
-    return "Trade Type: Normal Trade (T)"
-  end
-  if value == "t" then
-    return "Trade Type: Normal Cross (t)"
-  end
-  if value == "L" then
-    return "Trade Type: Auction Trade (L)"
-  end
-  if value == "l" then
-    return "Trade Type: Auction Cross (l)"
-  end
-  if value == "S" then
-    return "Trade Type: Combination To Underlying Trade (S)"
-  end
-  if value == "s" then
-    return "Trade Type: Combination To Underlying Cross (s)"
-  end
-  if value == "R" then
-    return "Trade Type: Combination To Combination Trade (R)"
-  end
-  if value == "r" then
-    return "Trade Type: Combination To Combination Cross (r)"
-  end
-  if value == "A" then
-    return "Trade Type: Strip To Strip Trade (A)"
-  end
-  if value == "a" then
-    return "Trade Type: Strip To Strip Cross (a)"
-  end
-  if value == "B" then
-    return "Trade Type: Strip To Outright Trade (B)"
-  end
-  if value == "b" then
-    return "Trade Type: Strip To Outright Cross (b)"
-  end
+asx_asxderivatives_ntp_itch_v1_05.trade_type.labels = {
+  ["T"] = "Trade Type: Normal Trade (T)",
+  ["t"] = "Trade Type: Normal Cross (t)",
+  ["L"] = "Trade Type: Auction Trade (L)",
+  ["l"] = "Trade Type: Auction Cross (l)",
+  ["S"] = "Trade Type: Combination To Underlying Trade (S)",
+  ["s"] = "Trade Type: Combination To Underlying Cross (s)",
+  ["R"] = "Trade Type: Combination To Combination Trade (R)",
+  ["r"] = "Trade Type: Combination To Combination Cross (r)",
+  ["A"] = "Trade Type: Strip To Strip Trade (A)",
+  ["a"] = "Trade Type: Strip To Strip Cross (a)",
+  ["B"] = "Trade Type: Strip To Outright Trade (B)",
+  ["b"] = "Trade Type: Strip To Outright Cross (b)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+asx_asxderivatives_ntp_itch_v1_05.trade_type.display = function(value)
+  return asx_asxderivatives_ntp_itch_v1_05.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -4898,110 +4772,39 @@ end
 asx_asxderivatives_ntp_itch_v1_05.payload = {}
 
 -- Dissect: Payload
+asx_asxderivatives_ntp_itch_v1_05.payload.dispatch = {
+  ["T"] = asx_asxderivatives_ntp_itch_v1_05.seconds_message.dissect,
+  ["S"] = asx_asxderivatives_ntp_itch_v1_05.end_of_business_trade_date_message.dissect,
+  ["f"] = asx_asxderivatives_ntp_itch_v1_05.future_symbol_directory_message.dissect,
+  ["h"] = asx_asxderivatives_ntp_itch_v1_05.options_symbol_directory_message.dissect,
+  ["M"] = asx_asxderivatives_ntp_itch_v1_05.combination_symbol_directory_message.dissect,
+  ["m"] = asx_asxderivatives_ntp_itch_v1_05.bundles_symbol_directory.dissect,
+  ["O"] = asx_asxderivatives_ntp_itch_v1_05.order_book_state_message.dissect,
+  ["A"] = asx_asxderivatives_ntp_itch_v1_05.add_order_message.dissect,
+  ["X"] = asx_asxderivatives_ntp_itch_v1_05.order_volume_cancelled_message.dissect,
+  ["D"] = asx_asxderivatives_ntp_itch_v1_05.order_deleted_message.dissect,
+  ["E"] = asx_asxderivatives_ntp_itch_v1_05.order_executed_message.dissect,
+  ["C"] = asx_asxderivatives_ntp_itch_v1_05.auction_order_executed_message.dissect,
+  ["e"] = asx_asxderivatives_ntp_itch_v1_05.combination_order_executed_message.dissect,
+  ["j"] = asx_asxderivatives_ntp_itch_v1_05.implied_order_added_message.dissect,
+  ["l"] = asx_asxderivatives_ntp_itch_v1_05.implied_order_replaced_message.dissect,
+  ["k"] = asx_asxderivatives_ntp_itch_v1_05.implied_order_deleted_message.dissect,
+  ["P"] = asx_asxderivatives_ntp_itch_v1_05.trade_executed_message.dissect,
+  ["p"] = asx_asxderivatives_ntp_itch_v1_05.combination_trade_executed_message.dissect,
+  ["B"] = asx_asxderivatives_ntp_itch_v1_05.trade_cancellation_message.dissect,
+  ["Z"] = asx_asxderivatives_ntp_itch_v1_05.equilibrium_price_message.dissect,
+  ["t"] = asx_asxderivatives_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.dissect,
+  ["Y"] = asx_asxderivatives_ntp_itch_v1_05.market_settlement_message.dissect,
+  ["x"] = asx_asxderivatives_ntp_itch_v1_05.text_message.dissect,
+  ["q"] = asx_asxderivatives_ntp_itch_v1_05.request_for_quote_message.dissect,
+  ["W"] = asx_asxderivatives_ntp_itch_v1_05.anomalous_order_threshold_publish_message.dissect,
+  ["V"] = asx_asxderivatives_ntp_itch_v1_05.volume_and_open_interest_message.dissect,
+}
+
 asx_asxderivatives_ntp_itch_v1_05.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return asx_asxderivatives_ntp_itch_v1_05.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Business Trade Date Message
-  if message_type == "S" then
-    return asx_asxderivatives_ntp_itch_v1_05.end_of_business_trade_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Symbol Directory Message
-  if message_type == "f" then
-    return asx_asxderivatives_ntp_itch_v1_05.future_symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Symbol Directory Message
-  if message_type == "h" then
-    return asx_asxderivatives_ntp_itch_v1_05.options_symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Symbol Directory Message
-  if message_type == "M" then
-    return asx_asxderivatives_ntp_itch_v1_05.combination_symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bundles Symbol Directory
-  if message_type == "m" then
-    return asx_asxderivatives_ntp_itch_v1_05.bundles_symbol_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if message_type == "O" then
-    return asx_asxderivatives_ntp_itch_v1_05.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return asx_asxderivatives_ntp_itch_v1_05.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Volume Cancelled Message
-  if message_type == "X" then
-    return asx_asxderivatives_ntp_itch_v1_05.order_volume_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Deleted Message
-  if message_type == "D" then
-    return asx_asxderivatives_ntp_itch_v1_05.order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return asx_asxderivatives_ntp_itch_v1_05.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Order Executed Message
-  if message_type == "C" then
-    return asx_asxderivatives_ntp_itch_v1_05.auction_order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Order Executed Message
-  if message_type == "e" then
-    return asx_asxderivatives_ntp_itch_v1_05.combination_order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Order Added Message
-  if message_type == "j" then
-    return asx_asxderivatives_ntp_itch_v1_05.implied_order_added_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Order Replaced Message
-  if message_type == "l" then
-    return asx_asxderivatives_ntp_itch_v1_05.implied_order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Implied Order Deleted Message
-  if message_type == "k" then
-    return asx_asxderivatives_ntp_itch_v1_05.implied_order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Executed Message
-  if message_type == "P" then
-    return asx_asxderivatives_ntp_itch_v1_05.trade_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Trade Executed Message
-  if message_type == "p" then
-    return asx_asxderivatives_ntp_itch_v1_05.combination_trade_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancellation Message
-  if message_type == "B" then
-    return asx_asxderivatives_ntp_itch_v1_05.trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equilibrium Price Message
-  if message_type == "Z" then
-    return asx_asxderivatives_ntp_itch_v1_05.equilibrium_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open High Low Last Trade Adjustment Message
-  if message_type == "t" then
-    return asx_asxderivatives_ntp_itch_v1_05.open_high_low_last_trade_adjustment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Settlement Message
-  if message_type == "Y" then
-    return asx_asxderivatives_ntp_itch_v1_05.market_settlement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Text Message
-  if message_type == "x" then
-    return asx_asxderivatives_ntp_itch_v1_05.text_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Quote Message
-  if message_type == "q" then
-    return asx_asxderivatives_ntp_itch_v1_05.request_for_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Anomalous Order Threshold Publish Message
-  if message_type == "W" then
-    return asx_asxderivatives_ntp_itch_v1_05.anomalous_order_threshold_publish_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Volume And Open Interest Message
-  if message_type == "V" then
-    return asx_asxderivatives_ntp_itch_v1_05.volume_and_open_interest_message.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxderivatives_ntp_itch_v1_05.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5157,14 +4960,15 @@ end
 asx_asxderivatives_ntp_itch_v1_05.messages = {}
 
 -- Dissect: Messages
+asx_asxderivatives_ntp_itch_v1_05.messages.dispatch = {
+  [0] = asx_asxderivatives_ntp_itch_v1_05.heartbeat.dissect,
+  [65535] = asx_asxderivatives_ntp_itch_v1_05.end_of_session.dissect,
+}
+
 asx_asxderivatives_ntp_itch_v1_05.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return asx_asxderivatives_ntp_itch_v1_05.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return asx_asxderivatives_ntp_itch_v1_05.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxderivatives_ntp_itch_v1_05.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

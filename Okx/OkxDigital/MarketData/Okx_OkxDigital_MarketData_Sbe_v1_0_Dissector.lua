@@ -524,15 +524,13 @@ okx_okxdigital_marketdata_sbe_v1_0.side = {}
 okx_okxdigital_marketdata_sbe_v1_0.side.size = 1
 
 -- Display: Side
-okx_okxdigital_marketdata_sbe_v1_0.side.display = function(value)
-  if value == 0 then
-    return "Side: Sell (0)"
-  end
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
+okx_okxdigital_marketdata_sbe_v1_0.side.labels = {
+  [0] = "Side: Sell (0)",
+  [1] = "Side: Buy (1)",
+}
 
-  return "Side: Unknown("..value..")"
+okx_okxdigital_marketdata_sbe_v1_0.side.display = function(value)
+  return okx_okxdigital_marketdata_sbe_v1_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -554,15 +552,13 @@ okx_okxdigital_marketdata_sbe_v1_0.source = {}
 okx_okxdigital_marketdata_sbe_v1_0.source.size = 1
 
 -- Display: Source
-okx_okxdigital_marketdata_sbe_v1_0.source.display = function(value)
-  if value == 0 then
-    return "Source: Normal (0)"
-  end
-  if value == 1 then
-    return "Source: Elp (1)"
-  end
+okx_okxdigital_marketdata_sbe_v1_0.source.labels = {
+  [0] = "Source: Normal (0)",
+  [1] = "Source: Elp (1)",
+}
 
-  return "Source: Unknown("..value..")"
+okx_okxdigital_marketdata_sbe_v1_0.source.display = function(value)
+  return okx_okxdigital_marketdata_sbe_v1_0.source.labels[value] or "Source: Unknown("..value..")"
 end
 
 -- Dissect: Source
@@ -630,30 +626,18 @@ okx_okxdigital_marketdata_sbe_v1_0.template_id = {}
 okx_okxdigital_marketdata_sbe_v1_0.template_id.size = 2
 
 -- Display: Template Id
-okx_okxdigital_marketdata_sbe_v1_0.template_id.display = function(value)
-  if value == 1000 then
-    return "Template Id: Bbo Tbt Channel Event Message (1000)"
-  end
-  if value == 1001 then
-    return "Template Id: Books L 2 Tbt Channel Event Message (1001)"
-  end
-  if value == 1002 then
-    return "Template Id: Books L 2 Tbt Exponent Update Event Message (1002)"
-  end
-  if value == 1003 then
-    return "Template Id: Books L 2 Tbt Elp Channel Event Message (1003)"
-  end
-  if value == 1004 then
-    return "Template Id: Books L 2 Tbt Elp Exponent Update Event Message (1004)"
-  end
-  if value == 1005 then
-    return "Template Id: Trades Channel Event Message (1005)"
-  end
-  if value == 1006 then
-    return "Template Id: Snapshot Depth Response Event Message (1006)"
-  end
+okx_okxdigital_marketdata_sbe_v1_0.template_id.labels = {
+  [1000] = "Template Id: Bbo Tbt Channel Event Message (1000)",
+  [1001] = "Template Id: Books L 2 Tbt Channel Event Message (1001)",
+  [1002] = "Template Id: Books L 2 Tbt Exponent Update Event Message (1002)",
+  [1003] = "Template Id: Books L 2 Tbt Elp Channel Event Message (1003)",
+  [1004] = "Template Id: Books L 2 Tbt Elp Exponent Update Event Message (1004)",
+  [1005] = "Template Id: Trades Channel Event Message (1005)",
+  [1006] = "Template Id: Snapshot Depth Response Event Message (1006)",
+}
 
-  return "Template Id: Unknown("..value..")"
+okx_okxdigital_marketdata_sbe_v1_0.template_id.display = function(value)
+  return okx_okxdigital_marketdata_sbe_v1_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2001,34 +1985,20 @@ end
 okx_okxdigital_marketdata_sbe_v1_0.payload = {}
 
 -- Dissect: Payload
+okx_okxdigital_marketdata_sbe_v1_0.payload.dispatch = {
+  [1000] = okx_okxdigital_marketdata_sbe_v1_0.bbo_tbt_channel_event_message.dissect,
+  [1001] = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message.dissect,
+  [1002] = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_exponent_update_event_message.dissect,
+  [1003] = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message.dissect,
+  [1004] = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_exponent_update_event_message.dissect,
+  [1005] = okx_okxdigital_marketdata_sbe_v1_0.trades_channel_event_message.dissect,
+  [1006] = okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message.dissect,
+}
+
 okx_okxdigital_marketdata_sbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Bbo Tbt Channel Event Message
-  if template_id == 1000 then
-    return okx_okxdigital_marketdata_sbe_v1_0.bbo_tbt_channel_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Books L 2 Tbt Channel Event Message
-  if template_id == 1001 then
-    return okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Books L 2 Tbt Exponent Update Event Message
-  if template_id == 1002 then
-    return okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_exponent_update_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Books L 2 Tbt Elp Channel Event Message
-  if template_id == 1003 then
-    return okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Books L 2 Tbt Elp Exponent Update Event Message
-  if template_id == 1004 then
-    return okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_exponent_update_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trades Channel Event Message
-  if template_id == 1005 then
-    return okx_okxdigital_marketdata_sbe_v1_0.trades_channel_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Depth Response Event Message
-  if template_id == 1006 then
-    return okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message.dissect(buffer, offset, packet, parent)
+  local dissect = okx_okxdigital_marketdata_sbe_v1_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -168,18 +168,14 @@ finra_finraotc_bbds_dfi_v2018_1a.action = {}
 finra_finraotc_bbds_dfi_v2018_1a.action.size = 1
 
 -- Display: Action
-finra_finraotc_bbds_dfi_v2018_1a.action.display = function(value)
-  if value == "H" then
-    return "Action: Trading Halt (H)"
-  end
-  if value == "Q" then
-    return "Action: Quotation Resumption (Q)"
-  end
-  if value == "T" then
-    return "Action: Trading Resumption (T)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.action.labels = {
+  ["H"] = "Action: Trading Halt (H)",
+  ["Q"] = "Action: Quotation Resumption (Q)",
+  ["T"] = "Action: Trading Resumption (T)",
+}
 
-  return "Action: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.action.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -201,15 +197,13 @@ finra_finraotc_bbds_dfi_v2018_1a.administrative_message_type = {}
 finra_finraotc_bbds_dfi_v2018_1a.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
-finra_finraotc_bbds_dfi_v2018_1a.administrative_message_type.display = function(value)
-  if value == "A" then
-    return "Administrative Message Type: General Administrative Message (A)"
-  end
-  if value == "H" then
-    return "Administrative Message Type: Trading Action Message (H)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message_type.labels = {
+  ["A"] = "Administrative Message Type: General Administrative Message (A)",
+  ["H"] = "Administrative Message Type: Trading Action Message (H)",
+}
 
-  return "Administrative Message Type: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message_type.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.administrative_message_type.labels[value] or "Administrative Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Administrative Message Type
@@ -428,36 +422,20 @@ finra_finraotc_bbds_dfi_v2018_1a.control_message_type = {}
 finra_finraotc_bbds_dfi_v2018_1a.control_message_type.size = 1
 
 -- Display: Control Message Type
-finra_finraotc_bbds_dfi_v2018_1a.control_message_type.display = function(value)
-  if value == "I" then
-    return "Control Message Type: Start Of Day Message (I)"
-  end
-  if value == "J" then
-    return "Control Message Type: End Of Day Message (J)"
-  end
-  if value == "O" then
-    return "Control Message Type: Market Session Open Message (O)"
-  end
-  if value == "C" then
-    return "Control Message Type: Market Session Close Message (C)"
-  end
-  if value == "K" then
-    return "Control Message Type: End Of Retransmission Requests Message (K)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Transmissions Message (Z)"
-  end
-  if value == "T" then
-    return "Control Message Type: Line Integrity Message (T)"
-  end
-  if value == "L" then
-    return "Control Message Type: Sequence Number Reset Message (L)"
-  end
-  if value == "X" then
-    return "Control Message Type: End Of Trade Reporting Message (X)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.control_message_type.labels = {
+  ["I"] = "Control Message Type: Start Of Day Message (I)",
+  ["J"] = "Control Message Type: End Of Day Message (J)",
+  ["O"] = "Control Message Type: Market Session Open Message (O)",
+  ["C"] = "Control Message Type: Market Session Close Message (C)",
+  ["K"] = "Control Message Type: End Of Retransmission Requests Message (K)",
+  ["Z"] = "Control Message Type: End Of Transmissions Message (Z)",
+  ["T"] = "Control Message Type: Line Integrity Message (T)",
+  ["L"] = "Control Message Type: Sequence Number Reset Message (L)",
+  ["X"] = "Control Message Type: End Of Trade Reporting Message (X)",
+}
 
-  return "Control Message Type: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.control_message_type.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.control_message_type.labels[value] or "Control Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Control Message Type
@@ -548,18 +526,14 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator = {}
 finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.size = 1
 
 -- Display: Inside Appendage Indicator
-finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.display = function(value)
-  if value == 1 then
-    return "Inside Appendage Indicator: No Change To Inside Quote (1)"
-  end
-  if value == 2 then
-    return "Inside Appendage Indicator: No Inside Exists (2)"
-  end
-  if value == 3 then
-    return "Inside Appendage Indicator: Inside Quote Appendage Is Attached (3)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.labels = {
+  [1] = "Inside Appendage Indicator: No Change To Inside Quote (1)",
+  [2] = "Inside Appendage Indicator: No Inside Exists (2)",
+  [3] = "Inside Appendage Indicator: Inside Quote Appendage Is Attached (3)",
+}
 
-  return "Inside Appendage Indicator: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.labels[value] or "Inside Appendage Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Inside Appendage Indicator
@@ -759,15 +733,13 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_quote_condition = {}
 finra_finraotc_bbds_dfi_v2018_1a.inside_quote_condition.size = 1
 
 -- Display: Inside Quote Condition
-finra_finraotc_bbds_dfi_v2018_1a.inside_quote_condition.display = function(value)
-  if value == "O" then
-    return "Inside Quote Condition: Open (O)"
-  end
-  if value == "C" then
-    return "Inside Quote Condition: Closed (C)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.inside_quote_condition.labels = {
+  ["O"] = "Inside Quote Condition: Open (O)",
+  ["C"] = "Inside Quote Condition: Closed (C)",
+}
 
-  return "Inside Quote Condition: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.inside_quote_condition.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.inside_quote_condition.labels[value] or "Inside Quote Condition: Unknown("..value..")"
 end
 
 -- Dissect: Inside Quote Condition
@@ -789,18 +761,14 @@ finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id = {}
 finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.size = 1
 
 -- Display: Market Center Originator Id
-finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.display = function(value)
-  if value == "E" then
-    return "Market Center Originator Id: Market Center Independent (E)"
-  end
-  if value == "U" then
-    return "Market Center Originator Id: Otc Bulletin Board (U)"
-  end
-  if value == "Q" then
-    return "Market Center Originator Id: Nasdaq Omx Market System (Q)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.labels = {
+  ["E"] = "Market Center Originator Id: Market Center Independent (E)",
+  ["U"] = "Market Center Originator Id: Otc Bulletin Board (U)",
+  ["Q"] = "Market Center Originator Id: Nasdaq Omx Market System (Q)",
+}
 
-  return "Market Center Originator Id: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.labels[value] or "Market Center Originator Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Center Originator Id
@@ -868,24 +836,16 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition = {}
 finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.size = 1
 
 -- Display: Market Participant Quote Condition
-finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.display = function(value)
-  if value == "O" then
-    return "Market Participant Quote Condition: Open (O)"
-  end
-  if value == "C" then
-    return "Market Participant Quote Condition: Closed (C)"
-  end
-  if value == "I" then
-    return "Market Participant Quote Condition: Periodic Indicative Other Securities (I)"
-  end
-  if value == "K" then
-    return "Market Participant Quote Condition: Realtime Quotes (K)"
-  end
-  if value == "L" then
-    return "Market Participant Quote Condition: Periodic Indicative Quotes (L)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.labels = {
+  ["O"] = "Market Participant Quote Condition: Open (O)",
+  ["C"] = "Market Participant Quote Condition: Closed (C)",
+  ["I"] = "Market Participant Quote Condition: Periodic Indicative Other Securities (I)",
+  ["K"] = "Market Participant Quote Condition: Realtime Quotes (K)",
+  ["L"] = "Market Participant Quote Condition: Periodic Indicative Quotes (L)",
+}
 
-  return "Market Participant Quote Condition: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.labels[value] or "Market Participant Quote Condition: Unknown("..value..")"
 end
 
 -- Dissect: Market Participant Quote Condition
@@ -907,24 +867,16 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_status = {}
 finra_finraotc_bbds_dfi_v2018_1a.market_participant_status.size = 1
 
 -- Display: Market Participant Status
-finra_finraotc_bbds_dfi_v2018_1a.market_participant_status.display = function(value)
-  if value == "A" then
-    return "Market Participant Status: Active (A)"
-  end
-  if value == "D" then
-    return "Market Participant Status: Deleted (D)"
-  end
-  if value == "E" then
-    return "Market Participant Status: Excused (E)"
-  end
-  if value == "W" then
-    return "Market Participant Status: Withdrawn (W)"
-  end
-  if value == "S" then
-    return "Market Participant Status: Suspended (S)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.market_participant_status.labels = {
+  ["A"] = "Market Participant Status: Active (A)",
+  ["D"] = "Market Participant Status: Deleted (D)",
+  ["E"] = "Market Participant Status: Excused (E)",
+  ["W"] = "Market Participant Status: Withdrawn (W)",
+  ["S"] = "Market Participant Status: Suspended (S)",
+}
 
-  return "Market Participant Status: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.market_participant_status.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.market_participant_status.labels[value] or "Market Participant Status: Unknown("..value..")"
 end
 
 -- Dissect: Market Participant Status
@@ -946,18 +898,14 @@ finra_finraotc_bbds_dfi_v2018_1a.message_category = {}
 finra_finraotc_bbds_dfi_v2018_1a.message_category.size = 1
 
 -- Display: Message Category
-finra_finraotc_bbds_dfi_v2018_1a.message_category.display = function(value)
-  if value == "Q" then
-    return "Message Category: Quotation (Q)"
-  end
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.message_category.labels = {
+  ["Q"] = "Message Category: Quotation (Q)",
+  ["A"] = "Message Category: Administrative (A)",
+  ["C"] = "Message Category: Control (C)",
+}
 
-  return "Message Category: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.message_category.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -979,15 +927,13 @@ finra_finraotc_bbds_dfi_v2018_1a.message_separator = {}
 finra_finraotc_bbds_dfi_v2018_1a.message_separator.size = 1
 
 -- Display: Message Separator
-finra_finraotc_bbds_dfi_v2018_1a.message_separator.display = function(value)
-  if value == 31 then
-    return "Message Separator: Unit Separator (31)"
-  end
-  if value == 3 then
-    return "Message Separator: End Of Text (3)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.message_separator.labels = {
+  [31] = "Message Separator: Unit Separator (31)",
+  [3] = "Message Separator: End Of Text (3)",
+}
 
-  return "Message Separator: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.message_separator.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.message_separator.labels[value] or "Message Separator: Unknown("..value..")"
 end
 
 -- Dissect: Message Separator
@@ -1132,12 +1078,12 @@ finra_finraotc_bbds_dfi_v2018_1a.quotation_message_type = {}
 finra_finraotc_bbds_dfi_v2018_1a.quotation_message_type.size = 1
 
 -- Display: Quotation Message Type
-finra_finraotc_bbds_dfi_v2018_1a.quotation_message_type.display = function(value)
-  if value == "1" then
-    return "Quotation Message Type: Market Participant Quote Update Message (1)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message_type.labels = {
+  ["1"] = "Quotation Message Type: Market Participant Quote Update Message (1)",
+}
 
-  return "Quotation Message Type: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message_type.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.quotation_message_type.labels[value] or "Quotation Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Quotation Message Type
@@ -1297,15 +1243,13 @@ finra_finraotc_bbds_dfi_v2018_1a.session_identifier = {}
 finra_finraotc_bbds_dfi_v2018_1a.session_identifier.size = 1
 
 -- Display: Session Identifier
-finra_finraotc_bbds_dfi_v2018_1a.session_identifier.display = function(value)
-  if value == "A" then
-    return "Session Identifier: All Market Sessions Or Session Independent (A)"
-  end
-  if value == "U" then
-    return "Session Identifier: Us Market Session (U)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.session_identifier.labels = {
+  ["A"] = "Session Identifier: All Market Sessions Or Session Independent (A)",
+  ["U"] = "Session Identifier: Us Market Session (U)",
+}
 
-  return "Session Identifier: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.session_identifier.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.session_identifier.labels[value] or "Session Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Session Identifier
@@ -1405,21 +1349,15 @@ finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator = {}
 finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.size = 1
 
 -- Display: Wanted Indicator
-finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.display = function(value)
-  if value == "B" then
-    return "Wanted Indicator: Bid (B)"
-  end
-  if value == "N" then
-    return "Wanted Indicator: Not Applicable (N)"
-  end
-  if value == "O" then
-    return "Wanted Indicator: Offer (O)"
-  end
-  if value == "W" then
-    return "Wanted Indicator: Bid And Offer (W)"
-  end
+finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.labels = {
+  ["B"] = "Wanted Indicator: Bid (B)",
+  ["N"] = "Wanted Indicator: Not Applicable (N)",
+  ["O"] = "Wanted Indicator: Offer (O)",
+  ["W"] = "Wanted Indicator: Bid And Offer (W)",
+}
 
-  return "Wanted Indicator: Unknown("..value..")"
+finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.display = function(value)
+  return finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.labels[value] or "Wanted Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Wanted Indicator
@@ -1946,42 +1884,22 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.control_message_payload = {}
 
 -- Dissect: Control Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dispatch = {
+  ["I"] = finra_finraotc_bbds_dfi_v2018_1a.start_of_day_message.dissect,
+  ["J"] = finra_finraotc_bbds_dfi_v2018_1a.end_of_day_message.dissect,
+  ["O"] = finra_finraotc_bbds_dfi_v2018_1a.market_session_open_message.dissect,
+  ["C"] = finra_finraotc_bbds_dfi_v2018_1a.market_session_close_message.dissect,
+  ["K"] = finra_finraotc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message.dissect,
+  ["Z"] = finra_finraotc_bbds_dfi_v2018_1a.end_of_transmissions_message.dissect,
+  ["T"] = finra_finraotc_bbds_dfi_v2018_1a.line_integrity_message.dissect,
+  ["L"] = finra_finraotc_bbds_dfi_v2018_1a.sequence_number_reset_message.dissect,
+  ["X"] = finra_finraotc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.dissect,
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Dissect Start Of Day Message
-  if control_message_type == "I" then
-    return finra_finraotc_bbds_dfi_v2018_1a.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if control_message_type == "J" then
-    return finra_finraotc_bbds_dfi_v2018_1a.end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Open Message
-  if control_message_type == "O" then
-    return finra_finraotc_bbds_dfi_v2018_1a.market_session_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Close Message
-  if control_message_type == "C" then
-    return finra_finraotc_bbds_dfi_v2018_1a.market_session_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Retransmission Requests Message
-  if control_message_type == "K" then
-    return finra_finraotc_bbds_dfi_v2018_1a.end_of_retransmission_requests_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Transmissions Message
-  if control_message_type == "Z" then
-    return finra_finraotc_bbds_dfi_v2018_1a.end_of_transmissions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Line Integrity Message
-  if control_message_type == "T" then
-    return finra_finraotc_bbds_dfi_v2018_1a.line_integrity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Number Reset Message
-  if control_message_type == "L" then
-    return finra_finraotc_bbds_dfi_v2018_1a.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Trade Reporting Message
-  if control_message_type == "X" then
-    return finra_finraotc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dispatch[control_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2214,14 +2132,15 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload = {}
 
 -- Dissect: Administrative Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.dispatch = {
+  ["A"] = finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.dissect,
+  ["H"] = finra_finraotc_bbds_dfi_v2018_1a.trading_action_message.dissect,
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect General Administrative Message
-  if administrative_message_type == "A" then
-    return finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if administrative_message_type == "H" then
-    return finra_finraotc_bbds_dfi_v2018_1a.trading_action_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.dispatch[administrative_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2489,10 +2408,14 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload = {}
 
 -- Dissect: Quotation Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.dispatch = {
+  ["1"] = finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.dissect,
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.dissect = function(buffer, offset, packet, parent, quotation_message_type)
-  -- Dissect Market Participant Quote Update Message
-  if quotation_message_type == "1" then
-    return finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.dispatch[quotation_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2555,18 +2478,16 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.payload = {}
 
 -- Dissect: Payload
+finra_finraotc_bbds_dfi_v2018_1a.payload.dispatch = {
+  ["Q"] = finra_finraotc_bbds_dfi_v2018_1a.quotation_message.dissect,
+  ["A"] = finra_finraotc_bbds_dfi_v2018_1a.administrative_message.dissect,
+  ["C"] = finra_finraotc_bbds_dfi_v2018_1a.control_message.dissect,
+}
+
 finra_finraotc_bbds_dfi_v2018_1a.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Quotation Message
-  if message_category == "Q" then
-    return finra_finraotc_bbds_dfi_v2018_1a.quotation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Administrative Message
-  if message_category == "A" then
-    return finra_finraotc_bbds_dfi_v2018_1a.administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if message_category == "C" then
-    return finra_finraotc_bbds_dfi_v2018_1a.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_finraotc_bbds_dfi_v2018_1a.payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

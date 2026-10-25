@@ -377,15 +377,13 @@ nasdaq_phlxoptions_orders_itch_v1_92.action = {}
 nasdaq_phlxoptions_orders_itch_v1_92.action.size = 1
 
 -- Display: Action
-nasdaq_phlxoptions_orders_itch_v1_92.action.display = function(value)
-  if value == "A" then
-    return "Action: Add (A)"
-  end
-  if value == "D" then
-    return "Action: Delete (D)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.action.labels = {
+  ["A"] = "Action: Add (A)",
+  ["D"] = "Action: Delete (D)",
+}
 
-  return "Action: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.action.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -407,15 +405,13 @@ nasdaq_phlxoptions_orders_itch_v1_92.all_or_none = {}
 nasdaq_phlxoptions_orders_itch_v1_92.all_or_none.size = 1
 
 -- Display: All Or None
-nasdaq_phlxoptions_orders_itch_v1_92.all_or_none.display = function(value)
-  if value == "Y" then
-    return "All Or None: All Or None Order (Y)"
-  end
-  if value == "N" then
-    return "All Or None: Not All Or None Order (N)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.all_or_none.labels = {
+  ["Y"] = "All Or None: All Or None Order (Y)",
+  ["N"] = "All Or None: Not All Or None Order (N)",
+}
 
-  return "All Or None: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.all_or_none.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.all_or_none.labels[value] or "All Or None: Unknown("..value..")"
 end
 
 -- Dissect: All Or None
@@ -460,18 +456,14 @@ nasdaq_phlxoptions_orders_itch_v1_92.auction_side = {}
 nasdaq_phlxoptions_orders_itch_v1_92.auction_side.size = 1
 
 -- Display: Auction Side
-nasdaq_phlxoptions_orders_itch_v1_92.auction_side.display = function(value)
-  if value == "B" then
-    return "Auction Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Auction Side: Sell (S)"
-  end
-  if value == "*" then
-    return "Auction Side: Solicitation Auction (*)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.auction_side.labels = {
+  ["B"] = "Auction Side: Buy (B)",
+  ["S"] = "Auction Side: Sell (S)",
+  ["*"] = "Auction Side: Solicitation Auction (*)",
+}
 
-  return "Auction Side: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.auction_side.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.auction_side.labels[value] or "Auction Side: Unknown("..value..")"
 end
 
 -- Dissect: Auction Side
@@ -493,27 +485,17 @@ nasdaq_phlxoptions_orders_itch_v1_92.auction_type = {}
 nasdaq_phlxoptions_orders_itch_v1_92.auction_type.size = 1
 
 -- Display: Auction Type
-nasdaq_phlxoptions_orders_itch_v1_92.auction_type.display = function(value)
-  if value == "C" then
-    return "Auction Type: Cola (C)"
-  end
-  if value == "O" then
-    return "Auction Type: Opening (O)"
-  end
-  if value == "R" then
-    return "Auction Type: Reopening (R)"
-  end
-  if value == "P" then
-    return "Auction Type: Pixl (P)"
-  end
-  if value == "S" then
-    return "Auction Type: Solicitation (S)"
-  end
-  if value == "I" then
-    return "Auction Type: Order Exposure (I)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.auction_type.labels = {
+  ["C"] = "Auction Type: Cola (C)",
+  ["O"] = "Auction Type: Opening (O)",
+  ["R"] = "Auction Type: Reopening (R)",
+  ["P"] = "Auction Type: Pixl (P)",
+  ["S"] = "Auction Type: Solicitation (S)",
+  ["I"] = "Auction Type: Order Exposure (I)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.auction_type.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -535,24 +517,16 @@ nasdaq_phlxoptions_orders_itch_v1_92.client_packet_type = {}
 nasdaq_phlxoptions_orders_itch_v1_92.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_phlxoptions_orders_itch_v1_92.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.client_packet_type.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -574,15 +548,13 @@ nasdaq_phlxoptions_orders_itch_v1_92.current_trading_state = {}
 nasdaq_phlxoptions_orders_itch_v1_92.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_phlxoptions_orders_itch_v1_92.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Phlx Trading Resumed (T)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Phlx Trading Resumed (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.current_trading_state.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -724,33 +696,19 @@ nasdaq_phlxoptions_orders_itch_v1_92.event_code = {}
 nasdaq_phlxoptions_orders_itch_v1_92.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_phlxoptions_orders_itch_v1_92.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: Start Of Normal Hours Closing Process (N)",
+  ["L"] = "Event Code: Start Of Late Hours Closing Process (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.event_code.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1034,42 +992,22 @@ nasdaq_phlxoptions_orders_itch_v1_92.message_type = {}
 nasdaq_phlxoptions_orders_itch_v1_92.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_phlxoptions_orders_itch_v1_92.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Options Directory Message (D)"
-  end
-  if value == "R" then
-    return "Message Type: Complex Order Strategy Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Security Trading Action Message (H)"
-  end
-  if value == "I" then
-    return "Message Type: Complex Trading Action Message (I)"
-  end
-  if value == "P" then
-    return "Message Type: Security Open Closed Message (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Strategy Open Closed Message (Q)"
-  end
-  if value == "O" then
-    return "Message Type: Simple Order Message (O)"
-  end
-  if value == "X" then
-    return "Message Type: Complex Order Message (X)"
-  end
-  if value == "A" then
-    return "Message Type: Auction Notification Message (A)"
-  end
-  if value == "C" then
-    return "Message Type: Complex Auction Notification Message (C)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["D"] = "Message Type: Options Directory Message (D)",
+  ["R"] = "Message Type: Complex Order Strategy Message (R)",
+  ["H"] = "Message Type: Security Trading Action Message (H)",
+  ["I"] = "Message Type: Complex Trading Action Message (I)",
+  ["P"] = "Message Type: Security Open Closed Message (P)",
+  ["Q"] = "Message Type: Strategy Open Closed Message (Q)",
+  ["O"] = "Message Type: Simple Order Message (O)",
+  ["X"] = "Message Type: Complex Order Message (X)",
+  ["A"] = "Message Type: Auction Notification Message (A)",
+  ["C"] = "Message Type: Complex Auction Notification Message (C)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.message_type.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1170,15 +1108,13 @@ nasdaq_phlxoptions_orders_itch_v1_92.open_state = {}
 nasdaq_phlxoptions_orders_itch_v1_92.open_state.size = 1
 
 -- Display: Open State
-nasdaq_phlxoptions_orders_itch_v1_92.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open For Auto Execution (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed For Auto Execution (N)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.open_state.labels = {
+  ["Y"] = "Open State: Open For Auto Execution (Y)",
+  ["N"] = "Open State: Closed For Auto Execution (N)",
+}
 
-  return "Open State: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.open_state.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.open_state.labels[value] or "Open State: Unknown("..value..")"
 end
 
 -- Dissect: Open State
@@ -1200,18 +1136,14 @@ nasdaq_phlxoptions_orders_itch_v1_92.option_closing_type = {}
 nasdaq_phlxoptions_orders_itch_v1_92.option_closing_type.size = 1
 
 -- Display: Option Closing Type
-nasdaq_phlxoptions_orders_itch_v1_92.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late (L)"
-  end
-  if value == "W" then
-    return "Option Closing Type: Wco Early Closing (W)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.option_closing_type.labels = {
+  ["N"] = "Option Closing Type: Normal (N)",
+  ["L"] = "Option Closing Type: Late (L)",
+  ["W"] = "Option Closing Type: Wco Early Closing (W)",
+}
 
-  return "Option Closing Type: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.option_closing_type.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.option_closing_type.labels[value] or "Option Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Closing Type
@@ -1312,21 +1244,15 @@ nasdaq_phlxoptions_orders_itch_v1_92.order_status = {}
 nasdaq_phlxoptions_orders_itch_v1_92.order_status.size = 1
 
 -- Display: Order Status
-nasdaq_phlxoptions_orders_itch_v1_92.order_status.display = function(value)
-  if value == "O" then
-    return "Order Status: Open (O)"
-  end
-  if value == "F" then
-    return "Order Status: Filled (F)"
-  end
-  if value == "C" then
-    return "Order Status: Cancelled (C)"
-  end
-  if value == "R" then
-    return "Order Status: Renotification (R)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.order_status.labels = {
+  ["O"] = "Order Status: Open (O)",
+  ["F"] = "Order Status: Filled (F)",
+  ["C"] = "Order Status: Cancelled (C)",
+  ["R"] = "Order Status: Renotification (R)",
+}
 
-  return "Order Status: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.order_status.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.order_status.labels[value] or "Order Status: Unknown("..value..")"
 end
 
 -- Dissect: Order Status
@@ -1348,18 +1274,14 @@ nasdaq_phlxoptions_orders_itch_v1_92.order_type = {}
 nasdaq_phlxoptions_orders_itch_v1_92.order_type.size = 1
 
 -- Display: Order Type
-nasdaq_phlxoptions_orders_itch_v1_92.order_type.display = function(value)
-  if value == "M" then
-    return "Order Type: Market (M)"
-  end
-  if value == "L" then
-    return "Order Type: Limit (L)"
-  end
-  if value == "*" then
-    return "Order Type: Anonymous (*)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.order_type.labels = {
+  ["M"] = "Order Type: Market (M)",
+  ["L"] = "Order Type: Limit (L)",
+  ["*"] = "Order Type: Anonymous (*)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.order_type.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1450,15 +1372,13 @@ nasdaq_phlxoptions_orders_itch_v1_92.phlx_tradable = {}
 nasdaq_phlxoptions_orders_itch_v1_92.phlx_tradable.size = 1
 
 -- Display: Phlx Tradable
-nasdaq_phlxoptions_orders_itch_v1_92.phlx_tradable.display = function(value)
-  if value == "Y" then
-    return "Phlx Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Phlx Tradable: Not Tradable (N)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.phlx_tradable.labels = {
+  ["Y"] = "Phlx Tradable: Tradable (Y)",
+  ["N"] = "Phlx Tradable: Not Tradable (N)",
+}
 
-  return "Phlx Tradable: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.phlx_tradable.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.phlx_tradable.labels[value] or "Phlx Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Phlx Tradable
@@ -1509,15 +1429,13 @@ nasdaq_phlxoptions_orders_itch_v1_92.reject_reason_code = {}
 nasdaq_phlxoptions_orders_itch_v1_92.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_phlxoptions_orders_itch_v1_92.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.reject_reason_code.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1685,45 +1603,23 @@ nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message_type = {}
 nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Options Directory Message (D)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Complex Order Strategy Message (R)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Security Trading Action Message (H)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Complex Trading Action Message (I)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Security Open Closed Message (P)"
-  end
-  if value == "Q" then
-    return "Sequenced Message Type: Strategy Open Closed Message (Q)"
-  end
-  if value == "O" then
-    return "Sequenced Message Type: Simple Order Message (O)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Complex Order Message (X)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Auction Notification Message (A)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Complex Auction Notification Message (C)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: End Of Replay Sequence Message (M)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["D"] = "Sequenced Message Type: Options Directory Message (D)",
+  ["R"] = "Sequenced Message Type: Complex Order Strategy Message (R)",
+  ["H"] = "Sequenced Message Type: Security Trading Action Message (H)",
+  ["I"] = "Sequenced Message Type: Complex Trading Action Message (I)",
+  ["P"] = "Sequenced Message Type: Security Open Closed Message (P)",
+  ["Q"] = "Sequenced Message Type: Strategy Open Closed Message (Q)",
+  ["O"] = "Sequenced Message Type: Simple Order Message (O)",
+  ["X"] = "Sequenced Message Type: Complex Order Message (X)",
+  ["A"] = "Sequenced Message Type: Auction Notification Message (A)",
+  ["C"] = "Sequenced Message Type: Complex Auction Notification Message (C)",
+  ["M"] = "Sequenced Message Type: End Of Replay Sequence Message (M)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message_type.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1745,27 +1641,17 @@ nasdaq_phlxoptions_orders_itch_v1_92.server_packet_type = {}
 nasdaq_phlxoptions_orders_itch_v1_92.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_phlxoptions_orders_itch_v1_92.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.server_packet_type.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1810,18 +1696,14 @@ nasdaq_phlxoptions_orders_itch_v1_92.side = {}
 nasdaq_phlxoptions_orders_itch_v1_92.side.size = 1
 
 -- Display: Side
-nasdaq_phlxoptions_orders_itch_v1_92.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "*" then
-    return "Side: Hidden (*)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["*"] = "Side: Hidden (*)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.side.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1889,18 +1771,14 @@ nasdaq_phlxoptions_orders_itch_v1_92.time_in_force = {}
 nasdaq_phlxoptions_orders_itch_v1_92.time_in_force.size = 1
 
 -- Display: Time In Force
-nasdaq_phlxoptions_orders_itch_v1_92.time_in_force.display = function(value)
-  if value == "D" then
-    return "Time In Force: Day Order (D)"
-  end
-  if value == "G" then
-    return "Time In Force: Gtc (G)"
-  end
-  if value == "I" then
-    return "Time In Force: Ioc (I)"
-  end
+nasdaq_phlxoptions_orders_itch_v1_92.time_in_force.labels = {
+  ["D"] = "Time In Force: Day Order (D)",
+  ["G"] = "Time In Force: Gtc (G)",
+  ["I"] = "Time In Force: Ioc (I)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+nasdaq_phlxoptions_orders_itch_v1_92.time_in_force.display = function(value)
+  return nasdaq_phlxoptions_orders_itch_v1_92.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -3126,50 +3004,24 @@ end
 nasdaq_phlxoptions_orders_itch_v1_92.payload = {}
 
 -- Dissect: Payload
+nasdaq_phlxoptions_orders_itch_v1_92.payload.dispatch = {
+  ["S"] = nasdaq_phlxoptions_orders_itch_v1_92.system_event_message.dissect,
+  ["D"] = nasdaq_phlxoptions_orders_itch_v1_92.options_directory_message.dissect,
+  ["R"] = nasdaq_phlxoptions_orders_itch_v1_92.complex_order_strategy_message.dissect,
+  ["H"] = nasdaq_phlxoptions_orders_itch_v1_92.security_trading_action_message.dissect,
+  ["I"] = nasdaq_phlxoptions_orders_itch_v1_92.complex_trading_action_message.dissect,
+  ["P"] = nasdaq_phlxoptions_orders_itch_v1_92.security_open_closed_message.dissect,
+  ["Q"] = nasdaq_phlxoptions_orders_itch_v1_92.strategy_open_closed_message.dissect,
+  ["O"] = nasdaq_phlxoptions_orders_itch_v1_92.simple_order_message.dissect,
+  ["X"] = nasdaq_phlxoptions_orders_itch_v1_92.complex_order_message.dissect,
+  ["A"] = nasdaq_phlxoptions_orders_itch_v1_92.auction_notification_message.dissect,
+  ["C"] = nasdaq_phlxoptions_orders_itch_v1_92.complex_auction_notification_message.dissect,
+}
+
 nasdaq_phlxoptions_orders_itch_v1_92.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if message_type == "D" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Strategy Message
-  if message_type == "R" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.complex_order_strategy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Action Message
-  if message_type == "H" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.security_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Trading Action Message
-  if message_type == "I" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.complex_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Closed Message
-  if message_type == "P" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.security_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Open Closed Message
-  if message_type == "Q" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.strategy_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Order Message
-  if message_type == "O" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.simple_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Message
-  if message_type == "X" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.complex_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Notification Message
-  if message_type == "A" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Auction Notification Message
-  if message_type == "C" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.complex_auction_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_orders_itch_v1_92.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3290,10 +3142,14 @@ end
 nasdaq_phlxoptions_orders_itch_v1_92.message_body = {}
 
 -- Dissect: Message Body
+nasdaq_phlxoptions_orders_itch_v1_92.message_body.dispatch = {
+  [0] = nasdaq_phlxoptions_orders_itch_v1_92.end_of_session.dissect,
+}
+
 nasdaq_phlxoptions_orders_itch_v1_92.message_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect End Of Session
-  if message_length == 0 then
-    return nasdaq_phlxoptions_orders_itch_v1_92.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_orders_itch_v1_92.message_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Message Data
@@ -3386,10 +3242,14 @@ end
 nasdaq_phlxoptions_orders_itch_v1_92.messages = {}
 
 -- Dissect: Messages
+nasdaq_phlxoptions_orders_itch_v1_92.messages.dispatch = {
+  [0] = nasdaq_phlxoptions_orders_itch_v1_92.heartbeat.dissect,
+}
+
 nasdaq_phlxoptions_orders_itch_v1_92.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_phlxoptions_orders_itch_v1_92.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_orders_itch_v1_92.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
@@ -3569,54 +3429,25 @@ end
 nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message.dispatch = {
+  ["S"] = nasdaq_phlxoptions_orders_itch_v1_92.system_event_message.dissect,
+  ["D"] = nasdaq_phlxoptions_orders_itch_v1_92.options_directory_message.dissect,
+  ["R"] = nasdaq_phlxoptions_orders_itch_v1_92.complex_order_strategy_message.dissect,
+  ["H"] = nasdaq_phlxoptions_orders_itch_v1_92.security_trading_action_message.dissect,
+  ["I"] = nasdaq_phlxoptions_orders_itch_v1_92.complex_trading_action_message.dissect,
+  ["P"] = nasdaq_phlxoptions_orders_itch_v1_92.security_open_closed_message.dissect,
+  ["Q"] = nasdaq_phlxoptions_orders_itch_v1_92.strategy_open_closed_message.dissect,
+  ["O"] = nasdaq_phlxoptions_orders_itch_v1_92.simple_order_message.dissect,
+  ["X"] = nasdaq_phlxoptions_orders_itch_v1_92.complex_order_message.dissect,
+  ["A"] = nasdaq_phlxoptions_orders_itch_v1_92.auction_notification_message.dissect,
+  ["C"] = nasdaq_phlxoptions_orders_itch_v1_92.complex_auction_notification_message.dissect,
+  ["M"] = nasdaq_phlxoptions_orders_itch_v1_92.end_of_replay_sequence_message.dissect,
+}
+
 nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if sequenced_message_type == "D" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Strategy Message
-  if sequenced_message_type == "R" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.complex_order_strategy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.security_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Trading Action Message
-  if sequenced_message_type == "I" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.complex_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Closed Message
-  if sequenced_message_type == "P" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.security_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Open Closed Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.strategy_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Order Message
-  if sequenced_message_type == "O" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.simple_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Message
-  if sequenced_message_type == "X" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.complex_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Notification Message
-  if sequenced_message_type == "A" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Auction Notification Message
-  if sequenced_message_type == "C" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.complex_auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Replay Sequence Message
-  if sequenced_message_type == "M" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.end_of_replay_sequence_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_orders_itch_v1_92.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3859,30 +3690,19 @@ end
 nasdaq_phlxoptions_orders_itch_v1_92.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_phlxoptions_orders_itch_v1_92.server_payload.dispatch = {
+  ["+"] = nasdaq_phlxoptions_orders_itch_v1_92.debug_packet.dissect,
+  ["A"] = nasdaq_phlxoptions_orders_itch_v1_92.login_accepted_packet.dissect,
+  ["J"] = nasdaq_phlxoptions_orders_itch_v1_92.login_rejected_packet.dissect,
+  ["S"] = nasdaq_phlxoptions_orders_itch_v1_92.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_phlxoptions_orders_itch_v1_92.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_phlxoptions_orders_itch_v1_92.end_of_session_packet.dissect,
+}
+
 nasdaq_phlxoptions_orders_itch_v1_92.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_orders_itch_v1_92.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4193,26 +4013,18 @@ end
 nasdaq_phlxoptions_orders_itch_v1_92.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_phlxoptions_orders_itch_v1_92.client_payload.dispatch = {
+  ["+"] = nasdaq_phlxoptions_orders_itch_v1_92.debug_packet.dissect,
+  ["L"] = nasdaq_phlxoptions_orders_itch_v1_92.login_request_packet.dissect,
+  ["U"] = nasdaq_phlxoptions_orders_itch_v1_92.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_phlxoptions_orders_itch_v1_92.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_phlxoptions_orders_itch_v1_92.logout_request_packet.dissect,
+}
+
 nasdaq_phlxoptions_orders_itch_v1_92.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_phlxoptions_orders_itch_v1_92.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_orders_itch_v1_92.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

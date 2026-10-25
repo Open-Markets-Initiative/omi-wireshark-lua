@@ -156,33 +156,19 @@ cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_status = {}
 cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_status.size = 1
 
 -- Display: Gap Response Status
-cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_status.display = function(value)
-  if value == "A" then
-    return "Gap Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Gap Response Status: Out Of Range Ahead Of Sequence Or Too Far Behind (O)"
-  end
-  if value == "D" then
-    return "Gap Response Status: Daily Gap Request Allocation Exhausted (D)"
-  end
-  if value == "M" then
-    return "Gap Response Status: Minute Gap Request Allocation Exhausted (M)"
-  end
-  if value == "S" then
-    return "Gap Response Status: Second Gap Request Allocation Exhausted (S)"
-  end
-  if value == "C" then
-    return "Gap Response Status: Count Request Limit For One Gap Request Exceeded (C)"
-  end
-  if value == "I" then
-    return "Gap Response Status: Invalid Unit Specified In Request (I)"
-  end
-  if value == "U" then
-    return "Gap Response Status: Unit Is Currently Unavailable (U)"
-  end
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_status.labels = {
+  ["A"] = "Gap Response Status: Accepted (A)",
+  ["O"] = "Gap Response Status: Out Of Range Ahead Of Sequence Or Too Far Behind (O)",
+  ["D"] = "Gap Response Status: Daily Gap Request Allocation Exhausted (D)",
+  ["M"] = "Gap Response Status: Minute Gap Request Allocation Exhausted (M)",
+  ["S"] = "Gap Response Status: Second Gap Request Allocation Exhausted (S)",
+  ["C"] = "Gap Response Status: Count Request Limit For One Gap Request Exceeded (C)",
+  ["I"] = "Gap Response Status: Invalid Unit Specified In Request (I)",
+  ["U"] = "Gap Response Status: Unit Is Currently Unavailable (U)",
+}
 
-  return "Gap Response Status: Unknown("..value..")"
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_status.display = function(value)
+  return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_status.labels[value] or "Gap Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Gap Response Status
@@ -273,21 +259,15 @@ cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_status = {}
 cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_status.labels = {
+  ["A"] = "Login Response Status: Login Accepted (A)",
+  ["N"] = "Login Response Status: Not Authorized Invalid Username Password (N)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_status.display = function(value)
+  return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -355,21 +335,15 @@ cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type = {}
 cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.size = 1
 
 -- Display: Message Type
-cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x03 then
-    return "Message Type: Gap Request Message (0x03)"
-  end
-  if value == 0x04 then
-    return "Message Type: Gap Response Message (0x04)"
-  end
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.labels = {
+  [0x01] = "Message Type: Login Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x03] = "Message Type: Gap Request Message (0x03)",
+  [0x04] = "Message Type: Gap Response Message (0x04)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.display = function(value)
+  return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -700,22 +674,17 @@ end
 cboe_matchnow_gaprequestproxy_pitch_v1_0_14.payload = {}
 
 -- Dissect: Payload
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.payload.dispatch = {
+  [0x01] = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.dissect,
+  [0x02] = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.dissect,
+  [0x03] = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.dissect,
+  [0x04] = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.dissect,
+}
+
 cboe_matchnow_gaprequestproxy_pitch_v1_0_14.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Message
-  if message_type == 0x01 then
-    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Request Message
-  if message_type == 0x03 then
-    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Response Message
-  if message_type == 0x04 then
-    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -848,10 +817,14 @@ end
 cboe_matchnow_gaprequestproxy_pitch_v1_0_14.messages = {}
 
 -- Dissect: Messages
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.messages.dispatch = {
+  [0] = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.heartbeat.dissect,
+}
+
 cboe_matchnow_gaprequestproxy_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

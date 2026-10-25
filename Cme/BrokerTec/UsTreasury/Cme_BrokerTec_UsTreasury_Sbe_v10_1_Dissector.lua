@@ -428,18 +428,14 @@ cme_brokertec_ustreasury_sbe_v10_1.md_update_action = {}
 cme_brokertec_ustreasury_sbe_v10_1.md_update_action.size = 1
 
 -- Display: Md Update Action
-cme_brokertec_ustreasury_sbe_v10_1.md_update_action.display = function(value)
-  if value == 0 then
-    return "Md Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Md Update Action: Update (1)"
-  end
-  if value == 2 then
-    return "Md Update Action: Delete (2)"
-  end
+cme_brokertec_ustreasury_sbe_v10_1.md_update_action.labels = {
+  [0] = "Md Update Action: New (0)",
+  [1] = "Md Update Action: Update (1)",
+  [2] = "Md Update Action: Delete (2)",
+}
 
-  return "Md Update Action: Unknown("..value..")"
+cme_brokertec_ustreasury_sbe_v10_1.md_update_action.display = function(value)
+  return cme_brokertec_ustreasury_sbe_v10_1.md_update_action.labels[value] or "Md Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Md Update Action
@@ -769,15 +765,13 @@ cme_brokertec_ustreasury_sbe_v10_1.template_id = {}
 cme_brokertec_ustreasury_sbe_v10_1.template_id.size = 2
 
 -- Display: Template Id
-cme_brokertec_ustreasury_sbe_v10_1.template_id.display = function(value)
-  if value == 405 then
-    return "Template Id: Md Incremental Refresh Btec (405)"
-  end
-  if value == 411 then
-    return "Template Id: Admin Heartbeat (411)"
-  end
+cme_brokertec_ustreasury_sbe_v10_1.template_id.labels = {
+  [405] = "Template Id: Md Incremental Refresh Btec (405)",
+  [411] = "Template Id: Admin Heartbeat (411)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cme_brokertec_ustreasury_sbe_v10_1.template_id.display = function(value)
+  return cme_brokertec_ustreasury_sbe_v10_1.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1319,14 +1313,15 @@ end
 cme_brokertec_ustreasury_sbe_v10_1.payload = {}
 
 -- Dissect: Payload
+cme_brokertec_ustreasury_sbe_v10_1.payload.dispatch = {
+  [405] = cme_brokertec_ustreasury_sbe_v10_1.md_incremental_refresh_btec.dissect,
+  [411] = cme_brokertec_ustreasury_sbe_v10_1.admin_heartbeat.dissect,
+}
+
 cme_brokertec_ustreasury_sbe_v10_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Md Incremental Refresh Btec
-  if template_id == 405 then
-    return cme_brokertec_ustreasury_sbe_v10_1.md_incremental_refresh_btec.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Heartbeat
-  if template_id == 411 then
-    return cme_brokertec_ustreasury_sbe_v10_1.admin_heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cme_brokertec_ustreasury_sbe_v10_1.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

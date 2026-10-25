@@ -106,15 +106,13 @@ lme_lmeselect_drsignal_lmesource_v4_18.dr_status = {}
 lme_lmeselect_drsignal_lmesource_v4_18.dr_status.size = 4
 
 -- Display: Dr Status
-lme_lmeselect_drsignal_lmesource_v4_18.dr_status.display = function(value)
-  if value == 1 then
-    return "Dr Status: Dr In Progress (1)"
-  end
-  if value == 2 then
-    return "Dr Status: Dr Completed (2)"
-  end
+lme_lmeselect_drsignal_lmesource_v4_18.dr_status.labels = {
+  [1] = "Dr Status: Dr In Progress (1)",
+  [2] = "Dr Status: Dr Completed (2)",
+}
 
-  return "Dr Status: Unknown("..value..")"
+lme_lmeselect_drsignal_lmesource_v4_18.dr_status.display = function(value)
+  return lme_lmeselect_drsignal_lmesource_v4_18.dr_status.labels[value] or "Dr Status: Unknown("..value..")"
 end
 
 -- Dissect: Dr Status
@@ -205,15 +203,13 @@ lme_lmeselect_drsignal_lmesource_v4_18.msg_type = {}
 lme_lmeselect_drsignal_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_drsignal_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 105 then
-    return "Msg Type: Disaster Recovery Signal Message (105)"
-  end
+lme_lmeselect_drsignal_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [105] = "Msg Type: Disaster Recovery Signal Message (105)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_drsignal_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_drsignal_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -410,14 +406,15 @@ end
 lme_lmeselect_drsignal_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_drsignal_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_drsignal_lmesource_v4_18.sequence_reset_message.dissect,
+  [105] = lme_lmeselect_drsignal_lmesource_v4_18.disaster_recovery_signal_message.dissect,
+}
+
 lme_lmeselect_drsignal_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_drsignal_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disaster Recovery Signal Message
-  if msg_type == 105 then
-    return lme_lmeselect_drsignal_lmesource_v4_18.disaster_recovery_signal_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_drsignal_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

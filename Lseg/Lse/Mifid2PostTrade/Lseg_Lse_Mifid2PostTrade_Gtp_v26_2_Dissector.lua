@@ -663,12 +663,12 @@ lseg_lse_mifid2posttrade_gtp_v26_2.instrument_identification_code_type = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.instrument_identification_code_type.size = 4
 
 -- Display: Instrument Identification Code Type
-lseg_lse_mifid2posttrade_gtp_v26_2.instrument_identification_code_type.display = function(value)
-  if value == "ISIN" then
-    return "Instrument Identification Code Type: International Securities Identification Number (ISIN)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.instrument_identification_code_type.labels = {
+  ["ISIN"] = "Instrument Identification Code Type: International Securities Identification Number (ISIN)",
+}
 
-  return "Instrument Identification Code Type: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.instrument_identification_code_type.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.instrument_identification_code_type.labels[value] or "Instrument Identification Code Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Identification Code Type
@@ -741,12 +741,12 @@ lseg_lse_mifid2posttrade_gtp_v26_2.market_closing_price_flag = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.market_closing_price_flag.size = 4
 
 -- Display: Market Closing Price Flag
-lseg_lse_mifid2posttrade_gtp_v26_2.market_closing_price_flag.display = function(value)
-  if value == "CLSE" then
-    return "Market Closing Price Flag: Market Closing Price (CLSE)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.market_closing_price_flag.labels = {
+  ["CLSE"] = "Market Closing Price Flag: Market Closing Price (CLSE)",
+}
 
-  return "Market Closing Price Flag: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.market_closing_price_flag.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.market_closing_price_flag.labels[value] or "Market Closing Price Flag: Unknown("..value..")"
 end
 
 -- Dissect: Market Closing Price Flag
@@ -880,21 +880,15 @@ lseg_lse_mifid2posttrade_gtp_v26_2.message_type = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.message_type.size = 1
 
 -- Display: Message Type
-lseg_lse_mifid2posttrade_gtp_v26_2.message_type.display = function(value)
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x70 then
-    return "Message Type: Instrument Directory Message (0x70)"
-  end
-  if value == 0x48 then
-    return "Message Type: Instrument Status Message (0x48)"
-  end
-  if value == 0x51 then
-    return "Message Type: Mifid Ii Trade Message (0x51)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.message_type.labels = {
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x70] = "Message Type: Instrument Directory Message (0x70)",
+  [0x48] = "Message Type: Instrument Status Message (0x48)",
+  [0x51] = "Message Type: Mifid Ii Trade Message (0x51)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.message_type.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -992,33 +986,19 @@ lseg_lse_mifid2posttrade_gtp_v26_2.mifid_trade_type = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.mifid_trade_type.size = 1
 
 -- Display: Mifid Trade Type
-lseg_lse_mifid2posttrade_gtp_v26_2.mifid_trade_type.display = function(value)
-  if value == 0 then
-    return "Mifid Trade Type: Regular Or Continuous Trade (0)"
-  end
-  if value == 1 then
-    return "Mifid Trade Type: Auction Trade Bulk (1)"
-  end
-  if value == 2 then
-    return "Mifid Trade Type: Auction Trade Individual (2)"
-  end
-  if value == 9 then
-    return "Mifid Trade Type: Trade Cancellation (9)"
-  end
-  if value == 11 then
-    return "Mifid Trade Type: Trade Correction (11)"
-  end
-  if value == 22 then
-    return "Mifid Trade Type: Rfq Trade (22)"
-  end
-  if value == 23 then
-    return "Mifid Trade Type: Rfq Trade Cancellation (23)"
-  end
-  if value == 24 then
-    return "Mifid Trade Type: Rfq Trade Correction (24)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.mifid_trade_type.labels = {
+  [0] = "Mifid Trade Type: Regular Or Continuous Trade (0)",
+  [1] = "Mifid Trade Type: Auction Trade Bulk (1)",
+  [2] = "Mifid Trade Type: Auction Trade Individual (2)",
+  [9] = "Mifid Trade Type: Trade Cancellation (9)",
+  [11] = "Mifid Trade Type: Trade Correction (11)",
+  [22] = "Mifid Trade Type: Rfq Trade (22)",
+  [23] = "Mifid Trade Type: Rfq Trade Cancellation (23)",
+  [24] = "Mifid Trade Type: Rfq Trade Correction (24)",
+}
 
-  return "Mifid Trade Type: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.mifid_trade_type.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.mifid_trade_type.labels[value] or "Mifid Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Mifid Trade Type
@@ -1264,21 +1244,15 @@ lseg_lse_mifid2posttrade_gtp_v26_2.order_book_type = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.order_book_type.size = 1
 
 -- Display: Order Book Type
-lseg_lse_mifid2posttrade_gtp_v26_2.order_book_type.display = function(value)
-  if value == 1 then
-    return "Order Book Type: Firm Quote Book (1)"
-  end
-  if value == 2 then
-    return "Order Book Type: Offbook (2)"
-  end
-  if value == 3 then
-    return "Order Book Type: Electronic Order Book (3)"
-  end
-  if value == 4 then
-    return "Order Book Type: Private Rfq (4)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.order_book_type.labels = {
+  [1] = "Order Book Type: Firm Quote Book (1)",
+  [2] = "Order Book Type: Offbook (2)",
+  [3] = "Order Book Type: Electronic Order Book (3)",
+  [4] = "Order Book Type: Private Rfq (4)",
+}
 
-  return "Order Book Type: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.order_book_type.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -1444,15 +1418,13 @@ lseg_lse_mifid2posttrade_gtp_v26_2.price_notation = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.price_notation.size = 4
 
 -- Display: Price Notation
-lseg_lse_mifid2posttrade_gtp_v26_2.price_notation.display = function(value)
-  if value == "MONE" then
-    return "Price Notation: Monetary Value (MONE)"
-  end
-  if value == "PERC" then
-    return "Price Notation: Percentage (PERC)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.price_notation.labels = {
+  ["MONE"] = "Price Notation: Monetary Value (MONE)",
+  ["PERC"] = "Price Notation: Percentage (PERC)",
+}
 
-  return "Price Notation: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.price_notation.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -1474,12 +1446,12 @@ lseg_lse_mifid2posttrade_gtp_v26_2.pt_algo_trade = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.pt_algo_trade.size = 4
 
 -- Display: Pt Algo Trade
-lseg_lse_mifid2posttrade_gtp_v26_2.pt_algo_trade.display = function(value)
-  if value == "ALGO" then
-    return "Pt Algo Trade: Algorithmic Trade (ALGO)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.pt_algo_trade.labels = {
+  ["ALGO"] = "Pt Algo Trade: Algorithmic Trade (ALGO)",
+}
 
-  return "Pt Algo Trade: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.pt_algo_trade.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.pt_algo_trade.labels[value] or "Pt Algo Trade: Unknown("..value..")"
 end
 
 -- Dissect: Pt Algo Trade
@@ -1501,12 +1473,12 @@ lseg_lse_mifid2posttrade_gtp_v26_2.pt_amendment_flag = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.pt_amendment_flag.size = 4
 
 -- Display: Pt Amendment Flag
-lseg_lse_mifid2posttrade_gtp_v26_2.pt_amendment_flag.display = function(value)
-  if value == "AMND" then
-    return "Pt Amendment Flag: Trade Amendment (AMND)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.pt_amendment_flag.labels = {
+  ["AMND"] = "Pt Amendment Flag: Trade Amendment (AMND)",
+}
 
-  return "Pt Amendment Flag: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.pt_amendment_flag.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.pt_amendment_flag.labels[value] or "Pt Amendment Flag: Unknown("..value..")"
 end
 
 -- Dissect: Pt Amendment Flag
@@ -1528,12 +1500,12 @@ lseg_lse_mifid2posttrade_gtp_v26_2.pt_cancellation_flag = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.pt_cancellation_flag.size = 4
 
 -- Display: Pt Cancellation Flag
-lseg_lse_mifid2posttrade_gtp_v26_2.pt_cancellation_flag.display = function(value)
-  if value == "CANC" then
-    return "Pt Cancellation Flag: Trade Cancellation (CANC)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.pt_cancellation_flag.labels = {
+  ["CANC"] = "Pt Cancellation Flag: Trade Cancellation (CANC)",
+}
 
-  return "Pt Cancellation Flag: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.pt_cancellation_flag.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.pt_cancellation_flag.labels[value] or "Pt Cancellation Flag: Unknown("..value..")"
 end
 
 -- Dissect: Pt Cancellation Flag
@@ -1912,30 +1884,18 @@ lseg_lse_mifid2posttrade_gtp_v26_2.session_change_reason = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_lse_mifid2posttrade_gtp_v26_2.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 5 then
-    return "Session Change Reason: Aesp Circuit Breaker Tripped (5)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable (9)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [5] = "Session Change Reason: Aesp Circuit Breaker Tripped (5)",
+  [9] = "Session Change Reason: Unavailable (9)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.session_change_reason.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -1957,12 +1917,12 @@ lseg_lse_mifid2posttrade_gtp_v26_2.source_venue = {}
 lseg_lse_mifid2posttrade_gtp_v26_2.source_venue.size = 2
 
 -- Display: Source Venue
-lseg_lse_mifid2posttrade_gtp_v26_2.source_venue.display = function(value)
-  if value == 1 then
-    return "Source Venue: London Stock Exchange (1)"
-  end
+lseg_lse_mifid2posttrade_gtp_v26_2.source_venue.labels = {
+  [1] = "Source Venue: London Stock Exchange (1)",
+}
 
-  return "Source Venue: Unknown("..value..")"
+lseg_lse_mifid2posttrade_gtp_v26_2.source_venue.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v26_2.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
 end
 
 -- Dissect: Source Venue
@@ -2989,22 +2949,17 @@ end
 lseg_lse_mifid2posttrade_gtp_v26_2.payload = {}
 
 -- Dissect: Payload
+lseg_lse_mifid2posttrade_gtp_v26_2.payload.dispatch = {
+  [0x53] = lseg_lse_mifid2posttrade_gtp_v26_2.system_event_message.dissect,
+  [0x70] = lseg_lse_mifid2posttrade_gtp_v26_2.instrument_directory_message.dissect,
+  [0x48] = lseg_lse_mifid2posttrade_gtp_v26_2.instrument_status_message.dissect,
+  [0x51] = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_ii_trade_message.dissect,
+}
+
 lseg_lse_mifid2posttrade_gtp_v26_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return lseg_lse_mifid2posttrade_gtp_v26_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Directory Message
-  if message_type == 0x70 then
-    return lseg_lse_mifid2posttrade_gtp_v26_2.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Message
-  if message_type == 0x48 then
-    return lseg_lse_mifid2posttrade_gtp_v26_2.instrument_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mifid Ii Trade Message
-  if message_type == 0x51 then
-    return lseg_lse_mifid2posttrade_gtp_v26_2.mifid_ii_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_lse_mifid2posttrade_gtp_v26_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

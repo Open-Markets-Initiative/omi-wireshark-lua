@@ -243,21 +243,15 @@ nasdaq_bxequities_drop_asciidrop_v2_2.buy_sell = {}
 nasdaq_bxequities_drop_asciidrop_v2_2.buy_sell.size = 1
 
 -- Display: Buy Sell
-nasdaq_bxequities_drop_asciidrop_v2_2.buy_sell.display = function(value)
-  if value == "B" then
-    return "Buy Sell: Bought (B)"
-  end
-  if value == "S" then
-    return "Buy Sell: Sold (S)"
-  end
-  if value == "T" then
-    return "Buy Sell: Sold Short (T)"
-  end
-  if value == "E" then
-    return "Buy Sell: Sold Short Exempt (E)"
-  end
+nasdaq_bxequities_drop_asciidrop_v2_2.buy_sell.labels = {
+  ["B"] = "Buy Sell: Bought (B)",
+  ["S"] = "Buy Sell: Sold (S)",
+  ["T"] = "Buy Sell: Sold Short (T)",
+  ["E"] = "Buy Sell: Sold Short Exempt (E)",
+}
 
-  return "Buy Sell: Unknown("..value..")"
+nasdaq_bxequities_drop_asciidrop_v2_2.buy_sell.display = function(value)
+  return nasdaq_bxequities_drop_asciidrop_v2_2.buy_sell.labels[value] or "Buy Sell: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell
@@ -279,18 +273,14 @@ nasdaq_bxequities_drop_asciidrop_v2_2.capacity = {}
 nasdaq_bxequities_drop_asciidrop_v2_2.capacity.size = 1
 
 -- Display: Capacity
-nasdaq_bxequities_drop_asciidrop_v2_2.capacity.display = function(value)
-  if value == "A" then
-    return "Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity: Principal (P)"
-  end
-  if value == "R" then
-    return "Capacity: Riskless (R)"
-  end
+nasdaq_bxequities_drop_asciidrop_v2_2.capacity.labels = {
+  ["A"] = "Capacity: Agency (A)",
+  ["P"] = "Capacity: Principal (P)",
+  ["R"] = "Capacity: Riskless (R)",
+}
 
-  return "Capacity: Unknown("..value..")"
+nasdaq_bxequities_drop_asciidrop_v2_2.capacity.display = function(value)
+  return nasdaq_bxequities_drop_asciidrop_v2_2.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -312,12 +302,12 @@ nasdaq_bxequities_drop_asciidrop_v2_2.clearing_code = {}
 nasdaq_bxequities_drop_asciidrop_v2_2.clearing_code.size = 1
 
 -- Display: Clearing Code
-nasdaq_bxequities_drop_asciidrop_v2_2.clearing_code.display = function(value)
-  if value == "Q" then
-    return "Clearing Code: Qsr (Q)"
-  end
+nasdaq_bxequities_drop_asciidrop_v2_2.clearing_code.labels = {
+  ["Q"] = "Clearing Code: Qsr (Q)",
+}
 
-  return "Clearing Code: Unknown("..value..")"
+nasdaq_bxequities_drop_asciidrop_v2_2.clearing_code.display = function(value)
+  return nasdaq_bxequities_drop_asciidrop_v2_2.clearing_code.labels[value] or "Clearing Code: Unknown("..value..")"
 end
 
 -- Dissect: Clearing Code
@@ -339,24 +329,16 @@ nasdaq_bxequities_drop_asciidrop_v2_2.client_packet_type = {}
 nasdaq_bxequities_drop_asciidrop_v2_2.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_bxequities_drop_asciidrop_v2_2.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Client Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Client Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Client Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Client Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Client Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_bxequities_drop_asciidrop_v2_2.client_packet_type.labels = {
+  ["+"] = "Client Packet Type: Debug Packet (+)",
+  ["L"] = "Client Packet Type: Login Request Packet (L)",
+  ["U"] = "Client Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Client Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Client Packet Type: Logout Request Packet (O)",
+}
 
-  return "Client Packet Type: Unknown("..value..")"
+nasdaq_bxequities_drop_asciidrop_v2_2.client_packet_type.display = function(value)
+  return nasdaq_bxequities_drop_asciidrop_v2_2.client_packet_type.labels[value] or "Client Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -424,84 +406,36 @@ nasdaq_bxequities_drop_asciidrop_v2_2.liquidity_code = {}
 nasdaq_bxequities_drop_asciidrop_v2_2.liquidity_code.size = 1
 
 -- Display: Liquidity Code
-nasdaq_bxequities_drop_asciidrop_v2_2.liquidity_code.display = function(value)
-  if value == "A" then
-    return "Liquidity Code: Added Liquidity (A)"
-  end
-  if value == "R" then
-    return "Liquidity Code: Reduced Liquidity (R)"
-  end
-  if value == "J" then
-    return "Liquidity Code: Nondisplayed And Added Liquidity (J)"
-  end
-  if value == "X" then
-    return "Liquidity Code: Routed (X)"
-  end
-  if value == "D" then
-    return "Liquidity Code: Dot Routed (D)"
-  end
-  if value == "F" then
-    return "Liquidity Code: Opening Trade On Nyse (F)"
-  end
-  if value == "G" then
-    return "Liquidity Code: On Close Order On Nyse (G)"
-  end
-  if value == "Y" then
-    return "Liquidity Code: Re Routed By Nyse (Y)"
-  end
-  if value == "S" then
-    return "Liquidity Code: Odd Lot Executions On Nyse (S)"
-  end
-  if value == "U" then
-    return "Liquidity Code: Added Liquidity On Nyse (U)"
-  end
-  if value == "E" then
-    return "Liquidity Code: Nyse Other (E)"
-  end
-  if value == "P" then
-    return "Liquidity Code: Routed To Psx (P)"
-  end
-  if value == "T" then
-    return "Liquidity Code: Opening Trade On Arca (T)"
-  end
-  if value == "Z" then
-    return "Liquidity Code: On Close Order On Arca (Z)"
-  end
-  if value == "Q" then
-    return "Liquidity Code: Routed To Nasdaq (Q)"
-  end
-  if value == "m" then
-    return "Liquidity Code: Removed Liquidity At A Midpoint (m)"
-  end
-  if value == "k" then
-    return "Liquidity Code: Added Liquidity Via A Midpoint Order (k)"
-  end
-  if value == "j" then
-    return "Liquidity Code: Rpi Retail Price Improving Order Provides Liquidity (j)"
-  end
-  if value == "r" then
-    return "Liquidity Code: Rmo Retail Order Removes Rpi Liquidity (r)"
-  end
-  if value == "t" then
-    return "Liquidity Code: Rmo Retail Order Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)"
-  end
-  if value == "q" then
-    return "Liquidity Code: Rmo Retail Order Removes Non Rpi Midpoint Liquidity (q)"
-  end
-  if value == "7" then
-    return "Liquidity Code: Displayed Liquidityadding Order Improves The Nbbo (7)"
-  end
-  if value == "8" then
-    return "Liquidity Code: Displayed Liquidityadding Order Sets The Bxbbo While Joining The Nbbo (8)"
-  end
-  if value == "p" then
-    return "Liquidity Code: Removed Price Improving Nondisplayed Liquidity (p)"
-  end
-  if value == "N" then
-    return "Liquidity Code: Passive Midpoint Execution (N)"
-  end
+nasdaq_bxequities_drop_asciidrop_v2_2.liquidity_code.labels = {
+  ["A"] = "Liquidity Code: Added Liquidity (A)",
+  ["R"] = "Liquidity Code: Reduced Liquidity (R)",
+  ["J"] = "Liquidity Code: Nondisplayed And Added Liquidity (J)",
+  ["X"] = "Liquidity Code: Routed (X)",
+  ["D"] = "Liquidity Code: Dot Routed (D)",
+  ["F"] = "Liquidity Code: Opening Trade On Nyse (F)",
+  ["G"] = "Liquidity Code: On Close Order On Nyse (G)",
+  ["Y"] = "Liquidity Code: Re Routed By Nyse (Y)",
+  ["S"] = "Liquidity Code: Odd Lot Executions On Nyse (S)",
+  ["U"] = "Liquidity Code: Added Liquidity On Nyse (U)",
+  ["E"] = "Liquidity Code: Nyse Other (E)",
+  ["P"] = "Liquidity Code: Routed To Psx (P)",
+  ["T"] = "Liquidity Code: Opening Trade On Arca (T)",
+  ["Z"] = "Liquidity Code: On Close Order On Arca (Z)",
+  ["Q"] = "Liquidity Code: Routed To Nasdaq (Q)",
+  ["m"] = "Liquidity Code: Removed Liquidity At A Midpoint (m)",
+  ["k"] = "Liquidity Code: Added Liquidity Via A Midpoint Order (k)",
+  ["j"] = "Liquidity Code: Rpi Retail Price Improving Order Provides Liquidity (j)",
+  ["r"] = "Liquidity Code: Rmo Retail Order Removes Rpi Liquidity (r)",
+  ["t"] = "Liquidity Code: Rmo Retail Order Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)",
+  ["q"] = "Liquidity Code: Rmo Retail Order Removes Non Rpi Midpoint Liquidity (q)",
+  ["7"] = "Liquidity Code: Displayed Liquidityadding Order Improves The Nbbo (7)",
+  ["8"] = "Liquidity Code: Displayed Liquidityadding Order Sets The Bxbbo While Joining The Nbbo (8)",
+  ["p"] = "Liquidity Code: Removed Price Improving Nondisplayed Liquidity (p)",
+  ["N"] = "Liquidity Code: Passive Midpoint Execution (N)",
+}
 
-  return "Liquidity Code: Unknown("..value..")"
+nasdaq_bxequities_drop_asciidrop_v2_2.liquidity_code.display = function(value)
+  return nasdaq_bxequities_drop_asciidrop_v2_2.liquidity_code.labels[value] or "Liquidity Code: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Code
@@ -554,24 +488,16 @@ nasdaq_bxequities_drop_asciidrop_v2_2.message_type = {}
 nasdaq_bxequities_drop_asciidrop_v2_2.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_bxequities_drop_asciidrop_v2_2.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: New Order Accepted Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Existing Order Executed Message (E)"
-  end
-  if value == "X" then
-    return "Message Type: Existing Order Canceled Message (X)"
-  end
-  if value == "B" then
-    return "Message Type: Previous Execution Broken Message (B)"
-  end
-  if value == "U" then
-    return "Message Type: Existing Order Replaced Message (U)"
-  end
+nasdaq_bxequities_drop_asciidrop_v2_2.message_type.labels = {
+  ["A"] = "Message Type: New Order Accepted Message (A)",
+  ["E"] = "Message Type: Existing Order Executed Message (E)",
+  ["X"] = "Message Type: Existing Order Canceled Message (X)",
+  ["B"] = "Message Type: Previous Execution Broken Message (B)",
+  ["U"] = "Message Type: Existing Order Replaced Message (U)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_bxequities_drop_asciidrop_v2_2.message_type.display = function(value)
+  return nasdaq_bxequities_drop_asciidrop_v2_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -770,24 +696,16 @@ nasdaq_bxequities_drop_asciidrop_v2_2.server_packet_type = {}
 nasdaq_bxequities_drop_asciidrop_v2_2.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_bxequities_drop_asciidrop_v2_2.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Server Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Server Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Server Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Server Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Server Packet Type: Server Heartbeat Packet (H)"
-  end
+nasdaq_bxequities_drop_asciidrop_v2_2.server_packet_type.labels = {
+  ["+"] = "Server Packet Type: Debug Packet (+)",
+  ["A"] = "Server Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Server Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Server Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Server Packet Type: Server Heartbeat Packet (H)",
+}
 
-  return "Server Packet Type: Unknown("..value..")"
+nasdaq_bxequities_drop_asciidrop_v2_2.server_packet_type.display = function(value)
+  return nasdaq_bxequities_drop_asciidrop_v2_2.server_packet_type.labels[value] or "Server Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1816,26 +1734,18 @@ end
 nasdaq_bxequities_drop_asciidrop_v2_2.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_bxequities_drop_asciidrop_v2_2.sequenced_message.dispatch = {
+  ["A"] = nasdaq_bxequities_drop_asciidrop_v2_2.new_order_accepted_message.dissect,
+  ["E"] = nasdaq_bxequities_drop_asciidrop_v2_2.existing_order_executed_message.dissect,
+  ["X"] = nasdaq_bxequities_drop_asciidrop_v2_2.existing_order_canceled_message.dissect,
+  ["B"] = nasdaq_bxequities_drop_asciidrop_v2_2.previous_execution_broken_message.dissect,
+  ["U"] = nasdaq_bxequities_drop_asciidrop_v2_2.existing_order_replaced_message.dissect,
+}
+
 nasdaq_bxequities_drop_asciidrop_v2_2.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect New Order Accepted Message
-  if message_type == "A" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.new_order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Existing Order Executed Message
-  if message_type == "E" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.existing_order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Existing Order Canceled Message
-  if message_type == "X" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.existing_order_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Execution Broken Message
-  if message_type == "B" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.previous_execution_broken_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Existing Order Replaced Message
-  if message_type == "U" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.existing_order_replaced_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_bxequities_drop_asciidrop_v2_2.sequenced_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2082,22 +1992,17 @@ end
 nasdaq_bxequities_drop_asciidrop_v2_2.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_bxequities_drop_asciidrop_v2_2.server_payload.dispatch = {
+  ["+"] = nasdaq_bxequities_drop_asciidrop_v2_2.debug_packet.dissect,
+  ["A"] = nasdaq_bxequities_drop_asciidrop_v2_2.login_accepted_packet.dissect,
+  ["J"] = nasdaq_bxequities_drop_asciidrop_v2_2.login_rejected_packet.dissect,
+  ["S"] = nasdaq_bxequities_drop_asciidrop_v2_2.sequenced_data_packet.dissect,
+}
+
 nasdaq_bxequities_drop_asciidrop_v2_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_bxequities_drop_asciidrop_v2_2.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2357,18 +2262,16 @@ end
 nasdaq_bxequities_drop_asciidrop_v2_2.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_bxequities_drop_asciidrop_v2_2.client_payload.dispatch = {
+  ["+"] = nasdaq_bxequities_drop_asciidrop_v2_2.debug_packet.dissect,
+  ["L"] = nasdaq_bxequities_drop_asciidrop_v2_2.login_request_packet.dissect,
+  ["U"] = nasdaq_bxequities_drop_asciidrop_v2_2.unsequenced_data_packet.dissect,
+}
+
 nasdaq_bxequities_drop_asciidrop_v2_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_bxequities_drop_asciidrop_v2_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_bxequities_drop_asciidrop_v2_2.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

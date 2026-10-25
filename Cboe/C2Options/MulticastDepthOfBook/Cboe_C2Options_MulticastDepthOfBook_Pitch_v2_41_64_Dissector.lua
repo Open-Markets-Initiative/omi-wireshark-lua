@@ -330,21 +330,15 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_type = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_type.display = function(value)
-  if value == "G" then
-    return "Auction Type: Gth Opening (G)"
-  end
-  if value == "O" then
-    return "Auction Type: Rth Opening (O)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Re Opening (H)"
-  end
-  if value == "V" then
-    return "Auction Type: Volatility Opening (V)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_type.labels = {
+  ["G"] = "Auction Type: Gth Opening (G)",
+  ["O"] = "Auction Type: Rth Opening (O)",
+  ["H"] = "Auction Type: Halt Re Opening (H)",
+  ["V"] = "Auction Type: Volatility Opening (V)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_type.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -539,15 +533,13 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.customer_indicator = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.customer_indicator.display = function(value)
-  if value == "N" then
-    return "Customer Indicator: Non Customer (N)"
-  end
-  if value == "C" then
-    return "Customer Indicator: Customer (C)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.customer_indicator.labels = {
+  ["N"] = "Customer Indicator: Non Customer (N)",
+  ["C"] = "Customer Indicator: Customer (C)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.customer_indicator.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -661,21 +653,15 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.gth_trading_status = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.gth_trading_status.size = 1
 
 -- Display: Gth Trading Status
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.gth_trading_status.display = function(value)
-  if value == "H" then
-    return "Gth Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Gth Trading Status: Quote Only (Q)"
-  end
-  if value == "R" then
-    return "Gth Trading Status: Opening Rotation (R)"
-  end
-  if value == "T" then
-    return "Gth Trading Status: Trading (T)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.gth_trading_status.labels = {
+  ["H"] = "Gth Trading Status: Halted (H)",
+  ["Q"] = "Gth Trading Status: Quote Only (Q)",
+  ["R"] = "Gth Trading Status: Opening Rotation (R)",
+  ["T"] = "Gth Trading Status: Trading (T)",
+}
 
-  return "Gth Trading Status: Unknown("..value..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.gth_trading_status.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.gth_trading_status.labels[value] or "Gth Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Gth Trading Status
@@ -824,96 +810,40 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.message_type = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.message_type.size = 1
 
 -- Display: Message Type
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Ox Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Ox Unit Clear Message (0x97)"
-  end
-  if value == 0xBC then
-    return "Message Type: Ox Transaction Begin Message (0xBC)"
-  end
-  if value == 0xBD then
-    return "Message Type: Ox Transaction End Message (0xBD)"
-  end
-  if value == 0x21 then
-    return "Message Type: Ox Add Order Long Message (0x21)"
-  end
-  if value == 0x22 then
-    return "Message Type: Ox Add Order Short Message (0x22)"
-  end
-  if value == 0x2F then
-    return "Message Type: Ox Add Order Expanded Message (0x2F)"
-  end
-  if value == 0x23 then
-    return "Message Type: Ox Order Executed Message (0x23)"
-  end
-  if value == 0x24 then
-    return "Message Type: Ox Order Executed At Price Size Message (0x24)"
-  end
-  if value == 0x25 then
-    return "Message Type: Ox Reduce Size Long Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Ox Reduce Size Short Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Ox Modify Order Long Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Ox Modify Order Short Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: Ox Delete Order Message (0x29)"
-  end
-  if value == 0x2A then
-    return "Message Type: Ox Trade Long Message (0x2A)"
-  end
-  if value == 0x2B then
-    return "Message Type: Ox Trade Short Message (0x2B)"
-  end
-  if value == 0x30 then
-    return "Message Type: Ox Trade Expanded Message (0x30)"
-  end
-  if value == 0x2C then
-    return "Message Type: Ox Trade Break Message (0x2C)"
-  end
-  if value == 0x2D then
-    return "Message Type: Ox End Of Session (0x2D)"
-  end
-  if value == 0x2E then
-    return "Message Type: Ox Symbol Mapping Message (0x2E)"
-  end
-  if value == 0x31 then
-    return "Message Type: Ox Trading Status Message (0x31)"
-  end
-  if value == 0xD2 then
-    return "Message Type: Ox Width Update Message (0xD2)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Ox Options Auction Update Message (0xD1)"
-  end
-  if value == 0x96 then
-    return "Message Type: Ox Auction Summary Message (0x96)"
-  end
-  if value == 0xAD then
-    return "Message Type: Ox Auction Notification Message (0xAD)"
-  end
-  if value == 0xAE then
-    return "Message Type: Ox Auction Cancel Message (0xAE)"
-  end
-  if value == 0xAF then
-    return "Message Type: Ox Auction Trade Message (0xAF)"
-  end
-  if value == 0x9D then
-    return "Message Type: Ox Soq Strike Range Update Message (0x9D)"
-  end
-  if value == 0x9E then
-    return "Message Type: Ox Constituent Symbol Mapping Message (0x9E)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.message_type.labels = {
+  [0x20] = "Message Type: Ox Time Message (0x20)",
+  [0x97] = "Message Type: Ox Unit Clear Message (0x97)",
+  [0xBC] = "Message Type: Ox Transaction Begin Message (0xBC)",
+  [0xBD] = "Message Type: Ox Transaction End Message (0xBD)",
+  [0x21] = "Message Type: Ox Add Order Long Message (0x21)",
+  [0x22] = "Message Type: Ox Add Order Short Message (0x22)",
+  [0x2F] = "Message Type: Ox Add Order Expanded Message (0x2F)",
+  [0x23] = "Message Type: Ox Order Executed Message (0x23)",
+  [0x24] = "Message Type: Ox Order Executed At Price Size Message (0x24)",
+  [0x25] = "Message Type: Ox Reduce Size Long Message (0x25)",
+  [0x26] = "Message Type: Ox Reduce Size Short Message (0x26)",
+  [0x27] = "Message Type: Ox Modify Order Long Message (0x27)",
+  [0x28] = "Message Type: Ox Modify Order Short Message (0x28)",
+  [0x29] = "Message Type: Ox Delete Order Message (0x29)",
+  [0x2A] = "Message Type: Ox Trade Long Message (0x2A)",
+  [0x2B] = "Message Type: Ox Trade Short Message (0x2B)",
+  [0x30] = "Message Type: Ox Trade Expanded Message (0x30)",
+  [0x2C] = "Message Type: Ox Trade Break Message (0x2C)",
+  [0x2D] = "Message Type: Ox End Of Session (0x2D)",
+  [0x2E] = "Message Type: Ox Symbol Mapping Message (0x2E)",
+  [0x31] = "Message Type: Ox Trading Status Message (0x31)",
+  [0xD2] = "Message Type: Ox Width Update Message (0xD2)",
+  [0xD1] = "Message Type: Ox Options Auction Update Message (0xD1)",
+  [0x96] = "Message Type: Ox Auction Summary Message (0x96)",
+  [0xAD] = "Message Type: Ox Auction Notification Message (0xAD)",
+  [0xAE] = "Message Type: Ox Auction Cancel Message (0xAE)",
+  [0xAF] = "Message Type: Ox Auction Trade Message (0xAF)",
+  [0x9D] = "Message Type: Ox Soq Strike Range Update Message (0x9D)",
+  [0x9E] = "Message Type: Ox Constituent Symbol Mapping Message (0x9E)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.message_type.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -964,24 +894,16 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.opening_condition = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.opening_condition.size = 1
 
 -- Display: Opening Condition
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.opening_condition.display = function(value)
-  if value == "O" then
-    return "Opening Condition: Would Open (O)"
-  end
-  if value == "Q" then
-    return "Opening Condition: Need Quote To Open (Q)"
-  end
-  if value == "B" then
-    return "Opening Condition: Need More Buyers (B)"
-  end
-  if value == "S" then
-    return "Opening Condition: Need More Sellers (S)"
-  end
-  if value == "C" then
-    return "Opening Condition: Crossed Composite Market (C)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.opening_condition.labels = {
+  ["O"] = "Opening Condition: Would Open (O)",
+  ["Q"] = "Opening Condition: Need Quote To Open (Q)",
+  ["B"] = "Opening Condition: Need More Buyers (B)",
+  ["S"] = "Opening Condition: Need More Sellers (S)",
+  ["C"] = "Opening Condition: Crossed Composite Market (C)",
+}
 
-  return "Opening Condition: Unknown("..value..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.opening_condition.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.opening_condition.labels[value] or "Opening Condition: Unknown("..value..")"
 end
 
 -- Dissect: Opening Condition
@@ -1412,15 +1334,13 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.side_indicator = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.side_indicator.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1511,15 +1431,13 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -1643,24 +1561,16 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.trading_status = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "L" then
-    return "Trading Status: Curb Trading (L)"
-  end
-  if value == "Q" then
-    return "Trading Status: Quote Only (Q)"
-  end
-  if value == "R" then
-    return "Trading Status: Opening Rotation (R)"
-  end
-  if value == "T" then
-    return "Trading Status: Rth Trading (T)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["L"] = "Trading Status: Curb Trading (L)",
+  ["Q"] = "Trading Status: Quote Only (Q)",
+  ["R"] = "Trading Status: Opening Rotation (R)",
+  ["T"] = "Trading Status: Rth Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.trading_status.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1757,15 +1667,13 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.width_type = {}
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.width_type.size = 1
 
 -- Display: Width Type
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.width_type.display = function(value)
-  if value == "R" then
-    return "Width Type: Regular (R)"
-  end
-  if value == "V" then
-    return "Width Type: Volatility (V)"
-  end
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.width_type.labels = {
+  ["R"] = "Width Type: Regular (R)",
+  ["V"] = "Width Type: Volatility (V)",
+}
 
-  return "Width Type: Unknown("..value..")"
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.width_type.display = function(value)
+  return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.width_type.labels[value] or "Width Type: Unknown("..value..")"
 end
 
 -- Dissect: Width Type
@@ -3571,122 +3479,42 @@ end
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.payload = {}
 
 -- Dissect: Payload
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.payload.dispatch = {
+  [0x20] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_time_message.dissect,
+  [0x97] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_unit_clear_message.dissect,
+  [0xBC] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_transaction_begin_message.dissect,
+  [0xBD] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_transaction_end_message.dissect,
+  [0x21] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_add_order_long_message.dissect,
+  [0x22] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_add_order_short_message.dissect,
+  [0x2F] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_add_order_expanded_message.dissect,
+  [0x23] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_message.dissect,
+  [0x24] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_at_price_size_message.dissect,
+  [0x25] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_long_message.dissect,
+  [0x26] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_short_message.dissect,
+  [0x27] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_long_message.dissect,
+  [0x28] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_short_message.dissect,
+  [0x29] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_delete_order_message.dissect,
+  [0x2A] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_long_message.dissect,
+  [0x2B] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_short_message.dissect,
+  [0x30] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_expanded_message.dissect,
+  [0x2C] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_break_message.dissect,
+  [0x2D] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session.dissect,
+  [0x2E] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_symbol_mapping_message.dissect,
+  [0x31] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trading_status_message.dissect,
+  [0xD2] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_width_update_message.dissect,
+  [0xD1] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_options_auction_update_message.dissect,
+  [0x96] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_summary_message.dissect,
+  [0xAD] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_notification_message.dissect,
+  [0xAE] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_cancel_message.dissect,
+  [0xAF] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_trade_message.dissect,
+  [0x9D] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_soq_strike_range_update_message.dissect,
+  [0x9E] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_constituent_symbol_mapping_message.dissect,
+}
+
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Ox Time Message
-  if message_type == 0x20 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Transaction Begin Message
-  if message_type == 0xBC then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_transaction_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Transaction End Message
-  if message_type == 0xBD then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_transaction_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Add Order Long Message
-  if message_type == 0x21 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_add_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Add Order Short Message
-  if message_type == 0x22 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_add_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Add Order Expanded Message
-  if message_type == 0x2F then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_add_order_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Order Executed Message
-  if message_type == 0x23 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Order Executed At Price Size Message
-  if message_type == 0x24 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Reduce Size Long Message
-  if message_type == 0x25 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Reduce Size Short Message
-  if message_type == 0x26 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_reduce_size_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Modify Order Long Message
-  if message_type == 0x27 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Modify Order Short Message
-  if message_type == 0x28 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_modify_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Delete Order Message
-  if message_type == 0x29 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Trade Long Message
-  if message_type == 0x2A then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Trade Short Message
-  if message_type == 0x2B then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Trade Expanded Message
-  if message_type == 0x30 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Trade Break Message
-  if message_type == 0x2C then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox End Of Session
-  if message_type == 0x2D then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Trading Status Message
-  if message_type == 0x31 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Width Update Message
-  if message_type == 0xD2 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_width_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Options Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_options_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Auction Notification Message
-  if message_type == 0xAD then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Auction Cancel Message
-  if message_type == 0xAE then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Auction Trade Message
-  if message_type == 0xAF then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Soq Strike Range Update Message
-  if message_type == 0x9D then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_soq_strike_range_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ox Constituent Symbol Mapping Message
-  if message_type == 0x9E then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_constituent_symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3825,10 +3653,14 @@ end
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.messages = {}
 
 -- Dissect: Messages
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.messages.dispatch = {
+  [0] = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.heartbeat.dissect,
+}
+
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_c2options_multicastdepthofbook_pitch_v2_41_64.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

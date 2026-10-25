@@ -426,21 +426,15 @@ coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason = {}
 coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.size = 4
 
 -- Display: Reason Reject Reason
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.display = function(value)
-  if value == 1 then
-    return "Reason Reject Reason: Invalid Schema Id (1)"
-  end
-  if value == 2 then
-    return "Reason Reject Reason: Invalid Template Id (2)"
-  end
-  if value == 3 then
-    return "Reason Reject Reason: Invalid Block Length (3)"
-  end
-  if value == 4 then
-    return "Reason Reject Reason: Invalid Field Value (4)"
-  end
+coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.labels = {
+  [1] = "Reason Reject Reason: Invalid Schema Id (1)",
+  [2] = "Reason Reject Reason: Invalid Template Id (2)",
+  [3] = "Reason Reject Reason: Invalid Block Length (3)",
+  [4] = "Reason Reject Reason: Invalid Field Value (4)",
+}
 
-  return "Reason Reject Reason: Unknown("..value..")"
+coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.display = function(value)
+  return coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.labels[value] or "Reason Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Reject Reason
@@ -547,15 +541,13 @@ coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num = {}
 coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num.size = 1
 
 -- Display: Reset Seq Num
-coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num.display = function(value)
-  if value == 0 then
-    return "Reset Seq Num: False (0)"
-  end
-  if value == 1 then
-    return "Reset Seq Num: True (1)"
-  end
+coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num.labels = {
+  [0] = "Reset Seq Num: False (0)",
+  [1] = "Reset Seq Num: True (1)",
+}
 
-  return "Reset Seq Num: Unknown("..value..")"
+coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num.display = function(value)
+  return coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num.labels[value] or "Reset Seq Num: Unknown("..value..")"
 end
 
 -- Dissect: Reset Seq Num
@@ -651,36 +643,20 @@ coinbase_coinbasederivatives_session_tcp_v1_2.template_id = {}
 coinbase_coinbasederivatives_session_tcp_v1_2.template_id.size = 2
 
 -- Display: Template Id
-coinbase_coinbasederivatives_session_tcp_v1_2.template_id.display = function(value)
-  if value == 100 then
-    return "Template Id: Logon Message (100)"
-  end
-  if value == 200 then
-    return "Template Id: Logon Conf Message (200)"
-  end
-  if value == 101 then
-    return "Template Id: Logout Message (101)"
-  end
-  if value == 201 then
-    return "Template Id: Logged Out Message (201)"
-  end
-  if value == 10 then
-    return "Template Id: Heartbeat Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Test Request Message (11)"
-  end
-  if value == 102 then
-    return "Template Id: Resend Request Message (102)"
-  end
-  if value == 202 then
-    return "Template Id: Gap Fill Message (202)"
-  end
-  if value == 210 then
-    return "Template Id: Reject Message (210)"
-  end
+coinbase_coinbasederivatives_session_tcp_v1_2.template_id.labels = {
+  [100] = "Template Id: Logon Message (100)",
+  [200] = "Template Id: Logon Conf Message (200)",
+  [101] = "Template Id: Logout Message (101)",
+  [201] = "Template Id: Logged Out Message (201)",
+  [10] = "Template Id: Heartbeat Message (10)",
+  [11] = "Template Id: Test Request Message (11)",
+  [102] = "Template Id: Resend Request Message (102)",
+  [202] = "Template Id: Gap Fill Message (202)",
+  [210] = "Template Id: Reject Message (210)",
+}
 
-  return "Template Id: Unknown("..value..")"
+coinbase_coinbasederivatives_session_tcp_v1_2.template_id.display = function(value)
+  return coinbase_coinbasederivatives_session_tcp_v1_2.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1177,42 +1153,22 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.payload = {}
 
 -- Dissect: Payload
+coinbase_coinbasederivatives_session_tcp_v1_2.payload.dispatch = {
+  [100] = coinbase_coinbasederivatives_session_tcp_v1_2.logon_message.dissect,
+  [200] = coinbase_coinbasederivatives_session_tcp_v1_2.logon_conf_message.dissect,
+  [101] = coinbase_coinbasederivatives_session_tcp_v1_2.logout_message.dissect,
+  [201] = coinbase_coinbasederivatives_session_tcp_v1_2.logged_out_message.dissect,
+  [10] = coinbase_coinbasederivatives_session_tcp_v1_2.heartbeat_message.dissect,
+  [11] = coinbase_coinbasederivatives_session_tcp_v1_2.test_request_message.dissect,
+  [102] = coinbase_coinbasederivatives_session_tcp_v1_2.resend_request_message.dissect,
+  [202] = coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_message.dissect,
+  [210] = coinbase_coinbasederivatives_session_tcp_v1_2.reject_message.dissect,
+}
+
 coinbase_coinbasederivatives_session_tcp_v1_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Logon Message
-  if template_id == 100 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Conf Message
-  if template_id == 200 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.logon_conf_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if template_id == 101 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logged Out Message
-  if template_id == 201 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.logged_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if template_id == 10 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Request Message
-  if template_id == 11 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.test_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Resend Request Message
-  if template_id == 102 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.resend_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Fill Message
-  if template_id == 202 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if template_id == 210 then
-    return coinbase_coinbasederivatives_session_tcp_v1_2.reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = coinbase_coinbasederivatives_session_tcp_v1_2.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

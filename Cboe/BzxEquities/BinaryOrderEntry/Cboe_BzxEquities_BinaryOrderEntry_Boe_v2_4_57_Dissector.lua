@@ -3034,69 +3034,31 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_57.contra_broker = {}
 cboe_bzxequities_binaryorderentry_boe_v2_4_57.contra_broker.size = 4
 
 -- Display: Contra Broker
-cboe_bzxequities_binaryorderentry_boe_v2_4_57.contra_broker.display = function(value)
-  if value == "AMEX" then
-    return "Contra Broker: Routed To Nyse American (AMEX)"
-  end
-  if value == "ARCA" then
-    return "Contra Broker: Routed To Nyse Arca (ARCA)"
-  end
-  if value == "BEX" then
-    return "Contra Broker: Routed To Nasdaq Texas (BEX)"
-  end
-  if value == "CHX" then
-    return "Contra Broker: Routed To Nyse Texas (CHX)"
-  end
-  if value == "ICRS" then
-    return "Contra Broker: Routed To Intelligent Cross (ICRS)"
-  end
-  if value == "IEX" then
-    return "Contra Broker: Routed To Investors Exchange (IEX)"
-  end
-  if value == "INET" then
-    return "Contra Broker: Routed To Nasdaq (INET)"
-  end
-  if value == "LTSE" then
-    return "Contra Broker: Routed To Long Term Stock Exchange (LTSE)"
-  end
-  if value == "MEMX" then
-    return "Contra Broker: Routed To Members Exchange (MEMX)"
-  end
-  if value == "NYSE" then
-    return "Contra Broker: Routed To Nyse (NYSE)"
-  end
-  if value == "PERL" then
-    return "Contra Broker: Routed To Miax Pearl Exchange (PERL)"
-  end
-  if value == "PSX" then
-    return "Contra Broker: Routed To Nasdaq Psx (PSX)"
-  end
-  if value == "NSX" then
-    return "Contra Broker: Routed To Nyse National (NSX)"
-  end
-  if value == "DRT" then
-    return "Contra Broker: Routed To Drt Pool (DRT)"
-  end
-  if value == "TFXE" then
-    return "Contra Broker: Routed To 24 X National Exchange (TFXE)"
-  end
-  if value == "TXSE" then
-    return "Contra Broker: Routed To Texas Stock Exchange (TXSE)"
-  end
-  if value == "BATS" then
-    return "Contra Broker: Routed To Cboe Bzx Exchange (BATS)"
-  end
-  if value == "BYXX" then
-    return "Contra Broker: Routed To Cboe Byx Exchange (BYXX)"
-  end
-  if value == "EDGA" then
-    return "Contra Broker: Routed To Cboe Edga Exchange (EDGA)"
-  end
-  if value == "EDGX" then
-    return "Contra Broker: Routed To Cboe Edgx Exchange (EDGX)"
-  end
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.contra_broker.labels = {
+  ["AMEX"] = "Contra Broker: Routed To Nyse American (AMEX)",
+  ["ARCA"] = "Contra Broker: Routed To Nyse Arca (ARCA)",
+  ["BEX"] = "Contra Broker: Routed To Nasdaq Texas (BEX)",
+  ["CHX"] = "Contra Broker: Routed To Nyse Texas (CHX)",
+  ["ICRS"] = "Contra Broker: Routed To Intelligent Cross (ICRS)",
+  ["IEX"] = "Contra Broker: Routed To Investors Exchange (IEX)",
+  ["INET"] = "Contra Broker: Routed To Nasdaq (INET)",
+  ["LTSE"] = "Contra Broker: Routed To Long Term Stock Exchange (LTSE)",
+  ["MEMX"] = "Contra Broker: Routed To Members Exchange (MEMX)",
+  ["NYSE"] = "Contra Broker: Routed To Nyse (NYSE)",
+  ["PERL"] = "Contra Broker: Routed To Miax Pearl Exchange (PERL)",
+  ["PSX"] = "Contra Broker: Routed To Nasdaq Psx (PSX)",
+  ["NSX"] = "Contra Broker: Routed To Nyse National (NSX)",
+  ["DRT"] = "Contra Broker: Routed To Drt Pool (DRT)",
+  ["TFXE"] = "Contra Broker: Routed To 24 X National Exchange (TFXE)",
+  ["TXSE"] = "Contra Broker: Routed To Texas Stock Exchange (TXSE)",
+  ["BATS"] = "Contra Broker: Routed To Cboe Bzx Exchange (BATS)",
+  ["BYXX"] = "Contra Broker: Routed To Cboe Byx Exchange (BYXX)",
+  ["EDGA"] = "Contra Broker: Routed To Cboe Edga Exchange (EDGA)",
+  ["EDGX"] = "Contra Broker: Routed To Cboe Edgx Exchange (EDGX)",
+}
 
-  return "Contra Broker: Unknown("..value..")"
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.contra_broker.display = function(value)
+  return cboe_bzxequities_binaryorderentry_boe_v2_4_57.contra_broker.labels[value] or "Contra Broker: Unknown("..value..")"
 end
 
 -- Dissect: Contra Broker
@@ -4249,75 +4211,33 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_57.message_type = {}
 cboe_bzxequities_binaryorderentry_boe_v2_4_57.message_type.size = 1
 
 -- Display: Message Type
-cboe_bzxequities_binaryorderentry_boe_v2_4_57.message_type.display = function(value)
-  if value == 0x37 then
-    return "Message Type: Login Request Message (0x37)"
-  end
-  if value == 0x02 then
-    return "Message Type: Logout Request Message (0x02)"
-  end
-  if value == 0x03 then
-    return "Message Type: Client Heartbeat Message (0x03)"
-  end
-  if value == 0x24 then
-    return "Message Type: Login Response Message (0x24)"
-  end
-  if value == 0x08 then
-    return "Message Type: Logout Message (0x08)"
-  end
-  if value == 0x09 then
-    return "Message Type: Server Heartbeat Message (0x09)"
-  end
-  if value == 0x13 then
-    return "Message Type: Replay Complete Message (0x13)"
-  end
-  if value == 0x38 then
-    return "Message Type: New Order Message (0x38)"
-  end
-  if value == 0x39 then
-    return "Message Type: Cancel Order Message (0x39)"
-  end
-  if value == 0x3A then
-    return "Message Type: Modify Order Message (0x3A)"
-  end
-  if value == 0x47 then
-    return "Message Type: Purge Order Message (0x47)"
-  end
-  if value == 0x25 then
-    return "Message Type: Order Acknowledgment Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Order Rejected Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Order Modified Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Order Restated Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: User Modify Rejected Message (0x29)"
-  end
-  if value == 0x2A then
-    return "Message Type: Order Cancelled Message (0x2A)"
-  end
-  if value == 0x2B then
-    return "Message Type: Cancel Rejected Message (0x2B)"
-  end
-  if value == 0x2C then
-    return "Message Type: Order Execution Message (0x2C)"
-  end
-  if value == 0x2D then
-    return "Message Type: Trade Cancel Or Correct Message (0x2D)"
-  end
-  if value == 0x36 then
-    return "Message Type: Mass Cancel Acknowledgment Message (0x36)"
-  end
-  if value == 0x48 then
-    return "Message Type: Purge Rejected Message (0x48)"
-  end
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.message_type.labels = {
+  [0x37] = "Message Type: Login Request Message (0x37)",
+  [0x02] = "Message Type: Logout Request Message (0x02)",
+  [0x03] = "Message Type: Client Heartbeat Message (0x03)",
+  [0x24] = "Message Type: Login Response Message (0x24)",
+  [0x08] = "Message Type: Logout Message (0x08)",
+  [0x09] = "Message Type: Server Heartbeat Message (0x09)",
+  [0x13] = "Message Type: Replay Complete Message (0x13)",
+  [0x38] = "Message Type: New Order Message (0x38)",
+  [0x39] = "Message Type: Cancel Order Message (0x39)",
+  [0x3A] = "Message Type: Modify Order Message (0x3A)",
+  [0x47] = "Message Type: Purge Order Message (0x47)",
+  [0x25] = "Message Type: Order Acknowledgment Message (0x25)",
+  [0x26] = "Message Type: Order Rejected Message (0x26)",
+  [0x27] = "Message Type: Order Modified Message (0x27)",
+  [0x28] = "Message Type: Order Restated Message (0x28)",
+  [0x29] = "Message Type: User Modify Rejected Message (0x29)",
+  [0x2A] = "Message Type: Order Cancelled Message (0x2A)",
+  [0x2B] = "Message Type: Cancel Rejected Message (0x2B)",
+  [0x2C] = "Message Type: Order Execution Message (0x2C)",
+  [0x2D] = "Message Type: Trade Cancel Or Correct Message (0x2D)",
+  [0x36] = "Message Type: Mass Cancel Acknowledgment Message (0x36)",
+  [0x48] = "Message Type: Purge Rejected Message (0x48)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.message_type.display = function(value)
+  return cboe_bzxequities_binaryorderentry_boe_v2_4_57.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -5463,51 +5383,25 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_57.rout_strategy = {}
 cboe_bzxequities_binaryorderentry_boe_v2_4_57.rout_strategy.size = 6
 
 -- Display: Rout Strategy
-cboe_bzxequities_binaryorderentry_boe_v2_4_57.rout_strategy.display = function(value)
-  if value == "ALLB" then
-    return "Rout Strategy: Book Ioc Other Cboe Exchanges (ALLB)"
-  end
-  if value == "RDOT" then
-    return "Rout Strategy: Book Drt Ioc Day Nyse (RDOT)"
-  end
-  if value == "ROUT" then
-    return "Rout Strategy: Book Drt Street (ROUT)"
-  end
-  if value == "ROUX" then
-    return "Rout Strategy: Book Street (ROUX)"
-  end
-  if value == "ROUZ" then
-    return "Rout Strategy: Book Drt (ROUZ)"
-  end
-  if value == "SWPA" then
-    return "Rout Strategy: Iso Sweep Of All Protected Markets (SWPA)"
-  end
-  if value == "ROUC" then
-    return "Rout Strategy: Book Drt Lcpmc All Other Protected Markets (ROUC)"
-  end
-  if value == "DIRC" then
-    return "Rout Strategy: Book Drt Directed Ioc Or Directed Iso If Exec Inst (DIRC)"
-  end
-  if value == "RMPT" then
-    return "Rout Strategy: Book Midpoint Ioc Select Drt Lit Venues Post To (RMPT)"
-  end
-  if value == "RMPL" then
-    return "Rout Strategy: Book Midpoint Ioc Rmpt Venues Midpoint Ioc Rmpl (RMPL)"
-  end
-  if value == "TRIM" then
-    return "Rout Strategy: Book Nyse National Nasdaq Texas (TRIM)"
-  end
-  if value == "SLIM" then
-    return "Rout Strategy: Book Lcpmc (SLIM)"
-  end
-  if value == "SLIM+" then
-    return "Rout Strategy: Byx 1 Bzx Lcpmc (SLIM+)"
-  end
-  if value == "ROOC" then
-    return "Rout Strategy: Listing Market Open Book Drt Street Listing (ROOC)"
-  end
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.rout_strategy.labels = {
+  ["ALLB"] = "Rout Strategy: Book Ioc Other Cboe Exchanges (ALLB)",
+  ["RDOT"] = "Rout Strategy: Book Drt Ioc Day Nyse (RDOT)",
+  ["ROUT"] = "Rout Strategy: Book Drt Street (ROUT)",
+  ["ROUX"] = "Rout Strategy: Book Street (ROUX)",
+  ["ROUZ"] = "Rout Strategy: Book Drt (ROUZ)",
+  ["SWPA"] = "Rout Strategy: Iso Sweep Of All Protected Markets (SWPA)",
+  ["ROUC"] = "Rout Strategy: Book Drt Lcpmc All Other Protected Markets (ROUC)",
+  ["DIRC"] = "Rout Strategy: Book Drt Directed Ioc Or Directed Iso If Exec Inst (DIRC)",
+  ["RMPT"] = "Rout Strategy: Book Midpoint Ioc Select Drt Lit Venues Post To (RMPT)",
+  ["RMPL"] = "Rout Strategy: Book Midpoint Ioc Rmpt Venues Midpoint Ioc Rmpl (RMPL)",
+  ["TRIM"] = "Rout Strategy: Book Nyse National Nasdaq Texas (TRIM)",
+  ["SLIM"] = "Rout Strategy: Book Lcpmc (SLIM)",
+  ["SLIM+"] = "Rout Strategy: Byx 1 Bzx Lcpmc (SLIM+)",
+  ["ROOC"] = "Rout Strategy: Listing Market Open Book Drt Street Listing (ROOC)",
+}
 
-  return "Rout Strategy: Unknown("..value..")"
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.rout_strategy.display = function(value)
+  return cboe_bzxequities_binaryorderentry_boe_v2_4_57.rout_strategy.labels[value] or "Rout Strategy: Unknown("..value..")"
 end
 
 -- Dissect: Rout Strategy
@@ -5540,15 +5434,13 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_57.route_delivery_method = {}
 cboe_bzxequities_binaryorderentry_boe_v2_4_57.route_delivery_method.size = 3
 
 -- Display: Route Delivery Method
-cboe_bzxequities_binaryorderentry_boe_v2_4_57.route_delivery_method.display = function(value)
-  if value == "RTI" then
-    return "Route Delivery Method: Route To Improve (RTI)"
-  end
-  if value == "RTF" then
-    return "Route Delivery Method: Route To Fill (RTF)"
-  end
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.route_delivery_method.labels = {
+  ["RTI"] = "Route Delivery Method: Route To Improve (RTI)",
+  ["RTF"] = "Route Delivery Method: Route To Fill (RTF)",
+}
 
-  return "Route Delivery Method: Unknown("..value..")"
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.route_delivery_method.display = function(value)
+  return cboe_bzxequities_binaryorderentry_boe_v2_4_57.route_delivery_method.labels[value] or "Route Delivery Method: Unknown("..value..")"
 end
 
 -- Dissect: Route Delivery Method
@@ -33562,94 +33454,35 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_4_57.message = {}
 
 -- Dissect: Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.message.dispatch = {
+  [0x37] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.login_request_message.dissect,
+  [0x02] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_request_message.dissect,
+  [0x03] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.client_heartbeat_message.dissect,
+  [0x24] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.login_response_message.dissect,
+  [0x08] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_message.dissect,
+  [0x09] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.server_heartbeat_message.dissect,
+  [0x13] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.replay_complete_message.dissect,
+  [0x38] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.new_order_message.dissect,
+  [0x39] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.cancel_order_message.dissect,
+  [0x3A] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.modify_order_message.dissect,
+  [0x47] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.purge_order_message.dissect,
+  [0x25] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_message.dissect,
+  [0x26] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_rejected_message.dissect,
+  [0x27] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_modified_message.dissect,
+  [0x28] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_restated_message.dissect,
+  [0x29] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.user_modify_rejected_message.dissect,
+  [0x2A] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_cancelled_message.dissect,
+  [0x2B] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.cancel_rejected_message.dissect,
+  [0x2C] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_execution_message.dissect,
+  [0x2D] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.trade_cancel_or_correct_message.dissect,
+  [0x36] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.mass_cancel_acknowledgment_message.dissect,
+  [0x48] = cboe_bzxequities_binaryorderentry_boe_v2_4_57.purge_rejected_message.dissect,
+}
+
 cboe_bzxequities_binaryorderentry_boe_v2_4_57.message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 0x37 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Message
-  if message_type == 0x02 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Message
-  if message_type == 0x03 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.client_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x24 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if message_type == 0x08 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Message
-  if message_type == 0x09 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.server_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete Message
-  if message_type == 0x13 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.replay_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Message
-  if message_type == 0x38 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if message_type == 0x39 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 0x3A then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Order Message
-  if message_type == 0x47 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.purge_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgment Message
-  if message_type == 0x25 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Message
-  if message_type == 0x26 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Message
-  if message_type == 0x27 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Message
-  if message_type == 0x28 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Modify Rejected Message
-  if message_type == 0x29 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.user_modify_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Message
-  if message_type == 0x2A then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Message
-  if message_type == 0x2B then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.cancel_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if message_type == 0x2C then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Or Correct Message
-  if message_type == 0x2D then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.trade_cancel_or_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Acknowledgment Message
-  if message_type == 0x36 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.mass_cancel_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Rejected Message
-  if message_type == 0x48 then
-    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.purge_rejected_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bzxequities_binaryorderentry_boe_v2_4_57.message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

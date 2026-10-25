@@ -489,15 +489,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.alo_inst = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.alo_inst.size = 1
 
 -- Display: Alo Inst
-nasdaq_iseoptions_otto_ouch_v3_0_0.alo_inst.display = function(value)
-  if value == "N" then
-    return "Alo Inst: Not Alo (N)"
-  end
-  if value == "Y" then
-    return "Alo Inst: Alo (Y)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.alo_inst.labels = {
+  ["N"] = "Alo Inst: Not Alo (N)",
+  ["Y"] = "Alo Inst: Alo (Y)",
+}
 
-  return "Alo Inst: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.alo_inst.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.alo_inst.labels[value] or "Alo Inst: Unknown("..value..")"
 end
 
 -- Dissect: Alo Inst
@@ -565,18 +563,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.auction_event = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.auction_event.size = 1
 
 -- Display: Auction Event
-nasdaq_iseoptions_otto_ouch_v3_0_0.auction_event.display = function(value)
-  if value == "S" then
-    return "Auction Event: Start (S)"
-  end
-  if value == "U" then
-    return "Auction Event: Auction Update (U)"
-  end
-  if value == "E" then
-    return "Auction Event: End Of Auction (E)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.auction_event.labels = {
+  ["S"] = "Auction Event: Start (S)",
+  ["U"] = "Auction Event: Auction Update (U)",
+  ["E"] = "Auction Event: End Of Auction (E)",
+}
 
-  return "Auction Event: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.auction_event.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.auction_event.labels[value] or "Auction Event: Unknown("..value..")"
 end
 
 -- Dissect: Auction Event
@@ -621,36 +615,20 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.auction_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.auction_type.size = 1
 
 -- Display: Auction Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.auction_type.display = function(value)
-  if value == "B" then
-    return "Auction Type: Block Order Auction (B)"
-  end
-  if value == "E" then
-    return "Auction Type: Complex Exposure Auction (E)"
-  end
-  if value == "F" then
-    return "Auction Type: Simple Exposure Order (F)"
-  end
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "X" then
-    return "Auction Type: Flex Auction (X)"
-  end
-  if value == "P" then
-    return "Auction Type: Pim Pixl Auction (P)"
-  end
-  if value == "H" then
-    return "Auction Type: Facilitation Auction (H)"
-  end
-  if value == "S" then
-    return "Auction Type: Solicitation Auction (S)"
-  end
-  if value == "N" then
-    return "Auction Type: None (N)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.auction_type.labels = {
+  ["B"] = "Auction Type: Block Order Auction (B)",
+  ["E"] = "Auction Type: Complex Exposure Auction (E)",
+  ["F"] = "Auction Type: Simple Exposure Order (F)",
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["X"] = "Auction Type: Flex Auction (X)",
+  ["P"] = "Auction Type: Pim Pixl Auction (P)",
+  ["H"] = "Auction Type: Facilitation Auction (H)",
+  ["S"] = "Auction Type: Solicitation Auction (S)",
+  ["N"] = "Auction Type: None (N)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.auction_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -724,45 +702,23 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.cancel_reason = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-nasdaq_iseoptions_otto_ouch_v3_0_0.cancel_reason.display = function(value)
-  if value == "U" then
-    return "Cancel Reason: User Requested (U)"
-  end
-  if value == "I" then
-    return "Cancel Reason: Immediate Or Cancel (I)"
-  end
-  if value == "S" then
-    return "Cancel Reason: Supervisory (S)"
-  end
-  if value == "D" then
-    return "Cancel Reason: Regulatory Restriction (D)"
-  end
-  if value == "Q" then
-    return "Cancel Reason: Anti Internalize (Q)"
-  end
-  if value == "B" then
-    return "Cancel Reason: Alo Not Displayable (B)"
-  end
-  if value == "A" then
-    return "Cancel Reason: Unexecuted Auction Response (A)"
-  end
-  if value == "K" then
-    return "Cancel Reason: Kill Switch (K)"
-  end
-  if value == "C" then
-    return "Cancel Reason: Cancel On Disconnect (C)"
-  end
-  if value == "O" then
-    return "Cancel Reason: Open Delay Timer (O)"
-  end
-  if value == "P" then
-    return "Cancel Reason: Atr Limit (P)"
-  end
-  if value == "Z" then
-    return "Cancel Reason: Rejected Cancel Replace (Z)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.cancel_reason.labels = {
+  ["U"] = "Cancel Reason: User Requested (U)",
+  ["I"] = "Cancel Reason: Immediate Or Cancel (I)",
+  ["S"] = "Cancel Reason: Supervisory (S)",
+  ["D"] = "Cancel Reason: Regulatory Restriction (D)",
+  ["Q"] = "Cancel Reason: Anti Internalize (Q)",
+  ["B"] = "Cancel Reason: Alo Not Displayable (B)",
+  ["A"] = "Cancel Reason: Unexecuted Auction Response (A)",
+  ["K"] = "Cancel Reason: Kill Switch (K)",
+  ["C"] = "Cancel Reason: Cancel On Disconnect (C)",
+  ["O"] = "Cancel Reason: Open Delay Timer (O)",
+  ["P"] = "Cancel Reason: Atr Limit (P)",
+  ["Z"] = "Cancel Reason: Rejected Cancel Replace (Z)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.cancel_reason.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -901,24 +857,16 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.client_packet_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.client_packet_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -940,15 +888,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.closing_only = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.closing_only.size = 1
 
 -- Display: Closing Only
-nasdaq_iseoptions_otto_ouch_v3_0_0.closing_only.display = function(value)
-  if value == "N" then
-    return "Closing Only: Unrestricted (N)"
-  end
-  if value == "Y" then
-    return "Closing Only: Closing Position Only (Y)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.closing_only.labels = {
+  ["N"] = "Closing Only: Unrestricted (N)",
+  ["Y"] = "Closing Only: Closing Position Only (Y)",
+}
 
-  return "Closing Only: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.closing_only.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.closing_only.labels[value] or "Closing Only: Unknown("..value..")"
 end
 
 -- Dissect: Closing Only
@@ -970,18 +916,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.closing_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.closing_type.size = 1
 
 -- Display: Closing Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.closing_type.display = function(value)
-  if value == "N" then
-    return "Closing Type: Normal Hours (N)"
-  end
-  if value == "L" then
-    return "Closing Type: Late Hours (L)"
-  end
-  if value == "W" then
-    return "Closing Type: Wco Early Closing (W)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.closing_type.labels = {
+  ["N"] = "Closing Type: Normal Hours (N)",
+  ["L"] = "Closing Type: Late Hours (L)",
+  ["W"] = "Closing Type: Wco Early Closing (W)",
+}
 
-  return "Closing Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.closing_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.closing_type.labels[value] or "Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Closing Type
@@ -1212,15 +1154,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.contra_order_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.contra_order_type.size = 1
 
 -- Display: Contra Order Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.contra_order_type.display = function(value)
-  if value == "L" then
-    return "Contra Order Type: Limit (L)"
-  end
-  if value == "M" then
-    return "Contra Order Type: Market (M)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.contra_order_type.labels = {
+  ["L"] = "Contra Order Type: Limit (L)",
+  ["M"] = "Contra Order Type: Market (M)",
+}
 
-  return "Contra Order Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.contra_order_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.contra_order_type.labels[value] or "Contra Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Contra Order Type
@@ -1376,18 +1316,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.contra_stock_leg_short_sale = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.contra_stock_leg_short_sale.size = 1
 
 -- Display: Contra Stock Leg Short Sale
-nasdaq_iseoptions_otto_ouch_v3_0_0.contra_stock_leg_short_sale.display = function(value)
-  if value == "N" then
-    return "Contra Stock Leg Short Sale: Not Applicable (N)"
-  end
-  if value == "H" then
-    return "Contra Stock Leg Short Sale: Sell Short (H)"
-  end
-  if value == "E" then
-    return "Contra Stock Leg Short Sale: Sell Short Exempt (E)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.contra_stock_leg_short_sale.labels = {
+  ["N"] = "Contra Stock Leg Short Sale: Not Applicable (N)",
+  ["H"] = "Contra Stock Leg Short Sale: Sell Short (H)",
+  ["E"] = "Contra Stock Leg Short Sale: Sell Short Exempt (E)",
+}
 
-  return "Contra Stock Leg Short Sale: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.contra_stock_leg_short_sale.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.contra_stock_leg_short_sale.labels[value] or "Contra Stock Leg Short Sale: Unknown("..value..")"
 end
 
 -- Dissect: Contra Stock Leg Short Sale
@@ -1455,18 +1391,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.cross_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.cross_type.display = function(value)
-  if value == "A" then
-    return "Cross Type: Auction (A)"
-  end
-  if value == "Q" then
-    return "Cross Type: Qcc (Q)"
-  end
-  if value == "C" then
-    return "Cross Type: Ccc (C)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.cross_type.labels = {
+  ["A"] = "Cross Type: Auction (A)",
+  ["Q"] = "Cross Type: Qcc (Q)",
+  ["C"] = "Cross Type: Ccc (C)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.cross_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -1599,18 +1531,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.display_method = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.display_method.size = 1
 
 -- Display: Display Method
-nasdaq_iseoptions_otto_ouch_v3_0_0.display_method.display = function(value)
-  if value == "I" then
-    return "Display Method: Initial (I)"
-  end
-  if value == "R" then
-    return "Display Method: Random (R)"
-  end
-  if value == "N" then
-    return "Display Method: None (N)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.display_method.labels = {
+  ["I"] = "Display Method: Initial (I)",
+  ["R"] = "Display Method: Random (R)",
+  ["N"] = "Display Method: None (N)",
+}
 
-  return "Display Method: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.display_method.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.display_method.labels[value] or "Display Method: Unknown("..value..")"
 end
 
 -- Dissect: Display Method
@@ -1655,18 +1583,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.display_when = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.display_when.size = 1
 
 -- Display: Display When
-nasdaq_iseoptions_otto_ouch_v3_0_0.display_when.display = function(value)
-  if value == "I" then
-    return "Display When: Immediate (I)"
-  end
-  if value == "E" then
-    return "Display When: Exhaust (E)"
-  end
-  if value == "N" then
-    return "Display When: Not Applicable (N)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.display_when.labels = {
+  ["I"] = "Display When: Immediate (I)",
+  ["E"] = "Display When: Exhaust (E)",
+  ["N"] = "Display When: Not Applicable (N)",
+}
 
-  return "Display When: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.display_when.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.display_when.labels[value] or "Display When: Unknown("..value..")"
 end
 
 -- Dissect: Display When
@@ -1711,33 +1635,19 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.event_code = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_iseoptions_otto_ouch_v3_0_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
-  if value == "N" then
-    return "Event Code: End Of Normal Hours Processing (N)"
-  end
-  if value == "L" then
-    return "Event Code: End Of Late Hours Processing (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.event_code.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1759,27 +1669,17 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.event_source = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.event_source.size = 1
 
 -- Display: Event Source
-nasdaq_iseoptions_otto_ouch_v3_0_0.event_source.display = function(value)
-  if value == "A" then
-    return "Event Source: Matching Engine (A)"
-  end
-  if value == "M" then
-    return "Event Source: Manual Trade Entry (M)"
-  end
-  if value == "U" then
-    return "Event Source: Trade Modification User (U)"
-  end
-  if value == "C" then
-    return "Event Source: Trade Modification Contra Side User (C)"
-  end
-  if value == "E" then
-    return "Event Source: Trade Modification Exchange (E)"
-  end
-  if value == "B" then
-    return "Event Source: Trade Bust Exchange (B)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.event_source.labels = {
+  ["A"] = "Event Source: Matching Engine (A)",
+  ["M"] = "Event Source: Manual Trade Entry (M)",
+  ["U"] = "Event Source: Trade Modification User (U)",
+  ["C"] = "Event Source: Trade Modification Contra Side User (C)",
+  ["E"] = "Event Source: Trade Modification Exchange (E)",
+  ["B"] = "Event Source: Trade Bust Exchange (B)",
+}
 
-  return "Event Source: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.event_source.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.event_source.labels[value] or "Event Source: Unknown("..value..")"
 end
 
 -- Dissect: Event Source
@@ -1801,15 +1701,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.exec_flag = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.exec_flag.size = 1
 
 -- Display: Exec Flag
-nasdaq_iseoptions_otto_ouch_v3_0_0.exec_flag.display = function(value)
-  if value == "0" then
-    return "Exec Flag: None (0)"
-  end
-  if value == "1" then
-    return "Exec Flag: Aon (1)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.exec_flag.labels = {
+  ["0"] = "Exec Flag: None (0)",
+  ["1"] = "Exec Flag: Aon (1)",
+}
 
-  return "Exec Flag: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.exec_flag.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.exec_flag.labels[value] or "Exec Flag: Unknown("..value..")"
 end
 
 -- Dissect: Exec Flag
@@ -1946,21 +1844,15 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_type.size = 1
 
 -- Display: Instrument Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_type.display = function(value)
-  if value == "A" then
-    return "Instrument Type: All (A)"
-  end
-  if value == "O" then
-    return "Instrument Type: Simple Instrument (O)"
-  end
-  if value == "C" then
-    return "Instrument Type: Standard Combination (C)"
-  end
-  if value == "S" then
-    return "Instrument Type: Stock Combination (S)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_type.labels = {
+  ["A"] = "Instrument Type: All (A)",
+  ["O"] = "Instrument Type: Simple Instrument (O)",
+  ["C"] = "Instrument Type: Standard Combination (C)",
+  ["S"] = "Instrument Type: Stock Combination (S)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -1982,15 +1874,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.iso = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.iso.size = 1
 
 -- Display: Iso
-nasdaq_iseoptions_otto_ouch_v3_0_0.iso.display = function(value)
-  if value == "N" then
-    return "Iso: Not Iso (N)"
-  end
-  if value == "I" then
-    return "Iso: Iso (I)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.iso.labels = {
+  ["N"] = "Iso: Not Iso (N)",
+  ["I"] = "Iso: Iso (I)",
+}
 
-  return "Iso: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.iso.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.iso.labels[value] or "Iso: Unknown("..value..")"
 end
 
 -- Dissect: Iso
@@ -2012,18 +1902,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.kill_action = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.kill_action.size = 1
 
 -- Display: Kill Action
-nasdaq_iseoptions_otto_ouch_v3_0_0.kill_action.display = function(value)
-  if value == "A" then
-    return "Kill Action: Block And Delete (A)"
-  end
-  if value == "R" then
-    return "Kill Action: Block Removed (R)"
-  end
-  if value == "B" then
-    return "Kill Action: Block (B)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.kill_action.labels = {
+  ["A"] = "Kill Action: Block And Delete (A)",
+  ["R"] = "Kill Action: Block Removed (R)",
+  ["B"] = "Kill Action: Block (B)",
+}
 
-  return "Kill Action: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.kill_action.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.kill_action.labels[value] or "Kill Action: Unknown("..value..")"
 end
 
 -- Dissect: Kill Action
@@ -2143,15 +2029,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.leg_side = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.leg_side.size = 1
 
 -- Display: Leg Side
-nasdaq_iseoptions_otto_ouch_v3_0_0.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Leg Side: Sell (S)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.leg_side.labels = {
+  ["B"] = "Leg Side: Buy (B)",
+  ["S"] = "Leg Side: Sell (S)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.leg_side.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -2173,15 +2057,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.leg_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.leg_type.size = 1
 
 -- Display: Leg Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.leg_type.display = function(value)
-  if value == "O" then
-    return "Leg Type: Option (O)"
-  end
-  if value == "S" then
-    return "Leg Type: Stock (S)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.leg_type.labels = {
+  ["O"] = "Leg Type: Option (O)",
+  ["S"] = "Leg Type: Stock (S)",
+}
 
-  return "Leg Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.leg_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.leg_type.labels[value] or "Leg Type: Unknown("..value..")"
 end
 
 -- Dissect: Leg Type
@@ -2203,228 +2085,84 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.liquidity_ind = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.liquidity_ind.size = 1
 
 -- Display: Liquidity Ind
-nasdaq_iseoptions_otto_ouch_v3_0_0.liquidity_ind.display = function(value)
-  if value == 0 then
-    return "Liquidity Ind: None (0)"
-  end
-  if value == 1 then
-    return "Liquidity Ind: Maker (1)"
-  end
-  if value == 2 then
-    return "Liquidity Ind: Taker (2)"
-  end
-  if value == 4 then
-    return "Liquidity Ind: Response (4)"
-  end
-  if value == 5 then
-    return "Liquidity Ind: Hidden (5)"
-  end
-  if value == 6 then
-    return "Liquidity Ind: Opening Rotation (6)"
-  end
-  if value == 7 then
-    return "Liquidity Ind: Cross (7)"
-  end
-  if value == 8 then
-    return "Liquidity Ind: Flashed Order (8)"
-  end
-  if value == 9 then
-    return "Liquidity Ind: Flash Response (9)"
-  end
-  if value == 10 then
-    return "Liquidity Ind: Routed Out (10)"
-  end
-  if value == 11 then
-    return "Liquidity Ind: Trade Report (11)"
-  end
-  if value == 12 then
-    return "Liquidity Ind: Combo Maker Against Combo (12)"
-  end
-  if value == 13 then
-    return "Liquidity Ind: Combo Taker Against Combo (13)"
-  end
-  if value == 14 then
-    return "Liquidity Ind: Combo Response Against Combo (14)"
-  end
-  if value == 15 then
-    return "Liquidity Ind: Combo Hidden Against Combo (15)"
-  end
-  if value == 16 then
-    return "Liquidity Ind: Combo Opening Rotation (16)"
-  end
-  if value == 17 then
-    return "Liquidity Ind: Combo Cross (17)"
-  end
-  if value == 18 then
-    return "Liquidity Ind: Combo Taker Against Regular (18)"
-  end
-  if value == 19 then
-    return "Liquidity Ind: Regular Maker Against Combo (19)"
-  end
-  if value == 20 then
-    return "Liquidity Ind: Combo Taker Against Io (20)"
-  end
-  if value == 21 then
-    return "Liquidity Ind: Regular Incl Pim Taker Against Io (21)"
-  end
-  if value == 22 then
-    return "Liquidity Ind: Io Maker Against Combo (22)"
-  end
-  if value == 23 then
-    return "Liquidity Ind: Io Maker Against Regular (23)"
-  end
-  if value == 24 then
-    return "Liquidity Ind: Regular Maker Against Io Participant (24)"
-  end
-  if value == 25 then
-    return "Liquidity Ind: Io Participant Taker Against Regular (25)"
-  end
-  if value == 26 then
-    return "Liquidity Ind: Broken Price Improvement (26)"
-  end
-  if value == 27 then
-    return "Liquidity Ind: Broken Facilitation (27)"
-  end
-  if value == 28 then
-    return "Liquidity Ind: Broken Solicitation (28)"
-  end
-  if value == 29 then
-    return "Liquidity Ind: Combo Broken Price Improvement (29)"
-  end
-  if value == 30 then
-    return "Liquidity Ind: Combo Broken Facilitation (30)"
-  end
-  if value == 31 then
-    return "Liquidity Ind: Combo Broken Solicitation (31)"
-  end
-  if value == 32 then
-    return "Liquidity Ind: Block (32)"
-  end
-  if value == 33 then
-    return "Liquidity Ind: Block Response (33)"
-  end
-  if value == 34 then
-    return "Liquidity Ind: Directed Response (34)"
-  end
-  if value == 35 then
-    return "Liquidity Ind: Facilitation (35)"
-  end
-  if value == 36 then
-    return "Liquidity Ind: Facilitation Response (36)"
-  end
-  if value == 37 then
-    return "Liquidity Ind: Price Improvement (37)"
-  end
-  if value == 38 then
-    return "Liquidity Ind: Price Improvement Response (38)"
-  end
-  if value == 39 then
-    return "Liquidity Ind: Solicitation (39)"
-  end
-  if value == 40 then
-    return "Liquidity Ind: Solicitation Response (40)"
-  end
-  if value == 41 then
-    return "Liquidity Ind: Qualified Contingent Cross (41)"
-  end
-  if value == 42 then
-    return "Liquidity Ind: Customer To Customer (42)"
-  end
-  if value == 43 then
-    return "Liquidity Ind: Combo Facilitation (43)"
-  end
-  if value == 44 then
-    return "Liquidity Ind: Combo Facilitation Response (44)"
-  end
-  if value == 45 then
-    return "Liquidity Ind: Combo Price Improvement (45)"
-  end
-  if value == 46 then
-    return "Liquidity Ind: Combo Price Improvement Response (46)"
-  end
-  if value == 47 then
-    return "Liquidity Ind: Combo Solicitation (47)"
-  end
-  if value == 48 then
-    return "Liquidity Ind: Combo Solicitation Response (48)"
-  end
-  if value == 49 then
-    return "Liquidity Ind: Combo Qualified Contingent Cross (49)"
-  end
-  if value == 50 then
-    return "Liquidity Ind: Combo Customer To Customer (50)"
-  end
-  if value == 51 then
-    return "Liquidity Ind: Sweep Routed Out (51)"
-  end
-  if value == 52 then
-    return "Liquidity Ind: Sweep Trade Report (52)"
-  end
-  if value == 53 then
-    return "Liquidity Ind: Combo Taker Against Regular Thru Nbbo (53)"
-  end
-  if value == 54 then
-    return "Liquidity Ind: Combo Taker Against Io Thru Nbbo (54)"
-  end
-  if value == 55 then
-    return "Liquidity Ind: Simple Exposure Order Initiator Upon Receipt (55)"
-  end
-  if value == 56 then
-    return "Liquidity Ind: Simple Exposure Order Initiator (56)"
-  end
-  if value == 57 then
-    return "Liquidity Ind: Simple Exposure Order Responder (57)"
-  end
-  if value == 58 then
-    return "Liquidity Ind: Flex Auction (58)"
-  end
-  if value == 59 then
-    return "Liquidity Ind: Flex Auction Responder (59)"
-  end
-  if value == 60 then
-    return "Liquidity Ind: Flex Price Improvement (60)"
-  end
-  if value == 61 then
-    return "Liquidity Ind: Flex Price Improvement Responder (61)"
-  end
-  if value == 62 then
-    return "Liquidity Ind: Flex Broken Price Improvement (62)"
-  end
-  if value == 63 then
-    return "Liquidity Ind: Flex Solicitation (63)"
-  end
-  if value == 64 then
-    return "Liquidity Ind: Flex Solicitation Responder (64)"
-  end
-  if value == 65 then
-    return "Liquidity Ind: Flex Broken Solicitation (65)"
-  end
-  if value == 66 then
-    return "Liquidity Ind: Combo Flex Auction (66)"
-  end
-  if value == 67 then
-    return "Liquidity Ind: Combo Flex Auction Responder (67)"
-  end
-  if value == 68 then
-    return "Liquidity Ind: Combo Flex Price Improvement (68)"
-  end
-  if value == 69 then
-    return "Liquidity Ind: Combo Flex Price Improvement Responder (69)"
-  end
-  if value == 70 then
-    return "Liquidity Ind: Combo Flex Broken Price Improvement (70)"
-  end
-  if value == 71 then
-    return "Liquidity Ind: Combo Flex Solicitation (71)"
-  end
-  if value == 72 then
-    return "Liquidity Ind: Combo Flex Solicitation Responder (72)"
-  end
-  if value == 73 then
-    return "Liquidity Ind: Combo Flex Broken Solicitation (73)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.liquidity_ind.labels = {
+  [0] = "Liquidity Ind: None (0)",
+  [1] = "Liquidity Ind: Maker (1)",
+  [2] = "Liquidity Ind: Taker (2)",
+  [4] = "Liquidity Ind: Response (4)",
+  [5] = "Liquidity Ind: Hidden (5)",
+  [6] = "Liquidity Ind: Opening Rotation (6)",
+  [7] = "Liquidity Ind: Cross (7)",
+  [8] = "Liquidity Ind: Flashed Order (8)",
+  [9] = "Liquidity Ind: Flash Response (9)",
+  [10] = "Liquidity Ind: Routed Out (10)",
+  [11] = "Liquidity Ind: Trade Report (11)",
+  [12] = "Liquidity Ind: Combo Maker Against Combo (12)",
+  [13] = "Liquidity Ind: Combo Taker Against Combo (13)",
+  [14] = "Liquidity Ind: Combo Response Against Combo (14)",
+  [15] = "Liquidity Ind: Combo Hidden Against Combo (15)",
+  [16] = "Liquidity Ind: Combo Opening Rotation (16)",
+  [17] = "Liquidity Ind: Combo Cross (17)",
+  [18] = "Liquidity Ind: Combo Taker Against Regular (18)",
+  [19] = "Liquidity Ind: Regular Maker Against Combo (19)",
+  [20] = "Liquidity Ind: Combo Taker Against Io (20)",
+  [21] = "Liquidity Ind: Regular Incl Pim Taker Against Io (21)",
+  [22] = "Liquidity Ind: Io Maker Against Combo (22)",
+  [23] = "Liquidity Ind: Io Maker Against Regular (23)",
+  [24] = "Liquidity Ind: Regular Maker Against Io Participant (24)",
+  [25] = "Liquidity Ind: Io Participant Taker Against Regular (25)",
+  [26] = "Liquidity Ind: Broken Price Improvement (26)",
+  [27] = "Liquidity Ind: Broken Facilitation (27)",
+  [28] = "Liquidity Ind: Broken Solicitation (28)",
+  [29] = "Liquidity Ind: Combo Broken Price Improvement (29)",
+  [30] = "Liquidity Ind: Combo Broken Facilitation (30)",
+  [31] = "Liquidity Ind: Combo Broken Solicitation (31)",
+  [32] = "Liquidity Ind: Block (32)",
+  [33] = "Liquidity Ind: Block Response (33)",
+  [34] = "Liquidity Ind: Directed Response (34)",
+  [35] = "Liquidity Ind: Facilitation (35)",
+  [36] = "Liquidity Ind: Facilitation Response (36)",
+  [37] = "Liquidity Ind: Price Improvement (37)",
+  [38] = "Liquidity Ind: Price Improvement Response (38)",
+  [39] = "Liquidity Ind: Solicitation (39)",
+  [40] = "Liquidity Ind: Solicitation Response (40)",
+  [41] = "Liquidity Ind: Qualified Contingent Cross (41)",
+  [42] = "Liquidity Ind: Customer To Customer (42)",
+  [43] = "Liquidity Ind: Combo Facilitation (43)",
+  [44] = "Liquidity Ind: Combo Facilitation Response (44)",
+  [45] = "Liquidity Ind: Combo Price Improvement (45)",
+  [46] = "Liquidity Ind: Combo Price Improvement Response (46)",
+  [47] = "Liquidity Ind: Combo Solicitation (47)",
+  [48] = "Liquidity Ind: Combo Solicitation Response (48)",
+  [49] = "Liquidity Ind: Combo Qualified Contingent Cross (49)",
+  [50] = "Liquidity Ind: Combo Customer To Customer (50)",
+  [51] = "Liquidity Ind: Sweep Routed Out (51)",
+  [52] = "Liquidity Ind: Sweep Trade Report (52)",
+  [53] = "Liquidity Ind: Combo Taker Against Regular Thru Nbbo (53)",
+  [54] = "Liquidity Ind: Combo Taker Against Io Thru Nbbo (54)",
+  [55] = "Liquidity Ind: Simple Exposure Order Initiator Upon Receipt (55)",
+  [56] = "Liquidity Ind: Simple Exposure Order Initiator (56)",
+  [57] = "Liquidity Ind: Simple Exposure Order Responder (57)",
+  [58] = "Liquidity Ind: Flex Auction (58)",
+  [59] = "Liquidity Ind: Flex Auction Responder (59)",
+  [60] = "Liquidity Ind: Flex Price Improvement (60)",
+  [61] = "Liquidity Ind: Flex Price Improvement Responder (61)",
+  [62] = "Liquidity Ind: Flex Broken Price Improvement (62)",
+  [63] = "Liquidity Ind: Flex Solicitation (63)",
+  [64] = "Liquidity Ind: Flex Solicitation Responder (64)",
+  [65] = "Liquidity Ind: Flex Broken Solicitation (65)",
+  [66] = "Liquidity Ind: Combo Flex Auction (66)",
+  [67] = "Liquidity Ind: Combo Flex Auction Responder (67)",
+  [68] = "Liquidity Ind: Combo Flex Price Improvement (68)",
+  [69] = "Liquidity Ind: Combo Flex Price Improvement Responder (69)",
+  [70] = "Liquidity Ind: Combo Flex Broken Price Improvement (70)",
+  [71] = "Liquidity Ind: Combo Flex Solicitation (71)",
+  [72] = "Liquidity Ind: Combo Flex Solicitation Responder (72)",
+  [73] = "Liquidity Ind: Combo Flex Broken Solicitation (73)",
+}
 
-  return "Liquidity Ind: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.liquidity_ind.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.liquidity_ind.labels[value] or "Liquidity Ind: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Ind
@@ -2492,18 +2230,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.mpv = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_iseoptions_otto_ouch_v3_0_0.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.mpv.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -2719,15 +2453,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.option_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.option_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -2749,21 +2481,15 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.ord_exec_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.ord_exec_type.size = 1
 
 -- Display: Ord Exec Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.ord_exec_type.display = function(value)
-  if value == "A" then
-    return "Ord Exec Type: Simple Instrument (A)"
-  end
-  if value == "B" then
-    return "Ord Exec Type: Complex Instrument (B)"
-  end
-  if value == "C" then
-    return "Ord Exec Type: Complex Option Leg (C)"
-  end
-  if value == "D" then
-    return "Ord Exec Type: Complex Stock Leg (D)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.ord_exec_type.labels = {
+  ["A"] = "Ord Exec Type: Simple Instrument (A)",
+  ["B"] = "Ord Exec Type: Complex Instrument (B)",
+  ["C"] = "Ord Exec Type: Complex Option Leg (C)",
+  ["D"] = "Ord Exec Type: Complex Stock Leg (D)",
+}
 
-  return "Ord Exec Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.ord_exec_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.ord_exec_type.labels[value] or "Ord Exec Type: Unknown("..value..")"
 end
 
 -- Dissect: Ord Exec Type
@@ -2856,18 +2582,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.order_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.order_type.size = 1
 
 -- Display: Order Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.order_type.display = function(value)
-  if value == "L" then
-    return "Order Type: Limit (L)"
-  end
-  if value == "M" then
-    return "Order Type: Market (M)"
-  end
-  if value == "N" then
-    return "Order Type: Not Disclosed (N)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.order_type.labels = {
+  ["L"] = "Order Type: Limit (L)",
+  ["M"] = "Order Type: Market (M)",
+  ["N"] = "Order Type: Not Disclosed (N)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.order_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -3004,12 +2726,12 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.pending_reason = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.pending_reason.size = 1
 
 -- Display: Pending Reason
-nasdaq_iseoptions_otto_ouch_v3_0_0.pending_reason.display = function(value)
-  if value == "A" then
-    return "Pending Reason: Request In Progress (A)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.pending_reason.labels = {
+  ["A"] = "Pending Reason: Request In Progress (A)",
+}
 
-  return "Pending Reason: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.pending_reason.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.pending_reason.labels[value] or "Pending Reason: Unknown("..value..")"
 end
 
 -- Dissect: Pending Reason
@@ -3106,15 +2828,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.price_protection = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.price_protection.size = 1
 
 -- Display: Price Protection
-nasdaq_iseoptions_otto_ouch_v3_0_0.price_protection.display = function(value)
-  if value == "L" then
-    return "Price Protection: Local (L)"
-  end
-  if value == "N" then
-    return "Price Protection: National (N)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.price_protection.labels = {
+  ["L"] = "Price Protection: Local (L)",
+  ["N"] = "Price Protection: National (N)",
+}
 
-  return "Price Protection: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.price_protection.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.price_protection.labels[value] or "Price Protection: Unknown("..value..")"
 end
 
 -- Dissect: Price Protection
@@ -3456,18 +3176,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.primary_stock_leg_short_sale = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.primary_stock_leg_short_sale.size = 1
 
 -- Display: Primary Stock Leg Short Sale
-nasdaq_iseoptions_otto_ouch_v3_0_0.primary_stock_leg_short_sale.display = function(value)
-  if value == "N" then
-    return "Primary Stock Leg Short Sale: Not Applicable (N)"
-  end
-  if value == "H" then
-    return "Primary Stock Leg Short Sale: Sell Short (H)"
-  end
-  if value == "E" then
-    return "Primary Stock Leg Short Sale: Sell Short Exempt (E)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.primary_stock_leg_short_sale.labels = {
+  ["N"] = "Primary Stock Leg Short Sale: Not Applicable (N)",
+  ["H"] = "Primary Stock Leg Short Sale: Sell Short (H)",
+  ["E"] = "Primary Stock Leg Short Sale: Sell Short Exempt (E)",
+}
 
-  return "Primary Stock Leg Short Sale: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.primary_stock_leg_short_sale.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.primary_stock_leg_short_sale.labels[value] or "Primary Stock Leg Short Sale: Unknown("..value..")"
 end
 
 -- Dissect: Primary Stock Leg Short Sale
@@ -3604,267 +3320,97 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.reject_code = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.reject_code.size = 2
 
 -- Display: Reject Code
-nasdaq_iseoptions_otto_ouch_v3_0_0.reject_code.display = function(value)
-  if value == 10 then
-    return "Reject Code: Invalid Firm (10)"
-  end
-  if value == 11 then
-    return "Reject Code: Invalid Instrument (11)"
-  end
-  if value == 12 then
-    return "Reject Code: Invalid Instrument Type (12)"
-  end
-  if value == 13 then
-    return "Reject Code: Invalid Quantity (13)"
-  end
-  if value == 14 then
-    return "Reject Code: Invalid Price (14)"
-  end
-  if value == 15 then
-    return "Reject Code: Invalid Side (15)"
-  end
-  if value == 16 then
-    return "Reject Code: Invalid Tif (16)"
-  end
-  if value == 17 then
-    return "Reject Code: Invalid Iso (17)"
-  end
-  if value == 18 then
-    return "Reject Code: Invalid Auction Type (18)"
-  end
-  if value == 19 then
-    return "Reject Code: Invalid Auction Id (19)"
-  end
-  if value == 20 then
-    return "Reject Code: Invalid Order Type (20)"
-  end
-  if value == 21 then
-    return "Reject Code: Invalid Pref Party (21)"
-  end
-  if value == 22 then
-    return "Reject Code: Invalid Alo (22)"
-  end
-  if value == 23 then
-    return "Reject Code: Invalid Capacity (23)"
-  end
-  if value == 24 then
-    return "Reject Code: Invalid Reserved Inst (24)"
-  end
-  if value == 25 then
-    return "Reject Code: Invalid Trade (25)"
-  end
-  if value == 26 then
-    return "Reject Code: Invalid Format (26)"
-  end
-  if value == 27 then
-    return "Reject Code: Invalid Cross Type (27)"
-  end
-  if value == 28 then
-    return "Reject Code: Invalid Min Quantity (28)"
-  end
-  if value == 29 then
-    return "Reject Code: Invalid Price Protection (29)"
-  end
-  if value == 30 then
-    return "Reject Code: Invalid Reserve (30)"
-  end
-  if value == 31 then
-    return "Reject Code: Invalid Persist (31)"
-  end
-  if value == 32 then
-    return "Reject Code: Invalid Short Sale Ind (32)"
-  end
-  if value == 33 then
-    return "Reject Code: Invalid Product (33)"
-  end
-  if value == 34 then
-    return "Reject Code: Invalid Scope (34)"
-  end
-  if value == 35 then
-    return "Reject Code: Invalid Clearing Info (35)"
-  end
-  if value == 36 then
-    return "Reject Code: Invalid Position Effect (36)"
-  end
-  if value == 37 then
-    return "Reject Code: Invalid Cross Id (37)"
-  end
-  if value == 38 then
-    return "Reject Code: Invalid Match Id (38)"
-  end
-  if value == 39 then
-    return "Reject Code: Invalid Client Order Id (39)"
-  end
-  if value == 40 then
-    return "Reject Code: Invalid Killswitch Action (40)"
-  end
-  if value == 41 then
-    return "Reject Code: Invalid Leg Count (41)"
-  end
-  if value == 42 then
-    return "Reject Code: Invalid Leg Type (42)"
-  end
-  if value == 43 then
-    return "Reject Code: Invalid Leg Ratio (43)"
-  end
-  if value == 44 then
-    return "Reject Code: Invalid Mpid (44)"
-  end
-  if value == 45 then
-    return "Reject Code: Invalid Time (45)"
-  end
-  if value == 46 then
-    return "Reject Code: Invalid Msg Type (46)"
-  end
-  if value == 47 then
-    return "Reject Code: Invalid Disclosure Mask (47)"
-  end
-  if value == 48 then
-    return "Reject Code: Post Only Reprice (48)"
-  end
-  if value == 49 then
-    return "Reject Code: Un Authorized Give Up (49)"
-  end
-  if value == 50 then
-    return "Reject Code: Invalid Session (50)"
-  end
-  if value == 101 then
-    return "Reject Code: Not Free Trading (101)"
-  end
-  if value == 102 then
-    return "Reject Code: Pref Not Allowed (102)"
-  end
-  if value == 103 then
-    return "Reject Code: Stock Combo Not Allowed (103)"
-  end
-  if value == 104 then
-    return "Reject Code: Instrument Halted (104)"
-  end
-  if value == 105 then
-    return "Reject Code: Kill Switch In Effect (105)"
-  end
-  if value == 106 then
-    return "Reject Code: System Closed (106)"
-  end
-  if value == 107 then
-    return "Reject Code: Test Mode (107)"
-  end
-  if value == 108 then
-    return "Reject Code: Order Not Found (108)"
-  end
-  if value == 109 then
-    return "Reject Code: Too Late To Act (109)"
-  end
-  if value == 110 then
-    return "Reject Code: Instrument Closed (110)"
-  end
-  if value == 111 then
-    return "Reject Code: Instrument State (111)"
-  end
-  if value == 112 then
-    return "Reject Code: Action Not Allowed (112)"
-  end
-  if value == 113 then
-    return "Reject Code: Luld In Effect (113)"
-  end
-  if value == 114 then
-    return "Reject Code: Too Many Combos (114)"
-  end
-  if value == 115 then
-    return "Reject Code: Request Cancelled (115)"
-  end
-  if value == 116 then
-    return "Reject Code: Below Minimum Reserve (116)"
-  end
-  if value == 117 then
-    return "Reject Code: Port Rate Breached (117)"
-  end
-  if value == 118 then
-    return "Reject Code: Invalid Trader Id (118)"
-  end
-  if value == 119 then
-    return "Reject Code: Stop Price Not Allowed (119)"
-  end
-  if value == 120 then
-    return "Reject Code: Stop Price (120)"
-  end
-  if value == 121 then
-    return "Reject Code: Firm Suspended (121)"
-  end
-  if value == 122 then
-    return "Reject Code: Trader Suspended (122)"
-  end
-  if value == 123 then
-    return "Reject Code: Port Suspended (123)"
-  end
-  if value == 124 then
-    return "Reject Code: Invalid Investment Decision (124)"
-  end
-  if value == 125 then
-    return "Reject Code: Invalid Execution Decision (125)"
-  end
-  if value == 126 then
-    return "Reject Code: Invalid Dea (126)"
-  end
-  if value == 127 then
-    return "Reject Code: Invalid Client Id (127)"
-  end
-  if value == 128 then
-    return "Reject Code: Invalid Party Role Qualifier (128)"
-  end
-  if value == 129 then
-    return "Reject Code: Order Expired (129)"
-  end
-  if value == 130 then
-    return "Reject Code: Invalid Good Til Date (130)"
-  end
-  if value == 131 then
-    return "Reject Code: Instrument Expired (131)"
-  end
-  if value == 132 then
-    return "Reject Code: Invalid Self Match Prev Id (132)"
-  end
-  if value == 133 then
-    return "Reject Code: Spread (133)"
-  end
-  if value == 134 then
-    return "Reject Code: Not Permitted (134)"
-  end
-  if value == 135 then
-    return "Reject Code: Size (135)"
-  end
-  if value == 136 then
-    return "Reject Code: Attribute (136)"
-  end
-  if value == 137 then
-    return "Reject Code: Reentry Required (137)"
-  end
-  if value == 138 then
-    return "Reject Code: Opening Rotation (138)"
-  end
-  if value == 139 then
-    return "Reject Code: Kill Switch Reentry Required (139)"
-  end
-  if value == 140 then
-    return "Reject Code: Auction (140)"
-  end
-  if value == 141 then
-    return "Reject Code: Market Closed (141)"
-  end
-  if value == 142 then
-    return "Reject Code: Pending (142)"
-  end
-  if value == 143 then
-    return "Reject Code: System Error (143)"
-  end
-  if value == 144 then
-    return "Reject Code: Cancel On Disconnect (144)"
-  end
-  if value == 145 then
-    return "Reject Code: Auction Duration (145)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.reject_code.labels = {
+  [10] = "Reject Code: Invalid Firm (10)",
+  [11] = "Reject Code: Invalid Instrument (11)",
+  [12] = "Reject Code: Invalid Instrument Type (12)",
+  [13] = "Reject Code: Invalid Quantity (13)",
+  [14] = "Reject Code: Invalid Price (14)",
+  [15] = "Reject Code: Invalid Side (15)",
+  [16] = "Reject Code: Invalid Tif (16)",
+  [17] = "Reject Code: Invalid Iso (17)",
+  [18] = "Reject Code: Invalid Auction Type (18)",
+  [19] = "Reject Code: Invalid Auction Id (19)",
+  [20] = "Reject Code: Invalid Order Type (20)",
+  [21] = "Reject Code: Invalid Pref Party (21)",
+  [22] = "Reject Code: Invalid Alo (22)",
+  [23] = "Reject Code: Invalid Capacity (23)",
+  [24] = "Reject Code: Invalid Reserved Inst (24)",
+  [25] = "Reject Code: Invalid Trade (25)",
+  [26] = "Reject Code: Invalid Format (26)",
+  [27] = "Reject Code: Invalid Cross Type (27)",
+  [28] = "Reject Code: Invalid Min Quantity (28)",
+  [29] = "Reject Code: Invalid Price Protection (29)",
+  [30] = "Reject Code: Invalid Reserve (30)",
+  [31] = "Reject Code: Invalid Persist (31)",
+  [32] = "Reject Code: Invalid Short Sale Ind (32)",
+  [33] = "Reject Code: Invalid Product (33)",
+  [34] = "Reject Code: Invalid Scope (34)",
+  [35] = "Reject Code: Invalid Clearing Info (35)",
+  [36] = "Reject Code: Invalid Position Effect (36)",
+  [37] = "Reject Code: Invalid Cross Id (37)",
+  [38] = "Reject Code: Invalid Match Id (38)",
+  [39] = "Reject Code: Invalid Client Order Id (39)",
+  [40] = "Reject Code: Invalid Killswitch Action (40)",
+  [41] = "Reject Code: Invalid Leg Count (41)",
+  [42] = "Reject Code: Invalid Leg Type (42)",
+  [43] = "Reject Code: Invalid Leg Ratio (43)",
+  [44] = "Reject Code: Invalid Mpid (44)",
+  [45] = "Reject Code: Invalid Time (45)",
+  [46] = "Reject Code: Invalid Msg Type (46)",
+  [47] = "Reject Code: Invalid Disclosure Mask (47)",
+  [48] = "Reject Code: Post Only Reprice (48)",
+  [49] = "Reject Code: Un Authorized Give Up (49)",
+  [50] = "Reject Code: Invalid Session (50)",
+  [101] = "Reject Code: Not Free Trading (101)",
+  [102] = "Reject Code: Pref Not Allowed (102)",
+  [103] = "Reject Code: Stock Combo Not Allowed (103)",
+  [104] = "Reject Code: Instrument Halted (104)",
+  [105] = "Reject Code: Kill Switch In Effect (105)",
+  [106] = "Reject Code: System Closed (106)",
+  [107] = "Reject Code: Test Mode (107)",
+  [108] = "Reject Code: Order Not Found (108)",
+  [109] = "Reject Code: Too Late To Act (109)",
+  [110] = "Reject Code: Instrument Closed (110)",
+  [111] = "Reject Code: Instrument State (111)",
+  [112] = "Reject Code: Action Not Allowed (112)",
+  [113] = "Reject Code: Luld In Effect (113)",
+  [114] = "Reject Code: Too Many Combos (114)",
+  [115] = "Reject Code: Request Cancelled (115)",
+  [116] = "Reject Code: Below Minimum Reserve (116)",
+  [117] = "Reject Code: Port Rate Breached (117)",
+  [118] = "Reject Code: Invalid Trader Id (118)",
+  [119] = "Reject Code: Stop Price Not Allowed (119)",
+  [120] = "Reject Code: Stop Price (120)",
+  [121] = "Reject Code: Firm Suspended (121)",
+  [122] = "Reject Code: Trader Suspended (122)",
+  [123] = "Reject Code: Port Suspended (123)",
+  [124] = "Reject Code: Invalid Investment Decision (124)",
+  [125] = "Reject Code: Invalid Execution Decision (125)",
+  [126] = "Reject Code: Invalid Dea (126)",
+  [127] = "Reject Code: Invalid Client Id (127)",
+  [128] = "Reject Code: Invalid Party Role Qualifier (128)",
+  [129] = "Reject Code: Order Expired (129)",
+  [130] = "Reject Code: Invalid Good Til Date (130)",
+  [131] = "Reject Code: Instrument Expired (131)",
+  [132] = "Reject Code: Invalid Self Match Prev Id (132)",
+  [133] = "Reject Code: Spread (133)",
+  [134] = "Reject Code: Not Permitted (134)",
+  [135] = "Reject Code: Size (135)",
+  [136] = "Reject Code: Attribute (136)",
+  [137] = "Reject Code: Reentry Required (137)",
+  [138] = "Reject Code: Opening Rotation (138)",
+  [139] = "Reject Code: Kill Switch Reentry Required (139)",
+  [140] = "Reject Code: Auction (140)",
+  [141] = "Reject Code: Market Closed (141)",
+  [142] = "Reject Code: Pending (142)",
+  [143] = "Reject Code: System Error (143)",
+  [144] = "Reject Code: Cancel On Disconnect (144)",
+  [145] = "Reject Code: Auction Duration (145)",
+}
 
-  return "Reject Code: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.reject_code.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.reject_code.labels[value] or "Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Code
@@ -3909,15 +3455,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.reject_reason_code = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_iseoptions_otto_ouch_v3_0_0.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.reject_reason_code.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -4085,18 +3629,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.scope = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.scope.size = 1
 
 -- Display: Scope
-nasdaq_iseoptions_otto_ouch_v3_0_0.scope.display = function(value)
-  if value == "P" then
-    return "Scope: Product (P)"
-  end
-  if value == "I" then
-    return "Scope: Instrument (I)"
-  end
-  if value == "F" then
-    return "Scope: Firm (F)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.scope.labels = {
+  ["P"] = "Scope: Product (P)",
+  ["I"] = "Scope: Instrument (I)",
+  ["F"] = "Scope: Firm (F)",
+}
 
-  return "Scope: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.scope.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.scope.labels[value] or "Scope: Unknown("..value..")"
 end
 
 -- Dissect: Scope
@@ -4141,66 +3681,30 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message_type.display = function(value)
-  if value == "z" then
-    return "Sequenced Message Type: System Event Message (z)"
-  end
-  if value == "o" then
-    return "Sequenced Message Type: Simple Instrument Directory Message (o)"
-  end
-  if value == "s" then
-    return "Sequenced Message Type: Complex Instrument Directory Message (s)"
-  end
-  if value == "i" then
-    return "Sequenced Message Type: Instrument Trading Action Message (i)"
-  end
-  if value == "n" then
-    return "Sequenced Message Type: Auction Notification Message (n)"
-  end
-  if value == "a" then
-    return "Sequenced Message Type: Order Accepted Long Form Message (a)"
-  end
-  if value == "b" then
-    return "Sequenced Message Type: Order Accepted Short Form Message (b)"
-  end
-  if value == "r" then
-    return "Sequenced Message Type: Order Replaced Message (r)"
-  end
-  if value == "c" then
-    return "Sequenced Message Type: Order Canceled Message (c)"
-  end
-  if value == "e" then
-    return "Sequenced Message Type: Order Executed Message (e)"
-  end
-  if value == "t" then
-    return "Sequenced Message Type: Trade Details Message (t)"
-  end
-  if value == "x" then
-    return "Sequenced Message Type: Cross Order Accepted Message (x)"
-  end
-  if value == "k" then
-    return "Sequenced Message Type: Member Kill Switch Notification Message (k)"
-  end
-  if value == "u" then
-    return "Sequenced Message Type: Mass Cancel Response Message (u)"
-  end
-  if value == "d" then
-    return "Sequenced Message Type: Add Complex Instrument Response Message (d)"
-  end
-  if value == "m" then
-    return "Sequenced Message Type: Modify Trade Response Message (m)"
-  end
-  if value == "f" then
-    return "Sequenced Message Type: Subscription Response Message (f)"
-  end
-  if value == "j" then
-    return "Sequenced Message Type: Reject Message (j)"
-  end
-  if value == "p" then
-    return "Sequenced Message Type: Pending Response Message (p)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message_type.labels = {
+  ["z"] = "Sequenced Message Type: System Event Message (z)",
+  ["o"] = "Sequenced Message Type: Simple Instrument Directory Message (o)",
+  ["s"] = "Sequenced Message Type: Complex Instrument Directory Message (s)",
+  ["i"] = "Sequenced Message Type: Instrument Trading Action Message (i)",
+  ["n"] = "Sequenced Message Type: Auction Notification Message (n)",
+  ["a"] = "Sequenced Message Type: Order Accepted Long Form Message (a)",
+  ["b"] = "Sequenced Message Type: Order Accepted Short Form Message (b)",
+  ["r"] = "Sequenced Message Type: Order Replaced Message (r)",
+  ["c"] = "Sequenced Message Type: Order Canceled Message (c)",
+  ["e"] = "Sequenced Message Type: Order Executed Message (e)",
+  ["t"] = "Sequenced Message Type: Trade Details Message (t)",
+  ["x"] = "Sequenced Message Type: Cross Order Accepted Message (x)",
+  ["k"] = "Sequenced Message Type: Member Kill Switch Notification Message (k)",
+  ["u"] = "Sequenced Message Type: Mass Cancel Response Message (u)",
+  ["d"] = "Sequenced Message Type: Add Complex Instrument Response Message (d)",
+  ["m"] = "Sequenced Message Type: Modify Trade Response Message (m)",
+  ["f"] = "Sequenced Message Type: Subscription Response Message (f)",
+  ["j"] = "Sequenced Message Type: Reject Message (j)",
+  ["p"] = "Sequenced Message Type: Pending Response Message (p)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -4222,27 +3726,17 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.server_packet_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.server_packet_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -4264,21 +3758,15 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.side = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.side.size = 1
 
 -- Display: Side
-nasdaq_iseoptions_otto_ouch_v3_0_0.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "O" then
-    return "Side: Offer (O)"
-  end
-  if value == "N" then
-    return "Side: Not Disclosed (N)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["O"] = "Side: Offer (O)",
+  ["N"] = "Side: Not Disclosed (N)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.side.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -4359,18 +3847,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.stock_leg_short_sale = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.stock_leg_short_sale.size = 1
 
 -- Display: Stock Leg Short Sale
-nasdaq_iseoptions_otto_ouch_v3_0_0.stock_leg_short_sale.display = function(value)
-  if value == "N" then
-    return "Stock Leg Short Sale: Not Applicable (N)"
-  end
-  if value == "H" then
-    return "Stock Leg Short Sale: Sell Short (H)"
-  end
-  if value == "E" then
-    return "Stock Leg Short Sale: Sell Short Exempt (E)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.stock_leg_short_sale.labels = {
+  ["N"] = "Stock Leg Short Sale: Not Applicable (N)",
+  ["H"] = "Stock Leg Short Sale: Sell Short (H)",
+  ["E"] = "Stock Leg Short Sale: Sell Short Exempt (E)",
+}
 
-  return "Stock Leg Short Sale: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.stock_leg_short_sale.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.stock_leg_short_sale.labels[value] or "Stock Leg Short Sale: Unknown("..value..")"
 end
 
 -- Dissect: Stock Leg Short Sale
@@ -4392,12 +3876,12 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.stock_venue = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.stock_venue.size = 1
 
 -- Display: Stock Venue
-nasdaq_iseoptions_otto_ouch_v3_0_0.stock_venue.display = function(value)
-  if value == "X" then
-    return "Stock Venue: Not Applicable (X)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.stock_venue.labels = {
+  ["X"] = "Stock Venue: Not Applicable (X)",
+}
 
-  return "Stock Venue: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.stock_venue.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.stock_venue.labels[value] or "Stock Venue: Unknown("..value..")"
 end
 
 -- Dissect: Stock Venue
@@ -4517,18 +4001,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.tif = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.tif.size = 1
 
 -- Display: Tif
-nasdaq_iseoptions_otto_ouch_v3_0_0.tif.display = function(value)
-  if value == "D" then
-    return "Tif: Day (D)"
-  end
-  if value == "F" then
-    return "Tif: Fok (F)"
-  end
-  if value == "I" then
-    return "Tif: Ioc (I)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.tif.labels = {
+  ["D"] = "Tif: Day (D)",
+  ["F"] = "Tif: Fok (F)",
+  ["I"] = "Tif: Ioc (I)",
+}
 
-  return "Tif: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.tif.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.tif.labels[value] or "Tif: Unknown("..value..")"
 end
 
 -- Dissect: Tif
@@ -4593,15 +4073,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.tradable = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_iseoptions_otto_ouch_v3_0_0.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.tradable.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -4623,15 +4101,13 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.trading_state = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.trading_state.size = 1
 
 -- Display: Trading State
-nasdaq_iseoptions_otto_ouch_v3_0_0.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.trading_state.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -4653,18 +4129,14 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.trans_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.trans_type.size = 1
 
 -- Display: Trans Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.trans_type.display = function(value)
-  if value == "A" then
-    return "Trans Type: New Trade (A)"
-  end
-  if value == "B" then
-    return "Trans Type: Trade Busted (B)"
-  end
-  if value == "C" then
-    return "Trans Type: Modified Trade (C)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.trans_type.labels = {
+  ["A"] = "Trans Type: New Trade (A)",
+  ["B"] = "Trans Type: Trade Busted (B)",
+  ["C"] = "Trans Type: Modified Trade (C)",
+}
 
-  return "Trans Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.trans_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.trans_type.labels[value] or "Trans Type: Unknown("..value..")"
 end
 
 -- Dissect: Trans Type
@@ -4709,39 +4181,21 @@ nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message_type = {}
 nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message_type.display = function(value)
-  if value == "A" then
-    return "Unsequenced Message Type: New Order Long Form Message (A)"
-  end
-  if value == "B" then
-    return "Unsequenced Message Type: New Order Short Form Message (B)"
-  end
-  if value == "R" then
-    return "Unsequenced Message Type: Replace Order Message (R)"
-  end
-  if value == "C" then
-    return "Unsequenced Message Type: Cancel Order Message (C)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Mass Cancel Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: New Cross Order Message (X)"
-  end
-  if value == "S" then
-    return "Unsequenced Message Type: Add Complex Instrument Message (S)"
-  end
-  if value == "M" then
-    return "Unsequenced Message Type: Modify Trade Message (M)"
-  end
-  if value == "K" then
-    return "Unsequenced Message Type: Member Kill Switch Request Message (K)"
-  end
-  if value == "F" then
-    return "Unsequenced Message Type: Subscription Request Message (F)"
-  end
+nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message_type.labels = {
+  ["A"] = "Unsequenced Message Type: New Order Long Form Message (A)",
+  ["B"] = "Unsequenced Message Type: New Order Short Form Message (B)",
+  ["R"] = "Unsequenced Message Type: Replace Order Message (R)",
+  ["C"] = "Unsequenced Message Type: Cancel Order Message (C)",
+  ["U"] = "Unsequenced Message Type: Mass Cancel Message (U)",
+  ["X"] = "Unsequenced Message Type: New Cross Order Message (X)",
+  ["S"] = "Unsequenced Message Type: Add Complex Instrument Message (S)",
+  ["M"] = "Unsequenced Message Type: Modify Trade Message (M)",
+  ["K"] = "Unsequenced Message Type: Member Kill Switch Request Message (K)",
+  ["F"] = "Unsequenced Message Type: Subscription Request Message (F)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message_type.display = function(value)
+  return nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -6762,82 +6216,32 @@ end
 nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message.dispatch = {
+  ["z"] = nasdaq_iseoptions_otto_ouch_v3_0_0.system_event_message.dissect,
+  ["o"] = nasdaq_iseoptions_otto_ouch_v3_0_0.simple_instrument_directory_message.dissect,
+  ["s"] = nasdaq_iseoptions_otto_ouch_v3_0_0.complex_instrument_directory_message.dissect,
+  ["i"] = nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_trading_action_message.dissect,
+  ["n"] = nasdaq_iseoptions_otto_ouch_v3_0_0.auction_notification_message.dissect,
+  ["a"] = nasdaq_iseoptions_otto_ouch_v3_0_0.order_accepted_long_form_message.dissect,
+  ["b"] = nasdaq_iseoptions_otto_ouch_v3_0_0.order_accepted_short_form_message.dissect,
+  ["r"] = nasdaq_iseoptions_otto_ouch_v3_0_0.order_replaced_message.dissect,
+  ["c"] = nasdaq_iseoptions_otto_ouch_v3_0_0.order_canceled_message.dissect,
+  ["e"] = nasdaq_iseoptions_otto_ouch_v3_0_0.order_executed_message.dissect,
+  ["t"] = nasdaq_iseoptions_otto_ouch_v3_0_0.trade_details_message.dissect,
+  ["x"] = nasdaq_iseoptions_otto_ouch_v3_0_0.cross_order_accepted_message.dissect,
+  ["k"] = nasdaq_iseoptions_otto_ouch_v3_0_0.member_kill_switch_notification_message.dissect,
+  ["u"] = nasdaq_iseoptions_otto_ouch_v3_0_0.mass_cancel_response_message.dissect,
+  ["d"] = nasdaq_iseoptions_otto_ouch_v3_0_0.add_complex_instrument_response_message.dissect,
+  ["m"] = nasdaq_iseoptions_otto_ouch_v3_0_0.modify_trade_response_message.dissect,
+  ["f"] = nasdaq_iseoptions_otto_ouch_v3_0_0.subscription_response_message.dissect,
+  ["j"] = nasdaq_iseoptions_otto_ouch_v3_0_0.reject_message.dissect,
+  ["p"] = nasdaq_iseoptions_otto_ouch_v3_0_0.pending_response_message.dissect,
+}
+
 nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "z" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Instrument Directory Message
-  if sequenced_message_type == "o" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.simple_instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Directory Message
-  if sequenced_message_type == "s" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.complex_instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Trading Action Message
-  if sequenced_message_type == "i" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.instrument_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Notification Message
-  if sequenced_message_type == "n" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Accepted Long Form Message
-  if sequenced_message_type == "a" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.order_accepted_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Accepted Short Form Message
-  if sequenced_message_type == "b" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.order_accepted_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if sequenced_message_type == "r" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled Message
-  if sequenced_message_type == "c" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.order_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if sequenced_message_type == "e" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Details Message
-  if sequenced_message_type == "t" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.trade_details_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Order Accepted Message
-  if sequenced_message_type == "x" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.cross_order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Kill Switch Notification Message
-  if sequenced_message_type == "k" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.member_kill_switch_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Response Message
-  if sequenced_message_type == "u" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.mass_cancel_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Complex Instrument Response Message
-  if sequenced_message_type == "d" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.add_complex_instrument_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Trade Response Message
-  if sequenced_message_type == "m" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.modify_trade_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscription Response Message
-  if sequenced_message_type == "f" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.subscription_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if sequenced_message_type == "j" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pending Response Message
-  if sequenced_message_type == "p" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.pending_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7080,30 +6484,19 @@ end
 nasdaq_iseoptions_otto_ouch_v3_0_0.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_iseoptions_otto_ouch_v3_0_0.server_payload.dispatch = {
+  ["+"] = nasdaq_iseoptions_otto_ouch_v3_0_0.debug_packet.dissect,
+  ["A"] = nasdaq_iseoptions_otto_ouch_v3_0_0.login_accepted_packet.dissect,
+  ["J"] = nasdaq_iseoptions_otto_ouch_v3_0_0.login_rejected_packet.dissect,
+  ["S"] = nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_iseoptions_otto_ouch_v3_0_0.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_iseoptions_otto_ouch_v3_0_0.end_of_session_packet.dissect,
+}
+
 nasdaq_iseoptions_otto_ouch_v3_0_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_otto_ouch_v3_0_0.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8490,46 +7883,23 @@ end
 nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message.dispatch = {
+  ["A"] = nasdaq_iseoptions_otto_ouch_v3_0_0.new_order_long_form_message.dissect,
+  ["B"] = nasdaq_iseoptions_otto_ouch_v3_0_0.new_order_short_form_message.dissect,
+  ["R"] = nasdaq_iseoptions_otto_ouch_v3_0_0.replace_order_message.dissect,
+  ["C"] = nasdaq_iseoptions_otto_ouch_v3_0_0.cancel_order_message.dissect,
+  ["U"] = nasdaq_iseoptions_otto_ouch_v3_0_0.mass_cancel_message.dissect,
+  ["X"] = nasdaq_iseoptions_otto_ouch_v3_0_0.new_cross_order_message.dissect,
+  ["S"] = nasdaq_iseoptions_otto_ouch_v3_0_0.add_complex_instrument_message.dissect,
+  ["M"] = nasdaq_iseoptions_otto_ouch_v3_0_0.modify_trade_message.dissect,
+  ["K"] = nasdaq_iseoptions_otto_ouch_v3_0_0.member_kill_switch_request_message.dissect,
+  ["F"] = nasdaq_iseoptions_otto_ouch_v3_0_0.subscription_request_message.dissect,
+}
+
 nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect New Order Long Form Message
-  if unsequenced_message_type == "A" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.new_order_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Short Form Message
-  if unsequenced_message_type == "B" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.new_order_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if unsequenced_message_type == "R" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "C" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Message
-  if unsequenced_message_type == "U" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.mass_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Cross Order Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.new_cross_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Complex Instrument Message
-  if unsequenced_message_type == "S" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.add_complex_instrument_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Trade Message
-  if unsequenced_message_type == "M" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.modify_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Kill Switch Request Message
-  if unsequenced_message_type == "K" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.member_kill_switch_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscription Request Message
-  if unsequenced_message_type == "F" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.subscription_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8644,26 +8014,18 @@ end
 nasdaq_iseoptions_otto_ouch_v3_0_0.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_iseoptions_otto_ouch_v3_0_0.client_payload.dispatch = {
+  ["+"] = nasdaq_iseoptions_otto_ouch_v3_0_0.debug_packet.dissect,
+  ["L"] = nasdaq_iseoptions_otto_ouch_v3_0_0.login_request_packet.dissect,
+  ["U"] = nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_iseoptions_otto_ouch_v3_0_0.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_iseoptions_otto_ouch_v3_0_0.logout_request_packet.dissect,
+}
+
 nasdaq_iseoptions_otto_ouch_v3_0_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_iseoptions_otto_ouch_v3_0_0.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_otto_ouch_v3_0_0.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

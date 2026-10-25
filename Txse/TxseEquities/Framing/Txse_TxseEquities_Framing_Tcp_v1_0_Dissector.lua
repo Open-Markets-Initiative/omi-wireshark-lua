@@ -158,27 +158,17 @@ txse_txseequities_framing_tcp_v1_0.logon_response_code = {}
 txse_txseequities_framing_tcp_v1_0.logon_response_code.size = 1
 
 -- Display: Logon Response Code
-txse_txseequities_framing_tcp_v1_0.logon_response_code.display = function(value)
-  if value == 0 then
-    return "Logon Response Code: Success (0)"
-  end
-  if value == 1 then
-    return "Logon Response Code: Incorrect Sender Comp (1)"
-  end
-  if value == 2 then
-    return "Logon Response Code: Incorrect Session (2)"
-  end
-  if value == 3 then
-    return "Logon Response Code: Invalid Next Sequence (3)"
-  end
-  if value == 4 then
-    return "Logon Response Code: Invalid Configuration (4)"
-  end
-  if value == 5 then
-    return "Logon Response Code: Incorrect Token (5)"
-  end
+txse_txseequities_framing_tcp_v1_0.logon_response_code.labels = {
+  [0] = "Logon Response Code: Success (0)",
+  [1] = "Logon Response Code: Incorrect Sender Comp (1)",
+  [2] = "Logon Response Code: Incorrect Session (2)",
+  [3] = "Logon Response Code: Invalid Next Sequence (3)",
+  [4] = "Logon Response Code: Invalid Configuration (4)",
+  [5] = "Logon Response Code: Incorrect Token (5)",
+}
 
-  return "Logon Response Code: Unknown("..value..")"
+txse_txseequities_framing_tcp_v1_0.logon_response_code.display = function(value)
+  return txse_txseequities_framing_tcp_v1_0.logon_response_code.labels[value] or "Logon Response Code: Unknown("..value..")"
 end
 
 -- Dissect: Logon Response Code
@@ -292,33 +282,19 @@ txse_txseequities_framing_tcp_v1_0.packet_type = {}
 txse_txseequities_framing_tcp_v1_0.packet_type.size = 1
 
 -- Display: Packet Type
-txse_txseequities_framing_tcp_v1_0.packet_type.display = function(value)
-  if value == 53 then
-    return "Packet Type: Logon Request Packet (53)"
-  end
-  if value == 55 then
-    return "Packet Type: Member Heartbeat Packet (55)"
-  end
-  if value == 54 then
-    return "Packet Type: Tcp Unsequenced Message (54)"
-  end
-  if value == 48 then
-    return "Packet Type: Debug Message (48)"
-  end
-  if value == 52 then
-    return "Packet Type: End Of Session Message (52)"
-  end
-  if value == 49 then
-    return "Packet Type: Logon Response Message (49)"
-  end
-  if value == 51 then
-    return "Packet Type: Server Heartbeat Message (51)"
-  end
-  if value == 50 then
-    return "Packet Type: Tcp Sequenced Message (50)"
-  end
+txse_txseequities_framing_tcp_v1_0.packet_type.labels = {
+  [53] = "Packet Type: Logon Request Packet (53)",
+  [55] = "Packet Type: Member Heartbeat Packet (55)",
+  [54] = "Packet Type: Tcp Unsequenced Message (54)",
+  [48] = "Packet Type: Debug Message (48)",
+  [52] = "Packet Type: End Of Session Message (52)",
+  [49] = "Packet Type: Logon Response Message (49)",
+  [51] = "Packet Type: Server Heartbeat Message (51)",
+  [50] = "Packet Type: Tcp Sequenced Message (50)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+txse_txseequities_framing_tcp_v1_0.packet_type.display = function(value)
+  return txse_txseequities_framing_tcp_v1_0.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -682,22 +658,17 @@ end
 txse_txseequities_framing_tcp_v1_0.server_payload = {}
 
 -- Dissect: Server Payload
+txse_txseequities_framing_tcp_v1_0.server_payload.dispatch = {
+  [48] = txse_txseequities_framing_tcp_v1_0.debug_message.dissect,
+  [52] = txse_txseequities_framing_tcp_v1_0.end_of_session_message.dissect,
+  [49] = txse_txseequities_framing_tcp_v1_0.logon_response_message.dissect,
+  [50] = txse_txseequities_framing_tcp_v1_0.tcp_sequenced_message.dissect,
+}
+
 txse_txseequities_framing_tcp_v1_0.server_payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Debug Message
-  if packet_type == 48 then
-    return txse_txseequities_framing_tcp_v1_0.debug_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if packet_type == 52 then
-    return txse_txseequities_framing_tcp_v1_0.end_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response Message
-  if packet_type == 49 then
-    return txse_txseequities_framing_tcp_v1_0.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tcp Sequenced Message
-  if packet_type == 50 then
-    return txse_txseequities_framing_tcp_v1_0.tcp_sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = txse_txseequities_framing_tcp_v1_0.server_payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -966,14 +937,15 @@ end
 txse_txseequities_framing_tcp_v1_0.client_payload = {}
 
 -- Dissect: Client Payload
+txse_txseequities_framing_tcp_v1_0.client_payload.dispatch = {
+  [53] = txse_txseequities_framing_tcp_v1_0.logon_request_packet.dissect,
+  [54] = txse_txseequities_framing_tcp_v1_0.tcp_unsequenced_message.dissect,
+}
+
 txse_txseequities_framing_tcp_v1_0.client_payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Logon Request Packet
-  if packet_type == 53 then
-    return txse_txseequities_framing_tcp_v1_0.logon_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tcp Unsequenced Message
-  if packet_type == 54 then
-    return txse_txseequities_framing_tcp_v1_0.tcp_unsequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = txse_txseequities_framing_tcp_v1_0.client_payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

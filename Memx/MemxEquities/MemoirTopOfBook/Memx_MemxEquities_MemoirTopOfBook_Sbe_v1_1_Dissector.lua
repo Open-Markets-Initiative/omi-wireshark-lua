@@ -321,15 +321,13 @@ memx_memxequities_memoirtopofbook_sbe_v1_1.is_test_symbol = {}
 memx_memxequities_memoirtopofbook_sbe_v1_1.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
-memx_memxequities_memoirtopofbook_sbe_v1_1.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
+memx_memxequities_memoirtopofbook_sbe_v1_1.is_test_symbol.labels = {
+  [0] = "Is Test Symbol: False (0)",
+  [1] = "Is Test Symbol: True (1)",
+}
 
-  return "Is Test Symbol: Unknown("..value..")"
+memx_memxequities_memoirtopofbook_sbe_v1_1.is_test_symbol.display = function(value)
+  return memx_memxequities_memoirtopofbook_sbe_v1_1.is_test_symbol.labels[value] or "Is Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Is Test Symbol
@@ -397,18 +395,14 @@ memx_memxequities_memoirtopofbook_sbe_v1_1.message_type = {}
 memx_memxequities_memoirtopofbook_sbe_v1_1.message_type.size = 1
 
 -- Display: Message Type
-memx_memxequities_memoirtopofbook_sbe_v1_1.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
+memx_memxequities_memoirtopofbook_sbe_v1_1.message_type.labels = {
+  [0] = "Message Type: Heartbeat Message (0)",
+  [1] = "Message Type: Session Shutdown Message (1)",
+  [2] = "Message Type: Sequenced Message (2)",
+}
 
-  return "Message Type: Unknown("..value..")"
+memx_memxequities_memoirtopofbook_sbe_v1_1.message_type.display = function(value)
+  return memx_memxequities_memoirtopofbook_sbe_v1_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -777,15 +771,13 @@ memx_memxequities_memoirtopofbook_sbe_v1_1.short_sale_restriction = {}
 memx_memxequities_memoirtopofbook_sbe_v1_1.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
-memx_memxequities_memoirtopofbook_sbe_v1_1.short_sale_restriction.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction: False (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction: True (1)"
-  end
+memx_memxequities_memoirtopofbook_sbe_v1_1.short_sale_restriction.labels = {
+  [0] = "Short Sale Restriction: False (0)",
+  [1] = "Short Sale Restriction: True (1)",
+}
 
-  return "Short Sale Restriction: Unknown("..value..")"
+memx_memxequities_memoirtopofbook_sbe_v1_1.short_sale_restriction.display = function(value)
+  return memx_memxequities_memoirtopofbook_sbe_v1_1.short_sale_restriction.labels[value] or "Short Sale Restriction: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction
@@ -885,42 +877,22 @@ memx_memxequities_memoirtopofbook_sbe_v1_1.template_id = {}
 memx_memxequities_memoirtopofbook_sbe_v1_1.template_id.size = 1
 
 -- Display: Template Id
-memx_memxequities_memoirtopofbook_sbe_v1_1.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Reg Sho Restriction Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Security Trading Status Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Snapshot Complete Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Trading Session Status Message (5)"
-  end
-  if value == 10 then
-    return "Template Id: Best Bid Offer Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Best Bid Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Best Offer Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Best Bid Short Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Best Offer Short Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Clear Book Message (15)"
-  end
+memx_memxequities_memoirtopofbook_sbe_v1_1.template_id.labels = {
+  [1] = "Template Id: Instrument Directory Message (1)",
+  [2] = "Template Id: Reg Sho Restriction Message (2)",
+  [3] = "Template Id: Security Trading Status Message (3)",
+  [4] = "Template Id: Snapshot Complete Message (4)",
+  [5] = "Template Id: Trading Session Status Message (5)",
+  [10] = "Template Id: Best Bid Offer Message (10)",
+  [11] = "Template Id: Best Bid Message (11)",
+  [12] = "Template Id: Best Offer Message (12)",
+  [13] = "Template Id: Best Bid Short Message (13)",
+  [14] = "Template Id: Best Offer Short Message (14)",
+  [15] = "Template Id: Clear Book Message (15)",
+}
 
-  return "Template Id: Unknown("..value..")"
+memx_memxequities_memoirtopofbook_sbe_v1_1.template_id.display = function(value)
+  return memx_memxequities_memoirtopofbook_sbe_v1_1.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1608,50 +1580,24 @@ end
 memx_memxequities_memoirtopofbook_sbe_v1_1.payload = {}
 
 -- Dissect: Payload
+memx_memxequities_memoirtopofbook_sbe_v1_1.payload.dispatch = {
+  [1] = memx_memxequities_memoirtopofbook_sbe_v1_1.instrument_directory_message.dissect,
+  [2] = memx_memxequities_memoirtopofbook_sbe_v1_1.reg_sho_restriction_message.dissect,
+  [3] = memx_memxequities_memoirtopofbook_sbe_v1_1.security_trading_status_message.dissect,
+  [4] = memx_memxequities_memoirtopofbook_sbe_v1_1.snapshot_complete_message.dissect,
+  [5] = memx_memxequities_memoirtopofbook_sbe_v1_1.trading_session_status_message.dissect,
+  [10] = memx_memxequities_memoirtopofbook_sbe_v1_1.best_bid_offer_message.dissect,
+  [11] = memx_memxequities_memoirtopofbook_sbe_v1_1.best_bid_message.dissect,
+  [12] = memx_memxequities_memoirtopofbook_sbe_v1_1.best_offer_message.dissect,
+  [13] = memx_memxequities_memoirtopofbook_sbe_v1_1.best_bid_short_message.dissect,
+  [14] = memx_memxequities_memoirtopofbook_sbe_v1_1.best_offer_short_message.dissect,
+  [15] = memx_memxequities_memoirtopofbook_sbe_v1_1.clear_book_message.dissect,
+}
+
 memx_memxequities_memoirtopofbook_sbe_v1_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Instrument Directory Message
-  if template_id == 1 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Restriction Message
-  if template_id == 2 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.reg_sho_restriction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Status Message
-  if template_id == 3 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.security_trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Complete Message
-  if template_id == 4 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.snapshot_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if template_id == 5 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Offer Message
-  if template_id == 10 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.best_bid_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Message
-  if template_id == 11 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.best_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Offer Message
-  if template_id == 12 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.best_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Short Message
-  if template_id == 13 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.best_bid_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Offer Short Message
-  if template_id == 14 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.best_offer_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clear Book Message
-  if template_id == 15 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.clear_book_message.dissect(buffer, offset, packet, parent)
+  local dissect = memx_memxequities_memoirtopofbook_sbe_v1_1.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1918,18 +1864,16 @@ end
 memx_memxequities_memoirtopofbook_sbe_v1_1.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
+memx_memxequities_memoirtopofbook_sbe_v1_1.sequenced_messages.dispatch = {
+  [0] = memx_memxequities_memoirtopofbook_sbe_v1_1.heartbeat.dissect,
+  [1] = memx_memxequities_memoirtopofbook_sbe_v1_1.session_shutdown.dissect,
+  [2] = memx_memxequities_memoirtopofbook_sbe_v1_1.sequenced_message.dissect,
+}
+
 memx_memxequities_memoirtopofbook_sbe_v1_1.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Heartbeat
-  if message_type == 0 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Shutdown
-  if message_type == 1 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.session_shutdown.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 2 then
-    return memx_memxequities_memoirtopofbook_sbe_v1_1.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = memx_memxequities_memoirtopofbook_sbe_v1_1.sequenced_messages.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

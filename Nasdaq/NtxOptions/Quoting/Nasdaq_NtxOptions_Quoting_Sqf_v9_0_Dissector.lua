@@ -552,18 +552,14 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.auction_event = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.auction_event.size = 1
 
 -- Display: Auction Event
-nasdaq_ntxoptions_quoting_sqf_v9_0.auction_event.display = function(value)
-  if value == "S" then
-    return "Auction Event: Start (S)"
-  end
-  if value == "U" then
-    return "Auction Event: Auction Update (U)"
-  end
-  if value == "E" then
-    return "Auction Event: End Of Auction (E)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.auction_event.labels = {
+  ["S"] = "Auction Event: Start (S)",
+  ["U"] = "Auction Event: Auction Update (U)",
+  ["E"] = "Auction Event: End Of Auction (E)",
+}
 
-  return "Auction Event: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.auction_event.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.auction_event.labels[value] or "Auction Event: Unknown("..value..")"
 end
 
 -- Dissect: Auction Event
@@ -608,30 +604,18 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.auction_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.auction_type.size = 1
 
 -- Display: Auction Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.auction_type.display = function(value)
-  if value == "B" then
-    return "Auction Type: Block Order Auction (B)"
-  end
-  if value == "C" then
-    return "Auction Type: Combo Exposure Auction (C)"
-  end
-  if value == "I" then
-    return "Auction Type: Order Exposure (I)"
-  end
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "P" then
-    return "Auction Type: Pim Auction (P)"
-  end
-  if value == "H" then
-    return "Auction Type: Facilitation Auction (H)"
-  end
-  if value == "S" then
-    return "Auction Type: Solicitation Auction (S)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.auction_type.labels = {
+  ["B"] = "Auction Type: Block Order Auction (B)",
+  ["C"] = "Auction Type: Combo Exposure Auction (C)",
+  ["I"] = "Auction Type: Order Exposure (I)",
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["P"] = "Auction Type: Pim Auction (P)",
+  ["H"] = "Auction Type: Facilitation Auction (H)",
+  ["S"] = "Auction Type: Solicitation Auction (S)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.auction_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -893,24 +877,16 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.client_packet_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.client_packet_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -932,18 +908,14 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.closing_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.closing_type.size = 1
 
 -- Display: Closing Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.closing_type.display = function(value)
-  if value == "N" then
-    return "Closing Type: Normal Hours (N)"
-  end
-  if value == "L" then
-    return "Closing Type: Late Hours (L)"
-  end
-  if value == "W" then
-    return "Closing Type: Wco Early Closing (W)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.closing_type.labels = {
+  ["N"] = "Closing Type: Normal Hours (N)",
+  ["L"] = "Closing Type: Late Hours (L)",
+  ["W"] = "Closing Type: Wco Early Closing (W)",
+}
 
-  return "Closing Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.closing_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.closing_type.labels[value] or "Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Closing Type
@@ -1132,36 +1104,20 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.event_code = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_ntxoptions_quoting_sqf_v9_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "B" then
-    return "Event Code: Start Of Quote (B)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
-  if value == "N" then
-    return "Event Code: End Of Normal Hours Processing (N)"
-  end
-  if value == "L" then
-    return "Event Code: End Of Late Hours Processing (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["B"] = "Event Code: Start Of Quote (B)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.event_code.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1183,15 +1139,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.exec_flag = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.exec_flag.size = 1
 
 -- Display: Exec Flag
-nasdaq_ntxoptions_quoting_sqf_v9_0.exec_flag.display = function(value)
-  if value == "0" then
-    return "Exec Flag: None (0)"
-  end
-  if value == "1" then
-    return "Exec Flag: Aon (1)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.exec_flag.labels = {
+  ["0"] = "Exec Flag: None (0)",
+  ["1"] = "Exec Flag: Aon (1)",
+}
 
-  return "Exec Flag: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.exec_flag.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.exec_flag.labels[value] or "Exec Flag: Unknown("..value..")"
 end
 
 -- Dissect: Exec Flag
@@ -1313,18 +1267,14 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.instrument_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.instrument_type.size = 1
 
 -- Display: Instrument Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.instrument_type.display = function(value)
-  if value == "S" then
-    return "Instrument Type: Simple Instruments (S)"
-  end
-  if value == "C" then
-    return "Instrument Type: Complex Instruments (C)"
-  end
-  if value == "O" then
-    return "Instrument Type: Simple Instrument (O)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.instrument_type.labels = {
+  ["S"] = "Instrument Type: Simple Instruments (S)",
+  ["C"] = "Instrument Type: Complex Instruments (C)",
+  ["O"] = "Instrument Type: Simple Instrument (O)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.instrument_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -1438,15 +1388,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.leg_side = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.leg_side.size = 1
 
 -- Display: Leg Side
-nasdaq_ntxoptions_quoting_sqf_v9_0.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Leg Side: Sell (S)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.leg_side.labels = {
+  ["B"] = "Leg Side: Buy (B)",
+  ["S"] = "Leg Side: Sell (S)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.leg_side.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -1468,228 +1416,84 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.liquidity_indicator = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.liquidity_indicator.size = 1
 
 -- Display: Liquidity Indicator
-nasdaq_ntxoptions_quoting_sqf_v9_0.liquidity_indicator.display = function(value)
-  if value == 0 then
-    return "Liquidity Indicator: None (0)"
-  end
-  if value == 1 then
-    return "Liquidity Indicator: Maker (1)"
-  end
-  if value == 2 then
-    return "Liquidity Indicator: Taker (2)"
-  end
-  if value == 4 then
-    return "Liquidity Indicator: Response (4)"
-  end
-  if value == 5 then
-    return "Liquidity Indicator: Hidden (5)"
-  end
-  if value == 6 then
-    return "Liquidity Indicator: Opening Rotation (6)"
-  end
-  if value == 7 then
-    return "Liquidity Indicator: Cross (7)"
-  end
-  if value == 8 then
-    return "Liquidity Indicator: Flashed Order (8)"
-  end
-  if value == 9 then
-    return "Liquidity Indicator: Flash Response (9)"
-  end
-  if value == 10 then
-    return "Liquidity Indicator: Routed Out (10)"
-  end
-  if value == 11 then
-    return "Liquidity Indicator: Trade Report (11)"
-  end
-  if value == 12 then
-    return "Liquidity Indicator: Combo Maker Against Combo (12)"
-  end
-  if value == 13 then
-    return "Liquidity Indicator: Combo Taker Against Combo (13)"
-  end
-  if value == 14 then
-    return "Liquidity Indicator: Combo Response Against Combo (14)"
-  end
-  if value == 15 then
-    return "Liquidity Indicator: Combo Hidden Against Combo (15)"
-  end
-  if value == 16 then
-    return "Liquidity Indicator: Combo Opening Rotation (16)"
-  end
-  if value == 17 then
-    return "Liquidity Indicator: Combo Cross (17)"
-  end
-  if value == 18 then
-    return "Liquidity Indicator: Combo Taker Against Regular (18)"
-  end
-  if value == 19 then
-    return "Liquidity Indicator: Regular Maker Against Combo (19)"
-  end
-  if value == 20 then
-    return "Liquidity Indicator: Combo Taker Against Io (20)"
-  end
-  if value == 21 then
-    return "Liquidity Indicator: Regular Incl Pim Taker Against Io (21)"
-  end
-  if value == 22 then
-    return "Liquidity Indicator: Io Maker Against Combo (22)"
-  end
-  if value == 23 then
-    return "Liquidity Indicator: Io Maker Against Regular (23)"
-  end
-  if value == 24 then
-    return "Liquidity Indicator: Regular Maker Against Io Participant (24)"
-  end
-  if value == 25 then
-    return "Liquidity Indicator: Io Participant Taker Against Regular (25)"
-  end
-  if value == 26 then
-    return "Liquidity Indicator: Broken Price Improvement (26)"
-  end
-  if value == 27 then
-    return "Liquidity Indicator: Broken Facilitation (27)"
-  end
-  if value == 28 then
-    return "Liquidity Indicator: Broken Solicitation (28)"
-  end
-  if value == 29 then
-    return "Liquidity Indicator: Combo Broken Price Improvement (29)"
-  end
-  if value == 30 then
-    return "Liquidity Indicator: Combo Broken Facilitation (30)"
-  end
-  if value == 31 then
-    return "Liquidity Indicator: Combo Broken Solicitation (31)"
-  end
-  if value == 32 then
-    return "Liquidity Indicator: Block (32)"
-  end
-  if value == 33 then
-    return "Liquidity Indicator: Block Response (33)"
-  end
-  if value == 34 then
-    return "Liquidity Indicator: Directed Response (34)"
-  end
-  if value == 35 then
-    return "Liquidity Indicator: Facilitation (35)"
-  end
-  if value == 36 then
-    return "Liquidity Indicator: Facilitation Response (36)"
-  end
-  if value == 37 then
-    return "Liquidity Indicator: Price Improvement (37)"
-  end
-  if value == 38 then
-    return "Liquidity Indicator: Price Improvement Response (38)"
-  end
-  if value == 39 then
-    return "Liquidity Indicator: Solicitation (39)"
-  end
-  if value == 40 then
-    return "Liquidity Indicator: Solicitation Response (40)"
-  end
-  if value == 41 then
-    return "Liquidity Indicator: Qualified Contingent Cross (41)"
-  end
-  if value == 42 then
-    return "Liquidity Indicator: Customer To Customer (42)"
-  end
-  if value == 43 then
-    return "Liquidity Indicator: Combo Facilitation (43)"
-  end
-  if value == 44 then
-    return "Liquidity Indicator: Combo Facilitation Response (44)"
-  end
-  if value == 45 then
-    return "Liquidity Indicator: Combo Price Improvement (45)"
-  end
-  if value == 46 then
-    return "Liquidity Indicator: Combo Price Improvement Response (46)"
-  end
-  if value == 47 then
-    return "Liquidity Indicator: Combo Solicitation (47)"
-  end
-  if value == 48 then
-    return "Liquidity Indicator: Combo Solicitation Response (48)"
-  end
-  if value == 49 then
-    return "Liquidity Indicator: Combo Qualified Contingent Cross (49)"
-  end
-  if value == 50 then
-    return "Liquidity Indicator: Combo Customer To Customer (50)"
-  end
-  if value == 51 then
-    return "Liquidity Indicator: Sweep Routed Out (51)"
-  end
-  if value == 52 then
-    return "Liquidity Indicator: Sweep Trade Report (52)"
-  end
-  if value == 53 then
-    return "Liquidity Indicator: Combo Taker Against Regular Thru Nbbo (53)"
-  end
-  if value == 54 then
-    return "Liquidity Indicator: Combo Taker Against Io Thru Nbbo (54)"
-  end
-  if value == 55 then
-    return "Liquidity Indicator: Simple Exposure Order Upon Receipt (55)"
-  end
-  if value == 56 then
-    return "Liquidity Indicator: Simple Exposure Order Subsequent (56)"
-  end
-  if value == 57 then
-    return "Liquidity Indicator: Simple Exposure Order Responder (57)"
-  end
-  if value == 58 then
-    return "Liquidity Indicator: Flex Auction (58)"
-  end
-  if value == 59 then
-    return "Liquidity Indicator: Flex Auction Responder (59)"
-  end
-  if value == 60 then
-    return "Liquidity Indicator: Flex Price Improvement (60)"
-  end
-  if value == 61 then
-    return "Liquidity Indicator: Flex Price Improvement Responder (61)"
-  end
-  if value == 62 then
-    return "Liquidity Indicator: Flex Broken Price Improvement (62)"
-  end
-  if value == 63 then
-    return "Liquidity Indicator: Flex Solicitation (63)"
-  end
-  if value == 64 then
-    return "Liquidity Indicator: Flex Solicitation Responder (64)"
-  end
-  if value == 65 then
-    return "Liquidity Indicator: Flex Broken Solicitation (65)"
-  end
-  if value == 66 then
-    return "Liquidity Indicator: Combo Flex Auction (66)"
-  end
-  if value == 67 then
-    return "Liquidity Indicator: Combo Flex Auction Responder (67)"
-  end
-  if value == 68 then
-    return "Liquidity Indicator: Combo Flex Price Improvement (68)"
-  end
-  if value == 69 then
-    return "Liquidity Indicator: Combo Flex Price Improvement Responder (69)"
-  end
-  if value == 70 then
-    return "Liquidity Indicator: Combo Flex Broken Price Improvement (70)"
-  end
-  if value == 71 then
-    return "Liquidity Indicator: Combo Flex Solicitation (71)"
-  end
-  if value == 72 then
-    return "Liquidity Indicator: Combo Flex Solicitation Responder (72)"
-  end
-  if value == 73 then
-    return "Liquidity Indicator: Combo Flex Broken Solicitation (73)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.liquidity_indicator.labels = {
+  [0] = "Liquidity Indicator: None (0)",
+  [1] = "Liquidity Indicator: Maker (1)",
+  [2] = "Liquidity Indicator: Taker (2)",
+  [4] = "Liquidity Indicator: Response (4)",
+  [5] = "Liquidity Indicator: Hidden (5)",
+  [6] = "Liquidity Indicator: Opening Rotation (6)",
+  [7] = "Liquidity Indicator: Cross (7)",
+  [8] = "Liquidity Indicator: Flashed Order (8)",
+  [9] = "Liquidity Indicator: Flash Response (9)",
+  [10] = "Liquidity Indicator: Routed Out (10)",
+  [11] = "Liquidity Indicator: Trade Report (11)",
+  [12] = "Liquidity Indicator: Combo Maker Against Combo (12)",
+  [13] = "Liquidity Indicator: Combo Taker Against Combo (13)",
+  [14] = "Liquidity Indicator: Combo Response Against Combo (14)",
+  [15] = "Liquidity Indicator: Combo Hidden Against Combo (15)",
+  [16] = "Liquidity Indicator: Combo Opening Rotation (16)",
+  [17] = "Liquidity Indicator: Combo Cross (17)",
+  [18] = "Liquidity Indicator: Combo Taker Against Regular (18)",
+  [19] = "Liquidity Indicator: Regular Maker Against Combo (19)",
+  [20] = "Liquidity Indicator: Combo Taker Against Io (20)",
+  [21] = "Liquidity Indicator: Regular Incl Pim Taker Against Io (21)",
+  [22] = "Liquidity Indicator: Io Maker Against Combo (22)",
+  [23] = "Liquidity Indicator: Io Maker Against Regular (23)",
+  [24] = "Liquidity Indicator: Regular Maker Against Io Participant (24)",
+  [25] = "Liquidity Indicator: Io Participant Taker Against Regular (25)",
+  [26] = "Liquidity Indicator: Broken Price Improvement (26)",
+  [27] = "Liquidity Indicator: Broken Facilitation (27)",
+  [28] = "Liquidity Indicator: Broken Solicitation (28)",
+  [29] = "Liquidity Indicator: Combo Broken Price Improvement (29)",
+  [30] = "Liquidity Indicator: Combo Broken Facilitation (30)",
+  [31] = "Liquidity Indicator: Combo Broken Solicitation (31)",
+  [32] = "Liquidity Indicator: Block (32)",
+  [33] = "Liquidity Indicator: Block Response (33)",
+  [34] = "Liquidity Indicator: Directed Response (34)",
+  [35] = "Liquidity Indicator: Facilitation (35)",
+  [36] = "Liquidity Indicator: Facilitation Response (36)",
+  [37] = "Liquidity Indicator: Price Improvement (37)",
+  [38] = "Liquidity Indicator: Price Improvement Response (38)",
+  [39] = "Liquidity Indicator: Solicitation (39)",
+  [40] = "Liquidity Indicator: Solicitation Response (40)",
+  [41] = "Liquidity Indicator: Qualified Contingent Cross (41)",
+  [42] = "Liquidity Indicator: Customer To Customer (42)",
+  [43] = "Liquidity Indicator: Combo Facilitation (43)",
+  [44] = "Liquidity Indicator: Combo Facilitation Response (44)",
+  [45] = "Liquidity Indicator: Combo Price Improvement (45)",
+  [46] = "Liquidity Indicator: Combo Price Improvement Response (46)",
+  [47] = "Liquidity Indicator: Combo Solicitation (47)",
+  [48] = "Liquidity Indicator: Combo Solicitation Response (48)",
+  [49] = "Liquidity Indicator: Combo Qualified Contingent Cross (49)",
+  [50] = "Liquidity Indicator: Combo Customer To Customer (50)",
+  [51] = "Liquidity Indicator: Sweep Routed Out (51)",
+  [52] = "Liquidity Indicator: Sweep Trade Report (52)",
+  [53] = "Liquidity Indicator: Combo Taker Against Regular Thru Nbbo (53)",
+  [54] = "Liquidity Indicator: Combo Taker Against Io Thru Nbbo (54)",
+  [55] = "Liquidity Indicator: Simple Exposure Order Upon Receipt (55)",
+  [56] = "Liquidity Indicator: Simple Exposure Order Subsequent (56)",
+  [57] = "Liquidity Indicator: Simple Exposure Order Responder (57)",
+  [58] = "Liquidity Indicator: Flex Auction (58)",
+  [59] = "Liquidity Indicator: Flex Auction Responder (59)",
+  [60] = "Liquidity Indicator: Flex Price Improvement (60)",
+  [61] = "Liquidity Indicator: Flex Price Improvement Responder (61)",
+  [62] = "Liquidity Indicator: Flex Broken Price Improvement (62)",
+  [63] = "Liquidity Indicator: Flex Solicitation (63)",
+  [64] = "Liquidity Indicator: Flex Solicitation Responder (64)",
+  [65] = "Liquidity Indicator: Flex Broken Solicitation (65)",
+  [66] = "Liquidity Indicator: Combo Flex Auction (66)",
+  [67] = "Liquidity Indicator: Combo Flex Auction Responder (67)",
+  [68] = "Liquidity Indicator: Combo Flex Price Improvement (68)",
+  [69] = "Liquidity Indicator: Combo Flex Price Improvement Responder (69)",
+  [70] = "Liquidity Indicator: Combo Flex Broken Price Improvement (70)",
+  [71] = "Liquidity Indicator: Combo Flex Solicitation (71)",
+  [72] = "Liquidity Indicator: Combo Flex Solicitation Responder (72)",
+  [73] = "Liquidity Indicator: Combo Flex Broken Solicitation (73)",
+}
 
-  return "Liquidity Indicator: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.liquidity_indicator.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.liquidity_indicator.labels[value] or "Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Indicator
@@ -1780,18 +1584,14 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.mpv = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_ntxoptions_quoting_sqf_v9_0.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.mpv.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -1813,15 +1613,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.msar_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.msar_type.size = 1
 
 -- Display: Msar Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.msar_type.display = function(value)
-  if value == "A" then
-    return "Msar Type: Auction Response (A)"
-  end
-  if value == "M" then
-    return "Msar Type: Market Sweep (M)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.msar_type.labels = {
+  ["A"] = "Msar Type: Auction Response (A)",
+  ["M"] = "Msar Type: Market Sweep (M)",
+}
 
-  return "Msar Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.msar_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.msar_type.labels[value] or "Msar Type: Unknown("..value..")"
 end
 
 -- Dissect: Msar Type
@@ -1889,15 +1687,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.notification_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.notification_type.size = 1
 
 -- Display: Notification Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.notification_type.display = function(value)
-  if value == "E" then
-    return "Notification Type: Executed (E)"
-  end
-  if value == "C" then
-    return "Notification Type: Cancelled (C)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.notification_type.labels = {
+  ["E"] = "Notification Type: Executed (E)",
+  ["C"] = "Notification Type: Cancelled (C)",
+}
 
-  return "Notification Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.notification_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.notification_type.labels[value] or "Notification Type: Unknown("..value..")"
 end
 
 -- Dissect: Notification Type
@@ -1988,15 +1784,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.option_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.option_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -2066,18 +1860,14 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.order_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.order_type.size = 1
 
 -- Display: Order Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.order_type.display = function(value)
-  if value == "L" then
-    return "Order Type: Limit (L)"
-  end
-  if value == "M" then
-    return "Order Type: Market (M)"
-  end
-  if value == "N" then
-    return "Order Type: Not Disclosed (N)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.order_type.labels = {
+  ["L"] = "Order Type: Limit (L)",
+  ["M"] = "Order Type: Market (M)",
+  ["N"] = "Order Type: Not Disclosed (N)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.order_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -2168,15 +1958,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.permitted = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.permitted.size = 1
 
 -- Display: Permitted
-nasdaq_ntxoptions_quoting_sqf_v9_0.permitted.display = function(value)
-  if value == "Y" then
-    return "Permitted: Permitted (Y)"
-  end
-  if value == "N" then
-    return "Permitted: Not Permitted (N)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.permitted.labels = {
+  ["Y"] = "Permitted: Permitted (Y)",
+  ["N"] = "Permitted: Not Permitted (N)",
+}
 
-  return "Permitted: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.permitted.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.permitted.labels[value] or "Permitted: Unknown("..value..")"
 end
 
 -- Dissect: Permitted
@@ -2256,15 +2044,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.price_protection = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.price_protection.size = 1
 
 -- Display: Price Protection
-nasdaq_ntxoptions_quoting_sqf_v9_0.price_protection.display = function(value)
-  if value == "L" then
-    return "Price Protection: Local (L)"
-  end
-  if value == "N" then
-    return "Price Protection: National (N)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.price_protection.labels = {
+  ["L"] = "Price Protection: Local (L)",
+  ["N"] = "Price Protection: National (N)",
+}
 
-  return "Price Protection: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.price_protection.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.price_protection.labels[value] or "Price Protection: Unknown("..value..")"
 end
 
 -- Dissect: Price Protection
@@ -2286,33 +2072,19 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.purge_reason = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.purge_reason.size = 1
 
 -- Display: Purge Reason
-nasdaq_ntxoptions_quoting_sqf_v9_0.purge_reason.display = function(value)
-  if value == "U" then
-    return "Purge Reason: User Requested Simple (U)"
-  end
-  if value == "S" then
-    return "Purge Reason: System Initiated (S)"
-  end
-  if value == "K" then
-    return "Purge Reason: Auto Killswitch (K)"
-  end
-  if value == "M" then
-    return "Purge Reason: Manual Killswitch (M)"
-  end
-  if value == "P" then
-    return "Purge Reason: Purge On Disconnect (P)"
-  end
-  if value == "u" then
-    return "Purge Reason: User Requested Complex (u)"
-  end
-  if value == "s" then
-    return "Purge Reason: System Initiated Complex (s)"
-  end
-  if value == "Q" then
-    return "Purge Reason: Anti Internalize (Q)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.purge_reason.labels = {
+  ["U"] = "Purge Reason: User Requested Simple (U)",
+  ["S"] = "Purge Reason: System Initiated (S)",
+  ["K"] = "Purge Reason: Auto Killswitch (K)",
+  ["M"] = "Purge Reason: Manual Killswitch (M)",
+  ["P"] = "Purge Reason: Purge On Disconnect (P)",
+  ["u"] = "Purge Reason: User Requested Complex (u)",
+  ["s"] = "Purge Reason: System Initiated Complex (s)",
+  ["Q"] = "Purge Reason: Anti Internalize (Q)",
+}
 
-  return "Purge Reason: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.purge_reason.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.purge_reason.labels[value] or "Purge Reason: Unknown("..value..")"
 end
 
 -- Dissect: Purge Reason
@@ -2470,15 +2242,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_indicator = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_indicator.size = 1
 
 -- Display: Reentry Indicator
-nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_indicator.display = function(value)
-  if value == "N" then
-    return "Reentry Indicator: Normal (N)"
-  end
-  if value == "R" then
-    return "Reentry Indicator: Reentry (R)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_indicator.labels = {
+  ["N"] = "Reentry Indicator: Normal (N)",
+  ["R"] = "Reentry Indicator: Reentry (R)",
+}
 
-  return "Reentry Indicator: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_indicator.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_indicator.labels[value] or "Reentry Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Reentry Indicator
@@ -2500,18 +2270,14 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_scope = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_scope.size = 1
 
 -- Display: Reentry Scope
-nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_scope.display = function(value)
-  if value == "N" then
-    return "Reentry Scope: User Requested Simple (N)"
-  end
-  if value == "n" then
-    return "Reentry Scope: User Requested Complex (n)"
-  end
-  if value == "K" then
-    return "Reentry Scope: Post Killswitch (K)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_scope.labels = {
+  ["N"] = "Reentry Scope: User Requested Simple (N)",
+  ["n"] = "Reentry Scope: User Requested Complex (n)",
+  ["K"] = "Reentry Scope: Post Killswitch (K)",
+}
 
-  return "Reentry Scope: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_scope.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.reentry_scope.labels[value] or "Reentry Scope: Unknown("..value..")"
 end
 
 -- Dissect: Reentry Scope
@@ -2533,15 +2299,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.reject_reason_code = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_ntxoptions_quoting_sqf_v9_0.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.reject_reason_code.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2893,69 +2657,31 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message_type.size = 2
 
 -- Display: Sequenced Message Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message_type.display = function(value)
-  if value == "SA" then
-    return "Sequenced Message Type: Msar Accept Message (SA)"
-  end
-  if value == "SR" then
-    return "Sequenced Message Type: Msar Reject Message (SR)"
-  end
-  if value == "SY" then
-    return "Sequenced Message Type: Complex Msar Accept Message (SY)"
-  end
-  if value == "SN" then
-    return "Sequenced Message Type: Complex Msar Reject Message (SN)"
-  end
-  if value == "AP" then
-    return "Sequenced Message Type: Underlying Permission Notification Message (AP)"
-  end
-  if value == "AJ" then
-    return "Sequenced Message Type: Mm Parameter Definition Notification Message (AJ)"
-  end
-  if value == "Af" then
-    return "Sequenced Message Type: Rapid Fire Config Notification Message (Af)"
-  end
-  if value == "AK" then
-    return "Sequenced Message Type: Active Qp Self Replenishment Parameter Definition Notification Message (AK)"
-  end
-  if value == "AS" then
-    return "Sequenced Message Type: System Event Message (AS)"
-  end
-  if value == "AD" then
-    return "Sequenced Message Type: Simple Instrument Directory Message (AD)"
-  end
-  if value == "AR" then
-    return "Sequenced Message Type: Complex Instrument Directory Message (AR)"
-  end
-  if value == "AH" then
-    return "Sequenced Message Type: Simple Instrument Trading Action Message (AH)"
-  end
-  if value == "AI" then
-    return "Sequenced Message Type: Complex Instrument Trading Action Message (AI)"
-  end
-  if value == "NE" then
-    return "Sequenced Message Type: Simple Quote Execution Notification Message (NE)"
-  end
-  if value == "NV" then
-    return "Sequenced Message Type: Complex Quote Execution Notification Message (NV)"
-  end
-  if value == "NW" then
-    return "Sequenced Message Type: Complex Quote Leg Execution Notification Message (NW)"
-  end
-  if value == "NS" then
-    return "Sequenced Message Type: Simple Msar Notification Message (NS)"
-  end
-  if value == "NL" then
-    return "Sequenced Message Type: Complex Msar Leg Notification Message (NL)"
-  end
-  if value == "NX" then
-    return "Sequenced Message Type: Complex Msar Notification Message (NX)"
-  end
-  if value == "AM" then
-    return "Sequenced Message Type: Opening Rotation Quote Spread Multiplier Notification Message (AM)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message_type.labels = {
+  ["SA"] = "Sequenced Message Type: Msar Accept Message (SA)",
+  ["SR"] = "Sequenced Message Type: Msar Reject Message (SR)",
+  ["SY"] = "Sequenced Message Type: Complex Msar Accept Message (SY)",
+  ["SN"] = "Sequenced Message Type: Complex Msar Reject Message (SN)",
+  ["AP"] = "Sequenced Message Type: Underlying Permission Notification Message (AP)",
+  ["AJ"] = "Sequenced Message Type: Mm Parameter Definition Notification Message (AJ)",
+  ["Af"] = "Sequenced Message Type: Rapid Fire Config Notification Message (Af)",
+  ["AK"] = "Sequenced Message Type: Active Qp Self Replenishment Parameter Definition Notification Message (AK)",
+  ["AS"] = "Sequenced Message Type: System Event Message (AS)",
+  ["AD"] = "Sequenced Message Type: Simple Instrument Directory Message (AD)",
+  ["AR"] = "Sequenced Message Type: Complex Instrument Directory Message (AR)",
+  ["AH"] = "Sequenced Message Type: Simple Instrument Trading Action Message (AH)",
+  ["AI"] = "Sequenced Message Type: Complex Instrument Trading Action Message (AI)",
+  ["NE"] = "Sequenced Message Type: Simple Quote Execution Notification Message (NE)",
+  ["NV"] = "Sequenced Message Type: Complex Quote Execution Notification Message (NV)",
+  ["NW"] = "Sequenced Message Type: Complex Quote Leg Execution Notification Message (NW)",
+  ["NS"] = "Sequenced Message Type: Simple Msar Notification Message (NS)",
+  ["NL"] = "Sequenced Message Type: Complex Msar Leg Notification Message (NL)",
+  ["NX"] = "Sequenced Message Type: Complex Msar Notification Message (NX)",
+  ["AM"] = "Sequenced Message Type: Opening Rotation Quote Spread Multiplier Notification Message (AM)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -2977,30 +2703,18 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.server_packet_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.server_packet_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -3022,51 +2736,25 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message_type.size = 2
 
 -- Display: Server Unsequenced Message Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message_type.display = function(value)
-  if value == "Ab" then
-    return "Server Unsequenced Message Type: Notification Subscription Reply Message (Ab)"
-  end
-  if value == "Ac" then
-    return "Server Unsequenced Message Type: Add Complex Instrument Reply Message (Ac)"
-  end
-  if value == "Ae" then
-    return "Server Unsequenced Message Type: Mm Parameter Definition Reply Message (Ae)"
-  end
-  if value == "Ag" then
-    return "Server Unsequenced Message Type: Active Qp Self Replenishment Set Limit Reply Message (Ag)"
-  end
-  if value == "AA" then
-    return "Server Unsequenced Message Type: Rapid Fire Config Reply Message (AA)"
-  end
-  if value == "QS" then
-    return "Server Unsequenced Message Type: Quote Block Reply Message (QS)"
-  end
-  if value == "Qs" then
-    return "Server Unsequenced Message Type: Detailed Quote Block Reply Message (Qs)"
-  end
-  if value == "Pr" then
-    return "Server Unsequenced Message Type: Underlying Purge Reply Message (Pr)"
-  end
-  if value == "RR" then
-    return "Server Unsequenced Message Type: Market Reentry Reply Message (RR)"
-  end
-  if value == "Rg" then
-    return "Server Unsequenced Message Type: Active Qp Self Replenishment Request Reentry Reply Message (Rg)"
-  end
-  if value == "NA" then
-    return "Server Unsequenced Message Type: Auction Notification Message (NA)"
-  end
-  if value == "ND" then
-    return "Server Unsequenced Message Type: Instrument Purge Notification Message (ND)"
-  end
-  if value == "NU" then
-    return "Server Unsequenced Message Type: Underlying Purge Notification Message (NU)"
-  end
-  if value == "NR" then
-    return "Server Unsequenced Message Type: Market Reentry Notification Message (NR)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message_type.labels = {
+  ["Ab"] = "Server Unsequenced Message Type: Notification Subscription Reply Message (Ab)",
+  ["Ac"] = "Server Unsequenced Message Type: Add Complex Instrument Reply Message (Ac)",
+  ["Ae"] = "Server Unsequenced Message Type: Mm Parameter Definition Reply Message (Ae)",
+  ["Ag"] = "Server Unsequenced Message Type: Active Qp Self Replenishment Set Limit Reply Message (Ag)",
+  ["AA"] = "Server Unsequenced Message Type: Rapid Fire Config Reply Message (AA)",
+  ["QS"] = "Server Unsequenced Message Type: Quote Block Reply Message (QS)",
+  ["Qs"] = "Server Unsequenced Message Type: Detailed Quote Block Reply Message (Qs)",
+  ["Pr"] = "Server Unsequenced Message Type: Underlying Purge Reply Message (Pr)",
+  ["RR"] = "Server Unsequenced Message Type: Market Reentry Reply Message (RR)",
+  ["Rg"] = "Server Unsequenced Message Type: Active Qp Self Replenishment Request Reentry Reply Message (Rg)",
+  ["NA"] = "Server Unsequenced Message Type: Auction Notification Message (NA)",
+  ["ND"] = "Server Unsequenced Message Type: Instrument Purge Notification Message (ND)",
+  ["NU"] = "Server Unsequenced Message Type: Underlying Purge Notification Message (NU)",
+  ["NR"] = "Server Unsequenced Message Type: Market Reentry Notification Message (NR)",
+}
 
-  return "Server Unsequenced Message Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message_type.labels[value] or "Server Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Unsequenced Message Type
@@ -3134,30 +2822,18 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.side = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.side.size = 1
 
 -- Display: Side
-nasdaq_ntxoptions_quoting_sqf_v9_0.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "*" then
-    return "Side: Not Disclosed (*)"
-  end
-  if value == "T" then
-    return "Side: Buy Short (T)"
-  end
-  if value == "X" then
-    return "Side: Buy Short Exempt (X)"
-  end
-  if value == "Y" then
-    return "Side: Sell Short (Y)"
-  end
-  if value == "Z" then
-    return "Side: Sell Short Exempt (Z)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["*"] = "Side: Not Disclosed (*)",
+  ["T"] = "Side: Buy Short (T)",
+  ["X"] = "Side: Buy Short Exempt (X)",
+  ["Y"] = "Side: Sell Short (Y)",
+  ["Z"] = "Side: Sell Short Exempt (Z)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.side.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -3269,18 +2945,14 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.stock_leg_short_sale = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.stock_leg_short_sale.size = 1
 
 -- Display: Stock Leg Short Sale
-nasdaq_ntxoptions_quoting_sqf_v9_0.stock_leg_short_sale.display = function(value)
-  if value == "N" then
-    return "Stock Leg Short Sale: Not Applicable (N)"
-  end
-  if value == "H" then
-    return "Stock Leg Short Sale: Sell Short (H)"
-  end
-  if value == "E" then
-    return "Stock Leg Short Sale: Sell Short Exempt (E)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.stock_leg_short_sale.labels = {
+  ["N"] = "Stock Leg Short Sale: Not Applicable (N)",
+  ["H"] = "Stock Leg Short Sale: Sell Short (H)",
+  ["E"] = "Stock Leg Short Sale: Sell Short Exempt (E)",
+}
 
-  return "Stock Leg Short Sale: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.stock_leg_short_sale.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.stock_leg_short_sale.labels[value] or "Stock Leg Short Sale: Unknown("..value..")"
 end
 
 -- Dissect: Stock Leg Short Sale
@@ -3377,15 +3049,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.tradable = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_ntxoptions_quoting_sqf_v9_0.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.tradable.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -3407,15 +3077,13 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.trading_state = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.trading_state.size = 1
 
 -- Display: Trading State
-nasdaq_ntxoptions_quoting_sqf_v9_0.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading Resumed (T)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.trading_state.labels = {
+  ["H"] = "Trading State: Halt In Effect (H)",
+  ["T"] = "Trading State: Trading Resumed (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.trading_state.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -3483,57 +3151,27 @@ nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message_type = {}
 nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message_type.size = 2
 
 -- Display: Unsequenced Message Type
-nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message_type.display = function(value)
-  if value == "AB" then
-    return "Unsequenced Message Type: Notification Subscription Request Message (AB)"
-  end
-  if value == "AC" then
-    return "Unsequenced Message Type: Add Complex Instrument Request Message (AC)"
-  end
-  if value == "AE" then
-    return "Unsequenced Message Type: Mm Parameter Definition Request Message (AE)"
-  end
-  if value == "AG" then
-    return "Unsequenced Message Type: Active Qp Self Replenishment Set Limit Message (AG)"
-  end
-  if value == "AF" then
-    return "Unsequenced Message Type: Rapid Fire Config Request Message (AF)"
-  end
-  if value == "QA" then
-    return "Unsequenced Message Type: Simple Quote Block Short Form Message (QA)"
-  end
-  if value == "Qa" then
-    return "Unsequenced Message Type: Simple Quote Block Short Form Detailed Message (Qa)"
-  end
-  if value == "QM" then
-    return "Unsequenced Message Type: Simple Quote Block Long Form Message (QM)"
-  end
-  if value == "Qm" then
-    return "Unsequenced Message Type: Simple Quote Block Long Form Detailed Message (Qm)"
-  end
-  if value == "QD" then
-    return "Unsequenced Message Type: Complex Quote Block Message (QD)"
-  end
-  if value == "Qd" then
-    return "Unsequenced Message Type: Complex Quote Block Detailed Message (Qd)"
-  end
-  if value == "Pu" then
-    return "Unsequenced Message Type: Underlying Purge Request Message (Pu)"
-  end
-  if value == "RU" then
-    return "Unsequenced Message Type: Market Reentry Request Message (RU)"
-  end
-  if value == "RG" then
-    return "Unsequenced Message Type: Active Qp Self Replenishment Request Reentry Message (RG)"
-  end
-  if value == "SB" then
-    return "Unsequenced Message Type: Simple Msar Request Message (SB)"
-  end
-  if value == "SX" then
-    return "Unsequenced Message Type: Complex Msar Request Message (SX)"
-  end
+nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message_type.labels = {
+  ["AB"] = "Unsequenced Message Type: Notification Subscription Request Message (AB)",
+  ["AC"] = "Unsequenced Message Type: Add Complex Instrument Request Message (AC)",
+  ["AE"] = "Unsequenced Message Type: Mm Parameter Definition Request Message (AE)",
+  ["AG"] = "Unsequenced Message Type: Active Qp Self Replenishment Set Limit Message (AG)",
+  ["AF"] = "Unsequenced Message Type: Rapid Fire Config Request Message (AF)",
+  ["QA"] = "Unsequenced Message Type: Simple Quote Block Short Form Message (QA)",
+  ["Qa"] = "Unsequenced Message Type: Simple Quote Block Short Form Detailed Message (Qa)",
+  ["QM"] = "Unsequenced Message Type: Simple Quote Block Long Form Message (QM)",
+  ["Qm"] = "Unsequenced Message Type: Simple Quote Block Long Form Detailed Message (Qm)",
+  ["QD"] = "Unsequenced Message Type: Complex Quote Block Message (QD)",
+  ["Qd"] = "Unsequenced Message Type: Complex Quote Block Detailed Message (Qd)",
+  ["Pu"] = "Unsequenced Message Type: Underlying Purge Request Message (Pu)",
+  ["RU"] = "Unsequenced Message Type: Market Reentry Request Message (RU)",
+  ["RG"] = "Unsequenced Message Type: Active Qp Self Replenishment Request Reentry Message (RG)",
+  ["SB"] = "Unsequenced Message Type: Simple Msar Request Message (SB)",
+  ["SX"] = "Unsequenced Message Type: Complex Msar Request Message (SX)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message_type.display = function(value)
+  return nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -4789,62 +4427,27 @@ end
 nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message = {}
 
 -- Dissect: Server Unsequenced Message
+nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message.dispatch = {
+  ["Ab"] = nasdaq_ntxoptions_quoting_sqf_v9_0.notification_subscription_reply_message.dissect,
+  ["Ac"] = nasdaq_ntxoptions_quoting_sqf_v9_0.add_complex_instrument_reply_message.dissect,
+  ["Ae"] = nasdaq_ntxoptions_quoting_sqf_v9_0.mm_parameter_definition_reply_message.dissect,
+  ["Ag"] = nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_set_limit_reply_message.dissect,
+  ["AA"] = nasdaq_ntxoptions_quoting_sqf_v9_0.rapid_fire_config_reply_message.dissect,
+  ["QS"] = nasdaq_ntxoptions_quoting_sqf_v9_0.quote_block_reply_message.dissect,
+  ["Qs"] = nasdaq_ntxoptions_quoting_sqf_v9_0.detailed_quote_block_reply_message.dissect,
+  ["Pr"] = nasdaq_ntxoptions_quoting_sqf_v9_0.underlying_purge_reply_message.dissect,
+  ["RR"] = nasdaq_ntxoptions_quoting_sqf_v9_0.market_reentry_reply_message.dissect,
+  ["Rg"] = nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_request_reentry_reply_message.dissect,
+  ["NA"] = nasdaq_ntxoptions_quoting_sqf_v9_0.auction_notification_message.dissect,
+  ["ND"] = nasdaq_ntxoptions_quoting_sqf_v9_0.instrument_purge_notification_message.dissect,
+  ["NU"] = nasdaq_ntxoptions_quoting_sqf_v9_0.underlying_purge_notification_message.dissect,
+  ["NR"] = nasdaq_ntxoptions_quoting_sqf_v9_0.market_reentry_notification_message.dissect,
+}
+
 nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message.dissect = function(buffer, offset, packet, parent, server_unsequenced_message_type)
-  -- Dissect Notification Subscription Reply Message
-  if server_unsequenced_message_type == "Ab" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.notification_subscription_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Complex Instrument Reply Message
-  if server_unsequenced_message_type == "Ac" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.add_complex_instrument_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Parameter Definition Reply Message
-  if server_unsequenced_message_type == "Ae" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.mm_parameter_definition_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Qp Self Replenishment Set Limit Reply Message
-  if server_unsequenced_message_type == "Ag" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_set_limit_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rapid Fire Config Reply Message
-  if server_unsequenced_message_type == "AA" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.rapid_fire_config_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Block Reply Message
-  if server_unsequenced_message_type == "QS" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.quote_block_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Detailed Quote Block Reply Message
-  if server_unsequenced_message_type == "Qs" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.detailed_quote_block_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Purge Reply Message
-  if server_unsequenced_message_type == "Pr" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.underlying_purge_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Reentry Reply Message
-  if server_unsequenced_message_type == "RR" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.market_reentry_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Qp Self Replenishment Request Reentry Reply Message
-  if server_unsequenced_message_type == "Rg" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_request_reentry_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Notification Message
-  if server_unsequenced_message_type == "NA" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Purge Notification Message
-  if server_unsequenced_message_type == "ND" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.instrument_purge_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Purge Notification Message
-  if server_unsequenced_message_type == "NU" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.underlying_purge_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Reentry Notification Message
-  if server_unsequenced_message_type == "NR" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.market_reentry_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_message.dispatch[server_unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6380,86 +5983,33 @@ end
 nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message.dispatch = {
+  ["SA"] = nasdaq_ntxoptions_quoting_sqf_v9_0.msar_accept_message.dissect,
+  ["SR"] = nasdaq_ntxoptions_quoting_sqf_v9_0.msar_reject_message.dissect,
+  ["SY"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_accept_message.dissect,
+  ["SN"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_reject_message.dissect,
+  ["AP"] = nasdaq_ntxoptions_quoting_sqf_v9_0.underlying_permission_notification_message.dissect,
+  ["AJ"] = nasdaq_ntxoptions_quoting_sqf_v9_0.mm_parameter_definition_notification_message.dissect,
+  ["Af"] = nasdaq_ntxoptions_quoting_sqf_v9_0.rapid_fire_config_notification_message.dissect,
+  ["AK"] = nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_parameter_definition_notification_message.dissect,
+  ["AS"] = nasdaq_ntxoptions_quoting_sqf_v9_0.system_event_message.dissect,
+  ["AD"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_instrument_directory_message.dissect,
+  ["AR"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_instrument_directory_message.dissect,
+  ["AH"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_instrument_trading_action_message.dissect,
+  ["AI"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_instrument_trading_action_message.dissect,
+  ["NE"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_execution_notification_message.dissect,
+  ["NV"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_quote_execution_notification_message.dissect,
+  ["NW"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_quote_leg_execution_notification_message.dissect,
+  ["NS"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_msar_notification_message.dissect,
+  ["NL"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_leg_notification_message.dissect,
+  ["NX"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_notification_message.dissect,
+  ["AM"] = nasdaq_ntxoptions_quoting_sqf_v9_0.opening_rotation_quote_spread_multiplier_notification_message.dissect,
+}
+
 nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Msar Accept Message
-  if sequenced_message_type == "SA" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.msar_accept_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Msar Reject Message
-  if sequenced_message_type == "SR" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.msar_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Msar Accept Message
-  if sequenced_message_type == "SY" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_accept_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Msar Reject Message
-  if sequenced_message_type == "SN" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Permission Notification Message
-  if sequenced_message_type == "AP" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.underlying_permission_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Parameter Definition Notification Message
-  if sequenced_message_type == "AJ" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.mm_parameter_definition_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rapid Fire Config Notification Message
-  if sequenced_message_type == "Af" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.rapid_fire_config_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Qp Self Replenishment Parameter Definition Notification Message
-  if sequenced_message_type == "AK" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_parameter_definition_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if sequenced_message_type == "AS" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Instrument Directory Message
-  if sequenced_message_type == "AD" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Directory Message
-  if sequenced_message_type == "AR" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Instrument Trading Action Message
-  if sequenced_message_type == "AH" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_instrument_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Trading Action Message
-  if sequenced_message_type == "AI" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_instrument_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Quote Execution Notification Message
-  if sequenced_message_type == "NE" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_execution_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Quote Execution Notification Message
-  if sequenced_message_type == "NV" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_quote_execution_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Quote Leg Execution Notification Message
-  if sequenced_message_type == "NW" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_quote_leg_execution_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Msar Notification Message
-  if sequenced_message_type == "NS" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_msar_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Msar Leg Notification Message
-  if sequenced_message_type == "NL" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_leg_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Msar Notification Message
-  if sequenced_message_type == "NX" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Rotation Quote Spread Multiplier Notification Message
-  if sequenced_message_type == "AM" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.opening_rotation_quote_spread_multiplier_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6702,34 +6252,20 @@ end
 nasdaq_ntxoptions_quoting_sqf_v9_0.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_ntxoptions_quoting_sqf_v9_0.server_payload.dispatch = {
+  ["+"] = nasdaq_ntxoptions_quoting_sqf_v9_0.debug_packet.dissect,
+  ["A"] = nasdaq_ntxoptions_quoting_sqf_v9_0.login_accepted_packet.dissect,
+  ["J"] = nasdaq_ntxoptions_quoting_sqf_v9_0.login_rejected_packet.dissect,
+  ["S"] = nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_data_packet.dissect,
+  ["U"] = nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_data_packet.dissect,
+  ["H"] = nasdaq_ntxoptions_quoting_sqf_v9_0.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_ntxoptions_quoting_sqf_v9_0.end_of_session_packet.dissect,
+}
+
 nasdaq_ntxoptions_quoting_sqf_v9_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Unsequenced Data Packet
-  if server_packet_type == "U" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.server_unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_quoting_sqf_v9_0.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8166,70 +7702,29 @@ end
 nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message.dispatch = {
+  ["AB"] = nasdaq_ntxoptions_quoting_sqf_v9_0.notification_subscription_request_message.dissect,
+  ["AC"] = nasdaq_ntxoptions_quoting_sqf_v9_0.add_complex_instrument_request_message.dissect,
+  ["AE"] = nasdaq_ntxoptions_quoting_sqf_v9_0.mm_parameter_definition_request_message.dissect,
+  ["AG"] = nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_set_limit_message.dissect,
+  ["AF"] = nasdaq_ntxoptions_quoting_sqf_v9_0.rapid_fire_config_request_message.dissect,
+  ["QA"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_block_short_form_message.dissect,
+  ["Qa"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_block_short_form_detailed_message.dissect,
+  ["QM"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_block_long_form_message.dissect,
+  ["Qm"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_block_long_form_detailed_message.dissect,
+  ["QD"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_quote_block_message.dissect,
+  ["Qd"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_quote_block_detailed_message.dissect,
+  ["Pu"] = nasdaq_ntxoptions_quoting_sqf_v9_0.underlying_purge_request_message.dissect,
+  ["RU"] = nasdaq_ntxoptions_quoting_sqf_v9_0.market_reentry_request_message.dissect,
+  ["RG"] = nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_request_reentry_message.dissect,
+  ["SB"] = nasdaq_ntxoptions_quoting_sqf_v9_0.simple_msar_request_message.dissect,
+  ["SX"] = nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_request_message.dissect,
+}
+
 nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Notification Subscription Request Message
-  if unsequenced_message_type == "AB" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.notification_subscription_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Complex Instrument Request Message
-  if unsequenced_message_type == "AC" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.add_complex_instrument_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Parameter Definition Request Message
-  if unsequenced_message_type == "AE" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.mm_parameter_definition_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Qp Self Replenishment Set Limit Message
-  if unsequenced_message_type == "AG" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_set_limit_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rapid Fire Config Request Message
-  if unsequenced_message_type == "AF" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.rapid_fire_config_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Quote Block Short Form Message
-  if unsequenced_message_type == "QA" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_block_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Quote Block Short Form Detailed Message
-  if unsequenced_message_type == "Qa" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_block_short_form_detailed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Quote Block Long Form Message
-  if unsequenced_message_type == "QM" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_block_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Quote Block Long Form Detailed Message
-  if unsequenced_message_type == "Qm" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_quote_block_long_form_detailed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Quote Block Message
-  if unsequenced_message_type == "QD" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_quote_block_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Quote Block Detailed Message
-  if unsequenced_message_type == "Qd" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_quote_block_detailed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Purge Request Message
-  if unsequenced_message_type == "Pu" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.underlying_purge_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Reentry Request Message
-  if unsequenced_message_type == "RU" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.market_reentry_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Qp Self Replenishment Request Reentry Message
-  if unsequenced_message_type == "RG" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.active_qp_self_replenishment_request_reentry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Msar Request Message
-  if unsequenced_message_type == "SB" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.simple_msar_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Msar Request Message
-  if unsequenced_message_type == "SX" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.complex_msar_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8348,26 +7843,18 @@ end
 nasdaq_ntxoptions_quoting_sqf_v9_0.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_ntxoptions_quoting_sqf_v9_0.client_payload.dispatch = {
+  ["+"] = nasdaq_ntxoptions_quoting_sqf_v9_0.debug_packet.dissect,
+  ["L"] = nasdaq_ntxoptions_quoting_sqf_v9_0.login_request_packet.dissect,
+  ["U"] = nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_ntxoptions_quoting_sqf_v9_0.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_ntxoptions_quoting_sqf_v9_0.logout_request_packet.dissect,
+}
+
 nasdaq_ntxoptions_quoting_sqf_v9_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_ntxoptions_quoting_sqf_v9_0.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_quoting_sqf_v9_0.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

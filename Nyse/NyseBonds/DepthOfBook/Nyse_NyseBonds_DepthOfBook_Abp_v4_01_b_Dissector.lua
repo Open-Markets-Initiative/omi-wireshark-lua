@@ -677,36 +677,20 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.message_type = {}
 nyse_nysebonds_depthofbook_abp_v4_01_b.message_type.size = 1
 
 -- Display: Message Type
-nyse_nysebonds_depthofbook_abp_v4_01_b.message_type.display = function(value)
-  if value == "Q" then
-    return "Message Type: Login Accepted Message (Q)"
-  end
-  if value == "R" then
-    return "Message Type: Login Rejected Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Heartbeat Message (H)"
-  end
-  if value == "S" then
-    return "Message Type: Test Response Message (S)"
-  end
-  if value == "N" then
-    return "Message Type: Add Order Message (N)"
-  end
-  if value == "C" then
-    return "Message Type: Modify Order Message (C)"
-  end
-  if value == "K" then
-    return "Message Type: Delete Order Message (K)"
-  end
-  if value == "W" then
-    return "Message Type: Imbalance Message (W)"
-  end
-  if value == "Y" then
-    return "Message Type: System Event Message (Y)"
-  end
+nyse_nysebonds_depthofbook_abp_v4_01_b.message_type.labels = {
+  ["Q"] = "Message Type: Login Accepted Message (Q)",
+  ["R"] = "Message Type: Login Rejected Message (R)",
+  ["H"] = "Message Type: Heartbeat Message (H)",
+  ["S"] = "Message Type: Test Response Message (S)",
+  ["N"] = "Message Type: Add Order Message (N)",
+  ["C"] = "Message Type: Modify Order Message (C)",
+  ["K"] = "Message Type: Delete Order Message (K)",
+  ["W"] = "Message Type: Imbalance Message (W)",
+  ["Y"] = "Message Type: System Event Message (Y)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_nysebonds_depthofbook_abp_v4_01_b.message_type.display = function(value)
+  return nyse_nysebonds_depthofbook_abp_v4_01_b.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -836,18 +820,14 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.order_type = {}
 nyse_nysebonds_depthofbook_abp_v4_01_b.order_type.size = 1
 
 -- Display: Order Type
-nyse_nysebonds_depthofbook_abp_v4_01_b.order_type.display = function(value)
-  if value == 0 then
-    return "Order Type: Unspecified (0)"
-  end
-  if value == 1 then
-    return "Order Type: All Or None (1)"
-  end
-  if value == 2 then
-    return "Order Type: Minimum Quantity (2)"
-  end
+nyse_nysebonds_depthofbook_abp_v4_01_b.order_type.labels = {
+  [0] = "Order Type: Unspecified (0)",
+  [1] = "Order Type: All Or None (1)",
+  [2] = "Order Type: Minimum Quantity (2)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nyse_nysebonds_depthofbook_abp_v4_01_b.order_type.display = function(value)
+  return nyse_nysebonds_depthofbook_abp_v4_01_b.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1270,12 +1250,12 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.security_type = {}
 nyse_nysebonds_depthofbook_abp_v4_01_b.security_type.size = 1
 
 -- Display: Security Type
-nyse_nysebonds_depthofbook_abp_v4_01_b.security_type.display = function(value)
-  if value == 1 then
-    return "Security Type: Corporate Bonds (1)"
-  end
+nyse_nysebonds_depthofbook_abp_v4_01_b.security_type.labels = {
+  [1] = "Security Type: Corporate Bonds (1)",
+}
 
-  return "Security Type: Unknown("..value..")"
+nyse_nysebonds_depthofbook_abp_v4_01_b.security_type.display = function(value)
+  return nyse_nysebonds_depthofbook_abp_v4_01_b.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -1468,39 +1448,21 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action = {}
 nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action.size = 1
 
 -- Display: Trading Action
-nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action.display = function(value)
-  if value == 1 then
-    return "Trading Action: Called (1)"
-  end
-  if value == 2 then
-    return "Trading Action: Delisted (2)"
-  end
-  if value == 3 then
-    return "Trading Action: Exinterest (3)"
-  end
-  if value == 4 then
-    return "Trading Action: Missed An Interest Payment (4)"
-  end
-  if value == 5 then
-    return "Trading Action: Bankrupt (5)"
-  end
-  if value == 6 then
-    return "Trading Action: Late Filing (6)"
-  end
-  if value == 7 then
-    return "Trading Action: Below Listing Standards (7)"
-  end
-  if value == 8 then
-    return "Trading Action: Late Filing And Below Listing Standards (8)"
-  end
-  if value == 9 then
-    return "Trading Action: Bankrupt And Late Filing (9)"
-  end
-  if value == 10 then
-    return "Trading Action: Bankrupt And Below Listing Standards (10)"
-  end
+nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action.labels = {
+  [1] = "Trading Action: Called (1)",
+  [2] = "Trading Action: Delisted (2)",
+  [3] = "Trading Action: Exinterest (3)",
+  [4] = "Trading Action: Missed An Interest Payment (4)",
+  [5] = "Trading Action: Bankrupt (5)",
+  [6] = "Trading Action: Late Filing (6)",
+  [7] = "Trading Action: Below Listing Standards (7)",
+  [8] = "Trading Action: Late Filing And Below Listing Standards (8)",
+  [9] = "Trading Action: Bankrupt And Late Filing (9)",
+  [10] = "Trading Action: Bankrupt And Below Listing Standards (10)",
+}
 
-  return "Trading Action: Unknown("..value..")"
+nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action.display = function(value)
+  return nyse_nysebonds_depthofbook_abp_v4_01_b.trading_action.labels[value] or "Trading Action: Unknown("..value..")"
 end
 
 -- Dissect: Trading Action
@@ -1782,22 +1744,17 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.client_data = {}
 
 -- Dissect: Client Data
+nyse_nysebonds_depthofbook_abp_v4_01_b.client_data.dispatch = {
+  ["L"] = nyse_nysebonds_depthofbook_abp_v4_01_b.login_message.dissect,
+  ["O"] = nyse_nysebonds_depthofbook_abp_v4_01_b.logoff_message.dissect,
+  ["H"] = nyse_nysebonds_depthofbook_abp_v4_01_b.heartbeat_response_message.dissect,
+  ["T"] = nyse_nysebonds_depthofbook_abp_v4_01_b.test_request_message.dissect,
+}
+
 nyse_nysebonds_depthofbook_abp_v4_01_b.client_data.dissect = function(buffer, offset, packet, parent, client_message_type)
-  -- Dissect Login Message
-  if client_message_type == "L" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logoff Message
-  if client_message_type == "O" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.logoff_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if client_message_type == "H" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.heartbeat_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Request Message
-  if client_message_type == "T" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.test_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nysebonds_depthofbook_abp_v4_01_b.client_data.dispatch[client_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2492,42 +2449,22 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.payload = {}
 
 -- Dissect: Payload
+nyse_nysebonds_depthofbook_abp_v4_01_b.payload.dispatch = {
+  ["Q"] = nyse_nysebonds_depthofbook_abp_v4_01_b.login_accepted_message.dissect,
+  ["R"] = nyse_nysebonds_depthofbook_abp_v4_01_b.login_rejected_message.dissect,
+  ["H"] = nyse_nysebonds_depthofbook_abp_v4_01_b.heartbeat_message.dissect,
+  ["S"] = nyse_nysebonds_depthofbook_abp_v4_01_b.test_response_message.dissect,
+  ["N"] = nyse_nysebonds_depthofbook_abp_v4_01_b.add_order_message.dissect,
+  ["C"] = nyse_nysebonds_depthofbook_abp_v4_01_b.modify_order_message.dissect,
+  ["K"] = nyse_nysebonds_depthofbook_abp_v4_01_b.delete_order_message.dissect,
+  ["W"] = nyse_nysebonds_depthofbook_abp_v4_01_b.imbalance_message.dissect,
+  ["Y"] = nyse_nysebonds_depthofbook_abp_v4_01_b.system_event_message.dissect,
+}
+
 nyse_nysebonds_depthofbook_abp_v4_01_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Accepted Message
-  if message_type == "Q" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == "R" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == "H" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Response Message
-  if message_type == "S" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.test_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "N" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == "C" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == "K" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Imbalance Message
-  if message_type == "W" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "Y" then
-    return nyse_nysebonds_depthofbook_abp_v4_01_b.system_event_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nysebonds_depthofbook_abp_v4_01_b.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

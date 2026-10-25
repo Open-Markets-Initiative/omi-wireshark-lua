@@ -380,18 +380,14 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_order_type = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_order_type.size = 1
 
 -- Display: Ioi Order Type
-aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_order_type.display = function(value)
-  if value == 12 then
-    return "Ioi Order Type: Mid Pegged (12)"
-  end
-  if value == 17 then
-    return "Ioi Order Type: Aquis Vwap Match (17)"
-  end
-  if value == 18 then
-    return "Ioi Order Type: Targeted Aquis Vwap Match (18)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_order_type.labels = {
+  [12] = "Ioi Order Type: Mid Pegged (12)",
+  [17] = "Ioi Order Type: Aquis Vwap Match (17)",
+  [18] = "Ioi Order Type: Targeted Aquis Vwap Match (18)",
+}
 
-  return "Ioi Order Type: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_order_type.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_order_type.labels[value] or "Ioi Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Ioi Order Type
@@ -413,24 +409,16 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.liq_indicator = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.liq_indicator.size = 1
 
 -- Display: Liq Indicator
-aquis_aquisequities_tradingprotocol_atp_v4_0.liq_indicator.display = function(value)
-  if value == 1 then
-    return "Liq Indicator: Added Liquidity (1)"
-  end
-  if value == 2 then
-    return "Liq Indicator: Removed Liquidity (2)"
-  end
-  if value == 3 then
-    return "Liq Indicator: Removed Liquidity Hidden Quantity (3)"
-  end
-  if value == 4 then
-    return "Liq Indicator: Auction Ma C (4)"
-  end
-  if value == 6 then
-    return "Liq Indicator: Auction On Demand (6)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.liq_indicator.labels = {
+  [1] = "Liq Indicator: Added Liquidity (1)",
+  [2] = "Liq Indicator: Removed Liquidity (2)",
+  [3] = "Liq Indicator: Removed Liquidity Hidden Quantity (3)",
+  [4] = "Liq Indicator: Auction Ma C (4)",
+  [6] = "Liq Indicator: Auction On Demand (6)",
+}
 
-  return "Liq Indicator: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.liq_indicator.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.liq_indicator.labels[value] or "Liq Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liq Indicator
@@ -452,30 +440,18 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.logout_reason_code = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.logout_reason_code.size = 1
 
 -- Display: Logout Reason Code
-aquis_aquisequities_tradingprotocol_atp_v4_0.logout_reason_code.display = function(value)
-  if value == 0 then
-    return "Logout Reason Code: User Requested (0)"
-  end
-  if value == 1 then
-    return "Logout Reason Code: Admin (1)"
-  end
-  if value == 2 then
-    return "Logout Reason Code: Disconnect (2)"
-  end
-  if value == 3 then
-    return "Logout Reason Code: End Of Day (3)"
-  end
-  if value == 4 then
-    return "Logout Reason Code: Inactivity Timeout (4)"
-  end
-  if value == 5 then
-    return "Logout Reason Code: Protocol Error (5)"
-  end
-  if value == 6 then
-    return "Logout Reason Code: Sequence Number Error (6)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.logout_reason_code.labels = {
+  [0] = "Logout Reason Code: User Requested (0)",
+  [1] = "Logout Reason Code: Admin (1)",
+  [2] = "Logout Reason Code: Disconnect (2)",
+  [3] = "Logout Reason Code: End Of Day (3)",
+  [4] = "Logout Reason Code: Inactivity Timeout (4)",
+  [5] = "Logout Reason Code: Protocol Error (5)",
+  [6] = "Logout Reason Code: Sequence Number Error (6)",
+}
 
-  return "Logout Reason Code: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.logout_reason_code.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.logout_reason_code.labels[value] or "Logout Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason Code
@@ -589,72 +565,32 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.msg_type = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.msg_type.size = 1
 
 -- Display: Msg Type
-aquis_aquisequities_tradingprotocol_atp_v4_0.msg_type.display = function(value)
-  if value == 1 then
-    return "Msg Type: Login Message (1)"
-  end
-  if value == 2 then
-    return "Msg Type: Login Response Message (2)"
-  end
-  if value == 0 then
-    return "Msg Type: Heartbeat (0)"
-  end
-  if value == 3 then
-    return "Msg Type: Logout Request Message (3)"
-  end
-  if value == 4 then
-    return "Msg Type: Logout Message (4)"
-  end
-  if value == 5 then
-    return "Msg Type: Order Add Message (5)"
-  end
-  if value == 21 then
-    return "Msg Type: Order Add Extended Message (21)"
-  end
-  if value == 7 then
-    return "Msg Type: Order Cancel Message (7)"
-  end
-  if value == 9 then
-    return "Msg Type: Order Modify Message (9)"
-  end
-  if value == 22 then
-    return "Msg Type: Order Modify Extended Message (22)"
-  end
-  if value == 6 then
-    return "Msg Type: Order Add Response Message (6)"
-  end
-  if value == 8 then
-    return "Msg Type: Order Cancel Response Message (8)"
-  end
-  if value == 10 then
-    return "Msg Type: Order Modify Response Message (10)"
-  end
-  if value == 23 then
-    return "Msg Type: Iceberg Order Refresh Message (23)"
-  end
-  if value == 17 then
-    return "Msg Type: Trade Capture Message (17)"
-  end
-  if value == 18 then
-    return "Msg Type: Trade Capture Response Message (18)"
-  end
-  if value == 11 then
-    return "Msg Type: Trade Message (11)"
-  end
-  if value == 12 then
-    return "Msg Type: Trade Bust Message (12)"
-  end
-  if value == 27 then
-    return "Msg Type: Ioi Add Message (27)"
-  end
-  if value == 28 then
-    return "Msg Type: Ioi Invite Message (28)"
-  end
-  if value == 29 then
-    return "Msg Type: Ioi Firmup Message (29)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.msg_type.labels = {
+  [1] = "Msg Type: Login Message (1)",
+  [2] = "Msg Type: Login Response Message (2)",
+  [0] = "Msg Type: Heartbeat (0)",
+  [3] = "Msg Type: Logout Request Message (3)",
+  [4] = "Msg Type: Logout Message (4)",
+  [5] = "Msg Type: Order Add Message (5)",
+  [21] = "Msg Type: Order Add Extended Message (21)",
+  [7] = "Msg Type: Order Cancel Message (7)",
+  [9] = "Msg Type: Order Modify Message (9)",
+  [22] = "Msg Type: Order Modify Extended Message (22)",
+  [6] = "Msg Type: Order Add Response Message (6)",
+  [8] = "Msg Type: Order Cancel Response Message (8)",
+  [10] = "Msg Type: Order Modify Response Message (10)",
+  [23] = "Msg Type: Iceberg Order Refresh Message (23)",
+  [17] = "Msg Type: Trade Capture Message (17)",
+  [18] = "Msg Type: Trade Capture Response Message (18)",
+  [11] = "Msg Type: Trade Message (11)",
+  [12] = "Msg Type: Trade Bust Message (12)",
+  [27] = "Msg Type: Ioi Add Message (27)",
+  [28] = "Msg Type: Ioi Invite Message (28)",
+  [29] = "Msg Type: Ioi Firmup Message (29)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.msg_type.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -699,18 +635,14 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.optim_x_universe = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.optim_x_universe.size = 1
 
 -- Display: Optim X Universe
-aquis_aquisequities_tradingprotocol_atp_v4_0.optim_x_universe.display = function(value)
-  if value == 0 then
-    return "Optim X Universe: Off (0)"
-  end
-  if value == 1 then
-    return "Optim X Universe: Show To All Optim X Clients (1)"
-  end
-  if value == 2 then
-    return "Optim X Universe: Show To Current Broker Clients Only (2)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.optim_x_universe.labels = {
+  [0] = "Optim X Universe: Off (0)",
+  [1] = "Optim X Universe: Show To All Optim X Clients (1)",
+  [2] = "Optim X Universe: Show To Current Broker Clients Only (2)",
+}
 
-  return "Optim X Universe: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.optim_x_universe.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.optim_x_universe.labels[value] or "Optim X Universe: Unknown("..value..")"
 end
 
 -- Dissect: Optim X Universe
@@ -732,18 +664,14 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_capacity = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.order_capacity.size = 1
 
 -- Display: Order Capacity
-aquis_aquisequities_tradingprotocol_atp_v4_0.order_capacity.display = function(value)
-  if value == 1 then
-    return "Order Capacity: Aotc (1)"
-  end
-  if value == 2 then
-    return "Order Capacity: Deal (2)"
-  end
-  if value == 3 then
-    return "Order Capacity: Mtch (3)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.order_capacity.labels = {
+  [1] = "Order Capacity: Aotc (1)",
+  [2] = "Order Capacity: Deal (2)",
+  [3] = "Order Capacity: Mtch (3)",
+}
 
-  return "Order Capacity: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.order_capacity.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.order_capacity.labels[value] or "Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Order Capacity
@@ -811,36 +739,20 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_type = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.size = 1
 
 -- Display: Order Type
-aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.display = function(value)
-  if value == 1 then
-    return "Order Type: Limit Order (1)"
-  end
-  if value == 2 then
-    return "Order Type: Auction On Demand Limit Order (2)"
-  end
-  if value == 3 then
-    return "Order Type: Auction On Demand Mid Pegged Limit (3)"
-  end
-  if value == 4 then
-    return "Order Type: Auction On Demand Near Touch Pegged (4)"
-  end
-  if value == 6 then
-    return "Order Type: Market At Close (6)"
-  end
-  if value == 8 then
-    return "Order Type: Post Only Cancel Replace (8)"
-  end
-  if value == 9 then
-    return "Order Type: Post Only (9)"
-  end
-  if value == 10 then
-    return "Order Type: Restricted Pocr Order (10)"
-  end
-  if value == 11 then
-    return "Order Type: Restricted Post Only Order (11)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.labels = {
+  [1] = "Order Type: Limit Order (1)",
+  [2] = "Order Type: Auction On Demand Limit Order (2)",
+  [3] = "Order Type: Auction On Demand Mid Pegged Limit (3)",
+  [4] = "Order Type: Auction On Demand Near Touch Pegged (4)",
+  [6] = "Order Type: Market At Close (6)",
+  [8] = "Order Type: Post Only Cancel Replace (8)",
+  [9] = "Order Type: Post Only (9)",
+  [10] = "Order Type: Restricted Pocr Order (10)",
+  [11] = "Order Type: Restricted Post Only Order (11)",
+}
 
-  return "Order Type: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1124,27 +1036,17 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.result_code = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.result_code.size = 1
 
 -- Display: Result Code
-aquis_aquisequities_tradingprotocol_atp_v4_0.result_code.display = function(value)
-  if value == 0 then
-    return "Result Code: Success (0)"
-  end
-  if value == 1 then
-    return "Result Code: Already Logged In (1)"
-  end
-  if value == 2 then
-    return "Result Code: Sequence Number Error (2)"
-  end
-  if value == 3 then
-    return "Result Code: Unsupported Protocol (3)"
-  end
-  if value == 4 then
-    return "Result Code: Failed Authentication (4)"
-  end
-  if value == 5 then
-    return "Result Code: Unknown Source Network (5)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.result_code.labels = {
+  [0] = "Result Code: Success (0)",
+  [1] = "Result Code: Already Logged In (1)",
+  [2] = "Result Code: Sequence Number Error (2)",
+  [3] = "Result Code: Unsupported Protocol (3)",
+  [4] = "Result Code: Failed Authentication (4)",
+  [5] = "Result Code: Unknown Source Network (5)",
+}
 
-  return "Result Code: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.result_code.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.result_code.labels[value] or "Result Code: Unknown("..value..")"
 end
 
 -- Dissect: Result Code
@@ -1251,21 +1153,15 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_1 = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_1.size = 4
 
 -- Display: Short Code 1
-aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_1.display = function(value)
-  if value == 0 then
-    return "Short Code 1: None (0)"
-  end
-  if value == 1 then
-    return "Short Code 1: Aggregated (1)"
-  end
-  if value == 2 then
-    return "Short Code 1: Pending Allocation (2)"
-  end
-  if value == 3 then
-    return "Short Code 1: Client (3)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_1.labels = {
+  [0] = "Short Code 1: None (0)",
+  [1] = "Short Code 1: Aggregated (1)",
+  [2] = "Short Code 1: Pending Allocation (2)",
+  [3] = "Short Code 1: Client (3)",
+}
 
-  return "Short Code 1: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_1.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_1.labels[value] or "Short Code 1: Unknown("..value..")"
 end
 
 -- Dissect: Short Code 1
@@ -1287,21 +1183,15 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_2 = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_2.size = 4
 
 -- Display: Short Code 2
-aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_2.display = function(value)
-  if value == 0 then
-    return "Short Code 2: None (0)"
-  end
-  if value == 1 then
-    return "Short Code 2: Aggregated (1)"
-  end
-  if value == 2 then
-    return "Short Code 2: Pending Allocation (2)"
-  end
-  if value == 3 then
-    return "Short Code 2: Client (3)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_2.labels = {
+  [0] = "Short Code 2: None (0)",
+  [1] = "Short Code 2: Aggregated (1)",
+  [2] = "Short Code 2: Pending Allocation (2)",
+  [3] = "Short Code 2: Client (3)",
+}
 
-  return "Short Code 2: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_2.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_2.labels[value] or "Short Code 2: Unknown("..value..")"
 end
 
 -- Dissect: Short Code 2
@@ -1323,21 +1213,15 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_3 = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_3.size = 4
 
 -- Display: Short Code 3
-aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_3.display = function(value)
-  if value == 0 then
-    return "Short Code 3: None (0)"
-  end
-  if value == 1 then
-    return "Short Code 3: Aggregated (1)"
-  end
-  if value == 2 then
-    return "Short Code 3: Pending Allocation (2)"
-  end
-  if value == 3 then
-    return "Short Code 3: Client (3)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_3.labels = {
+  [0] = "Short Code 3: None (0)",
+  [1] = "Short Code 3: Aggregated (1)",
+  [2] = "Short Code 3: Pending Allocation (2)",
+  [3] = "Short Code 3: Client (3)",
+}
 
-  return "Short Code 3: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_3.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.short_code_3.labels[value] or "Short Code 3: Unknown("..value..")"
 end
 
 -- Dissect: Short Code 3
@@ -1382,21 +1266,15 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force.size = 1
 
 -- Display: Time In Force
-aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force.display = function(value)
-  if value == 1 then
-    return "Time In Force: Day (1)"
-  end
-  if value == 2 then
-    return "Time In Force: Fill Or Kill (2)"
-  end
-  if value == 3 then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-  if value == 9 then
-    return "Time In Force: Good For Auction (9)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force.labels = {
+  [1] = "Time In Force: Day (1)",
+  [2] = "Time In Force: Fill Or Kill (2)",
+  [3] = "Time In Force: Immediate Or Cancel (3)",
+  [9] = "Time In Force: Good For Auction (9)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -1442,27 +1320,17 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_type = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_type.size = 1
 
 -- Display: Trade Capture Type
-aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_type.display = function(value)
-  if value == 1 then
-    return "Trade Capture Type: Lis Cross (1)"
-  end
-  if value == 2 then
-    return "Trade Capture Type: Lis Cross No Clearing (2)"
-  end
-  if value == 3 then
-    return "Trade Capture Type: Vwap Benchmark Cross (3)"
-  end
-  if value == 4 then
-    return "Trade Capture Type: Vwap Benchmark Cross No Clearing (4)"
-  end
-  if value == 5 then
-    return "Trade Capture Type: Twap Benchmark Cross (5)"
-  end
-  if value == 6 then
-    return "Trade Capture Type: Twap Benchmark Cross No Clearing (6)"
-  end
+aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_type.labels = {
+  [1] = "Trade Capture Type: Lis Cross (1)",
+  [2] = "Trade Capture Type: Lis Cross No Clearing (2)",
+  [3] = "Trade Capture Type: Vwap Benchmark Cross (3)",
+  [4] = "Trade Capture Type: Vwap Benchmark Cross No Clearing (4)",
+  [5] = "Trade Capture Type: Twap Benchmark Cross (5)",
+  [6] = "Trade Capture Type: Twap Benchmark Cross No Clearing (6)",
+}
 
-  return "Trade Capture Type: Unknown("..value..")"
+aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_type.display = function(value)
+  return aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_type.labels[value] or "Trade Capture Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Capture Type
@@ -3418,90 +3286,34 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_0.payload = {}
 
 -- Dissect: Payload
+aquis_aquisequities_tradingprotocol_atp_v4_0.payload.dispatch = {
+  [1] = aquis_aquisequities_tradingprotocol_atp_v4_0.login_message.dissect,
+  [2] = aquis_aquisequities_tradingprotocol_atp_v4_0.login_response_message.dissect,
+  [0] = aquis_aquisequities_tradingprotocol_atp_v4_0.heartbeat.dissect,
+  [3] = aquis_aquisequities_tradingprotocol_atp_v4_0.logout_request_message.dissect,
+  [4] = aquis_aquisequities_tradingprotocol_atp_v4_0.logout_message.dissect,
+  [5] = aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_message.dissect,
+  [21] = aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_extended_message.dissect,
+  [7] = aquis_aquisequities_tradingprotocol_atp_v4_0.order_cancel_message.dissect,
+  [9] = aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_message.dissect,
+  [22] = aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_extended_message.dissect,
+  [6] = aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_response_message.dissect,
+  [8] = aquis_aquisequities_tradingprotocol_atp_v4_0.order_cancel_response_message.dissect,
+  [10] = aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_response_message.dissect,
+  [23] = aquis_aquisequities_tradingprotocol_atp_v4_0.iceberg_order_refresh_message.dissect,
+  [17] = aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_message.dissect,
+  [18] = aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_response_message.dissect,
+  [11] = aquis_aquisequities_tradingprotocol_atp_v4_0.trade_message.dissect,
+  [12] = aquis_aquisequities_tradingprotocol_atp_v4_0.trade_bust_message.dissect,
+  [27] = aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_add_message.dissect,
+  [28] = aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_invite_message.dissect,
+  [29] = aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_firmup_message.dissect,
+}
+
 aquis_aquisequities_tradingprotocol_atp_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Login Message
-  if msg_type == 1 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if msg_type == 2 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if msg_type == 0 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Message
-  if msg_type == 3 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.logout_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if msg_type == 4 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Message
-  if msg_type == 5 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Extended Message
-  if msg_type == 21 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_extended_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if msg_type == 7 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Message
-  if msg_type == 9 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Extended Message
-  if msg_type == 22 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_extended_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Response Message
-  if msg_type == 6 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Response Message
-  if msg_type == 8 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.order_cancel_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Response Message
-  if msg_type == 10 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Iceberg Order Refresh Message
-  if msg_type == 23 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.iceberg_order_refresh_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Capture Message
-  if msg_type == 17 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Capture Response Message
-  if msg_type == 18 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if msg_type == 11 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Message
-  if msg_type == 12 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.trade_bust_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ioi Add Message
-  if msg_type == 27 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ioi Invite Message
-  if msg_type == 28 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_invite_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ioi Firmup Message
-  if msg_type == 29 then
-    return aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_firmup_message.dissect(buffer, offset, packet, parent)
+  local dissect = aquis_aquisequities_tradingprotocol_atp_v4_0.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

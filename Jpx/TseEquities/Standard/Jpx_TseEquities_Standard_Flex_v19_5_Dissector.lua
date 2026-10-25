@@ -459,36 +459,20 @@ jpx_tseequities_standard_flex_v19_5.control_medium_classification = {}
 jpx_tseequities_standard_flex_v19_5.control_medium_classification.size = 2
 
 -- Display: Control Medium Classification
-jpx_tseequities_standard_flex_v19_5.control_medium_classification.display = function(value)
-  if value == "00" then
-    return "Control Medium Classification: Communication Control (00)"
-  end
-  if value == "02" then
-    return "Control Medium Classification: Issue Information Control (02)"
-  end
-  if value == "04" then
-    return "Control Medium Classification: Allday Information Control (04)"
-  end
-  if value == "05" then
-    return "Control Medium Classification: Health Check Control (05)"
-  end
-  if value == "06" then
-    return "Control Medium Classification: Stock Base Price Information Control (06)"
-  end
-  if value == "07" then
-    return "Control Medium Classification: CB Base Price Information Control (07)"
-  end
-  if value == "08" then
-    return "Control Medium Classification: Multicast Group Number Information Control (08)"
-  end
-  if value == "09" then
-    return "Control Medium Classification: Backup Information Control (09)"
-  end
-  if value == "90" then
-    return "Control Medium Classification: TCP Transmission Control (90)"
-  end
+jpx_tseequities_standard_flex_v19_5.control_medium_classification.labels = {
+  ["00"] = "Control Medium Classification: Communication Control (00)",
+  ["02"] = "Control Medium Classification: Issue Information Control (02)",
+  ["04"] = "Control Medium Classification: Allday Information Control (04)",
+  ["05"] = "Control Medium Classification: Health Check Control (05)",
+  ["06"] = "Control Medium Classification: Stock Base Price Information Control (06)",
+  ["07"] = "Control Medium Classification: CB Base Price Information Control (07)",
+  ["08"] = "Control Medium Classification: Multicast Group Number Information Control (08)",
+  ["09"] = "Control Medium Classification: Backup Information Control (09)",
+  ["90"] = "Control Medium Classification: TCP Transmission Control (90)",
+}
 
-  return "Control Medium Classification: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.control_medium_classification.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.control_medium_classification.labels[value] or "Control Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Control Medium Classification
@@ -705,12 +689,12 @@ jpx_tseequities_standard_flex_v19_5.index_medium_classification = {}
 jpx_tseequities_standard_flex_v19_5.index_medium_classification.size = 2
 
 -- Display: Index Medium Classification
-jpx_tseequities_standard_flex_v19_5.index_medium_classification.display = function(value)
-  if value == "00" then
-    return "Index Medium Classification: Index Message (00)"
-  end
+jpx_tseequities_standard_flex_v19_5.index_medium_classification.labels = {
+  ["00"] = "Index Medium Classification: Index Message (00)",
+}
 
-  return "Index Medium Classification: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.index_medium_classification.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.index_medium_classification.labels[value] or "Index Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Index Medium Classification
@@ -732,15 +716,13 @@ jpx_tseequities_standard_flex_v19_5.issue_basic_medium_classification = {}
 jpx_tseequities_standard_flex_v19_5.issue_basic_medium_classification.size = 2
 
 -- Display: Issue Basic Medium Classification
-jpx_tseequities_standard_flex_v19_5.issue_basic_medium_classification.display = function(value)
-  if value == "00" then
-    return "Issue Basic Medium Classification: Regular (00)"
-  end
-  if value == "01" then
-    return "Issue Basic Medium Classification: Special (01)"
-  end
+jpx_tseequities_standard_flex_v19_5.issue_basic_medium_classification.labels = {
+  ["00"] = "Issue Basic Medium Classification: Regular (00)",
+  ["01"] = "Issue Basic Medium Classification: Special (01)",
+}
 
-  return "Issue Basic Medium Classification: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.issue_basic_medium_classification.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.issue_basic_medium_classification.labels[value] or "Issue Basic Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Basic Medium Classification
@@ -762,15 +744,13 @@ jpx_tseequities_standard_flex_v19_5.issue_classification_large_classification = 
 jpx_tseequities_standard_flex_v19_5.issue_classification_large_classification.size = 2
 
 -- Display: Issue Classification Large Classification
-jpx_tseequities_standard_flex_v19_5.issue_classification_large_classification.display = function(value)
-  if value == "01" then
-    return "Issue Classification Large Classification: Stockrelated (01)"
-  end
-  if value == "02" then
-    return "Issue Classification Large Classification: Cbrelated (02)"
-  end
+jpx_tseequities_standard_flex_v19_5.issue_classification_large_classification.labels = {
+  ["01"] = "Issue Classification Large Classification: Stockrelated (01)",
+  ["02"] = "Issue Classification Large Classification: Cbrelated (02)",
+}
 
-  return "Issue Classification Large Classification: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.issue_classification_large_classification.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.issue_classification_large_classification.labels[value] or "Issue Classification Large Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification Large Classification
@@ -815,18 +795,14 @@ jpx_tseequities_standard_flex_v19_5.issue_realtime_medium_classification = {}
 jpx_tseequities_standard_flex_v19_5.issue_realtime_medium_classification.size = 2
 
 -- Display: Issue Realtime Medium Classification
-jpx_tseequities_standard_flex_v19_5.issue_realtime_medium_classification.display = function(value)
-  if value == "00" then
-    return "Issue Realtime Medium Classification: New (00)"
-  end
-  if value == "01" then
-    return "Issue Realtime Medium Classification: Backup (01)"
-  end
-  if value == "02" then
-    return "Issue Realtime Medium Classification: Allday (02)"
-  end
+jpx_tseequities_standard_flex_v19_5.issue_realtime_medium_classification.labels = {
+  ["00"] = "Issue Realtime Medium Classification: New (00)",
+  ["01"] = "Issue Realtime Medium Classification: Backup (01)",
+  ["02"] = "Issue Realtime Medium Classification: Allday (02)",
+}
 
-  return "Issue Realtime Medium Classification: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.issue_realtime_medium_classification.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.issue_realtime_medium_classification.labels[value] or "Issue Realtime Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Realtime Medium Classification
@@ -848,27 +824,17 @@ jpx_tseequities_standard_flex_v19_5.issue_status = {}
 jpx_tseequities_standard_flex_v19_5.issue_status.size = 2
 
 -- Display: Issue Status
-jpx_tseequities_standard_flex_v19_5.issue_status.display = function(value)
-  if value == "00" then
-    return "Issue Status: Out Of Session (00)"
-  end
-  if value == "10" then
-    return "Issue Status: Accepting Order Input (10)"
-  end
-  if value == "20" then
-    return "Issue Status: During Trading Session (20)"
-  end
-  if value == "30" then
-    return "Issue Status: Not Accepting Order Input (30)"
-  end
-  if value == "35" then
-    return "Issue Status: Preclosing (35)"
-  end
-  if value == "40" then
-    return "Issue Status: Close Of Session (40)"
-  end
+jpx_tseequities_standard_flex_v19_5.issue_status.labels = {
+  ["00"] = "Issue Status: Out Of Session (00)",
+  ["10"] = "Issue Status: Accepting Order Input (10)",
+  ["20"] = "Issue Status: During Trading Session (20)",
+  ["30"] = "Issue Status: Not Accepting Order Input (30)",
+  ["35"] = "Issue Status: Preclosing (35)",
+  ["40"] = "Issue Status: Close Of Session (40)",
+}
 
-  return "Issue Status: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.issue_status.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.issue_status.labels[value] or "Issue Status: Unknown("..value..")"
 end
 
 -- Dissect: Issue Status
@@ -1015,24 +981,16 @@ jpx_tseequities_standard_flex_v19_5.message_type_large_classification = {}
 jpx_tseequities_standard_flex_v19_5.message_type_large_classification.size = 1
 
 -- Display: Message Type Large Classification
-jpx_tseequities_standard_flex_v19_5.message_type_large_classification.display = function(value)
-  if value == "1" then
-    return "Message Type Large Classification: Issue Realtime Message (1)"
-  end
-  if value == "2" then
-    return "Message Type Large Classification: Statistics Message (2)"
-  end
-  if value == "3" then
-    return "Message Type Large Classification: Index Message (3)"
-  end
-  if value == "4" then
-    return "Message Type Large Classification: Issue Basic Message (4)"
-  end
-  if value == "9" then
-    return "Message Type Large Classification: Control Message (9)"
-  end
+jpx_tseequities_standard_flex_v19_5.message_type_large_classification.labels = {
+  ["1"] = "Message Type Large Classification: Issue Realtime Message (1)",
+  ["2"] = "Message Type Large Classification: Statistics Message (2)",
+  ["3"] = "Message Type Large Classification: Index Message (3)",
+  ["4"] = "Message Type Large Classification: Issue Basic Message (4)",
+  ["9"] = "Message Type Large Classification: Control Message (9)",
+}
 
-  return "Message Type Large Classification: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.message_type_large_classification.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.message_type_large_classification.labels[value] or "Message Type Large Classification: Unknown("..value..")"
 end
 
 -- Dissect: Message Type Large Classification
@@ -1345,15 +1303,13 @@ jpx_tseequities_standard_flex_v19_5.separation_of_tag = {}
 jpx_tseequities_standard_flex_v19_5.separation_of_tag.size = 1
 
 -- Display: Separation Of Tag
-jpx_tseequities_standard_flex_v19_5.separation_of_tag.display = function(value)
-  if value == 19 then
-    return "Separation Of Tag: Separation Between Tag (19)"
-  end
-  if value == 17 then
-    return "Separation Of Tag: End Of Message (17)"
-  end
+jpx_tseequities_standard_flex_v19_5.separation_of_tag.labels = {
+  [19] = "Separation Of Tag: Separation Between Tag (19)",
+  [17] = "Separation Of Tag: End Of Message (17)",
+}
 
-  return "Separation Of Tag: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.separation_of_tag.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.separation_of_tag.labels[value] or "Separation Of Tag: Unknown("..value..")"
 end
 
 -- Dissect: Separation Of Tag
@@ -1434,15 +1390,13 @@ jpx_tseequities_standard_flex_v19_5.short_selling_regulation_flag = {}
 jpx_tseequities_standard_flex_v19_5.short_selling_regulation_flag.size = 1
 
 -- Display: Short Selling Regulation Flag
-jpx_tseequities_standard_flex_v19_5.short_selling_regulation_flag.display = function(value)
-  if value == "0" then
-    return "Short Selling Regulation Flag: Short Selling Regulation Does Not Apply (0)"
-  end
-  if value == "1" then
-    return "Short Selling Regulation Flag: Short Selling Regulation Is Applied (1)"
-  end
+jpx_tseequities_standard_flex_v19_5.short_selling_regulation_flag.labels = {
+  ["0"] = "Short Selling Regulation Flag: Short Selling Regulation Does Not Apply (0)",
+  ["1"] = "Short Selling Regulation Flag: Short Selling Regulation Is Applied (1)",
+}
 
-  return "Short Selling Regulation Flag: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.short_selling_regulation_flag.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.short_selling_regulation_flag.labels[value] or "Short Selling Regulation Flag: Unknown("..value..")"
 end
 
 -- Dissect: Short Selling Regulation Flag
@@ -1550,12 +1504,12 @@ jpx_tseequities_standard_flex_v19_5.statistics_medium_classification = {}
 jpx_tseequities_standard_flex_v19_5.statistics_medium_classification.size = 2
 
 -- Display: Statistics Medium Classification
-jpx_tseequities_standard_flex_v19_5.statistics_medium_classification.display = function(value)
-  if value == "00" then
-    return "Statistics Medium Classification: Statistics Message (00)"
-  end
+jpx_tseequities_standard_flex_v19_5.statistics_medium_classification.labels = {
+  ["00"] = "Statistics Medium Classification: Statistics Message (00)",
+}
 
-  return "Statistics Medium Classification: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.statistics_medium_classification.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.statistics_medium_classification.labels[value] or "Statistics Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Statistics Medium Classification
@@ -1724,72 +1678,32 @@ jpx_tseequities_standard_flex_v19_5.tag_id = {}
 jpx_tseequities_standard_flex_v19_5.tag_id.size = 2
 
 -- Display: Tag ID
-jpx_tseequities_standard_flex_v19_5.tag_id.display = function(value)
-  if value == "NO" then
-    return "Tag ID: Update No Message (NO)"
-  end
-  if value == "ST" then
-    return "Tag ID: Status Information Message (ST)"
-  end
-  if value == "4P" then
-    return "Tag ID: Open High Low And Current Price Message (4P)"
-  end
-  if value == "Q1" then
-    return "Tag ID: Quote 1 Message (Q1)"
-  end
-  if value == "Q2" then
-    return "Tag ID: Quote 2 Message (Q2)"
-  end
-  if value == "Q3" then
-    return "Tag ID: Quote 3 Message (Q3)"
-  end
-  if value == "Q4" then
-    return "Tag ID: Quote 4 Message (Q4)"
-  end
-  if value == "Q5" then
-    return "Tag ID: Quote 5 Message (Q5)"
-  end
-  if value == "Q6" then
-    return "Tag ID: Quote 6 Message (Q6)"
-  end
-  if value == "Q7" then
-    return "Tag ID: Quote 7 Message (Q7)"
-  end
-  if value == "Q8" then
-    return "Tag ID: Quote 8 Message (Q8)"
-  end
-  if value == "Q9" then
-    return "Tag ID: Quote 9 Message (Q9)"
-  end
-  if value == "QA" then
-    return "Tag ID: Quote 10 Message (QA)"
-  end
-  if value == "QM" then
-    return "Tag ID: Market Order Message (QM)"
-  end
-  if value == "QO" then
-    return "Tag ID: Over Under Message (QO)"
-  end
-  if value == "VL" then
-    return "Tag ID: Trading Volume Message (VL)"
-  end
-  if value == "VA" then
-    return "Tag ID: Turnover Message (VA)"
-  end
-  if value == "VW" then
-    return "Tag ID: Vwap Message (VW)"
-  end
-  if value == "PA" then
-    return "Tag ID: Parity Message (PA)"
-  end
-  if value == "YI" then
-    return "Tag ID: Yield Message (YI)"
-  end
-  if value == "LC" then
-    return "Tag ID: Control Message (LC)"
-  end
+jpx_tseequities_standard_flex_v19_5.tag_id.labels = {
+  ["NO"] = "Tag ID: Update No Message (NO)",
+  ["ST"] = "Tag ID: Status Information Message (ST)",
+  ["4P"] = "Tag ID: Open High Low And Current Price Message (4P)",
+  ["Q1"] = "Tag ID: Quote 1 Message (Q1)",
+  ["Q2"] = "Tag ID: Quote 2 Message (Q2)",
+  ["Q3"] = "Tag ID: Quote 3 Message (Q3)",
+  ["Q4"] = "Tag ID: Quote 4 Message (Q4)",
+  ["Q5"] = "Tag ID: Quote 5 Message (Q5)",
+  ["Q6"] = "Tag ID: Quote 6 Message (Q6)",
+  ["Q7"] = "Tag ID: Quote 7 Message (Q7)",
+  ["Q8"] = "Tag ID: Quote 8 Message (Q8)",
+  ["Q9"] = "Tag ID: Quote 9 Message (Q9)",
+  ["QA"] = "Tag ID: Quote 10 Message (QA)",
+  ["QM"] = "Tag ID: Market Order Message (QM)",
+  ["QO"] = "Tag ID: Over Under Message (QO)",
+  ["VL"] = "Tag ID: Trading Volume Message (VL)",
+  ["VA"] = "Tag ID: Turnover Message (VA)",
+  ["VW"] = "Tag ID: Vwap Message (VW)",
+  ["PA"] = "Tag ID: Parity Message (PA)",
+  ["YI"] = "Tag ID: Yield Message (YI)",
+  ["LC"] = "Tag ID: Control Message (LC)",
+}
 
-  return "Tag ID: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.tag_id.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.tag_id.labels[value] or "Tag ID: Unknown("..value..")"
 end
 
 -- Dissect: Tag ID
@@ -1811,15 +1725,13 @@ jpx_tseequities_standard_flex_v19_5.test_mode_flag = {}
 jpx_tseequities_standard_flex_v19_5.test_mode_flag.size = 1
 
 -- Display: Test Mode Flag
-jpx_tseequities_standard_flex_v19_5.test_mode_flag.display = function(value)
-  if value == "1" then
-    return "Test Mode Flag: Production Operation (1)"
-  end
-  if value == "2" then
-    return "Test Mode Flag: Test Operation (2)"
-  end
+jpx_tseequities_standard_flex_v19_5.test_mode_flag.labels = {
+  ["1"] = "Test Mode Flag: Production Operation (1)",
+  ["2"] = "Test Mode Flag: Test Operation (2)",
+}
 
-  return "Test Mode Flag: Unknown("..value..")"
+jpx_tseequities_standard_flex_v19_5.test_mode_flag.display = function(value)
+  return jpx_tseequities_standard_flex_v19_5.test_mode_flag.labels[value] or "Test Mode Flag: Unknown("..value..")"
 end
 
 -- Dissect: Test Mode Flag
@@ -4140,90 +4052,34 @@ end
 jpx_tseequities_standard_flex_v19_5.payload = {}
 
 -- Dissect: Payload
+jpx_tseequities_standard_flex_v19_5.payload.dispatch = {
+  ["NO"] = jpx_tseequities_standard_flex_v19_5.update_no_message.dissect,
+  ["ST"] = jpx_tseequities_standard_flex_v19_5.status_information_message.dissect,
+  ["4P"] = jpx_tseequities_standard_flex_v19_5.open_high_low_and_current_price_message.dissect,
+  ["Q1"] = jpx_tseequities_standard_flex_v19_5.quote_1_message.dissect,
+  ["Q2"] = jpx_tseequities_standard_flex_v19_5.quote_2_message.dissect,
+  ["Q3"] = jpx_tseequities_standard_flex_v19_5.quote_3_message.dissect,
+  ["Q4"] = jpx_tseequities_standard_flex_v19_5.quote_4_message.dissect,
+  ["Q5"] = jpx_tseequities_standard_flex_v19_5.quote_5_message.dissect,
+  ["Q6"] = jpx_tseequities_standard_flex_v19_5.quote_6_message.dissect,
+  ["Q7"] = jpx_tseequities_standard_flex_v19_5.quote_7_message.dissect,
+  ["Q8"] = jpx_tseequities_standard_flex_v19_5.quote_8_message.dissect,
+  ["Q9"] = jpx_tseequities_standard_flex_v19_5.quote_9_message.dissect,
+  ["QA"] = jpx_tseequities_standard_flex_v19_5.quote_10_message.dissect,
+  ["QM"] = jpx_tseequities_standard_flex_v19_5.market_order_message.dissect,
+  ["QO"] = jpx_tseequities_standard_flex_v19_5.over_under_message.dissect,
+  ["VL"] = jpx_tseequities_standard_flex_v19_5.trading_volume_message.dissect,
+  ["VA"] = jpx_tseequities_standard_flex_v19_5.turnover_message.dissect,
+  ["VW"] = jpx_tseequities_standard_flex_v19_5.vwap_message.dissect,
+  ["PA"] = jpx_tseequities_standard_flex_v19_5.parity_message.dissect,
+  ["YI"] = jpx_tseequities_standard_flex_v19_5.yield_message.dissect,
+  ["LC"] = jpx_tseequities_standard_flex_v19_5.control_message.dissect,
+}
+
 jpx_tseequities_standard_flex_v19_5.payload.dissect = function(buffer, offset, packet, parent, tag_id)
-  -- Dissect Update No Message
-  if tag_id == "NO" then
-    return jpx_tseequities_standard_flex_v19_5.update_no_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Status Information Message
-  if tag_id == "ST" then
-    return jpx_tseequities_standard_flex_v19_5.status_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open High Low And Current Price Message
-  if tag_id == "4P" then
-    return jpx_tseequities_standard_flex_v19_5.open_high_low_and_current_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 1 Message
-  if tag_id == "Q1" then
-    return jpx_tseequities_standard_flex_v19_5.quote_1_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 2 Message
-  if tag_id == "Q2" then
-    return jpx_tseequities_standard_flex_v19_5.quote_2_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 3 Message
-  if tag_id == "Q3" then
-    return jpx_tseequities_standard_flex_v19_5.quote_3_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 4 Message
-  if tag_id == "Q4" then
-    return jpx_tseequities_standard_flex_v19_5.quote_4_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 5 Message
-  if tag_id == "Q5" then
-    return jpx_tseequities_standard_flex_v19_5.quote_5_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 6 Message
-  if tag_id == "Q6" then
-    return jpx_tseequities_standard_flex_v19_5.quote_6_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 7 Message
-  if tag_id == "Q7" then
-    return jpx_tseequities_standard_flex_v19_5.quote_7_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 8 Message
-  if tag_id == "Q8" then
-    return jpx_tseequities_standard_flex_v19_5.quote_8_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 9 Message
-  if tag_id == "Q9" then
-    return jpx_tseequities_standard_flex_v19_5.quote_9_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote 10 Message
-  if tag_id == "QA" then
-    return jpx_tseequities_standard_flex_v19_5.quote_10_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Order Message
-  if tag_id == "QM" then
-    return jpx_tseequities_standard_flex_v19_5.market_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Over Under Message
-  if tag_id == "QO" then
-    return jpx_tseequities_standard_flex_v19_5.over_under_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Volume Message
-  if tag_id == "VL" then
-    return jpx_tseequities_standard_flex_v19_5.trading_volume_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Turnover Message
-  if tag_id == "VA" then
-    return jpx_tseequities_standard_flex_v19_5.turnover_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Vwap Message
-  if tag_id == "VW" then
-    return jpx_tseequities_standard_flex_v19_5.vwap_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Parity Message
-  if tag_id == "PA" then
-    return jpx_tseequities_standard_flex_v19_5.parity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Yield Message
-  if tag_id == "YI" then
-    return jpx_tseequities_standard_flex_v19_5.yield_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if tag_id == "LC" then
-    return jpx_tseequities_standard_flex_v19_5.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_standard_flex_v19_5.payload.dispatch[tag_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4456,26 +4312,18 @@ end
 jpx_tseequities_standard_flex_v19_5.message_type_medium_classification = {}
 
 -- Dissect: Message Type Medium Classification
+jpx_tseequities_standard_flex_v19_5.message_type_medium_classification.dispatch = {
+  ["1"] = jpx_tseequities_standard_flex_v19_5.issue_realtime_medium_classification.dissect,
+  ["2"] = jpx_tseequities_standard_flex_v19_5.statistics_medium_classification.dissect,
+  ["3"] = jpx_tseequities_standard_flex_v19_5.index_medium_classification.dissect,
+  ["4"] = jpx_tseequities_standard_flex_v19_5.issue_basic_medium_classification.dissect,
+  ["9"] = jpx_tseequities_standard_flex_v19_5.control_medium_classification.dissect,
+}
+
 jpx_tseequities_standard_flex_v19_5.message_type_medium_classification.dissect = function(buffer, offset, packet, parent, message_type_large_classification)
-  -- Dissect Issue Realtime Medium Classification
-  if message_type_large_classification == "1" then
-    return jpx_tseequities_standard_flex_v19_5.issue_realtime_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Medium Classification
-  if message_type_large_classification == "2" then
-    return jpx_tseequities_standard_flex_v19_5.statistics_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Medium Classification
-  if message_type_large_classification == "3" then
-    return jpx_tseequities_standard_flex_v19_5.index_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Basic Medium Classification
-  if message_type_large_classification == "4" then
-    return jpx_tseequities_standard_flex_v19_5.issue_basic_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Medium Classification
-  if message_type_large_classification == "9" then
-    return jpx_tseequities_standard_flex_v19_5.control_medium_classification.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_standard_flex_v19_5.message_type_medium_classification.dispatch[message_type_large_classification]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

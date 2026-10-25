@@ -657,15 +657,13 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.base_price_price_of_the_middle_
 jpx_tseequities_issuebasicinformation_flex_v19_5.base_price_price_of_the_middle_of_the_book.size = 1
 
 -- Display: Base Price Price Of The Middle Of The Book
-jpx_tseequities_issuebasicinformation_flex_v19_5.base_price_price_of_the_middle_of_the_book.display = function(value)
-  if value == "1" then
-    return "Base Price Price Of The Middle Of The Book: Base Price (1)"
-  end
-  if value == "2" then
-    return "Base Price Price Of The Middle Of The Book: Price Of The Middle Of The Book (2)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.base_price_price_of_the_middle_of_the_book.labels = {
+  ["1"] = "Base Price Price Of The Middle Of The Book: Base Price (1)",
+  ["2"] = "Base Price Price Of The Middle Of The Book: Price Of The Middle Of The Book (2)",
+}
 
-  return "Base Price Price Of The Middle Of The Book: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.base_price_price_of_the_middle_of_the_book.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.base_price_price_of_the_middle_of_the_book.labels[value] or "Base Price Price Of The Middle Of The Book: Unknown("..value..")"
 end
 
 -- Dissect: Base Price Price Of The Middle Of The Book
@@ -819,36 +817,20 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification =
 jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification.size = 2
 
 -- Display: Control Medium Classification
-jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification.display = function(value)
-  if value == "00" then
-    return "Control Medium Classification: Communication Control (00)"
-  end
-  if value == "02" then
-    return "Control Medium Classification: Issue Information Control (02)"
-  end
-  if value == "04" then
-    return "Control Medium Classification: Allday Information Control (04)"
-  end
-  if value == "05" then
-    return "Control Medium Classification: Health Check Control (05)"
-  end
-  if value == "06" then
-    return "Control Medium Classification: Stock Base Price Information Control (06)"
-  end
-  if value == "07" then
-    return "Control Medium Classification: CB Base Price Information Control (07)"
-  end
-  if value == "08" then
-    return "Control Medium Classification: Multicast Group Number Information Control (08)"
-  end
-  if value == "09" then
-    return "Control Medium Classification: Backup Information Control (09)"
-  end
-  if value == "90" then
-    return "Control Medium Classification: TCP Transmission Control (90)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification.labels = {
+  ["00"] = "Control Medium Classification: Communication Control (00)",
+  ["02"] = "Control Medium Classification: Issue Information Control (02)",
+  ["04"] = "Control Medium Classification: Allday Information Control (04)",
+  ["05"] = "Control Medium Classification: Health Check Control (05)",
+  ["06"] = "Control Medium Classification: Stock Base Price Information Control (06)",
+  ["07"] = "Control Medium Classification: CB Base Price Information Control (07)",
+  ["08"] = "Control Medium Classification: Multicast Group Number Information Control (08)",
+  ["09"] = "Control Medium Classification: Backup Information Control (09)",
+  ["90"] = "Control Medium Classification: TCP Transmission Control (90)",
+}
 
-  return "Control Medium Classification: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification.labels[value] or "Control Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Control Medium Classification
@@ -912,42 +894,22 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag = {}
 jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.size = 2
 
 -- Display: Exdividend Exright Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.display = function(value)
-  if value == "00" then
-    return "Exdividend Exright Flag: None Specified (00)"
-  end
-  if value == "01" then
-    return "Exdividend Exright Flag: Exdividend (01)"
-  end
-  if value == "02" then
-    return "Exdividend Exright Flag: Exnew (02)"
-  end
-  if value == "03" then
-    return "Exdividend Exright Flag: Other Exrights (03)"
-  end
-  if value == "04" then
-    return "Exdividend Exright Flag: Exdividendother Exrights (04)"
-  end
-  if value == "05" then
-    return "Exdividend Exright Flag: Exnewother Exrights (05)"
-  end
-  if value == "06" then
-    return "Exdividend Exright Flag: Exdividendexnew (06)"
-  end
-  if value == "07" then
-    return "Exdividend Exright Flag: Exdividendexnewother Exrights (07)"
-  end
-  if value == "08" then
-    return "Exdividend Exright Flag: Cumduebill (08)"
-  end
-  if value == "09" then
-    return "Exdividend Exright Flag: Exduebill (09)"
-  end
-  if value == "10" then
-    return "Exdividend Exright Flag: Cumduebill Plus One Of Exdividend Exnew Or Other Exrights Or Two Or More Of These (10)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.labels = {
+  ["00"] = "Exdividend Exright Flag: None Specified (00)",
+  ["01"] = "Exdividend Exright Flag: Exdividend (01)",
+  ["02"] = "Exdividend Exright Flag: Exnew (02)",
+  ["03"] = "Exdividend Exright Flag: Other Exrights (03)",
+  ["04"] = "Exdividend Exright Flag: Exdividendother Exrights (04)",
+  ["05"] = "Exdividend Exright Flag: Exnewother Exrights (05)",
+  ["06"] = "Exdividend Exright Flag: Exdividendexnew (06)",
+  ["07"] = "Exdividend Exright Flag: Exdividendexnewother Exrights (07)",
+  ["08"] = "Exdividend Exright Flag: Cumduebill (08)",
+  ["09"] = "Exdividend Exright Flag: Exduebill (09)",
+  ["10"] = "Exdividend Exright Flag: Cumduebill Plus One Of Exdividend Exnew Or Other Exrights Or Two Or More Of These (10)",
+}
 
-  return "Exdividend Exright Flag: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.exdividend_exright_flag.labels[value] or "Exdividend Exright Flag: Unknown("..value..")"
 end
 
 -- Dissect: Exdividend Exright Flag
@@ -969,12 +931,12 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.index_medium_classification = {
 jpx_tseequities_issuebasicinformation_flex_v19_5.index_medium_classification.size = 2
 
 -- Display: Index Medium Classification
-jpx_tseequities_issuebasicinformation_flex_v19_5.index_medium_classification.display = function(value)
-  if value == "00" then
-    return "Index Medium Classification: Index Message (00)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.index_medium_classification.labels = {
+  ["00"] = "Index Medium Classification: Index Message (00)",
+}
 
-  return "Index Medium Classification: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.index_medium_classification.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.index_medium_classification.labels[value] or "Index Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Index Medium Classification
@@ -996,111 +958,45 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.industry_code = {}
 jpx_tseequities_issuebasicinformation_flex_v19_5.industry_code.size = 4
 
 -- Display: Industry Code
-jpx_tseequities_issuebasicinformation_flex_v19_5.industry_code.display = function(value)
-  if value == "0050" then
-    return "Industry Code: Fishery Agriculture Forestry (0050)"
-  end
-  if value == "1050" then
-    return "Industry Code: Mining (1050)"
-  end
-  if value == "2050" then
-    return "Industry Code: Construction (2050)"
-  end
-  if value == "3050" then
-    return "Industry Code: Foods (3050)"
-  end
-  if value == "3100" then
-    return "Industry Code: Textiles Apparels (3100)"
-  end
-  if value == "3150" then
-    return "Industry Code: Pulp Paper (3150)"
-  end
-  if value == "3200" then
-    return "Industry Code: Chemicals (3200)"
-  end
-  if value == "3250" then
-    return "Industry Code: Pharmaceuticals (3250)"
-  end
-  if value == "3300" then
-    return "Industry Code: Oil Coal Products (3300)"
-  end
-  if value == "3350" then
-    return "Industry Code: Rubber Products (3350)"
-  end
-  if value == "3400" then
-    return "Industry Code: Glass Ceramics Products (3400)"
-  end
-  if value == "3450" then
-    return "Industry Code: Iron Steel (3450)"
-  end
-  if value == "3500" then
-    return "Industry Code: Nonferrous Metals (3500)"
-  end
-  if value == "3550" then
-    return "Industry Code: Metal Products (3550)"
-  end
-  if value == "3600" then
-    return "Industry Code: Machinery (3600)"
-  end
-  if value == "3650" then
-    return "Industry Code: Electric Appliances (3650)"
-  end
-  if value == "3700" then
-    return "Industry Code: Transportation Equipment (3700)"
-  end
-  if value == "3750" then
-    return "Industry Code: Precision Instruments (3750)"
-  end
-  if value == "3800" then
-    return "Industry Code: Other Products (3800)"
-  end
-  if value == "4050" then
-    return "Industry Code: Electric Power Gas (4050)"
-  end
-  if value == "5050" then
-    return "Industry Code: Land Transportation (5050)"
-  end
-  if value == "5100" then
-    return "Industry Code: Marine Transportation (5100)"
-  end
-  if value == "5150" then
-    return "Industry Code: Air Transportation (5150)"
-  end
-  if value == "5200" then
-    return "Industry Code: Warehouse Harbor Transportation Services (5200)"
-  end
-  if value == "5250" then
-    return "Industry Code: Information Communication (5250)"
-  end
-  if value == "6050" then
-    return "Industry Code: Wholesale Trade (6050)"
-  end
-  if value == "6100" then
-    return "Industry Code: Retail Trade (6100)"
-  end
-  if value == "7050" then
-    return "Industry Code: Banks (7050)"
-  end
-  if value == "7100" then
-    return "Industry Code: Securities Commodity Futures (7100)"
-  end
-  if value == "7150" then
-    return "Industry Code: Insurance (7150)"
-  end
-  if value == "7200" then
-    return "Industry Code: Other Financing Business (7200)"
-  end
-  if value == "8050" then
-    return "Industry Code: Real Estate (8050)"
-  end
-  if value == "9050" then
-    return "Industry Code: Services (9050)"
-  end
-  if value == "9999" then
-    return "Industry Code: Others (9999)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.industry_code.labels = {
+  ["0050"] = "Industry Code: Fishery Agriculture Forestry (0050)",
+  ["1050"] = "Industry Code: Mining (1050)",
+  ["2050"] = "Industry Code: Construction (2050)",
+  ["3050"] = "Industry Code: Foods (3050)",
+  ["3100"] = "Industry Code: Textiles Apparels (3100)",
+  ["3150"] = "Industry Code: Pulp Paper (3150)",
+  ["3200"] = "Industry Code: Chemicals (3200)",
+  ["3250"] = "Industry Code: Pharmaceuticals (3250)",
+  ["3300"] = "Industry Code: Oil Coal Products (3300)",
+  ["3350"] = "Industry Code: Rubber Products (3350)",
+  ["3400"] = "Industry Code: Glass Ceramics Products (3400)",
+  ["3450"] = "Industry Code: Iron Steel (3450)",
+  ["3500"] = "Industry Code: Nonferrous Metals (3500)",
+  ["3550"] = "Industry Code: Metal Products (3550)",
+  ["3600"] = "Industry Code: Machinery (3600)",
+  ["3650"] = "Industry Code: Electric Appliances (3650)",
+  ["3700"] = "Industry Code: Transportation Equipment (3700)",
+  ["3750"] = "Industry Code: Precision Instruments (3750)",
+  ["3800"] = "Industry Code: Other Products (3800)",
+  ["4050"] = "Industry Code: Electric Power Gas (4050)",
+  ["5050"] = "Industry Code: Land Transportation (5050)",
+  ["5100"] = "Industry Code: Marine Transportation (5100)",
+  ["5150"] = "Industry Code: Air Transportation (5150)",
+  ["5200"] = "Industry Code: Warehouse Harbor Transportation Services (5200)",
+  ["5250"] = "Industry Code: Information Communication (5250)",
+  ["6050"] = "Industry Code: Wholesale Trade (6050)",
+  ["6100"] = "Industry Code: Retail Trade (6100)",
+  ["7050"] = "Industry Code: Banks (7050)",
+  ["7100"] = "Industry Code: Securities Commodity Futures (7100)",
+  ["7150"] = "Industry Code: Insurance (7150)",
+  ["7200"] = "Industry Code: Other Financing Business (7200)",
+  ["8050"] = "Industry Code: Real Estate (8050)",
+  ["9050"] = "Industry Code: Services (9050)",
+  ["9999"] = "Industry Code: Others (9999)",
+}
 
-  return "Industry Code: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.industry_code.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.industry_code.labels[value] or "Industry Code: Unknown("..value..")"
 end
 
 -- Dissect: Industry Code
@@ -1152,15 +1048,13 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.issue_basic_medium_classificati
 jpx_tseequities_issuebasicinformation_flex_v19_5.issue_basic_medium_classification.size = 2
 
 -- Display: Issue Basic Medium Classification
-jpx_tseequities_issuebasicinformation_flex_v19_5.issue_basic_medium_classification.display = function(value)
-  if value == "00" then
-    return "Issue Basic Medium Classification: Regular (00)"
-  end
-  if value == "01" then
-    return "Issue Basic Medium Classification: Special (01)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.issue_basic_medium_classification.labels = {
+  ["00"] = "Issue Basic Medium Classification: Regular (00)",
+  ["01"] = "Issue Basic Medium Classification: Special (01)",
+}
 
-  return "Issue Basic Medium Classification: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.issue_basic_medium_classification.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.issue_basic_medium_classification.labels[value] or "Issue Basic Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Basic Medium Classification
@@ -1182,15 +1076,13 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.issue_classification_large_clas
 jpx_tseequities_issuebasicinformation_flex_v19_5.issue_classification_large_classification.size = 2
 
 -- Display: Issue Classification Large Classification
-jpx_tseequities_issuebasicinformation_flex_v19_5.issue_classification_large_classification.display = function(value)
-  if value == "01" then
-    return "Issue Classification Large Classification: Stockrelated (01)"
-  end
-  if value == "02" then
-    return "Issue Classification Large Classification: Cbrelated (02)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.issue_classification_large_classification.labels = {
+  ["01"] = "Issue Classification Large Classification: Stockrelated (01)",
+  ["02"] = "Issue Classification Large Classification: Cbrelated (02)",
+}
 
-  return "Issue Classification Large Classification: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.issue_classification_large_classification.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.issue_classification_large_classification.labels[value] or "Issue Classification Large Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification Large Classification
@@ -1281,18 +1173,14 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classific
 jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classification.size = 2
 
 -- Display: Issue Realtime Medium Classification
-jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classification.display = function(value)
-  if value == "00" then
-    return "Issue Realtime Medium Classification: New (00)"
-  end
-  if value == "01" then
-    return "Issue Realtime Medium Classification: Backup (01)"
-  end
-  if value == "02" then
-    return "Issue Realtime Medium Classification: Allday (02)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classification.labels = {
+  ["00"] = "Issue Realtime Medium Classification: New (00)",
+  ["01"] = "Issue Realtime Medium Classification: Backup (01)",
+  ["02"] = "Issue Realtime Medium Classification: Allday (02)",
+}
 
-  return "Issue Realtime Medium Classification: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classification.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classification.labels[value] or "Issue Realtime Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Realtime Medium Classification
@@ -1314,18 +1202,14 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.loan_margin_flag = {}
 jpx_tseequities_issuebasicinformation_flex_v19_5.loan_margin_flag.size = 1
 
 -- Display: Loan Margin Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.loan_margin_flag.display = function(value)
-  if value == "1" then
-    return "Loan Margin Flag: Loan Issue (1)"
-  end
-  if value == "2" then
-    return "Loan Margin Flag: Margin Transaction Issue (2)"
-  end
-  if value == "0" then
-    return "Loan Margin Flag: Other Than The Above (0)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.loan_margin_flag.labels = {
+  ["1"] = "Loan Margin Flag: Loan Issue (1)",
+  ["2"] = "Loan Margin Flag: Margin Transaction Issue (2)",
+  ["0"] = "Loan Margin Flag: Other Than The Above (0)",
+}
 
-  return "Loan Margin Flag: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.loan_margin_flag.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.loan_margin_flag.labels[value] or "Loan Margin Flag: Unknown("..value..")"
 end
 
 -- Dissect: Loan Margin Flag
@@ -1403,24 +1287,16 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classificati
 jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classification.size = 1
 
 -- Display: Message Type Large Classification
-jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classification.display = function(value)
-  if value == "1" then
-    return "Message Type Large Classification: Issue Realtime Message (1)"
-  end
-  if value == "2" then
-    return "Message Type Large Classification: Statistics Message (2)"
-  end
-  if value == "3" then
-    return "Message Type Large Classification: Index Message (3)"
-  end
-  if value == "4" then
-    return "Message Type Large Classification: Issue Basic Message (4)"
-  end
-  if value == "9" then
-    return "Message Type Large Classification: Control Message (9)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classification.labels = {
+  ["1"] = "Message Type Large Classification: Issue Realtime Message (1)",
+  ["2"] = "Message Type Large Classification: Statistics Message (2)",
+  ["3"] = "Message Type Large Classification: Index Message (3)",
+  ["4"] = "Message Type Large Classification: Issue Basic Message (4)",
+  ["9"] = "Message Type Large Classification: Control Message (9)",
+}
 
-  return "Message Type Large Classification: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classification.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_large_classification.labels[value] or "Message Type Large Classification: Unknown("..value..")"
 end
 
 -- Dissect: Message Type Large Classification
@@ -1727,39 +1603,21 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.securities_to_be_delisted_under
 jpx_tseequities_issuebasicinformation_flex_v19_5.securities_to_be_delisted_under_supervision_classification.size = 1
 
 -- Display: Securities To Be Delisted Under Supervision Classification
-jpx_tseequities_issuebasicinformation_flex_v19_5.securities_to_be_delisted_under_supervision_classification.display = function(value)
-  if value == "1" then
-    return "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Examination (1)"
-  end
-  if value == "2" then
-    return "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Confirmation (2)"
-  end
-  if value == "3" then
-    return "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Examination And Confirmation (3)"
-  end
-  if value == "4" then
-    return "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Examination And On Special Alert (4)"
-  end
-  if value == "5" then
-    return "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Confirmation And On Special Alert (5)"
-  end
-  if value == "6" then
-    return "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Examination And Confirmation And On Special Alert (6)"
-  end
-  if value == "7" then
-    return "Securities To Be Delisted Under Supervision Classification: To Be Delisted (7)"
-  end
-  if value == "8" then
-    return "Securities To Be Delisted Under Supervision Classification: To Be Delisted And On Special Alert (8)"
-  end
-  if value == "9" then
-    return "Securities To Be Delisted Under Supervision Classification: On Special Alert (9)"
-  end
-  if value == "0" then
-    return "Securities To Be Delisted Under Supervision Classification: None Specified (0)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.securities_to_be_delisted_under_supervision_classification.labels = {
+  ["1"] = "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Examination (1)",
+  ["2"] = "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Confirmation (2)",
+  ["3"] = "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Examination And Confirmation (3)",
+  ["4"] = "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Examination And On Special Alert (4)",
+  ["5"] = "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Confirmation And On Special Alert (5)",
+  ["6"] = "Securities To Be Delisted Under Supervision Classification: Under Supervision Presently Under Examination And Confirmation And On Special Alert (6)",
+  ["7"] = "Securities To Be Delisted Under Supervision Classification: To Be Delisted (7)",
+  ["8"] = "Securities To Be Delisted Under Supervision Classification: To Be Delisted And On Special Alert (8)",
+  ["9"] = "Securities To Be Delisted Under Supervision Classification: On Special Alert (9)",
+  ["0"] = "Securities To Be Delisted Under Supervision Classification: None Specified (0)",
+}
 
-  return "Securities To Be Delisted Under Supervision Classification: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.securities_to_be_delisted_under_supervision_classification.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.securities_to_be_delisted_under_supervision_classification.labels[value] or "Securities To Be Delisted Under Supervision Classification: Unknown("..value..")"
 end
 
 -- Dissect: Securities To Be Delisted Under Supervision Classification
@@ -1781,222 +1639,82 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.security_type_etc_identificatio
 jpx_tseequities_issuebasicinformation_flex_v19_5.security_type_etc_identification_code.size = 2
 
 -- Display: Security Type Etc Identification Code
-jpx_tseequities_issuebasicinformation_flex_v19_5.security_type_etc_identification_code.display = function(value)
-  if value == "01" then
-    return "Security Type Etc Identification Code: Domestic Stock Common Stock (01)"
-  end
-  if value == "02" then
-    return "Security Type Etc Identification Code: Domestic Stock New Common Stock (02)"
-  end
-  if value == "03" then
-    return "Security Type Etc Identification Code: Domestic Stock Preferred Stock (03)"
-  end
-  if value == "04" then
-    return "Security Type Etc Identification Code: Domestic Stock New Preferred Stock (04)"
-  end
-  if value == "05" then
-    return "Security Type Etc Identification Code: Domestic Stock Deferred Stock (05)"
-  end
-  if value == "06" then
-    return "Security Type Etc Identification Code: Domestic Stock New Deferred Stock (06)"
-  end
-  if value == "07" then
-    return "Security Type Etc Identification Code: Domestic Stock Warrant (07)"
-  end
-  if value == "08" then
-    return "Security Type Etc Identification Code: Domestic Stock Tracking Stock (08)"
-  end
-  if value == "09" then
-    return "Security Type Etc Identification Code: Domestic Stock Classified Stock (09)"
-  end
-  if value == "0A" then
-    return "Security Type Etc Identification Code: Domestic Preferred Equity Investment Security (0A)"
-  end
-  if value == "11" then
-    return "Security Type Etc Identification Code: Foreign Stock Common Stock Depositary Receipt (11)"
-  end
-  if value == "12" then
-    return "Security Type Etc Identification Code: Foreign Stock New Common Stock (12)"
-  end
-  if value == "13" then
-    return "Security Type Etc Identification Code: Foreign Stock Preffered Stock (13)"
-  end
-  if value == "17" then
-    return "Security Type Etc Identification Code: Foreign Stockwarrant (17)"
-  end
-  if value == "21" then
-    return "Security Type Etc Identification Code: Domestic Government Bond Interestbearing Treasury Notes (21)"
-  end
-  if value == "22" then
-    return "Security Type Etc Identification Code: Domestic Government Bond Discount Treasury Notes (22)"
-  end
-  if value == "23" then
-    return "Security Type Etc Identification Code: Domestic Government Bond Shortterm Discount Treasury Notes (23)"
-  end
-  if value == "24" then
-    return "Security Type Etc Identification Code: Domestic Government Bond Floating Rate Treasury Notes (24)"
-  end
-  if value == "25" then
-    return "Security Type Etc Identification Code: Domestic Government Bond Shortterm Government Securities (25)"
-  end
-  if value == "26" then
-    return "Security Type Etc Identification Code: Domestic Government Bond Stripped Principal For Interest Bearing Govt Bd (26)"
-  end
-  if value == "27" then
-    return "Security Type Etc Identification Code: Domestic Government Bond Stripped Coupon For Interest Bearing Govt Bd (27)"
-  end
-  if value == "31" then
-    return "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Local Government Bond (31)"
-  end
-  if value == "32" then
-    return "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Government Guarantee Bond (32)"
-  end
-  if value == "33" then
-    return "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Special Bond Broadcasting Bond Etc (33)"
-  end
-  if value == "34" then
-    return "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Interestbearing Bank Debenture (34)"
-  end
-  if value == "35" then
-    return "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Discount Bank Debenture (35)"
-  end
-  if value == "36" then
-    return "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Corporate Bond (36)"
-  end
-  if value == "39" then
-    return "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Private Placement Local Government Bond (39)"
-  end
-  if value == "3A" then
-    return "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Not Public Offering Bond (3A)"
-  end
-  if value == "3F" then
-    return "Security Type Etc Identification Code: Subscription Warrant Security Jasdec Transfer (3F)"
-  end
-  if value == "51" then
-    return "Security Type Etc Identification Code: Domestic Cb Issued Domestically Japanese Yen Cb (51)"
-  end
-  if value == "52" then
-    return "Security Type Etc Identification Code: Domestic Cb Issued Domestically Foreigncurrency Cb (52)"
-  end
-  if value == "53" then
-    return "Security Type Etc Identification Code: Domestic Cb Issued Overseas Japanese Yen Cb (53)"
-  end
-  if value == "54" then
-    return "Security Type Etc Identification Code: Domestic Cb Issued Overseas Foreigncurrency Cb (54)"
-  end
-  if value == "55" then
-    return "Security Type Etc Identification Code: Foreign Cb Issued Domestically Japanese Yen Cb (55)"
-  end
-  if value == "56" then
-    return "Security Type Etc Identification Code: Foreign Cb Issued Domestically Foreigncurrency Cb (56)"
-  end
-  if value == "62" then
-    return "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Domestically Foreigncurrency Bond With Warrant Detachable (62)"
-  end
-  if value == "63" then
-    return "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Domestically Japanese Yen Bond With Warrant Nondetachable (63)"
-  end
-  if value == "64" then
-    return "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Overseas Japanese Yen Bond With Warrant Nondetachable (64)"
-  end
-  if value == "65" then
-    return "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Overseas Foreigncurrency Bond With Warrant Nondetachable (65)"
-  end
-  if value == "66" then
-    return "Security Type Etc Identification Code: Foreign Bond With Warrant Issued Domestically Japanese Yen Bond With Warrant Nondetachable (66)"
-  end
-  if value == "67" then
-    return "Security Type Etc Identification Code: Foreign Bond With Warrant Issued Domestically Foreigncurrency Bond With Warrant Nondetachable (67)"
-  end
-  if value == "71" then
-    return "Security Type Etc Identification Code: Domestic Subscription Warrant Security Issued Domestically (71)"
-  end
-  if value == "72" then
-    return "Security Type Etc Identification Code: Domestic Subscription Warrant Security Issued Overseas (72)"
-  end
-  if value == "73" then
-    return "Security Type Etc Identification Code: Foreign Subscription Warrant Security Issued Domestically (73)"
-  end
-  if value == "81" then
-    return "Security Type Etc Identification Code: Foreign Bond Issued Domestically Japanese Yen Foreign Bond (81)"
-  end
-  if value == "82" then
-    return "Security Type Etc Identification Code: Foreign Bond Issued Domestically Japanese Yen Foreign Bond Special (82)"
-  end
-  if value == "83" then
-    return "Security Type Etc Identification Code: Foreign Bond Issued Domestically Foreigncurrency Foreign Bond (83)"
-  end
-  if value == "84" then
-    return "Security Type Etc Identification Code: Foreign Bond Issued Domestically Dualcurrency Foreign Bond (84)"
-  end
-  if value == "85" then
-    return "Security Type Etc Identification Code: Foreign Bond Issued Domesticallynot Public Offering Bond (85)"
-  end
-  if value == "91" then
-    return "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Domestically Japanese Yen Exchangeable Bond (91)"
-  end
-  if value == "92" then
-    return "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Domestically Foreigncurrency Yen Exchangeable Bond (92)"
-  end
-  if value == "93" then
-    return "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Overseas Japanese Yen Exchangeable Bond (93)"
-  end
-  if value == "94" then
-    return "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Overseas Foreigncurrency Yen Exchangeable Bond (94)"
-  end
-  if value == "95" then
-    return "Security Type Etc Identification Code: Foreign Exchangeable Bond Issued Domestically Japanese Yen Exchangeable Bond (95)"
-  end
-  if value == "96" then
-    return "Security Type Etc Identification Code: Foreign Exchangeable Bond Issued Domestically Foreigncurrency Yen Exchangeable Bond (96)"
-  end
-  if value == "A1" then
-    return "Security Type Etc Identification Code: Futures Transaction Bonds (A1)"
-  end
-  if value == "A2" then
-    return "Security Type Etc Identification Code: Futures Transaction Stock Index (A2)"
-  end
-  if value == "A6" then
-    return "Security Type Etc Identification Code: Option Transaction Bond (A6)"
-  end
-  if value == "A7" then
-    return "Security Type Etc Identification Code: Option Transaction Bond Futures (A7)"
-  end
-  if value == "A8" then
-    return "Security Type Etc Identification Code: Option Transaction Stock Index (A8)"
-  end
-  if value == "A9" then
-    return "Security Type Etc Identification Code: Option Transaction Stock Index Futures (A9)"
-  end
-  if value == "AA" then
-    return "Security Type Etc Identification Code: Option Transaction Individual (AA)"
-  end
-  if value == "B1" then
-    return "Security Type Etc Identification Code: Domestic Beneficiary Certificate Of Investment Trust (B1)"
-  end
-  if value == "B2" then
-    return "Security Type Etc Identification Code: Domestic Investment Certificate (B2)"
-  end
-  if value == "B3" then
-    return "Security Type Etc Identification Code: Foreign Beneficiary Certificate Of Investment Trust (B3)"
-  end
-  if value == "B4" then
-    return "Security Type Etc Identification Code: Foreign Investment Certificate (B4)"
-  end
-  if value == "B5" then
-    return "Security Type Etc Identification Code: Domestic Beneficiary Certificate Of Investment Trust Jasdec Transfer (B5)"
-  end
-  if value == "BA" then
-    return "Security Type Etc Identification Code: Paperless Cp (BA)"
-  end
-  if value == "BB" then
-    return "Security Type Etc Identification Code: Covered Warrant (BB)"
-  end
-  if value == "C1" then
-    return "Security Type Etc Identification Code: Domestic Fx Commodity Exchage (C1)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.security_type_etc_identification_code.labels = {
+  ["01"] = "Security Type Etc Identification Code: Domestic Stock Common Stock (01)",
+  ["02"] = "Security Type Etc Identification Code: Domestic Stock New Common Stock (02)",
+  ["03"] = "Security Type Etc Identification Code: Domestic Stock Preferred Stock (03)",
+  ["04"] = "Security Type Etc Identification Code: Domestic Stock New Preferred Stock (04)",
+  ["05"] = "Security Type Etc Identification Code: Domestic Stock Deferred Stock (05)",
+  ["06"] = "Security Type Etc Identification Code: Domestic Stock New Deferred Stock (06)",
+  ["07"] = "Security Type Etc Identification Code: Domestic Stock Warrant (07)",
+  ["08"] = "Security Type Etc Identification Code: Domestic Stock Tracking Stock (08)",
+  ["09"] = "Security Type Etc Identification Code: Domestic Stock Classified Stock (09)",
+  ["0A"] = "Security Type Etc Identification Code: Domestic Preferred Equity Investment Security (0A)",
+  ["11"] = "Security Type Etc Identification Code: Foreign Stock Common Stock Depositary Receipt (11)",
+  ["12"] = "Security Type Etc Identification Code: Foreign Stock New Common Stock (12)",
+  ["13"] = "Security Type Etc Identification Code: Foreign Stock Preffered Stock (13)",
+  ["17"] = "Security Type Etc Identification Code: Foreign Stockwarrant (17)",
+  ["21"] = "Security Type Etc Identification Code: Domestic Government Bond Interestbearing Treasury Notes (21)",
+  ["22"] = "Security Type Etc Identification Code: Domestic Government Bond Discount Treasury Notes (22)",
+  ["23"] = "Security Type Etc Identification Code: Domestic Government Bond Shortterm Discount Treasury Notes (23)",
+  ["24"] = "Security Type Etc Identification Code: Domestic Government Bond Floating Rate Treasury Notes (24)",
+  ["25"] = "Security Type Etc Identification Code: Domestic Government Bond Shortterm Government Securities (25)",
+  ["26"] = "Security Type Etc Identification Code: Domestic Government Bond Stripped Principal For Interest Bearing Govt Bd (26)",
+  ["27"] = "Security Type Etc Identification Code: Domestic Government Bond Stripped Coupon For Interest Bearing Govt Bd (27)",
+  ["31"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Local Government Bond (31)",
+  ["32"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Government Guarantee Bond (32)",
+  ["33"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Special Bond Broadcasting Bond Etc (33)",
+  ["34"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Interestbearing Bank Debenture (34)",
+  ["35"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Discount Bank Debenture (35)",
+  ["36"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Corporate Bond (36)",
+  ["39"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Private Placement Local Government Bond (39)",
+  ["3A"] = "Security Type Etc Identification Code: Domestic Public And Corporate Bond Issued Domestically Not Public Offering Bond (3A)",
+  ["3F"] = "Security Type Etc Identification Code: Subscription Warrant Security Jasdec Transfer (3F)",
+  ["51"] = "Security Type Etc Identification Code: Domestic Cb Issued Domestically Japanese Yen Cb (51)",
+  ["52"] = "Security Type Etc Identification Code: Domestic Cb Issued Domestically Foreigncurrency Cb (52)",
+  ["53"] = "Security Type Etc Identification Code: Domestic Cb Issued Overseas Japanese Yen Cb (53)",
+  ["54"] = "Security Type Etc Identification Code: Domestic Cb Issued Overseas Foreigncurrency Cb (54)",
+  ["55"] = "Security Type Etc Identification Code: Foreign Cb Issued Domestically Japanese Yen Cb (55)",
+  ["56"] = "Security Type Etc Identification Code: Foreign Cb Issued Domestically Foreigncurrency Cb (56)",
+  ["62"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Domestically Foreigncurrency Bond With Warrant Detachable (62)",
+  ["63"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Domestically Japanese Yen Bond With Warrant Nondetachable (63)",
+  ["64"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Overseas Japanese Yen Bond With Warrant Nondetachable (64)",
+  ["65"] = "Security Type Etc Identification Code: Domestic Bond With Warrant Issued Overseas Foreigncurrency Bond With Warrant Nondetachable (65)",
+  ["66"] = "Security Type Etc Identification Code: Foreign Bond With Warrant Issued Domestically Japanese Yen Bond With Warrant Nondetachable (66)",
+  ["67"] = "Security Type Etc Identification Code: Foreign Bond With Warrant Issued Domestically Foreigncurrency Bond With Warrant Nondetachable (67)",
+  ["71"] = "Security Type Etc Identification Code: Domestic Subscription Warrant Security Issued Domestically (71)",
+  ["72"] = "Security Type Etc Identification Code: Domestic Subscription Warrant Security Issued Overseas (72)",
+  ["73"] = "Security Type Etc Identification Code: Foreign Subscription Warrant Security Issued Domestically (73)",
+  ["81"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Japanese Yen Foreign Bond (81)",
+  ["82"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Japanese Yen Foreign Bond Special (82)",
+  ["83"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Foreigncurrency Foreign Bond (83)",
+  ["84"] = "Security Type Etc Identification Code: Foreign Bond Issued Domestically Dualcurrency Foreign Bond (84)",
+  ["85"] = "Security Type Etc Identification Code: Foreign Bond Issued Domesticallynot Public Offering Bond (85)",
+  ["91"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Domestically Japanese Yen Exchangeable Bond (91)",
+  ["92"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Domestically Foreigncurrency Yen Exchangeable Bond (92)",
+  ["93"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Overseas Japanese Yen Exchangeable Bond (93)",
+  ["94"] = "Security Type Etc Identification Code: Domestic Exchangeable Bond Issued Overseas Foreigncurrency Yen Exchangeable Bond (94)",
+  ["95"] = "Security Type Etc Identification Code: Foreign Exchangeable Bond Issued Domestically Japanese Yen Exchangeable Bond (95)",
+  ["96"] = "Security Type Etc Identification Code: Foreign Exchangeable Bond Issued Domestically Foreigncurrency Yen Exchangeable Bond (96)",
+  ["A1"] = "Security Type Etc Identification Code: Futures Transaction Bonds (A1)",
+  ["A2"] = "Security Type Etc Identification Code: Futures Transaction Stock Index (A2)",
+  ["A6"] = "Security Type Etc Identification Code: Option Transaction Bond (A6)",
+  ["A7"] = "Security Type Etc Identification Code: Option Transaction Bond Futures (A7)",
+  ["A8"] = "Security Type Etc Identification Code: Option Transaction Stock Index (A8)",
+  ["A9"] = "Security Type Etc Identification Code: Option Transaction Stock Index Futures (A9)",
+  ["AA"] = "Security Type Etc Identification Code: Option Transaction Individual (AA)",
+  ["B1"] = "Security Type Etc Identification Code: Domestic Beneficiary Certificate Of Investment Trust (B1)",
+  ["B2"] = "Security Type Etc Identification Code: Domestic Investment Certificate (B2)",
+  ["B3"] = "Security Type Etc Identification Code: Foreign Beneficiary Certificate Of Investment Trust (B3)",
+  ["B4"] = "Security Type Etc Identification Code: Foreign Investment Certificate (B4)",
+  ["B5"] = "Security Type Etc Identification Code: Domestic Beneficiary Certificate Of Investment Trust Jasdec Transfer (B5)",
+  ["BA"] = "Security Type Etc Identification Code: Paperless Cp (BA)",
+  ["BB"] = "Security Type Etc Identification Code: Covered Warrant (BB)",
+  ["C1"] = "Security Type Etc Identification Code: Domestic Fx Commodity Exchage (C1)",
+}
 
-  return "Security Type Etc Identification Code: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.security_type_etc_identification_code.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.security_type_etc_identification_code.labels[value] or "Security Type Etc Identification Code: Unknown("..value..")"
 end
 
 -- Dissect: Security Type Etc Identification Code
@@ -2041,15 +1759,13 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.separation_of_tag = {}
 jpx_tseequities_issuebasicinformation_flex_v19_5.separation_of_tag.size = 1
 
 -- Display: Separation Of Tag
-jpx_tseequities_issuebasicinformation_flex_v19_5.separation_of_tag.display = function(value)
-  if value == 19 then
-    return "Separation Of Tag: Separation Between Tag (19)"
-  end
-  if value == 17 then
-    return "Separation Of Tag: End Of Message (17)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.separation_of_tag.labels = {
+  [19] = "Separation Of Tag: Separation Between Tag (19)",
+  [17] = "Separation Of Tag: End Of Message (17)",
+}
 
-  return "Separation Of Tag: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.separation_of_tag.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.separation_of_tag.labels[value] or "Separation Of Tag: Unknown("..value..")"
 end
 
 -- Dissect: Separation Of Tag
@@ -2305,12 +2021,12 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.statistics_medium_classificatio
 jpx_tseequities_issuebasicinformation_flex_v19_5.statistics_medium_classification.size = 2
 
 -- Display: Statistics Medium Classification
-jpx_tseequities_issuebasicinformation_flex_v19_5.statistics_medium_classification.display = function(value)
-  if value == "00" then
-    return "Statistics Medium Classification: Statistics Message (00)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.statistics_medium_classification.labels = {
+  ["00"] = "Statistics Medium Classification: Statistics Message (00)",
+}
 
-  return "Statistics Medium Classification: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.statistics_medium_classification.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.statistics_medium_classification.labels[value] or "Statistics Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Statistics Medium Classification
@@ -2401,21 +2117,15 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.tag_id = {}
 jpx_tseequities_issuebasicinformation_flex_v19_5.tag_id.size = 2
 
 -- Display: Tag ID
-jpx_tseequities_issuebasicinformation_flex_v19_5.tag_id.display = function(value)
-  if value == "II" then
-    return "Tag ID: Issue Information Message (II)"
-  end
-  if value == "BP" then
-    return "Tag ID: Base Price Information Message (BP)"
-  end
-  if value == "MG" then
-    return "Tag ID: Multicast Group Number Information Message (MG)"
-  end
-  if value == "LC" then
-    return "Tag ID: Control Message (LC)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.tag_id.labels = {
+  ["II"] = "Tag ID: Issue Information Message (II)",
+  ["BP"] = "Tag ID: Base Price Information Message (BP)",
+  ["MG"] = "Tag ID: Multicast Group Number Information Message (MG)",
+  ["LC"] = "Tag ID: Control Message (LC)",
+}
 
-  return "Tag ID: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.tag_id.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.tag_id.labels[value] or "Tag ID: Unknown("..value..")"
 end
 
 -- Dissect: Tag ID
@@ -2437,15 +2147,13 @@ jpx_tseequities_issuebasicinformation_flex_v19_5.test_mode_flag = {}
 jpx_tseequities_issuebasicinformation_flex_v19_5.test_mode_flag.size = 1
 
 -- Display: Test Mode Flag
-jpx_tseequities_issuebasicinformation_flex_v19_5.test_mode_flag.display = function(value)
-  if value == "1" then
-    return "Test Mode Flag: Real Operation (1)"
-  end
-  if value == "2" then
-    return "Test Mode Flag: Test Operation (2)"
-  end
+jpx_tseequities_issuebasicinformation_flex_v19_5.test_mode_flag.labels = {
+  ["1"] = "Test Mode Flag: Real Operation (1)",
+  ["2"] = "Test Mode Flag: Test Operation (2)",
+}
 
-  return "Test Mode Flag: Unknown("..value..")"
+jpx_tseequities_issuebasicinformation_flex_v19_5.test_mode_flag.display = function(value)
+  return jpx_tseequities_issuebasicinformation_flex_v19_5.test_mode_flag.labels[value] or "Test Mode Flag: Unknown("..value..")"
 end
 
 -- Dissect: Test Mode Flag
@@ -3341,22 +3049,17 @@ end
 jpx_tseequities_issuebasicinformation_flex_v19_5.payload = {}
 
 -- Dissect: Payload
+jpx_tseequities_issuebasicinformation_flex_v19_5.payload.dispatch = {
+  ["II"] = jpx_tseequities_issuebasicinformation_flex_v19_5.issue_information_message.dissect,
+  ["BP"] = jpx_tseequities_issuebasicinformation_flex_v19_5.base_price_information_message.dissect,
+  ["MG"] = jpx_tseequities_issuebasicinformation_flex_v19_5.multicast_group_number_information_message.dissect,
+  ["LC"] = jpx_tseequities_issuebasicinformation_flex_v19_5.control_message.dissect,
+}
+
 jpx_tseequities_issuebasicinformation_flex_v19_5.payload.dissect = function(buffer, offset, packet, parent, tag_id)
-  -- Dissect Issue Information Message
-  if tag_id == "II" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.issue_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Base Price Information Message
-  if tag_id == "BP" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.base_price_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Multicast Group Number Information Message
-  if tag_id == "MG" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.multicast_group_number_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if tag_id == "LC" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_issuebasicinformation_flex_v19_5.payload.dispatch[tag_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3589,26 +3292,18 @@ end
 jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification = {}
 
 -- Dissect: Message Type Medium Classification
+jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification.dispatch = {
+  ["1"] = jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classification.dissect,
+  ["2"] = jpx_tseequities_issuebasicinformation_flex_v19_5.statistics_medium_classification.dissect,
+  ["3"] = jpx_tseequities_issuebasicinformation_flex_v19_5.index_medium_classification.dissect,
+  ["4"] = jpx_tseequities_issuebasicinformation_flex_v19_5.issue_basic_medium_classification.dissect,
+  ["9"] = jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification.dissect,
+}
+
 jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification.dissect = function(buffer, offset, packet, parent, message_type_large_classification)
-  -- Dissect Issue Realtime Medium Classification
-  if message_type_large_classification == "1" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.issue_realtime_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Medium Classification
-  if message_type_large_classification == "2" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.statistics_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Medium Classification
-  if message_type_large_classification == "3" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.index_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Basic Medium Classification
-  if message_type_large_classification == "4" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.issue_basic_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Medium Classification
-  if message_type_large_classification == "9" then
-    return jpx_tseequities_issuebasicinformation_flex_v19_5.control_medium_classification.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_issuebasicinformation_flex_v19_5.message_type_medium_classification.dispatch[message_type_large_classification]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -197,12 +197,12 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.currency = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.currency.size = 1
 
 -- Display: Currency
-miax_onyxfutures_topofmarket_mach_v1_0_b.currency.display = function(value)
-  if value == "U" then
-    return "Currency: Usd (U)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.currency.labels = {
+  ["U"] = "Currency: Usd (U)",
+}
 
-  return "Currency: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.currency.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -224,12 +224,12 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.exchange = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.size = 4
 
 -- Display: Exchange
-miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.display = function(value)
-  if value == "XMGE" then
-    return "Exchange: Miax Futures Exchange (XMGE)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.labels = {
+  ["XMGE"] = "Exchange: Miax Futures Exchange (XMGE)",
+}
 
-  return "Exchange: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.exchange.labels[value] or "Exchange: Unknown("..value..")"
 end
 
 -- Dissect: Exchange
@@ -303,12 +303,12 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.size = 1
 
 -- Display: Instrument Id Source
-miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.display = function(value)
-  if value == "E" then
-    return "Instrument Id Source: Exchange (E)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.labels = {
+  ["E"] = "Instrument Id Source: Exchange (E)",
+}
 
-  return "Instrument Id Source: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_id_source.labels[value] or "Instrument Id Source: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Id Source
@@ -330,12 +330,12 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.size = 1
 
 -- Display: Instrument Type
-miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.display = function(value)
-  if value == "F" then
-    return "Instrument Type: Futures (F)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.labels = {
+  ["F"] = "Instrument Type: Futures (F)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -409,21 +409,15 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.market_state = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.size = 1
 
 -- Display: Market State
-miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.display = function(value)
-  if value == 1 then
-    return "Market State: Pre Opening (1)"
-  end
-  if value == 2 then
-    return "Market State: Extended 1 Trading Session (2)"
-  end
-  if value == 3 then
-    return "Market State: Regular Trading Session (3)"
-  end
-  if value == 4 then
-    return "Market State: Extended 2 Trading Session (4)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.labels = {
+  [1] = "Market State: Pre Opening (1)",
+  [2] = "Market State: Extended 1 Trading Session (2)",
+  [3] = "Market State: Regular Trading Session (3)",
+  [4] = "Market State: Extended 2 Trading Session (4)",
+}
 
-  return "Market State: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.market_state.labels[value] or "Market State: Unknown("..value..")"
 end
 
 -- Dissect: Market State
@@ -445,12 +439,12 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.size = 1
 
 -- Display: Match Algorithm
-miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.display = function(value)
-  if value == "P" then
-    return "Match Algorithm: Price Then Time (P)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.labels = {
+  ["P"] = "Match Algorithm: Price Then Time (P)",
+}
 
-  return "Match Algorithm: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.match_algorithm.labels[value] or "Match Algorithm: Unknown("..value..")"
 end
 
 -- Dissect: Match Algorithm
@@ -622,30 +616,18 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.message_type = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.message_type.size = 1
 
 -- Display: Message Type
-miax_onyxfutures_topofmarket_mach_v1_0_b.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Simple Instrument Definition Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Complex Instrument Definition Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: System State Message (3)"
-  end
-  if value == 4 then
-    return "Message Type: Instrument Trading Status Notification Message (4)"
-  end
-  if value == 15 then
-    return "Message Type: Best Bid And Offer Message (15)"
-  end
-  if value == 16 then
-    return "Message Type: Last Sale Message (16)"
-  end
-  if value == 14 then
-    return "Message Type: Trade Cancel Message (14)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.message_type.labels = {
+  [1] = "Message Type: Simple Instrument Definition Message (1)",
+  [2] = "Message Type: Complex Instrument Definition Message (2)",
+  [3] = "Message Type: System State Message (3)",
+  [4] = "Message Type: Instrument Trading Status Notification Message (4)",
+  [15] = "Message Type: Best Bid And Offer Message (15)",
+  [16] = "Message Type: Last Sale Message (16)",
+  [14] = "Message Type: Trade Cancel Message (14)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.message_type.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -759,21 +741,15 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.packet_type = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.packet_type.size = 1
 
 -- Display: Packet Type
-miax_onyxfutures_topofmarket_mach_v1_0_b.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.packet_type.labels = {
+  [0] = "Packet Type: Heartbeat (0)",
+  [1] = "Packet Type: Start Of Session (1)",
+  [2] = "Packet Type: End Of Session (2)",
+  [3] = "Packet Type: Application Message (3)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.packet_type.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -962,12 +938,12 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.size = 1
 
 -- Display: Settlement Currency
-miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.display = function(value)
-  if value == "U" then
-    return "Settlement Currency: Usd (U)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.labels = {
+  ["U"] = "Settlement Currency: Usd (U)",
+}
 
-  return "Settlement Currency: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_currency.labels[value] or "Settlement Currency: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Currency
@@ -1018,15 +994,13 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.size = 1
 
 -- Display: Settlement Price Type Calc Method
-miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.display = function(value)
-  if value == "A" then
-    return "Settlement Price Type Calc Method: Actual (A)"
-  end
-  if value == "T" then
-    return "Settlement Price Type Calc Method: Theoretical (T)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.labels = {
+  ["A"] = "Settlement Price Type Calc Method: Actual (A)",
+  ["T"] = "Settlement Price Type Calc Method: Theoretical (T)",
+}
 
-  return "Settlement Price Type Calc Method: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.settlement_price_type_calc_method.labels[value] or "Settlement Price Type Calc Method: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Price Type Calc Method
@@ -1117,21 +1091,15 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.system_status = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.size = 1
 
 -- Display: System Status
-miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of System Hours (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of System Hours (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Of Test Session (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of Test Session (2)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.labels = {
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -1327,24 +1295,16 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.size = 1
 
 -- Display: Trading Collar Variation Type
-miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.display = function(value)
-  if value == "D" then
-    return "Trading Collar Variation Type: Product Dollar Collar Value (D)"
-  end
-  if value == "P" then
-    return "Trading Collar Variation Type: Product Collar Percentage Value (P)"
-  end
-  if value == "S" then
-    return "Trading Collar Variation Type: Standard Calendar Spread (S)"
-  end
-  if value == "E" then
-    return "Trading Collar Variation Type: Equity Calendar Spread (E)"
-  end
-  if value == "B" then
-    return "Trading Collar Variation Type: Butterfly Spread (B)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.labels = {
+  ["D"] = "Trading Collar Variation Type: Product Dollar Collar Value (D)",
+  ["P"] = "Trading Collar Variation Type: Product Collar Percentage Value (P)",
+  ["S"] = "Trading Collar Variation Type: Standard Calendar Spread (S)",
+  ["E"] = "Trading Collar Variation Type: Equity Calendar Spread (E)",
+  ["B"] = "Trading Collar Variation Type: Butterfly Spread (B)",
+}
 
-  return "Trading Collar Variation Type: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.trading_collar_variation_type.labels[value] or "Trading Collar Variation Type: Unknown("..value..")"
 end
 
 -- Dissect: Trading Collar Variation Type
@@ -1366,27 +1326,17 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.size = 1
 
 -- Display: Trading Status
-miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Pre Open (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Opening Freeze (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Trading (3)"
-  end
-  if value == 4 then
-    return "Trading Status: Halt (4)"
-  end
-  if value == 5 then
-    return "Trading Status: Operational Halt (5)"
-  end
-  if value == 6 then
-    return "Trading Status: Closed (6)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.labels = {
+  [1] = "Trading Status: Pre Open (1)",
+  [2] = "Trading Status: Opening Freeze (2)",
+  [3] = "Trading Status: Trading (3)",
+  [4] = "Trading Status: Halt (4)",
+  [5] = "Trading Status: Operational Halt (5)",
+  [6] = "Trading Status: Closed (6)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1431,15 +1381,13 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.size = 1
 
 -- Display: Underlying Asset Type
-miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.display = function(value)
-  if value == "E" then
-    return "Underlying Asset Type: Equity Index (E)"
-  end
-  if value == "A" then
-    return "Underlying Asset Type: Commodity Agriculture (A)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.labels = {
+  ["E"] = "Underlying Asset Type: Equity Index (E)",
+  ["A"] = "Underlying Asset Type: Commodity Agriculture (A)",
+}
 
-  return "Underlying Asset Type: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.underlying_asset_type.labels[value] or "Underlying Asset Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Asset Type
@@ -1461,15 +1409,13 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.size = 5
 
 -- Display: Unit Of Measure
-miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.display = function(value)
-  if value == "BU" then
-    return "Unit Of Measure: Bushels (BU)"
-  end
-  if value == "USD" then
-    return "Unit Of Measure: Price Then Time (USD)"
-  end
+miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.labels = {
+  ["BU"] = "Unit Of Measure: Bushels (BU)",
+  ["USD"] = "Unit Of Measure: Price Then Time (USD)",
+}
 
-  return "Unit Of Measure: Unknown("..value..")"
+miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.display = function(value)
+  return miax_onyxfutures_topofmarket_mach_v1_0_b.unit_of_measure.labels[value] or "Unit Of Measure: Unknown("..value..")"
 end
 
 -- Dissect: Unit Of Measure
@@ -2203,34 +2149,20 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b.data = {}
 
 -- Dissect: Data
+miax_onyxfutures_topofmarket_mach_v1_0_b.data.dispatch = {
+  [1] = miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.dissect,
+  [2] = miax_onyxfutures_topofmarket_mach_v1_0_b.complex_instrument_definition_message.dissect,
+  [3] = miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.dissect,
+  [4] = miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.dissect,
+  [15] = miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.dissect,
+  [16] = miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.dissect,
+  [14] = miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.dissect,
+}
+
 miax_onyxfutures_topofmarket_mach_v1_0_b.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Simple Instrument Definition Message
-  if message_type == 1 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Message
-  if message_type == 2 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.complex_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Message
-  if message_type == 3 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.system_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Trading Status Notification Message
-  if message_type == 4 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.instrument_trading_status_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid And Offer Message
-  if message_type == 15 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.best_bid_and_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Sale Message
-  if message_type == 16 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == 14 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_topofmarket_mach_v1_0_b.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2293,22 +2225,17 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload = {}
 
 -- Dissect: Payload
+miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dispatch = {
+  [3] = miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.dissect,
+  [0] = miax_onyxfutures_topofmarket_mach_v1_0_b.heartbeat.dissect,
+  [1] = miax_onyxfutures_topofmarket_mach_v1_0_b.start_of_session.dissect,
+  [2] = miax_onyxfutures_topofmarket_mach_v1_0_b.end_of_session.dissect,
+}
+
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Application Message
-  if packet_type == 3 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if packet_type == 0 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if packet_type == 1 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if packet_type == 2 then
-    return miax_onyxfutures_topofmarket_mach_v1_0_b.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

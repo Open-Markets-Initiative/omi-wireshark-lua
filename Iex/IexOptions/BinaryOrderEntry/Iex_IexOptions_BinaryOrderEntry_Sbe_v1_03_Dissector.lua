@@ -393,15 +393,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_mass_cancel_ack_style = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_mass_cancel_ack_style.size = 1
 
 -- Display: Ack Style Mass Cancel Ack Style
-iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_mass_cancel_ack_style.display = function(value)
-  if value == 0 then
-    return "Ack Style Mass Cancel Ack Style: Single Ack (0)"
-  end
-  if value == 1 then
-    return "Ack Style Mass Cancel Ack Style: Per Order Ack And Single Ack (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_mass_cancel_ack_style.labels = {
+  [0] = "Ack Style Mass Cancel Ack Style: Single Ack (0)",
+  [1] = "Ack Style Mass Cancel Ack Style: Per Order Ack And Single Ack (1)",
+}
 
-  return "Ack Style Mass Cancel Ack Style: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_mass_cancel_ack_style.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_mass_cancel_ack_style.labels[value] or "Ack Style Mass Cancel Ack Style: Unknown("..value..")"
 end
 
 -- Dissect: Ack Style Mass Cancel Ack Style
@@ -423,15 +421,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_purge_request_ack_style = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_purge_request_ack_style.size = 1
 
 -- Display: Ack Style Purge Request Ack Style
-iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_purge_request_ack_style.display = function(value)
-  if value == 0 then
-    return "Ack Style Purge Request Ack Style: Single Ack (0)"
-  end
-  if value == 1 then
-    return "Ack Style Purge Request Ack Style: Single Ack With Mmqs (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_purge_request_ack_style.labels = {
+  [0] = "Ack Style Purge Request Ack Style: Single Ack (0)",
+  [1] = "Ack Style Purge Request Ack Style: Single Ack With Mmqs (1)",
+}
 
-  return "Ack Style Purge Request Ack Style: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_purge_request_ack_style.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.ack_style_purge_request_ack_style.labels[value] or "Ack Style Purge Request Ack Style: Unknown("..value..")"
 end
 
 -- Dissect: Ack Style Purge Request Ack Style
@@ -453,39 +449,21 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.ack_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.ack_type.size = 1
 
 -- Display: Ack Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.ack_type.display = function(value)
-  if value == 1 then
-    return "Ack Type: New Interest (1)"
-  end
-  if value == 2 then
-    return "Ack Type: Pending Cancel (2)"
-  end
-  if value == 3 then
-    return "Ack Type: Canceled (3)"
-  end
-  if value == 4 then
-    return "Ack Type: Pending Replace (4)"
-  end
-  if value == 5 then
-    return "Ack Type: Replaced (5)"
-  end
-  if value == 6 then
-    return "Ack Type: Individual Market Maker Quote Reject (6)"
-  end
-  if value == 7 then
-    return "Ack Type: Unsolicited Reprice Price Adjust (7)"
-  end
-  if value == 8 then
-    return "Ack Type: Unsolicited Reprice Orp (8)"
-  end
-  if value == 9 then
-    return "Ack Type: Unsolicited Cancel Orp (9)"
-  end
-  if value == 10 then
-    return "Ack Type: Market Maker Quote Not Modified (10)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.ack_type.labels = {
+  [1] = "Ack Type: New Interest (1)",
+  [2] = "Ack Type: Pending Cancel (2)",
+  [3] = "Ack Type: Canceled (3)",
+  [4] = "Ack Type: Pending Replace (4)",
+  [5] = "Ack Type: Replaced (5)",
+  [6] = "Ack Type: Individual Market Maker Quote Reject (6)",
+  [7] = "Ack Type: Unsolicited Reprice Price Adjust (7)",
+  [8] = "Ack Type: Unsolicited Reprice Orp (8)",
+  [9] = "Ack Type: Unsolicited Cancel Orp (9)",
+  [10] = "Ack Type: Market Maker Quote Not Modified (10)",
+}
 
-  return "Ack Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.ack_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.ack_type.labels[value] or "Ack Type: Unknown("..value..")"
 end
 
 -- Dissect: Ack Type
@@ -684,15 +662,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_status = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_status.size = 1
 
 -- Display: Appointment Status
-iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_status.display = function(value)
-  if value == 0 then
-    return "Appointment Status: Not Appointed (0)"
-  end
-  if value == 1 then
-    return "Appointment Status: Appointed (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_status.labels = {
+  [0] = "Appointment Status: Not Appointed (0)",
+  [1] = "Appointment Status: Appointed (1)",
+}
 
-  return "Appointment Status: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_status.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_status.labels[value] or "Appointment Status: Unknown("..value..")"
 end
 
 -- Dissect: Appointment Status
@@ -714,18 +690,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_type.size = 1
 
 -- Display: Appointment Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_type.display = function(value)
-  if value == 1 then
-    return "Appointment Type: Registered Market Maker (1)"
-  end
-  if value == 2 then
-    return "Appointment Type: Directed Market Maker (2)"
-  end
-  if value == 3 then
-    return "Appointment Type: Specialist (3)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_type.labels = {
+  [1] = "Appointment Type: Registered Market Maker (1)",
+  [2] = "Appointment Type: Directed Market Maker (2)",
+  [3] = "Appointment Type: Specialist (3)",
+}
 
-  return "Appointment Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.appointment_type.labels[value] or "Appointment Type: Unknown("..value..")"
 end
 
 -- Dissect: Appointment Type
@@ -747,24 +719,16 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.attributed_quote = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.attributed_quote.size = 1
 
 -- Display: Attributed Quote
-iex_iexoptions_binaryorderentry_sbe_v1_03.attributed_quote.display = function(value)
-  if value == 1 then
-    return "Attributed Quote: Sum (1)"
-  end
-  if value == 2 then
-    return "Attributed Quote: Order Info Capacity (2)"
-  end
-  if value == 3 then
-    return "Attributed Quote: Order Info Mpid (3)"
-  end
-  if value == 4 then
-    return "Attributed Quote: Order Info Capacity Mpid (4)"
-  end
-  if value == 5 then
-    return "Attributed Quote: Do Not Use Sum (5)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.attributed_quote.labels = {
+  [1] = "Attributed Quote: Sum (1)",
+  [2] = "Attributed Quote: Order Info Capacity (2)",
+  [3] = "Attributed Quote: Order Info Mpid (3)",
+  [4] = "Attributed Quote: Order Info Capacity Mpid (4)",
+  [5] = "Attributed Quote: Do Not Use Sum (5)",
+}
 
-  return "Attributed Quote: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.attributed_quote.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.attributed_quote.labels[value] or "Attributed Quote: Unknown("..value..")"
 end
 
 -- Dissect: Attributed Quote
@@ -935,18 +899,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.bulk_action = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.bulk_action.size = 1
 
 -- Display: Bulk Action
-iex_iexoptions_binaryorderentry_sbe_v1_03.bulk_action.display = function(value)
-  if value == 0 then
-    return "Bulk Action: Cancel (0)"
-  end
-  if value == 1 then
-    return "Bulk Action: Cancel And Block (1)"
-  end
-  if value == 2 then
-    return "Bulk Action: Unblock (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.bulk_action.labels = {
+  [0] = "Bulk Action: Cancel (0)",
+  [1] = "Bulk Action: Cancel And Block (1)",
+  [2] = "Bulk Action: Unblock (2)",
+}
 
-  return "Bulk Action: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.bulk_action.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.bulk_action.labels[value] or "Bulk Action: Unknown("..value..")"
 end
 
 -- Dissect: Bulk Action
@@ -968,15 +928,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.bust_or_correction = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.bust_or_correction.size = 1
 
 -- Display: Bust Or Correction
-iex_iexoptions_binaryorderentry_sbe_v1_03.bust_or_correction.display = function(value)
-  if value == 0 then
-    return "Bust Or Correction: Trade Bust (0)"
-  end
-  if value == 1 then
-    return "Bust Or Correction: Trade Correction (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.bust_or_correction.labels = {
+  [0] = "Bust Or Correction: Trade Bust (0)",
+  [1] = "Bust Or Correction: Trade Correction (1)",
+}
 
-  return "Bust Or Correction: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.bust_or_correction.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.bust_or_correction.labels[value] or "Bust Or Correction: Unknown("..value..")"
 end
 
 -- Dissect: Bust Or Correction
@@ -1021,15 +979,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.cancel_instead_of_slide = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.cancel_instead_of_slide.size = 1
 
 -- Display: Cancel Instead Of Slide
-iex_iexoptions_binaryorderentry_sbe_v1_03.cancel_instead_of_slide.display = function(value)
-  if value == 0 then
-    return "Cancel Instead Of Slide: Slide (0)"
-  end
-  if value == 1 then
-    return "Cancel Instead Of Slide: Cancel (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.cancel_instead_of_slide.labels = {
+  [0] = "Cancel Instead Of Slide: Slide (0)",
+  [1] = "Cancel Instead Of Slide: Cancel (1)",
+}
 
-  return "Cancel Instead Of Slide: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.cancel_instead_of_slide.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.cancel_instead_of_slide.labels[value] or "Cancel Instead Of Slide: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Instead Of Slide
@@ -1274,15 +1230,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.closing_only = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.closing_only.size = 1
 
 -- Display: Closing Only
-iex_iexoptions_binaryorderentry_sbe_v1_03.closing_only.display = function(value)
-  if value == 0 then
-    return "Closing Only: False (0)"
-  end
-  if value == 1 then
-    return "Closing Only: True (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.closing_only.labels = {
+  [0] = "Closing Only: False (0)",
+  [1] = "Closing Only: True (1)",
+}
 
-  return "Closing Only: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.closing_only.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.closing_only.labels[value] or "Closing Only: Unknown("..value..")"
 end
 
 -- Dissect: Closing Only
@@ -1371,27 +1325,17 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.contra_customer_or_firm = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.contra_customer_or_firm.size = 1
 
 -- Display: Contra Customer Or Firm
-iex_iexoptions_binaryorderentry_sbe_v1_03.contra_customer_or_firm.display = function(value)
-  if value == 0 then
-    return "Contra Customer Or Firm: Customer (0)"
-  end
-  if value == 1 then
-    return "Contra Customer Or Firm: Firm (1)"
-  end
-  if value == 2 then
-    return "Contra Customer Or Firm: Broker Dealer (2)"
-  end
-  if value == 3 then
-    return "Contra Customer Or Firm: Market Maker (3)"
-  end
-  if value == 4 then
-    return "Contra Customer Or Firm: Away Market Maker (4)"
-  end
-  if value == 5 then
-    return "Contra Customer Or Firm: Prof Customer (5)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.contra_customer_or_firm.labels = {
+  [0] = "Contra Customer Or Firm: Customer (0)",
+  [1] = "Contra Customer Or Firm: Firm (1)",
+  [2] = "Contra Customer Or Firm: Broker Dealer (2)",
+  [3] = "Contra Customer Or Firm: Market Maker (3)",
+  [4] = "Contra Customer Or Firm: Away Market Maker (4)",
+  [5] = "Contra Customer Or Firm: Prof Customer (5)",
+}
 
-  return "Contra Customer Or Firm: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.contra_customer_or_firm.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.contra_customer_or_firm.labels[value] or "Contra Customer Or Firm: Unknown("..value..")"
 end
 
 -- Dissect: Contra Customer Or Firm
@@ -1491,18 +1435,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.contra_open_close = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.contra_open_close.size = 1
 
 -- Display: Contra Open Close
-iex_iexoptions_binaryorderentry_sbe_v1_03.contra_open_close.display = function(value)
-  if value == 0 then
-    return "Contra Open Close: Open (0)"
-  end
-  if value == 1 then
-    return "Contra Open Close: Close (1)"
-  end
-  if value == 2 then
-    return "Contra Open Close: Not Applicable (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.contra_open_close.labels = {
+  [0] = "Contra Open Close: Open (0)",
+  [1] = "Contra Open Close: Close (1)",
+  [2] = "Contra Open Close: Not Applicable (2)",
+}
 
-  return "Contra Open Close: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.contra_open_close.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.contra_open_close.labels[value] or "Contra Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Contra Open Close
@@ -1654,27 +1594,17 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.customer_or_firm = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.customer_or_firm.size = 1
 
 -- Display: Customer Or Firm
-iex_iexoptions_binaryorderentry_sbe_v1_03.customer_or_firm.display = function(value)
-  if value == 0 then
-    return "Customer Or Firm: Customer (0)"
-  end
-  if value == 1 then
-    return "Customer Or Firm: Firm (1)"
-  end
-  if value == 2 then
-    return "Customer Or Firm: Broker Dealer (2)"
-  end
-  if value == 3 then
-    return "Customer Or Firm: Market Maker (3)"
-  end
-  if value == 4 then
-    return "Customer Or Firm: Away Market Maker (4)"
-  end
-  if value == 5 then
-    return "Customer Or Firm: Prof Customer (5)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.customer_or_firm.labels = {
+  [0] = "Customer Or Firm: Customer (0)",
+  [1] = "Customer Or Firm: Firm (1)",
+  [2] = "Customer Or Firm: Broker Dealer (2)",
+  [3] = "Customer Or Firm: Market Maker (3)",
+  [4] = "Customer Or Firm: Away Market Maker (4)",
+  [5] = "Customer Or Firm: Prof Customer (5)",
+}
 
-  return "Customer Or Firm: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.customer_or_firm.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.customer_or_firm.labels[value] or "Customer Or Firm: Unknown("..value..")"
 end
 
 -- Dissect: Customer Or Firm
@@ -2305,15 +2235,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.joined = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.joined.size = 1
 
 -- Display: Joined
-iex_iexoptions_binaryorderentry_sbe_v1_03.joined.display = function(value)
-  if value == 0 then
-    return "Joined: False (0)"
-  end
-  if value == 1 then
-    return "Joined: True (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.joined.labels = {
+  [0] = "Joined: False (0)",
+  [1] = "Joined: True (1)",
+}
 
-  return "Joined: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.joined.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.joined.labels[value] or "Joined: Unknown("..value..")"
 end
 
 -- Dissect: Joined
@@ -2335,15 +2263,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.keep_alive = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.keep_alive.size = 1
 
 -- Display: Keep Alive
-iex_iexoptions_binaryorderentry_sbe_v1_03.keep_alive.display = function(value)
-  if value == 0 then
-    return "Keep Alive: False (0)"
-  end
-  if value == 1 then
-    return "Keep Alive: True (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.keep_alive.labels = {
+  [0] = "Keep Alive: False (0)",
+  [1] = "Keep Alive: True (1)",
+}
 
-  return "Keep Alive: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.keep_alive.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.keep_alive.labels[value] or "Keep Alive: Unknown("..value..")"
 end
 
 -- Dissect: Keep Alive
@@ -2820,15 +2746,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_filter = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_filter.size = 1
 
 -- Display: Mpid Filter
-iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_filter.display = function(value)
-  if value == 0 then
-    return "Mpid Filter: Explicit Mpid (0)"
-  end
-  if value == 1 then
-    return "Mpid Filter: Across Mpi Ds (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_filter.labels = {
+  [0] = "Mpid Filter: Explicit Mpid (0)",
+  [1] = "Mpid Filter: Across Mpi Ds (1)",
+}
 
-  return "Mpid Filter: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_filter.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_filter.labels[value] or "Mpid Filter: Unknown("..value..")"
 end
 
 -- Dissect: Mpid Filter
@@ -2850,15 +2774,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_status = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_status.size = 1
 
 -- Display: Mpid Status
-iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_status.display = function(value)
-  if value == 1 then
-    return "Mpid Status: Active (1)"
-  end
-  if value == 2 then
-    return "Mpid Status: Inactive (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_status.labels = {
+  [1] = "Mpid Status: Active (1)",
+  [2] = "Mpid Status: Inactive (2)",
+}
 
-  return "Mpid Status: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_status.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_status.labels[value] or "Mpid Status: Unknown("..value..")"
 end
 
 -- Dissect: Mpid Status
@@ -2880,18 +2802,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.mpv_group = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.mpv_group.size = 1
 
 -- Display: Mpv Group
-iex_iexoptions_binaryorderentry_sbe_v1_03.mpv_group.display = function(value)
-  if value == 0 then
-    return "Mpv Group: All Penny (0)"
-  end
-  if value == 1 then
-    return "Mpv Group: Penny Nickel (1)"
-  end
-  if value == 2 then
-    return "Mpv Group: Nickel Dime (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.mpv_group.labels = {
+  [0] = "Mpv Group: All Penny (0)",
+  [1] = "Mpv Group: Penny Nickel (1)",
+  [2] = "Mpv Group: Nickel Dime (2)",
+}
 
-  return "Mpv Group: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.mpv_group.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.mpv_group.labels[value] or "Mpv Group: Unknown("..value..")"
 end
 
 -- Dissect: Mpv Group
@@ -2936,15 +2854,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.notification_reason = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.notification_reason.size = 1
 
 -- Display: Notification Reason
-iex_iexoptions_binaryorderentry_sbe_v1_03.notification_reason.display = function(value)
-  if value == 0 then
-    return "Notification Reason: Threshold Exceeded (0)"
-  end
-  if value == 1 then
-    return "Notification Reason: Check Failure (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.notification_reason.labels = {
+  [0] = "Notification Reason: Threshold Exceeded (0)",
+  [1] = "Notification Reason: Check Failure (1)",
+}
 
-  return "Notification Reason: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.notification_reason.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.notification_reason.labels[value] or "Notification Reason: Unknown("..value..")"
 end
 
 -- Dissect: Notification Reason
@@ -3028,18 +2944,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.open_close = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.open_close.size = 1
 
 -- Display: Open Close
-iex_iexoptions_binaryorderentry_sbe_v1_03.open_close.display = function(value)
-  if value == 0 then
-    return "Open Close: Open (0)"
-  end
-  if value == 1 then
-    return "Open Close: Close (1)"
-  end
-  if value == 2 then
-    return "Open Close: Not Applicable (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.open_close.labels = {
+  [0] = "Open Close: Open (0)",
+  [1] = "Open Close: Close (1)",
+  [2] = "Open Close: Not Applicable (2)",
+}
 
-  return "Open Close: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.open_close.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.open_close.labels[value] or "Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Open Close
@@ -3097,15 +3009,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.option_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.option_type.size = 1
 
 -- Display: Option Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.option_type.display = function(value)
-  if value == 0 then
-    return "Option Type: Put (0)"
-  end
-  if value == 1 then
-    return "Option Type: Call (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.option_type.labels = {
+  [0] = "Option Type: Put (0)",
+  [1] = "Option Type: Call (1)",
+}
 
-  return "Option Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.option_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -3166,15 +3076,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.ord_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.ord_type.size = 1
 
 -- Display: Ord Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.ord_type.display = function(value)
-  if value == 1 then
-    return "Ord Type: Market (1)"
-  end
-  if value == 2 then
-    return "Ord Type: Limit (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.ord_type.labels = {
+  [1] = "Ord Type: Market (1)",
+  [2] = "Ord Type: Limit (2)",
+}
 
-  return "Ord Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.ord_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.ord_type.labels[value] or "Ord Type: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type
@@ -3415,15 +3323,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.orp_enabled = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.orp_enabled.size = 1
 
 -- Display: Orp Enabled
-iex_iexoptions_binaryorderentry_sbe_v1_03.orp_enabled.display = function(value)
-  if value == 0 then
-    return "Orp Enabled: False (0)"
-  end
-  if value == 1 then
-    return "Orp Enabled: True (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.orp_enabled.labels = {
+  [0] = "Orp Enabled: False (0)",
+  [1] = "Orp Enabled: True (1)",
+}
 
-  return "Orp Enabled: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.orp_enabled.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.orp_enabled.labels[value] or "Orp Enabled: Unknown("..value..")"
 end
 
 -- Dissect: Orp Enabled
@@ -3699,18 +3605,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.quote_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.quote_type.size = 1
 
 -- Display: Quote Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.quote_type.display = function(value)
-  if value == 0 then
-    return "Quote Type: Standard (0)"
-  end
-  if value == 1 then
-    return "Quote Type: Reprice (1)"
-  end
-  if value == 2 then
-    return "Quote Type: Cancel (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.quote_type.labels = {
+  [0] = "Quote Type: Standard (0)",
+  [1] = "Quote Type: Reprice (1)",
+  [2] = "Quote Type: Cancel (2)",
+}
 
-  return "Quote Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.quote_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.quote_type.labels[value] or "Quote Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Type
@@ -3765,63 +3667,29 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.reason = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.reason.size = 1
 
 -- Display: Reason
-iex_iexoptions_binaryorderentry_sbe_v1_03.reason.display = function(value)
-  if value == 0 then
-    return "Reason: Success (0)"
-  end
-  if value == 1 then
-    return "Reason: Session Level Reject (1)"
-  end
-  if value == 2 then
-    return "Reason: Logout Requested (2)"
-  end
-  if value == 3 then
-    return "Reason: Unknown (3)"
-  end
-  if value == 4 then
-    return "Reason: Invalid Logon Id (4)"
-  end
-  if value == 5 then
-    return "Reason: Invalid Token (5)"
-  end
-  if value == 6 then
-    return "Reason: Already Logged In (6)"
-  end
-  if value == 7 then
-    return "Reason: Login Timeout (7)"
-  end
-  if value == 8 then
-    return "Reason: Invalid Packet Length (8)"
-  end
-  if value == 9 then
-    return "Reason: Invalid Message (9)"
-  end
-  if value == 10 then
-    return "Reason: Join Revoked (10)"
-  end
-  if value == 11 then
-    return "Reason: Heartbeat Timeout (11)"
-  end
-  if value == 12 then
-    return "Reason: Message Out Of Sequence (12)"
-  end
-  if value == 13 then
-    return "Reason: Invalid Subsession Id (13)"
-  end
-  if value == 14 then
-    return "Reason: Subsession Not Joined (14)"
-  end
-  if value == 15 then
-    return "Reason: Denial Of Service (15)"
-  end
-  if value == 16 then
-    return "Reason: Invalid Argument (16)"
-  end
-  if value == 17 then
-    return "Reason: Already Joined (17)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.reason.labels = {
+  [0] = "Reason: Success (0)",
+  [1] = "Reason: Session Level Reject (1)",
+  [2] = "Reason: Logout Requested (2)",
+  [3] = "Reason: Unknown (3)",
+  [4] = "Reason: Invalid Logon Id (4)",
+  [5] = "Reason: Invalid Token (5)",
+  [6] = "Reason: Already Logged In (6)",
+  [7] = "Reason: Login Timeout (7)",
+  [8] = "Reason: Invalid Packet Length (8)",
+  [9] = "Reason: Invalid Message (9)",
+  [10] = "Reason: Join Revoked (10)",
+  [11] = "Reason: Heartbeat Timeout (11)",
+  [12] = "Reason: Message Out Of Sequence (12)",
+  [13] = "Reason: Invalid Subsession Id (13)",
+  [14] = "Reason: Subsession Not Joined (14)",
+  [15] = "Reason: Denial Of Service (15)",
+  [16] = "Reason: Invalid Argument (16)",
+  [17] = "Reason: Already Joined (17)",
+}
 
-  return "Reason: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.reason.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -3843,354 +3711,126 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.reason_code = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.reason_code.size = 1
 
 -- Display: Reason Code
-iex_iexoptions_binaryorderentry_sbe_v1_03.reason_code.display = function(value)
-  if value == 1 then
-    return "Reason Code: Unknown Instrument Identifier (1)"
-  end
-  if value == 2 then
-    return "Reason Code: Invalid Ord Type (2)"
-  end
-  if value == 3 then
-    return "Reason Code: Invalid Side (3)"
-  end
-  if value == 4 then
-    return "Reason Code: Invalid Time In Force (4)"
-  end
-  if value == 5 then
-    return "Reason Code: Invalid Open Close (5)"
-  end
-  if value == 6 then
-    return "Reason Code: Invalid Customer Or Firm (6)"
-  end
-  if value == 7 then
-    return "Reason Code: Invalid Display Inst (7)"
-  end
-  if value == 8 then
-    return "Reason Code: Invalid Attributed Quote (8)"
-  end
-  if value == 9 then
-    return "Reason Code: Invalid Exec Inst (9)"
-  end
-  if value == 10 then
-    return "Reason Code: Invalid Cancel Instead Of Slide (10)"
-  end
-  if value == 11 then
-    return "Reason Code: Invalid Order Qty (11)"
-  end
-  if value == 12 then
-    return "Reason Code: Closing Only (12)"
-  end
-  if value == 13 then
-    return "Reason Code: Not Appointed (13)"
-  end
-  if value == 14 then
-    return "Reason Code: Invalid Price (14)"
-  end
-  if value == 15 then
-    return "Reason Code: Invalid Tag Combination For Market Order (15)"
-  end
-  if value == 16 then
-    return "Reason Code: Invalid Tag Combination For Ioc (16)"
-  end
-  if value == 17 then
-    return "Reason Code: Invalid Aiq (17)"
-  end
-  if value == 18 then
-    return "Reason Code: Aiq Cancel Newest (18)"
-  end
-  if value == 19 then
-    return "Reason Code: Aiq Cancel Oldest (19)"
-  end
-  if value == 20 then
-    return "Reason Code: Aiq Cancel Smallest (20)"
-  end
-  if value == 21 then
-    return "Reason Code: Aiq Cancel Both (21)"
-  end
-  if value == 22 then
-    return "Reason Code: No Order Found (22)"
-  end
-  if value == 23 then
-    return "Reason Code: Order In Pending State (23)"
-  end
-  if value == 24 then
-    return "Reason Code: Order Terminal (24)"
-  end
-  if value == 25 then
-    return "Reason Code: No Bid (25)"
-  end
-  if value == 26 then
-    return "Reason Code: No Offer (26)"
-  end
-  if value == 27 then
-    return "Reason Code: Order Not Marketable (27)"
-  end
-  if value == 28 then
-    return "Reason Code: Order Would Lock Cross (28)"
-  end
-  if value == 29 then
-    return "Reason Code: Invalid Quote Count (29)"
-  end
-  if value == 30 then
-    return "Reason Code: Inconsistent Underlying (30)"
-  end
-  if value == 31 then
-    return "Reason Code: Duplicate Quote (31)"
-  end
-  if value == 32 then
-    return "Reason Code: Invalid Quote Type (32)"
-  end
-  if value == 33 then
-    return "Reason Code: Invalid Bulk Action (33)"
-  end
-  if value == 34 then
-    return "Reason Code: Invalid Bulk Action Parameters (34)"
-  end
-  if value == 35 then
-    return "Reason Code: Invalid Custom Group Id (35)"
-  end
-  if value == 36 then
-    return "Reason Code: Blocked Underlying Id (36)"
-  end
-  if value == 37 then
-    return "Reason Code: Order Will Be Canceled (37)"
-  end
-  if value == 38 then
-    return "Reason Code: Invalid Ack Style (38)"
-  end
-  if value == 39 then
-    return "Reason Code: Invalid Mpid Filter (39)"
-  end
-  if value == 40 then
-    return "Reason Code: Invalid Block (40)"
-  end
-  if value == 41 then
-    return "Reason Code: Invalid Risk Control (41)"
-  end
-  if value == 42 then
-    return "Reason Code: Invalid Risk Action Type (42)"
-  end
-  if value == 43 then
-    return "Reason Code: Invalid Unblock Parameters (43)"
-  end
-  if value == 44 then
-    return "Reason Code: Invalid Cl Ord Id (44)"
-  end
-  if value == 45 then
-    return "Reason Code: Invalid Market Participant Id (45)"
-  end
-  if value == 46 then
-    return "Reason Code: Invalid Nbbo Width (46)"
-  end
-  if value == 47 then
-    return "Reason Code: Missing Clearing Account (47)"
-  end
-  if value == 48 then
-    return "Reason Code: Invalid Clearing Account (48)"
-  end
-  if value == 49 then
-    return "Reason Code: Invalid Account (49)"
-  end
-  if value == 50 then
-    return "Reason Code: Quote Not Marketable (50)"
-  end
-  if value == 51 then
-    return "Reason Code: Constrained By Drill Through Protection (51)"
-  end
-  if value == 52 then
-    return "Reason Code: Invalid Optional Data (52)"
-  end
-  if value == 53 then
-    return "Reason Code: Drill Through Protection Cancel (53)"
-  end
-  if value == 54 then
-    return "Reason Code: Risk Breach (54)"
-  end
-  if value == 55 then
-    return "Reason Code: Internal Error (55)"
-  end
-  if value == 56 then
-    return "Reason Code: Blocked Custom Group Id (56)"
-  end
-  if value == 57 then
-    return "Reason Code: Orp Reject (57)"
-  end
-  if value == 58 then
-    return "Reason Code: Quote Not Found (58)"
-  end
-  if value == 59 then
-    return "Reason Code: Too Late To Cancel (59)"
-  end
-  if value == 60 then
-    return "Reason Code: Invalid Orp Reprice Check (60)"
-  end
-  if value == 61 then
-    return "Reason Code: Contra Mm Interest (61)"
-  end
-  if value == 62 then
-    return "Reason Code: Market Closed (62)"
-  end
-  if value == 63 then
-    return "Reason Code: Market Suspended (63)"
-  end
-  if value == 64 then
-    return "Reason Code: Invalid Ioc For Non Continuous (64)"
-  end
-  if value == 65 then
-    return "Reason Code: Limit Up Limit Down (65)"
-  end
-  if value == 66 then
-    return "Reason Code: Invalid Risk Control Status (66)"
-  end
-  if value == 67 then
-    return "Reason Code: Invalid Time Limit (67)"
-  end
-  if value == 68 then
-    return "Reason Code: Invalid Percentage Limit (68)"
-  end
-  if value == 69 then
-    return "Reason Code: Invalid Count Limit (69)"
-  end
-  if value == 70 then
-    return "Reason Code: Invalid Ioc Attribution (70)"
-  end
-  if value == 71 then
-    return "Reason Code: Cancel Remaining Ioc (71)"
-  end
-  if value == 72 then
-    return "Reason Code: No Market For Market Order (72)"
-  end
-  if value == 73 then
-    return "Reason Code: Grmp Block (73)"
-  end
-  if value == 74 then
-    return "Reason Code: Fully Filled (74)"
-  end
-  if value == 75 then
-    return "Reason Code: Invalid Auction Id (75)"
-  end
-  if value == 76 then
-    return "Reason Code: Invalid Response Order Qty (76)"
-  end
-  if value == 77 then
-    return "Reason Code: Sum Complete (77)"
-  end
-  if value == 78 then
-    return "Reason Code: Limit Order Price Protection Breach (78)"
-  end
-  if value == 79 then
-    return "Reason Code: Intrinsic Value Breach (79)"
-  end
-  if value == 80 then
-    return "Reason Code: Invalid Underlying Id (80)"
-  end
-  if value == 81 then
-    return "Reason Code: Market Halt (81)"
-  end
-  if value == 82 then
-    return "Reason Code: Market Order Max Notional Breach (82)"
-  end
-  if value == 83 then
-    return "Reason Code: Invalid Target Party Id (83)"
-  end
-  if value == 84 then
-    return "Reason Code: Invalid Routing Firm Id (84)"
-  end
-  if value == 85 then
-    return "Reason Code: Opening Process Cancel (85)"
-  end
-  if value == 86 then
-    return "Reason Code: Quote Would Lock Cross (86)"
-  end
-  if value == 87 then
-    return "Reason Code: Invalid Clearing Firm (87)"
-  end
-  if value == 88 then
-    return "Reason Code: Duplicate Cl Ord Id (88)"
-  end
-  if value == 89 then
-    return "Reason Code: Invalid Orig Cl Ord Id (89)"
-  end
-  if value == 90 then
-    return "Reason Code: Unknown Orig Cl Ord Id (90)"
-  end
-  if value == 91 then
-    return "Reason Code: Invalid On Behalf Of Comp Id (91)"
-  end
-  if value == 92 then
-    return "Reason Code: Disallowed Market Orders (92)"
-  end
-  if value == 93 then
-    return "Reason Code: Disallowed Iso Ioc Orders (93)"
-  end
-  if value == 94 then
-    return "Reason Code: Disallowed Iso Day Orders (94)"
-  end
-  if value == 95 then
-    return "Reason Code: Restricted Symbol (95)"
-  end
-  if value == 96 then
-    return "Reason Code: Cancel On Disconnect (96)"
-  end
-  if value == 97 then
-    return "Reason Code: Invalid Send Time (97)"
-  end
-  if value == 98 then
-    return "Reason Code: Invalid Cust Capacity Weight (98)"
-  end
-  if value == 99 then
-    return "Reason Code: Max Duplicative (99)"
-  end
-  if value == 100 then
-    return "Reason Code: Mpid Blocked (100)"
-  end
-  if value == 101 then
-    return "Reason Code: Quote Canceled (101)"
-  end
-  if value == 102 then
-    return "Reason Code: Invalid Custom Group Id Count (102)"
-  end
-  if value == 103 then
-    return "Reason Code: Grmp Trip (103)"
-  end
-  if value == 104 then
-    return "Reason Code: Max Qty Exceeded (104)"
-  end
-  if value == 105 then
-    return "Reason Code: Max Notional Exceeded (105)"
-  end
-  if value == 106 then
-    return "Reason Code: Occ Identifier Not Configured (106)"
-  end
-  if value == 107 then
-    return "Reason Code: Arbitrage Breach (107)"
-  end
-  if value == 108 then
-    return "Reason Code: Abrc Breach (108)"
-  end
-  if value == 109 then
-    return "Reason Code: Admin Cancel (109)"
-  end
-  if value == 110 then
-    return "Reason Code: Invalid Reserved (110)"
-  end
-  if value == 111 then
-    return "Reason Code: Nbbo Fade (111)"
-  end
-  if value == 112 then
-    return "Reason Code: Locked Or Crossed By Away (112)"
-  end
-  if value == 113 then
-    return "Reason Code: Sum Timeout (113)"
-  end
-  if value == 114 then
-    return "Reason Code: Portal Cancel External (114)"
-  end
-  if value == 115 then
-    return "Reason Code: Portal Cancel Internal (115)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.reason_code.labels = {
+  [1] = "Reason Code: Unknown Instrument Identifier (1)",
+  [2] = "Reason Code: Invalid Ord Type (2)",
+  [3] = "Reason Code: Invalid Side (3)",
+  [4] = "Reason Code: Invalid Time In Force (4)",
+  [5] = "Reason Code: Invalid Open Close (5)",
+  [6] = "Reason Code: Invalid Customer Or Firm (6)",
+  [7] = "Reason Code: Invalid Display Inst (7)",
+  [8] = "Reason Code: Invalid Attributed Quote (8)",
+  [9] = "Reason Code: Invalid Exec Inst (9)",
+  [10] = "Reason Code: Invalid Cancel Instead Of Slide (10)",
+  [11] = "Reason Code: Invalid Order Qty (11)",
+  [12] = "Reason Code: Closing Only (12)",
+  [13] = "Reason Code: Not Appointed (13)",
+  [14] = "Reason Code: Invalid Price (14)",
+  [15] = "Reason Code: Invalid Tag Combination For Market Order (15)",
+  [16] = "Reason Code: Invalid Tag Combination For Ioc (16)",
+  [17] = "Reason Code: Invalid Aiq (17)",
+  [18] = "Reason Code: Aiq Cancel Newest (18)",
+  [19] = "Reason Code: Aiq Cancel Oldest (19)",
+  [20] = "Reason Code: Aiq Cancel Smallest (20)",
+  [21] = "Reason Code: Aiq Cancel Both (21)",
+  [22] = "Reason Code: No Order Found (22)",
+  [23] = "Reason Code: Order In Pending State (23)",
+  [24] = "Reason Code: Order Terminal (24)",
+  [25] = "Reason Code: No Bid (25)",
+  [26] = "Reason Code: No Offer (26)",
+  [27] = "Reason Code: Order Not Marketable (27)",
+  [28] = "Reason Code: Order Would Lock Cross (28)",
+  [29] = "Reason Code: Invalid Quote Count (29)",
+  [30] = "Reason Code: Inconsistent Underlying (30)",
+  [31] = "Reason Code: Duplicate Quote (31)",
+  [32] = "Reason Code: Invalid Quote Type (32)",
+  [33] = "Reason Code: Invalid Bulk Action (33)",
+  [34] = "Reason Code: Invalid Bulk Action Parameters (34)",
+  [35] = "Reason Code: Invalid Custom Group Id (35)",
+  [36] = "Reason Code: Blocked Underlying Id (36)",
+  [37] = "Reason Code: Order Will Be Canceled (37)",
+  [38] = "Reason Code: Invalid Ack Style (38)",
+  [39] = "Reason Code: Invalid Mpid Filter (39)",
+  [40] = "Reason Code: Invalid Block (40)",
+  [41] = "Reason Code: Invalid Risk Control (41)",
+  [42] = "Reason Code: Invalid Risk Action Type (42)",
+  [43] = "Reason Code: Invalid Unblock Parameters (43)",
+  [44] = "Reason Code: Invalid Cl Ord Id (44)",
+  [45] = "Reason Code: Invalid Market Participant Id (45)",
+  [46] = "Reason Code: Invalid Nbbo Width (46)",
+  [47] = "Reason Code: Missing Clearing Account (47)",
+  [48] = "Reason Code: Invalid Clearing Account (48)",
+  [49] = "Reason Code: Invalid Account (49)",
+  [50] = "Reason Code: Quote Not Marketable (50)",
+  [51] = "Reason Code: Constrained By Drill Through Protection (51)",
+  [52] = "Reason Code: Invalid Optional Data (52)",
+  [53] = "Reason Code: Drill Through Protection Cancel (53)",
+  [54] = "Reason Code: Risk Breach (54)",
+  [55] = "Reason Code: Internal Error (55)",
+  [56] = "Reason Code: Blocked Custom Group Id (56)",
+  [57] = "Reason Code: Orp Reject (57)",
+  [58] = "Reason Code: Quote Not Found (58)",
+  [59] = "Reason Code: Too Late To Cancel (59)",
+  [60] = "Reason Code: Invalid Orp Reprice Check (60)",
+  [61] = "Reason Code: Contra Mm Interest (61)",
+  [62] = "Reason Code: Market Closed (62)",
+  [63] = "Reason Code: Market Suspended (63)",
+  [64] = "Reason Code: Invalid Ioc For Non Continuous (64)",
+  [65] = "Reason Code: Limit Up Limit Down (65)",
+  [66] = "Reason Code: Invalid Risk Control Status (66)",
+  [67] = "Reason Code: Invalid Time Limit (67)",
+  [68] = "Reason Code: Invalid Percentage Limit (68)",
+  [69] = "Reason Code: Invalid Count Limit (69)",
+  [70] = "Reason Code: Invalid Ioc Attribution (70)",
+  [71] = "Reason Code: Cancel Remaining Ioc (71)",
+  [72] = "Reason Code: No Market For Market Order (72)",
+  [73] = "Reason Code: Grmp Block (73)",
+  [74] = "Reason Code: Fully Filled (74)",
+  [75] = "Reason Code: Invalid Auction Id (75)",
+  [76] = "Reason Code: Invalid Response Order Qty (76)",
+  [77] = "Reason Code: Sum Complete (77)",
+  [78] = "Reason Code: Limit Order Price Protection Breach (78)",
+  [79] = "Reason Code: Intrinsic Value Breach (79)",
+  [80] = "Reason Code: Invalid Underlying Id (80)",
+  [81] = "Reason Code: Market Halt (81)",
+  [82] = "Reason Code: Market Order Max Notional Breach (82)",
+  [83] = "Reason Code: Invalid Target Party Id (83)",
+  [84] = "Reason Code: Invalid Routing Firm Id (84)",
+  [85] = "Reason Code: Opening Process Cancel (85)",
+  [86] = "Reason Code: Quote Would Lock Cross (86)",
+  [87] = "Reason Code: Invalid Clearing Firm (87)",
+  [88] = "Reason Code: Duplicate Cl Ord Id (88)",
+  [89] = "Reason Code: Invalid Orig Cl Ord Id (89)",
+  [90] = "Reason Code: Unknown Orig Cl Ord Id (90)",
+  [91] = "Reason Code: Invalid On Behalf Of Comp Id (91)",
+  [92] = "Reason Code: Disallowed Market Orders (92)",
+  [93] = "Reason Code: Disallowed Iso Ioc Orders (93)",
+  [94] = "Reason Code: Disallowed Iso Day Orders (94)",
+  [95] = "Reason Code: Restricted Symbol (95)",
+  [96] = "Reason Code: Cancel On Disconnect (96)",
+  [97] = "Reason Code: Invalid Send Time (97)",
+  [98] = "Reason Code: Invalid Cust Capacity Weight (98)",
+  [99] = "Reason Code: Max Duplicative (99)",
+  [100] = "Reason Code: Mpid Blocked (100)",
+  [101] = "Reason Code: Quote Canceled (101)",
+  [102] = "Reason Code: Invalid Custom Group Id Count (102)",
+  [103] = "Reason Code: Grmp Trip (103)",
+  [104] = "Reason Code: Max Qty Exceeded (104)",
+  [105] = "Reason Code: Max Notional Exceeded (105)",
+  [106] = "Reason Code: Occ Identifier Not Configured (106)",
+  [107] = "Reason Code: Arbitrage Breach (107)",
+  [108] = "Reason Code: Abrc Breach (108)",
+  [109] = "Reason Code: Admin Cancel (109)",
+  [110] = "Reason Code: Invalid Reserved (110)",
+  [111] = "Reason Code: Nbbo Fade (111)",
+  [112] = "Reason Code: Locked Or Crossed By Away (112)",
+  [113] = "Reason Code: Sum Timeout (113)",
+  [114] = "Reason Code: Portal Cancel External (114)",
+  [115] = "Reason Code: Portal Cancel Internal (115)",
+}
 
-  return "Reason Code: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.reason_code.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.reason_code.labels[value] or "Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reason Code
@@ -4584,36 +4224,20 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.reject_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.reject_type.size = 1
 
 -- Display: Reject Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.reject_type.display = function(value)
-  if value == 0 then
-    return "Reject Type: New Order Reject (0)"
-  end
-  if value == 1 then
-    return "Reject Type: Cancel Replace Request Reject (1)"
-  end
-  if value == 2 then
-    return "Reject Type: Cancel Request Reject (2)"
-  end
-  if value == 3 then
-    return "Reject Type: Mass Cancel Request Reject (3)"
-  end
-  if value == 4 then
-    return "Reject Type: New Bulk Quote Reject (4)"
-  end
-  if value == 5 then
-    return "Reject Type: Risk Limit Update Request Reject (5)"
-  end
-  if value == 6 then
-    return "Reject Type: Risk Action Request Reject (6)"
-  end
-  if value == 7 then
-    return "Reject Type: Purge Request Reject (7)"
-  end
-  if value == 8 then
-    return "Reject Type: New Ioc Quote Reject (8)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.reject_type.labels = {
+  [0] = "Reject Type: New Order Reject (0)",
+  [1] = "Reject Type: Cancel Replace Request Reject (1)",
+  [2] = "Reject Type: Cancel Request Reject (2)",
+  [3] = "Reject Type: Mass Cancel Request Reject (3)",
+  [4] = "Reject Type: New Bulk Quote Reject (4)",
+  [5] = "Reject Type: Risk Limit Update Request Reject (5)",
+  [6] = "Reject Type: Risk Action Request Reject (6)",
+  [7] = "Reject Type: Purge Request Reject (7)",
+  [8] = "Reject Type: New Ioc Quote Reject (8)",
+}
 
-  return "Reject Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.reject_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.reject_type.labels[value] or "Reject Type: Unknown("..value..")"
 end
 
 -- Dissect: Reject Type
@@ -4663,24 +4287,16 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.restatement_reason = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.restatement_reason.size = 1
 
 -- Display: Restatement Reason
-iex_iexoptions_binaryorderentry_sbe_v1_03.restatement_reason.display = function(value)
-  if value == 1 then
-    return "Restatement Reason: Price Adjust Repricing (1)"
-  end
-  if value == 2 then
-    return "Restatement Reason: Drill Through Protection Repricing (2)"
-  end
-  if value == 3 then
-    return "Restatement Reason: Trading Halt (3)"
-  end
-  if value == 4 then
-    return "Restatement Reason: Sum Conclusion (4)"
-  end
-  if value == 5 then
-    return "Restatement Reason: Book Resubmission (5)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.restatement_reason.labels = {
+  [1] = "Restatement Reason: Price Adjust Repricing (1)",
+  [2] = "Restatement Reason: Drill Through Protection Repricing (2)",
+  [3] = "Restatement Reason: Trading Halt (3)",
+  [4] = "Restatement Reason: Sum Conclusion (4)",
+  [5] = "Restatement Reason: Book Resubmission (5)",
+}
 
-  return "Restatement Reason: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.restatement_reason.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.restatement_reason.labels[value] or "Restatement Reason: Unknown("..value..")"
 end
 
 -- Dissect: Restatement Reason
@@ -4702,15 +4318,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.risk_ack_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.risk_ack_type.size = 1
 
 -- Display: Risk Ack Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.risk_ack_type.display = function(value)
-  if value == 0 then
-    return "Risk Ack Type: Solicited (0)"
-  end
-  if value == 1 then
-    return "Risk Ack Type: Unsolicited (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.risk_ack_type.labels = {
+  [0] = "Risk Ack Type: Solicited (0)",
+  [1] = "Risk Ack Type: Unsolicited (1)",
+}
 
-  return "Risk Ack Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.risk_ack_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.risk_ack_type.labels[value] or "Risk Ack Type: Unknown("..value..")"
 end
 
 -- Dissect: Risk Ack Type
@@ -4732,15 +4346,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action.size = 1
 
 -- Display: Risk Action
-iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action.display = function(value)
-  if value == 1 then
-    return "Risk Action: Query Risk Control (1)"
-  end
-  if value == 2 then
-    return "Risk Action: Unblock (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action.labels = {
+  [1] = "Risk Action: Query Risk Control (1)",
+  [2] = "Risk Action: Unblock (2)",
+}
 
-  return "Risk Action: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action.labels[value] or "Risk Action: Unknown("..value..")"
 end
 
 -- Dissect: Risk Action
@@ -4795,30 +4407,18 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control.size = 1
 
 -- Display: Risk Control
-iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control.display = function(value)
-  if value == 1 then
-    return "Risk Control: Transaction Based (1)"
-  end
-  if value == 2 then
-    return "Risk Control: Volume Based (2)"
-  end
-  if value == 3 then
-    return "Risk Control: Percentage Based (3)"
-  end
-  if value == 4 then
-    return "Risk Control: Grmp (4)"
-  end
-  if value == 5 then
-    return "Risk Control: Purge Lockout Reset (5)"
-  end
-  if value == 6 then
-    return "Risk Control: Intrinsic Value And Arbitrage (6)"
-  end
-  if value == 7 then
-    return "Risk Control: All Blocks For Underlying (7)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control.labels = {
+  [1] = "Risk Control: Transaction Based (1)",
+  [2] = "Risk Control: Volume Based (2)",
+  [3] = "Risk Control: Percentage Based (3)",
+  [4] = "Risk Control: Grmp (4)",
+  [5] = "Risk Control: Purge Lockout Reset (5)",
+  [6] = "Risk Control: Intrinsic Value And Arbitrage (6)",
+  [7] = "Risk Control: All Blocks For Underlying (7)",
+}
 
-  return "Risk Control: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control.labels[value] or "Risk Control: Unknown("..value..")"
 end
 
 -- Dissect: Risk Control
@@ -4960,15 +4560,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.schema_id = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.schema_id.size = 2
 
 -- Display: Schema Id
-iex_iexoptions_binaryorderentry_sbe_v1_03.schema_id.display = function(value)
-  if value == 20000 then
-    return "Schema Id: Session (20000)"
-  end
-  if value == 20001 then
-    return "Schema Id: Business (20001)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.schema_id.labels = {
+  [20000] = "Schema Id: Session (20000)",
+  [20001] = "Schema Id: Business (20001)",
+}
 
-  return "Schema Id: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.schema_id.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.schema_id.labels[value] or "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id
@@ -5036,15 +4634,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.side = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.side.size = 1
 
 -- Display: Side
-iex_iexoptions_binaryorderentry_sbe_v1_03.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
 
-  return "Side: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.side.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -5122,63 +4718,29 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.status = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.status.size = 1
 
 -- Display: Status
-iex_iexoptions_binaryorderentry_sbe_v1_03.status.display = function(value)
-  if value == 0 then
-    return "Status: Success (0)"
-  end
-  if value == 1 then
-    return "Status: Session Level Reject (1)"
-  end
-  if value == 2 then
-    return "Status: Logout Requested (2)"
-  end
-  if value == 3 then
-    return "Status: Unknown (3)"
-  end
-  if value == 4 then
-    return "Status: Invalid Logon Id (4)"
-  end
-  if value == 5 then
-    return "Status: Invalid Token (5)"
-  end
-  if value == 6 then
-    return "Status: Already Logged In (6)"
-  end
-  if value == 7 then
-    return "Status: Login Timeout (7)"
-  end
-  if value == 8 then
-    return "Status: Invalid Packet Length (8)"
-  end
-  if value == 9 then
-    return "Status: Invalid Message (9)"
-  end
-  if value == 10 then
-    return "Status: Join Revoked (10)"
-  end
-  if value == 11 then
-    return "Status: Heartbeat Timeout (11)"
-  end
-  if value == 12 then
-    return "Status: Message Out Of Sequence (12)"
-  end
-  if value == 13 then
-    return "Status: Invalid Subsession Id (13)"
-  end
-  if value == 14 then
-    return "Status: Subsession Not Joined (14)"
-  end
-  if value == 15 then
-    return "Status: Denial Of Service (15)"
-  end
-  if value == 16 then
-    return "Status: Invalid Argument (16)"
-  end
-  if value == 17 then
-    return "Status: Already Joined (17)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.status.labels = {
+  [0] = "Status: Success (0)",
+  [1] = "Status: Session Level Reject (1)",
+  [2] = "Status: Logout Requested (2)",
+  [3] = "Status: Unknown (3)",
+  [4] = "Status: Invalid Logon Id (4)",
+  [5] = "Status: Invalid Token (5)",
+  [6] = "Status: Already Logged In (6)",
+  [7] = "Status: Login Timeout (7)",
+  [8] = "Status: Invalid Packet Length (8)",
+  [9] = "Status: Invalid Message (9)",
+  [10] = "Status: Join Revoked (10)",
+  [11] = "Status: Heartbeat Timeout (11)",
+  [12] = "Status: Message Out Of Sequence (12)",
+  [13] = "Status: Invalid Subsession Id (13)",
+  [14] = "Status: Subsession Not Joined (14)",
+  [15] = "Status: Denial Of Service (15)",
+  [16] = "Status: Invalid Argument (16)",
+  [17] = "Status: Already Joined (17)",
+}
 
-  return "Status: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.status.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -5252,18 +4814,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_type.size = 1
 
 -- Display: Subsession Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_type.display = function(value)
-  if value == 0 then
-    return "Subsession Type: Client To Gateway (0)"
-  end
-  if value == 1 then
-    return "Subsession Type: Gateway To Client (1)"
-  end
-  if value == 2 then
-    return "Subsession Type: Reference Data (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_type.labels = {
+  [0] = "Subsession Type: Client To Gateway (0)",
+  [1] = "Subsession Type: Gateway To Client (1)",
+  [2] = "Subsession Type: Reference Data (2)",
+}
 
-  return "Subsession Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_type.labels[value] or "Subsession Type: Unknown("..value..")"
 end
 
 -- Dissect: Subsession Type
@@ -5324,123 +4882,49 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.template_id = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.template_id.size = 2
 
 -- Display: Template Id
-iex_iexoptions_binaryorderentry_sbe_v1_03.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Login Response Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Gateway Heartbeat Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Client Heartbeat Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Logout Request Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Terminate Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Sequenced Message Header Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Subsession Join Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Subsession Join Response Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Subsession Leave Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Subsession Leave Response Message (11)"
-  end
-  if value == 1 then
-    return "Template Id: New Order Single Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Order Cancel Replace Request Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Order Cancel Request Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: New Bulk Quote Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Mass Cancel Request Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Purge Request Message (6)"
-  end
-  if value == 101 then
-    return "Template Id: Order Ack Message (101)"
-  end
-  if value == 102 then
-    return "Template Id: Unsolicited Modify Ack Message (102)"
-  end
-  if value == 103 then
-    return "Template Id: Order Cancel Ack Message (103)"
-  end
-  if value == 104 then
-    return "Template Id: Mass Cancel Ack Message (104)"
-  end
-  if value == 105 then
-    return "Template Id: Bulk Quote Ack Message (105)"
-  end
-  if value == 106 then
-    return "Template Id: New Ioc Quote Ack Message (106)"
-  end
-  if value == 107 then
-    return "Template Id: Quote Restated Message (107)"
-  end
-  if value == 108 then
-    return "Template Id: Quote Canceled Message (108)"
-  end
-  if value == 109 then
-    return "Template Id: Purge Ack Message (109)"
-  end
-  if value == 110 then
-    return "Template Id: Execution Report Message (110)"
-  end
-  if value == 111 then
-    return "Template Id: Trade Bust Correct Message (111)"
-  end
-  if value == 112 then
-    return "Template Id: Application Layer Reject Message (112)"
-  end
-  if value == 51 then
-    return "Template Id: Risk Limit Update Request Message (51)"
-  end
-  if value == 52 then
-    return "Template Id: Risk Action Request Message (52)"
-  end
-  if value == 151 then
-    return "Template Id: Underlying Ref Data Message (151)"
-  end
-  if value == 152 then
-    return "Template Id: Instrument Ref Data Message (152)"
-  end
-  if value == 153 then
-    return "Template Id: Mpid Configuration Acknowledgement Message (153)"
-  end
-  if value == 154 then
-    return "Template Id: Market Maker Symbol Appointment Message (154)"
-  end
-  if value == 155 then
-    return "Template Id: Session Configuration Acknowledgement Message (155)"
-  end
-  if value == 156 then
-    return "Template Id: Risk Control Acknowledgment Message (156)"
-  end
-  if value == 157 then
-    return "Template Id: Risk Control Alert Message (157)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.template_id.labels = {
+  [1] = "Template Id: Login Request Message (1)",
+  [2] = "Template Id: Login Response Message (2)",
+  [3] = "Template Id: Gateway Heartbeat Message (3)",
+  [4] = "Template Id: Client Heartbeat Message (4)",
+  [5] = "Template Id: Logout Request Message (5)",
+  [6] = "Template Id: Terminate Message (6)",
+  [7] = "Template Id: Sequenced Message Header Message (7)",
+  [8] = "Template Id: Subsession Join Message (8)",
+  [9] = "Template Id: Subsession Join Response Message (9)",
+  [10] = "Template Id: Subsession Leave Message (10)",
+  [11] = "Template Id: Subsession Leave Response Message (11)",
+  [1] = "Template Id: New Order Single Message (1)",
+  [2] = "Template Id: Order Cancel Replace Request Message (2)",
+  [3] = "Template Id: Order Cancel Request Message (3)",
+  [4] = "Template Id: New Bulk Quote Message (4)",
+  [5] = "Template Id: Mass Cancel Request Message (5)",
+  [6] = "Template Id: Purge Request Message (6)",
+  [101] = "Template Id: Order Ack Message (101)",
+  [102] = "Template Id: Unsolicited Modify Ack Message (102)",
+  [103] = "Template Id: Order Cancel Ack Message (103)",
+  [104] = "Template Id: Mass Cancel Ack Message (104)",
+  [105] = "Template Id: Bulk Quote Ack Message (105)",
+  [106] = "Template Id: New Ioc Quote Ack Message (106)",
+  [107] = "Template Id: Quote Restated Message (107)",
+  [108] = "Template Id: Quote Canceled Message (108)",
+  [109] = "Template Id: Purge Ack Message (109)",
+  [110] = "Template Id: Execution Report Message (110)",
+  [111] = "Template Id: Trade Bust Correct Message (111)",
+  [112] = "Template Id: Application Layer Reject Message (112)",
+  [51] = "Template Id: Risk Limit Update Request Message (51)",
+  [52] = "Template Id: Risk Action Request Message (52)",
+  [151] = "Template Id: Underlying Ref Data Message (151)",
+  [152] = "Template Id: Instrument Ref Data Message (152)",
+  [153] = "Template Id: Mpid Configuration Acknowledgement Message (153)",
+  [154] = "Template Id: Market Maker Symbol Appointment Message (154)",
+  [155] = "Template Id: Session Configuration Acknowledgement Message (155)",
+  [156] = "Template Id: Risk Control Acknowledgment Message (156)",
+  [157] = "Template Id: Risk Control Alert Message (157)",
+}
 
-  return "Template Id: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.template_id.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -5462,15 +4946,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.throttle_indicator = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.throttle_indicator.size = 1
 
 -- Display: Throttle Indicator
-iex_iexoptions_binaryorderentry_sbe_v1_03.throttle_indicator.display = function(value)
-  if value == 0 then
-    return "Throttle Indicator: Not Throttled (0)"
-  end
-  if value == 1 then
-    return "Throttle Indicator: Throttled (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.throttle_indicator.labels = {
+  [0] = "Throttle Indicator: Not Throttled (0)",
+  [1] = "Throttle Indicator: Throttled (1)",
+}
 
-  return "Throttle Indicator: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.throttle_indicator.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.throttle_indicator.labels[value] or "Throttle Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Throttle Indicator
@@ -5525,15 +5007,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.time_in_force = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.time_in_force.size = 1
 
 -- Display: Time In Force
-iex_iexoptions_binaryorderentry_sbe_v1_03.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 1 then
-    return "Time In Force: Ioc (1)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.time_in_force.labels = {
+  [0] = "Time In Force: Day (0)",
+  [1] = "Time In Force: Ioc (1)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.time_in_force.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -5729,33 +5209,19 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.trade_liquidity_indicator = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.trade_liquidity_indicator.size = 1
 
 -- Display: Trade Liquidity Indicator
-iex_iexoptions_binaryorderentry_sbe_v1_03.trade_liquidity_indicator.display = function(value)
-  if value == 1 then
-    return "Trade Liquidity Indicator: Added Liquidity (1)"
-  end
-  if value == 2 then
-    return "Trade Liquidity Indicator: Removed Liquidity (2)"
-  end
-  if value == 3 then
-    return "Trade Liquidity Indicator: Routed (3)"
-  end
-  if value == 4 then
-    return "Trade Liquidity Indicator: Opening Process (4)"
-  end
-  if value == 5 then
-    return "Trade Liquidity Indicator: Re Opening Process (5)"
-  end
-  if value == 6 then
-    return "Trade Liquidity Indicator: Sum Initiating (6)"
-  end
-  if value == 7 then
-    return "Trade Liquidity Indicator: Sum Response (7)"
-  end
-  if value == 8 then
-    return "Trade Liquidity Indicator: Sum Unrelated (8)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.trade_liquidity_indicator.labels = {
+  [1] = "Trade Liquidity Indicator: Added Liquidity (1)",
+  [2] = "Trade Liquidity Indicator: Removed Liquidity (2)",
+  [3] = "Trade Liquidity Indicator: Routed (3)",
+  [4] = "Trade Liquidity Indicator: Opening Process (4)",
+  [5] = "Trade Liquidity Indicator: Re Opening Process (5)",
+  [6] = "Trade Liquidity Indicator: Sum Initiating (6)",
+  [7] = "Trade Liquidity Indicator: Sum Response (7)",
+  [8] = "Trade Liquidity Indicator: Sum Unrelated (8)",
+}
 
-  return "Trade Liquidity Indicator: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.trade_liquidity_indicator.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.trade_liquidity_indicator.labels[value] or "Trade Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Liquidity Indicator
@@ -5964,15 +5430,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_status = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_status.size = 1
 
 -- Display: User Session Status
-iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_status.display = function(value)
-  if value == 1 then
-    return "User Session Status: Active (1)"
-  end
-  if value == 2 then
-    return "User Session Status: Inactive (2)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_status.labels = {
+  [1] = "User Session Status: Active (1)",
+  [2] = "User Session Status: Inactive (2)",
+}
 
-  return "User Session Status: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_status.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_status.labels[value] or "User Session Status: Unknown("..value..")"
 end
 
 -- Dissect: User Session Status
@@ -5994,18 +5458,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_type = {}
 iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_type.size = 1
 
 -- Display: User Session Type
-iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_type.display = function(value)
-  if value == 1 then
-    return "User Session Type: Binary Order Entry (1)"
-  end
-  if value == 2 then
-    return "User Session Type: Mm Quoting (2)"
-  end
-  if value == 3 then
-    return "User Session Type: Purge (3)"
-  end
+iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_type.labels = {
+  [1] = "User Session Type: Binary Order Entry (1)",
+  [2] = "User Session Type: Mm Quoting (2)",
+  [3] = "User Session Type: Purge (3)",
+}
 
-  return "User Session Type: Unknown("..value..")"
+iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_type.display = function(value)
+  return iex_iexoptions_binaryorderentry_sbe_v1_03.user_session_type.labels[value] or "User Session Type: Unknown("..value..")"
 end
 
 -- Dissect: User Session Type
@@ -8047,82 +7507,32 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload = {}
 
 -- Dissect: Server Business Payload
+iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload.dispatch = {
+  [101] = iex_iexoptions_binaryorderentry_sbe_v1_03.order_ack_message.dissect,
+  [102] = iex_iexoptions_binaryorderentry_sbe_v1_03.unsolicited_modify_ack_message.dissect,
+  [103] = iex_iexoptions_binaryorderentry_sbe_v1_03.order_cancel_ack_message.dissect,
+  [104] = iex_iexoptions_binaryorderentry_sbe_v1_03.mass_cancel_ack_message.dissect,
+  [105] = iex_iexoptions_binaryorderentry_sbe_v1_03.bulk_quote_ack_message.dissect,
+  [106] = iex_iexoptions_binaryorderentry_sbe_v1_03.new_ioc_quote_ack_message.dissect,
+  [107] = iex_iexoptions_binaryorderentry_sbe_v1_03.quote_restated_message.dissect,
+  [108] = iex_iexoptions_binaryorderentry_sbe_v1_03.quote_canceled_message.dissect,
+  [109] = iex_iexoptions_binaryorderentry_sbe_v1_03.purge_ack_message.dissect,
+  [110] = iex_iexoptions_binaryorderentry_sbe_v1_03.execution_report_message.dissect,
+  [111] = iex_iexoptions_binaryorderentry_sbe_v1_03.trade_bust_correct_message.dissect,
+  [112] = iex_iexoptions_binaryorderentry_sbe_v1_03.application_layer_reject_message.dissect,
+  [151] = iex_iexoptions_binaryorderentry_sbe_v1_03.underlying_ref_data_message.dissect,
+  [152] = iex_iexoptions_binaryorderentry_sbe_v1_03.instrument_ref_data_message.dissect,
+  [153] = iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_configuration_acknowledgement_message.dissect,
+  [154] = iex_iexoptions_binaryorderentry_sbe_v1_03.market_maker_symbol_appointment_message.dissect,
+  [155] = iex_iexoptions_binaryorderentry_sbe_v1_03.session_configuration_acknowledgement_message.dissect,
+  [156] = iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control_acknowledgment_message.dissect,
+  [157] = iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control_alert_message.dissect,
+}
+
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Order Ack Message
-  if template_id == 101 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.order_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsolicited Modify Ack Message
-  if template_id == 102 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.unsolicited_modify_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Ack Message
-  if template_id == 103 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.order_cancel_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Ack Message
-  if template_id == 104 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.mass_cancel_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Ack Message
-  if template_id == 105 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.bulk_quote_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Ioc Quote Ack Message
-  if template_id == 106 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.new_ioc_quote_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Restated Message
-  if template_id == 107 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.quote_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Canceled Message
-  if template_id == 108 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.quote_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Ack Message
-  if template_id == 109 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.purge_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Message
-  if template_id == 110 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.execution_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Correct Message
-  if template_id == 111 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Layer Reject Message
-  if template_id == 112 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.application_layer_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Ref Data Message
-  if template_id == 151 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.underlying_ref_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Ref Data Message
-  if template_id == 152 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.instrument_ref_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mpid Configuration Acknowledgement Message
-  if template_id == 153 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.mpid_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Maker Symbol Appointment Message
-  if template_id == 154 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.market_maker_symbol_appointment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Configuration Acknowledgement Message
-  if template_id == 155 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Acknowledgment Message
-  if template_id == 156 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Alert Message
-  if template_id == 157 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control_alert_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8612,30 +8022,19 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload = {}
 
 -- Dissect: Server Session Payload
+iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload.dispatch = {
+  [2] = iex_iexoptions_binaryorderentry_sbe_v1_03.login_response_message.dissect,
+  [3] = iex_iexoptions_binaryorderentry_sbe_v1_03.gateway_heartbeat_message.dissect,
+  [6] = iex_iexoptions_binaryorderentry_sbe_v1_03.terminate_message.dissect,
+  [7] = iex_iexoptions_binaryorderentry_sbe_v1_03.sequenced_message_header_message.dissect,
+  [9] = iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_join_response_message.dissect,
+  [11] = iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_leave_response_message.dissect,
+}
+
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Login Response Message
-  if template_id == 2 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Heartbeat Message
-  if template_id == 3 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.gateway_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate Message
-  if template_id == 6 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.terminate_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message Header Message
-  if template_id == 7 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.sequenced_message_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Join Response Message
-  if template_id == 9 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_join_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Leave Response Message
-  if template_id == 11 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_leave_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -8696,14 +8095,15 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_payload = {}
 
 -- Dissect: Server Payload
+iex_iexoptions_binaryorderentry_sbe_v1_03.server_payload.dispatch = {
+  [20000] = iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_message.dissect,
+  [20001] = iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_message.dissect,
+}
+
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_payload.dissect = function(buffer, offset, packet, parent, schema_id)
-  -- Dissect Server Session Message
-  if schema_id == 20000 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Business Message
-  if schema_id == 20001 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.server_payload.dispatch[schema_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -9806,38 +9206,21 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload = {}
 
 -- Dissect: Client Business Payload
+iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload.dispatch = {
+  [1] = iex_iexoptions_binaryorderentry_sbe_v1_03.new_order_single_message.dissect,
+  [2] = iex_iexoptions_binaryorderentry_sbe_v1_03.order_cancel_replace_request_message.dissect,
+  [3] = iex_iexoptions_binaryorderentry_sbe_v1_03.order_cancel_request_message.dissect,
+  [4] = iex_iexoptions_binaryorderentry_sbe_v1_03.new_bulk_quote_message.dissect,
+  [5] = iex_iexoptions_binaryorderentry_sbe_v1_03.mass_cancel_request_message.dissect,
+  [6] = iex_iexoptions_binaryorderentry_sbe_v1_03.purge_request_message.dissect,
+  [51] = iex_iexoptions_binaryorderentry_sbe_v1_03.risk_limit_update_request_message.dissect,
+  [52] = iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action_request_message.dissect,
+}
+
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect New Order Single Message
-  if template_id == 1 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.new_order_single_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Replace Request Message
-  if template_id == 2 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.order_cancel_replace_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Request Message
-  if template_id == 3 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.order_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Bulk Quote Message
-  if template_id == 4 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.new_bulk_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Request Message
-  if template_id == 5 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.mass_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Request Message
-  if template_id == 6 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.purge_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Limit Update Request Message
-  if template_id == 51 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.risk_limit_update_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Action Request Message
-  if template_id == 52 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -10064,30 +9447,19 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload = {}
 
 -- Dissect: Client Session Payload
+iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload.dispatch = {
+  [1] = iex_iexoptions_binaryorderentry_sbe_v1_03.login_request_message.dissect,
+  [4] = iex_iexoptions_binaryorderentry_sbe_v1_03.client_heartbeat_message.dissect,
+  [5] = iex_iexoptions_binaryorderentry_sbe_v1_03.logout_request_message.dissect,
+  [7] = iex_iexoptions_binaryorderentry_sbe_v1_03.sequenced_message_header_message.dissect,
+  [8] = iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_join_message.dissect,
+  [10] = iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_leave_message.dissect,
+}
+
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Login Request Message
-  if template_id == 1 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Message
-  if template_id == 4 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.client_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Message
-  if template_id == 5 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.logout_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message Header Message
-  if template_id == 7 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.sequenced_message_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Join Message
-  if template_id == 8 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_join_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Leave Message
-  if template_id == 10 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_leave_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -10148,14 +9520,15 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_payload = {}
 
 -- Dissect: Client Payload
+iex_iexoptions_binaryorderentry_sbe_v1_03.client_payload.dispatch = {
+  [20000] = iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_message.dissect,
+  [20001] = iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_message.dissect,
+}
+
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_payload.dissect = function(buffer, offset, packet, parent, schema_id)
-  -- Dissect Client Session Message
-  if schema_id == 20000 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Business Message
-  if schema_id == 20001 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.client_payload.dispatch[schema_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

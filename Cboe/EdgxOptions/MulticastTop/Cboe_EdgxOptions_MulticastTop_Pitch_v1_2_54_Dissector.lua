@@ -413,21 +413,15 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_type = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_type.display = function(value)
-  if value == "G" then
-    return "Auction Type: Gth Opening (G)"
-  end
-  if value == "O" then
-    return "Auction Type: Rth Opening (O)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Re Opening (H)"
-  end
-  if value == "V" then
-    return "Auction Type: Volatility Opening (V)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_type.labels = {
+  ["G"] = "Auction Type: Gth Opening (G)",
+  ["O"] = "Auction Type: Rth Opening (O)",
+  ["H"] = "Auction Type: Halt Re Opening (H)",
+  ["V"] = "Auction Type: Volatility Opening (V)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_type.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -795,21 +789,15 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.gth_trading_status = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.gth_trading_status.size = 1
 
 -- Display: Gth Trading Status
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.gth_trading_status.display = function(value)
-  if value == "H" then
-    return "Gth Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Gth Trading Status: Quote Only (Q)"
-  end
-  if value == "R" then
-    return "Gth Trading Status: Opening Rotation (R)"
-  end
-  if value == "T" then
-    return "Gth Trading Status: Trading (T)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.gth_trading_status.labels = {
+  ["H"] = "Gth Trading Status: Halted (H)",
+  ["Q"] = "Gth Trading Status: Quote Only (Q)",
+  ["R"] = "Gth Trading Status: Opening Rotation (R)",
+  ["T"] = "Gth Trading Status: Trading (T)",
+}
 
-  return "Gth Trading Status: Unknown("..value..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.gth_trading_status.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.gth_trading_status.labels[value] or "Gth Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Gth Trading Status
@@ -929,48 +917,24 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0xD4 then
-    return "Message Type: Single Side Update Expanded Short Message (0xD4)"
-  end
-  if value == 0xD5 then
-    return "Message Type: Single Side Update Expanded Long Message (0xD5)"
-  end
-  if value == 0xD6 then
-    return "Message Type: Two Side Update Expanded Short Message (0xD6)"
-  end
-  if value == 0xD7 then
-    return "Message Type: Two Side Update Expanded Long Message (0xD7)"
-  end
-  if value == 0xB8 then
-    return "Message Type: Top Trade Message (0xB8)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Options Auction Update Message (0xD1)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0xD2 then
-    return "Message Type: Width Update Message (0xD2)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.labels = {
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
+  [0xD4] = "Message Type: Single Side Update Expanded Short Message (0xD4)",
+  [0xD5] = "Message Type: Single Side Update Expanded Long Message (0xD5)",
+  [0xD6] = "Message Type: Two Side Update Expanded Short Message (0xD6)",
+  [0xD7] = "Message Type: Two Side Update Expanded Long Message (0xD7)",
+  [0xB8] = "Message Type: Top Trade Message (0xB8)",
+  [0xD1] = "Message Type: Options Auction Update Message (0xD1)",
+  [0x96] = "Message Type: Auction Summary Message (0x96)",
+  [0x31] = "Message Type: Trading Status Message (0x31)",
+  [0xD2] = "Message Type: Width Update Message (0xD2)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1021,24 +985,16 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.opening_condition = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.opening_condition.size = 1
 
 -- Display: Opening Condition
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.opening_condition.display = function(value)
-  if value == "O" then
-    return "Opening Condition: Would Open (O)"
-  end
-  if value == "Q" then
-    return "Opening Condition: Need Quote To Open (Q)"
-  end
-  if value == "B" then
-    return "Opening Condition: Need More Buyers (B)"
-  end
-  if value == "S" then
-    return "Opening Condition: Need More Sellers (S)"
-  end
-  if value == "C" then
-    return "Opening Condition: Crossed Composite Market (C)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.opening_condition.labels = {
+  ["O"] = "Opening Condition: Would Open (O)",
+  ["Q"] = "Opening Condition: Need Quote To Open (Q)",
+  ["B"] = "Opening Condition: Need More Buyers (B)",
+  ["S"] = "Opening Condition: Need More Sellers (S)",
+  ["C"] = "Opening Condition: Crossed Composite Market (C)",
+}
 
-  return "Opening Condition: Unknown("..value..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.opening_condition.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.opening_condition.labels[value] or "Opening Condition: Unknown("..value..")"
 end
 
 -- Dissect: Opening Condition
@@ -1331,15 +1287,13 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.side = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.side.size = 1
 
 -- Display: Side
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.side.display = function(value)
-  if value == "B" then
-    return "Side: Bid Side (B)"
-  end
-  if value == "S" then
-    return "Side: Ask Side (S)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.side.labels = {
+  ["B"] = "Side: Bid Side (B)",
+  ["S"] = "Side: Ask Side (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.side.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1384,15 +1338,13 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_condition = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_condition.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -1539,78 +1491,34 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.trade_condition = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.trade_condition.size = 1
 
 -- Display: Trade Condition
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.trade_condition.display = function(value)
-  if value == "a" then
-    return "Trade Condition: Single Leg Auction Non Iso Cboe Auction Types Include Aim Sam (a)"
-  end
-  if value == "b" then
-    return "Trade Condition: Single Leg Auction Iso Cboe Auction Types Include Aim Iso Sam Iso (b)"
-  end
-  if value == "c" then
-    return "Trade Condition: Single Leg Cross Non Iso Cboe Auction Types Include Cust To Cust Aim Qcc (c)"
-  end
-  if value == "d" then
-    return "Trade Condition: Single Leg Cross Iso Cboe Order Type Is Cust To Cust Aim Iso (d)"
-  end
-  if value == "e" then
-    return "Trade Condition: Single Leg Floor Trade (e)"
-  end
-  if value == "f" then
-    return "Trade Condition: Complex To Complex Electronic Trade Cboe Auction Type Is Coa (f)"
-  end
-  if value == "g" then
-    return "Trade Condition: Complex Auction Trade Cboe Order Types Include Caim Csam (g)"
-  end
-  if value == "h" then
-    return "Trade Condition: Complex Cross Cboe Auction Types Include Cust To Cust Caim Cqcc (h)"
-  end
-  if value == "i" then
-    return "Trade Condition: Complex Floor Trade Deprecated All Complex Floor Executions Are Reported As Condition M (i)"
-  end
-  if value == "j" then
-    return "Trade Condition: Complex Electronic Trade Against Single Legs (j)"
-  end
-  if value == "k" then
-    return "Trade Condition: Complex With Stock Options Auction Trade Cboe Auction Types Include Caim W Stock Csam W Stock (k)"
-  end
-  if value == "m" then
-    return "Trade Condition: Complex Floor Trade Against Single Legs All Complex Floor Executions Are Reported As Condition M (m)"
-  end
-  if value == "n" then
-    return "Trade Condition: Complex With Stock Electronic Trade Includes Coa Auctions Done Electronically (n)"
-  end
-  if value == "o" then
-    return "Trade Condition: Complex With Stock Cross Cboe Auction Types Include Cqcc W Stock (o)"
-  end
-  if value == "p" then
-    return "Trade Condition: Complex With Stock Floor Trade (p)"
-  end
-  if value == "t" then
-    return "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)"
-  end
-  if value == "u" then
-    return "Trade Condition: Multilateral Compression Trade Of Proprietary Products (u)"
-  end
-  if value == "v" then
-    return "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)"
-  end
-  if value == "I" then
-    return "Trade Condition: Electronic Trade (I)"
-  end
-  if value == "K" then
-    return "Trade Condition: Cabinet Order (K)"
-  end
-  if value == "O" then
-    return "Trade Condition: Opening Trade (O)"
-  end
-  if value == "S" then
-    return "Trade Condition: Iso (S)"
-  end
-  if value == "X" then
-    return "Trade Condition: Trade Break (X)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.trade_condition.labels = {
+  ["a"] = "Trade Condition: Single Leg Auction Non Iso Cboe Auction Types Include Aim Sam (a)",
+  ["b"] = "Trade Condition: Single Leg Auction Iso Cboe Auction Types Include Aim Iso Sam Iso (b)",
+  ["c"] = "Trade Condition: Single Leg Cross Non Iso Cboe Auction Types Include Cust To Cust Aim Qcc (c)",
+  ["d"] = "Trade Condition: Single Leg Cross Iso Cboe Order Type Is Cust To Cust Aim Iso (d)",
+  ["e"] = "Trade Condition: Single Leg Floor Trade (e)",
+  ["f"] = "Trade Condition: Complex To Complex Electronic Trade Cboe Auction Type Is Coa (f)",
+  ["g"] = "Trade Condition: Complex Auction Trade Cboe Order Types Include Caim Csam (g)",
+  ["h"] = "Trade Condition: Complex Cross Cboe Auction Types Include Cust To Cust Caim Cqcc (h)",
+  ["i"] = "Trade Condition: Complex Floor Trade Deprecated All Complex Floor Executions Are Reported As Condition M (i)",
+  ["j"] = "Trade Condition: Complex Electronic Trade Against Single Legs (j)",
+  ["k"] = "Trade Condition: Complex With Stock Options Auction Trade Cboe Auction Types Include Caim W Stock Csam W Stock (k)",
+  ["m"] = "Trade Condition: Complex Floor Trade Against Single Legs All Complex Floor Executions Are Reported As Condition M (m)",
+  ["n"] = "Trade Condition: Complex With Stock Electronic Trade Includes Coa Auctions Done Electronically (n)",
+  ["o"] = "Trade Condition: Complex With Stock Cross Cboe Auction Types Include Cqcc W Stock (o)",
+  ["p"] = "Trade Condition: Complex With Stock Floor Trade (p)",
+  ["t"] = "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)",
+  ["u"] = "Trade Condition: Multilateral Compression Trade Of Proprietary Products (u)",
+  ["v"] = "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)",
+  ["I"] = "Trade Condition: Electronic Trade (I)",
+  ["K"] = "Trade Condition: Cabinet Order (K)",
+  ["O"] = "Trade Condition: Opening Trade (O)",
+  ["S"] = "Trade Condition: Iso (S)",
+  ["X"] = "Trade Condition: Trade Break (X)",
+}
 
-  return "Trade Condition: Unknown("..value..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.trade_condition.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.trade_condition.labels[value] or "Trade Condition: Unknown("..value..")"
 end
 
 -- Dissect: Trade Condition
@@ -1632,24 +1540,16 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "L" then
-    return "Trading Status: Curb Trading (L)"
-  end
-  if value == "Q" then
-    return "Trading Status: Quote Only (Q)"
-  end
-  if value == "R" then
-    return "Trading Status: Opening Rotation (R)"
-  end
-  if value == "T" then
-    return "Trading Status: Rth Trading (T)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["L"] = "Trading Status: Curb Trading (L)",
+  ["Q"] = "Trading Status: Quote Only (Q)",
+  ["R"] = "Trading Status: Opening Rotation (R)",
+  ["T"] = "Trading Status: Rth Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1717,15 +1617,13 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_type = {}
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_type.size = 1
 
 -- Display: Width Type
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_type.display = function(value)
-  if value == "R" then
-    return "Width Type: Regular (R)"
-  end
-  if value == "V" then
-    return "Width Type: Volatility (V)"
-  end
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_type.labels = {
+  ["R"] = "Width Type: Regular (R)",
+  ["V"] = "Width Type: Volatility (V)",
+}
 
-  return "Width Type: Unknown("..value..")"
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_type.display = function(value)
+  return cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_type.labels[value] or "Width Type: Unknown("..value..")"
 end
 
 -- Dissect: Width Type
@@ -2628,58 +2526,26 @@ end
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.payload = {}
 
 -- Dissect: Payload
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.payload.dispatch = {
+  [0x20] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.time_message.dissect,
+  [0x97] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.unit_clear_message.dissect,
+  [0x2E] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_mapping_message.dissect,
+  [0xD4] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_short_message.dissect,
+  [0xD5] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_long_message.dissect,
+  [0xD6] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_short_message.dissect,
+  [0xD7] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_long_message.dissect,
+  [0xB8] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.top_trade_message.dissect,
+  [0xD1] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.options_auction_update_message.dissect,
+  [0x96] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_summary_message.dissect,
+  [0x31] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status_message.dissect,
+  [0xD2] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_update_message.dissect,
+  [0x2D] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.end_of_session_message.dissect,
+}
+
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Expanded Short Message
-  if message_type == 0xD4 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Expanded Long Message
-  if message_type == 0xD5 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Two Side Update Expanded Short Message
-  if message_type == 0xD6 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Two Side Update Expanded Long Message
-  if message_type == 0xD7 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Trade Message
-  if message_type == 0xB8 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.top_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.options_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x31 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Width Update Message
-  if message_type == 0xD2 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.width_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgxoptions_multicasttop_pitch_v1_2_54.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2818,10 +2684,14 @@ end
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages = {}
 
 -- Dissect: Messages
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages.dispatch = {
+  [0] = cboe_edgxoptions_multicasttop_pitch_v1_2_54.heartbeat.dissect,
+}
+
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_edgxoptions_multicasttop_pitch_v1_2_54.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

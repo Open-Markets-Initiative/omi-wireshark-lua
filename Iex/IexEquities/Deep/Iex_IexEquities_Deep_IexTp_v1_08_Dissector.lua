@@ -245,24 +245,16 @@ iex_iexequities_deep_iextp_v1_08.auction_type = {}
 iex_iexequities_deep_iextp_v1_08.auction_type.size = 1
 
 -- Display: Auction Type
-iex_iexequities_deep_iextp_v1_08.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "I" then
-    return "Auction Type: Ipo Auction (I)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction (H)"
-  end
-  if value == "V" then
-    return "Auction Type: Volatility Auction (V)"
-  end
+iex_iexequities_deep_iextp_v1_08.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["I"] = "Auction Type: Ipo Auction (I)",
+  ["H"] = "Auction Type: Halt Auction (H)",
+  ["V"] = "Auction Type: Volatility Auction (V)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.auction_type.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -379,15 +371,13 @@ iex_iexequities_deep_iextp_v1_08.event_flags = {}
 iex_iexequities_deep_iextp_v1_08.event_flags.size = 1
 
 -- Display: Event Flags
-iex_iexequities_deep_iextp_v1_08.event_flags.display = function(value)
-  if value == 0 then
-    return "Event Flags: Order Book Is Processing An Event (0)"
-  end
-  if value == 1 then
-    return "Event Flags: Event Processing Complete (1)"
-  end
+iex_iexequities_deep_iextp_v1_08.event_flags.labels = {
+  [0] = "Event Flags: Order Book Is Processing An Event (0)",
+  [1] = "Event Flags: Event Processing Complete (1)",
+}
 
-  return "Event Flags: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.event_flags.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.event_flags.labels[value] or "Event Flags: Unknown("..value..")"
 end
 
 -- Dissect: Event Flags
@@ -478,18 +468,14 @@ iex_iexequities_deep_iextp_v1_08.imbalance_side = {}
 iex_iexequities_deep_iextp_v1_08.imbalance_side.size = 1
 
 -- Display: Imbalance Side
-iex_iexequities_deep_iextp_v1_08.imbalance_side.display = function(value)
-  if value == "B" then
-    return "Imbalance Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Imbalance Side: Sell (S)"
-  end
-  if value == "N" then
-    return "Imbalance Side: None (N)"
-  end
+iex_iexequities_deep_iextp_v1_08.imbalance_side.labels = {
+  ["B"] = "Imbalance Side: Buy (B)",
+  ["S"] = "Imbalance Side: Sell (S)",
+  ["N"] = "Imbalance Side: None (N)",
+}
 
-  return "Imbalance Side: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.imbalance_side.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.imbalance_side.labels[value] or "Imbalance Side: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Side
@@ -569,18 +555,14 @@ iex_iexequities_deep_iextp_v1_08.luld_tier = {}
 iex_iexequities_deep_iextp_v1_08.luld_tier.size = 1
 
 -- Display: Luld Tier
-iex_iexequities_deep_iextp_v1_08.luld_tier.display = function(value)
-  if value == 0 then
-    return "Luld Tier: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Luld Tier: Tier 1 Nms Stock (1)"
-  end
-  if value == 2 then
-    return "Luld Tier: Tier 2 Nms Stock (2)"
-  end
+iex_iexequities_deep_iextp_v1_08.luld_tier.labels = {
+  [0] = "Luld Tier: Not Applicable (0)",
+  [1] = "Luld Tier: Tier 1 Nms Stock (1)",
+  [2] = "Luld Tier: Tier 2 Nms Stock (2)",
+}
 
-  return "Luld Tier: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.luld_tier.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.luld_tier.labels[value] or "Luld Tier: Unknown("..value..")"
 end
 
 -- Dissect: Luld Tier
@@ -675,48 +657,24 @@ iex_iexequities_deep_iextp_v1_08.message_type = {}
 iex_iexequities_deep_iextp_v1_08.message_type.size = 1
 
 -- Display: Message Type
-iex_iexequities_deep_iextp_v1_08.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Security Directory Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Status Message (H)"
-  end
-  if value == "I" then
-    return "Message Type: Retail Liquidity Indicator Message (I)"
-  end
-  if value == "O" then
-    return "Message Type: Operational Halt Status Message (O)"
-  end
-  if value == "P" then
-    return "Message Type: Short Sale Price Test Status Message (P)"
-  end
-  if value == "E" then
-    return "Message Type: Security Event Message (E)"
-  end
-  if value == "8" then
-    return "Message Type: Price Level Buy Update Message (8)"
-  end
-  if value == "5" then
-    return "Message Type: Price Level Sell Update Message (5)"
-  end
-  if value == "T" then
-    return "Message Type: Trade Report Message (T)"
-  end
-  if value == "X" then
-    return "Message Type: Official Price Message (X)"
-  end
-  if value == "B" then
-    return "Message Type: Trade Break Message (B)"
-  end
-  if value == "A" then
-    return "Message Type: Auction Information Message (A)"
-  end
+iex_iexequities_deep_iextp_v1_08.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["D"] = "Message Type: Security Directory Message (D)",
+  ["H"] = "Message Type: Trading Status Message (H)",
+  ["I"] = "Message Type: Retail Liquidity Indicator Message (I)",
+  ["O"] = "Message Type: Operational Halt Status Message (O)",
+  ["P"] = "Message Type: Short Sale Price Test Status Message (P)",
+  ["E"] = "Message Type: Security Event Message (E)",
+  ["8"] = "Message Type: Price Level Buy Update Message (8)",
+  ["5"] = "Message Type: Price Level Sell Update Message (5)",
+  ["T"] = "Message Type: Trade Report Message (T)",
+  ["X"] = "Message Type: Official Price Message (X)",
+  ["B"] = "Message Type: Trade Break Message (B)",
+  ["A"] = "Message Type: Auction Information Message (A)",
+}
 
-  return "Message Type: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.message_type.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -767,15 +725,13 @@ iex_iexequities_deep_iextp_v1_08.operational_halt_status = {}
 iex_iexequities_deep_iextp_v1_08.operational_halt_status.size = 1
 
 -- Display: Operational Halt Status
-iex_iexequities_deep_iextp_v1_08.operational_halt_status.display = function(value)
-  if value == "O" then
-    return "Operational Halt Status: Iex Specific Operational Trading Halt (O)"
-  end
-  if value == "N" then
-    return "Operational Halt Status: Not Operationally Halted On Iex (N)"
-  end
+iex_iexequities_deep_iextp_v1_08.operational_halt_status.labels = {
+  ["O"] = "Operational Halt Status: Iex Specific Operational Trading Halt (O)",
+  ["N"] = "Operational Halt Status: Not Operationally Halted On Iex (N)",
+}
 
-  return "Operational Halt Status: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.operational_halt_status.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.operational_halt_status.labels[value] or "Operational Halt Status: Unknown("..value..")"
 end
 
 -- Dissect: Operational Halt Status
@@ -872,15 +828,13 @@ iex_iexequities_deep_iextp_v1_08.price_type = {}
 iex_iexequities_deep_iextp_v1_08.price_type.size = 1
 
 -- Display: Price Type
-iex_iexequities_deep_iextp_v1_08.price_type.display = function(value)
-  if value == "Q" then
-    return "Price Type: Iex Official Opening Price (Q)"
-  end
-  if value == "M" then
-    return "Price Type: Iex Official Closing Price (M)"
-  end
+iex_iexequities_deep_iextp_v1_08.price_type.labels = {
+  ["Q"] = "Price Type: Iex Official Opening Price (Q)",
+  ["M"] = "Price Type: Iex Official Closing Price (M)",
+}
 
-  return "Price Type: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.price_type.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -1060,15 +1014,13 @@ iex_iexequities_deep_iextp_v1_08.security_event = {}
 iex_iexequities_deep_iextp_v1_08.security_event.size = 1
 
 -- Display: Security Event
-iex_iexequities_deep_iextp_v1_08.security_event.display = function(value)
-  if value == "O" then
-    return "Security Event: Opening Process Complete (O)"
-  end
-  if value == "C" then
-    return "Security Event: Closing Process Complete (C)"
-  end
+iex_iexequities_deep_iextp_v1_08.security_event.labels = {
+  ["O"] = "Security Event: Opening Process Complete (O)",
+  ["C"] = "Security Event: Closing Process Complete (C)",
+}
 
-  return "Security Event: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.security_event.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.security_event.labels[value] or "Security Event: Unknown("..value..")"
 end
 
 -- Dissect: Security Event
@@ -1137,15 +1089,13 @@ iex_iexequities_deep_iextp_v1_08.short_sale_price_test_status = {}
 iex_iexequities_deep_iextp_v1_08.short_sale_price_test_status.size = 1
 
 -- Display: Short Sale Price Test Status
-iex_iexequities_deep_iextp_v1_08.short_sale_price_test_status.display = function(value)
-  if value == 0 then
-    return "Short Sale Price Test Status: Not In Effect (0)"
-  end
-  if value == 1 then
-    return "Short Sale Price Test Status: In Effect (1)"
-  end
+iex_iexequities_deep_iextp_v1_08.short_sale_price_test_status.labels = {
+  [0] = "Short Sale Price Test Status: Not In Effect (0)",
+  [1] = "Short Sale Price Test Status: In Effect (1)",
+}
 
-  return "Short Sale Price Test Status: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.short_sale_price_test_status.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.short_sale_price_test_status.labels[value] or "Short Sale Price Test Status: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Price Test Status
@@ -1236,27 +1186,17 @@ iex_iexequities_deep_iextp_v1_08.system_event = {}
 iex_iexequities_deep_iextp_v1_08.system_event.size = 1
 
 -- Display: System Event
-iex_iexequities_deep_iextp_v1_08.system_event.display = function(value)
-  if value == "O" then
-    return "System Event: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "System Event: Start Of System Hours (S)"
-  end
-  if value == "R" then
-    return "System Event: Start Of Regular Market Hours (R)"
-  end
-  if value == "M" then
-    return "System Event: End Of Regular Market Hours (M)"
-  end
-  if value == "E" then
-    return "System Event: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "System Event: End Of Messages (C)"
-  end
+iex_iexequities_deep_iextp_v1_08.system_event.labels = {
+  ["O"] = "System Event: Start Of Messages (O)",
+  ["S"] = "System Event: Start Of System Hours (S)",
+  ["R"] = "System Event: Start Of Regular Market Hours (R)",
+  ["M"] = "System Event: End Of Regular Market Hours (M)",
+  ["E"] = "System Event: End Of System Hours (E)",
+  ["C"] = "System Event: End Of Messages (C)",
+}
 
-  return "System Event: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.system_event.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.system_event.labels[value] or "System Event: Unknown("..value..")"
 end
 
 -- Dissect: System Event
@@ -1325,21 +1265,15 @@ iex_iexequities_deep_iextp_v1_08.trading_status = {}
 iex_iexequities_deep_iextp_v1_08.trading_status.size = 1
 
 -- Display: Trading Status
-iex_iexequities_deep_iextp_v1_08.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Trading Halted Across All Us Equity Markets (H)"
-  end
-  if value == "O" then
-    return "Trading Status: Trading Halt Released Into An Order Acceptance Period On Iex (O)"
-  end
-  if value == "P" then
-    return "Trading Status: Trading Paused And Order Acceptance Period On Iex (P)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading On Iex (T)"
-  end
+iex_iexequities_deep_iextp_v1_08.trading_status.labels = {
+  ["H"] = "Trading Status: Trading Halted Across All Us Equity Markets (H)",
+  ["O"] = "Trading Status: Trading Halt Released Into An Order Acceptance Period On Iex (O)",
+  ["P"] = "Trading Status: Trading Paused And Order Acceptance Period On Iex (P)",
+  ["T"] = "Trading Status: Trading On Iex (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+iex_iexequities_deep_iextp_v1_08.trading_status.display = function(value)
+  return iex_iexequities_deep_iextp_v1_08.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2275,58 +2209,26 @@ end
 iex_iexequities_deep_iextp_v1_08.message_data = {}
 
 -- Dissect: Message Data
+iex_iexequities_deep_iextp_v1_08.message_data.dispatch = {
+  ["S"] = iex_iexequities_deep_iextp_v1_08.system_event_message.dissect,
+  ["D"] = iex_iexequities_deep_iextp_v1_08.security_directory_message.dissect,
+  ["H"] = iex_iexequities_deep_iextp_v1_08.trading_status_message.dissect,
+  ["I"] = iex_iexequities_deep_iextp_v1_08.retail_liquidity_indicator_message.dissect,
+  ["O"] = iex_iexequities_deep_iextp_v1_08.operational_halt_status_message.dissect,
+  ["P"] = iex_iexequities_deep_iextp_v1_08.short_sale_price_test_status_message.dissect,
+  ["E"] = iex_iexequities_deep_iextp_v1_08.security_event_message.dissect,
+  ["8"] = iex_iexequities_deep_iextp_v1_08.price_level_buy_update_message.dissect,
+  ["5"] = iex_iexequities_deep_iextp_v1_08.price_level_sell_update_message.dissect,
+  ["T"] = iex_iexequities_deep_iextp_v1_08.trade_report_message.dissect,
+  ["X"] = iex_iexequities_deep_iextp_v1_08.official_price_message.dissect,
+  ["B"] = iex_iexequities_deep_iextp_v1_08.trade_break_message.dissect,
+  ["A"] = iex_iexequities_deep_iextp_v1_08.auction_information_message.dissect,
+}
+
 iex_iexequities_deep_iextp_v1_08.message_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return iex_iexequities_deep_iextp_v1_08.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Directory Message
-  if message_type == "D" then
-    return iex_iexequities_deep_iextp_v1_08.security_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == "H" then
-    return iex_iexequities_deep_iextp_v1_08.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retail Liquidity Indicator Message
-  if message_type == "I" then
-    return iex_iexequities_deep_iextp_v1_08.retail_liquidity_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Operational Halt Status Message
-  if message_type == "O" then
-    return iex_iexequities_deep_iextp_v1_08.operational_halt_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Sale Price Test Status Message
-  if message_type == "P" then
-    return iex_iexequities_deep_iextp_v1_08.short_sale_price_test_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Event Message
-  if message_type == "E" then
-    return iex_iexequities_deep_iextp_v1_08.security_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Level Buy Update Message
-  if message_type == "8" then
-    return iex_iexequities_deep_iextp_v1_08.price_level_buy_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Level Sell Update Message
-  if message_type == "5" then
-    return iex_iexequities_deep_iextp_v1_08.price_level_sell_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "T" then
-    return iex_iexequities_deep_iextp_v1_08.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Official Price Message
-  if message_type == "X" then
-    return iex_iexequities_deep_iextp_v1_08.official_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == "B" then
-    return iex_iexequities_deep_iextp_v1_08.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Information Message
-  if message_type == "A" then
-    return iex_iexequities_deep_iextp_v1_08.auction_information_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexequities_deep_iextp_v1_08.message_data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2465,10 +2367,14 @@ end
 iex_iexequities_deep_iextp_v1_08.messages = {}
 
 -- Dissect: Messages
+iex_iexequities_deep_iextp_v1_08.messages.dispatch = {
+  [0] = iex_iexequities_deep_iextp_v1_08.heartbeat.dissect,
+}
+
 iex_iexequities_deep_iextp_v1_08.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return iex_iexequities_deep_iextp_v1_08.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexequities_deep_iextp_v1_08.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

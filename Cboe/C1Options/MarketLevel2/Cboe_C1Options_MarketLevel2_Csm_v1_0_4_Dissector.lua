@@ -250,15 +250,13 @@ cboe_c1options_marketlevel2_csm_v1_0_4.exercise_style = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.exercise_style.size = 1
 
 -- Display: Exercise Style
-cboe_c1options_marketlevel2_csm_v1_0_4.exercise_style.display = function(value)
-  if value == 0 then
-    return "Exercise Style: American (0)"
-  end
-  if value == 1 then
-    return "Exercise Style: European (1)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.exercise_style.labels = {
+  [0] = "Exercise Style: American (0)",
+  [1] = "Exercise Style: European (1)",
+}
 
-  return "Exercise Style: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.exercise_style.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.exercise_style.labels[value] or "Exercise Style: Unknown("..value..")"
 end
 
 -- Dissect: Exercise Style
@@ -349,15 +347,13 @@ cboe_c1options_marketlevel2_csm_v1_0_4.leg_side = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.leg_side.size = 1
 
 -- Display: Leg Side
-cboe_c1options_marketlevel2_csm_v1_0_4.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Buy Bid (B)"
-  end
-  if value == "S" then
-    return "Leg Side: Sell Ask (S)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.leg_side.labels = {
+  ["B"] = "Leg Side: Buy Bid (B)",
+  ["S"] = "Leg Side: Sell Ask (S)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.leg_side.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -517,15 +513,13 @@ cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_type = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_type.size = 1
 
 -- Display: Md Entry Type
-cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_type.display = function(value)
-  if value == "0" then
-    return "Md Entry Type: Buy Bid (0)"
-  end
-  if value == "1" then
-    return "Md Entry Type: Sell Ask (1)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_type.labels = {
+  ["0"] = "Md Entry Type: Buy Bid (0)",
+  ["1"] = "Md Entry Type: Sell Ask (1)",
+}
 
-  return "Md Entry Type: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_type.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_type.labels[value] or "Md Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
@@ -570,21 +564,15 @@ cboe_c1options_marketlevel2_csm_v1_0_4.md_update_action = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.md_update_action.size = 1
 
 -- Display: Md Update Action
-cboe_c1options_marketlevel2_csm_v1_0_4.md_update_action.display = function(value)
-  if value == 0 then
-    return "Md Update Action: Insert (0)"
-  end
-  if value == 1 then
-    return "Md Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Md Update Action: Delete (2)"
-  end
-  if value == 5 then
-    return "Md Update Action: Overlay (5)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.md_update_action.labels = {
+  [0] = "Md Update Action: Insert (0)",
+  [1] = "Md Update Action: Change (1)",
+  [2] = "Md Update Action: Delete (2)",
+  [5] = "Md Update Action: Overlay (5)",
+}
 
-  return "Md Update Action: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.md_update_action.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.md_update_action.labels[value] or "Md Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Md Update Action
@@ -606,21 +594,15 @@ cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_type = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_type.size = 1
 
 -- Display: Md Volume Type
-cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_type.display = function(value)
-  if value == 0 then
-    return "Md Volume Type: Total Limit (0)"
-  end
-  if value == 1 then
-    return "Md Volume Type: Customer Limit (1)"
-  end
-  if value == 2 then
-    return "Md Volume Type: Total Contingency All Or None (2)"
-  end
-  if value == 3 then
-    return "Md Volume Type: Customer Contingency All Or None (3)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_type.labels = {
+  [0] = "Md Volume Type: Total Limit (0)",
+  [1] = "Md Volume Type: Customer Limit (1)",
+  [2] = "Md Volume Type: Total Contingency All Or None (2)",
+  [3] = "Md Volume Type: Customer Contingency All Or None (3)",
+}
 
-  return "Md Volume Type: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_type.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_type.labels[value] or "Md Volume Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Volume Type
@@ -1010,15 +992,13 @@ cboe_c1options_marketlevel2_csm_v1_0_4.put_or_call = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.put_or_call.size = 1
 
 -- Display: Put Or Call
-cboe_c1options_marketlevel2_csm_v1_0_4.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.put_or_call.labels = {
+  [0] = "Put Or Call: Put (0)",
+  [1] = "Put Or Call: Call (1)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.put_or_call.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -1040,15 +1020,13 @@ cboe_c1options_marketlevel2_csm_v1_0_4.refresh_indicator = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.refresh_indicator.size = 1
 
 -- Display: Refresh Indicator
-cboe_c1options_marketlevel2_csm_v1_0_4.refresh_indicator.display = function(value)
-  if value == "Y" then
-    return "Refresh Indicator: Mandatory Refresh (Y)"
-  end
-  if value == "N" then
-    return "Refresh Indicator: Process If Necessary (N)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.refresh_indicator.labels = {
+  ["Y"] = "Refresh Indicator: Mandatory Refresh (Y)",
+  ["N"] = "Refresh Indicator: Process If Necessary (N)",
+}
 
-  return "Refresh Indicator: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.refresh_indicator.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.refresh_indicator.labels[value] or "Refresh Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Refresh Indicator
@@ -1093,24 +1071,16 @@ cboe_c1options_marketlevel2_csm_v1_0_4.security_exchange = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.security_exchange.size = 1
 
 -- Display: Security Exchange
-cboe_c1options_marketlevel2_csm_v1_0_4.security_exchange.display = function(value)
-  if value == "C" then
-    return "Security Exchange: Cboe (C)"
-  end
-  if value == "O" then
-    return "Security Exchange: One Chicago Not Supported (O)"
-  end
-  if value == "W" then
-    return "Security Exchange: Cbsx Not Supported (W)"
-  end
-  if value == "F" then
-    return "Security Exchange: Cfecof Not Supported (F)"
-  end
-  if value == "2" then
-    return "Security Exchange: Cboe 2 Options Not Supported (2)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.security_exchange.labels = {
+  ["C"] = "Security Exchange: Cboe (C)",
+  ["O"] = "Security Exchange: One Chicago Not Supported (O)",
+  ["W"] = "Security Exchange: Cbsx Not Supported (W)",
+  ["F"] = "Security Exchange: Cfecof Not Supported (F)",
+  ["2"] = "Security Exchange: Cboe 2 Options Not Supported (2)",
+}
 
-  return "Security Exchange: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.security_exchange.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.security_exchange.labels[value] or "Security Exchange: Unknown("..value..")"
 end
 
 -- Dissect: Security Exchange
@@ -1155,36 +1125,20 @@ cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Halted (2)"
-  end
-  if value == 17 then
-    return "Security Trading Status: Open (17)"
-  end
-  if value == 18 then
-    return "Security Trading Status: Closed (18)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Pre Open (21)"
-  end
-  if value == 22 then
-    return "Security Trading Status: Opening Rotation (22)"
-  end
-  if value == 23 then
-    return "Security Trading Status: Fast Market (23)"
-  end
-  if value == 24 then
-    return "Security Trading Status: Strategy Market In Opening Rotation (24)"
-  end
-  if value == 25 then
-    return "Security Trading Status: Strategy Market Quotes Non Firm (25)"
-  end
-  if value == 26 then
-    return "Security Trading Status: Suspended (26)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.labels = {
+  [2] = "Security Trading Status: Halted (2)",
+  [17] = "Security Trading Status: Open (17)",
+  [18] = "Security Trading Status: Closed (18)",
+  [21] = "Security Trading Status: Pre Open (21)",
+  [22] = "Security Trading Status: Opening Rotation (22)",
+  [23] = "Security Trading Status: Fast Market (23)",
+  [24] = "Security Trading Status: Strategy Market In Opening Rotation (24)",
+  [25] = "Security Trading Status: Strategy Market Quotes Non Firm (25)",
+  [26] = "Security Trading Status: Suspended (26)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -1401,24 +1355,16 @@ cboe_c1options_marketlevel2_csm_v1_0_4.template_id = {}
 cboe_c1options_marketlevel2_csm_v1_0_4.template_id.size = 1
 
 -- Display: Template Id
-cboe_c1options_marketlevel2_csm_v1_0_4.template_id.display = function(value)
-  if value == 13 then
-    return "Template Id: Security Definition Message (13)"
-  end
-  if value == 17 then
-    return "Template Id: Snapshot Full Refresh Message (17)"
-  end
-  if value == 18 then
-    return "Template Id: Incremental Refresh Message (18)"
-  end
-  if value == 19 then
-    return "Template Id: Security Status Message (19)"
-  end
-  if value == 16 then
-    return "Template Id: Heartbeat Message (16)"
-  end
+cboe_c1options_marketlevel2_csm_v1_0_4.template_id.labels = {
+  [13] = "Template Id: Security Definition Message (13)",
+  [17] = "Template Id: Snapshot Full Refresh Message (17)",
+  [18] = "Template Id: Incremental Refresh Message (18)",
+  [19] = "Template Id: Security Status Message (19)",
+  [16] = "Template Id: Heartbeat Message (16)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cboe_c1options_marketlevel2_csm_v1_0_4.template_id.display = function(value)
+  return cboe_c1options_marketlevel2_csm_v1_0_4.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2810,26 +2756,18 @@ end
 cboe_c1options_marketlevel2_csm_v1_0_4.payload = {}
 
 -- Dissect: Payload
+cboe_c1options_marketlevel2_csm_v1_0_4.payload.dispatch = {
+  [13] = cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_message.dissect,
+  [17] = cboe_c1options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_message.dissect,
+  [18] = cboe_c1options_marketlevel2_csm_v1_0_4.incremental_refresh_message.dissect,
+  [19] = cboe_c1options_marketlevel2_csm_v1_0_4.security_status_message.dissect,
+  [16] = cboe_c1options_marketlevel2_csm_v1_0_4.heartbeat_message.dissect,
+}
+
 cboe_c1options_marketlevel2_csm_v1_0_4.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Security Definition Message
-  if template_id == 13 then
-    return cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Message
-  if template_id == 17 then
-    return cboe_c1options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Incremental Refresh Message
-  if template_id == 18 then
-    return cboe_c1options_marketlevel2_csm_v1_0_4.incremental_refresh_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if template_id == 19 then
-    return cboe_c1options_marketlevel2_csm_v1_0_4.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if template_id == 16 then
-    return cboe_c1options_marketlevel2_csm_v1_0_4.heartbeat_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c1options_marketlevel2_csm_v1_0_4.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

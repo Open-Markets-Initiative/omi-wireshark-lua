@@ -322,15 +322,13 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.buy_sell_indicator = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.buy_sell_indicator.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -445,30 +443,18 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.cross_type = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.cross_type.display = function(value)
-  if value == "I" then
-    return "Cross Type: Internal (I)"
-  end
-  if value == "B" then
-    return "Cross Type: Basis (B)"
-  end
-  if value == "C" then
-    return "Cross Type: Contingent (C)"
-  end
-  if value == "V" then
-    return "Cross Type: Vwap (V)"
-  end
-  if value == "X" then
-    return "Cross Type: Intentional Cross (X)"
-  end
-  if value == "D" then
-    return "Cross Type: Derivative Related (D)"
-  end
-  if value == "N" then
-    return "Cross Type: Net Asset Value (N)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.cross_type.labels = {
+  ["I"] = "Cross Type: Internal (I)",
+  ["B"] = "Cross Type: Basis (B)",
+  ["C"] = "Cross Type: Contingent (C)",
+  ["V"] = "Cross Type: Vwap (V)",
+  ["X"] = "Cross Type: Intentional Cross (X)",
+  ["D"] = "Cross Type: Derivative Related (D)",
+  ["N"] = "Cross Type: Net Asset Value (N)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.cross_type.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -490,15 +476,13 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.currency = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.currency.size = 3
 
 -- Display: Currency
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.currency.display = function(value)
-  if value == "CAD" then
-    return "Currency: Canadian Dollars (CAD)"
-  end
-  if value == "USD" then
-    return "Currency: Us Dollars (USD)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.currency.labels = {
+  ["CAD"] = "Currency: Canadian Dollars (CAD)",
+  ["USD"] = "Currency: Us Dollars (USD)",
+}
 
-  return "Currency: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.currency.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -520,33 +504,19 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.event_code = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of Nasdaq Canada Trading Session (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Primary Market Trading Session (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Primary Market Trading Session (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: Market Wide Circuit Breaker Halt (W)"
-  end
-  if value == "R" then
-    return "Event Code: Market Wide Circuit Breaker Resumption (R)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of Nasdaq Canada Trading Session (S)",
+  ["Q"] = "Event Code: Start Of Primary Market Trading Session (Q)",
+  ["M"] = "Event Code: End Of Primary Market Trading Session (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: Market Wide Circuit Breaker Halt (W)",
+  ["R"] = "Event Code: Market Wide Circuit Breaker Resumption (R)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.event_code.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -599,15 +569,13 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.gef_eligible = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.gef_eligible.size = 1
 
 -- Display: Gef Eligible
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.gef_eligible.display = function(value)
-  if value == "Y" then
-    return "Gef Eligible: Gef Eligible (Y)"
-  end
-  if value == "N" then
-    return "Gef Eligible: Not Gef Eligible (N)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.gef_eligible.labels = {
+  ["Y"] = "Gef Eligible: Gef Eligible (Y)",
+  ["N"] = "Gef Eligible: Not Gef Eligible (N)",
+}
 
-  return "Gef Eligible: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.gef_eligible.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.gef_eligible.labels[value] or "Gef Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Gef Eligible
@@ -652,21 +620,15 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.listing_market = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.listing_market.size = 1
 
 -- Display: Listing Market
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsx Venture (V)"
-  end
-  if value == "C" then
-    return "Listing Market: Cse (C)"
-  end
-  if value == "N" then
-    return "Listing Market: Neo (N)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.listing_market.labels = {
+  ["T"] = "Listing Market: Tsx (T)",
+  ["V"] = "Listing Market: Tsx Venture (V)",
+  ["C"] = "Listing Market: Cse (C)",
+  ["N"] = "Listing Market: Neo (N)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.listing_market.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -842,42 +804,22 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.message_type = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "a" then
-    return "Message Type: Long Form Add Order Message (a)"
-  end
-  if value == "E" then
-    return "Message Type: Order Execution Message (E)"
-  end
-  if value == "e" then
-    return "Message Type: Long Form Order Execution Message (e)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "x" then
-    return "Message Type: Long Form Order Cancel Message (x)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "p" then
-    return "Message Type: Long Form Trade Message (p)"
-  end
-  if value == "B" then
-    return "Message Type: Broken Trade Message (B)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Status Message (H)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.message_type.labels = {
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["a"] = "Message Type: Long Form Add Order Message (a)",
+  ["E"] = "Message Type: Order Execution Message (E)",
+  ["e"] = "Message Type: Long Form Order Execution Message (e)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["x"] = "Message Type: Long Form Order Cancel Message (x)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["p"] = "Message Type: Long Form Trade Message (p)",
+  ["B"] = "Message Type: Broken Trade Message (B)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["H"] = "Message Type: Stock Status Message (H)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.message_type.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1037,15 +979,13 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.settlement_terms = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.settlement_terms.size = 1
 
 -- Display: Settlement Terms
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.settlement_terms.display = function(value)
-  if value == "T" then
-    return "Settlement Terms: Cash Today (T)"
-  end
-  if value == "D" then
-    return "Settlement Terms: Delayed Delivery (D)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.settlement_terms.labels = {
+  ["T"] = "Settlement Terms: Cash Today (T)",
+  ["D"] = "Settlement Terms: Delayed Delivery (D)",
+}
 
-  return "Settlement Terms: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.settlement_terms.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.settlement_terms.labels[value] or "Settlement Terms: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Terms
@@ -1176,21 +1116,15 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trade_attribute = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trade_attribute.size = 1
 
 -- Display: Trade Attribute
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trade_attribute.display = function(value)
-  if value == "B" then
-    return "Trade Attribute: Bypass (B)"
-  end
-  if value == "C" then
-    return "Trade Attribute: Market On Close Or Cxd Conditional (C)"
-  end
-  if value == "L" then
-    return "Trade Attribute: Melo (L)"
-  end
-  if value == "P" then
-    return "Trade Attribute: Cxd Pure Stream (P)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trade_attribute.labels = {
+  ["B"] = "Trade Attribute: Bypass (B)",
+  ["C"] = "Trade Attribute: Market On Close Or Cxd Conditional (C)",
+  ["L"] = "Trade Attribute: Melo (L)",
+  ["P"] = "Trade Attribute: Cxd Pure Stream (P)",
+}
 
-  return "Trade Attribute: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trade_attribute.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trade_attribute.labels[value] or "Trade Attribute: Unknown("..value..")"
 end
 
 -- Dissect: Trade Attribute
@@ -1243,15 +1177,13 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trading_state = {}
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trading_state.size = 1
 
 -- Display: Trading State
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trading_state.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1923,50 +1855,24 @@ end
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload = {}
 
 -- Dissect: Payload
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload.dispatch = {
+  ["A"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.add_order_message.dissect,
+  ["a"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_add_order_message.dissect,
+  ["E"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.order_execution_message.dissect,
+  ["e"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_order_execution_message.dissect,
+  ["X"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.order_cancel_message.dissect,
+  ["x"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_order_cancel_message.dissect,
+  ["P"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trade_message.dissect,
+  ["p"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_trade_message.dissect,
+  ["B"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.broken_trade_message.dissect,
+  ["S"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.system_event_message.dissect,
+  ["H"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.stock_status_message.dissect,
+}
+
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Form Add Order Message
-  if message_type == "a" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if message_type == "E" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Form Order Execution Message
-  if message_type == "e" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Form Order Cancel Message
-  if message_type == "x" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Form Trade Message
-  if message_type == "p" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if message_type == "B" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Status Message
-  if message_type == "H" then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.stock_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2126,10 +2032,14 @@ end
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.messages = {}
 
 -- Dissect: Messages
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.messages.dispatch = {
+  [0] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.heartbeat.dissect,
+}
+
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

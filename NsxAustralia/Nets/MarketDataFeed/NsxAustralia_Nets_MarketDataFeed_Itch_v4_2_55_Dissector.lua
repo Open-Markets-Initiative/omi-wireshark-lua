@@ -399,18 +399,14 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.asset_type = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.asset_type.size = 1
 
 -- Display: Asset Type
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.asset_type.display = function(value)
-  if value == "D" then
-    return "Asset Type: Debt (D)"
-  end
-  if value == "E" then
-    return "Asset Type: Equity (E)"
-  end
-  if value == "I" then
-    return "Asset Type: Index (I)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.asset_type.labels = {
+  ["D"] = "Asset Type: Debt (D)",
+  ["E"] = "Asset Type: Equity (E)",
+  ["I"] = "Asset Type: Index (I)",
+}
 
-  return "Asset Type: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.asset_type.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.asset_type.labels[value] or "Asset Type: Unknown("..value..")"
 end
 
 -- Dissect: Asset Type
@@ -432,33 +428,19 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.attribute_type = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.attribute_type.size = 1
 
 -- Display: Attribute Type
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.attribute_type.display = function(value)
-  if value == "R" then
-    return "Attribute Type: Previous Day Close (R)"
-  end
-  if value == "C" then
-    return "Attribute Type: Close Price (C)"
-  end
-  if value == "D" then
-    return "Attribute Type: Etr Upper Limit Percentage (D)"
-  end
-  if value == "d" then
-    return "Attribute Type: Etr Lower Limit Percentage (d)"
-  end
-  if value == "P" then
-    return "Attribute Type: Aot Upper Limit Percentage (P)"
-  end
-  if value == "p" then
-    return "Attribute Type: Aot Lower Limit Percentage (p)"
-  end
-  if value == "A" then
-    return "Attribute Type: Aot Reference Price (A)"
-  end
-  if value == "B" then
-    return "Attribute Type: Etr Reference Price (B)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.attribute_type.labels = {
+  ["R"] = "Attribute Type: Previous Day Close (R)",
+  ["C"] = "Attribute Type: Close Price (C)",
+  ["D"] = "Attribute Type: Etr Upper Limit Percentage (D)",
+  ["d"] = "Attribute Type: Etr Lower Limit Percentage (d)",
+  ["P"] = "Attribute Type: Aot Upper Limit Percentage (P)",
+  ["p"] = "Attribute Type: Aot Lower Limit Percentage (p)",
+  ["A"] = "Attribute Type: Aot Reference Price (A)",
+  ["B"] = "Attribute Type: Etr Reference Price (B)",
+}
 
-  return "Attribute Type: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.attribute_type.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.attribute_type.labels[value] or "Attribute Type: Unknown("..value..")"
 end
 
 -- Dissect: Attribute Type
@@ -641,24 +623,16 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_packet_type = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_packet_type.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -680,18 +654,14 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.cross_type = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.cross_type.size = 1
 
 -- Display: Cross Type
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Opening Auction (O)"
-  end
-  if value == "I" then
-    return "Cross Type: Intraday Auction (I)"
-  end
-  if value == "C" then
-    return "Cross Type: Closing Auction (C)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.cross_type.labels = {
+  ["O"] = "Cross Type: Opening Auction (O)",
+  ["I"] = "Cross Type: Intraday Auction (I)",
+  ["C"] = "Cross Type: Closing Auction (C)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.cross_type.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -755,48 +725,24 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_code = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_code.size = 12
 
 -- Display: Event Code
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_code.display = function(value)
-  if value == "IPXS-SOM" then
-    return "Event Code: Intraday Ipxs Start Of Messages (IPXS-SOM)"
-  end
-  if value == "ENQUIRY" then
-    return "Event Code: Enquiry (ENQUIRY)"
-  end
-  if value == "PREOPEN" then
-    return "Event Code: Pre Open (PREOPEN)"
-  end
-  if value == "OPEN" then
-    return "Event Code: Open (OPEN)"
-  end
-  if value == "HALT" then
-    return "Event Code: Halt (HALT)"
-  end
-  if value == "MATCH_REJOIN" then
-    return "Event Code: Match Rejoin (MATCH_REJOIN)"
-  end
-  if value == "CB_AUCT" then
-    return "Event Code: Circuit Breaker Auction (CB_AUCT)"
-  end
-  if value == "CB_AUCT_END" then
-    return "Event Code: Circuit Breaker Auction End (CB_AUCT_END)"
-  end
-  if value == "PRECLOSE" then
-    return "Event Code: Pre Close (PRECLOSE)"
-  end
-  if value == "CLOSE" then
-    return "Event Code: Close (CLOSE)"
-  end
-  if value == "END_OF_DAY" then
-    return "Event Code: End Of Day (END_OF_DAY)"
-  end
-  if value == "IPXS-EOM" then
-    return "Event Code: Intraday Ipxs End Of Messages (IPXS-EOM)"
-  end
-  if value == "IPXS-ENDSESS" then
-    return "Event Code: Intraday Ipxs End Of Session (IPXS-ENDSESS)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_code.labels = {
+  ["IPXS-SOM"] = "Event Code: Intraday Ipxs Start Of Messages (IPXS-SOM)",
+  ["ENQUIRY"] = "Event Code: Enquiry (ENQUIRY)",
+  ["PREOPEN"] = "Event Code: Pre Open (PREOPEN)",
+  ["OPEN"] = "Event Code: Open (OPEN)",
+  ["HALT"] = "Event Code: Halt (HALT)",
+  ["MATCH_REJOIN"] = "Event Code: Match Rejoin (MATCH_REJOIN)",
+  ["CB_AUCT"] = "Event Code: Circuit Breaker Auction (CB_AUCT)",
+  ["CB_AUCT_END"] = "Event Code: Circuit Breaker Auction End (CB_AUCT_END)",
+  ["PRECLOSE"] = "Event Code: Pre Close (PRECLOSE)",
+  ["CLOSE"] = "Event Code: Close (CLOSE)",
+  ["END_OF_DAY"] = "Event Code: End Of Day (END_OF_DAY)",
+  ["IPXS-EOM"] = "Event Code: Intraday Ipxs End Of Messages (IPXS-EOM)",
+  ["IPXS-ENDSESS"] = "Event Code: Intraday Ipxs End Of Session (IPXS-ENDSESS)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_code.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -818,18 +764,14 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_status = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_status.size = 1
 
 -- Display: Event Status
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_status.display = function(value)
-  if value == "S" then
-    return "Event Status: Scheduled (S)"
-  end
-  if value == "C" then
-    return "Event Status: Canceled (C)"
-  end
-  if value == "T" then
-    return "Event Status: Triggered (T)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_status.labels = {
+  ["S"] = "Event Status: Scheduled (S)",
+  ["C"] = "Event Status: Canceled (C)",
+  ["T"] = "Event Status: Triggered (T)",
+}
 
-  return "Event Status: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_status.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.event_status.labels[value] or "Event Status: Unknown("..value..")"
 end
 
 -- Dissect: Event Status
@@ -1324,15 +1266,13 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_verb = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_verb.size = 1
 
 -- Display: Order Verb
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_verb.display = function(value)
-  if value == "B" then
-    return "Order Verb: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Verb: Sell (S)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_verb.labels = {
+  ["B"] = "Order Verb: Buy (B)",
+  ["S"] = "Order Verb: Sell (S)",
+}
 
-  return "Order Verb: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_verb.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_verb.labels[value] or "Order Verb: Unknown("..value..")"
 end
 
 -- Dissect: Order Verb
@@ -1538,15 +1478,13 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.printable = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.printable.size = 1
 
 -- Display: Printable
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.printable.display = function(value)
-  if value == "Y" then
-    return "Printable: Yes (Y)"
-  end
-  if value == "N" then
-    return "Printable: No (N)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.printable.labels = {
+  ["Y"] = "Printable: Yes (Y)",
+  ["N"] = "Printable: No (N)",
+}
 
-  return "Printable: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.printable.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1683,18 +1621,14 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reason = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reason.size = 1
 
 -- Display: Reason
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reason.display = function(value)
-  if value == "N" then
-    return "Reason: Normal Trading (N)"
-  end
-  if value == "H" then
-    return "Reason: Halted Due To Extreme Trade Range (H)"
-  end
-  if value == "S" then
-    return "Reason: Supervisory (S)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reason.labels = {
+  ["N"] = "Reason: Normal Trading (N)",
+  ["H"] = "Reason: Halted Due To Extreme Trade Range (H)",
+  ["S"] = "Reason: Supervisory (S)",
+}
 
-  return "Reason: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reason.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1778,15 +1712,13 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reject_reason_code = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reject_reason_code.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1977,66 +1909,30 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message_type = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message_type.display = function(value)
-  if value == "T" then
-    return "Sequenced Message Type: Timestamp Message (T)"
-  end
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Sequenced Message Type: Price Tick Size Message (L)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Quantity Tick Size Message (M)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Orderbook Directory Message (R)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Orderbook Trading Action Message (H)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Orderbook Attribute Message (X)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Firm Directory Message (F)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Add Order Message (A)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Broken Trade Message (B)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Order Delete Message (D)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replace Message (U)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Indicative Price Quantity Message (I)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Trade Message (P)"
-  end
-  if value == "N" then
-    return "Sequenced Message Type: News Message (N)"
-  end
-  if value == "Y" then
-    return "Sequenced Message Type: Index Member Directory Message (Y)"
-  end
-  if value == "Z" then
-    return "Sequenced Message Type: Index Value Message (Z)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message_type.labels = {
+  ["T"] = "Sequenced Message Type: Timestamp Message (T)",
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["L"] = "Sequenced Message Type: Price Tick Size Message (L)",
+  ["M"] = "Sequenced Message Type: Quantity Tick Size Message (M)",
+  ["R"] = "Sequenced Message Type: Orderbook Directory Message (R)",
+  ["H"] = "Sequenced Message Type: Orderbook Trading Action Message (H)",
+  ["X"] = "Sequenced Message Type: Orderbook Attribute Message (X)",
+  ["F"] = "Sequenced Message Type: Firm Directory Message (F)",
+  ["A"] = "Sequenced Message Type: Add Order Message (A)",
+  ["E"] = "Sequenced Message Type: Order Executed Message (E)",
+  ["C"] = "Sequenced Message Type: Order Executed With Price Message (C)",
+  ["B"] = "Sequenced Message Type: Broken Trade Message (B)",
+  ["D"] = "Sequenced Message Type: Order Delete Message (D)",
+  ["U"] = "Sequenced Message Type: Order Replace Message (U)",
+  ["I"] = "Sequenced Message Type: Indicative Price Quantity Message (I)",
+  ["P"] = "Sequenced Message Type: Trade Message (P)",
+  ["N"] = "Sequenced Message Type: News Message (N)",
+  ["Y"] = "Sequenced Message Type: Index Member Directory Message (Y)",
+  ["Z"] = "Sequenced Message Type: Index Value Message (Z)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message_type.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -2058,27 +1954,17 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet_type = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet_type.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2277,12 +2163,12 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_indicator = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_indicator.size = 1
 
 -- Display: Trade Indicator
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_indicator.display = function(value)
-  if value == "B" then
-    return "Trade Indicator: Block Special (B)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_indicator.labels = {
+  ["B"] = "Trade Indicator: Block Special (B)",
+}
 
-  return "Trade Indicator: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_indicator.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_indicator.labels[value] or "Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Indicator
@@ -2304,69 +2190,31 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_source = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_source.size = 1
 
 -- Display: Trade Source
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_source.display = function(value)
-  if value == "A" then
-    return "Trade Source: Autotrade (A)"
-  end
-  if value == "B" then
-    return "Trade Source: Best Execution (B)"
-  end
-  if value == "C" then
-    return "Trade Source: Off Market Automatic Crossing (C)"
-  end
-  if value == "D" then
-    return "Trade Source: Directed Reporting Or Off Market Trades Crossing (D)"
-  end
-  if value == "E" then
-    return "Trade Source: Special Crossing Less Than A Marketable Parcel (E)"
-  end
-  if value == "F" then
-    return "Trade Source: Forward Delivery (F)"
-  end
-  if value == "I" then
-    return "Trade Source: Approved Index Crossing (I)"
-  end
-  if value == "K" then
-    return "Trade Source: Buy Back Sales (K)"
-  end
-  if value == "M" then
-    return "Trade Source: Marriage Crossing (M)"
-  end
-  if value == "N" then
-    return "Trade Source: Trades Including Crossings Outside Of Market Hours (N)"
-  end
-  if value == "O" then
-    return "Trade Source: Foreign Residents Or Recognised Overseas Exchange (O)"
-  end
-  if value == "P" then
-    return "Trade Source: Block Special Crossing Or Loan Securities (P)"
-  end
-  if value == "Q" then
-    return "Trade Source: Special Crossing Less Than A Marketable Parcel (Q)"
-  end
-  if value == "R" then
-    return "Trade Source: Strategy (R)"
-  end
-  if value == "S" then
-    return "Trade Source: Short Sales (S)"
-  end
-  if value == "U" then
-    return "Trade Source: For Foreign To Foreign Securities (U)"
-  end
-  if value == "V" then
-    return "Trade Source: Book Value Switch Sales (V)"
-  end
-  if value == "X" then
-    return "Trade Source: Portfolio Special Crossing (X)"
-  end
-  if value == "Y" then
-    return "Trade Source: Special (Y)"
-  end
-  if value == "Z" then
-    return "Trade Source: Special Crossing Underwriting Disposal Or Exchange Approval (Z)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_source.labels = {
+  ["A"] = "Trade Source: Autotrade (A)",
+  ["B"] = "Trade Source: Best Execution (B)",
+  ["C"] = "Trade Source: Off Market Automatic Crossing (C)",
+  ["D"] = "Trade Source: Directed Reporting Or Off Market Trades Crossing (D)",
+  ["E"] = "Trade Source: Special Crossing Less Than A Marketable Parcel (E)",
+  ["F"] = "Trade Source: Forward Delivery (F)",
+  ["I"] = "Trade Source: Approved Index Crossing (I)",
+  ["K"] = "Trade Source: Buy Back Sales (K)",
+  ["M"] = "Trade Source: Marriage Crossing (M)",
+  ["N"] = "Trade Source: Trades Including Crossings Outside Of Market Hours (N)",
+  ["O"] = "Trade Source: Foreign Residents Or Recognised Overseas Exchange (O)",
+  ["P"] = "Trade Source: Block Special Crossing Or Loan Securities (P)",
+  ["Q"] = "Trade Source: Special Crossing Less Than A Marketable Parcel (Q)",
+  ["R"] = "Trade Source: Strategy (R)",
+  ["S"] = "Trade Source: Short Sales (S)",
+  ["U"] = "Trade Source: For Foreign To Foreign Securities (U)",
+  ["V"] = "Trade Source: Book Value Switch Sales (V)",
+  ["X"] = "Trade Source: Portfolio Special Crossing (X)",
+  ["Y"] = "Trade Source: Special (Y)",
+  ["Z"] = "Trade Source: Special Crossing Underwriting Disposal Or Exchange Approval (Z)",
+}
 
-  return "Trade Source: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_source.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_source.labels[value] or "Trade Source: Unknown("..value..")"
 end
 
 -- Dissect: Trade Source
@@ -2388,15 +2236,13 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trading_state = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trading_state.size = 1
 
 -- Display: Trading State
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trading_state.display = function(value)
-  if value == "T" then
-    return "Trading State: Normal Trading (T)"
-  end
-  if value == "V" then
-    return "Trading State: Suspended (V)"
-  end
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trading_state.labels = {
+  ["T"] = "Trading State: Normal Trading (T)",
+  ["V"] = "Trading State: Suspended (V)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trading_state.display = function(value)
+  return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -3712,82 +3558,32 @@ end
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message.dispatch = {
+  ["T"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_message.dissect,
+  ["S"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.system_event_message.dissect,
+  ["L"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.price_tick_size_message.dissect,
+  ["M"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.quantity_tick_size_message.dissect,
+  ["R"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.orderbook_directory_message.dissect,
+  ["H"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.orderbook_trading_action_message.dissect,
+  ["X"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.orderbook_attribute_message.dissect,
+  ["F"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.firm_directory_message.dissect,
+  ["A"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.add_order_message.dissect,
+  ["E"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_executed_message.dissect,
+  ["C"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_executed_with_price_message.dissect,
+  ["B"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.broken_trade_message.dissect,
+  ["D"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_delete_message.dissect,
+  ["U"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_replace_message.dissect,
+  ["I"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.indicative_price_quantity_message.dissect,
+  ["P"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_message.dissect,
+  ["N"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.news_message.dissect,
+  ["Y"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.index_member_directory_message.dissect,
+  ["Z"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.index_value_message.dissect,
+}
+
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Timestamp Message
-  if sequenced_message_type == "T" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Tick Size Message
-  if sequenced_message_type == "L" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.price_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quantity Tick Size Message
-  if sequenced_message_type == "M" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.quantity_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Directory Message
-  if sequenced_message_type == "R" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.orderbook_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Trading Action Message
-  if sequenced_message_type == "H" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.orderbook_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Attribute Message
-  if sequenced_message_type == "X" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.orderbook_attribute_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Firm Directory Message
-  if sequenced_message_type == "F" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.firm_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if sequenced_message_type == "A" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if sequenced_message_type == "E" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if sequenced_message_type == "C" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if sequenced_message_type == "B" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if sequenced_message_type == "D" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if sequenced_message_type == "U" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Price Quantity Message
-  if sequenced_message_type == "I" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.indicative_price_quantity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if sequenced_message_type == "P" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Message
-  if sequenced_message_type == "N" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.news_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Member Directory Message
-  if sequenced_message_type == "Y" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.index_member_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Value Message
-  if sequenced_message_type == "Z" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.index_value_message.dissect(buffer, offset, packet, parent)
+  local dissect = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4030,30 +3826,19 @@ end
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload = {}
 
 -- Dissect: Server Payload
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload.dispatch = {
+  ["+"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.dissect,
+  ["A"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_accepted_packet.dissect,
+  ["J"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_rejected_packet.dissect,
+  ["S"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_data_packet.dissect,
+  ["H"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_heartbeat.dissect,
+  ["Z"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.end_of_session.dissect,
+}
+
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4366,26 +4151,18 @@ end
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload = {}
 
 -- Dissect: Client Payload
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload.dispatch = {
+  ["+"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.dissect,
+  ["L"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_request_packet.dissect,
+  ["U"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.unsequenced_data_packet.dissect,
+  ["R"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_heartbeat.dissect,
+  ["O"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.logout_request.dissect,
+}
+
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nsxaustralia_nets_marketdatafeed_itch_v4_2_55.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

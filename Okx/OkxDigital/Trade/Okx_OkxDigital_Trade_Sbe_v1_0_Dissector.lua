@@ -503,24 +503,16 @@ okx_okxdigital_trade_sbe_v1_0.ord_type = {}
 okx_okxdigital_trade_sbe_v1_0.ord_type.size = 1
 
 -- Display: Ord Type
-okx_okxdigital_trade_sbe_v1_0.ord_type.display = function(value)
-  if value == 1 then
-    return "Ord Type: Limit (1)"
-  end
-  if value == 4 then
-    return "Ord Type: Ioc (4)"
-  end
-  if value == 5 then
-    return "Ord Type: Post Only (5)"
-  end
-  if value == 14 then
-    return "Ord Type: Mmp And Post Only (14)"
-  end
-  if value == 17 then
-    return "Ord Type: Rpi (17)"
-  end
+okx_okxdigital_trade_sbe_v1_0.ord_type.labels = {
+  [1] = "Ord Type: Limit (1)",
+  [4] = "Ord Type: Ioc (4)",
+  [5] = "Ord Type: Post Only (5)",
+  [14] = "Ord Type: Mmp And Post Only (14)",
+  [17] = "Ord Type: Rpi (17)",
+}
 
-  return "Ord Type: Unknown("..value..")"
+okx_okxdigital_trade_sbe_v1_0.ord_type.display = function(value)
+  return okx_okxdigital_trade_sbe_v1_0.ord_type.labels[value] or "Ord Type: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type
@@ -722,15 +714,13 @@ okx_okxdigital_trade_sbe_v1_0.side = {}
 okx_okxdigital_trade_sbe_v1_0.side.size = 1
 
 -- Display: Side
-okx_okxdigital_trade_sbe_v1_0.side.display = function(value)
-  if value == 0 then
-    return "Side: Sell (0)"
-  end
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
+okx_okxdigital_trade_sbe_v1_0.side.labels = {
+  [0] = "Side: Sell (0)",
+  [1] = "Side: Buy (1)",
+}
 
-  return "Side: Unknown("..value..")"
+okx_okxdigital_trade_sbe_v1_0.side.display = function(value)
+  return okx_okxdigital_trade_sbe_v1_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -854,15 +844,13 @@ okx_okxdigital_trade_sbe_v1_0.td_mode = {}
 okx_okxdigital_trade_sbe_v1_0.td_mode.size = 1
 
 -- Display: Td Mode
-okx_okxdigital_trade_sbe_v1_0.td_mode.display = function(value)
-  if value == 1 then
-    return "Td Mode: Cash (1)"
-  end
-  if value == 2 then
-    return "Td Mode: Cross (2)"
-  end
+okx_okxdigital_trade_sbe_v1_0.td_mode.labels = {
+  [1] = "Td Mode: Cash (1)",
+  [2] = "Td Mode: Cross (2)",
+}
 
-  return "Td Mode: Unknown("..value..")"
+okx_okxdigital_trade_sbe_v1_0.td_mode.display = function(value)
+  return okx_okxdigital_trade_sbe_v1_0.td_mode.labels[value] or "Td Mode: Unknown("..value..")"
 end
 
 -- Dissect: Td Mode
@@ -884,45 +872,23 @@ okx_okxdigital_trade_sbe_v1_0.template_id = {}
 okx_okxdigital_trade_sbe_v1_0.template_id.size = 2
 
 -- Display: Template Id
-okx_okxdigital_trade_sbe_v1_0.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Place Order Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Place Order Response Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Place Orders Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Place Orders Response Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Amend Order Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Amend Order Response Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Amend Orders Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Amend Orders Response Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Cancel Order Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Cancel Order Response Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Cancel Orders Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Cancel Orders Response Message (12)"
-  end
+okx_okxdigital_trade_sbe_v1_0.template_id.labels = {
+  [1] = "Template Id: Place Order Message (1)",
+  [2] = "Template Id: Place Order Response Message (2)",
+  [3] = "Template Id: Place Orders Message (3)",
+  [4] = "Template Id: Place Orders Response Message (4)",
+  [5] = "Template Id: Amend Order Message (5)",
+  [6] = "Template Id: Amend Order Response Message (6)",
+  [7] = "Template Id: Amend Orders Message (7)",
+  [8] = "Template Id: Amend Orders Response Message (8)",
+  [9] = "Template Id: Cancel Order Message (9)",
+  [10] = "Template Id: Cancel Order Response Message (10)",
+  [11] = "Template Id: Cancel Orders Message (11)",
+  [12] = "Template Id: Cancel Orders Response Message (12)",
+}
 
-  return "Template Id: Unknown("..value..")"
+okx_okxdigital_trade_sbe_v1_0.template_id.display = function(value)
+  return okx_okxdigital_trade_sbe_v1_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2603,54 +2569,25 @@ end
 okx_okxdigital_trade_sbe_v1_0.payload = {}
 
 -- Dissect: Payload
+okx_okxdigital_trade_sbe_v1_0.payload.dispatch = {
+  [1] = okx_okxdigital_trade_sbe_v1_0.place_order_message.dissect,
+  [2] = okx_okxdigital_trade_sbe_v1_0.place_order_response_message.dissect,
+  [3] = okx_okxdigital_trade_sbe_v1_0.place_orders_message.dissect,
+  [4] = okx_okxdigital_trade_sbe_v1_0.place_orders_response_message.dissect,
+  [5] = okx_okxdigital_trade_sbe_v1_0.amend_order_message.dissect,
+  [6] = okx_okxdigital_trade_sbe_v1_0.amend_order_response_message.dissect,
+  [7] = okx_okxdigital_trade_sbe_v1_0.amend_orders_message.dissect,
+  [8] = okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message.dissect,
+  [9] = okx_okxdigital_trade_sbe_v1_0.cancel_order_message.dissect,
+  [10] = okx_okxdigital_trade_sbe_v1_0.cancel_order_response_message.dissect,
+  [11] = okx_okxdigital_trade_sbe_v1_0.cancel_orders_message.dissect,
+  [12] = okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message.dissect,
+}
+
 okx_okxdigital_trade_sbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Place Order Message
-  if template_id == 1 then
-    return okx_okxdigital_trade_sbe_v1_0.place_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Place Order Response Message
-  if template_id == 2 then
-    return okx_okxdigital_trade_sbe_v1_0.place_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Place Orders Message
-  if template_id == 3 then
-    return okx_okxdigital_trade_sbe_v1_0.place_orders_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Place Orders Response Message
-  if template_id == 4 then
-    return okx_okxdigital_trade_sbe_v1_0.place_orders_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Amend Order Message
-  if template_id == 5 then
-    return okx_okxdigital_trade_sbe_v1_0.amend_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Amend Order Response Message
-  if template_id == 6 then
-    return okx_okxdigital_trade_sbe_v1_0.amend_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Amend Orders Message
-  if template_id == 7 then
-    return okx_okxdigital_trade_sbe_v1_0.amend_orders_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Amend Orders Response Message
-  if template_id == 8 then
-    return okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if template_id == 9 then
-    return okx_okxdigital_trade_sbe_v1_0.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Response Message
-  if template_id == 10 then
-    return okx_okxdigital_trade_sbe_v1_0.cancel_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Orders Message
-  if template_id == 11 then
-    return okx_okxdigital_trade_sbe_v1_0.cancel_orders_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Orders Response Message
-  if template_id == 12 then
-    return okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = okx_okxdigital_trade_sbe_v1_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

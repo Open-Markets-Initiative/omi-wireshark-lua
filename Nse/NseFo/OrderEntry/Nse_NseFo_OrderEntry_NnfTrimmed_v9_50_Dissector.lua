@@ -1521,69 +1521,31 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.transaction_code = {}
 nse_nsefo_orderentry_nnftrimmed_v9_50.transaction_code.size = 2
 
 -- Display: Transaction Code
-nse_nsefo_orderentry_nnftrimmed_v9_50.transaction_code.display = function(value)
-  if value == 20000 then
-    return "Transaction Code: Board Lot In Trimmed Message (20000)"
-  end
-  if value == 20400 then
-    return "Transaction Code: Board Lot In Trimmed Message (20400)"
-  end
-  if value == 20040 then
-    return "Transaction Code: Order Modify Cancel Trimmed Message (20040)"
-  end
-  if value == 20060 then
-    return "Transaction Code: Order Modify Cancel Trimmed Message (20060)"
-  end
-  if value == 20070 then
-    return "Transaction Code: Order Modify Cancel Trimmed Message (20070)"
-  end
-  if value == 20402 then
-    return "Transaction Code: Order Modify Cancel Trimmed Message (20402)"
-  end
-  if value == 20404 then
-    return "Transaction Code: Order Modify Cancel Trimmed Message (20404)"
-  end
-  if value == 20073 then
-    return "Transaction Code: Order Confirmation Trimmed Message (20073)"
-  end
-  if value == 20074 then
-    return "Transaction Code: Order Confirmation Trimmed Message (20074)"
-  end
-  if value == 20075 then
-    return "Transaction Code: Order Confirmation Trimmed Message (20075)"
-  end
-  if value == 20222 then
-    return "Transaction Code: Trade Confirmation Trimmed Message (20222)"
-  end
-  if value == 20401 then
-    return "Transaction Code: Quick Acknowledgement Message (20401)"
-  end
-  if value == 20403 then
-    return "Transaction Code: Quick Acknowledgement Message (20403)"
-  end
-  if value == 20405 then
-    return "Transaction Code: Quick Acknowledgement Message (20405)"
-  end
-  if value == 20407 then
-    return "Transaction Code: Quick Acknowledgement Message (20407)"
-  end
-  if value == 20409 then
-    return "Transaction Code: Quick Acknowledgement Message (20409)"
-  end
-  if value == 20411 then
-    return "Transaction Code: Quick Acknowledgement Message (20411)"
-  end
-  if value == 20413 then
-    return "Transaction Code: Quick Acknowledgement Message (20413)"
-  end
-  if value == 20415 then
-    return "Transaction Code: Quick Acknowledgement Message (20415)"
-  end
-  if value == 20417 then
-    return "Transaction Code: Quick Acknowledgement Message (20417)"
-  end
+nse_nsefo_orderentry_nnftrimmed_v9_50.transaction_code.labels = {
+  [20000] = "Transaction Code: Board Lot In Trimmed Message (20000)",
+  [20400] = "Transaction Code: Board Lot In Trimmed Message (20400)",
+  [20040] = "Transaction Code: Order Modify Cancel Trimmed Message (20040)",
+  [20060] = "Transaction Code: Order Modify Cancel Trimmed Message (20060)",
+  [20070] = "Transaction Code: Order Modify Cancel Trimmed Message (20070)",
+  [20402] = "Transaction Code: Order Modify Cancel Trimmed Message (20402)",
+  [20404] = "Transaction Code: Order Modify Cancel Trimmed Message (20404)",
+  [20073] = "Transaction Code: Order Confirmation Trimmed Message (20073)",
+  [20074] = "Transaction Code: Order Confirmation Trimmed Message (20074)",
+  [20075] = "Transaction Code: Order Confirmation Trimmed Message (20075)",
+  [20222] = "Transaction Code: Trade Confirmation Trimmed Message (20222)",
+  [20401] = "Transaction Code: Quick Acknowledgement Message (20401)",
+  [20403] = "Transaction Code: Quick Acknowledgement Message (20403)",
+  [20405] = "Transaction Code: Quick Acknowledgement Message (20405)",
+  [20407] = "Transaction Code: Quick Acknowledgement Message (20407)",
+  [20409] = "Transaction Code: Quick Acknowledgement Message (20409)",
+  [20411] = "Transaction Code: Quick Acknowledgement Message (20411)",
+  [20413] = "Transaction Code: Quick Acknowledgement Message (20413)",
+  [20415] = "Transaction Code: Quick Acknowledgement Message (20415)",
+  [20417] = "Transaction Code: Quick Acknowledgement Message (20417)",
+}
 
-  return "Transaction Code: Unknown("..value..")"
+nse_nsefo_orderentry_nnftrimmed_v9_50.transaction_code.display = function(value)
+  return nse_nsefo_orderentry_nnftrimmed_v9_50.transaction_code.labels[value] or "Transaction Code: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Code
@@ -2670,86 +2632,33 @@ end
 nse_nsefo_orderentry_nnftrimmed_v9_50.message_payload = {}
 
 -- Dissect: Message Payload
+nse_nsefo_orderentry_nnftrimmed_v9_50.message_payload.dispatch = {
+  [20000] = nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.dissect,
+  [20400] = nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.dissect,
+  [20040] = nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect,
+  [20060] = nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect,
+  [20070] = nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect,
+  [20402] = nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect,
+  [20404] = nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect,
+  [20073] = nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.dissect,
+  [20074] = nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.dissect,
+  [20075] = nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.dissect,
+  [20222] = nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.dissect,
+  [20401] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+  [20403] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+  [20405] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+  [20407] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+  [20409] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+  [20411] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+  [20413] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+  [20415] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+  [20417] = nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect,
+}
+
 nse_nsefo_orderentry_nnftrimmed_v9_50.message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Board Lot In Trimmed Message
-  if transaction_code == 20000 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Board Lot In Trimmed Message
-  if transaction_code == 20400 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Cancel Trimmed Message
-  if transaction_code == 20040 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Cancel Trimmed Message
-  if transaction_code == 20060 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Cancel Trimmed Message
-  if transaction_code == 20070 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Cancel Trimmed Message
-  if transaction_code == 20402 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Cancel Trimmed Message
-  if transaction_code == 20404 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Confirmation Trimmed Message
-  if transaction_code == 20073 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Confirmation Trimmed Message
-  if transaction_code == 20074 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Confirmation Trimmed Message
-  if transaction_code == 20075 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Trimmed Message
-  if transaction_code == 20222 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.trade_confirmation_trimmed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20401 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20403 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20405 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20407 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20409 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20411 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20413 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20415 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quick Acknowledgement Message
-  if transaction_code == 20417 then
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.quick_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_orderentry_nnftrimmed_v9_50.message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

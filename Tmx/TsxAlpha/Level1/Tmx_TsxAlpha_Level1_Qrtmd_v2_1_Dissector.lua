@@ -375,15 +375,13 @@ tmx_tsxalpha_level1_qrtmd_v2_1.bulletin_indicator = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.bulletin_indicator.size = 1
 
 -- Display: Bulletin Indicator
-tmx_tsxalpha_level1_qrtmd_v2_1.bulletin_indicator.display = function(value)
-  if value == "Y" then
-    return "Bulletin Indicator: Yes (Y)"
-  end
-  if value == "N" then
-    return "Bulletin Indicator: No (N)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.bulletin_indicator.labels = {
+  ["Y"] = "Bulletin Indicator: Yes (Y)",
+  ["N"] = "Bulletin Indicator: No (N)",
+}
 
-  return "Bulletin Indicator: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.bulletin_indicator.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.bulletin_indicator.labels[value] or "Bulletin Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bulletin Indicator
@@ -436,15 +434,13 @@ tmx_tsxalpha_level1_qrtmd_v2_1.bypass = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.bypass.size = 1
 
 -- Display: Bypass
-tmx_tsxalpha_level1_qrtmd_v2_1.bypass.display = function(value)
-  if value == "Y" then
-    return "Bypass: Yes (Y)"
-  end
-  if value == "N" then
-    return "Bypass: No (N)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.bypass.labels = {
+  ["Y"] = "Bypass: Yes (Y)",
+  ["N"] = "Bypass: No (N)",
+}
 
-  return "Bypass: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.bypass.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.bypass.labels[value] or "Bypass: Unknown("..value..")"
 end
 
 -- Dissect: Bypass
@@ -489,12 +485,12 @@ tmx_tsxalpha_level1_qrtmd_v2_1.continuation_identifier = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.continuation_identifier.size = 1
 
 -- Display: Continuation Identifier
-tmx_tsxalpha_level1_qrtmd_v2_1.continuation_identifier.display = function(value)
-  if value == "0" then
-    return "Continuation Identifier: Stand Alone Message (0)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.continuation_identifier.labels = {
+  ["0"] = "Continuation Identifier: Stand Alone Message (0)",
+}
 
-  return "Continuation Identifier: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.continuation_identifier.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.continuation_identifier.labels[value] or "Continuation Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Continuation Identifier
@@ -630,18 +626,14 @@ tmx_tsxalpha_level1_qrtmd_v2_1.exchange_identifier = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.exchange_identifier.size = 2
 
 -- Display: Exchange Identifier
-tmx_tsxalpha_level1_qrtmd_v2_1.exchange_identifier.display = function(value)
-  if value == "T" then
-    return "Exchange Identifier: Toronto Stock Exchange (T)"
-  end
-  if value == "V" then
-    return "Exchange Identifier: Tsx Venture Exchange (V)"
-  end
-  if value == "A" then
-    return "Exchange Identifier: Tsx Alpha Exchange (A)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.exchange_identifier.labels = {
+  ["T"] = "Exchange Identifier: Toronto Stock Exchange (T)",
+  ["V"] = "Exchange Identifier: Tsx Venture Exchange (V)",
+  ["A"] = "Exchange Identifier: Tsx Alpha Exchange (A)",
+}
 
-  return "Exchange Identifier: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.exchange_identifier.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.exchange_identifier.labels[value] or "Exchange Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Identifier
@@ -701,12 +693,12 @@ tmx_tsxalpha_level1_qrtmd_v2_1.is_dark = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.is_dark.size = 1
 
 -- Display: Is Dark
-tmx_tsxalpha_level1_qrtmd_v2_1.is_dark.display = function(value)
-  if value == "N" then
-    return "Is Dark: No (N)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.is_dark.labels = {
+  ["N"] = "Is Dark: No (N)",
+}
 
-  return "Is Dark: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.is_dark.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.is_dark.labels[value] or "Is Dark: Unknown("..value..")"
 end
 
 -- Dissect: Is Dark
@@ -766,15 +758,13 @@ tmx_tsxalpha_level1_qrtmd_v2_1.listing_market = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.listing_market.size = 1
 
 -- Display: Listing Market
-tmx_tsxalpha_level1_qrtmd_v2_1.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsxv (V)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.listing_market.labels = {
+  ["T"] = "Listing Market: Tsx (T)",
+  ["V"] = "Listing Market: Tsxv (V)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.listing_market.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -796,27 +786,17 @@ tmx_tsxalpha_level1_qrtmd_v2_1.market_state = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.market_state.size = 1
 
 -- Display: Market State
-tmx_tsxalpha_level1_qrtmd_v2_1.market_state.display = function(value)
-  if value == "P" then
-    return "Market State: Pre Open (P)"
-  end
-  if value == "O" then
-    return "Market State: Opening (O)"
-  end
-  if value == "S" then
-    return "Market State: Open (S)"
-  end
-  if value == "C" then
-    return "Market State: Closed (C)"
-  end
-  if value == "F" then
-    return "Market State: Extended Hours Close (F)"
-  end
-  if value == "N" then
-    return "Market State: Extended Hours Cxls (N)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.market_state.labels = {
+  ["P"] = "Market State: Pre Open (P)",
+  ["O"] = "Market State: Opening (O)",
+  ["S"] = "Market State: Open (S)",
+  ["C"] = "Market State: Closed (C)",
+  ["F"] = "Market State: Extended Hours Close (F)",
+  ["N"] = "Market State: Extended Hours Cxls (N)",
+}
 
-  return "Market State: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.market_state.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.market_state.labels[value] or "Market State: Unknown("..value..")"
 end
 
 -- Dissect: Market State
@@ -892,36 +872,20 @@ tmx_tsxalpha_level1_qrtmd_v2_1.message_type = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.message_type.size = 2
 
 -- Display: Message Type
-tmx_tsxalpha_level1_qrtmd_v2_1.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Trade Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Symbol Status Message (B)"
-  end
-  if value == "D" then
-    return "Message Type: Stock State Message (D)"
-  end
-  if value == "E" then
-    return "Message Type: Quote Message (E)"
-  end
-  if value == "G" then
-    return "Message Type: General Message (G)"
-  end
-  if value == "H" then
-    return "Message Type: Trade Cancellation Message (H)"
-  end
-  if value == "S" then
-    return "Message Type: Market State Message (S)"
-  end
-  if value == "T" then
-    return "Message Type: Trading Tier Status Message (T)"
-  end
-  if value == "X" then
-    return "Message Type: Trade Correction Message (X)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.message_type.labels = {
+  ["A"] = "Message Type: Trade Message (A)",
+  ["B"] = "Message Type: Symbol Status Message (B)",
+  ["D"] = "Message Type: Stock State Message (D)",
+  ["E"] = "Message Type: Quote Message (E)",
+  ["G"] = "Message Type: General Message (G)",
+  ["H"] = "Message Type: Trade Cancellation Message (H)",
+  ["S"] = "Message Type: Market State Message (S)",
+  ["T"] = "Message Type: Trading Tier Status Message (T)",
+  ["X"] = "Message Type: Trade Correction Message (X)",
+}
 
-  return "Message Type: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.message_type.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1001,15 +965,13 @@ tmx_tsxalpha_level1_qrtmd_v2_1.opening_trade = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.opening_trade.size = 1
 
 -- Display: Opening Trade
-tmx_tsxalpha_level1_qrtmd_v2_1.opening_trade.display = function(value)
-  if value == "Y" then
-    return "Opening Trade: Yes (Y)"
-  end
-  if value == "N" then
-    return "Opening Trade: No (N)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.opening_trade.labels = {
+  ["Y"] = "Opening Trade: Yes (Y)",
+  ["N"] = "Opening Trade: No (N)",
+}
 
-  return "Opening Trade: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.opening_trade.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.opening_trade.labels[value] or "Opening Trade: Unknown("..value..")"
 end
 
 -- Dissect: Opening Trade
@@ -1062,21 +1024,15 @@ tmx_tsxalpha_level1_qrtmd_v2_1.product_type = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.product_type.size = 1
 
 -- Display: Product Type
-tmx_tsxalpha_level1_qrtmd_v2_1.product_type.display = function(value)
-  if value == "B" then
-    return "Product Type: Debenture (B)"
-  end
-  if value == "E" then
-    return "Product Type: Equity (E)"
-  end
-  if value == "M" then
-    return "Product Type: Mutual Fund (M)"
-  end
-  if value == "F" then
-    return "Product Type: Etf (F)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.product_type.labels = {
+  ["B"] = "Product Type: Debenture (B)",
+  ["E"] = "Product Type: Equity (E)",
+  ["M"] = "Product Type: Mutual Fund (M)",
+  ["F"] = "Product Type: Etf (F)",
+}
 
-  return "Product Type: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.product_type.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -1148,12 +1104,12 @@ tmx_tsxalpha_level1_qrtmd_v2_1.retransmission_identifier = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.retransmission_identifier.size = 1
 
 -- Display: Retransmission Identifier
-tmx_tsxalpha_level1_qrtmd_v2_1.retransmission_identifier.display = function(value)
-  if value == "0" then
-    return "Retransmission Identifier: Normal Transmission (0)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.retransmission_identifier.labels = {
+  ["0"] = "Retransmission Identifier: Normal Transmission (0)",
+}
 
-  return "Retransmission Identifier: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.retransmission_identifier.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.retransmission_identifier.labels[value] or "Retransmission Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Retransmission Identifier
@@ -1237,36 +1193,20 @@ tmx_tsxalpha_level1_qrtmd_v2_1.service_identifier = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.service_identifier.size = 3
 
 -- Display: Service Identifier
-tmx_tsxalpha_level1_qrtmd_v2_1.service_identifier.display = function(value)
-  if value == "TL1" then
-    return "Service Identifier: Toronto Level 1 (TL1)"
-  end
-  if value == "CL1" then
-    return "Service Identifier: Tsx Venture Exchange Level 1 (CL1)"
-  end
-  if value == "AL1" then
-    return "Service Identifier: Alpha Level 1 (AL1)"
-  end
-  if value == "TL2" then
-    return "Service Identifier: Toronto Level 2 (TL2)"
-  end
-  if value == "CL2" then
-    return "Service Identifier: Tsx Venture Exchange Level 2 (CL2)"
-  end
-  if value == "AL2" then
-    return "Service Identifier: Alpha Level 2 (AL2)"
-  end
-  if value == "TX1" then
-    return "Service Identifier: Index Service Level 1 (TX1)"
-  end
-  if value == "TRD" then
-    return "Service Identifier: Reference Data Feed Toronto (TRD)"
-  end
-  if value == "VRD" then
-    return "Service Identifier: Reference Data Feed Venture (VRD)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.service_identifier.labels = {
+  ["TL1"] = "Service Identifier: Toronto Level 1 (TL1)",
+  ["CL1"] = "Service Identifier: Tsx Venture Exchange Level 1 (CL1)",
+  ["AL1"] = "Service Identifier: Alpha Level 1 (AL1)",
+  ["TL2"] = "Service Identifier: Toronto Level 2 (TL2)",
+  ["CL2"] = "Service Identifier: Tsx Venture Exchange Level 2 (CL2)",
+  ["AL2"] = "Service Identifier: Alpha Level 2 (AL2)",
+  ["TX1"] = "Service Identifier: Index Service Level 1 (TX1)",
+  ["TRD"] = "Service Identifier: Reference Data Feed Toronto (TRD)",
+  ["VRD"] = "Service Identifier: Reference Data Feed Venture (VRD)",
+}
 
-  return "Service Identifier: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.service_identifier.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.service_identifier.labels[value] or "Service Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Service Identifier
@@ -1361,21 +1301,15 @@ tmx_tsxalpha_level1_qrtmd_v2_1.stock_state = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.stock_state.size = 2
 
 -- Display: Stock State
-tmx_tsxalpha_level1_qrtmd_v2_1.stock_state.display = function(value)
-  if value == "AS" then
-    return "Stock State: Authorized Halted (AS)"
-  end
-  if value == "IS" then
-    return "Stock State: Inhibited Halted (IS)"
-  end
-  if value == "A" then
-    return "Stock State: Authorized (A)"
-  end
-  if value == "I" then
-    return "Stock State: Inhibited (I)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.stock_state.labels = {
+  ["AS"] = "Stock State: Authorized Halted (AS)",
+  ["IS"] = "Stock State: Inhibited Halted (IS)",
+  ["A"] = "Stock State: Authorized (A)",
+  ["I"] = "Stock State: Inhibited (I)",
+}
 
-  return "Stock State: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.stock_state.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.stock_state.labels[value] or "Stock State: Unknown("..value..")"
 end
 
 -- Dissect: Stock State
@@ -1443,15 +1377,13 @@ tmx_tsxalpha_level1_qrtmd_v2_1.test_symbol = {}
 tmx_tsxalpha_level1_qrtmd_v2_1.test_symbol.size = 1
 
 -- Display: Test Symbol
-tmx_tsxalpha_level1_qrtmd_v2_1.test_symbol.display = function(value)
-  if value == "Y" then
-    return "Test Symbol: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Symbol: No (N)"
-  end
+tmx_tsxalpha_level1_qrtmd_v2_1.test_symbol.labels = {
+  ["Y"] = "Test Symbol: Yes (Y)",
+  ["N"] = "Test Symbol: No (N)",
+}
 
-  return "Test Symbol: Unknown("..value..")"
+tmx_tsxalpha_level1_qrtmd_v2_1.test_symbol.display = function(value)
+  return tmx_tsxalpha_level1_qrtmd_v2_1.test_symbol.labels[value] or "Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Test Symbol
@@ -2338,42 +2270,22 @@ end
 tmx_tsxalpha_level1_qrtmd_v2_1.message_body = {}
 
 -- Dissect: Message Body
+tmx_tsxalpha_level1_qrtmd_v2_1.message_body.dispatch = {
+  ["A"] = tmx_tsxalpha_level1_qrtmd_v2_1.trade_message.dissect,
+  ["B"] = tmx_tsxalpha_level1_qrtmd_v2_1.symbol_status_message.dissect,
+  ["D"] = tmx_tsxalpha_level1_qrtmd_v2_1.stock_state_message.dissect,
+  ["E"] = tmx_tsxalpha_level1_qrtmd_v2_1.quote_message.dissect,
+  ["G"] = tmx_tsxalpha_level1_qrtmd_v2_1.general_message.dissect,
+  ["H"] = tmx_tsxalpha_level1_qrtmd_v2_1.trade_cancellation_message.dissect,
+  ["S"] = tmx_tsxalpha_level1_qrtmd_v2_1.market_state_message.dissect,
+  ["T"] = tmx_tsxalpha_level1_qrtmd_v2_1.trading_tier_status_message.dissect,
+  ["X"] = tmx_tsxalpha_level1_qrtmd_v2_1.trade_correction_message.dissect,
+}
+
 tmx_tsxalpha_level1_qrtmd_v2_1.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Trade Message
-  if message_type == "A" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Status Message
-  if message_type == "B" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock State Message
-  if message_type == "D" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.stock_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Message
-  if message_type == "E" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect General Message
-  if message_type == "G" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.general_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancellation Message
-  if message_type == "H" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Message
-  if message_type == "S" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.market_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Tier Status Message
-  if message_type == "T" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.trading_tier_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == "X" then
-    return tmx_tsxalpha_level1_qrtmd_v2_1.trade_correction_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsxalpha_level1_qrtmd_v2_1.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

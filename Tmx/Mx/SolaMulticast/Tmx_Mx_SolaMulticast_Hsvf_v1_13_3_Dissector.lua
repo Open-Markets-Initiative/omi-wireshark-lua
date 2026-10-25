@@ -1060,15 +1060,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_sign = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_sign.size = 1
 
 -- Display: Ask Price Sign
-tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_sign.display = function(value)
-  if value == "+" then
-    return "Ask Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Ask Price Sign: Negative (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_sign.labels = {
+  ["+"] = "Ask Price Sign: Positive (+)",
+  ["-"] = "Ask Price Sign: Negative (-)",
+}
 
-  return "Ask Price Sign: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_sign.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_sign.labels[value] or "Ask Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Ask Price Sign
@@ -1309,15 +1307,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_sign = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_sign.size = 1
 
 -- Display: Bid Price Sign
-tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_sign.display = function(value)
-  if value == "+" then
-    return "Bid Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Bid Price Sign: Negative (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_sign.labels = {
+  ["+"] = "Bid Price Sign: Positive (+)",
+  ["-"] = "Bid Price Sign: Negative (-)",
+}
 
-  return "Bid Price Sign: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_sign.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_sign.labels[value] or "Bid Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Bid Price Sign
@@ -1408,15 +1404,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.bulletin_type = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.bulletin_type.size = 1
 
 -- Display: Bulletin Type
-tmx_mx_solamulticast_hsvf_v1_13_3.bulletin_type.display = function(value)
-  if value == "1" then
-    return "Bulletin Type: Regular Text Bulletin (1)"
-  end
-  if value == "2" then
-    return "Bulletin Type: Special Text Bulletin (2)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.bulletin_type.labels = {
+  ["1"] = "Bulletin Type: Regular Text Bulletin (1)",
+  ["2"] = "Bulletin Type: Special Text Bulletin (2)",
+}
 
-  return "Bulletin Type: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.bulletin_type.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.bulletin_type.labels[value] or "Bulletin Type: Unknown("..value..")"
 end
 
 -- Dissect: Bulletin Type
@@ -1465,15 +1459,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.call_put_code = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.call_put_code.size = 1
 
 -- Display: Call Put Code
-tmx_mx_solamulticast_hsvf_v1_13_3.call_put_code.display = function(value)
-  if value == "C" then
-    return "Call Put Code: Call (C)"
-  end
-  if value == "P" then
-    return "Call Put Code: Put (P)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.call_put_code.labels = {
+  ["C"] = "Call Put Code: Call (C)",
+  ["P"] = "Call Put Code: Put (P)",
+}
 
-  return "Call Put Code: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.call_put_code.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.call_put_code.labels[value] or "Call Put Code: Unknown("..value..")"
 end
 
 -- Dissect: Call Put Code
@@ -1495,15 +1487,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.continue_marker = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.continue_marker.size = 1
 
 -- Display: Continue Marker
-tmx_mx_solamulticast_hsvf_v1_13_3.continue_marker.display = function(value)
-  if value == 0 then
-    return "Continue Marker: Bulletin Continues In Next Record (0)"
-  end
-  if value == 1 then
-    return "Continue Marker: Bulletin Ended (1)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.continue_marker.labels = {
+  [0] = "Continue Marker: Bulletin Continues In Next Record (0)",
+  [1] = "Continue Marker: Bulletin Ended (1)",
+}
 
-  return "Continue Marker: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.continue_marker.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.continue_marker.labels[value] or "Continue Marker: Unknown("..value..")"
 end
 
 -- Dissect: Continue Marker
@@ -1851,15 +1841,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.delivery_type = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.delivery_type.size = 1
 
 -- Display: Delivery Type
-tmx_mx_solamulticast_hsvf_v1_13_3.delivery_type.display = function(value)
-  if value == "C" then
-    return "Delivery Type: Cash (C)"
-  end
-  if value == "P" then
-    return "Delivery Type: Physical (P)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.delivery_type.labels = {
+  ["C"] = "Delivery Type: Cash (C)",
+  ["P"] = "Delivery Type: Physical (P)",
+}
 
-  return "Delivery Type: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.delivery_type.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.delivery_type.labels[value] or "Delivery Type: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Type
@@ -1881,12 +1869,12 @@ tmx_mx_solamulticast_hsvf_v1_13_3.exchange_id = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.exchange_id.size = 1
 
 -- Display: Exchange Id
-tmx_mx_solamulticast_hsvf_v1_13_3.exchange_id.display = function(value)
-  if value == "Q" then
-    return "Exchange Id: Montreal (Q)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.exchange_id.labels = {
+  ["Q"] = "Exchange Id: Montreal (Q)",
+}
 
-  return "Exchange Id: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.exchange_id.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.exchange_id.labels[value] or "Exchange Id: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Id
@@ -1966,81 +1954,35 @@ tmx_mx_solamulticast_hsvf_v1_13_3.expiry_month = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.expiry_month.size = 1
 
 -- Display: Expiry Month
-tmx_mx_solamulticast_hsvf_v1_13_3.expiry_month.display = function(value)
-  if value == "A" then
-    return "Expiry Month: January Call (A)"
-  end
-  if value == "B" then
-    return "Expiry Month: February Call (B)"
-  end
-  if value == "C" then
-    return "Expiry Month: March Call (C)"
-  end
-  if value == "D" then
-    return "Expiry Month: April Call (D)"
-  end
-  if value == "E" then
-    return "Expiry Month: May Call (E)"
-  end
-  if value == "F" then
-    return "Expiry Month: June Call (F)"
-  end
-  if value == "G" then
-    return "Expiry Month: July Call (G)"
-  end
-  if value == "H" then
-    return "Expiry Month: August Call (H)"
-  end
-  if value == "I" then
-    return "Expiry Month: September Call (I)"
-  end
-  if value == "J" then
-    return "Expiry Month: October Call (J)"
-  end
-  if value == "K" then
-    return "Expiry Month: November Call (K)"
-  end
-  if value == "L" then
-    return "Expiry Month: December Call (L)"
-  end
-  if value == "M" then
-    return "Expiry Month: January Put (M)"
-  end
-  if value == "N" then
-    return "Expiry Month: February Put (N)"
-  end
-  if value == "O" then
-    return "Expiry Month: March Put (O)"
-  end
-  if value == "P" then
-    return "Expiry Month: April Put (P)"
-  end
-  if value == "Q" then
-    return "Expiry Month: May Put (Q)"
-  end
-  if value == "R" then
-    return "Expiry Month: June Put (R)"
-  end
-  if value == "S" then
-    return "Expiry Month: July Put (S)"
-  end
-  if value == "T" then
-    return "Expiry Month: August Put (T)"
-  end
-  if value == "U" then
-    return "Expiry Month: September Put (U)"
-  end
-  if value == "V" then
-    return "Expiry Month: October Put (V)"
-  end
-  if value == "W" then
-    return "Expiry Month: November Put (W)"
-  end
-  if value == "X" then
-    return "Expiry Month: December Put (X)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.expiry_month.labels = {
+  ["A"] = "Expiry Month: January Call (A)",
+  ["B"] = "Expiry Month: February Call (B)",
+  ["C"] = "Expiry Month: March Call (C)",
+  ["D"] = "Expiry Month: April Call (D)",
+  ["E"] = "Expiry Month: May Call (E)",
+  ["F"] = "Expiry Month: June Call (F)",
+  ["G"] = "Expiry Month: July Call (G)",
+  ["H"] = "Expiry Month: August Call (H)",
+  ["I"] = "Expiry Month: September Call (I)",
+  ["J"] = "Expiry Month: October Call (J)",
+  ["K"] = "Expiry Month: November Call (K)",
+  ["L"] = "Expiry Month: December Call (L)",
+  ["M"] = "Expiry Month: January Put (M)",
+  ["N"] = "Expiry Month: February Put (N)",
+  ["O"] = "Expiry Month: March Put (O)",
+  ["P"] = "Expiry Month: April Put (P)",
+  ["Q"] = "Expiry Month: May Put (Q)",
+  ["R"] = "Expiry Month: June Put (R)",
+  ["S"] = "Expiry Month: July Put (S)",
+  ["T"] = "Expiry Month: August Put (T)",
+  ["U"] = "Expiry Month: September Put (U)",
+  ["V"] = "Expiry Month: October Put (V)",
+  ["W"] = "Expiry Month: November Put (W)",
+  ["X"] = "Expiry Month: December Put (X)",
+}
 
-  return "Expiry Month: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.expiry_month.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.expiry_month.labels[value] or "Expiry Month: Unknown("..value..")"
 end
 
 -- Dissect: Expiry Month
@@ -2444,15 +2386,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.high_price_sign = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.high_price_sign.size = 1
 
 -- Display: High Price Sign
-tmx_mx_solamulticast_hsvf_v1_13_3.high_price_sign.display = function(value)
-  if value == "+" then
-    return "High Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "High Price Sign: Negative (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.high_price_sign.labels = {
+  ["+"] = "High Price Sign: Positive (+)",
+  ["-"] = "High Price Sign: Negative (-)",
+}
 
-  return "High Price Sign: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.high_price_sign.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.high_price_sign.labels[value] or "High Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: High Price Sign
@@ -2758,15 +2698,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.last_price_sign = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.last_price_sign.size = 1
 
 -- Display: Last Price Sign
-tmx_mx_solamulticast_hsvf_v1_13_3.last_price_sign.display = function(value)
-  if value == "+" then
-    return "Last Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Last Price Sign: Negative (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.last_price_sign.labels = {
+  ["+"] = "Last Price Sign: Positive (+)",
+  ["-"] = "Last Price Sign: Negative (-)",
+}
 
-  return "Last Price Sign: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.last_price_sign.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.last_price_sign.labels[value] or "Last Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Last Price Sign
@@ -3136,27 +3074,17 @@ tmx_mx_solamulticast_hsvf_v1_13_3.level_of_market_depth = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.level_of_market_depth.size = 1
 
 -- Display: Level Of Market Depth
-tmx_mx_solamulticast_hsvf_v1_13_3.level_of_market_depth.display = function(value)
-  if value == "1" then
-    return "Level Of Market Depth: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Level Of Market Depth: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Level Of Market Depth: Level 3 (3)"
-  end
-  if value == "4" then
-    return "Level Of Market Depth: Level 4 (4)"
-  end
-  if value == "5" then
-    return "Level Of Market Depth: Level 5 (5)"
-  end
-  if value == "A" then
-    return "Level Of Market Depth: Implied (A)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.level_of_market_depth.labels = {
+  ["1"] = "Level Of Market Depth: Level 1 (1)",
+  ["2"] = "Level Of Market Depth: Level 2 (2)",
+  ["3"] = "Level Of Market Depth: Level 3 (3)",
+  ["4"] = "Level Of Market Depth: Level 4 (4)",
+  ["5"] = "Level Of Market Depth: Level 5 (5)",
+  ["A"] = "Level Of Market Depth: Implied (A)",
+}
 
-  return "Level Of Market Depth: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.level_of_market_depth.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.level_of_market_depth.labels[value] or "Level Of Market Depth: Unknown("..value..")"
 end
 
 -- Dissect: Level Of Market Depth
@@ -3305,15 +3233,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.low_price_sign = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.low_price_sign.size = 1
 
 -- Display: Low Price Sign
-tmx_mx_solamulticast_hsvf_v1_13_3.low_price_sign.display = function(value)
-  if value == "+" then
-    return "Low Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Low Price Sign: Negative (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.low_price_sign.labels = {
+  ["+"] = "Low Price Sign: Positive (+)",
+  ["-"] = "Low Price Sign: Negative (-)",
+}
 
-  return "Low Price Sign: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.low_price_sign.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.low_price_sign.labels[value] or "Low Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Low Price Sign
@@ -3612,150 +3538,58 @@ tmx_mx_solamulticast_hsvf_v1_13_3.message_type = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.message_type.size = 2
 
 -- Display: Message Type
-tmx_mx_solamulticast_hsvf_v1_13_3.message_type.display = function(value)
-  if value == "C" then
-    return "Message Type: Option Trade Message (C)"
-  end
-  if value == "CB" then
-    return "Message Type: Future Options Trade Message (CB)"
-  end
-  if value == "CF" then
-    return "Message Type: Futures Trade Message (CF)"
-  end
-  if value == "CS" then
-    return "Message Type: Strategy Trade Message (CS)"
-  end
-  if value == "D" then
-    return "Message Type: Option Request For Quote Message (D)"
-  end
-  if value == "DB" then
-    return "Message Type: Future Options Request For Quote Message (DB)"
-  end
-  if value == "DF" then
-    return "Message Type: Future Request For Quote Message (DF)"
-  end
-  if value == "DS" then
-    return "Message Type: Strategy Request For Quote Message (DS)"
-  end
-  if value == "E" then
-    return "Message Type: Instrument Schedule Notice Option Message (E)"
-  end
-  if value == "EB" then
-    return "Message Type: Instrument Schedule Notice Futures Option Message (EB)"
-  end
-  if value == "EF" then
-    return "Message Type: Instrument Schedule Notice Future Message (EF)"
-  end
-  if value == "ES" then
-    return "Message Type: Instrument Schedule Notice Strategy Message (ES)"
-  end
-  if value == "F" then
-    return "Message Type: Option Quote Message (F)"
-  end
-  if value == "FB" then
-    return "Message Type: Future Options Quote Message (FB)"
-  end
-  if value == "FF" then
-    return "Message Type: Futures Quote Message (FF)"
-  end
-  if value == "FS" then
-    return "Message Type: Strategy Quote Message (FS)"
-  end
-  if value == "H" then
-    return "Message Type: Option Market Depth Message (H)"
-  end
-  if value == "HB" then
-    return "Message Type: Future Options Market Depth Message (HB)"
-  end
-  if value == "HF" then
-    return "Message Type: Futures Market Depth Message (HF)"
-  end
-  if value == "HS" then
-    return "Message Type: Strategy Market Depth Message (HS)"
-  end
-  if value == "I" then
-    return "Message Type: Option Trade Cancellation Message (I)"
-  end
-  if value == "IB" then
-    return "Message Type: Future Options Trade Cancellation Message (IB)"
-  end
-  if value == "IF" then
-    return "Message Type: Future Trade Cancellation Message (IF)"
-  end
-  if value == "IS" then
-    return "Message Type: Strategy Trade Cancellation Message (IS)"
-  end
-  if value == "J" then
-    return "Message Type: Option Instrument Keys Message (J)"
-  end
-  if value == "JB" then
-    return "Message Type: Future Options Instrument Keys Message (JB)"
-  end
-  if value == "JE" then
-    return "Message Type: Underlying Instrument Keys Message (JE)"
-  end
-  if value == "JF" then
-    return "Message Type: Futures Instrument Keys Message (JF)"
-  end
-  if value == "JS" then
-    return "Message Type: Strategy Instrument Keys Message (JS)"
-  end
-  if value == "N" then
-    return "Message Type: Option Summary Message (N)"
-  end
-  if value == "NB" then
-    return "Message Type: Future Options Summary Message (NB)"
-  end
-  if value == "NF" then
-    return "Message Type: Futures Summary Message (NF)"
-  end
-  if value == "NS" then
-    return "Message Type: Strategy Summary Message (NS)"
-  end
-  if value == "Q" then
-    return "Message Type: Beginning Of Options Summary Message (Q)"
-  end
-  if value == "QB" then
-    return "Message Type: Beginning Of Future Options Summary Message (QB)"
-  end
-  if value == "QF" then
-    return "Message Type: Beginning Of Futures Summary Message (QF)"
-  end
-  if value == "QS" then
-    return "Message Type: Beginning Of Strategy Summary Message (QS)"
-  end
-  if value == "XF" then
-    return "Message Type: Futures Trade Correction Message (XF)"
-  end
-  if value == "GR" then
-    return "Message Type: Group Status Message (GR)"
-  end
-  if value == "GS" then
-    return "Message Type: Group Status Strategies Message (GS)"
-  end
-  if value == "KF" then
-    return "Message Type: Future Deliverables Message (KF)"
-  end
-  if value == "L" then
-    return "Message Type: Bulletins Message (L)"
-  end
-  if value == "S" then
-    return "Message Type: End Of Sales Message (S)"
-  end
-  if value == "TT" then
-    return "Message Type: Tick Table Message (TT)"
-  end
-  if value == "U" then
-    return "Message Type: End Of Transmission Message (U)"
-  end
-  if value == "V" then
-    return "Message Type: Circuit Assurance Message (V)"
-  end
-  if value == "SD" then
-    return "Message Type: Start Of Day Message (SD)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.message_type.labels = {
+  ["C"] = "Message Type: Option Trade Message (C)",
+  ["CB"] = "Message Type: Future Options Trade Message (CB)",
+  ["CF"] = "Message Type: Futures Trade Message (CF)",
+  ["CS"] = "Message Type: Strategy Trade Message (CS)",
+  ["D"] = "Message Type: Option Request For Quote Message (D)",
+  ["DB"] = "Message Type: Future Options Request For Quote Message (DB)",
+  ["DF"] = "Message Type: Future Request For Quote Message (DF)",
+  ["DS"] = "Message Type: Strategy Request For Quote Message (DS)",
+  ["E"] = "Message Type: Instrument Schedule Notice Option Message (E)",
+  ["EB"] = "Message Type: Instrument Schedule Notice Futures Option Message (EB)",
+  ["EF"] = "Message Type: Instrument Schedule Notice Future Message (EF)",
+  ["ES"] = "Message Type: Instrument Schedule Notice Strategy Message (ES)",
+  ["F"] = "Message Type: Option Quote Message (F)",
+  ["FB"] = "Message Type: Future Options Quote Message (FB)",
+  ["FF"] = "Message Type: Futures Quote Message (FF)",
+  ["FS"] = "Message Type: Strategy Quote Message (FS)",
+  ["H"] = "Message Type: Option Market Depth Message (H)",
+  ["HB"] = "Message Type: Future Options Market Depth Message (HB)",
+  ["HF"] = "Message Type: Futures Market Depth Message (HF)",
+  ["HS"] = "Message Type: Strategy Market Depth Message (HS)",
+  ["I"] = "Message Type: Option Trade Cancellation Message (I)",
+  ["IB"] = "Message Type: Future Options Trade Cancellation Message (IB)",
+  ["IF"] = "Message Type: Future Trade Cancellation Message (IF)",
+  ["IS"] = "Message Type: Strategy Trade Cancellation Message (IS)",
+  ["J"] = "Message Type: Option Instrument Keys Message (J)",
+  ["JB"] = "Message Type: Future Options Instrument Keys Message (JB)",
+  ["JE"] = "Message Type: Underlying Instrument Keys Message (JE)",
+  ["JF"] = "Message Type: Futures Instrument Keys Message (JF)",
+  ["JS"] = "Message Type: Strategy Instrument Keys Message (JS)",
+  ["N"] = "Message Type: Option Summary Message (N)",
+  ["NB"] = "Message Type: Future Options Summary Message (NB)",
+  ["NF"] = "Message Type: Futures Summary Message (NF)",
+  ["NS"] = "Message Type: Strategy Summary Message (NS)",
+  ["Q"] = "Message Type: Beginning Of Options Summary Message (Q)",
+  ["QB"] = "Message Type: Beginning Of Future Options Summary Message (QB)",
+  ["QF"] = "Message Type: Beginning Of Futures Summary Message (QF)",
+  ["QS"] = "Message Type: Beginning Of Strategy Summary Message (QS)",
+  ["XF"] = "Message Type: Futures Trade Correction Message (XF)",
+  ["GR"] = "Message Type: Group Status Message (GR)",
+  ["GS"] = "Message Type: Group Status Strategies Message (GS)",
+  ["KF"] = "Message Type: Future Deliverables Message (KF)",
+  ["L"] = "Message Type: Bulletins Message (L)",
+  ["S"] = "Message Type: End Of Sales Message (S)",
+  ["TT"] = "Message Type: Tick Table Message (TT)",
+  ["U"] = "Message Type: End Of Transmission Message (U)",
+  ["V"] = "Message Type: Circuit Assurance Message (V)",
+  ["SD"] = "Message Type: Start Of Day Message (SD)",
+}
 
-  return "Message Type: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.message_type.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -4212,15 +4046,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.net_change_sign = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_sign.size = 1
 
 -- Display: Net Change Sign
-tmx_mx_solamulticast_hsvf_v1_13_3.net_change_sign.display = function(value)
-  if value == "+" then
-    return "Net Change Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Net Change Sign: Negative (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_sign.labels = {
+  ["+"] = "Net Change Sign: Positive (+)",
+  ["-"] = "Net Change Sign: Negative (-)",
+}
 
-  return "Net Change Sign: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_sign.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_sign.labels[value] or "Net Change Sign: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Sign
@@ -4627,15 +4459,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.open_price_sign = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.open_price_sign.size = 1
 
 -- Display: Open Price Sign
-tmx_mx_solamulticast_hsvf_v1_13_3.open_price_sign.display = function(value)
-  if value == "+" then
-    return "Open Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Open Price Sign: Negative (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.open_price_sign.labels = {
+  ["+"] = "Open Price Sign: Positive (+)",
+  ["-"] = "Open Price Sign: Negative (-)",
+}
 
-  return "Open Price Sign: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.open_price_sign.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.open_price_sign.labels[value] or "Open Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Open Price Sign
@@ -4784,39 +4614,21 @@ tmx_mx_solamulticast_hsvf_v1_13_3.option_marker = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.option_marker.size = 2
 
 -- Display: Option Marker
-tmx_mx_solamulticast_hsvf_v1_13_3.option_marker.display = function(value)
-  if value == "B" then
-    return "Option Marker: Trading In British Pound (B)"
-  end
-  if value == "C" then
-    return "Option Marker: Trading In Canadian Dollar (C)"
-  end
-  if value == "D" then
-    return "Option Marker: Danish Krone (D)"
-  end
-  if value == "E" then
-    return "Option Marker: Trading In Swiss Franc (E)"
-  end
-  if value == "F" then
-    return "Option Marker: Trading In Euro (F)"
-  end
-  if value == "N" then
-    return "Option Marker: Norwegian Krone (N)"
-  end
-  if value == "S" then
-    return "Option Marker: Swedish Krona (S)"
-  end
-  if value == "U" then
-    return "Option Marker: Trading In Us Dollar (U)"
-  end
-  if value == "Y" then
-    return "Option Marker: Trading In Japanese Yen (Y)"
-  end
-  if value == "X" then
-    return "Option Marker: British Pence (X)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.option_marker.labels = {
+  ["B"] = "Option Marker: Trading In British Pound (B)",
+  ["C"] = "Option Marker: Trading In Canadian Dollar (C)",
+  ["D"] = "Option Marker: Danish Krone (D)",
+  ["E"] = "Option Marker: Trading In Swiss Franc (E)",
+  ["F"] = "Option Marker: Trading In Euro (F)",
+  ["N"] = "Option Marker: Norwegian Krone (N)",
+  ["S"] = "Option Marker: Swedish Krona (S)",
+  ["U"] = "Option Marker: Trading In Us Dollar (U)",
+  ["Y"] = "Option Marker: Trading In Japanese Yen (Y)",
+  ["X"] = "Option Marker: British Pence (X)",
+}
 
-  return "Option Marker: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.option_marker.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.option_marker.labels[value] or "Option Marker: Unknown("..value..")"
 end
 
 -- Dissect: Option Marker
@@ -4838,15 +4650,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.option_type = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.option_type.size = 1
 
 -- Display: Option Type
-tmx_mx_solamulticast_hsvf_v1_13_3.option_type.display = function(value)
-  if value == "A" then
-    return "Option Type: American (A)"
-  end
-  if value == "E" then
-    return "Option Type: European (E)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.option_type.labels = {
+  ["A"] = "Option Type: American (A)",
+  ["E"] = "Option Type: European (E)",
+}
 
-  return "Option Type: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.option_type.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -6923,21 +6733,15 @@ tmx_mx_solamulticast_hsvf_v1_13_3.reason = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.reason.size = 1
 
 -- Display: Reason
-tmx_mx_solamulticast_hsvf_v1_13_3.reason.display = function(value)
-  if value == "S" then
-    return "Reason: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Reason: End Of Day (E)"
-  end
-  if value == "U" then
-    return "Reason: Instrument New Or Update (U)"
-  end
-  if value == "C" then
-    return "Reason: Trade Cancellation (C)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.reason.labels = {
+  ["S"] = "Reason: Start Of Day (S)",
+  ["E"] = "Reason: End Of Day (E)",
+  ["U"] = "Reason: Instrument New Or Update (U)",
+  ["C"] = "Reason: Trade Cancellation (C)",
+}
 
-  return "Reason: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.reason.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -6982,18 +6786,14 @@ tmx_mx_solamulticast_hsvf_v1_13_3.requested_market_side = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.requested_market_side.size = 1
 
 -- Display: Requested Market Side
-tmx_mx_solamulticast_hsvf_v1_13_3.requested_market_side.display = function(value)
-  if value == "B" then
-    return "Requested Market Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Requested Market Side: Sell (S)"
-  end
-  if value == "2" then
-    return "Requested Market Side: Both (2)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.requested_market_side.labels = {
+  ["B"] = "Requested Market Side: Buy (B)",
+  ["S"] = "Requested Market Side: Sell (S)",
+  ["2"] = "Requested Market Side: Both (2)",
+}
 
-  return "Requested Market Side: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.requested_market_side.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.requested_market_side.labels[value] or "Requested Market Side: Unknown("..value..")"
 end
 
 -- Dissect: Requested Market Side
@@ -7372,15 +7172,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.strategy_allow_implied = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.strategy_allow_implied.size = 1
 
 -- Display: Strategy Allow Implied
-tmx_mx_solamulticast_hsvf_v1_13_3.strategy_allow_implied.display = function(value)
-  if value == "Y" then
-    return "Strategy Allow Implied: Yes (Y)"
-  end
-  if value == "N" then
-    return "Strategy Allow Implied: No (N)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.strategy_allow_implied.labels = {
+  ["Y"] = "Strategy Allow Implied: Yes (Y)",
+  ["N"] = "Strategy Allow Implied: No (N)",
+}
 
-  return "Strategy Allow Implied: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.strategy_allow_implied.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_allow_implied.labels[value] or "Strategy Allow Implied: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Allow Implied
@@ -7448,21 +7246,15 @@ tmx_mx_solamulticast_hsvf_v1_13_3.strategy_type = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.strategy_type.size = 1
 
 -- Display: Strategy Type
-tmx_mx_solamulticast_hsvf_v1_13_3.strategy_type.display = function(value)
-  if value == "C" then
-    return "Strategy Type: Classic (C)"
-  end
-  if value == "S" then
-    return "Strategy Type: Strip (S)"
-  end
-  if value == "V" then
-    return "Strategy Type: Covered Regular (V)"
-  end
-  if value == "R" then
-    return "Strategy Type: Covered Reference Fixed (R)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.strategy_type.labels = {
+  ["C"] = "Strategy Type: Classic (C)",
+  ["S"] = "Strategy Type: Strip (S)",
+  ["V"] = "Strategy Type: Covered Regular (V)",
+  ["R"] = "Strategy Type: Covered Reference Fixed (R)",
+}
 
-  return "Strategy Type: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.strategy_type.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_type.labels[value] or "Strategy Type: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Type
@@ -7698,45 +7490,23 @@ tmx_mx_solamulticast_hsvf_v1_13_3.symbol_month = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.symbol_month.size = 1
 
 -- Display: Symbol Month
-tmx_mx_solamulticast_hsvf_v1_13_3.symbol_month.display = function(value)
-  if value == "F" then
-    return "Symbol Month: January (F)"
-  end
-  if value == "G" then
-    return "Symbol Month: February (G)"
-  end
-  if value == "H" then
-    return "Symbol Month: March (H)"
-  end
-  if value == "J" then
-    return "Symbol Month: April (J)"
-  end
-  if value == "K" then
-    return "Symbol Month: May (K)"
-  end
-  if value == "M" then
-    return "Symbol Month: June (M)"
-  end
-  if value == "N" then
-    return "Symbol Month: July (N)"
-  end
-  if value == "Q" then
-    return "Symbol Month: August (Q)"
-  end
-  if value == "U" then
-    return "Symbol Month: September (U)"
-  end
-  if value == "V" then
-    return "Symbol Month: October (V)"
-  end
-  if value == "X" then
-    return "Symbol Month: November (X)"
-  end
-  if value == "Z" then
-    return "Symbol Month: December (Z)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.symbol_month.labels = {
+  ["F"] = "Symbol Month: January (F)",
+  ["G"] = "Symbol Month: February (G)",
+  ["H"] = "Symbol Month: March (H)",
+  ["J"] = "Symbol Month: April (J)",
+  ["K"] = "Symbol Month: May (K)",
+  ["M"] = "Symbol Month: June (M)",
+  ["N"] = "Symbol Month: July (N)",
+  ["Q"] = "Symbol Month: August (Q)",
+  ["U"] = "Symbol Month: September (U)",
+  ["V"] = "Symbol Month: October (V)",
+  ["X"] = "Symbol Month: November (X)",
+  ["Z"] = "Symbol Month: December (Z)",
+}
 
-  return "Symbol Month: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.symbol_month.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.symbol_month.labels[value] or "Symbol Month: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Month
@@ -7789,15 +7559,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.tick = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.tick.size = 1
 
 -- Display: Tick
-tmx_mx_solamulticast_hsvf_v1_13_3.tick.display = function(value)
-  if value == "+" then
-    return "Tick: Uptick (+)"
-  end
-  if value == "-" then
-    return "Tick: Downtick (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.tick.labels = {
+  ["+"] = "Tick: Uptick (+)",
+  ["-"] = "Tick: Downtick (-)",
+}
 
-  return "Tick: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.tick.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.tick.labels[value] or "Tick: Unknown("..value..")"
 end
 
 -- Dissect: Tick
@@ -8446,15 +8214,13 @@ tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_sign = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_sign.size = 1
 
 -- Display: Trade Price Sign
-tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_sign.display = function(value)
-  if value == "+" then
-    return "Trade Price Sign: Positive (+)"
-  end
-  if value == "-" then
-    return "Trade Price Sign: Negative (-)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_sign.labels = {
+  ["+"] = "Trade Price Sign: Positive (+)",
+  ["-"] = "Trade Price Sign: Negative (-)",
+}
 
-  return "Trade Price Sign: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_sign.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_sign.labels[value] or "Trade Price Sign: Unknown("..value..")"
 end
 
 -- Dissect: Trade Price Sign
@@ -8522,45 +8288,23 @@ tmx_mx_solamulticast_hsvf_v1_13_3.underlying_symbol_month = {}
 tmx_mx_solamulticast_hsvf_v1_13_3.underlying_symbol_month.size = 1
 
 -- Display: Underlying Symbol Month
-tmx_mx_solamulticast_hsvf_v1_13_3.underlying_symbol_month.display = function(value)
-  if value == "F" then
-    return "Underlying Symbol Month: January (F)"
-  end
-  if value == "G" then
-    return "Underlying Symbol Month: February (G)"
-  end
-  if value == "H" then
-    return "Underlying Symbol Month: March (H)"
-  end
-  if value == "J" then
-    return "Underlying Symbol Month: April (J)"
-  end
-  if value == "K" then
-    return "Underlying Symbol Month: May (K)"
-  end
-  if value == "M" then
-    return "Underlying Symbol Month: June (M)"
-  end
-  if value == "N" then
-    return "Underlying Symbol Month: July (N)"
-  end
-  if value == "Q" then
-    return "Underlying Symbol Month: August (Q)"
-  end
-  if value == "U" then
-    return "Underlying Symbol Month: September (U)"
-  end
-  if value == "V" then
-    return "Underlying Symbol Month: October (V)"
-  end
-  if value == "X" then
-    return "Underlying Symbol Month: November (X)"
-  end
-  if value == "Z" then
-    return "Underlying Symbol Month: December (Z)"
-  end
+tmx_mx_solamulticast_hsvf_v1_13_3.underlying_symbol_month.labels = {
+  ["F"] = "Underlying Symbol Month: January (F)",
+  ["G"] = "Underlying Symbol Month: February (G)",
+  ["H"] = "Underlying Symbol Month: March (H)",
+  ["J"] = "Underlying Symbol Month: April (J)",
+  ["K"] = "Underlying Symbol Month: May (K)",
+  ["M"] = "Underlying Symbol Month: June (M)",
+  ["N"] = "Underlying Symbol Month: July (N)",
+  ["Q"] = "Underlying Symbol Month: August (Q)",
+  ["U"] = "Underlying Symbol Month: September (U)",
+  ["V"] = "Underlying Symbol Month: October (V)",
+  ["X"] = "Underlying Symbol Month: November (X)",
+  ["Z"] = "Underlying Symbol Month: December (Z)",
+}
 
-  return "Underlying Symbol Month: Unknown("..value..")"
+tmx_mx_solamulticast_hsvf_v1_13_3.underlying_symbol_month.display = function(value)
+  return tmx_mx_solamulticast_hsvf_v1_13_3.underlying_symbol_month.labels[value] or "Underlying Symbol Month: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Symbol Month
@@ -11784,34 +11528,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_fraction_pair = {}
 
 -- Dissect: Tick Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_fraction_pair.dissect = function(buffer, offset, packet, parent, tick_price_fraction_indicator)
-  -- Dissect Tick Price Negative Whole Pair
-  if tick_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Ten Pair
-  if tick_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Hundred Pair
-  if tick_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Thousand Pair
-  if tick_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Ten Thousand Pair
-  if tick_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Hundred Thousand Pair
-  if tick_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Price Negative Million Pair
-  if tick_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.tick_price_fraction_pair.dispatch[tick_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Tick Price Numeric Pair
@@ -12174,34 +11904,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.min_price_fraction_pair = {}
 
 -- Dissect: Min Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.min_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.min_price_fraction_pair.dissect = function(buffer, offset, packet, parent, min_price_fraction_indicator)
-  -- Dissect Min Price Negative Whole Pair
-  if min_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Ten Pair
-  if min_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Hundred Pair
-  if min_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Thousand Pair
-  if min_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Ten Thousand Pair
-  if min_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Hundred Thousand Pair
-  if min_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Price Negative Million Pair
-  if min_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.min_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.min_price_fraction_pair.dispatch[min_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Min Price Numeric Pair
@@ -12486,14 +12202,15 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.bulletin = {}
 
 -- Dissect: Bulletin
+tmx_mx_solamulticast_hsvf_v1_13_3.bulletin.dispatch = {
+  ["1"] = tmx_mx_solamulticast_hsvf_v1_13_3.regular_text_bulletin.dissect,
+  ["2"] = tmx_mx_solamulticast_hsvf_v1_13_3.special_text_bulletin.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.bulletin.dissect = function(buffer, offset, packet, parent, bulletin_type)
-  -- Dissect Regular Text Bulletin
-  if bulletin_type == "1" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.regular_text_bulletin.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Special Text Bulletin
-  if bulletin_type == "2" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.special_text_bulletin.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.bulletin.dispatch[bulletin_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -12913,34 +12630,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_fraction_pair = {}
 
 -- Dissect: Conversion Factor Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_fraction_pair.dissect = function(buffer, offset, packet, parent, conversion_factor_fraction_indicator)
-  -- Dissect Conversion Factor Negative Whole Pair
-  if conversion_factor_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Conversion Factor Negative Ten Pair
-  if conversion_factor_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Conversion Factor Negative Hundred Pair
-  if conversion_factor_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Conversion Factor Negative Thousand Pair
-  if conversion_factor_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Conversion Factor Negative Ten Thousand Pair
-  if conversion_factor_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Conversion Factor Negative Hundred Thousand Pair
-  if conversion_factor_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Conversion Factor Negative Million Pair
-  if conversion_factor_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.conversion_factor_fraction_pair.dispatch[conversion_factor_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Conversion Factor Numeric Pair
@@ -13303,34 +13006,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.coupon_fraction_pair = {}
 
 -- Dissect: Coupon Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.coupon_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.coupon_fraction_pair.dissect = function(buffer, offset, packet, parent, coupon_fraction_indicator)
-  -- Dissect Coupon Negative Whole Pair
-  if coupon_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Coupon Negative Ten Pair
-  if coupon_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Coupon Negative Hundred Pair
-  if coupon_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Coupon Negative Thousand Pair
-  if coupon_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Coupon Negative Ten Thousand Pair
-  if coupon_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Coupon Negative Hundred Thousand Pair
-  if coupon_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Coupon Negative Million Pair
-  if coupon_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.coupon_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.coupon_fraction_pair.dispatch[coupon_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Coupon Numeric Pair
@@ -13984,34 +13673,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_fraction_pair = {}
 
 -- Dissect: Net Change Futures Trade Correction Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Futures Trade Correction Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Correction Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Correction Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Correction Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Correction Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Correction Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Correction Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_correction_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Futures Trade Correction Message Numeric Pair
@@ -14374,34 +14049,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_fraction_pair = {}
 
 -- Dissect: Trade Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_fraction_pair.dissect = function(buffer, offset, packet, parent, trade_price_fraction_indicator)
-  -- Dissect Trade Price Negative Whole Pair
-  if trade_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Ten Pair
-  if trade_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Hundred Pair
-  if trade_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Thousand Pair
-  if trade_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Ten Thousand Pair
-  if trade_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Hundred Thousand Pair
-  if trade_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Price Negative Million Pair
-  if trade_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.trade_price_fraction_pair.dispatch[trade_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Trade Price Numeric Pair
@@ -15016,34 +14677,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_fraction_pair = {}
 
 -- Dissect: Net Change Strategy Summary Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Strategy Summary Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Strategy Summary Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_strategy_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Strategy Summary Message Numeric Pair
@@ -15406,34 +15053,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.low_price_fraction_pair = {}
 
 -- Dissect: Low Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.low_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.low_price_fraction_pair.dissect = function(buffer, offset, packet, parent, low_price_fraction_indicator)
-  -- Dissect Low Price Negative Whole Pair
-  if low_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Ten Pair
-  if low_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Hundred Pair
-  if low_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Thousand Pair
-  if low_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Ten Thousand Pair
-  if low_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Hundred Thousand Pair
-  if low_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Low Price Negative Million Pair
-  if low_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.low_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.low_price_fraction_pair.dispatch[low_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Low Price Numeric Pair
@@ -15796,34 +15429,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.high_price_fraction_pair = {}
 
 -- Dissect: High Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.high_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.high_price_fraction_pair.dissect = function(buffer, offset, packet, parent, high_price_fraction_indicator)
-  -- Dissect High Price Negative Whole Pair
-  if high_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Ten Pair
-  if high_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Hundred Pair
-  if high_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Thousand Pair
-  if high_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Ten Thousand Pair
-  if high_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Hundred Thousand Pair
-  if high_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect High Price Negative Million Pair
-  if high_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.high_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.high_price_fraction_pair.dispatch[high_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect High Price Numeric Pair
@@ -16186,34 +15805,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.open_price_fraction_pair = {}
 
 -- Dissect: Open Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.open_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.open_price_fraction_pair.dissect = function(buffer, offset, packet, parent, open_price_fraction_indicator)
-  -- Dissect Open Price Negative Whole Pair
-  if open_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Ten Pair
-  if open_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Hundred Pair
-  if open_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Thousand Pair
-  if open_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Ten Thousand Pair
-  if open_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Hundred Thousand Pair
-  if open_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Price Negative Million Pair
-  if open_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.open_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.open_price_fraction_pair.dispatch[open_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Open Price Numeric Pair
@@ -16576,34 +16181,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.last_price_fraction_pair = {}
 
 -- Dissect: Last Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.last_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.last_price_fraction_pair.dissect = function(buffer, offset, packet, parent, last_price_fraction_indicator)
-  -- Dissect Last Price Negative Whole Pair
-  if last_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Ten Pair
-  if last_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Hundred Pair
-  if last_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Thousand Pair
-  if last_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Ten Thousand Pair
-  if last_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Hundred Thousand Pair
-  if last_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Price Negative Million Pair
-  if last_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.last_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.last_price_fraction_pair.dispatch[last_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Last Price Numeric Pair
@@ -16966,34 +16557,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_fraction_pair = {}
 
 -- Dissect: Ask Price Summary Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent, ask_price_fraction_indicator)
-  -- Dissect Ask Price Summary Negative Whole Pair
-  if ask_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Ten Pair
-  if ask_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Hundred Pair
-  if ask_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Thousand Pair
-  if ask_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Ten Thousand Pair
-  if ask_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Hundred Thousand Pair
-  if ask_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ask Price Summary Negative Million Pair
-  if ask_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.ask_price_summary_fraction_pair.dispatch[ask_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Ask Price Summary Numeric Pair
@@ -17356,34 +16933,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_fraction_pair = {}
 
 -- Dissect: Bid Price Summary Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent, bid_price_fraction_indicator)
-  -- Dissect Bid Price Summary Negative Whole Pair
-  if bid_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Ten Pair
-  if bid_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Hundred Pair
-  if bid_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Thousand Pair
-  if bid_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Ten Thousand Pair
-  if bid_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Hundred Thousand Pair
-  if bid_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Price Summary Negative Million Pair
-  if bid_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.bid_price_summary_fraction_pair.dispatch[bid_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Bid Price Summary Numeric Pair
@@ -17928,34 +17491,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_fraction_pair = {}
 
 -- Dissect: External Price At Source Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_fraction_pair.dissect = function(buffer, offset, packet, parent, external_price_fraction_indicator)
-  -- Dissect External Price At Source Negative Whole Pair
-  if external_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Ten Pair
-  if external_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Hundred Pair
-  if external_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Thousand Pair
-  if external_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Ten Thousand Pair
-  if external_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Hundred Thousand Pair
-  if external_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect External Price At Source Negative Million Pair
-  if external_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.external_price_at_source_fraction_pair.dispatch[external_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect External Price At Source Numeric Pair
@@ -18318,34 +17867,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_fraction_pair = {}
 
 -- Dissect: Previous Settlement Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_settlement_fraction_indicator)
-  -- Dissect Previous Settlement Negative Whole Pair
-  if previous_settlement_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Ten Pair
-  if previous_settlement_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Hundred Pair
-  if previous_settlement_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Thousand Pair
-  if previous_settlement_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Ten Thousand Pair
-  if previous_settlement_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Hundred Thousand Pair
-  if previous_settlement_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Negative Million Pair
-  if previous_settlement_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_fraction_pair.dispatch[previous_settlement_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Previous Settlement Numeric Pair
@@ -18708,34 +18243,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_fraction_pair = {}
 
 -- Dissect: Net Change Futures Summary Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Futures Summary Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Summary Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Futures Summary Message Numeric Pair
@@ -19098,34 +18619,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_fraction_pair = {}
 
 -- Dissect: Settlement Price Future Options Summary Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, settlement_price_fraction_indicator)
-  -- Dissect Settlement Price Future Options Summary Message Negative Whole Pair
-  if settlement_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Ten Pair
-  if settlement_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Hundred Pair
-  if settlement_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Thousand Pair
-  if settlement_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Ten Thousand Pair
-  if settlement_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Hundred Thousand Pair
-  if settlement_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Future Options Summary Message Negative Million Pair
-  if settlement_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_future_options_summary_message_fraction_pair.dispatch[settlement_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Settlement Price Future Options Summary Message Numeric Pair
@@ -19683,34 +19190,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_fraction_pair = {}
 
 -- Dissect: Previous Settlement Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_settlement_price_fraction_indicator)
-  -- Dissect Previous Settlement Price Negative Whole Pair
-  if previous_settlement_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Ten Pair
-  if previous_settlement_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Hundred Pair
-  if previous_settlement_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Thousand Pair
-  if previous_settlement_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Ten Thousand Pair
-  if previous_settlement_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Hundred Thousand Pair
-  if previous_settlement_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Previous Settlement Price Negative Million Pair
-  if previous_settlement_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.previous_settlement_price_fraction_pair.dispatch[previous_settlement_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Previous Settlement Price Numeric Pair
@@ -20073,34 +19566,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_fraction_pair = {}
 
 -- Dissect: Opening Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_fraction_pair.dissect = function(buffer, offset, packet, parent, opening_price_fraction_indicator)
-  -- Dissect Opening Price Negative Whole Pair
-  if opening_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Ten Pair
-  if opening_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Hundred Pair
-  if opening_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Thousand Pair
-  if opening_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Ten Thousand Pair
-  if opening_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Hundred Thousand Pair
-  if opening_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Price Negative Million Pair
-  if opening_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.opening_price_fraction_pair.dispatch[opening_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Opening Price Numeric Pair
@@ -20463,34 +19942,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_fraction_pair = {}
 
 -- Dissect: Net Change Future Options Summary Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Future Options Summary Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Summary Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Future Options Summary Message Numeric Pair
@@ -20853,34 +20318,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_fraction_pair = {}
 
 -- Dissect: Strike Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
-  -- Dissect Strike Price Negative Whole Pair
-  if strike_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Ten Pair
-  if strike_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Hundred Pair
-  if strike_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Thousand Pair
-  if strike_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Ten Thousand Pair
-  if strike_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Hundred Thousand Pair
-  if strike_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Negative Million Pair
-  if strike_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_fraction_pair.dispatch[strike_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Strike Price Numeric Pair
@@ -21508,34 +20959,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_fraction_pair = {}
 
 -- Dissect: Settlement Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent, settlement_price_fraction_indicator)
-  -- Dissect Settlement Price Negative Whole Pair
-  if settlement_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Ten Pair
-  if settlement_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Hundred Pair
-  if settlement_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Thousand Pair
-  if settlement_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Ten Thousand Pair
-  if settlement_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Hundred Thousand Pair
-  if settlement_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Negative Million Pair
-  if settlement_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.settlement_price_fraction_pair.dispatch[settlement_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Settlement Price Numeric Pair
@@ -21898,34 +21335,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_fraction_pair = {}
 
 -- Dissect: Net Change Option Summary Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Option Summary Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Option Summary Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Option Summary Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Option Summary Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Option Summary Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Option Summary Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Option Summary Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_option_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Option Summary Message Numeric Pair
@@ -22553,34 +21976,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_fraction_pair = {}
 
 -- Dissect: Leg Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_fraction_pair.dissect = function(buffer, offset, packet, parent, leg_price_fraction_indicator)
-  -- Dissect Leg Price Negative Whole Pair
-  if leg_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Price Negative Ten Pair
-  if leg_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Price Negative Hundred Pair
-  if leg_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Price Negative Thousand Pair
-  if leg_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Price Negative Ten Thousand Pair
-  if leg_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Price Negative Hundred Thousand Pair
-  if leg_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Price Negative Million Pair
-  if leg_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.leg_price_fraction_pair.dispatch[leg_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Leg Price Numeric Pair
@@ -22943,34 +22352,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_fraction_pair = {}
 
 -- Dissect: Leg Ratio Or Delta Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_fraction_pair.dissect = function(buffer, offset, packet, parent, leg_ratio_or_delta_fraction_indicator)
-  -- Dissect Leg Ratio Or Delta Negative Whole Pair
-  if leg_ratio_or_delta_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Ratio Or Delta Negative Ten Pair
-  if leg_ratio_or_delta_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Ratio Or Delta Negative Hundred Pair
-  if leg_ratio_or_delta_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Ratio Or Delta Negative Thousand Pair
-  if leg_ratio_or_delta_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Ratio Or Delta Negative Ten Thousand Pair
-  if leg_ratio_or_delta_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Ratio Or Delta Negative Hundred Thousand Pair
-  if leg_ratio_or_delta_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Leg Ratio Or Delta Negative Million Pair
-  if leg_ratio_or_delta_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.leg_ratio_or_delta_fraction_pair.dispatch[leg_ratio_or_delta_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Leg Ratio Or Delta Numeric Pair
@@ -23455,98 +22850,36 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment = {}
 
 -- Dissect: Tick Increment
+tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment.dispatch = {
+  ["0"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["1"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["2"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["3"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["4"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["5"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["6"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["7"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["8"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["9"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_million_pair.dissect,
+  ["Z"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["Y"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["X"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["W"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["V"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+  ["U"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment.dissect = function(buffer, offset, packet, parent, tick_increment_fraction_indicator)
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "0" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "1" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "2" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "3" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "4" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "5" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "6" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "7" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "8" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "9" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Whole Pair
-  if tick_increment_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Ten Pair
-  if tick_increment_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Hundred Pair
-  if tick_increment_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Thousand Pair
-  if tick_increment_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Ten Thousand Pair
-  if tick_increment_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Hundred Thousand Pair
-  if tick_increment_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Negative Million Pair
-  if tick_increment_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_negative_million_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "Z" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "Y" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "X" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "W" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "V" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Increment Numeric Pair
-  if tick_increment_fraction_indicator == "U" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment_numeric_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.tick_increment.dispatch[tick_increment_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Tick Increment Raw Pair
@@ -23909,34 +23242,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_fraction_pair = {}
 
 -- Dissect: Minimum Threshold Price Options Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
-  -- Dissect Minimum Threshold Price Options Negative Whole Pair
-  if minimum_threshold_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Ten Pair
-  if minimum_threshold_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Hundred Pair
-  if minimum_threshold_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Ten Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Hundred Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Options Negative Million Pair
-  if minimum_threshold_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_options_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Minimum Threshold Price Options Numeric Pair
@@ -24299,34 +23618,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_fraction_pair = {}
 
 -- Dissect: Maximum Threshold Price Options Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
-  -- Dissect Maximum Threshold Price Options Negative Whole Pair
-  if maximum_threshold_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Ten Pair
-  if maximum_threshold_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Hundred Pair
-  if maximum_threshold_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Ten Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Hundred Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Options Negative Million Pair
-  if maximum_threshold_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_options_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Maximum Threshold Price Options Numeric Pair
@@ -24904,34 +24209,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_fraction_pair = {}
 
 -- Dissect: Tick Value Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_fraction_pair.dissect = function(buffer, offset, packet, parent, tick_value_fraction_indicator)
-  -- Dissect Tick Value Negative Whole Pair
-  if tick_value_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Ten Pair
-  if tick_value_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Hundred Pair
-  if tick_value_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Thousand Pair
-  if tick_value_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Ten Thousand Pair
-  if tick_value_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Hundred Thousand Pair
-  if tick_value_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Value Negative Million Pair
-  if tick_value_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.tick_value_fraction_pair.dispatch[tick_value_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Tick Value Numeric Pair
@@ -25294,34 +24585,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_fraction_pair = {}
 
 -- Dissect: Minimum Threshold Price Futures Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
-  -- Dissect Minimum Threshold Price Futures Negative Whole Pair
-  if minimum_threshold_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Ten Pair
-  if minimum_threshold_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Hundred Pair
-  if minimum_threshold_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Ten Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Hundred Thousand Pair
-  if minimum_threshold_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Threshold Price Futures Negative Million Pair
-  if minimum_threshold_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.minimum_threshold_price_futures_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Minimum Threshold Price Futures Numeric Pair
@@ -25684,34 +24961,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_fraction_pair = {}
 
 -- Dissect: Maximum Threshold Price Futures Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
-  -- Dissect Maximum Threshold Price Futures Negative Whole Pair
-  if maximum_threshold_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Ten Pair
-  if maximum_threshold_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Hundred Pair
-  if maximum_threshold_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Ten Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Hundred Thousand Pair
-  if maximum_threshold_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Maximum Threshold Price Futures Negative Million Pair
-  if maximum_threshold_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.maximum_threshold_price_futures_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Maximum Threshold Price Futures Numeric Pair
@@ -26770,34 +26033,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.price_fraction_pair = {}
 
 -- Dissect: Price Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.price_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.price_fraction_pair.dissect = function(buffer, offset, packet, parent, price_fraction_indicator)
-  -- Dissect Price Negative Whole Pair
-  if price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Ten Pair
-  if price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Hundred Pair
-  if price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Thousand Pair
-  if price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Ten Thousand Pair
-  if price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Hundred Thousand Pair
-  if price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Negative Million Pair
-  if price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.price_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.price_fraction_pair.dispatch[price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Price Numeric Pair
@@ -34724,34 +33973,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_fraction_pair = {}
 
 -- Dissect: Strike Price Schedule Notice Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
-  -- Dissect Strike Price Schedule Notice Negative Whole Pair
-  if strike_price_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Ten Pair
-  if strike_price_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Hundred Pair
-  if strike_price_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Thousand Pair
-  if strike_price_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Ten Thousand Pair
-  if strike_price_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Hundred Thousand Pair
-  if strike_price_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strike Price Schedule Notice Negative Million Pair
-  if strike_price_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.strike_price_schedule_notice_fraction_pair.dispatch[strike_price_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Strike Price Schedule Notice Numeric Pair
@@ -35469,34 +34704,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_fraction_pair = {}
 
 -- Dissect: Net Change Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Numeric Pair
@@ -35956,34 +35177,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_fraction_pair = {}
 
 -- Dissect: Net Change Futures Trade Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Futures Trade Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Futures Trade Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_futures_trade_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Futures Trade Message Numeric Pair
@@ -36438,34 +35645,20 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_fraction_pair = {}
 
 -- Dissect: Net Change Future Options Trade Message Fraction Pair
+tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_fraction_pair.dispatch = {
+  ["A"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_whole_pair.dissect,
+  ["B"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_ten_pair.dissect,
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_hundred_pair.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_thousand_pair.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_ten_thousand_pair.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_hundred_thousand_pair.dissect,
+  ["G"] = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_million_pair.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
-  -- Dissect Net Change Future Options Trade Message Negative Whole Pair
-  if net_change_fraction_indicator == "A" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_whole_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Ten Pair
-  if net_change_fraction_indicator == "B" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_ten_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Hundred Pair
-  if net_change_fraction_indicator == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_hundred_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Thousand Pair
-  if net_change_fraction_indicator == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Ten Thousand Pair
-  if net_change_fraction_indicator == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_ten_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Hundred Thousand Pair
-  if net_change_fraction_indicator == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_hundred_thousand_pair.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Net Change Future Options Trade Message Negative Million Pair
-  if net_change_fraction_indicator == "G" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_negative_million_pair.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.net_change_future_options_trade_message_fraction_pair.dispatch[net_change_fraction_indicator]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Net Change Future Options Trade Message Numeric Pair
@@ -36660,194 +35853,60 @@ end
 tmx_mx_solamulticast_hsvf_v1_13_3.message_body = {}
 
 -- Dissect: Message Body
+tmx_mx_solamulticast_hsvf_v1_13_3.message_body.dispatch = {
+  ["C"] = tmx_mx_solamulticast_hsvf_v1_13_3.option_trade_message.dissect,
+  ["CB"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_options_trade_message.dissect,
+  ["CF"] = tmx_mx_solamulticast_hsvf_v1_13_3.futures_trade_message.dissect,
+  ["CS"] = tmx_mx_solamulticast_hsvf_v1_13_3.strategy_trade_message.dissect,
+  ["D"] = tmx_mx_solamulticast_hsvf_v1_13_3.option_request_for_quote_message.dissect,
+  ["DB"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_options_request_for_quote_message.dissect,
+  ["DF"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_request_for_quote_message.dissect,
+  ["DS"] = tmx_mx_solamulticast_hsvf_v1_13_3.strategy_request_for_quote_message.dissect,
+  ["E"] = tmx_mx_solamulticast_hsvf_v1_13_3.instrument_schedule_notice_option_message.dissect,
+  ["EB"] = tmx_mx_solamulticast_hsvf_v1_13_3.instrument_schedule_notice_futures_option_message.dissect,
+  ["EF"] = tmx_mx_solamulticast_hsvf_v1_13_3.instrument_schedule_notice_future_message.dissect,
+  ["ES"] = tmx_mx_solamulticast_hsvf_v1_13_3.instrument_schedule_notice_strategy_message.dissect,
+  ["F"] = tmx_mx_solamulticast_hsvf_v1_13_3.option_quote_message.dissect,
+  ["FB"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_options_quote_message.dissect,
+  ["FF"] = tmx_mx_solamulticast_hsvf_v1_13_3.futures_quote_message.dissect,
+  ["FS"] = tmx_mx_solamulticast_hsvf_v1_13_3.strategy_quote_message.dissect,
+  ["H"] = tmx_mx_solamulticast_hsvf_v1_13_3.option_market_depth_message.dissect,
+  ["HB"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_options_market_depth_message.dissect,
+  ["HF"] = tmx_mx_solamulticast_hsvf_v1_13_3.futures_market_depth_message.dissect,
+  ["HS"] = tmx_mx_solamulticast_hsvf_v1_13_3.strategy_market_depth_message.dissect,
+  ["I"] = tmx_mx_solamulticast_hsvf_v1_13_3.option_trade_cancellation_message.dissect,
+  ["IB"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_options_trade_cancellation_message.dissect,
+  ["IF"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_trade_cancellation_message.dissect,
+  ["IS"] = tmx_mx_solamulticast_hsvf_v1_13_3.strategy_trade_cancellation_message.dissect,
+  ["J"] = tmx_mx_solamulticast_hsvf_v1_13_3.option_instrument_keys_message.dissect,
+  ["JB"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_options_instrument_keys_message.dissect,
+  ["JE"] = tmx_mx_solamulticast_hsvf_v1_13_3.underlying_instrument_keys_message.dissect,
+  ["JF"] = tmx_mx_solamulticast_hsvf_v1_13_3.futures_instrument_keys_message.dissect,
+  ["JS"] = tmx_mx_solamulticast_hsvf_v1_13_3.strategy_instrument_keys_message.dissect,
+  ["N"] = tmx_mx_solamulticast_hsvf_v1_13_3.option_summary_message.dissect,
+  ["NB"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_options_summary_message.dissect,
+  ["NF"] = tmx_mx_solamulticast_hsvf_v1_13_3.futures_summary_message.dissect,
+  ["NS"] = tmx_mx_solamulticast_hsvf_v1_13_3.strategy_summary_message.dissect,
+  ["Q"] = tmx_mx_solamulticast_hsvf_v1_13_3.beginning_of_options_summary_message.dissect,
+  ["QB"] = tmx_mx_solamulticast_hsvf_v1_13_3.beginning_of_future_options_summary_message.dissect,
+  ["QF"] = tmx_mx_solamulticast_hsvf_v1_13_3.beginning_of_futures_summary_message.dissect,
+  ["QS"] = tmx_mx_solamulticast_hsvf_v1_13_3.beginning_of_strategy_summary_message.dissect,
+  ["XF"] = tmx_mx_solamulticast_hsvf_v1_13_3.futures_trade_correction_message.dissect,
+  ["GR"] = tmx_mx_solamulticast_hsvf_v1_13_3.group_status_message.dissect,
+  ["GS"] = tmx_mx_solamulticast_hsvf_v1_13_3.group_status_strategies_message.dissect,
+  ["KF"] = tmx_mx_solamulticast_hsvf_v1_13_3.future_deliverables_message.dissect,
+  ["L"] = tmx_mx_solamulticast_hsvf_v1_13_3.bulletins_message.dissect,
+  ["S"] = tmx_mx_solamulticast_hsvf_v1_13_3.end_of_sales_message.dissect,
+  ["TT"] = tmx_mx_solamulticast_hsvf_v1_13_3.tick_table_message.dissect,
+  ["U"] = tmx_mx_solamulticast_hsvf_v1_13_3.end_of_transmission_message.dissect,
+  ["V"] = tmx_mx_solamulticast_hsvf_v1_13_3.circuit_assurance_message.dissect,
+  ["SD"] = tmx_mx_solamulticast_hsvf_v1_13_3.start_of_day_message.dissect,
+}
+
 tmx_mx_solamulticast_hsvf_v1_13_3.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Option Trade Message
-  if message_type == "C" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.option_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Trade Message
-  if message_type == "CB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_options_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Trade Message
-  if message_type == "CF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.futures_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trade Message
-  if message_type == "CS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Request For Quote Message
-  if message_type == "D" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.option_request_for_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Request For Quote Message
-  if message_type == "DB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_options_request_for_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Request For Quote Message
-  if message_type == "DF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_request_for_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Request For Quote Message
-  if message_type == "DS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_request_for_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Option Message
-  if message_type == "E" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.instrument_schedule_notice_option_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Futures Option Message
-  if message_type == "EB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.instrument_schedule_notice_futures_option_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Future Message
-  if message_type == "EF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.instrument_schedule_notice_future_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Schedule Notice Strategy Message
-  if message_type == "ES" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.instrument_schedule_notice_strategy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Quote Message
-  if message_type == "F" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.option_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Quote Message
-  if message_type == "FB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_options_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Quote Message
-  if message_type == "FF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.futures_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Quote Message
-  if message_type == "FS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Market Depth Message
-  if message_type == "H" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.option_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Market Depth Message
-  if message_type == "HB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_options_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Market Depth Message
-  if message_type == "HF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.futures_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Market Depth Message
-  if message_type == "HS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_market_depth_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Trade Cancellation Message
-  if message_type == "I" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.option_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Trade Cancellation Message
-  if message_type == "IB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_options_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Trade Cancellation Message
-  if message_type == "IF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trade Cancellation Message
-  if message_type == "IS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Instrument Keys Message
-  if message_type == "J" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.option_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Instrument Keys Message
-  if message_type == "JB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_options_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Instrument Keys Message
-  if message_type == "JE" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.underlying_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Instrument Keys Message
-  if message_type == "JF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.futures_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Instrument Keys Message
-  if message_type == "JS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_instrument_keys_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Summary Message
-  if message_type == "N" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.option_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Options Summary Message
-  if message_type == "NB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_options_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Summary Message
-  if message_type == "NF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.futures_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Summary Message
-  if message_type == "NS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.strategy_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Options Summary Message
-  if message_type == "Q" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.beginning_of_options_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Future Options Summary Message
-  if message_type == "QB" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.beginning_of_future_options_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Futures Summary Message
-  if message_type == "QF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.beginning_of_futures_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Strategy Summary Message
-  if message_type == "QS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.beginning_of_strategy_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Trade Correction Message
-  if message_type == "XF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.futures_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Status Message
-  if message_type == "GR" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.group_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Status Strategies Message
-  if message_type == "GS" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.group_status_strategies_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Deliverables Message
-  if message_type == "KF" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.future_deliverables_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulletins Message
-  if message_type == "L" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.bulletins_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Sales Message
-  if message_type == "S" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.end_of_sales_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Table Message
-  if message_type == "TT" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.tick_table_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Transmission Message
-  if message_type == "U" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.end_of_transmission_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Circuit Assurance Message
-  if message_type == "V" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.circuit_assurance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Day Message
-  if message_type == "SD" then
-    return tmx_mx_solamulticast_hsvf_v1_13_3.start_of_day_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_mx_solamulticast_hsvf_v1_13_3.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

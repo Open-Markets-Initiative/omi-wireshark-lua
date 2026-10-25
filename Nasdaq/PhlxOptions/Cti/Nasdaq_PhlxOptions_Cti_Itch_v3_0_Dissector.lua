@@ -425,15 +425,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.action = {}
 nasdaq_phlxoptions_cti_itch_v3_0.action.size = 1
 
 -- Display: Action
-nasdaq_phlxoptions_cti_itch_v3_0.action.display = function(value)
-  if value == "A" then
-    return "Action: Add (A)"
-  end
-  if value == "D" then
-    return "Action: Delete (D)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.action.labels = {
+  ["A"] = "Action: Add (A)",
+  ["D"] = "Action: Delete (D)",
+}
 
-  return "Action: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.action.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -612,24 +610,16 @@ nasdaq_phlxoptions_cti_itch_v3_0.client_packet_type = {}
 nasdaq_phlxoptions_cti_itch_v3_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_phlxoptions_cti_itch_v3_0.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.client_packet_type.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -651,15 +641,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.closing_only = {}
 nasdaq_phlxoptions_cti_itch_v3_0.closing_only.size = 1
 
 -- Display: Closing Only
-nasdaq_phlxoptions_cti_itch_v3_0.closing_only.display = function(value)
-  if value == "Y" then
-    return "Closing Only: Closing Position Only (Y)"
-  end
-  if value == "N" then
-    return "Closing Only: Not Closing Position Only (N)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.closing_only.labels = {
+  ["Y"] = "Closing Only: Closing Position Only (Y)",
+  ["N"] = "Closing Only: Not Closing Position Only (N)",
+}
 
-  return "Closing Only: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.closing_only.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.closing_only.labels[value] or "Closing Only: Unknown("..value..")"
 end
 
 -- Dissect: Closing Only
@@ -994,15 +982,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.current_trading_state = {}
 nasdaq_phlxoptions_cti_itch_v3_0.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_phlxoptions_cti_itch_v3_0.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading Resumed (T)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Trading Resumed (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.current_trading_state.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -1066,33 +1052,19 @@ nasdaq_phlxoptions_cti_itch_v3_0.event_code = {}
 nasdaq_phlxoptions_cti_itch_v3_0.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_phlxoptions_cti_itch_v3_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: End Of Normal Hours Processing (N)"
-  end
-  if value == "L" then
-    return "Event Code: End Of Late Hours Processing (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.event_code.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1293,15 +1265,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.execution_type = {}
 nasdaq_phlxoptions_cti_itch_v3_0.execution_type.size = 1
 
 -- Display: Execution Type
-nasdaq_phlxoptions_cti_itch_v3_0.execution_type.display = function(value)
-  if value == "A" then
-    return "Execution Type: Automatic (A)"
-  end
-  if value == "M" then
-    return "Execution Type: Manual (M)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.execution_type.labels = {
+  ["A"] = "Execution Type: Automatic (A)",
+  ["M"] = "Execution Type: Manual (M)",
+}
 
-  return "Execution Type: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.execution_type.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.execution_type.labels[value] or "Execution Type: Unknown("..value..")"
 end
 
 -- Dissect: Execution Type
@@ -1471,15 +1441,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.leg_side = {}
 nasdaq_phlxoptions_cti_itch_v3_0.leg_side.size = 1
 
 -- Display: Leg Side
-nasdaq_phlxoptions_cti_itch_v3_0.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Leg Side: Sell (S)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.leg_side.labels = {
+  ["B"] = "Leg Side: Buy (B)",
+  ["S"] = "Leg Side: Sell (S)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.leg_side.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -1530,216 +1498,80 @@ nasdaq_phlxoptions_cti_itch_v3_0.liquidity = {}
 nasdaq_phlxoptions_cti_itch_v3_0.liquidity.size = 1
 
 -- Display: Liquidity
-nasdaq_phlxoptions_cti_itch_v3_0.liquidity.display = function(value)
-  if value == 1 then
-    return "Liquidity: Add Maker (1)"
-  end
-  if value == 2 then
-    return "Liquidity: Remove Taker (2)"
-  end
-  if value == 4 then
-    return "Liquidity: Response (4)"
-  end
-  if value == 5 then
-    return "Liquidity: Hidden (5)"
-  end
-  if value == 6 then
-    return "Liquidity: Opening Trade (6)"
-  end
-  if value == 7 then
-    return "Liquidity: Cross (7)"
-  end
-  if value == 8 then
-    return "Liquidity: Flashed Order (8)"
-  end
-  if value == 9 then
-    return "Liquidity: Flash Response (9)"
-  end
-  if value == 10 then
-    return "Liquidity: Routed Out (10)"
-  end
-  if value == 11 then
-    return "Liquidity: Trade Report (11)"
-  end
-  if value == 12 then
-    return "Liquidity: Combo Maker Against Combo (12)"
-  end
-  if value == 13 then
-    return "Liquidity: Combo Taker Against Combo (13)"
-  end
-  if value == 14 then
-    return "Liquidity: Combo Response Against Combo (14)"
-  end
-  if value == 15 then
-    return "Liquidity: Combo Hidden Against Combo (15)"
-  end
-  if value == 16 then
-    return "Liquidity: Combo Opening Rotation (16)"
-  end
-  if value == 17 then
-    return "Liquidity: Combo Cross (17)"
-  end
-  if value == 18 then
-    return "Liquidity: Combo Taker Against Regular (18)"
-  end
-  if value == 19 then
-    return "Liquidity: Regular Maker Against Combo (19)"
-  end
-  if value == 20 then
-    return "Liquidity: Combo Taker Against Io (20)"
-  end
-  if value == 21 then
-    return "Liquidity: Regular Taker Against Io (21)"
-  end
-  if value == 23 then
-    return "Liquidity: Io Maker Against Regular (23)"
-  end
-  if value == 24 then
-    return "Liquidity: Regular Maker Against Io Participant (24)"
-  end
-  if value == 25 then
-    return "Liquidity: Io Participant Taker Against Regular (25)"
-  end
-  if value == 26 then
-    return "Liquidity: Broken Price Improvement (26)"
-  end
-  if value == 27 then
-    return "Liquidity: Broken Facilitation (27)"
-  end
-  if value == 28 then
-    return "Liquidity: Broken Solicitation (28)"
-  end
-  if value == 29 then
-    return "Liquidity: Combo Broken Price Improvement (29)"
-  end
-  if value == 30 then
-    return "Liquidity: Combo Broken Facilitation (30)"
-  end
-  if value == 31 then
-    return "Liquidity: Combo Broken Solicitation (31)"
-  end
-  if value == 32 then
-    return "Liquidity: Block (32)"
-  end
-  if value == 33 then
-    return "Liquidity: Block Response (33)"
-  end
-  if value == 34 then
-    return "Liquidity: Directed Response (34)"
-  end
-  if value == 35 then
-    return "Liquidity: Facilitation (35)"
-  end
-  if value == 36 then
-    return "Liquidity: Facilitation Response (36)"
-  end
-  if value == 37 then
-    return "Liquidity: Price Improvement (37)"
-  end
-  if value == 38 then
-    return "Liquidity: Price Improvement Response (38)"
-  end
-  if value == 39 then
-    return "Liquidity: Solicitation (39)"
-  end
-  if value == 40 then
-    return "Liquidity: Solicitation Response (40)"
-  end
-  if value == 41 then
-    return "Liquidity: Qualified Contingent Cross (41)"
-  end
-  if value == 42 then
-    return "Liquidity: Customer To Customer (42)"
-  end
-  if value == 43 then
-    return "Liquidity: Combo Facilitation (43)"
-  end
-  if value == 44 then
-    return "Liquidity: Combo Facilitation Response (44)"
-  end
-  if value == 45 then
-    return "Liquidity: Combo Price Improvement (45)"
-  end
-  if value == 46 then
-    return "Liquidity: Combo Price Improvement Response (46)"
-  end
-  if value == 47 then
-    return "Liquidity: Combo Solicitation (47)"
-  end
-  if value == 48 then
-    return "Liquidity: Combo Solicitation Response (48)"
-  end
-  if value == 49 then
-    return "Liquidity: Combo Qualified Contingent Cross (49)"
-  end
-  if value == 50 then
-    return "Liquidity: Combo Customer To Customer (50)"
-  end
-  if value == 51 then
-    return "Liquidity: Sweep Routed Out (51)"
-  end
-  if value == 52 then
-    return "Liquidity: Sweep Trade Report (52)"
-  end
-  if value == 53 then
-    return "Liquidity: Combo Taker Against Regular Thru Nbbo (53)"
-  end
-  if value == 55 then
-    return "Liquidity: Simple Exposure Order Upon Receipt (55)"
-  end
-  if value == 57 then
-    return "Liquidity: Simple Exposure Order Responder (57)"
-  end
-  if value == 58 then
-    return "Liquidity: Flex Auction (58)"
-  end
-  if value == 59 then
-    return "Liquidity: Flex Auction Responder (59)"
-  end
-  if value == 60 then
-    return "Liquidity: Flex Price Improvement (60)"
-  end
-  if value == 61 then
-    return "Liquidity: Flex Price Improvement Responder (61)"
-  end
-  if value == 62 then
-    return "Liquidity: Flex Broken Price Improvement (62)"
-  end
-  if value == 63 then
-    return "Liquidity: Flex Solicitation (63)"
-  end
-  if value == 64 then
-    return "Liquidity: Flex Solicitation Responder (64)"
-  end
-  if value == 65 then
-    return "Liquidity: Flex Broken Solicitation (65)"
-  end
-  if value == 66 then
-    return "Liquidity: Combo Flex Auction (66)"
-  end
-  if value == 67 then
-    return "Liquidity: Combo Flex Auction Responder (67)"
-  end
-  if value == 68 then
-    return "Liquidity: Combo Flex Price Improvement (68)"
-  end
-  if value == 69 then
-    return "Liquidity: Combo Flex Price Improvement Responder (69)"
-  end
-  if value == 70 then
-    return "Liquidity: Combo Flex Broken Price Improvement (70)"
-  end
-  if value == 71 then
-    return "Liquidity: Combo Flex Solicitation (71)"
-  end
-  if value == 72 then
-    return "Liquidity: Combo Flex Solicitation Responder (72)"
-  end
-  if value == 73 then
-    return "Liquidity: Combo Flex Broken Solicitation (73)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.liquidity.labels = {
+  [1] = "Liquidity: Add Maker (1)",
+  [2] = "Liquidity: Remove Taker (2)",
+  [4] = "Liquidity: Response (4)",
+  [5] = "Liquidity: Hidden (5)",
+  [6] = "Liquidity: Opening Trade (6)",
+  [7] = "Liquidity: Cross (7)",
+  [8] = "Liquidity: Flashed Order (8)",
+  [9] = "Liquidity: Flash Response (9)",
+  [10] = "Liquidity: Routed Out (10)",
+  [11] = "Liquidity: Trade Report (11)",
+  [12] = "Liquidity: Combo Maker Against Combo (12)",
+  [13] = "Liquidity: Combo Taker Against Combo (13)",
+  [14] = "Liquidity: Combo Response Against Combo (14)",
+  [15] = "Liquidity: Combo Hidden Against Combo (15)",
+  [16] = "Liquidity: Combo Opening Rotation (16)",
+  [17] = "Liquidity: Combo Cross (17)",
+  [18] = "Liquidity: Combo Taker Against Regular (18)",
+  [19] = "Liquidity: Regular Maker Against Combo (19)",
+  [20] = "Liquidity: Combo Taker Against Io (20)",
+  [21] = "Liquidity: Regular Taker Against Io (21)",
+  [23] = "Liquidity: Io Maker Against Regular (23)",
+  [24] = "Liquidity: Regular Maker Against Io Participant (24)",
+  [25] = "Liquidity: Io Participant Taker Against Regular (25)",
+  [26] = "Liquidity: Broken Price Improvement (26)",
+  [27] = "Liquidity: Broken Facilitation (27)",
+  [28] = "Liquidity: Broken Solicitation (28)",
+  [29] = "Liquidity: Combo Broken Price Improvement (29)",
+  [30] = "Liquidity: Combo Broken Facilitation (30)",
+  [31] = "Liquidity: Combo Broken Solicitation (31)",
+  [32] = "Liquidity: Block (32)",
+  [33] = "Liquidity: Block Response (33)",
+  [34] = "Liquidity: Directed Response (34)",
+  [35] = "Liquidity: Facilitation (35)",
+  [36] = "Liquidity: Facilitation Response (36)",
+  [37] = "Liquidity: Price Improvement (37)",
+  [38] = "Liquidity: Price Improvement Response (38)",
+  [39] = "Liquidity: Solicitation (39)",
+  [40] = "Liquidity: Solicitation Response (40)",
+  [41] = "Liquidity: Qualified Contingent Cross (41)",
+  [42] = "Liquidity: Customer To Customer (42)",
+  [43] = "Liquidity: Combo Facilitation (43)",
+  [44] = "Liquidity: Combo Facilitation Response (44)",
+  [45] = "Liquidity: Combo Price Improvement (45)",
+  [46] = "Liquidity: Combo Price Improvement Response (46)",
+  [47] = "Liquidity: Combo Solicitation (47)",
+  [48] = "Liquidity: Combo Solicitation Response (48)",
+  [49] = "Liquidity: Combo Qualified Contingent Cross (49)",
+  [50] = "Liquidity: Combo Customer To Customer (50)",
+  [51] = "Liquidity: Sweep Routed Out (51)",
+  [52] = "Liquidity: Sweep Trade Report (52)",
+  [53] = "Liquidity: Combo Taker Against Regular Thru Nbbo (53)",
+  [55] = "Liquidity: Simple Exposure Order Upon Receipt (55)",
+  [57] = "Liquidity: Simple Exposure Order Responder (57)",
+  [58] = "Liquidity: Flex Auction (58)",
+  [59] = "Liquidity: Flex Auction Responder (59)",
+  [60] = "Liquidity: Flex Price Improvement (60)",
+  [61] = "Liquidity: Flex Price Improvement Responder (61)",
+  [62] = "Liquidity: Flex Broken Price Improvement (62)",
+  [63] = "Liquidity: Flex Solicitation (63)",
+  [64] = "Liquidity: Flex Solicitation Responder (64)",
+  [65] = "Liquidity: Flex Broken Solicitation (65)",
+  [66] = "Liquidity: Combo Flex Auction (66)",
+  [67] = "Liquidity: Combo Flex Auction Responder (67)",
+  [68] = "Liquidity: Combo Flex Price Improvement (68)",
+  [69] = "Liquidity: Combo Flex Price Improvement Responder (69)",
+  [70] = "Liquidity: Combo Flex Broken Price Improvement (70)",
+  [71] = "Liquidity: Combo Flex Solicitation (71)",
+  [72] = "Liquidity: Combo Flex Solicitation Responder (72)",
+  [73] = "Liquidity: Combo Flex Broken Solicitation (73)",
+}
 
-  return "Liquidity: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.liquidity.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.liquidity.labels[value] or "Liquidity: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity
@@ -1807,18 +1639,14 @@ nasdaq_phlxoptions_cti_itch_v3_0.mpv = {}
 nasdaq_phlxoptions_cti_itch_v3_0.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_phlxoptions_cti_itch_v3_0.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.mpv.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -1978,18 +1806,14 @@ nasdaq_phlxoptions_cti_itch_v3_0.option_closing_type = {}
 nasdaq_phlxoptions_cti_itch_v3_0.option_closing_type.size = 1
 
 -- Display: Option Closing Type
-nasdaq_phlxoptions_cti_itch_v3_0.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal Hours (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late Hours (L)"
-  end
-  if value == "W" then
-    return "Option Closing Type: Wco Early Closing (W)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.option_closing_type.labels = {
+  ["N"] = "Option Closing Type: Normal Hours (N)",
+  ["L"] = "Option Closing Type: Late Hours (L)",
+  ["W"] = "Option Closing Type: Wco Early Closing (W)",
+}
 
-  return "Option Closing Type: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.option_closing_type.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.option_closing_type.labels[value] or "Option Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Closing Type
@@ -2550,15 +2374,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.reject_reason_code = {}
 nasdaq_phlxoptions_cti_itch_v3_0.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_phlxoptions_cti_itch_v3_0.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.reject_reason_code.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2818,15 +2640,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.send_type = {}
 nasdaq_phlxoptions_cti_itch_v3_0.send_type.size = 1
 
 -- Display: Send Type
-nasdaq_phlxoptions_cti_itch_v3_0.send_type.display = function(value)
-  if value == "S" then
-    return "Send Type: Send (S)"
-  end
-  if value == "P" then
-    return "Send Type: Possible Duplicate (P)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.send_type.labels = {
+  ["S"] = "Send Type: Send (S)",
+  ["P"] = "Send Type: Possible Duplicate (P)",
+}
 
-  return "Send Type: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.send_type.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.send_type.labels[value] or "Send Type: Unknown("..value..")"
 end
 
 -- Dissect: Send Type
@@ -2848,30 +2668,18 @@ nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message_type = {}
 nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Options Directory Message (D)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Complex Order Strategy Message (R)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Security Trading Action Message (H)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Complex Trading Action Message (I)"
-  end
-  if value == "T" then
-    return "Sequenced Message Type: Trade Message (T)"
-  end
-  if value == "V" then
-    return "Sequenced Message Type: Cancel Trade Message (V)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["D"] = "Sequenced Message Type: Options Directory Message (D)",
+  ["R"] = "Sequenced Message Type: Complex Order Strategy Message (R)",
+  ["H"] = "Sequenced Message Type: Security Trading Action Message (H)",
+  ["I"] = "Sequenced Message Type: Complex Trading Action Message (I)",
+  ["T"] = "Sequenced Message Type: Trade Message (T)",
+  ["V"] = "Sequenced Message Type: Cancel Trade Message (V)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message_type.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -2893,27 +2701,17 @@ nasdaq_phlxoptions_cti_itch_v3_0.server_packet_type = {}
 nasdaq_phlxoptions_cti_itch_v3_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_phlxoptions_cti_itch_v3_0.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.server_packet_type.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2971,15 +2769,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.side_changed = {}
 nasdaq_phlxoptions_cti_itch_v3_0.side_changed.size = 1
 
 -- Display: Side Changed
-nasdaq_phlxoptions_cti_itch_v3_0.side_changed.display = function(value)
-  if value == "Y" then
-    return "Side Changed: Yes (Y)"
-  end
-  if value == "N" then
-    return "Side Changed: No (N)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.side_changed.labels = {
+  ["Y"] = "Side Changed: Yes (Y)",
+  ["N"] = "Side Changed: No (N)",
+}
 
-  return "Side Changed: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.side_changed.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.side_changed.labels[value] or "Side Changed: Unknown("..value..")"
 end
 
 -- Dissect: Side Changed
@@ -3187,15 +2983,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.tradable = {}
 nasdaq_phlxoptions_cti_itch_v3_0.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_phlxoptions_cti_itch_v3_0.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Non Tradable (N)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Non Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.tradable.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -3292,15 +3086,13 @@ nasdaq_phlxoptions_cti_itch_v3_0.trade_side = {}
 nasdaq_phlxoptions_cti_itch_v3_0.trade_side.size = 1
 
 -- Display: Trade Side
-nasdaq_phlxoptions_cti_itch_v3_0.trade_side.display = function(value)
-  if value == "B" then
-    return "Trade Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Trade Side: Sell (S)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.trade_side.labels = {
+  ["B"] = "Trade Side: Buy (B)",
+  ["S"] = "Trade Side: Sell (S)",
+}
 
-  return "Trade Side: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.trade_side.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.trade_side.labels[value] or "Trade Side: Unknown("..value..")"
 end
 
 -- Dissect: Trade Side
@@ -3322,18 +3114,14 @@ nasdaq_phlxoptions_cti_itch_v3_0.transaction_type = {}
 nasdaq_phlxoptions_cti_itch_v3_0.transaction_type.size = 1
 
 -- Display: Transaction Type
-nasdaq_phlxoptions_cti_itch_v3_0.transaction_type.display = function(value)
-  if value == "X" then
-    return "Transaction Type: New Trade (X)"
-  end
-  if value == "Y" then
-    return "Transaction Type: Trade Correction (Y)"
-  end
-  if value == "Z" then
-    return "Transaction Type: Trade Cancel (Z)"
-  end
+nasdaq_phlxoptions_cti_itch_v3_0.transaction_type.labels = {
+  ["X"] = "Transaction Type: New Trade (X)",
+  ["Y"] = "Transaction Type: Trade Correction (Y)",
+  ["Z"] = "Transaction Type: Trade Cancel (Z)",
+}
 
-  return "Transaction Type: Unknown("..value..")"
+nasdaq_phlxoptions_cti_itch_v3_0.transaction_type.display = function(value)
+  return nasdaq_phlxoptions_cti_itch_v3_0.transaction_type.labels[value] or "Transaction Type: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Type
@@ -4709,34 +4497,20 @@ end
 nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message.dispatch = {
+  ["S"] = nasdaq_phlxoptions_cti_itch_v3_0.system_event_message.dissect,
+  ["D"] = nasdaq_phlxoptions_cti_itch_v3_0.options_directory_message.dissect,
+  ["R"] = nasdaq_phlxoptions_cti_itch_v3_0.complex_order_strategy_message.dissect,
+  ["H"] = nasdaq_phlxoptions_cti_itch_v3_0.security_trading_action_message.dissect,
+  ["I"] = nasdaq_phlxoptions_cti_itch_v3_0.complex_trading_action_message.dissect,
+  ["T"] = nasdaq_phlxoptions_cti_itch_v3_0.trade_message.dissect,
+  ["V"] = nasdaq_phlxoptions_cti_itch_v3_0.cancel_trade_message.dissect,
+}
+
 nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if sequenced_message_type == "D" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Strategy Message
-  if sequenced_message_type == "R" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.complex_order_strategy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.security_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Trading Action Message
-  if sequenced_message_type == "I" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.complex_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if sequenced_message_type == "T" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Trade Message
-  if sequenced_message_type == "V" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.cancel_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_cti_itch_v3_0.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4979,30 +4753,19 @@ end
 nasdaq_phlxoptions_cti_itch_v3_0.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_phlxoptions_cti_itch_v3_0.server_payload.dispatch = {
+  ["+"] = nasdaq_phlxoptions_cti_itch_v3_0.debug_packet.dissect,
+  ["A"] = nasdaq_phlxoptions_cti_itch_v3_0.login_accepted_packet.dissect,
+  ["J"] = nasdaq_phlxoptions_cti_itch_v3_0.login_rejected_packet.dissect,
+  ["S"] = nasdaq_phlxoptions_cti_itch_v3_0.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_phlxoptions_cti_itch_v3_0.server_heartbeat.dissect,
+  ["Z"] = nasdaq_phlxoptions_cti_itch_v3_0.end_of_session.dissect,
+}
+
 nasdaq_phlxoptions_cti_itch_v3_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_cti_itch_v3_0.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5313,26 +5076,18 @@ end
 nasdaq_phlxoptions_cti_itch_v3_0.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_phlxoptions_cti_itch_v3_0.client_payload.dispatch = {
+  ["+"] = nasdaq_phlxoptions_cti_itch_v3_0.debug_packet.dissect,
+  ["L"] = nasdaq_phlxoptions_cti_itch_v3_0.login_request_packet.dissect,
+  ["U"] = nasdaq_phlxoptions_cti_itch_v3_0.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_phlxoptions_cti_itch_v3_0.client_heartbeat.dissect,
+  ["O"] = nasdaq_phlxoptions_cti_itch_v3_0.logout_request.dissect,
+}
+
 nasdaq_phlxoptions_cti_itch_v3_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_phlxoptions_cti_itch_v3_0.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_cti_itch_v3_0.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

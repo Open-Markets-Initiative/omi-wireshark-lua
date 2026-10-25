@@ -410,21 +410,15 @@ siac_cqs_snapshot_cta_v1_0.delivery_flag = {}
 siac_cqs_snapshot_cta_v1_0.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: First Block (1)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Intermediate Block (2)"
-  end
-  if value == 3 then
-    return "Delivery Flag: Last Block (3)"
-  end
-  if value == 4 then
-    return "Delivery Flag: Only One Block (4)"
-  end
+siac_cqs_snapshot_cta_v1_0.delivery_flag.labels = {
+  [1] = "Delivery Flag: First Block (1)",
+  [2] = "Delivery Flag: Intermediate Block (2)",
+  [3] = "Delivery Flag: Last Block (3)",
+  [4] = "Delivery Flag: Only One Block (4)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.delivery_flag.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -446,42 +440,22 @@ siac_cqs_snapshot_cta_v1_0.financial_status_indicator = {}
 siac_cqs_snapshot_cta_v1_0.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
-siac_cqs_snapshot_cta_v1_0.financial_status_indicator.display = function(value)
-  if value == "0" then
-    return "Financial Status Indicator: Financial Status Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Financial Status Indicator: Bankrupt (1)"
-  end
-  if value == "2" then
-    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
-  end
-  if value == "3" then
-    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
-  end
-  if value == "4" then
-    return "Financial Status Indicator: Late Filing (4)"
-  end
-  if value == "5" then
-    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
-  end
-  if value == "6" then
-    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
-  end
-  if value == "7" then
-    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
-  end
-  if value == "8" then
-    return "Financial Status Indicator: Creations Suspended (8)"
-  end
-  if value == "9" then
-    return "Financial Status Indicator: Redemptions Suspended (9)"
-  end
-  if value == "A" then
-    return "Financial Status Indicator: Liquidation (A)"
-  end
+siac_cqs_snapshot_cta_v1_0.financial_status_indicator.labels = {
+  ["0"] = "Financial Status Indicator: Financial Status Not Applicable (0)",
+  ["1"] = "Financial Status Indicator: Bankrupt (1)",
+  ["2"] = "Financial Status Indicator: Below Continuing Listing Standards (2)",
+  ["3"] = "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)",
+  ["4"] = "Financial Status Indicator: Late Filing (4)",
+  ["5"] = "Financial Status Indicator: Bankrupt And Late Filing (5)",
+  ["6"] = "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)",
+  ["7"] = "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)",
+  ["8"] = "Financial Status Indicator: Creations Suspended (8)",
+  ["9"] = "Financial Status Indicator: Redemptions Suspended (9)",
+  ["A"] = "Financial Status Indicator: Liquidation (A)",
+}
 
-  return "Financial Status Indicator: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.financial_status_indicator.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.financial_status_indicator.labels[value] or "Financial Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Financial Status Indicator
@@ -951,21 +925,15 @@ siac_cqs_snapshot_cta_v1_0.instrument_type = {}
 siac_cqs_snapshot_cta_v1_0.instrument_type.size = 1
 
 -- Display: Instrument Type
-siac_cqs_snapshot_cta_v1_0.instrument_type.display = function(value)
-  if value == "0" then
-    return "Instrument Type: Cta Eligible Equity (0)"
-  end
-  if value == "1" then
-    return "Instrument Type: Local Issue (1)"
-  end
-  if value == "2" then
-    return "Instrument Type: Corporate Bond (2)"
-  end
-  if value == "3" then
-    return "Instrument Type: Government Bond (3)"
-  end
+siac_cqs_snapshot_cta_v1_0.instrument_type.labels = {
+  ["0"] = "Instrument Type: Cta Eligible Equity (0)",
+  ["1"] = "Instrument Type: Local Issue (1)",
+  ["2"] = "Instrument Type: Corporate Bond (2)",
+  ["3"] = "Instrument Type: Government Bond (3)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.instrument_type.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -1134,12 +1102,12 @@ siac_cqs_snapshot_cta_v1_0.message_category = {}
 siac_cqs_snapshot_cta_v1_0.message_category.size = 1
 
 -- Display: Message Category
-siac_cqs_snapshot_cta_v1_0.message_category.display = function(value)
-  if value == "R" then
-    return "Message Category: Snapshot (R)"
-  end
+siac_cqs_snapshot_cta_v1_0.message_category.labels = {
+  ["R"] = "Message Category: Snapshot (R)",
+}
 
-  return "Message Category: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.message_category.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -1371,69 +1339,31 @@ siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id = {}
 siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.size = 1
 
 -- Display: National Best Bid Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.display = function(value)
-  if value == "A" then
-    return "National Best Bid Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "National Best Bid Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "National Best Bid Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "National Best Bid Participant Id: Adf (D)"
-  end
-  if value == "H" then
-    return "National Best Bid Participant Id: Miax (H)"
-  end
-  if value == "I" then
-    return "National Best Bid Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "National Best Bid Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "National Best Bid Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "National Best Bid Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "National Best Bid Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "National Best Bid Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "National Best Bid Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "National Best Bid Participant Id: Cqs (S)"
-  end
-  if value == "T" then
-    return "National Best Bid Participant Id: Nasdaq (T)"
-  end
-  if value == "U" then
-    return "National Best Bid Participant Id: Memx (U)"
-  end
-  if value == "V" then
-    return "National Best Bid Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "National Best Bid Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "National Best Bid Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "National Best Bid Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "National Best Bid Participant Id: Cboe Bzx (Z)"
-  end
+siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.labels = {
+  ["A"] = "National Best Bid Participant Id: Nyse American (A)",
+  ["B"] = "National Best Bid Participant Id: Nasdaq Bx (B)",
+  ["C"] = "National Best Bid Participant Id: Nyse National (C)",
+  ["D"] = "National Best Bid Participant Id: Adf (D)",
+  ["H"] = "National Best Bid Participant Id: Miax (H)",
+  ["I"] = "National Best Bid Participant Id: Ise (I)",
+  ["J"] = "National Best Bid Participant Id: Cboe Edga (J)",
+  ["K"] = "National Best Bid Participant Id: Cboe Edgx (K)",
+  ["L"] = "National Best Bid Participant Id: Ltse (L)",
+  ["M"] = "National Best Bid Participant Id: Nyse Chicago (M)",
+  ["N"] = "National Best Bid Participant Id: Nyse (N)",
+  ["P"] = "National Best Bid Participant Id: Nyse Arca (P)",
+  ["S"] = "National Best Bid Participant Id: Cqs (S)",
+  ["T"] = "National Best Bid Participant Id: Nasdaq (T)",
+  ["U"] = "National Best Bid Participant Id: Memx (U)",
+  ["V"] = "National Best Bid Participant Id: Iex (V)",
+  ["W"] = "National Best Bid Participant Id: Cbsx (W)",
+  ["X"] = "National Best Bid Participant Id: Nasdaq Psx (X)",
+  ["Y"] = "National Best Bid Participant Id: Cboe Byx (Y)",
+  ["Z"] = "National Best Bid Participant Id: Cboe Bzx (Z)",
+}
 
-  return "National Best Bid Participant Id: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.national_best_bid_participant_id.labels[value] or "National Best Bid Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: National Best Bid Participant Id
@@ -1573,69 +1503,31 @@ siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id = {}
 siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.size = 1
 
 -- Display: National Best Offer Participant Id
-siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.display = function(value)
-  if value == "A" then
-    return "National Best Offer Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "National Best Offer Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "National Best Offer Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "National Best Offer Participant Id: Adf (D)"
-  end
-  if value == "H" then
-    return "National Best Offer Participant Id: Miax (H)"
-  end
-  if value == "I" then
-    return "National Best Offer Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "National Best Offer Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "National Best Offer Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "National Best Offer Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "National Best Offer Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "National Best Offer Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "National Best Offer Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "National Best Offer Participant Id: Cqs (S)"
-  end
-  if value == "T" then
-    return "National Best Offer Participant Id: Nasdaq (T)"
-  end
-  if value == "U" then
-    return "National Best Offer Participant Id: Memx (U)"
-  end
-  if value == "V" then
-    return "National Best Offer Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "National Best Offer Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "National Best Offer Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "National Best Offer Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "National Best Offer Participant Id: Cboe Bzx (Z)"
-  end
+siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.labels = {
+  ["A"] = "National Best Offer Participant Id: Nyse American (A)",
+  ["B"] = "National Best Offer Participant Id: Nasdaq Bx (B)",
+  ["C"] = "National Best Offer Participant Id: Nyse National (C)",
+  ["D"] = "National Best Offer Participant Id: Adf (D)",
+  ["H"] = "National Best Offer Participant Id: Miax (H)",
+  ["I"] = "National Best Offer Participant Id: Ise (I)",
+  ["J"] = "National Best Offer Participant Id: Cboe Edga (J)",
+  ["K"] = "National Best Offer Participant Id: Cboe Edgx (K)",
+  ["L"] = "National Best Offer Participant Id: Ltse (L)",
+  ["M"] = "National Best Offer Participant Id: Nyse Chicago (M)",
+  ["N"] = "National Best Offer Participant Id: Nyse (N)",
+  ["P"] = "National Best Offer Participant Id: Nyse Arca (P)",
+  ["S"] = "National Best Offer Participant Id: Cqs (S)",
+  ["T"] = "National Best Offer Participant Id: Nasdaq (T)",
+  ["U"] = "National Best Offer Participant Id: Memx (U)",
+  ["V"] = "National Best Offer Participant Id: Iex (V)",
+  ["W"] = "National Best Offer Participant Id: Cbsx (W)",
+  ["X"] = "National Best Offer Participant Id: Nasdaq Psx (X)",
+  ["Y"] = "National Best Offer Participant Id: Cboe Byx (Y)",
+  ["Z"] = "National Best Offer Participant Id: Cboe Bzx (Z)",
+}
 
-  return "National Best Offer Participant Id: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.national_best_offer_participant_id.labels[value] or "National Best Offer Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: National Best Offer Participant Id
@@ -1850,69 +1742,31 @@ siac_cqs_snapshot_cta_v1_0.participant_id = {}
 siac_cqs_snapshot_cta_v1_0.participant_id.size = 1
 
 -- Display: Participant Id
-siac_cqs_snapshot_cta_v1_0.participant_id.display = function(value)
-  if value == "A" then
-    return "Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Participant Id: Adf (D)"
-  end
-  if value == "H" then
-    return "Participant Id: Miax (H)"
-  end
-  if value == "I" then
-    return "Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "Participant Id: Cqs (S)"
-  end
-  if value == "T" then
-    return "Participant Id: Nasdaq (T)"
-  end
-  if value == "U" then
-    return "Participant Id: Memx (U)"
-  end
-  if value == "V" then
-    return "Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Participant Id: Cboe Bzx (Z)"
-  end
+siac_cqs_snapshot_cta_v1_0.participant_id.labels = {
+  ["A"] = "Participant Id: Nyse American (A)",
+  ["B"] = "Participant Id: Nasdaq Bx (B)",
+  ["C"] = "Participant Id: Nyse National (C)",
+  ["D"] = "Participant Id: Adf (D)",
+  ["H"] = "Participant Id: Miax (H)",
+  ["I"] = "Participant Id: Ise (I)",
+  ["J"] = "Participant Id: Cboe Edga (J)",
+  ["K"] = "Participant Id: Cboe Edgx (K)",
+  ["L"] = "Participant Id: Ltse (L)",
+  ["M"] = "Participant Id: Nyse Chicago (M)",
+  ["N"] = "Participant Id: Nyse (N)",
+  ["P"] = "Participant Id: Nyse Arca (P)",
+  ["S"] = "Participant Id: Cqs (S)",
+  ["T"] = "Participant Id: Nasdaq (T)",
+  ["U"] = "Participant Id: Memx (U)",
+  ["V"] = "Participant Id: Iex (V)",
+  ["W"] = "Participant Id: Cbsx (W)",
+  ["X"] = "Participant Id: Nasdaq Psx (X)",
+  ["Y"] = "Participant Id: Cboe Byx (Y)",
+  ["Z"] = "Participant Id: Cboe Bzx (Z)",
+}
 
-  return "Participant Id: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.participant_id.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.participant_id.labels[value] or "Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Participant Id
@@ -2262,24 +2116,16 @@ siac_cqs_snapshot_cta_v1_0.snapshot_message_type = {}
 siac_cqs_snapshot_cta_v1_0.snapshot_message_type.size = 1
 
 -- Display: Snapshot Message Type
-siac_cqs_snapshot_cta_v1_0.snapshot_message_type.display = function(value)
-  if value == "T" then
-    return "Snapshot Message Type: Line Integrity Message (T)"
-  end
-  if value == "K" then
-    return "Snapshot Message Type: Market Wide Circuit Breaker Decline Level Status Snapshot Message (K)"
-  end
-  if value == "C" then
-    return "Snapshot Message Type: Consolidated Snapshot Message (C)"
-  end
-  if value == "P" then
-    return "Snapshot Message Type: Participant Snapshot Message (P)"
-  end
-  if value == "F" then
-    return "Snapshot Message Type: Finra Snapshot Message (F)"
-  end
+siac_cqs_snapshot_cta_v1_0.snapshot_message_type.labels = {
+  ["T"] = "Snapshot Message Type: Line Integrity Message (T)",
+  ["K"] = "Snapshot Message Type: Market Wide Circuit Breaker Decline Level Status Snapshot Message (K)",
+  ["C"] = "Snapshot Message Type: Consolidated Snapshot Message (C)",
+  ["P"] = "Snapshot Message Type: Participant Snapshot Message (P)",
+  ["F"] = "Snapshot Message Type: Finra Snapshot Message (F)",
+}
 
-  return "Snapshot Message Type: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.snapshot_message_type.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.snapshot_message_type.labels[value] or "Snapshot Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Snapshot Message Type
@@ -2794,26 +2640,18 @@ end
 siac_cqs_snapshot_cta_v1_0.snapshot_message_payload = {}
 
 -- Dissect: Snapshot Message Payload
+siac_cqs_snapshot_cta_v1_0.snapshot_message_payload.dispatch = {
+  ["T"] = siac_cqs_snapshot_cta_v1_0.line_integrity_message.dissect,
+  ["K"] = siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snapshot_message.dissect,
+  ["C"] = siac_cqs_snapshot_cta_v1_0.consolidated_snapshot_message.dissect,
+  ["P"] = siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.dissect,
+  ["F"] = siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.dissect,
+}
+
 siac_cqs_snapshot_cta_v1_0.snapshot_message_payload.dissect = function(buffer, offset, packet, parent, snapshot_message_type)
-  -- Dissect Line Integrity Message
-  if snapshot_message_type == "T" then
-    return siac_cqs_snapshot_cta_v1_0.line_integrity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Decline Level Status Snapshot Message
-  if snapshot_message_type == "K" then
-    return siac_cqs_snapshot_cta_v1_0.market_wide_circuit_breaker_decline_level_status_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Snapshot Message
-  if snapshot_message_type == "C" then
-    return siac_cqs_snapshot_cta_v1_0.consolidated_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant Snapshot Message
-  if snapshot_message_type == "P" then
-    return siac_cqs_snapshot_cta_v1_0.participant_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Finra Snapshot Message
-  if snapshot_message_type == "F" then
-    return siac_cqs_snapshot_cta_v1_0.finra_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cqs_snapshot_cta_v1_0.snapshot_message_payload.dispatch[snapshot_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2876,10 +2714,14 @@ end
 siac_cqs_snapshot_cta_v1_0.category_payload = {}
 
 -- Dissect: Category Payload
+siac_cqs_snapshot_cta_v1_0.category_payload.dispatch = {
+  ["R"] = siac_cqs_snapshot_cta_v1_0.snapshot_message.dissect,
+}
+
 siac_cqs_snapshot_cta_v1_0.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Snapshot Message
-  if message_category == "R" then
-    return siac_cqs_snapshot_cta_v1_0.snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cqs_snapshot_cta_v1_0.category_payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

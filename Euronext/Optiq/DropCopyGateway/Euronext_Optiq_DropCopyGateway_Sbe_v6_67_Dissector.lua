@@ -555,36 +555,20 @@ euronext_optiq_dropcopygateway_sbe_v6_67.account_type = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.account_type.size = 1
 
 -- Display: Account Type
-euronext_optiq_dropcopygateway_sbe_v6_67.account_type.display = function(value)
-  if value == 1 then
-    return "Account Type: Client (1)"
-  end
-  if value == 2 then
-    return "Account Type: House (2)"
-  end
-  if value == 4 then
-    return "Account Type: Ro (4)"
-  end
-  if value == 5 then
-    return "Account Type: Assigned Broker (5)"
-  end
-  if value == 6 then
-    return "Account Type: Liquidity Provider (6)"
-  end
-  if value == 7 then
-    return "Account Type: Related Party (7)"
-  end
-  if value == 8 then
-    return "Account Type: Structured Product Market Maker (8)"
-  end
-  if value == 14 then
-    return "Account Type: Omega Client (14)"
-  end
-  if value == 15 then
-    return "Account Type: Ceres Client (15)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.account_type.labels = {
+  [1] = "Account Type: Client (1)",
+  [2] = "Account Type: House (2)",
+  [4] = "Account Type: Ro (4)",
+  [5] = "Account Type: Assigned Broker (5)",
+  [6] = "Account Type: Liquidity Provider (6)",
+  [7] = "Account Type: Related Party (7)",
+  [8] = "Account Type: Structured Product Market Maker (8)",
+  [14] = "Account Type: Omega Client (14)",
+  [15] = "Account Type: Ceres Client (15)",
+}
 
-  return "Account Type: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.account_type.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.account_type.labels[value] or "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -675,54 +659,26 @@ euronext_optiq_dropcopygateway_sbe_v6_67.account_type_internal = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.account_type_internal.size = 1
 
 -- Display: Account Type Internal
-euronext_optiq_dropcopygateway_sbe_v6_67.account_type_internal.display = function(value)
-  if value == 1 then
-    return "Account Type Internal: Client (1)"
-  end
-  if value == 2 then
-    return "Account Type Internal: House (2)"
-  end
-  if value == 3 then
-    return "Account Type Internal: Retail Liquidity Provider (3)"
-  end
-  if value == 4 then
-    return "Account Type Internal: Ro (4)"
-  end
-  if value == 5 then
-    return "Account Type Internal: Assigned Broker (5)"
-  end
-  if value == 6 then
-    return "Account Type Internal: Liquidity Provider (6)"
-  end
-  if value == 7 then
-    return "Account Type Internal: Related Party (7)"
-  end
-  if value == 8 then
-    return "Account Type Internal: Structured Product Market Maker (8)"
-  end
-  if value == 9 then
-    return "Account Type Internal: Managed Client (9)"
-  end
-  if value == 10 then
-    return "Account Type Internal: Foreign (10)"
-  end
-  if value == 11 then
-    return "Account Type Internal: Managed Foreign (11)"
-  end
-  if value == 12 then
-    return "Account Type Internal: Liquidity Contract (12)"
-  end
-  if value == 13 then
-    return "Account Type Internal: Undertakingfor Collective Investment (13)"
-  end
-  if value == 14 then
-    return "Account Type Internal: Omega Client (14)"
-  end
-  if value == 15 then
-    return "Account Type Internal: Ceres Client (15)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.account_type_internal.labels = {
+  [1] = "Account Type Internal: Client (1)",
+  [2] = "Account Type Internal: House (2)",
+  [3] = "Account Type Internal: Retail Liquidity Provider (3)",
+  [4] = "Account Type Internal: Ro (4)",
+  [5] = "Account Type Internal: Assigned Broker (5)",
+  [6] = "Account Type Internal: Liquidity Provider (6)",
+  [7] = "Account Type Internal: Related Party (7)",
+  [8] = "Account Type Internal: Structured Product Market Maker (8)",
+  [9] = "Account Type Internal: Managed Client (9)",
+  [10] = "Account Type Internal: Foreign (10)",
+  [11] = "Account Type Internal: Managed Foreign (11)",
+  [12] = "Account Type Internal: Liquidity Contract (12)",
+  [13] = "Account Type Internal: Undertakingfor Collective Investment (13)",
+  [14] = "Account Type Internal: Omega Client (14)",
+  [15] = "Account Type Internal: Ceres Client (15)",
+}
 
-  return "Account Type Internal: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.account_type_internal.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.account_type_internal.labels[value] or "Account Type Internal: Unknown("..value..")"
 end
 
 -- Dissect: Account Type Internal
@@ -1517,39 +1473,21 @@ euronext_optiq_dropcopygateway_sbe_v6_67.book_state = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.book_state.size = 1
 
 -- Display: Book State
-euronext_optiq_dropcopygateway_sbe_v6_67.book_state.display = function(value)
-  if value == 1 then
-    return "Book State: Inaccessible (1)"
-  end
-  if value == 2 then
-    return "Book State: Closed (2)"
-  end
-  if value == 3 then
-    return "Book State: Call (3)"
-  end
-  if value == 4 then
-    return "Book State: Uncrossing (4)"
-  end
-  if value == 5 then
-    return "Book State: Continuous (5)"
-  end
-  if value == 6 then
-    return "Book State: Halted (6)"
-  end
-  if value == 7 then
-    return "Book State: Continuous Uncrossing (7)"
-  end
-  if value == 8 then
-    return "Book State: Suspended (8)"
-  end
-  if value == 9 then
-    return "Book State: Reserved (9)"
-  end
-  if value == 10 then
-    return "Book State: Random Uncrossing Period (10)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.book_state.labels = {
+  [1] = "Book State: Inaccessible (1)",
+  [2] = "Book State: Closed (2)",
+  [3] = "Book State: Call (3)",
+  [4] = "Book State: Uncrossing (4)",
+  [5] = "Book State: Continuous (5)",
+  [6] = "Book State: Halted (6)",
+  [7] = "Book State: Continuous Uncrossing (7)",
+  [8] = "Book State: Suspended (8)",
+  [9] = "Book State: Reserved (9)",
+  [10] = "Book State: Random Uncrossing Period (10)",
+}
 
-  return "Book State: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.book_state.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.book_state.labels[value] or "Book State: Unknown("..value..")"
 end
 
 -- Dissect: Book State
@@ -1635,18 +1573,14 @@ euronext_optiq_dropcopygateway_sbe_v6_67.change_type = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.change_type.size = 1
 
 -- Display: Change Type
-euronext_optiq_dropcopygateway_sbe_v6_67.change_type.display = function(value)
-  if value == 0 then
-    return "Change Type: Status Changes (0)"
-  end
-  if value == 1 then
-    return "Change Type: Scheduled Event Notification (1)"
-  end
-  if value == 2 then
-    return "Change Type: Status Changeand Scheduled Event Notification (2)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.change_type.labels = {
+  [0] = "Change Type: Status Changes (0)",
+  [1] = "Change Type: Scheduled Event Notification (1)",
+  [2] = "Change Type: Status Changeand Scheduled Event Notification (2)",
+}
 
-  return "Change Type: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.change_type.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.change_type.labels[value] or "Change Type: Unknown("..value..")"
 end
 
 -- Dissect: Change Type
@@ -1818,30 +1752,18 @@ euronext_optiq_dropcopygateway_sbe_v6_67.clearing_instruction = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.clearing_instruction.size = 2
 
 -- Display: Clearing Instruction
-euronext_optiq_dropcopygateway_sbe_v6_67.clearing_instruction.display = function(value)
-  if value == 0 then
-    return "Clearing Instruction: Processnormallyformerly Systematicposting (0)"
-  end
-  if value == 8 then
-    return "Clearing Instruction: Manualmode (8)"
-  end
-  if value == 9 then
-    return "Clearing Instruction: Automaticpostingmode (9)"
-  end
-  if value == 10 then
-    return "Clearing Instruction: Automaticgiveupmode (10)"
-  end
-  if value == 4008 then
-    return "Clearing Instruction: Automaticandaccountauthorization (4008)"
-  end
-  if value == 4009 then
-    return "Clearing Instruction: Manualandaccountauthorization (4009)"
-  end
-  if value == 4010 then
-    return "Clearing Instruction: Giveuptosinglefirm (4010)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.clearing_instruction.labels = {
+  [0] = "Clearing Instruction: Processnormallyformerly Systematicposting (0)",
+  [8] = "Clearing Instruction: Manualmode (8)",
+  [9] = "Clearing Instruction: Automaticpostingmode (9)",
+  [10] = "Clearing Instruction: Automaticgiveupmode (10)",
+  [4008] = "Clearing Instruction: Automaticandaccountauthorization (4008)",
+  [4009] = "Clearing Instruction: Manualandaccountauthorization (4009)",
+  [4010] = "Clearing Instruction: Giveuptosinglefirm (4010)",
+}
 
-  return "Clearing Instruction: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.clearing_instruction.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.clearing_instruction.labels[value] or "Clearing Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Clearing Instruction
@@ -2229,39 +2151,21 @@ euronext_optiq_dropcopygateway_sbe_v6_67.declaration_event_type = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.declaration_event_type.size = 1
 
 -- Display: Declaration Event Type
-euronext_optiq_dropcopygateway_sbe_v6_67.declaration_event_type.display = function(value)
-  if value == 1 then
-    return "Declaration Event Type: New (1)"
-  end
-  if value == 2 then
-    return "Declaration Event Type: Confirmed (2)"
-  end
-  if value == 3 then
-    return "Declaration Event Type: Canceled (3)"
-  end
-  if value == 4 then
-    return "Declaration Event Type: Matched (4)"
-  end
-  if value == 5 then
-    return "Declaration Event Type: Rejected (5)"
-  end
-  if value == 6 then
-    return "Declaration Event Type: Refused (6)"
-  end
-  if value == 7 then
-    return "Declaration Event Type: Expired (7)"
-  end
-  if value == 8 then
-    return "Declaration Event Type: Eliminatedbythe System (8)"
-  end
-  if value == 9 then
-    return "Declaration Event Type: Declaration Createdby Mo (9)"
-  end
-  if value == 10 then
-    return "Declaration Event Type: Cancelled Upon Cs Drequest (10)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.declaration_event_type.labels = {
+  [1] = "Declaration Event Type: New (1)",
+  [2] = "Declaration Event Type: Confirmed (2)",
+  [3] = "Declaration Event Type: Canceled (3)",
+  [4] = "Declaration Event Type: Matched (4)",
+  [5] = "Declaration Event Type: Rejected (5)",
+  [6] = "Declaration Event Type: Refused (6)",
+  [7] = "Declaration Event Type: Expired (7)",
+  [8] = "Declaration Event Type: Eliminatedbythe System (8)",
+  [9] = "Declaration Event Type: Declaration Createdby Mo (9)",
+  [10] = "Declaration Event Type: Cancelled Upon Cs Drequest (10)",
+}
 
-  return "Declaration Event Type: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.declaration_event_type.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.declaration_event_type.labels[value] or "Declaration Event Type: Unknown("..value..")"
 end
 
 -- Dissect: Declaration Event Type
@@ -2306,27 +2210,17 @@ euronext_optiq_dropcopygateway_sbe_v6_67.declaration_kill_reason = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.declaration_kill_reason.size = 1
 
 -- Display: Declaration Kill Reason
-euronext_optiq_dropcopygateway_sbe_v6_67.declaration_kill_reason.display = function(value)
-  if value == 1 then
-    return "Declaration Kill Reason: Canceledby Entering Firm (1)"
-  end
-  if value == 2 then
-    return "Declaration Kill Reason: Refusedby Counterpart (2)"
-  end
-  if value == 3 then
-    return "Declaration Kill Reason: Canceledby Mo (3)"
-  end
-  if value == 4 then
-    return "Declaration Kill Reason: Expired (4)"
-  end
-  if value == 5 then
-    return "Declaration Kill Reason: Eliminatedbythe System (5)"
-  end
-  if value == 6 then
-    return "Declaration Kill Reason: Cancelled Upon Cs Drequest (6)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.declaration_kill_reason.labels = {
+  [1] = "Declaration Kill Reason: Canceledby Entering Firm (1)",
+  [2] = "Declaration Kill Reason: Refusedby Counterpart (2)",
+  [3] = "Declaration Kill Reason: Canceledby Mo (3)",
+  [4] = "Declaration Kill Reason: Expired (4)",
+  [5] = "Declaration Kill Reason: Eliminatedbythe System (5)",
+  [6] = "Declaration Kill Reason: Cancelled Upon Cs Drequest (6)",
+}
 
-  return "Declaration Kill Reason: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.declaration_kill_reason.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.declaration_kill_reason.labels[value] or "Declaration Kill Reason: Unknown("..value..")"
 end
 
 -- Dissect: Declaration Kill Reason
@@ -2348,48 +2242,24 @@ euronext_optiq_dropcopygateway_sbe_v6_67.declaration_status = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.declaration_status.size = 1
 
 -- Display: Declaration Status
-euronext_optiq_dropcopygateway_sbe_v6_67.declaration_status.display = function(value)
-  if value == 1 then
-    return "Declaration Status: New Waitingfor Counterparty Confirmation (1)"
-  end
-  if value == 2 then
-    return "Declaration Status: Confirmedby Counterparty (2)"
-  end
-  if value == 3 then
-    return "Declaration Status: Refusedby Counterparty (3)"
-  end
-  if value == 4 then
-    return "Declaration Status: Pending Cancellation (4)"
-  end
-  if value == 5 then
-    return "Declaration Status: Cancelled (5)"
-  end
-  if value == 6 then
-    return "Declaration Status: Time Out (6)"
-  end
-  if value == 7 then
-    return "Declaration Status: Filled (7)"
-  end
-  if value == 8 then
-    return "Declaration Status: Restated (8)"
-  end
-  if value == 9 then
-    return "Declaration Status: Expirationofapendingdeclaration (9)"
-  end
-  if value == 10 then
-    return "Declaration Status: Eliminationofapendingdeclaration (10)"
-  end
-  if value == 11 then
-    return "Declaration Status: Eliminationofaprematcheddeclarationfollowinga Ce (11)"
-  end
-  if value == 12 then
-    return "Declaration Status: Eliminationofaprematcheddeclarationby Moc (12)"
-  end
-  if value == 13 then
-    return "Declaration Status: Pre Matched (13)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.declaration_status.labels = {
+  [1] = "Declaration Status: New Waitingfor Counterparty Confirmation (1)",
+  [2] = "Declaration Status: Confirmedby Counterparty (2)",
+  [3] = "Declaration Status: Refusedby Counterparty (3)",
+  [4] = "Declaration Status: Pending Cancellation (4)",
+  [5] = "Declaration Status: Cancelled (5)",
+  [6] = "Declaration Status: Time Out (6)",
+  [7] = "Declaration Status: Filled (7)",
+  [8] = "Declaration Status: Restated (8)",
+  [9] = "Declaration Status: Expirationofapendingdeclaration (9)",
+  [10] = "Declaration Status: Eliminationofapendingdeclaration (10)",
+  [11] = "Declaration Status: Eliminationofaprematcheddeclarationfollowinga Ce (11)",
+  [12] = "Declaration Status: Eliminationofaprematcheddeclarationby Moc (12)",
+  [13] = "Declaration Status: Pre Matched (13)",
+}
 
-  return "Declaration Status: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.declaration_status.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.declaration_status.labels[value] or "Declaration Status: Unknown("..value..")"
 end
 
 -- Dissect: Declaration Status
@@ -2506,45 +2376,23 @@ euronext_optiq_dropcopygateway_sbe_v6_67.emm = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.emm.size = 1
 
 -- Display: Emm
-euronext_optiq_dropcopygateway_sbe_v6_67.emm.display = function(value)
-  if value == 1 then
-    return "Emm: Cashand Derivative Central Order Book (1)"
-  end
-  if value == 2 then
-    return "Emm: Nav Trading Facility (2)"
-  end
-  if value == 4 then
-    return "Emm: Derivatives Wholesales (4)"
-  end
-  if value == 5 then
-    return "Emm: Cash On Exchange Offbook (5)"
-  end
-  if value == 6 then
-    return "Emm: Euronextoffexchangetradereports (6)"
-  end
-  if value == 7 then
-    return "Emm: Derivatives On Exchange Offbook (7)"
-  end
-  if value == 8 then
-    return "Emm: Etfmtfnav Central Order Book (8)"
-  end
-  if value == 9 then
-    return "Emm: Listednottraded (9)"
-  end
-  if value == 14 then
-    return "Emm: Quote Advertisement (14)"
-  end
-  if value == 15 then
-    return "Emm: Delta Neutral Contingency Leg (15)"
-  end
-  if value == 17 then
-    return "Emm: Ers (17)"
-  end
-  if value == 99 then
-    return "Emm: Not Applicable (99)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.emm.labels = {
+  [1] = "Emm: Cashand Derivative Central Order Book (1)",
+  [2] = "Emm: Nav Trading Facility (2)",
+  [4] = "Emm: Derivatives Wholesales (4)",
+  [5] = "Emm: Cash On Exchange Offbook (5)",
+  [6] = "Emm: Euronextoffexchangetradereports (6)",
+  [7] = "Emm: Derivatives On Exchange Offbook (7)",
+  [8] = "Emm: Etfmtfnav Central Order Book (8)",
+  [9] = "Emm: Listednottraded (9)",
+  [14] = "Emm: Quote Advertisement (14)",
+  [15] = "Emm: Delta Neutral Contingency Leg (15)",
+  [17] = "Emm: Ers (17)",
+  [99] = "Emm: Not Applicable (99)",
+}
 
-  return "Emm: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.emm.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.emm.labels[value] or "Emm: Unknown("..value..")"
 end
 
 -- Dissect: Emm
@@ -3018,24 +2866,16 @@ euronext_optiq_dropcopygateway_sbe_v6_67.execution_phase = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.execution_phase.size = 1
 
 -- Display: Execution Phase
-euronext_optiq_dropcopygateway_sbe_v6_67.execution_phase.display = function(value)
-  if value == 1 then
-    return "Execution Phase: Continuous Trading Phase (1)"
-  end
-  if value == 2 then
-    return "Execution Phase: Uncrossing Phase (2)"
-  end
-  if value == 3 then
-    return "Execution Phase: Trading At Last Phase (3)"
-  end
-  if value == 4 then
-    return "Execution Phase: Continuous Uncrossing Phase (4)"
-  end
-  if value == 5 then
-    return "Execution Phase: Ipo (5)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.execution_phase.labels = {
+  [1] = "Execution Phase: Continuous Trading Phase (1)",
+  [2] = "Execution Phase: Uncrossing Phase (2)",
+  [3] = "Execution Phase: Trading At Last Phase (3)",
+  [4] = "Execution Phase: Continuous Uncrossing Phase (4)",
+  [5] = "Execution Phase: Ipo (5)",
+}
 
-  return "Execution Phase: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.execution_phase.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.execution_phase.labels[value] or "Execution Phase: Unknown("..value..")"
 end
 
 -- Dissect: Execution Phase
@@ -3307,15 +3147,13 @@ euronext_optiq_dropcopygateway_sbe_v6_67.guarantee_flag = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.guarantee_flag.size = 1
 
 -- Display: Guarantee Flag
-euronext_optiq_dropcopygateway_sbe_v6_67.guarantee_flag.display = function(value)
-  if value == 1 then
-    return "Guarantee Flag: Clearedbutnot Guaranteed (1)"
-  end
-  if value == 2 then
-    return "Guarantee Flag: Clearedand Guaranteed (2)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.guarantee_flag.labels = {
+  [1] = "Guarantee Flag: Clearedbutnot Guaranteed (1)",
+  [2] = "Guarantee Flag: Clearedand Guaranteed (2)",
+}
 
-  return "Guarantee Flag: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.guarantee_flag.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.guarantee_flag.labels[value] or "Guarantee Flag: Unknown("..value..")"
 end
 
 -- Dissect: Guarantee Flag
@@ -3529,90 +3367,38 @@ euronext_optiq_dropcopygateway_sbe_v6_67.instrument_state = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.instrument_state.size = 1
 
 -- Display: Instrument State
-euronext_optiq_dropcopygateway_sbe_v6_67.instrument_state.display = function(value)
-  if value == 1 then
-    return "Instrument State: Scheduled (1)"
-  end
-  if value == 2 then
-    return "Instrument State: Suspendeddueto Underlying (2)"
-  end
-  if value == 3 then
-    return "Instrument State: Suspended Kobi (3)"
-  end
-  if value == 4 then
-    return "Instrument State: Suspended Kobe (4)"
-  end
-  if value == 5 then
-    return "Instrument State: Suspended New Listing (5)"
-  end
-  if value == 6 then
-    return "Instrument State: Suspendedby Mo (6)"
-  end
-  if value == 7 then
-    return "Instrument State: Suspended Technical (7)"
-  end
-  if value == 8 then
-    return "Instrument State: Reserved Dynamic Collars (8)"
-  end
-  if value == 9 then
-    return "Instrument State: Reserved Static Collars (9)"
-  end
-  if value == 10 then
-    return "Instrument State: Reserved Waiting For Lp (10)"
-  end
-  if value == 11 then
-    return "Instrument State: Reserved Lp Limit (11)"
-  end
-  if value == 12 then
-    return "Instrument State: Instrument Deletion (12)"
-  end
-  if value == 13 then
-    return "Instrument State: Suspended Waitingfor Bbo (13)"
-  end
-  if value == 14 then
-    return "Instrument State: Suspended Waitingfor Tradable State (14)"
-  end
-  if value == 15 then
-    return "Instrument State: Random Uncrossing Period (15)"
-  end
-  if value == 16 then
-    return "Instrument State: Expired (16)"
-  end
-  if value == 17 then
-    return "Instrument State: Uncrossing (17)"
-  end
-  if value == 18 then
-    return "Instrument State: Reserveddueto Leg (18)"
-  end
-  if value == 19 then
-    return "Instrument State: Suspendeddueto Leg (19)"
-  end
-  if value == 20 then
-    return "Instrument State: Reserved Waitingfor Valid Assigned Broker Price (20)"
-  end
-  if value == 21 then
-    return "Instrument State: Reserved Future Limit Interruption Protection (21)"
-  end
-  if value == 22 then
-    return "Instrument State: Suspended Waiting For Market Operations (22)"
-  end
-  if value == 23 then
-    return "Instrument State: Trading Ended (23)"
-  end
-  if value == 24 then
-    return "Instrument State: Reserved Waitingfor Assigned Broker (24)"
-  end
-  if value == 25 then
-    return "Instrument State: Reserved Waiting Numberof Securitiesis Fulfilled (25)"
-  end
-  if value == 26 then
-    return "Instrument State: Suspendeddueto Failover (26)"
-  end
-  if value == 27 then
-    return "Instrument State: Closeddueto Restricted Session (27)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.instrument_state.labels = {
+  [1] = "Instrument State: Scheduled (1)",
+  [2] = "Instrument State: Suspendeddueto Underlying (2)",
+  [3] = "Instrument State: Suspended Kobi (3)",
+  [4] = "Instrument State: Suspended Kobe (4)",
+  [5] = "Instrument State: Suspended New Listing (5)",
+  [6] = "Instrument State: Suspendedby Mo (6)",
+  [7] = "Instrument State: Suspended Technical (7)",
+  [8] = "Instrument State: Reserved Dynamic Collars (8)",
+  [9] = "Instrument State: Reserved Static Collars (9)",
+  [10] = "Instrument State: Reserved Waiting For Lp (10)",
+  [11] = "Instrument State: Reserved Lp Limit (11)",
+  [12] = "Instrument State: Instrument Deletion (12)",
+  [13] = "Instrument State: Suspended Waitingfor Bbo (13)",
+  [14] = "Instrument State: Suspended Waitingfor Tradable State (14)",
+  [15] = "Instrument State: Random Uncrossing Period (15)",
+  [16] = "Instrument State: Expired (16)",
+  [17] = "Instrument State: Uncrossing (17)",
+  [18] = "Instrument State: Reserveddueto Leg (18)",
+  [19] = "Instrument State: Suspendeddueto Leg (19)",
+  [20] = "Instrument State: Reserved Waitingfor Valid Assigned Broker Price (20)",
+  [21] = "Instrument State: Reserved Future Limit Interruption Protection (21)",
+  [22] = "Instrument State: Suspended Waiting For Market Operations (22)",
+  [23] = "Instrument State: Trading Ended (23)",
+  [24] = "Instrument State: Reserved Waitingfor Assigned Broker (24)",
+  [25] = "Instrument State: Reserved Waiting Numberof Securitiesis Fulfilled (25)",
+  [26] = "Instrument State: Suspendeddueto Failover (26)",
+  [27] = "Instrument State: Closeddueto Restricted Session (27)",
+}
 
-  return "Instrument State: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.instrument_state.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.instrument_state.labels[value] or "Instrument State: Unknown("..value..")"
 end
 
 -- Dissect: Instrument State
@@ -4220,18 +4006,14 @@ euronext_optiq_dropcopygateway_sbe_v6_67.lp_role = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.lp_role.size = 1
 
 -- Display: Lp Role
-euronext_optiq_dropcopygateway_sbe_v6_67.lp_role.display = function(value)
-  if value == 1 then
-    return "Lp Role: Liquidity Provideror Market Maker (1)"
-  end
-  if value == 3 then
-    return "Lp Role: Retail Liquidity Provider (3)"
-  end
-  if value == 12 then
-    return "Lp Role: Rfq Liquidity Provider (12)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.lp_role.labels = {
+  [1] = "Lp Role: Liquidity Provideror Market Maker (1)",
+  [3] = "Lp Role: Retail Liquidity Provider (3)",
+  [12] = "Lp Role: Rfq Liquidity Provider (12)",
+}
 
-  return "Lp Role: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.lp_role.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.lp_role.labels[value] or "Lp Role: Unknown("..value..")"
 end
 
 -- Dissect: Lp Role
@@ -5003,24 +4785,16 @@ euronext_optiq_dropcopygateway_sbe_v6_67.operation_type = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.operation_type.size = 1
 
 -- Display: Operation Type
-euronext_optiq_dropcopygateway_sbe_v6_67.operation_type.display = function(value)
-  if value == 1 then
-    return "Operation Type: Declarationofatradeoutsidethebook (1)"
-  end
-  if value == 4 then
-    return "Operation Type: Fundorderquantity (4)"
-  end
-  if value == 5 then
-    return "Operation Type: Declarationofa Vwa Ptransaction (5)"
-  end
-  if value == 6 then
-    return "Operation Type: Fundordercashamount (6)"
-  end
-  if value == 7 then
-    return "Operation Type: Declarationofatradeona Secondarylistingplace (7)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.operation_type.labels = {
+  [1] = "Operation Type: Declarationofatradeoutsidethebook (1)",
+  [4] = "Operation Type: Fundorderquantity (4)",
+  [5] = "Operation Type: Declarationofa Vwa Ptransaction (5)",
+  [6] = "Operation Type: Fundordercashamount (6)",
+  [7] = "Operation Type: Declarationofatradeona Secondarylistingplace (7)",
+}
 
-  return "Operation Type: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.operation_type.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.operation_type.labels[value] or "Operation Type: Unknown("..value..")"
 end
 
 -- Dissect: Operation Type
@@ -5081,75 +4855,33 @@ euronext_optiq_dropcopygateway_sbe_v6_67.order_event_type = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.order_event_type.size = 1
 
 -- Display: Order Event Type
-euronext_optiq_dropcopygateway_sbe_v6_67.order_event_type.display = function(value)
-  if value == 1 then
-    return "Order Event Type: New (1)"
-  end
-  if value == 2 then
-    return "Order Event Type: Modify (2)"
-  end
-  if value == 3 then
-    return "Order Event Type: Fill (3)"
-  end
-  if value == 4 then
-    return "Order Event Type: Cancel (4)"
-  end
-  if value == 5 then
-    return "Order Event Type: Reject (5)"
-  end
-  if value == 6 then
-    return "Order Event Type: Trigger (6)"
-  end
-  if value == 7 then
-    return "Order Event Type: Refill (7)"
-  end
-  if value == 8 then
-    return "Order Event Type: Mtl (8)"
-  end
-  if value == 9 then
-    return "Order Event Type: Vfa Vfc (9)"
-  end
-  if value == 10 then
-    return "Order Event Type: Collar Breach (10)"
-  end
-  if value == 11 then
-    return "Order Event Type: Gtcgtd Reload (11)"
-  end
-  if value == 12 then
-    return "Order Event Type: Open Order Request (12)"
-  end
-  if value == 13 then
-    return "Order Event Type: Expired Reload (13)"
-  end
-  if value == 14 then
-    return "Order Event Type: Killedby Corporate Event Reload (14)"
-  end
-  if value == 15 then
-    return "Order Event Type: Ownership Request (15)"
-  end
-  if value == 18 then
-    return "Order Event Type: Implicit (18)"
-  end
-  if value == 19 then
-    return "Order Event Type: Routed (19)"
-  end
-  if value == 20 then
-    return "Order Event Type: Routed New (20)"
-  end
-  if value == 21 then
-    return "Order Event Type: Routed Fill (21)"
-  end
-  if value == 22 then
-    return "Order Event Type: Routed Cancel (22)"
-  end
-  if value == 23 then
-    return "Order Event Type: Move Darkto Cob (23)"
-  end
-  if value == 24 then
-    return "Order Event Type: Parked (24)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.order_event_type.labels = {
+  [1] = "Order Event Type: New (1)",
+  [2] = "Order Event Type: Modify (2)",
+  [3] = "Order Event Type: Fill (3)",
+  [4] = "Order Event Type: Cancel (4)",
+  [5] = "Order Event Type: Reject (5)",
+  [6] = "Order Event Type: Trigger (6)",
+  [7] = "Order Event Type: Refill (7)",
+  [8] = "Order Event Type: Mtl (8)",
+  [9] = "Order Event Type: Vfa Vfc (9)",
+  [10] = "Order Event Type: Collar Breach (10)",
+  [11] = "Order Event Type: Gtcgtd Reload (11)",
+  [12] = "Order Event Type: Open Order Request (12)",
+  [13] = "Order Event Type: Expired Reload (13)",
+  [14] = "Order Event Type: Killedby Corporate Event Reload (14)",
+  [15] = "Order Event Type: Ownership Request (15)",
+  [18] = "Order Event Type: Implicit (18)",
+  [19] = "Order Event Type: Routed (19)",
+  [20] = "Order Event Type: Routed New (20)",
+  [21] = "Order Event Type: Routed Fill (21)",
+  [22] = "Order Event Type: Routed Cancel (22)",
+  [23] = "Order Event Type: Move Darkto Cob (23)",
+  [24] = "Order Event Type: Parked (24)",
+}
 
-  return "Order Event Type: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.order_event_type.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.order_event_type.labels[value] or "Order Event Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Event Type
@@ -5329,18 +5061,14 @@ euronext_optiq_dropcopygateway_sbe_v6_67.order_side = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.order_side.size = 1
 
 -- Display: Order Side
-euronext_optiq_dropcopygateway_sbe_v6_67.order_side.display = function(value)
-  if value == 1 then
-    return "Order Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Order Side: Sell (2)"
-  end
-  if value == 3 then
-    return "Order Side: Cross (3)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.order_side.labels = {
+  [1] = "Order Side: Buy (1)",
+  [2] = "Order Side: Sell (2)",
+  [3] = "Order Side: Cross (3)",
+}
 
-  return "Order Side: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.order_side.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.order_side.labels[value] or "Order Side: Unknown("..value..")"
 end
 
 -- Dissect: Order Side
@@ -5462,48 +5190,24 @@ euronext_optiq_dropcopygateway_sbe_v6_67.order_type = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.order_type.size = 1
 
 -- Display: Order Type
-euronext_optiq_dropcopygateway_sbe_v6_67.order_type.display = function(value)
-  if value == 1 then
-    return "Order Type: Market (1)"
-  end
-  if value == 2 then
-    return "Order Type: Limit (2)"
-  end
-  if value == 3 then
-    return "Order Type: Stopmarketor Stopmarketonquote (3)"
-  end
-  if value == 4 then
-    return "Order Type: Stoplimitor Stoplimitonquote (4)"
-  end
-  if value == 5 then
-    return "Order Type: Primary Peg (5)"
-  end
-  if value == 6 then
-    return "Order Type: Markettolimit (6)"
-  end
-  if value == 7 then
-    return "Order Type: Market Peg (7)"
-  end
-  if value == 8 then
-    return "Order Type: Mid Point Peg (8)"
-  end
-  if value == 9 then
-    return "Order Type: Average Price (9)"
-  end
-  if value == 10 then
-    return "Order Type: Iceberg (10)"
-  end
-  if value == 12 then
-    return "Order Type: Implied (12)"
-  end
-  if value == 13 then
-    return "Order Type: Posttrade Implied (13)"
-  end
-  if value == 14 then
-    return "Order Type: Auction Volume Discovery (14)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.order_type.labels = {
+  [1] = "Order Type: Market (1)",
+  [2] = "Order Type: Limit (2)",
+  [3] = "Order Type: Stopmarketor Stopmarketonquote (3)",
+  [4] = "Order Type: Stoplimitor Stoplimitonquote (4)",
+  [5] = "Order Type: Primary Peg (5)",
+  [6] = "Order Type: Markettolimit (6)",
+  [7] = "Order Type: Market Peg (7)",
+  [8] = "Order Type: Mid Point Peg (8)",
+  [9] = "Order Type: Average Price (9)",
+  [10] = "Order Type: Iceberg (10)",
+  [12] = "Order Type: Implied (12)",
+  [13] = "Order Type: Posttrade Implied (13)",
+  [14] = "Order Type: Auction Volume Discovery (14)",
+}
 
-  return "Order Type: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.order_type.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -5861,27 +5565,17 @@ euronext_optiq_dropcopygateway_sbe_v6_67.phase_id = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.phase_id.size = 1
 
 -- Display: Phase Id
-euronext_optiq_dropcopygateway_sbe_v6_67.phase_id.display = function(value)
-  if value == 1 then
-    return "Phase Id: Inaccessible (1)"
-  end
-  if value == 2 then
-    return "Phase Id: Closed (2)"
-  end
-  if value == 3 then
-    return "Phase Id: Call (3)"
-  end
-  if value == 4 then
-    return "Phase Id: Uncrossing (4)"
-  end
-  if value == 5 then
-    return "Phase Id: Continuous (5)"
-  end
-  if value == 7 then
-    return "Phase Id: Continuous Uncrossing (7)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.phase_id.labels = {
+  [1] = "Phase Id: Inaccessible (1)",
+  [2] = "Phase Id: Closed (2)",
+  [3] = "Phase Id: Call (3)",
+  [4] = "Phase Id: Uncrossing (4)",
+  [5] = "Phase Id: Continuous (5)",
+  [7] = "Phase Id: Continuous Uncrossing (7)",
+}
 
-  return "Phase Id: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.phase_id.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.phase_id.labels[value] or "Phase Id: Unknown("..value..")"
 end
 
 -- Dissect: Phase Id
@@ -6060,102 +5754,42 @@ euronext_optiq_dropcopygateway_sbe_v6_67.price_type = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.price_type.size = 1
 
 -- Display: Price Type
-euronext_optiq_dropcopygateway_sbe_v6_67.price_type.display = function(value)
-  if value == 2 then
-    return "Price Type: Official Daily (2)"
-  end
-  if value == 4 then
-    return "Price Type: Official Market Close (4)"
-  end
-  if value == 6 then
-    return "Price Type: Official Expiry (6)"
-  end
-  if value == 7 then
-    return "Price Type: Provisional Intraday (7)"
-  end
-  if value == 8 then
-    return "Price Type: Official Intraday (8)"
-  end
-  if value == 9 then
-    return "Price Type: Official Ydsp (9)"
-  end
-  if value == 10 then
-    return "Price Type: Na Vfortheinstrumentseligibletothe Nav Trading Facility (10)"
-  end
-  if value == 12 then
-    return "Price Type: Adjusted Closing Price (12)"
-  end
-  if value == 13 then
-    return "Price Type: Subscription Price (13)"
-  end
-  if value == 14 then
-    return "Price Type: Indicative Matching Price (14)"
-  end
-  if value == 19 then
-    return "Price Type: Min Price Outof Session Trades (19)"
-  end
-  if value == 20 then
-    return "Price Type: Max Price Outof Session Trades (20)"
-  end
-  if value == 21 then
-    return "Price Type: Min Price Outof Session Block Trades (21)"
-  end
-  if value == 22 then
-    return "Price Type: Max Price Outof Session Block Trades (22)"
-  end
-  if value == 23 then
-    return "Price Type: Valuation Price (23)"
-  end
-  if value == 24 then
-    return "Price Type: Fund Subscription (24)"
-  end
-  if value == 25 then
-    return "Price Type: Fund Redemption (25)"
-  end
-  if value == 26 then
-    return "Price Type: Uncrossing Price (26)"
-  end
-  if value == 27 then
-    return "Price Type: Last Traded Price (27)"
-  end
-  if value == 28 then
-    return "Price Type: Aip (28)"
-  end
-  if value == 30 then
-    return "Price Type: Net Asset Value (30)"
-  end
-  if value == 31 then
-    return "Price Type: External Reference Price (31)"
-  end
-  if value == 33 then
-    return "Price Type: Closing Price (33)"
-  end
-  if value == 34 then
-    return "Price Type: Life Time Lowest Price (34)"
-  end
-  if value == 35 then
-    return "Price Type: Life Time Highest Price (35)"
-  end
-  if value == 36 then
-    return "Price Type: Daily Lowest Price (36)"
-  end
-  if value == 37 then
-    return "Price Type: Daily Highest Price (37)"
-  end
-  if value == 38 then
-    return "Price Type: Breached Dynamic Collar (38)"
-  end
-  if value == 39 then
-    return "Price Type: Breached Static Collar (39)"
-  end
-  if value == 41 then
-    return "Price Type: Life Time Contract Highest Price (41)"
-  end
-  if value == 42 then
-    return "Price Type: Life Time Contract Lowest Price (42)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.price_type.labels = {
+  [2] = "Price Type: Official Daily (2)",
+  [4] = "Price Type: Official Market Close (4)",
+  [6] = "Price Type: Official Expiry (6)",
+  [7] = "Price Type: Provisional Intraday (7)",
+  [8] = "Price Type: Official Intraday (8)",
+  [9] = "Price Type: Official Ydsp (9)",
+  [10] = "Price Type: Na Vfortheinstrumentseligibletothe Nav Trading Facility (10)",
+  [12] = "Price Type: Adjusted Closing Price (12)",
+  [13] = "Price Type: Subscription Price (13)",
+  [14] = "Price Type: Indicative Matching Price (14)",
+  [19] = "Price Type: Min Price Outof Session Trades (19)",
+  [20] = "Price Type: Max Price Outof Session Trades (20)",
+  [21] = "Price Type: Min Price Outof Session Block Trades (21)",
+  [22] = "Price Type: Max Price Outof Session Block Trades (22)",
+  [23] = "Price Type: Valuation Price (23)",
+  [24] = "Price Type: Fund Subscription (24)",
+  [25] = "Price Type: Fund Redemption (25)",
+  [26] = "Price Type: Uncrossing Price (26)",
+  [27] = "Price Type: Last Traded Price (27)",
+  [28] = "Price Type: Aip (28)",
+  [30] = "Price Type: Net Asset Value (30)",
+  [31] = "Price Type: External Reference Price (31)",
+  [33] = "Price Type: Closing Price (33)",
+  [34] = "Price Type: Life Time Lowest Price (34)",
+  [35] = "Price Type: Life Time Highest Price (35)",
+  [36] = "Price Type: Daily Lowest Price (36)",
+  [37] = "Price Type: Daily Highest Price (37)",
+  [38] = "Price Type: Breached Dynamic Collar (38)",
+  [39] = "Price Type: Breached Static Collar (39)",
+  [41] = "Price Type: Life Time Contract Highest Price (41)",
+  [42] = "Price Type: Life Time Contract Lowest Price (42)",
+}
 
-  return "Price Type: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.price_type.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -6479,24 +6113,16 @@ euronext_optiq_dropcopygateway_sbe_v6_67.rfq_status = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.rfq_status.size = 1
 
 -- Display: Rfq Status
-euronext_optiq_dropcopygateway_sbe_v6_67.rfq_status.display = function(value)
-  if value == 0 then
-    return "Rfq Status: Alive (0)"
-  end
-  if value == 1 then
-    return "Rfq Status: Confirmed (1)"
-  end
-  if value == 2 then
-    return "Rfq Status: Canceled (2)"
-  end
-  if value == 3 then
-    return "Rfq Status: Expired (3)"
-  end
-  if value == 4 then
-    return "Rfq Status: Automatically Confirmed (4)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.rfq_status.labels = {
+  [0] = "Rfq Status: Alive (0)",
+  [1] = "Rfq Status: Confirmed (1)",
+  [2] = "Rfq Status: Canceled (2)",
+  [3] = "Rfq Status: Expired (3)",
+  [4] = "Rfq Status: Automatically Confirmed (4)",
+}
 
-  return "Rfq Status: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.rfq_status.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.rfq_status.labels[value] or "Rfq Status: Unknown("..value..")"
 end
 
 -- Dissect: Rfq Status
@@ -6799,39 +6425,21 @@ euronext_optiq_dropcopygateway_sbe_v6_67.session = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.session.size = 1
 
 -- Display: Session
-euronext_optiq_dropcopygateway_sbe_v6_67.session.display = function(value)
-  if value == 0 then
-    return "Session: Session 0 (0)"
-  end
-  if value == 1 then
-    return "Session: Session 1 (1)"
-  end
-  if value == 2 then
-    return "Session: Session 2 (2)"
-  end
-  if value == 3 then
-    return "Session: Session 3 (3)"
-  end
-  if value == 4 then
-    return "Session: Session 4 (4)"
-  end
-  if value == 5 then
-    return "Session: Session 5 (5)"
-  end
-  if value == 6 then
-    return "Session: Session 6 (6)"
-  end
-  if value == 7 then
-    return "Session: Session 7 (7)"
-  end
-  if value == 8 then
-    return "Session: Session 8 (8)"
-  end
-  if value == 9 then
-    return "Session: Session 9 (9)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.session.labels = {
+  [0] = "Session: Session 0 (0)",
+  [1] = "Session: Session 1 (1)",
+  [2] = "Session: Session 2 (2)",
+  [3] = "Session: Session 3 (3)",
+  [4] = "Session: Session 4 (4)",
+  [5] = "Session: Session 5 (5)",
+  [6] = "Session: Session 6 (6)",
+  [7] = "Session: Session 7 (7)",
+  [8] = "Session: Session 8 (8)",
+  [9] = "Session: Session 9 (9)",
+}
 
-  return "Session: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.session.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.session.labels[value] or "Session: Unknown("..value..")"
 end
 
 -- Dissect: Session
@@ -7093,18 +6701,14 @@ euronext_optiq_dropcopygateway_sbe_v6_67.side = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.side.size = 1
 
 -- Display: Side
-euronext_optiq_dropcopygateway_sbe_v6_67.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
-  if value == 3 then
-    return "Side: Cross (3)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+  [3] = "Side: Cross (3)",
+}
 
-  return "Side: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.side.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -7126,54 +6730,26 @@ euronext_optiq_dropcopygateway_sbe_v6_67.status_reason = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.status_reason.size = 1
 
 -- Display: Status Reason
-euronext_optiq_dropcopygateway_sbe_v6_67.status_reason.display = function(value)
-  if value == 0 then
-    return "Status Reason: Scheduled (0)"
-  end
-  if value == 4 then
-    return "Status Reason: Collars Breach (4)"
-  end
-  if value == 7 then
-    return "Status Reason: Automatic Reopening (7)"
-  end
-  if value == 8 then
-    return "Status Reason: No Liquidity Provider (8)"
-  end
-  if value == 11 then
-    return "Status Reason: Knock Inby Issuer (11)"
-  end
-  if value == 12 then
-    return "Status Reason: Knock Outby Exchange (12)"
-  end
-  if value == 13 then
-    return "Status Reason: Knock Outby Issuer (13)"
-  end
-  if value == 15 then
-    return "Status Reason: Actionby Market Operations (15)"
-  end
-  if value == 16 then
-    return "Status Reason: Waitingfor Tradable State (16)"
-  end
-  if value == 20 then
-    return "Status Reason: New Listing (20)"
-  end
-  if value == 21 then
-    return "Status Reason: Dueto Underlying (21)"
-  end
-  if value == 22 then
-    return "Status Reason: Outsideof L Pquotes (22)"
-  end
-  if value == 23 then
-    return "Status Reason: Technical (23)"
-  end
-  if value == 24 then
-    return "Status Reason: Dueto Leg (24)"
-  end
-  if value == 25 then
-    return "Status Reason: Dueto Main Market (25)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.status_reason.labels = {
+  [0] = "Status Reason: Scheduled (0)",
+  [4] = "Status Reason: Collars Breach (4)",
+  [7] = "Status Reason: Automatic Reopening (7)",
+  [8] = "Status Reason: No Liquidity Provider (8)",
+  [11] = "Status Reason: Knock Inby Issuer (11)",
+  [12] = "Status Reason: Knock Outby Exchange (12)",
+  [13] = "Status Reason: Knock Outby Issuer (13)",
+  [15] = "Status Reason: Actionby Market Operations (15)",
+  [16] = "Status Reason: Waitingfor Tradable State (16)",
+  [20] = "Status Reason: New Listing (20)",
+  [21] = "Status Reason: Dueto Underlying (21)",
+  [22] = "Status Reason: Outsideof L Pquotes (22)",
+  [23] = "Status Reason: Technical (23)",
+  [24] = "Status Reason: Dueto Leg (24)",
+  [25] = "Status Reason: Dueto Main Market (25)",
+}
 
-  return "Status Reason: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.status_reason.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.status_reason.labels[value] or "Status Reason: Unknown("..value..")"
 end
 
 -- Dissect: Status Reason
@@ -7386,66 +6962,30 @@ euronext_optiq_dropcopygateway_sbe_v6_67.template_id = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.template_id.size = 2
 
 -- Display: Template Id
-euronext_optiq_dropcopygateway_sbe_v6_67.template_id.display = function(value)
-  if value == 16001 then
-    return "Template Id: Dc Market Status Change Message (16001)"
-  end
-  if value == 16003 then
-    return "Template Id: Dc Price Update Message (16003)"
-  end
-  if value == 16006 then
-    return "Template Id: Dc Long Order Message (16006)"
-  end
-  if value == 16010 then
-    return "Template Id: Dc Short Order Reject Message (16010)"
-  end
-  if value == 16016 then
-    return "Template Id: Dc Short Trade Cancellation Message (16016)"
-  end
-  if value == 16018 then
-    return "Template Id: Dc Static Collars Message (16018)"
-  end
-  if value == 16021 then
-    return "Template Id: Dc Trade Bust Notification Message (16021)"
-  end
-  if value == 16050 then
-    return "Template Id: Dc Quote Message (16050)"
-  end
-  if value == 16051 then
-    return "Template Id: Dcafqrfe Message (16051)"
-  end
-  if value == 16052 then
-    return "Template Id: Dc Declaration New Message (16052)"
-  end
-  if value == 16053 then
-    return "Template Id: Dc Short Declaration Reject Message (16053)"
-  end
-  if value == 16054 then
-    return "Template Id: Dc Short Declaration Cancel Message (16054)"
-  end
-  if value == 16055 then
-    return "Template Id: Dc Short Trade Declaration Message (16055)"
-  end
-  if value == 16056 then
-    return "Template Id: Dc Short Trade Declaration Cancellation Message (16056)"
-  end
-  if value == 16057 then
-    return "Template Id: Dc Trade Bust Declaration Message (16057)"
-  end
-  if value == 16058 then
-    return "Template Id: Dc Trade Message (16058)"
-  end
-  if value == 16059 then
-    return "Template Id: Dc Short Declaration Fill Message (16059)"
-  end
-  if value == 16060 then
-    return "Template Id: Dc Quote Request Message (16060)"
-  end
-  if value == 16061 then
-    return "Template Id: Dc Clear Book Message (16061)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.template_id.labels = {
+  [16001] = "Template Id: Dc Market Status Change Message (16001)",
+  [16003] = "Template Id: Dc Price Update Message (16003)",
+  [16006] = "Template Id: Dc Long Order Message (16006)",
+  [16010] = "Template Id: Dc Short Order Reject Message (16010)",
+  [16016] = "Template Id: Dc Short Trade Cancellation Message (16016)",
+  [16018] = "Template Id: Dc Static Collars Message (16018)",
+  [16021] = "Template Id: Dc Trade Bust Notification Message (16021)",
+  [16050] = "Template Id: Dc Quote Message (16050)",
+  [16051] = "Template Id: Dcafqrfe Message (16051)",
+  [16052] = "Template Id: Dc Declaration New Message (16052)",
+  [16053] = "Template Id: Dc Short Declaration Reject Message (16053)",
+  [16054] = "Template Id: Dc Short Declaration Cancel Message (16054)",
+  [16055] = "Template Id: Dc Short Trade Declaration Message (16055)",
+  [16056] = "Template Id: Dc Short Trade Declaration Cancellation Message (16056)",
+  [16057] = "Template Id: Dc Trade Bust Declaration Message (16057)",
+  [16058] = "Template Id: Dc Trade Message (16058)",
+  [16059] = "Template Id: Dc Short Declaration Fill Message (16059)",
+  [16060] = "Template Id: Dc Quote Request Message (16060)",
+  [16061] = "Template Id: Dc Clear Book Message (16061)",
+}
 
-  return "Template Id: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.template_id.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -7467,39 +7007,21 @@ euronext_optiq_dropcopygateway_sbe_v6_67.time_in_force = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.time_in_force.size = 1
 
 -- Display: Time In Force
-euronext_optiq_dropcopygateway_sbe_v6_67.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 1 then
-    return "Time In Force: Good Till Cancel (1)"
-  end
-  if value == 2 then
-    return "Time In Force: Validfor Uncrossing (2)"
-  end
-  if value == 3 then
-    return "Time In Force: Immediateor Cancel (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fillor Kill (4)"
-  end
-  if value == 5 then
-    return "Time In Force: Goodtill Time (5)"
-  end
-  if value == 6 then
-    return "Time In Force: Goodtill Date (6)"
-  end
-  if value == 7 then
-    return "Time In Force: Validfor Closing Uncrossing (7)"
-  end
-  if value == 8 then
-    return "Time In Force: Validfor Session (8)"
-  end
-  if value == 10 then
-    return "Time In Force: Good Till Month Gtm (10)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.time_in_force.labels = {
+  [0] = "Time In Force: Day (0)",
+  [1] = "Time In Force: Good Till Cancel (1)",
+  [2] = "Time In Force: Validfor Uncrossing (2)",
+  [3] = "Time In Force: Immediateor Cancel (3)",
+  [4] = "Time In Force: Fillor Kill (4)",
+  [5] = "Time In Force: Goodtill Time (5)",
+  [6] = "Time In Force: Goodtill Date (6)",
+  [7] = "Time In Force: Validfor Closing Uncrossing (7)",
+  [8] = "Time In Force: Validfor Session (8)",
+  [10] = "Time In Force: Good Till Month Gtm (10)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.time_in_force.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -7876,18 +7398,14 @@ euronext_optiq_dropcopygateway_sbe_v6_67.trading_capacity = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.trading_capacity.size = 1
 
 -- Display: Trading Capacity
-euronext_optiq_dropcopygateway_sbe_v6_67.trading_capacity.display = function(value)
-  if value == 1 then
-    return "Trading Capacity: Dealingonownaccount (1)"
-  end
-  if value == 2 then
-    return "Trading Capacity: Matchedprincipal (2)"
-  end
-  if value == 3 then
-    return "Trading Capacity: Anyothercapacity (3)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.trading_capacity.labels = {
+  [1] = "Trading Capacity: Dealingonownaccount (1)",
+  [2] = "Trading Capacity: Matchedprincipal (2)",
+  [3] = "Trading Capacity: Anyothercapacity (3)",
+}
 
-  return "Trading Capacity: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.trading_capacity.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.trading_capacity.labels[value] or "Trading Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Trading Capacity
@@ -7984,15 +7502,13 @@ euronext_optiq_dropcopygateway_sbe_v6_67.trading_group_state = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.trading_group_state.size = 1
 
 -- Display: Trading Group State
-euronext_optiq_dropcopygateway_sbe_v6_67.trading_group_state.display = function(value)
-  if value == 0 then
-    return "Trading Group State: Scheduled (0)"
-  end
-  if value == 1 then
-    return "Trading Group State: Halted (1)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.trading_group_state.labels = {
+  [0] = "Trading Group State: Scheduled (0)",
+  [1] = "Trading Group State: Halted (1)",
+}
 
-  return "Trading Group State: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.trading_group_state.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.trading_group_state.labels[value] or "Trading Group State: Unknown("..value..")"
 end
 
 -- Dissect: Trading Group State
@@ -8231,318 +7747,114 @@ euronext_optiq_dropcopygateway_sbe_v6_67.update_type = {}
 euronext_optiq_dropcopygateway_sbe_v6_67.update_type.size = 1
 
 -- Display: Update Type
-euronext_optiq_dropcopygateway_sbe_v6_67.update_type.display = function(value)
-  if value == 1 then
-    return "Update Type: Best Bid (1)"
-  end
-  if value == 2 then
-    return "Update Type: Best Offer (2)"
-  end
-  if value == 3 then
-    return "Update Type: New Bid (3)"
-  end
-  if value == 4 then
-    return "Update Type: New Offer (4)"
-  end
-  if value == 5 then
-    return "Update Type: Updated Bid (5)"
-  end
-  if value == 6 then
-    return "Update Type: Updated Offer (6)"
-  end
-  if value == 7 then
-    return "Update Type: Total Traded Volume (7)"
-  end
-  if value == 8 then
-    return "Update Type: Implied Bid (8)"
-  end
-  if value == 9 then
-    return "Update Type: Implied Offer (9)"
-  end
-  if value == 10 then
-    return "Update Type: Requestfor Quote (10)"
-  end
-  if value == 11 then
-    return "Update Type: Requestfor Quote Bid (11)"
-  end
-  if value == 12 then
-    return "Update Type: Requestfor Size (12)"
-  end
-  if value == 13 then
-    return "Update Type: Requestfor Quote Offer (13)"
-  end
-  if value == 14 then
-    return "Update Type: High Dynamic Collar (14)"
-  end
-  if value == 15 then
-    return "Update Type: Low Dynamic Collar (15)"
-  end
-  if value == 16 then
-    return "Update Type: New Bid Rlp (16)"
-  end
-  if value == 17 then
-    return "Update Type: New Offer Rlp (17)"
-  end
-  if value == 18 then
-    return "Update Type: Updated Bid Rlp (18)"
-  end
-  if value == 19 then
-    return "Update Type: Updated Offer Rlp (19)"
-  end
-  if value == 20 then
-    return "Update Type: Avd Trade (20)"
-  end
-  if value == 24 then
-    return "Update Type: Conventional Trade (24)"
-  end
-  if value == 25 then
-    return "Update Type: Requestfor Cross Rfc Queued (25)"
-  end
-  if value == 26 then
-    return "Update Type: Requestfor Cross Rfc (26)"
-  end
-  if value == 27 then
-    return "Update Type: Largein Scale Li S Trade (27)"
-  end
-  if value == 28 then
-    return "Update Type: Basis Trade (28)"
-  end
-  if value == 29 then
-    return "Update Type: Largein Scale Li S Package Trade (29)"
-  end
-  if value == 30 then
-    return "Update Type: Guaranteed Cross Trade (30)"
-  end
-  if value == 31 then
-    return "Update Type: Against Actual Trade (31)"
-  end
-  if value == 32 then
-    return "Update Type: Asset Allocation Trade (32)"
-  end
-  if value == 34 then
-    return "Update Type: Exchangefor Swap Trade (34)"
-  end
-  if value == 35 then
-    return "Update Type: Dark Trade (35)"
-  end
-  if value == 36 then
-    return "Update Type: Exchangefor Physical Trade Cash Leg (36)"
-  end
-  if value == 37 then
-    return "Update Type: Strategy Leg Conventional Trade (37)"
-  end
-  if value == 38 then
-    return "Update Type: Strategy Leg Largein Scale Li S Trade (38)"
-  end
-  if value == 39 then
-    return "Update Type: Strategy Leg Basis Trade (39)"
-  end
-  if value == 40 then
-    return "Update Type: Strategy Leg Guaranteed Cross Trade (40)"
-  end
-  if value == 41 then
-    return "Update Type: Strategy Leg Against Actual Trade (41)"
-  end
-  if value == 42 then
-    return "Update Type: Strategy Leg Asset Allocation Trade (42)"
-  end
-  if value == 44 then
-    return "Update Type: Strategy Leg Exchange For Swap Trade (44)"
-  end
-  if value == 45 then
-    return "Update Type: Strategy Leg Exchange For Physical Trade (45)"
-  end
-  if value == 46 then
-    return "Update Type: Bo B Trade (46)"
-  end
-  if value == 48 then
-    return "Update Type: Atom X Trade (48)"
-  end
-  if value == 50 then
-    return "Update Type: Trade Cancellation (50)"
-  end
-  if value == 51 then
-    return "Update Type: Outof Market Trade (51)"
-  end
-  if value == 52 then
-    return "Update Type: Delta Neutral Trade Underlying Cash Leg (52)"
-  end
-  if value == 53 then
-    return "Update Type: Delta Neutral Trade Underlying Future Leg (53)"
-  end
-  if value == 54 then
-    return "Update Type: Euronext Fund Service Trade (54)"
-  end
-  if value == 55 then
-    return "Update Type: Secondary Listing Trade (55)"
-  end
-  if value == 56 then
-    return "Update Type: Requestfor Cross Trade (56)"
-  end
-  if value == 57 then
-    return "Update Type: Requestfor Cross Strategy Leg Trade (57)"
-  end
-  if value == 58 then
-    return "Update Type: New Bid With Liquidity Provider (58)"
-  end
-  if value == 59 then
-    return "Update Type: New Offer With Liquidity Provider (59)"
-  end
-  if value == 60 then
-    return "Update Type: Updated Bid With Liquidity Provider (60)"
-  end
-  if value == 61 then
-    return "Update Type: Updated Offer With Liquidity Provider (61)"
-  end
-  if value == 63 then
-    return "Update Type: Low Static Collar (63)"
-  end
-  if value == 64 then
-    return "Update Type: High Static Collar (64)"
-  end
-  if value == 65 then
-    return "Update Type: Market Vwap Operation Trade (65)"
-  end
-  if value == 66 then
-    return "Update Type: Requestfor Size Bid (66)"
-  end
-  if value == 67 then
-    return "Update Type: Requestfor Size Offer (67)"
-  end
-  if value == 70 then
-    return "Update Type: Low Lp Collar (70)"
-  end
-  if value == 71 then
-    return "Update Type: High Lp Collar (71)"
-  end
-  if value == 72 then
-    return "Update Type: Etfmtfnav Tradepriceinbp (72)"
-  end
-  if value == 73 then
-    return "Update Type: Etfmtfnav Dark Tradepriceinbp (73)"
-  end
-  if value == 74 then
-    return "Update Type: New Bidon Wholesale Rfc (74)"
-  end
-  if value == 75 then
-    return "Update Type: New Offeron Wholesale Rfc (75)"
-  end
-  if value == 76 then
-    return "Update Type: Updated Bidon Wholesale Rfc (76)"
-  end
-  if value == 77 then
-    return "Update Type: Updated Offeron Wholesale Rfc (77)"
-  end
-  if value == 78 then
-    return "Update Type: Clear Wholesale Rfc (78)"
-  end
-  if value == 79 then
-    return "Update Type: Guaranteed Cross Negotiateddeal Nliq (79)"
-  end
-  if value == 80 then
-    return "Update Type: Guaranteed Cross Negotiateddeal Oilq (80)"
-  end
-  if value == 81 then
-    return "Update Type: Largein Scale Trade (81)"
-  end
-  if value == 82 then
-    return "Update Type: Largein Scale Tradeinbasispoints (82)"
-  end
-  if value == 83 then
-    return "Update Type: Largein Scale Package Tradeinbasispoints (83)"
-  end
-  if value == 84 then
-    return "Update Type: Strategy Leg Largein Scale Tradeinbasispoints (84)"
-  end
-  if value == 86 then
-    return "Update Type: New Bid Rfq Answer (86)"
-  end
-  if value == 87 then
-    return "Update Type: New Offer Rfq Answer (87)"
-  end
-  if value == 88 then
-    return "Update Type: Updated Bid Rfq Answer (88)"
-  end
-  if value == 89 then
-    return "Update Type: Updated Offer Rfq Answer (89)"
-  end
-  if value == 90 then
-    return "Update Type: Bid Execution Summary (90)"
-  end
-  if value == 91 then
-    return "Update Type: Aqs Expansion Factor (91)"
-  end
-  if value == 92 then
-    return "Update Type: Collars Expansion Factor (92)"
-  end
-  if value == 93 then
-    return "Update Type: Collars Enabled (93)"
-  end
-  if value == 94 then
-    return "Update Type: Collars Disabled (94)"
-  end
-  if value == 95 then
-    return "Update Type: Dcrp Inter Month Spread (95)"
-  end
-  if value == 96 then
-    return "Update Type: Fsp Reference Price (96)"
-  end
-  if value == 97 then
-    return "Update Type: Offer Execution Summary (97)"
-  end
-  if value == 98 then
-    return "Update Type: Fsp Triggered (98)"
-  end
-  if value == 99 then
-    return "Update Type: Mid Point Bbo (99)"
-  end
-  if value == 100 then
-    return "Update Type: Conventional Trade Provisionalprice (100)"
-  end
-  if value == 101 then
-    return "Update Type: High Order Price Control Collar (101)"
-  end
-  if value == 102 then
-    return "Update Type: Low Order Price Control Collar (102)"
-  end
-  if value == 103 then
-    return "Update Type: Order Price Control Collar Reference Price (103)"
-  end
-  if value == 104 then
-    return "Update Type: Issuing Or Tender Offer Trade (104)"
-  end
-  if value == 105 then
-    return "Update Type: Rfq Trade (105)"
-  end
-  if value == 106 then
-    return "Update Type: Flip Spread (106)"
-  end
-  if value == 107 then
-    return "Update Type: Flip Reference Price (107)"
-  end
-  if value == 108 then
-    return "Update Type: Strategy Leg Conventional Trade Provisionalprice (108)"
-  end
-  if value == 109 then
-    return "Update Type: Block Standard Trade (109)"
-  end
-  if value == 110 then
-    return "Update Type: Block Nfc Auction Trade (110)"
-  end
-  if value == 111 then
-    return "Update Type: Block Historical Trade (111)"
-  end
-  if value == 252 then
-    return "Update Type: Static Collar Reference Price (252)"
-  end
-  if value == 253 then
-    return "Update Type: Dynamic Collar Reference Price (253)"
-  end
-  if value == 254 then
-    return "Update Type: Clear Book (254)"
-  end
+euronext_optiq_dropcopygateway_sbe_v6_67.update_type.labels = {
+  [1] = "Update Type: Best Bid (1)",
+  [2] = "Update Type: Best Offer (2)",
+  [3] = "Update Type: New Bid (3)",
+  [4] = "Update Type: New Offer (4)",
+  [5] = "Update Type: Updated Bid (5)",
+  [6] = "Update Type: Updated Offer (6)",
+  [7] = "Update Type: Total Traded Volume (7)",
+  [8] = "Update Type: Implied Bid (8)",
+  [9] = "Update Type: Implied Offer (9)",
+  [10] = "Update Type: Requestfor Quote (10)",
+  [11] = "Update Type: Requestfor Quote Bid (11)",
+  [12] = "Update Type: Requestfor Size (12)",
+  [13] = "Update Type: Requestfor Quote Offer (13)",
+  [14] = "Update Type: High Dynamic Collar (14)",
+  [15] = "Update Type: Low Dynamic Collar (15)",
+  [16] = "Update Type: New Bid Rlp (16)",
+  [17] = "Update Type: New Offer Rlp (17)",
+  [18] = "Update Type: Updated Bid Rlp (18)",
+  [19] = "Update Type: Updated Offer Rlp (19)",
+  [20] = "Update Type: Avd Trade (20)",
+  [24] = "Update Type: Conventional Trade (24)",
+  [25] = "Update Type: Requestfor Cross Rfc Queued (25)",
+  [26] = "Update Type: Requestfor Cross Rfc (26)",
+  [27] = "Update Type: Largein Scale Li S Trade (27)",
+  [28] = "Update Type: Basis Trade (28)",
+  [29] = "Update Type: Largein Scale Li S Package Trade (29)",
+  [30] = "Update Type: Guaranteed Cross Trade (30)",
+  [31] = "Update Type: Against Actual Trade (31)",
+  [32] = "Update Type: Asset Allocation Trade (32)",
+  [34] = "Update Type: Exchangefor Swap Trade (34)",
+  [35] = "Update Type: Dark Trade (35)",
+  [36] = "Update Type: Exchangefor Physical Trade Cash Leg (36)",
+  [37] = "Update Type: Strategy Leg Conventional Trade (37)",
+  [38] = "Update Type: Strategy Leg Largein Scale Li S Trade (38)",
+  [39] = "Update Type: Strategy Leg Basis Trade (39)",
+  [40] = "Update Type: Strategy Leg Guaranteed Cross Trade (40)",
+  [41] = "Update Type: Strategy Leg Against Actual Trade (41)",
+  [42] = "Update Type: Strategy Leg Asset Allocation Trade (42)",
+  [44] = "Update Type: Strategy Leg Exchange For Swap Trade (44)",
+  [45] = "Update Type: Strategy Leg Exchange For Physical Trade (45)",
+  [46] = "Update Type: Bo B Trade (46)",
+  [48] = "Update Type: Atom X Trade (48)",
+  [50] = "Update Type: Trade Cancellation (50)",
+  [51] = "Update Type: Outof Market Trade (51)",
+  [52] = "Update Type: Delta Neutral Trade Underlying Cash Leg (52)",
+  [53] = "Update Type: Delta Neutral Trade Underlying Future Leg (53)",
+  [54] = "Update Type: Euronext Fund Service Trade (54)",
+  [55] = "Update Type: Secondary Listing Trade (55)",
+  [56] = "Update Type: Requestfor Cross Trade (56)",
+  [57] = "Update Type: Requestfor Cross Strategy Leg Trade (57)",
+  [58] = "Update Type: New Bid With Liquidity Provider (58)",
+  [59] = "Update Type: New Offer With Liquidity Provider (59)",
+  [60] = "Update Type: Updated Bid With Liquidity Provider (60)",
+  [61] = "Update Type: Updated Offer With Liquidity Provider (61)",
+  [63] = "Update Type: Low Static Collar (63)",
+  [64] = "Update Type: High Static Collar (64)",
+  [65] = "Update Type: Market Vwap Operation Trade (65)",
+  [66] = "Update Type: Requestfor Size Bid (66)",
+  [67] = "Update Type: Requestfor Size Offer (67)",
+  [70] = "Update Type: Low Lp Collar (70)",
+  [71] = "Update Type: High Lp Collar (71)",
+  [72] = "Update Type: Etfmtfnav Tradepriceinbp (72)",
+  [73] = "Update Type: Etfmtfnav Dark Tradepriceinbp (73)",
+  [74] = "Update Type: New Bidon Wholesale Rfc (74)",
+  [75] = "Update Type: New Offeron Wholesale Rfc (75)",
+  [76] = "Update Type: Updated Bidon Wholesale Rfc (76)",
+  [77] = "Update Type: Updated Offeron Wholesale Rfc (77)",
+  [78] = "Update Type: Clear Wholesale Rfc (78)",
+  [79] = "Update Type: Guaranteed Cross Negotiateddeal Nliq (79)",
+  [80] = "Update Type: Guaranteed Cross Negotiateddeal Oilq (80)",
+  [81] = "Update Type: Largein Scale Trade (81)",
+  [82] = "Update Type: Largein Scale Tradeinbasispoints (82)",
+  [83] = "Update Type: Largein Scale Package Tradeinbasispoints (83)",
+  [84] = "Update Type: Strategy Leg Largein Scale Tradeinbasispoints (84)",
+  [86] = "Update Type: New Bid Rfq Answer (86)",
+  [87] = "Update Type: New Offer Rfq Answer (87)",
+  [88] = "Update Type: Updated Bid Rfq Answer (88)",
+  [89] = "Update Type: Updated Offer Rfq Answer (89)",
+  [90] = "Update Type: Bid Execution Summary (90)",
+  [91] = "Update Type: Aqs Expansion Factor (91)",
+  [92] = "Update Type: Collars Expansion Factor (92)",
+  [93] = "Update Type: Collars Enabled (93)",
+  [94] = "Update Type: Collars Disabled (94)",
+  [95] = "Update Type: Dcrp Inter Month Spread (95)",
+  [96] = "Update Type: Fsp Reference Price (96)",
+  [97] = "Update Type: Offer Execution Summary (97)",
+  [98] = "Update Type: Fsp Triggered (98)",
+  [99] = "Update Type: Mid Point Bbo (99)",
+  [100] = "Update Type: Conventional Trade Provisionalprice (100)",
+  [101] = "Update Type: High Order Price Control Collar (101)",
+  [102] = "Update Type: Low Order Price Control Collar (102)",
+  [103] = "Update Type: Order Price Control Collar Reference Price (103)",
+  [104] = "Update Type: Issuing Or Tender Offer Trade (104)",
+  [105] = "Update Type: Rfq Trade (105)",
+  [106] = "Update Type: Flip Spread (106)",
+  [107] = "Update Type: Flip Reference Price (107)",
+  [108] = "Update Type: Strategy Leg Conventional Trade Provisionalprice (108)",
+  [109] = "Update Type: Block Standard Trade (109)",
+  [110] = "Update Type: Block Nfc Auction Trade (110)",
+  [111] = "Update Type: Block Historical Trade (111)",
+  [252] = "Update Type: Static Collar Reference Price (252)",
+  [253] = "Update Type: Dynamic Collar Reference Price (253)",
+  [254] = "Update Type: Clear Book (254)",
+}
 
-  return "Update Type: Unknown("..value..")"
+euronext_optiq_dropcopygateway_sbe_v6_67.update_type.display = function(value)
+  return euronext_optiq_dropcopygateway_sbe_v6_67.update_type.labels[value] or "Update Type: Unknown("..value..")"
 end
 
 -- Dissect: Update Type
@@ -16116,82 +15428,32 @@ end
 euronext_optiq_dropcopygateway_sbe_v6_67.payload = {}
 
 -- Dissect: Payload
+euronext_optiq_dropcopygateway_sbe_v6_67.payload.dispatch = {
+  [16001] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_market_status_change_message.dissect,
+  [16003] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_price_update_message.dissect,
+  [16006] = euronext_optiq_dropcopygateway_sbe_v6_67.long_order_message.dissect,
+  [16010] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_order_reject_message.dissect,
+  [16016] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_trade_cancellation_message.dissect,
+  [16018] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_static_collars_message.dissect,
+  [16021] = euronext_optiq_dropcopygateway_sbe_v6_67.trade_bust_notification_message.dissect,
+  [16050] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_quote_message.dissect,
+  [16051] = euronext_optiq_dropcopygateway_sbe_v6_67.dcafqrfe_message.dissect,
+  [16052] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_declaration_new_message.dissect,
+  [16053] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_declaration_reject_message.dissect,
+  [16054] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_declaration_cancel_message.dissect,
+  [16055] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_trade_declaration_message.dissect,
+  [16056] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_trade_declaration_cancellation_message.dissect,
+  [16057] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_trade_bust_declaration_message.dissect,
+  [16058] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_trade_message.dissect,
+  [16059] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_declaration_fill_message.dissect,
+  [16060] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_quote_request_message.dissect,
+  [16061] = euronext_optiq_dropcopygateway_sbe_v6_67.dc_clear_book_message.dissect,
+}
+
 euronext_optiq_dropcopygateway_sbe_v6_67.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Dc Market Status Change Message
-  if template_id == 16001 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_market_status_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Price Update Message
-  if template_id == 16003 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_price_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Order Message
-  if template_id == 16006 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.long_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Short Order Reject Message
-  if template_id == 16010 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_order_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Short Trade Cancellation Message
-  if template_id == 16016 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Static Collars Message
-  if template_id == 16018 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_static_collars_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Notification Message
-  if template_id == 16021 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.trade_bust_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Quote Message
-  if template_id == 16050 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dcafqrfe Message
-  if template_id == 16051 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dcafqrfe_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Declaration New Message
-  if template_id == 16052 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_declaration_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Short Declaration Reject Message
-  if template_id == 16053 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_declaration_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Short Declaration Cancel Message
-  if template_id == 16054 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_declaration_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Short Trade Declaration Message
-  if template_id == 16055 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_trade_declaration_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Short Trade Declaration Cancellation Message
-  if template_id == 16056 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_trade_declaration_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Trade Bust Declaration Message
-  if template_id == 16057 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_trade_bust_declaration_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Trade Message
-  if template_id == 16058 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Short Declaration Fill Message
-  if template_id == 16059 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_short_declaration_fill_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Quote Request Message
-  if template_id == 16060 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dc Clear Book Message
-  if template_id == 16061 then
-    return euronext_optiq_dropcopygateway_sbe_v6_67.dc_clear_book_message.dissect(buffer, offset, packet, parent)
+  local dissect = euronext_optiq_dropcopygateway_sbe_v6_67.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

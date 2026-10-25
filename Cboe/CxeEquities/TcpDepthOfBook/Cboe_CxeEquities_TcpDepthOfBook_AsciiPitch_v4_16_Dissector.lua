@@ -720,36 +720,20 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.packet_type = {}
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.packet_type.size = 1
 
 -- Display: Packet Type
-cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.packet_type.display = function(value)
+  return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -1100,57 +1084,27 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message_type = {}
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message_type.display = function(value)
-  if value == "s" then
-    return "Sequenced Message Type: Symbol Clear Message (s)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Add Order Message (A)"
-  end
-  if value == "c" then
-    return "Sequenced Message Type: Add Order Message Long Form (c)"
-  end
-  if value == "t" then
-    return "Sequenced Message Type: Add Order Expanded (t)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed Message (E)"
-  end
-  if value == "e" then
-    return "Sequenced Message Type: Order Executed Message Long Form (e)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Order Cancel Message (X)"
-  end
-  if value == "x" then
-    return "Sequenced Message Type: Order Cancel Message Long Form (x)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Trade Message (P)"
-  end
-  if value == "q" then
-    return "Sequenced Message Type: Trade Message Long Form (q)"
-  end
-  if value == "O" then
-    return "Sequenced Message Type: Trade Message Extended Form (O)"
-  end
-  if value == "k" then
-    return "Sequenced Message Type: Trade Message Unknown Symbol (k)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading Status Message (H)"
-  end
-  if value == "Z" then
-    return "Sequenced Message Type: Statistics Message (Z)"
-  end
-  if value == "l" then
-    return "Sequenced Message Type: Auction Update Message (l)"
-  end
-  if value == "j" then
-    return "Sequenced Message Type: Auction Summary Message (j)"
-  end
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message_type.labels = {
+  ["s"] = "Sequenced Message Type: Symbol Clear Message (s)",
+  ["A"] = "Sequenced Message Type: Add Order Message (A)",
+  ["c"] = "Sequenced Message Type: Add Order Message Long Form (c)",
+  ["t"] = "Sequenced Message Type: Add Order Expanded (t)",
+  ["E"] = "Sequenced Message Type: Order Executed Message (E)",
+  ["e"] = "Sequenced Message Type: Order Executed Message Long Form (e)",
+  ["X"] = "Sequenced Message Type: Order Cancel Message (X)",
+  ["x"] = "Sequenced Message Type: Order Cancel Message Long Form (x)",
+  ["P"] = "Sequenced Message Type: Trade Message (P)",
+  ["q"] = "Sequenced Message Type: Trade Message Long Form (q)",
+  ["O"] = "Sequenced Message Type: Trade Message Extended Form (O)",
+  ["k"] = "Sequenced Message Type: Trade Message Unknown Symbol (k)",
+  ["H"] = "Sequenced Message Type: Trading Status Message (H)",
+  ["Z"] = "Sequenced Message Type: Statistics Message (Z)",
+  ["l"] = "Sequenced Message Type: Auction Update Message (l)",
+  ["j"] = "Sequenced Message Type: Auction Summary Message (j)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message_type.display = function(value)
+  return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -2711,70 +2665,29 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message.dispatch = {
+  ["s"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.symbol_clear_message.dissect,
+  ["A"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.add_order_message.dissect,
+  ["c"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.add_order_message_long_form.dissect,
+  ["t"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.add_order_expanded.dissect,
+  ["E"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.order_executed_message.dissect,
+  ["e"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.order_executed_message_long_form.dissect,
+  ["X"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.order_cancel_message.dissect,
+  ["x"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.order_cancel_message_long_form.dissect,
+  ["P"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_message.dissect,
+  ["q"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_message_long_form.dissect,
+  ["O"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_message_extended_form.dissect,
+  ["k"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_message_unknown_symbol.dissect,
+  ["H"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trading_status_message.dissect,
+  ["Z"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.statistics_message.dissect,
+  ["l"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.auction_update_message.dissect,
+  ["j"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.auction_summary_message.dissect,
+}
+
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Symbol Clear Message
-  if sequenced_message_type == "s" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if sequenced_message_type == "A" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message Long Form
-  if sequenced_message_type == "c" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.add_order_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Expanded
-  if sequenced_message_type == "t" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.add_order_expanded.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if sequenced_message_type == "E" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message Long Form
-  if sequenced_message_type == "e" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.order_executed_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if sequenced_message_type == "X" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message Long Form
-  if sequenced_message_type == "x" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.order_cancel_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if sequenced_message_type == "P" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message Long Form
-  if sequenced_message_type == "q" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_message_long_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message Extended Form
-  if sequenced_message_type == "O" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_message_extended_form.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message Unknown Symbol
-  if sequenced_message_type == "k" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_message_unknown_symbol.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if sequenced_message_type == "H" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if sequenced_message_type == "Z" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Update Message
-  if sequenced_message_type == "l" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if sequenced_message_type == "j" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.auction_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3008,30 +2921,19 @@ end
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.payload = {}
 
 -- Dissect: Payload
+cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.payload.dispatch = {
+  ["+"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.debug_packet.dissect,
+  ["A"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.login_accepted_packet.dissect,
+  ["J"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.login_rejected_packet.dissect,
+  ["S"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_data_packet.dissect,
+  ["L"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.login_request_packet.dissect,
+  ["U"] = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.unsequenced_data_packet.dissect,
+}
+
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Debug Packet
-  if packet_type == "+" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if packet_type == "A" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if packet_type == "J" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

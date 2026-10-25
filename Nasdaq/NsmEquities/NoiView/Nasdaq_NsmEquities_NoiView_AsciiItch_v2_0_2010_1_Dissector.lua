@@ -225,18 +225,14 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.cross_type = {}
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Open Cross (O)"
-  end
-  if value == "C" then
-    return "Cross Type: Close Cross (C)"
-  end
-  if value == "H" then
-    return "Cross Type: Intraday Opening Cross For Ipo And Halted Paused Securities (H)"
-  end
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.cross_type.labels = {
+  ["O"] = "Cross Type: Open Cross (O)",
+  ["C"] = "Cross Type: Close Cross (C)",
+  ["H"] = "Cross Type: Intraday Opening Cross For Ipo And Halted Paused Securities (H)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.cross_type.display = function(value)
+  return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -296,30 +292,18 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.event_code = {}
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "X" then
-    return "Event Code: Clear Noii Opening Cross Data (X)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["X"] = "Event Code: Clear Noii Opening Cross Data (X)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.event_code.display = function(value)
+  return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -430,21 +414,15 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.imbalance_direction = {}
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy Imbalance (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell Imbalance (S)"
-  end
-  if value == "N" then
-    return "Imbalance Direction: No Imbalance (N)"
-  end
-  if value == "O" then
-    return "Imbalance Direction: Insufficient Orders To Calculate (O)"
-  end
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.imbalance_direction.labels = {
+  ["B"] = "Imbalance Direction: Buy Imbalance (B)",
+  ["S"] = "Imbalance Direction: Sell Imbalance (S)",
+  ["N"] = "Imbalance Direction: No Imbalance (N)",
+  ["O"] = "Imbalance Direction: Insufficient Orders To Calculate (O)",
+}
 
-  return "Imbalance Direction: Unknown("..value..")"
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.imbalance_direction.display = function(value)
+  return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.imbalance_direction.labels[value] or "Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Direction
@@ -497,21 +475,15 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.market_category = {}
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.market_category.size = 1
 
 -- Display: Market Category
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.market_category.display = function(value)
-  if value == "T" then
-    return "Market Category: Cqs Issues Including Nyse Nyse Amex And Nyse Arca (T)"
-  end
-  if value == "Q" then
-    return "Market Category: Nasdaq Global Select Market (Q)"
-  end
-  if value == "G" then
-    return "Market Category: Nasdaq Global Market (G)"
-  end
-  if value == "S" then
-    return "Market Category: Nasdaq Capital Market (S)"
-  end
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.market_category.labels = {
+  ["T"] = "Market Category: Cqs Issues Including Nyse Nyse Amex And Nyse Arca (T)",
+  ["Q"] = "Market Category: Nasdaq Global Select Market (Q)",
+  ["G"] = "Market Category: Nasdaq Global Market (G)",
+  ["S"] = "Market Category: Nasdaq Capital Market (S)",
+}
 
-  return "Market Category: Unknown("..value..")"
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.market_category.display = function(value)
+  return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.market_category.labels[value] or "Market Category: Unknown("..value..")"
 end
 
 -- Dissect: Market Category
@@ -579,21 +551,15 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_type = {}
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "I" then
-    return "Message Type: Noii Message (I)"
-  end
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["I"] = "Message Type: Noii Message (I)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_type.display = function(value)
+  return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -909,15 +875,13 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.round_lots_only = {}
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.round_lots_only.size = 1
 
 -- Display: Round Lots Only
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Only Round Lots Are Accepted In This Stock (Y)"
-  end
-  if value == "N" then
-    return "Round Lots Only: Oddmixed Lots Are Allowed (N)"
-  end
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.round_lots_only.labels = {
+  ["Y"] = "Round Lots Only: Only Round Lots Are Accepted In This Stock (Y)",
+  ["N"] = "Round Lots Only: Oddmixed Lots Are Allowed (N)",
+}
 
-  return "Round Lots Only: Unknown("..value..")"
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.round_lots_only.display = function(value)
+  return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.round_lots_only.labels[value] or "Round Lots Only: Unknown("..value..")"
 end
 
 -- Dissect: Round Lots Only
@@ -1063,24 +1027,16 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.trading_state = {}
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.trading_state.size = 1
 
 -- Display: Trading State
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted Or Paused On Nasdaq And All Utp Participants (H)"
-  end
-  if value == "V" then
-    return "Trading State: Halted Or Paused On Nasdaq Omx (V)"
-  end
-  if value == "Q" then
-    return "Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)"
-  end
-  if value == "R" then
-    return "Trading State: Quotation Only Period For Nasdaq Omx Only Halt Or Pause (R)"
-  end
-  if value == "T" then
-    return "Trading State: Trading On Nasdaq Omx (T)"
-  end
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.trading_state.labels = {
+  ["H"] = "Trading State: Halted Or Paused On Nasdaq And All Utp Participants (H)",
+  ["V"] = "Trading State: Halted Or Paused On Nasdaq Omx (V)",
+  ["Q"] = "Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)",
+  ["R"] = "Trading State: Quotation Only Period For Nasdaq Omx Only Halt Or Pause (R)",
+  ["T"] = "Trading State: Trading On Nasdaq Omx (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.trading_state.display = function(value)
+  return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1324,22 +1280,17 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.payload = {}
 
 -- Dissect: Payload
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.payload.dispatch = {
+  ["S"] = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.system_event_message.dissect,
+  ["R"] = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.stock_directory_message.dissect,
+  ["H"] = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.stock_trading_action_message.dissect,
+  ["I"] = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.noii_message.dissect,
+}
+
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Noii Message
-  if message_type == "I" then
-    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.noii_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1464,10 +1415,14 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_body = {}
 
 -- Dissect: Message Body
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_body.dispatch = {
+  [0] = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.end_of_session.dissect,
+}
+
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect End Of Session
-  if message_length == 0 then
-    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.message_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Message Data
@@ -1560,10 +1515,14 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.messages = {}
 
 -- Dissect: Messages
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.messages.dispatch = {
+  [0] = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.heartbeat.dissect,
+}
+
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_noiview_asciiitch_v2_0_2010_1.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

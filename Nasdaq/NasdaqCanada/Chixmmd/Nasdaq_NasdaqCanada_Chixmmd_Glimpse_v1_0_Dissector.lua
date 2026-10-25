@@ -377,15 +377,13 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.buy_sell_indicator = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.buy_sell_indicator.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -407,24 +405,16 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_type = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Client Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Client Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Client Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Client Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Client Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_type.labels = {
+  ["+"] = "Client Packet Type: Debug Packet (+)",
+  ["L"] = "Client Packet Type: Login Request Packet (L)",
+  ["U"] = "Client Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Client Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Client Packet Type: Logout Request Packet (O)",
+}
 
-  return "Client Packet Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_type.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_type.labels[value] or "Client Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -446,15 +436,13 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.currency = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.currency.size = 3
 
 -- Display: Currency
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.currency.display = function(value)
-  if value == "CAD" then
-    return "Currency: Canadian Dollars (CAD)"
-  end
-  if value == "USD" then
-    return "Currency: Us Dollars (USD)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.currency.labels = {
+  ["CAD"] = "Currency: Canadian Dollars (CAD)",
+  ["USD"] = "Currency: Us Dollars (USD)",
+}
 
-  return "Currency: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.currency.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -476,33 +464,19 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.event_code = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of Nasdaq Canada Trading Session (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Primary Market Trading Session (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Primary Market Trading Session (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: Market Wide Circuit Breaker Halt (W)"
-  end
-  if value == "R" then
-    return "Event Code: Market Wide Circuit Breaker Resumption (R)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of Nasdaq Canada Trading Session (S)",
+  ["Q"] = "Event Code: Start Of Primary Market Trading Session (Q)",
+  ["M"] = "Event Code: End Of Primary Market Trading Session (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: Market Wide Circuit Breaker Halt (W)",
+  ["R"] = "Event Code: Market Wide Circuit Breaker Resumption (R)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.event_code.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -524,15 +498,13 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.gef_eligible = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.gef_eligible.size = 1
 
 -- Display: Gef Eligible
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.gef_eligible.display = function(value)
-  if value == "Y" then
-    return "Gef Eligible: Gef Eligible (Y)"
-  end
-  if value == "N" then
-    return "Gef Eligible: Not Gef Eligible (N)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.gef_eligible.labels = {
+  ["Y"] = "Gef Eligible: Gef Eligible (Y)",
+  ["N"] = "Gef Eligible: Not Gef Eligible (N)",
+}
 
-  return "Gef Eligible: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.gef_eligible.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.gef_eligible.labels[value] or "Gef Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Gef Eligible
@@ -554,21 +526,15 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.listing_market = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.listing_market.size = 1
 
 -- Display: Listing Market
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsx Venture (V)"
-  end
-  if value == "C" then
-    return "Listing Market: Cse (C)"
-  end
-  if value == "N" then
-    return "Listing Market: Neo (N)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.listing_market.labels = {
+  ["T"] = "Listing Market: Tsx (T)",
+  ["V"] = "Listing Market: Tsx Venture (V)",
+  ["C"] = "Listing Market: Cse (C)",
+  ["N"] = "Listing Market: Neo (N)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.listing_market.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -659,21 +625,15 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.message_type = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Status Message (H)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "a" then
-    return "Message Type: Long Form Add Order Message (a)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["H"] = "Message Type: Stock Status Message (H)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["a"] = "Message Type: Long Form Add Order Message (a)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.message_type.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -887,24 +847,16 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_type = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Server Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Server Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Server Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Server Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Server Packet Type: Server Heartbeat Packet (H)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_type.labels = {
+  ["+"] = "Server Packet Type: Debug Packet (+)",
+  ["A"] = "Server Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Server Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Server Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Server Packet Type: Server Heartbeat Packet (H)",
+}
 
-  return "Server Packet Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_type.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_type.labels[value] or "Server Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1081,15 +1033,13 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.trading_state = {}
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.trading_state.size = 1
 
 -- Display: Trading State
-nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.trading_state.display = function(value)
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1379,22 +1329,17 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.system_event_message.dissect,
+  ["H"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.stock_status_message.dissect,
+  ["A"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.add_order_message.dissect,
+  ["a"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_form_add_order_message.dissect,
+}
+
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Status Message
-  if message_type == "H" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.stock_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Form Add Order Message
-  if message_type == "a" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_form_add_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequenced_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1637,22 +1582,17 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_payload.dispatch = {
+  ["+"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.debug_packet.dissect,
+  ["A"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequenced_data_packet.dissect,
+}
+
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1912,18 +1852,16 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_payload.dispatch = {
+  ["+"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.debug_packet.dissect,
+  ["L"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.login_request_packet.dissect,
+  ["U"] = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.unsequenced_data_packet.dissect,
+}
+
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -263,42 +263,22 @@ nyse_arcaequities_arcabook_pillar_v2_2.delivery_flag = {}
 nyse_arcaequities_arcabook_pillar_v2_2.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_arcaequities_arcabook_pillar_v2_2.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: XDP Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_arcaequities_arcabook_pillar_v2_2.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: XDP Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_arcaequities_arcabook_pillar_v2_2.delivery_flag.display = function(value)
+  return nyse_arcaequities_arcabook_pillar_v2_2.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -448,33 +428,19 @@ nyse_arcaequities_arcabook_pillar_v2_2.message_type = {}
 nyse_arcaequities_arcabook_pillar_v2_2.message_type.size = 2
 
 -- Display: Message Type
-nyse_arcaequities_arcabook_pillar_v2_2.message_type.display = function(value)
-  if value == 100 then
-    return "Message Type: Add Order Message (100)"
-  end
-  if value == 101 then
-    return "Message Type: Modify Order Message (101)"
-  end
-  if value == 102 then
-    return "Message Type: Delete Order Message (102)"
-  end
-  if value == 103 then
-    return "Message Type: Execution Message (103)"
-  end
-  if value == 105 then
-    return "Message Type: Imbalance Message (105)"
-  end
-  if value == 106 then
-    return "Message Type: Add Order Refresh Message (106)"
-  end
-  if value == 107 then
-    return "Message Type: Attributed Add Order Message (107)"
-  end
-  if value == 108 then
-    return "Message Type: Attributed Add Order Refresh Message (108)"
-  end
+nyse_arcaequities_arcabook_pillar_v2_2.message_type.labels = {
+  [100] = "Message Type: Add Order Message (100)",
+  [101] = "Message Type: Modify Order Message (101)",
+  [102] = "Message Type: Delete Order Message (102)",
+  [103] = "Message Type: Execution Message (103)",
+  [105] = "Message Type: Imbalance Message (105)",
+  [106] = "Message Type: Add Order Refresh Message (106)",
+  [107] = "Message Type: Attributed Add Order Message (107)",
+  [108] = "Message Type: Attributed Add Order Refresh Message (108)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_arcaequities_arcabook_pillar_v2_2.message_type.display = function(value)
+  return nyse_arcaequities_arcabook_pillar_v2_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -565,15 +531,13 @@ nyse_arcaequities_arcabook_pillar_v2_2.order_idgtc_indicator = {}
 nyse_arcaequities_arcabook_pillar_v2_2.order_idgtc_indicator.size = 1
 
 -- Display: Order Idgtc Indicator
-nyse_arcaequities_arcabook_pillar_v2_2.order_idgtc_indicator.display = function(value)
-  if value == 0 then
-    return "Order Idgtc Indicator: Day Order (0)"
-  end
-  if value == 1 then
-    return "Order Idgtc Indicator: Gtc Order (1)"
-  end
+nyse_arcaequities_arcabook_pillar_v2_2.order_idgtc_indicator.labels = {
+  [0] = "Order Idgtc Indicator: Day Order (0)",
+  [1] = "Order Idgtc Indicator: Gtc Order (1)",
+}
 
-  return "Order Idgtc Indicator: Unknown("..value..")"
+nyse_arcaequities_arcabook_pillar_v2_2.order_idgtc_indicator.display = function(value)
+  return nyse_arcaequities_arcabook_pillar_v2_2.order_idgtc_indicator.labels[value] or "Order Idgtc Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Order Idgtc Indicator
@@ -938,33 +902,19 @@ nyse_arcaequities_arcabook_pillar_v2_2.trade_session = {}
 nyse_arcaequities_arcabook_pillar_v2_2.trade_session.size = 1
 
 -- Display: Trade Session
-nyse_arcaequities_arcabook_pillar_v2_2.trade_session.display = function(value)
-  if value == 1 then
-    return "Trade Session: Ok For Morning Hours (1)"
-  end
-  if value == 2 then
-    return "Trade Session: Ok For National Hours Core (2)"
-  end
-  if value == 3 then
-    return "Trade Session: Ok For Morning And Core (3)"
-  end
-  if value == 4 then
-    return "Trade Session: Ok For Late Hours (4)"
-  end
-  if value == 6 then
-    return "Trade Session: Ok For Core And Late (6)"
-  end
-  if value == 7 then
-    return "Trade Session: Ok For Morning Core And Late (7)"
-  end
-  if value == 8 then
-    return "Trade Session: Ok For Overnight Hours (8)"
-  end
-  if value == 15 then
-    return "Trade Session: Ok For Overnight Morning Core And Late (15)"
-  end
+nyse_arcaequities_arcabook_pillar_v2_2.trade_session.labels = {
+  [1] = "Trade Session: Ok For Morning Hours (1)",
+  [2] = "Trade Session: Ok For National Hours Core (2)",
+  [3] = "Trade Session: Ok For Morning And Core (3)",
+  [4] = "Trade Session: Ok For Late Hours (4)",
+  [6] = "Trade Session: Ok For Core And Late (6)",
+  [7] = "Trade Session: Ok For Morning Core And Late (7)",
+  [8] = "Trade Session: Ok For Overnight Hours (8)",
+  [15] = "Trade Session: Ok For Overnight Morning Core And Late (15)",
+}
 
-  return "Trade Session: Unknown("..value..")"
+nyse_arcaequities_arcabook_pillar_v2_2.trade_session.display = function(value)
+  return nyse_arcaequities_arcabook_pillar_v2_2.trade_session.labels[value] or "Trade Session: Unknown("..value..")"
 end
 
 -- Dissect: Trade Session
@@ -1615,38 +1565,21 @@ end
 nyse_arcaequities_arcabook_pillar_v2_2.payload = {}
 
 -- Dissect: Payload
+nyse_arcaequities_arcabook_pillar_v2_2.payload.dispatch = {
+  [100] = nyse_arcaequities_arcabook_pillar_v2_2.add_order_message.dissect,
+  [101] = nyse_arcaequities_arcabook_pillar_v2_2.modify_order_message.dissect,
+  [102] = nyse_arcaequities_arcabook_pillar_v2_2.delete_order_message.dissect,
+  [103] = nyse_arcaequities_arcabook_pillar_v2_2.execution_message.dissect,
+  [105] = nyse_arcaequities_arcabook_pillar_v2_2.imbalance_message.dissect,
+  [106] = nyse_arcaequities_arcabook_pillar_v2_2.add_order_refresh_message.dissect,
+  [107] = nyse_arcaequities_arcabook_pillar_v2_2.attributed_add_order_message.dissect,
+  [108] = nyse_arcaequities_arcabook_pillar_v2_2.attributed_add_order_refresh_message.dissect,
+}
+
 nyse_arcaequities_arcabook_pillar_v2_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Add Order Message
-  if message_type == 100 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 101 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 102 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Message
-  if message_type == 103 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Imbalance Message
-  if message_type == 105 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Refresh Message
-  if message_type == 106 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.add_order_refresh_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Attributed Add Order Message
-  if message_type == 107 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.attributed_add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Attributed Add Order Refresh Message
-  if message_type == 108 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.attributed_add_order_refresh_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_arcaequities_arcabook_pillar_v2_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1785,10 +1718,14 @@ end
 nyse_arcaequities_arcabook_pillar_v2_2.messages = {}
 
 -- Dissect: Messages
+nyse_arcaequities_arcabook_pillar_v2_2.messages.dispatch = {
+  [1] = nyse_arcaequities_arcabook_pillar_v2_2.heartbeat.dissect,
+}
+
 nyse_arcaequities_arcabook_pillar_v2_2.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
-  -- Dissect Heartbeat
-  if delivery_flag == 1 then
-    return nyse_arcaequities_arcabook_pillar_v2_2.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_arcaequities_arcabook_pillar_v2_2.messages.dispatch[delivery_flag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

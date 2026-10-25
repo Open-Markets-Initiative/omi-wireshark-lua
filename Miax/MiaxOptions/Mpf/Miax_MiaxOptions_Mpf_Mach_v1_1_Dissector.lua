@@ -415,21 +415,15 @@ miax_miaxoptions_mpf_mach_v1_1.message_type = {}
 miax_miaxoptions_mpf_mach_v1_1.message_type.size = 1
 
 -- Display: Message Type
-miax_miaxoptions_mpf_mach_v1_1.message_type.display = function(value)
-  if value == "1" then
-    return "Message Type: System Time Message (1)"
-  end
-  if value == "s" then
-    return "Message Type: Symbol Definition Message (s)"
-  end
-  if value == "I" then
-    return "Message Type: Index Value Message (I)"
-  end
-  if value == "Z" then
-    return "Message Type: Synthetic Future Value Message (Z)"
-  end
+miax_miaxoptions_mpf_mach_v1_1.message_type.labels = {
+  ["1"] = "Message Type: System Time Message (1)",
+  ["s"] = "Message Type: Symbol Definition Message (s)",
+  ["I"] = "Message Type: Index Value Message (I)",
+  ["Z"] = "Message Type: Synthetic Future Value Message (Z)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_miaxoptions_mpf_mach_v1_1.message_type.display = function(value)
+  return miax_miaxoptions_mpf_mach_v1_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -520,21 +514,15 @@ miax_miaxoptions_mpf_mach_v1_1.packet_type = {}
 miax_miaxoptions_mpf_mach_v1_1.packet_type.size = 1
 
 -- Display: Packet Type
-miax_miaxoptions_mpf_mach_v1_1.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
+miax_miaxoptions_mpf_mach_v1_1.packet_type.labels = {
+  [0] = "Packet Type: Heartbeat (0)",
+  [1] = "Packet Type: Start Of Session (1)",
+  [2] = "Packet Type: End Of Session (2)",
+  [3] = "Packet Type: Application Message (3)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+miax_miaxoptions_mpf_mach_v1_1.packet_type.display = function(value)
+  return miax_miaxoptions_mpf_mach_v1_1.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -556,15 +544,13 @@ miax_miaxoptions_mpf_mach_v1_1.refresh_message_type = {}
 miax_miaxoptions_mpf_mach_v1_1.refresh_message_type.size = 1
 
 -- Display: Refresh Message Type
-miax_miaxoptions_mpf_mach_v1_1.refresh_message_type.display = function(value)
-  if value == "I" then
-    return "Refresh Message Type: Index Update Refresh (I)"
-  end
-  if value == "Z" then
-    return "Refresh Message Type: Synthetic Future Values (Z)"
-  end
+miax_miaxoptions_mpf_mach_v1_1.refresh_message_type.labels = {
+  ["I"] = "Refresh Message Type: Index Update Refresh (I)",
+  ["Z"] = "Refresh Message Type: Synthetic Future Values (Z)",
+}
 
-  return "Refresh Message Type: Unknown("..value..")"
+miax_miaxoptions_mpf_mach_v1_1.refresh_message_type.display = function(value)
+  return miax_miaxoptions_mpf_mach_v1_1.refresh_message_type.labels[value] or "Refresh Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Refresh Message Type
@@ -784,45 +770,23 @@ miax_miaxoptions_mpf_mach_v1_1.sesm_packet_type = {}
 miax_miaxoptions_mpf_mach_v1_1.sesm_packet_type.size = 1
 
 -- Display: Sesm Packet Type
-miax_miaxoptions_mpf_mach_v1_1.sesm_packet_type.display = function(value)
-  if value == "s" then
-    return "Sesm Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Sesm Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Sesm Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Sesm Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Sesm Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Sesm Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Sesm Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Sesm Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Sesm Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Sesm Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Sesm Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Sesm Packet Type: Test Packet (T)"
-  end
+miax_miaxoptions_mpf_mach_v1_1.sesm_packet_type.labels = {
+  ["s"] = "Sesm Packet Type: Sequenced Data Packet (s)",
+  ["U"] = "Sesm Packet Type: Unsequenced Data Packet (U)",
+  ["l"] = "Sesm Packet Type: Login Request (l)",
+  ["r"] = "Sesm Packet Type: Login Response (r)",
+  ["c"] = "Sesm Packet Type: Synchronization Complete (c)",
+  ["a"] = "Sesm Packet Type: Retransmission Request (a)",
+  ["X"] = "Sesm Packet Type: Logout Request (X)",
+  ["G"] = "Sesm Packet Type: Goodbye Packet (G)",
+  ["u"] = "Sesm Packet Type: Trading Session Update (u)",
+  ["0"] = "Sesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Sesm Packet Type: Client Heartbeat (1)",
+  ["T"] = "Sesm Packet Type: Test Packet (T)",
+}
 
-  return "Sesm Packet Type: Unknown("..value..")"
+miax_miaxoptions_mpf_mach_v1_1.sesm_packet_type.display = function(value)
+  return miax_miaxoptions_mpf_mach_v1_1.sesm_packet_type.labels[value] or "Sesm Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Sesm Packet Type
@@ -959,15 +923,13 @@ miax_miaxoptions_mpf_mach_v1_1.symbol_status = {}
 miax_miaxoptions_mpf_mach_v1_1.symbol_status.size = 1
 
 -- Display: Symbol Status
-miax_miaxoptions_mpf_mach_v1_1.symbol_status.display = function(value)
-  if value == "A" then
-    return "Symbol Status: Active Future (A)"
-  end
-  if value == "I" then
-    return "Symbol Status: Inactive Future (I)"
-  end
+miax_miaxoptions_mpf_mach_v1_1.symbol_status.labels = {
+  ["A"] = "Symbol Status: Active Future (A)",
+  ["I"] = "Symbol Status: Inactive Future (I)",
+}
 
-  return "Symbol Status: Unknown("..value..")"
+miax_miaxoptions_mpf_mach_v1_1.symbol_status.display = function(value)
+  return miax_miaxoptions_mpf_mach_v1_1.symbol_status.labels[value] or "Symbol Status: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Status
@@ -1054,18 +1016,14 @@ miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type = {}
 miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type.display = function(value)
-  if value == "R" then
-    return "Unsequenced Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Unsequenced Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
-  end
+miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type.labels = {
+  ["R"] = "Unsequenced Message Type: Refresh Request Message (R)",
+  ["r"] = "Unsequenced Message Type: Refresh Response Message (r)",
+  ["E"] = "Unsequenced Message Type: End Of Refresh Notification Message (E)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type.display = function(value)
+  return miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -1840,22 +1798,17 @@ end
 miax_miaxoptions_mpf_mach_v1_1.data = {}
 
 -- Dissect: Data
+miax_miaxoptions_mpf_mach_v1_1.data.dispatch = {
+  ["1"] = miax_miaxoptions_mpf_mach_v1_1.system_time_message.dissect,
+  ["s"] = miax_miaxoptions_mpf_mach_v1_1.symbol_definition_message.dissect,
+  ["I"] = miax_miaxoptions_mpf_mach_v1_1.index_value_message.dissect,
+  ["Z"] = miax_miaxoptions_mpf_mach_v1_1.synthetic_future_value_message.dissect,
+}
+
 miax_miaxoptions_mpf_mach_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Time Message
-  if message_type == "1" then
-    return miax_miaxoptions_mpf_mach_v1_1.system_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Definition Message
-  if message_type == "s" then
-    return miax_miaxoptions_mpf_mach_v1_1.symbol_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Value Message
-  if message_type == "I" then
-    return miax_miaxoptions_mpf_mach_v1_1.index_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synthetic Future Value Message
-  if message_type == "Z" then
-    return miax_miaxoptions_mpf_mach_v1_1.synthetic_future_value_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_miaxoptions_mpf_mach_v1_1.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2004,18 +1957,16 @@ end
 miax_miaxoptions_mpf_mach_v1_1.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+miax_miaxoptions_mpf_mach_v1_1.unsequenced_message.dispatch = {
+  ["R"] = miax_miaxoptions_mpf_mach_v1_1.refresh_request_message.dissect,
+  ["r"] = miax_miaxoptions_mpf_mach_v1_1.refresh_response_message.dissect,
+  ["E"] = miax_miaxoptions_mpf_mach_v1_1.end_of_refresh_notification_message.dissect,
+}
+
 miax_miaxoptions_mpf_mach_v1_1.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Refresh Request Message
-  if unsequenced_message_type == "R" then
-    return miax_miaxoptions_mpf_mach_v1_1.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Response Message
-  if unsequenced_message_type == "r" then
-    return miax_miaxoptions_mpf_mach_v1_1.refresh_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Refresh Notification Message
-  if unsequenced_message_type == "E" then
-    return miax_miaxoptions_mpf_mach_v1_1.end_of_refresh_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_miaxoptions_mpf_mach_v1_1.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2137,54 +2088,25 @@ end
 miax_miaxoptions_mpf_mach_v1_1.sesm_payload = {}
 
 -- Dissect: Sesm Payload
+miax_miaxoptions_mpf_mach_v1_1.sesm_payload.dispatch = {
+  ["s"] = miax_miaxoptions_mpf_mach_v1_1.sequenced_data_packet.dissect,
+  ["U"] = miax_miaxoptions_mpf_mach_v1_1.unsequenced_data_packet.dissect,
+  ["l"] = miax_miaxoptions_mpf_mach_v1_1.login_request.dissect,
+  ["r"] = miax_miaxoptions_mpf_mach_v1_1.login_response.dissect,
+  ["c"] = miax_miaxoptions_mpf_mach_v1_1.synchronization_complete.dissect,
+  ["a"] = miax_miaxoptions_mpf_mach_v1_1.retransmission_request.dissect,
+  ["X"] = miax_miaxoptions_mpf_mach_v1_1.logout_request.dissect,
+  ["G"] = miax_miaxoptions_mpf_mach_v1_1.goodbye_packet.dissect,
+  ["u"] = miax_miaxoptions_mpf_mach_v1_1.trading_session_update.dissect,
+  ["0"] = miax_miaxoptions_mpf_mach_v1_1.server_heartbeat.dissect,
+  ["1"] = miax_miaxoptions_mpf_mach_v1_1.client_heartbeat.dissect,
+  ["T"] = miax_miaxoptions_mpf_mach_v1_1.test_packet.dissect,
+}
+
 miax_miaxoptions_mpf_mach_v1_1.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
-  -- Dissect Sequenced Data Packet
-  if sesm_packet_type == "s" then
-    return miax_miaxoptions_mpf_mach_v1_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if sesm_packet_type == "U" then
-    return miax_miaxoptions_mpf_mach_v1_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if sesm_packet_type == "l" then
-    return miax_miaxoptions_mpf_mach_v1_1.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if sesm_packet_type == "r" then
-    return miax_miaxoptions_mpf_mach_v1_1.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if sesm_packet_type == "c" then
-    return miax_miaxoptions_mpf_mach_v1_1.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if sesm_packet_type == "a" then
-    return miax_miaxoptions_mpf_mach_v1_1.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if sesm_packet_type == "X" then
-    return miax_miaxoptions_mpf_mach_v1_1.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if sesm_packet_type == "G" then
-    return miax_miaxoptions_mpf_mach_v1_1.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Update
-  if sesm_packet_type == "u" then
-    return miax_miaxoptions_mpf_mach_v1_1.trading_session_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if sesm_packet_type == "0" then
-    return miax_miaxoptions_mpf_mach_v1_1.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if sesm_packet_type == "1" then
-    return miax_miaxoptions_mpf_mach_v1_1.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Packet
-  if sesm_packet_type == "T" then
-    return miax_miaxoptions_mpf_mach_v1_1.test_packet.dissect(buffer, offset, packet, parent)
+  local dissect = miax_miaxoptions_mpf_mach_v1_1.sesm_payload.dispatch[sesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2401,22 +2323,17 @@ end
 miax_miaxoptions_mpf_mach_v1_1.payload = {}
 
 -- Dissect: Payload
+miax_miaxoptions_mpf_mach_v1_1.payload.dispatch = {
+  [0] = miax_miaxoptions_mpf_mach_v1_1.heartbeat.dissect,
+  [1] = miax_miaxoptions_mpf_mach_v1_1.start_of_session.dissect,
+  [2] = miax_miaxoptions_mpf_mach_v1_1.end_of_session.dissect,
+  [3] = miax_miaxoptions_mpf_mach_v1_1.application_message.dissect,
+}
+
 miax_miaxoptions_mpf_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Heartbeat
-  if packet_type == 0 then
-    return miax_miaxoptions_mpf_mach_v1_1.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if packet_type == 1 then
-    return miax_miaxoptions_mpf_mach_v1_1.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if packet_type == 2 then
-    return miax_miaxoptions_mpf_mach_v1_1.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Message
-  if packet_type == 3 then
-    return miax_miaxoptions_mpf_mach_v1_1.application_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_miaxoptions_mpf_mach_v1_1.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

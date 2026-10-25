@@ -232,45 +232,23 @@ cboe_neoequities_spinserver_pitch_v1_0_14.message_type = {}
 cboe_neoequities_spinserver_pitch_v1_0_14.message_type.size = 1
 
 -- Display: Message Type
-cboe_neoequities_spinserver_pitch_v1_0_14.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x80 then
-    return "Message Type: Spin Image Available Message (0x80)"
-  end
-  if value == 0x81 then
-    return "Message Type: Spin Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Spin Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Spin Finished Message (0x83)"
-  end
-  if value == 0x84 then
-    return "Message Type: Instrument Definition Request Message (0x84)"
-  end
-  if value == 0x85 then
-    return "Message Type: Instrument Definition Response Message (0x85)"
-  end
-  if value == 0x86 then
-    return "Message Type: Instrument Definition Finished Message (0x86)"
-  end
-  if value == 0x87 then
-    return "Message Type: Trade Replay Request Message (0x87)"
-  end
-  if value == 0x88 then
-    return "Message Type: Trade Replay Response Message (0x88)"
-  end
-  if value == 0x89 then
-    return "Message Type: Trade Replay Finished Message (0x89)"
-  end
+cboe_neoequities_spinserver_pitch_v1_0_14.message_type.labels = {
+  [0x01] = "Message Type: Login Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x80] = "Message Type: Spin Image Available Message (0x80)",
+  [0x81] = "Message Type: Spin Request Message (0x81)",
+  [0x82] = "Message Type: Spin Response Message (0x82)",
+  [0x83] = "Message Type: Spin Finished Message (0x83)",
+  [0x84] = "Message Type: Instrument Definition Request Message (0x84)",
+  [0x85] = "Message Type: Instrument Definition Response Message (0x85)",
+  [0x86] = "Message Type: Instrument Definition Finished Message (0x86)",
+  [0x87] = "Message Type: Trade Replay Request Message (0x87)",
+  [0x88] = "Message Type: Trade Replay Response Message (0x88)",
+  [0x89] = "Message Type: Trade Replay Finished Message (0x89)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_neoequities_spinserver_pitch_v1_0_14.message_type.display = function(value)
+  return cboe_neoequities_spinserver_pitch_v1_0_14.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -384,24 +362,16 @@ cboe_neoequities_spinserver_pitch_v1_0_14.status = {}
 cboe_neoequities_spinserver_pitch_v1_0_14.status.size = 1
 
 -- Display: Status
-cboe_neoequities_spinserver_pitch_v1_0_14.status.display = function(value)
-  if value == "A" then
-    return "Status: Accepted Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Status: Session In Use (B)"
-  end
-  if value == "O" then
-    return "Status: Out Of Range (O)"
-  end
-  if value == "S" then
-    return "Status: Invalid Session Spin Already In Progress (S)"
-  end
+cboe_neoequities_spinserver_pitch_v1_0_14.status.labels = {
+  ["A"] = "Status: Accepted Login Accepted (A)",
+  ["N"] = "Status: Not Authorized Invalid Username Password (N)",
+  ["B"] = "Status: Session In Use (B)",
+  ["O"] = "Status: Out Of Range (O)",
+  ["S"] = "Status: Invalid Session Spin Already In Progress (S)",
+}
 
-  return "Status: Unknown("..value..")"
+cboe_neoequities_spinserver_pitch_v1_0_14.status.display = function(value)
+  return cboe_neoequities_spinserver_pitch_v1_0_14.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -964,54 +934,25 @@ end
 cboe_neoequities_spinserver_pitch_v1_0_14.payload = {}
 
 -- Dissect: Payload
+cboe_neoequities_spinserver_pitch_v1_0_14.payload.dispatch = {
+  [0x01] = cboe_neoequities_spinserver_pitch_v1_0_14.login_message.dissect,
+  [0x02] = cboe_neoequities_spinserver_pitch_v1_0_14.login_response_message.dissect,
+  [0x80] = cboe_neoequities_spinserver_pitch_v1_0_14.spin_image_available_message.dissect,
+  [0x81] = cboe_neoequities_spinserver_pitch_v1_0_14.spin_request_message.dissect,
+  [0x82] = cboe_neoequities_spinserver_pitch_v1_0_14.spin_response_message.dissect,
+  [0x83] = cboe_neoequities_spinserver_pitch_v1_0_14.spin_finished_message.dissect,
+  [0x84] = cboe_neoequities_spinserver_pitch_v1_0_14.instrument_definition_request_message.dissect,
+  [0x85] = cboe_neoequities_spinserver_pitch_v1_0_14.instrument_definition_response_message.dissect,
+  [0x86] = cboe_neoequities_spinserver_pitch_v1_0_14.instrument_definition_finished_message.dissect,
+  [0x87] = cboe_neoequities_spinserver_pitch_v1_0_14.trade_replay_request_message.dissect,
+  [0x88] = cboe_neoequities_spinserver_pitch_v1_0_14.trade_replay_response_message.dissect,
+  [0x89] = cboe_neoequities_spinserver_pitch_v1_0_14.trade_replay_finished_message.dissect,
+}
+
 cboe_neoequities_spinserver_pitch_v1_0_14.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Message
-  if message_type == 0x01 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Image Available Message
-  if message_type == 0x80 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.spin_image_available_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 0x81 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 0x82 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Finished Message
-  if message_type == 0x83 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.spin_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Request Message
-  if message_type == 0x84 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.instrument_definition_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Response Message
-  if message_type == 0x85 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.instrument_definition_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Finished Message
-  if message_type == 0x86 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.instrument_definition_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Request Message
-  if message_type == 0x87 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.trade_replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Response Message
-  if message_type == 0x88 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.trade_replay_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Replay Finished Message
-  if message_type == 0x89 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.trade_replay_finished_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_neoequities_spinserver_pitch_v1_0_14.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1144,10 +1085,14 @@ end
 cboe_neoequities_spinserver_pitch_v1_0_14.messages = {}
 
 -- Dissect: Messages
+cboe_neoequities_spinserver_pitch_v1_0_14.messages.dispatch = {
+  [0] = cboe_neoequities_spinserver_pitch_v1_0_14.heartbeat.dissect,
+}
+
 cboe_neoequities_spinserver_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_neoequities_spinserver_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_neoequities_spinserver_pitch_v1_0_14.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

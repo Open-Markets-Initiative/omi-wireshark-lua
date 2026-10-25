@@ -475,30 +475,18 @@ nasdaq_ntxoptions_cti_itch_v1_3.capacity = {}
 nasdaq_ntxoptions_cti_itch_v1_3.capacity.size = 1
 
 -- Display: Capacity
-nasdaq_ntxoptions_cti_itch_v1_3.capacity.display = function(value)
-  if value == "C" then
-    return "Capacity: Customer (C)"
-  end
-  if value == "Y" then
-    return "Capacity: Broker Dealer (Y)"
-  end
-  if value == "P" then
-    return "Capacity: Professional Customer (P)"
-  end
-  if value == "F" then
-    return "Capacity: Firm (F)"
-  end
-  if value == "M" then
-    return "Capacity: Market Maker (M)"
-  end
-  if value == "O" then
-    return "Capacity: Non Registered Market Maker (O)"
-  end
-  if value == "J" then
-    return "Capacity: Joint Back Office (J)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.capacity.labels = {
+  ["C"] = "Capacity: Customer (C)",
+  ["Y"] = "Capacity: Broker Dealer (Y)",
+  ["P"] = "Capacity: Professional Customer (P)",
+  ["F"] = "Capacity: Firm (F)",
+  ["M"] = "Capacity: Market Maker (M)",
+  ["O"] = "Capacity: Non Registered Market Maker (O)",
+  ["J"] = "Capacity: Joint Back Office (J)",
+}
 
-  return "Capacity: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.capacity.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -520,24 +508,16 @@ nasdaq_ntxoptions_cti_itch_v1_3.client_packet_type = {}
 nasdaq_ntxoptions_cti_itch_v1_3.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_ntxoptions_cti_itch_v1_3.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.client_packet_type.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -837,15 +817,13 @@ nasdaq_ntxoptions_cti_itch_v1_3.current_trading_state = {}
 nasdaq_ntxoptions_cti_itch_v1_3.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_ntxoptions_cti_itch_v1_3.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading Resumed (T)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Trading Resumed (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.current_trading_state.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -909,30 +887,18 @@ nasdaq_ntxoptions_cti_itch_v1_3.event_code = {}
 nasdaq_ntxoptions_cti_itch_v1_3.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_ntxoptions_cti_itch_v1_3.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: End Of Normal Hours Processing (N)"
-  end
-  if value == "L" then
-    return "Event Code: End Of Late Hours Processing (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.event_code.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1095,15 +1061,13 @@ nasdaq_ntxoptions_cti_itch_v1_3.execution_type = {}
 nasdaq_ntxoptions_cti_itch_v1_3.execution_type.size = 1
 
 -- Display: Execution Type
-nasdaq_ntxoptions_cti_itch_v1_3.execution_type.display = function(value)
-  if value == "A" then
-    return "Execution Type: Automatic (A)"
-  end
-  if value == "M" then
-    return "Execution Type: Manual (M)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.execution_type.labels = {
+  ["A"] = "Execution Type: Automatic (A)",
+  ["M"] = "Execution Type: Manual (M)",
+}
 
-  return "Execution Type: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.execution_type.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.execution_type.labels[value] or "Execution Type: Unknown("..value..")"
 end
 
 -- Dissect: Execution Type
@@ -1171,30 +1135,18 @@ nasdaq_ntxoptions_cti_itch_v1_3.liquidity = {}
 nasdaq_ntxoptions_cti_itch_v1_3.liquidity.size = 1
 
 -- Display: Liquidity
-nasdaq_ntxoptions_cti_itch_v1_3.liquidity.display = function(value)
-  if value == "A" then
-    return "Liquidity: Add (A)"
-  end
-  if value == "R" then
-    return "Liquidity: Remove (R)"
-  end
-  if value == "J" then
-    return "Liquidity: Order Exposure Alerted (J)"
-  end
-  if value == "K" then
-    return "Liquidity: Executed Against A Flash Order (K)"
-  end
-  if value == "F" then
-    return "Liquidity: Opening Trade Customer To Customer (F)"
-  end
-  if value == "O" then
-    return "Liquidity: Opening Trade (O)"
-  end
-  if value == "N" then
-    return "Liquidity: None (N)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.liquidity.labels = {
+  ["A"] = "Liquidity: Add (A)",
+  ["R"] = "Liquidity: Remove (R)",
+  ["J"] = "Liquidity: Order Exposure Alerted (J)",
+  ["K"] = "Liquidity: Executed Against A Flash Order (K)",
+  ["F"] = "Liquidity: Opening Trade Customer To Customer (F)",
+  ["O"] = "Liquidity: Opening Trade (O)",
+  ["N"] = "Liquidity: None (N)",
+}
 
-  return "Liquidity: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.liquidity.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.liquidity.labels[value] or "Liquidity: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity
@@ -1262,18 +1214,14 @@ nasdaq_ntxoptions_cti_itch_v1_3.mpv = {}
 nasdaq_ntxoptions_cti_itch_v1_3.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_ntxoptions_cti_itch_v1_3.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.mpv.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -1410,15 +1358,13 @@ nasdaq_ntxoptions_cti_itch_v1_3.option_closing_type = {}
 nasdaq_ntxoptions_cti_itch_v1_3.option_closing_type.size = 1
 
 -- Display: Option Closing Type
-nasdaq_ntxoptions_cti_itch_v1_3.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal Hours (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late Hours (L)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.option_closing_type.labels = {
+  ["N"] = "Option Closing Type: Normal Hours (N)",
+  ["L"] = "Option Closing Type: Late Hours (L)",
+}
 
-  return "Option Closing Type: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.option_closing_type.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.option_closing_type.labels[value] or "Option Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Closing Type
@@ -1848,15 +1794,13 @@ nasdaq_ntxoptions_cti_itch_v1_3.reject_reason_code = {}
 nasdaq_ntxoptions_cti_itch_v1_3.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_ntxoptions_cti_itch_v1_3.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.reject_reason_code.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2070,15 +2014,13 @@ nasdaq_ntxoptions_cti_itch_v1_3.send_type = {}
 nasdaq_ntxoptions_cti_itch_v1_3.send_type.size = 1
 
 -- Display: Send Type
-nasdaq_ntxoptions_cti_itch_v1_3.send_type.display = function(value)
-  if value == "S" then
-    return "Send Type: Send (S)"
-  end
-  if value == "P" then
-    return "Send Type: Possible Duplicate (P)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.send_type.labels = {
+  ["S"] = "Send Type: Send (S)",
+  ["P"] = "Send Type: Possible Duplicate (P)",
+}
 
-  return "Send Type: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.send_type.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.send_type.labels[value] or "Send Type: Unknown("..value..")"
 end
 
 -- Dissect: Send Type
@@ -2100,24 +2042,16 @@ nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message_type = {}
 nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Options Directory Message (D)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Security Trading Action Message (H)"
-  end
-  if value == "T" then
-    return "Sequenced Message Type: Trade Message (T)"
-  end
-  if value == "V" then
-    return "Sequenced Message Type: Cancel Trade Message (V)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["D"] = "Sequenced Message Type: Options Directory Message (D)",
+  ["H"] = "Sequenced Message Type: Security Trading Action Message (H)",
+  ["T"] = "Sequenced Message Type: Trade Message (T)",
+  ["V"] = "Sequenced Message Type: Cancel Trade Message (V)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message_type.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -2139,27 +2073,17 @@ nasdaq_ntxoptions_cti_itch_v1_3.server_packet_type = {}
 nasdaq_ntxoptions_cti_itch_v1_3.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_ntxoptions_cti_itch_v1_3.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.server_packet_type.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2217,15 +2141,13 @@ nasdaq_ntxoptions_cti_itch_v1_3.side_changed = {}
 nasdaq_ntxoptions_cti_itch_v1_3.side_changed.size = 1
 
 -- Display: Side Changed
-nasdaq_ntxoptions_cti_itch_v1_3.side_changed.display = function(value)
-  if value == "Y" then
-    return "Side Changed: Yes (Y)"
-  end
-  if value == "N" then
-    return "Side Changed: No (N)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.side_changed.labels = {
+  ["Y"] = "Side Changed: Yes (Y)",
+  ["N"] = "Side Changed: No (N)",
+}
 
-  return "Side Changed: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.side_changed.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.side_changed.labels[value] or "Side Changed: Unknown("..value..")"
 end
 
 -- Dissect: Side Changed
@@ -2453,15 +2375,13 @@ nasdaq_ntxoptions_cti_itch_v1_3.tradable = {}
 nasdaq_ntxoptions_cti_itch_v1_3.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_ntxoptions_cti_itch_v1_3.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.tradable.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -2558,15 +2478,13 @@ nasdaq_ntxoptions_cti_itch_v1_3.trade_side = {}
 nasdaq_ntxoptions_cti_itch_v1_3.trade_side.size = 1
 
 -- Display: Trade Side
-nasdaq_ntxoptions_cti_itch_v1_3.trade_side.display = function(value)
-  if value == "B" then
-    return "Trade Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Trade Side: Sell (S)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.trade_side.labels = {
+  ["B"] = "Trade Side: Buy (B)",
+  ["S"] = "Trade Side: Sell (S)",
+}
 
-  return "Trade Side: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.trade_side.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.trade_side.labels[value] or "Trade Side: Unknown("..value..")"
 end
 
 -- Dissect: Trade Side
@@ -2588,18 +2506,14 @@ nasdaq_ntxoptions_cti_itch_v1_3.transaction_type = {}
 nasdaq_ntxoptions_cti_itch_v1_3.transaction_type.size = 1
 
 -- Display: Transaction Type
-nasdaq_ntxoptions_cti_itch_v1_3.transaction_type.display = function(value)
-  if value == "X" then
-    return "Transaction Type: New Trade (X)"
-  end
-  if value == "Y" then
-    return "Transaction Type: Trade Correction (Y)"
-  end
-  if value == "Z" then
-    return "Transaction Type: Trade Cancel (Z)"
-  end
+nasdaq_ntxoptions_cti_itch_v1_3.transaction_type.labels = {
+  ["X"] = "Transaction Type: New Trade (X)",
+  ["Y"] = "Transaction Type: Trade Correction (Y)",
+  ["Z"] = "Transaction Type: Trade Cancel (Z)",
+}
 
-  return "Transaction Type: Unknown("..value..")"
+nasdaq_ntxoptions_cti_itch_v1_3.transaction_type.display = function(value)
+  return nasdaq_ntxoptions_cti_itch_v1_3.transaction_type.labels[value] or "Transaction Type: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Type
@@ -3657,26 +3571,18 @@ end
 nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message.dispatch = {
+  ["S"] = nasdaq_ntxoptions_cti_itch_v1_3.system_event_message.dissect,
+  ["D"] = nasdaq_ntxoptions_cti_itch_v1_3.options_directory_message.dissect,
+  ["H"] = nasdaq_ntxoptions_cti_itch_v1_3.security_trading_action_message.dissect,
+  ["T"] = nasdaq_ntxoptions_cti_itch_v1_3.trade_message.dissect,
+  ["V"] = nasdaq_ntxoptions_cti_itch_v1_3.cancel_trade_message.dissect,
+}
+
 nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if sequenced_message_type == "D" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.security_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if sequenced_message_type == "T" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Trade Message
-  if sequenced_message_type == "V" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.cancel_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_cti_itch_v1_3.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3919,30 +3825,19 @@ end
 nasdaq_ntxoptions_cti_itch_v1_3.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_ntxoptions_cti_itch_v1_3.server_payload.dispatch = {
+  ["+"] = nasdaq_ntxoptions_cti_itch_v1_3.debug_packet.dissect,
+  ["A"] = nasdaq_ntxoptions_cti_itch_v1_3.login_accepted_packet.dissect,
+  ["J"] = nasdaq_ntxoptions_cti_itch_v1_3.login_rejected_packet.dissect,
+  ["S"] = nasdaq_ntxoptions_cti_itch_v1_3.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_ntxoptions_cti_itch_v1_3.server_heartbeat.dissect,
+  ["Z"] = nasdaq_ntxoptions_cti_itch_v1_3.end_of_session.dissect,
+}
+
 nasdaq_ntxoptions_cti_itch_v1_3.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_cti_itch_v1_3.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4253,26 +4148,18 @@ end
 nasdaq_ntxoptions_cti_itch_v1_3.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_ntxoptions_cti_itch_v1_3.client_payload.dispatch = {
+  ["+"] = nasdaq_ntxoptions_cti_itch_v1_3.debug_packet.dissect,
+  ["L"] = nasdaq_ntxoptions_cti_itch_v1_3.login_request_packet.dissect,
+  ["U"] = nasdaq_ntxoptions_cti_itch_v1_3.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_ntxoptions_cti_itch_v1_3.client_heartbeat.dissect,
+  ["O"] = nasdaq_ntxoptions_cti_itch_v1_3.logout_request.dissect,
+}
+
 nasdaq_ntxoptions_cti_itch_v1_3.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_ntxoptions_cti_itch_v1_3.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_cti_itch_v1_3.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

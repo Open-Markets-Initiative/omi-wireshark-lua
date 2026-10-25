@@ -245,15 +245,13 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.contract_type = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.contract_type.size = 1
 
 -- Display: Contract Type
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.contract_type.display = function(value)
-  if value == "F" then
-    return "Contract Type: Future (F)"
-  end
-  if value == "O" then
-    return "Contract Type: Option (O)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.contract_type.labels = {
+  ["F"] = "Contract Type: Future (F)",
+  ["O"] = "Contract Type: Option (O)",
+}
 
-  return "Contract Type: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.contract_type.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.contract_type.labels[value] or "Contract Type: Unknown("..value..")"
 end
 
 -- Dissect: Contract Type
@@ -357,15 +355,13 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.instrument_type = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.instrument_type.size = 1
 
 -- Display: Instrument Type
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.instrument_type.display = function(value)
-  if value == "O" then
-    return "Instrument Type: Outright (O)"
-  end
-  if value == "S" then
-    return "Instrument Type: Strategy (S)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.instrument_type.labels = {
+  ["O"] = "Instrument Type: Outright (O)",
+  ["S"] = "Instrument Type: Strategy (S)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.instrument_type.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -436,15 +432,13 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.leg_buy_sell = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.leg_buy_sell.size = 1
 
 -- Display: Leg Buy Sell
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.leg_buy_sell.display = function(value)
-  if value == "B" then
-    return "Leg Buy Sell: Buy (B)"
-  end
-  if value == "S" then
-    return "Leg Buy Sell: Sell (S)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.leg_buy_sell.labels = {
+  ["B"] = "Leg Buy Sell: Buy (B)",
+  ["S"] = "Leg Buy Sell: Sell (S)",
+}
 
-  return "Leg Buy Sell: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.leg_buy_sell.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.leg_buy_sell.labels[value] or "Leg Buy Sell: Unknown("..value..")"
 end
 
 -- Dissect: Leg Buy Sell
@@ -580,12 +574,12 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.market_code = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.market_code.size = 4
 
 -- Display: Market Code
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.market_code.display = function(value)
-  if value == "LME" then
-    return "Market Code: The Base Metals Market (LME)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.market_code.labels = {
+  ["LME"] = "Market Code: The Base Metals Market (LME)",
+}
 
-  return "Market Code: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.market_code.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.market_code.labels[value] or "Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Market Code
@@ -676,21 +670,15 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.msg_type = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 303 then
-    return "Msg Type: Instrument Definition Message (303)"
-  end
-  if value == 304 then
-    return "Msg Type: Tradable Instrument Definition Message (304)"
-  end
-  if value == 350 then
-    return "Msg Type: Order Statistics Intraday Message (350)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [303] = "Msg Type: Instrument Definition Message (303)",
+  [304] = "Msg Type: Tradable Instrument Definition Message (304)",
+  [350] = "Msg Type: Order Statistics Intraday Message (350)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -786,15 +774,13 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.option_type = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.option_type.size = 1
 
 -- Display: Option Type
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.option_type.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -966,15 +952,13 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.prompt_type = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.prompt_type.size = 1
 
 -- Display: Prompt Type
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.prompt_type.display = function(value)
-  if value == "S" then
-    return "Prompt Type: Single (S)"
-  end
-  if value == "R" then
-    return "Prompt Type: Rolling (R)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.prompt_type.labels = {
+  ["S"] = "Prompt Type: Single (S)",
+  ["R"] = "Prompt Type: Rolling (R)",
+}
 
-  return "Prompt Type: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.prompt_type.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.prompt_type.labels[value] or "Prompt Type: Unknown("..value..")"
 end
 
 -- Dissect: Prompt Type
@@ -1042,39 +1026,21 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.ring_session = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.ring_session.size = 2
 
 -- Display: Ring Session
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.ring_session.display = function(value)
-  if value == "R1" then
-    return "Ring Session: First Morning Ring (R1)"
-  end
-  if value == "R2" then
-    return "Ring Session: Second Morning Ring (R2)"
-  end
-  if value == "R3" then
-    return "Ring Session: First Afternoon Ring (R3)"
-  end
-  if value == "K1" then
-    return "Ring Session: Morning Kerb Session (K1)"
-  end
-  if value == "K2" then
-    return "Ring Session: Afternoon Kerb Session (K2)"
-  end
-  if value == "C1" then
-    return "Ring Session: Basis Ring 1 (C1)"
-  end
-  if value == "C2" then
-    return "Ring Session: Basis Ring 2 (C2)"
-  end
-  if value == "C3" then
-    return "Ring Session: Basis Ring 3 (C3)"
-  end
-  if value == "D1" then
-    return "Ring Session: Basis Kerb 1 (D1)"
-  end
-  if value == "D2" then
-    return "Ring Session: Basis Kerb 2 (D2)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.ring_session.labels = {
+  ["R1"] = "Ring Session: First Morning Ring (R1)",
+  ["R2"] = "Ring Session: Second Morning Ring (R2)",
+  ["R3"] = "Ring Session: First Afternoon Ring (R3)",
+  ["K1"] = "Ring Session: Morning Kerb Session (K1)",
+  ["K2"] = "Ring Session: Afternoon Kerb Session (K2)",
+  ["C1"] = "Ring Session: Basis Ring 1 (C1)",
+  ["C2"] = "Ring Session: Basis Ring 2 (C2)",
+  ["C3"] = "Ring Session: Basis Ring 3 (C3)",
+  ["D1"] = "Ring Session: Basis Kerb 1 (D1)",
+  ["D2"] = "Ring Session: Basis Kerb 2 (D2)",
+}
 
-  return "Ring Session: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.ring_session.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.ring_session.labels[value] or "Ring Session: Unknown("..value..")"
 end
 
 -- Dissect: Ring Session
@@ -1334,15 +1300,13 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trade_at_reference = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trade_at_reference.size = 1
 
 -- Display: Trade At Reference
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trade_at_reference.display = function(value)
-  if value == 0 then
-    return "Trade At Reference: False (0)"
-  end
-  if value == 1 then
-    return "Trade At Reference: True (1)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trade_at_reference.labels = {
+  [0] = "Trade At Reference: False (0)",
+  [1] = "Trade At Reference: True (1)",
+}
 
-  return "Trade At Reference: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trade_at_reference.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trade_at_reference.labels[value] or "Trade At Reference: Unknown("..value..")"
 end
 
 -- Dissect: Trade At Reference
@@ -1387,18 +1351,14 @@ lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trading_venue = {}
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trading_venue.size = 2
 
 -- Display: Trading Venue
-lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trading_venue.display = function(value)
-  if value == "EL" then
-    return "Trading Venue: Electronic (EL)"
-  end
-  if value == "RK" then
-    return "Trading Venue: Ring (RK)"
-  end
-  if value == "IO" then
-    return "Trading Venue: Inter Office (IO)"
-  end
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trading_venue.labels = {
+  ["EL"] = "Trading Venue: Electronic (EL)",
+  ["RK"] = "Trading Venue: Ring (RK)",
+  ["IO"] = "Trading Venue: Inter Office (IO)",
+}
 
-  return "Trading Venue: Unknown("..value..")"
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trading_venue.display = function(value)
+  return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.trading_venue.labels[value] or "Trading Venue: Unknown("..value..")"
 end
 
 -- Dissect: Trading Venue
@@ -1906,22 +1866,17 @@ end
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.sequence_reset_message.dissect,
+  [303] = lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.instrument_definition_message.dissect,
+  [304] = lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.tradable_instrument_definition_message.dissect,
+  [350] = lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.order_statistics_intraday_message.dissect,
+}
+
 lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Message
-  if msg_type == 303 then
-    return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tradable Instrument Definition Message
-  if msg_type == 304 then
-    return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.tradable_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Statistics Intraday Message
-  if msg_type == 350 then
-    return lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.order_statistics_intraday_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_nonelectronicrefdata_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

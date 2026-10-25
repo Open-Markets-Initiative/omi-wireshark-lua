@@ -427,12 +427,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_fiel
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.size = 1
 
 -- Display: Account Query Request Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.display = function(value)
-  if value == 37 then
-    return "Account Query Request Optional Field: UserRefIdx (37)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.labels = {
+  [37] = "Account Query Request Optional Field: UserRefIdx (37)",
+}
 
-  return "Account Query Request Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.labels[value] or "Account Query Request Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Account Query Request Optional Field
@@ -454,12 +454,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_fie
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.size = 1
 
 -- Display: Account Query Response Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.display = function(value)
-  if value == 37 then
-    return "Account Query Response Optional Field: UserRefIdx (37)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.labels = {
+  [37] = "Account Query Response Optional Field: UserRefIdx (37)",
+}
 
-  return "Account Query Response Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.labels[value] or "Account Query Response Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Account Query Response Optional Field
@@ -504,15 +504,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.size = 1
 
 -- Display: Allow Conditional
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.display = function(value)
-  if value == "N" then
-    return "Allow Conditional: No (N)"
-  end
-  if value == "Y" then
-    return "Allow Conditional: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.labels = {
+  ["N"] = "Allow Conditional: No (N)",
+  ["Y"] = "Allow Conditional: Yes (Y)",
+}
 
-  return "Allow Conditional: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.labels[value] or "Allow Conditional: Unknown("..value..")"
 end
 
 -- Dissect: Allow Conditional
@@ -534,15 +532,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.size = 1
 
 -- Display: Anonymous
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.display = function(value)
-  if value == "N" then
-    return "Anonymous: No (N)"
-  end
-  if value == "Y" then
-    return "Anonymous: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.labels = {
+  ["N"] = "Anonymous: No (N)",
+  ["Y"] = "Anonymous: Yes (Y)",
+}
 
-  return "Anonymous: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.labels[value] or "Anonymous: Unknown("..value..")"
 end
 
 -- Dissect: Anonymous
@@ -587,15 +583,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.size = 1
 
 -- Display: Basket Trade
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.display = function(value)
-  if value == "N" then
-    return "Basket Trade: No (N)"
-  end
-  if value == "Y" then
-    return "Basket Trade: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.labels = {
+  ["N"] = "Basket Trade: No (N)",
+  ["Y"] = "Basket Trade: Yes (Y)",
+}
 
-  return "Basket Trade: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.labels[value] or "Basket Trade: Unknown("..value..")"
 end
 
 -- Dissect: Basket Trade
@@ -640,15 +634,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_pref = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_pref.size = 1
 
 -- Display: Broker Pref
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_pref.display = function(value)
-  if value == "N" then
-    return "Broker Pref: No (N)"
-  end
-  if value == "Y" then
-    return "Broker Pref: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_pref.labels = {
+  ["N"] = "Broker Pref: No (N)",
+  ["Y"] = "Broker Pref: Yes (Y)",
+}
 
-  return "Broker Pref: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_pref.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_pref.labels[value] or "Broker Pref: Unknown("..value..")"
 end
 
 -- Dissect: Broker Pref
@@ -670,15 +662,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.size = 1
 
 -- Display: Bypass
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.display = function(value)
-  if value == "N" then
-    return "Bypass: No (N)"
-  end
-  if value == "Y" then
-    return "Bypass: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.labels = {
+  ["N"] = "Bypass: No (N)",
+  ["Y"] = "Bypass: Yes (Y)",
+}
 
-  return "Bypass: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.labels[value] or "Bypass: Unknown("..value..")"
 end
 
 -- Dissect: Bypass
@@ -700,12 +690,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.size = 1
 
 -- Display: Cancel Order Request Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.display = function(value)
-  if value == 37 then
-    return "Cancel Order Request Optional Field: UserRefIdx (37)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.labels = {
+  [37] = "Cancel Order Request Optional Field: UserRefIdx (37)",
+}
 
-  return "Cancel Order Request Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.labels[value] or "Cancel Order Request Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Order Request Optional Field
@@ -727,129 +717,51 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reason = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reason.size = 4
 
 -- Display: Cancel Reason
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reason.display = function(value)
-  if value == "0" then
-    return "Cancel Reason: Default Value (0)"
-  end
-  if value == "#ADM" then
-    return "Cancel Reason: Admin Cancel (#ADM)"
-  end
-  if value == "#IOC" then
-    return "Cancel Reason: Cancelled Ioc (#IOC)"
-  end
-  if value == "#STP" then
-    return "Cancel Reason: Cancelled Stp (#STP)"
-  end
-  if value == "#TME" then
-    return "Cancel Reason: Cancelled Tme (#TME)"
-  end
-  if value == "#DNR" then
-    return "Cancel Reason: Cancelled To Prevent Lockcross (#DNR)"
-  end
-  if value == "#MKT" then
-    return "Cancel Reason: Market Closed Mkt (#MKT)"
-  end
-  if value == "#DST" then
-    return "Cancel Reason: Destination Matcher Closed (#DST)"
-  end
-  if value == "#PGF" then
-    return "Cancel Reason: Pending Gef (#PGF)"
-  end
-  if value == "#GEF" then
-    return "Cancel Reason: Gef (#GEF)"
-  end
-  if value == "OTHR" then
-    return "Cancel Reason: Cancelled Othr (OTHR)"
-  end
-  if value == "#COD" then
-    return "Cancel Reason: Cancelled On Disconnect (#COD)"
-  end
-  if value == "USER" then
-    return "Cancel Reason: Cancelled User (USER)"
-  end
-  if value == "TLTC" then
-    return "Cancel Reason: Too Late To Cancel (TLTC)"
-  end
-  if value == "RISK" then
-    return "Cancel Reason: Risk (RISK)"
-  end
-  if value == "EMPT" then
-    return "Cancel Reason: Cancelled Due To Market Place Threshold (EMPT)"
-  end
-  if value == "EREP" then
-    return "Cancel Reason: Exceeded Reprice Threshold (EREP)"
-  end
-  if value == "rADM" then
-    return "Cancel Reason: Sor Admin Action (rADM)"
-  end
-  if value == "rDNA" then
-    return "Cancel Reason: Sor Dest Not Available (rDNA)"
-  end
-  if value == "rDQM" then
-    return "Cancel Reason: Sor Dest Quantity Mismatch (rDQM)"
-  end
-  if value == "rDRJ" then
-    return "Cancel Reason: Sor Dest Reject (rDRJ)"
-  end
-  if value == "rMPA" then
-    return "Cancel Reason: Sor Max Post Attempts (rMPA)"
-  end
-  if value == "rOAD" then
-    return "Cancel Reason: Sor Order Already Dead (rOAD)"
-  end
-  if value == "rOOS" then
-    return "Cancel Reason: Sor Out Of Sync (rOOS)"
-  end
-  if value == "rTLR" then
-    return "Cancel Reason: Sor Too Late To Replace (rTLR)"
-  end
-  if value == "ODDD" then
-    return "Cancel Reason: No Oddlot Dealer (ODDD)"
-  end
-  if value == "OSTP" then
-    return "Cancel Reason: Cancelled Ostp (OSTP)"
-  end
-  if value == "SYNO" then
-    return "Cancel Reason: Symbol Not Open For Trading Syno (SYNO)"
-  end
-  if value == "LCMK" then
-    return "Cancel Reason: Market Locked Or Crossed (LCMK)"
-  end
-  if value == "LMTP" then
-    return "Cancel Reason: Invalid Order Price (LMTP)"
-  end
-  if value == "#MLO" then
-    return "Cancel Reason: Melo Order No Longer Valid (#MLO)"
-  end
-  if value == "#BLS" then
-    return "Cancel Reason: Cancelled Bls (#BLS)"
-  end
-  if value == "OLPQ" then
-    return "Cancel Reason: Olp Order Qty Does Not Meet The Required Minimum (OLPQ)"
-  end
-  if value == "CNTG" then
-    return "Cancel Reason: In Contingency Mode (CNTG)"
-  end
-  if value == "CDEX" then
-    return "Cancel Reason: Cancelled Cdex (CDEX)"
-  end
-  if value == "FUDN" then
-    return "Cancel Reason: Cancelled Fudn (FUDN)"
-  end
-  if value == "RSTD" then
-    return "Cancel Reason: Order Restated (RSTD)"
-  end
-  if value == "#TIF" then
-    return "Cancel Reason: Cancelled By Time Restriction (#TIF)"
-  end
-  if value == "MCLO" then
-    return "Cancel Reason: Market Closed Mclo (MCLO)"
-  end
-  if value == "HLTS" then
-    return "Cancel Reason: Symbol Not Open For Trading Hlts (HLTS)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reason.labels = {
+  ["0"] = "Cancel Reason: Default Value (0)",
+  ["#ADM"] = "Cancel Reason: Admin Cancel (#ADM)",
+  ["#IOC"] = "Cancel Reason: Cancelled Ioc (#IOC)",
+  ["#STP"] = "Cancel Reason: Cancelled Stp (#STP)",
+  ["#TME"] = "Cancel Reason: Cancelled Tme (#TME)",
+  ["#DNR"] = "Cancel Reason: Cancelled To Prevent Lockcross (#DNR)",
+  ["#MKT"] = "Cancel Reason: Market Closed Mkt (#MKT)",
+  ["#DST"] = "Cancel Reason: Destination Matcher Closed (#DST)",
+  ["#PGF"] = "Cancel Reason: Pending Gef (#PGF)",
+  ["#GEF"] = "Cancel Reason: Gef (#GEF)",
+  ["OTHR"] = "Cancel Reason: Cancelled Othr (OTHR)",
+  ["#COD"] = "Cancel Reason: Cancelled On Disconnect (#COD)",
+  ["USER"] = "Cancel Reason: Cancelled User (USER)",
+  ["TLTC"] = "Cancel Reason: Too Late To Cancel (TLTC)",
+  ["RISK"] = "Cancel Reason: Risk (RISK)",
+  ["EMPT"] = "Cancel Reason: Cancelled Due To Market Place Threshold (EMPT)",
+  ["EREP"] = "Cancel Reason: Exceeded Reprice Threshold (EREP)",
+  ["rADM"] = "Cancel Reason: Sor Admin Action (rADM)",
+  ["rDNA"] = "Cancel Reason: Sor Dest Not Available (rDNA)",
+  ["rDQM"] = "Cancel Reason: Sor Dest Quantity Mismatch (rDQM)",
+  ["rDRJ"] = "Cancel Reason: Sor Dest Reject (rDRJ)",
+  ["rMPA"] = "Cancel Reason: Sor Max Post Attempts (rMPA)",
+  ["rOAD"] = "Cancel Reason: Sor Order Already Dead (rOAD)",
+  ["rOOS"] = "Cancel Reason: Sor Out Of Sync (rOOS)",
+  ["rTLR"] = "Cancel Reason: Sor Too Late To Replace (rTLR)",
+  ["ODDD"] = "Cancel Reason: No Oddlot Dealer (ODDD)",
+  ["OSTP"] = "Cancel Reason: Cancelled Ostp (OSTP)",
+  ["SYNO"] = "Cancel Reason: Symbol Not Open For Trading Syno (SYNO)",
+  ["LCMK"] = "Cancel Reason: Market Locked Or Crossed (LCMK)",
+  ["LMTP"] = "Cancel Reason: Invalid Order Price (LMTP)",
+  ["#MLO"] = "Cancel Reason: Melo Order No Longer Valid (#MLO)",
+  ["#BLS"] = "Cancel Reason: Cancelled Bls (#BLS)",
+  ["OLPQ"] = "Cancel Reason: Olp Order Qty Does Not Meet The Required Minimum (OLPQ)",
+  ["CNTG"] = "Cancel Reason: In Contingency Mode (CNTG)",
+  ["CDEX"] = "Cancel Reason: Cancelled Cdex (CDEX)",
+  ["FUDN"] = "Cancel Reason: Cancelled Fudn (FUDN)",
+  ["RSTD"] = "Cancel Reason: Order Restated (RSTD)",
+  ["#TIF"] = "Cancel Reason: Cancelled By Time Restriction (#TIF)",
+  ["MCLO"] = "Cancel Reason: Market Closed Mclo (MCLO)",
+  ["HLTS"] = "Cancel Reason: Symbol Not Open For Trading Hlts (HLTS)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reason.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -871,12 +783,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.size = 1
 
 -- Display: Cancel Reject Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.display = function(value)
-  if value == 37 then
-    return "Cancel Reject Optional Field: UserRefIdx (37)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.labels = {
+  [37] = "Cancel Reject Optional Field: UserRefIdx (37)",
+}
 
-  return "Cancel Reject Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.labels[value] or "Cancel Reject Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reject Optional Field
@@ -898,24 +810,16 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_packet_type = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_packet_type.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -937,15 +841,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.size = 1
 
 -- Display: Conditional Order
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.display = function(value)
-  if value == "C" then
-    return "Conditional Order: Conditional Order (C)"
-  end
-  if value == "X" then
-    return "Conditional Order: Extended Firmup Time Conditional Order (X)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.labels = {
+  ["C"] = "Conditional Order: Conditional Order (C)",
+  ["X"] = "Conditional Order: Extended Firmup Time Conditional Order (X)",
+}
 
-  return "Conditional Order: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.labels[value] or "Conditional Order: Unknown("..value..")"
 end
 
 -- Dissect: Conditional Order
@@ -990,12 +892,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.size = 1
 
 -- Display: Corrected Trade Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.display = function(value)
-  if value == 37 then
-    return "Corrected Trade Optional Field: UserRefIdx (37)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.labels = {
+  [37] = "Corrected Trade Optional Field: UserRefIdx (37)",
+}
 
-  return "Corrected Trade Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.labels[value] or "Corrected Trade Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Corrected Trade Optional Field
@@ -1086,15 +988,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.size = 1
 
 -- Display: Cxd Connect
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.display = function(value)
-  if value == "N" then
-    return "Cxd Connect: No (N)"
-  end
-  if value == "Y" then
-    return "Cxd Connect: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.labels = {
+  ["N"] = "Cxd Connect: No (N)",
+  ["Y"] = "Cxd Connect: Yes (Y)",
+}
 
-  return "Cxd Connect: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.labels[value] or "Cxd Connect: Unknown("..value..")"
 end
 
 -- Dissect: Cxd Connect
@@ -1181,120 +1081,48 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.size = 1
 
 -- Display: Enter Order Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.display = function(value)
-  if value == 37 then
-    return "Enter Order Optional Field: UserRefIdx (37)"
-  end
-  if value == 1 then
-    return "Enter Order Optional Field: Account (1)"
-  end
-  if value == 2 then
-    return "Enter Order Optional Field: PegType (2)"
-  end
-  if value == 3 then
-    return "Enter Order Optional Field: MinQtyType (3)"
-  end
-  if value == 4 then
-    return "Enter Order Optional Field: MinQty (4)"
-  end
-  if value == 5 then
-    return "Enter Order Optional Field: MaxFloor (5)"
-  end
-  if value == 6 then
-    return "Enter Order Optional Field: ExpireTime (6)"
-  end
-  if value == 7 then
-    return "Enter Order Optional Field: PegOffset (7)"
-  end
-  if value == 8 then
-    return "Enter Order Optional Field: TargetStrategy (8)"
-  end
-  if value == 9 then
-    return "Enter Order Optional Field: OrderOrigination (9)"
-  end
-  if value == 10 then
-    return "Enter Order Optional Field: RoutingArrangementIndicator (10)"
-  end
-  if value == 11 then
-    return "Enter Order Optional Field: BasketTrade (11)"
-  end
-  if value == 12 then
-    return "Enter Order Optional Field: ProgramTrade (12)"
-  end
-  if value == 14 then
-    return "Enter Order Optional Field: Jitney (14)"
-  end
-  if value == 15 then
-    return "Enter Order Optional Field: GEFEligible (15)"
-  end
-  if value == 16 then
-    return "Enter Order Optional Field: Anonymous (16)"
-  end
-  if value == 17 then
-    return "Enter Order Optional Field: UMIRRegulationID (17)"
-  end
-  if value == 18 then
-    return "Enter Order Optional Field: Bypass (18)"
-  end
-  if value == 19 then
-    return "Enter Order Optional Field: TSXNCIB (19)"
-  end
-  if value == 20 then
-    return "Enter Order Optional Field: NoTradeFeat (20)"
-  end
-  if value == 21 then
-    return "Enter Order Optional Field: NoTradeKey (21)"
-  end
-  if value == 22 then
-    return "Enter Order Optional Field: ShortMarkingExempt (22)"
-  end
-  if value == 23 then
-    return "Enter Order Optional Field: POComment (23)"
-  end
-  if value == 24 then
-    return "Enter Order Optional Field: DisplayRange (24)"
-  end
-  if value == 25 then
-    return "Enter Order Optional Field: CustomerAccount (25)"
-  end
-  if value == 26 then
-    return "Enter Order Optional Field: AlgorithmID (26)"
-  end
-  if value == 27 then
-    return "Enter Order Optional Field: CustomerLEI (27)"
-  end
-  if value == 28 then
-    return "Enter Order Optional Field: BrokerLEI (28)"
-  end
-  if value == 29 then
-    return "Enter Order Optional Field: ConditionalOrder (29)"
-  end
-  if value == 30 then
-    return "Enter Order Optional Field: AllowConditional (30)"
-  end
-  if value == 31 then
-    return "Enter Order Optional Field: FirmUpID (31)"
-  end
-  if value == 32 then
-    return "Enter Order Optional Field: CXDConnect (32)"
-  end
-  if value == 33 then
-    return "Enter Order Optional Field: PureStreamConnect (33)"
-  end
-  if value == 34 then
-    return "Enter Order Optional Field: MinRate (34)"
-  end
-  if value == 35 then
-    return "Enter Order Optional Field: MaxRate (35)"
-  end
-  if value == 39 then
-    return "Enter Order Optional Field: RoutingStrategy (39)"
-  end
-  if value == 43 then
-    return "Enter Order Optional Field: HandlInst (43)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.labels = {
+  [37] = "Enter Order Optional Field: UserRefIdx (37)",
+  [1] = "Enter Order Optional Field: Account (1)",
+  [2] = "Enter Order Optional Field: PegType (2)",
+  [3] = "Enter Order Optional Field: MinQtyType (3)",
+  [4] = "Enter Order Optional Field: MinQty (4)",
+  [5] = "Enter Order Optional Field: MaxFloor (5)",
+  [6] = "Enter Order Optional Field: ExpireTime (6)",
+  [7] = "Enter Order Optional Field: PegOffset (7)",
+  [8] = "Enter Order Optional Field: TargetStrategy (8)",
+  [9] = "Enter Order Optional Field: OrderOrigination (9)",
+  [10] = "Enter Order Optional Field: RoutingArrangementIndicator (10)",
+  [11] = "Enter Order Optional Field: BasketTrade (11)",
+  [12] = "Enter Order Optional Field: ProgramTrade (12)",
+  [14] = "Enter Order Optional Field: Jitney (14)",
+  [15] = "Enter Order Optional Field: GEFEligible (15)",
+  [16] = "Enter Order Optional Field: Anonymous (16)",
+  [17] = "Enter Order Optional Field: UMIRRegulationID (17)",
+  [18] = "Enter Order Optional Field: Bypass (18)",
+  [19] = "Enter Order Optional Field: TSXNCIB (19)",
+  [20] = "Enter Order Optional Field: NoTradeFeat (20)",
+  [21] = "Enter Order Optional Field: NoTradeKey (21)",
+  [22] = "Enter Order Optional Field: ShortMarkingExempt (22)",
+  [23] = "Enter Order Optional Field: POComment (23)",
+  [24] = "Enter Order Optional Field: DisplayRange (24)",
+  [25] = "Enter Order Optional Field: CustomerAccount (25)",
+  [26] = "Enter Order Optional Field: AlgorithmID (26)",
+  [27] = "Enter Order Optional Field: CustomerLEI (27)",
+  [28] = "Enter Order Optional Field: BrokerLEI (28)",
+  [29] = "Enter Order Optional Field: ConditionalOrder (29)",
+  [30] = "Enter Order Optional Field: AllowConditional (30)",
+  [31] = "Enter Order Optional Field: FirmUpID (31)",
+  [32] = "Enter Order Optional Field: CXDConnect (32)",
+  [33] = "Enter Order Optional Field: PureStreamConnect (33)",
+  [34] = "Enter Order Optional Field: MinRate (34)",
+  [35] = "Enter Order Optional Field: MaxRate (35)",
+  [39] = "Enter Order Optional Field: RoutingStrategy (39)",
+  [43] = "Enter Order Optional Field: HandlInst (43)",
+}
 
-  return "Enter Order Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.labels[value] or "Enter Order Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Enter Order Optional Field
@@ -1316,15 +1144,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.event_code = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.event_code.display = function(value)
-  if value == "S" then
-    return "Event Code: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Event Code: End Of Day (E)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.event_code.labels = {
+  ["S"] = "Event Code: Start Of Day (S)",
+  ["E"] = "Event Code: End Of Day (E)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.event_code.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1346,21 +1172,15 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.ex_destination = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.ex_destination.size = 1
 
 -- Display: Ex Destination
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.ex_destination.display = function(value)
-  if value == "C" then
-    return "Ex Destination: Cxc (C)"
-  end
-  if value == "2" then
-    return "Ex Destination: Cx 2 (2)"
-  end
-  if value == "D" then
-    return "Ex Destination: Cxd (D)"
-  end
-  if value == "S" then
-    return "Ex Destination: Smart Order Router (S)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.ex_destination.labels = {
+  ["C"] = "Ex Destination: Cxc (C)",
+  ["2"] = "Ex Destination: Cx 2 (2)",
+  ["D"] = "Ex Destination: Cxd (D)",
+  ["S"] = "Ex Destination: Smart Order Router (S)",
+}
 
-  return "Ex Destination: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.ex_destination.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.ex_destination.labels[value] or "Ex Destination: Unknown("..value..")"
 end
 
 -- Dissect: Ex Destination
@@ -1454,15 +1274,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.execute_match = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.execute_match.size = 1
 
 -- Display: Execute Match
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.execute_match.display = function(value)
-  if value == "N" then
-    return "Execute Match: No (N)"
-  end
-  if value == "Y" then
-    return "Execute Match: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.execute_match.labels = {
+  ["N"] = "Execute Match: No (N)",
+  ["Y"] = "Execute Match: Yes (Y)",
+}
 
-  return "Execute Match: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.execute_match.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.execute_match.labels[value] or "Execute Match: Unknown("..value..")"
 end
 
 -- Dissect: Execute Match
@@ -1530,15 +1348,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.size = 1
 
 -- Display: Gef Eligible
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.display = function(value)
-  if value == "N" then
-    return "Gef Eligible: No (N)"
-  end
-  if value == "Y" then
-    return "Gef Eligible: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.labels = {
+  ["N"] = "Gef Eligible: No (N)",
+  ["Y"] = "Gef Eligible: Yes (Y)",
+}
 
-  return "Gef Eligible: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.labels[value] or "Gef Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Gef Eligible
@@ -1560,18 +1376,14 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.size = 1
 
 -- Display: Handl Inst
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.display = function(value)
-  if value == "f" then
-    return "Handl Inst: Dao (f)"
-  end
-  if value == "1" then
-    return "Handl Inst: Opr Reprice (1)"
-  end
-  if value == "5" then
-    return "Handl Inst: Opr Cancel (5)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.labels = {
+  ["f"] = "Handl Inst: Dao (f)",
+  ["1"] = "Handl Inst: Opr Reprice (1)",
+  ["5"] = "Handl Inst: Opr Cancel (5)",
+}
 
-  return "Handl Inst: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.labels[value] or "Handl Inst: Unknown("..value..")"
 end
 
 -- Dissect: Handl Inst
@@ -1616,57 +1428,27 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.liquidity_flag = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.liquidity_flag.size = 1
 
 -- Display: Liquidity Flag
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.liquidity_flag.display = function(value)
-  if value == "A" then
-    return "Liquidity Flag: Order Added Liquidity (A)"
-  end
-  if value == "R" then
-    return "Liquidity Flag: Order Removed Liquidity (R)"
-  end
-  if value == "a" then
-    return "Liquidity Flag: Order Added Hidden Liquidity (a)"
-  end
-  if value == "r" then
-    return "Liquidity Flag: Order Removed Hidden Liquidity (r)"
-  end
-  if value == "d" then
-    return "Liquidity Flag: Order Added Hidden Liquidity Atthetouch (d)"
-  end
-  if value == "D" then
-    return "Liquidity Flag: Order Removed Hidden Liquidity Atthetouch (D)"
-  end
-  if value == "g" then
-    return "Liquidity Flag: Order Added Gef Liquidity (g)"
-  end
-  if value == "G" then
-    return "Liquidity Flag: Order Removed Gef Liquidity (G)"
-  end
-  if value == "C" then
-    return "Liquidity Flag: Market On Close (C)"
-  end
-  if value == "S" then
-    return "Liquidity Flag: Displayed Liquidityadding Order Improves The Nbbo (S)"
-  end
-  if value == "O" then
-    return "Liquidity Flag: Opening Closing Auction (O)"
-  end
-  if value == "E" then
-    return "Liquidity Flag: Last Sale Trading Session (E)"
-  end
-  if value == "L" then
-    return "Liquidity Flag: Melo (L)"
-  end
-  if value == "P" then
-    return "Liquidity Flag: Cxd Pure Stream Ratebased Execution (P)"
-  end
-  if value == "M" then
-    return "Liquidity Flag: Cxd Pure Stream Ls Midpoint Block Removed Liquidity (M)"
-  end
-  if value == "F" then
-    return "Liquidity Flag: Xft (F)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.liquidity_flag.labels = {
+  ["A"] = "Liquidity Flag: Order Added Liquidity (A)",
+  ["R"] = "Liquidity Flag: Order Removed Liquidity (R)",
+  ["a"] = "Liquidity Flag: Order Added Hidden Liquidity (a)",
+  ["r"] = "Liquidity Flag: Order Removed Hidden Liquidity (r)",
+  ["d"] = "Liquidity Flag: Order Added Hidden Liquidity Atthetouch (d)",
+  ["D"] = "Liquidity Flag: Order Removed Hidden Liquidity Atthetouch (D)",
+  ["g"] = "Liquidity Flag: Order Added Gef Liquidity (g)",
+  ["G"] = "Liquidity Flag: Order Removed Gef Liquidity (G)",
+  ["C"] = "Liquidity Flag: Market On Close (C)",
+  ["S"] = "Liquidity Flag: Displayed Liquidityadding Order Improves The Nbbo (S)",
+  ["O"] = "Liquidity Flag: Opening Closing Auction (O)",
+  ["E"] = "Liquidity Flag: Last Sale Trading Session (E)",
+  ["L"] = "Liquidity Flag: Melo (L)",
+  ["P"] = "Liquidity Flag: Cxd Pure Stream Ratebased Execution (P)",
+  ["M"] = "Liquidity Flag: Cxd Pure Stream Ls Midpoint Block Removed Liquidity (M)",
+  ["F"] = "Liquidity Flag: Xft (F)",
+}
 
-  return "Liquidity Flag: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.liquidity_flag.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.liquidity_flag.labels[value] or "Liquidity Flag: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Flag
@@ -1780,21 +1562,15 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.size = 1
 
 -- Display: Min Qty Type
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.display = function(value)
-  if value == "N" then
-    return "Min Qty Type: Maq (N)"
-  end
-  if value == "m" then
-    return "Min Qty Type: Maq At Touch (m)"
-  end
-  if value == "t" then
-    return "Min Qty Type: Mq At Touch (t)"
-  end
-  if value == "z" then
-    return "Min Qty Type: Minimum Quantity (z)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.labels = {
+  ["N"] = "Min Qty Type: Maq (N)",
+  ["m"] = "Min Qty Type: Maq At Touch (m)",
+  ["t"] = "Min Qty Type: Mq At Touch (t)",
+  ["z"] = "Min Qty Type: Minimum Quantity (z)",
+}
 
-  return "Min Qty Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.labels[value] or "Min Qty Type: Unknown("..value..")"
 end
 
 -- Dissect: Min Qty Type
@@ -1839,12 +1615,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.size = 1
 
 -- Display: Nbbo Setter
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.display = function(value)
-  if value == "Y" then
-    return "Nbbo Setter: Nbbo Setter (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.labels = {
+  ["Y"] = "Nbbo Setter: Nbbo Setter (Y)",
+}
 
-  return "Nbbo Setter: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.labels[value] or "Nbbo Setter: Unknown("..value..")"
 end
 
 -- Dissect: Nbbo Setter
@@ -1889,21 +1665,15 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.size = 1
 
 -- Display: No Trade Feat
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.display = function(value)
-  if value == "N" then
-    return "No Trade Feat: Cancel Newest (N)"
-  end
-  if value == "O" then
-    return "No Trade Feat: Cancel Oldest (O)"
-  end
-  if value == "D" then
-    return "No Trade Feat: Decrement And Cancel (D)"
-  end
-  if value == "E" then
-    return "No Trade Feat: Execute Trade (E)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.labels = {
+  ["N"] = "No Trade Feat: Cancel Newest (N)",
+  ["O"] = "No Trade Feat: Cancel Oldest (O)",
+  ["D"] = "No Trade Feat: Decrement And Cancel (D)",
+  ["E"] = "No Trade Feat: Execute Trade (E)",
+}
 
-  return "No Trade Feat: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.labels[value] or "No Trade Feat: Unknown("..value..")"
 end
 
 -- Dissect: No Trade Feat
@@ -1971,126 +1741,50 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.size = 1
 
 -- Display: Order Accepted Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.display = function(value)
-  if value == 37 then
-    return "Order Accepted Optional Field: UserRefIdx (37)"
-  end
-  if value == 1 then
-    return "Order Accepted Optional Field: Account (1)"
-  end
-  if value == 2 then
-    return "Order Accepted Optional Field: PegType (2)"
-  end
-  if value == 3 then
-    return "Order Accepted Optional Field: MinQtyType (3)"
-  end
-  if value == 4 then
-    return "Order Accepted Optional Field: MinQty (4)"
-  end
-  if value == 5 then
-    return "Order Accepted Optional Field: MaxFloor (5)"
-  end
-  if value == 6 then
-    return "Order Accepted Optional Field: ExpireTime (6)"
-  end
-  if value == 7 then
-    return "Order Accepted Optional Field: PegOffset (7)"
-  end
-  if value == 8 then
-    return "Order Accepted Optional Field: TargetStrategy (8)"
-  end
-  if value == 9 then
-    return "Order Accepted Optional Field: OrderOrigination (9)"
-  end
-  if value == 10 then
-    return "Order Accepted Optional Field: RoutingArrangementIndicator (10)"
-  end
-  if value == 11 then
-    return "Order Accepted Optional Field: BasketTrade (11)"
-  end
-  if value == 12 then
-    return "Order Accepted Optional Field: ProgramTrade (12)"
-  end
-  if value == 14 then
-    return "Order Accepted Optional Field: Jitney (14)"
-  end
-  if value == 15 then
-    return "Order Accepted Optional Field: GEFEligible (15)"
-  end
-  if value == 16 then
-    return "Order Accepted Optional Field: Anonymous (16)"
-  end
-  if value == 17 then
-    return "Order Accepted Optional Field: UMIRRegulationID (17)"
-  end
-  if value == 18 then
-    return "Order Accepted Optional Field: Bypass (18)"
-  end
-  if value == 19 then
-    return "Order Accepted Optional Field: TSXNCIB (19)"
-  end
-  if value == 20 then
-    return "Order Accepted Optional Field: NoTradeFeat (20)"
-  end
-  if value == 21 then
-    return "Order Accepted Optional Field: NoTradeKey (21)"
-  end
-  if value == 22 then
-    return "Order Accepted Optional Field: ShortMarkingExempt (22)"
-  end
-  if value == 23 then
-    return "Order Accepted Optional Field: POComment (23)"
-  end
-  if value == 24 then
-    return "Order Accepted Optional Field: DisplayRange (24)"
-  end
-  if value == 25 then
-    return "Order Accepted Optional Field: CustomerAccount (25)"
-  end
-  if value == 26 then
-    return "Order Accepted Optional Field: AlgorithmID (26)"
-  end
-  if value == 27 then
-    return "Order Accepted Optional Field: CustomerLEI (27)"
-  end
-  if value == 28 then
-    return "Order Accepted Optional Field: BrokerLEI (28)"
-  end
-  if value == 29 then
-    return "Order Accepted Optional Field: ConditionalOrder (29)"
-  end
-  if value == 30 then
-    return "Order Accepted Optional Field: AllowConditional (30)"
-  end
-  if value == 31 then
-    return "Order Accepted Optional Field: FirmUpID (31)"
-  end
-  if value == 32 then
-    return "Order Accepted Optional Field: CXDConnect (32)"
-  end
-  if value == 33 then
-    return "Order Accepted Optional Field: PureStreamConnect (33)"
-  end
-  if value == 34 then
-    return "Order Accepted Optional Field: MinRate (34)"
-  end
-  if value == 35 then
-    return "Order Accepted Optional Field: MaxRate (35)"
-  end
-  if value == 39 then
-    return "Order Accepted Optional Field: RoutingStrategy (39)"
-  end
-  if value == 43 then
-    return "Order Accepted Optional Field: HandlInst (43)"
-  end
-  if value == 44 then
-    return "Order Accepted Optional Field: RepriceReason (44)"
-  end
-  if value == 45 then
-    return "Order Accepted Optional Field: NBBOSetter (45)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.labels = {
+  [37] = "Order Accepted Optional Field: UserRefIdx (37)",
+  [1] = "Order Accepted Optional Field: Account (1)",
+  [2] = "Order Accepted Optional Field: PegType (2)",
+  [3] = "Order Accepted Optional Field: MinQtyType (3)",
+  [4] = "Order Accepted Optional Field: MinQty (4)",
+  [5] = "Order Accepted Optional Field: MaxFloor (5)",
+  [6] = "Order Accepted Optional Field: ExpireTime (6)",
+  [7] = "Order Accepted Optional Field: PegOffset (7)",
+  [8] = "Order Accepted Optional Field: TargetStrategy (8)",
+  [9] = "Order Accepted Optional Field: OrderOrigination (9)",
+  [10] = "Order Accepted Optional Field: RoutingArrangementIndicator (10)",
+  [11] = "Order Accepted Optional Field: BasketTrade (11)",
+  [12] = "Order Accepted Optional Field: ProgramTrade (12)",
+  [14] = "Order Accepted Optional Field: Jitney (14)",
+  [15] = "Order Accepted Optional Field: GEFEligible (15)",
+  [16] = "Order Accepted Optional Field: Anonymous (16)",
+  [17] = "Order Accepted Optional Field: UMIRRegulationID (17)",
+  [18] = "Order Accepted Optional Field: Bypass (18)",
+  [19] = "Order Accepted Optional Field: TSXNCIB (19)",
+  [20] = "Order Accepted Optional Field: NoTradeFeat (20)",
+  [21] = "Order Accepted Optional Field: NoTradeKey (21)",
+  [22] = "Order Accepted Optional Field: ShortMarkingExempt (22)",
+  [23] = "Order Accepted Optional Field: POComment (23)",
+  [24] = "Order Accepted Optional Field: DisplayRange (24)",
+  [25] = "Order Accepted Optional Field: CustomerAccount (25)",
+  [26] = "Order Accepted Optional Field: AlgorithmID (26)",
+  [27] = "Order Accepted Optional Field: CustomerLEI (27)",
+  [28] = "Order Accepted Optional Field: BrokerLEI (28)",
+  [29] = "Order Accepted Optional Field: ConditionalOrder (29)",
+  [30] = "Order Accepted Optional Field: AllowConditional (30)",
+  [31] = "Order Accepted Optional Field: FirmUpID (31)",
+  [32] = "Order Accepted Optional Field: CXDConnect (32)",
+  [33] = "Order Accepted Optional Field: PureStreamConnect (33)",
+  [34] = "Order Accepted Optional Field: MinRate (34)",
+  [35] = "Order Accepted Optional Field: MaxRate (35)",
+  [39] = "Order Accepted Optional Field: RoutingStrategy (39)",
+  [43] = "Order Accepted Optional Field: HandlInst (43)",
+  [44] = "Order Accepted Optional Field: RepriceReason (44)",
+  [45] = "Order Accepted Optional Field: NBBOSetter (45)",
+}
 
-  return "Order Accepted Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.labels[value] or "Order Accepted Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Accepted Optional Field
@@ -2112,12 +1806,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.size = 1
 
 -- Display: Order Canceled Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.display = function(value)
-  if value == 37 then
-    return "Order Canceled Optional Field: UserRefIdx (37)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.labels = {
+  [37] = "Order Canceled Optional Field: UserRefIdx (37)",
+}
 
-  return "Order Canceled Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.labels[value] or "Order Canceled Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Canceled Optional Field
@@ -2139,30 +1833,18 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.size = 1
 
 -- Display: Order Executed Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.display = function(value)
-  if value == 37 then
-    return "Order Executed Optional Field: UserRefIdx (37)"
-  end
-  if value == 38 then
-    return "Order Executed Optional Field: ExecuteMatch (38)"
-  end
-  if value == 40 then
-    return "Order Executed Optional Field: SecondaryOrderID (40)"
-  end
-  if value == 42 then
-    return "Order Executed Optional Field: BrokerPref (42)"
-  end
-  if value == 13 then
-    return "Order Executed Optional Field: PrincipalTrade (13)"
-  end
-  if value == 41 then
-    return "Order Executed Optional Field: WashTrade (41)"
-  end
-  if value == 36 then
-    return "Order Executed Optional Field: CumRate (36)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.labels = {
+  [37] = "Order Executed Optional Field: UserRefIdx (37)",
+  [38] = "Order Executed Optional Field: ExecuteMatch (38)",
+  [40] = "Order Executed Optional Field: SecondaryOrderID (40)",
+  [42] = "Order Executed Optional Field: BrokerPref (42)",
+  [13] = "Order Executed Optional Field: PrincipalTrade (13)",
+  [41] = "Order Executed Optional Field: WashTrade (41)",
+  [36] = "Order Executed Optional Field: CumRate (36)",
+}
 
-  return "Order Executed Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.labels[value] or "Order Executed Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Executed Optional Field
@@ -2184,18 +1866,14 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.size = 1
 
 -- Display: Order Origination
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.display = function(value)
-  if value == "5" then
-    return "Order Origination: Direct Access Customer (5)"
-  end
-  if value == "6" then
-    return "Order Origination: Foreign Dealer Equivalent (6)"
-  end
-  if value == "7" then
-    return "Order Origination: Executiononly Service (7)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.labels = {
+  ["5"] = "Order Origination: Direct Access Customer (5)",
+  ["6"] = "Order Origination: Foreign Dealer Equivalent (6)",
+  ["7"] = "Order Origination: Executiononly Service (7)",
+}
 
-  return "Order Origination: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.labels[value] or "Order Origination: Unknown("..value..")"
 end
 
 -- Dissect: Order Origination
@@ -2263,84 +1941,36 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.size = 1
 
 -- Display: Order Replaced Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.display = function(value)
-  if value == 37 then
-    return "Order Replaced Optional Field: UserRefIdx (37)"
-  end
-  if value == 3 then
-    return "Order Replaced Optional Field: MinQtyType (3)"
-  end
-  if value == 2 then
-    return "Order Replaced Optional Field: PegType (2)"
-  end
-  if value == 4 then
-    return "Order Replaced Optional Field: MinQty (4)"
-  end
-  if value == 5 then
-    return "Order Replaced Optional Field: MaxFloor (5)"
-  end
-  if value == 6 then
-    return "Order Replaced Optional Field: ExpireTime (6)"
-  end
-  if value == 7 then
-    return "Order Replaced Optional Field: PegOffset (7)"
-  end
-  if value == 8 then
-    return "Order Replaced Optional Field: TargetStrategy (8)"
-  end
-  if value == 9 then
-    return "Order Replaced Optional Field: OrderOrigination (9)"
-  end
-  if value == 10 then
-    return "Order Replaced Optional Field: RoutingArrangementIndicator (10)"
-  end
-  if value == 17 then
-    return "Order Replaced Optional Field: UMIRRegulationID (17)"
-  end
-  if value == 16 then
-    return "Order Replaced Optional Field: Anonymous (16)"
-  end
-  if value == 24 then
-    return "Order Replaced Optional Field: DisplayRange (24)"
-  end
-  if value == 25 then
-    return "Order Replaced Optional Field: CustomerAccount (25)"
-  end
-  if value == 26 then
-    return "Order Replaced Optional Field: AlgorithmID (26)"
-  end
-  if value == 27 then
-    return "Order Replaced Optional Field: CustomerLEI (27)"
-  end
-  if value == 28 then
-    return "Order Replaced Optional Field: BrokerLEI (28)"
-  end
-  if value == 30 then
-    return "Order Replaced Optional Field: AllowConditional (30)"
-  end
-  if value == 32 then
-    return "Order Replaced Optional Field: CXDConnect (32)"
-  end
-  if value == 33 then
-    return "Order Replaced Optional Field: PureStreamConnect (33)"
-  end
-  if value == 34 then
-    return "Order Replaced Optional Field: MinRate (34)"
-  end
-  if value == 35 then
-    return "Order Replaced Optional Field: MaxRate (35)"
-  end
-  if value == 43 then
-    return "Order Replaced Optional Field: HandlInst (43)"
-  end
-  if value == 44 then
-    return "Order Replaced Optional Field: RepriceReason (44)"
-  end
-  if value == 45 then
-    return "Order Replaced Optional Field: NBBOSetter (45)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.labels = {
+  [37] = "Order Replaced Optional Field: UserRefIdx (37)",
+  [3] = "Order Replaced Optional Field: MinQtyType (3)",
+  [2] = "Order Replaced Optional Field: PegType (2)",
+  [4] = "Order Replaced Optional Field: MinQty (4)",
+  [5] = "Order Replaced Optional Field: MaxFloor (5)",
+  [6] = "Order Replaced Optional Field: ExpireTime (6)",
+  [7] = "Order Replaced Optional Field: PegOffset (7)",
+  [8] = "Order Replaced Optional Field: TargetStrategy (8)",
+  [9] = "Order Replaced Optional Field: OrderOrigination (9)",
+  [10] = "Order Replaced Optional Field: RoutingArrangementIndicator (10)",
+  [17] = "Order Replaced Optional Field: UMIRRegulationID (17)",
+  [16] = "Order Replaced Optional Field: Anonymous (16)",
+  [24] = "Order Replaced Optional Field: DisplayRange (24)",
+  [25] = "Order Replaced Optional Field: CustomerAccount (25)",
+  [26] = "Order Replaced Optional Field: AlgorithmID (26)",
+  [27] = "Order Replaced Optional Field: CustomerLEI (27)",
+  [28] = "Order Replaced Optional Field: BrokerLEI (28)",
+  [30] = "Order Replaced Optional Field: AllowConditional (30)",
+  [32] = "Order Replaced Optional Field: CXDConnect (32)",
+  [33] = "Order Replaced Optional Field: PureStreamConnect (33)",
+  [34] = "Order Replaced Optional Field: MinRate (34)",
+  [35] = "Order Replaced Optional Field: MaxRate (35)",
+  [43] = "Order Replaced Optional Field: HandlInst (43)",
+  [44] = "Order Replaced Optional Field: RepriceReason (44)",
+  [45] = "Order Replaced Optional Field: NBBOSetter (45)",
+}
 
-  return "Order Replaced Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.labels[value] or "Order Replaced Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Replaced Optional Field
@@ -2362,15 +1992,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.size = 1
 
 -- Display: Order Restated Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.display = function(value)
-  if value == 37 then
-    return "Order Restated Optional Field: UserRefIdx (37)"
-  end
-  if value == 31 then
-    return "Order Restated Optional Field: FirmUpID (31)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.labels = {
+  [37] = "Order Restated Optional Field: UserRefIdx (37)",
+  [31] = "Order Restated Optional Field: FirmUpID (31)",
+}
 
-  return "Order Restated Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.labels[value] or "Order Restated Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Restated Optional Field
@@ -2392,15 +2020,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_state = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_state.size = 1
 
 -- Display: Order State
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_state.display = function(value)
-  if value == "L" then
-    return "Order State: Order Live (L)"
-  end
-  if value == "D" then
-    return "Order State: Order Dead (D)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_state.labels = {
+  ["L"] = "Order State: Order Live (L)",
+  ["D"] = "Order State: Order Dead (D)",
+}
 
-  return "Order State: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_state.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -2520,27 +2146,17 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.size = 1
 
 -- Display: Peg Type
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.display = function(value)
-  if value == "M" then
-    return "Peg Type: Midpoint Peg (M)"
-  end
-  if value == "R" then
-    return "Peg Type: Primary Peg (R)"
-  end
-  if value == "x" then
-    return "Peg Type: Minimum Price Improvement (x)"
-  end
-  if value == "S" then
-    return "Peg Type: Seek Price Improvement (S)"
-  end
-  if value == "L" then
-    return "Peg Type: Melo (L)"
-  end
-  if value == "o" then
-    return "Peg Type: Odd Lot Liquidity Providing (o)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.labels = {
+  ["M"] = "Peg Type: Midpoint Peg (M)",
+  ["R"] = "Peg Type: Primary Peg (R)",
+  ["x"] = "Peg Type: Minimum Price Improvement (x)",
+  ["S"] = "Peg Type: Seek Price Improvement (S)",
+  ["L"] = "Peg Type: Melo (L)",
+  ["o"] = "Peg Type: Odd Lot Liquidity Providing (o)",
+}
 
-  return "Peg Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.labels[value] or "Peg Type: Unknown("..value..")"
 end
 
 -- Dissect: Peg Type
@@ -2614,15 +2230,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.principal_trade = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.principal_trade.size = 1
 
 -- Display: Principal Trade
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.principal_trade.display = function(value)
-  if value == "N" then
-    return "Principal Trade: No (N)"
-  end
-  if value == "Y" then
-    return "Principal Trade: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.principal_trade.labels = {
+  ["N"] = "Principal Trade: No (N)",
+  ["Y"] = "Principal Trade: Yes (Y)",
+}
 
-  return "Principal Trade: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.principal_trade.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.principal_trade.labels[value] or "Principal Trade: Unknown("..value..")"
 end
 
 -- Dissect: Principal Trade
@@ -2644,15 +2258,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.size = 1
 
 -- Display: Program Trade
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.display = function(value)
-  if value == "N" then
-    return "Program Trade: No (N)"
-  end
-  if value == "Y" then
-    return "Program Trade: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.labels = {
+  ["N"] = "Program Trade: No (N)",
+  ["Y"] = "Program Trade: Yes (Y)",
+}
 
-  return "Program Trade: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.labels[value] or "Program Trade: Unknown("..value..")"
 end
 
 -- Dissect: Program Trade
@@ -2674,15 +2286,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.size = 1
 
 -- Display: Pure Stream Connect
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.display = function(value)
-  if value == "N" then
-    return "Pure Stream Connect: No (N)"
-  end
-  if value == "Y" then
-    return "Pure Stream Connect: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.labels = {
+  ["N"] = "Pure Stream Connect: No (N)",
+  ["Y"] = "Pure Stream Connect: Yes (Y)",
+}
 
-  return "Pure Stream Connect: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.labels[value] or "Pure Stream Connect: Unknown("..value..")"
 end
 
 -- Dissect: Pure Stream Connect
@@ -2750,420 +2360,148 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason.size = 4
 
 -- Display: Reject Reason
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason.display = function(value)
-  if value == "none" then
-    return "Reject Reason: Rejected None (none)"
-  end
-  if value == "SYMB" then
-    return "Reject Reason: Unknown Symbol (SYMB)"
-  end
-  if value == "SYMD" then
-    return "Reject Reason: Symbol Not Allowed To Trade On Destination (SYMD)"
-  end
-  if value == "HLTD" then
-    return "Reject Reason: Symbol Halted On Destination (HLTD)"
-  end
-  if value == "TLTC" then
-    return "Reject Reason: Too Late To Cancel (TLTC)"
-  end
-  if value == "TLTR" then
-    return "Reject Reason: Too Late To Replace (TLTR)"
-  end
-  if value == "ADMC" then
-    return "Reject Reason: Admin Canceled (ADMC)"
-  end
-  if value == "ADRJ" then
-    return "Reject Reason: Admin Rejected (ADRJ)"
-  end
-  if value == "HLTS" then
-    return "Reject Reason: Symbol Halted (HLTS)"
-  end
-  if value == "VMIN" then
-    return "Reject Reason: Visible Min Qty (VMIN)"
-  end
-  if value == "BIOC" then
-    return "Reject Reason: Nonioc Bypass (BIOC)"
-  end
-  if value == "PDUP" then
-    return "Reject Reason: Possdupe Set (PDUP)"
-  end
-  if value == "MRTE" then
-    return "Reject Reason: Missing Or Invalid Exdestination Specified (MRTE)"
-  end
-  if value == "USRB" then
-    return "Reject Reason: Missingunknown Tag Umiruserid (USRB)"
-  end
-  if value == "CRED" then
-    return "Reject Reason: Terminal Has No Credit (CRED)"
-  end
-  if value == "SMEB" then
-    return "Reject Reason: Short Marker Exempt Not Supported For Value (SMEB)"
-  end
-  if value == "LMTP" then
-    return "Reject Reason: Invalid Order Price (LMTP)"
-  end
-  if value == "MCLO" then
-    return "Reject Reason: Market Not Open (MCLO)"
-  end
-  if value == "ODDB" then
-    return "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit (ODDB)"
-  end
-  if value == "ODDD" then
-    return "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit No Oddlot Dealer (ODDD)"
-  end
-  if value == "ODDI" then
-    return "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit Tif Not Ioc Or Day (ODDI)"
-  end
-  if value == "ODDP" then
-    return "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit No Prim Peg (ODDP)"
-  end
-  if value == "ODDM" then
-    return "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit Minqty Specified (ODDM)"
-  end
-  if value == "ODDR" then
-    return "Reject Reason: Invalid Ordqty Cannot Replace Oddlot To Roundmixed Lot Or Vice Versa (ODDR)"
-  end
-  if value == "OSTP" then
-    return "Reject Reason: Rejected Ostp (OSTP)"
-  end
-  if value == "NORD" then
-    return "Reject Reason: Order Not Found (NORD)"
-  end
-  if value == "PENR" then
-    return "Reject Reason: Pending Replace (PENR)"
-  end
-  if value == "PENC" then
-    return "Reject Reason: Order Pending Cancel (PENC)"
-  end
-  if value == "SYMM" then
-    return "Reject Reason: Symbol Mismatch (SYMM)"
-  end
-  if value == "USRM" then
-    return "Reject Reason: Umir User Id Mismatch (USRM)"
-  end
-  if value == "SIDM" then
-    return "Reject Reason: Side Mismatch (SIDM)"
-  end
-  if value == "DESM" then
-    return "Reject Reason: Destination Mismatch (DESM)"
-  end
-  if value == "ISOM" then
-    return "Reject Reason: Cannot Convert To Iso Order (ISOM)"
-  end
-  if value == "INVT" then
-    return "Reject Reason: Invalid Tag (INVT)"
-  end
-  if value == "GTDE" then
-    return "Reject Reason: Expiry Required For Good Till Dategtd Order (GTDE)"
-  end
-  if value == "EMPT" then
-    return "Reject Reason: Order Exceeded Mktplace Threshold (EMPT)"
-  end
-  if value == "BDRK" then
-    return "Reject Reason: Bypass Orders Not Valid On Dark Pool (BDRK)"
-  end
-  if value == "DCDT" then
-    return "Reject Reason: User Not Permissioned On Destination (DCDT)"
-  end
-  if value == "MPIB" then
-    return "Reject Reason: Mpi Orders Only For Cxd (MPIB)"
-  end
-  if value == "ACSO" then
-    return "Reject Reason: At Close Orders Only For Sor Orders (ACSO)"
-  end
-  if value == "INVM" then
-    return "Reject Reason: Displayed Quantity Must Be Of Standard Trading Unitstu (INVM)"
-  end
-  if value == "INVD" then
-    return "Reject Reason: Display Range Must Be Of Standard Trading Unitstu (INVD)"
-  end
-  if value == "MINB" then
-    return "Reject Reason: Minqty Must Be Of Standard Trading Unitstu (MINB)"
-  end
-  if value == "OFFB" then
-    return "Reject Reason: Invalid Pegoffset For Peg Type (OFFB)"
-  end
-  if value == "STRM" then
-    return "Reject Reason: Rejected Strm (STRM)"
-  end
-  if value == "CAPD" then
-    return "Reject Reason: Order Failed Caplimit No Default Limit Found (CAPD)"
-  end
-  if value == "CAPS" then
-    return "Reject Reason: Order Exceed Share Limits (CAPS)"
-  end
-  if value == "CAPN" then
-    return "Reject Reason: Order Exceed Notional Limits (CAPN)"
-  end
-  if value == "CLOP" then
-    return "Reject Reason: Pegged Orders Unavailable After Hours (CLOP)"
-  end
-  if value == "MIST" then
-    return "Reject Reason: Missing Required Tags (MIST)"
-  end
-  if value == "QTYB" then
-    return "Reject Reason: Orderqty Must Be Greater Than 0 (QTYB)"
-  end
-  if value == "NMKT" then
-    return "Reject Reason: No Market (NMKT)"
-  end
-  if value == "LCMK" then
-    return "Reject Reason: Market Locked Or Crossed (LCMK)"
-  end
-  if value == "CUMQ" then
-    return "Reject Reason: New Order Quantity Less Than Cumqty (CUMQ)"
-  end
-  if value == "OTHR" then
-    return "Reject Reason: Rejected Othr (OTHR)"
-  end
-  if value == "RIOC" then
-    return "Reject Reason: No Replace On Ioc Order (RIOC)"
-  end
-  if value == "GWRJ" then
-    return "Reject Reason: Gateway Reject (GWRJ)"
-  end
-  if value == "DNMQ" then
-    return "Reject Reason: Cxd Not Accepting Min Qty Orders (DNMQ)"
-  end
-  if value == "dSDN" then
-    return "Reject Reason: Destination System Down (dSDN)"
-  end
-  if value == "dNAO" then
-    return "Reject Reason: Destination Not Accepting Orders (dNAO)"
-  end
-  if value == "dNPO" then
-    return "Reject Reason: Destination Does Not Support Post Only (dNPO)"
-  end
-  if value == "dSTP" then
-    return "Reject Reason: Destination Does Not Support Stp Feature Specified (dSTP)"
-  end
-  if value == "dPEG" then
-    return "Reject Reason: Destination Does Not Support Peg Type (dPEG)"
-  end
-  if value == "dFOK" then
-    return "Reject Reason: Destination Does Not Support Fok (dFOK)"
-  end
-  if value == "dHID" then
-    return "Reject Reason: Destination Does Not Support Hidden Orders (dHID)"
-  end
-  if value == "dMQY" then
-    return "Reject Reason: Destination Does Not Support Minqty (dMQY)"
-  end
-  if value == "dAON" then
-    return "Reject Reason: Destination Does Not Support Aon (dAON)"
-  end
-  if value == "dCLO" then
-    return "Reject Reason: Destination Does Not Support Closing Orders (dCLO)"
-  end
-  if value == "dIOC" then
-    return "Reject Reason: Destination Does Not Support Ioc Time In Force (dIOC)"
-  end
-  if value == "dBYP" then
-    return "Reject Reason: Destination Does Not Support Bypass Flag (dBYP)"
-  end
-  if value == "dRUO" then
-    return "Reject Reason: Destination Replace For Unack Order (dRUO)"
-  end
-  if value == "dTYP" then
-    return "Reject Reason: Destination Does Not Support Order Type (dTYP)"
-  end
-  if value == "dMET" then
-    return "Reject Reason: Destination Does Not Support Maq At The Touch Orders (dMET)"
-  end
-  if value == "dMQT" then
-    return "Reject Reason: Destination Does Not Support Mq At The Touch Orders (dMQT)"
-  end
-  if value == "dSPI" then
-    return "Reject Reason: Destination Does Not Support Seek Price Improvement (dSPI)"
-  end
-  if value == "dOLP" then
-    return "Reject Reason: Destination Does Not Support Odd Lot Book Orders (dOLP)"
-  end
-  if value == "sTIF" then
-    return "Reject Reason: Invalid Tif For Spi Order Tif Must Be Ioc (sTIF)"
-  end
-  if value == "aTIF" then
-    return "Reject Reason: Invalid Tif For Maq At The Touch Tif Must Be Ioc (aTIF)"
-  end
-  if value == "qTIF" then
-    return "Reject Reason: Invalid Tif For Mq At The Touch Tif Must Be Ioc (qTIF)"
-  end
-  if value == "AONQ" then
-    return "Reject Reason: Aon Not Allowed For Maq At The Touch Or Mq At The Touch (AONQ)"
-  end
-  if value == "PEGQ" then
-    return "Reject Reason: Peg Not Alllowed For Maq At The Touch Or Mq At The Touch (PEGQ)"
-  end
-  if value == "MQYB" then
-    return "Reject Reason: Invalid Minqty Must Be A Multiple Of Standard Trading Unit For Maq At The Touch Or Mq At The Touch (MQYB)"
-  end
-  if value == "SPIP" then
-    return "Reject Reason: Pegging Not Allowed With Seekpriceimprovement (SPIP)"
-  end
-  if value == "SPII" then
-    return "Reject Reason: Cso Not Allowed With Seekpriceimprovement (SPII)"
-  end
-  if value == "SPIM" then
-    return "Reject Reason: Minpriceimprovement Not Allowed With Seekpriceimprovement (SPIM)"
-  end
-  if value == "NSTP" then
-    return "Reject Reason: Stop Order Not Supported (NSTP)"
-  end
-  if value == "CRTE" then
-    return "Reject Reason: Chix Route Market Not Found (CRTE)"
-  end
-  if value == "BOPG" then
-    return "Reject Reason: Chix Route Opg Orders Not Valid After Stock Open (BOPG)"
-  end
-  if value == "NGTC" then
-    return "Reject Reason: Chix Route Gtc Orders Not Supported (NGTC)"
-  end
-  if value == "CMCL" then
-    return "Reject Reason: Chix Route Mkt Order Not Supported After Close (CMCL)"
-  end
-  if value == "rXBO" then
-    return "Reject Reason: Sor Crossed Best Bid Ask (rXBO)"
-  end
-  if value == "rIQT" then
-    return "Reject Reason: Sor Insufficient Quantity (rIQT)"
-  end
-  if value == "rIBO" then
-    return "Reject Reason: Sor Invalid Best Bid Ask (rIBO)"
-  end
-  if value == "rIBB" then
-    return "Reject Reason: Rejected R Ibb (rIBB)"
-  end
-  if value == "rIBA" then
-    return "Reject Reason: Sor Invalid Best Ask (rIBA)"
-  end
-  if value == "rPNR" then
-    return "Reject Reason: Sor Protected Venue Not Routable (rPNR)"
-  end
-  if value == "rUKS" then
-    return "Reject Reason: Unknown Strategy For Router (rUKS)"
-  end
-  if value == "AONI" then
-    return "Reject Reason: Aon Cannot Be Combined With Ioc Or Fok (AONI)"
-  end
-  if value == "GEFD" then
-    return "Reject Reason: Invalid Dest For Member Gef Vol Change (GEFD)"
-  end
-  if value == "GEFS" then
-    return "Reject Reason: Invalid Side For Member Gef Vol Change (GEFS)"
-  end
-  if value == "GEFU" then
-    return "Reject Reason: Invalid Umir User For Member Gef Vol Change (GEFU)"
-  end
-  if value == "GEFQ" then
-    return "Reject Reason: Invalid Volume For Member Gef Vol Change (GEFQ)"
-  end
-  if value == "MLNA" then
-    return "Reject Reason: Not Accepting Melo Orders (MLNA)"
-  end
-  if value == "MLTI" then
-    return "Reject Reason: Invalid Tif For Melo Order (MLTI)"
-  end
-  if value == "MLBY" then
-    return "Reject Reason: Bypass Not Allowed For Melo Orders (MLBY)"
-  end
-  if value == "MLRE" then
-    return "Reject Reason: Cannot Change Melo To Nonmelo Or Vice Versa (MLRE)"
-  end
-  if value == "MLDA" then
-    return "Reject Reason: Dao Not Allowed For Melo Orders (MLDA)"
-  end
-  if value == "MLOP" then
-    return "Reject Reason: Opr Cancel Not Allowed For Melo Orders (MLOP)"
-  end
-  if value == "MLOQ" then
-    return "Reject Reason: Invalid Qty For Melo Order (MLOQ)"
-  end
-  if value == "IVSD" then
-    return "Reject Reason: Invalid Side (IVSD)"
-  end
-  if value == "IVTF" then
-    return "Reject Reason: Invalid Tif (IVTF)"
-  end
-  if value == "IVOT" then
-    return "Reject Reason: Invalid Ordertype (IVOT)"
-  end
-  if value == "NOJT" then
-    return "Reject Reason: Jitney Not Allowed (NOJT)"
-  end
-  if value == "OLPN" then
-    return "Reject Reason: Destination Not Accepting Odd Lot Book Orders (OLPN)"
-  end
-  if value == "OLPQ" then
-    return "Reject Reason: Olp Order Qty Does Not Meet The Required Minimum (OLPQ)"
-  end
-  if value == "OLPR" then
-    return "Reject Reason: Cannot Change Olp To Nonolp Or Vice Versa (OLPR)"
-  end
-  if value == "OLPL" then
-    return "Reject Reason: Olp Order Limit Exceeded (OLPL)"
-  end
-  if value == "PSNA" then
-    return "Reject Reason: Destination Not Accepting Purestream Orders (PSNA)"
-  end
-  if value == "PSST" then
-    return "Reject Reason: Invalid Target Strategy (PSST)"
-  end
-  if value == "PSRT" then
-    return "Reject Reason: Invalid Minrate Or Maxrate (PSRT)"
-  end
-  if value == "PSQT" then
-    return "Reject Reason: Qty Does Not Meet Boardlot Or Notional Requirement (PSQT)"
-  end
-  if value == "PSNV" then
-    return "Reject Reason: Nominal Value Under Requirement (PSNV)"
-  end
-  if value == "PSTF" then
-    return "Reject Reason: Invalid Tif For Purestream (PSTF)"
-  end
-  if value == "PSPG" then
-    return "Reject Reason: Pegging Not Allowed For Purestream (PSPG)"
-  end
-  if value == "PSSP" then
-    return "Reject Reason: Seek Price Improvement Not Allowed For Purestream (PSSP)"
-  end
-  if value == "PMQY" then
-    return "Reject Reason: Minqtyallornone Not Allowed For The Specified Purestream Strategy (PMQY)"
-  end
-  if value == "PSRE" then
-    return "Reject Reason: Cannot Change Purestream Order To Nonpurestream Order Or Vice Versa (PSRE)"
-  end
-  if value == "PSVI" then
-    return "Reject Reason: Stream Requirement Violated For The Stock Purestream Orders Not Allowed For Rest Of Day (PSVI)"
-  end
-  if value == "PSML" then
-    return "Reject Reason: Order Cannot Be Both Melo And Purestream (PSML)"
-  end
-  if value == "CDVI" then
-    return "Reject Reason: Firmup Requirement Violated For The Stock Conditionals Not Allowed For Rest Of Day (CDVI)"
-  end
-  if value == "CDFU" then
-    return "Reject Reason: Order Is Not Expecting A Firmup Response (CDFU)"
-  end
-  if value == "CDTP" then
-    return "Reject Reason: Invalid Conditional Type (CDTP)"
-  end
-  if value == "CDOR" then
-    return "Reject Reason: Underlying Order Does Not Qualify As A Conditional Order (CDOR)"
-  end
-  if value == "CDTF" then
-    return "Reject Reason: Invalid Tif For Conditional Order (CDTF)"
-  end
-  if value == "CDRE" then
-    return "Reject Reason: Cannot Change Conditional Order To Firm Order And Vice Versa (CDRE)"
-  end
-  if value == "CNTG" then
-    return "Reject Reason: System In Contingency Mode Orders Are Not Being Accepted (CNTG)"
-  end
-  if value == "IVEX" then
-    return "Reject Reason: Invalid Expiry Time (IVEX)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason.labels = {
+  ["none"] = "Reject Reason: Rejected None (none)",
+  ["SYMB"] = "Reject Reason: Unknown Symbol (SYMB)",
+  ["SYMD"] = "Reject Reason: Symbol Not Allowed To Trade On Destination (SYMD)",
+  ["HLTD"] = "Reject Reason: Symbol Halted On Destination (HLTD)",
+  ["TLTC"] = "Reject Reason: Too Late To Cancel (TLTC)",
+  ["TLTR"] = "Reject Reason: Too Late To Replace (TLTR)",
+  ["ADMC"] = "Reject Reason: Admin Canceled (ADMC)",
+  ["ADRJ"] = "Reject Reason: Admin Rejected (ADRJ)",
+  ["HLTS"] = "Reject Reason: Symbol Halted (HLTS)",
+  ["VMIN"] = "Reject Reason: Visible Min Qty (VMIN)",
+  ["BIOC"] = "Reject Reason: Nonioc Bypass (BIOC)",
+  ["PDUP"] = "Reject Reason: Possdupe Set (PDUP)",
+  ["MRTE"] = "Reject Reason: Missing Or Invalid Exdestination Specified (MRTE)",
+  ["USRB"] = "Reject Reason: Missingunknown Tag Umiruserid (USRB)",
+  ["CRED"] = "Reject Reason: Terminal Has No Credit (CRED)",
+  ["SMEB"] = "Reject Reason: Short Marker Exempt Not Supported For Value (SMEB)",
+  ["LMTP"] = "Reject Reason: Invalid Order Price (LMTP)",
+  ["MCLO"] = "Reject Reason: Market Not Open (MCLO)",
+  ["ODDB"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit (ODDB)",
+  ["ODDD"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit No Oddlot Dealer (ODDD)",
+  ["ODDI"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit Tif Not Ioc Or Day (ODDI)",
+  ["ODDP"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit No Prim Peg (ODDP)",
+  ["ODDM"] = "Reject Reason: Invalid Ordqty Must Be A Multiple Of Standard Trading Unit Minqty Specified (ODDM)",
+  ["ODDR"] = "Reject Reason: Invalid Ordqty Cannot Replace Oddlot To Roundmixed Lot Or Vice Versa (ODDR)",
+  ["OSTP"] = "Reject Reason: Rejected Ostp (OSTP)",
+  ["NORD"] = "Reject Reason: Order Not Found (NORD)",
+  ["PENR"] = "Reject Reason: Pending Replace (PENR)",
+  ["PENC"] = "Reject Reason: Order Pending Cancel (PENC)",
+  ["SYMM"] = "Reject Reason: Symbol Mismatch (SYMM)",
+  ["USRM"] = "Reject Reason: Umir User Id Mismatch (USRM)",
+  ["SIDM"] = "Reject Reason: Side Mismatch (SIDM)",
+  ["DESM"] = "Reject Reason: Destination Mismatch (DESM)",
+  ["ISOM"] = "Reject Reason: Cannot Convert To Iso Order (ISOM)",
+  ["INVT"] = "Reject Reason: Invalid Tag (INVT)",
+  ["GTDE"] = "Reject Reason: Expiry Required For Good Till Dategtd Order (GTDE)",
+  ["EMPT"] = "Reject Reason: Order Exceeded Mktplace Threshold (EMPT)",
+  ["BDRK"] = "Reject Reason: Bypass Orders Not Valid On Dark Pool (BDRK)",
+  ["DCDT"] = "Reject Reason: User Not Permissioned On Destination (DCDT)",
+  ["MPIB"] = "Reject Reason: Mpi Orders Only For Cxd (MPIB)",
+  ["ACSO"] = "Reject Reason: At Close Orders Only For Sor Orders (ACSO)",
+  ["INVM"] = "Reject Reason: Displayed Quantity Must Be Of Standard Trading Unitstu (INVM)",
+  ["INVD"] = "Reject Reason: Display Range Must Be Of Standard Trading Unitstu (INVD)",
+  ["MINB"] = "Reject Reason: Minqty Must Be Of Standard Trading Unitstu (MINB)",
+  ["OFFB"] = "Reject Reason: Invalid Pegoffset For Peg Type (OFFB)",
+  ["STRM"] = "Reject Reason: Rejected Strm (STRM)",
+  ["CAPD"] = "Reject Reason: Order Failed Caplimit No Default Limit Found (CAPD)",
+  ["CAPS"] = "Reject Reason: Order Exceed Share Limits (CAPS)",
+  ["CAPN"] = "Reject Reason: Order Exceed Notional Limits (CAPN)",
+  ["CLOP"] = "Reject Reason: Pegged Orders Unavailable After Hours (CLOP)",
+  ["MIST"] = "Reject Reason: Missing Required Tags (MIST)",
+  ["QTYB"] = "Reject Reason: Orderqty Must Be Greater Than 0 (QTYB)",
+  ["NMKT"] = "Reject Reason: No Market (NMKT)",
+  ["LCMK"] = "Reject Reason: Market Locked Or Crossed (LCMK)",
+  ["CUMQ"] = "Reject Reason: New Order Quantity Less Than Cumqty (CUMQ)",
+  ["OTHR"] = "Reject Reason: Rejected Othr (OTHR)",
+  ["RIOC"] = "Reject Reason: No Replace On Ioc Order (RIOC)",
+  ["GWRJ"] = "Reject Reason: Gateway Reject (GWRJ)",
+  ["DNMQ"] = "Reject Reason: Cxd Not Accepting Min Qty Orders (DNMQ)",
+  ["dSDN"] = "Reject Reason: Destination System Down (dSDN)",
+  ["dNAO"] = "Reject Reason: Destination Not Accepting Orders (dNAO)",
+  ["dNPO"] = "Reject Reason: Destination Does Not Support Post Only (dNPO)",
+  ["dSTP"] = "Reject Reason: Destination Does Not Support Stp Feature Specified (dSTP)",
+  ["dPEG"] = "Reject Reason: Destination Does Not Support Peg Type (dPEG)",
+  ["dFOK"] = "Reject Reason: Destination Does Not Support Fok (dFOK)",
+  ["dHID"] = "Reject Reason: Destination Does Not Support Hidden Orders (dHID)",
+  ["dMQY"] = "Reject Reason: Destination Does Not Support Minqty (dMQY)",
+  ["dAON"] = "Reject Reason: Destination Does Not Support Aon (dAON)",
+  ["dCLO"] = "Reject Reason: Destination Does Not Support Closing Orders (dCLO)",
+  ["dIOC"] = "Reject Reason: Destination Does Not Support Ioc Time In Force (dIOC)",
+  ["dBYP"] = "Reject Reason: Destination Does Not Support Bypass Flag (dBYP)",
+  ["dRUO"] = "Reject Reason: Destination Replace For Unack Order (dRUO)",
+  ["dTYP"] = "Reject Reason: Destination Does Not Support Order Type (dTYP)",
+  ["dMET"] = "Reject Reason: Destination Does Not Support Maq At The Touch Orders (dMET)",
+  ["dMQT"] = "Reject Reason: Destination Does Not Support Mq At The Touch Orders (dMQT)",
+  ["dSPI"] = "Reject Reason: Destination Does Not Support Seek Price Improvement (dSPI)",
+  ["dOLP"] = "Reject Reason: Destination Does Not Support Odd Lot Book Orders (dOLP)",
+  ["sTIF"] = "Reject Reason: Invalid Tif For Spi Order Tif Must Be Ioc (sTIF)",
+  ["aTIF"] = "Reject Reason: Invalid Tif For Maq At The Touch Tif Must Be Ioc (aTIF)",
+  ["qTIF"] = "Reject Reason: Invalid Tif For Mq At The Touch Tif Must Be Ioc (qTIF)",
+  ["AONQ"] = "Reject Reason: Aon Not Allowed For Maq At The Touch Or Mq At The Touch (AONQ)",
+  ["PEGQ"] = "Reject Reason: Peg Not Alllowed For Maq At The Touch Or Mq At The Touch (PEGQ)",
+  ["MQYB"] = "Reject Reason: Invalid Minqty Must Be A Multiple Of Standard Trading Unit For Maq At The Touch Or Mq At The Touch (MQYB)",
+  ["SPIP"] = "Reject Reason: Pegging Not Allowed With Seekpriceimprovement (SPIP)",
+  ["SPII"] = "Reject Reason: Cso Not Allowed With Seekpriceimprovement (SPII)",
+  ["SPIM"] = "Reject Reason: Minpriceimprovement Not Allowed With Seekpriceimprovement (SPIM)",
+  ["NSTP"] = "Reject Reason: Stop Order Not Supported (NSTP)",
+  ["CRTE"] = "Reject Reason: Chix Route Market Not Found (CRTE)",
+  ["BOPG"] = "Reject Reason: Chix Route Opg Orders Not Valid After Stock Open (BOPG)",
+  ["NGTC"] = "Reject Reason: Chix Route Gtc Orders Not Supported (NGTC)",
+  ["CMCL"] = "Reject Reason: Chix Route Mkt Order Not Supported After Close (CMCL)",
+  ["rXBO"] = "Reject Reason: Sor Crossed Best Bid Ask (rXBO)",
+  ["rIQT"] = "Reject Reason: Sor Insufficient Quantity (rIQT)",
+  ["rIBO"] = "Reject Reason: Sor Invalid Best Bid Ask (rIBO)",
+  ["rIBB"] = "Reject Reason: Rejected R Ibb (rIBB)",
+  ["rIBA"] = "Reject Reason: Sor Invalid Best Ask (rIBA)",
+  ["rPNR"] = "Reject Reason: Sor Protected Venue Not Routable (rPNR)",
+  ["rUKS"] = "Reject Reason: Unknown Strategy For Router (rUKS)",
+  ["AONI"] = "Reject Reason: Aon Cannot Be Combined With Ioc Or Fok (AONI)",
+  ["GEFD"] = "Reject Reason: Invalid Dest For Member Gef Vol Change (GEFD)",
+  ["GEFS"] = "Reject Reason: Invalid Side For Member Gef Vol Change (GEFS)",
+  ["GEFU"] = "Reject Reason: Invalid Umir User For Member Gef Vol Change (GEFU)",
+  ["GEFQ"] = "Reject Reason: Invalid Volume For Member Gef Vol Change (GEFQ)",
+  ["MLNA"] = "Reject Reason: Not Accepting Melo Orders (MLNA)",
+  ["MLTI"] = "Reject Reason: Invalid Tif For Melo Order (MLTI)",
+  ["MLBY"] = "Reject Reason: Bypass Not Allowed For Melo Orders (MLBY)",
+  ["MLRE"] = "Reject Reason: Cannot Change Melo To Nonmelo Or Vice Versa (MLRE)",
+  ["MLDA"] = "Reject Reason: Dao Not Allowed For Melo Orders (MLDA)",
+  ["MLOP"] = "Reject Reason: Opr Cancel Not Allowed For Melo Orders (MLOP)",
+  ["MLOQ"] = "Reject Reason: Invalid Qty For Melo Order (MLOQ)",
+  ["IVSD"] = "Reject Reason: Invalid Side (IVSD)",
+  ["IVTF"] = "Reject Reason: Invalid Tif (IVTF)",
+  ["IVOT"] = "Reject Reason: Invalid Ordertype (IVOT)",
+  ["NOJT"] = "Reject Reason: Jitney Not Allowed (NOJT)",
+  ["OLPN"] = "Reject Reason: Destination Not Accepting Odd Lot Book Orders (OLPN)",
+  ["OLPQ"] = "Reject Reason: Olp Order Qty Does Not Meet The Required Minimum (OLPQ)",
+  ["OLPR"] = "Reject Reason: Cannot Change Olp To Nonolp Or Vice Versa (OLPR)",
+  ["OLPL"] = "Reject Reason: Olp Order Limit Exceeded (OLPL)",
+  ["PSNA"] = "Reject Reason: Destination Not Accepting Purestream Orders (PSNA)",
+  ["PSST"] = "Reject Reason: Invalid Target Strategy (PSST)",
+  ["PSRT"] = "Reject Reason: Invalid Minrate Or Maxrate (PSRT)",
+  ["PSQT"] = "Reject Reason: Qty Does Not Meet Boardlot Or Notional Requirement (PSQT)",
+  ["PSNV"] = "Reject Reason: Nominal Value Under Requirement (PSNV)",
+  ["PSTF"] = "Reject Reason: Invalid Tif For Purestream (PSTF)",
+  ["PSPG"] = "Reject Reason: Pegging Not Allowed For Purestream (PSPG)",
+  ["PSSP"] = "Reject Reason: Seek Price Improvement Not Allowed For Purestream (PSSP)",
+  ["PMQY"] = "Reject Reason: Minqtyallornone Not Allowed For The Specified Purestream Strategy (PMQY)",
+  ["PSRE"] = "Reject Reason: Cannot Change Purestream Order To Nonpurestream Order Or Vice Versa (PSRE)",
+  ["PSVI"] = "Reject Reason: Stream Requirement Violated For The Stock Purestream Orders Not Allowed For Rest Of Day (PSVI)",
+  ["PSML"] = "Reject Reason: Order Cannot Be Both Melo And Purestream (PSML)",
+  ["CDVI"] = "Reject Reason: Firmup Requirement Violated For The Stock Conditionals Not Allowed For Rest Of Day (CDVI)",
+  ["CDFU"] = "Reject Reason: Order Is Not Expecting A Firmup Response (CDFU)",
+  ["CDTP"] = "Reject Reason: Invalid Conditional Type (CDTP)",
+  ["CDOR"] = "Reject Reason: Underlying Order Does Not Qualify As A Conditional Order (CDOR)",
+  ["CDTF"] = "Reject Reason: Invalid Tif For Conditional Order (CDTF)",
+  ["CDRE"] = "Reject Reason: Cannot Change Conditional Order To Firm Order And Vice Versa (CDRE)",
+  ["CNTG"] = "Reject Reason: System In Contingency Mode Orders Are Not Being Accepted (CNTG)",
+  ["IVEX"] = "Reject Reason: Invalid Expiry Time (IVEX)",
+}
 
-  return "Reject Reason: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason.labels[value] or "Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason
@@ -3185,15 +2523,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason_code = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason_code.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -3215,12 +2551,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.size = 1
 
 -- Display: Rejected Order Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.display = function(value)
-  if value == 37 then
-    return "Rejected Order Optional Field: UserRefIdx (37)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.labels = {
+  [37] = "Rejected Order Optional Field: UserRefIdx (37)",
+}
 
-  return "Rejected Order Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.labels[value] or "Rejected Order Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Rejected Order Optional Field
@@ -3242,78 +2578,34 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_fiel
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.size = 1
 
 -- Display: Replace Order Request Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.display = function(value)
-  if value == 37 then
-    return "Replace Order Request Optional Field: UserRefIdx (37)"
-  end
-  if value == 3 then
-    return "Replace Order Request Optional Field: MinQtyType (3)"
-  end
-  if value == 2 then
-    return "Replace Order Request Optional Field: PegType (2)"
-  end
-  if value == 4 then
-    return "Replace Order Request Optional Field: MinQty (4)"
-  end
-  if value == 5 then
-    return "Replace Order Request Optional Field: MaxFloor (5)"
-  end
-  if value == 6 then
-    return "Replace Order Request Optional Field: ExpireTime (6)"
-  end
-  if value == 7 then
-    return "Replace Order Request Optional Field: PegOffset (7)"
-  end
-  if value == 8 then
-    return "Replace Order Request Optional Field: TargetStrategy (8)"
-  end
-  if value == 9 then
-    return "Replace Order Request Optional Field: OrderOrigination (9)"
-  end
-  if value == 10 then
-    return "Replace Order Request Optional Field: RoutingArrangementIndicator (10)"
-  end
-  if value == 17 then
-    return "Replace Order Request Optional Field: UMIRRegulationID (17)"
-  end
-  if value == 16 then
-    return "Replace Order Request Optional Field: Anonymous (16)"
-  end
-  if value == 24 then
-    return "Replace Order Request Optional Field: DisplayRange (24)"
-  end
-  if value == 25 then
-    return "Replace Order Request Optional Field: CustomerAccount (25)"
-  end
-  if value == 26 then
-    return "Replace Order Request Optional Field: AlgorithmID (26)"
-  end
-  if value == 27 then
-    return "Replace Order Request Optional Field: CustomerLEI (27)"
-  end
-  if value == 28 then
-    return "Replace Order Request Optional Field: BrokerLEI (28)"
-  end
-  if value == 30 then
-    return "Replace Order Request Optional Field: AllowConditional (30)"
-  end
-  if value == 32 then
-    return "Replace Order Request Optional Field: CXDConnect (32)"
-  end
-  if value == 33 then
-    return "Replace Order Request Optional Field: PureStreamConnect (33)"
-  end
-  if value == 34 then
-    return "Replace Order Request Optional Field: MinRate (34)"
-  end
-  if value == 35 then
-    return "Replace Order Request Optional Field: MaxRate (35)"
-  end
-  if value == 43 then
-    return "Replace Order Request Optional Field: HandlInst (43)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.labels = {
+  [37] = "Replace Order Request Optional Field: UserRefIdx (37)",
+  [3] = "Replace Order Request Optional Field: MinQtyType (3)",
+  [2] = "Replace Order Request Optional Field: PegType (2)",
+  [4] = "Replace Order Request Optional Field: MinQty (4)",
+  [5] = "Replace Order Request Optional Field: MaxFloor (5)",
+  [6] = "Replace Order Request Optional Field: ExpireTime (6)",
+  [7] = "Replace Order Request Optional Field: PegOffset (7)",
+  [8] = "Replace Order Request Optional Field: TargetStrategy (8)",
+  [9] = "Replace Order Request Optional Field: OrderOrigination (9)",
+  [10] = "Replace Order Request Optional Field: RoutingArrangementIndicator (10)",
+  [17] = "Replace Order Request Optional Field: UMIRRegulationID (17)",
+  [16] = "Replace Order Request Optional Field: Anonymous (16)",
+  [24] = "Replace Order Request Optional Field: DisplayRange (24)",
+  [25] = "Replace Order Request Optional Field: CustomerAccount (25)",
+  [26] = "Replace Order Request Optional Field: AlgorithmID (26)",
+  [27] = "Replace Order Request Optional Field: CustomerLEI (27)",
+  [28] = "Replace Order Request Optional Field: BrokerLEI (28)",
+  [30] = "Replace Order Request Optional Field: AllowConditional (30)",
+  [32] = "Replace Order Request Optional Field: CXDConnect (32)",
+  [33] = "Replace Order Request Optional Field: PureStreamConnect (33)",
+  [34] = "Replace Order Request Optional Field: MinRate (34)",
+  [35] = "Replace Order Request Optional Field: MaxRate (35)",
+  [43] = "Replace Order Request Optional Field: HandlInst (43)",
+}
 
-  return "Replace Order Request Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.labels[value] or "Replace Order Request Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Replace Order Request Optional Field
@@ -3335,21 +2627,15 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.size = 1
 
 -- Display: Reprice Reason
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.display = function(value)
-  if value == 1 then
-    return "Reprice Reason: Repriced To Prevent Trade (1)"
-  end
-  if value == 2 then
-    return "Reprice Reason: Repriced To Prevent Lock (2)"
-  end
-  if value == 3 then
-    return "Reprice Reason: Repriced To Prevent Cross (3)"
-  end
-  if value == 4 then
-    return "Reprice Reason: Repriced For Marketplace Thresholds (4)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.labels = {
+  [1] = "Reprice Reason: Repriced To Prevent Trade (1)",
+  [2] = "Reprice Reason: Repriced To Prevent Lock (2)",
+  [3] = "Reprice Reason: Repriced To Prevent Cross (3)",
+  [4] = "Reprice Reason: Repriced For Marketplace Thresholds (4)",
+}
 
-  return "Reprice Reason: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.labels[value] or "Reprice Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reprice Reason
@@ -3425,18 +2711,14 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.restate_reason = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.restate_reason.size = 1
 
 -- Display: Restate Reason
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.restate_reason.display = function(value)
-  if value == "O" then
-    return "Restate Reason: Stream On (O)"
-  end
-  if value == "X" then
-    return "Restate Reason: Stream Off (X)"
-  end
-  if value == "R" then
-    return "Restate Reason: Conditional Order Firmup Request (R)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.restate_reason.labels = {
+  ["O"] = "Restate Reason: Stream On (O)",
+  ["X"] = "Restate Reason: Stream Off (X)",
+  ["R"] = "Restate Reason: Conditional Order Firmup Request (R)",
+}
 
-  return "Restate Reason: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.restate_reason.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.restate_reason.labels[value] or "Restate Reason: Unknown("..value..")"
 end
 
 -- Dissect: Restate Reason
@@ -3458,15 +2740,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.size = 1
 
 -- Display: Routing Arrangement Indicator
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.display = function(value)
-  if value == "0" then
-    return "Routing Arrangement Indicator: No Routing Arrangement In Place (0)"
-  end
-  if value == "1" then
-    return "Routing Arrangement Indicator: Routing Arrangement In Place (1)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.labels = {
+  ["0"] = "Routing Arrangement Indicator: No Routing Arrangement In Place (0)",
+  ["1"] = "Routing Arrangement Indicator: Routing Arrangement In Place (1)",
+}
 
-  return "Routing Arrangement Indicator: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.labels[value] or "Routing Arrangement Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Routing Arrangement Indicator
@@ -3534,42 +2814,22 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message_type = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Order Accepted Message (A)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Order Canceled Message (C)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Stp Canceled Message (D)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed Message (E)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Corrected Trade Message (B)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Rejected Order Message (J)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Cancel Reject Message (I)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Order Restated Message (R)"
-  end
-  if value == "Q" then
-    return "Sequenced Message Type: Account Query Response Message (Q)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["A"] = "Sequenced Message Type: Order Accepted Message (A)",
+  ["U"] = "Sequenced Message Type: Order Replaced Message (U)",
+  ["C"] = "Sequenced Message Type: Order Canceled Message (C)",
+  ["D"] = "Sequenced Message Type: Stp Canceled Message (D)",
+  ["E"] = "Sequenced Message Type: Order Executed Message (E)",
+  ["B"] = "Sequenced Message Type: Corrected Trade Message (B)",
+  ["J"] = "Sequenced Message Type: Rejected Order Message (J)",
+  ["I"] = "Sequenced Message Type: Cancel Reject Message (I)",
+  ["R"] = "Sequenced Message Type: Order Restated Message (R)",
+  ["Q"] = "Sequenced Message Type: Account Query Response Message (Q)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message_type.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -3591,27 +2851,17 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_packet_type = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_packet_type.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -3633,12 +2883,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.size = 1
 
 -- Display: Short Marking Exempt
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.display = function(value)
-  if value == "0" then
-    return "Short Marking Exempt: Sme (0)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.labels = {
+  ["0"] = "Short Marking Exempt: Sme (0)",
+}
 
-  return "Short Marking Exempt: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.labels[value] or "Short Marking Exempt: Unknown("..value..")"
 end
 
 -- Dissect: Short Marking Exempt
@@ -3660,18 +2910,14 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.side = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.side.size = 1
 
 -- Display: Side
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.side.display = function(value)
-  if value == "1" then
-    return "Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Side: Sell (2)"
-  end
-  if value == "5" then
-    return "Side: Sell Short (5)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.side.labels = {
+  ["1"] = "Side: Buy (1)",
+  ["2"] = "Side: Sell (2)",
+  ["5"] = "Side: Sell Short (5)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.side.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -3693,12 +2939,12 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.size = 1
 
 -- Display: Stp Canceled Optional Field
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.display = function(value)
-  if value == 37 then
-    return "Stp Canceled Optional Field: UserRefIdx (37)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.labels = {
+  [37] = "Stp Canceled Optional Field: UserRefIdx (37)",
+}
 
-  return "Stp Canceled Optional Field: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.labels[value] or "Stp Canceled Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Stp Canceled Optional Field
@@ -3743,21 +2989,15 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.size = 2
 
 -- Display: Target Strategy
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.display = function(value)
-  if value == 1000 then
-    return "Target Strategy: Liquidity Rate 515% (1000)"
-  end
-  if value == 1001 then
-    return "Target Strategy: Liquidity Rate 530% (1001)"
-  end
-  if value == 1002 then
-    return "Target Strategy: Mach Two 10200% (1002)"
-  end
-  if value == 1003 then
-    return "Target Strategy: Custom Liquidity Rate (1003)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.labels = {
+  [1000] = "Target Strategy: Liquidity Rate 515% (1000)",
+  [1001] = "Target Strategy: Liquidity Rate 530% (1001)",
+  [1002] = "Target Strategy: Mach Two 10200% (1002)",
+  [1003] = "Target Strategy: Custom Liquidity Rate (1003)",
+}
 
-  return "Target Strategy: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.labels[value] or "Target Strategy: Unknown("..value..")"
 end
 
 -- Dissect: Target Strategy
@@ -3779,24 +3019,16 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.time_in_force = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.time_in_force.size = 1
 
 -- Display: Time In Force
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.time_in_force.display = function(value)
-  if value == "0" then
-    return "Time In Force: Day (0)"
-  end
-  if value == "3" then
-    return "Time In Force: Immediate Or Cancel (3)"
-  end
-  if value == "6" then
-    return "Time In Force: Good Till Date (6)"
-  end
-  if value == "8" then
-    return "Time In Force: Stream Or Kill (8)"
-  end
-  if value == "P" then
-    return "Time In Force: Post Only Order (P)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.time_in_force.labels = {
+  ["0"] = "Time In Force: Day (0)",
+  ["3"] = "Time In Force: Immediate Or Cancel (3)",
+  ["6"] = "Time In Force: Good Till Date (6)",
+  ["8"] = "Time In Force: Stream Or Kill (8)",
+  ["P"] = "Time In Force: Post Only Order (P)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.time_in_force.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -3861,15 +3093,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.size = 1
 
 -- Display: Tsxncib
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.display = function(value)
-  if value == "N" then
-    return "Tsxncib: No (N)"
-  end
-  if value == "Y" then
-    return "Tsxncib: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.labels = {
+  ["N"] = "Tsxncib: No (N)",
+  ["Y"] = "Tsxncib: Yes (Y)",
+}
 
-  return "Tsxncib: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.labels[value] or "Tsxncib: Unknown("..value..")"
 end
 
 -- Dissect: Tsxncib
@@ -3891,33 +3121,19 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_account_type = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_account_type.size = 2
 
 -- Display: Umir Account Type
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_account_type.display = function(value)
-  if value == "CL" then
-    return "Umir Account Type: Client (CL)"
-  end
-  if value == "NC" then
-    return "Umir Account Type: Non Client (NC)"
-  end
-  if value == "ST" then
-    return "Umir Account Type: Specialist (ST)"
-  end
-  if value == "IN" then
-    return "Umir Account Type: Inventory (IN)"
-  end
-  if value == "OF" then
-    return "Umir Account Type: Options Firm Account (OF)"
-  end
-  if value == "OT" then
-    return "Umir Account Type: Options Market Maker (OT)"
-  end
-  if value == "BU" then
-    return "Umir Account Type: Bundled (BU)"
-  end
-  if value == "MC" then
-    return "Umir Account Type: Multiple Clients (MC)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_account_type.labels = {
+  ["CL"] = "Umir Account Type: Client (CL)",
+  ["NC"] = "Umir Account Type: Non Client (NC)",
+  ["ST"] = "Umir Account Type: Specialist (ST)",
+  ["IN"] = "Umir Account Type: Inventory (IN)",
+  ["OF"] = "Umir Account Type: Options Firm Account (OF)",
+  ["OT"] = "Umir Account Type: Options Market Maker (OT)",
+  ["BU"] = "Umir Account Type: Bundled (BU)",
+  ["MC"] = "Umir Account Type: Multiple Clients (MC)",
+}
 
-  return "Umir Account Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_account_type.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_account_type.labels[value] or "Umir Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Umir Account Type
@@ -3939,15 +3155,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.size = 2
 
 -- Display: Umir Regulation Id
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.display = function(value)
-  if value == "IA" then
-    return "Umir Regulation Id: Insider Account (IA)"
-  end
-  if value == "SS" then
-    return "Umir Regulation Id: Significant Shareholder (SS)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.labels = {
+  ["IA"] = "Umir Regulation Id: Insider Account (IA)",
+  ["SS"] = "Umir Regulation Id: Significant Shareholder (SS)",
+}
 
-  return "Umir Regulation Id: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.labels[value] or "Umir Regulation Id: Unknown("..value..")"
 end
 
 -- Dissect: Umir Regulation Id
@@ -3992,21 +3206,15 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message_type = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Request Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Request Message (X)"
-  end
-  if value == "Q" then
-    return "Unsequenced Message Type: Account Query Request Message (Q)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order Message (O)",
+  ["U"] = "Unsequenced Message Type: Replace Order Request Message (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order Request Message (X)",
+  ["Q"] = "Unsequenced Message Type: Account Query Request Message (Q)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message_type.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -4097,15 +3305,13 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.wash_trade = {}
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.wash_trade.size = 1
 
 -- Display: Wash Trade
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.wash_trade.display = function(value)
-  if value == "N" then
-    return "Wash Trade: No (N)"
-  end
-  if value == "Y" then
-    return "Wash Trade: Yes (Y)"
-  end
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.wash_trade.labels = {
+  ["N"] = "Wash Trade: No (N)",
+  ["Y"] = "Wash Trade: Yes (Y)",
+}
 
-  return "Wash Trade: Unknown("..value..")"
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.wash_trade.display = function(value)
+  return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.wash_trade.labels[value] or "Wash Trade: Unknown("..value..")"
 end
 
 -- Dissect: Wash Trade
@@ -4163,10 +3369,14 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_value = {}
 
 -- Dissect: Account Query Response Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_value.dissect = function(buffer, offset, packet, parent, account_query_response_optional_field)
-  -- Dissect User Ref Idx
-  if account_query_response_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_value.dispatch[account_query_response_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4294,14 +3504,15 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_value = {}
 
 -- Dissect: Order Restated Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+  [31] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.firm_up_id.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_value.dissect = function(buffer, offset, packet, parent, order_restated_optional_field)
-  -- Dissect User Ref Idx
-  if order_restated_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Firm Up Id
-  if order_restated_optional_field == 31 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.firm_up_id.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_value.dispatch[order_restated_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4426,10 +3637,14 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_value = {}
 
 -- Dissect: Cancel Reject Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_value.dissect = function(buffer, offset, packet, parent, cancel_reject_optional_field)
-  -- Dissect User Ref Idx
-  if cancel_reject_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_value.dispatch[cancel_reject_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4554,10 +3769,14 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_value = {}
 
 -- Dissect: Rejected Order Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_value.dissect = function(buffer, offset, packet, parent, rejected_order_optional_field)
-  -- Dissect User Ref Idx
-  if rejected_order_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_value.dispatch[rejected_order_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4682,10 +3901,14 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_value = {}
 
 -- Dissect: Corrected Trade Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_value.dissect = function(buffer, offset, packet, parent, corrected_trade_optional_field)
-  -- Dissect User Ref Idx
-  if corrected_trade_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_value.dispatch[corrected_trade_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4816,34 +4039,20 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_value = {}
 
 -- Dissect: Order Executed Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+  [38] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.execute_match.dissect,
+  [40] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.secondary_order_id.dissect,
+  [42] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_pref.dissect,
+  [13] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.principal_trade.dissect,
+  [41] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.wash_trade.dissect,
+  [36] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cum_rate.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_value.dissect = function(buffer, offset, packet, parent, order_executed_optional_field)
-  -- Dissect User Ref Idx
-  if order_executed_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execute Match
-  if order_executed_optional_field == 38 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.execute_match.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secondary Order Id
-  if order_executed_optional_field == 40 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.secondary_order_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broker Pref
-  if order_executed_optional_field == 42 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_pref.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Principal Trade
-  if order_executed_optional_field == 13 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.principal_trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Wash Trade
-  if order_executed_optional_field == 41 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.wash_trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cum Rate
-  if order_executed_optional_field == 36 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cum_rate.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_value.dispatch[order_executed_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4983,10 +4192,14 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_value = {}
 
 -- Dissect: Stp Canceled Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_value.dissect = function(buffer, offset, packet, parent, stp_canceled_optional_field)
-  -- Dissect User Ref Idx
-  if stp_canceled_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_value.dispatch[stp_canceled_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5123,10 +4336,14 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_value = {}
 
 -- Dissect: Order Canceled Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_value.dissect = function(buffer, offset, packet, parent, order_canceled_optional_field)
-  -- Dissect User Ref Idx
-  if order_canceled_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_value.dispatch[order_canceled_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5254,106 +4471,38 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_value = {}
 
 -- Dissect: Order Replaced Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+  [3] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.dissect,
+  [2] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.dissect,
+  [4] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty.dissect,
+  [5] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_floor.dissect,
+  [6] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.expire_time.dissect,
+  [7] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_offset.dissect,
+  [8] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.dissect,
+  [9] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.dissect,
+  [10] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.dissect,
+  [17] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.dissect,
+  [16] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.dissect,
+  [24] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.display_range.dissect,
+  [25] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_account.dissect,
+  [26] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.algorithm_id.dissect,
+  [27] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_lei.dissect,
+  [28] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_lei.dissect,
+  [30] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.dissect,
+  [32] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.dissect,
+  [33] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.dissect,
+  [34] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_rate.dissect,
+  [35] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_rate.dissect,
+  [43] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.dissect,
+  [44] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.dissect,
+  [45] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_value.dissect = function(buffer, offset, packet, parent, order_replaced_optional_field)
-  -- Dissect User Ref Idx
-  if order_replaced_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty Type
-  if order_replaced_optional_field == 3 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Type
-  if order_replaced_optional_field == 2 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty
-  if order_replaced_optional_field == 4 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if order_replaced_optional_field == 5 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if order_replaced_optional_field == 6 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Offset
-  if order_replaced_optional_field == 7 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Target Strategy
-  if order_replaced_optional_field == 8 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Origination
-  if order_replaced_optional_field == 9 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Routing Arrangement Indicator
-  if order_replaced_optional_field == 10 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Umir Regulation Id
-  if order_replaced_optional_field == 17 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Anonymous
-  if order_replaced_optional_field == 16 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display Range
-  if order_replaced_optional_field == 24 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.display_range.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Account
-  if order_replaced_optional_field == 25 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_account.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Algorithm Id
-  if order_replaced_optional_field == 26 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.algorithm_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Lei
-  if order_replaced_optional_field == 27 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_lei.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broker Lei
-  if order_replaced_optional_field == 28 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_lei.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Allow Conditional
-  if order_replaced_optional_field == 30 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cxd Connect
-  if order_replaced_optional_field == 32 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pure Stream Connect
-  if order_replaced_optional_field == 33 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Rate
-  if order_replaced_optional_field == 34 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_rate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Rate
-  if order_replaced_optional_field == 35 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_rate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Handl Inst
-  if order_replaced_optional_field == 43 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reprice Reason
-  if order_replaced_optional_field == 44 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Nbbo Setter
-  if order_replaced_optional_field == 45 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_value.dispatch[order_replaced_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5496,162 +4645,52 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_value = {}
 
 -- Dissect: Order Accepted Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+  [1] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account.dissect,
+  [2] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.dissect,
+  [3] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.dissect,
+  [4] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty.dissect,
+  [5] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_floor.dissect,
+  [6] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.expire_time.dissect,
+  [7] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_offset.dissect,
+  [8] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.dissect,
+  [9] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.dissect,
+  [10] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.dissect,
+  [11] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.dissect,
+  [12] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.dissect,
+  [14] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.jitney.dissect,
+  [15] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.dissect,
+  [16] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.dissect,
+  [17] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.dissect,
+  [18] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.dissect,
+  [19] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.dissect,
+  [20] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.dissect,
+  [21] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_key.dissect,
+  [22] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.dissect,
+  [23] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.po_comment.dissect,
+  [24] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.display_range.dissect,
+  [25] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_account.dissect,
+  [26] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.algorithm_id.dissect,
+  [27] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_lei.dissect,
+  [28] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_lei.dissect,
+  [29] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.dissect,
+  [30] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.dissect,
+  [31] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.firm_up_id.dissect,
+  [32] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.dissect,
+  [33] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.dissect,
+  [34] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_rate.dissect,
+  [35] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_rate.dissect,
+  [39] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_strategy.dissect,
+  [43] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.dissect,
+  [44] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.dissect,
+  [45] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_value.dissect = function(buffer, offset, packet, parent, order_accepted_optional_field)
-  -- Dissect User Ref Idx
-  if order_accepted_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account
-  if order_accepted_optional_field == 1 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Type
-  if order_accepted_optional_field == 2 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty Type
-  if order_accepted_optional_field == 3 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty
-  if order_accepted_optional_field == 4 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if order_accepted_optional_field == 5 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if order_accepted_optional_field == 6 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Offset
-  if order_accepted_optional_field == 7 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Target Strategy
-  if order_accepted_optional_field == 8 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Origination
-  if order_accepted_optional_field == 9 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Routing Arrangement Indicator
-  if order_accepted_optional_field == 10 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Trade
-  if order_accepted_optional_field == 11 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Program Trade
-  if order_accepted_optional_field == 12 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Jitney
-  if order_accepted_optional_field == 14 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.jitney.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gef Eligible
-  if order_accepted_optional_field == 15 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Anonymous
-  if order_accepted_optional_field == 16 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Umir Regulation Id
-  if order_accepted_optional_field == 17 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bypass
-  if order_accepted_optional_field == 18 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tsxncib
-  if order_accepted_optional_field == 19 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect No Trade Feat
-  if order_accepted_optional_field == 20 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect No Trade Key
-  if order_accepted_optional_field == 21 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_key.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Marking Exempt
-  if order_accepted_optional_field == 22 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Po Comment
-  if order_accepted_optional_field == 23 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.po_comment.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display Range
-  if order_accepted_optional_field == 24 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.display_range.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Account
-  if order_accepted_optional_field == 25 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_account.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Algorithm Id
-  if order_accepted_optional_field == 26 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.algorithm_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Lei
-  if order_accepted_optional_field == 27 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_lei.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broker Lei
-  if order_accepted_optional_field == 28 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_lei.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Conditional Order
-  if order_accepted_optional_field == 29 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Allow Conditional
-  if order_accepted_optional_field == 30 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Firm Up Id
-  if order_accepted_optional_field == 31 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.firm_up_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cxd Connect
-  if order_accepted_optional_field == 32 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pure Stream Connect
-  if order_accepted_optional_field == 33 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Rate
-  if order_accepted_optional_field == 34 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_rate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Rate
-  if order_accepted_optional_field == 35 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_rate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Routing Strategy
-  if order_accepted_optional_field == 39 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Handl Inst
-  if order_accepted_optional_field == 43 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reprice Reason
-  if order_accepted_optional_field == 44 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.reprice_reason.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Nbbo Setter
-  if order_accepted_optional_field == 45 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.nbbo_setter.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_value.dispatch[order_accepted_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5847,50 +4886,24 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.system_event_message.dissect,
+  ["A"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_message.dissect,
+  ["U"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_message.dissect,
+  ["C"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_message.dissect,
+  ["D"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_message.dissect,
+  ["E"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_message.dissect,
+  ["B"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_message.dissect,
+  ["J"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_message.dissect,
+  ["I"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_message.dissect,
+  ["R"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_message.dissect,
+  ["Q"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_message.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Accepted Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if sequenced_message_type == "U" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stp Canceled Message
-  if sequenced_message_type == "D" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if sequenced_message_type == "E" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Corrected Trade Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rejected Order Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Reject Message
-  if sequenced_message_type == "I" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Message
-  if sequenced_message_type == "R" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Query Response Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6133,30 +5146,19 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_payload.dispatch = {
+  ["+"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.debug_packet.dissect,
+  ["A"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_heartbeat.dissect,
+  ["Z"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.end_of_session.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6356,10 +5358,14 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_value = {}
 
 -- Dissect: Account Query Request Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_value.dissect = function(buffer, offset, packet, parent, account_query_request_optional_field)
-  -- Dissect User Ref Idx
-  if account_query_request_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_value.dispatch[account_query_request_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6475,10 +5481,14 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_value = {}
 
 -- Dissect: Cancel Order Request Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_value.dissect = function(buffer, offset, packet, parent, cancel_order_request_optional_field)
-  -- Dissect User Ref Idx
-  if cancel_order_request_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_value.dispatch[cancel_order_request_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6600,98 +5610,36 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_value = {}
 
 -- Dissect: Replace Order Request Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+  [3] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.dissect,
+  [2] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.dissect,
+  [4] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty.dissect,
+  [5] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_floor.dissect,
+  [6] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.expire_time.dissect,
+  [7] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_offset.dissect,
+  [8] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.dissect,
+  [9] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.dissect,
+  [10] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.dissect,
+  [17] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.dissect,
+  [16] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.dissect,
+  [24] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.display_range.dissect,
+  [25] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_account.dissect,
+  [26] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.algorithm_id.dissect,
+  [27] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_lei.dissect,
+  [28] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_lei.dissect,
+  [30] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.dissect,
+  [32] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.dissect,
+  [33] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.dissect,
+  [34] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_rate.dissect,
+  [35] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_rate.dissect,
+  [43] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_value.dissect = function(buffer, offset, packet, parent, replace_order_request_optional_field)
-  -- Dissect User Ref Idx
-  if replace_order_request_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty Type
-  if replace_order_request_optional_field == 3 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Type
-  if replace_order_request_optional_field == 2 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty
-  if replace_order_request_optional_field == 4 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if replace_order_request_optional_field == 5 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if replace_order_request_optional_field == 6 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Offset
-  if replace_order_request_optional_field == 7 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Target Strategy
-  if replace_order_request_optional_field == 8 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Origination
-  if replace_order_request_optional_field == 9 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Routing Arrangement Indicator
-  if replace_order_request_optional_field == 10 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Umir Regulation Id
-  if replace_order_request_optional_field == 17 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Anonymous
-  if replace_order_request_optional_field == 16 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display Range
-  if replace_order_request_optional_field == 24 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.display_range.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Account
-  if replace_order_request_optional_field == 25 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_account.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Algorithm Id
-  if replace_order_request_optional_field == 26 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.algorithm_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Lei
-  if replace_order_request_optional_field == 27 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_lei.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broker Lei
-  if replace_order_request_optional_field == 28 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_lei.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Allow Conditional
-  if replace_order_request_optional_field == 30 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cxd Connect
-  if replace_order_request_optional_field == 32 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pure Stream Connect
-  if replace_order_request_optional_field == 33 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Rate
-  if replace_order_request_optional_field == 34 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_rate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Rate
-  if replace_order_request_optional_field == 35 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_rate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Handl Inst
-  if replace_order_request_optional_field == 43 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_value.dispatch[replace_order_request_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6825,154 +5773,50 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_value = {}
 
 -- Dissect: Enter Order Optional Value
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_value.dispatch = {
+  [37] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect,
+  [1] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account.dissect,
+  [2] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.dissect,
+  [3] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.dissect,
+  [4] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty.dissect,
+  [5] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_floor.dissect,
+  [6] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.expire_time.dissect,
+  [7] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_offset.dissect,
+  [8] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.dissect,
+  [9] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.dissect,
+  [10] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.dissect,
+  [11] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.dissect,
+  [12] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.dissect,
+  [14] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.jitney.dissect,
+  [15] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.dissect,
+  [16] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.dissect,
+  [17] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.dissect,
+  [18] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.dissect,
+  [19] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.dissect,
+  [20] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.dissect,
+  [21] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_key.dissect,
+  [22] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.dissect,
+  [23] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.po_comment.dissect,
+  [24] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.display_range.dissect,
+  [25] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_account.dissect,
+  [26] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.algorithm_id.dissect,
+  [27] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_lei.dissect,
+  [28] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_lei.dissect,
+  [29] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.dissect,
+  [30] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.dissect,
+  [31] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.firm_up_id.dissect,
+  [32] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.dissect,
+  [33] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.dissect,
+  [34] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_rate.dissect,
+  [35] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_rate.dissect,
+  [39] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_strategy.dissect,
+  [43] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_value.dissect = function(buffer, offset, packet, parent, enter_order_optional_field)
-  -- Dissect User Ref Idx
-  if enter_order_optional_field == 37 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account
-  if enter_order_optional_field == 1 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Type
-  if enter_order_optional_field == 2 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty Type
-  if enter_order_optional_field == 3 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty
-  if enter_order_optional_field == 4 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_qty.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if enter_order_optional_field == 5 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if enter_order_optional_field == 6 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Offset
-  if enter_order_optional_field == 7 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Target Strategy
-  if enter_order_optional_field == 8 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.target_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Origination
-  if enter_order_optional_field == 9 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_origination.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Routing Arrangement Indicator
-  if enter_order_optional_field == 10 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_arrangement_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Trade
-  if enter_order_optional_field == 11 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.basket_trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Program Trade
-  if enter_order_optional_field == 12 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.program_trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Jitney
-  if enter_order_optional_field == 14 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.jitney.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gef Eligible
-  if enter_order_optional_field == 15 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.gef_eligible.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Anonymous
-  if enter_order_optional_field == 16 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.anonymous.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Umir Regulation Id
-  if enter_order_optional_field == 17 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.umir_regulation_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bypass
-  if enter_order_optional_field == 18 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.bypass.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tsxncib
-  if enter_order_optional_field == 19 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.tsxncib.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect No Trade Feat
-  if enter_order_optional_field == 20 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_feat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect No Trade Key
-  if enter_order_optional_field == 21 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.no_trade_key.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Marking Exempt
-  if enter_order_optional_field == 22 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.short_marking_exempt.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Po Comment
-  if enter_order_optional_field == 23 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.po_comment.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display Range
-  if enter_order_optional_field == 24 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.display_range.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Account
-  if enter_order_optional_field == 25 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_account.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Algorithm Id
-  if enter_order_optional_field == 26 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.algorithm_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Lei
-  if enter_order_optional_field == 27 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.customer_lei.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broker Lei
-  if enter_order_optional_field == 28 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.broker_lei.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Conditional Order
-  if enter_order_optional_field == 29 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.conditional_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Allow Conditional
-  if enter_order_optional_field == 30 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.allow_conditional.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Firm Up Id
-  if enter_order_optional_field == 31 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.firm_up_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cxd Connect
-  if enter_order_optional_field == 32 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cxd_connect.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pure Stream Connect
-  if enter_order_optional_field == 33 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.pure_stream_connect.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Rate
-  if enter_order_optional_field == 34 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.min_rate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Rate
-  if enter_order_optional_field == 35 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.max_rate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Routing Strategy
-  if enter_order_optional_field == 39 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.routing_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Handl Inst
-  if enter_order_optional_field == 43 then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.handl_inst.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_value.dispatch[enter_order_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7115,22 +5959,17 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message.dispatch = {
+  ["O"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_message.dissect,
+  ["U"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_message.dissect,
+  ["X"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_message.dissect,
+  ["Q"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_message.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Request Message
-  if unsequenced_message_type == "U" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Request Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Query Request Message
-  if unsequenced_message_type == "Q" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7245,26 +6084,18 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_payload.dispatch = {
+  ["+"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.debug_packet.dissect,
+  ["L"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.login_request_packet.dissect,
+  ["U"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_heartbeat.dissect,
+  ["O"] = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.logout_request.dissect,
+}
+
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

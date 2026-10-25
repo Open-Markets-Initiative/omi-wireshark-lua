@@ -196,15 +196,13 @@ lme_lmeselect_referenceprices_lmesource_v4_18.atm = {}
 lme_lmeselect_referenceprices_lmesource_v4_18.atm.size = 1
 
 -- Display: Atm
-lme_lmeselect_referenceprices_lmesource_v4_18.atm.display = function(value)
-  if value == 0 then
-    return "Atm: Delta Point (0)"
-  end
-  if value == 1 then
-    return "Atm: Atm Strike (1)"
-  end
+lme_lmeselect_referenceprices_lmesource_v4_18.atm.labels = {
+  [0] = "Atm: Delta Point (0)",
+  [1] = "Atm: Atm Strike (1)",
+}
 
-  return "Atm: Unknown("..value..")"
+lme_lmeselect_referenceprices_lmesource_v4_18.atm.display = function(value)
+  return lme_lmeselect_referenceprices_lmesource_v4_18.atm.labels[value] or "Atm: Unknown("..value..")"
 end
 
 -- Dissect: Atm
@@ -520,15 +518,13 @@ lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_category = {}
 lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_category.size = 1
 
 -- Display: Fx Rate Category
-lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_category.display = function(value)
-  if value == "E" then
-    return "Fx Rate Category: Exchange (E)"
-  end
-  if value == "C" then
-    return "Fx Rate Category: Closing (C)"
-  end
+lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_category.labels = {
+  ["E"] = "Fx Rate Category: Exchange (E)",
+  ["C"] = "Fx Rate Category: Closing (C)",
+}
 
-  return "Fx Rate Category: Unknown("..value..")"
+lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_category.display = function(value)
+  return lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_category.labels[value] or "Fx Rate Category: Unknown("..value..")"
 end
 
 -- Dissect: Fx Rate Category
@@ -550,18 +546,14 @@ lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_type = {}
 lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_type.size = 2
 
 -- Display: Fx Rate Type
-lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_type.display = function(value)
-  if value == "DY" then
-    return "Fx Rate Type: Daily (DY)"
-  end
-  if value == "MM" then
-    return "Fx Rate Type: Monthly Moving Average (MM)"
-  end
-  if value == "MA" then
-    return "Fx Rate Type: Monthly Average (MA)"
-  end
+lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_type.labels = {
+  ["DY"] = "Fx Rate Type: Daily (DY)",
+  ["MM"] = "Fx Rate Type: Monthly Moving Average (MM)",
+  ["MA"] = "Fx Rate Type: Monthly Average (MA)",
+}
 
-  return "Fx Rate Type: Unknown("..value..")"
+lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_type.display = function(value)
+  return lme_lmeselect_referenceprices_lmesource_v4_18.fx_rate_type.labels[value] or "Fx Rate Type: Unknown("..value..")"
 end
 
 -- Dissect: Fx Rate Type
@@ -683,24 +675,16 @@ lme_lmeselect_referenceprices_lmesource_v4_18.msg_type = {}
 lme_lmeselect_referenceprices_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_referenceprices_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 401 then
-    return "Msg Type: Reference Price Message (401)"
-  end
-  if value == 402 then
-    return "Msg Type: Reference Forward Curve Price Message (402)"
-  end
-  if value == 403 then
-    return "Msg Type: Reference Fx Rate Message (403)"
-  end
-  if value == 404 then
-    return "Msg Type: Reference Volatility Price Message (404)"
-  end
+lme_lmeselect_referenceprices_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [401] = "Msg Type: Reference Price Message (401)",
+  [402] = "Msg Type: Reference Forward Curve Price Message (402)",
+  [403] = "Msg Type: Reference Fx Rate Message (403)",
+  [404] = "Msg Type: Reference Volatility Price Message (404)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_referenceprices_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_referenceprices_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -807,21 +791,15 @@ lme_lmeselect_referenceprices_lmesource_v4_18.price_status = {}
 lme_lmeselect_referenceprices_lmesource_v4_18.price_status.size = 12
 
 -- Display: Price Status
-lme_lmeselect_referenceprices_lmesource_v4_18.price_status.display = function(value)
-  if value == "Indicative" then
-    return "Price Status: Indicative (Indicative)"
-  end
-  if value == "Provisional" then
-    return "Price Status: Provisional (Provisional)"
-  end
-  if value == "Final" then
-    return "Price Status: Final (Final)"
-  end
-  if value == "ReFinalised" then
-    return "Price Status: Re Finalised (ReFinalised)"
-  end
+lme_lmeselect_referenceprices_lmesource_v4_18.price_status.labels = {
+  ["Indicative"] = "Price Status: Indicative (Indicative)",
+  ["Provisional"] = "Price Status: Provisional (Provisional)",
+  ["Final"] = "Price Status: Final (Final)",
+  ["ReFinalised"] = "Price Status: Re Finalised (ReFinalised)",
+}
 
-  return "Price Status: Unknown("..value..")"
+lme_lmeselect_referenceprices_lmesource_v4_18.price_status.display = function(value)
+  return lme_lmeselect_referenceprices_lmesource_v4_18.price_status.labels[value] or "Price Status: Unknown("..value..")"
 end
 
 -- Dissect: Price Status
@@ -1050,15 +1028,13 @@ lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_category = {}
 lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_category.size = 1
 
 -- Display: Reference Price Category
-lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_category.display = function(value)
-  if value == "I" then
-    return "Reference Price Category: Instrument (I)"
-  end
-  if value == "P" then
-    return "Reference Price Category: Product (P)"
-  end
+lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_category.labels = {
+  ["I"] = "Reference Price Category: Instrument (I)",
+  ["P"] = "Reference Price Category: Product (P)",
+}
 
-  return "Reference Price Category: Unknown("..value..")"
+lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_category.display = function(value)
+  return lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_category.labels[value] or "Reference Price Category: Unknown("..value..")"
 end
 
 -- Dissect: Reference Price Category
@@ -1080,21 +1056,15 @@ lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_type = {}
 lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_type.size = 32
 
 -- Display: Reference Price Type
-lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_type.display = function(value)
-  if value == "Official" then
-    return "Reference Price Type: Official (Official)"
-  end
-  if value == "Settlement" then
-    return "Reference Price Type: Settlement (Settlement)"
-  end
-  if value == "Closing" then
-    return "Reference Price Type: Closing (Closing)"
-  end
-  if value == "Index" then
-    return "Reference Price Type: Index (Index)"
-  end
+lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_type.labels = {
+  ["Official"] = "Reference Price Type: Official (Official)",
+  ["Settlement"] = "Reference Price Type: Settlement (Settlement)",
+  ["Closing"] = "Reference Price Type: Closing (Closing)",
+  ["Index"] = "Reference Price Type: Index (Index)",
+}
 
-  return "Reference Price Type: Unknown("..value..")"
+lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_type.display = function(value)
+  return lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_type.labels[value] or "Reference Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Reference Price Type
@@ -1225,15 +1195,13 @@ lme_lmeselect_referenceprices_lmesource_v4_18.surface_domain = {}
 lme_lmeselect_referenceprices_lmesource_v4_18.surface_domain.size = 1
 
 -- Display: Surface Domain
-lme_lmeselect_referenceprices_lmesource_v4_18.surface_domain.display = function(value)
-  if value == "S" then
-    return "Surface Domain: Strike (S)"
-  end
-  if value == "D" then
-    return "Surface Domain: Delta (D)"
-  end
+lme_lmeselect_referenceprices_lmesource_v4_18.surface_domain.labels = {
+  ["S"] = "Surface Domain: Strike (S)",
+  ["D"] = "Surface Domain: Delta (D)",
+}
 
-  return "Surface Domain: Unknown("..value..")"
+lme_lmeselect_referenceprices_lmesource_v4_18.surface_domain.display = function(value)
+  return lme_lmeselect_referenceprices_lmesource_v4_18.surface_domain.labels[value] or "Surface Domain: Unknown("..value..")"
 end
 
 -- Dissect: Surface Domain
@@ -1787,26 +1755,18 @@ end
 lme_lmeselect_referenceprices_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_referenceprices_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_referenceprices_lmesource_v4_18.sequence_reset_message.dissect,
+  [401] = lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_message.dissect,
+  [402] = lme_lmeselect_referenceprices_lmesource_v4_18.reference_forward_curve_price_message.dissect,
+  [403] = lme_lmeselect_referenceprices_lmesource_v4_18.reference_fx_rate_message.dissect,
+  [404] = lme_lmeselect_referenceprices_lmesource_v4_18.reference_volatility_price_message.dissect,
+}
+
 lme_lmeselect_referenceprices_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_referenceprices_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Message
-  if msg_type == 401 then
-    return lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Forward Curve Price Message
-  if msg_type == 402 then
-    return lme_lmeselect_referenceprices_lmesource_v4_18.reference_forward_curve_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Fx Rate Message
-  if msg_type == 403 then
-    return lme_lmeselect_referenceprices_lmesource_v4_18.reference_fx_rate_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Volatility Price Message
-  if msg_type == 404 then
-    return lme_lmeselect_referenceprices_lmesource_v4_18.reference_volatility_price_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_referenceprices_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -301,24 +301,16 @@ otcmarkets_linkats_extendedtrade_link_v4_10_4.message_type = {}
 otcmarkets_linkats_extendedtrade_link_v4_10_4.message_type.size = 1
 
 -- Display: Message Type
-otcmarkets_linkats_extendedtrade_link_v4_10_4.message_type.display = function(value)
-  if value == 11 then
-    return "Message Type: Start Of Spin Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: End Of Spin Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Market Open Message (13)"
-  end
-  if value == 14 then
-    return "Message Type: Market Close Message (14)"
-  end
-  if value == 18 then
-    return "Message Type: Extended Trade Message (18)"
-  end
+otcmarkets_linkats_extendedtrade_link_v4_10_4.message_type.labels = {
+  [11] = "Message Type: Start Of Spin Message (11)",
+  [12] = "Message Type: End Of Spin Message (12)",
+  [13] = "Message Type: Market Open Message (13)",
+  [14] = "Message Type: Market Close Message (14)",
+  [18] = "Message Type: Extended Trade Message (18)",
+}
 
-  return "Message Type: Unknown("..value..")"
+otcmarkets_linkats_extendedtrade_link_v4_10_4.message_type.display = function(value)
+  return otcmarkets_linkats_extendedtrade_link_v4_10_4.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -544,18 +536,14 @@ otcmarkets_linkats_extendedtrade_link_v4_10_4.spin_type = {}
 otcmarkets_linkats_extendedtrade_link_v4_10_4.spin_type.size = 1
 
 -- Display: Spin Type
-otcmarkets_linkats_extendedtrade_link_v4_10_4.spin_type.display = function(value)
-  if value == 1 then
-    return "Spin Type: Reference (1)"
-  end
-  if value == 2 then
-    return "Spin Type: Market Data (2)"
-  end
-  if value == 3 then
-    return "Spin Type: Opening (3)"
-  end
+otcmarkets_linkats_extendedtrade_link_v4_10_4.spin_type.labels = {
+  [1] = "Spin Type: Reference (1)",
+  [2] = "Spin Type: Market Data (2)",
+  [3] = "Spin Type: Opening (3)",
+}
 
-  return "Spin Type: Unknown("..value..")"
+otcmarkets_linkats_extendedtrade_link_v4_10_4.spin_type.display = function(value)
+  return otcmarkets_linkats_extendedtrade_link_v4_10_4.spin_type.labels[value] or "Spin Type: Unknown("..value..")"
 end
 
 -- Dissect: Spin Type
@@ -577,12 +565,12 @@ otcmarkets_linkats_extendedtrade_link_v4_10_4.trade_action = {}
 otcmarkets_linkats_extendedtrade_link_v4_10_4.trade_action.size = 1
 
 -- Display: Trade Action
-otcmarkets_linkats_extendedtrade_link_v4_10_4.trade_action.display = function(value)
-  if value == 2 then
-    return "Trade Action: Add (2)"
-  end
+otcmarkets_linkats_extendedtrade_link_v4_10_4.trade_action.labels = {
+  [2] = "Trade Action: Add (2)",
+}
 
-  return "Trade Action: Unknown("..value..")"
+otcmarkets_linkats_extendedtrade_link_v4_10_4.trade_action.display = function(value)
+  return otcmarkets_linkats_extendedtrade_link_v4_10_4.trade_action.labels[value] or "Trade Action: Unknown("..value..")"
 end
 
 -- Dissect: Trade Action
@@ -1083,26 +1071,18 @@ end
 otcmarkets_linkats_extendedtrade_link_v4_10_4.payload = {}
 
 -- Dissect: Payload
+otcmarkets_linkats_extendedtrade_link_v4_10_4.payload.dispatch = {
+  [11] = otcmarkets_linkats_extendedtrade_link_v4_10_4.start_of_spin_message.dissect,
+  [12] = otcmarkets_linkats_extendedtrade_link_v4_10_4.end_of_spin_message.dissect,
+  [13] = otcmarkets_linkats_extendedtrade_link_v4_10_4.market_open_message.dissect,
+  [14] = otcmarkets_linkats_extendedtrade_link_v4_10_4.market_close_message.dissect,
+  [18] = otcmarkets_linkats_extendedtrade_link_v4_10_4.extended_trade_message.dissect,
+}
+
 otcmarkets_linkats_extendedtrade_link_v4_10_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Start Of Spin Message
-  if message_type == 11 then
-    return otcmarkets_linkats_extendedtrade_link_v4_10_4.start_of_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Spin Message
-  if message_type == 12 then
-    return otcmarkets_linkats_extendedtrade_link_v4_10_4.end_of_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Open Message
-  if message_type == 13 then
-    return otcmarkets_linkats_extendedtrade_link_v4_10_4.market_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Close Message
-  if message_type == 14 then
-    return otcmarkets_linkats_extendedtrade_link_v4_10_4.market_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Trade Message
-  if message_type == 18 then
-    return otcmarkets_linkats_extendedtrade_link_v4_10_4.extended_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = otcmarkets_linkats_extendedtrade_link_v4_10_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1235,10 +1215,14 @@ end
 otcmarkets_linkats_extendedtrade_link_v4_10_4.message_block = {}
 
 -- Dissect: Message Block
+otcmarkets_linkats_extendedtrade_link_v4_10_4.message_block.dispatch = {
+  [1] = otcmarkets_linkats_extendedtrade_link_v4_10_4.heartbeat_packet.dissect,
+}
+
 otcmarkets_linkats_extendedtrade_link_v4_10_4.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
-  -- Dissect Heartbeat Packet
-  if bit.band(packet_flag, 0x01) == 1 then
-    return otcmarkets_linkats_extendedtrade_link_v4_10_4.heartbeat_packet.dissect(buffer, offset, packet, parent)
+  local dissect = otcmarkets_linkats_extendedtrade_link_v4_10_4.message_block.dispatch[bit.band(packet_flag, 0x01)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

@@ -281,21 +281,15 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.auction_status = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.auction_status.size = 1
 
 -- Display: Auction Status
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.auction_status.display = function(value)
-  if value == 0 then
-    return "Auction Status: Will Run As Always For Open And Close (0)"
-  end
-  if value == 1 then
-    return "Auction Status: Will Run Interest Exists Inside Or At The Collars Or Is Fully Paired Off (1)"
-  end
-  if value == 2 then
-    return "Auction Status: Will Not Run Because There Is An Imbalance Through The Collars (2)"
-  end
-  if value == 3 then
-    return "Auction Status: Will Not Run Will Transition To The Closing Auction Instead (3)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.auction_status.labels = {
+  [0] = "Auction Status: Will Run As Always For Open And Close (0)",
+  [1] = "Auction Status: Will Run Interest Exists Inside Or At The Collars Or Is Fully Paired Off (1)",
+  [2] = "Auction Status: Will Not Run Because There Is An Imbalance Through The Collars (2)",
+  [3] = "Auction Status: Will Not Run Will Transition To The Closing Auction Instead (3)",
+}
 
-  return "Auction Status: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.auction_status.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.auction_status.labels[value] or "Auction Status: Unknown("..value..")"
 end
 
 -- Dissect: Auction Status
@@ -464,42 +458,22 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.delivery_flag = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Pillar Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.delivery_flag.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -521,15 +495,13 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.eth_eligible = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.eth_eligible.size = 1
 
 -- Display: Eth Eligible
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.eth_eligible.display = function(value)
-  if value == 0 then
-    return "Eth Eligible: Not Eligible (0)"
-  end
-  if value == 1 then
-    return "Eth Eligible: Eligible (1)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.eth_eligible.labels = {
+  [0] = "Eth Eligible: Not Eligible (0)",
+  [1] = "Eth Eligible: Eligible (1)",
+}
 
-  return "Eth Eligible: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.eth_eligible.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.eth_eligible.labels[value] or "Eth Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Eth Eligible
@@ -638,15 +610,13 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.freeze_status = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.freeze_status.size = 1
 
 -- Display: Freeze Status
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.freeze_status.display = function(value)
-  if value == 0 then
-    return "Freeze Status: Imbalance Freeze Not In Effect (0)"
-  end
-  if value == 1 then
-    return "Freeze Status: Imbalance Freeze Is In Effect (1)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.freeze_status.labels = {
+  [0] = "Freeze Status: Imbalance Freeze Not In Effect (0)",
+  [1] = "Freeze Status: Imbalance Freeze Is In Effect (1)",
+}
 
-  return "Freeze Status: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.freeze_status.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.freeze_status.labels[value] or "Freeze Status: Unknown("..value..")"
 end
 
 -- Dissect: Freeze Status
@@ -894,15 +864,13 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.late_close_eligible = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.late_close_eligible.size = 1
 
 -- Display: Late Close Eligible
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.late_close_eligible.display = function(value)
-  if value == 0 then
-    return "Late Close Eligible: Not Eligible (0)"
-  end
-  if value == 1 then
-    return "Late Close Eligible: Eligible (1)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.late_close_eligible.labels = {
+  [0] = "Late Close Eligible: Not Eligible (0)",
+  [1] = "Late Close Eligible: Eligible (1)",
+}
 
-  return "Late Close Eligible: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.late_close_eligible.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.late_close_eligible.labels[value] or "Late Close Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Late Close Eligible
@@ -970,24 +938,16 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.market_id = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.market_id.size = 2
 
 -- Display: Market Id
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.market_id.display = function(value)
-  if value == 1 then
-    return "Market Id: Nyse Equities (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Equities (3)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
-  if value == 11 then
-    return "Market Id: Nyse Texas Equities (11)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.market_id.labels = {
+  [1] = "Market Id: Nyse Equities (1)",
+  [3] = "Market Id: Nyse Arca Equities (3)",
+  [9] = "Market Id: Nyse American Equities (9)",
+  [10] = "Market Id: Nyse National Equities (10)",
+  [11] = "Market Id: Nyse Texas Equities (11)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.market_id.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -1110,30 +1070,18 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.message_type = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.message_type.size = 2
 
 -- Display: Message Type
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Source Time Reference Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 34 then
-    return "Message Type: Security Status Message (34)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 105 then
-    return "Message Type: Imbalance Message (105)"
-  end
-  if value == 106 then
-    return "Message Type: Add Order Refresh Message (106)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [2] = "Message Type: Source Time Reference Message (2)",
+  [3] = "Message Type: Symbol Index Mapping Message (3)",
+  [34] = "Message Type: Security Status Message (34)",
+  [35] = "Message Type: Refresh Header Message (35)",
+  [105] = "Message Type: Imbalance Message (105)",
+  [106] = "Message Type: Add Order Refresh Message (106)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.message_type.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1431,18 +1379,14 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_resolution = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_resolution.labels = {
+  [0] = "Price Resolution: All Penny (0)",
+  [1] = "Price Resolution: Penny Nickel (1)",
+  [5] = "Price Resolution: Nickel Dime (5)",
+}
 
-  return "Price Resolution: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_resolution.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_resolution.labels[value] or "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1464,18 +1408,14 @@ nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_scale_code = {}
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_scale_code.size = 1
 
 -- Display: Price Scale Code
-nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_scale_code.display = function(value)
-  if value == 6 then
-    return "Price Scale Code: Low Priced Securities (6)"
-  end
-  if value == 4 then
-    return "Price Scale Code: Medium Priced Securities (4)"
-  end
-  if value == 3 then
-    return "Price Scale Code: High Priced Securities (3)"
-  end
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_scale_code.labels = {
+  [6] = "Price Scale Code: Low Priced Securities (6)",
+  [4] = "Price Scale Code: Medium Priced Securities (4)",
+  [3] = "Price Scale Code: High Priced Securities (3)",
+}
 
-  return "Price Scale Code: Unknown("..value..")"
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_scale_code.display = function(value)
+  return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.price_scale_code.labels[value] or "Price Scale Code: Unknown("..value..")"
 end
 
 -- Dissect: Price Scale Code
@@ -3549,34 +3489,20 @@ end
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.payload = {}
 
 -- Dissect: Payload
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.payload.dispatch = {
+  [1] = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.sequence_number_reset_message.dissect,
+  [2] = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.source_time_reference_message.dissect,
+  [3] = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.symbol_index_mapping_message.dissect,
+  [34] = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.security_status_message.dissect,
+  [35] = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_message.dissect,
+  [105] = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.imbalance_message.dissect,
+  [106] = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.add_order_refresh_message.dissect,
+}
+
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Source Time Reference Message
-  if message_type == 2 then
-    return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.source_time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if message_type == 34 then
-    return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Header Message
-  if message_type == 35 then
-    return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Imbalance Message
-  if message_type == 105 then
-    return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Refresh Message
-  if message_type == 106 then
-    return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.add_order_refresh_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3715,10 +3641,14 @@ end
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.messages = {}
 
 -- Dissect: Messages
+nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.messages.dispatch = {
+  [1] = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.heartbeat.dissect,
+}
+
 nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
-  -- Dissect Heartbeat
-  if delivery_flag == 1 then
-    return nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_arcaequities_integratedfeedrefresh_pillar_v2_5_h.messages.dispatch[delivery_flag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

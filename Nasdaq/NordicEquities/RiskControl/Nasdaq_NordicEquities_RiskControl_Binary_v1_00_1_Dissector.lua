@@ -341,21 +341,15 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.block_and_cancel = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.block_and_cancel.size = 1
 
 -- Display: Block And Cancel
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.block_and_cancel.display = function(value)
-  if value == "B" then
-    return "Block And Cancel: Block (B)"
-  end
-  if value == "U" then
-    return "Block And Cancel: Unblock (U)"
-  end
-  if value == "C" then
-    return "Block And Cancel: Block And Cancel (C)"
-  end
-  if value == "?" then
-    return "Block And Cancel: Previous Value Kept (?)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.block_and_cancel.labels = {
+  ["B"] = "Block And Cancel: Block (B)",
+  ["U"] = "Block And Cancel: Unblock (U)",
+  ["C"] = "Block And Cancel: Block And Cancel (C)",
+  ["?"] = "Block And Cancel: Previous Value Kept (?)",
+}
 
-  return "Block And Cancel: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.block_and_cancel.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.block_and_cancel.labels[value] or "Block And Cancel: Unknown("..value..")"
 end
 
 -- Dissect: Block And Cancel
@@ -377,18 +371,14 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.blow_through_protection = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.blow_through_protection.size = 1
 
 -- Display: Blow Through Protection
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.blow_through_protection.display = function(value)
-  if value == "Y" then
-    return "Blow Through Protection: Enabled (Y)"
-  end
-  if value == "N" then
-    return "Blow Through Protection: Disabled (N)"
-  end
-  if value == "?" then
-    return "Blow Through Protection: Previous Value Kept (?)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.blow_through_protection.labels = {
+  ["Y"] = "Blow Through Protection: Enabled (Y)",
+  ["N"] = "Blow Through Protection: Disabled (N)",
+  ["?"] = "Blow Through Protection: Previous Value Kept (?)",
+}
 
-  return "Blow Through Protection: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.blow_through_protection.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.blow_through_protection.labels[value] or "Blow Through Protection: Unknown("..value..")"
 end
 
 -- Dissect: Blow Through Protection
@@ -410,24 +400,16 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_packet_type = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_packet_type.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -491,18 +473,14 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_fat_finger_protectio
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_fat_finger_protection.size = 1
 
 -- Display: In Auction Fat Finger Protection
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_fat_finger_protection.display = function(value)
-  if value == "Y" then
-    return "In Auction Fat Finger Protection: Enabled (Y)"
-  end
-  if value == "N" then
-    return "In Auction Fat Finger Protection: Disabled (N)"
-  end
-  if value == "?" then
-    return "In Auction Fat Finger Protection: Previous Value Kept (?)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_fat_finger_protection.labels = {
+  ["Y"] = "In Auction Fat Finger Protection: Enabled (Y)",
+  ["N"] = "In Auction Fat Finger Protection: Disabled (N)",
+  ["?"] = "In Auction Fat Finger Protection: Previous Value Kept (?)",
+}
 
-  return "In Auction Fat Finger Protection: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_fat_finger_protection.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_fat_finger_protection.labels[value] or "In Auction Fat Finger Protection: Unknown("..value..")"
 end
 
 -- Dissect: In Auction Fat Finger Protection
@@ -524,18 +502,14 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_prevent
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_prevention.size = 1
 
 -- Display: In Auction Market Order Prevention
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_prevention.display = function(value)
-  if value == "Y" then
-    return "In Auction Market Order Prevention: Enabled (Y)"
-  end
-  if value == "N" then
-    return "In Auction Market Order Prevention: Disabled (N)"
-  end
-  if value == "?" then
-    return "In Auction Market Order Prevention: Previous Value Kept (?)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_prevention.labels = {
+  ["Y"] = "In Auction Market Order Prevention: Enabled (Y)",
+  ["N"] = "In Auction Market Order Prevention: Disabled (N)",
+  ["?"] = "In Auction Market Order Prevention: Previous Value Kept (?)",
+}
 
-  return "In Auction Market Order Prevention: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_prevention.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_prevention.labels[value] or "In Auction Market Order Prevention: Unknown("..value..")"
 end
 
 -- Dissect: In Auction Market Order Prevention
@@ -557,18 +531,14 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_protect
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_protection.size = 1
 
 -- Display: In Auction Market Order Protection
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_protection.display = function(value)
-  if value == "Y" then
-    return "In Auction Market Order Protection: Enabled (Y)"
-  end
-  if value == "N" then
-    return "In Auction Market Order Protection: Disabled (N)"
-  end
-  if value == "?" then
-    return "In Auction Market Order Protection: Previous Value Kept (?)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_protection.labels = {
+  ["Y"] = "In Auction Market Order Protection: Enabled (Y)",
+  ["N"] = "In Auction Market Order Protection: Disabled (N)",
+  ["?"] = "In Auction Market Order Protection: Previous Value Kept (?)",
+}
 
-  return "In Auction Market Order Protection: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_protection.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.in_auction_market_order_protection.labels[value] or "In Auction Market Order Protection: Unknown("..value..")"
 end
 
 -- Dissect: In Auction Market Order Protection
@@ -988,21 +958,15 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reason = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reason.size = 1
 
 -- Display: Reason
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reason.display = function(value)
-  if value == "C" then
-    return "Reason: Invalid Currency (C)"
-  end
-  if value == "A" then
-    return "Reason: Invalid Prm Account (A)"
-  end
-  if value == "N" then
-    return "Reason: No Setting Present (N)"
-  end
-  if value == "U" then
-    return "Reason: Unauthorized (U)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reason.labels = {
+  ["C"] = "Reason: Invalid Currency (C)",
+  ["A"] = "Reason: Invalid Prm Account (A)",
+  ["N"] = "Reason: No Setting Present (N)",
+  ["U"] = "Reason: Unauthorized (U)",
+}
 
-  return "Reason: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reason.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1024,18 +988,14 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_all_flag = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_all_flag.size = 1
 
 -- Display: Reject All Flag
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_all_flag.display = function(value)
-  if value == "Y" then
-    return "Reject All Flag: Enabled (Y)"
-  end
-  if value == "N" then
-    return "Reject All Flag: Disabled (N)"
-  end
-  if value == "?" then
-    return "Reject All Flag: Previous Value Kept (?)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_all_flag.labels = {
+  ["Y"] = "Reject All Flag: Enabled (Y)",
+  ["N"] = "Reject All Flag: Disabled (N)",
+  ["?"] = "Reject All Flag: Previous Value Kept (?)",
+}
 
-  return "Reject All Flag: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_all_flag.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_all_flag.labels[value] or "Reject All Flag: Unknown("..value..")"
 end
 
 -- Dissect: Reject All Flag
@@ -1057,15 +1017,13 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_reason_code = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_reason_code.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1187,39 +1145,21 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message_type = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message_type.display = function(value)
-  if value == "Q" then
-    return "Sequenced Message Type: Account Query Response Message (Q)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Account Settings Response Message (C)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Order Book Restriction Response Message (R)"
-  end
-  if value == "S" then
-    return "Sequenced Message Type: Market Segment Restriction Response Message (S)"
-  end
-  if value == "L" then
-    return "Sequenced Message Type: Limit Settings Response Message (L)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Account Currency Setting Response Message (F)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Reject Message (J)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Api Port Rate Breach Message (P)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Account Rate Breach Message (B)"
-  end
-  if value == "V" then
-    return "Sequenced Message Type: Accumulated Values Message (V)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message_type.labels = {
+  ["Q"] = "Sequenced Message Type: Account Query Response Message (Q)",
+  ["C"] = "Sequenced Message Type: Account Settings Response Message (C)",
+  ["R"] = "Sequenced Message Type: Order Book Restriction Response Message (R)",
+  ["S"] = "Sequenced Message Type: Market Segment Restriction Response Message (S)",
+  ["L"] = "Sequenced Message Type: Limit Settings Response Message (L)",
+  ["F"] = "Sequenced Message Type: Account Currency Setting Response Message (F)",
+  ["J"] = "Sequenced Message Type: Reject Message (J)",
+  ["P"] = "Sequenced Message Type: Api Port Rate Breach Message (P)",
+  ["B"] = "Sequenced Message Type: Account Rate Breach Message (B)",
+  ["V"] = "Sequenced Message Type: Accumulated Values Message (V)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message_type.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1241,27 +1181,17 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_packet_type = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_packet_type.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1283,18 +1213,14 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.state = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.state.size = 1
 
 -- Display: State
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.state.display = function(value)
-  if value == "A" then
-    return "State: Active (A)"
-  end
-  if value == "I" then
-    return "State: Inactive (I)"
-  end
-  if value == "?" then
-    return "State: Previous Value Kept (?)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.state.labels = {
+  ["A"] = "State: Active (A)",
+  ["I"] = "State: Inactive (I)",
+  ["?"] = "State: Previous Value Kept (?)",
+}
 
-  return "State: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.state.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.state.labels[value] or "State: Unknown("..value..")"
 end
 
 -- Dissect: State
@@ -1544,18 +1470,14 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.trigger_restrict_symbol_on_repe
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.trigger_restrict_symbol_on_repeated_order_generation.size = 1
 
 -- Display: Trigger Restrict Symbol On Repeated Order Generation
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.trigger_restrict_symbol_on_repeated_order_generation.display = function(value)
-  if value == "Y" then
-    return "Trigger Restrict Symbol On Repeated Order Generation: Enabled (Y)"
-  end
-  if value == "N" then
-    return "Trigger Restrict Symbol On Repeated Order Generation: Disabled (N)"
-  end
-  if value == "?" then
-    return "Trigger Restrict Symbol On Repeated Order Generation: Previous Value Kept (?)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.trigger_restrict_symbol_on_repeated_order_generation.labels = {
+  ["Y"] = "Trigger Restrict Symbol On Repeated Order Generation: Enabled (Y)",
+  ["N"] = "Trigger Restrict Symbol On Repeated Order Generation: Disabled (N)",
+  ["?"] = "Trigger Restrict Symbol On Repeated Order Generation: Previous Value Kept (?)",
+}
 
-  return "Trigger Restrict Symbol On Repeated Order Generation: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.trigger_restrict_symbol_on_repeated_order_generation.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.trigger_restrict_symbol_on_repeated_order_generation.labels[value] or "Trigger Restrict Symbol On Repeated Order Generation: Unknown("..value..")"
 end
 
 -- Dissect: Trigger Restrict Symbol On Repeated Order Generation
@@ -1577,27 +1499,17 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message_type = {}
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message_type.display = function(value)
-  if value == "Q" then
-    return "Unsequenced Message Type: Account Query Message (Q)"
-  end
-  if value == "C" then
-    return "Unsequenced Message Type: Modify Account Settings Message (C)"
-  end
-  if value == "R" then
-    return "Unsequenced Message Type: Modify Order Book Restriction Message (R)"
-  end
-  if value == "S" then
-    return "Unsequenced Message Type: Modify Market Segment Restriction Message (S)"
-  end
-  if value == "L" then
-    return "Unsequenced Message Type: Modify Limit Settings Message (L)"
-  end
-  if value == "F" then
-    return "Unsequenced Message Type: Modify Account Currency Setting Message (F)"
-  end
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message_type.labels = {
+  ["Q"] = "Unsequenced Message Type: Account Query Message (Q)",
+  ["C"] = "Unsequenced Message Type: Modify Account Settings Message (C)",
+  ["R"] = "Unsequenced Message Type: Modify Order Book Restriction Message (R)",
+  ["S"] = "Unsequenced Message Type: Modify Market Segment Restriction Message (S)",
+  ["L"] = "Unsequenced Message Type: Modify Limit Settings Message (L)",
+  ["F"] = "Unsequenced Message Type: Modify Account Currency Setting Message (F)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message_type.display = function(value)
+  return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2304,46 +2216,23 @@ end
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message.dispatch = {
+  ["Q"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_query_response_message.dissect,
+  ["C"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_settings_response_message.dissect,
+  ["R"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.order_book_restriction_response_message.dissect,
+  ["S"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.market_segment_restriction_response_message.dissect,
+  ["L"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.limit_settings_response_message.dissect,
+  ["F"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_currency_setting_response_message.dissect,
+  ["J"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_message.dissect,
+  ["P"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.api_port_rate_breach_message.dissect,
+  ["B"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_rate_breach_message.dissect,
+  ["V"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.accumulated_values_message.dissect,
+}
+
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Account Query Response Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_query_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Settings Response Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_settings_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Restriction Response Message
-  if sequenced_message_type == "R" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.order_book_restriction_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Segment Restriction Response Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.market_segment_restriction_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Limit Settings Response Message
-  if sequenced_message_type == "L" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.limit_settings_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Currency Setting Response Message
-  if sequenced_message_type == "F" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_currency_setting_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Api Port Rate Breach Message
-  if sequenced_message_type == "P" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.api_port_rate_breach_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Rate Breach Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_rate_breach_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Accumulated Values Message
-  if sequenced_message_type == "V" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.accumulated_values_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2586,30 +2475,19 @@ end
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_payload.dispatch = {
+  ["+"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.debug_packet.dissect,
+  ["A"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_heartbeat.dissect,
+  ["Z"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.end_of_session.dissect,
+}
+
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3150,30 +3028,19 @@ end
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message.dispatch = {
+  ["Q"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_query_message.dissect,
+  ["C"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_account_settings_message.dissect,
+  ["R"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_order_book_restriction_message.dissect,
+  ["S"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_market_segment_restriction_message.dissect,
+  ["L"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_limit_settings_message.dissect,
+  ["F"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_account_currency_setting_message.dissect,
+}
+
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Account Query Message
-  if unsequenced_message_type == "Q" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.account_query_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Account Settings Message
-  if unsequenced_message_type == "C" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_account_settings_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Book Restriction Message
-  if unsequenced_message_type == "R" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_order_book_restriction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Market Segment Restriction Message
-  if unsequenced_message_type == "S" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_market_segment_restriction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Limit Settings Message
-  if unsequenced_message_type == "L" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_limit_settings_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Account Currency Setting Message
-  if unsequenced_message_type == "F" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.modify_account_currency_setting_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3288,26 +3155,18 @@ end
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_payload.dispatch = {
+  ["+"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.debug_packet.dissect,
+  ["L"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.login_request_packet.dissect,
+  ["U"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_heartbeat.dissect,
+  ["O"] = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.logout_request.dissect,
+}
+
 nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_nordicequities_riskcontrol_binary_v1_00_1.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

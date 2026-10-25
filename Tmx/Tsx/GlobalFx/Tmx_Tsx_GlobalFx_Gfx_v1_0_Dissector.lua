@@ -170,81 +170,35 @@ tmx_tsx_globalfx_gfx_v1_0.currency_1 = {}
 tmx_tsx_globalfx_gfx_v1_0.currency_1.size = 3
 
 -- Display: Currency 1
-tmx_tsx_globalfx_gfx_v1_0.currency_1.display = function(value)
-  if value == "AUD" then
-    return "Currency 1: Aud (AUD)"
-  end
-  if value == "CAD" then
-    return "Currency 1: Cad (CAD)"
-  end
-  if value == "CHF" then
-    return "Currency 1: Chf (CHF)"
-  end
-  if value == "CNH" then
-    return "Currency 1: Cnh (CNH)"
-  end
-  if value == "CZK" then
-    return "Currency 1: Czk (CZK)"
-  end
-  if value == "DKK" then
-    return "Currency 1: Dkk (DKK)"
-  end
-  if value == "EUR" then
-    return "Currency 1: Eur (EUR)"
-  end
-  if value == "GBP" then
-    return "Currency 1: Gbp (GBP)"
-  end
-  if value == "HKD" then
-    return "Currency 1: Hkd (HKD)"
-  end
-  if value == "HUF" then
-    return "Currency 1: Huf (HUF)"
-  end
-  if value == "ILS" then
-    return "Currency 1: Ils (ILS)"
-  end
-  if value == "JPY" then
-    return "Currency 1: Jpy (JPY)"
-  end
-  if value == "MXN" then
-    return "Currency 1: Mxn (MXN)"
-  end
-  if value == "NOK" then
-    return "Currency 1: Nok (NOK)"
-  end
-  if value == "NZD" then
-    return "Currency 1: Nzd (NZD)"
-  end
-  if value == "PLN" then
-    return "Currency 1: Pln (PLN)"
-  end
-  if value == "RON" then
-    return "Currency 1: Ron (RON)"
-  end
-  if value == "RUB" then
-    return "Currency 1: Rub (RUB)"
-  end
-  if value == "SEK" then
-    return "Currency 1: Sek (SEK)"
-  end
-  if value == "SGD" then
-    return "Currency 1: Sgd (SGD)"
-  end
-  if value == "THB" then
-    return "Currency 1: Thb (THB)"
-  end
-  if value == "TRY" then
-    return "Currency 1: Try (TRY)"
-  end
-  if value == "USD" then
-    return "Currency 1: Usd (USD)"
-  end
-  if value == "ZAR" then
-    return "Currency 1: Zar (ZAR)"
-  end
+tmx_tsx_globalfx_gfx_v1_0.currency_1.labels = {
+  ["AUD"] = "Currency 1: Aud (AUD)",
+  ["CAD"] = "Currency 1: Cad (CAD)",
+  ["CHF"] = "Currency 1: Chf (CHF)",
+  ["CNH"] = "Currency 1: Cnh (CNH)",
+  ["CZK"] = "Currency 1: Czk (CZK)",
+  ["DKK"] = "Currency 1: Dkk (DKK)",
+  ["EUR"] = "Currency 1: Eur (EUR)",
+  ["GBP"] = "Currency 1: Gbp (GBP)",
+  ["HKD"] = "Currency 1: Hkd (HKD)",
+  ["HUF"] = "Currency 1: Huf (HUF)",
+  ["ILS"] = "Currency 1: Ils (ILS)",
+  ["JPY"] = "Currency 1: Jpy (JPY)",
+  ["MXN"] = "Currency 1: Mxn (MXN)",
+  ["NOK"] = "Currency 1: Nok (NOK)",
+  ["NZD"] = "Currency 1: Nzd (NZD)",
+  ["PLN"] = "Currency 1: Pln (PLN)",
+  ["RON"] = "Currency 1: Ron (RON)",
+  ["RUB"] = "Currency 1: Rub (RUB)",
+  ["SEK"] = "Currency 1: Sek (SEK)",
+  ["SGD"] = "Currency 1: Sgd (SGD)",
+  ["THB"] = "Currency 1: Thb (THB)",
+  ["TRY"] = "Currency 1: Try (TRY)",
+  ["USD"] = "Currency 1: Usd (USD)",
+  ["ZAR"] = "Currency 1: Zar (ZAR)",
+}
 
-  return "Currency 1: Unknown("..value..")"
+tmx_tsx_globalfx_gfx_v1_0.currency_1.display = function(value)
+  return tmx_tsx_globalfx_gfx_v1_0.currency_1.labels[value] or "Currency 1: Unknown("..value..")"
 end
 
 -- Dissect: Currency 1
@@ -266,81 +220,35 @@ tmx_tsx_globalfx_gfx_v1_0.currency_2 = {}
 tmx_tsx_globalfx_gfx_v1_0.currency_2.size = 3
 
 -- Display: Currency 2
-tmx_tsx_globalfx_gfx_v1_0.currency_2.display = function(value)
-  if value == "AUD" then
-    return "Currency 2: Aud (AUD)"
-  end
-  if value == "CAD" then
-    return "Currency 2: Cad (CAD)"
-  end
-  if value == "CHF" then
-    return "Currency 2: Chf (CHF)"
-  end
-  if value == "CNH" then
-    return "Currency 2: Cnh (CNH)"
-  end
-  if value == "CZK" then
-    return "Currency 2: Czk (CZK)"
-  end
-  if value == "DKK" then
-    return "Currency 2: Dkk (DKK)"
-  end
-  if value == "EUR" then
-    return "Currency 2: Eur (EUR)"
-  end
-  if value == "GBP" then
-    return "Currency 2: Gbp (GBP)"
-  end
-  if value == "HKD" then
-    return "Currency 2: Hkd (HKD)"
-  end
-  if value == "HUF" then
-    return "Currency 2: Huf (HUF)"
-  end
-  if value == "ILS" then
-    return "Currency 2: Ils (ILS)"
-  end
-  if value == "JPY" then
-    return "Currency 2: Jpy (JPY)"
-  end
-  if value == "MXN" then
-    return "Currency 2: Mxn (MXN)"
-  end
-  if value == "NOK" then
-    return "Currency 2: Nok (NOK)"
-  end
-  if value == "NZD" then
-    return "Currency 2: Nzd (NZD)"
-  end
-  if value == "PLN" then
-    return "Currency 2: Pln (PLN)"
-  end
-  if value == "RON" then
-    return "Currency 2: Ron (RON)"
-  end
-  if value == "RUB" then
-    return "Currency 2: Rub (RUB)"
-  end
-  if value == "SEK" then
-    return "Currency 2: Sek (SEK)"
-  end
-  if value == "SGD" then
-    return "Currency 2: Sgd (SGD)"
-  end
-  if value == "THB" then
-    return "Currency 2: Thb (THB)"
-  end
-  if value == "TRY" then
-    return "Currency 2: Try (TRY)"
-  end
-  if value == "USD" then
-    return "Currency 2: Usd (USD)"
-  end
-  if value == "ZAR" then
-    return "Currency 2: Zar (ZAR)"
-  end
+tmx_tsx_globalfx_gfx_v1_0.currency_2.labels = {
+  ["AUD"] = "Currency 2: Aud (AUD)",
+  ["CAD"] = "Currency 2: Cad (CAD)",
+  ["CHF"] = "Currency 2: Chf (CHF)",
+  ["CNH"] = "Currency 2: Cnh (CNH)",
+  ["CZK"] = "Currency 2: Czk (CZK)",
+  ["DKK"] = "Currency 2: Dkk (DKK)",
+  ["EUR"] = "Currency 2: Eur (EUR)",
+  ["GBP"] = "Currency 2: Gbp (GBP)",
+  ["HKD"] = "Currency 2: Hkd (HKD)",
+  ["HUF"] = "Currency 2: Huf (HUF)",
+  ["ILS"] = "Currency 2: Ils (ILS)",
+  ["JPY"] = "Currency 2: Jpy (JPY)",
+  ["MXN"] = "Currency 2: Mxn (MXN)",
+  ["NOK"] = "Currency 2: Nok (NOK)",
+  ["NZD"] = "Currency 2: Nzd (NZD)",
+  ["PLN"] = "Currency 2: Pln (PLN)",
+  ["RON"] = "Currency 2: Ron (RON)",
+  ["RUB"] = "Currency 2: Rub (RUB)",
+  ["SEK"] = "Currency 2: Sek (SEK)",
+  ["SGD"] = "Currency 2: Sgd (SGD)",
+  ["THB"] = "Currency 2: Thb (THB)",
+  ["TRY"] = "Currency 2: Try (TRY)",
+  ["USD"] = "Currency 2: Usd (USD)",
+  ["ZAR"] = "Currency 2: Zar (ZAR)",
+}
 
-  return "Currency 2: Unknown("..value..")"
+tmx_tsx_globalfx_gfx_v1_0.currency_2.display = function(value)
+  return tmx_tsx_globalfx_gfx_v1_0.currency_2.labels[value] or "Currency 2: Unknown("..value..")"
 end
 
 -- Dissect: Currency 2
@@ -454,15 +362,13 @@ tmx_tsx_globalfx_gfx_v1_0.price_terms = {}
 tmx_tsx_globalfx_gfx_v1_0.price_terms.size = 1
 
 -- Display: Price Terms
-tmx_tsx_globalfx_gfx_v1_0.price_terms.display = function(value)
-  if value == "D" then
-    return "Price Terms: Direct Terms (D)"
-  end
-  if value == "I" then
-    return "Price Terms: Inverted Terms (I)"
-  end
+tmx_tsx_globalfx_gfx_v1_0.price_terms.labels = {
+  ["D"] = "Price Terms: Direct Terms (D)",
+  ["I"] = "Price Terms: Inverted Terms (I)",
+}
 
-  return "Price Terms: Unknown("..value..")"
+tmx_tsx_globalfx_gfx_v1_0.price_terms.display = function(value)
+  return tmx_tsx_globalfx_gfx_v1_0.price_terms.labels[value] or "Price Terms: Unknown("..value..")"
 end
 
 -- Dissect: Price Terms
@@ -553,15 +459,13 @@ tmx_tsx_globalfx_gfx_v1_0.tier_status = {}
 tmx_tsx_globalfx_gfx_v1_0.tier_status.size = 1
 
 -- Display: Tier Status
-tmx_tsx_globalfx_gfx_v1_0.tier_status.display = function(value)
-  if value == "R" then
-    return "Tier Status: Valid Reference Price (R)"
-  end
-  if value == "Z" then
-    return "Tier Status: Price Not Available (Z)"
-  end
+tmx_tsx_globalfx_gfx_v1_0.tier_status.labels = {
+  ["R"] = "Tier Status: Valid Reference Price (R)",
+  ["Z"] = "Tier Status: Price Not Available (Z)",
+}
 
-  return "Tier Status: Unknown("..value..")"
+tmx_tsx_globalfx_gfx_v1_0.tier_status.display = function(value)
+  return tmx_tsx_globalfx_gfx_v1_0.tier_status.labels[value] or "Tier Status: Unknown("..value..")"
 end
 
 -- Dissect: Tier Status
@@ -922,10 +826,14 @@ end
 tmx_tsx_globalfx_gfx_v1_0.datagram_body = {}
 
 -- Dissect: Datagram Body
+tmx_tsx_globalfx_gfx_v1_0.datagram_body.dispatch = {
+  ["#"] = tmx_tsx_globalfx_gfx_v1_0.reference_price_fx_spot.dissect,
+}
+
 tmx_tsx_globalfx_gfx_v1_0.datagram_body.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Reference Price Fx Spot
-  if msg_type == "#" then
-    return tmx_tsx_globalfx_gfx_v1_0.reference_price_fx_spot.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsx_globalfx_gfx_v1_0.datagram_body.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

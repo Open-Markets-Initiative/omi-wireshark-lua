@@ -249,18 +249,14 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_type = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Call (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Call (C)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction Reopening Call (H)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Call (O)",
+  ["C"] = "Auction Type: Closing Call (C)",
+  ["H"] = "Auction Type: Halt Auction Reopening Call (H)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_type.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -449,36 +445,20 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.cross_type = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.cross_type.size = 1
 
 -- Display: Cross Type
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.cross_type.display = function(value)
-  if value == 0 then
-    return "Cross Type: None (0)"
-  end
-  if value == 5 then
-    return "Cross Type: Internal Cross (5)"
-  end
-  if value == 11 then
-    return "Cross Type: Basis Cross (11)"
-  end
-  if value == 12 then
-    return "Cross Type: Contingent Cross (12)"
-  end
-  if value == 14 then
-    return "Cross Type: Vwap Cross (14)"
-  end
-  if value == 15 then
-    return "Cross Type: Regular Cross (15)"
-  end
-  if value == 18 then
-    return "Cross Type: Derivative Cross (18)"
-  end
-  if value == 19 then
-    return "Cross Type: Closing Price Publication (19)"
-  end
-  if value == 20 then
-    return "Cross Type: Net Asset Value Nav (20)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.cross_type.labels = {
+  [0] = "Cross Type: None (0)",
+  [5] = "Cross Type: Internal Cross (5)",
+  [11] = "Cross Type: Basis Cross (11)",
+  [12] = "Cross Type: Contingent Cross (12)",
+  [14] = "Cross Type: Vwap Cross (14)",
+  [15] = "Cross Type: Regular Cross (15)",
+  [18] = "Cross Type: Derivative Cross (18)",
+  [19] = "Cross Type: Closing Price Publication (19)",
+  [20] = "Cross Type: Net Asset Value Nav (20)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.cross_type.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -657,18 +637,14 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.imbalance_side_indicator = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.imbalance_side_indicator.size = 1
 
 -- Display: Imbalance Side Indicator
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.imbalance_side_indicator.display = function(value)
-  if value == "B" then
-    return "Imbalance Side Indicator: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Imbalance Side Indicator: Sell Side (S)"
-  end
-  if value == "N" then
-    return "Imbalance Side Indicator: No Imbalance (N)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.imbalance_side_indicator.labels = {
+  ["B"] = "Imbalance Side Indicator: Buy Side (B)",
+  ["S"] = "Imbalance Side Indicator: Sell Side (S)",
+  ["N"] = "Imbalance Side Indicator: No Imbalance (N)",
+}
 
-  return "Imbalance Side Indicator: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.imbalance_side_indicator.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.imbalance_side_indicator.labels[value] or "Imbalance Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Side Indicator
@@ -834,51 +810,25 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.message_type = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.message_type.size = 1
 
 -- Display: Message Type
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.message_type.display = function(value)
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x60 then
-    return "Message Type: Instrument Directory Message (0x60)"
-  end
-  if value == 0x61 then
-    return "Message Type: Trading Status Message (0x61)"
-  end
-  if value == 0x62 then
-    return "Message Type: Add Order Message (0x62)"
-  end
-  if value == 0x63 then
-    return "Message Type: Reduce Size Message (0x63)"
-  end
-  if value == 0x64 then
-    return "Message Type: Delete Order Message (0x64)"
-  end
-  if value == 0x65 then
-    return "Message Type: Modify Order Message (0x65)"
-  end
-  if value == 0x66 then
-    return "Message Type: Order Executed Message (0x66)"
-  end
-  if value == 0x67 then
-    return "Message Type: Trade Message (0x67)"
-  end
-  if value == 0x68 then
-    return "Message Type: Trade Break Message (0x68)"
-  end
-  if value == 0x69 then
-    return "Message Type: Trade Correction Message (0x69)"
-  end
-  if value == 0x6B then
-    return "Message Type: Auction Update Message (0x6B)"
-  end
-  if value == 0x6C then
-    return "Message Type: Auction Summary Message (0x6C)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.message_type.labels = {
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0x60] = "Message Type: Instrument Directory Message (0x60)",
+  [0x61] = "Message Type: Trading Status Message (0x61)",
+  [0x62] = "Message Type: Add Order Message (0x62)",
+  [0x63] = "Message Type: Reduce Size Message (0x63)",
+  [0x64] = "Message Type: Delete Order Message (0x64)",
+  [0x65] = "Message Type: Modify Order Message (0x65)",
+  [0x66] = "Message Type: Order Executed Message (0x66)",
+  [0x67] = "Message Type: Trade Message (0x67)",
+  [0x68] = "Message Type: Trade Break Message (0x68)",
+  [0x69] = "Message Type: Trade Correction Message (0x69)",
+  [0x6B] = "Message Type: Auction Update Message (0x6B)",
+  [0x6C] = "Message Type: Auction Summary Message (0x6C)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.message_type.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -900,27 +850,17 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.order_book_type = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.order_book_type.size = 1
 
 -- Display: Order Book Type
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.order_book_type.display = function(value)
-  if value == 0 then
-    return "Order Book Type: All Books (0)"
-  end
-  if value == 3 then
-    return "Order Book Type: Neol (3)"
-  end
-  if value == 4 then
-    return "Order Book Type: Neon (4)"
-  end
-  if value == 5 then
-    return "Order Book Type: Neod (5)"
-  end
-  if value == 6 then
-    return "Order Book Type: Crossing Facility (6)"
-  end
-  if value == 7 then
-    return "Order Book Type: Sst (7)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.order_book_type.labels = {
+  [0] = "Order Book Type: All Books (0)",
+  [3] = "Order Book Type: Neol (3)",
+  [4] = "Order Book Type: Neon (4)",
+  [5] = "Order Book Type: Neod (5)",
+  [6] = "Order Book Type: Crossing Facility (6)",
+  [7] = "Order Book Type: Sst (7)",
+}
 
-  return "Order Book Type: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.order_book_type.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -1219,39 +1159,21 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.security_type = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.security_type.size = 1
 
 -- Display: Security Type
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.security_type.display = function(value)
-  if value == 1 then
-    return "Security Type: Equity (1)"
-  end
-  if value == 2 then
-    return "Security Type: Debt (2)"
-  end
-  if value == 3 then
-    return "Security Type: Closed End Fund (3)"
-  end
-  if value == 4 then
-    return "Security Type: Depositary Receipt (4)"
-  end
-  if value == 5 then
-    return "Security Type: Exchange Traded Fund (5)"
-  end
-  if value == 6 then
-    return "Security Type: Foreign Listed Security (6)"
-  end
-  if value == 7 then
-    return "Security Type: Structured Product (7)"
-  end
-  if value == 8 then
-    return "Security Type: Unit (8)"
-  end
-  if value == 9 then
-    return "Security Type: Warrant (9)"
-  end
-  if value == 52 then
-    return "Security Type: Unlisted Security (52)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.security_type.labels = {
+  [1] = "Security Type: Equity (1)",
+  [2] = "Security Type: Debt (2)",
+  [3] = "Security Type: Closed End Fund (3)",
+  [4] = "Security Type: Depositary Receipt (4)",
+  [5] = "Security Type: Exchange Traded Fund (5)",
+  [6] = "Security Type: Foreign Listed Security (6)",
+  [7] = "Security Type: Structured Product (7)",
+  [8] = "Security Type: Unit (8)",
+  [9] = "Security Type: Warrant (9)",
+  [52] = "Security Type: Unlisted Security (52)",
+}
 
-  return "Security Type: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.security_type.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -1273,27 +1195,17 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.segment = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.segment.size = 6
 
 -- Display: Segment
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.segment.display = function(value)
-  if value == "CBOECA" then
-    return "Segment: Cboe Canada Securities (CBOECA)"
-  end
-  if value == "TSX" then
-    return "Segment: Tsx Securities (TSX)"
-  end
-  if value == "TSXV" then
-    return "Segment: Tsxv Securities (TSXV)"
-  end
-  if value == "CSE" then
-    return "Segment: Cse Securities (CSE)"
-  end
-  if value == "NEOC" then
-    return "Segment: Neo Connect Securities (NEOC)"
-  end
-  if value == "FOTS" then
-    return "Segment: Foreign Other Traded Securities (FOTS)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.segment.labels = {
+  ["CBOECA"] = "Segment: Cboe Canada Securities (CBOECA)",
+  ["TSX"] = "Segment: Tsx Securities (TSX)",
+  ["TSXV"] = "Segment: Tsxv Securities (TSXV)",
+  ["CSE"] = "Segment: Cse Securities (CSE)",
+  ["NEOC"] = "Segment: Neo Connect Securities (NEOC)",
+  ["FOTS"] = "Segment: Foreign Other Traded Securities (FOTS)",
+}
 
-  return "Segment: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.segment.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.segment.labels[value] or "Segment: Unknown("..value..")"
 end
 
 -- Dissect: Segment
@@ -1384,21 +1296,15 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.settlement_type = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.settlement_type.size = 1
 
 -- Display: Settlement Type
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.settlement_type.display = function(value)
-  if value == 0 then
-    return "Settlement Type: No Special Settlement Terms Specified (0)"
-  end
-  if value == 1 then
-    return "Settlement Type: Cash (1)"
-  end
-  if value == 6 then
-    return "Settlement Type: Future (6)"
-  end
-  if value == 11 then
-    return "Settlement Type: Nonnet (11)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.settlement_type.labels = {
+  [0] = "Settlement Type: No Special Settlement Terms Specified (0)",
+  [1] = "Settlement Type: Cash (1)",
+  [6] = "Settlement Type: Future (6)",
+  [11] = "Settlement Type: Nonnet (11)",
+}
 
-  return "Settlement Type: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.settlement_type.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.settlement_type.labels[value] or "Settlement Type: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Type
@@ -1443,15 +1349,13 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.side_indicator = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.side_indicator.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1520,36 +1424,20 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trading_status = {}
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trading_status.display = function(value)
-  if value == "A" then
-    return "Trading Status: Accepting (A)"
-  end
-  if value == "F" then
-    return "Trading Status: Halted Full (F)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "M" then
-    return "Trading Status: Delayed Closing (M)"
-  end
-  if value == "O" then
-    return "Trading Status: Preclose (O)"
-  end
-  if value == "P" then
-    return "Trading Status: Post Close (P)"
-  end
-  if value == "S" then
-    return "Trading Status: Trading Suspended (S)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
-  if value == "X" then
-    return "Trading Status: Extended Trading (X)"
-  end
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trading_status.labels = {
+  ["A"] = "Trading Status: Accepting (A)",
+  ["F"] = "Trading Status: Halted Full (F)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["M"] = "Trading Status: Delayed Closing (M)",
+  ["O"] = "Trading Status: Preclose (O)",
+  ["P"] = "Trading Status: Post Close (P)",
+  ["S"] = "Trading Status: Trading Suspended (S)",
+  ["T"] = "Trading Status: Trading (T)",
+  ["X"] = "Trading Status: Extended Trading (X)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trading_status.display = function(value)
+  return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2759,62 +2647,27 @@ end
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.payload = {}
 
 -- Dissect: Payload
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.payload.dispatch = {
+  [0x97] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.unit_clear_message.dissect,
+  [0x60] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.instrument_directory_message.dissect,
+  [0x61] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trading_status_message.dissect,
+  [0x62] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.add_order_message.dissect,
+  [0x63] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.reduce_size_message.dissect,
+  [0x64] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.delete_order_message.dissect,
+  [0x65] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.modify_order_message.dissect,
+  [0x66] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.order_executed_message.dissect,
+  [0x67] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trade_message.dissect,
+  [0x68] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trade_break_message.dissect,
+  [0x69] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trade_correction_message.dissect,
+  [0x6B] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_update_message.dissect,
+  [0x6C] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_summary_message.dissect,
+  [0x2D] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.end_of_session_message.dissect,
+}
+
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Directory Message
-  if message_type == 0x60 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x61 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 0x62 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Message
-  if message_type == 0x63 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.reduce_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 0x64 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 0x65 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 0x66 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0x67 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == 0x68 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == 0x69 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Update Message
-  if message_type == 0x6B then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x6C then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2953,10 +2806,14 @@ end
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.messages = {}
 
 -- Dissect: Messages
+cboe_neoequities_multicastfulldepth_pitch_v1_0_14.messages.dispatch = {
+  [0] = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.heartbeat.dissect,
+}
+
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_neoequities_multicastfulldepth_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

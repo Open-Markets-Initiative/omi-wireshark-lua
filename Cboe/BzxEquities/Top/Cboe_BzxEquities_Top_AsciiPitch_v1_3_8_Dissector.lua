@@ -959,90 +959,38 @@ cboe_bzxequities_top_asciipitch_v1_3_8.message_type = {}
 cboe_bzxequities_top_asciipitch_v1_3_8.message_type.size = 1
 
 -- Display: Message Type
-cboe_bzxequities_top_asciipitch_v1_3_8.message_type.display = function(value)
-  if value == "L" then
-    return "Message Type: Logon Message (L)"
-  end
-  if value == "J" then
-    return "Message Type: Logon Rejected Message (J)"
-  end
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "M" then
-    return "Message Type: Milliseconds Message (M)"
-  end
-  if value == "C" then
-    return "Message Type: Logon Accepted Message (C)"
-  end
-  if value == "s" then
-    return "Message Type: Expanded Spin Message (s)"
-  end
-  if value == "S" then
-    return "Message Type: Extended Spin Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Spin Done Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Server Heartbeat Message (H)"
-  end
-  if value == "R" then
-    return "Message Type: Client Heartbeat Message (R)"
-  end
-  if value == "E" then
-    return "Message Type: Expanded Bid Update Message (E)"
-  end
-  if value == "B" then
-    return "Message Type: Long Bid Update Message (B)"
-  end
-  if value == "b" then
-    return "Message Type: Short Bid Update Message (b)"
-  end
-  if value == "N" then
-    return "Message Type: Extended Bid Update Message (N)"
-  end
-  if value == "e" then
-    return "Message Type: Expanded Ask Update Message (e)"
-  end
-  if value == "A" then
-    return "Message Type: Long Ask Update Message (A)"
-  end
-  if value == "a" then
-    return "Message Type: Short Ask Update Message (a)"
-  end
-  if value == "n" then
-    return "Message Type: Extended Ask Update Message (n)"
-  end
-  if value == "F" then
-    return "Message Type: Expanded Two Sided Update Message (F)"
-  end
-  if value == "U" then
-    return "Message Type: Long Two Sided Update Message (U)"
-  end
-  if value == "u" then
-    return "Message Type: Short Two Sided Update Message (u)"
-  end
-  if value == "d" then
-    return "Message Type: Extended Two Sided Update Message (d)"
-  end
-  if value == "f" then
-    return "Message Type: Expanded Trade Message (f)"
-  end
-  if value == "V" then
-    return "Message Type: Long Trade Message (V)"
-  end
-  if value == "v" then
-    return "Message Type: Short Trade Message (v)"
-  end
-  if value == "r" then
-    return "Message Type: Extended Trade Message (r)"
-  end
-  if value == "t" then
-    return "Message Type: Trading Status Message (t)"
-  end
+cboe_bzxequities_top_asciipitch_v1_3_8.message_type.labels = {
+  ["L"] = "Message Type: Logon Message (L)",
+  ["J"] = "Message Type: Logon Rejected Message (J)",
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["M"] = "Message Type: Milliseconds Message (M)",
+  ["C"] = "Message Type: Logon Accepted Message (C)",
+  ["s"] = "Message Type: Expanded Spin Message (s)",
+  ["S"] = "Message Type: Extended Spin Message (S)",
+  ["D"] = "Message Type: Spin Done Message (D)",
+  ["H"] = "Message Type: Server Heartbeat Message (H)",
+  ["R"] = "Message Type: Client Heartbeat Message (R)",
+  ["E"] = "Message Type: Expanded Bid Update Message (E)",
+  ["B"] = "Message Type: Long Bid Update Message (B)",
+  ["b"] = "Message Type: Short Bid Update Message (b)",
+  ["N"] = "Message Type: Extended Bid Update Message (N)",
+  ["e"] = "Message Type: Expanded Ask Update Message (e)",
+  ["A"] = "Message Type: Long Ask Update Message (A)",
+  ["a"] = "Message Type: Short Ask Update Message (a)",
+  ["n"] = "Message Type: Extended Ask Update Message (n)",
+  ["F"] = "Message Type: Expanded Two Sided Update Message (F)",
+  ["U"] = "Message Type: Long Two Sided Update Message (U)",
+  ["u"] = "Message Type: Short Two Sided Update Message (u)",
+  ["d"] = "Message Type: Extended Two Sided Update Message (d)",
+  ["f"] = "Message Type: Expanded Trade Message (f)",
+  ["V"] = "Message Type: Long Trade Message (V)",
+  ["v"] = "Message Type: Short Trade Message (v)",
+  ["r"] = "Message Type: Extended Trade Message (r)",
+  ["t"] = "Message Type: Trading Status Message (t)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_bzxequities_top_asciipitch_v1_3_8.message_type.display = function(value)
+  return cboe_bzxequities_top_asciipitch_v1_3_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1118,15 +1066,13 @@ cboe_bzxequities_top_asciipitch_v1_3_8.reg_sho_action = {}
 cboe_bzxequities_top_asciipitch_v1_3_8.reg_sho_action.size = 1
 
 -- Display: Reg SHO Action
-cboe_bzxequities_top_asciipitch_v1_3_8.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg SHO Action: No Price Test In Effect (0)"
-  end
-  if value == "1" then
-    return "Reg SHO Action: Reg Sho Price Test Restriction In Effect (1)"
-  end
+cboe_bzxequities_top_asciipitch_v1_3_8.reg_sho_action.labels = {
+  ["0"] = "Reg SHO Action: No Price Test In Effect (0)",
+  ["1"] = "Reg SHO Action: Reg Sho Price Test Restriction In Effect (1)",
+}
 
-  return "Reg SHO Action: Unknown("..value..")"
+cboe_bzxequities_top_asciipitch_v1_3_8.reg_sho_action.display = function(value)
+  return cboe_bzxequities_top_asciipitch_v1_3_8.reg_sho_action.labels[value] or "Reg SHO Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg SHO Action
@@ -2715,114 +2661,40 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_8.payload = {}
 
 -- Dissect: Payload
+cboe_bzxequities_top_asciipitch_v1_3_8.payload.dispatch = {
+  ["L"] = cboe_bzxequities_top_asciipitch_v1_3_8.logon_message.dissect,
+  ["J"] = cboe_bzxequities_top_asciipitch_v1_3_8.logon_rejected_message.dissect,
+  ["T"] = cboe_bzxequities_top_asciipitch_v1_3_8.seconds_message.dissect,
+  ["M"] = cboe_bzxequities_top_asciipitch_v1_3_8.milliseconds_message.dissect,
+  ["C"] = cboe_bzxequities_top_asciipitch_v1_3_8.logon_accepted_message.dissect,
+  ["s"] = cboe_bzxequities_top_asciipitch_v1_3_8.expanded_spin_message.dissect,
+  ["S"] = cboe_bzxequities_top_asciipitch_v1_3_8.extended_spin_message.dissect,
+  ["D"] = cboe_bzxequities_top_asciipitch_v1_3_8.spin_done_message.dissect,
+  ["H"] = cboe_bzxequities_top_asciipitch_v1_3_8.server_heartbeat_message.dissect,
+  ["R"] = cboe_bzxequities_top_asciipitch_v1_3_8.client_heartbeat_message.dissect,
+  ["E"] = cboe_bzxequities_top_asciipitch_v1_3_8.expanded_bid_update_message.dissect,
+  ["B"] = cboe_bzxequities_top_asciipitch_v1_3_8.long_bid_update_message.dissect,
+  ["b"] = cboe_bzxequities_top_asciipitch_v1_3_8.short_bid_update_message.dissect,
+  ["N"] = cboe_bzxequities_top_asciipitch_v1_3_8.extended_bid_update_message.dissect,
+  ["e"] = cboe_bzxequities_top_asciipitch_v1_3_8.expanded_ask_update_message.dissect,
+  ["A"] = cboe_bzxequities_top_asciipitch_v1_3_8.long_ask_update_message.dissect,
+  ["a"] = cboe_bzxequities_top_asciipitch_v1_3_8.short_ask_update_message.dissect,
+  ["n"] = cboe_bzxequities_top_asciipitch_v1_3_8.extended_ask_update_message.dissect,
+  ["F"] = cboe_bzxequities_top_asciipitch_v1_3_8.expanded_two_sided_update_message.dissect,
+  ["U"] = cboe_bzxequities_top_asciipitch_v1_3_8.long_two_sided_update_message.dissect,
+  ["u"] = cboe_bzxequities_top_asciipitch_v1_3_8.short_two_sided_update_message.dissect,
+  ["d"] = cboe_bzxequities_top_asciipitch_v1_3_8.extended_two_sided_update_message.dissect,
+  ["f"] = cboe_bzxequities_top_asciipitch_v1_3_8.expanded_trade_message.dissect,
+  ["V"] = cboe_bzxequities_top_asciipitch_v1_3_8.long_trade_message.dissect,
+  ["v"] = cboe_bzxequities_top_asciipitch_v1_3_8.short_trade_message.dissect,
+  ["r"] = cboe_bzxequities_top_asciipitch_v1_3_8.extended_trade_message.dissect,
+  ["t"] = cboe_bzxequities_top_asciipitch_v1_3_8.trading_status_message.dissect,
+}
+
 cboe_bzxequities_top_asciipitch_v1_3_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon Message
-  if message_type == "L" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Rejected Message
-  if message_type == "J" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.logon_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Milliseconds Message
-  if message_type == "M" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.milliseconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Accepted Message
-  if message_type == "C" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.logon_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expanded Spin Message
-  if message_type == "s" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.expanded_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Spin Message
-  if message_type == "S" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.extended_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Done Message
-  if message_type == "D" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.spin_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Message
-  if message_type == "H" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.server_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Message
-  if message_type == "R" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.client_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expanded Bid Update Message
-  if message_type == "E" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.expanded_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Bid Update Message
-  if message_type == "B" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.long_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Bid Update Message
-  if message_type == "b" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.short_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Bid Update Message
-  if message_type == "N" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.extended_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expanded Ask Update Message
-  if message_type == "e" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.expanded_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Ask Update Message
-  if message_type == "A" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.long_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Ask Update Message
-  if message_type == "a" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.short_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Ask Update Message
-  if message_type == "n" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.extended_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expanded Two Sided Update Message
-  if message_type == "F" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.expanded_two_sided_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Two Sided Update Message
-  if message_type == "U" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.long_two_sided_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Two Sided Update Message
-  if message_type == "u" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.short_two_sided_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Two Sided Update Message
-  if message_type == "d" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.extended_two_sided_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expanded Trade Message
-  if message_type == "f" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.expanded_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Trade Message
-  if message_type == "V" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.long_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Trade Message
-  if message_type == "v" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.short_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Trade Message
-  if message_type == "r" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.extended_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == "t" then
-    return cboe_bzxequities_top_asciipitch_v1_3_8.trading_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bzxequities_top_asciipitch_v1_3_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -988,69 +988,31 @@ cboe_edgaequities_binaryorderentry_boe3_v1_0_14.contra_broker = {}
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.contra_broker.size = 4
 
 -- Display: Contra Broker
-cboe_edgaequities_binaryorderentry_boe3_v1_0_14.contra_broker.display = function(value)
-  if value == "AMEX" then
-    return "Contra Broker: Routed To Nyse American (AMEX)"
-  end
-  if value == "ARCA" then
-    return "Contra Broker: Routed To Nyse Arca (ARCA)"
-  end
-  if value == "BEX" then
-    return "Contra Broker: Routed To Nasdaq Texas (BEX)"
-  end
-  if value == "CHX" then
-    return "Contra Broker: Routed To Nyse Texas (CHX)"
-  end
-  if value == "ICRS" then
-    return "Contra Broker: Routed To Intelligent Cross Pending Approval (ICRS)"
-  end
-  if value == "IEX" then
-    return "Contra Broker: Routed To Investors Exchange (IEX)"
-  end
-  if value == "INET" then
-    return "Contra Broker: Routed To Nasdaq (INET)"
-  end
-  if value == "LTSE" then
-    return "Contra Broker: Routed To Long Term Stock Exchange (LTSE)"
-  end
-  if value == "MEMX" then
-    return "Contra Broker: Routed To Members Exchange (MEMX)"
-  end
-  if value == "NYSE" then
-    return "Contra Broker: Routed To Nyse (NYSE)"
-  end
-  if value == "PERL" then
-    return "Contra Broker: Routed To Miax Pearl Exchange (PERL)"
-  end
-  if value == "PSX" then
-    return "Contra Broker: Routed To Nasdaq Psx (PSX)"
-  end
-  if value == "NSX" then
-    return "Contra Broker: Routed To Nyse National (NSX)"
-  end
-  if value == "DRT" then
-    return "Contra Broker: Routed To Drt Pool (DRT)"
-  end
-  if value == "TFXE" then
-    return "Contra Broker: Routed To 24 X (TFXE)"
-  end
-  if value == "TXSE" then
-    return "Contra Broker: Routed To Texas Stock Exchange (TXSE)"
-  end
-  if value == "BATS" then
-    return "Contra Broker: Routed To Cboe Bzx Exchange (BATS)"
-  end
-  if value == "BYXX" then
-    return "Contra Broker: Routed To Cboe Byx Exchange (BYXX)"
-  end
-  if value == "EDGA" then
-    return "Contra Broker: Routed To Cboe Edga Exchange (EDGA)"
-  end
-  if value == "EDGX" then
-    return "Contra Broker: Routed To Cboe Edgx Exchange (EDGX)"
-  end
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.contra_broker.labels = {
+  ["AMEX"] = "Contra Broker: Routed To Nyse American (AMEX)",
+  ["ARCA"] = "Contra Broker: Routed To Nyse Arca (ARCA)",
+  ["BEX"] = "Contra Broker: Routed To Nasdaq Texas (BEX)",
+  ["CHX"] = "Contra Broker: Routed To Nyse Texas (CHX)",
+  ["ICRS"] = "Contra Broker: Routed To Intelligent Cross Pending Approval (ICRS)",
+  ["IEX"] = "Contra Broker: Routed To Investors Exchange (IEX)",
+  ["INET"] = "Contra Broker: Routed To Nasdaq (INET)",
+  ["LTSE"] = "Contra Broker: Routed To Long Term Stock Exchange (LTSE)",
+  ["MEMX"] = "Contra Broker: Routed To Members Exchange (MEMX)",
+  ["NYSE"] = "Contra Broker: Routed To Nyse (NYSE)",
+  ["PERL"] = "Contra Broker: Routed To Miax Pearl Exchange (PERL)",
+  ["PSX"] = "Contra Broker: Routed To Nasdaq Psx (PSX)",
+  ["NSX"] = "Contra Broker: Routed To Nyse National (NSX)",
+  ["DRT"] = "Contra Broker: Routed To Drt Pool (DRT)",
+  ["TFXE"] = "Contra Broker: Routed To 24 X (TFXE)",
+  ["TXSE"] = "Contra Broker: Routed To Texas Stock Exchange (TXSE)",
+  ["BATS"] = "Contra Broker: Routed To Cboe Bzx Exchange (BATS)",
+  ["BYXX"] = "Contra Broker: Routed To Cboe Byx Exchange (BYXX)",
+  ["EDGA"] = "Contra Broker: Routed To Cboe Edga Exchange (EDGA)",
+  ["EDGX"] = "Contra Broker: Routed To Cboe Edgx Exchange (EDGX)",
+}
 
-  return "Contra Broker: Unknown("..value..")"
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.contra_broker.display = function(value)
+  return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.contra_broker.labels[value] or "Contra Broker: Unknown("..value..")"
 end
 
 -- Dissect: Contra Broker
@@ -1406,57 +1368,27 @@ cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message_type = {}
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.size = 2
 
 -- Display: Exchange Message Type
-cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.display = function(value)
-  if value == 501 then
-    return "Message Type: Login Response Message (501)"
-  end
-  if value == 502 then
-    return "Message Type: Replay Complete Message (502)"
-  end
-  if value == 503 then
-    return "Message Type: Logout Response Message (503)"
-  end
-  if value == 504 then
-    return "Message Type: Server Heartbeat Message (504)"
-  end
-  if value == 0x1195 then
-    return "Message Type: Order Acknowledgement Us Equities V 1 (0x1195)"
-  end
-  if value == 0x1196 then
-    return "Message Type: Order Rejected Us Equities V 1 (0x1196)"
-  end
-  if value == 0x1197 then
-    return "Message Type: Order Modified Us Equities V 1 (0x1197)"
-  end
-  if value == 0x1199 then
-    return "Message Type: Order Restated Us Equities V 1 (0x1199)"
-  end
-  if value == 0x1198 then
-    return "Message Type: Modify Rejected Us Equities V 1 (0x1198)"
-  end
-  if value == 0x119A then
-    return "Message Type: Order Cancelled Us Equities V 1 (0x119A)"
-  end
-  if value == 0x119B then
-    return "Message Type: Cancel Rejected Us Equities V 1 (0x119B)"
-  end
-  if value == 0x119C then
-    return "Message Type: Order Execution Us Equities V 1 (0x119C)"
-  end
-  if value == 0x119D then
-    return "Message Type: Trade Cancel Correct Us Equities V 1 (0x119D)"
-  end
-  if value == 0x11A0 then
-    return "Message Type: Purge Rejected Us Equities V 1 (0x11A0)"
-  end
-  if value == 0x119E then
-    return "Message Type: Reset Risk Acknowledgement Us Equities V 1 (0x119E)"
-  end
-  if value == 0x119F then
-    return "Message Type: Purge Acknowledgement Us Equities V 1 (0x119F)"
-  end
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.labels = {
+  [501] = "Message Type: Login Response Message (501)",
+  [502] = "Message Type: Replay Complete Message (502)",
+  [503] = "Message Type: Logout Response Message (503)",
+  [504] = "Message Type: Server Heartbeat Message (504)",
+  [0x1195] = "Message Type: Order Acknowledgement Us Equities V 1 (0x1195)",
+  [0x1196] = "Message Type: Order Rejected Us Equities V 1 (0x1196)",
+  [0x1197] = "Message Type: Order Modified Us Equities V 1 (0x1197)",
+  [0x1199] = "Message Type: Order Restated Us Equities V 1 (0x1199)",
+  [0x1198] = "Message Type: Modify Rejected Us Equities V 1 (0x1198)",
+  [0x119A] = "Message Type: Order Cancelled Us Equities V 1 (0x119A)",
+  [0x119B] = "Message Type: Cancel Rejected Us Equities V 1 (0x119B)",
+  [0x119C] = "Message Type: Order Execution Us Equities V 1 (0x119C)",
+  [0x119D] = "Message Type: Trade Cancel Correct Us Equities V 1 (0x119D)",
+  [0x11A0] = "Message Type: Purge Rejected Us Equities V 1 (0x11A0)",
+  [0x119E] = "Message Type: Reset Risk Acknowledgement Us Equities V 1 (0x119E)",
+  [0x119F] = "Message Type: Purge Acknowledgement Us Equities V 1 (0x119F)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.display = function(value)
+  return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Message Type
@@ -1718,36 +1650,20 @@ cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message_type = {}
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message_type.size = 2
 
 -- Display: Firm Message Type
-cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Logout Request Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Client Heartbeat Message (3)"
-  end
-  if value == 0x0FA1 then
-    return "Message Type: New Order Us Equities V 1 (0x0FA1)"
-  end
-  if value == 0x0FA6 then
-    return "Message Type: New Order Short Us Equities V 1 (0x0FA6)"
-  end
-  if value == 0x0FA3 then
-    return "Message Type: Cancel Order Us Equities V 1 (0x0FA3)"
-  end
-  if value == 0x0FA2 then
-    return "Message Type: Modify Order Us Equities V 1 (0x0FA2)"
-  end
-  if value == 0x0FA5 then
-    return "Message Type: Purge Orders Us Equities V 1 (0x0FA5)"
-  end
-  if value == 0x0FA4 then
-    return "Message Type: Reset Risk Us Equities V 1 (0x0FA4)"
-  end
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message_type.labels = {
+  [1] = "Message Type: Login Request Message (1)",
+  [2] = "Message Type: Logout Request Message (2)",
+  [3] = "Message Type: Client Heartbeat Message (3)",
+  [0x0FA1] = "Message Type: New Order Us Equities V 1 (0x0FA1)",
+  [0x0FA6] = "Message Type: New Order Short Us Equities V 1 (0x0FA6)",
+  [0x0FA3] = "Message Type: Cancel Order Us Equities V 1 (0x0FA3)",
+  [0x0FA2] = "Message Type: Modify Order Us Equities V 1 (0x0FA2)",
+  [0x0FA5] = "Message Type: Purge Orders Us Equities V 1 (0x0FA5)",
+  [0x0FA4] = "Message Type: Reset Risk Us Equities V 1 (0x0FA4)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message_type.display = function(value)
+  return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Firm Message Type
@@ -1949,36 +1865,20 @@ cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_response_status = {}
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Accepted (A)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "D" then
-    return "Login Response Status: Disabled (D)"
-  end
-  if value == "I" then
-    return "Login Response Status: Invalid Unit (I)"
-  end
-  if value == "M" then
-    return "Login Response Status: Invalid Message (M)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized (N)"
-  end
-  if value == "Q" then
-    return "Login Response Status: Sequence Ahead (Q)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
-  if value == "X" then
-    return "Login Response Status: Invalid Replay Instruction (X)"
-  end
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_response_status.labels = {
+  ["A"] = "Login Response Status: Accepted (A)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["D"] = "Login Response Status: Disabled (D)",
+  ["I"] = "Login Response Status: Invalid Unit (I)",
+  ["M"] = "Login Response Status: Invalid Message (M)",
+  ["N"] = "Login Response Status: Not Authorized (N)",
+  ["Q"] = "Login Response Status: Sequence Ahead (Q)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+  ["X"] = "Login Response Status: Invalid Replay Instruction (X)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_response_status.display = function(value)
+  return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -2039,18 +1939,14 @@ cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_reason = {}
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_reason.size = 1
 
 -- Display: Logout Reason
-cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_reason.display = function(value)
-  if value == "U" then
-    return "Logout Reason: User Requested (U)"
-  end
-  if value == "A" then
-    return "Logout Reason: Administrative (A)"
-  end
-  if value == "!" then
-    return "Logout Reason: Protocol Violation (!)"
-  end
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_reason.labels = {
+  ["U"] = "Logout Reason: User Requested (U)",
+  ["A"] = "Logout Reason: Administrative (A)",
+  ["!"] = "Logout Reason: Protocol Violation (!)",
+}
 
-  return "Logout Reason: Unknown("..value..")"
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_reason.display = function(value)
+  return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_reason.labels[value] or "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -3076,18 +2972,14 @@ cboe_edgaequities_binaryorderentry_boe3_v1_0_14.replay_instruction = {}
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.replay_instruction.size = 1
 
 -- Display: Replay Instruction
-cboe_edgaequities_binaryorderentry_boe3_v1_0_14.replay_instruction.display = function(value)
-  if value == "F" then
-    return "Replay Instruction: Fail If Unit Not Specified (F)"
-  end
-  if value == "R" then
-    return "Replay Instruction: Replay Any Unspecified Unit From Zero (R)"
-  end
-  if value == "S" then
-    return "Replay Instruction: Skip Replay Of Unspecified Units (S)"
-  end
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.replay_instruction.labels = {
+  ["F"] = "Replay Instruction: Fail If Unit Not Specified (F)",
+  ["R"] = "Replay Instruction: Replay Any Unspecified Unit From Zero (R)",
+  ["S"] = "Replay Instruction: Skip Replay Of Unspecified Units (S)",
+}
 
-  return "Replay Instruction: Unknown("..value..")"
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.replay_instruction.display = function(value)
+  return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.replay_instruction.labels[value] or "Replay Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Replay Instruction
@@ -3368,15 +3260,13 @@ cboe_edgaequities_binaryorderentry_boe3_v1_0_14.route_delivery_method = {}
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.route_delivery_method.size = 3
 
 -- Display: Route Delivery Method
-cboe_edgaequities_binaryorderentry_boe3_v1_0_14.route_delivery_method.display = function(value)
-  if value == "RTI" then
-    return "Route Delivery Method: Route To Improve Default If Not Specified (RTI)"
-  end
-  if value == "RTF" then
-    return "Route Delivery Method: Route To Fill (RTF)"
-  end
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.route_delivery_method.labels = {
+  ["RTI"] = "Route Delivery Method: Route To Improve Default If Not Specified (RTI)",
+  ["RTF"] = "Route Delivery Method: Route To Fill (RTF)",
+}
 
-  return "Route Delivery Method: Unknown("..value..")"
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.route_delivery_method.display = function(value)
+  return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.route_delivery_method.labels[value] or "Route Delivery Method: Unknown("..value..")"
 end
 
 -- Dissect: Route Delivery Method
@@ -5192,70 +5082,29 @@ end
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message = {}
 
 -- Dissect: Exchange Message
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message.dispatch = {
+  [501] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_response_message.dissect,
+  [502] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.replay_complete.dissect,
+  [503] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_response_message.dissect,
+  [504] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.server_heartbeat.dissect,
+  [0x1195] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_acknowledgement_us_equities_v_1.dissect,
+  [0x1196] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_rejected_us_equities_v_1.dissect,
+  [0x1197] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_modified_us_equities_v_1.dissect,
+  [0x1199] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_restated_us_equities_v_1.dissect,
+  [0x1198] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.modify_rejected_us_equities_v_1.dissect,
+  [0x119A] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_cancelled_us_equities_v_1.dissect,
+  [0x119B] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.cancel_rejected_us_equities_v_1.dissect,
+  [0x119C] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_execution_us_equities_v_1.dissect,
+  [0x119D] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.trade_cancel_correct_us_equities_v_1.dissect,
+  [0x11A0] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.purge_rejected_us_equities_v_1.dissect,
+  [0x119E] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.reset_risk_acknowledgement_us_equities_v_1.dissect,
+  [0x119F] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.purge_acknowledgement_us_equities_v_1.dissect,
+}
+
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
-  -- Dissect Login Response Message
-  if exchange_message_type == 501 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete
-  if exchange_message_type == 502 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.replay_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if exchange_message_type == 503 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if exchange_message_type == 504 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement Us Equities V 1
-  if exchange_message_type == 0x1195 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_acknowledgement_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Us Equities V 1
-  if exchange_message_type == 0x1196 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_rejected_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Us Equities V 1
-  if exchange_message_type == 0x1197 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_modified_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Us Equities V 1
-  if exchange_message_type == 0x1199 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_restated_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Rejected Us Equities V 1
-  if exchange_message_type == 0x1198 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.modify_rejected_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Us Equities V 1
-  if exchange_message_type == 0x119A then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_cancelled_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Us Equities V 1
-  if exchange_message_type == 0x119B then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.cancel_rejected_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Us Equities V 1
-  if exchange_message_type == 0x119C then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.order_execution_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Correct Us Equities V 1
-  if exchange_message_type == 0x119D then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.trade_cancel_correct_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Rejected Us Equities V 1
-  if exchange_message_type == 0x11A0 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.purge_rejected_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Risk Acknowledgement Us Equities V 1
-  if exchange_message_type == 0x119E then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.reset_risk_acknowledgement_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Acknowledgement Us Equities V 1
-  if exchange_message_type == 0x119F then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.purge_acknowledgement_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.exchange_message.dispatch[exchange_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5992,42 +5841,22 @@ end
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message = {}
 
 -- Dissect: Firm Message
+cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message.dispatch = {
+  [1] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_request_message.dissect,
+  [2] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_request.dissect,
+  [3] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.client_heartbeat.dissect,
+  [0x0FA1] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.new_order_us_equities_v_1.dissect,
+  [0x0FA6] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.new_order_short_us_equities_v_1.dissect,
+  [0x0FA3] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.cancel_order_us_equities_v_1.dissect,
+  [0x0FA2] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.modify_order_us_equities_v_1.dissect,
+  [0x0FA5] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.purge_orders_us_equities_v_1.dissect,
+  [0x0FA4] = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.reset_risk_us_equities_v_1.dissect,
+}
+
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
-  -- Dissect Login Request Message
-  if firm_message_type == 1 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if firm_message_type == 2 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if firm_message_type == 3 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Us Equities V 1
-  if firm_message_type == 0x0FA1 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.new_order_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Short Us Equities V 1
-  if firm_message_type == 0x0FA6 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.new_order_short_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Us Equities V 1
-  if firm_message_type == 0x0FA3 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.cancel_order_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Us Equities V 1
-  if firm_message_type == 0x0FA2 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.modify_order_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Orders Us Equities V 1
-  if firm_message_type == 0x0FA5 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.purge_orders_us_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Risk Us Equities V 1
-  if firm_message_type == 0x0FA4 then
-    return cboe_edgaequities_binaryorderentry_boe3_v1_0_14.reset_risk_us_equities_v_1.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgaequities_binaryorderentry_boe3_v1_0_14.firm_message.dispatch[firm_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

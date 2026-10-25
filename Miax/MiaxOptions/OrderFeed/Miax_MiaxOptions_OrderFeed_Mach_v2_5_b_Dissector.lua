@@ -252,12 +252,12 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.action = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.action.size = 1
 
 -- Display: Action
-miax_miaxoptions_orderfeed_mach_v2_5_b.action.display = function(value)
-  if value == "O" then
-    return "Action: Open (O)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.action.labels = {
+  ["O"] = "Action: Open (O)",
+}
 
-  return "Action: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.action.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -279,15 +279,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.active_on_miax = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.active_on_miax.size = 1
 
 -- Display: Active On Miax
-miax_miaxoptions_orderfeed_mach_v2_5_b.active_on_miax.display = function(value)
-  if value == "A" then
-    return "Active On Miax: Active (A)"
-  end
-  if value == "I" then
-    return "Active On Miax: Inactive (I)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.active_on_miax.labels = {
+  ["A"] = "Active On Miax: Active (A)",
+  ["I"] = "Active On Miax: Inactive (I)",
+}
 
-  return "Active On Miax: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.active_on_miax.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.active_on_miax.labels[value] or "Active On Miax: Unknown("..value..")"
 end
 
 -- Dissect: Active On Miax
@@ -355,15 +353,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.call_or_put = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.call_or_put.size = 1
 
 -- Display: Call Or Put
-miax_miaxoptions_orderfeed_mach_v2_5_b.call_or_put.display = function(value)
-  if value == "C" then
-    return "Call Or Put: Call (C)"
-  end
-  if value == "P" then
-    return "Call Or Put: Put (P)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.call_or_put.labels = {
+  ["C"] = "Call Or Put: Call (C)",
+  ["P"] = "Call Or Put: Put (P)",
+}
 
-  return "Call Or Put: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.call_or_put.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.call_or_put.labels[value] or "Call Or Put: Unknown("..value..")"
 end
 
 -- Dissect: Call Or Put
@@ -454,15 +450,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.event_reason = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.event_reason.size = 1
 
 -- Display: Event Reason
-miax_miaxoptions_orderfeed_mach_v2_5_b.event_reason.display = function(value)
-  if value == "A" then
-    return "Event Reason: Automatic (A)"
-  end
-  if value == "M" then
-    return "Event Reason: Manual (M)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.event_reason.labels = {
+  ["A"] = "Event Reason: Automatic (A)",
+  ["M"] = "Event Reason: Manual (M)",
+}
 
-  return "Event Reason: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.event_reason.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.event_reason.labels[value] or "Event Reason: Unknown("..value..")"
 end
 
 -- Dissect: Event Reason
@@ -599,15 +593,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.leg_side = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.leg_side.size = 1
 
 -- Display: Leg Side
-miax_miaxoptions_orderfeed_mach_v2_5_b.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Bid (B)"
-  end
-  if value == "A" then
-    return "Leg Side: Ask (A)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.leg_side.labels = {
+  ["B"] = "Leg Side: Bid (B)",
+  ["A"] = "Leg Side: Ask (A)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.leg_side.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -629,18 +621,14 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.liquidity_acceptance_increment_indicator 
 miax_miaxoptions_orderfeed_mach_v2_5_b.liquidity_acceptance_increment_indicator.size = 1
 
 -- Display: Liquidity Acceptance Increment Indicator
-miax_miaxoptions_orderfeed_mach_v2_5_b.liquidity_acceptance_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Liquidity Acceptance Increment Indicator: Penny (P)"
-  end
-  if value == "N" then
-    return "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)"
-  end
-  if value == "D" then
-    return "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.liquidity_acceptance_increment_indicator.labels = {
+  ["P"] = "Liquidity Acceptance Increment Indicator: Penny (P)",
+  ["N"] = "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)",
+}
 
-  return "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.liquidity_acceptance_increment_indicator.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.liquidity_acceptance_increment_indicator.labels[value] or "Liquidity Acceptance Increment Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Acceptance Increment Indicator
@@ -765,15 +753,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.long_term_option = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.long_term_option.size = 1
 
 -- Display: Long Term Option
-miax_miaxoptions_orderfeed_mach_v2_5_b.long_term_option.display = function(value)
-  if value == "Y" then
-    return "Long Term Option: Yes (Y)"
-  end
-  if value == "N" then
-    return "Long Term Option: No (N)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.long_term_option.labels = {
+  ["Y"] = "Long Term Option: Yes (Y)",
+  ["N"] = "Long Term Option: No (N)",
+}
 
-  return "Long Term Option: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.long_term_option.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.long_term_option.labels[value] or "Long Term Option: Unknown("..value..")"
 end
 
 -- Dissect: Long Term Option
@@ -818,33 +804,19 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.message_type = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.message_type.size = 1
 
 -- Display: Message Type
-miax_miaxoptions_orderfeed_mach_v2_5_b.message_type.display = function(value)
-  if value == "1" then
-    return "Message Type: System Time Message (1)"
-  end
-  if value == "P" then
-    return "Message Type: Simple Series Update Message (P)"
-  end
-  if value == "S" then
-    return "Message Type: System State Message (S)"
-  end
-  if value == "H" then
-    return "Message Type: Underlying Trading Status Notification Message (H)"
-  end
-  if value == "F" then
-    return "Message Type: Simple Order Message (F)"
-  end
-  if value == "C" then
-    return "Message Type: Complex Strategy Definition Update Message (C)"
-  end
-  if value == "R" then
-    return "Message Type: Complex Order Message (R)"
-  end
-  if value == "x" then
-    return "Message Type: Order Close Message (x)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.message_type.labels = {
+  ["1"] = "Message Type: System Time Message (1)",
+  ["P"] = "Message Type: Simple Series Update Message (P)",
+  ["S"] = "Message Type: System State Message (S)",
+  ["H"] = "Message Type: Underlying Trading Status Notification Message (H)",
+  ["F"] = "Message Type: Simple Order Message (F)",
+  ["C"] = "Message Type: Complex Strategy Definition Update Message (C)",
+  ["R"] = "Message Type: Complex Order Message (R)",
+  ["x"] = "Message Type: Order Close Message (x)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.message_type.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -866,18 +838,14 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.miax_bbo_posting_increment_indicator = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.miax_bbo_posting_increment_indicator.size = 1
 
 -- Display: Miax Bbo Posting Increment Indicator
-miax_miaxoptions_orderfeed_mach_v2_5_b.miax_bbo_posting_increment_indicator.display = function(value)
-  if value == "P" then
-    return "Miax Bbo Posting Increment Indicator: Penny (P)"
-  end
-  if value == "N" then
-    return "Miax Bbo Posting Increment Indicator: Penny Or Nickel (N)"
-  end
-  if value == "D" then
-    return "Miax Bbo Posting Increment Indicator: Nickel Or Dime (D)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.miax_bbo_posting_increment_indicator.labels = {
+  ["P"] = "Miax Bbo Posting Increment Indicator: Penny (P)",
+  ["N"] = "Miax Bbo Posting Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Miax Bbo Posting Increment Indicator: Nickel Or Dime (D)",
+}
 
-  return "Miax Bbo Posting Increment Indicator: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.miax_bbo_posting_increment_indicator.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.miax_bbo_posting_increment_indicator.labels[value] or "Miax Bbo Posting Increment Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Miax Bbo Posting Increment Indicator
@@ -1047,72 +1015,32 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.opening_underlying_market_code = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.opening_underlying_market_code.size = 1
 
 -- Display: Opening Underlying Market Code
-miax_miaxoptions_orderfeed_mach_v2_5_b.opening_underlying_market_code.display = function(value)
-  if value == "A" then
-    return "Opening Underlying Market Code: Nyse Amex (A)"
-  end
-  if value == "B" then
-    return "Opening Underlying Market Code: Nasdaq Omx Bx (B)"
-  end
-  if value == "C" then
-    return "Opening Underlying Market Code: National Stock Exchange (C)"
-  end
-  if value == "D" then
-    return "Opening Underlying Market Code: Finra Adf (D)"
-  end
-  if value == "E" then
-    return "Opening Underlying Market Code: Market Independent (E)"
-  end
-  if value == "H" then
-    return "Opening Underlying Market Code: Miax Pearl Equities (H)"
-  end
-  if value == "I" then
-    return "Opening Underlying Market Code: International Securities Exchange (I)"
-  end
-  if value == "J" then
-    return "Opening Underlying Market Code: Edga Exchange Inc (J)"
-  end
-  if value == "K" then
-    return "Opening Underlying Market Code: Edgx Exchange Inc (K)"
-  end
-  if value == "L" then
-    return "Opening Underlying Market Code: Ltse (L)"
-  end
-  if value == "M" then
-    return "Opening Underlying Market Code: Chicago Stock Exchange (M)"
-  end
-  if value == "N" then
-    return "Opening Underlying Market Code: Nyse Euronext (N)"
-  end
-  if value == "P" then
-    return "Opening Underlying Market Code: Nyse Arca Exchange (P)"
-  end
-  if value == "Q" then
-    return "Opening Underlying Market Code: Nasdaq Omx Utp (Q)"
-  end
-  if value == "T" then
-    return "Opening Underlying Market Code: Nasdaq Omx Cta (T)"
-  end
-  if value == "U" then
-    return "Opening Underlying Market Code: Memx (U)"
-  end
-  if value == "V" then
-    return "Opening Underlying Market Code: Iex (V)"
-  end
-  if value == "W" then
-    return "Opening Underlying Market Code: Cboe Stock Exchange (W)"
-  end
-  if value == "X" then
-    return "Opening Underlying Market Code: Nasdaq Omx Phlx (X)"
-  end
-  if value == "Y" then
-    return "Opening Underlying Market Code: Bats Y Exchange Inc (Y)"
-  end
-  if value == "Z" then
-    return "Opening Underlying Market Code: Bats Exchange Inc (Z)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.opening_underlying_market_code.labels = {
+  ["A"] = "Opening Underlying Market Code: Nyse Amex (A)",
+  ["B"] = "Opening Underlying Market Code: Nasdaq Omx Bx (B)",
+  ["C"] = "Opening Underlying Market Code: National Stock Exchange (C)",
+  ["D"] = "Opening Underlying Market Code: Finra Adf (D)",
+  ["E"] = "Opening Underlying Market Code: Market Independent (E)",
+  ["H"] = "Opening Underlying Market Code: Miax Pearl Equities (H)",
+  ["I"] = "Opening Underlying Market Code: International Securities Exchange (I)",
+  ["J"] = "Opening Underlying Market Code: Edga Exchange Inc (J)",
+  ["K"] = "Opening Underlying Market Code: Edgx Exchange Inc (K)",
+  ["L"] = "Opening Underlying Market Code: Ltse (L)",
+  ["M"] = "Opening Underlying Market Code: Chicago Stock Exchange (M)",
+  ["N"] = "Opening Underlying Market Code: Nyse Euronext (N)",
+  ["P"] = "Opening Underlying Market Code: Nyse Arca Exchange (P)",
+  ["Q"] = "Opening Underlying Market Code: Nasdaq Omx Utp (Q)",
+  ["T"] = "Opening Underlying Market Code: Nasdaq Omx Cta (T)",
+  ["U"] = "Opening Underlying Market Code: Memx (U)",
+  ["V"] = "Opening Underlying Market Code: Iex (V)",
+  ["W"] = "Opening Underlying Market Code: Cboe Stock Exchange (W)",
+  ["X"] = "Opening Underlying Market Code: Nasdaq Omx Phlx (X)",
+  ["Y"] = "Opening Underlying Market Code: Bats Y Exchange Inc (Y)",
+  ["Z"] = "Opening Underlying Market Code: Bats Exchange Inc (Z)",
+}
 
-  return "Opening Underlying Market Code: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.opening_underlying_market_code.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.opening_underlying_market_code.labels[value] or "Opening Underlying Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Opening Underlying Market Code
@@ -1238,15 +1166,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.order_side = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.order_side.size = 1
 
 -- Display: Order Side
-miax_miaxoptions_orderfeed_mach_v2_5_b.order_side.display = function(value)
-  if value == "B" then
-    return "Order Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Side: Sell (S)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.order_side.labels = {
+  ["B"] = "Order Side: Buy (B)",
+  ["S"] = "Order Side: Sell (S)",
+}
 
-  return "Order Side: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.order_side.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.order_side.labels[value] or "Order Side: Unknown("..value..")"
 end
 
 -- Dissect: Order Side
@@ -1268,15 +1194,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.order_type = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.order_type.size = 1
 
 -- Display: Order Type
-miax_miaxoptions_orderfeed_mach_v2_5_b.order_type.display = function(value)
-  if value == "M" then
-    return "Order Type: Market (M)"
-  end
-  if value == "L" then
-    return "Order Type: Limit (L)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.order_type.labels = {
+  ["M"] = "Order Type: Market (M)",
+  ["L"] = "Order Type: Limit (L)",
+}
 
-  return "Order Type: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.order_type.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1366,21 +1290,15 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.packet_type = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.packet_type.size = 1
 
 -- Display: Packet Type
-miax_miaxoptions_orderfeed_mach_v2_5_b.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.packet_type.labels = {
+  [0] = "Packet Type: Heartbeat (0)",
+  [1] = "Packet Type: Start Of Session (1)",
+  [2] = "Packet Type: End Of Session (2)",
+  [3] = "Packet Type: Application Message (3)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.packet_type.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -1477,21 +1395,15 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_message_type = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_message_type.size = 1
 
 -- Display: Refresh Message Type
-miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_message_type.display = function(value)
-  if value == "P" then
-    return "Refresh Message Type: Series Update Refresh (P)"
-  end
-  if value == "U" then
-    return "Refresh Message Type: Underlying Trading Status Refresh (U)"
-  end
-  if value == "S" then
-    return "Refresh Message Type: System State Refresh (S)"
-  end
-  if value == "C" then
-    return "Refresh Message Type: Complex Strategy Definition Refresh (C)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_message_type.labels = {
+  ["P"] = "Refresh Message Type: Series Update Refresh (P)",
+  ["U"] = "Refresh Message Type: Underlying Trading Status Refresh (U)",
+  ["S"] = "Refresh Message Type: System State Refresh (S)",
+  ["C"] = "Refresh Message Type: Complex Strategy Definition Refresh (C)",
+}
 
-  return "Refresh Message Type: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_message_type.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_message_type.labels[value] or "Refresh Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Refresh Message Type
@@ -1674,15 +1586,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.restricted_option = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.restricted_option.size = 1
 
 -- Display: Restricted Option
-miax_miaxoptions_orderfeed_mach_v2_5_b.restricted_option.display = function(value)
-  if value == "Y" then
-    return "Restricted Option: Yes (Y)"
-  end
-  if value == "N" then
-    return "Restricted Option: No (N)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.restricted_option.labels = {
+  ["Y"] = "Restricted Option: Yes (Y)",
+  ["N"] = "Restricted Option: No (N)",
+}
 
-  return "Restricted Option: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.restricted_option.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.restricted_option.labels[value] or "Restricted Option: Unknown("..value..")"
 end
 
 -- Dissect: Restricted Option
@@ -1704,15 +1614,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.route_instruction = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.route_instruction.size = 1
 
 -- Display: Route Instruction
-miax_miaxoptions_orderfeed_mach_v2_5_b.route_instruction.display = function(value)
-  if value == "R" then
-    return "Route Instruction: Routable (R)"
-  end
-  if value == "D" then
-    return "Route Instruction: Do Not Route (D)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.route_instruction.labels = {
+  ["R"] = "Route Instruction: Routable (R)",
+  ["D"] = "Route Instruction: Do Not Route (D)",
+}
 
-  return "Route Instruction: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.route_instruction.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.route_instruction.labels[value] or "Route Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Route Instruction
@@ -1863,45 +1771,23 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_packet_type = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_packet_type.size = 1
 
 -- Display: Sesm Packet Type
-miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_packet_type.display = function(value)
-  if value == "s" then
-    return "Sesm Packet Type: Sequenced Data Packet (s)"
-  end
-  if value == "U" then
-    return "Sesm Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "l" then
-    return "Sesm Packet Type: Login Request (l)"
-  end
-  if value == "r" then
-    return "Sesm Packet Type: Login Response (r)"
-  end
-  if value == "c" then
-    return "Sesm Packet Type: Synchronization Complete (c)"
-  end
-  if value == "a" then
-    return "Sesm Packet Type: Retransmission Request (a)"
-  end
-  if value == "X" then
-    return "Sesm Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Sesm Packet Type: Goodbye Packet (G)"
-  end
-  if value == "u" then
-    return "Sesm Packet Type: Trading Session Update (u)"
-  end
-  if value == "0" then
-    return "Sesm Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Sesm Packet Type: Client Heartbeat (1)"
-  end
-  if value == "T" then
-    return "Sesm Packet Type: Test Packet (T)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_packet_type.labels = {
+  ["s"] = "Sesm Packet Type: Sequenced Data Packet (s)",
+  ["U"] = "Sesm Packet Type: Unsequenced Data Packet (U)",
+  ["l"] = "Sesm Packet Type: Login Request (l)",
+  ["r"] = "Sesm Packet Type: Login Response (r)",
+  ["c"] = "Sesm Packet Type: Synchronization Complete (c)",
+  ["a"] = "Sesm Packet Type: Retransmission Request (a)",
+  ["X"] = "Sesm Packet Type: Logout Request (X)",
+  ["G"] = "Sesm Packet Type: Goodbye Packet (G)",
+  ["u"] = "Sesm Packet Type: Trading Session Update (u)",
+  ["0"] = "Sesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Sesm Packet Type: Client Heartbeat (1)",
+  ["T"] = "Sesm Packet Type: Test Packet (T)",
+}
 
-  return "Sesm Packet Type: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_packet_type.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_packet_type.labels[value] or "Sesm Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Sesm Packet Type
@@ -1992,15 +1878,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.simple_or_complex_order = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.simple_or_complex_order.size = 1
 
 -- Display: Simple Or Complex Order
-miax_miaxoptions_orderfeed_mach_v2_5_b.simple_or_complex_order.display = function(value)
-  if value == "F" then
-    return "Simple Or Complex Order: Simple Order (F)"
-  end
-  if value == "R" then
-    return "Simple Or Complex Order: Complex Order (R)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.simple_or_complex_order.labels = {
+  ["F"] = "Simple Or Complex Order: Simple Order (F)",
+  ["R"] = "Simple Or Complex Order: Complex Order (R)",
+}
 
-  return "Simple Or Complex Order: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.simple_or_complex_order.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.simple_or_complex_order.labels[value] or "Simple Or Complex Order: Unknown("..value..")"
 end
 
 -- Dissect: Simple Or Complex Order
@@ -2097,21 +1981,15 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.system_status = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.system_status.size = 1
 
 -- Display: System Status
-miax_miaxoptions_orderfeed_mach_v2_5_b.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of System Hours (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of System Hours (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Of Test Session (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of Test Session (2)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.system_status.labels = {
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.system_status.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -2152,24 +2030,16 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.time_in_force_tif = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.time_in_force_tif.size = 1
 
 -- Display: Time In Force Tif
-miax_miaxoptions_orderfeed_mach_v2_5_b.time_in_force_tif.display = function(value)
-  if value == "A" then
-    return "Time In Force Tif: Aoc (A)"
-  end
-  if value == "G" then
-    return "Time In Force Tif: Gtc (G)"
-  end
-  if value == "O" then
-    return "Time In Force Tif: Opg (O)"
-  end
-  if value == "D" then
-    return "Time In Force Tif: Day (D)"
-  end
-  if value == "S" then
-    return "Time In Force Tif: Sao (S)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.time_in_force_tif.labels = {
+  ["A"] = "Time In Force Tif: Aoc (A)",
+  ["G"] = "Time In Force Tif: Gtc (G)",
+  ["O"] = "Time In Force Tif: Opg (O)",
+  ["D"] = "Time In Force Tif: Day (D)",
+  ["S"] = "Time In Force Tif: Sao (S)",
+}
 
-  return "Time In Force Tif: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.time_in_force_tif.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.time_in_force_tif.labels[value] or "Time In Force Tif: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force Tif
@@ -2214,18 +2084,14 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.trading_status = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.trading_status.size = 1
 
 -- Display: Trading Status
-miax_miaxoptions_orderfeed_mach_v2_5_b.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "R" then
-    return "Trading Status: Resumed (R)"
-  end
-  if value == "O" then
-    return "Trading Status: Opened (O)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["R"] = "Trading Status: Resumed (R)",
+  ["O"] = "Trading Status: Opened (O)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.trading_status.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2270,18 +2136,14 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message_type = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message_type.display = function(value)
-  if value == "R" then
-    return "Unsequenced Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Unsequenced Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message_type.labels = {
+  ["R"] = "Unsequenced Message Type: Refresh Request Message (R)",
+  ["r"] = "Unsequenced Message Type: Refresh Response Message (r)",
+  ["E"] = "Unsequenced Message Type: End Of Refresh Notification Message (E)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message_type.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2303,15 +2165,13 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.update_reason = {}
 miax_miaxoptions_orderfeed_mach_v2_5_b.update_reason.size = 1
 
 -- Display: Update Reason
-miax_miaxoptions_orderfeed_mach_v2_5_b.update_reason.display = function(value)
-  if value == "N" then
-    return "Update Reason: New Strategy Created (N)"
-  end
-  if value == "U" then
-    return "Update Reason: Updated (U)"
-  end
+miax_miaxoptions_orderfeed_mach_v2_5_b.update_reason.labels = {
+  ["N"] = "Update Reason: New Strategy Created (N)",
+  ["U"] = "Update Reason: Updated (U)",
+}
 
-  return "Update Reason: Unknown("..value..")"
+miax_miaxoptions_orderfeed_mach_v2_5_b.update_reason.display = function(value)
+  return miax_miaxoptions_orderfeed_mach_v2_5_b.update_reason.labels[value] or "Update Reason: Unknown("..value..")"
 end
 
 -- Dissect: Update Reason
@@ -3500,38 +3360,21 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.data = {}
 
 -- Dissect: Data
+miax_miaxoptions_orderfeed_mach_v2_5_b.data.dispatch = {
+  ["1"] = miax_miaxoptions_orderfeed_mach_v2_5_b.system_time_message.dissect,
+  ["P"] = miax_miaxoptions_orderfeed_mach_v2_5_b.simple_series_update_message.dissect,
+  ["S"] = miax_miaxoptions_orderfeed_mach_v2_5_b.system_state_message.dissect,
+  ["H"] = miax_miaxoptions_orderfeed_mach_v2_5_b.underlying_trading_status_notification_message.dissect,
+  ["F"] = miax_miaxoptions_orderfeed_mach_v2_5_b.simple_order_message.dissect,
+  ["C"] = miax_miaxoptions_orderfeed_mach_v2_5_b.complex_strategy_definition_update_message.dissect,
+  ["R"] = miax_miaxoptions_orderfeed_mach_v2_5_b.complex_order_message.dissect,
+  ["x"] = miax_miaxoptions_orderfeed_mach_v2_5_b.order_close_message.dissect,
+}
+
 miax_miaxoptions_orderfeed_mach_v2_5_b.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Time Message
-  if message_type == "1" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.system_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Series Update Message
-  if message_type == "P" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.simple_series_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Message
-  if message_type == "S" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.system_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Underlying Trading Status Notification Message
-  if message_type == "H" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.underlying_trading_status_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Order Message
-  if message_type == "F" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.simple_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Strategy Definition Update Message
-  if message_type == "C" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.complex_strategy_definition_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Order Message
-  if message_type == "R" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.complex_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Close Message
-  if message_type == "x" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.order_close_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_miaxoptions_orderfeed_mach_v2_5_b.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3680,18 +3523,16 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message.dispatch = {
+  ["R"] = miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_request_message.dissect,
+  ["r"] = miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_response_message.dissect,
+  ["E"] = miax_miaxoptions_orderfeed_mach_v2_5_b.end_of_refresh_notification_message.dissect,
+}
+
 miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Refresh Request Message
-  if unsequenced_message_type == "R" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Response Message
-  if unsequenced_message_type == "r" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Refresh Notification Message
-  if unsequenced_message_type == "E" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.end_of_refresh_notification_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3813,54 +3654,25 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload = {}
 
 -- Dissect: Sesm Payload
+miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload.dispatch = {
+  ["s"] = miax_miaxoptions_orderfeed_mach_v2_5_b.sequenced_data_packet.dissect,
+  ["U"] = miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_data_packet.dissect,
+  ["l"] = miax_miaxoptions_orderfeed_mach_v2_5_b.login_request.dissect,
+  ["r"] = miax_miaxoptions_orderfeed_mach_v2_5_b.login_response.dissect,
+  ["c"] = miax_miaxoptions_orderfeed_mach_v2_5_b.synchronization_complete.dissect,
+  ["a"] = miax_miaxoptions_orderfeed_mach_v2_5_b.retransmission_request.dissect,
+  ["X"] = miax_miaxoptions_orderfeed_mach_v2_5_b.logout_request.dissect,
+  ["G"] = miax_miaxoptions_orderfeed_mach_v2_5_b.goodbye_packet.dissect,
+  ["u"] = miax_miaxoptions_orderfeed_mach_v2_5_b.trading_session_update.dissect,
+  ["0"] = miax_miaxoptions_orderfeed_mach_v2_5_b.server_heartbeat.dissect,
+  ["1"] = miax_miaxoptions_orderfeed_mach_v2_5_b.client_heartbeat.dissect,
+  ["T"] = miax_miaxoptions_orderfeed_mach_v2_5_b.test_packet.dissect,
+}
+
 miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
-  -- Dissect Sequenced Data Packet
-  if sesm_packet_type == "s" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if sesm_packet_type == "U" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if sesm_packet_type == "l" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if sesm_packet_type == "r" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if sesm_packet_type == "c" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if sesm_packet_type == "a" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if sesm_packet_type == "X" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if sesm_packet_type == "G" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Update
-  if sesm_packet_type == "u" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.trading_session_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if sesm_packet_type == "0" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if sesm_packet_type == "1" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Packet
-  if sesm_packet_type == "T" then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.test_packet.dissect(buffer, offset, packet, parent)
+  local dissect = miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload.dispatch[sesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4077,22 +3889,17 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.payload = {}
 
 -- Dissect: Payload
+miax_miaxoptions_orderfeed_mach_v2_5_b.payload.dispatch = {
+  [0] = miax_miaxoptions_orderfeed_mach_v2_5_b.heartbeat.dissect,
+  [1] = miax_miaxoptions_orderfeed_mach_v2_5_b.start_of_session.dissect,
+  [2] = miax_miaxoptions_orderfeed_mach_v2_5_b.end_of_session.dissect,
+  [3] = miax_miaxoptions_orderfeed_mach_v2_5_b.application_message.dissect,
+}
+
 miax_miaxoptions_orderfeed_mach_v2_5_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Heartbeat
-  if packet_type == 0 then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if packet_type == 1 then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if packet_type == 2 then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Message
-  if packet_type == 3 then
-    return miax_miaxoptions_orderfeed_mach_v2_5_b.application_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_miaxoptions_orderfeed_mach_v2_5_b.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

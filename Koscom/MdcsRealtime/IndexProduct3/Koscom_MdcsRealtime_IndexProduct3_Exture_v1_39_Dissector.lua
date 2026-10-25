@@ -1413,33 +1413,19 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.currency_code = {}
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.currency_code.size = 3
 
 -- Display: Currency Code
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.currency_code.display = function(value)
-  if value == "KRW" then
-    return "Currency Code: Korean Won (KRW)"
-  end
-  if value == "JPY" then
-    return "Currency Code: Japanese Yen (JPY)"
-  end
-  if value == "USD" then
-    return "Currency Code: Us Dollar (USD)"
-  end
-  if value == "HKD" then
-    return "Currency Code: Hong Kong Dollar (HKD)"
-  end
-  if value == "TWD" then
-    return "Currency Code: Taiwan Dollar (TWD)"
-  end
-  if value == "CNY" then
-    return "Currency Code: Chinese Yuan (CNY)"
-  end
-  if value == "EUR" then
-    return "Currency Code: Euro (EUR)"
-  end
-  if value == "GBP" then
-    return "Currency Code: British Pound (GBP)"
-  end
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.currency_code.labels = {
+  ["KRW"] = "Currency Code: Korean Won (KRW)",
+  ["JPY"] = "Currency Code: Japanese Yen (JPY)",
+  ["USD"] = "Currency Code: Us Dollar (USD)",
+  ["HKD"] = "Currency Code: Hong Kong Dollar (HKD)",
+  ["TWD"] = "Currency Code: Taiwan Dollar (TWD)",
+  ["CNY"] = "Currency Code: Chinese Yuan (CNY)",
+  ["EUR"] = "Currency Code: Euro (EUR)",
+  ["GBP"] = "Currency Code: British Pound (GBP)",
+}
 
-  return "Currency Code: Unknown("..value..")"
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.currency_code.display = function(value)
+  return koscom_mdcsrealtime_indexproduct3_exture_v1_39.currency_code.labels[value] or "Currency Code: Unknown("..value..")"
 end
 
 -- Dissect: Currency Code
@@ -1540,12 +1526,12 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.end_keyword = {}
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.end_keyword.size = 1
 
 -- Display: End Keyword
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.end_keyword.display = function(value)
-  if value == 255 then
-    return "End Keyword: End Of Message (255)"
-  end
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.end_keyword.labels = {
+  [255] = "End Keyword: End Of Message (255)",
+}
 
-  return "End Keyword: Unknown("..value..")"
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.end_keyword.display = function(value)
+  return koscom_mdcsrealtime_indexproduct3_exture_v1_39.end_keyword.labels[value] or "End Keyword: Unknown("..value..")"
 end
 
 -- Dissect: End Keyword
@@ -1781,15 +1767,13 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.index_constituent = {}
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.index_constituent.size = 1
 
 -- Display: Index Constituent
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.index_constituent.display = function(value)
-  if value == "0" then
-    return "Index Constituent: Included In Etf Not In Index (0)"
-  end
-  if value == "1" then
-    return "Index Constituent: Included In Index (1)"
-  end
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.index_constituent.labels = {
+  ["0"] = "Index Constituent: Included In Etf Not In Index (0)",
+  ["1"] = "Index Constituent: Included In Index (1)",
+}
 
-  return "Index Constituent: Unknown("..value..")"
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.index_constituent.display = function(value)
+  return koscom_mdcsrealtime_indexproduct3_exture_v1_39.index_constituent.labels[value] or "Index Constituent: Unknown("..value..")"
 end
 
 -- Dissect: Index Constituent
@@ -2406,33 +2390,19 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code = {}
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.size = 5
 
 -- Display: Tr Code
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.display = function(value)
-  if value == "I2000" then
-    return "Tr Code: Polling Data Message (I2000)"
-  end
-  if value == "IA000" then
-    return "Tr Code: Krx Index Message (IA000)"
-  end
-  if value == "IB000" then
-    return "Tr Code: Krx Estimated Index Message (IB000)"
-  end
-  if value == "J2000" then
-    return "Tr Code: Global Index Message (J2000)"
-  end
-  if value == "J4000" then
-    return "Tr Code: Bond Prime Index Message (J4000)"
-  end
-  if value == "K1000" then
-    return "Tr Code: Bond Ktb Index Message (K1000)"
-  end
-  if value == "K8000" then
-    return "Tr Code: Bond Ktb Index Term Structure Message (K8000)"
-  end
-  if value == "IG000" then
-    return "Tr Code: Bond Index Krx Message (IG000)"
-  end
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.labels = {
+  ["I2000"] = "Tr Code: Polling Data Message (I2000)",
+  ["IA000"] = "Tr Code: Krx Index Message (IA000)",
+  ["IB000"] = "Tr Code: Krx Estimated Index Message (IB000)",
+  ["J2000"] = "Tr Code: Global Index Message (J2000)",
+  ["J4000"] = "Tr Code: Bond Prime Index Message (J4000)",
+  ["K1000"] = "Tr Code: Bond Ktb Index Message (K1000)",
+  ["K8000"] = "Tr Code: Bond Ktb Index Term Structure Message (K8000)",
+  ["IG000"] = "Tr Code: Bond Index Krx Message (IG000)",
+}
 
-  return "Tr Code: Unknown("..value..")"
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.display = function(value)
+  return koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.labels[value] or "Tr Code: Unknown("..value..")"
 end
 
 -- Dissect: Tr Code
@@ -3502,38 +3472,21 @@ end
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload = {}
 
 -- Dissect: Payload
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload.dispatch = {
+  ["I2000"] = koscom_mdcsrealtime_indexproduct3_exture_v1_39.polling_data_message.dissect,
+  ["IA000"] = koscom_mdcsrealtime_indexproduct3_exture_v1_39.krx_index_message.dissect,
+  ["IB000"] = koscom_mdcsrealtime_indexproduct3_exture_v1_39.krx_estimated_index_message.dissect,
+  ["J2000"] = koscom_mdcsrealtime_indexproduct3_exture_v1_39.global_index_message.dissect,
+  ["J4000"] = koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_prime_index_message.dissect,
+  ["K1000"] = koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_ktb_index_message.dissect,
+  ["K8000"] = koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_ktb_index_term_structure_message.dissect,
+  ["IG000"] = koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_index_krx_message.dissect,
+}
+
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload.dissect = function(buffer, offset, packet, parent, tr_code)
-  -- Dissect Polling Data Message
-  if tr_code == "I2000" then
-    return koscom_mdcsrealtime_indexproduct3_exture_v1_39.polling_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Krx Index Message
-  if tr_code == "IA000" then
-    return koscom_mdcsrealtime_indexproduct3_exture_v1_39.krx_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Krx Estimated Index Message
-  if tr_code == "IB000" then
-    return koscom_mdcsrealtime_indexproduct3_exture_v1_39.krx_estimated_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Index Message
-  if tr_code == "J2000" then
-    return koscom_mdcsrealtime_indexproduct3_exture_v1_39.global_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Prime Index Message
-  if tr_code == "J4000" then
-    return koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_prime_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Ktb Index Message
-  if tr_code == "K1000" then
-    return koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_ktb_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Ktb Index Term Structure Message
-  if tr_code == "K8000" then
-    return koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_ktb_index_term_structure_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Index Krx Message
-  if tr_code == "IG000" then
-    return koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_index_krx_message.dissect(buffer, offset, packet, parent)
+  local dissect = koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload.dispatch[tr_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

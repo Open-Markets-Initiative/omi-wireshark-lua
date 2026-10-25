@@ -400,30 +400,18 @@ nasdaq_utp_input_utp_v4_0.action = {}
 nasdaq_utp_input_utp_v4_0.action.size = 1
 
 -- Display: Action
-nasdaq_utp_input_utp_v4_0.action.display = function(value)
-  if value == "H" then
-    return "Action: Trading Halt (H)"
-  end
-  if value == "Q" then
-    return "Action: Quotation Resumption Including Revoke Emergency Market Action (Q)"
-  end
-  if value == "T" then
-    return "Action: Trading Resumption (T)"
-  end
-  if value == "P" then
-    return "Action: Volatility Trading Pause (P)"
-  end
-  if value == "W" then
-    return "Action: Wipeout Quote (W)"
-  end
-  if value == "E" then
-    return "Action: Emergency Market Action Wipeout And Reject New Quotes (E)"
-  end
-  if value == "O" then
-    return "Action: Clear Odd Lot Quotes (O)"
-  end
+nasdaq_utp_input_utp_v4_0.action.labels = {
+  ["H"] = "Action: Trading Halt (H)",
+  ["Q"] = "Action: Quotation Resumption Including Revoke Emergency Market Action (Q)",
+  ["T"] = "Action: Trading Resumption (T)",
+  ["P"] = "Action: Volatility Trading Pause (P)",
+  ["W"] = "Action: Wipeout Quote (W)",
+  ["E"] = "Action: Emergency Market Action Wipeout And Reject New Quotes (E)",
+  ["O"] = "Action: Clear Odd Lot Quotes (O)",
+}
 
-  return "Action: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.action.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -792,36 +780,20 @@ nasdaq_utp_input_utp_v4_0.bbo_cond = {}
 nasdaq_utp_input_utp_v4_0.bbo_cond.size = 1
 
 -- Display: Bbo Cond
-nasdaq_utp_input_utp_v4_0.bbo_cond.display = function(value)
-  if value == "A" then
-    return "Bbo Cond: Manual Ask Automated Bid (A)"
-  end
-  if value == "B" then
-    return "Bbo Cond: Manual Bid Automated Ask (B)"
-  end
-  if value == "F" then
-    return "Bbo Cond: Fast Trading (F)"
-  end
-  if value == "H" then
-    return "Bbo Cond: Manual Bid And Ask (H)"
-  end
-  if value == "I" then
-    return "Bbo Cond: Order Imbalance (I)"
-  end
-  if value == "L" then
-    return "Bbo Cond: Closed Quote (L)"
-  end
-  if value == "N" then
-    return "Bbo Cond: Nonfirm Quote (N)"
-  end
-  if value == "O" then
-    return "Bbo Cond: Opening Quote Automated (O)"
-  end
-  if value == "R" then
-    return "Bbo Cond: Regular Twosided Open Quote Automated (R)"
-  end
+nasdaq_utp_input_utp_v4_0.bbo_cond.labels = {
+  ["A"] = "Bbo Cond: Manual Ask Automated Bid (A)",
+  ["B"] = "Bbo Cond: Manual Bid Automated Ask (B)",
+  ["F"] = "Bbo Cond: Fast Trading (F)",
+  ["H"] = "Bbo Cond: Manual Bid And Ask (H)",
+  ["I"] = "Bbo Cond: Order Imbalance (I)",
+  ["L"] = "Bbo Cond: Closed Quote (L)",
+  ["N"] = "Bbo Cond: Nonfirm Quote (N)",
+  ["O"] = "Bbo Cond: Opening Quote Automated (O)",
+  ["R"] = "Bbo Cond: Regular Twosided Open Quote Automated (R)",
+}
 
-  return "Bbo Cond: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.bbo_cond.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.bbo_cond.labels[value] or "Bbo Cond: Unknown("..value..")"
 end
 
 -- Dissect: Bbo Cond
@@ -843,15 +815,13 @@ nasdaq_utp_input_utp_v4_0.bbo_indicator = {}
 nasdaq_utp_input_utp_v4_0.bbo_indicator.size = 1
 
 -- Display: Bbo Indicator
-nasdaq_utp_input_utp_v4_0.bbo_indicator.display = function(value)
-  if value == "A" then
-    return "Bbo Indicator: No Finra Bbo Change (A)"
-  end
-  if value == "B" then
-    return "Bbo Indicator: No Finra Bbo Exists (B)"
-  end
+nasdaq_utp_input_utp_v4_0.bbo_indicator.labels = {
+  ["A"] = "Bbo Indicator: No Finra Bbo Change (A)",
+  ["B"] = "Bbo Indicator: No Finra Bbo Exists (B)",
+}
 
-  return "Bbo Indicator: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.bbo_indicator.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.bbo_indicator.labels[value] or "Bbo Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bbo Indicator
@@ -977,15 +947,13 @@ nasdaq_utp_input_utp_v4_0.cancel_type = {}
 nasdaq_utp_input_utp_v4_0.cancel_type.size = 1
 
 -- Display: Cancel Type
-nasdaq_utp_input_utp_v4_0.cancel_type.display = function(value)
-  if value == "C" then
-    return "Cancel Type: Cancel (C)"
-  end
-  if value == "E" then
-    return "Cancel Type: Error (E)"
-  end
+nasdaq_utp_input_utp_v4_0.cancel_type.labels = {
+  ["C"] = "Cancel Type: Cancel (C)",
+  ["E"] = "Cancel Type: Error (E)",
+}
 
-  return "Cancel Type: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.cancel_type.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.cancel_type.labels[value] or "Cancel Type: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Type
@@ -1007,24 +975,16 @@ nasdaq_utp_input_utp_v4_0.client_packet_type = {}
 nasdaq_utp_input_utp_v4_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_utp_input_utp_v4_0.client_packet_type.display = function(value)
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_utp_input_utp_v4_0.client_packet_type.labels = {
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.client_packet_type.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -1156,51 +1116,25 @@ nasdaq_utp_input_utp_v4_0.cond = {}
 nasdaq_utp_input_utp_v4_0.cond.size = 1
 
 -- Display: Cond
-nasdaq_utp_input_utp_v4_0.cond.display = function(value)
-  if value == "A" then
-    return "Cond: Manual Ask Automated Bid (A)"
-  end
-  if value == "B" then
-    return "Cond: Manual Bid Automated Ask (B)"
-  end
-  if value == "F" then
-    return "Cond: Fast Trading (F)"
-  end
-  if value == "H" then
-    return "Cond: Manual Bid And Ask (H)"
-  end
-  if value == "I" then
-    return "Cond: Order Imbalance (I)"
-  end
-  if value == "L" then
-    return "Cond: Closed Quote (L)"
-  end
-  if value == "N" then
-    return "Cond: Nonfirm Quote (N)"
-  end
-  if value == "O" then
-    return "Cond: Opening Quote Automated (O)"
-  end
-  if value == "R" then
-    return "Cond: Regular Twosided Open Quote Automated (R)"
-  end
-  if value == "U" then
-    return "Cond: Manual Bid And Ask Nonfirm (U)"
-  end
-  if value == "X" then
-    return "Cond: Order Influx (X)"
-  end
-  if value == "Y" then
-    return "Cond: Automated Bid No Offer Or Automated Offer No Bid (Y)"
-  end
-  if value == "Z" then
-    return "Cond: No Openno Resume (Z)"
-  end
-  if value == "4" then
-    return "Cond: Intraday Auction (4)"
-  end
+nasdaq_utp_input_utp_v4_0.cond.labels = {
+  ["A"] = "Cond: Manual Ask Automated Bid (A)",
+  ["B"] = "Cond: Manual Bid Automated Ask (B)",
+  ["F"] = "Cond: Fast Trading (F)",
+  ["H"] = "Cond: Manual Bid And Ask (H)",
+  ["I"] = "Cond: Order Imbalance (I)",
+  ["L"] = "Cond: Closed Quote (L)",
+  ["N"] = "Cond: Nonfirm Quote (N)",
+  ["O"] = "Cond: Opening Quote Automated (O)",
+  ["R"] = "Cond: Regular Twosided Open Quote Automated (R)",
+  ["U"] = "Cond: Manual Bid And Ask Nonfirm (U)",
+  ["X"] = "Cond: Order Influx (X)",
+  ["Y"] = "Cond: Automated Bid No Offer Or Automated Offer No Bid (Y)",
+  ["Z"] = "Cond: No Openno Resume (Z)",
+  ["4"] = "Cond: Intraday Auction (4)",
+}
 
-  return "Cond: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.cond.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.cond.labels[value] or "Cond: Unknown("..value..")"
 end
 
 -- Dissect: Cond
@@ -1817,84 +1751,36 @@ nasdaq_utp_input_utp_v4_0.orig = {}
 nasdaq_utp_input_utp_v4_0.orig.size = 2
 
 -- Display: Orig
-nasdaq_utp_input_utp_v4_0.orig.display = function(value)
-  if value == "AU" then
-    return "Orig: Nyse American Llc (AU)"
-  end
-  if value == "BU" then
-    return "Orig: Nasdaq Texas Llc (BU)"
-  end
-  if value == "CU" then
-    return "Orig: Nyse National Inc (CU)"
-  end
-  if value == "FU" then
-    return "Orig: Texas Stock Exchange Llc (FU)"
-  end
-  if value == "GU" then
-    return "Orig: 24X National Exchange, LLC (GU)"
-  end
-  if value == "HU" then
-    return "Orig: Miax Pearl Llc (HU)"
-  end
-  if value == "IU" then
-    return "Orig: Nasdaq Ise Llc (IU)"
-  end
-  if value == "JU" then
-    return "Orig: Cboe Edga Exchange Inc (JU)"
-  end
-  if value == "KU" then
-    return "Orig: Cboe Edgx Exchange Inc (KU)"
-  end
-  if value == "LU" then
-    return "Orig: Long Term Stock Exchange (LU)"
-  end
-  if value == "MU" then
-    return "Orig: Nyse Texas (MU)"
-  end
-  if value == "ND" then
-    return "Orig: Finra Alternative Display Facility Adf (ND)"
-  end
-  if value == "NU" then
-    return "Orig: New York Stock Exchange Llc (NU)"
-  end
-  if value == "PU" then
-    return "Orig: Nyse Arca Inc (PU)"
-  end
-  if value == "QU" then
-    return "Orig: Nasdaq Stock Market Llc (QU)"
-  end
-  if value == "UU" then
-    return "Orig: Memx Llc (UU)"
-  end
-  if value == "VU" then
-    return "Orig: Investors Exchange Llc (VU)"
-  end
-  if value == "WU" then
-    return "Orig: Cboe Exchange Inc (WU)"
-  end
-  if value == "XU" then
-    return "Orig: Nasdaq Psx (XU)"
-  end
-  if value == "YU" then
-    return "Orig: Cboe Byx Exchange Inc (YU)"
-  end
-  if value == "ZU" then
-    return "Orig: Cboe Bzx Exchange Inc (ZU)"
-  end
-  if value == "SU" then
-    return "Orig: Securities Information Processor Sip (SU)"
-  end
-  if value == "NL" then
-    return "Orig: Finra Nyse Trf (NL)"
-  end
-  if value == "QL" then
-    return "Orig: Finra Nasdaq Trf Carteret (QL)"
-  end
-  if value == "BL" then
-    return "Orig: Finra Nasdaq Trf Chicago (BL)"
-  end
+nasdaq_utp_input_utp_v4_0.orig.labels = {
+  ["AU"] = "Orig: Nyse American Llc (AU)",
+  ["BU"] = "Orig: Nasdaq Texas Llc (BU)",
+  ["CU"] = "Orig: Nyse National Inc (CU)",
+  ["FU"] = "Orig: Texas Stock Exchange Llc (FU)",
+  ["GU"] = "Orig: 24X National Exchange, LLC (GU)",
+  ["HU"] = "Orig: Miax Pearl Llc (HU)",
+  ["IU"] = "Orig: Nasdaq Ise Llc (IU)",
+  ["JU"] = "Orig: Cboe Edga Exchange Inc (JU)",
+  ["KU"] = "Orig: Cboe Edgx Exchange Inc (KU)",
+  ["LU"] = "Orig: Long Term Stock Exchange (LU)",
+  ["MU"] = "Orig: Nyse Texas (MU)",
+  ["ND"] = "Orig: Finra Alternative Display Facility Adf (ND)",
+  ["NU"] = "Orig: New York Stock Exchange Llc (NU)",
+  ["PU"] = "Orig: Nyse Arca Inc (PU)",
+  ["QU"] = "Orig: Nasdaq Stock Market Llc (QU)",
+  ["UU"] = "Orig: Memx Llc (UU)",
+  ["VU"] = "Orig: Investors Exchange Llc (VU)",
+  ["WU"] = "Orig: Cboe Exchange Inc (WU)",
+  ["XU"] = "Orig: Nasdaq Psx (XU)",
+  ["YU"] = "Orig: Cboe Byx Exchange Inc (YU)",
+  ["ZU"] = "Orig: Cboe Bzx Exchange Inc (ZU)",
+  ["SU"] = "Orig: Securities Information Processor Sip (SU)",
+  ["NL"] = "Orig: Finra Nyse Trf (NL)",
+  ["QL"] = "Orig: Finra Nasdaq Trf Carteret (QL)",
+  ["BL"] = "Orig: Finra Nasdaq Trf Chicago (BL)",
+}
 
-  return "Orig: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.orig.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.orig.labels[value] or "Orig: Unknown("..value..")"
 end
 
 -- Dissect: Orig
@@ -2233,120 +2119,48 @@ nasdaq_utp_input_utp_v4_0.reject_code = {}
 nasdaq_utp_input_utp_v4_0.reject_code.size = 2
 
 -- Display: Reject Code
-nasdaq_utp_input_utp_v4_0.reject_code.display = function(value)
-  if value == 1 then
-    return "Reject Code: Invalid Message Type (1)"
-  end
-  if value == 2 then
-    return "Reject Code: Invalid Originating Participant (2)"
-  end
-  if value == 7 then
-    return "Reject Code: Missing Message Gap Detected (7)"
-  end
-  if value == 11 then
-    return "Reject Code: System Not Open (11)"
-  end
-  if value == 26 then
-    return "Reject Code: Unknown Security Id (26)"
-  end
-  if value == 27 then
-    return "Reject Code: Invalid Trade Cancellation Type (27)"
-  end
-  if value == 28 then
-    return "Reject Code: Invalid Price (28)"
-  end
-  if value == 29 then
-    return "Reject Code: Invalid Volume (29)"
-  end
-  if value == 31 then
-    return "Reject Code: Invalid Condition (31)"
-  end
-  if value == 32 then
-    return "Reject Code: Invalid Number Of Days Field (32)"
-  end
-  if value == 33 then
-    return "Reject Code: Invalid Execution Side (33)"
-  end
-  if value == 36 then
-    return "Reject Code: Security Halted (36)"
-  end
-  if value == 37 then
-    return "Reject Code: Invalid Message Format (37)"
-  end
-  if value == 48 then
-    return "Reject Code: Invalid Size (48)"
-  end
-  if value == 60 then
-    return "Reject Code: Invalid Date And Time (60)"
-  end
-  if value == 62 then
-    return "Reject Code: Market Open Message Not Received (62)"
-  end
-  if value == 66 then
-    return "Reject Code: Invalid Mpid (66)"
-  end
-  if value == 68 then
-    return "Reject Code: Invalid Finra Bbo Mpid (68)"
-  end
-  if value == 69 then
-    return "Reject Code: Invalid Finra Bbo Price (69)"
-  end
-  if value == 70 then
-    return "Reject Code: Invalid Finra Bbo Size (70)"
-  end
-  if value == 71 then
-    return "Reject Code: Invalid Finra Bbo Cond (71)"
-  end
-  if value == 73 then
-    return "Reject Code: Trade Doesnt Match (73)"
-  end
-  if value == 75 then
-    return "Reject Code: Participant Halted (75)"
-  end
-  if value == 76 then
-    return "Reject Code: Invalid Reversal Indicator (76)"
-  end
-  if value == 77 then
-    return "Reject Code: Invalid Reason (77)"
-  end
-  if value == 79 then
-    return "Reject Code: Market Wide Halt (79)"
-  end
-  if value == 80 then
-    return "Reject Code: Invalid Retail Interest Indicator (80)"
-  end
-  if value == 82 then
-    return "Reject Code: Invalid Reporting Time (82)"
-  end
-  if value == 83 then
-    return "Reject Code: Unsupported Message Version (83)"
-  end
-  if value == 84 then
-    return "Reject Code: Originating Participant Not Allowed (84)"
-  end
-  if value == 86 then
-    return "Reject Code: Invalid Bbo Indicator (86)"
-  end
-  if value == 87 then
-    return "Reject Code: Invalid Trade Through Exempt Flag (87)"
-  end
-  if value == 88 then
-    return "Reject Code: Invalid Action (88)"
-  end
-  if value == 89 then
-    return "Reject Code: Action Not Allowed (89)"
-  end
-  if value == 92 then
-    return "Reject Code: Unexpected Trade Id (92)"
-  end
-  if value == 93 then
-    return "Reject Code: Unexpected Trading Action Sequence (93)"
-  end
-  if value == 101 then
-    return "Reject Code: Invalid Odd Level (101)"
-  end
+nasdaq_utp_input_utp_v4_0.reject_code.labels = {
+  [1] = "Reject Code: Invalid Message Type (1)",
+  [2] = "Reject Code: Invalid Originating Participant (2)",
+  [7] = "Reject Code: Missing Message Gap Detected (7)",
+  [11] = "Reject Code: System Not Open (11)",
+  [26] = "Reject Code: Unknown Security Id (26)",
+  [27] = "Reject Code: Invalid Trade Cancellation Type (27)",
+  [28] = "Reject Code: Invalid Price (28)",
+  [29] = "Reject Code: Invalid Volume (29)",
+  [31] = "Reject Code: Invalid Condition (31)",
+  [32] = "Reject Code: Invalid Number Of Days Field (32)",
+  [33] = "Reject Code: Invalid Execution Side (33)",
+  [36] = "Reject Code: Security Halted (36)",
+  [37] = "Reject Code: Invalid Message Format (37)",
+  [48] = "Reject Code: Invalid Size (48)",
+  [60] = "Reject Code: Invalid Date And Time (60)",
+  [62] = "Reject Code: Market Open Message Not Received (62)",
+  [66] = "Reject Code: Invalid Mpid (66)",
+  [68] = "Reject Code: Invalid Finra Bbo Mpid (68)",
+  [69] = "Reject Code: Invalid Finra Bbo Price (69)",
+  [70] = "Reject Code: Invalid Finra Bbo Size (70)",
+  [71] = "Reject Code: Invalid Finra Bbo Cond (71)",
+  [73] = "Reject Code: Trade Doesnt Match (73)",
+  [75] = "Reject Code: Participant Halted (75)",
+  [76] = "Reject Code: Invalid Reversal Indicator (76)",
+  [77] = "Reject Code: Invalid Reason (77)",
+  [79] = "Reject Code: Market Wide Halt (79)",
+  [80] = "Reject Code: Invalid Retail Interest Indicator (80)",
+  [82] = "Reject Code: Invalid Reporting Time (82)",
+  [83] = "Reject Code: Unsupported Message Version (83)",
+  [84] = "Reject Code: Originating Participant Not Allowed (84)",
+  [86] = "Reject Code: Invalid Bbo Indicator (86)",
+  [87] = "Reject Code: Invalid Trade Through Exempt Flag (87)",
+  [88] = "Reject Code: Invalid Action (88)",
+  [89] = "Reject Code: Action Not Allowed (89)",
+  [92] = "Reject Code: Unexpected Trade Id (92)",
+  [93] = "Reject Code: Unexpected Trading Action Sequence (93)",
+  [101] = "Reject Code: Invalid Odd Level (101)",
+}
 
-  return "Reject Code: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.reject_code.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.reject_code.labels[value] or "Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Code
@@ -2491,15 +2305,13 @@ nasdaq_utp_input_utp_v4_0.reversal = {}
 nasdaq_utp_input_utp_v4_0.reversal.size = 1
 
 -- Display: Reversal
-nasdaq_utp_input_utp_v4_0.reversal.display = function(value)
-  if value == "Y" then
-    return "Reversal: Transaction Represents A Reversal (Y)"
-  end
-  if value == "N" then
-    return "Reversal: Transaction Does Not Represent A Reversal (N)"
-  end
+nasdaq_utp_input_utp_v4_0.reversal.labels = {
+  ["Y"] = "Reversal: Transaction Represents A Reversal (Y)",
+  ["N"] = "Reversal: Transaction Does Not Represent A Reversal (N)",
+}
 
-  return "Reversal: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.reversal.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.reversal.labels[value] or "Reversal: Unknown("..value..")"
 end
 
 -- Dissect: Reversal
@@ -2557,27 +2369,17 @@ nasdaq_utp_input_utp_v4_0.server_packet_type = {}
 nasdaq_utp_input_utp_v4_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_utp_input_utp_v4_0.server_packet_type.display = function(value)
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_utp_input_utp_v4_0.server_packet_type.labels = {
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.server_packet_type.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2599,21 +2401,15 @@ nasdaq_utp_input_utp_v4_0.side = {}
 nasdaq_utp_input_utp_v4_0.side.size = 1
 
 -- Display: Side
-nasdaq_utp_input_utp_v4_0.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "X" then
-    return "Side: Cross (X)"
-  end
-  if value == "R" then
-    return "Side: Short Sale (R)"
-  end
+nasdaq_utp_input_utp_v4_0.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["X"] = "Side: Cross (X)",
+  ["R"] = "Side: Short Sale (R)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.side.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2635,18 +2431,14 @@ nasdaq_utp_input_utp_v4_0.sip_state = {}
 nasdaq_utp_input_utp_v4_0.sip_state.size = 1
 
 -- Display: Sip State
-nasdaq_utp_input_utp_v4_0.sip_state.display = function(value)
-  if value == "N" then
-    return "Sip State: Before Start Of Day Sod (N)"
-  end
-  if value == "S" then
-    return "Sip State: After Start Of Day Sod Before End Of Day Eod (S)"
-  end
-  if value == "E" then
-    return "Sip State: After End Of Day Eod (E)"
-  end
+nasdaq_utp_input_utp_v4_0.sip_state.labels = {
+  ["N"] = "Sip State: Before Start Of Day Sod (N)",
+  ["S"] = "Sip State: After Start Of Day Sod Before End Of Day Eod (S)",
+  ["E"] = "Sip State: After End Of Day Eod (E)",
+}
 
-  return "Sip State: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.sip_state.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.sip_state.labels[value] or "Sip State: Unknown("..value..")"
 end
 
 -- Dissect: Sip State
@@ -2761,21 +2553,15 @@ nasdaq_utp_input_utp_v4_0.symbol_state = {}
 nasdaq_utp_input_utp_v4_0.symbol_state.size = 1
 
 -- Display: Symbol State
-nasdaq_utp_input_utp_v4_0.symbol_state.display = function(value)
-  if value == "H" then
-    return "Symbol State: Trading Halt (H)"
-  end
-  if value == "Q" then
-    return "Symbol State: Quotation Only (Q)"
-  end
-  if value == "T" then
-    return "Symbol State: Trading (T)"
-  end
-  if value == "P" then
-    return "Symbol State: Volatility Trading Pause (P)"
-  end
+nasdaq_utp_input_utp_v4_0.symbol_state.labels = {
+  ["H"] = "Symbol State: Trading Halt (H)",
+  ["Q"] = "Symbol State: Quotation Only (Q)",
+  ["T"] = "Symbol State: Trading (T)",
+  ["P"] = "Symbol State: Volatility Trading Pause (P)",
+}
 
-  return "Symbol State: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.symbol_state.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.symbol_state.labels[value] or "Symbol State: Unknown("..value..")"
 end
 
 -- Dissect: Symbol State
@@ -2797,15 +2583,13 @@ nasdaq_utp_input_utp_v4_0.syntax_violation = {}
 nasdaq_utp_input_utp_v4_0.syntax_violation.size = 1
 
 -- Display: Syntax Violation
-nasdaq_utp_input_utp_v4_0.syntax_violation.display = function(value)
-  if value == "Y" then
-    return "Syntax Violation: Syntax Violation— Port Will Disconnect (Y)"
-  end
-  if value == "N" then
-    return "Syntax Violation: No Syntax Violation (N)"
-  end
+nasdaq_utp_input_utp_v4_0.syntax_violation.labels = {
+  ["Y"] = "Syntax Violation: Syntax Violation— Port Will Disconnect (Y)",
+  ["N"] = "Syntax Violation: No Syntax Violation (N)",
+}
 
-  return "Syntax Violation: Unknown("..value..")"
+nasdaq_utp_input_utp_v4_0.syntax_violation.display = function(value)
+  return nasdaq_utp_input_utp_v4_0.syntax_violation.labels[value] or "Syntax Violation: Unknown("..value..")"
 end
 
 -- Dissect: Syntax Violation
@@ -3518,22 +3302,17 @@ end
 nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload = {}
 
 -- Dissect: Return Control Messages Message Payload
+nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload.dispatch = {
+  ["E"] = nasdaq_utp_input_utp_v4_0.start_of_day_message.dissect,
+  ["F"] = nasdaq_utp_input_utp_v4_0.end_of_day_message.dissect,
+  ["C"] = nasdaq_utp_input_utp_v4_0.sequence_inquiry_response_message.dissect,
+  ["S"] = nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_response_message.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload.dissect = function(buffer, offset, packet, parent, return_control_messages_message_type)
-  -- Dissect Start Of Day Message
-  if return_control_messages_message_type == "E" then
-    return nasdaq_utp_input_utp_v4_0.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if return_control_messages_message_type == "F" then
-    return nasdaq_utp_input_utp_v4_0.end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Inquiry Response Message
-  if return_control_messages_message_type == "C" then
-    return nasdaq_utp_input_utp_v4_0.sequence_inquiry_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol State Inquiry Response Message
-  if return_control_messages_message_type == "S" then
-    return nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload.dispatch[return_control_messages_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3972,34 +3751,20 @@ end
 nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload = {}
 
 -- Dissect: Return Administrative Messages Message Payload
+nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload.dispatch = {
+  ["A"] = nasdaq_utp_input_utp_v4_0.return_general_administrative_message.dissect,
+  ["J"] = nasdaq_utp_input_utp_v4_0.return_market_center_trading_action_acknowledgement_message.dissect,
+  ["X"] = nasdaq_utp_input_utp_v4_0.return_market_open_message.dissect,
+  ["Y"] = nasdaq_utp_input_utp_v4_0.return_market_closed_message.dissect,
+  ["R"] = nasdaq_utp_input_utp_v4_0.reject_message.dissect,
+  ["K"] = nasdaq_utp_input_utp_v4_0.sequence_acknowledgement_message.dissect,
+  ["W"] = nasdaq_utp_input_utp_v4_0.participant_input_warning_message.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload.dissect = function(buffer, offset, packet, parent, return_administrative_messages_message_type)
-  -- Dissect Return General Administrative Message
-  if return_administrative_messages_message_type == "A" then
-    return nasdaq_utp_input_utp_v4_0.return_general_administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Return Market Center Trading Action Acknowledgement Message
-  if return_administrative_messages_message_type == "J" then
-    return nasdaq_utp_input_utp_v4_0.return_market_center_trading_action_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Return Market Open Message
-  if return_administrative_messages_message_type == "X" then
-    return nasdaq_utp_input_utp_v4_0.return_market_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Return Market Closed Message
-  if return_administrative_messages_message_type == "Y" then
-    return nasdaq_utp_input_utp_v4_0.return_market_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if return_administrative_messages_message_type == "R" then
-    return nasdaq_utp_input_utp_v4_0.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Acknowledgement Message
-  if return_administrative_messages_message_type == "K" then
-    return nasdaq_utp_input_utp_v4_0.sequence_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant Input Warning Message
-  if return_administrative_messages_message_type == "W" then
-    return nasdaq_utp_input_utp_v4_0.participant_input_warning_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload.dispatch[return_administrative_messages_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4222,18 +3987,16 @@ end
 nasdaq_utp_input_utp_v4_0.inbound_control_messages_message_payload = {}
 
 -- Dissect: Inbound Control Messages Message Payload
+nasdaq_utp_input_utp_v4_0.inbound_control_messages_message_payload.dispatch = {
+  ["C"] = nasdaq_utp_input_utp_v4_0.sequence_inquiry_message.dissect,
+  ["S"] = nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_message.dissect,
+  ["G"] = nasdaq_utp_input_utp_v4_0.end_of_participant_reporting_message.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.inbound_control_messages_message_payload.dissect = function(buffer, offset, packet, parent, inbound_control_messages_message_type)
-  -- Dissect Sequence Inquiry Message
-  if inbound_control_messages_message_type == "C" then
-    return nasdaq_utp_input_utp_v4_0.sequence_inquiry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol State Inquiry Message
-  if inbound_control_messages_message_type == "S" then
-    return nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Participant Reporting Message
-  if inbound_control_messages_message_type == "G" then
-    return nasdaq_utp_input_utp_v4_0.end_of_participant_reporting_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.inbound_control_messages_message_payload.dispatch[inbound_control_messages_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4920,46 +4683,23 @@ end
 nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload = {}
 
 -- Dissect: Inbound Administrative Messages Message Payload
+nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload.dispatch = {
+  ["A"] = nasdaq_utp_input_utp_v4_0.general_administrative_message.dissect,
+  ["O"] = nasdaq_utp_input_utp_v4_0.trading_action_message.dissect,
+  ["J"] = nasdaq_utp_input_utp_v4_0.market_center_trading_action_message.dissect,
+  ["U"] = nasdaq_utp_input_utp_v4_0.market_center_mass_trading_action_message.dissect,
+  ["V"] = nasdaq_utp_input_utp_v4_0.reg_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["M"] = nasdaq_utp_input_utp_v4_0.opening_reference_midpoint_price_message.dissect,
+  ["N"] = nasdaq_utp_input_utp_v4_0.t_1_adjusted_closing_price_message.dissect,
+  ["X"] = nasdaq_utp_input_utp_v4_0.market_open_message.dissect,
+  ["Y"] = nasdaq_utp_input_utp_v4_0.market_closed_message.dissect,
+  ["E"] = nasdaq_utp_input_utp_v4_0.auction_collar_message.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload.dissect = function(buffer, offset, packet, parent, inbound_administrative_messages_message_type)
-  -- Dissect General Administrative Message
-  if inbound_administrative_messages_message_type == "A" then
-    return nasdaq_utp_input_utp_v4_0.general_administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if inbound_administrative_messages_message_type == "O" then
-    return nasdaq_utp_input_utp_v4_0.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Center Trading Action Message
-  if inbound_administrative_messages_message_type == "J" then
-    return nasdaq_utp_input_utp_v4_0.market_center_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Center Mass Trading Action Message
-  if inbound_administrative_messages_message_type == "U" then
-    return nasdaq_utp_input_utp_v4_0.market_center_mass_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if inbound_administrative_messages_message_type == "V" then
-    return nasdaq_utp_input_utp_v4_0.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Reference Midpoint Price Message
-  if inbound_administrative_messages_message_type == "M" then
-    return nasdaq_utp_input_utp_v4_0.opening_reference_midpoint_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect T 1 Adjusted Closing Price Message
-  if inbound_administrative_messages_message_type == "N" then
-    return nasdaq_utp_input_utp_v4_0.t_1_adjusted_closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Open Message
-  if inbound_administrative_messages_message_type == "X" then
-    return nasdaq_utp_input_utp_v4_0.market_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Closed Message
-  if inbound_administrative_messages_message_type == "Y" then
-    return nasdaq_utp_input_utp_v4_0.market_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Collar Message
-  if inbound_administrative_messages_message_type == "E" then
-    return nasdaq_utp_input_utp_v4_0.auction_collar_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload.dispatch[inbound_administrative_messages_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5790,38 +5530,21 @@ end
 nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload = {}
 
 -- Dissect: Inbound Trade Messages Message Payload
+nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload.dispatch = {
+  ["E"] = nasdaq_utp_input_utp_v4_0.regular_trade_report_message.dissect,
+  ["I"] = nasdaq_utp_input_utp_v4_0.trade_cancel_error_message.dissect,
+  ["J"] = nasdaq_utp_input_utp_v4_0.trade_correction_message.dissect,
+  ["H"] = nasdaq_utp_input_utp_v4_0.as_of_trade_report_message.dissect,
+  ["K"] = nasdaq_utp_input_utp_v4_0.fractional_regular_trade_report_message.dissect,
+  ["O"] = nasdaq_utp_input_utp_v4_0.fractional_trade_cancel_error_message.dissect,
+  ["P"] = nasdaq_utp_input_utp_v4_0.fractional_trade_correction_message.dissect,
+  ["Q"] = nasdaq_utp_input_utp_v4_0.fractional_as_of_trade_report_message.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload.dissect = function(buffer, offset, packet, parent, inbound_trade_messages_message_type)
-  -- Dissect Regular Trade Report Message
-  if inbound_trade_messages_message_type == "E" then
-    return nasdaq_utp_input_utp_v4_0.regular_trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error Message
-  if inbound_trade_messages_message_type == "I" then
-    return nasdaq_utp_input_utp_v4_0.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if inbound_trade_messages_message_type == "J" then
-    return nasdaq_utp_input_utp_v4_0.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect As Of Trade Report Message
-  if inbound_trade_messages_message_type == "H" then
-    return nasdaq_utp_input_utp_v4_0.as_of_trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Regular Trade Report Message
-  if inbound_trade_messages_message_type == "K" then
-    return nasdaq_utp_input_utp_v4_0.fractional_regular_trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Trade Cancel Error Message
-  if inbound_trade_messages_message_type == "O" then
-    return nasdaq_utp_input_utp_v4_0.fractional_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional Trade Correction Message
-  if inbound_trade_messages_message_type == "P" then
-    return nasdaq_utp_input_utp_v4_0.fractional_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fractional As Of Trade Report Message
-  if inbound_trade_messages_message_type == "Q" then
-    return nasdaq_utp_input_utp_v4_0.fractional_as_of_trade_report_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload.dispatch[inbound_trade_messages_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7250,46 +6973,23 @@ end
 nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload = {}
 
 -- Dissect: Inbound Quote Messages Message Payload
+nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload.dispatch = {
+  ["Q"] = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.dissect,
+  ["L"] = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.dissect,
+  ["O"] = nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_short_form_message.dissect,
+  ["J"] = nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_long_form_message.dissect,
+  ["P"] = nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_short_form_message.dissect,
+  ["K"] = nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_long_form_message.dissect,
+  ["G"] = nasdaq_utp_input_utp_v4_0.finra_protected_quote_message_with_bbo_info_message.dissect,
+  ["F"] = nasdaq_utp_input_utp_v4_0.finra_protected_quote_message_without_bbo_info_message.dissect,
+  ["H"] = nasdaq_utp_input_utp_v4_0.finra_adf_odd_lot_quotation_message.dissect,
+  ["R"] = nasdaq_utp_input_utp_v4_0.finra_adf_combined_quote_message_with_bbo.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload.dissect = function(buffer, offset, packet, parent, inbound_quote_messages_message_type)
-  -- Dissect Protected Exchange Quote Message Shortform Message
-  if inbound_quote_messages_message_type == "Q" then
-    return nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Protected Exchange Quote Message Longform Message
-  if inbound_quote_messages_message_type == "L" then
-    return nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Exchange Odd Lot Quote Message Short Form Message
-  if inbound_quote_messages_message_type == "O" then
-    return nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Exchange Odd Lot Quote Message Long Form Message
-  if inbound_quote_messages_message_type == "J" then
-    return nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Exchange Combined Quote Message Short Form Message
-  if inbound_quote_messages_message_type == "P" then
-    return nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Exchange Combined Quote Message Long Form Message
-  if inbound_quote_messages_message_type == "K" then
-    return nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Finra Protected Quote Message With Bbo Info Message
-  if inbound_quote_messages_message_type == "G" then
-    return nasdaq_utp_input_utp_v4_0.finra_protected_quote_message_with_bbo_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Finra Protected Quote Message Without Bbo Info Message
-  if inbound_quote_messages_message_type == "F" then
-    return nasdaq_utp_input_utp_v4_0.finra_protected_quote_message_without_bbo_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Finra Adf Odd Lot Quotation Message
-  if inbound_quote_messages_message_type == "H" then
-    return nasdaq_utp_input_utp_v4_0.finra_adf_odd_lot_quotation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Finra Adf Combined Quote Message With Bbo
-  if inbound_quote_messages_message_type == "R" then
-    return nasdaq_utp_input_utp_v4_0.finra_adf_combined_quote_message_with_bbo.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload.dispatch[inbound_quote_messages_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7352,30 +7052,19 @@ end
 nasdaq_utp_input_utp_v4_0.category_payload = {}
 
 -- Dissect: Category Payload
+nasdaq_utp_input_utp_v4_0.category_payload.dispatch = {
+  ["Q"] = nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message.dissect,
+  ["T"] = nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message.dissect,
+  ["A"] = nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message.dissect,
+  ["C"] = nasdaq_utp_input_utp_v4_0.inbound_control_messages_message.dissect,
+  ["a"] = nasdaq_utp_input_utp_v4_0.return_administrative_messages_message.dissect,
+  ["c"] = nasdaq_utp_input_utp_v4_0.return_control_messages_message.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Inbound Quote Messages Message
-  if message_category == "Q" then
-    return nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inbound Trade Messages Message
-  if message_category == "T" then
-    return nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inbound Administrative Messages Message
-  if message_category == "A" then
-    return nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inbound Control Messages Message
-  if message_category == "C" then
-    return nasdaq_utp_input_utp_v4_0.inbound_control_messages_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Return Administrative Messages Message
-  if message_category == "a" then
-    return nasdaq_utp_input_utp_v4_0.return_administrative_messages_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Return Control Messages Message
-  if message_category == "c" then
-    return nasdaq_utp_input_utp_v4_0.return_control_messages_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.category_payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7483,30 +7172,19 @@ end
 nasdaq_utp_input_utp_v4_0.server_tcp_payload = {}
 
 -- Dissect: Server Tcp Payload
+nasdaq_utp_input_utp_v4_0.server_tcp_payload.dispatch = {
+  ["S"] = nasdaq_utp_input_utp_v4_0.sequenced_data_packet.dissect,
+  ["+"] = nasdaq_utp_input_utp_v4_0.debug_packet.dissect,
+  ["A"] = nasdaq_utp_input_utp_v4_0.login_accepted_packet.dissect,
+  ["J"] = nasdaq_utp_input_utp_v4_0.login_rejected_packet.dissect,
+  ["H"] = nasdaq_utp_input_utp_v4_0.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_utp_input_utp_v4_0.end_of_session_packet.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_utp_input_utp_v4_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_utp_input_utp_v4_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_utp_input_utp_v4_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_utp_input_utp_v4_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_utp_input_utp_v4_0.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_utp_input_utp_v4_0.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.server_tcp_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7730,26 +7408,18 @@ end
 nasdaq_utp_input_utp_v4_0.client_tcp_payload = {}
 
 -- Dissect: Client Tcp Payload
+nasdaq_utp_input_utp_v4_0.client_tcp_payload.dispatch = {
+  ["U"] = nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.dissect,
+  ["+"] = nasdaq_utp_input_utp_v4_0.debug_packet.dissect,
+  ["L"] = nasdaq_utp_input_utp_v4_0.login_request_packet.dissect,
+  ["R"] = nasdaq_utp_input_utp_v4_0.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_utp_input_utp_v4_0.logout_request_packet.dissect,
+}
+
 nasdaq_utp_input_utp_v4_0.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_utp_input_utp_v4_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_utp_input_utp_v4_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_utp_input_utp_v4_0.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_utp_input_utp_v4_0.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_utp_input_utp_v4_0.client_tcp_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

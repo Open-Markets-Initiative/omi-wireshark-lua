@@ -311,39 +311,21 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type = {}
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type.size = 1
 
 -- Display: Message Type
-cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type.display = function(value)
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x50 then
-    return "Message Type: Trading Status Message (0x50)"
-  end
-  if value == 0x51 then
-    return "Message Type: Add Order Message (0x51)"
-  end
-  if value == 0x52 then
-    return "Message Type: Order Executed Message (0x52)"
-  end
-  if value == 0x39 then
-    return "Message Type: Reduce Size Message (0x39)"
-  end
-  if value == 0x3A then
-    return "Message Type: Modify Order Message (0x3A)"
-  end
-  if value == 0x3C then
-    return "Message Type: Delete Order Message (0x3C)"
-  end
-  if value == 0x53 then
-    return "Message Type: Trade Message (0x53)"
-  end
-  if value == 0x3E then
-    return "Message Type: Trade Break Message (0x3E)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type.labels = {
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0x50] = "Message Type: Trading Status Message (0x50)",
+  [0x51] = "Message Type: Add Order Message (0x51)",
+  [0x52] = "Message Type: Order Executed Message (0x52)",
+  [0x39] = "Message Type: Reduce Size Message (0x39)",
+  [0x3A] = "Message Type: Modify Order Message (0x3A)",
+  [0x3C] = "Message Type: Delete Order Message (0x3C)",
+  [0x53] = "Message Type: Trade Message (0x53)",
+  [0x3E] = "Message Type: Trade Break Message (0x3E)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -509,15 +491,13 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.side_indicator = {}
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.side_indicator.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -562,24 +542,16 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.tick_direction = {}
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.tick_direction.size = 1
 
 -- Display: Tick Direction
-cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.tick_direction.display = function(value)
-  if value == "-" then
-    return "Tick Direction: Lower Than Previous Last Sale (-)"
-  end
-  if value == "+" then
-    return "Tick Direction: Higher Than Previous Last Sale (+)"
-  end
-  if value == "0" then
-    return "Tick Direction: No Change From Or Since Tse Previous Close Or First Tse Trade Of An Ipo (0)"
-  end
-  if value == "D" then
-    return "Tick Direction: Same As Previous Last Sale And Most Recent Price Change Was Downward (D)"
-  end
-  if value == "U" then
-    return "Tick Direction: Same As Previous Last Sale And Most Recent Price Change Was Upward (U)"
-  end
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.tick_direction.labels = {
+  ["-"] = "Tick Direction: Lower Than Previous Last Sale (-)",
+  ["+"] = "Tick Direction: Higher Than Previous Last Sale (+)",
+  ["0"] = "Tick Direction: No Change From Or Since Tse Previous Close Or First Tse Trade Of An Ipo (0)",
+  ["D"] = "Tick Direction: Same As Previous Last Sale And Most Recent Price Change Was Downward (D)",
+  ["U"] = "Tick Direction: Same As Previous Last Sale And Most Recent Price Change Was Upward (U)",
+}
 
-  return "Tick Direction: Unknown("..value..")"
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.tick_direction.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.tick_direction.labels[value] or "Tick Direction: Unknown("..value..")"
 end
 
 -- Dissect: Tick Direction
@@ -625,21 +597,15 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trading_status = {}
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trading_status.display = function(value)
-  if value == "C" then
-    return "Trading Status: Closed (C)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "h" then
-    return "Trading Status: Halted In Pre Open (h)"
-  end
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trading_status.labels = {
+  ["C"] = "Trading Status: Closed (C)",
+  ["T"] = "Trading Status: Trading (T)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["h"] = "Trading Status: Halted In Pre Open (h)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trading_status.display = function(value)
+  return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1241,46 +1207,23 @@ end
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.payload = {}
 
 -- Dissect: Payload
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.payload.dispatch = {
+  [0x97] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.unit_clear_message.dissect,
+  [0x50] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trading_status_message.dissect,
+  [0x51] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.add_order_message.dissect,
+  [0x52] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.order_executed_message.dissect,
+  [0x39] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.reduce_size_message.dissect,
+  [0x3A] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.modify_order_message.dissect,
+  [0x3C] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.delete_order_message.dissect,
+  [0x53] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trade_message.dissect,
+  [0x3E] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trade_break_message.dissect,
+  [0x2D] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.end_of_session_message.dissect,
+}
+
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x50 then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 0x51 then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 0x52 then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Message
-  if message_type == 0x39 then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.reduce_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 0x3A then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 0x3C then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0x53 then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == 0x3E then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1419,10 +1362,14 @@ end
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.messages = {}
 
 -- Dissect: Messages
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.messages.dispatch = {
+  [0] = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.heartbeat.dissect,
+}
+
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

@@ -327,15 +327,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade.size = 1
 
 -- Display: Algorithmic Trade
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade.display = function(value)
-  if value == "H" then
-    return "Algorithmic Trade: Algorithmic Trade (H)"
-  end
-  if value == "-" then
-    return "Algorithmic Trade: Nonalgorithmic Trade (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade.labels = {
+  ["H"] = "Algorithmic Trade: Algorithmic Trade (H)",
+  ["-"] = "Algorithmic Trade: Nonalgorithmic Trade (-)",
+}
 
-  return "Algorithmic Trade: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.algorithmic_trade.labels[value] or "Algorithmic Trade: Unknown("..value..")"
 end
 
 -- Dissect: Algorithmic Trade
@@ -455,18 +453,14 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "B" then
-    return "Auction Type: Aim (B)"
-  end
-  if value == "C" then
-    return "Auction Type: Crfq (C)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["B"] = "Auction Type: Aim (B)",
+  ["C"] = "Auction Type: Crfq (C)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -488,18 +482,14 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.benchmark_reference_price_
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.benchmark_reference_price_indicator.size = 1
 
 -- Display: Benchmark Reference Price Indicator
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.benchmark_reference_price_indicator.display = function(value)
-  if value == "B" then
-    return "Benchmark Reference Price Indicator: Benchmark Trade If Optionally Set By Reporting Party (B)"
-  end
-  if value == "S" then
-    return "Benchmark Reference Price Indicator: Reference Price Trade (S)"
-  end
-  if value == "-" then
-    return "Benchmark Reference Price Indicator: Not Specified (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.benchmark_reference_price_indicator.labels = {
+  ["B"] = "Benchmark Reference Price Indicator: Benchmark Trade If Optionally Set By Reporting Party (B)",
+  ["S"] = "Benchmark Reference Price Indicator: Reference Price Trade (S)",
+  ["-"] = "Benchmark Reference Price Indicator: Not Specified (-)",
+}
 
-  return "Benchmark Reference Price Indicator: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.benchmark_reference_price_indicator.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.benchmark_reference_price_indicator.labels[value] or "Benchmark Reference Price Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Benchmark Reference Price Indicator
@@ -567,15 +557,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.call_put = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.call_put.size = 1
 
 -- Display: Call Put
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.call_put.display = function(value)
-  if value == "P" then
-    return "Call Put: Put (P)"
-  end
-  if value == "C" then
-    return "Call Put: Call (C)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.call_put.labels = {
+  ["P"] = "Call Put: Put (P)",
+  ["C"] = "Call Put: Call (C)",
+}
 
-  return "Call Put: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.call_put.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.call_put.labels[value] or "Call Put: Unknown("..value..")"
 end
 
 -- Dissect: Call Put
@@ -643,21 +631,15 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.cboe_trade_flags = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.cboe_trade_flags.size = 1
 
 -- Display: Cboe Trade Flags
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.cboe_trade_flags.display = function(value)
-  if value == "4" then
-    return "Cboe Trade Flags: Eu The Trade Was Reported To Cboe On Time And In The Main Session (4)"
-  end
-  if value == "5" then
-    return "Cboe Trade Flags: Eu The Trade Was Reported To Cboe Late (5)"
-  end
-  if value == "6" then
-    return "Cboe Trade Flags: Eu The Trade Was Reported To Cboe Out Of The Main Session (6)"
-  end
-  if value == "7" then
-    return "Cboe Trade Flags: Eu The Trade Was Reported To Cboe Late And Out Of The Main Session (7)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.cboe_trade_flags.labels = {
+  ["4"] = "Cboe Trade Flags: Eu The Trade Was Reported To Cboe On Time And In The Main Session (4)",
+  ["5"] = "Cboe Trade Flags: Eu The Trade Was Reported To Cboe Late (5)",
+  ["6"] = "Cboe Trade Flags: Eu The Trade Was Reported To Cboe Out Of The Main Session (6)",
+  ["7"] = "Cboe Trade Flags: Eu The Trade Was Reported To Cboe Late And Out Of The Main Session (7)",
+}
 
-  return "Cboe Trade Flags: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.cboe_trade_flags.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.cboe_trade_flags.labels[value] or "Cboe Trade Flags: Unknown("..value..")"
 end
 
 -- Dissect: Cboe Trade Flags
@@ -858,15 +840,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.crossing_trade = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.crossing_trade.size = 1
 
 -- Display: Crossing Trade
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.crossing_trade.display = function(value)
-  if value == "X" then
-    return "Crossing Trade: Crossing Trade (X)"
-  end
-  if value == "-" then
-    return "Crossing Trade: Not Specified (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.crossing_trade.labels = {
+  ["X"] = "Crossing Trade: Crossing Trade (X)",
+  ["-"] = "Crossing Trade: Not Specified (-)",
+}
 
-  return "Crossing Trade: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.crossing_trade.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.crossing_trade.labels[value] or "Crossing Trade: Unknown("..value..")"
 end
 
 -- Dissect: Crossing Trade
@@ -911,15 +891,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.customer_indicator = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.customer_indicator.display = function(value)
-  if value == "N" then
-    return "Customer Indicator: Non Customer (N)"
-  end
-  if value == "C" then
-    return "Customer Indicator: Customer (C)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.customer_indicator.labels = {
+  ["N"] = "Customer Indicator: Non Customer (N)",
+  ["C"] = "Customer Indicator: Customer (C)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.customer_indicator.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -941,45 +919,23 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.deferral_or_enrichment_typ
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.deferral_or_enrichment_type.size = 1
 
 -- Display: Deferral Or Enrichment Type
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.deferral_or_enrichment_type.display = function(value)
-  if value == "1" then
-    return "Deferral Or Enrichment Type: Limited Details Trade (1)"
-  end
-  if value == "2" then
-    return "Deferral Or Enrichment Type: Daily Aggregated Trade (2)"
-  end
-  if value == "3" then
-    return "Deferral Or Enrichment Type: Volume Omission Trade (3)"
-  end
-  if value == "4" then
-    return "Deferral Or Enrichment Type: Four Weeks Aggregation Trade (4)"
-  end
-  if value == "5" then
-    return "Deferral Or Enrichment Type: Indefinite Aggregation Trade (5)"
-  end
-  if value == "6" then
-    return "Deferral Or Enrichment Type: Volume Omission Trade Eligible For Subsequent Enrichment In Aggregated Form (6)"
-  end
-  if value == "7" then
-    return "Deferral Or Enrichment Type: Full Details Of Earlier Limited Details Trade (7)"
-  end
-  if value == "8" then
-    return "Deferral Or Enrichment Type: Full Details Of Earlier Daily Aggregated Trade (8)"
-  end
-  if value == "9" then
-    return "Deferral Or Enrichment Type: Full Details Of Earlier Volume Omission Trade (9)"
-  end
-  if value == "V" then
-    return "Deferral Or Enrichment Type: Full Details Of Four Weeks Aggregation Trade (V)"
-  end
-  if value == "W" then
-    return "Deferral Or Enrichment Type: Full Details Of Earlier Volume Omission Trade Eligible For Subsequent Enrichment In Aggregated Form (W)"
-  end
-  if value == "-" then
-    return "Deferral Or Enrichment Type: Not Applicable (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.deferral_or_enrichment_type.labels = {
+  ["1"] = "Deferral Or Enrichment Type: Limited Details Trade (1)",
+  ["2"] = "Deferral Or Enrichment Type: Daily Aggregated Trade (2)",
+  ["3"] = "Deferral Or Enrichment Type: Volume Omission Trade (3)",
+  ["4"] = "Deferral Or Enrichment Type: Four Weeks Aggregation Trade (4)",
+  ["5"] = "Deferral Or Enrichment Type: Indefinite Aggregation Trade (5)",
+  ["6"] = "Deferral Or Enrichment Type: Volume Omission Trade Eligible For Subsequent Enrichment In Aggregated Form (6)",
+  ["7"] = "Deferral Or Enrichment Type: Full Details Of Earlier Limited Details Trade (7)",
+  ["8"] = "Deferral Or Enrichment Type: Full Details Of Earlier Daily Aggregated Trade (8)",
+  ["9"] = "Deferral Or Enrichment Type: Full Details Of Earlier Volume Omission Trade (9)",
+  ["V"] = "Deferral Or Enrichment Type: Full Details Of Four Weeks Aggregation Trade (V)",
+  ["W"] = "Deferral Or Enrichment Type: Full Details Of Earlier Volume Omission Trade Eligible For Subsequent Enrichment In Aggregated Form (W)",
+  ["-"] = "Deferral Or Enrichment Type: Not Applicable (-)",
+}
 
-  return "Deferral Or Enrichment Type: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.deferral_or_enrichment_type.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.deferral_or_enrichment_type.labels[value] or "Deferral Or Enrichment Type: Unknown("..value..")"
 end
 
 -- Dissect: Deferral Or Enrichment Type
@@ -1001,15 +957,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.duplicative_indicator = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.duplicative_indicator.size = 1
 
 -- Display: Duplicative Indicator
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.duplicative_indicator.display = function(value)
-  if value == "1" then
-    return "Duplicative Indicator: Duplicative Trade Report (1)"
-  end
-  if value == "-" then
-    return "Duplicative Indicator: Unique Trade Report (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.duplicative_indicator.labels = {
+  ["1"] = "Duplicative Indicator: Duplicative Trade Report (1)",
+  ["-"] = "Duplicative Indicator: Unique Trade Report (-)",
+}
 
-  return "Duplicative Indicator: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.duplicative_indicator.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.duplicative_indicator.labels[value] or "Duplicative Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Duplicative Indicator
@@ -1054,15 +1008,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.ex_cum_dividend = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.ex_cum_dividend.size = 1
 
 -- Display: Ex Cum Dividend
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.ex_cum_dividend.display = function(value)
-  if value == "E" then
-    return "Ex Cum Dividend: Ex Cum Special Dividend If Optionally Set By Reporting Party (E)"
-  end
-  if value == "-" then
-    return "Ex Cum Dividend: Not Specified (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.ex_cum_dividend.labels = {
+  ["E"] = "Ex Cum Dividend: Ex Cum Special Dividend If Optionally Set By Reporting Party (E)",
+  ["-"] = "Ex Cum Dividend: Not Specified (-)",
+}
 
-  return "Ex Cum Dividend: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.ex_cum_dividend.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.ex_cum_dividend.labels[value] or "Ex Cum Dividend: Unknown("..value..")"
 end
 
 -- Dissect: Ex Cum Dividend
@@ -1234,15 +1186,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.is_fast = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.is_fast.size = 1
 
 -- Display: Is Fast
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.is_fast.display = function(value)
-  if value == 0 then
-    return "Is Fast: Normal (0)"
-  end
-  if value == 1 then
-    return "Is Fast: Fast (1)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.is_fast.labels = {
+  [0] = "Is Fast: Normal (0)",
+  [1] = "Is Fast: Fast (1)",
+}
 
-  return "Is Fast: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.is_fast.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.is_fast.labels[value] or "Is Fast: Unknown("..value..")"
 end
 
 -- Dissect: Is Fast
@@ -1264,15 +1214,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.issue = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.issue.size = 1
 
 -- Display: Issue
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.issue.display = function(value)
-  if value == "S" then
-    return "Issue: Initial Settlement (S)"
-  end
-  if value == "R" then
-    return "Issue: Reissued Settlement (R)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.issue.labels = {
+  ["S"] = "Issue: Initial Settlement (S)",
+  ["R"] = "Issue: Reissued Settlement (R)",
+}
 
-  return "Issue: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.issue.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.issue.labels[value] or "Issue: Unknown("..value..")"
 end
 
 -- Dissect: Issue
@@ -1386,18 +1334,14 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.listing_state = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.listing_state.size = 1
 
 -- Display: Listing State
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.listing_state.display = function(value)
-  if value == "A" then
-    return "Listing State: Active (A)"
-  end
-  if value == "I" then
-    return "Listing State: Inactive (I)"
-  end
-  if value == "T" then
-    return "Listing State: Test (T)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.listing_state.labels = {
+  ["A"] = "Listing State: Active (A)",
+  ["I"] = "Listing State: Inactive (I)",
+  ["T"] = "Listing State: Test (T)",
+}
 
-  return "Listing State: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.listing_state.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.listing_state.labels[value] or "Listing State: Unknown("..value..")"
 end
 
 -- Dissect: Listing State
@@ -1448,30 +1392,18 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.market_mechanism = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.market_mechanism.size = 1
 
 -- Display: Market Mechanism
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.market_mechanism.display = function(value)
-  if value == "1" then
-    return "Market Mechanism: Central Limit Order Book (1)"
-  end
-  if value == "2" then
-    return "Market Mechanism: Quote Driven Market (2)"
-  end
-  if value == "3" then
-    return "Market Mechanism: Dark Order Book (3)"
-  end
-  if value == "4" then
-    return "Market Mechanism: Off Book (4)"
-  end
-  if value == "5" then
-    return "Market Mechanism: Periodic Auction (5)"
-  end
-  if value == "6" then
-    return "Market Mechanism: Request For Quotes (6)"
-  end
-  if value == "7" then
-    return "Market Mechanism: Any Other Including Hybrid (7)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.market_mechanism.labels = {
+  ["1"] = "Market Mechanism: Central Limit Order Book (1)",
+  ["2"] = "Market Mechanism: Quote Driven Market (2)",
+  ["3"] = "Market Mechanism: Dark Order Book (3)",
+  ["4"] = "Market Mechanism: Off Book (4)",
+  ["5"] = "Market Mechanism: Periodic Auction (5)",
+  ["6"] = "Market Mechanism: Request For Quotes (6)",
+  ["7"] = "Market Mechanism: Any Other Including Hybrid (7)",
+}
 
-  return "Market Mechanism: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.market_mechanism.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.market_mechanism.labels[value] or "Market Mechanism: Unknown("..value..")"
 end
 
 -- Dissect: Market Mechanism
@@ -1539,105 +1471,43 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.size = 1
 
 -- Display: Message Type
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x40 then
-    return "Message Type: Add Order Long Message (0x40)"
-  end
-  if value == 0x22 then
-    return "Message Type: Add Order Short Message (0x22)"
-  end
-  if value == 0x23 then
-    return "Message Type: Order Executed Message (0x23)"
-  end
-  if value == 0x24 then
-    return "Message Type: Order Executed At Price Size Message (0x24)"
-  end
-  if value == 0x25 then
-    return "Message Type: Reduce Size Long Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Reduce Size Short Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Modify Order Long Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Modify Order Short Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: Delete Order Message (0x29)"
-  end
-  if value == 0x41 then
-    return "Message Type: Trade Long Message (0x41)"
-  end
-  if value == 0x2B then
-    return "Message Type: Trade Short Message (0x2B)"
-  end
-  if value == 0x32 then
-    return "Message Type: Trade Extended Message (0x32)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session (0x2D)"
-  end
-  if value == 0xBC then
-    return "Message Type: Transaction Begin Message (0xBC)"
-  end
-  if value == 0xBD then
-    return "Message Type: Transaction End Message (0xBD)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0xE2 then
-    return "Message Type: Fast Status Message (0xE2)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Opening Auction Update Message (0xD1)"
-  end
-  if value == 0xAD then
-    return "Message Type: Auction Notification Message (0xAD)"
-  end
-  if value == 0xAE then
-    return "Message Type: Auction Cancel Message (0xAE)"
-  end
-  if value == 0xDF then
-    return "Message Type: Auction Trade Message (0xDF)"
-  end
-  if value == 0xDE then
-    return "Message Type: Auction Liquidity Message (0xDE)"
-  end
-  if value == 0xD2 then
-    return "Message Type: Width Update Message (0xD2)"
-  end
-  if value == 0xDA then
-    return "Message Type: Futures Instrument Definition Message (0xDA)"
-  end
-  if value == 0xDB then
-    return "Message Type: Options Instrument Definition Message (0xDB)"
-  end
-  if value == 0xDC then
-    return "Message Type: Complex Instrument Definition Message (0xDC)"
-  end
-  if value == 0x2C then
-    return "Message Type: Trade Break Message (0x2C)"
-  end
-  if value == 0xB9 then
-    return "Message Type: Settlement Message (0xB9)"
-  end
-  if value == 0xBA then
-    return "Message Type: End Of Day Summary Message (0xBA)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.labels = {
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0x40] = "Message Type: Add Order Long Message (0x40)",
+  [0x22] = "Message Type: Add Order Short Message (0x22)",
+  [0x23] = "Message Type: Order Executed Message (0x23)",
+  [0x24] = "Message Type: Order Executed At Price Size Message (0x24)",
+  [0x25] = "Message Type: Reduce Size Long Message (0x25)",
+  [0x26] = "Message Type: Reduce Size Short Message (0x26)",
+  [0x27] = "Message Type: Modify Order Long Message (0x27)",
+  [0x28] = "Message Type: Modify Order Short Message (0x28)",
+  [0x29] = "Message Type: Delete Order Message (0x29)",
+  [0x41] = "Message Type: Trade Long Message (0x41)",
+  [0x2B] = "Message Type: Trade Short Message (0x2B)",
+  [0x32] = "Message Type: Trade Extended Message (0x32)",
+  [0x2D] = "Message Type: End Of Session (0x2D)",
+  [0xBC] = "Message Type: Transaction Begin Message (0xBC)",
+  [0xBD] = "Message Type: Transaction End Message (0xBD)",
+  [0x31] = "Message Type: Trading Status Message (0x31)",
+  [0xE2] = "Message Type: Fast Status Message (0xE2)",
+  [0x96] = "Message Type: Auction Summary Message (0x96)",
+  [0xD1] = "Message Type: Opening Auction Update Message (0xD1)",
+  [0xAD] = "Message Type: Auction Notification Message (0xAD)",
+  [0xAE] = "Message Type: Auction Cancel Message (0xAE)",
+  [0xDF] = "Message Type: Auction Trade Message (0xDF)",
+  [0xDE] = "Message Type: Auction Liquidity Message (0xDE)",
+  [0xD2] = "Message Type: Width Update Message (0xD2)",
+  [0xDA] = "Message Type: Futures Instrument Definition Message (0xDA)",
+  [0xDB] = "Message Type: Options Instrument Definition Message (0xDB)",
+  [0xDC] = "Message Type: Complex Instrument Definition Message (0xDC)",
+  [0x2C] = "Message Type: Trade Break Message (0x2C)",
+  [0xB9] = "Message Type: Settlement Message (0xB9)",
+  [0xBA] = "Message Type: End Of Day Summary Message (0xBA)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1659,18 +1529,14 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modification_indicator = {
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modification_indicator.size = 1
 
 -- Display: Modification Indicator
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modification_indicator.display = function(value)
-  if value == "A" then
-    return "Modification Indicator: Indicates A Modification Of A Previously Reported Trade (A)"
-  end
-  if value == "C" then
-    return "Modification Indicator: Indicates A Cancellation Of A Previously Reported Trade (C)"
-  end
-  if value == "-" then
-    return "Modification Indicator: Not Specified (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modification_indicator.labels = {
+  ["A"] = "Modification Indicator: Indicates A Modification Of A Previously Reported Trade (A)",
+  ["C"] = "Modification Indicator: Indicates A Cancellation Of A Previously Reported Trade (C)",
+  ["-"] = "Modification Indicator: Not Specified (-)",
+}
 
-  return "Modification Indicator: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modification_indicator.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modification_indicator.labels[value] or "Modification Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Modification Indicator
@@ -1721,33 +1587,19 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.negotiated_trade = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.negotiated_trade.size = 1
 
 -- Display: Negotiated Trade
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.negotiated_trade.display = function(value)
-  if value == "1" then
-    return "Negotiated Trade: Negotiated Trade In Liquid Financial Instruments (1)"
-  end
-  if value == "2" then
-    return "Negotiated Trade: Negotiated Trade In Illiquid Financial Instruments (2)"
-  end
-  if value == "3" then
-    return "Negotiated Trade: Negotiated Trade Subject To Conditions Other Than The Current Market Price (3)"
-  end
-  if value == "N" then
-    return "Negotiated Trade: Negotiated Trade Where None Of The Above Apply (N)"
-  end
-  if value == "4" then
-    return "Negotiated Trade: Pre Trade Transparency Waiver For Illiquid Instrument On An Si (4)"
-  end
-  if value == "5" then
-    return "Negotiated Trade: Pre Trade Transparency Waiver For Above Standard Market Size On An Si (5)"
-  end
-  if value == "6" then
-    return "Negotiated Trade: Pre Trade Transparency Waivers For Illiquid Instrument On An Si And Above Standard Market Size On An Si (6)"
-  end
-  if value == "-" then
-    return "Negotiated Trade: Not Specified (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.negotiated_trade.labels = {
+  ["1"] = "Negotiated Trade: Negotiated Trade In Liquid Financial Instruments (1)",
+  ["2"] = "Negotiated Trade: Negotiated Trade In Illiquid Financial Instruments (2)",
+  ["3"] = "Negotiated Trade: Negotiated Trade Subject To Conditions Other Than The Current Market Price (3)",
+  ["N"] = "Negotiated Trade: Negotiated Trade Where None Of The Above Apply (N)",
+  ["4"] = "Negotiated Trade: Pre Trade Transparency Waiver For Illiquid Instrument On An Si (4)",
+  ["5"] = "Negotiated Trade: Pre Trade Transparency Waiver For Above Standard Market Size On An Si (5)",
+  ["6"] = "Negotiated Trade: Pre Trade Transparency Waivers For Illiquid Instrument On An Si And Above Standard Market Size On An Si (6)",
+  ["-"] = "Negotiated Trade: Not Specified (-)",
+}
 
-  return "Negotiated Trade: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.negotiated_trade.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.negotiated_trade.labels[value] or "Negotiated Trade: Unknown("..value..")"
 end
 
 -- Dissect: Negotiated Trade
@@ -1769,18 +1621,14 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.off_book_automated_indicat
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.off_book_automated_indicator.size = 1
 
 -- Display: Off Book Automated Indicator
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.off_book_automated_indicator.display = function(value)
-  if value == "Q" then
-    return "Off Book Automated Indicator: Automated (Q)"
-  end
-  if value == "M" then
-    return "Off Book Automated Indicator: Manual (M)"
-  end
-  if value == "-" then
-    return "Off Book Automated Indicator: Not Specified (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.off_book_automated_indicator.labels = {
+  ["Q"] = "Off Book Automated Indicator: Automated (Q)",
+  ["M"] = "Off Book Automated Indicator: Manual (M)",
+  ["-"] = "Off Book Automated Indicator: Not Specified (-)",
+}
 
-  return "Off Book Automated Indicator: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.off_book_automated_indicator.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.off_book_automated_indicator.labels[value] or "Off Book Automated Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Off Book Automated Indicator
@@ -1854,24 +1702,16 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_condition = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_condition.size = 1
 
 -- Display: Opening Condition
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_condition.display = function(value)
-  if value == "O" then
-    return "Opening Condition: Would Open (O)"
-  end
-  if value == "Q" then
-    return "Opening Condition: Need Quote To Open (Q)"
-  end
-  if value == "B" then
-    return "Opening Condition: Need More Buyers (B)"
-  end
-  if value == "S" then
-    return "Opening Condition: Need More Sellers (S)"
-  end
-  if value == "C" then
-    return "Opening Condition: Crossed Composite Market (C)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_condition.labels = {
+  ["O"] = "Opening Condition: Would Open (O)",
+  ["Q"] = "Opening Condition: Need Quote To Open (Q)",
+  ["B"] = "Opening Condition: Need More Buyers (B)",
+  ["S"] = "Opening Condition: Need More Sellers (S)",
+  ["C"] = "Opening Condition: Crossed Composite Market (C)",
+}
 
-  return "Opening Condition: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_condition.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_condition.labels[value] or "Opening Condition: Unknown("..value..")"
 end
 
 -- Dissect: Opening Condition
@@ -1968,21 +1808,15 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price_formation_discovery_
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price_formation_discovery_process.size = 1
 
 -- Display: Price Formation Discovery Process
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price_formation_discovery_process.display = function(value)
-  if value == "P" then
-    return "Price Formation Discovery Process: Standard Trade For The Specified Market Mechanism Or Trading Mode (P)"
-  end
-  if value == "T" then
-    return "Price Formation Discovery Process: Non Price Forming Trade (T)"
-  end
-  if value == "J" then
-    return "Price Formation Discovery Process: Trade Not Contributing To Price Discovery Process (J)"
-  end
-  if value == "N" then
-    return "Price Formation Discovery Process: Price Is Currently Not Available But Pending (N)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price_formation_discovery_process.labels = {
+  ["P"] = "Price Formation Discovery Process: Standard Trade For The Specified Market Mechanism Or Trading Mode (P)",
+  ["T"] = "Price Formation Discovery Process: Non Price Forming Trade (T)",
+  ["J"] = "Price Formation Discovery Process: Trade Not Contributing To Price Discovery Process (J)",
+  ["N"] = "Price Formation Discovery Process: Price Is Currently Not Available But Pending (N)",
+}
 
-  return "Price Formation Discovery Process: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price_formation_discovery_process.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price_formation_discovery_process.labels[value] or "Price Formation Discovery Process: Unknown("..value..")"
 end
 
 -- Dissect: Price Formation Discovery Process
@@ -2160,30 +1994,18 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.publication_mode_deferral_
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.publication_mode_deferral_reason.size = 1
 
 -- Display: Publication Mode Deferral Reason
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.publication_mode_deferral_reason.display = function(value)
-  if value == "1" then
-    return "Publication Mode Deferral Reason: Trade Report Reported Late Without Permitted Deferral (1)"
-  end
-  if value == "2" then
-    return "Publication Mode Deferral Reason: Deferral Trade For Large In Scale (2)"
-  end
-  if value == "3" then
-    return "Publication Mode Deferral Reason: Deferral Trade For Illiquid Instrument (3)"
-  end
-  if value == "4" then
-    return "Publication Mode Deferral Reason: Deferral Trade For Size Specific (4)"
-  end
-  if value == "5" then
-    return "Publication Mode Deferral Reason: Deferral Trade For Illiquid Instrument And Size Specific (5)"
-  end
-  if value == "6" then
-    return "Publication Mode Deferral Reason: Deferral Trade For Illiquid Instrument And Large In Scale (6)"
-  end
-  if value == "-" then
-    return "Publication Mode Deferral Reason: Not Specified (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.publication_mode_deferral_reason.labels = {
+  ["1"] = "Publication Mode Deferral Reason: Trade Report Reported Late Without Permitted Deferral (1)",
+  ["2"] = "Publication Mode Deferral Reason: Deferral Trade For Large In Scale (2)",
+  ["3"] = "Publication Mode Deferral Reason: Deferral Trade For Illiquid Instrument (3)",
+  ["4"] = "Publication Mode Deferral Reason: Deferral Trade For Size Specific (4)",
+  ["5"] = "Publication Mode Deferral Reason: Deferral Trade For Illiquid Instrument And Size Specific (5)",
+  ["6"] = "Publication Mode Deferral Reason: Deferral Trade For Illiquid Instrument And Large In Scale (6)",
+  ["-"] = "Publication Mode Deferral Reason: Not Specified (-)",
+}
 
-  return "Publication Mode Deferral Reason: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.publication_mode_deferral_reason.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.publication_mode_deferral_reason.labels[value] or "Publication Mode Deferral Reason: Unknown("..value..")"
 end
 
 -- Dissect: Publication Mode Deferral Reason
@@ -2424,15 +2246,13 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side_indicator = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side_indicator.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -2477,27 +2297,17 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.status = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.status.size = 1
 
 -- Display: Status
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.status.display = function(value)
-  if value == "C" then
-    return "Status: Closed (C)"
-  end
-  if value == "Q" then
-    return "Status: Queuing (Q)"
-  end
-  if value == "O" then
-    return "Status: Opening Auction (O)"
-  end
-  if value == "T" then
-    return "Status: Trading (T)"
-  end
-  if value == "S" then
-    return "Status: Suspension (S)"
-  end
-  if value == "H" then
-    return "Status: Halted (H)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.status.labels = {
+  ["C"] = "Status: Closed (C)",
+  ["Q"] = "Status: Queuing (Q)",
+  ["O"] = "Status: Opening Auction (O)",
+  ["T"] = "Status: Trading (T)",
+  ["S"] = "Status: Suspension (S)",
+  ["H"] = "Status: Halted (H)",
+}
 
-  return "Status: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.status.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -2765,42 +2575,22 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_mode = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_mode.size = 1
 
 -- Display: Trading Mode
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_mode.display = function(value)
-  if value == "1" then
-    return "Trading Mode: Undefined Auction (1)"
-  end
-  if value == "2" then
-    return "Trading Mode: Continuous Trading (2)"
-  end
-  if value == "3" then
-    return "Trading Mode: At Market Close Trading (3)"
-  end
-  if value == "4" then
-    return "Trading Mode: Out Of Main Session (4)"
-  end
-  if value == "5" then
-    return "Trading Mode: Trade Reporting On Exchange (5)"
-  end
-  if value == "6" then
-    return "Trading Mode: Trade Reporting Off Exchange (6)"
-  end
-  if value == "7" then
-    return "Trading Mode: Trade Reporting Systematic Internaliser (7)"
-  end
-  if value == "O" then
-    return "Trading Mode: Scheduled Opening Auction (O)"
-  end
-  if value == "K" then
-    return "Trading Mode: Scheduled Closing Auction (K)"
-  end
-  if value == "I" then
-    return "Trading Mode: Scheduled Intraday Auction (I)"
-  end
-  if value == "U" then
-    return "Trading Mode: Unscheduled Auction (U)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_mode.labels = {
+  ["1"] = "Trading Mode: Undefined Auction (1)",
+  ["2"] = "Trading Mode: Continuous Trading (2)",
+  ["3"] = "Trading Mode: At Market Close Trading (3)",
+  ["4"] = "Trading Mode: Out Of Main Session (4)",
+  ["5"] = "Trading Mode: Trade Reporting On Exchange (5)",
+  ["6"] = "Trading Mode: Trade Reporting Off Exchange (6)",
+  ["7"] = "Trading Mode: Trade Reporting Systematic Internaliser (7)",
+  ["O"] = "Trading Mode: Scheduled Opening Auction (O)",
+  ["K"] = "Trading Mode: Scheduled Closing Auction (K)",
+  ["I"] = "Trading Mode: Scheduled Intraday Auction (I)",
+  ["U"] = "Trading Mode: Unscheduled Auction (U)",
+}
 
-  return "Trading Mode: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_mode.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_mode.labels[value] or "Trading Mode: Unknown("..value..")"
 end
 
 -- Dissect: Trading Mode
@@ -2822,24 +2612,16 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_category = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_category.size = 1
 
 -- Display: Transaction Category
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_category.display = function(value)
-  if value == "D" then
-    return "Transaction Category: Dark Trade (D)"
-  end
-  if value == "R" then
-    return "Transaction Category: Trade That Has Received Price Improvement (R)"
-  end
-  if value == "Z" then
-    return "Transaction Category: Packaged Trade (Z)"
-  end
-  if value == "Y" then
-    return "Transaction Category: Exchange For Physicals Trade (Y)"
-  end
-  if value == "-" then
-    return "Transaction Category: None Of The Above Apply (-)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_category.labels = {
+  ["D"] = "Transaction Category: Dark Trade (D)",
+  ["R"] = "Transaction Category: Trade That Has Received Price Improvement (R)",
+  ["Z"] = "Transaction Category: Packaged Trade (Z)",
+  ["Y"] = "Transaction Category: Exchange For Physicals Trade (Y)",
+  ["-"] = "Transaction Category: None Of The Above Apply (-)",
+}
 
-  return "Transaction Category: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_category.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_category.labels[value] or "Transaction Category: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Category
@@ -2907,12 +2689,12 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_type = {}
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_type.size = 1
 
 -- Display: Width Type
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_type.display = function(value)
-  if value == "R" then
-    return "Width Type: Regular (R)"
-  end
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_type.labels = {
+  ["R"] = "Width Type: Regular (R)",
+}
 
-  return "Width Type: Unknown("..value..")"
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_type.display = function(value)
+  return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_type.labels[value] or "Width Type: Unknown("..value..")"
 end
 
 -- Dissect: Width Type
@@ -5182,134 +4964,45 @@ end
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.payload = {}
 
 -- Dissect: Payload
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.payload.dispatch = {
+  [0x20] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.time_message.dissect,
+  [0x97] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.unit_clear_message.dissect,
+  [0x40] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.add_order_long_message.dissect,
+  [0x22] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.add_order_short_message.dissect,
+  [0x23] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_executed_message.dissect,
+  [0x24] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_executed_at_price_size_message.dissect,
+  [0x25] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reduce_size_long_message.dissect,
+  [0x26] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reduce_size_short_message.dissect,
+  [0x27] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_long_message.dissect,
+  [0x28] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_short_message.dissect,
+  [0x29] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.delete_order_message.dissect,
+  [0x41] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_long_message.dissect,
+  [0x2B] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_short_message.dissect,
+  [0x32] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_extended_message.dissect,
+  [0x2D] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.end_of_session.dissect,
+  [0xBC] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_begin_message.dissect,
+  [0xBD] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.dissect,
+  [0x31] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.dissect,
+  [0xE2] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fast_status_message.dissect,
+  [0x96] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_summary_message.dissect,
+  [0xD1] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_auction_update_message.dissect,
+  [0xAD] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_notification_message.dissect,
+  [0xAE] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_cancel_message.dissect,
+  [0xDF] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_trade_message.dissect,
+  [0xDE] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_liquidity_message.dissect,
+  [0xD2] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_update_message.dissect,
+  [0xDA] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.futures_instrument_definition_message.dissect,
+  [0xDB] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.options_instrument_definition_message.dissect,
+  [0xDC] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.dissect,
+  [0x2C] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_break_message.dissect,
+  [0xB9] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.settlement_message.dissect,
+  [0xBA] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.end_of_day_summary_message.dissect,
+}
+
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Long Message
-  if message_type == 0x40 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.add_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Short Message
-  if message_type == 0x22 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.add_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 0x23 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed At Price Size Message
-  if message_type == 0x24 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Long Message
-  if message_type == 0x25 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reduce_size_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Short Message
-  if message_type == 0x26 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.reduce_size_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Long Message
-  if message_type == 0x27 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Short Message
-  if message_type == 0x28 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 0x29 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Long Message
-  if message_type == 0x41 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Short Message
-  if message_type == 0x2B then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Extended Message
-  if message_type == 0x32 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_extended_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_type == 0x2D then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction Begin Message
-  if message_type == 0xBC then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction End Message
-  if message_type == 0xBD then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.transaction_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x31 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Fast Status Message
-  if message_type == 0xE2 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fast_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Opening Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.opening_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Notification Message
-  if message_type == 0xAD then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Cancel Message
-  if message_type == 0xAE then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Trade Message
-  if message_type == 0xDF then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Liquidity Message
-  if message_type == 0xDE then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_liquidity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Width Update Message
-  if message_type == 0xD2 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.width_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Futures Instrument Definition Message
-  if message_type == 0xDA then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.futures_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Instrument Definition Message
-  if message_type == 0xDB then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.options_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Message
-  if message_type == 0xDC then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.complex_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == 0x2C then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Message
-  if message_type == 0xB9 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.settlement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Summary Message
-  if message_type == 0xBA then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5448,10 +5141,14 @@ end
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.messages = {}
 
 -- Dissect: Messages
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.messages.dispatch = {
+  [0] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.heartbeat.dissect,
+}
+
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

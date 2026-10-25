@@ -328,12 +328,12 @@ euronext_optiq_marketdatapacket_udp_v1.template_id = {}
 euronext_optiq_marketdatapacket_udp_v1.template_id.size = 2
 
 -- Display: Template Id
-euronext_optiq_marketdatapacket_udp_v1.template_id.display = function(value)
-  if value == 1103 then
-    return "Template Id: Health Status Message (1103)"
-  end
+euronext_optiq_marketdatapacket_udp_v1.template_id.labels = {
+  [1103] = "Template Id: Health Status Message (1103)",
+}
 
-  return "Template Id: Unknown("..value..")"
+euronext_optiq_marketdatapacket_udp_v1.template_id.display = function(value)
+  return euronext_optiq_marketdatapacket_udp_v1.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id

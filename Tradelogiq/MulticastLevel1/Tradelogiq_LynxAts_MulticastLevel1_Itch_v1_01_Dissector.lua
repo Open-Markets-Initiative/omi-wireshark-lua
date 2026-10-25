@@ -410,15 +410,13 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.currency = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.currency.size = 3
 
 -- Display: Currency
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.currency.display = function(value)
-  if value == "CAD" then
-    return "Currency: Canadian Dollars (CAD)"
-  end
-  if value == "USD" then
-    return "Currency: Us Dollars (USD)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.currency.labels = {
+  ["CAD"] = "Currency: Canadian Dollars (CAD)",
+  ["USD"] = "Currency: Us Dollars (USD)",
+}
 
-  return "Currency: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.currency.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -463,21 +461,15 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.dividend_indicator = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.dividend_indicator.size = 1
 
 -- Display: Dividend Indicator
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.dividend_indicator.display = function(value)
-  if value == "A" then
-    return "Dividend Indicator: Annual (A)"
-  end
-  if value == "S" then
-    return "Dividend Indicator: Semi Annual (S)"
-  end
-  if value == "Q" then
-    return "Dividend Indicator: Quarterly (Q)"
-  end
-  if value == "M" then
-    return "Dividend Indicator: Monthly (M)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.dividend_indicator.labels = {
+  ["A"] = "Dividend Indicator: Annual (A)",
+  ["S"] = "Dividend Indicator: Semi Annual (S)",
+  ["Q"] = "Dividend Indicator: Quarterly (Q)",
+  ["M"] = "Dividend Indicator: Monthly (M)",
+}
 
-  return "Dividend Indicator: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.dividend_indicator.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.dividend_indicator.labels[value] or "Dividend Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Dividend Indicator
@@ -499,33 +491,19 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.event_code = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.event_code.size = 1
 
 -- Display: Event Code
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "B" then
-    return "Event Code: Trading Halted (B)"
-  end
-  if value == "R" then
-    return "Event Code: Trading Resumed (R)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["B"] = "Event Code: Trading Halted (B)",
+  ["R"] = "Event Code: Trading Resumed (R)",
+}
 
-  return "Event Code: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.event_code.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -574,21 +552,15 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.frequency = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.frequency.size = 1
 
 -- Display: Frequency
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.frequency.display = function(value)
-  if value == "A" then
-    return "Frequency: Annual (A)"
-  end
-  if value == "S" then
-    return "Frequency: Semi Annual (S)"
-  end
-  if value == "Q" then
-    return "Frequency: Quarterly (Q)"
-  end
-  if value == "M" then
-    return "Frequency: Monthly (M)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.frequency.labels = {
+  ["A"] = "Frequency: Annual (A)",
+  ["S"] = "Frequency: Semi Annual (S)",
+  ["Q"] = "Frequency: Quarterly (Q)",
+  ["M"] = "Frequency: Monthly (M)",
+}
 
-  return "Frequency: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.frequency.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.frequency.labels[value] or "Frequency: Unknown("..value..")"
 end
 
 -- Dissect: Frequency
@@ -633,27 +605,17 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.market = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.market.size = 1
 
 -- Display: Market
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.market.display = function(value)
-  if value == "t" then
-    return "Market: Tsx (t)"
-  end
-  if value == "v" then
-    return "Market: Venture (v)"
-  end
-  if value == "c" then
-    return "Market: Cnsx (c)"
-  end
-  if value == "q" then
-    return "Market: Nasdaq Canada (q)"
-  end
-  if value == "o" then
-    return "Market: Omega (o)"
-  end
-  if value == "z" then
-    return "Market: Aequitas (z)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.market.labels = {
+  ["t"] = "Market: Tsx (t)",
+  ["v"] = "Market: Venture (v)",
+  ["c"] = "Market: Cnsx (c)",
+  ["q"] = "Market: Nasdaq Canada (q)",
+  ["o"] = "Market: Omega (o)",
+  ["z"] = "Market: Aequitas (z)",
+}
 
-  return "Market: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.market.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.market.labels[value] or "Market: Unknown("..value..")"
 end
 
 -- Dissect: Market
@@ -721,33 +683,19 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.message_type = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.message_type.size = 1
 
 -- Display: Message Type
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.message_type.display = function(value)
-  if value == "W" then
-    return "Message Type: Quote Message (W)"
-  end
-  if value == "T" then
-    return "Message Type: Trade Report Message (T)"
-  end
-  if value == "N" then
-    return "Message Type: Trade Bust Message (N)"
-  end
-  if value == "M" then
-    return "Message Type: Trade Correction Message (M)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "r" then
-    return "Message Type: Extended Stock Directory Message (r)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Status Message (H)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.message_type.labels = {
+  ["W"] = "Message Type: Quote Message (W)",
+  ["T"] = "Message Type: Trade Report Message (T)",
+  ["N"] = "Message Type: Trade Bust Message (N)",
+  ["M"] = "Message Type: Trade Correction Message (M)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["r"] = "Message Type: Extended Stock Directory Message (r)",
+  ["H"] = "Message Type: Stock Status Message (H)",
+}
 
-  return "Message Type: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.message_type.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -844,15 +792,13 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.reason = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.reason.size = 4
 
 -- Display: Reason
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.reason.display = function(value)
-  if value == "R" then
-    return "Reason: Regulatory Halt (R)"
-  end
-  if value == "B" then
-    return "Reason: Business Halt (B)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.reason.labels = {
+  ["R"] = "Reason: Regulatory Halt (R)",
+  ["B"] = "Reason: Business Halt (B)",
+}
 
-  return "Reason: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.reason.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1035,21 +981,15 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.security_type = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.security_type.size = 1
 
 -- Display: Security Type
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.security_type.display = function(value)
-  if value == "d" then
-    return "Security Type: Debentures (d)"
-  end
-  if value == "r" then
-    return "Security Type: Rights (r)"
-  end
-  if value == "n" then
-    return "Security Type: Notes (n)"
-  end
-  if value == "w" then
-    return "Security Type: Warrants (w)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.security_type.labels = {
+  ["d"] = "Security Type: Debentures (d)",
+  ["r"] = "Security Type: Rights (r)",
+  ["n"] = "Security Type: Notes (n)",
+  ["w"] = "Security Type: Warrants (w)",
+}
 
-  return "Security Type: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.security_type.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.security_type.labels[value] or "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -1140,18 +1080,14 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.shortable = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.shortable.size = 1
 
 -- Display: Shortable
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.shortable.display = function(value)
-  if value == "E" then
-    return "Shortable: Short Exempt (E)"
-  end
-  if value == "S" then
-    return "Shortable: Shortable (S)"
-  end
-  if value == "N" then
-    return "Shortable: Not Shortable (N)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.shortable.labels = {
+  ["E"] = "Shortable: Short Exempt (E)",
+  ["S"] = "Shortable: Shortable (S)",
+  ["N"] = "Shortable: Not Shortable (N)",
+}
 
-  return "Shortable: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.shortable.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.shortable.labels[value] or "Shortable: Unknown("..value..")"
 end
 
 -- Dissect: Shortable
@@ -1337,15 +1273,13 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.trading_state = {}
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.trading_state.size = 1
 
 -- Display: Trading State
-tradelogiq_lynxats_multicastlevel1_itch_v1_01.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.trading_state.display = function(value)
+  return tradelogiq_lynxats_multicastlevel1_itch_v1_01.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1905,38 +1839,21 @@ end
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload = {}
 
 -- Dissect: Payload
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload.dispatch = {
+  ["W"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.quote_message.dissect,
+  ["T"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.trade_report_message.dissect,
+  ["N"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.trade_bust_message.dissect,
+  ["M"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.trade_correction_message.dissect,
+  ["S"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.system_event_message.dissect,
+  ["R"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.stock_directory_message.dissect,
+  ["r"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.extended_stock_directory_message.dissect,
+  ["H"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.stock_status_message.dissect,
+}
+
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Quote Message
-  if message_type == "W" then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "T" then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Message
-  if message_type == "N" then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.trade_bust_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == "M" then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Stock Directory Message
-  if message_type == "r" then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.extended_stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Status Message
-  if message_type == "H" then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.stock_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2075,10 +1992,14 @@ end
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.messages = {}
 
 -- Dissect: Messages
+tradelogiq_lynxats_multicastlevel1_itch_v1_01.messages.dispatch = {
+  [0] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.heartbeat.dissect,
+}
+
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return tradelogiq_lynxats_multicastlevel1_itch_v1_01.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = tradelogiq_lynxats_multicastlevel1_itch_v1_01.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

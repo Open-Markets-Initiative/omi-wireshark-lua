@@ -204,15 +204,13 @@ odx_odxequities_pts_itch_v2_2.buy_sell_indicator = {}
 odx_odxequities_pts_itch_v2_2.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-odx_odxequities_pts_itch_v2_2.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+odx_odxequities_pts_itch_v2_2.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+odx_odxequities_pts_itch_v2_2.buy_sell_indicator.display = function(value)
+  return odx_odxequities_pts_itch_v2_2.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -378,39 +376,21 @@ odx_odxequities_pts_itch_v2_2.message_type = {}
 odx_odxequities_pts_itch_v2_2.message_type.size = 1
 
 -- Display: Message Type
-odx_odxequities_pts_itch_v2_2.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Message Type: Price Tick Size Message (L)"
-  end
-  if value == "R" then
-    return "Message Type: Orderbook Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Trading State Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Short Selling Price Restriction State Message (Y)"
-  end
-  if value == "A" then
-    return "Message Type: Order Added Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "D" then
-    return "Message Type: Order Deleted Message (D)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replaced Message (U)"
-  end
+odx_odxequities_pts_itch_v2_2.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["L"] = "Message Type: Price Tick Size Message (L)",
+  ["R"] = "Message Type: Orderbook Directory Message (R)",
+  ["H"] = "Message Type: Trading State Message (H)",
+  ["Y"] = "Message Type: Short Selling Price Restriction State Message (Y)",
+  ["A"] = "Message Type: Order Added Message (A)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["D"] = "Message Type: Order Deleted Message (D)",
+  ["U"] = "Message Type: Order Replaced Message (U)",
+}
 
-  return "Message Type: Unknown("..value..")"
+odx_odxequities_pts_itch_v2_2.message_type.display = function(value)
+  return odx_odxequities_pts_itch_v2_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -844,15 +824,13 @@ odx_odxequities_pts_itch_v2_2.short_selling_state = {}
 odx_odxequities_pts_itch_v2_2.short_selling_state.size = 1
 
 -- Display: Short Selling State
-odx_odxequities_pts_itch_v2_2.short_selling_state.display = function(value)
-  if value == "0" then
-    return "Short Selling State: No Price Restriction (0)"
-  end
-  if value == "1" then
-    return "Short Selling State: Price Restriction In Effect (1)"
-  end
+odx_odxequities_pts_itch_v2_2.short_selling_state.labels = {
+  ["0"] = "Short Selling State: No Price Restriction (0)",
+  ["1"] = "Short Selling State: Price Restriction In Effect (1)",
+}
 
-  return "Short Selling State: Unknown("..value..")"
+odx_odxequities_pts_itch_v2_2.short_selling_state.display = function(value)
+  return odx_odxequities_pts_itch_v2_2.short_selling_state.labels[value] or "Short Selling State: Unknown("..value..")"
 end
 
 -- Dissect: Short Selling State
@@ -874,27 +852,17 @@ odx_odxequities_pts_itch_v2_2.system_event = {}
 odx_odxequities_pts_itch_v2_2.system_event.size = 1
 
 -- Display: System Event
-odx_odxequities_pts_itch_v2_2.system_event.display = function(value)
-  if value == "O" then
-    return "System Event: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "System Event: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "System Event: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "System Event: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "System Event: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "System Event: End Of Messages (C)"
-  end
+odx_odxequities_pts_itch_v2_2.system_event.labels = {
+  ["O"] = "System Event: Start Of Messages (O)",
+  ["S"] = "System Event: Start Of System Hours (S)",
+  ["Q"] = "System Event: Start Of Market Hours (Q)",
+  ["M"] = "System Event: End Of Market Hours (M)",
+  ["E"] = "System Event: End Of System Hours (E)",
+  ["C"] = "System Event: End Of Messages (C)",
+}
 
-  return "System Event: Unknown("..value..")"
+odx_odxequities_pts_itch_v2_2.system_event.display = function(value)
+  return odx_odxequities_pts_itch_v2_2.system_event.labels[value] or "System Event: Unknown("..value..")"
 end
 
 -- Dissect: System Event
@@ -916,15 +884,13 @@ odx_odxequities_pts_itch_v2_2.trading_state = {}
 odx_odxequities_pts_itch_v2_2.trading_state.size = 1
 
 -- Display: Trading State
-odx_odxequities_pts_itch_v2_2.trading_state.display = function(value)
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
-  if value == "V" then
-    return "Trading State: Suspended (V)"
-  end
+odx_odxequities_pts_itch_v2_2.trading_state.labels = {
+  ["T"] = "Trading State: Trading (T)",
+  ["V"] = "Trading State: Suspended (V)",
+}
 
-  return "Trading State: Unknown("..value..")"
+odx_odxequities_pts_itch_v2_2.trading_state.display = function(value)
+  return odx_odxequities_pts_itch_v2_2.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -1575,46 +1541,23 @@ end
 odx_odxequities_pts_itch_v2_2.payload = {}
 
 -- Dissect: Payload
+odx_odxequities_pts_itch_v2_2.payload.dispatch = {
+  ["T"] = odx_odxequities_pts_itch_v2_2.seconds_message.dissect,
+  ["S"] = odx_odxequities_pts_itch_v2_2.system_event_message.dissect,
+  ["L"] = odx_odxequities_pts_itch_v2_2.price_tick_size_message.dissect,
+  ["R"] = odx_odxequities_pts_itch_v2_2.orderbook_directory_message.dissect,
+  ["H"] = odx_odxequities_pts_itch_v2_2.trading_state_message.dissect,
+  ["Y"] = odx_odxequities_pts_itch_v2_2.short_selling_price_restriction_state_message.dissect,
+  ["A"] = odx_odxequities_pts_itch_v2_2.order_added_message.dissect,
+  ["E"] = odx_odxequities_pts_itch_v2_2.order_executed_message.dissect,
+  ["D"] = odx_odxequities_pts_itch_v2_2.order_deleted_message.dissect,
+  ["U"] = odx_odxequities_pts_itch_v2_2.order_replaced_message.dissect,
+}
+
 odx_odxequities_pts_itch_v2_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return odx_odxequities_pts_itch_v2_2.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return odx_odxequities_pts_itch_v2_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Tick Size Message
-  if message_type == "L" then
-    return odx_odxequities_pts_itch_v2_2.price_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Directory Message
-  if message_type == "R" then
-    return odx_odxequities_pts_itch_v2_2.orderbook_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading State Message
-  if message_type == "H" then
-    return odx_odxequities_pts_itch_v2_2.trading_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Selling Price Restriction State Message
-  if message_type == "Y" then
-    return odx_odxequities_pts_itch_v2_2.short_selling_price_restriction_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Added Message
-  if message_type == "A" then
-    return odx_odxequities_pts_itch_v2_2.order_added_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return odx_odxequities_pts_itch_v2_2.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Deleted Message
-  if message_type == "D" then
-    return odx_odxequities_pts_itch_v2_2.order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if message_type == "U" then
-    return odx_odxequities_pts_itch_v2_2.order_replaced_message.dissect(buffer, offset, packet, parent)
+  local dissect = odx_odxequities_pts_itch_v2_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1770,14 +1713,15 @@ end
 odx_odxequities_pts_itch_v2_2.messages = {}
 
 -- Dissect: Messages
+odx_odxequities_pts_itch_v2_2.messages.dispatch = {
+  [0] = odx_odxequities_pts_itch_v2_2.heartbeat.dissect,
+  [65535] = odx_odxequities_pts_itch_v2_2.end_of_session.dissect,
+}
+
 odx_odxequities_pts_itch_v2_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return odx_odxequities_pts_itch_v2_2.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return odx_odxequities_pts_itch_v2_2.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = odx_odxequities_pts_itch_v2_2.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

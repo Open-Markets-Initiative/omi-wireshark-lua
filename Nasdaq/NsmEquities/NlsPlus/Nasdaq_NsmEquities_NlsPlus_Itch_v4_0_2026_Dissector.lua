@@ -231,15 +231,13 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.authenticity = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.authenticity.size = 1
 
 -- Display: Authenticity
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.authenticity.labels = {
+  ["P"] = "Authenticity: Live Production (P)",
+  ["T"] = "Authenticity: Test (T)",
+}
 
-  return "Authenticity: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.authenticity.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.authenticity.labels[value] or "Authenticity: Unknown("..value..")"
 end
 
 -- Dissect: Authenticity
@@ -284,18 +282,14 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.breached_level = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.breached_level.size = 1
 
 -- Display: Breached Level
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.breached_level.display = function(value)
-  if value == "1" then
-    return "Breached Level: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Breached Level: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Breached Level: Level 3 (3)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.breached_level.labels = {
+  ["1"] = "Breached Level: Level 1 (1)",
+  ["2"] = "Breached Level: Level 2 (2)",
+  ["3"] = "Breached Level: Level 3 (3)",
+}
 
-  return "Breached Level: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.breached_level.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.breached_level.labels[value] or "Breached Level: Unknown("..value..")"
 end
 
 -- Dissect: Breached Level
@@ -609,21 +603,15 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.current_trading_state = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halted (H)"
-  end
-  if value == "P" then
-    return "Current Trading State: Paused (P)"
-  end
-  if value == "Q" then
-    return "Current Trading State: Quotation Only (Q)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halted (H)",
+  ["P"] = "Current Trading State: Paused (P)",
+  ["Q"] = "Current Trading State: Quotation Only (Q)",
+  ["T"] = "Current Trading State: Trading (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.current_trading_state.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -701,27 +689,17 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.event_code = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmissions (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Transmissions (C)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.event_code.labels = {
+  ["O"] = "Event Code: Start Of Transmissions (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Transmissions (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.event_code.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -800,15 +778,13 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.inverse_indicator = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.inverse_indicator.size = 1
 
 -- Display: Inverse Indicator
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.inverse_indicator.display = function(value)
-  if value == "Y" then
-    return "Inverse Indicator: Inverse Etp (Y)"
-  end
-  if value == "N" then
-    return "Inverse Indicator: Not Inverse Etp (N)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.inverse_indicator.labels = {
+  ["Y"] = "Inverse Indicator: Inverse Etp (Y)",
+  ["N"] = "Inverse Indicator: Not Inverse Etp (N)",
+}
 
-  return "Inverse Indicator: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.inverse_indicator.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.inverse_indicator.labels[value] or "Inverse Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Inverse Indicator
@@ -895,15 +871,13 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_quotation_release_qualifier = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_quotation_release_qualifier.size = 1
 
 -- Display: Ipo Quotation Release Qualifier
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_quotation_release_qualifier.display = function(value)
-  if value == "A" then
-    return "Ipo Quotation Release Qualifier: Anticipated (A)"
-  end
-  if value == "C" then
-    return "Ipo Quotation Release Qualifier: Canceled Postponed (C)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_quotation_release_qualifier.labels = {
+  ["A"] = "Ipo Quotation Release Qualifier: Anticipated (A)",
+  ["C"] = "Ipo Quotation Release Qualifier: Canceled Postponed (C)",
+}
 
-  return "Ipo Quotation Release Qualifier: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_quotation_release_qualifier.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_quotation_release_qualifier.labels[value] or "Ipo Quotation Release Qualifier: Unknown("..value..")"
 end
 
 -- Dissect: Ipo Quotation Release Qualifier
@@ -948,57 +922,27 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.issue_classification = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.issue_classification.size = 1
 
 -- Display: Issue Classification
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.issue_classification.display = function(value)
-  if value == "A" then
-    return "Issue Classification: Ads (A)"
-  end
-  if value == "B" then
-    return "Issue Classification: Bond (B)"
-  end
-  if value == "C" then
-    return "Issue Classification: Common (C)"
-  end
-  if value == "F" then
-    return "Issue Classification: Depository (F)"
-  end
-  if value == "I" then
-    return "Issue Classification: Sec 144 A (I)"
-  end
-  if value == "L" then
-    return "Issue Classification: Limited (L)"
-  end
-  if value == "N" then
-    return "Issue Classification: Notes (N)"
-  end
-  if value == "O" then
-    return "Issue Classification: Ordinary (O)"
-  end
-  if value == "P" then
-    return "Issue Classification: Preferred (P)"
-  end
-  if value == "Q" then
-    return "Issue Classification: Other (Q)"
-  end
-  if value == "R" then
-    return "Issue Classification: Right (R)"
-  end
-  if value == "S" then
-    return "Issue Classification: Shares (S)"
-  end
-  if value == "T" then
-    return "Issue Classification: Convertible (T)"
-  end
-  if value == "U" then
-    return "Issue Classification: Unit (U)"
-  end
-  if value == "V" then
-    return "Issue Classification: Units Bi (V)"
-  end
-  if value == "W" then
-    return "Issue Classification: Warrant (W)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.issue_classification.labels = {
+  ["A"] = "Issue Classification: Ads (A)",
+  ["B"] = "Issue Classification: Bond (B)",
+  ["C"] = "Issue Classification: Common (C)",
+  ["F"] = "Issue Classification: Depository (F)",
+  ["I"] = "Issue Classification: Sec 144 A (I)",
+  ["L"] = "Issue Classification: Limited (L)",
+  ["N"] = "Issue Classification: Notes (N)",
+  ["O"] = "Issue Classification: Ordinary (O)",
+  ["P"] = "Issue Classification: Preferred (P)",
+  ["Q"] = "Issue Classification: Other (Q)",
+  ["R"] = "Issue Classification: Right (R)",
+  ["S"] = "Issue Classification: Shares (S)",
+  ["T"] = "Issue Classification: Convertible (T)",
+  ["U"] = "Issue Classification: Unit (U)",
+  ["V"] = "Issue Classification: Units Bi (V)",
+  ["W"] = "Issue Classification: Warrant (W)",
+}
 
-  return "Issue Classification: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.issue_classification.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.issue_classification.labels[value] or "Issue Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification
@@ -1240,18 +1184,14 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.market_code = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.market_code.size = 1
 
 -- Display: Market Code
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.market_code.display = function(value)
-  if value == "Q" then
-    return "Market Code: Nasdaq (Q)"
-  end
-  if value == "B" then
-    return "Market Code: Nasdaq Texas (B)"
-  end
-  if value == "X" then
-    return "Market Code: Psx (X)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.market_code.labels = {
+  ["Q"] = "Market Code: Nasdaq (Q)",
+  ["B"] = "Market Code: Nasdaq Texas (B)",
+  ["X"] = "Market Code: Psx (X)",
+}
 
-  return "Market Code: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.market_code.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.market_code.labels[value] or "Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Market Code
@@ -1319,51 +1259,25 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.message_type = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "e" then
-    return "Message Type: Trade Report Message (e)"
-  end
-  if value == "o" then
-    return "Message Type: Trade Cancel Error Message (o)"
-  end
-  if value == "b" then
-    return "Message Type: Trade Correction Message (b)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "g" then
-    return "Message Type: Adjusted Closing Price Message (g)"
-  end
-  if value == "p" then
-    return "Message Type: End Of Day Trade Summary Message (p)"
-  end
-  if value == "i" then
-    return "Message Type: Ipo Information Message (i)"
-  end
-  if value == "V" then
-    return "Message Type: Mwcb Decline Level Message (V)"
-  end
-  if value == "W" then
-    return "Message Type: Mwcb Status Message (W)"
-  end
-  if value == "k" then
-    return "Message Type: Ipo Quoting Period Update Message (k)"
-  end
-  if value == "h" then
-    return "Message Type: Operational Halt Message (h)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["e"] = "Message Type: Trade Report Message (e)",
+  ["o"] = "Message Type: Trade Cancel Error Message (o)",
+  ["b"] = "Message Type: Trade Correction Message (b)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["Y"] = "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["g"] = "Message Type: Adjusted Closing Price Message (g)",
+  ["p"] = "Message Type: End Of Day Trade Summary Message (p)",
+  ["i"] = "Message Type: Ipo Information Message (i)",
+  ["V"] = "Message Type: Mwcb Decline Level Message (V)",
+  ["W"] = "Message Type: Mwcb Status Message (W)",
+  ["k"] = "Message Type: Ipo Quoting Period Update Message (k)",
+  ["h"] = "Message Type: Operational Halt Message (h)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.message_type.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1385,15 +1299,13 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.operational_halt_action = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.operational_halt_action.size = 1
 
 -- Display: Operational Halt Action
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.operational_halt_action.display = function(value)
-  if value == "H" then
-    return "Operational Halt Action: Operationally Halted (H)"
-  end
-  if value == "T" then
-    return "Operational Halt Action: Operational Halt Lifted (T)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.operational_halt_action.labels = {
+  ["H"] = "Operational Halt Action: Operationally Halted (H)",
+  ["T"] = "Operational Halt Action: Operational Halt Lifted (T)",
+}
 
-  return "Operational Halt Action: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.operational_halt_action.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.operational_halt_action.labels[value] or "Operational Halt Action: Unknown("..value..")"
 end
 
 -- Dissect: Operational Halt Action
@@ -1519,24 +1431,16 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.originating_market_center_identifier =
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.originating_market_center_identifier.size = 1
 
 -- Display: Originating Market Center Identifier
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.originating_market_center_identifier.display = function(value)
-  if value == "Q" then
-    return "Originating Market Center Identifier: Nasdaq (Q)"
-  end
-  if value == "L" then
-    return "Originating Market Center Identifier: Trf Carteret (L)"
-  end
-  if value == "2" then
-    return "Originating Market Center Identifier: Trf Chicago (2)"
-  end
-  if value == "B" then
-    return "Originating Market Center Identifier: Nasdaq Texas (B)"
-  end
-  if value == "X" then
-    return "Originating Market Center Identifier: Psx (X)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.originating_market_center_identifier.labels = {
+  ["Q"] = "Originating Market Center Identifier: Nasdaq (Q)",
+  ["L"] = "Originating Market Center Identifier: Trf Carteret (L)",
+  ["2"] = "Originating Market Center Identifier: Trf Chicago (2)",
+  ["B"] = "Originating Market Center Identifier: Nasdaq Texas (B)",
+  ["X"] = "Originating Market Center Identifier: Psx (X)",
+}
 
-  return "Originating Market Center Identifier: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.originating_market_center_identifier.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.originating_market_center_identifier.labels[value] or "Originating Market Center Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Originating Market Center Identifier
@@ -1581,15 +1485,13 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reference_for_net_change = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reference_for_net_change.size = 1
 
 -- Display: Reference For Net Change
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reference_for_net_change.display = function(value)
-  if value == "F" then
-    return "Reference For Net Change: First Trade Price (F)"
-  end
-  if value == "W" then
-    return "Reference For Net Change: Underwriter Price (W)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reference_for_net_change.labels = {
+  ["F"] = "Reference For Net Change: First Trade Price (F)",
+  ["W"] = "Reference For Net Change: Underwriter Price (W)",
+}
 
-  return "Reference For Net Change: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reference_for_net_change.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reference_for_net_change.labels[value] or "Reference For Net Change: Unknown("..value..")"
 end
 
 -- Dissect: Reference For Net Change
@@ -1640,18 +1542,14 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reg_sho_action = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Restriction In Effect (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Restriction Remains (2)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test (0)",
+  ["1"] = "Reg Sho Action: Restriction In Effect (1)",
+  ["2"] = "Reg Sho Action: Restriction Remains (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reg_sho_action.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -1696,15 +1594,13 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.round_lots_only = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.round_lots_only.size = 1
 
 -- Display: Round Lots Only
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Round Lots Only (Y)"
-  end
-  if value == "N" then
-    return "Round Lots Only: No Restrictions (N)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.round_lots_only.labels = {
+  ["Y"] = "Round Lots Only: Round Lots Only (Y)",
+  ["N"] = "Round Lots Only: No Restrictions (N)",
+}
 
-  return "Round Lots Only: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.round_lots_only.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.round_lots_only.labels[value] or "Round Lots Only: Unknown("..value..")"
 end
 
 -- Dissect: Round Lots Only
@@ -1749,33 +1645,19 @@ nasdaq_nsmequities_nlsplus_itch_v4_0_2026.security_class = {}
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.security_class.size = 1
 
 -- Display: Security Class
-nasdaq_nsmequities_nlsplus_itch_v4_0_2026.security_class.display = function(value)
-  if value == "Q" then
-    return "Security Class: Nasdaq (Q)"
-  end
-  if value == "N" then
-    return "Security Class: Nyse (N)"
-  end
-  if value == "A" then
-    return "Security Class: Nyse American (A)"
-  end
-  if value == "P" then
-    return "Security Class: Nyse Arca (P)"
-  end
-  if value == "M" then
-    return "Security Class: Nyse Texas (M)"
-  end
-  if value == "Z" then
-    return "Security Class: Bats (Z)"
-  end
-  if value == "V" then
-    return "Security Class: Iex (V)"
-  end
-  if value == "F" then
-    return "Security Class: Texas Stock Exchange (F)"
-  end
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.security_class.labels = {
+  ["Q"] = "Security Class: Nasdaq (Q)",
+  ["N"] = "Security Class: Nyse (N)",
+  ["A"] = "Security Class: Nyse American (A)",
+  ["P"] = "Security Class: Nyse Arca (P)",
+  ["M"] = "Security Class: Nyse Texas (M)",
+  ["Z"] = "Security Class: Bats (Z)",
+  ["V"] = "Security Class: Iex (V)",
+  ["F"] = "Security Class: Texas Stock Exchange (F)",
+}
 
-  return "Security Class: Unknown("..value..")"
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.security_class.display = function(value)
+  return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.security_class.labels[value] or "Security Class: Unknown("..value..")"
 end
 
 -- Dissect: Security Class
@@ -3015,62 +2897,27 @@ end
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.payload = {}
 
 -- Dissect: Payload
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.payload.dispatch = {
+  ["S"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.system_event_message.dissect,
+  ["e"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.trade_report_message.dissect,
+  ["o"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.trade_cancel_error_message.dissect,
+  ["b"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.trade_correction_message.dissect,
+  ["H"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.stock_trading_action_message.dissect,
+  ["Y"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["R"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.stock_directory_message.dissect,
+  ["g"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.adjusted_closing_price_message.dissect,
+  ["p"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.end_of_day_trade_summary_message.dissect,
+  ["i"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_information_message.dissect,
+  ["V"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.mwcb_decline_level_message.dissect,
+  ["W"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.mwcb_status_message.dissect,
+  ["k"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_quoting_period_update_message.dissect,
+  ["h"] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.operational_halt_message.dissect,
+}
+
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "e" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error Message
-  if message_type == "o" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == "b" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Adjusted Closing Price Message
-  if message_type == "g" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.adjusted_closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Trade Summary Message
-  if message_type == "p" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.end_of_day_trade_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ipo Information Message
-  if message_type == "i" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mwcb Decline Level Message
-  if message_type == "V" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.mwcb_decline_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mwcb Status Message
-  if message_type == "W" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.mwcb_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ipo Quoting Period Update Message
-  if message_type == "k" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.ipo_quoting_period_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Operational Halt Message
-  if message_type == "h" then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.operational_halt_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3226,14 +3073,15 @@ end
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.messages = {}
 
 -- Dissect: Messages
+nasdaq_nsmequities_nlsplus_itch_v4_0_2026.messages.dispatch = {
+  [0] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.heartbeat.dissect,
+  [65535] = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.end_of_session.dissect,
+}
+
 nasdaq_nsmequities_nlsplus_itch_v4_0_2026.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nsmequities_nlsplus_itch_v4_0_2026.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_nlsplus_itch_v4_0_2026.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

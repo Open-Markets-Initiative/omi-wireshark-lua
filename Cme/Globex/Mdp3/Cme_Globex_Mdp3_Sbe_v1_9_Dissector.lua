@@ -972,21 +972,15 @@ cme_globex_mdp3_sbe_v1_9.error_codes = {}
 cme_globex_mdp3_sbe_v1_9.error_codes.size = 1
 
 -- Display: Error Codes
-cme_globex_mdp3_sbe_v1_9.error_codes.display = function(value)
-  if value == 0 then
-    return "Error Codes: Hmac Reject (0)"
-  end
-  if value == 1 then
-    return "Error Codes: Invalid Value (1)"
-  end
-  if value == 2 then
-    return "Error Codes: Slow Connection (2)"
-  end
-  if value == 3 then
-    return "Error Codes: Other (3)"
-  end
+cme_globex_mdp3_sbe_v1_9.error_codes.labels = {
+  [0] = "Error Codes: Hmac Reject (0)",
+  [1] = "Error Codes: Invalid Value (1)",
+  [2] = "Error Codes: Slow Connection (2)",
+  [3] = "Error Codes: Other (3)",
+}
 
-  return "Error Codes: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.error_codes.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.error_codes.labels[value] or "Error Codes: Unknown("..value..")"
 end
 
 -- Dissect: Error Codes
@@ -1032,15 +1026,13 @@ cme_globex_mdp3_sbe_v1_9.event_type = {}
 cme_globex_mdp3_sbe_v1_9.event_type.size = 1
 
 -- Display: Event Type
-cme_globex_mdp3_sbe_v1_9.event_type.display = function(value)
-  if value == 5 then
-    return "Event Type: Activation (5)"
-  end
-  if value == 7 then
-    return "Event Type: Last Eligible Trade Date (7)"
-  end
+cme_globex_mdp3_sbe_v1_9.event_type.labels = {
+  [5] = "Event Type: Activation (5)",
+  [7] = "Event Type: Last Eligible Trade Date (7)",
+}
 
-  return "Event Type: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.event_type.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.event_type.labels[value] or "Event Type: Unknown("..value..")"
 end
 
 -- Dissect: Event Type
@@ -1129,30 +1121,18 @@ cme_globex_mdp3_sbe_v1_9.halt_reason = {}
 cme_globex_mdp3_sbe_v1_9.halt_reason.size = 1
 
 -- Display: Halt Reason
-cme_globex_mdp3_sbe_v1_9.halt_reason.display = function(value)
-  if value == 0 then
-    return "Halt Reason: Group Schedule (0)"
-  end
-  if value == 1 then
-    return "Halt Reason: Surveillance Intervention (1)"
-  end
-  if value == 2 then
-    return "Halt Reason: Market Event (2)"
-  end
-  if value == 3 then
-    return "Halt Reason: Instrument Activation (3)"
-  end
-  if value == 4 then
-    return "Halt Reason: Instrument Expiration (4)"
-  end
-  if value == 5 then
-    return "Halt Reason: Unknown (5)"
-  end
-  if value == 6 then
-    return "Halt Reason: Recovery In Process (6)"
-  end
+cme_globex_mdp3_sbe_v1_9.halt_reason.labels = {
+  [0] = "Halt Reason: Group Schedule (0)",
+  [1] = "Halt Reason: Surveillance Intervention (1)",
+  [2] = "Halt Reason: Market Event (2)",
+  [3] = "Halt Reason: Instrument Activation (3)",
+  [4] = "Halt Reason: Instrument Expiration (4)",
+  [5] = "Halt Reason: Unknown (5)",
+  [6] = "Halt Reason: Recovery In Process (6)",
+}
 
-  return "Halt Reason: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.halt_reason.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.halt_reason.labels[value] or "Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Halt Reason
@@ -1547,15 +1527,13 @@ cme_globex_mdp3_sbe_v1_9.leg_side = {}
 cme_globex_mdp3_sbe_v1_9.leg_side.size = 1
 
 -- Display: Leg Side
-cme_globex_mdp3_sbe_v1_9.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy Side (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell Side (2)"
-  end
+cme_globex_mdp3_sbe_v1_9.leg_side.labels = {
+  [1] = "Leg Side: Buy Side (1)",
+  [2] = "Leg Side: Sell Side (2)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.leg_side.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -2469,15 +2447,13 @@ cme_globex_mdp3_sbe_v1_9.md_req_id_status = {}
 cme_globex_mdp3_sbe_v1_9.md_req_id_status.size = 1
 
 -- Display: Md Req Id Status
-cme_globex_mdp3_sbe_v1_9.md_req_id_status.display = function(value)
-  if value == 0 then
-    return "Md Req Id Status: Full Ack (0)"
-  end
-  if value == 1 then
-    return "Md Req Id Status: Partial Ack (1)"
-  end
+cme_globex_mdp3_sbe_v1_9.md_req_id_status.labels = {
+  [0] = "Md Req Id Status: Full Ack (0)",
+  [1] = "Md Req Id Status: Partial Ack (1)",
+}
 
-  return "Md Req Id Status: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.md_req_id_status.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.md_req_id_status.labels[value] or "Md Req Id Status: Unknown("..value..")"
 end
 
 -- Dissect: Md Req Id Status
@@ -2499,21 +2475,15 @@ cme_globex_mdp3_sbe_v1_9.md_req_rej_reason = {}
 cme_globex_mdp3_sbe_v1_9.md_req_rej_reason.size = 1
 
 -- Display: Md Req Rej Reason
-cme_globex_mdp3_sbe_v1_9.md_req_rej_reason.display = function(value)
-  if value == 0 then
-    return "Md Req Rej Reason: Unknown Security (0)"
-  end
-  if value == 1 then
-    return "Md Req Rej Reason: Unknown Message (1)"
-  end
-  if value == 2 then
-    return "Md Req Rej Reason: Unsupported Scope (2)"
-  end
-  if value == 3 then
-    return "Md Req Rej Reason: Other (3)"
-  end
+cme_globex_mdp3_sbe_v1_9.md_req_rej_reason.labels = {
+  [0] = "Md Req Rej Reason: Unknown Security (0)",
+  [1] = "Md Req Rej Reason: Unknown Message (1)",
+  [2] = "Md Req Rej Reason: Unsupported Scope (2)",
+  [3] = "Md Req Rej Reason: Other (3)",
+}
 
-  return "Md Req Rej Reason: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.md_req_rej_reason.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.md_req_rej_reason.labels[value] or "Md Req Rej Reason: Unknown("..value..")"
 end
 
 -- Dissect: Md Req Rej Reason
@@ -2623,27 +2593,17 @@ cme_globex_mdp3_sbe_v1_9.md_update_action = {}
 cme_globex_mdp3_sbe_v1_9.md_update_action.size = 1
 
 -- Display: Md Update Action
-cme_globex_mdp3_sbe_v1_9.md_update_action.display = function(value)
-  if value == 0 then
-    return "Md Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Md Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Md Update Action: Delete (2)"
-  end
-  if value == 3 then
-    return "Md Update Action: Delete Thru (3)"
-  end
-  if value == 4 then
-    return "Md Update Action: Delete From (4)"
-  end
-  if value == 5 then
-    return "Md Update Action: Overlay (5)"
-  end
+cme_globex_mdp3_sbe_v1_9.md_update_action.labels = {
+  [0] = "Md Update Action: New (0)",
+  [1] = "Md Update Action: Change (1)",
+  [2] = "Md Update Action: Delete (2)",
+  [3] = "Md Update Action: Delete Thru (3)",
+  [4] = "Md Update Action: Delete From (4)",
+  [5] = "Md Update Action: Overlay (5)",
+}
 
-  return "Md Update Action: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.md_update_action.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.md_update_action.labels[value] or "Md Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Md Update Action
@@ -3330,18 +3290,14 @@ cme_globex_mdp3_sbe_v1_9.order_update_action = {}
 cme_globex_mdp3_sbe_v1_9.order_update_action.size = 1
 
 -- Display: Order Update Action
-cme_globex_mdp3_sbe_v1_9.order_update_action.display = function(value)
-  if value == 0 then
-    return "Order Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Order Update Action: Update (1)"
-  end
-  if value == 2 then
-    return "Order Update Action: Delete (2)"
-  end
+cme_globex_mdp3_sbe_v1_9.order_update_action.labels = {
+  [0] = "Order Update Action: New (0)",
+  [1] = "Order Update Action: Update (1)",
+  [2] = "Order Update Action: Delete (2)",
+}
 
-  return "Order Update Action: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.order_update_action.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.order_update_action.labels[value] or "Order Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Order Update Action
@@ -3681,15 +3637,13 @@ cme_globex_mdp3_sbe_v1_9.put_or_call = {}
 cme_globex_mdp3_sbe_v1_9.put_or_call.size = 1
 
 -- Display: Put Or Call
-cme_globex_mdp3_sbe_v1_9.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
+cme_globex_mdp3_sbe_v1_9.put_or_call.labels = {
+  [0] = "Put Or Call: Put (0)",
+  [1] = "Put Or Call: Call (1)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.put_or_call.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -3949,15 +3903,13 @@ cme_globex_mdp3_sbe_v1_9.schema_id = {}
 cme_globex_mdp3_sbe_v1_9.schema_id.size = 2
 
 -- Display: Schema Id
-cme_globex_mdp3_sbe_v1_9.schema_id.display = function(value)
-  if value == 1 then
-    return "Schema Id: Mktdata (1)"
-  end
-  if value == 2 then
-    return "Schema Id: Mdpsessionmgmt (2)"
-  end
+cme_globex_mdp3_sbe_v1_9.schema_id.labels = {
+  [1] = "Schema Id: Mktdata (1)",
+  [2] = "Schema Id: Mdpsessionmgmt (2)",
+}
 
-  return "Schema Id: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.schema_id.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.schema_id.labels[value] or "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id
@@ -4175,24 +4127,16 @@ cme_globex_mdp3_sbe_v1_9.security_trading_event = {}
 cme_globex_mdp3_sbe_v1_9.security_trading_event.size = 1
 
 -- Display: Security Trading Event
-cme_globex_mdp3_sbe_v1_9.security_trading_event.display = function(value)
-  if value == 0 then
-    return "Security Trading Event: No Event (0)"
-  end
-  if value == 1 then
-    return "Security Trading Event: No Cancel (1)"
-  end
-  if value == 4 then
-    return "Security Trading Event: Reset Statistics (4)"
-  end
-  if value == 5 then
-    return "Security Trading Event: Implied Matching On (5)"
-  end
-  if value == 6 then
-    return "Security Trading Event: Implied Matching Off (6)"
-  end
+cme_globex_mdp3_sbe_v1_9.security_trading_event.labels = {
+  [0] = "Security Trading Event: No Event (0)",
+  [1] = "Security Trading Event: No Cancel (1)",
+  [4] = "Security Trading Event: Reset Statistics (4)",
+  [5] = "Security Trading Event: Implied Matching On (5)",
+  [6] = "Security Trading Event: Implied Matching Off (6)",
+}
 
-  return "Security Trading Event: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.security_trading_event.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.security_trading_event.labels[value] or "Security Trading Event: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Event
@@ -4634,18 +4578,14 @@ cme_globex_mdp3_sbe_v1_9.subscription_req_type = {}
 cme_globex_mdp3_sbe_v1_9.subscription_req_type.size = 1
 
 -- Display: Subscription Req Type
-cme_globex_mdp3_sbe_v1_9.subscription_req_type.display = function(value)
-  if value == 0 then
-    return "Subscription Req Type: Snapshot (0)"
-  end
-  if value == 1 then
-    return "Subscription Req Type: Snapshot And Updates (1)"
-  end
-  if value == 2 then
-    return "Subscription Req Type: Unsubscribe (2)"
-  end
+cme_globex_mdp3_sbe_v1_9.subscription_req_type.labels = {
+  [0] = "Subscription Req Type: Snapshot (0)",
+  [1] = "Subscription Req Type: Snapshot And Updates (1)",
+  [2] = "Subscription Req Type: Unsubscribe (2)",
+}
 
-  return "Subscription Req Type: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.subscription_req_type.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.subscription_req_type.labels[value] or "Subscription Req Type: Unknown("..value..")"
 end
 
 -- Dissect: Subscription Req Type
@@ -4730,126 +4670,50 @@ cme_globex_mdp3_sbe_v1_9.template_id = {}
 cme_globex_mdp3_sbe_v1_9.template_id.size = 2
 
 -- Display: Template Id
-cme_globex_mdp3_sbe_v1_9.template_id.display = function(value)
-  if value == 4 then
-    return "Template Id: Channel Reset (4)"
-  end
-  if value == 12 then
-    return "Template Id: Admin Heartbeat (12)"
-  end
-  if value == 15 then
-    return "Template Id: Admin Login (15)"
-  end
-  if value == 16 then
-    return "Template Id: Admin Logout (16)"
-  end
-  if value == 27 then
-    return "Template Id: Md Instrument Definition Future Legacy (27)"
-  end
-  if value == 29 then
-    return "Template Id: Md Instrument Definition Spread Legacy (29)"
-  end
-  if value == 30 then
-    return "Template Id: Security Status (30)"
-  end
-  if value == 32 then
-    return "Template Id: Md Incremental Refresh Book Legacy (32)"
-  end
-  if value == 33 then
-    return "Template Id: Md Incremental Refresh Daily Statistics Legacy (33)"
-  end
-  if value == 34 then
-    return "Template Id: Md Incremental Refresh Limits Banding Legacy (34)"
-  end
-  if value == 35 then
-    return "Template Id: Md Incremental Refresh Session Statistics Legacy (35)"
-  end
-  if value == 37 then
-    return "Template Id: Md Incremental Refresh Volume (37)"
-  end
-  if value == 38 then
-    return "Template Id: Snapshot Full Refresh Legacy (38)"
-  end
-  if value == 39 then
-    return "Template Id: Quote Request (39)"
-  end
-  if value == 41 then
-    return "Template Id: Md Instrument Definition Option Legacy (41)"
-  end
-  if value == 42 then
-    return "Template Id: Md Incremental Refresh Trade Summary Legacy (42)"
-  end
-  if value == 43 then
-    return "Template Id: Md Incremental Refresh Order Book Legacy (43)"
-  end
-  if value == 44 then
-    return "Template Id: Snapshot Full Refresh Order Book Legacy (44)"
-  end
-  if value == 46 then
-    return "Template Id: Md Incremental Refresh Book (46)"
-  end
-  if value == 47 then
-    return "Template Id: Md Incremental Refresh Order Book (47)"
-  end
-  if value == 48 then
-    return "Template Id: Md Incremental Refresh Trade Summary (48)"
-  end
-  if value == 49 then
-    return "Template Id: Md Incremental Refresh Daily Statistics (49)"
-  end
-  if value == 50 then
-    return "Template Id: Md Incremental Refresh Limits Banding (50)"
-  end
-  if value == 51 then
-    return "Template Id: Md Incremental Refresh Session Statistics (51)"
-  end
-  if value == 52 then
-    return "Template Id: Snapshot Full Refresh (52)"
-  end
-  if value == 53 then
-    return "Template Id: Snapshot Full Refresh Order Book (53)"
-  end
-  if value == 54 then
-    return "Template Id: Md Instrument Definition Future (54)"
-  end
-  if value == 55 then
-    return "Template Id: Md Instrument Definition Option (55)"
-  end
-  if value == 56 then
-    return "Template Id: Md Instrument Definition Spread (56)"
-  end
-  if value == 200 then
-    return "Template Id: Negotiate (200)"
-  end
-  if value == 201 then
-    return "Template Id: Negotiation Reject (201)"
-  end
-  if value == 202 then
-    return "Template Id: Negotiation Response (202)"
-  end
-  if value == 203 then
-    return "Template Id: Terminate (203)"
-  end
-  if value == 205 then
-    return "Template Id: Market Data Request (205)"
-  end
-  if value == 206 then
-    return "Template Id: Request Ack (206)"
-  end
-  if value == 207 then
-    return "Template Id: Request Reject (207)"
-  end
-  if value == 208 then
-    return "Template Id: Security List Request (208)"
-  end
-  if value == 209 then
-    return "Template Id: Security Status Request (209)"
-  end
-  if value == 210 then
-    return "Template Id: Subscriber Heartbeat (210)"
-  end
+cme_globex_mdp3_sbe_v1_9.template_id.labels = {
+  [4] = "Template Id: Channel Reset (4)",
+  [12] = "Template Id: Admin Heartbeat (12)",
+  [15] = "Template Id: Admin Login (15)",
+  [16] = "Template Id: Admin Logout (16)",
+  [27] = "Template Id: Md Instrument Definition Future Legacy (27)",
+  [29] = "Template Id: Md Instrument Definition Spread Legacy (29)",
+  [30] = "Template Id: Security Status (30)",
+  [32] = "Template Id: Md Incremental Refresh Book Legacy (32)",
+  [33] = "Template Id: Md Incremental Refresh Daily Statistics Legacy (33)",
+  [34] = "Template Id: Md Incremental Refresh Limits Banding Legacy (34)",
+  [35] = "Template Id: Md Incremental Refresh Session Statistics Legacy (35)",
+  [37] = "Template Id: Md Incremental Refresh Volume (37)",
+  [38] = "Template Id: Snapshot Full Refresh Legacy (38)",
+  [39] = "Template Id: Quote Request (39)",
+  [41] = "Template Id: Md Instrument Definition Option Legacy (41)",
+  [42] = "Template Id: Md Incremental Refresh Trade Summary Legacy (42)",
+  [43] = "Template Id: Md Incremental Refresh Order Book Legacy (43)",
+  [44] = "Template Id: Snapshot Full Refresh Order Book Legacy (44)",
+  [46] = "Template Id: Md Incremental Refresh Book (46)",
+  [47] = "Template Id: Md Incremental Refresh Order Book (47)",
+  [48] = "Template Id: Md Incremental Refresh Trade Summary (48)",
+  [49] = "Template Id: Md Incremental Refresh Daily Statistics (49)",
+  [50] = "Template Id: Md Incremental Refresh Limits Banding (50)",
+  [51] = "Template Id: Md Incremental Refresh Session Statistics (51)",
+  [52] = "Template Id: Snapshot Full Refresh (52)",
+  [53] = "Template Id: Snapshot Full Refresh Order Book (53)",
+  [54] = "Template Id: Md Instrument Definition Future (54)",
+  [55] = "Template Id: Md Instrument Definition Option (55)",
+  [56] = "Template Id: Md Instrument Definition Spread (56)",
+  [200] = "Template Id: Negotiate (200)",
+  [201] = "Template Id: Negotiation Reject (201)",
+  [202] = "Template Id: Negotiation Response (202)",
+  [203] = "Template Id: Terminate (203)",
+  [205] = "Template Id: Market Data Request (205)",
+  [206] = "Template Id: Request Ack (206)",
+  [207] = "Template Id: Request Reject (207)",
+  [208] = "Template Id: Security List Request (208)",
+  [209] = "Template Id: Security Status Request (209)",
+  [210] = "Template Id: Subscriber Heartbeat (210)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cme_globex_mdp3_sbe_v1_9.template_id.display = function(value)
+  return cme_globex_mdp3_sbe_v1_9.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -12076,142 +11940,47 @@ end
 cme_globex_mdp3_sbe_v1_9.server_payload = {}
 
 -- Dissect: Server Payload
+cme_globex_mdp3_sbe_v1_9.server_payload.dispatch = {
+  [4] = cme_globex_mdp3_sbe_v1_9.channel_reset.dissect,
+  [12] = cme_globex_mdp3_sbe_v1_9.admin_heartbeat.dissect,
+  [15] = cme_globex_mdp3_sbe_v1_9.admin_login.dissect,
+  [16] = cme_globex_mdp3_sbe_v1_9.admin_logout.dissect,
+  [27] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future_legacy.dissect,
+  [29] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.dissect,
+  [30] = cme_globex_mdp3_sbe_v1_9.security_status.dissect,
+  [32] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book_legacy.dissect,
+  [33] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics_legacy.dissect,
+  [34] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding_legacy.dissect,
+  [35] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics_legacy.dissect,
+  [37] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_volume.dissect,
+  [38] = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy.dissect,
+  [39] = cme_globex_mdp3_sbe_v1_9.quote_request.dissect,
+  [41] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option_legacy.dissect,
+  [42] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary_legacy.dissect,
+  [43] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book_legacy.dissect,
+  [44] = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy.dissect,
+  [46] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book.dissect,
+  [47] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book.dissect,
+  [48] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary.dissect,
+  [49] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics.dissect,
+  [50] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding.dissect,
+  [51] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics.dissect,
+  [52] = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh.dissect,
+  [53] = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book.dissect,
+  [54] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future.dissect,
+  [55] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option.dissect,
+  [56] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread.dissect,
+  [201] = cme_globex_mdp3_sbe_v1_9.negotiation_reject.dissect,
+  [202] = cme_globex_mdp3_sbe_v1_9.negotiation_response.dissect,
+  [203] = cme_globex_mdp3_sbe_v1_9.terminate.dissect,
+  [206] = cme_globex_mdp3_sbe_v1_9.request_ack.dissect,
+  [207] = cme_globex_mdp3_sbe_v1_9.request_reject.dissect,
+}
+
 cme_globex_mdp3_sbe_v1_9.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Channel Reset
-  if template_id == 4 then
-    return cme_globex_mdp3_sbe_v1_9.channel_reset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Heartbeat
-  if template_id == 12 then
-    return cme_globex_mdp3_sbe_v1_9.admin_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Login
-  if template_id == 15 then
-    return cme_globex_mdp3_sbe_v1_9.admin_login.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Logout
-  if template_id == 16 then
-    return cme_globex_mdp3_sbe_v1_9.admin_logout.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Future Legacy
-  if template_id == 27 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Spread Legacy
-  if template_id == 29 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status
-  if template_id == 30 then
-    return cme_globex_mdp3_sbe_v1_9.security_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Book Legacy
-  if template_id == 32 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Daily Statistics Legacy
-  if template_id == 33 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Limits Banding Legacy
-  if template_id == 34 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Session Statistics Legacy
-  if template_id == 35 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Volume
-  if template_id == 37 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_volume.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Legacy
-  if template_id == 38 then
-    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request
-  if template_id == 39 then
-    return cme_globex_mdp3_sbe_v1_9.quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Option Legacy
-  if template_id == 41 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Trade Summary Legacy
-  if template_id == 42 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Order Book Legacy
-  if template_id == 43 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Order Book Legacy
-  if template_id == 44 then
-    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Book
-  if template_id == 46 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Order Book
-  if template_id == 47 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Trade Summary
-  if template_id == 48 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Daily Statistics
-  if template_id == 49 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Limits Banding
-  if template_id == 50 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Session Statistics
-  if template_id == 51 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh
-  if template_id == 52 then
-    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Order Book
-  if template_id == 53 then
-    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Future
-  if template_id == 54 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Option
-  if template_id == 55 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Spread
-  if template_id == 56 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Negotiation Reject
-  if template_id == 201 then
-    return cme_globex_mdp3_sbe_v1_9.negotiation_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Negotiation Response
-  if template_id == 202 then
-    return cme_globex_mdp3_sbe_v1_9.negotiation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate
-  if template_id == 203 then
-    return cme_globex_mdp3_sbe_v1_9.terminate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Ack
-  if template_id == 206 then
-    return cme_globex_mdp3_sbe_v1_9.request_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Reject
-  if template_id == 207 then
-    return cme_globex_mdp3_sbe_v1_9.request_reject.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_mdp3_sbe_v1_9.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -13397,30 +13166,19 @@ end
 cme_globex_mdp3_sbe_v1_9.client_payload = {}
 
 -- Dissect: Client Payload
+cme_globex_mdp3_sbe_v1_9.client_payload.dispatch = {
+  [200] = cme_globex_mdp3_sbe_v1_9.negotiate.dissect,
+  [203] = cme_globex_mdp3_sbe_v1_9.terminate.dissect,
+  [205] = cme_globex_mdp3_sbe_v1_9.market_data_request.dissect,
+  [208] = cme_globex_mdp3_sbe_v1_9.security_list_request.dissect,
+  [209] = cme_globex_mdp3_sbe_v1_9.security_status_request.dissect,
+  [210] = cme_globex_mdp3_sbe_v1_9.subscriber_heartbeat.dissect,
+}
+
 cme_globex_mdp3_sbe_v1_9.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Negotiate
-  if template_id == 200 then
-    return cme_globex_mdp3_sbe_v1_9.negotiate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate
-  if template_id == 203 then
-    return cme_globex_mdp3_sbe_v1_9.terminate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Data Request
-  if template_id == 205 then
-    return cme_globex_mdp3_sbe_v1_9.market_data_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Request
-  if template_id == 208 then
-    return cme_globex_mdp3_sbe_v1_9.security_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Request
-  if template_id == 209 then
-    return cme_globex_mdp3_sbe_v1_9.security_status_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscriber Heartbeat
-  if template_id == 210 then
-    return cme_globex_mdp3_sbe_v1_9.subscriber_heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_mdp3_sbe_v1_9.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -13635,46 +13393,23 @@ end
 cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_payload = {}
 
 -- Dissect: Mdpsessionmgmt Payload
+cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_payload.dispatch = {
+  [200] = cme_globex_mdp3_sbe_v1_9.negotiate.dissect,
+  [201] = cme_globex_mdp3_sbe_v1_9.negotiation_reject.dissect,
+  [202] = cme_globex_mdp3_sbe_v1_9.negotiation_response.dissect,
+  [203] = cme_globex_mdp3_sbe_v1_9.terminate.dissect,
+  [205] = cme_globex_mdp3_sbe_v1_9.market_data_request.dissect,
+  [206] = cme_globex_mdp3_sbe_v1_9.request_ack.dissect,
+  [207] = cme_globex_mdp3_sbe_v1_9.request_reject.dissect,
+  [208] = cme_globex_mdp3_sbe_v1_9.security_list_request.dissect,
+  [209] = cme_globex_mdp3_sbe_v1_9.security_status_request.dissect,
+  [210] = cme_globex_mdp3_sbe_v1_9.subscriber_heartbeat.dissect,
+}
+
 cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Negotiate
-  if template_id == 200 then
-    return cme_globex_mdp3_sbe_v1_9.negotiate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Negotiation Reject
-  if template_id == 201 then
-    return cme_globex_mdp3_sbe_v1_9.negotiation_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Negotiation Response
-  if template_id == 202 then
-    return cme_globex_mdp3_sbe_v1_9.negotiation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate
-  if template_id == 203 then
-    return cme_globex_mdp3_sbe_v1_9.terminate.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Data Request
-  if template_id == 205 then
-    return cme_globex_mdp3_sbe_v1_9.market_data_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Ack
-  if template_id == 206 then
-    return cme_globex_mdp3_sbe_v1_9.request_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Reject
-  if template_id == 207 then
-    return cme_globex_mdp3_sbe_v1_9.request_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security List Request
-  if template_id == 208 then
-    return cme_globex_mdp3_sbe_v1_9.security_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Request
-  if template_id == 209 then
-    return cme_globex_mdp3_sbe_v1_9.security_status_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscriber Heartbeat
-  if template_id == 210 then
-    return cme_globex_mdp3_sbe_v1_9.subscriber_heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -13735,122 +13470,42 @@ end
 cme_globex_mdp3_sbe_v1_9.mktdata_payload = {}
 
 -- Dissect: Mktdata Payload
+cme_globex_mdp3_sbe_v1_9.mktdata_payload.dispatch = {
+  [4] = cme_globex_mdp3_sbe_v1_9.channel_reset.dissect,
+  [12] = cme_globex_mdp3_sbe_v1_9.admin_heartbeat.dissect,
+  [15] = cme_globex_mdp3_sbe_v1_9.admin_login.dissect,
+  [16] = cme_globex_mdp3_sbe_v1_9.admin_logout.dissect,
+  [27] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future_legacy.dissect,
+  [29] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.dissect,
+  [30] = cme_globex_mdp3_sbe_v1_9.security_status.dissect,
+  [32] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book_legacy.dissect,
+  [33] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics_legacy.dissect,
+  [34] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding_legacy.dissect,
+  [35] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics_legacy.dissect,
+  [37] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_volume.dissect,
+  [38] = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy.dissect,
+  [39] = cme_globex_mdp3_sbe_v1_9.quote_request.dissect,
+  [41] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option_legacy.dissect,
+  [42] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary_legacy.dissect,
+  [43] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book_legacy.dissect,
+  [44] = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy.dissect,
+  [46] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book.dissect,
+  [47] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book.dissect,
+  [48] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary.dissect,
+  [49] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics.dissect,
+  [50] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding.dissect,
+  [51] = cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics.dissect,
+  [52] = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh.dissect,
+  [53] = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book.dissect,
+  [54] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future.dissect,
+  [55] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option.dissect,
+  [56] = cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread.dissect,
+}
+
 cme_globex_mdp3_sbe_v1_9.mktdata_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Channel Reset
-  if template_id == 4 then
-    return cme_globex_mdp3_sbe_v1_9.channel_reset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Heartbeat
-  if template_id == 12 then
-    return cme_globex_mdp3_sbe_v1_9.admin_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Login
-  if template_id == 15 then
-    return cme_globex_mdp3_sbe_v1_9.admin_login.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Admin Logout
-  if template_id == 16 then
-    return cme_globex_mdp3_sbe_v1_9.admin_logout.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Future Legacy
-  if template_id == 27 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Spread Legacy
-  if template_id == 29 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status
-  if template_id == 30 then
-    return cme_globex_mdp3_sbe_v1_9.security_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Book Legacy
-  if template_id == 32 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Daily Statistics Legacy
-  if template_id == 33 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Limits Banding Legacy
-  if template_id == 34 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Session Statistics Legacy
-  if template_id == 35 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Volume
-  if template_id == 37 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_volume.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Legacy
-  if template_id == 38 then
-    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request
-  if template_id == 39 then
-    return cme_globex_mdp3_sbe_v1_9.quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Option Legacy
-  if template_id == 41 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Trade Summary Legacy
-  if template_id == 42 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Order Book Legacy
-  if template_id == 43 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Order Book Legacy
-  if template_id == 44 then
-    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Book
-  if template_id == 46 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Order Book
-  if template_id == 47 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Trade Summary
-  if template_id == 48 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Daily Statistics
-  if template_id == 49 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Limits Banding
-  if template_id == 50 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Incremental Refresh Session Statistics
-  if template_id == 51 then
-    return cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh
-  if template_id == 52 then
-    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Full Refresh Order Book
-  if template_id == 53 then
-    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Future
-  if template_id == 54 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Option
-  if template_id == 55 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Md Instrument Definition Spread
-  if template_id == 56 then
-    return cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_mdp3_sbe_v1_9.mktdata_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -13911,14 +13566,15 @@ end
 cme_globex_mdp3_sbe_v1_9.payload = {}
 
 -- Dissect: Payload
+cme_globex_mdp3_sbe_v1_9.payload.dispatch = {
+  [1] = cme_globex_mdp3_sbe_v1_9.mktdata_message.dissect,
+  [2] = cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_message.dissect,
+}
+
 cme_globex_mdp3_sbe_v1_9.payload.dissect = function(buffer, offset, packet, parent, schema_id)
-  -- Dissect Mktdata Message
-  if schema_id == 1 then
-    return cme_globex_mdp3_sbe_v1_9.mktdata_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mdpsessionmgmt Message
-  if schema_id == 2 then
-    return cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_message.dissect(buffer, offset, packet, parent)
+  local dissect = cme_globex_mdp3_sbe_v1_9.payload.dispatch[schema_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

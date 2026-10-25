@@ -181,18 +181,14 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ack_required_poss_dup = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ack_required_poss_dup.size = 1
 
 -- Display: Ack Required Poss Dup
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ack_required_poss_dup.display = function(value)
-  if value == "0" then
-    return "Ack Required Poss Dup: Unused (0)"
-  end
-  if value == "A" then
-    return "Ack Required Poss Dup: Ack Required (A)"
-  end
-  if value == "D" then
-    return "Ack Required Poss Dup: Poss Dup (D)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ack_required_poss_dup.labels = {
+  ["0"] = "Ack Required Poss Dup: Unused (0)",
+  ["A"] = "Ack Required Poss Dup: Ack Required (A)",
+  ["D"] = "Ack Required Poss Dup: Poss Dup (D)",
+}
 
-  return "Ack Required Poss Dup: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ack_required_poss_dup.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ack_required_poss_dup.labels[value] or "Ack Required Poss Dup: Unknown("..value..")"
 end
 
 -- Dissect: Ack Required Poss Dup
@@ -427,15 +423,13 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bypass = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bypass.size = 1
 
 -- Display: Bypass
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bypass.display = function(value)
-  if value == "Y" then
-    return "Bypass: The Order Is A Bypass (Y)"
-  end
-  if value == "N" then
-    return "Bypass: The Order Is Not A Bypass (N)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bypass.labels = {
+  ["Y"] = "Bypass: The Order Is A Bypass (Y)",
+  ["N"] = "Bypass: The Order Is Not A Bypass (N)",
+}
 
-  return "Bypass: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bypass.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bypass.labels[value] or "Bypass: Unknown("..value..")"
 end
 
 -- Dissect: Bypass
@@ -525,15 +519,13 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.currency = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.currency.size = 1
 
 -- Display: Currency
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.currency.display = function(value)
-  if value == "U" then
-    return "Currency: Usd (U)"
-  end
-  if value == "C" then
-    return "Currency: Cad (C)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.currency.labels = {
+  ["U"] = "Currency: Usd (U)",
+  ["C"] = "Currency: Cad (C)",
+}
 
-  return "Currency: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.currency.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -702,15 +694,13 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.listing_market = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.listing_market.size = 1
 
 -- Display: Listing Market
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsxv (V)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.listing_market.labels = {
+  ["T"] = "Listing Market: Tsx (T)",
+  ["V"] = "Listing Market: Tsxv (V)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.listing_market.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -806,27 +796,17 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_type = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_type.size = 1
 
 -- Display: Msg Type
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_type.display = function(value)
-  if value == "0" then
-    return "Msg Type: Heartbeat (0)"
-  end
-  if value == "J" then
-    return "Msg Type: Symbol Status Message (J)"
-  end
-  if value == "s" then
-    return "Msg Type: Trade Message (s)"
-  end
-  if value == "t" then
-    return "Msg Type: Trade Cancelled Message (t)"
-  end
-  if value == "v" then
-    return "Msg Type: Stock Status Message (v)"
-  end
-  if value == "w" then
-    return "Msg Type: Equity Quote Message (w)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_type.labels = {
+  ["0"] = "Msg Type: Heartbeat (0)",
+  ["J"] = "Msg Type: Symbol Status Message (J)",
+  ["s"] = "Msg Type: Trade Message (s)",
+  ["t"] = "Msg Type: Trade Cancelled Message (t)",
+  ["v"] = "Msg Type: Stock Status Message (v)",
+  ["w"] = "Msg Type: Equity Quote Message (w)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_type.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -894,15 +874,13 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.opening_trade = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.opening_trade.size = 1
 
 -- Display: Opening Trade
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.opening_trade.display = function(value)
-  if value == "Y" then
-    return "Opening Trade: Yes (Y)"
-  end
-  if value == "N" then
-    return "Opening Trade: No (N)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.opening_trade.labels = {
+  ["Y"] = "Opening Trade: Yes (Y)",
+  ["N"] = "Opening Trade: No (N)",
+}
 
-  return "Opening Trade: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.opening_trade.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.opening_trade.labels[value] or "Opening Trade: Unknown("..value..")"
 end
 
 -- Dissect: Opening Trade
@@ -963,21 +941,15 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.product_type = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.product_type.size = 1
 
 -- Display: Product Type
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.product_type.display = function(value)
-  if value == "B" then
-    return "Product Type: Debenture (B)"
-  end
-  if value == "E" then
-    return "Product Type: Equity (E)"
-  end
-  if value == "M" then
-    return "Product Type: Mutual Fund (M)"
-  end
-  if value == "F" then
-    return "Product Type: Etf (F)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.product_type.labels = {
+  ["B"] = "Product Type: Debenture (B)",
+  ["E"] = "Product Type: Equity (E)",
+  ["M"] = "Product Type: Mutual Fund (M)",
+  ["F"] = "Product Type: Etf (F)",
+}
 
-  return "Product Type: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.product_type.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -1229,21 +1201,15 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.source_id = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.source_id.size = 1
 
 -- Display: Source Id
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.source_id.display = function(value)
-  if value == "0" then
-    return "Source Id: Non Source Related (0)"
-  end
-  if value == "Q" then
-    return "Source Id: TSX (Q)"
-  end
-  if value == "V" then
-    return "Source Id: TSX Venture (V)"
-  end
-  if value == "A" then
-    return "Source Id: Alpha (A)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.source_id.labels = {
+  ["0"] = "Source Id: Non Source Related (0)",
+  ["Q"] = "Source Id: TSX (Q)",
+  ["V"] = "Source Id: TSX Venture (V)",
+  ["A"] = "Source Id: Alpha (A)",
+}
 
-  return "Source Id: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.source_id.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.source_id.labels[value] or "Source Id: Unknown("..value..")"
 end
 
 -- Dissect: Source Id
@@ -1320,21 +1286,15 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_state = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_state.size = 2
 
 -- Display: Stock State
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_state.display = function(value)
-  if value == "AS" then
-    return "Stock State: Authorized Halted (AS)"
-  end
-  if value == "IS" then
-    return "Stock State: Inhibited Halted (IS)"
-  end
-  if value == "A" then
-    return "Stock State: Authorized (A)"
-  end
-  if value == "I" then
-    return "Stock State: Inhibited (I)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_state.labels = {
+  ["AS"] = "Stock State: Authorized Halted (AS)",
+  ["IS"] = "Stock State: Inhibited Halted (IS)",
+  ["A"] = "Stock State: Authorized (A)",
+  ["I"] = "Stock State: Inhibited (I)",
+}
 
-  return "Stock State: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_state.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_state.labels[value] or "Stock State: Unknown("..value..")"
 end
 
 -- Dissect: Stock State
@@ -1402,15 +1362,13 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.test_symbol = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.test_symbol.size = 1
 
 -- Display: Test Symbol
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.test_symbol.display = function(value)
-  if value == "Y" then
-    return "Test Symbol: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Symbol: No (N)"
-  end
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.test_symbol.labels = {
+  ["Y"] = "Test Symbol: Yes (Y)",
+  ["N"] = "Test Symbol: No (N)",
+}
 
-  return "Test Symbol: Unknown("..value..")"
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.test_symbol.display = function(value)
+  return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.test_symbol.labels[value] or "Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Test Symbol
@@ -1917,26 +1875,18 @@ end
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.business_message = {}
 
 -- Dissect: Business Message
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.business_message.dispatch = {
+  ["J"] = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.symbol_status_message.dissect,
+  ["s"] = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_message.dissect,
+  ["t"] = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_cancelled_message.dissect,
+  ["v"] = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_status_message.dissect,
+  ["w"] = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.equity_quote_message.dissect,
+}
+
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Symbol Status Message
-  if msg_type == "J" then
-    return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if msg_type == "s" then
-    return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancelled Message
-  if msg_type == "t" then
-    return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Status Message
-  if msg_type == "v" then
-    return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equity Quote Message
-  if msg_type == "w" then
-    return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.equity_quote_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.business_message.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2323,10 +2273,14 @@ end
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.packet_body = {}
 
 -- Dissect: Packet Body
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.packet_body.dispatch = {
+  ["0"] = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.heartbeat_body.dissect,
+}
+
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.packet_body.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Heartbeat Body
-  if msg_type == "0" then
-    return tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.heartbeat_body.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.packet_body.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Business Bodies

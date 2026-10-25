@@ -424,24 +424,16 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.client_packet_type = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-jpx_osederivatives_geniuminet_glimpse_v2_2.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.client_packet_type.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -556,15 +548,13 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.event_code = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.event_code.size = 1
 
 -- Display: Event Code
-jpx_osederivatives_geniuminet_glimpse_v2_2.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Message Transmission (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Message Transmission (C)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.event_code.labels = {
+  ["O"] = "Event Code: Start Of Message Transmission (O)",
+  ["C"] = "Event Code: End Of Message Transmission (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.event_code.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -632,18 +622,14 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.financial_product = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.financial_product.size = 1
 
 -- Display: Financial Product
-jpx_osederivatives_geniuminet_glimpse_v2_2.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 3 then
-    return "Financial Product: Futures (3)"
-  end
-  if value == 11 then
-    return "Financial Product: Combination Series (11)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.financial_product.labels = {
+  [1] = "Financial Product: Option (1)",
+  [3] = "Financial Product: Futures (3)",
+  [11] = "Financial Product: Combination Series (11)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.financial_product.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -711,15 +697,13 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.leg_side = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.leg_side.size = 1
 
 -- Display: Leg Side
-jpx_osederivatives_geniuminet_glimpse_v2_2.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Buy If On Buy Side Sell If On Sell Side (B)"
-  end
-  if value == "C" then
-    return "Leg Side: Sell If On Buy Side Buy If On Sell Side (C)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.leg_side.labels = {
+  ["B"] = "Leg Side: Buy If On Buy Side Sell If On Sell Side (B)",
+  ["C"] = "Leg Side: Sell If On Buy Side Buy If On Sell Side (C)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.leg_side.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -948,15 +932,13 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.occurred_at_cross = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.occurred_at_cross.size = 1
 
 -- Display: Occurred At Cross
-jpx_osederivatives_geniuminet_glimpse_v2_2.occurred_at_cross.display = function(value)
-  if value == "Y" then
-    return "Occurred At Cross: Execution Through Auction (Y)"
-  end
-  if value == "N" then
-    return "Occurred At Cross: Execution Through Zaraba (N)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.occurred_at_cross.labels = {
+  ["Y"] = "Occurred At Cross: Execution Through Auction (Y)",
+  ["N"] = "Occurred At Cross: Execution Through Zaraba (N)",
+}
 
-  return "Occurred At Cross: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.occurred_at_cross.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.occurred_at_cross.labels[value] or "Occurred At Cross: Unknown("..value..")"
 end
 
 -- Dissect: Occurred At Cross
@@ -1246,18 +1228,14 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.put_or_call = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.put_or_call.size = 1
 
 -- Display: Put Or Call
-jpx_osederivatives_geniuminet_glimpse_v2_2.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Futures Or Combination Series (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
-  if value == 2 then
-    return "Put Or Call: Put (2)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.put_or_call.labels = {
+  [0] = "Put Or Call: Futures Or Combination Series (0)",
+  [1] = "Put Or Call: Call (1)",
+  [2] = "Put Or Call: Put (2)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.put_or_call.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -1302,15 +1280,13 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.reject_reason_code = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-jpx_osederivatives_geniuminet_glimpse_v2_2.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.reject_reason_code.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1630,45 +1606,23 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message_type = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message_type.display = function(value)
-  if value == "T" then
-    return "Sequenced Message Type: Seconds Message (T)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Series Information Basic Message (R)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Series Information Basic Combination Message (M)"
-  end
-  if value == "L" then
-    return "Sequenced Message Type: Tick Size Data Message (L)"
-  end
-  if value == "S" then
-    return "Sequenced Message Type: System Event Data Message (S)"
-  end
-  if value == "O" then
-    return "Sequenced Message Type: Trading Status Data Message (O)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: New Order Message (A)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Execution Notice Message (E)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Execution Notice With Trade Information Message (C)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Deleted Order Message (D)"
-  end
-  if value == "Z" then
-    return "Sequenced Message Type: Ep Message (Z)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Snapshot Completion Message (G)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message_type.labels = {
+  ["T"] = "Sequenced Message Type: Seconds Message (T)",
+  ["R"] = "Sequenced Message Type: Series Information Basic Message (R)",
+  ["M"] = "Sequenced Message Type: Series Information Basic Combination Message (M)",
+  ["L"] = "Sequenced Message Type: Tick Size Data Message (L)",
+  ["S"] = "Sequenced Message Type: System Event Data Message (S)",
+  ["O"] = "Sequenced Message Type: Trading Status Data Message (O)",
+  ["A"] = "Sequenced Message Type: New Order Message (A)",
+  ["E"] = "Sequenced Message Type: Execution Notice Message (E)",
+  ["C"] = "Sequenced Message Type: Execution Notice With Trade Information Message (C)",
+  ["D"] = "Sequenced Message Type: Deleted Order Message (D)",
+  ["Z"] = "Sequenced Message Type: Ep Message (Z)",
+  ["G"] = "Sequenced Message Type: Snapshot Completion Message (G)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message_type.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1690,27 +1644,17 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.server_packet_type = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-jpx_osederivatives_geniuminet_glimpse_v2_2.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.server_packet_type.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1732,15 +1676,13 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.side = {}
 jpx_osederivatives_geniuminet_glimpse_v2_2.side.size = 1
 
 -- Display: Side
-jpx_osederivatives_geniuminet_glimpse_v2_2.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+jpx_osederivatives_geniuminet_glimpse_v2_2.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+jpx_osederivatives_geniuminet_glimpse_v2_2.side.display = function(value)
+  return jpx_osederivatives_geniuminet_glimpse_v2_2.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2832,54 +2774,25 @@ end
 jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message.dispatch = {
+  ["T"] = jpx_osederivatives_geniuminet_glimpse_v2_2.seconds_message.dissect,
+  ["R"] = jpx_osederivatives_geniuminet_glimpse_v2_2.series_information_basic_message.dissect,
+  ["M"] = jpx_osederivatives_geniuminet_glimpse_v2_2.series_information_basic_combination_message.dissect,
+  ["L"] = jpx_osederivatives_geniuminet_glimpse_v2_2.tick_size_data_message.dissect,
+  ["S"] = jpx_osederivatives_geniuminet_glimpse_v2_2.system_event_data_message.dissect,
+  ["O"] = jpx_osederivatives_geniuminet_glimpse_v2_2.trading_status_data_message.dissect,
+  ["A"] = jpx_osederivatives_geniuminet_glimpse_v2_2.new_order_message.dissect,
+  ["E"] = jpx_osederivatives_geniuminet_glimpse_v2_2.execution_notice_message.dissect,
+  ["C"] = jpx_osederivatives_geniuminet_glimpse_v2_2.execution_notice_with_trade_information_message.dissect,
+  ["D"] = jpx_osederivatives_geniuminet_glimpse_v2_2.deleted_order_message.dissect,
+  ["Z"] = jpx_osederivatives_geniuminet_glimpse_v2_2.ep_message.dissect,
+  ["G"] = jpx_osederivatives_geniuminet_glimpse_v2_2.snapshot_completion_message.dissect,
+}
+
 jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Seconds Message
-  if sequenced_message_type == "T" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Information Basic Message
-  if sequenced_message_type == "R" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.series_information_basic_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Information Basic Combination Message
-  if sequenced_message_type == "M" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.series_information_basic_combination_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Data Message
-  if sequenced_message_type == "L" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.tick_size_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Data Message
-  if sequenced_message_type == "S" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.system_event_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Data Message
-  if sequenced_message_type == "O" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.trading_status_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Message
-  if sequenced_message_type == "A" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Notice Message
-  if sequenced_message_type == "E" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.execution_notice_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Notice With Trade Information Message
-  if sequenced_message_type == "C" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.execution_notice_with_trade_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Deleted Order Message
-  if sequenced_message_type == "D" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.deleted_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ep Message
-  if sequenced_message_type == "Z" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.ep_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Completion Message
-  if sequenced_message_type == "G" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.snapshot_completion_message.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3122,30 +3035,19 @@ end
 jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload = {}
 
 -- Dissect: Server Payload
+jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload.dispatch = {
+  ["+"] = jpx_osederivatives_geniuminet_glimpse_v2_2.debug_packet.dissect,
+  ["A"] = jpx_osederivatives_geniuminet_glimpse_v2_2.login_accepted_packet.dissect,
+  ["J"] = jpx_osederivatives_geniuminet_glimpse_v2_2.login_rejected_packet.dissect,
+  ["S"] = jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_data_packet.dissect,
+  ["H"] = jpx_osederivatives_geniuminet_glimpse_v2_2.server_heartbeat.dissect,
+  ["Z"] = jpx_osederivatives_geniuminet_glimpse_v2_2.end_of_session.dissect,
+}
+
 jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3458,26 +3360,18 @@ end
 jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload = {}
 
 -- Dissect: Client Payload
+jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload.dispatch = {
+  ["+"] = jpx_osederivatives_geniuminet_glimpse_v2_2.debug_packet.dissect,
+  ["L"] = jpx_osederivatives_geniuminet_glimpse_v2_2.login_request_packet.dissect,
+  ["U"] = jpx_osederivatives_geniuminet_glimpse_v2_2.unsequenced_data_packet.dissect,
+  ["R"] = jpx_osederivatives_geniuminet_glimpse_v2_2.client_heartbeat.dissect,
+  ["O"] = jpx_osederivatives_geniuminet_glimpse_v2_2.logout_request.dissect,
+}
+
 jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return jpx_osederivatives_geniuminet_glimpse_v2_2.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -414,15 +414,13 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.buy_sell_indicator = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell Order (S)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy Order (B)",
+  ["S"] = "Buy Sell Indicator: Sell Order (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.buy_sell_indicator.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -444,24 +442,16 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_packet_type = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_packet_type.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -525,15 +515,13 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.event_code = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.event_code.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -555,12 +543,12 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.extension = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.extension.size = 1
 
 -- Display: Extension
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.extension.display = function(value)
-  if value == "E" then
-    return "Extension: Cross Extension (E)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.extension.labels = {
+  ["E"] = "Extension: Cross Extension (E)",
+}
 
-  return "Extension: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.extension.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.extension.labels[value] or "Extension: Unknown("..value..")"
 end
 
 -- Dissect: Extension
@@ -582,36 +570,20 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.financial_product = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.financial_product.size = 1
 
 -- Display: Financial Product
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Stock (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Equity Warrant (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Equity Right (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Bond (4)"
-  end
-  if value == 6 then
-    return "Financial Product: Lottery Bond Series (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Convertible (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Warrant (8)"
-  end
-  if value == 11 then
-    return "Financial Product: Unit Trust Certificate (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Index Fund Unit (12)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.financial_product.labels = {
+  [1] = "Financial Product: Stock (1)",
+  [2] = "Financial Product: Equity Warrant (2)",
+  [3] = "Financial Product: Equity Right (3)",
+  [4] = "Financial Product: Bond (4)",
+  [6] = "Financial Product: Lottery Bond Series (6)",
+  [7] = "Financial Product: Convertible (7)",
+  [8] = "Financial Product: Warrant (8)",
+  [11] = "Financial Product: Unit Trust Certificate (11)",
+  [12] = "Financial Product: Index Fund Unit (12)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.financial_product.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -927,12 +899,12 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.price_notation = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.price_notation.size = 1
 
 -- Display: Price Notation
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.price_notation.display = function(value)
-  if value == "M" then
-    return "Price Notation: Monetary Value (M)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.price_notation.labels = {
+  ["M"] = "Price Notation: Monetary Value (M)",
+}
 
-  return "Price Notation: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.price_notation.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -1037,15 +1009,13 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.reject_reason_code = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.reject_reason_code.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1175,27 +1145,17 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message_type = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Order Book Trading Action Message (H)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Order Book Directory Message (R)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Add Order Message (A)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Add Order Mpid Attribution Message (F)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: End Of Snapshot Message (G)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["H"] = "Sequenced Message Type: Order Book Trading Action Message (H)",
+  ["R"] = "Sequenced Message Type: Order Book Directory Message (R)",
+  ["A"] = "Sequenced Message Type: Add Order Message (A)",
+  ["F"] = "Sequenced Message Type: Add Order Mpid Attribution Message (F)",
+  ["G"] = "Sequenced Message Type: End Of Snapshot Message (G)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message_type.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1217,27 +1177,17 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_type = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_type.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1282,39 +1232,21 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol_state = {}
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol_state.size = 1
 
 -- Display: Symbol State
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol_state.display = function(value)
-  if value == "C" then
-    return "Symbol State: Closed (C)"
-  end
-  if value == "P" then
-    return "Symbol State: Pre Open (P)"
-  end
-  if value == "O" then
-    return "Symbol State: Opening Auction (O)"
-  end
-  if value == "T" then
-    return "Symbol State: Continuous Trading (T)"
-  end
-  if value == "I" then
-    return "Symbol State: Scheduled Intraday Auction (I)"
-  end
-  if value == "L" then
-    return "Symbol State: Closing Auction (L)"
-  end
-  if value == "S" then
-    return "Symbol State: Post Trade (S)"
-  end
-  if value == "H" then
-    return "Symbol State: Halted (H)"
-  end
-  if value == "Q" then
-    return "Symbol State: Auction Period (Q)"
-  end
-  if value == "A" then
-    return "Symbol State: Trading At Closing Price (A)"
-  end
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol_state.labels = {
+  ["C"] = "Symbol State: Closed (C)",
+  ["P"] = "Symbol State: Pre Open (P)",
+  ["O"] = "Symbol State: Opening Auction (O)",
+  ["T"] = "Symbol State: Continuous Trading (T)",
+  ["I"] = "Symbol State: Scheduled Intraday Auction (I)",
+  ["L"] = "Symbol State: Closing Auction (L)",
+  ["S"] = "Symbol State: Post Trade (S)",
+  ["H"] = "Symbol State: Halted (H)",
+  ["Q"] = "Symbol State: Auction Period (Q)",
+  ["A"] = "Symbol State: Trading At Closing Price (A)",
+}
 
-  return "Symbol State: Unknown("..value..")"
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol_state.display = function(value)
+  return nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol_state.labels[value] or "Symbol State: Unknown("..value..")"
 end
 
 -- Dissect: Symbol State
@@ -2455,30 +2387,19 @@ end
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.system_event_message.dissect,
+  ["H"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.order_book_trading_action_message.dissect,
+  ["R"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.order_book_directory_message.dissect,
+  ["A"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.add_order_message.dissect,
+  ["F"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.add_order_mpid_attribution_message.dissect,
+  ["G"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.end_of_snapshot_message.dissect,
+}
+
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.order_book_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory Message
-  if sequenced_message_type == "R" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.order_book_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Mpid Attribution Message
-  if sequenced_message_type == "F" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.add_order_mpid_attribution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Snapshot Message
-  if sequenced_message_type == "G" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.end_of_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2721,30 +2642,19 @@ end
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_payload.dispatch = {
+  ["+"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_packet.dissect,
+  ["A"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_heartbeat.dissect,
+  ["Z"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.end_of_session.dissect,
+}
+
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3055,26 +2965,18 @@ end
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_payload.dispatch = {
+  ["+"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_packet.dissect,
+  ["L"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_request_packet.dissect,
+  ["U"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_heartbeat.dissect,
+  ["O"] = nasdaq_nordicequities_totalview_glimpse_v3_00_1.logout_request.dissect,
+}
+
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_nordicequities_totalview_glimpse_v3_00_1.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

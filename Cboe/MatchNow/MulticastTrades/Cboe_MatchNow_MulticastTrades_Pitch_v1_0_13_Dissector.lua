@@ -214,21 +214,15 @@ cboe_matchnow_multicasttrades_pitch_v1_0_13.listing_exchange = {}
 cboe_matchnow_multicasttrades_pitch_v1_0_13.listing_exchange.size = 4
 
 -- Display: Listing Exchange
-cboe_matchnow_multicasttrades_pitch_v1_0_13.listing_exchange.display = function(value)
-  if value == "TSX" then
-    return "Listing Exchange: Toronto Stock Exchange (TSX)"
-  end
-  if value == "TSXV" then
-    return "Listing Exchange: Tsx Venture Exchange (TSXV)"
-  end
-  if value == "CSE" then
-    return "Listing Exchange: Canadian Securities Exchange (CSE)"
-  end
-  if value == "NEOL" then
-    return "Listing Exchange: Cboe Canada Neol (NEOL)"
-  end
+cboe_matchnow_multicasttrades_pitch_v1_0_13.listing_exchange.labels = {
+  ["TSX"] = "Listing Exchange: Toronto Stock Exchange (TSX)",
+  ["TSXV"] = "Listing Exchange: Tsx Venture Exchange (TSXV)",
+  ["CSE"] = "Listing Exchange: Canadian Securities Exchange (CSE)",
+  ["NEOL"] = "Listing Exchange: Cboe Canada Neol (NEOL)",
+}
 
-  return "Listing Exchange: Unknown("..value..")"
+cboe_matchnow_multicasttrades_pitch_v1_0_13.listing_exchange.display = function(value)
+  return cboe_matchnow_multicasttrades_pitch_v1_0_13.listing_exchange.labels[value] or "Listing Exchange: Unknown("..value..")"
 end
 
 -- Dissect: Listing Exchange
@@ -296,21 +290,15 @@ cboe_matchnow_multicasttrades_pitch_v1_0_13.message_type = {}
 cboe_matchnow_multicasttrades_pitch_v1_0_13.message_type.size = 1
 
 -- Display: Message Type
-cboe_matchnow_multicasttrades_pitch_v1_0_13.message_type.display = function(value)
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x43 then
-    return "Message Type: Trading Status Message (0x43)"
-  end
-  if value == 0x42 then
-    return "Message Type: Trade Message (0x42)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_matchnow_multicasttrades_pitch_v1_0_13.message_type.labels = {
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0x43] = "Message Type: Trading Status Message (0x43)",
+  [0x42] = "Message Type: Trade Message (0x42)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_matchnow_multicasttrades_pitch_v1_0_13.message_type.display = function(value)
+  return cboe_matchnow_multicasttrades_pitch_v1_0_13.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -599,21 +587,15 @@ cboe_matchnow_multicasttrades_pitch_v1_0_13.trading_status = {}
 cboe_matchnow_multicasttrades_pitch_v1_0_13.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_matchnow_multicasttrades_pitch_v1_0_13.trading_status.display = function(value)
-  if value == "A" then
-    return "Trading Status: Accepting (A)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "S" then
-    return "Trading Status: Trading Suspended (S)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
+cboe_matchnow_multicasttrades_pitch_v1_0_13.trading_status.labels = {
+  ["A"] = "Trading Status: Accepting (A)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["S"] = "Trading Status: Trading Suspended (S)",
+  ["T"] = "Trading Status: Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_matchnow_multicasttrades_pitch_v1_0_13.trading_status.display = function(value)
+  return cboe_matchnow_multicasttrades_pitch_v1_0_13.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -926,22 +908,17 @@ end
 cboe_matchnow_multicasttrades_pitch_v1_0_13.payload = {}
 
 -- Dissect: Payload
+cboe_matchnow_multicasttrades_pitch_v1_0_13.payload.dispatch = {
+  [0x97] = cboe_matchnow_multicasttrades_pitch_v1_0_13.unit_clear_message.dissect,
+  [0x43] = cboe_matchnow_multicasttrades_pitch_v1_0_13.trading_status_message.dissect,
+  [0x42] = cboe_matchnow_multicasttrades_pitch_v1_0_13.trade_message.dissect,
+  [0x2D] = cboe_matchnow_multicasttrades_pitch_v1_0_13.end_of_session_message.dissect,
+}
+
 cboe_matchnow_multicasttrades_pitch_v1_0_13.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_matchnow_multicasttrades_pitch_v1_0_13.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x43 then
-    return cboe_matchnow_multicasttrades_pitch_v1_0_13.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0x42 then
-    return cboe_matchnow_multicasttrades_pitch_v1_0_13.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_matchnow_multicasttrades_pitch_v1_0_13.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_matchnow_multicasttrades_pitch_v1_0_13.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1080,10 +1057,14 @@ end
 cboe_matchnow_multicasttrades_pitch_v1_0_13.messages = {}
 
 -- Dissect: Messages
+cboe_matchnow_multicasttrades_pitch_v1_0_13.messages.dispatch = {
+  [0] = cboe_matchnow_multicasttrades_pitch_v1_0_13.heartbeat.dissect,
+}
+
 cboe_matchnow_multicasttrades_pitch_v1_0_13.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_matchnow_multicasttrades_pitch_v1_0_13.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_matchnow_multicasttrades_pitch_v1_0_13.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

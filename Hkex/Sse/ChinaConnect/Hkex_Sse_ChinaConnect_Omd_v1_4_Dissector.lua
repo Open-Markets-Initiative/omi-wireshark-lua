@@ -289,15 +289,13 @@ hkex_sse_chinaconnect_omd_v1_4.dr_status = {}
 hkex_sse_chinaconnect_omd_v1_4.dr_status.size = 4
 
 -- Display: Dr Status
-hkex_sse_chinaconnect_omd_v1_4.dr_status.display = function(value)
-  if value == 1 then
-    return "Dr Status: Dr In Progress (1)"
-  end
-  if value == 2 then
-    return "Dr Status: Dr Completed (2)"
-  end
+hkex_sse_chinaconnect_omd_v1_4.dr_status.labels = {
+  [1] = "Dr Status: Dr In Progress (1)",
+  [2] = "Dr Status: Dr Completed (2)",
+}
 
-  return "Dr Status: Unknown("..value..")"
+hkex_sse_chinaconnect_omd_v1_4.dr_status.display = function(value)
+  return hkex_sse_chinaconnect_omd_v1_4.dr_status.labels[value] or "Dr Status: Unknown("..value..")"
 end
 
 -- Dissect: Dr Status
@@ -555,15 +553,13 @@ hkex_sse_chinaconnect_omd_v1_4.instrument_type = {}
 hkex_sse_chinaconnect_omd_v1_4.instrument_type.size = 4
 
 -- Display: Instrument Type
-hkex_sse_chinaconnect_omd_v1_4.instrument_type.display = function(value)
-  if value == "EQTY" then
-    return "Instrument Type: Equities (EQTY)"
-  end
-  if value == "TRST" then
-    return "Instrument Type: Trusts (TRST)"
-  end
+hkex_sse_chinaconnect_omd_v1_4.instrument_type.labels = {
+  ["EQTY"] = "Instrument Type: Equities (EQTY)",
+  ["TRST"] = "Instrument Type: Trusts (TRST)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+hkex_sse_chinaconnect_omd_v1_4.instrument_type.display = function(value)
+  return hkex_sse_chinaconnect_omd_v1_4.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -735,15 +731,13 @@ hkex_sse_chinaconnect_omd_v1_4.market_code = {}
 hkex_sse_chinaconnect_omd_v1_4.market_code.size = 4
 
 -- Display: Market Code
-hkex_sse_chinaconnect_omd_v1_4.market_code.display = function(value)
-  if value == "ASHR" then
-    return "Market Code: Sse A Share (ASHR)"
-  end
-  if value == "ASZR" then
-    return "Market Code: Szse A Share (ASZR)"
-  end
+hkex_sse_chinaconnect_omd_v1_4.market_code.labels = {
+  ["ASHR"] = "Market Code: Sse A Share (ASHR)",
+  ["ASZR"] = "Market Code: Szse A Share (ASZR)",
+}
 
-  return "Market Code: Unknown("..value..")"
+hkex_sse_chinaconnect_omd_v1_4.market_code.display = function(value)
+  return hkex_sse_chinaconnect_omd_v1_4.market_code.labels[value] or "Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Market Code
@@ -834,33 +828,19 @@ hkex_sse_chinaconnect_omd_v1_4.msg_type = {}
 hkex_sse_chinaconnect_omd_v1_4.msg_type.size = 2
 
 -- Display: Msg Type
-hkex_sse_chinaconnect_omd_v1_4.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 105 then
-    return "Msg Type: Disaster Recovery Signal Message (105)"
-  end
-  if value == 610 then
-    return "Msg Type: Market Definition Message (610)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete Message (203)"
-  end
-  if value == 611 then
-    return "Msg Type: Security Definition Message (611)"
-  end
-  if value == 621 then
-    return "Msg Type: Security Status Message (621)"
-  end
-  if value == 660 then
-    return "Msg Type: Statistics Message (660)"
-  end
-  if value == 655 then
-    return "Msg Type: Top Of Book Message (655)"
-  end
+hkex_sse_chinaconnect_omd_v1_4.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [105] = "Msg Type: Disaster Recovery Signal Message (105)",
+  [610] = "Msg Type: Market Definition Message (610)",
+  [203] = "Msg Type: Refresh Complete Message (203)",
+  [611] = "Msg Type: Security Definition Message (611)",
+  [621] = "Msg Type: Security Status Message (621)",
+  [660] = "Msg Type: Statistics Message (660)",
+  [655] = "Msg Type: Top Of Book Message (655)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+hkex_sse_chinaconnect_omd_v1_4.msg_type.display = function(value)
+  return hkex_sse_chinaconnect_omd_v1_4.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -1078,15 +1058,13 @@ hkex_sse_chinaconnect_omd_v1_4.security_trading_status = {}
 hkex_sse_chinaconnect_omd_v1_4.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-hkex_sse_chinaconnect_omd_v1_4.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Trading Halt (2)"
-  end
-  if value == 3 then
-    return "Security Trading Status: Resume (3)"
-  end
+hkex_sse_chinaconnect_omd_v1_4.security_trading_status.labels = {
+  [2] = "Security Trading Status: Trading Halt (2)",
+  [3] = "Security Trading Status: Resume (3)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+hkex_sse_chinaconnect_omd_v1_4.security_trading_status.display = function(value)
+  return hkex_sse_chinaconnect_omd_v1_4.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -1178,15 +1156,13 @@ hkex_sse_chinaconnect_omd_v1_4.shortsell_flag = {}
 hkex_sse_chinaconnect_omd_v1_4.shortsell_flag.size = 1
 
 -- Display: Shortsell Flag
-hkex_sse_chinaconnect_omd_v1_4.shortsell_flag.display = function(value)
-  if value == "Y" then
-    return "Shortsell Flag: Shortsell Allowed (Y)"
-  end
-  if value == "N" then
-    return "Shortsell Flag: Shortsell Not Allowed (N)"
-  end
+hkex_sse_chinaconnect_omd_v1_4.shortsell_flag.labels = {
+  ["Y"] = "Shortsell Flag: Shortsell Allowed (Y)",
+  ["N"] = "Shortsell Flag: Shortsell Not Allowed (N)",
+}
 
-  return "Shortsell Flag: Unknown("..value..")"
+hkex_sse_chinaconnect_omd_v1_4.shortsell_flag.display = function(value)
+  return hkex_sse_chinaconnect_omd_v1_4.shortsell_flag.labels[value] or "Shortsell Flag: Unknown("..value..")"
 end
 
 -- Dissect: Shortsell Flag
@@ -1714,38 +1690,21 @@ end
 hkex_sse_chinaconnect_omd_v1_4.payload = {}
 
 -- Dissect: Payload
+hkex_sse_chinaconnect_omd_v1_4.payload.dispatch = {
+  [100] = hkex_sse_chinaconnect_omd_v1_4.sequence_reset_message.dissect,
+  [105] = hkex_sse_chinaconnect_omd_v1_4.disaster_recovery_signal_message.dissect,
+  [610] = hkex_sse_chinaconnect_omd_v1_4.market_definition_message.dissect,
+  [203] = hkex_sse_chinaconnect_omd_v1_4.refresh_complete_message.dissect,
+  [611] = hkex_sse_chinaconnect_omd_v1_4.security_definition_message.dissect,
+  [621] = hkex_sse_chinaconnect_omd_v1_4.security_status_message.dissect,
+  [660] = hkex_sse_chinaconnect_omd_v1_4.statistics_message.dissect,
+  [655] = hkex_sse_chinaconnect_omd_v1_4.top_of_book_message.dissect,
+}
+
 hkex_sse_chinaconnect_omd_v1_4.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return hkex_sse_chinaconnect_omd_v1_4.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disaster Recovery Signal Message
-  if msg_type == 105 then
-    return hkex_sse_chinaconnect_omd_v1_4.disaster_recovery_signal_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Definition Message
-  if msg_type == 610 then
-    return hkex_sse_chinaconnect_omd_v1_4.market_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete Message
-  if msg_type == 203 then
-    return hkex_sse_chinaconnect_omd_v1_4.refresh_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Message
-  if msg_type == 611 then
-    return hkex_sse_chinaconnect_omd_v1_4.security_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if msg_type == 621 then
-    return hkex_sse_chinaconnect_omd_v1_4.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if msg_type == 660 then
-    return hkex_sse_chinaconnect_omd_v1_4.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book Message
-  if msg_type == 655 then
-    return hkex_sse_chinaconnect_omd_v1_4.top_of_book_message.dissect(buffer, offset, packet, parent)
+  local dissect = hkex_sse_chinaconnect_omd_v1_4.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

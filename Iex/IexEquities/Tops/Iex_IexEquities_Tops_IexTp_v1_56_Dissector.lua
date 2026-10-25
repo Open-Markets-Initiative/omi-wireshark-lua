@@ -376,18 +376,14 @@ iex_iexequities_tops_iextp_v1_56.message_type = {}
 iex_iexequities_tops_iextp_v1_56.message_type.size = 1
 
 -- Display: Message Type
-iex_iexequities_tops_iextp_v1_56.message_type.display = function(value)
-  if value == "Q" then
-    return "Message Type: Quote Update Message (Q)"
-  end
-  if value == "T" then
-    return "Message Type: Trade Report Message (T)"
-  end
-  if value == "B" then
-    return "Message Type: Trade Break Message (B)"
-  end
+iex_iexequities_tops_iextp_v1_56.message_type.labels = {
+  ["Q"] = "Message Type: Quote Update Message (Q)",
+  ["T"] = "Message Type: Trade Report Message (T)",
+  ["B"] = "Message Type: Trade Break Message (B)",
+}
 
-  return "Message Type: Unknown("..value..")"
+iex_iexequities_tops_iextp_v1_56.message_type.display = function(value)
+  return iex_iexequities_tops_iextp_v1_56.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1005,18 +1001,16 @@ end
 iex_iexequities_tops_iextp_v1_56.message_data = {}
 
 -- Dissect: Message Data
+iex_iexequities_tops_iextp_v1_56.message_data.dispatch = {
+  ["Q"] = iex_iexequities_tops_iextp_v1_56.quote_update_message.dissect,
+  ["T"] = iex_iexequities_tops_iextp_v1_56.trade_report_message.dissect,
+  ["B"] = iex_iexequities_tops_iextp_v1_56.trade_break_message.dissect,
+}
+
 iex_iexequities_tops_iextp_v1_56.message_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Quote Update Message
-  if message_type == "Q" then
-    return iex_iexequities_tops_iextp_v1_56.quote_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "T" then
-    return iex_iexequities_tops_iextp_v1_56.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == "B" then
-    return iex_iexequities_tops_iextp_v1_56.trade_break_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexequities_tops_iextp_v1_56.message_data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1155,10 +1149,14 @@ end
 iex_iexequities_tops_iextp_v1_56.messages = {}
 
 -- Dissect: Messages
+iex_iexequities_tops_iextp_v1_56.messages.dispatch = {
+  [0] = iex_iexequities_tops_iextp_v1_56.heartbeat.dissect,
+}
+
 iex_iexequities_tops_iextp_v1_56.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return iex_iexequities_tops_iextp_v1_56.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexequities_tops_iextp_v1_56.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

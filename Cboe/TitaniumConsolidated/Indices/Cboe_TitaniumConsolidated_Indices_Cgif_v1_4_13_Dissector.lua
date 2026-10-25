@@ -412,15 +412,13 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_status = {}
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_status.size = 1
 
 -- Display: Index Status
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_status.display = function(value)
-  if value == "N" then
-    return "Index Status: Normal (N)"
-  end
-  if value == "I" then
-    return "Index Status: Indicative (I)"
-  end
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_status.labels = {
+  ["N"] = "Index Status: Normal (N)",
+  ["I"] = "Index Status: Indicative (I)",
+}
 
-  return "Index Status: Unknown("..value..")"
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_status.display = function(value)
+  return cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_status.labels[value] or "Index Status: Unknown("..value..")"
 end
 
 -- Dissect: Index Status
@@ -488,24 +486,16 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_type = {}
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_type.size = 1
 
 -- Display: Md Entry Type
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_type.display = function(value)
-  if value == "0" then
-    return "Md Entry Type: Bid (0)"
-  end
-  if value == "1" then
-    return "Md Entry Type: Ask (1)"
-  end
-  if value == "3" then
-    return "Md Entry Type: Index Value (3)"
-  end
-  if value == "5" then
-    return "Md Entry Type: Close (5)"
-  end
-  if value == "6" then
-    return "Md Entry Type: Settlement (6)"
-  end
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_type.labels = {
+  ["0"] = "Md Entry Type: Bid (0)",
+  ["1"] = "Md Entry Type: Ask (1)",
+  ["3"] = "Md Entry Type: Index Value (3)",
+  ["5"] = "Md Entry Type: Close (5)",
+  ["6"] = "Md Entry Type: Settlement (6)",
+}
 
-  return "Md Entry Type: Unknown("..value..")"
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_type.display = function(value)
+  return cboe_titaniumconsolidated_indices_cgif_v1_4_13.md_entry_type.labels[value] or "Md Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
@@ -550,18 +540,14 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.message_type = {}
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.message_type.size = 1
 
 -- Display: Message Type
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.message_type.display = function(value)
-  if value == "X" then
-    return "Message Type: Market Data Incremental Refresh (X)"
-  end
-  if value == "D" then
-    return "Message Type: Index Definition (D)"
-  end
-  if value == "0" then
-    return "Message Type: Heartbeat (0)"
-  end
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.message_type.labels = {
+  ["X"] = "Message Type: Market Data Incremental Refresh (X)",
+  ["D"] = "Message Type: Index Definition (D)",
+  ["0"] = "Message Type: Heartbeat (0)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.message_type.display = function(value)
+  return cboe_titaniumconsolidated_indices_cgif_v1_4_13.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -699,18 +685,14 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.status = {}
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.status.size = 1
 
 -- Display: Status
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.status.display = function(value)
-  if value == 1 then
-    return "Status: Active (1)"
-  end
-  if value == 2 then
-    return "Status: Inactive (2)"
-  end
-  if value == 3 then
-    return "Status: Deleted (3)"
-  end
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.status.labels = {
+  [1] = "Status: Active (1)",
+  [2] = "Status: Inactive (2)",
+  [3] = "Status: Deleted (3)",
+}
 
-  return "Status: Unknown("..value..")"
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.status.display = function(value)
+  return cboe_titaniumconsolidated_indices_cgif_v1_4_13.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -732,15 +714,13 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.summary_type = {}
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.summary_type.size = 1
 
 -- Display: Summary Type
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.summary_type.display = function(value)
-  if value == "1" then
-    return "Summary Type: Sod (1)"
-  end
-  if value == "2" then
-    return "Summary Type: Eod (2)"
-  end
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.summary_type.labels = {
+  ["1"] = "Summary Type: Sod (1)",
+  ["2"] = "Summary Type: Eod (2)",
+}
 
-  return "Summary Type: Unknown("..value..")"
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.summary_type.display = function(value)
+  return cboe_titaniumconsolidated_indices_cgif_v1_4_13.summary_type.labels[value] or "Summary Type: Unknown("..value..")"
 end
 
 -- Dissect: Summary Type
@@ -804,27 +784,17 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.template_id = {}
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.template_id.size = 1
 
 -- Display: Template ID
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.template_id.display = function(value)
-  if value == 0x10 then
-    return "Template ID: Heartbeat Message (0x10)"
-  end
-  if value == 0x16 then
-    return "Template ID: Index Value Message (0x16)"
-  end
-  if value == 0x17 then
-    return "Template ID: Contributor Value Message (0x17)"
-  end
-  if value == 0x18 then
-    return "Template ID: Index Summary Message (0x18)"
-  end
-  if value == 0x19 then
-    return "Template ID: Index Value With Status Message (0x19)"
-  end
-  if value == 0x1A then
-    return "Template ID: Index Definition Message (0x1A)"
-  end
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.template_id.labels = {
+  [0x10] = "Template ID: Heartbeat Message (0x10)",
+  [0x16] = "Template ID: Index Value Message (0x16)",
+  [0x17] = "Template ID: Contributor Value Message (0x17)",
+  [0x18] = "Template ID: Index Summary Message (0x18)",
+  [0x19] = "Template ID: Index Value With Status Message (0x19)",
+  [0x1A] = "Template ID: Index Definition Message (0x1A)",
+}
 
-  return "Template ID: Unknown("..string.format("0x%02X", value)..")"
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.template_id.display = function(value)
+  return cboe_titaniumconsolidated_indices_cgif_v1_4_13.template_id.labels[value] or "Template ID: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Template ID
@@ -1581,30 +1551,19 @@ end
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.payload = {}
 
 -- Dissect: Payload
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.payload.dispatch = {
+  [0x10] = cboe_titaniumconsolidated_indices_cgif_v1_4_13.heartbeat_message.dissect,
+  [0x16] = cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_value_message.dissect,
+  [0x17] = cboe_titaniumconsolidated_indices_cgif_v1_4_13.contributor_value_message.dissect,
+  [0x18] = cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_summary_message.dissect,
+  [0x19] = cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_value_with_status_message.dissect,
+  [0x1A] = cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_definition_message.dissect,
+}
+
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Heartbeat Message
-  if template_id == 0x10 then
-    return cboe_titaniumconsolidated_indices_cgif_v1_4_13.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Value Message
-  if template_id == 0x16 then
-    return cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Contributor Value Message
-  if template_id == 0x17 then
-    return cboe_titaniumconsolidated_indices_cgif_v1_4_13.contributor_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Summary Message
-  if template_id == 0x18 then
-    return cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Value With Status Message
-  if template_id == 0x19 then
-    return cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_value_with_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Definition Message
-  if template_id == 0x1A then
-    return cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_definition_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_titaniumconsolidated_indices_cgif_v1_4_13.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

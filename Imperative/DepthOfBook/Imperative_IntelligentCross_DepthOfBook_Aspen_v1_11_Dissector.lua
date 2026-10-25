@@ -173,24 +173,16 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.event = {}
 imperative_intelligentcross_depthofbook_aspen_v1_11.event.size = 1
 
 -- Display: Event
-imperative_intelligentcross_depthofbook_aspen_v1_11.event.display = function(value)
-  if value == "O" then
-    return "Event: Start Of Session (O)"
-  end
-  if value == "S" then
-    return "Event: Market Accepting Orders (S)"
-  end
-  if value == "Q" then
-    return "Event: Market Open For Trading (Q)"
-  end
-  if value == "E" then
-    return "Event: Market Trading Ended For Day (E)"
-  end
-  if value == "C" then
-    return "Event: End Of Session (C)"
-  end
+imperative_intelligentcross_depthofbook_aspen_v1_11.event.labels = {
+  ["O"] = "Event: Start Of Session (O)",
+  ["S"] = "Event: Market Accepting Orders (S)",
+  ["Q"] = "Event: Market Open For Trading (Q)",
+  ["E"] = "Event: Market Trading Ended For Day (E)",
+  ["C"] = "Event: End Of Session (C)",
+}
 
-  return "Event: Unknown("..value..")"
+imperative_intelligentcross_depthofbook_aspen_v1_11.event.display = function(value)
+  return imperative_intelligentcross_depthofbook_aspen_v1_11.event.labels[value] or "Event: Unknown("..value..")"
 end
 
 -- Dissect: Event
@@ -304,27 +296,17 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.listing_market = {}
 imperative_intelligentcross_depthofbook_aspen_v1_11.listing_market.size = 1
 
 -- Display: Listing Market
-imperative_intelligentcross_depthofbook_aspen_v1_11.listing_market.display = function(value)
-  if value == "N" then
-    return "Listing Market: Nyse (N)"
-  end
-  if value == "Q" then
-    return "Listing Market: Nasdaq (Q)"
-  end
-  if value == "P" then
-    return "Listing Market: Arca (P)"
-  end
-  if value == "Z" then
-    return "Listing Market: Bats (Z)"
-  end
-  if value == "A" then
-    return "Listing Market: Amex (A)"
-  end
-  if value == "V" then
-    return "Listing Market: Iex (V)"
-  end
+imperative_intelligentcross_depthofbook_aspen_v1_11.listing_market.labels = {
+  ["N"] = "Listing Market: Nyse (N)",
+  ["Q"] = "Listing Market: Nasdaq (Q)",
+  ["P"] = "Listing Market: Arca (P)",
+  ["Z"] = "Listing Market: Bats (Z)",
+  ["A"] = "Listing Market: Amex (A)",
+  ["V"] = "Listing Market: Iex (V)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+imperative_intelligentcross_depthofbook_aspen_v1_11.listing_market.display = function(value)
+  return imperative_intelligentcross_depthofbook_aspen_v1_11.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -377,39 +359,21 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.message_type = {}
 imperative_intelligentcross_depthofbook_aspen_v1_11.message_type.size = 1
 
 -- Display: Message Type
-imperative_intelligentcross_depthofbook_aspen_v1_11.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Market Event Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Symbol Information Message (B)"
-  end
-  if value == "C" then
-    return "Message Type: Symbol State Message (C)"
-  end
-  if value == "D" then
-    return "Message Type: New Order Add Message (D)"
-  end
-  if value == "F" then
-    return "Message Type: Order Partial Cancel Message (F)"
-  end
-  if value == "G" then
-    return "Message Type: Order Cancel All Message (G)"
-  end
-  if value == "H" then
-    return "Message Type: Order Updated Message (H)"
-  end
-  if value == "J" then
-    return "Message Type: Order Executed Message (J)"
-  end
-  if value == "K" then
-    return "Message Type: Trade Message (K)"
-  end
-  if value == "M" then
-    return "Message Type: Trade Break Message (M)"
-  end
+imperative_intelligentcross_depthofbook_aspen_v1_11.message_type.labels = {
+  ["A"] = "Message Type: Market Event Message (A)",
+  ["B"] = "Message Type: Symbol Information Message (B)",
+  ["C"] = "Message Type: Symbol State Message (C)",
+  ["D"] = "Message Type: New Order Add Message (D)",
+  ["F"] = "Message Type: Order Partial Cancel Message (F)",
+  ["G"] = "Message Type: Order Cancel All Message (G)",
+  ["H"] = "Message Type: Order Updated Message (H)",
+  ["J"] = "Message Type: Order Executed Message (J)",
+  ["K"] = "Message Type: Trade Message (K)",
+  ["M"] = "Message Type: Trade Break Message (M)",
+}
 
-  return "Message Type: Unknown("..value..")"
+imperative_intelligentcross_depthofbook_aspen_v1_11.message_type.display = function(value)
+  return imperative_intelligentcross_depthofbook_aspen_v1_11.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -667,18 +631,14 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.side = {}
 imperative_intelligentcross_depthofbook_aspen_v1_11.side.size = 1
 
 -- Display: Side
-imperative_intelligentcross_depthofbook_aspen_v1_11.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "C" then
-    return "Side: End Of Session (C)"
-  end
+imperative_intelligentcross_depthofbook_aspen_v1_11.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["C"] = "Side: End Of Session (C)",
+}
 
-  return "Side: Unknown("..value..")"
+imperative_intelligentcross_depthofbook_aspen_v1_11.side.display = function(value)
+  return imperative_intelligentcross_depthofbook_aspen_v1_11.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -700,21 +660,15 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.state = {}
 imperative_intelligentcross_depthofbook_aspen_v1_11.state.size = 1
 
 -- Display: State
-imperative_intelligentcross_depthofbook_aspen_v1_11.state.display = function(value)
-  if value == "I" then
-    return "State: Inactive (I)"
-  end
-  if value == "A" then
-    return "State: Active (A)"
-  end
-  if value == "D" then
-    return "State: Disabled (D)"
-  end
-  if value == "E" then
-    return "State: Enabled (E)"
-  end
+imperative_intelligentcross_depthofbook_aspen_v1_11.state.labels = {
+  ["I"] = "State: Inactive (I)",
+  ["A"] = "State: Active (A)",
+  ["D"] = "State: Disabled (D)",
+  ["E"] = "State: Enabled (E)",
+}
 
-  return "State: Unknown("..value..")"
+imperative_intelligentcross_depthofbook_aspen_v1_11.state.display = function(value)
+  return imperative_intelligentcross_depthofbook_aspen_v1_11.state.labels[value] or "State: Unknown("..value..")"
 end
 
 -- Dissect: State
@@ -1380,46 +1334,23 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.payload = {}
 
 -- Dissect: Payload
+imperative_intelligentcross_depthofbook_aspen_v1_11.payload.dispatch = {
+  ["A"] = imperative_intelligentcross_depthofbook_aspen_v1_11.market_event_message.dissect,
+  ["B"] = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_information_message.dissect,
+  ["C"] = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_state_message.dissect,
+  ["D"] = imperative_intelligentcross_depthofbook_aspen_v1_11.new_order_add_message.dissect,
+  ["F"] = imperative_intelligentcross_depthofbook_aspen_v1_11.order_partial_cancel_message.dissect,
+  ["G"] = imperative_intelligentcross_depthofbook_aspen_v1_11.order_cancel_all_message.dissect,
+  ["H"] = imperative_intelligentcross_depthofbook_aspen_v1_11.order_updated_message.dissect,
+  ["J"] = imperative_intelligentcross_depthofbook_aspen_v1_11.order_executed_message.dissect,
+  ["K"] = imperative_intelligentcross_depthofbook_aspen_v1_11.trade_message.dissect,
+  ["M"] = imperative_intelligentcross_depthofbook_aspen_v1_11.trade_break_message.dissect,
+}
+
 imperative_intelligentcross_depthofbook_aspen_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Market Event Message
-  if message_type == "A" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.market_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Information Message
-  if message_type == "B" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol State Message
-  if message_type == "C" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Add Message
-  if message_type == "D" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.new_order_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Partial Cancel Message
-  if message_type == "F" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.order_partial_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel All Message
-  if message_type == "G" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.order_cancel_all_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Updated Message
-  if message_type == "H" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.order_updated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "J" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "K" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == "M" then
-    return imperative_intelligentcross_depthofbook_aspen_v1_11.trade_break_message.dissect(buffer, offset, packet, parent)
+  local dissect = imperative_intelligentcross_depthofbook_aspen_v1_11.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

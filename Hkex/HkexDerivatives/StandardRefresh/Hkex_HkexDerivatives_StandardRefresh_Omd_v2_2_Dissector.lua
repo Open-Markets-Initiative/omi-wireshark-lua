@@ -709,15 +709,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.day_indicator = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.day_indicator.size = 2
 
 -- Display: Day Indicator
-hkex_hkexderivatives_standardrefresh_omd_v2_2.day_indicator.display = function(value)
-  if value == 0 then
-    return "Day Indicator: Current Trading Day (0)"
-  end
-  if value == 1 then
-    return "Day Indicator: Previous Trading Day (1)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.day_indicator.labels = {
+  [0] = "Day Indicator: Current Trading Day (0)",
+  [1] = "Day Indicator: Previous Trading Day (1)",
+}
 
-  return "Day Indicator: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.day_indicator.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.day_indicator.labels[value] or "Day Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Day Indicator
@@ -854,15 +852,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow.size = 1
 
 -- Display: Effective Tomorrow
-hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow.display = function(value)
-  if value == 0 then
-    return "Effective Tomorrow: False (0)"
-  end
-  if value == 1 then
-    return "Effective Tomorrow: True (1)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow.labels = {
+  [0] = "Effective Tomorrow: False (0)",
+  [1] = "Effective Tomorrow: True (1)",
+}
 
-  return "Effective Tomorrow: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow.labels[value] or "Effective Tomorrow: Unknown("..value..")"
 end
 
 -- Dissect: Effective Tomorrow
@@ -1206,24 +1202,16 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type.size = 1
 
 -- Display: Info Type
-hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type.display = function(value)
-  if value == 0 then
-    return "Info Type: Not Specified (0)"
-  end
-  if value == 1 then
-    return "Info Type: Company Announcement (1)"
-  end
-  if value == 2 then
-    return "Info Type: Market Message (2)"
-  end
-  if value == 3 then
-    return "Info Type: Static Line (3)"
-  end
-  if value == 4 then
-    return "Info Type: Notice Received (4)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type.labels = {
+  [0] = "Info Type: Not Specified (0)",
+  [1] = "Info Type: Company Announcement (1)",
+  [2] = "Info Type: Market Message (2)",
+  [3] = "Info Type: Static Line (3)",
+  [4] = "Info Type: Notice Received (4)",
+}
 
-  return "Info Type: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type.labels[value] or "Info Type: Unknown("..value..")"
 end
 
 -- Dissect: Info Type
@@ -1383,18 +1371,14 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code.size = 1
 
 -- Display: Instrument Status Code
-hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code.display = function(value)
-  if value == 1 then
-    return "Instrument Status Code: Active (1)"
-  end
-  if value == 2 then
-    return "Instrument Status Code: Suspended (2)"
-  end
-  if value == 4 then
-    return "Instrument Status Code: Delisted (4)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code.labels = {
+  [1] = "Instrument Status Code: Active (1)",
+  [2] = "Instrument Status Code: Suspended (2)",
+  [4] = "Instrument Status Code: Delisted (4)",
+}
 
-  return "Instrument Status Code: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code.labels[value] or "Instrument Status Code: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Status Code
@@ -1439,15 +1423,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.last_fragment = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.last_fragment.size = 1
 
 -- Display: Last Fragment
-hkex_hkexderivatives_standardrefresh_omd_v2_2.last_fragment.display = function(value)
-  if value == "Y" then
-    return "Last Fragment: Complete (Y)"
-  end
-  if value == "N" then
-    return "Last Fragment: Not Complete (N)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.last_fragment.labels = {
+  ["Y"] = "Last Fragment: Complete (Y)",
+  ["N"] = "Last Fragment: Not Complete (N)",
+}
 
-  return "Last Fragment: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.last_fragment.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.last_fragment.labels[value] or "Last Fragment: Unknown("..value..")"
 end
 
 -- Dissect: Last Fragment
@@ -1584,15 +1566,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.leg_side = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.leg_side.size = 1
 
 -- Display: Leg Side
-hkex_hkexderivatives_standardrefresh_omd_v2_2.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: As Defined (B)"
-  end
-  if value == "C" then
-    return "Leg Side: Opposite (C)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.leg_side.labels = {
+  ["B"] = "Leg Side: As Defined (B)",
+  ["C"] = "Leg Side: Opposite (C)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.leg_side.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -1729,57 +1709,27 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.msg_type = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.msg_type.size = 2
 
 -- Display: Msg Type
-hkex_hkexderivatives_standardrefresh_omd_v2_2.msg_type.display = function(value)
-  if value == 337 then
-    return "Msg Type: Aggregate Implied Order (337)"
-  end
-  if value == 353 then
-    return "Msg Type: Aggregate Order Book Update Message (353)"
-  end
-  if value == 364 then
-    return "Msg Type: Calculated Opening Price Message (364)"
-  end
-  if value == 323 then
-    return "Msg Type: Market Alert Message (323)"
-  end
-  if value == 366 then
-    return "Msg Type: Open Interest Message (366)"
-  end
-  if value == 301 then
-    return "Msg Type: Commodity Definition (301)"
-  end
-  if value == 302 then
-    return "Msg Type: Class Definition (302)"
-  end
-  if value == 303 then
-    return "Msg Type: Instrument Definition (303)"
-  end
-  if value == 305 then
-    return "Msg Type: Combination Definition (305)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete (203)"
-  end
-  if value == 320 then
-    return "Msg Type: Market Status (320)"
-  end
-  if value == 321 then
-    return "Msg Type: Instrument Status (321)"
-  end
-  if value == 322 then
-    return "Msg Type: Commodity And Class Status (322)"
-  end
-  if value == 324 then
-    return "Msg Type: Vcm Trigger (324)"
-  end
-  if value == 325 then
-    return "Msg Type: Thm Trigger (325)"
-  end
-  if value == 360 then
-    return "Msg Type: Trade Statistics Message (360)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.msg_type.labels = {
+  [337] = "Msg Type: Aggregate Implied Order (337)",
+  [353] = "Msg Type: Aggregate Order Book Update Message (353)",
+  [364] = "Msg Type: Calculated Opening Price Message (364)",
+  [323] = "Msg Type: Market Alert Message (323)",
+  [366] = "Msg Type: Open Interest Message (366)",
+  [301] = "Msg Type: Commodity Definition (301)",
+  [302] = "Msg Type: Class Definition (302)",
+  [303] = "Msg Type: Instrument Definition (303)",
+  [305] = "Msg Type: Combination Definition (305)",
+  [203] = "Msg Type: Refresh Complete (203)",
+  [320] = "Msg Type: Market Status (320)",
+  [321] = "Msg Type: Instrument Status (321)",
+  [322] = "Msg Type: Commodity And Class Status (322)",
+  [324] = "Msg Type: Vcm Trigger (324)",
+  [325] = "Msg Type: Thm Trigger (325)",
+  [360] = "Msg Type: Trade Statistics Message (360)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.msg_type.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -2100,18 +2050,14 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.priority = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.priority.size = 1
 
 -- Display: Priority
-hkex_hkexderivatives_standardrefresh_omd_v2_2.priority.display = function(value)
-  if value == 0 then
-    return "Priority: Critical (0)"
-  end
-  if value == 1 then
-    return "Priority: Important (1)"
-  end
-  if value == 2 then
-    return "Priority: Normal (2)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.priority.labels = {
+  [0] = "Priority: Critical (0)",
+  [1] = "Priority: Important (1)",
+  [2] = "Priority: Normal (2)",
+}
 
-  return "Priority: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.priority.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.priority.labels[value] or "Priority: Unknown("..value..")"
 end
 
 -- Dissect: Priority
@@ -2203,15 +2149,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.session = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.session.size = 1
 
 -- Display: Session
-hkex_hkexderivatives_standardrefresh_omd_v2_2.session.display = function(value)
-  if value == 0 then
-    return "Session: T Session (0)"
-  end
-  if value == 1 then
-    return "Session: T Plus One Session (1)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.session.labels = {
+  [0] = "Session: T Session (0)",
+  [1] = "Session: T Plus One Session (1)",
+}
 
-  return "Session: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.session.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.session.labels[value] or "Session: Unknown("..value..")"
 end
 
 -- Dissect: Session
@@ -2279,15 +2223,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.side = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.side.size = 1
 
 -- Display: Side
-hkex_hkexderivatives_standardrefresh_omd_v2_2.side.display = function(value)
-  if value == 0 then
-    return "Side: Bid (0)"
-  end
-  if value == 1 then
-    return "Side: Offer (1)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.side.labels = {
+  [0] = "Side: Bid (0)",
+  [1] = "Side: Offer (1)",
+}
 
-  return "Side: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.side.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2309,15 +2251,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.source = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.source.size = 1
 
 -- Display: Source
-hkex_hkexderivatives_standardrefresh_omd_v2_2.source.display = function(value)
-  if value == "N" then
-    return "Source: News (N)"
-  end
-  if value == "M" then
-    return "Source: Other Market Alerts (M)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.source.labels = {
+  ["N"] = "Source: News (N)",
+  ["M"] = "Source: Other Market Alerts (M)",
+}
 
-  return "Source: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.source.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.source.labels[value] or "Source: Unknown("..value..")"
 end
 
 -- Dissect: Source
@@ -2362,24 +2302,16 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.state_level = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.state_level.size = 1
 
 -- Display: State Level
-hkex_hkexderivatives_standardrefresh_omd_v2_2.state_level.display = function(value)
-  if value == "M" then
-    return "State Level: Market (M)"
-  end
-  if value == "T" then
-    return "State Level: Instrument Type (T)"
-  end
-  if value == "t" then
-    return "State Level: Combo Type (t)"
-  end
-  if value == "C" then
-    return "State Level: Instrument Class (C)"
-  end
-  if value == "c" then
-    return "State Level: Combo Class (c)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.state_level.labels = {
+  ["M"] = "State Level: Market (M)",
+  ["T"] = "State Level: Instrument Type (T)",
+  ["t"] = "State Level: Combo Type (t)",
+  ["C"] = "State Level: Instrument Class (C)",
+  ["c"] = "State Level: Combo Class (c)",
+}
 
-  return "State Level: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.state_level.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.state_level.labels[value] or "State Level: Unknown("..value..")"
 end
 
 -- Dissect: State Level
@@ -2424,15 +2356,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.suspended = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.suspended.size = 1
 
 -- Display: Suspended
-hkex_hkexderivatives_standardrefresh_omd_v2_2.suspended.display = function(value)
-  if value == "Y" then
-    return "Suspended: Yes (Y)"
-  end
-  if value == "N" then
-    return "Suspended: No (N)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.suspended.labels = {
+  ["Y"] = "Suspended: Yes (Y)",
+  ["N"] = "Suspended: No (N)",
+}
 
-  return "Suspended: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.suspended.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.suspended.labels[value] or "Suspended: Unknown("..value..")"
 end
 
 -- Dissect: Suspended
@@ -2454,15 +2384,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator.size = 1
 
 -- Display: Suspension Indicator
-hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator.display = function(value)
-  if value == 1 then
-    return "Suspension Indicator: Not Suspended (1)"
-  end
-  if value == 2 then
-    return "Suspension Indicator: Suspended For Trading (2)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator.labels = {
+  [1] = "Suspension Indicator: Not Suspended (1)",
+  [2] = "Suspension Indicator: Suspended For Trading (2)",
+}
 
-  return "Suspension Indicator: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator.labels[value] or "Suspension Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Suspension Indicator
@@ -2530,15 +2458,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable.size = 1
 
 -- Display: Tradable
-hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable.display = function(value)
-  if value == 1 then
-    return "Tradable: Yes (1)"
-  end
-  if value == 2 then
-    return "Tradable: No (2)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable.labels = {
+  [1] = "Tradable: Yes (1)",
+  [2] = "Tradable: No (2)",
+}
 
-  return "Tradable: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -2675,27 +2601,17 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.underlying_type = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.underlying_type.size = 1
 
 -- Display: Underlying Type
-hkex_hkexderivatives_standardrefresh_omd_v2_2.underlying_type.display = function(value)
-  if value == "S" then
-    return "Underlying Type: Stock (S)"
-  end
-  if value == "C" then
-    return "Underlying Type: Currency (C)"
-  end
-  if value == "I" then
-    return "Underlying Type: Fixed Income (I)"
-  end
-  if value == "E" then
-    return "Underlying Type: Energy Power (E)"
-  end
-  if value == "A" then
-    return "Underlying Type: Commodity (A)"
-  end
-  if value == "M" then
-    return "Underlying Type: Metal (M)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.underlying_type.labels = {
+  ["S"] = "Underlying Type: Stock (S)",
+  ["C"] = "Underlying Type: Currency (C)",
+  ["I"] = "Underlying Type: Fixed Income (I)",
+  ["E"] = "Underlying Type: Energy Power (E)",
+  ["A"] = "Underlying Type: Commodity (A)",
+  ["M"] = "Underlying Type: Metal (M)",
+}
 
-  return "Underlying Type: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.underlying_type.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.underlying_type.labels[value] or "Underlying Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Type
@@ -2717,21 +2633,15 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action.size = 1
 
 -- Display: Update Action
-hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action.display = function(value)
-  if value == 0 then
-    return "Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Update Action: Delete (2)"
-  end
-  if value == 74 then
-    return "Update Action: Clear (74)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action.labels = {
+  [0] = "Update Action: New (0)",
+  [1] = "Update Action: Change (1)",
+  [2] = "Update Action: Delete (2)",
+  [74] = "Update Action: Clear (74)",
+}
 
-  return "Update Action: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action.labels[value] or "Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Update Action
@@ -2753,15 +2663,13 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag = {}
 hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag.size = 1
 
 -- Display: Vcm Flag
-hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag.display = function(value)
-  if value == 0 then
-    return "Vcm Flag: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Vcm Flag: Applicable (1)"
-  end
+hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag.labels = {
+  [0] = "Vcm Flag: Not Applicable (0)",
+  [1] = "Vcm Flag: Applicable (1)",
+}
 
-  return "Vcm Flag: Unknown("..value..")"
+hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag.display = function(value)
+  return hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag.labels[value] or "Vcm Flag: Unknown("..value..")"
 end
 
 -- Dissect: Vcm Flag
@@ -4064,70 +3972,29 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.payload = {}
 
 -- Dissect: Payload
+hkex_hkexderivatives_standardrefresh_omd_v2_2.payload.dispatch = {
+  [337] = hkex_hkexderivatives_standardrefresh_omd_v2_2.aggregate_implied_order.dissect,
+  [353] = hkex_hkexderivatives_standardrefresh_omd_v2_2.aggregate_order_book_update_message.dissect,
+  [364] = hkex_hkexderivatives_standardrefresh_omd_v2_2.calculated_opening_price_message.dissect,
+  [323] = hkex_hkexderivatives_standardrefresh_omd_v2_2.market_alert_message.dissect,
+  [366] = hkex_hkexderivatives_standardrefresh_omd_v2_2.open_interest_message.dissect,
+  [301] = hkex_hkexderivatives_standardrefresh_omd_v2_2.commodity_definition.dissect,
+  [302] = hkex_hkexderivatives_standardrefresh_omd_v2_2.class_definition.dissect,
+  [303] = hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_definition.dissect,
+  [305] = hkex_hkexderivatives_standardrefresh_omd_v2_2.combination_definition.dissect,
+  [203] = hkex_hkexderivatives_standardrefresh_omd_v2_2.refresh_complete.dissect,
+  [320] = hkex_hkexderivatives_standardrefresh_omd_v2_2.market_status.dissect,
+  [321] = hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status.dissect,
+  [322] = hkex_hkexderivatives_standardrefresh_omd_v2_2.commodity_and_class_status.dissect,
+  [324] = hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_trigger.dissect,
+  [325] = hkex_hkexderivatives_standardrefresh_omd_v2_2.thm_trigger.dissect,
+  [360] = hkex_hkexderivatives_standardrefresh_omd_v2_2.trade_statistics_message.dissect,
+}
+
 hkex_hkexderivatives_standardrefresh_omd_v2_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Aggregate Implied Order
-  if msg_type == 337 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.aggregate_implied_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aggregate Order Book Update Message
-  if msg_type == 353 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Calculated Opening Price Message
-  if msg_type == 364 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.calculated_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Alert Message
-  if msg_type == 323 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.market_alert_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Message
-  if msg_type == 366 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.open_interest_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Commodity Definition
-  if msg_type == 301 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.commodity_definition.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Class Definition
-  if msg_type == 302 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.class_definition.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition
-  if msg_type == 303 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_definition.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Definition
-  if msg_type == 305 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.combination_definition.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete
-  if msg_type == 203 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.refresh_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Status
-  if msg_type == 320 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.market_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status
-  if msg_type == 321 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Commodity And Class Status
-  if msg_type == 322 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.commodity_and_class_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Vcm Trigger
-  if msg_type == 324 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_trigger.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Thm Trigger
-  if msg_type == 325 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.thm_trigger.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Statistics Message
-  if msg_type == 360 then
-    return hkex_hkexderivatives_standardrefresh_omd_v2_2.trade_statistics_message.dissect(buffer, offset, packet, parent)
+  local dissect = hkex_hkexderivatives_standardrefresh_omd_v2_2.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

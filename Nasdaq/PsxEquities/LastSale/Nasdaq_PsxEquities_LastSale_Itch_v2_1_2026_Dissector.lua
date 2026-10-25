@@ -195,15 +195,13 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.authenticity = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.authenticity.size = 1
 
 -- Display: Authenticity
-nasdaq_psxequities_lastsale_itch_v2_1_2026.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.authenticity.labels = {
+  ["P"] = "Authenticity: Live Production (P)",
+  ["T"] = "Authenticity: Test (T)",
+}
 
-  return "Authenticity: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.authenticity.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.authenticity.labels[value] or "Authenticity: Unknown("..value..")"
 end
 
 -- Dissect: Authenticity
@@ -225,18 +223,14 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.breached_level = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.breached_level.size = 1
 
 -- Display: Breached Level
-nasdaq_psxequities_lastsale_itch_v2_1_2026.breached_level.display = function(value)
-  if value == "1" then
-    return "Breached Level: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Breached Level: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Breached Level: Level 3 (3)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.breached_level.labels = {
+  ["1"] = "Breached Level: Level 1 (1)",
+  ["2"] = "Breached Level: Level 2 (2)",
+  ["3"] = "Breached Level: Level 3 (3)",
+}
 
-  return "Breached Level: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.breached_level.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.breached_level.labels[value] or "Breached Level: Unknown("..value..")"
 end
 
 -- Dissect: Breached Level
@@ -385,18 +379,14 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.current_trading_state = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_psxequities_lastsale_itch_v2_1_2026.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halted (H)"
-  end
-  if value == "Q" then
-    return "Current Trading State: Quotation Only (Q)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading (T)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halted (H)",
+  ["Q"] = "Current Trading State: Quotation Only (Q)",
+  ["T"] = "Current Trading State: Trading (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.current_trading_state.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -474,27 +464,17 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.event_code = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_psxequities_lastsale_itch_v2_1_2026.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmissions (O)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Transmissions (C)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.event_code.labels = {
+  ["O"] = "Event Code: Start Of Transmissions (O)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Transmissions (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.event_code.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -573,15 +553,13 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.inverse_indicator = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.inverse_indicator.size = 1
 
 -- Display: Inverse Indicator
-nasdaq_psxequities_lastsale_itch_v2_1_2026.inverse_indicator.display = function(value)
-  if value == "Y" then
-    return "Inverse Indicator: Inverse Etp (Y)"
-  end
-  if value == "N" then
-    return "Inverse Indicator: Not Inverse Etp (N)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.inverse_indicator.labels = {
+  ["Y"] = "Inverse Indicator: Inverse Etp (Y)",
+  ["N"] = "Inverse Indicator: Not Inverse Etp (N)",
+}
 
-  return "Inverse Indicator: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.inverse_indicator.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.inverse_indicator.labels[value] or "Inverse Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Inverse Indicator
@@ -636,57 +614,27 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_classification = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_classification.size = 1
 
 -- Display: Issue Classification
-nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_classification.display = function(value)
-  if value == "A" then
-    return "Issue Classification: American Depositary Share (A)"
-  end
-  if value == "B" then
-    return "Issue Classification: Bond (B)"
-  end
-  if value == "C" then
-    return "Issue Classification: Common (C)"
-  end
-  if value == "F" then
-    return "Issue Classification: Depository (F)"
-  end
-  if value == "I" then
-    return "Issue Classification: Sec 144 A (I)"
-  end
-  if value == "L" then
-    return "Issue Classification: Limited (L)"
-  end
-  if value == "N" then
-    return "Issue Classification: Notes (N)"
-  end
-  if value == "O" then
-    return "Issue Classification: Ordinary Share (O)"
-  end
-  if value == "P" then
-    return "Issue Classification: Preferred (P)"
-  end
-  if value == "Q" then
-    return "Issue Classification: Other (Q)"
-  end
-  if value == "R" then
-    return "Issue Classification: Right (R)"
-  end
-  if value == "S" then
-    return "Issue Classification: Shares (S)"
-  end
-  if value == "T" then
-    return "Issue Classification: Convertible (T)"
-  end
-  if value == "U" then
-    return "Issue Classification: Unit (U)"
-  end
-  if value == "V" then
-    return "Issue Classification: Units Benif Int (V)"
-  end
-  if value == "W" then
-    return "Issue Classification: Warrant (W)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_classification.labels = {
+  ["A"] = "Issue Classification: American Depositary Share (A)",
+  ["B"] = "Issue Classification: Bond (B)",
+  ["C"] = "Issue Classification: Common (C)",
+  ["F"] = "Issue Classification: Depository (F)",
+  ["I"] = "Issue Classification: Sec 144 A (I)",
+  ["L"] = "Issue Classification: Limited (L)",
+  ["N"] = "Issue Classification: Notes (N)",
+  ["O"] = "Issue Classification: Ordinary Share (O)",
+  ["P"] = "Issue Classification: Preferred (P)",
+  ["Q"] = "Issue Classification: Other (Q)",
+  ["R"] = "Issue Classification: Right (R)",
+  ["S"] = "Issue Classification: Shares (S)",
+  ["T"] = "Issue Classification: Convertible (T)",
+  ["U"] = "Issue Classification: Unit (U)",
+  ["V"] = "Issue Classification: Units Benif Int (V)",
+  ["W"] = "Issue Classification: Warrant (W)",
+}
 
-  return "Issue Classification: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_classification.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_classification.labels[value] or "Issue Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification
@@ -708,183 +656,69 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_sub_type = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_sub_type.size = 2
 
 -- Display: Issue Sub Type
-nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_sub_type.display = function(value)
-  if value == "A" then
-    return "Issue Sub Type: Preferred Trust Securities (A)"
-  end
-  if value == "AI" then
-    return "Issue Sub Type: Alpha Index Et Ns (AI)"
-  end
-  if value == "B" then
-    return "Issue Sub Type: Index Based Derivative (B)"
-  end
-  if value == "C" then
-    return "Issue Sub Type: Common Shares (C)"
-  end
-  if value == "CB" then
-    return "Issue Sub Type: Commodity Based Trust Shares (CB)"
-  end
-  if value == "CF" then
-    return "Issue Sub Type: Commodity Futures Trust Shares (CF)"
-  end
-  if value == "CL" then
-    return "Issue Sub Type: Currency Trust Shares (CL)"
-  end
-  if value == "CM" then
-    return "Issue Sub Type: Commodity Index Trust Shares (CM)"
-  end
-  if value == "CO" then
-    return "Issue Sub Type: Collateralized Mortgage Obligation (CO)"
-  end
-  if value == "CT" then
-    return "Issue Sub Type: Currency Trust Shares (CT)"
-  end
-  if value == "CU" then
-    return "Issue Sub Type: Commodity­ Currency (CU)"
-  end
-  if value == "CW" then
-    return "Issue Sub Type: Currency Warrants (CW)"
-  end
-  if value == "D" then
-    return "Issue Sub Type: Global Depositary (D)"
-  end
-  if value == "E" then
-    return "Issue Sub Type: Etf­ Portfolio Depositary Receipt (E)"
-  end
-  if value == "EG" then
-    return "Issue Sub Type: Equity Gold Shares (EG)"
-  end
-  if value == "EI" then
-    return "Issue Sub Type: Etn Equity (EI)"
-  end
-  if value == "EM" then
-    return "Issue Sub Type: Next Shares Exchange (EM)"
-  end
-  if value == "EN" then
-    return "Issue Sub Type: Exchange Traded Notes (EN)"
-  end
-  if value == "EU" then
-    return "Issue Sub Type: Equity Units (EU)"
-  end
-  if value == "F" then
-    return "Issue Sub Type: Holdrs (F)"
-  end
-  if value == "FI" then
-    return "Issue Sub Type: Etn Fixed Income (FI)"
-  end
-  if value == "FL" then
-    return "Issue Sub Type: Etn Futures (FL)"
-  end
-  if value == "G" then
-    return "Issue Sub Type: Global Shares (G)"
-  end
-  if value == "I" then
-    return "Issue Sub Type: Etf (I)"
-  end
-  if value == "IR" then
-    return "Issue Sub Type: Interest (IR)"
-  end
-  if value == "IW" then
-    return "Issue Sub Type: Index (IW)"
-  end
-  if value == "IX" then
-    return "Issue Sub Type: Index (IX)"
-  end
-  if value == "J" then
-    return "Issue Sub Type: Corporate (J)"
-  end
-  if value == "L" then
-    return "Issue Sub Type: Contingent (L)"
-  end
-  if value == "LL" then
-    return "Issue Sub Type: Llc (LL)"
-  end
-  if value == "M" then
-    return "Issue Sub Type: Equity Based Derivative (M)"
-  end
-  if value == "MF" then
-    return "Issue Sub Type: Managed Fund Shares (MF)"
-  end
-  if value == "ML" then
-    return "Issue Sub Type: Etn (ML)"
-  end
-  if value == "MT" then
-    return "Issue Sub Type: Managed Trust Securities (MT)"
-  end
-  if value == "N" then
-    return "Issue Sub Type: Ny Registry Shares (N)"
-  end
-  if value == "O" then
-    return "Issue Sub Type: Open Ended Mutual Fund (O)"
-  end
-  if value == "P" then
-    return "Issue Sub Type: Privately Held Security (P)"
-  end
-  if value == "PP" then
-    return "Issue Sub Type: Poison Pill (PP)"
-  end
-  if value == "PU" then
-    return "Issue Sub Type: Partnership Units (PU)"
-  end
-  if value == "Q" then
-    return "Issue Sub Type: Closed End Funds (Q)"
-  end
-  if value == "R" then
-    return "Issue Sub Type: Reg S (R)"
-  end
-  if value == "RC" then
-    return "Issue Sub Type: Commodity Redeemable (RC)"
-  end
-  if value == "RF" then
-    return "Issue Sub Type: Etn (RF)"
-  end
-  if value == "RT" then
-    return "Issue Sub Type: Reit (RT)"
-  end
-  if value == "RU" then
-    return "Issue Sub Type: Commodity­ Redeemable (RU)"
-  end
-  if value == "S" then
-    return "Issue Sub Type: Seed (S)"
-  end
-  if value == "SC" then
-    return "Issue Sub Type: Spot Rate Closing (SC)"
-  end
-  if value == "SI" then
-    return "Issue Sub Type: Spot Rate Intraday (SI)"
-  end
-  if value == "T" then
-    return "Issue Sub Type: Tracking Stock (T)"
-  end
-  if value == "TC" then
-    return "Issue Sub Type: Trust Certificates (TC)"
-  end
-  if value == "TU" then
-    return "Issue Sub Type: Trust Units (TU)"
-  end
-  if value == "U" then
-    return "Issue Sub Type: Portal (U)"
-  end
-  if value == "V" then
-    return "Issue Sub Type: Contingent Value Right (V)"
-  end
-  if value == "W" then
-    return "Issue Sub Type: Trust Issued Receipts (W)"
-  end
-  if value == "WC" then
-    return "Issue Sub Type: World Currency Option (WC)"
-  end
-  if value == "X" then
-    return "Issue Sub Type: Trust (X)"
-  end
-  if value == "Y" then
-    return "Issue Sub Type: Other (Y)"
-  end
-  if value == "Z" then
-    return "Issue Sub Type: Not Applicable (Z)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_sub_type.labels = {
+  ["A"] = "Issue Sub Type: Preferred Trust Securities (A)",
+  ["AI"] = "Issue Sub Type: Alpha Index Et Ns (AI)",
+  ["B"] = "Issue Sub Type: Index Based Derivative (B)",
+  ["C"] = "Issue Sub Type: Common Shares (C)",
+  ["CB"] = "Issue Sub Type: Commodity Based Trust Shares (CB)",
+  ["CF"] = "Issue Sub Type: Commodity Futures Trust Shares (CF)",
+  ["CL"] = "Issue Sub Type: Currency Trust Shares (CL)",
+  ["CM"] = "Issue Sub Type: Commodity Index Trust Shares (CM)",
+  ["CO"] = "Issue Sub Type: Collateralized Mortgage Obligation (CO)",
+  ["CT"] = "Issue Sub Type: Currency Trust Shares (CT)",
+  ["CU"] = "Issue Sub Type: Commodity­ Currency (CU)",
+  ["CW"] = "Issue Sub Type: Currency Warrants (CW)",
+  ["D"] = "Issue Sub Type: Global Depositary (D)",
+  ["E"] = "Issue Sub Type: Etf­ Portfolio Depositary Receipt (E)",
+  ["EG"] = "Issue Sub Type: Equity Gold Shares (EG)",
+  ["EI"] = "Issue Sub Type: Etn Equity (EI)",
+  ["EM"] = "Issue Sub Type: Next Shares Exchange (EM)",
+  ["EN"] = "Issue Sub Type: Exchange Traded Notes (EN)",
+  ["EU"] = "Issue Sub Type: Equity Units (EU)",
+  ["F"] = "Issue Sub Type: Holdrs (F)",
+  ["FI"] = "Issue Sub Type: Etn Fixed Income (FI)",
+  ["FL"] = "Issue Sub Type: Etn Futures (FL)",
+  ["G"] = "Issue Sub Type: Global Shares (G)",
+  ["I"] = "Issue Sub Type: Etf (I)",
+  ["IR"] = "Issue Sub Type: Interest (IR)",
+  ["IW"] = "Issue Sub Type: Index (IW)",
+  ["IX"] = "Issue Sub Type: Index (IX)",
+  ["J"] = "Issue Sub Type: Corporate (J)",
+  ["L"] = "Issue Sub Type: Contingent (L)",
+  ["LL"] = "Issue Sub Type: Llc (LL)",
+  ["M"] = "Issue Sub Type: Equity Based Derivative (M)",
+  ["MF"] = "Issue Sub Type: Managed Fund Shares (MF)",
+  ["ML"] = "Issue Sub Type: Etn (ML)",
+  ["MT"] = "Issue Sub Type: Managed Trust Securities (MT)",
+  ["N"] = "Issue Sub Type: Ny Registry Shares (N)",
+  ["O"] = "Issue Sub Type: Open Ended Mutual Fund (O)",
+  ["P"] = "Issue Sub Type: Privately Held Security (P)",
+  ["PP"] = "Issue Sub Type: Poison Pill (PP)",
+  ["PU"] = "Issue Sub Type: Partnership Units (PU)",
+  ["Q"] = "Issue Sub Type: Closed End Funds (Q)",
+  ["R"] = "Issue Sub Type: Reg S (R)",
+  ["RC"] = "Issue Sub Type: Commodity Redeemable (RC)",
+  ["RF"] = "Issue Sub Type: Etn (RF)",
+  ["RT"] = "Issue Sub Type: Reit (RT)",
+  ["RU"] = "Issue Sub Type: Commodity­ Redeemable (RU)",
+  ["S"] = "Issue Sub Type: Seed (S)",
+  ["SC"] = "Issue Sub Type: Spot Rate Closing (SC)",
+  ["SI"] = "Issue Sub Type: Spot Rate Intraday (SI)",
+  ["T"] = "Issue Sub Type: Tracking Stock (T)",
+  ["TC"] = "Issue Sub Type: Trust Certificates (TC)",
+  ["TU"] = "Issue Sub Type: Trust Units (TU)",
+  ["U"] = "Issue Sub Type: Portal (U)",
+  ["V"] = "Issue Sub Type: Contingent Value Right (V)",
+  ["W"] = "Issue Sub Type: Trust Issued Receipts (W)",
+  ["WC"] = "Issue Sub Type: World Currency Option (WC)",
+  ["X"] = "Issue Sub Type: Trust (X)",
+  ["Y"] = "Issue Sub Type: Other (Y)",
+  ["Z"] = "Issue Sub Type: Not Applicable (Z)",
+}
 
-  return "Issue Sub Type: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_sub_type.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.issue_sub_type.labels[value] or "Issue Sub Type: Unknown("..value..")"
 end
 
 -- Dissect: Issue Sub Type
@@ -1100,15 +934,13 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.size = 1
 
 -- Display: Market Center Identifier
-nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.display = function(value)
-  if value == "B" then
-    return "Market Center Identifier: Psx Execution System (B)"
-  end
-  if value == "X" then
-    return "Market Center Identifier: Psx Execution System (X)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.labels = {
+  ["B"] = "Market Center Identifier: Psx Execution System (B)",
+  ["X"] = "Market Center Identifier: Psx Execution System (X)",
+}
 
-  return "Market Center Identifier: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.market_center_identifier.labels[value] or "Market Center Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Market Center Identifier
@@ -1130,18 +962,14 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.market_code = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.market_code.size = 1
 
 -- Display: Market Code
-nasdaq_psxequities_lastsale_itch_v2_1_2026.market_code.display = function(value)
-  if value == "Q" then
-    return "Market Code: Nasdaq (Q)"
-  end
-  if value == "B" then
-    return "Market Code: Bx (B)"
-  end
-  if value == "X" then
-    return "Market Code: Psx (X)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.market_code.labels = {
+  ["Q"] = "Market Code: Nasdaq (Q)",
+  ["B"] = "Market Code: Bx (B)",
+  ["X"] = "Market Code: Psx (X)",
+}
 
-  return "Market Code: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.market_code.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.market_code.labels[value] or "Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Market Code
@@ -1209,48 +1037,24 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.message_type = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_psxequities_lastsale_itch_v2_1_2026.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "T" then
-    return "Message Type: Trade Report Message (T)"
-  end
-  if value == "M" then
-    return "Message Type: Next Shares Trade Report Message (M)"
-  end
-  if value == "X" then
-    return "Message Type: Trade Cancel Error Message (X)"
-  end
-  if value == "O" then
-    return "Message Type: Trade Cancel Error For Next Shares Message (O)"
-  end
-  if value == "C" then
-    return "Message Type: Trade Correction Message (C)"
-  end
-  if value == "Z" then
-    return "Message Type: Trade Correction For Next Shares Message (Z)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "V" then
-    return "Message Type: Mwcb Decline Level Message (V)"
-  end
-  if value == "W" then
-    return "Message Type: Mwcb Breach Message (W)"
-  end
-  if value == "h" then
-    return "Message Type: Operational Halt Message (h)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["T"] = "Message Type: Trade Report Message (T)",
+  ["M"] = "Message Type: Next Shares Trade Report Message (M)",
+  ["X"] = "Message Type: Trade Cancel Error Message (X)",
+  ["O"] = "Message Type: Trade Cancel Error For Next Shares Message (O)",
+  ["C"] = "Message Type: Trade Correction Message (C)",
+  ["Z"] = "Message Type: Trade Correction For Next Shares Message (Z)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["Y"] = "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["V"] = "Message Type: Mwcb Decline Level Message (V)",
+  ["W"] = "Message Type: Mwcb Breach Message (W)",
+  ["h"] = "Message Type: Operational Halt Message (h)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.message_type.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1324,15 +1128,13 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_action = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_action.size = 1
 
 -- Display: Operational Halt Action
-nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_action.display = function(value)
-  if value == "H" then
-    return "Operational Halt Action: Halted (H)"
-  end
-  if value == "T" then
-    return "Operational Halt Action: Resumed (T)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_action.labels = {
+  ["H"] = "Operational Halt Action: Halted (H)",
+  ["T"] = "Operational Halt Action: Resumed (T)",
+}
 
-  return "Operational Halt Action: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_action.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_action.labels[value] or "Operational Halt Action: Unknown("..value..")"
 end
 
 -- Dissect: Operational Halt Action
@@ -1510,18 +1312,14 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_action = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Short Sale Price Test Restriction (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Test Restriction Remains (2)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test (0)",
+  ["1"] = "Reg Sho Action: Reg Sho Short Sale Price Test Restriction (1)",
+  ["2"] = "Reg Sho Action: Test Restriction Remains (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_action.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -1566,15 +1364,13 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.round_lots_only = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.round_lots_only.size = 1
 
 -- Display: Round Lots Only
-nasdaq_psxequities_lastsale_itch_v2_1_2026.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Round Lots Only (Y)"
-  end
-  if value == "N" then
-    return "Round Lots Only: No Restriction (N)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.round_lots_only.labels = {
+  ["Y"] = "Round Lots Only: Round Lots Only (Y)",
+  ["N"] = "Round Lots Only: No Restriction (N)",
+}
 
-  return "Round Lots Only: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.round_lots_only.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.round_lots_only.labels[value] or "Round Lots Only: Unknown("..value..")"
 end
 
 -- Dissect: Round Lots Only
@@ -1596,24 +1392,16 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.sale_condition_modifier_level_1 = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.sale_condition_modifier_level_1.size = 1
 
 -- Display: Sale Condition Modifier Level 1
-nasdaq_psxequities_lastsale_itch_v2_1_2026.sale_condition_modifier_level_1.display = function(value)
-  if value == "J" then
-    return "Sale Condition Modifier Level 1: Proxy Price Settlement (J)"
-  end
-  if value == "@" then
-    return "Sale Condition Modifier Level 1: Regular Settlement (@)"
-  end
-  if value == "C" then
-    return "Sale Condition Modifier Level 1: Cash Settlement (C)"
-  end
-  if value == "N" then
-    return "Sale Condition Modifier Level 1: Next Day Settlement (N)"
-  end
-  if value == "R" then
-    return "Sale Condition Modifier Level 1: Seller Settlement (R)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.sale_condition_modifier_level_1.labels = {
+  ["J"] = "Sale Condition Modifier Level 1: Proxy Price Settlement (J)",
+  ["@"] = "Sale Condition Modifier Level 1: Regular Settlement (@)",
+  ["C"] = "Sale Condition Modifier Level 1: Cash Settlement (C)",
+  ["N"] = "Sale Condition Modifier Level 1: Next Day Settlement (N)",
+  ["R"] = "Sale Condition Modifier Level 1: Seller Settlement (R)",
+}
 
-  return "Sale Condition Modifier Level 1: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.sale_condition_modifier_level_1.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.sale_condition_modifier_level_1.labels[value] or "Sale Condition Modifier Level 1: Unknown("..value..")"
 end
 
 -- Dissect: Sale Condition Modifier Level 1
@@ -1779,27 +1567,17 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class = {}
 nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.size = 1
 
 -- Display: Security Class
-nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.display = function(value)
-  if value == "Q" then
-    return "Security Class: Nasdaq (Q)"
-  end
-  if value == "N" then
-    return "Security Class: Nyse (N)"
-  end
-  if value == "A" then
-    return "Security Class: Nyse Amex (A)"
-  end
-  if value == "P" then
-    return "Security Class: Nyse Arca (P)"
-  end
-  if value == "Z" then
-    return "Security Class: Bats (Z)"
-  end
-  if value == "V" then
-    return "Security Class: Investors Exchange (V)"
-  end
+nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.labels = {
+  ["Q"] = "Security Class: Nasdaq (Q)",
+  ["N"] = "Security Class: Nyse (N)",
+  ["A"] = "Security Class: Nyse Amex (A)",
+  ["P"] = "Security Class: Nyse Arca (P)",
+  ["Z"] = "Security Class: Bats (Z)",
+  ["V"] = "Security Class: Investors Exchange (V)",
+}
 
-  return "Security Class: Unknown("..value..")"
+nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.display = function(value)
+  return nasdaq_psxequities_lastsale_itch_v2_1_2026.security_class.labels[value] or "Security Class: Unknown("..value..")"
 end
 
 -- Dissect: Security Class
@@ -3132,58 +2910,26 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2026.payload = {}
 
 -- Dissect: Payload
+nasdaq_psxequities_lastsale_itch_v2_1_2026.payload.dispatch = {
+  ["S"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.system_event_message.dissect,
+  ["T"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_report_message.dissect,
+  ["M"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.next_shares_trade_report_message.dissect,
+  ["X"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_message.dissect,
+  ["O"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_for_next_shares_message.dissect,
+  ["C"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_message.dissect,
+  ["Z"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_for_next_shares_message.dissect,
+  ["H"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.trading_action_message.dissect,
+  ["Y"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["R"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.stock_directory_message.dissect,
+  ["V"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_decline_level_message.dissect,
+  ["W"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_breach_message.dissect,
+  ["h"] = nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_message.dissect,
+}
+
 nasdaq_psxequities_lastsale_itch_v2_1_2026.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "T" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Next Shares Trade Report Message
-  if message_type == "M" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.next_shares_trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error Message
-  if message_type == "X" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error For Next Shares Message
-  if message_type == "O" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_for_next_shares_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == "C" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction For Next Shares Message
-  if message_type == "Z" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_for_next_shares_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mwcb Decline Level Message
-  if message_type == "V" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_decline_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mwcb Breach Message
-  if message_type == "W" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.mwcb_breach_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Operational Halt Message
-  if message_type == "h" then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.operational_halt_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_lastsale_itch_v2_1_2026.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3339,14 +3085,15 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2026.messages = {}
 
 -- Dissect: Messages
+nasdaq_psxequities_lastsale_itch_v2_1_2026.messages.dispatch = {
+  [0] = nasdaq_psxequities_lastsale_itch_v2_1_2026.heartbeat.dissect,
+  [65535] = nasdaq_psxequities_lastsale_itch_v2_1_2026.end_of_session.dissect,
+}
+
 nasdaq_psxequities_lastsale_itch_v2_1_2026.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_psxequities_lastsale_itch_v2_1_2026.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_lastsale_itch_v2_1_2026.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

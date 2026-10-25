@@ -684,63 +684,29 @@ n24x_24xequities_memoirtopofbook_sbe_v2_0.halt_reason = {}
 n24x_24xequities_memoirtopofbook_sbe_v2_0.halt_reason.size = 1
 
 -- Display: Halt Reason
-n24x_24xequities_memoirtopofbook_sbe_v2_0.halt_reason.display = function(value)
-  if value == 0 then
-    return "Halt Reason: Unknown (0)"
-  end
-  if value == 1 then
-    return "Halt Reason: Admin (1)"
-  end
-  if value == 2 then
-    return "Halt Reason: Additional Info Requested (2)"
-  end
-  if value == 3 then
-    return "Halt Reason: Regulatory Concern (3)"
-  end
-  if value == 4 then
-    return "Halt Reason: News Released (4)"
-  end
-  if value == 5 then
-    return "Halt Reason: Merger Effective (5)"
-  end
-  if value == 6 then
-    return "Halt Reason: Etf Component Prices Not Available (6)"
-  end
-  if value == 7 then
-    return "Halt Reason: Order Imbalance (7)"
-  end
-  if value == 8 then
-    return "Halt Reason: Luld Trading Pause (8)"
-  end
-  if value == 9 then
-    return "Halt Reason: Corporate Action (9)"
-  end
-  if value == 10 then
-    return "Halt Reason: New Security Offering (10)"
-  end
-  if value == 11 then
-    return "Halt Reason: News Pending (11)"
-  end
-  if value == 12 then
-    return "Halt Reason: Intraday Indicative Value Not Available (12)"
-  end
-  if value == 13 then
-    return "Halt Reason: Operational (13)"
-  end
-  if value == 14 then
-    return "Halt Reason: Sub Penny Trading (14)"
-  end
-  if value == 15 then
-    return "Halt Reason: Market Wide Circuit Breaker Level 1 (15)"
-  end
-  if value == 16 then
-    return "Halt Reason: Market Wide Circuit Breaker Level 2 (16)"
-  end
-  if value == 17 then
-    return "Halt Reason: Market Wide Circuit Breaker Level 3 (17)"
-  end
+n24x_24xequities_memoirtopofbook_sbe_v2_0.halt_reason.labels = {
+  [0] = "Halt Reason: Unknown (0)",
+  [1] = "Halt Reason: Admin (1)",
+  [2] = "Halt Reason: Additional Info Requested (2)",
+  [3] = "Halt Reason: Regulatory Concern (3)",
+  [4] = "Halt Reason: News Released (4)",
+  [5] = "Halt Reason: Merger Effective (5)",
+  [6] = "Halt Reason: Etf Component Prices Not Available (6)",
+  [7] = "Halt Reason: Order Imbalance (7)",
+  [8] = "Halt Reason: Luld Trading Pause (8)",
+  [9] = "Halt Reason: Corporate Action (9)",
+  [10] = "Halt Reason: New Security Offering (10)",
+  [11] = "Halt Reason: News Pending (11)",
+  [12] = "Halt Reason: Intraday Indicative Value Not Available (12)",
+  [13] = "Halt Reason: Operational (13)",
+  [14] = "Halt Reason: Sub Penny Trading (14)",
+  [15] = "Halt Reason: Market Wide Circuit Breaker Level 1 (15)",
+  [16] = "Halt Reason: Market Wide Circuit Breaker Level 2 (16)",
+  [17] = "Halt Reason: Market Wide Circuit Breaker Level 3 (17)",
+}
 
-  return "Halt Reason: Unknown("..value..")"
+n24x_24xequities_memoirtopofbook_sbe_v2_0.halt_reason.display = function(value)
+  return n24x_24xequities_memoirtopofbook_sbe_v2_0.halt_reason.labels[value] or "Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Halt Reason
@@ -785,15 +751,13 @@ n24x_24xequities_memoirtopofbook_sbe_v2_0.is_test_symbol = {}
 n24x_24xequities_memoirtopofbook_sbe_v2_0.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
-n24x_24xequities_memoirtopofbook_sbe_v2_0.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
+n24x_24xequities_memoirtopofbook_sbe_v2_0.is_test_symbol.labels = {
+  [0] = "Is Test Symbol: False (0)",
+  [1] = "Is Test Symbol: True (1)",
+}
 
-  return "Is Test Symbol: Unknown("..value..")"
+n24x_24xequities_memoirtopofbook_sbe_v2_0.is_test_symbol.display = function(value)
+  return n24x_24xequities_memoirtopofbook_sbe_v2_0.is_test_symbol.labels[value] or "Is Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Is Test Symbol
@@ -861,18 +825,14 @@ n24x_24xequities_memoirtopofbook_sbe_v2_0.message_type = {}
 n24x_24xequities_memoirtopofbook_sbe_v2_0.message_type.size = 1
 
 -- Display: Message Type
-n24x_24xequities_memoirtopofbook_sbe_v2_0.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
+n24x_24xequities_memoirtopofbook_sbe_v2_0.message_type.labels = {
+  [0] = "Message Type: Heartbeat Message (0)",
+  [1] = "Message Type: Session Shutdown Message (1)",
+  [2] = "Message Type: Sequenced Message (2)",
+}
 
-  return "Message Type: Unknown("..value..")"
+n24x_24xequities_memoirtopofbook_sbe_v2_0.message_type.display = function(value)
+  return n24x_24xequities_memoirtopofbook_sbe_v2_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1626,15 +1586,13 @@ n24x_24xequities_memoirtopofbook_sbe_v2_0.short_sale_restriction = {}
 n24x_24xequities_memoirtopofbook_sbe_v2_0.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
-n24x_24xequities_memoirtopofbook_sbe_v2_0.short_sale_restriction.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction: False (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction: True (1)"
-  end
+n24x_24xequities_memoirtopofbook_sbe_v2_0.short_sale_restriction.labels = {
+  [0] = "Short Sale Restriction: False (0)",
+  [1] = "Short Sale Restriction: True (1)",
+}
 
-  return "Short Sale Restriction: Unknown("..value..")"
+n24x_24xequities_memoirtopofbook_sbe_v2_0.short_sale_restriction.display = function(value)
+  return n24x_24xequities_memoirtopofbook_sbe_v2_0.short_sale_restriction.labels[value] or "Short Sale Restriction: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction
@@ -1734,51 +1692,25 @@ n24x_24xequities_memoirtopofbook_sbe_v2_0.template_id = {}
 n24x_24xequities_memoirtopofbook_sbe_v2_0.template_id.size = 1
 
 -- Display: Template Id
-n24x_24xequities_memoirtopofbook_sbe_v2_0.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Reg Sho Restriction Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Security Trading Status Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Snapshot Complete Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Trading Session Status Message (5)"
-  end
-  if value == 10 then
-    return "Template Id: Best Bid Offer Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Best Bid Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Best Offer Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Best Bid Short Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Best Offer Short Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Clear Book Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Auction Trade Message (16)"
-  end
-  if value == 17 then
-    return "Template Id: Broken Auction Trade Message (17)"
-  end
-  if value == 18 then
-    return "Template Id: Corrected Auction Trade Message (18)"
-  end
+n24x_24xequities_memoirtopofbook_sbe_v2_0.template_id.labels = {
+  [1] = "Template Id: Instrument Directory Message (1)",
+  [2] = "Template Id: Reg Sho Restriction Message (2)",
+  [3] = "Template Id: Security Trading Status Message (3)",
+  [4] = "Template Id: Snapshot Complete Message (4)",
+  [5] = "Template Id: Trading Session Status Message (5)",
+  [10] = "Template Id: Best Bid Offer Message (10)",
+  [11] = "Template Id: Best Bid Message (11)",
+  [12] = "Template Id: Best Offer Message (12)",
+  [13] = "Template Id: Best Bid Short Message (13)",
+  [14] = "Template Id: Best Offer Short Message (14)",
+  [15] = "Template Id: Clear Book Message (15)",
+  [16] = "Template Id: Auction Trade Message (16)",
+  [17] = "Template Id: Broken Auction Trade Message (17)",
+  [18] = "Template Id: Corrected Auction Trade Message (18)",
+}
 
-  return "Template Id: Unknown("..value..")"
+n24x_24xequities_memoirtopofbook_sbe_v2_0.template_id.display = function(value)
+  return n24x_24xequities_memoirtopofbook_sbe_v2_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -2842,62 +2774,27 @@ end
 n24x_24xequities_memoirtopofbook_sbe_v2_0.payload = {}
 
 -- Dissect: Payload
+n24x_24xequities_memoirtopofbook_sbe_v2_0.payload.dispatch = {
+  [1] = n24x_24xequities_memoirtopofbook_sbe_v2_0.instrument_directory_message.dissect,
+  [2] = n24x_24xequities_memoirtopofbook_sbe_v2_0.reg_sho_restriction_message.dissect,
+  [3] = n24x_24xequities_memoirtopofbook_sbe_v2_0.security_trading_status_message.dissect,
+  [4] = n24x_24xequities_memoirtopofbook_sbe_v2_0.snapshot_complete_message.dissect,
+  [5] = n24x_24xequities_memoirtopofbook_sbe_v2_0.trading_session_status_message.dissect,
+  [10] = n24x_24xequities_memoirtopofbook_sbe_v2_0.best_bid_offer_message.dissect,
+  [11] = n24x_24xequities_memoirtopofbook_sbe_v2_0.best_bid_message.dissect,
+  [12] = n24x_24xequities_memoirtopofbook_sbe_v2_0.best_offer_message.dissect,
+  [13] = n24x_24xequities_memoirtopofbook_sbe_v2_0.best_bid_short_message.dissect,
+  [14] = n24x_24xequities_memoirtopofbook_sbe_v2_0.best_offer_short_message.dissect,
+  [15] = n24x_24xequities_memoirtopofbook_sbe_v2_0.clear_book_message.dissect,
+  [16] = n24x_24xequities_memoirtopofbook_sbe_v2_0.auction_trade_message.dissect,
+  [17] = n24x_24xequities_memoirtopofbook_sbe_v2_0.broken_auction_trade_message.dissect,
+  [18] = n24x_24xequities_memoirtopofbook_sbe_v2_0.corrected_auction_trade_message.dissect,
+}
+
 n24x_24xequities_memoirtopofbook_sbe_v2_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Instrument Directory Message
-  if template_id == 1 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Restriction Message
-  if template_id == 2 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.reg_sho_restriction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Status Message
-  if template_id == 3 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.security_trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Complete Message
-  if template_id == 4 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.snapshot_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if template_id == 5 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Offer Message
-  if template_id == 10 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.best_bid_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Message
-  if template_id == 11 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.best_bid_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Offer Message
-  if template_id == 12 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.best_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Short Message
-  if template_id == 13 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.best_bid_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Offer Short Message
-  if template_id == 14 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.best_offer_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clear Book Message
-  if template_id == 15 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.clear_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Trade Message
-  if template_id == 16 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Auction Trade Message
-  if template_id == 17 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.broken_auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Corrected Auction Trade Message
-  if template_id == 18 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.corrected_auction_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = n24x_24xequities_memoirtopofbook_sbe_v2_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3153,18 +3050,16 @@ end
 n24x_24xequities_memoirtopofbook_sbe_v2_0.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
+n24x_24xequities_memoirtopofbook_sbe_v2_0.sequenced_messages.dispatch = {
+  [0] = n24x_24xequities_memoirtopofbook_sbe_v2_0.heartbeat.dissect,
+  [1] = n24x_24xequities_memoirtopofbook_sbe_v2_0.session_shutdown.dissect,
+  [2] = n24x_24xequities_memoirtopofbook_sbe_v2_0.sequenced_message.dissect,
+}
+
 n24x_24xequities_memoirtopofbook_sbe_v2_0.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Heartbeat
-  if message_type == 0 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Shutdown
-  if message_type == 1 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.session_shutdown.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 2 then
-    return n24x_24xequities_memoirtopofbook_sbe_v2_0.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = n24x_24xequities_memoirtopofbook_sbe_v2_0.sequenced_messages.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -249,30 +249,18 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.auction_type = {}
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction (H)"
-  end
-  if value == "I" then
-    return "Auction Type: Ipo Auction (I)"
-  end
-  if value == "M" then
-    return "Auction Type: Cboe Market Close (M)"
-  end
-  if value == "V" then
-    return "Auction Type: Volatility Auction (V)"
-  end
-  if value == "P" then
-    return "Auction Type: Periodic Auction (P)"
-  end
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["H"] = "Auction Type: Halt Auction (H)",
+  ["I"] = "Auction Type: Ipo Auction (I)",
+  ["M"] = "Auction Type: Cboe Market Close (M)",
+  ["V"] = "Auction Type: Volatility Auction (V)",
+  ["P"] = "Auction Type: Periodic Auction (P)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.auction_type.display = function(value)
+  return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -363,18 +351,14 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.customer_indicator = {}
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.customer_indicator.display = function(value)
-  if value == "N" then
-    return "Customer Indicator: Non Customer (N)"
-  end
-  if value == "C" then
-    return "Customer Indicator: Customer (C)"
-  end
-  if value == "R" then
-    return "Customer Indicator: Retail Priority Order (R)"
-  end
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.customer_indicator.labels = {
+  ["N"] = "Customer Indicator: Non Customer (N)",
+  ["C"] = "Customer Indicator: Customer (C)",
+  ["R"] = "Customer Indicator: Retail Priority Order (R)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.customer_indicator.display = function(value)
+  return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -534,72 +518,32 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message_type = {}
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message_type.size = 1
 
 -- Display: Message Type
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Eq Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Eq Unit Clear Message (0x97)"
-  end
-  if value == 0x21 then
-    return "Message Type: Eq Add Order Long Message (0x21)"
-  end
-  if value == 0x22 then
-    return "Message Type: Eq Add Order Short Message (0x22)"
-  end
-  if value == 0x2F then
-    return "Message Type: Eq Add Order Expanded Message (0x2F)"
-  end
-  if value == 0x23 then
-    return "Message Type: Eq Order Executed Message (0x23)"
-  end
-  if value == 0x24 then
-    return "Message Type: Eq Order Executed At Price Size Message (0x24)"
-  end
-  if value == 0x25 then
-    return "Message Type: Eq Reduce Size Long Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Eq Reduce Size Short Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Eq Modify Order Long Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Eq Modify Order Short Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: Eq Delete Order Message (0x29)"
-  end
-  if value == 0x2A then
-    return "Message Type: Eq Trade Long Message (0x2A)"
-  end
-  if value == 0x2B then
-    return "Message Type: Eq Trade Short Message (0x2B)"
-  end
-  if value == 0x30 then
-    return "Message Type: Eq Trade Expanded Message (0x30)"
-  end
-  if value == 0x2C then
-    return "Message Type: Eq Trade Break Message (0x2C)"
-  end
-  if value == 0x2D then
-    return "Message Type: Eq End Of Session (0x2D)"
-  end
-  if value == 0x31 then
-    return "Message Type: Eq Trading Status Message (0x31)"
-  end
-  if value == 0x95 then
-    return "Message Type: Eq Auction Update Message (0x95)"
-  end
-  if value == 0x96 then
-    return "Message Type: Eq Auction Summary Message (0x96)"
-  end
-  if value == 0x98 then
-    return "Message Type: Eq Retail Price Improvement Message (0x98)"
-  end
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message_type.labels = {
+  [0x20] = "Message Type: Eq Time Message (0x20)",
+  [0x97] = "Message Type: Eq Unit Clear Message (0x97)",
+  [0x21] = "Message Type: Eq Add Order Long Message (0x21)",
+  [0x22] = "Message Type: Eq Add Order Short Message (0x22)",
+  [0x2F] = "Message Type: Eq Add Order Expanded Message (0x2F)",
+  [0x23] = "Message Type: Eq Order Executed Message (0x23)",
+  [0x24] = "Message Type: Eq Order Executed At Price Size Message (0x24)",
+  [0x25] = "Message Type: Eq Reduce Size Long Message (0x25)",
+  [0x26] = "Message Type: Eq Reduce Size Short Message (0x26)",
+  [0x27] = "Message Type: Eq Modify Order Long Message (0x27)",
+  [0x28] = "Message Type: Eq Modify Order Short Message (0x28)",
+  [0x29] = "Message Type: Eq Delete Order Message (0x29)",
+  [0x2A] = "Message Type: Eq Trade Long Message (0x2A)",
+  [0x2B] = "Message Type: Eq Trade Short Message (0x2B)",
+  [0x30] = "Message Type: Eq Trade Expanded Message (0x30)",
+  [0x2C] = "Message Type: Eq Trade Break Message (0x2C)",
+  [0x2D] = "Message Type: Eq End Of Session (0x2D)",
+  [0x31] = "Message Type: Eq Trading Status Message (0x31)",
+  [0x95] = "Message Type: Eq Auction Update Message (0x95)",
+  [0x96] = "Message Type: Eq Auction Summary Message (0x96)",
+  [0x98] = "Message Type: Eq Retail Price Improvement Message (0x98)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message_type.display = function(value)
+  return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -794,15 +738,13 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.reg_sho_action = {}
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Effect (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
-  end
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Effect (0)",
+  ["1"] = "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.reg_sho_action.display = function(value)
+  return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -870,21 +812,15 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.retail_price_improvement =
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.retail_price_improvement.size = 1
 
 -- Display: Retail Price Improvement
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.retail_price_improvement.display = function(value)
-  if value == "B" then
-    return "Retail Price Improvement: Buy Side Rpi (B)"
-  end
-  if value == "S" then
-    return "Retail Price Improvement: Sell Side Rpi (S)"
-  end
-  if value == "A" then
-    return "Retail Price Improvement: Buy And Sell Rpi (A)"
-  end
-  if value == "N" then
-    return "Retail Price Improvement: No Rpi (N)"
-  end
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.retail_price_improvement.labels = {
+  ["B"] = "Retail Price Improvement: Buy Side Rpi (B)",
+  ["S"] = "Retail Price Improvement: Sell Side Rpi (S)",
+  ["A"] = "Retail Price Improvement: Buy And Sell Rpi (A)",
+  ["N"] = "Retail Price Improvement: No Rpi (N)",
+}
 
-  return "Retail Price Improvement: Unknown("..value..")"
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.retail_price_improvement.display = function(value)
+  return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.retail_price_improvement.labels[value] or "Retail Price Improvement: Unknown("..value..")"
 end
 
 -- Dissect: Retail Price Improvement
@@ -998,15 +934,13 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.side_indicator = {}
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.side_indicator.display = function(value)
+  return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1176,24 +1110,16 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.trading_status = {}
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.trading_status.display = function(value)
-  if value == "A" then
-    return "Trading Status: Accepting Orders For Queuing (A)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Trading Status: Quote Only (Q)"
-  end
-  if value == "S" then
-    return "Trading Status: Exchange Specific Suspension (S)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.trading_status.labels = {
+  ["A"] = "Trading Status: Accepting Orders For Queuing (A)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["Q"] = "Trading Status: Quote Only (Q)",
+  ["S"] = "Trading Status: Exchange Specific Suspension (S)",
+  ["T"] = "Trading Status: Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.trading_status.display = function(value)
+  return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2551,90 +2477,34 @@ end
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.payload = {}
 
 -- Dissect: Payload
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.payload.dispatch = {
+  [0x20] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_time_message.dissect,
+  [0x97] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_unit_clear_message.dissect,
+  [0x21] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_add_order_long_message.dissect,
+  [0x22] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_add_order_short_message.dissect,
+  [0x2F] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_add_order_expanded_message.dissect,
+  [0x23] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_order_executed_message.dissect,
+  [0x24] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_order_executed_at_price_size_message.dissect,
+  [0x25] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_reduce_size_long_message.dissect,
+  [0x26] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_reduce_size_short_message.dissect,
+  [0x27] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_modify_order_long_message.dissect,
+  [0x28] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_modify_order_short_message.dissect,
+  [0x29] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_delete_order_message.dissect,
+  [0x2A] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trade_long_message.dissect,
+  [0x2B] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trade_short_message.dissect,
+  [0x30] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trade_expanded_message.dissect,
+  [0x2C] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trade_break_message.dissect,
+  [0x2D] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_end_of_session.dissect,
+  [0x31] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trading_status_message.dissect,
+  [0x95] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_auction_update_message.dissect,
+  [0x96] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_auction_summary_message.dissect,
+  [0x98] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_retail_price_improvement_message.dissect,
+}
+
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Eq Time Message
-  if message_type == 0x20 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Add Order Long Message
-  if message_type == 0x21 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_add_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Add Order Short Message
-  if message_type == 0x22 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_add_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Add Order Expanded Message
-  if message_type == 0x2F then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_add_order_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Order Executed Message
-  if message_type == 0x23 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Order Executed At Price Size Message
-  if message_type == 0x24 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Reduce Size Long Message
-  if message_type == 0x25 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_reduce_size_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Reduce Size Short Message
-  if message_type == 0x26 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_reduce_size_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Modify Order Long Message
-  if message_type == 0x27 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_modify_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Modify Order Short Message
-  if message_type == 0x28 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_modify_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Delete Order Message
-  if message_type == 0x29 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Trade Long Message
-  if message_type == 0x2A then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trade_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Trade Short Message
-  if message_type == 0x2B then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trade_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Trade Expanded Message
-  if message_type == 0x30 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trade_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Trade Break Message
-  if message_type == 0x2C then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq End Of Session
-  if message_type == 0x2D then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Trading Status Message
-  if message_type == 0x31 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Auction Update Message
-  if message_type == 0x95 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Eq Retail Price Improvement Message
-  if message_type == 0x98 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.eq_retail_price_improvement_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2773,10 +2643,14 @@ end
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages = {}
 
 -- Dissect: Messages
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dispatch = {
+  [0] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.heartbeat.dissect,
+}
+
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

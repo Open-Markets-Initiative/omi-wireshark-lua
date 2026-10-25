@@ -385,15 +385,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.bq_more_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.bq_more_flag.size = 1
 
 -- Display: Bq More Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.bq_more_flag.display = function(value)
-  if value == "Y" then
-    return "Bq More Flag: More Broker Numbers Exist In The Queue (Y)"
-  end
-  if value == "N" then
-    return "Bq More Flag: No More Exist (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.bq_more_flag.labels = {
+  ["Y"] = "Bq More Flag: More Broker Numbers Exist In The Queue (Y)",
+  ["N"] = "Bq More Flag: No More Exist (N)",
+}
 
-  return "Bq More Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.bq_more_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.bq_more_flag.labels[value] or "Bq More Flag: Unknown("..value..")"
 end
 
 -- Dissect: Bq More Flag
@@ -438,15 +436,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.broker_side = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.broker_side.size = 2
 
 -- Display: Broker Side
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.broker_side.display = function(value)
-  if value == 1 then
-    return "Broker Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Broker Side: Sell (2)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.broker_side.labels = {
+  [1] = "Broker Side: Buy (1)",
+  [2] = "Broker Side: Sell (2)",
+}
 
-  return "Broker Side: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.broker_side.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.broker_side.labels[value] or "Broker Side: Unknown("..value..")"
 end
 
 -- Dissect: Broker Side
@@ -537,18 +533,14 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.call_put_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.call_put_flag.size = 1
 
 -- Display: Call Put Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.call_put_flag.display = function(value)
-  if value == "C" then
-    return "Call Put Flag: Call Or Bull (C)"
-  end
-  if value == "P" then
-    return "Call Put Flag: Put Or Bear Range (P)"
-  end
-  if value == "O" then
-    return "Call Put Flag: Others (O)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.call_put_flag.labels = {
+  ["C"] = "Call Put Flag: Call Or Bull (C)",
+  ["P"] = "Call Put Flag: Put Or Bear Range (P)",
+  ["O"] = "Call Put Flag: Others (O)",
+}
 
-  return "Call Put Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.call_put_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.call_put_flag.labels[value] or "Call Put Flag: Unknown("..value..")"
 end
 
 -- Dissect: Call Put Flag
@@ -570,15 +562,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.cancel_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.cancel_flag.size = 1
 
 -- Display: Cancel Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.cancel_flag.display = function(value)
-  if value == "Y" then
-    return "Cancel Flag: Cancelled (Y)"
-  end
-  if value == "N" then
-    return "Cancel Flag: Not Cancelled (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.cancel_flag.labels = {
+  ["Y"] = "Cancel Flag: Cancelled (Y)",
+  ["N"] = "Cancel Flag: Not Cancelled (N)",
+}
 
-  return "Cancel Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.cancel_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.cancel_flag.labels[value] or "Cancel Flag: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Flag
@@ -600,15 +590,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.cas_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.cas_flag.size = 1
 
 -- Display: Cas Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.cas_flag.display = function(value)
-  if value == "Y" then
-    return "Cas Flag: Cas Applicable (Y)"
-  end
-  if value == "N" then
-    return "Cas Flag: Cas Not Applicable (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.cas_flag.labels = {
+  ["Y"] = "Cas Flag: Cas Applicable (Y)",
+  ["N"] = "Cas Flag: Cas Not Applicable (N)",
+}
 
-  return "Cas Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.cas_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.cas_flag.labels[value] or "Cas Flag: Unknown("..value..")"
 end
 
 -- Dissect: Cas Flag
@@ -630,15 +618,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.ccass_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.ccass_flag.size = 1
 
 -- Display: Ccass Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.ccass_flag.display = function(value)
-  if value == "Y" then
-    return "Ccass Flag: Ccass Security (Y)"
-  end
-  if value == "N" then
-    return "Ccass Flag: Non Ccass Security (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.ccass_flag.labels = {
+  ["Y"] = "Ccass Flag: Ccass Security (Y)",
+  ["N"] = "Ccass Flag: Non Ccass Security (N)",
+}
 
-  return "Ccass Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.ccass_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.ccass_flag.labels[value] or "Ccass Flag: Unknown("..value..")"
 end
 
 -- Dissect: Ccass Flag
@@ -1052,15 +1038,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.dummy_security_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.dummy_security_flag.size = 1
 
 -- Display: Dummy Security Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.dummy_security_flag.display = function(value)
-  if value == "Y" then
-    return "Dummy Security Flag: Dummy Security (Y)"
-  end
-  if value == "N" then
-    return "Dummy Security Flag: Normal Security (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.dummy_security_flag.labels = {
+  ["Y"] = "Dummy Security Flag: Dummy Security (Y)",
+  ["N"] = "Dummy Security Flag: Normal Security (N)",
+}
 
-  return "Dummy Security Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.dummy_security_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.dummy_security_flag.labels[value] or "Dummy Security Flag: Unknown("..value..")"
 end
 
 -- Dissect: Dummy Security Flag
@@ -1111,15 +1095,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.efn_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.efn_flag.size = 1
 
 -- Display: Efn Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.efn_flag.display = function(value)
-  if value == "Y" then
-    return "Efn Flag: Efn (Y)"
-  end
-  if value == "N" then
-    return "Efn Flag: Non Efn (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.efn_flag.labels = {
+  ["Y"] = "Efn Flag: Efn (Y)",
+  ["N"] = "Efn Flag: Non Efn (N)",
+}
 
-  return "Efn Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.efn_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.efn_flag.labels[value] or "Efn Flag: Unknown("..value..")"
 end
 
 -- Dissect: Efn Flag
@@ -1628,18 +1610,14 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_source = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_source.size = 1
 
 -- Display: Index Source
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_source.display = function(value)
-  if value == "C" then
-    return "Index Source: Csi And Ces (C)"
-  end
-  if value == "H" then
-    return "Index Source: Hsi (H)"
-  end
-  if value == "S" then
-    return "Index Source: S And P (S)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_source.labels = {
+  ["C"] = "Index Source: Csi And Ces (C)",
+  ["H"] = "Index Source: Hsi (H)",
+  ["S"] = "Index Source: S And P (S)",
+}
 
-  return "Index Source: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_source.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_source.labels[value] or "Index Source: Unknown("..value..")"
 end
 
 -- Dissect: Index Source
@@ -1661,30 +1639,18 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_status = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_status.size = 1
 
 -- Display: Index Status
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_status.display = function(value)
-  if value == "C" then
-    return "Index Status: Closing Value (C)"
-  end
-  if value == "I" then
-    return "Index Status: Indicative (I)"
-  end
-  if value == "O" then
-    return "Index Status: Opening Index (O)"
-  end
-  if value == "P" then
-    return "Index Status: Last Close Value Previous Session (P)"
-  end
-  if value == "R" then
-    return "Index Status: Preliminary Close (R)"
-  end
-  if value == "S" then
-    return "Index Status: Stop Loss Index (S)"
-  end
-  if value == "T" then
-    return "Index Status: Realtime Index Value (T)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_status.labels = {
+  ["C"] = "Index Status: Closing Value (C)",
+  ["I"] = "Index Status: Indicative (I)",
+  ["O"] = "Index Status: Opening Index (O)",
+  ["P"] = "Index Status: Last Close Value Previous Session (P)",
+  ["R"] = "Index Status: Preliminary Close (R)",
+  ["S"] = "Index Status: Stop Loss Index (S)",
+  ["T"] = "Index Status: Realtime Index Value (T)",
+}
 
-  return "Index Status: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_status.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_status.labels[value] or "Index Status: Unknown("..value..")"
 end
 
 -- Dissect: Index Status
@@ -1810,21 +1776,15 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.instrument_type = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.instrument_type.size = 4
 
 -- Display: Instrument Type
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.instrument_type.display = function(value)
-  if value == "BOND" then
-    return "Instrument Type: Bonds (BOND)"
-  end
-  if value == "EQTY" then
-    return "Instrument Type: Equities (EQTY)"
-  end
-  if value == "TRST" then
-    return "Instrument Type: Trusts (TRST)"
-  end
-  if value == "WRNT" then
-    return "Instrument Type: Warrants And Structured Products (WRNT)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.instrument_type.labels = {
+  ["BOND"] = "Instrument Type: Bonds (BOND)",
+  ["EQTY"] = "Instrument Type: Equities (EQTY)",
+  ["TRST"] = "Instrument Type: Trusts (TRST)",
+  ["WRNT"] = "Instrument Type: Warrants And Structured Products (WRNT)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.instrument_type.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -1846,15 +1806,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.investor_type = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.investor_type.size = 1
 
 -- Display: Investor Type
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.investor_type.display = function(value)
-  if value == "R" then
-    return "Investor Type: Retail Investor (R)"
-  end
-  if value == "P" then
-    return "Investor Type: Professional Investor (P)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.investor_type.labels = {
+  ["R"] = "Investor Type: Retail Investor (R)",
+  ["P"] = "Investor Type: Professional Investor (P)",
+}
 
-  return "Investor Type: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.investor_type.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.investor_type.labels[value] or "Investor Type: Unknown("..value..")"
 end
 
 -- Dissect: Investor Type
@@ -1945,15 +1903,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.last_fragment = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.last_fragment.size = 1
 
 -- Display: Last Fragment
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.last_fragment.display = function(value)
-  if value == "Y" then
-    return "Last Fragment: Complete (Y)"
-  end
-  if value == "N" then
-    return "Last Fragment: Not Complete (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.last_fragment.labels = {
+  ["Y"] = "Last Fragment: Complete (Y)",
+  ["N"] = "Last Fragment: Not Complete (N)",
+}
 
-  return "Last Fragment: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.last_fragment.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.last_fragment.labels[value] or "Last Fragment: Unknown("..value..")"
 end
 
 -- Dissect: Last Fragment
@@ -2183,21 +2139,15 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_code = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_code.size = 4
 
 -- Display: Market Code
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_code.display = function(value)
-  if value == "MAIN" then
-    return "Market Code: Main Board (MAIN)"
-  end
-  if value == "GEM" then
-    return "Market Code: Growth Enterprise Market (GEM)"
-  end
-  if value == "NASD" then
-    return "Market Code: Nasdaq Amex Pilot Program (NASD)"
-  end
-  if value == "ETS" then
-    return "Market Code: Electronic Trading System (ETS)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_code.labels = {
+  ["MAIN"] = "Market Code: Main Board (MAIN)",
+  ["GEM"] = "Market Code: Growth Enterprise Market (GEM)",
+  ["NASD"] = "Market Code: Nasdaq Amex Pilot Program (NASD)",
+  ["ETS"] = "Market Code: Electronic Trading System (ETS)",
+}
 
-  return "Market Code: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_code.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_code.labels[value] or "Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Market Code
@@ -2288,84 +2238,36 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.msg_type = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.msg_type.size = 2
 
 -- Display: Msg Type
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.msg_type.display = function(value)
-  if value == 33 then
-    return "Msg Type: Add Odd Lot Order Message (33)"
-  end
-  if value == 30 then
-    return "Msg Type: Add Order Message (30)"
-  end
-  if value == 53 then
-    return "Msg Type: Aggregate Order Book Update Message (53)"
-  end
-  if value == 54 then
-    return "Msg Type: Broker Queue Message (54)"
-  end
-  if value == 62 then
-    return "Msg Type: Closing Price Message (62)"
-  end
-  if value == 70 then
-    return "Msg Type: Index Definition Message (70)"
-  end
-  if value == 71 then
-    return "Msg Type: Index Data Message (71)"
-  end
-  if value == 41 then
-    return "Msg Type: Indicative Equilibrium Price Message (41)"
-  end
-  if value == 22 then
-    return "Msg Type: News Message (22)"
-  end
-  if value == 40 then
-    return "Msg Type: Nominal Price Message (40)"
-  end
-  if value == 56 then
-    return "Msg Type: Order Imbalance Message (56)"
-  end
-  if value == 10 then
-    return "Msg Type: Market Definition Message (10)"
-  end
-  if value == 11 then
-    return "Msg Type: Security Definition Message (11)"
-  end
-  if value == 13 then
-    return "Msg Type: Liquidity Provider Message (13)"
-  end
-  if value == 14 then
-    return "Msg Type: Currency Rate Message (14)"
-  end
-  if value == 43 then
-    return "Msg Type: Reference Price Message (43)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete Message (203)"
-  end
-  if value == 60 then
-    return "Msg Type: Statistics Message (60)"
-  end
-  if value == 61 then
-    return "Msg Type: Market Turnover Message (61)"
-  end
-  if value == 44 then
-    return "Msg Type: Yield Message (44)"
-  end
-  if value == 20 then
-    return "Msg Type: Trading Session Status Message (20)"
-  end
-  if value == 21 then
-    return "Msg Type: Security Status Message (21)"
-  end
-  if value == 80 then
-    return "Msg Type: Stock Connect Daily Quota Balance Message (80)"
-  end
-  if value == 81 then
-    return "Msg Type: Stock Connect Market Turnover Message (81)"
-  end
-  if value == 23 then
-    return "Msg Type: Vcm Trigger Message (23)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.msg_type.labels = {
+  [33] = "Msg Type: Add Odd Lot Order Message (33)",
+  [30] = "Msg Type: Add Order Message (30)",
+  [53] = "Msg Type: Aggregate Order Book Update Message (53)",
+  [54] = "Msg Type: Broker Queue Message (54)",
+  [62] = "Msg Type: Closing Price Message (62)",
+  [70] = "Msg Type: Index Definition Message (70)",
+  [71] = "Msg Type: Index Data Message (71)",
+  [41] = "Msg Type: Indicative Equilibrium Price Message (41)",
+  [22] = "Msg Type: News Message (22)",
+  [40] = "Msg Type: Nominal Price Message (40)",
+  [56] = "Msg Type: Order Imbalance Message (56)",
+  [10] = "Msg Type: Market Definition Message (10)",
+  [11] = "Msg Type: Security Definition Message (11)",
+  [13] = "Msg Type: Liquidity Provider Message (13)",
+  [14] = "Msg Type: Currency Rate Message (14)",
+  [43] = "Msg Type: Reference Price Message (43)",
+  [203] = "Msg Type: Refresh Complete Message (203)",
+  [60] = "Msg Type: Statistics Message (60)",
+  [61] = "Msg Type: Market Turnover Message (61)",
+  [44] = "Msg Type: Yield Message (44)",
+  [20] = "Msg Type: Trading Session Status Message (20)",
+  [21] = "Msg Type: Security Status Message (21)",
+  [80] = "Msg Type: Stock Connect Daily Quota Balance Message (80)",
+  [81] = "Msg Type: Stock Connect Market Turnover Message (81)",
+  [23] = "Msg Type: Vcm Trigger Message (23)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.msg_type.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -2499,15 +2401,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_type = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_type.size = 3
 
 -- Display: News Type
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_type.display = function(value)
-  if value == "EXN" then
-    return "News Type: Exchange News (EXN)"
-  end
-  if value == "EXC" then
-    return "News Type: Chinese Exchange News (EXC)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_type.labels = {
+  ["EXN"] = "News Type: Exchange News (EXN)",
+  ["EXC"] = "News Type: Chinese Exchange News (EXC)",
+}
 
-  return "News Type: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_type.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_type.labels[value] or "News Type: Unknown("..value..")"
 end
 
 -- Dissect: News Type
@@ -2922,15 +2822,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.order_type = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.order_type.size = 1
 
 -- Display: Order Type
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.order_type.display = function(value)
-  if value == "1" then
-    return "Order Type: Market (1)"
-  end
-  if value == "2" then
-    return "Order Type: Limit (2)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.order_type.labels = {
+  ["1"] = "Order Type: Market (1)",
+  ["2"] = "Order Type: Limit (2)",
+}
 
-  return "Order Type: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.order_type.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -2975,15 +2873,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.pos_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.pos_flag.size = 1
 
 -- Display: Pos Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.pos_flag.display = function(value)
-  if value == "Y" then
-    return "Pos Flag: Pos Applicable (Y)"
-  end
-  if value == "N" then
-    return "Pos Flag: Pos Not Applicable (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.pos_flag.labels = {
+  ["Y"] = "Pos Flag: Pos Applicable (Y)",
+  ["N"] = "Pos Flag: Pos Not Applicable (N)",
+}
 
-  return "Pos Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.pos_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.pos_flag.labels[value] or "Pos Flag: Unknown("..value..")"
 end
 
 -- Dissect: Pos Flag
@@ -3173,66 +3069,30 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.product_type = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.product_type.size = 1
 
 -- Display: Product Type
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.product_type.display = function(value)
-  if value == 1 then
-    return "Product Type: Equity Ordinary Shares (1)"
-  end
-  if value == 2 then
-    return "Product Type: Equity Preference Shares (2)"
-  end
-  if value == 6 then
-    return "Product Type: Equity Rights (6)"
-  end
-  if value == 7 then
-    return "Product Type: Equity Depository Receipt Hdr Ordinary Shares (7)"
-  end
-  if value == 12 then
-    return "Product Type: Equity Depository Receipt Hdr Preference Shares (12)"
-  end
-  if value == 24 then
-    return "Product Type: Equity Spac Shares (24)"
-  end
-  if value == 3 then
-    return "Product Type: Warrant Derivative Warrant Dw (3)"
-  end
-  if value == 11 then
-    return "Product Type: Warrant Callable Bull Bear Contract Cbbc (11)"
-  end
-  if value == 13 then
-    return "Product Type: Warrant Equity Warrant (13)"
-  end
-  if value == 15 then
-    return "Product Type: Warrant Inline Warrant (15)"
-  end
-  if value == 21 then
-    return "Product Type: Warrant Spac Warrants (21)"
-  end
-  if value == 4 then
-    return "Product Type: Bond Debt Security (4)"
-  end
-  if value == 8 then
-    return "Product Type: Trust Real Estate Investment Trust Reit (8)"
-  end
-  if value == 9 then
-    return "Product Type: Trust Other Unit Trusts (9)"
-  end
-  if value == 10 then
-    return "Product Type: Trust Leveraged And Inverse Product Lip (10)"
-  end
-  if value == 16 then
-    return "Product Type: Trust Equity Etf (16)"
-  end
-  if value == 17 then
-    return "Product Type: Trust Fixed Income And Money Market Etf (17)"
-  end
-  if value == 18 then
-    return "Product Type: Trust Commodities Etf (18)"
-  end
-  if value == 99 then
-    return "Product Type: Others None Of The Above (99)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.product_type.labels = {
+  [1] = "Product Type: Equity Ordinary Shares (1)",
+  [2] = "Product Type: Equity Preference Shares (2)",
+  [6] = "Product Type: Equity Rights (6)",
+  [7] = "Product Type: Equity Depository Receipt Hdr Ordinary Shares (7)",
+  [12] = "Product Type: Equity Depository Receipt Hdr Preference Shares (12)",
+  [24] = "Product Type: Equity Spac Shares (24)",
+  [3] = "Product Type: Warrant Derivative Warrant Dw (3)",
+  [11] = "Product Type: Warrant Callable Bull Bear Contract Cbbc (11)",
+  [13] = "Product Type: Warrant Equity Warrant (13)",
+  [15] = "Product Type: Warrant Inline Warrant (15)",
+  [21] = "Product Type: Warrant Spac Warrants (21)",
+  [4] = "Product Type: Bond Debt Security (4)",
+  [8] = "Product Type: Trust Real Estate Investment Trust Reit (8)",
+  [9] = "Product Type: Trust Other Unit Trusts (9)",
+  [10] = "Product Type: Trust Leveraged And Inverse Product Lip (10)",
+  [16] = "Product Type: Trust Equity Etf (16)",
+  [17] = "Product Type: Trust Fixed Income And Money Market Etf (17)",
+  [18] = "Product Type: Trust Commodities Etf (18)",
+  [99] = "Product Type: Others None Of The Above (99)",
+}
 
-  return "Product Type: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.product_type.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -3560,15 +3420,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag.size = 1
 
 -- Display: Short Sell Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag.display = function(value)
-  if value == "Y" then
-    return "Short Sell Flag: Shortsell Allowed (Y)"
-  end
-  if value == "N" then
-    return "Short Sell Flag: Shortsell Not Allowed (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag.labels = {
+  ["Y"] = "Short Sell Flag: Shortsell Allowed (Y)",
+  ["N"] = "Short Sell Flag: Shortsell Not Allowed (N)",
+}
 
-  return "Short Sell Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.short_sell_flag.labels[value] or "Short Sell Flag: Unknown("..value..")"
 end
 
 -- Dissect: Short Sell Flag
@@ -3642,15 +3500,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.side = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.side.size = 2
 
 -- Display: Side
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.side.display = function(value)
-  if value == 0 then
-    return "Side: Bid (0)"
-  end
-  if value == 1 then
-    return "Side: Offer (1)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.side.labels = {
+  [0] = "Side: Bid (0)",
+  [1] = "Side: Offer (1)",
+}
 
-  return "Side: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.side.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -3672,24 +3528,16 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.spread_table_code = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.spread_table_code.size = 2
 
 -- Display: Spread Table Code
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.spread_table_code.display = function(value)
-  if value == "01" then
-    return "Spread Table Code: Part A (01)"
-  end
-  if value == "03" then
-    return "Spread Table Code: Part B (03)"
-  end
-  if value == "04" then
-    return "Spread Table Code: For Inline Warrant Same As Part E Up To And Include Hk 1.00 As Per Sehk (04)"
-  end
-  if value == "05" then
-    return "Spread Table Code: Part D (05)"
-  end
-  if value == "06" then
-    return "Spread Table Code: Part E (06)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.spread_table_code.labels = {
+  ["01"] = "Spread Table Code: Part A (01)",
+  ["03"] = "Spread Table Code: Part B (03)",
+  ["04"] = "Spread Table Code: For Inline Warrant Same As Part E Up To And Include Hk 1.00 As Per Sehk (04)",
+  ["05"] = "Spread Table Code: Part D (05)",
+  ["06"] = "Spread Table Code: Part E (06)",
+}
 
-  return "Spread Table Code: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.spread_table_code.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.spread_table_code.labels[value] or "Spread Table Code: Unknown("..value..")"
 end
 
 -- Dissect: Spread Table Code
@@ -3711,15 +3559,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.stamp_duty_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.stamp_duty_flag.size = 1
 
 -- Display: Stamp Duty Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.stamp_duty_flag.display = function(value)
-  if value == "Y" then
-    return "Stamp Duty Flag: Stamp Duty Required (Y)"
-  end
-  if value == "N" then
-    return "Stamp Duty Flag: Stamp Duty Not Required (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.stamp_duty_flag.labels = {
+  ["Y"] = "Stamp Duty Flag: Stamp Duty Required (Y)",
+  ["N"] = "Stamp Duty Flag: Stamp Duty Not Required (N)",
+}
 
-  return "Stamp Duty Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.stamp_duty_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.stamp_duty_flag.labels[value] or "Stamp Duty Flag: Unknown("..value..")"
 end
 
 -- Dissect: Stamp Duty Flag
@@ -3764,15 +3610,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_market = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_market.size = 2
 
 -- Display: Stock Connect Market
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_market.display = function(value)
-  if value == "SH" then
-    return "Stock Connect Market: Shanghai Stock Exchange (SH)"
-  end
-  if value == "SZ" then
-    return "Stock Connect Market: Shen Zhen Stock Exchange (SZ)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_market.labels = {
+  ["SH"] = "Stock Connect Market: Shanghai Stock Exchange (SH)",
+  ["SZ"] = "Stock Connect Market: Shen Zhen Stock Exchange (SZ)",
+}
 
-  return "Stock Connect Market: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_market.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_market.labels[value] or "Stock Connect Market: Unknown("..value..")"
 end
 
 -- Dissect: Stock Connect Market
@@ -3885,15 +3729,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.suspension_indicator = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.suspension_indicator.size = 1
 
 -- Display: Suspension Indicator
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.suspension_indicator.display = function(value)
-  if value == 2 then
-    return "Suspension Indicator: Trading Halt Or Suspend (2)"
-  end
-  if value == 3 then
-    return "Suspension Indicator: Resume (3)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.suspension_indicator.labels = {
+  [2] = "Suspension Indicator: Trading Halt Or Suspend (2)",
+  [3] = "Suspension Indicator: Resume (3)",
+}
 
-  return "Suspension Indicator: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.suspension_indicator.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.suspension_indicator.labels[value] or "Suspension Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Suspension Indicator
@@ -3961,15 +3803,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_direction = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_direction.size = 2
 
 -- Display: Trading Direction
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_direction.display = function(value)
-  if value == "NB" then
-    return "Trading Direction: Northbound Trading (NB)"
-  end
-  if value == "SB" then
-    return "Trading Direction: Southbound Trading (SB)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_direction.labels = {
+  ["NB"] = "Trading Direction: Northbound Trading (NB)",
+  ["SB"] = "Trading Direction: Southbound Trading (SB)",
+}
 
-  return "Trading Direction: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_direction.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_direction.labels[value] or "Trading Direction: Unknown("..value..")"
 end
 
 -- Dissect: Trading Direction
@@ -3991,15 +3831,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_control_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_control_flag.size = 1
 
 -- Display: Trading Ses Control Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_control_flag.display = function(value)
-  if value == "0" then
-    return "Trading Ses Control Flag: Automatic Default (0)"
-  end
-  if value == "1" then
-    return "Trading Ses Control Flag: Manual Invalidates The Normal Schedule For The Day (1)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_control_flag.labels = {
+  ["0"] = "Trading Ses Control Flag: Automatic Default (0)",
+  ["1"] = "Trading Ses Control Flag: Manual Invalidates The Normal Schedule For The Day (1)",
+}
 
-  return "Trading Ses Control Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_control_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_control_flag.labels[value] or "Trading Ses Control Flag: Unknown("..value..")"
 end
 
 -- Dissect: Trading Ses Control Flag
@@ -4021,30 +3859,18 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_status = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_status.size = 1
 
 -- Display: Trading Ses Status
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_status.display = function(value)
-  if value == 0 then
-    return "Trading Ses Status: Unknown For No (0)"
-  end
-  if value == 10 then
-    return "Trading Ses Status: Halted For Ei (10)"
-  end
-  if value == 20 then
-    return "Trading Ses Status: Pre Open For Pos Oi Nw Rm Ma Bl (20)"
-  end
-  if value == 30 then
-    return "Trading Ses Status: Open For Ct And Oc (30)"
-  end
-  if value == 40 then
-    return "Trading Ses Status: Pre Close For Cas Rp Oi Nw Rc Ma (40)"
-  end
-  if value == 50 then
-    return "Trading Ses Status: Closed For Cl (50)"
-  end
-  if value == 100 then
-    return "Trading Ses Status: Day Closed For Dc (100)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_status.labels = {
+  [0] = "Trading Ses Status: Unknown For No (0)",
+  [10] = "Trading Ses Status: Halted For Ei (10)",
+  [20] = "Trading Ses Status: Pre Open For Pos Oi Nw Rm Ma Bl (20)",
+  [30] = "Trading Ses Status: Open For Ct And Oc (30)",
+  [40] = "Trading Ses Status: Pre Close For Cas Rp Oi Nw Rc Ma (40)",
+  [50] = "Trading Ses Status: Closed For Cl (50)",
+  [100] = "Trading Ses Status: Day Closed For Dc (100)",
+}
 
-  return "Trading Ses Status: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_status.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_ses_status.labels[value] or "Trading Ses Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Ses Status
@@ -4066,57 +3892,27 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_session_sub_id = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_session_sub_id.display = function(value)
-  if value == 100 then
-    return "Trading Session Sub Id: Not Yet Open No (100)"
-  end
-  if value == 1 then
-    return "Trading Session Sub Id: Pos Order Input Oi (1)"
-  end
-  if value == 101 then
-    return "Trading Session Sub Id: Pos No Cancellation Nw (101)"
-  end
-  if value == 108 then
-    return "Trading Session Sub Id: Pos Random Matching Rm (108)"
-  end
-  if value == 2 then
-    return "Trading Session Sub Id: Pos Order Matching Ma (2)"
-  end
-  if value == 7 then
-    return "Trading Session Sub Id: Blocking Bl (7)"
-  end
-  if value == 3 then
-    return "Trading Session Sub Id: Continuous Trading Ct (3)"
-  end
-  if value == 105 then
-    return "Trading Session Sub Id: Cas Reference Price Fixing Rp (105)"
-  end
-  if value == 5 then
-    return "Trading Session Sub Id: Cas Order Input Oi (5)"
-  end
-  if value == 106 then
-    return "Trading Session Sub Id: Cas No Cancellation Nw (106)"
-  end
-  if value == 107 then
-    return "Trading Session Sub Id: Cas Random Close Rc (107)"
-  end
-  if value == 4 then
-    return "Trading Session Sub Id: Cas Order Matching Ma (4)"
-  end
-  if value == 102 then
-    return "Trading Session Sub Id: Exchange Intervention Ei (102)"
-  end
-  if value == 103 then
-    return "Trading Session Sub Id: Close Cl (103)"
-  end
-  if value == 104 then
-    return "Trading Session Sub Id: Order Cancel Oc (104)"
-  end
-  if value == 0 then
-    return "Trading Session Sub Id: Day Close Dc (0)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_session_sub_id.labels = {
+  [100] = "Trading Session Sub Id: Not Yet Open No (100)",
+  [1] = "Trading Session Sub Id: Pos Order Input Oi (1)",
+  [101] = "Trading Session Sub Id: Pos No Cancellation Nw (101)",
+  [108] = "Trading Session Sub Id: Pos Random Matching Rm (108)",
+  [2] = "Trading Session Sub Id: Pos Order Matching Ma (2)",
+  [7] = "Trading Session Sub Id: Blocking Bl (7)",
+  [3] = "Trading Session Sub Id: Continuous Trading Ct (3)",
+  [105] = "Trading Session Sub Id: Cas Reference Price Fixing Rp (105)",
+  [5] = "Trading Session Sub Id: Cas Order Input Oi (5)",
+  [106] = "Trading Session Sub Id: Cas No Cancellation Nw (106)",
+  [107] = "Trading Session Sub Id: Cas Random Close Rc (107)",
+  [4] = "Trading Session Sub Id: Cas Order Matching Ma (4)",
+  [102] = "Trading Session Sub Id: Exchange Intervention Ei (102)",
+  [103] = "Trading Session Sub Id: Close Cl (103)",
+  [104] = "Trading Session Sub Id: Order Cancel Oc (104)",
+  [0] = "Trading Session Sub Id: Day Close Dc (0)",
+}
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_session_sub_id.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_session_sub_id.labels[value] or "Trading Session Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Sub Id
@@ -4167,15 +3963,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.type = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.type.size = 1
 
 -- Display: Type
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.type.display = function(value)
-  if value == "B" then
-    return "Type: Broker Number (B)"
-  end
-  if value == "S" then
-    return "Type: Number Of Spread (S)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.type.labels = {
+  ["B"] = "Type: Broker Number (B)",
+  ["S"] = "Type: Number Of Spread (S)",
+}
 
-  return "Type: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.type.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.type.labels[value] or "Type: Unknown("..value..")"
 end
 
 -- Dissect: Type
@@ -4220,21 +4014,15 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.update_action = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.update_action.size = 1
 
 -- Display: Update Action
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.update_action.display = function(value)
-  if value == 0 then
-    return "Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Update Action: Delete (2)"
-  end
-  if value == 74 then
-    return "Update Action: Orderbook Clear (74)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.update_action.labels = {
+  [0] = "Update Action: New (0)",
+  [1] = "Update Action: Change (1)",
+  [2] = "Update Action: Delete (2)",
+  [74] = "Update Action: Orderbook Clear (74)",
+}
 
-  return "Update Action: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.update_action.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.update_action.labels[value] or "Update Action: Unknown("..value..")"
 end
 
 -- Dissect: Update Action
@@ -4285,15 +4073,13 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.vcm_flag = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.vcm_flag.size = 1
 
 -- Display: Vcm Flag
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.vcm_flag.display = function(value)
-  if value == "Y" then
-    return "Vcm Flag: Vcm Applicable (Y)"
-  end
-  if value == "N" then
-    return "Vcm Flag: Vcm Not Applicable (N)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.vcm_flag.labels = {
+  ["Y"] = "Vcm Flag: Vcm Applicable (Y)",
+  ["N"] = "Vcm Flag: Vcm Not Applicable (N)",
+}
 
-  return "Vcm Flag: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.vcm_flag.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.vcm_flag.labels[value] or "Vcm Flag: Unknown("..value..")"
 end
 
 -- Dissect: Vcm Flag
@@ -4454,18 +4240,14 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_45.warrant_type = {}
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.warrant_type.size = 1
 
 -- Display: Warrant Type
-hkex_hkexsecurities_combinedrefresh_omd_v1_45.warrant_type.display = function(value)
-  if value == "N" then
-    return "Warrant Type: Normal Instrument (N)"
-  end
-  if value == "X" then
-    return "Warrant Type: Exotic Instrument (X)"
-  end
-  if value == "0" then
-    return "Warrant Type: Not Available (0)"
-  end
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.warrant_type.labels = {
+  ["N"] = "Warrant Type: Normal Instrument (N)",
+  ["X"] = "Warrant Type: Exotic Instrument (X)",
+  ["0"] = "Warrant Type: Not Available (0)",
+}
 
-  return "Warrant Type: Unknown("..value..")"
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.warrant_type.display = function(value)
+  return hkex_hkexsecurities_combinedrefresh_omd_v1_45.warrant_type.labels[value] or "Warrant Type: Unknown("..value..")"
 end
 
 -- Dissect: Warrant Type
@@ -6795,106 +6577,38 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.payload = {}
 
 -- Dissect: Payload
+hkex_hkexsecurities_combinedrefresh_omd_v1_45.payload.dispatch = {
+  [33] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.add_odd_lot_order_message.dissect,
+  [30] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.add_order_message.dissect,
+  [53] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.aggregate_order_book_update_message.dissect,
+  [54] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.broker_queue_message.dissect,
+  [62] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.closing_price_message.dissect,
+  [70] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_definition_message.dissect,
+  [71] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_data_message.dissect,
+  [41] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.indicative_equilibrium_price_message.dissect,
+  [22] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_message.dissect,
+  [40] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.nominal_price_message.dissect,
+  [56] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.order_imbalance_message.dissect,
+  [10] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_definition_message.dissect,
+  [11] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.security_definition_message.dissect,
+  [13] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.liquidity_provider_message.dissect,
+  [14] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.currency_rate_message.dissect,
+  [43] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.reference_price_message.dissect,
+  [203] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.refresh_complete_message.dissect,
+  [60] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.statistics_message.dissect,
+  [61] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_turnover_message.dissect,
+  [44] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.yield_message.dissect,
+  [20] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_session_status_message.dissect,
+  [21] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.security_status_message.dissect,
+  [80] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_daily_quota_balance_message.dissect,
+  [81] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_market_turnover_message.dissect,
+  [23] = hkex_hkexsecurities_combinedrefresh_omd_v1_45.vcm_trigger_message.dissect,
+}
+
 hkex_hkexsecurities_combinedrefresh_omd_v1_45.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Add Odd Lot Order Message
-  if msg_type == 33 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.add_odd_lot_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if msg_type == 30 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aggregate Order Book Update Message
-  if msg_type == 53 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broker Queue Message
-  if msg_type == 54 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.broker_queue_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price Message
-  if msg_type == 62 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Definition Message
-  if msg_type == 70 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Data Message
-  if msg_type == 71 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.index_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Equilibrium Price Message
-  if msg_type == 41 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.indicative_equilibrium_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Message
-  if msg_type == 22 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.news_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Nominal Price Message
-  if msg_type == 40 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.nominal_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Imbalance Message
-  if msg_type == 56 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.order_imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Definition Message
-  if msg_type == 10 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Message
-  if msg_type == 11 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.security_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Liquidity Provider Message
-  if msg_type == 13 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.liquidity_provider_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Currency Rate Message
-  if msg_type == 14 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.currency_rate_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Message
-  if msg_type == 43 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.reference_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete Message
-  if msg_type == 203 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.refresh_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if msg_type == 60 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Turnover Message
-  if msg_type == 61 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.market_turnover_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Yield Message
-  if msg_type == 44 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.yield_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if msg_type == 20 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if msg_type == 21 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Connect Daily Quota Balance Message
-  if msg_type == 80 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_daily_quota_balance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Connect Market Turnover Message
-  if msg_type == 81 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.stock_connect_market_turnover_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Vcm Trigger Message
-  if msg_type == 23 then
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_45.vcm_trigger_message.dissect(buffer, offset, packet, parent)
+  local dissect = hkex_hkexsecurities_combinedrefresh_omd_v1_45.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

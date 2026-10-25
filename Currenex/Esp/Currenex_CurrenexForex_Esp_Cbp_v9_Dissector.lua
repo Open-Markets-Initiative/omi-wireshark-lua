@@ -325,42 +325,22 @@ currenex_currenexforex_esp_cbp_v9.message_type = {}
 currenex_currenexforex_esp_cbp_v9.message_type.size = 1
 
 -- Display: Message Type
-currenex_currenexforex_esp_cbp_v9.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Logon (A)"
-  end
-  if value == "B" then
-    return "Message Type: Logout (B)"
-  end
-  if value == "C" then
-    return "Message Type: Heartbeat (C)"
-  end
-  if value == "D" then
-    return "Message Type: Instrument Info (D)"
-  end
-  if value == "E" then
-    return "Message Type: Instrument Info Ack (E)"
-  end
-  if value == "F" then
-    return "Message Type: Subscription Request (F)"
-  end
-  if value == "G" then
-    return "Message Type: Subscription Reply (G)"
-  end
-  if value == "H" then
-    return "Message Type: Price Message (H)"
-  end
-  if value == "I" then
-    return "Message Type: Price Cancel Message (I)"
-  end
-  if value == "J" then
-    return "Message Type: Trade Ticker Message (J)"
-  end
-  if value == "K" then
-    return "Message Type: Reject Message (K)"
-  end
+currenex_currenexforex_esp_cbp_v9.message_type.labels = {
+  ["A"] = "Message Type: Logon (A)",
+  ["B"] = "Message Type: Logout (B)",
+  ["C"] = "Message Type: Heartbeat (C)",
+  ["D"] = "Message Type: Instrument Info (D)",
+  ["E"] = "Message Type: Instrument Info Ack (E)",
+  ["F"] = "Message Type: Subscription Request (F)",
+  ["G"] = "Message Type: Subscription Reply (G)",
+  ["H"] = "Message Type: Price Message (H)",
+  ["I"] = "Message Type: Price Cancel Message (I)",
+  ["J"] = "Message Type: Trade Ticker Message (J)",
+  ["K"] = "Message Type: Reject Message (K)",
+}
 
-  return "Message Type: Unknown("..value..")"
+currenex_currenexforex_esp_cbp_v9.message_type.display = function(value)
+  return currenex_currenexforex_esp_cbp_v9.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1512,50 +1492,24 @@ end
 currenex_currenexforex_esp_cbp_v9.message_body = {}
 
 -- Dissect: Message Body
+currenex_currenexforex_esp_cbp_v9.message_body.dispatch = {
+  ["A"] = currenex_currenexforex_esp_cbp_v9.logon.dissect,
+  ["B"] = currenex_currenexforex_esp_cbp_v9.logout.dissect,
+  ["C"] = currenex_currenexforex_esp_cbp_v9.heartbeat.dissect,
+  ["D"] = currenex_currenexforex_esp_cbp_v9.instrument_info.dissect,
+  ["E"] = currenex_currenexforex_esp_cbp_v9.instrument_info_ack.dissect,
+  ["F"] = currenex_currenexforex_esp_cbp_v9.subscription_request.dissect,
+  ["G"] = currenex_currenexforex_esp_cbp_v9.subscription_reply.dissect,
+  ["H"] = currenex_currenexforex_esp_cbp_v9.price_message.dissect,
+  ["I"] = currenex_currenexforex_esp_cbp_v9.price_cancel_message.dissect,
+  ["J"] = currenex_currenexforex_esp_cbp_v9.trade_ticker_message.dissect,
+  ["K"] = currenex_currenexforex_esp_cbp_v9.reject_message.dissect,
+}
+
 currenex_currenexforex_esp_cbp_v9.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon
-  if message_type == "A" then
-    return currenex_currenexforex_esp_cbp_v9.logon.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout
-  if message_type == "B" then
-    return currenex_currenexforex_esp_cbp_v9.logout.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if message_type == "C" then
-    return currenex_currenexforex_esp_cbp_v9.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info
-  if message_type == "D" then
-    return currenex_currenexforex_esp_cbp_v9.instrument_info.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info Ack
-  if message_type == "E" then
-    return currenex_currenexforex_esp_cbp_v9.instrument_info_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscription Request
-  if message_type == "F" then
-    return currenex_currenexforex_esp_cbp_v9.subscription_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscription Reply
-  if message_type == "G" then
-    return currenex_currenexforex_esp_cbp_v9.subscription_reply.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Message
-  if message_type == "H" then
-    return currenex_currenexforex_esp_cbp_v9.price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Cancel Message
-  if message_type == "I" then
-    return currenex_currenexforex_esp_cbp_v9.price_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Ticker Message
-  if message_type == "J" then
-    return currenex_currenexforex_esp_cbp_v9.trade_ticker_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if message_type == "K" then
-    return currenex_currenexforex_esp_cbp_v9.reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = currenex_currenexforex_esp_cbp_v9.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

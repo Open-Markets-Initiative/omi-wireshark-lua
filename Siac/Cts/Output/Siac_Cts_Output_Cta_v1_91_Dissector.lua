@@ -258,24 +258,16 @@ siac_cts_output_cta_v1_91.administrative_message_type = {}
 siac_cts_output_cta_v1_91.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
-siac_cts_output_cta_v1_91.administrative_message_type.display = function(value)
-  if value == "A" then
-    return "Administrative Message Type: Start Of End Of Day Message (A)"
-  end
-  if value == "B" then
-    return "Administrative Message Type: End Of End Of Day Message (B)"
-  end
-  if value == "C" then
-    return "Administrative Message Type: Start Of Start Of Day Message (C)"
-  end
-  if value == "D" then
-    return "Administrative Message Type: End Of Start Of Day Message (D)"
-  end
-  if value == "H" then
-    return "Administrative Message Type: Administrative Unformatted Message (H)"
-  end
+siac_cts_output_cta_v1_91.administrative_message_type.labels = {
+  ["A"] = "Administrative Message Type: Start Of End Of Day Message (A)",
+  ["B"] = "Administrative Message Type: End Of End Of Day Message (B)",
+  ["C"] = "Administrative Message Type: Start Of Start Of Day Message (C)",
+  ["D"] = "Administrative Message Type: End Of Start Of Day Message (D)",
+  ["H"] = "Administrative Message Type: Administrative Unformatted Message (H)",
+}
 
-  return "Administrative Message Type: Unknown("..value..")"
+siac_cts_output_cta_v1_91.administrative_message_type.display = function(value)
+  return siac_cts_output_cta_v1_91.administrative_message_type.labels[value] or "Administrative Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Administrative Message Type
@@ -528,15 +520,13 @@ siac_cts_output_cta_v1_91.cancel_error_action = {}
 siac_cts_output_cta_v1_91.cancel_error_action.size = 1
 
 -- Display: Cancel Error Action
-siac_cts_output_cta_v1_91.cancel_error_action.display = function(value)
-  if value == "1" then
-    return "Cancel Error Action: Cancel (1)"
-  end
-  if value == "2" then
-    return "Cancel Error Action: Error (2)"
-  end
+siac_cts_output_cta_v1_91.cancel_error_action.labels = {
+  ["1"] = "Cancel Error Action: Cancel (1)",
+  ["2"] = "Cancel Error Action: Error (2)",
+}
 
-  return "Cancel Error Action: Unknown("..value..")"
+siac_cts_output_cta_v1_91.cancel_error_action.display = function(value)
+  return siac_cts_output_cta_v1_91.cancel_error_action.labels[value] or "Cancel Error Action: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Error Action
@@ -728,33 +718,19 @@ siac_cts_output_cta_v1_91.consolidated_high_low_last_indicator = {}
 siac_cts_output_cta_v1_91.consolidated_high_low_last_indicator.size = 1
 
 -- Display: Consolidated High Low Last Indicator
-siac_cts_output_cta_v1_91.consolidated_high_low_last_indicator.display = function(value)
-  if value == "A" then
-    return "Consolidated High Low Last Indicator: None (A)"
-  end
-  if value == "B" then
-    return "Consolidated High Low Last Indicator: High (B)"
-  end
-  if value == "C" then
-    return "Consolidated High Low Last Indicator: Low (C)"
-  end
-  if value == "D" then
-    return "Consolidated High Low Last Indicator: Last (D)"
-  end
-  if value == "E" then
-    return "Consolidated High Low Last Indicator: High Last (E)"
-  end
-  if value == "F" then
-    return "Consolidated High Low Last Indicator: Low Last (F)"
-  end
-  if value == "G" then
-    return "Consolidated High Low Last Indicator: High Low Last (G)"
-  end
-  if value == "H" then
-    return "Consolidated High Low Last Indicator: High Low (H)"
-  end
+siac_cts_output_cta_v1_91.consolidated_high_low_last_indicator.labels = {
+  ["A"] = "Consolidated High Low Last Indicator: None (A)",
+  ["B"] = "Consolidated High Low Last Indicator: High (B)",
+  ["C"] = "Consolidated High Low Last Indicator: Low (C)",
+  ["D"] = "Consolidated High Low Last Indicator: Last (D)",
+  ["E"] = "Consolidated High Low Last Indicator: High Last (E)",
+  ["F"] = "Consolidated High Low Last Indicator: Low Last (F)",
+  ["G"] = "Consolidated High Low Last Indicator: High Low Last (G)",
+  ["H"] = "Consolidated High Low Last Indicator: High Low (H)",
+}
 
-  return "Consolidated High Low Last Indicator: Unknown("..value..")"
+siac_cts_output_cta_v1_91.consolidated_high_low_last_indicator.display = function(value)
+  return siac_cts_output_cta_v1_91.consolidated_high_low_last_indicator.labels[value] or "Consolidated High Low Last Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Consolidated High Low Last Indicator
@@ -776,30 +752,18 @@ siac_cts_output_cta_v1_91.control_message_type = {}
 siac_cts_output_cta_v1_91.control_message_type.size = 1
 
 -- Display: Control Message Type
-siac_cts_output_cta_v1_91.control_message_type.display = function(value)
-  if value == "A" then
-    return "Control Message Type: Start Of Day Message (A)"
-  end
-  if value == "L" then
-    return "Control Message Type: Reset Block Sequence Number Message (L)"
-  end
-  if value == "M" then
-    return "Control Message Type: Start Of Test Cycle Message (M)"
-  end
-  if value == "N" then
-    return "Control Message Type: End Of Test Cycle Message (N)"
-  end
-  if value == "P" then
-    return "Control Message Type: Disaster Recovery Data Center Activation Message (P)"
-  end
-  if value == "T" then
-    return "Control Message Type: Line Integrity Message (T)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Day Message (Z)"
-  end
+siac_cts_output_cta_v1_91.control_message_type.labels = {
+  ["A"] = "Control Message Type: Start Of Day Message (A)",
+  ["L"] = "Control Message Type: Reset Block Sequence Number Message (L)",
+  ["M"] = "Control Message Type: Start Of Test Cycle Message (M)",
+  ["N"] = "Control Message Type: End Of Test Cycle Message (N)",
+  ["P"] = "Control Message Type: Disaster Recovery Data Center Activation Message (P)",
+  ["T"] = "Control Message Type: Line Integrity Message (T)",
+  ["Z"] = "Control Message Type: End Of Day Message (Z)",
+}
 
-  return "Control Message Type: Unknown("..value..")"
+siac_cts_output_cta_v1_91.control_message_type.display = function(value)
+  return siac_cts_output_cta_v1_91.control_message_type.labels[value] or "Control Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Control Message Type
@@ -948,42 +912,22 @@ siac_cts_output_cta_v1_91.financial_status_indicator = {}
 siac_cts_output_cta_v1_91.financial_status_indicator.size = 1
 
 -- Display: Financial Status Indicator
-siac_cts_output_cta_v1_91.financial_status_indicator.display = function(value)
-  if value == "0" then
-    return "Financial Status Indicator: Financial Status Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Financial Status Indicator: Bankrupt (1)"
-  end
-  if value == "2" then
-    return "Financial Status Indicator: Below Continuing Listing Standards (2)"
-  end
-  if value == "3" then
-    return "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)"
-  end
-  if value == "4" then
-    return "Financial Status Indicator: Late Filing (4)"
-  end
-  if value == "5" then
-    return "Financial Status Indicator: Bankrupt And Late Filing (5)"
-  end
-  if value == "6" then
-    return "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)"
-  end
-  if value == "7" then
-    return "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)"
-  end
-  if value == "8" then
-    return "Financial Status Indicator: Creations Suspended (8)"
-  end
-  if value == "9" then
-    return "Financial Status Indicator: Redemptions Suspended (9)"
-  end
-  if value == "A" then
-    return "Financial Status Indicator: Liquidation (A)"
-  end
+siac_cts_output_cta_v1_91.financial_status_indicator.labels = {
+  ["0"] = "Financial Status Indicator: Financial Status Not Applicable (0)",
+  ["1"] = "Financial Status Indicator: Bankrupt (1)",
+  ["2"] = "Financial Status Indicator: Below Continuing Listing Standards (2)",
+  ["3"] = "Financial Status Indicator: Bankrupt And Below Continuing Listing Standards (3)",
+  ["4"] = "Financial Status Indicator: Late Filing (4)",
+  ["5"] = "Financial Status Indicator: Bankrupt And Late Filing (5)",
+  ["6"] = "Financial Status Indicator: Below Continuing Listing Standards And Late Filing (6)",
+  ["7"] = "Financial Status Indicator: Bankrupt Below Continuing Listing Standards And Late Filing (7)",
+  ["8"] = "Financial Status Indicator: Creations Suspended (8)",
+  ["9"] = "Financial Status Indicator: Redemptions Suspended (9)",
+  ["A"] = "Financial Status Indicator: Liquidation (A)",
+}
 
-  return "Financial Status Indicator: Unknown("..value..")"
+siac_cts_output_cta_v1_91.financial_status_indicator.display = function(value)
+  return siac_cts_output_cta_v1_91.financial_status_indicator.labels[value] or "Financial Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Financial Status Indicator
@@ -1228,15 +1172,13 @@ siac_cts_output_cta_v1_91.indices_message_type = {}
 siac_cts_output_cta_v1_91.indices_message_type.size = 1
 
 -- Display: Indices Message Type
-siac_cts_output_cta_v1_91.indices_message_type.display = function(value)
-  if value == "I" then
-    return "Indices Message Type: Index Message (I)"
-  end
-  if value == "Q" then
-    return "Indices Message Type: Bid And Offer Index Message (Q)"
-  end
+siac_cts_output_cta_v1_91.indices_message_type.labels = {
+  ["I"] = "Indices Message Type: Index Message (I)",
+  ["Q"] = "Indices Message Type: Bid And Offer Index Message (Q)",
+}
 
-  return "Indices Message Type: Unknown("..value..")"
+siac_cts_output_cta_v1_91.indices_message_type.display = function(value)
+  return siac_cts_output_cta_v1_91.indices_message_type.labels[value] or "Indices Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Indices Message Type
@@ -1258,21 +1200,15 @@ siac_cts_output_cta_v1_91.instrument_type = {}
 siac_cts_output_cta_v1_91.instrument_type.size = 1
 
 -- Display: Instrument Type
-siac_cts_output_cta_v1_91.instrument_type.display = function(value)
-  if value == "0" then
-    return "Instrument Type: Cta Eligible Equity (0)"
-  end
-  if value == "1" then
-    return "Instrument Type: Local Issue (1)"
-  end
-  if value == "2" then
-    return "Instrument Type: Corporate Bond (2)"
-  end
-  if value == "3" then
-    return "Instrument Type: Government Bond (3)"
-  end
+siac_cts_output_cta_v1_91.instrument_type.labels = {
+  ["0"] = "Instrument Type: Cta Eligible Equity (0)",
+  ["1"] = "Instrument Type: Local Issue (1)",
+  ["2"] = "Instrument Type: Corporate Bond (2)",
+  ["3"] = "Instrument Type: Government Bond (3)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+siac_cts_output_cta_v1_91.instrument_type.display = function(value)
+  return siac_cts_output_cta_v1_91.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -1294,63 +1230,29 @@ siac_cts_output_cta_v1_91.last_participant_id = {}
 siac_cts_output_cta_v1_91.last_participant_id.size = 1
 
 -- Display: Last Participant Id
-siac_cts_output_cta_v1_91.last_participant_id.display = function(value)
-  if value == "A" then
-    return "Last Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Last Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Last Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Last Participant Id: Finra Adf (D)"
-  end
-  if value == "I" then
-    return "Last Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Last Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Last Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Last Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Last Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Last Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Last Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "Last Participant Id: Cts (S)"
-  end
-  if value == "T" then
-    return "Last Participant Id: Nasdaq (T)"
-  end
-  if value == "V" then
-    return "Last Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Last Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Last Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Last Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Last Participant Id: Cboe Bzx (Z)"
-  end
+siac_cts_output_cta_v1_91.last_participant_id.labels = {
+  ["A"] = "Last Participant Id: Nyse American (A)",
+  ["B"] = "Last Participant Id: Nasdaq Bx (B)",
+  ["C"] = "Last Participant Id: Nyse National (C)",
+  ["D"] = "Last Participant Id: Finra Adf (D)",
+  ["I"] = "Last Participant Id: Ise (I)",
+  ["J"] = "Last Participant Id: Cboe Edga (J)",
+  ["K"] = "Last Participant Id: Cboe Edgx (K)",
+  ["L"] = "Last Participant Id: Ltse (L)",
+  ["M"] = "Last Participant Id: Nyse Chicago (M)",
+  ["N"] = "Last Participant Id: Nyse (N)",
+  ["P"] = "Last Participant Id: Nyse Arca (P)",
+  ["S"] = "Last Participant Id: Cts (S)",
+  ["T"] = "Last Participant Id: Nasdaq (T)",
+  ["V"] = "Last Participant Id: Iex (V)",
+  ["W"] = "Last Participant Id: Cbsx (W)",
+  ["X"] = "Last Participant Id: Nasdaq Psx (X)",
+  ["Y"] = "Last Participant Id: Cboe Byx (Y)",
+  ["Z"] = "Last Participant Id: Cboe Bzx (Z)",
+}
 
-  return "Last Participant Id: Unknown("..value..")"
+siac_cts_output_cta_v1_91.last_participant_id.display = function(value)
+  return siac_cts_output_cta_v1_91.last_participant_id.labels[value] or "Last Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Last Participant Id
@@ -1516,24 +1418,16 @@ siac_cts_output_cta_v1_91.market_status_message_type = {}
 siac_cts_output_cta_v1_91.market_status_message_type.size = 1
 
 -- Display: Market Status Message Type
-siac_cts_output_cta_v1_91.market_status_message_type.display = function(value)
-  if value == "K" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (K)"
-  end
-  if value == "L" then
-    return "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)"
-  end
-  if value == "N" then
-    return "Market Status Message Type: Approximate Adjusted Volume Market Center Message (N)"
-  end
-  if value == "O" then
-    return "Market Status Message Type: Approximate Trades And Total Dollar Value Message (O)"
-  end
-  if value == "P" then
-    return "Market Status Message Type: Crossing Session Summary Message (P)"
-  end
+siac_cts_output_cta_v1_91.market_status_message_type.labels = {
+  ["K"] = "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (K)",
+  ["L"] = "Market Status Message Type: Market Wide Circuit Breaker Status Message (L)",
+  ["N"] = "Market Status Message Type: Approximate Adjusted Volume Market Center Message (N)",
+  ["O"] = "Market Status Message Type: Approximate Trades And Total Dollar Value Message (O)",
+  ["P"] = "Market Status Message Type: Crossing Session Summary Message (P)",
+}
 
-  return "Market Status Message Type: Unknown("..value..")"
+siac_cts_output_cta_v1_91.market_status_message_type.display = function(value)
+  return siac_cts_output_cta_v1_91.market_status_message_type.labels[value] or "Market Status Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Market Status Message Type
@@ -1591,30 +1485,18 @@ siac_cts_output_cta_v1_91.message_category = {}
 siac_cts_output_cta_v1_91.message_category.size = 1
 
 -- Display: Message Category
-siac_cts_output_cta_v1_91.message_category.display = function(value)
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
-  if value == "I" then
-    return "Message Category: Indices (I)"
-  end
-  if value == "M" then
-    return "Message Category: Market Status (M)"
-  end
-  if value == "P" then
-    return "Message Category: Prior Day (P)"
-  end
-  if value == "S" then
-    return "Message Category: Summary (S)"
-  end
-  if value == "T" then
-    return "Message Category: Trade (T)"
-  end
+siac_cts_output_cta_v1_91.message_category.labels = {
+  ["A"] = "Message Category: Administrative (A)",
+  ["C"] = "Message Category: Control (C)",
+  ["I"] = "Message Category: Indices (I)",
+  ["M"] = "Message Category: Market Status (M)",
+  ["P"] = "Message Category: Prior Day (P)",
+  ["S"] = "Message Category: Summary (S)",
+  ["T"] = "Message Category: Trade (T)",
+}
 
-  return "Message Category: Unknown("..value..")"
+siac_cts_output_cta_v1_91.message_category.display = function(value)
+  return siac_cts_output_cta_v1_91.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -1942,63 +1824,29 @@ siac_cts_output_cta_v1_91.participant_id = {}
 siac_cts_output_cta_v1_91.participant_id.size = 1
 
 -- Display: Participant Id
-siac_cts_output_cta_v1_91.participant_id.display = function(value)
-  if value == "A" then
-    return "Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Participant Id: Finra Adf (D)"
-  end
-  if value == "I" then
-    return "Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Participant Id: Cboe Edgx (K)"
-  end
-  if value == "L" then
-    return "Participant Id: Ltse (L)"
-  end
-  if value == "M" then
-    return "Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Participant Id: Nyse Arca (P)"
-  end
-  if value == "S" then
-    return "Participant Id: Cts (S)"
-  end
-  if value == "T" then
-    return "Participant Id: Nasdaq (T)"
-  end
-  if value == "V" then
-    return "Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Participant Id: Cboe Bzx (Z)"
-  end
+siac_cts_output_cta_v1_91.participant_id.labels = {
+  ["A"] = "Participant Id: Nyse American (A)",
+  ["B"] = "Participant Id: Nasdaq Bx (B)",
+  ["C"] = "Participant Id: Nyse National (C)",
+  ["D"] = "Participant Id: Finra Adf (D)",
+  ["I"] = "Participant Id: Ise (I)",
+  ["J"] = "Participant Id: Cboe Edga (J)",
+  ["K"] = "Participant Id: Cboe Edgx (K)",
+  ["L"] = "Participant Id: Ltse (L)",
+  ["M"] = "Participant Id: Nyse Chicago (M)",
+  ["N"] = "Participant Id: Nyse (N)",
+  ["P"] = "Participant Id: Nyse Arca (P)",
+  ["S"] = "Participant Id: Cts (S)",
+  ["T"] = "Participant Id: Nasdaq (T)",
+  ["V"] = "Participant Id: Iex (V)",
+  ["W"] = "Participant Id: Cbsx (W)",
+  ["X"] = "Participant Id: Nasdaq Psx (X)",
+  ["Y"] = "Participant Id: Cboe Byx (Y)",
+  ["Z"] = "Participant Id: Cboe Bzx (Z)",
+}
 
-  return "Participant Id: Unknown("..value..")"
+siac_cts_output_cta_v1_91.participant_id.display = function(value)
+  return siac_cts_output_cta_v1_91.participant_id.labels[value] or "Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Participant Id
@@ -2020,60 +1868,28 @@ siac_cts_output_cta_v1_91.participant_open_high_low_last_indicator = {}
 siac_cts_output_cta_v1_91.participant_open_high_low_last_indicator.size = 1
 
 -- Display: Participant Open High Low Last Indicator
-siac_cts_output_cta_v1_91.participant_open_high_low_last_indicator.display = function(value)
-  if value == "A" then
-    return "Participant Open High Low Last Indicator: None (A)"
-  end
-  if value == "B" then
-    return "Participant Open High Low Last Indicator: High (B)"
-  end
-  if value == "C" then
-    return "Participant Open High Low Last Indicator: Low (C)"
-  end
-  if value == "D" then
-    return "Participant Open High Low Last Indicator: Last (D)"
-  end
-  if value == "E" then
-    return "Participant Open High Low Last Indicator: High Last (E)"
-  end
-  if value == "F" then
-    return "Participant Open High Low Last Indicator: Low Last (F)"
-  end
-  if value == "G" then
-    return "Participant Open High Low Last Indicator: Unused (G)"
-  end
-  if value == "H" then
-    return "Participant Open High Low Last Indicator: Open (H)"
-  end
-  if value == "I" then
-    return "Participant Open High Low Last Indicator: Open High (I)"
-  end
-  if value == "J" then
-    return "Participant Open High Low Last Indicator: Open Low (J)"
-  end
-  if value == "K" then
-    return "Participant Open High Low Last Indicator: Open High Low Last (K)"
-  end
-  if value == "L" then
-    return "Participant Open High Low Last Indicator: Open Last (L)"
-  end
-  if value == "M" then
-    return "Participant Open High Low Last Indicator: Open High Low (M)"
-  end
-  if value == "N" then
-    return "Participant Open High Low Last Indicator: Open High Last (N)"
-  end
-  if value == "O" then
-    return "Participant Open High Low Last Indicator: Open Low Last (O)"
-  end
-  if value == "P" then
-    return "Participant Open High Low Last Indicator: High Low (P)"
-  end
-  if value == "Q" then
-    return "Participant Open High Low Last Indicator: High Low Last (Q)"
-  end
+siac_cts_output_cta_v1_91.participant_open_high_low_last_indicator.labels = {
+  ["A"] = "Participant Open High Low Last Indicator: None (A)",
+  ["B"] = "Participant Open High Low Last Indicator: High (B)",
+  ["C"] = "Participant Open High Low Last Indicator: Low (C)",
+  ["D"] = "Participant Open High Low Last Indicator: Last (D)",
+  ["E"] = "Participant Open High Low Last Indicator: High Last (E)",
+  ["F"] = "Participant Open High Low Last Indicator: Low Last (F)",
+  ["G"] = "Participant Open High Low Last Indicator: Unused (G)",
+  ["H"] = "Participant Open High Low Last Indicator: Open (H)",
+  ["I"] = "Participant Open High Low Last Indicator: Open High (I)",
+  ["J"] = "Participant Open High Low Last Indicator: Open Low (J)",
+  ["K"] = "Participant Open High Low Last Indicator: Open High Low Last (K)",
+  ["L"] = "Participant Open High Low Last Indicator: Open Last (L)",
+  ["M"] = "Participant Open High Low Last Indicator: Open High Low (M)",
+  ["N"] = "Participant Open High Low Last Indicator: Open High Last (N)",
+  ["O"] = "Participant Open High Low Last Indicator: Open Low Last (O)",
+  ["P"] = "Participant Open High Low Last Indicator: High Low (P)",
+  ["Q"] = "Participant Open High Low Last Indicator: High Low Last (Q)",
+}
 
-  return "Participant Open High Low Last Indicator: Unknown("..value..")"
+siac_cts_output_cta_v1_91.participant_open_high_low_last_indicator.display = function(value)
+  return siac_cts_output_cta_v1_91.participant_open_high_low_last_indicator.labels[value] or "Participant Open High Low Last Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Participant Open High Low Last Indicator
@@ -2170,57 +1986,27 @@ siac_cts_output_cta_v1_91.primary_listing_market_participant_id = {}
 siac_cts_output_cta_v1_91.primary_listing_market_participant_id.size = 1
 
 -- Display: Primary Listing Market Participant Id
-siac_cts_output_cta_v1_91.primary_listing_market_participant_id.display = function(value)
-  if value == "A" then
-    return "Primary Listing Market Participant Id: Nyse American (A)"
-  end
-  if value == "B" then
-    return "Primary Listing Market Participant Id: Nasdaq Bx (B)"
-  end
-  if value == "C" then
-    return "Primary Listing Market Participant Id: Nyse National (C)"
-  end
-  if value == "D" then
-    return "Primary Listing Market Participant Id: Finra Adf (D)"
-  end
-  if value == "I" then
-    return "Primary Listing Market Participant Id: Ise (I)"
-  end
-  if value == "J" then
-    return "Primary Listing Market Participant Id: Cboe Edga (J)"
-  end
-  if value == "K" then
-    return "Primary Listing Market Participant Id: Cboe Edgx (K)"
-  end
-  if value == "M" then
-    return "Primary Listing Market Participant Id: Nyse Chicago (M)"
-  end
-  if value == "N" then
-    return "Primary Listing Market Participant Id: Nyse (N)"
-  end
-  if value == "P" then
-    return "Primary Listing Market Participant Id: Nyse Arca (P)"
-  end
-  if value == "T" then
-    return "Primary Listing Market Participant Id: Nasdaq (T)"
-  end
-  if value == "V" then
-    return "Primary Listing Market Participant Id: Iex (V)"
-  end
-  if value == "W" then
-    return "Primary Listing Market Participant Id: Cbsx (W)"
-  end
-  if value == "X" then
-    return "Primary Listing Market Participant Id: Nasdaq Psx (X)"
-  end
-  if value == "Y" then
-    return "Primary Listing Market Participant Id: Cboe Byx (Y)"
-  end
-  if value == "Z" then
-    return "Primary Listing Market Participant Id: Cboe Bzx (Z)"
-  end
+siac_cts_output_cta_v1_91.primary_listing_market_participant_id.labels = {
+  ["A"] = "Primary Listing Market Participant Id: Nyse American (A)",
+  ["B"] = "Primary Listing Market Participant Id: Nasdaq Bx (B)",
+  ["C"] = "Primary Listing Market Participant Id: Nyse National (C)",
+  ["D"] = "Primary Listing Market Participant Id: Finra Adf (D)",
+  ["I"] = "Primary Listing Market Participant Id: Ise (I)",
+  ["J"] = "Primary Listing Market Participant Id: Cboe Edga (J)",
+  ["K"] = "Primary Listing Market Participant Id: Cboe Edgx (K)",
+  ["M"] = "Primary Listing Market Participant Id: Nyse Chicago (M)",
+  ["N"] = "Primary Listing Market Participant Id: Nyse (N)",
+  ["P"] = "Primary Listing Market Participant Id: Nyse Arca (P)",
+  ["T"] = "Primary Listing Market Participant Id: Nasdaq (T)",
+  ["V"] = "Primary Listing Market Participant Id: Iex (V)",
+  ["W"] = "Primary Listing Market Participant Id: Cbsx (W)",
+  ["X"] = "Primary Listing Market Participant Id: Nasdaq Psx (X)",
+  ["Y"] = "Primary Listing Market Participant Id: Cboe Byx (Y)",
+  ["Z"] = "Primary Listing Market Participant Id: Cboe Bzx (Z)",
+}
 
-  return "Primary Listing Market Participant Id: Unknown("..value..")"
+siac_cts_output_cta_v1_91.primary_listing_market_participant_id.display = function(value)
+  return siac_cts_output_cta_v1_91.primary_listing_market_participant_id.labels[value] or "Primary Listing Market Participant Id: Unknown("..value..")"
 end
 
 -- Dissect: Primary Listing Market Participant Id
@@ -2242,18 +2028,14 @@ siac_cts_output_cta_v1_91.prior_day_message_type = {}
 siac_cts_output_cta_v1_91.prior_day_message_type.size = 1
 
 -- Display: Prior Day Message Type
-siac_cts_output_cta_v1_91.prior_day_message_type.display = function(value)
-  if value == "C" then
-    return "Prior Day Message Type: Prior Day Trade Correction Message (C)"
-  end
-  if value == "T" then
-    return "Prior Day Message Type: Prior Day Trade Message (T)"
-  end
-  if value == "X" then
-    return "Prior Day Message Type: Prior Day Trade Cancel Error Message (X)"
-  end
+siac_cts_output_cta_v1_91.prior_day_message_type.labels = {
+  ["C"] = "Prior Day Message Type: Prior Day Trade Correction Message (C)",
+  ["T"] = "Prior Day Message Type: Prior Day Trade Message (T)",
+  ["X"] = "Prior Day Message Type: Prior Day Trade Cancel Error Message (X)",
+}
 
-  return "Prior Day Message Type: Unknown("..value..")"
+siac_cts_output_cta_v1_91.prior_day_message_type.display = function(value)
+  return siac_cts_output_cta_v1_91.prior_day_message_type.labels[value] or "Prior Day Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Prior Day Message Type
@@ -2298,15 +2080,13 @@ siac_cts_output_cta_v1_91.retransmission_indicator = {}
 siac_cts_output_cta_v1_91.retransmission_indicator.size = 1
 
 -- Display: Retransmission Indicator
-siac_cts_output_cta_v1_91.retransmission_indicator.display = function(value)
-  if value == "O" then
-    return "Retransmission Indicator: Original (O)"
-  end
-  if value == "V" then
-    return "Retransmission Indicator: Retransmitted (V)"
-  end
+siac_cts_output_cta_v1_91.retransmission_indicator.labels = {
+  ["O"] = "Retransmission Indicator: Original (O)",
+  ["V"] = "Retransmission Indicator: Retransmitted (V)",
+}
 
-  return "Retransmission Indicator: Unknown("..value..")"
+siac_cts_output_cta_v1_91.retransmission_indicator.display = function(value)
+  return siac_cts_output_cta_v1_91.retransmission_indicator.labels[value] or "Retransmission Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Retransmission Indicator
@@ -2696,15 +2476,13 @@ siac_cts_output_cta_v1_91.stop_stock_indicator = {}
 siac_cts_output_cta_v1_91.stop_stock_indicator.size = 1
 
 -- Display: Stop Stock Indicator
-siac_cts_output_cta_v1_91.stop_stock_indicator.display = function(value)
-  if value == "0" then
-    return "Stop Stock Indicator: Not Applicable (0)"
-  end
-  if value == "1" then
-    return "Stop Stock Indicator: Stop Stock (1)"
-  end
+siac_cts_output_cta_v1_91.stop_stock_indicator.labels = {
+  ["0"] = "Stop Stock Indicator: Not Applicable (0)",
+  ["1"] = "Stop Stock Indicator: Stop Stock (1)",
+}
 
-  return "Stop Stock Indicator: Unknown("..value..")"
+siac_cts_output_cta_v1_91.stop_stock_indicator.display = function(value)
+  return siac_cts_output_cta_v1_91.stop_stock_indicator.labels[value] or "Stop Stock Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Stop Stock Indicator
@@ -2726,21 +2504,15 @@ siac_cts_output_cta_v1_91.summary_message_type = {}
 siac_cts_output_cta_v1_91.summary_message_type.size = 1
 
 -- Display: Summary Message Type
-siac_cts_output_cta_v1_91.summary_message_type.display = function(value)
-  if value == "A" then
-    return "Summary Message Type: Consolidated Start Of Day Summary Message (A)"
-  end
-  if value == "B" then
-    return "Summary Message Type: Participant Start Of Day Summary Message (B)"
-  end
-  if value == "C" then
-    return "Summary Message Type: Consolidated End Of Day Summary Message (C)"
-  end
-  if value == "D" then
-    return "Summary Message Type: Participant End Of Day Summary Message (D)"
-  end
+siac_cts_output_cta_v1_91.summary_message_type.labels = {
+  ["A"] = "Summary Message Type: Consolidated Start Of Day Summary Message (A)",
+  ["B"] = "Summary Message Type: Participant Start Of Day Summary Message (B)",
+  ["C"] = "Summary Message Type: Consolidated End Of Day Summary Message (C)",
+  ["D"] = "Summary Message Type: Participant End Of Day Summary Message (D)",
+}
 
-  return "Summary Message Type: Unknown("..value..")"
+siac_cts_output_cta_v1_91.summary_message_type.display = function(value)
+  return siac_cts_output_cta_v1_91.summary_message_type.labels[value] or "Summary Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Summary Message Type
@@ -2893,27 +2665,17 @@ siac_cts_output_cta_v1_91.trade_message_type = {}
 siac_cts_output_cta_v1_91.trade_message_type.size = 1
 
 -- Display: Trade Message Type
-siac_cts_output_cta_v1_91.trade_message_type.display = function(value)
-  if value == "A" then
-    return "Trade Message Type: Auction Status Message (A)"
-  end
-  if value == "C" then
-    return "Trade Message Type: Trade Correction Message (C)"
-  end
-  if value == "L" then
-    return "Trade Message Type: Long Trade Message (L)"
-  end
-  if value == "S" then
-    return "Trade Message Type: Trading Status Message (S)"
-  end
-  if value == "T" then
-    return "Trade Message Type: Short Trade Message (T)"
-  end
-  if value == "X" then
-    return "Trade Message Type: Trade Cancel Error Message (X)"
-  end
+siac_cts_output_cta_v1_91.trade_message_type.labels = {
+  ["A"] = "Trade Message Type: Auction Status Message (A)",
+  ["C"] = "Trade Message Type: Trade Correction Message (C)",
+  ["L"] = "Trade Message Type: Long Trade Message (L)",
+  ["S"] = "Trade Message Type: Trading Status Message (S)",
+  ["T"] = "Trade Message Type: Short Trade Message (T)",
+  ["X"] = "Trade Message Type: Trade Cancel Error Message (X)",
+}
 
-  return "Trade Message Type: Unknown("..value..")"
+siac_cts_output_cta_v1_91.trade_message_type.display = function(value)
+  return siac_cts_output_cta_v1_91.trade_message_type.labels[value] or "Trade Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Message Type
@@ -3097,15 +2859,13 @@ siac_cts_output_cta_v1_91.trade_through_exempt_indicator = {}
 siac_cts_output_cta_v1_91.trade_through_exempt_indicator.size = 1
 
 -- Display: Trade Through Exempt Indicator
-siac_cts_output_cta_v1_91.trade_through_exempt_indicator.display = function(value)
-  if value == "0" then
-    return "Trade Through Exempt Indicator: Not A Trade Through Exemption (0)"
-  end
-  if value == "1" then
-    return "Trade Through Exempt Indicator: Trade Through Exemption (1)"
-  end
+siac_cts_output_cta_v1_91.trade_through_exempt_indicator.labels = {
+  ["0"] = "Trade Through Exempt Indicator: Not A Trade Through Exemption (0)",
+  ["1"] = "Trade Through Exempt Indicator: Trade Through Exemption (1)",
+}
 
-  return "Trade Through Exempt Indicator: Unknown("..value..")"
+siac_cts_output_cta_v1_91.trade_through_exempt_indicator.display = function(value)
+  return siac_cts_output_cta_v1_91.trade_through_exempt_indicator.labels[value] or "Trade Through Exempt Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Through Exempt Indicator
@@ -4408,30 +4168,19 @@ end
 siac_cts_output_cta_v1_91.trade_message_payload = {}
 
 -- Dissect: Trade Message Payload
+siac_cts_output_cta_v1_91.trade_message_payload.dispatch = {
+  ["A"] = siac_cts_output_cta_v1_91.auction_status_message.dissect,
+  ["C"] = siac_cts_output_cta_v1_91.trade_correction_message.dissect,
+  ["L"] = siac_cts_output_cta_v1_91.long_trade_message.dissect,
+  ["S"] = siac_cts_output_cta_v1_91.trading_status_message.dissect,
+  ["T"] = siac_cts_output_cta_v1_91.short_trade_message.dissect,
+  ["X"] = siac_cts_output_cta_v1_91.trade_cancel_error_message.dissect,
+}
+
 siac_cts_output_cta_v1_91.trade_message_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  -- Dissect Auction Status Message
-  if trade_message_type == "A" then
-    return siac_cts_output_cta_v1_91.auction_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if trade_message_type == "C" then
-    return siac_cts_output_cta_v1_91.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Trade Message
-  if trade_message_type == "L" then
-    return siac_cts_output_cta_v1_91.long_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if trade_message_type == "S" then
-    return siac_cts_output_cta_v1_91.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Trade Message
-  if trade_message_type == "T" then
-    return siac_cts_output_cta_v1_91.short_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error Message
-  if trade_message_type == "X" then
-    return siac_cts_output_cta_v1_91.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cts_output_cta_v1_91.trade_message_payload.dispatch[trade_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4862,22 +4611,17 @@ end
 siac_cts_output_cta_v1_91.summary_message_payload = {}
 
 -- Dissect: Summary Message Payload
+siac_cts_output_cta_v1_91.summary_message_payload.dispatch = {
+  ["A"] = siac_cts_output_cta_v1_91.consolidated_start_of_day_summary_message.dissect,
+  ["B"] = siac_cts_output_cta_v1_91.participant_start_of_day_summary_message.dissect,
+  ["C"] = siac_cts_output_cta_v1_91.consolidated_end_of_day_summary_message.dissect,
+  ["D"] = siac_cts_output_cta_v1_91.participant_end_of_day_summary_message.dissect,
+}
+
 siac_cts_output_cta_v1_91.summary_message_payload.dissect = function(buffer, offset, packet, parent, summary_message_type)
-  -- Dissect Consolidated Start Of Day Summary Message
-  if summary_message_type == "A" then
-    return siac_cts_output_cta_v1_91.consolidated_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant Start Of Day Summary Message
-  if summary_message_type == "B" then
-    return siac_cts_output_cta_v1_91.participant_start_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated End Of Day Summary Message
-  if summary_message_type == "C" then
-    return siac_cts_output_cta_v1_91.consolidated_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant End Of Day Summary Message
-  if summary_message_type == "D" then
-    return siac_cts_output_cta_v1_91.participant_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cts_output_cta_v1_91.summary_message_payload.dispatch[summary_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5220,18 +4964,16 @@ end
 siac_cts_output_cta_v1_91.prior_day_message_payload = {}
 
 -- Dissect: Prior Day Message Payload
+siac_cts_output_cta_v1_91.prior_day_message_payload.dispatch = {
+  ["C"] = siac_cts_output_cta_v1_91.prior_day_trade_correction_message.dissect,
+  ["T"] = siac_cts_output_cta_v1_91.prior_day_trade_message.dissect,
+  ["X"] = siac_cts_output_cta_v1_91.prior_day_trade_cancel_error_message.dissect,
+}
+
 siac_cts_output_cta_v1_91.prior_day_message_payload.dissect = function(buffer, offset, packet, parent, prior_day_message_type)
-  -- Dissect Prior Day Trade Correction Message
-  if prior_day_message_type == "C" then
-    return siac_cts_output_cta_v1_91.prior_day_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Prior Day Trade Message
-  if prior_day_message_type == "T" then
-    return siac_cts_output_cta_v1_91.prior_day_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Prior Day Trade Cancel Error Message
-  if prior_day_message_type == "X" then
-    return siac_cts_output_cta_v1_91.prior_day_trade_cancel_error_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cts_output_cta_v1_91.prior_day_message_payload.dispatch[prior_day_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5691,26 +5433,18 @@ end
 siac_cts_output_cta_v1_91.market_status_message_payload = {}
 
 -- Dissect: Market Status Message Payload
+siac_cts_output_cta_v1_91.market_status_message_payload.dispatch = {
+  ["K"] = siac_cts_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect,
+  ["L"] = siac_cts_output_cta_v1_91.market_wide_circuit_breaker_status_message.dissect,
+  ["N"] = siac_cts_output_cta_v1_91.approximate_adjusted_volume_market_center_message.dissect,
+  ["O"] = siac_cts_output_cta_v1_91.approximate_trades_and_total_dollar_value_message.dissect,
+  ["P"] = siac_cts_output_cta_v1_91.crossing_session_summary_message.dissect,
+}
+
 siac_cts_output_cta_v1_91.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
-  -- Dissect Market Wide Circuit Breaker Decline Level Status Message
-  if market_status_message_type == "K" then
-    return siac_cts_output_cta_v1_91.market_wide_circuit_breaker_decline_level_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Status Message
-  if market_status_message_type == "L" then
-    return siac_cts_output_cta_v1_91.market_wide_circuit_breaker_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Approximate Adjusted Volume Market Center Message
-  if market_status_message_type == "N" then
-    return siac_cts_output_cta_v1_91.approximate_adjusted_volume_market_center_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Approximate Trades And Total Dollar Value Message
-  if market_status_message_type == "O" then
-    return siac_cts_output_cta_v1_91.approximate_trades_and_total_dollar_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Crossing Session Summary Message
-  if market_status_message_type == "P" then
-    return siac_cts_output_cta_v1_91.crossing_session_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cts_output_cta_v1_91.market_status_message_payload.dispatch[market_status_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5905,14 +5639,15 @@ end
 siac_cts_output_cta_v1_91.indices_message_payload = {}
 
 -- Dissect: Indices Message Payload
+siac_cts_output_cta_v1_91.indices_message_payload.dispatch = {
+  ["I"] = siac_cts_output_cta_v1_91.index_message.dissect,
+  ["Q"] = siac_cts_output_cta_v1_91.bid_and_offer_index_message.dissect,
+}
+
 siac_cts_output_cta_v1_91.indices_message_payload.dissect = function(buffer, offset, packet, parent, indices_message_type)
-  -- Dissect Index Message
-  if indices_message_type == "I" then
-    return siac_cts_output_cta_v1_91.index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid And Offer Index Message
-  if indices_message_type == "Q" then
-    return siac_cts_output_cta_v1_91.bid_and_offer_index_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cts_output_cta_v1_91.indices_message_payload.dispatch[indices_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6367,34 +6102,20 @@ end
 siac_cts_output_cta_v1_91.control_message_payload = {}
 
 -- Dissect: Control Message Payload
+siac_cts_output_cta_v1_91.control_message_payload.dispatch = {
+  ["A"] = siac_cts_output_cta_v1_91.start_of_day_message.dissect,
+  ["L"] = siac_cts_output_cta_v1_91.reset_block_sequence_number_message.dissect,
+  ["M"] = siac_cts_output_cta_v1_91.start_of_test_cycle_message.dissect,
+  ["N"] = siac_cts_output_cta_v1_91.end_of_test_cycle_message.dissect,
+  ["P"] = siac_cts_output_cta_v1_91.disaster_recovery_data_center_activation_message.dissect,
+  ["T"] = siac_cts_output_cta_v1_91.line_integrity_message.dissect,
+  ["Z"] = siac_cts_output_cta_v1_91.end_of_day_message.dissect,
+}
+
 siac_cts_output_cta_v1_91.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Dissect Start Of Day Message
-  if control_message_type == "A" then
-    return siac_cts_output_cta_v1_91.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Block Sequence Number Message
-  if control_message_type == "L" then
-    return siac_cts_output_cta_v1_91.reset_block_sequence_number_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Test Cycle Message
-  if control_message_type == "M" then
-    return siac_cts_output_cta_v1_91.start_of_test_cycle_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Test Cycle Message
-  if control_message_type == "N" then
-    return siac_cts_output_cta_v1_91.end_of_test_cycle_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disaster Recovery Data Center Activation Message
-  if control_message_type == "P" then
-    return siac_cts_output_cta_v1_91.disaster_recovery_data_center_activation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Line Integrity Message
-  if control_message_type == "T" then
-    return siac_cts_output_cta_v1_91.line_integrity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if control_message_type == "Z" then
-    return siac_cts_output_cta_v1_91.end_of_day_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cts_output_cta_v1_91.control_message_payload.dispatch[control_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6741,26 +6462,18 @@ end
 siac_cts_output_cta_v1_91.administrative_message_payload = {}
 
 -- Dissect: Administrative Message Payload
+siac_cts_output_cta_v1_91.administrative_message_payload.dispatch = {
+  ["A"] = siac_cts_output_cta_v1_91.start_of_end_of_day_message.dissect,
+  ["B"] = siac_cts_output_cta_v1_91.end_of_end_of_day_message.dissect,
+  ["C"] = siac_cts_output_cta_v1_91.start_of_start_of_day_message.dissect,
+  ["D"] = siac_cts_output_cta_v1_91.end_of_start_of_day_message.dissect,
+  ["H"] = siac_cts_output_cta_v1_91.administrative_unformatted_message.dissect,
+}
+
 siac_cts_output_cta_v1_91.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect Start Of End Of Day Message
-  if administrative_message_type == "A" then
-    return siac_cts_output_cta_v1_91.start_of_end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of End Of Day Message
-  if administrative_message_type == "B" then
-    return siac_cts_output_cta_v1_91.end_of_end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Start Of Day Message
-  if administrative_message_type == "C" then
-    return siac_cts_output_cta_v1_91.start_of_start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Start Of Day Message
-  if administrative_message_type == "D" then
-    return siac_cts_output_cta_v1_91.end_of_start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Administrative Unformatted Message
-  if administrative_message_type == "H" then
-    return siac_cts_output_cta_v1_91.administrative_unformatted_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cts_output_cta_v1_91.administrative_message_payload.dispatch[administrative_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6823,34 +6536,20 @@ end
 siac_cts_output_cta_v1_91.category_payload = {}
 
 -- Dissect: Category Payload
+siac_cts_output_cta_v1_91.category_payload.dispatch = {
+  ["A"] = siac_cts_output_cta_v1_91.administrative_message.dissect,
+  ["C"] = siac_cts_output_cta_v1_91.control_message.dissect,
+  ["I"] = siac_cts_output_cta_v1_91.indices_message.dissect,
+  ["M"] = siac_cts_output_cta_v1_91.market_status_message.dissect,
+  ["P"] = siac_cts_output_cta_v1_91.prior_day_message.dissect,
+  ["S"] = siac_cts_output_cta_v1_91.summary_message.dissect,
+  ["T"] = siac_cts_output_cta_v1_91.trade_message.dissect,
+}
+
 siac_cts_output_cta_v1_91.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Administrative Message
-  if message_category == "A" then
-    return siac_cts_output_cta_v1_91.administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if message_category == "C" then
-    return siac_cts_output_cta_v1_91.control_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indices Message
-  if message_category == "I" then
-    return siac_cts_output_cta_v1_91.indices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Status Message
-  if message_category == "M" then
-    return siac_cts_output_cta_v1_91.market_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Prior Day Message
-  if message_category == "P" then
-    return siac_cts_output_cta_v1_91.prior_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Summary Message
-  if message_category == "S" then
-    return siac_cts_output_cta_v1_91.summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_category == "T" then
-    return siac_cts_output_cta_v1_91.trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = siac_cts_output_cta_v1_91.category_payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

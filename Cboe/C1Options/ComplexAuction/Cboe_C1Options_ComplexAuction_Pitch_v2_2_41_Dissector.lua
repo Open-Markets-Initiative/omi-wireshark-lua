@@ -261,21 +261,15 @@ cboe_c1options_complexauction_pitch_v2_2_41.auction_notification_auction_type = 
 cboe_c1options_complexauction_pitch_v2_2_41.auction_notification_auction_type.size = 1
 
 -- Display: Auction Notification Auction Type
-cboe_c1options_complexauction_pitch_v2_2_41.auction_notification_auction_type.display = function(value)
-  if value == "C" then
-    return "Auction Notification Auction Type: Complex Order Auction Coa Or Stop Complex Order Auction Scoa Effective Tbd (C)"
-  end
-  if value == "S" then
-    return "Auction Notification Auction Type: Complex Solicitation Auction Mechanism (S)"
-  end
-  if value == "B" then
-    return "Auction Notification Auction Type: Complex Aim (B)"
-  end
-  if value == "O" then
-    return "Auction Notification Auction Type: Coa All Or None (O)"
-  end
+cboe_c1options_complexauction_pitch_v2_2_41.auction_notification_auction_type.labels = {
+  ["C"] = "Auction Notification Auction Type: Complex Order Auction Coa Or Stop Complex Order Auction Scoa Effective Tbd (C)",
+  ["S"] = "Auction Notification Auction Type: Complex Solicitation Auction Mechanism (S)",
+  ["B"] = "Auction Notification Auction Type: Complex Aim (B)",
+  ["O"] = "Auction Notification Auction Type: Coa All Or None (O)",
+}
 
-  return "Auction Notification Auction Type: Unknown("..value..")"
+cboe_c1options_complexauction_pitch_v2_2_41.auction_notification_auction_type.display = function(value)
+  return cboe_c1options_complexauction_pitch_v2_2_41.auction_notification_auction_type.labels[value] or "Auction Notification Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Notification Auction Type
@@ -326,18 +320,14 @@ cboe_c1options_complexauction_pitch_v2_2_41.auction_summary_auction_type = {}
 cboe_c1options_complexauction_pitch_v2_2_41.auction_summary_auction_type.size = 1
 
 -- Display: Auction Summary Auction Type
-cboe_c1options_complexauction_pitch_v2_2_41.auction_summary_auction_type.display = function(value)
-  if value == "G" then
-    return "Auction Summary Auction Type: Gth Opening (G)"
-  end
-  if value == "O" then
-    return "Auction Summary Auction Type: Rth Opening (O)"
-  end
-  if value == "H" then
-    return "Auction Summary Auction Type: Halt Re Opening (H)"
-  end
+cboe_c1options_complexauction_pitch_v2_2_41.auction_summary_auction_type.labels = {
+  ["G"] = "Auction Summary Auction Type: Gth Opening (G)",
+  ["O"] = "Auction Summary Auction Type: Rth Opening (O)",
+  ["H"] = "Auction Summary Auction Type: Halt Re Opening (H)",
+}
 
-  return "Auction Summary Auction Type: Unknown("..value..")"
+cboe_c1options_complexauction_pitch_v2_2_41.auction_summary_auction_type.display = function(value)
+  return cboe_c1options_complexauction_pitch_v2_2_41.auction_summary_auction_type.labels[value] or "Auction Summary Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Summary Auction Type
@@ -555,15 +545,13 @@ cboe_c1options_complexauction_pitch_v2_2_41.customer_indicator = {}
 cboe_c1options_complexauction_pitch_v2_2_41.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-cboe_c1options_complexauction_pitch_v2_2_41.customer_indicator.display = function(value)
-  if value == "N" then
-    return "Customer Indicator: Non Customer (N)"
-  end
-  if value == "C" then
-    return "Customer Indicator: Customer (C)"
-  end
+cboe_c1options_complexauction_pitch_v2_2_41.customer_indicator.labels = {
+  ["N"] = "Customer Indicator: Non Customer (N)",
+  ["C"] = "Customer Indicator: Customer (C)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+cboe_c1options_complexauction_pitch_v2_2_41.customer_indicator.display = function(value)
+  return cboe_c1options_complexauction_pitch_v2_2_41.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -729,15 +717,13 @@ cboe_c1options_complexauction_pitch_v2_2_41.leg_security_type = {}
 cboe_c1options_complexauction_pitch_v2_2_41.leg_security_type.size = 1
 
 -- Display: Leg Security Type
-cboe_c1options_complexauction_pitch_v2_2_41.leg_security_type.display = function(value)
-  if value == "O" then
-    return "Leg Security Type: Leg Is An Option Instrument (O)"
-  end
-  if value == "E" then
-    return "Leg Security Type: Leg Is An Equity Instrument (E)"
-  end
+cboe_c1options_complexauction_pitch_v2_2_41.leg_security_type.labels = {
+  ["O"] = "Leg Security Type: Leg Is An Option Instrument (O)",
+  ["E"] = "Leg Security Type: Leg Is An Equity Instrument (E)",
+}
 
-  return "Leg Security Type: Unknown("..value..")"
+cboe_c1options_complexauction_pitch_v2_2_41.leg_security_type.display = function(value)
+  return cboe_c1options_complexauction_pitch_v2_2_41.leg_security_type.labels[value] or "Leg Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Leg Security Type
@@ -851,39 +837,21 @@ cboe_c1options_complexauction_pitch_v2_2_41.message_type = {}
 cboe_c1options_complexauction_pitch_v2_2_41.message_type.size = 1
 
 -- Display: Message Type
-cboe_c1options_complexauction_pitch_v2_2_41.message_type.display = function(value)
-  if value == 0xB1 then
-    return "Message Type: Time Reference Message (0xB1)"
-  end
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x9A then
-    return "Message Type: Complex Instrument Definition Expanded Message (0x9A)"
-  end
-  if value == 0x2E then
-    return "Message Type: Symbol Mapping Message (0x2E)"
-  end
-  if value == 0xAD then
-    return "Message Type: Auction Notification Message (0xAD)"
-  end
-  if value == 0xAE then
-    return "Message Type: Auction Cancel Message (0xAE)"
-  end
-  if value == 0xAF then
-    return "Message Type: Auction Trade Message (0xAF)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Options Auction Update Message (0xD1)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_c1options_complexauction_pitch_v2_2_41.message_type.labels = {
+  [0xB1] = "Message Type: Time Reference Message (0xB1)",
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x9A] = "Message Type: Complex Instrument Definition Expanded Message (0x9A)",
+  [0x2E] = "Message Type: Symbol Mapping Message (0x2E)",
+  [0xAD] = "Message Type: Auction Notification Message (0xAD)",
+  [0xAE] = "Message Type: Auction Cancel Message (0xAE)",
+  [0xAF] = "Message Type: Auction Trade Message (0xAF)",
+  [0xD1] = "Message Type: Options Auction Update Message (0xD1)",
+  [0x96] = "Message Type: Auction Summary Message (0x96)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_c1options_complexauction_pitch_v2_2_41.message_type.display = function(value)
+  return cboe_c1options_complexauction_pitch_v2_2_41.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -965,18 +933,14 @@ cboe_c1options_complexauction_pitch_v2_2_41.options_auction_update_auction_type 
 cboe_c1options_complexauction_pitch_v2_2_41.options_auction_update_auction_type.size = 1
 
 -- Display: Options Auction Update Auction Type
-cboe_c1options_complexauction_pitch_v2_2_41.options_auction_update_auction_type.display = function(value)
-  if value == "G" then
-    return "Options Auction Update Auction Type: Gth Opening (G)"
-  end
-  if value == "O" then
-    return "Options Auction Update Auction Type: Rth Opening (O)"
-  end
-  if value == "H" then
-    return "Options Auction Update Auction Type: Halt Re Opening (H)"
-  end
+cboe_c1options_complexauction_pitch_v2_2_41.options_auction_update_auction_type.labels = {
+  ["G"] = "Options Auction Update Auction Type: Gth Opening (G)",
+  ["O"] = "Options Auction Update Auction Type: Rth Opening (O)",
+  ["H"] = "Options Auction Update Auction Type: Halt Re Opening (H)",
+}
 
-  return "Options Auction Update Auction Type: Unknown("..value..")"
+cboe_c1options_complexauction_pitch_v2_2_41.options_auction_update_auction_type.display = function(value)
+  return cboe_c1options_complexauction_pitch_v2_2_41.options_auction_update_auction_type.labels[value] or "Options Auction Update Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Options Auction Update Auction Type
@@ -1171,15 +1135,13 @@ cboe_c1options_complexauction_pitch_v2_2_41.side = {}
 cboe_c1options_complexauction_pitch_v2_2_41.side.size = 1
 
 -- Display: Side
-cboe_c1options_complexauction_pitch_v2_2_41.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+cboe_c1options_complexauction_pitch_v2_2_41.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cboe_c1options_complexauction_pitch_v2_2_41.side.display = function(value)
+  return cboe_c1options_complexauction_pitch_v2_2_41.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1201,15 +1163,13 @@ cboe_c1options_complexauction_pitch_v2_2_41.symbol_condition = {}
 cboe_c1options_complexauction_pitch_v2_2_41.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_c1options_complexauction_pitch_v2_2_41.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_c1options_complexauction_pitch_v2_2_41.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_c1options_complexauction_pitch_v2_2_41.symbol_condition.display = function(value)
+  return cboe_c1options_complexauction_pitch_v2_2_41.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -2053,46 +2013,23 @@ end
 cboe_c1options_complexauction_pitch_v2_2_41.payload = {}
 
 -- Dissect: Payload
+cboe_c1options_complexauction_pitch_v2_2_41.payload.dispatch = {
+  [0xB1] = cboe_c1options_complexauction_pitch_v2_2_41.time_reference_message.dissect,
+  [0x20] = cboe_c1options_complexauction_pitch_v2_2_41.time_message.dissect,
+  [0x9A] = cboe_c1options_complexauction_pitch_v2_2_41.complex_instrument_definition_expanded_message.dissect,
+  [0x2E] = cboe_c1options_complexauction_pitch_v2_2_41.symbol_mapping_message.dissect,
+  [0xAD] = cboe_c1options_complexauction_pitch_v2_2_41.auction_notification_message.dissect,
+  [0xAE] = cboe_c1options_complexauction_pitch_v2_2_41.auction_cancel_message.dissect,
+  [0xAF] = cboe_c1options_complexauction_pitch_v2_2_41.auction_trade_message.dissect,
+  [0xD1] = cboe_c1options_complexauction_pitch_v2_2_41.options_auction_update_message.dissect,
+  [0x96] = cboe_c1options_complexauction_pitch_v2_2_41.auction_summary_message.dissect,
+  [0x2D] = cboe_c1options_complexauction_pitch_v2_2_41.end_of_session_message.dissect,
+}
+
 cboe_c1options_complexauction_pitch_v2_2_41.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Reference Message
-  if message_type == 0xB1 then
-    return cboe_c1options_complexauction_pitch_v2_2_41.time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_c1options_complexauction_pitch_v2_2_41.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Expanded Message
-  if message_type == 0x9A then
-    return cboe_c1options_complexauction_pitch_v2_2_41.complex_instrument_definition_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2E then
-    return cboe_c1options_complexauction_pitch_v2_2_41.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Notification Message
-  if message_type == 0xAD then
-    return cboe_c1options_complexauction_pitch_v2_2_41.auction_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Cancel Message
-  if message_type == 0xAE then
-    return cboe_c1options_complexauction_pitch_v2_2_41.auction_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Trade Message
-  if message_type == 0xAF then
-    return cboe_c1options_complexauction_pitch_v2_2_41.auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_c1options_complexauction_pitch_v2_2_41.options_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_c1options_complexauction_pitch_v2_2_41.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_c1options_complexauction_pitch_v2_2_41.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c1options_complexauction_pitch_v2_2_41.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2231,10 +2168,14 @@ end
 cboe_c1options_complexauction_pitch_v2_2_41.messages = {}
 
 -- Dissect: Messages
+cboe_c1options_complexauction_pitch_v2_2_41.messages.dispatch = {
+  [0] = cboe_c1options_complexauction_pitch_v2_2_41.heartbeat.dissect,
+}
+
 cboe_c1options_complexauction_pitch_v2_2_41.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_c1options_complexauction_pitch_v2_2_41.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c1options_complexauction_pitch_v2_2_41.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

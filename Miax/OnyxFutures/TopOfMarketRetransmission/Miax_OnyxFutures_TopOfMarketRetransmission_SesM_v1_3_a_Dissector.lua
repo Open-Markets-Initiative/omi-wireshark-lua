@@ -337,12 +337,12 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.currency = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.currency.size = 1
 
 -- Display: Currency
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.currency.display = function(value)
-  if value == "U" then
-    return "Currency: Usd (U)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.currency.labels = {
+  ["U"] = "Currency: Usd (U)",
+}
 
-  return "Currency: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.currency.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -587,12 +587,12 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_id_source = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_id_source.size = 1
 
 -- Display: Instrument Id Source
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_id_source.display = function(value)
-  if value == "E" then
-    return "Instrument Id Source: Exchange (E)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_id_source.labels = {
+  ["E"] = "Instrument Id Source: Exchange (E)",
+}
 
-  return "Instrument Id Source: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_id_source.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_id_source.labels[value] or "Instrument Id Source: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Id Source
@@ -614,15 +614,13 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_listing_status
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_listing_status.size = 1
 
 -- Display: Instrument Listing Status
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_listing_status.display = function(value)
-  if value == "A" then
-    return "Instrument Listing Status: Active (A)"
-  end
-  if value == "I" then
-    return "Instrument Listing Status: Inactive (I)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_listing_status.labels = {
+  ["A"] = "Instrument Listing Status: Active (A)",
+  ["I"] = "Instrument Listing Status: Inactive (I)",
+}
 
-  return "Instrument Listing Status: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_listing_status.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_listing_status.labels[value] or "Instrument Listing Status: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Listing Status
@@ -644,21 +642,15 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type.size = 1
 
 -- Display: Instrument Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type.display = function(value)
-  if value == "F" then
-    return "Instrument Type: Futures (F)"
-  end
-  if value == "O" then
-    return "Instrument Type: Options On (O)"
-  end
-  if value == "T" then
-    return "Instrument Type: Trade At (T)"
-  end
-  if value == "B" then
-    return "Instrument Type: Basis (B)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type.labels = {
+  ["F"] = "Instrument Type: Futures (F)",
+  ["O"] = "Instrument Type: Options On (O)",
+  ["T"] = "Instrument Type: Trade At (T)",
+  ["B"] = "Instrument Type: Basis (B)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -772,15 +764,13 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.listing_status = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.listing_status.size = 1
 
 -- Display: Listing Status
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.listing_status.display = function(value)
-  if value == "A" then
-    return "Listing Status: Active (A)"
-  end
-  if value == "I" then
-    return "Listing Status: Inactive (I)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.listing_status.labels = {
+  ["A"] = "Listing Status: Active (A)",
+  ["I"] = "Listing Status: Inactive (I)",
+}
 
-  return "Listing Status: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.listing_status.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.listing_status.labels[value] or "Listing Status: Unknown("..value..")"
 end
 
 -- Dissect: Listing Status
@@ -964,12 +954,12 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.match_algorithm = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.match_algorithm.size = 1
 
 -- Display: Match Algorithm
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.match_algorithm.display = function(value)
-  if value == "P" then
-    return "Match Algorithm: Price Time (P)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.match_algorithm.labels = {
+  ["P"] = "Match Algorithm: Price Time (P)",
+}
 
-  return "Match Algorithm: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.match_algorithm.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.match_algorithm.labels[value] or "Match Algorithm: Unknown("..value..")"
 end
 
 -- Dissect: Match Algorithm
@@ -1161,33 +1151,19 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.message_type = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.message_type.size = 1
 
 -- Display: Message Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Simple Instrument Definition Message (1)"
-  end
-  if value == 17 then
-    return "Message Type: Complex Instrument Definition Message (17)"
-  end
-  if value == 2 then
-    return "Message Type: Complex Instrument Definition Deprecated Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: System State Message (3)"
-  end
-  if value == 4 then
-    return "Message Type: Instrument Trading Status Notification Message (4)"
-  end
-  if value == 15 then
-    return "Message Type: Best Bid And Offer Message (15)"
-  end
-  if value == 16 then
-    return "Message Type: Last Sale Message (16)"
-  end
-  if value == 14 then
-    return "Message Type: Trade Cancel Message (14)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.message_type.labels = {
+  [1] = "Message Type: Simple Instrument Definition Message (1)",
+  [17] = "Message Type: Complex Instrument Definition Message (17)",
+  [2] = "Message Type: Complex Instrument Definition Deprecated Message (2)",
+  [3] = "Message Type: System State Message (3)",
+  [4] = "Message Type: Instrument Trading Status Notification Message (4)",
+  [15] = "Message Type: Best Bid And Offer Message (15)",
+  [16] = "Message Type: Last Sale Message (16)",
+  [14] = "Message Type: Trade Cancel Message (14)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.message_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1278,18 +1254,14 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type = 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type.size = 1
 
 -- Display: Option Expiration Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type.display = function(value)
-  if value == "A" then
-    return "Option Expiration Type: American Style (A)"
-  end
-  if value == "E" then
-    return "Option Expiration Type: European Style (E)"
-  end
-  if value == "N" then
-    return "Option Expiration Type: Na When (N)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type.labels = {
+  ["A"] = "Option Expiration Type: American Style (A)",
+  ["E"] = "Option Expiration Type: European Style (E)",
+  ["N"] = "Option Expiration Type: Na When (N)",
+}
 
-  return "Option Expiration Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type.labels[value] or "Option Expiration Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Expiration Type
@@ -1311,15 +1283,13 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency = 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency.size = 1
 
 -- Display: Option Strike Currency
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency.display = function(value)
-  if value == "U" then
-    return "Option Strike Currency: Us Dollar (U)"
-  end
-  if value == "N" then
-    return "Option Strike Currency: Na When (N)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency.labels = {
+  ["U"] = "Option Strike Currency: Us Dollar (U)",
+  ["N"] = "Option Strike Currency: Na When (N)",
+}
 
-  return "Option Strike Currency: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency.labels[value] or "Option Strike Currency: Unknown("..value..")"
 end
 
 -- Dissect: Option Strike Currency
@@ -1380,18 +1350,14 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type.size = 1
 
 -- Display: Option Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == "N" then
-    return "Option Type: Na When (N)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+  ["N"] = "Option Type: Na When (N)",
+}
 
-  return "Option Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1488,21 +1454,15 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_message_type = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_message_type.size = 1
 
 -- Display: Refresh Message Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_message_type.display = function(value)
-  if value == "I" then
-    return "Refresh Message Type: Simple Complex Instrument Definition Refresh (I)"
-  end
-  if value == "T" then
-    return "Refresh Message Type: Instrument Trading Status Refresh (T)"
-  end
-  if value == "S" then
-    return "Refresh Message Type: System State Refresh (S)"
-  end
-  if value == "Q" then
-    return "Refresh Message Type: Top Of Market Refresh (Q)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_message_type.labels = {
+  ["I"] = "Refresh Message Type: Simple Complex Instrument Definition Refresh (I)",
+  ["T"] = "Refresh Message Type: Instrument Trading Status Refresh (T)",
+  ["S"] = "Refresh Message Type: System State Refresh (S)",
+  ["Q"] = "Refresh Message Type: Top Of Market Refresh (Q)",
+}
 
-  return "Refresh Message Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_message_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_message_type.labels[value] or "Refresh Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Refresh Message Type
@@ -1524,18 +1484,14 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_type = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_type.size = 1
 
 -- Display: Refresh Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_type.display = function(value)
-  if value == "R" then
-    return "Refresh Type: Refresh Request (R)"
-  end
-  if value == "r" then
-    return "Refresh Type: Refresh Response (r)"
-  end
-  if value == "E" then
-    return "Refresh Type: End Of Request (E)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_type.labels = {
+  ["R"] = "Refresh Type: Refresh Request (R)",
+  ["r"] = "Refresh Type: Refresh Response (r)",
+  ["E"] = "Refresh Type: End Of Request (E)",
+}
 
-  return "Refresh Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_type.labels[value] or "Refresh Type: Unknown("..value..")"
 end
 
 -- Dissect: Refresh Type
@@ -1787,42 +1743,22 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_packet_type = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_packet_type.size = 1
 
 -- Display: Sesm Packet Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_packet_type.display = function(value)
-  if value == "S" then
-    return "Sesm Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "U" then
-    return "Sesm Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "L" then
-    return "Sesm Packet Type: Login Request (L)"
-  end
-  if value == "R" then
-    return "Sesm Packet Type: Login Response (R)"
-  end
-  if value == "C" then
-    return "Sesm Packet Type: Synchronization Complete (C)"
-  end
-  if value == "A" then
-    return "Sesm Packet Type: Retransmission Request (A)"
-  end
-  if value == "X" then
-    return "Sesm Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Sesm Packet Type: Goodbye Packet (G)"
-  end
-  if value == "E" then
-    return "Sesm Packet Type: End Of Session (E)"
-  end
-  if value == "0" then
-    return "Sesm Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Sesm Packet Type: Client Heartbeat (1)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_packet_type.labels = {
+  ["S"] = "Sesm Packet Type: Sequenced Data Packet (S)",
+  ["U"] = "Sesm Packet Type: Unsequenced Data Packet (U)",
+  ["L"] = "Sesm Packet Type: Login Request (L)",
+  ["R"] = "Sesm Packet Type: Login Response (R)",
+  ["C"] = "Sesm Packet Type: Synchronization Complete (C)",
+  ["A"] = "Sesm Packet Type: Retransmission Request (A)",
+  ["X"] = "Sesm Packet Type: Logout Request (X)",
+  ["G"] = "Sesm Packet Type: Goodbye Packet (G)",
+  ["E"] = "Sesm Packet Type: End Of Session (E)",
+  ["0"] = "Sesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Sesm Packet Type: Client Heartbeat (1)",
+}
 
-  return "Sesm Packet Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_packet_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_packet_type.labels[value] or "Sesm Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Sesm Packet Type
@@ -1890,12 +1826,12 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_currency = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_currency.size = 1
 
 -- Display: Settlement Currency
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_currency.display = function(value)
-  if value == "U" then
-    return "Settlement Currency: Usd (U)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_currency.labels = {
+  ["U"] = "Settlement Currency: Usd (U)",
+}
 
-  return "Settlement Currency: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_currency.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_currency.labels[value] or "Settlement Currency: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Currency
@@ -1946,15 +1882,13 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_price_type_cal
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_price_type_calc_method.size = 1
 
 -- Display: Settlement Price Type Calc Method
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_price_type_calc_method.display = function(value)
-  if value == "A" then
-    return "Settlement Price Type Calc Method: Actual (A)"
-  end
-  if value == "T" then
-    return "Settlement Price Type Calc Method: Theoretical (T)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_price_type_calc_method.labels = {
+  ["A"] = "Settlement Price Type Calc Method: Actual (A)",
+  ["T"] = "Settlement Price Type Calc Method: Theoretical (T)",
+}
 
-  return "Settlement Price Type Calc Method: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_price_type_calc_method.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.settlement_price_type_calc_method.labels[value] or "Settlement Price Type Calc Method: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Price Type Calc Method
@@ -1999,21 +1933,15 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type.size = 1
 
 -- Display: Spread Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type.display = function(value)
-  if value == "S" then
-    return "Spread Type: Standard (S)"
-  end
-  if value == "E" then
-    return "Spread Type: Equity (E)"
-  end
-  if value == "B" then
-    return "Spread Type: Butterfly (B)"
-  end
-  if value == "C" then
-    return "Spread Type: Cross (C)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type.labels = {
+  ["S"] = "Spread Type: Standard (S)",
+  ["E"] = "Spread Type: Equity (E)",
+  ["B"] = "Spread Type: Butterfly (B)",
+  ["C"] = "Spread Type: Cross (C)",
+}
 
-  return "Spread Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type.labels[value] or "Spread Type: Unknown("..value..")"
 end
 
 -- Dissect: Spread Type
@@ -2058,21 +1986,15 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_status = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_status.size = 1
 
 -- Display: System Status
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Of (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of (2)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_status.labels = {
+  ["S"] = "System Status: Start Of (S)",
+  ["C"] = "System Status: End Of (C)",
+  ["1"] = "System Status: Start Of (1)",
+  ["2"] = "System Status: End Of (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_status.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -2239,27 +2161,17 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type.size = 1
 
 -- Display: Trade Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type.display = function(value)
-  if value == "O" then
-    return "Trade Type: Outright (O)"
-  end
-  if value == "S" then
-    return "Trade Type: Strategy (S)"
-  end
-  if value == "M" then
-    return "Trade Type: Strategy (M)"
-  end
-  if value == "C" then
-    return "Trade Type: Complex (C)"
-  end
-  if value == "L" then
-    return "Trade Type: Complex (L)"
-  end
-  if value == "A" then
-    return "Trade Type: Adjusted Late (A)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type.labels = {
+  ["O"] = "Trade Type: Outright (O)",
+  ["S"] = "Trade Type: Strategy (S)",
+  ["M"] = "Trade Type: Strategy (M)",
+  ["C"] = "Trade Type: Complex (C)",
+  ["L"] = "Trade Type: Complex (L)",
+  ["A"] = "Trade Type: Adjusted Late (A)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -2310,18 +2222,14 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_type.size = 1
 
 -- Display: Trading Collar Variation Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_type.display = function(value)
-  if value == "D" then
-    return "Trading Collar Variation Type: Product (D)"
-  end
-  if value == "P" then
-    return "Trading Collar Variation Type: Product (P)"
-  end
-  if value == "N" then
-    return "Trading Collar Variation Type: Not (N)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_type.labels = {
+  ["D"] = "Trading Collar Variation Type: Product (D)",
+  ["P"] = "Trading Collar Variation Type: Product (P)",
+  ["N"] = "Trading Collar Variation Type: Not (N)",
+}
 
-  return "Trading Collar Variation Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_type.labels[value] or "Trading Collar Variation Type: Unknown("..value..")"
 end
 
 -- Dissect: Trading Collar Variation Type
@@ -2412,21 +2320,15 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type = {
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type.size = 1
 
 -- Display: Underlying Asset Type
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type.display = function(value)
-  if value == "E" then
-    return "Underlying Asset Type: Equity (E)"
-  end
-  if value == "A" then
-    return "Underlying Asset Type: Commodity Agriculture (A)"
-  end
-  if value == "F" then
-    return "Underlying Asset Type: Futures (F)"
-  end
-  if value == "N" then
-    return "Underlying Asset Type: Not (N)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type.labels = {
+  ["E"] = "Underlying Asset Type: Equity (E)",
+  ["A"] = "Underlying Asset Type: Commodity Agriculture (A)",
+  ["F"] = "Underlying Asset Type: Futures (F)",
+  ["N"] = "Underlying Asset Type: Not (N)",
+}
 
-  return "Underlying Asset Type: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type.labels[value] or "Underlying Asset Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Asset Type
@@ -2471,24 +2373,16 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unit_of_measure = {}
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unit_of_measure.size = 5
 
 -- Display: Unit Of Measure
-miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unit_of_measure.display = function(value)
-  if value == "BU" then
-    return "Unit Of Measure: Bushels (BU)"
-  end
-  if value == "USD" then
-    return "Unit Of Measure: Usd (USD)"
-  end
-  if value == "FUT" then
-    return "Unit Of Measure: Futures (FUT)"
-  end
-  if value == "ST" then
-    return "Unit Of Measure: Short (ST)"
-  end
-  if value == "LB" then
-    return "Unit Of Measure: Pounds (LB)"
-  end
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unit_of_measure.labels = {
+  ["BU"] = "Unit Of Measure: Bushels (BU)",
+  ["USD"] = "Unit Of Measure: Usd (USD)",
+  ["FUT"] = "Unit Of Measure: Futures (FUT)",
+  ["ST"] = "Unit Of Measure: Short (ST)",
+  ["LB"] = "Unit Of Measure: Pounds (LB)",
+}
 
-  return "Unit Of Measure: Unknown("..value..")"
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unit_of_measure.display = function(value)
+  return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unit_of_measure.labels[value] or "Unit Of Measure: Unknown("..value..")"
 end
 
 -- Dissect: Unit Of Measure
@@ -3907,38 +3801,21 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data = {}
 
 -- Dissect: Data
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data.dispatch = {
+  [1] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.simple_instrument_definition_message.dissect,
+  [17] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_definition_message.dissect,
+  [2] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_definition_deprecated_message.dissect,
+  [3] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_state_message.dissect,
+  [4] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_trading_status_notification_message.dissect,
+  [15] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.best_bid_and_offer_message.dissect,
+  [16] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.last_sale_message.dissect,
+  [14] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_cancel_message.dissect,
+}
+
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Simple Instrument Definition Message
-  if message_type == 1 then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.simple_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Message
-  if message_type == 17 then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Deprecated Message
-  if message_type == 2 then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_definition_deprecated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Message
-  if message_type == 3 then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Trading Status Notification Message
-  if message_type == 4 then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_trading_status_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid And Offer Message
-  if message_type == 15 then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.best_bid_and_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Last Sale Message
-  if message_type == 16 then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.last_sale_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == 14 then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_cancel_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4044,18 +3921,16 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_payload = {}
 
 -- Dissect: Refresh Payload
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_payload.dispatch = {
+  ["R"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_request.dissect,
+  ["r"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_response.dissect,
+  ["E"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.end_of_refresh.dissect,
+}
+
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_payload.dissect = function(buffer, offset, packet, parent, refresh_type)
-  -- Dissect Refresh Request
-  if refresh_type == "R" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Response
-  if refresh_type == "r" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Refresh
-  if refresh_type == "E" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.end_of_refresh.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_payload.dispatch[refresh_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4174,50 +4049,24 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload = {}
 
 -- Dissect: Sesm Payload
+miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload.dispatch = {
+  ["S"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sequenced_data_packet.dissect,
+  ["U"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unsequenced_data_packet.dissect,
+  ["L"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.login_request.dissect,
+  ["R"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.login_response.dissect,
+  ["C"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.synchronization_complete.dissect,
+  ["A"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.retransmission_request.dissect,
+  ["X"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.logout_request.dissect,
+  ["G"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.goodbye_packet.dissect,
+  ["E"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.end_of_session.dissect,
+  ["0"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.server_heartbeat.dissect,
+  ["1"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.client_heartbeat.dissect,
+}
+
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
-  -- Dissect Sequenced Data Packet
-  if sesm_packet_type == "S" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if sesm_packet_type == "U" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if sesm_packet_type == "L" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if sesm_packet_type == "R" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if sesm_packet_type == "C" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if sesm_packet_type == "A" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if sesm_packet_type == "X" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if sesm_packet_type == "G" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if sesm_packet_type == "E" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if sesm_packet_type == "0" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if sesm_packet_type == "1" then
-    return miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.client_heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload.dispatch[sesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

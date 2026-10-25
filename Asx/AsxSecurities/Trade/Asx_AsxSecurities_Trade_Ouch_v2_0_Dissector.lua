@@ -313,18 +313,14 @@ asx_asxsecurities_trade_ouch_v2_0.capacity_of_participant = {}
 asx_asxsecurities_trade_ouch_v2_0.capacity_of_participant.size = 1
 
 -- Display: Capacity Of Participant
-asx_asxsecurities_trade_ouch_v2_0.capacity_of_participant.display = function(value)
-  if value == "A" then
-    return "Capacity Of Participant: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity Of Participant: Principal (P)"
-  end
-  if value == "M" then
-    return "Capacity Of Participant: Mixed Agency And Principal (M)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.capacity_of_participant.labels = {
+  ["A"] = "Capacity Of Participant: Agency (A)",
+  ["P"] = "Capacity Of Participant: Principal (P)",
+  ["M"] = "Capacity Of Participant: Mixed Agency And Principal (M)",
+}
 
-  return "Capacity Of Participant: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.capacity_of_participant.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.capacity_of_participant.labels[value] or "Capacity Of Participant: Unknown("..value..")"
 end
 
 -- Dissect: Capacity Of Participant
@@ -392,24 +388,16 @@ asx_asxsecurities_trade_ouch_v2_0.client_packet_type = {}
 asx_asxsecurities_trade_ouch_v2_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-asx_asxsecurities_trade_ouch_v2_0.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.client_packet_type.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -519,15 +507,13 @@ asx_asxsecurities_trade_ouch_v2_0.directed_wholesale = {}
 asx_asxsecurities_trade_ouch_v2_0.directed_wholesale.size = 1
 
 -- Display: Directed Wholesale
-asx_asxsecurities_trade_ouch_v2_0.directed_wholesale.display = function(value)
-  if value == "Y" then
-    return "Directed Wholesale: True (Y)"
-  end
-  if value == "N" then
-    return "Directed Wholesale: False Default (N)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.directed_wholesale.labels = {
+  ["Y"] = "Directed Wholesale: True (Y)",
+  ["N"] = "Directed Wholesale: False Default (N)",
+}
 
-  return "Directed Wholesale: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.directed_wholesale.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.directed_wholesale.labels[value] or "Directed Wholesale: Unknown("..value..")"
 end
 
 -- Dissect: Directed Wholesale
@@ -802,18 +788,14 @@ asx_asxsecurities_trade_ouch_v2_0.order_state = {}
 asx_asxsecurities_trade_ouch_v2_0.order_state.size = 1
 
 -- Display: Order State
-asx_asxsecurities_trade_ouch_v2_0.order_state.display = function(value)
-  if value == 1 then
-    return "Order State: On Book (1)"
-  end
-  if value == 2 then
-    return "Order State: Not On Book (2)"
-  end
-  if value == 99 then
-    return "Order State: Ouch Ownership Lost (99)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.order_state.labels = {
+  [1] = "Order State: On Book (1)",
+  [2] = "Order State: Not On Book (2)",
+  [99] = "Order State: Ouch Ownership Lost (99)",
+}
 
-  return "Order State: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.order_state.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -858,39 +840,21 @@ asx_asxsecurities_trade_ouch_v2_0.ouch_order_type = {}
 asx_asxsecurities_trade_ouch_v2_0.ouch_order_type.size = 1
 
 -- Display: Ouch Order Type
-asx_asxsecurities_trade_ouch_v2_0.ouch_order_type.display = function(value)
-  if value == "Y" then
-    return "Ouch Order Type: Limit Order (Y)"
-  end
-  if value == "N" then
-    return "Ouch Order Type: Centre Point Order (N)"
-  end
-  if value == "D" then
-    return "Ouch Order Type: Centre Point Order (D)"
-  end
-  if value == "S" then
-    return "Ouch Order Type: Sweep Order (S)"
-  end
-  if value == "P" then
-    return "Ouch Order Type: Dualposted Sweep Order (P)"
-  end
-  if value == "B" then
-    return "Ouch Order Type: Centre Point Block Order With Single Fill Maq (B)"
-  end
-  if value == "F" then
-    return "Ouch Order Type: Centre Point Order With Single Fill Maq (F)"
-  end
-  if value == "T" then
-    return "Ouch Order Type: Limit Sweep Order With Single Fill Maq (T)"
-  end
-  if value == "C" then
-    return "Ouch Order Type: Any Price Block Order (C)"
-  end
-  if value == "E" then
-    return "Ouch Order Type: Any Price Block Order With Single Fill Maq (E)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.ouch_order_type.labels = {
+  ["Y"] = "Ouch Order Type: Limit Order (Y)",
+  ["N"] = "Ouch Order Type: Centre Point Order (N)",
+  ["D"] = "Ouch Order Type: Centre Point Order (D)",
+  ["S"] = "Ouch Order Type: Sweep Order (S)",
+  ["P"] = "Ouch Order Type: Dualposted Sweep Order (P)",
+  ["B"] = "Ouch Order Type: Centre Point Block Order With Single Fill Maq (B)",
+  ["F"] = "Ouch Order Type: Centre Point Order With Single Fill Maq (F)",
+  ["T"] = "Ouch Order Type: Limit Sweep Order With Single Fill Maq (T)",
+  ["C"] = "Ouch Order Type: Any Price Block Order (C)",
+  ["E"] = "Ouch Order Type: Any Price Block Order With Single Fill Maq (E)",
+}
 
-  return "Ouch Order Type: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.ouch_order_type.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.ouch_order_type.labels[value] or "Ouch Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Ouch Order Type
@@ -1033,30 +997,18 @@ asx_asxsecurities_trade_ouch_v2_0.reason = {}
 asx_asxsecurities_trade_ouch_v2_0.reason.size = 1
 
 -- Display: Reason
-asx_asxsecurities_trade_ouch_v2_0.reason.display = function(value)
-  if value == 1 then
-    return "Reason: Cancelled By User (1)"
-  end
-  if value == 4 then
-    return "Reason: Order Inactivated Due To Connection Loss (4)"
-  end
-  if value == 9 then
-    return "Reason: Fill And Kill Order That Was Deleted In An Auction (9)"
-  end
-  if value == 10 then
-    return "Reason: Order Deleted By Asx On Behalf Of The Customer (10)"
-  end
-  if value == 20 then
-    return "Reason: Deleted By System Due To Instrument Session Change (20)"
-  end
-  if value == 21 then
-    return "Reason: Inactivated By System Due To Instrument Session Change (21)"
-  end
-  if value == 24 then
-    return "Reason: Inactivated Day Order (24)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.reason.labels = {
+  [1] = "Reason: Cancelled By User (1)",
+  [4] = "Reason: Order Inactivated Due To Connection Loss (4)",
+  [9] = "Reason: Fill And Kill Order That Was Deleted In An Auction (9)",
+  [10] = "Reason: Order Deleted By Asx On Behalf Of The Customer (10)",
+  [20] = "Reason: Deleted By System Due To Instrument Session Change (20)",
+  [21] = "Reason: Inactivated By System Due To Instrument Session Change (21)",
+  [24] = "Reason: Inactivated Day Order (24)",
+}
 
-  return "Reason: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.reason.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1101,15 +1053,13 @@ asx_asxsecurities_trade_ouch_v2_0.reject_reason_code = {}
 asx_asxsecurities_trade_ouch_v2_0.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-asx_asxsecurities_trade_ouch_v2_0.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.reject_reason_code.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1208,24 +1158,16 @@ asx_asxsecurities_trade_ouch_v2_0.sequenced_message_type = {}
 asx_asxsecurities_trade_ouch_v2_0.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-asx_asxsecurities_trade_ouch_v2_0.sequenced_message_type.display = function(value)
-  if value == "A" then
-    return "Sequenced Message Type: Order Accepted Message (A)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Order Rejected Message (J)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Order Cancelled Message (C)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed Message (E)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.sequenced_message_type.labels = {
+  ["A"] = "Sequenced Message Type: Order Accepted Message (A)",
+  ["J"] = "Sequenced Message Type: Order Rejected Message (J)",
+  ["U"] = "Sequenced Message Type: Order Replaced Message (U)",
+  ["C"] = "Sequenced Message Type: Order Cancelled Message (C)",
+  ["E"] = "Sequenced Message Type: Order Executed Message (E)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.sequenced_message_type.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1247,27 +1189,17 @@ asx_asxsecurities_trade_ouch_v2_0.server_packet_type = {}
 asx_asxsecurities_trade_ouch_v2_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-asx_asxsecurities_trade_ouch_v2_0.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.server_packet_type.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1312,21 +1244,15 @@ asx_asxsecurities_trade_ouch_v2_0.side = {}
 asx_asxsecurities_trade_ouch_v2_0.side.size = 1
 
 -- Display: Side
-asx_asxsecurities_trade_ouch_v2_0.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
-  if value == "T" then
-    return "Side: Short Sell Order (T)"
-  end
-  if value == "C" then
-    return "Side: Buy Order In A Combination (C)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.side.labels = {
+  ["B"] = "Side: Buy Order (B)",
+  ["S"] = "Side: Sell Order (S)",
+  ["T"] = "Side: Short Sell Order (T)",
+  ["C"] = "Side: Buy Order In A Combination (C)",
+}
 
-  return "Side: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.side.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1348,18 +1274,14 @@ asx_asxsecurities_trade_ouch_v2_0.time_in_force = {}
 asx_asxsecurities_trade_ouch_v2_0.time_in_force.size = 1
 
 -- Display: Time In Force
-asx_asxsecurities_trade_ouch_v2_0.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 3 then
-    return "Time In Force: Fill And Kill (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fill Or Kill (4)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.time_in_force.labels = {
+  [0] = "Time In Force: Day (0)",
+  [3] = "Time In Force: Fill And Kill (3)",
+  [4] = "Time In Force: Fill Or Kill (4)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.time_in_force.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -1456,21 +1378,15 @@ asx_asxsecurities_trade_ouch_v2_0.unsequenced_message_type = {}
 asx_asxsecurities_trade_ouch_v2_0.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-asx_asxsecurities_trade_ouch_v2_0.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
-  if value == "Y" then
-    return "Unsequenced Message Type: Cancel By Order Id Message (Y)"
-  end
+asx_asxsecurities_trade_ouch_v2_0.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order Message (O)",
+  ["U"] = "Unsequenced Message Type: Replace Order Message (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order Message (X)",
+  ["Y"] = "Unsequenced Message Type: Cancel By Order Id Message (Y)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+asx_asxsecurities_trade_ouch_v2_0.unsequenced_message_type.display = function(value)
+  return asx_asxsecurities_trade_ouch_v2_0.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2041,26 +1957,18 @@ end
 asx_asxsecurities_trade_ouch_v2_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+asx_asxsecurities_trade_ouch_v2_0.sequenced_message.dispatch = {
+  ["A"] = asx_asxsecurities_trade_ouch_v2_0.order_accepted_message.dissect,
+  ["J"] = asx_asxsecurities_trade_ouch_v2_0.order_rejected_message.dissect,
+  ["U"] = asx_asxsecurities_trade_ouch_v2_0.order_replaced_message.dissect,
+  ["C"] = asx_asxsecurities_trade_ouch_v2_0.order_cancelled_message.dissect,
+  ["E"] = asx_asxsecurities_trade_ouch_v2_0.order_executed_message.dissect,
+}
+
 asx_asxsecurities_trade_ouch_v2_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Order Accepted Message
-  if sequenced_message_type == "A" then
-    return asx_asxsecurities_trade_ouch_v2_0.order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Message
-  if sequenced_message_type == "J" then
-    return asx_asxsecurities_trade_ouch_v2_0.order_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if sequenced_message_type == "U" then
-    return asx_asxsecurities_trade_ouch_v2_0.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Message
-  if sequenced_message_type == "C" then
-    return asx_asxsecurities_trade_ouch_v2_0.order_cancelled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if sequenced_message_type == "E" then
-    return asx_asxsecurities_trade_ouch_v2_0.order_executed_message.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxsecurities_trade_ouch_v2_0.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2303,30 +2211,19 @@ end
 asx_asxsecurities_trade_ouch_v2_0.server_payload = {}
 
 -- Dissect: Server Payload
+asx_asxsecurities_trade_ouch_v2_0.server_payload.dispatch = {
+  ["+"] = asx_asxsecurities_trade_ouch_v2_0.debug_packet.dissect,
+  ["A"] = asx_asxsecurities_trade_ouch_v2_0.login_accepted_packet.dissect,
+  ["J"] = asx_asxsecurities_trade_ouch_v2_0.login_rejected_packet.dissect,
+  ["S"] = asx_asxsecurities_trade_ouch_v2_0.sequenced_data_packet.dissect,
+  ["H"] = asx_asxsecurities_trade_ouch_v2_0.server_heartbeat.dissect,
+  ["Z"] = asx_asxsecurities_trade_ouch_v2_0.end_of_session.dissect,
+}
+
 asx_asxsecurities_trade_ouch_v2_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return asx_asxsecurities_trade_ouch_v2_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return asx_asxsecurities_trade_ouch_v2_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return asx_asxsecurities_trade_ouch_v2_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return asx_asxsecurities_trade_ouch_v2_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return asx_asxsecurities_trade_ouch_v2_0.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return asx_asxsecurities_trade_ouch_v2_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxsecurities_trade_ouch_v2_0.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2834,22 +2731,17 @@ end
 asx_asxsecurities_trade_ouch_v2_0.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+asx_asxsecurities_trade_ouch_v2_0.unsequenced_message.dispatch = {
+  ["O"] = asx_asxsecurities_trade_ouch_v2_0.enter_order_message.dissect,
+  ["U"] = asx_asxsecurities_trade_ouch_v2_0.replace_order_message.dissect,
+  ["X"] = asx_asxsecurities_trade_ouch_v2_0.cancel_order_message.dissect,
+  ["Y"] = asx_asxsecurities_trade_ouch_v2_0.cancel_by_order_id_message.dissect,
+}
+
 asx_asxsecurities_trade_ouch_v2_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return asx_asxsecurities_trade_ouch_v2_0.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if unsequenced_message_type == "U" then
-    return asx_asxsecurities_trade_ouch_v2_0.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return asx_asxsecurities_trade_ouch_v2_0.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel By Order Id Message
-  if unsequenced_message_type == "Y" then
-    return asx_asxsecurities_trade_ouch_v2_0.cancel_by_order_id_message.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxsecurities_trade_ouch_v2_0.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2964,26 +2856,18 @@ end
 asx_asxsecurities_trade_ouch_v2_0.client_payload = {}
 
 -- Dissect: Client Payload
+asx_asxsecurities_trade_ouch_v2_0.client_payload.dispatch = {
+  ["+"] = asx_asxsecurities_trade_ouch_v2_0.debug_packet.dissect,
+  ["L"] = asx_asxsecurities_trade_ouch_v2_0.login_request_packet.dissect,
+  ["U"] = asx_asxsecurities_trade_ouch_v2_0.unsequenced_data_packet.dissect,
+  ["R"] = asx_asxsecurities_trade_ouch_v2_0.client_heartbeat.dissect,
+  ["O"] = asx_asxsecurities_trade_ouch_v2_0.logout_request.dissect,
+}
+
 asx_asxsecurities_trade_ouch_v2_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return asx_asxsecurities_trade_ouch_v2_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return asx_asxsecurities_trade_ouch_v2_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return asx_asxsecurities_trade_ouch_v2_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return asx_asxsecurities_trade_ouch_v2_0.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return asx_asxsecurities_trade_ouch_v2_0.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxsecurities_trade_ouch_v2_0.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -416,12 +416,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.size = 1
 
 -- Display: Account Query Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.display = function(value)
-  if value == 28 then
-    return "Account Query Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.labels = {
+  [28] = "Account Query Optional Field: UserRefIdx (28)",
+}
 
-  return "Account Query Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.labels[value] or "Account Query Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Account Query Optional Field
@@ -443,12 +443,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.size = 1
 
 -- Display: Account Query Response Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.display = function(value)
-  if value == 28 then
-    return "Account Query Response Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.labels = {
+  [28] = "Account Query Response Optional Field: UserRefIdx (28)",
+}
 
-  return "Account Query Response Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.labels[value] or "Account Query Response Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Account Query Response Optional Field
@@ -470,12 +470,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.size = 1
 
 -- Display: Aiq Canceled Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.display = function(value)
-  if value == 28 then
-    return "Aiq Canceled Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.labels = {
+  [28] = "Aiq Canceled Optional Field: UserRefIdx (28)",
+}
 
-  return "Aiq Canceled Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.labels[value] or "Aiq Canceled Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Aiq Canceled Optional Field
@@ -520,75 +520,33 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy = {}
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.size = 1
 
 -- Display: Aiq Strategy
-nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.display = function(value)
-  if value == "*" then
-    return "Aiq Strategy: Use Port Default (*)"
-  end
-  if value == "N" then
-    return "Aiq Strategy: Disabled (N)"
-  end
-  if value == "Y" then
-    return "Aiq Strategy: Firm Level Decrement Both No Details (Y)"
-  end
-  if value == "D" then
-    return "Aiq Strategy: Firm Level Decrement Both (D)"
-  end
-  if value == "O" then
-    return "Aiq Strategy: Firm Level Cancel Oldest (O)"
-  end
-  if value == "W" then
-    return "Aiq Strategy: Firm Level Cancel Newest (W)"
-  end
-  if value == "R" then
-    return "Aiq Strategy: Firm Level Use Remover (R)"
-  end
-  if value == "y" then
-    return "Aiq Strategy: Organization Level Decrement Both No Details (y)"
-  end
-  if value == "d" then
-    return "Aiq Strategy: Organization Level Decrement Both (d)"
-  end
-  if value == "o" then
-    return "Aiq Strategy: Organization Level Cancel Oldest (o)"
-  end
-  if value == "w" then
-    return "Aiq Strategy: Organization Level Cancel Newest (w)"
-  end
-  if value == "r" then
-    return "Aiq Strategy: Organization Level Use Remover (r)"
-  end
-  if value == "Z" then
-    return "Aiq Strategy: Affiliate Level Decrement Both No Details (Z)"
-  end
-  if value == "E" then
-    return "Aiq Strategy: Affiliate Level Decrement Both (E)"
-  end
-  if value == "P" then
-    return "Aiq Strategy: Affiliate Level Cancel Oldest (P)"
-  end
-  if value == "X" then
-    return "Aiq Strategy: Affiliate Level Cancel Newest (X)"
-  end
-  if value == "S" then
-    return "Aiq Strategy: Affiliate Level Use Remover (S)"
-  end
-  if value == "0" then
-    return "Aiq Strategy: Match Any Level Decrement Both No Details (0)"
-  end
-  if value == "1" then
-    return "Aiq Strategy: Match Any Level Decrement Both (1)"
-  end
-  if value == "2" then
-    return "Aiq Strategy: Match Any Level Cancel Oldest (2)"
-  end
-  if value == "4" then
-    return "Aiq Strategy: Match Any Level Cancel Newest (4)"
-  end
-  if value == "5" then
-    return "Aiq Strategy: Match Any Level Use Remover (5)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.labels = {
+  ["*"] = "Aiq Strategy: Use Port Default (*)",
+  ["N"] = "Aiq Strategy: Disabled (N)",
+  ["Y"] = "Aiq Strategy: Firm Level Decrement Both No Details (Y)",
+  ["D"] = "Aiq Strategy: Firm Level Decrement Both (D)",
+  ["O"] = "Aiq Strategy: Firm Level Cancel Oldest (O)",
+  ["W"] = "Aiq Strategy: Firm Level Cancel Newest (W)",
+  ["R"] = "Aiq Strategy: Firm Level Use Remover (R)",
+  ["y"] = "Aiq Strategy: Organization Level Decrement Both No Details (y)",
+  ["d"] = "Aiq Strategy: Organization Level Decrement Both (d)",
+  ["o"] = "Aiq Strategy: Organization Level Cancel Oldest (o)",
+  ["w"] = "Aiq Strategy: Organization Level Cancel Newest (w)",
+  ["r"] = "Aiq Strategy: Organization Level Use Remover (r)",
+  ["Z"] = "Aiq Strategy: Affiliate Level Decrement Both No Details (Z)",
+  ["E"] = "Aiq Strategy: Affiliate Level Decrement Both (E)",
+  ["P"] = "Aiq Strategy: Affiliate Level Cancel Oldest (P)",
+  ["X"] = "Aiq Strategy: Affiliate Level Cancel Newest (X)",
+  ["S"] = "Aiq Strategy: Affiliate Level Use Remover (S)",
+  ["0"] = "Aiq Strategy: Match Any Level Decrement Both No Details (0)",
+  ["1"] = "Aiq Strategy: Match Any Level Decrement Both (1)",
+  ["2"] = "Aiq Strategy: Match Any Level Cancel Oldest (2)",
+  ["4"] = "Aiq Strategy: Match Any Level Cancel Newest (4)",
+  ["5"] = "Aiq Strategy: Match Any Level Use Remover (5)",
+}
 
-  return "Aiq Strategy: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.labels[value] or "Aiq Strategy: Unknown("..value..")"
 end
 
 -- Dissect: Aiq Strategy
@@ -678,12 +636,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.size = 1
 
 -- Display: Broken Trade Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.display = function(value)
-  if value == 28 then
-    return "Broken Trade Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.labels = {
+  [28] = "Broken Trade Optional Field: UserRefIdx (28)",
+}
 
-  return "Broken Trade Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.labels[value] or "Broken Trade Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Broken Trade Optional Field
@@ -705,21 +663,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason = {}
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.size = 1
 
 -- Display: Broken Trade Reason
-nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.display = function(value)
-  if value == "E" then
-    return "Broken Trade Reason: Erroneous (E)"
-  end
-  if value == "C" then
-    return "Broken Trade Reason: Consent (C)"
-  end
-  if value == "S" then
-    return "Broken Trade Reason: Supervisory (S)"
-  end
-  if value == "X" then
-    return "Broken Trade Reason: External (X)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.labels = {
+  ["E"] = "Broken Trade Reason: Erroneous (E)",
+  ["C"] = "Broken Trade Reason: Consent (C)",
+  ["S"] = "Broken Trade Reason: Supervisory (S)",
+  ["X"] = "Broken Trade Reason: External (X)",
+}
 
-  return "Broken Trade Reason: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.labels[value] or "Broken Trade Reason: Unknown("..value..")"
 end
 
 -- Dissect: Broken Trade Reason
@@ -741,12 +693,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.size = 1
 
 -- Display: Cancel Order Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.display = function(value)
-  if value == 28 then
-    return "Cancel Order Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.labels = {
+  [28] = "Cancel Order Optional Field: UserRefIdx (28)",
+}
 
-  return "Cancel Order Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.labels[value] or "Cancel Order Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Order Optional Field
@@ -768,51 +720,25 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason = {}
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.size = 1
 
 -- Display: Cancel Order Reason
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.display = function(value)
-  if value == "U" then
-    return "Cancel Order Reason: User Requested Cancel (U)"
-  end
-  if value == "I" then
-    return "Cancel Order Reason: Immediate Or Cancel Order (I)"
-  end
-  if value == "T" then
-    return "Cancel Order Reason: Timeout (T)"
-  end
-  if value == "S" then
-    return "Cancel Order Reason: Supervisory (S)"
-  end
-  if value == "D" then
-    return "Cancel Order Reason: Regulatory Restriction (D)"
-  end
-  if value == "Q" then
-    return "Cancel Order Reason: Self Match Prevention (Q)"
-  end
-  if value == "Z" then
-    return "Cancel Order Reason: System Cancel (Z)"
-  end
-  if value == "K" then
-    return "Cancel Order Reason: This Order Cannot Be Executed (K)"
-  end
-  if value == "H" then
-    return "Cancel Order Reason: Halted (H)"
-  end
-  if value == "X" then
-    return "Cancel Order Reason: Open Protection (X)"
-  end
-  if value == "E" then
-    return "Cancel Order Reason: Closed (E)"
-  end
-  if value == "F" then
-    return "Cancel Order Reason: Post Only Cancel (F)"
-  end
-  if value == "G" then
-    return "Cancel Order Reason: Post Only Cancel Contra Side Displayed (G)"
-  end
-  if value == "e" then
-    return "Cancel Order Reason: Company Direct Listing Capital Raise Order Exceeds Allowable Shares Offered (e)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.labels = {
+  ["U"] = "Cancel Order Reason: User Requested Cancel (U)",
+  ["I"] = "Cancel Order Reason: Immediate Or Cancel Order (I)",
+  ["T"] = "Cancel Order Reason: Timeout (T)",
+  ["S"] = "Cancel Order Reason: Supervisory (S)",
+  ["D"] = "Cancel Order Reason: Regulatory Restriction (D)",
+  ["Q"] = "Cancel Order Reason: Self Match Prevention (Q)",
+  ["Z"] = "Cancel Order Reason: System Cancel (Z)",
+  ["K"] = "Cancel Order Reason: This Order Cannot Be Executed (K)",
+  ["H"] = "Cancel Order Reason: Halted (H)",
+  ["X"] = "Cancel Order Reason: Open Protection (X)",
+  ["E"] = "Cancel Order Reason: Closed (E)",
+  ["F"] = "Cancel Order Reason: Post Only Cancel (F)",
+  ["G"] = "Cancel Order Reason: Post Only Cancel Contra Side Displayed (G)",
+  ["e"] = "Cancel Order Reason: Company Direct Listing Capital Raise Order Exceeds Allowable Shares Offered (e)",
+}
 
-  return "Cancel Order Reason: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.labels[value] or "Cancel Order Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Order Reason
@@ -834,12 +760,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.size = 1
 
 -- Display: Cancel Pending Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.display = function(value)
-  if value == 28 then
-    return "Cancel Pending Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.labels = {
+  [28] = "Cancel Pending Optional Field: UserRefIdx (28)",
+}
 
-  return "Cancel Pending Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.labels[value] or "Cancel Pending Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Pending Optional Field
@@ -861,12 +787,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.size = 1
 
 -- Display: Cancel Reject Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.display = function(value)
-  if value == 28 then
-    return "Cancel Reject Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.labels = {
+  [28] = "Cancel Reject Optional Field: UserRefIdx (28)",
+}
 
-  return "Cancel Reject Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.labels[value] or "Cancel Reject Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reject Optional Field
@@ -888,12 +814,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.size = 1
 
 -- Display: Canceled Message Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.display = function(value)
-  if value == 28 then
-    return "Canceled Message Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.labels = {
+  [28] = "Canceled Message Optional Field: UserRefIdx (28)",
+}
 
-  return "Canceled Message Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.labels[value] or "Canceled Message Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Canceled Message Optional Field
@@ -915,21 +841,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.capacity = {}
 nasdaq_nsmequities_orders_ouch_v5_0.capacity.size = 1
 
 -- Display: Capacity
-nasdaq_nsmequities_orders_ouch_v5_0.capacity.display = function(value)
-  if value == "O" then
-    return "Capacity: Other (O)"
-  end
-  if value == "A" then
-    return "Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity: Principal (P)"
-  end
-  if value == "R" then
-    return "Capacity: Riskless (R)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.capacity.labels = {
+  ["O"] = "Capacity: Other (O)",
+  ["A"] = "Capacity: Agency (A)",
+  ["P"] = "Capacity: Principal (P)",
+  ["R"] = "Capacity: Riskless (R)",
+}
 
-  return "Capacity: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.capacity.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -951,24 +871,16 @@ nasdaq_nsmequities_orders_ouch_v5_0.client_packet_type = {}
 nasdaq_nsmequities_orders_ouch_v5_0.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nsmequities_orders_ouch_v5_0.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.client_packet_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -1013,33 +925,19 @@ nasdaq_nsmequities_orders_ouch_v5_0.cross_type = {}
 nasdaq_nsmequities_orders_ouch_v5_0.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nsmequities_orders_ouch_v5_0.cross_type.display = function(value)
-  if value == "N" then
-    return "Cross Type: Continuous Market (N)"
-  end
-  if value == "O" then
-    return "Cross Type: Opening Cross (O)"
-  end
-  if value == "C" then
-    return "Cross Type: Closing Cross (C)"
-  end
-  if value == "H" then
-    return "Cross Type: Halt Ipo (H)"
-  end
-  if value == "S" then
-    return "Cross Type: Supplemental (S)"
-  end
-  if value == "R" then
-    return "Cross Type: Retail (R)"
-  end
-  if value == "E" then
-    return "Cross Type: Extended Life (E)"
-  end
-  if value == "A" then
-    return "Cross Type: After Hours Close (A)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.cross_type.labels = {
+  ["N"] = "Cross Type: Continuous Market (N)",
+  ["O"] = "Cross Type: Opening Cross (O)",
+  ["C"] = "Cross Type: Closing Cross (C)",
+  ["H"] = "Cross Type: Halt Ipo (H)",
+  ["S"] = "Cross Type: Supplemental (S)",
+  ["R"] = "Cross Type: Retail (R)",
+  ["E"] = "Cross Type: Extended Life (E)",
+  ["A"] = "Cross Type: After Hours Close (A)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.cross_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -1061,15 +959,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.customer_type = {}
 nasdaq_nsmequities_orders_ouch_v5_0.customer_type.size = 1
 
 -- Display: Customer Type
-nasdaq_nsmequities_orders_ouch_v5_0.customer_type.display = function(value)
-  if value == "R" then
-    return "Customer Type: Retail Designated Order (R)"
-  end
-  if value == "N" then
-    return "Customer Type: Not Retail Designated (N)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.customer_type.labels = {
+  ["R"] = "Customer Type: Retail Designated Order (R)",
+  ["N"] = "Customer Type: Not Retail Designated (N)",
+}
 
-  return "Customer Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.customer_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.labels[value] or "Customer Type: Unknown("..value..")"
 end
 
 -- Dissect: Customer Type
@@ -1133,12 +1029,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_field =
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_field.size = 1
 
 -- Display: Disable Order Entry Request Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_field.display = function(value)
-  if value == 28 then
-    return "Disable Order Entry Request Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_field.labels = {
+  [28] = "Disable Order Entry Request Optional Field: UserRefIdx (28)",
+}
 
-  return "Disable Order Entry Request Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_field.labels[value] or "Disable Order Entry Request Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Disable Order Entry Request Optional Field
@@ -1160,12 +1056,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_field 
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_field.size = 1
 
 -- Display: Disable Order Entry Response Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_field.display = function(value)
-  if value == 28 then
-    return "Disable Order Entry Response Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_field.labels = {
+  [28] = "Disable Order Entry Response Optional Field: UserRefIdx (28)",
+}
 
-  return "Disable Order Entry Response Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_field.labels[value] or "Disable Order Entry Response Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Disable Order Entry Response Optional Field
@@ -1245,21 +1141,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type = {}
 nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.size = 1
 
 -- Display: Discretion Price Type
-nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.display = function(value)
-  if value == "L" then
-    return "Discretion Price Type: Limit (L)"
-  end
-  if value == "P" then
-    return "Discretion Price Type: Market Peg (P)"
-  end
-  if value == "M" then
-    return "Discretion Price Type: Midpoint Peg (M)"
-  end
-  if value == "R" then
-    return "Discretion Price Type: Primary Peg (R)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.labels = {
+  ["L"] = "Discretion Price Type: Limit (L)",
+  ["P"] = "Discretion Price Type: Market Peg (P)",
+  ["M"] = "Discretion Price Type: Midpoint Peg (M)",
+  ["R"] = "Discretion Price Type: Primary Peg (R)",
+}
 
-  return "Discretion Price Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.labels[value] or "Discretion Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Discretion Price Type
@@ -1281,21 +1171,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.display = {}
 nasdaq_nsmequities_orders_ouch_v5_0.display.size = 1
 
 -- Display: Display
-nasdaq_nsmequities_orders_ouch_v5_0.display.display = function(value)
-  if value == "A" then
-    return "Display: Attributable (A)"
-  end
-  if value == "Y" then
-    return "Display: Visible (Y)"
-  end
-  if value == "N" then
-    return "Display: Hidden (N)"
-  end
-  if value == "Z" then
-    return "Display: Conformant (Z)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.display.labels = {
+  ["A"] = "Display: Attributable (A)",
+  ["Y"] = "Display: Visible (Y)",
+  ["N"] = "Display: Hidden (N)",
+  ["Z"] = "Display: Conformant (Z)",
+}
 
-  return "Display: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.display.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.display.labels[value] or "Display: Unknown("..value..")"
 end
 
 -- Dissect: Display
@@ -1369,12 +1253,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_field = 
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_field.size = 1
 
 -- Display: Enable Order Entry Request Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_field.display = function(value)
-  if value == 28 then
-    return "Enable Order Entry Request Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_field.labels = {
+  [28] = "Enable Order Entry Request Optional Field: UserRefIdx (28)",
+}
 
-  return "Enable Order Entry Request Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_field.labels[value] or "Enable Order Entry Request Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Enable Order Entry Request Optional Field
@@ -1396,12 +1280,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_field =
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_field.size = 1
 
 -- Display: Enable Order Entry Response Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_field.display = function(value)
-  if value == 28 then
-    return "Enable Order Entry Response Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_field.labels = {
+  [28] = "Enable Order Entry Response Optional Field: UserRefIdx (28)",
+}
 
-  return "Enable Order Entry Response Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_field.labels[value] or "Enable Order Entry Response Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Enable Order Entry Response Optional Field
@@ -1423,69 +1307,31 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field.size = 1
 
 -- Display: Enter Order Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field.display = function(value)
-  if value == 2 then
-    return "Enter Order Optional Field: Firm (2)"
-  end
-  if value == 3 then
-    return "Enter Order Optional Field: MinQty (3)"
-  end
-  if value == 4 then
-    return "Enter Order Optional Field: CustomerType (4)"
-  end
-  if value == 5 then
-    return "Enter Order Optional Field: MaxFloor (5)"
-  end
-  if value == 6 then
-    return "Enter Order Optional Field: PriceType (6)"
-  end
-  if value == 7 then
-    return "Enter Order Optional Field: PegOffset (7)"
-  end
-  if value == 9 then
-    return "Enter Order Optional Field: DiscretionPrice (9)"
-  end
-  if value == 10 then
-    return "Enter Order Optional Field: DiscretionPriceType (10)"
-  end
-  if value == 11 then
-    return "Enter Order Optional Field: DiscretionPegOffset (11)"
-  end
-  if value == 12 then
-    return "Enter Order Optional Field: PostOnly (12)"
-  end
-  if value == 13 then
-    return "Enter Order Optional Field: RandomReserves (13)"
-  end
-  if value == 15 then
-    return "Enter Order Optional Field: ExpireTime (15)"
-  end
-  if value == 16 then
-    return "Enter Order Optional Field: TradeNow (16)"
-  end
-  if value == 17 then
-    return "Enter Order Optional Field: HandleInst (17)"
-  end
-  if value == 24 then
-    return "Enter Order Optional Field: Group ID (24)"
-  end
-  if value == 25 then
-    return "Enter Order Optional Field: Shares Located (25)"
-  end
-  if value == 26 then
-    return "Enter Order Optional Field: Locate Broker (26)"
-  end
-  if value == 28 then
-    return "Enter Order Optional Field: UserRefIdx (28)"
-  end
-  if value == 29 then
-    return "Enter Order Optional Field: AIQ Strategy (29)"
-  end
-  if value == 30 then
-    return "Enter Order Optional Field: AIQ Group ID (30)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field.labels = {
+  [2] = "Enter Order Optional Field: Firm (2)",
+  [3] = "Enter Order Optional Field: MinQty (3)",
+  [4] = "Enter Order Optional Field: CustomerType (4)",
+  [5] = "Enter Order Optional Field: MaxFloor (5)",
+  [6] = "Enter Order Optional Field: PriceType (6)",
+  [7] = "Enter Order Optional Field: PegOffset (7)",
+  [9] = "Enter Order Optional Field: DiscretionPrice (9)",
+  [10] = "Enter Order Optional Field: DiscretionPriceType (10)",
+  [11] = "Enter Order Optional Field: DiscretionPegOffset (11)",
+  [12] = "Enter Order Optional Field: PostOnly (12)",
+  [13] = "Enter Order Optional Field: RandomReserves (13)",
+  [15] = "Enter Order Optional Field: ExpireTime (15)",
+  [16] = "Enter Order Optional Field: TradeNow (16)",
+  [17] = "Enter Order Optional Field: HandleInst (17)",
+  [24] = "Enter Order Optional Field: Group ID (24)",
+  [25] = "Enter Order Optional Field: Shares Located (25)",
+  [26] = "Enter Order Optional Field: Locate Broker (26)",
+  [28] = "Enter Order Optional Field: UserRefIdx (28)",
+  [29] = "Enter Order Optional Field: AIQ Strategy (29)",
+  [30] = "Enter Order Optional Field: AIQ Group ID (30)",
+}
 
-  return "Enter Order Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field.labels[value] or "Enter Order Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Enter Order Optional Field
@@ -1507,15 +1353,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.event_code = {}
 nasdaq_nsmequities_orders_ouch_v5_0.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_orders_ouch_v5_0.event_code.display = function(value)
-  if value == "S" then
-    return "Event Code: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Event Code: End Of Day (E)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.event_code.labels = {
+  ["S"] = "Event Code: Start Of Day (S)",
+  ["E"] = "Event Code: End Of Day (E)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.event_code.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1635,27 +1479,17 @@ nasdaq_nsmequities_orders_ouch_v5_0.handle_inst = {}
 nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size = 1
 
 -- Display: Handle Inst
-nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.display = function(value)
-  if value == "I" then
-    return "Handle Inst: Imbalance Only (I)"
-  end
-  if value == "O" then
-    return "Handle Inst: Retail Order Type 1 (O)"
-  end
-  if value == "T" then
-    return "Handle Inst: Retail Order Type 2 (T)"
-  end
-  if value == "Q" then
-    return "Handle Inst: Retail Price Improvement (Q)"
-  end
-  if value == "B" then
-    return "Handle Inst: Extended Life Continuous (B)"
-  end
-  if value == "D" then
-    return "Handle Inst: Direct Listing Capital Raise (D)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.labels = {
+  ["I"] = "Handle Inst: Imbalance Only (I)",
+  ["O"] = "Handle Inst: Retail Order Type 1 (O)",
+  ["T"] = "Handle Inst: Retail Order Type 2 (T)",
+  ["Q"] = "Handle Inst: Retail Price Improvement (Q)",
+  ["B"] = "Handle Inst: Extended Life Continuous (B)",
+  ["D"] = "Handle Inst: Direct Listing Capital Raise (D)",
+}
 
-  return "Handle Inst: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.labels[value] or "Handle Inst: Unknown("..value..")"
 end
 
 -- Dissect: Handle Inst
@@ -1677,15 +1511,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility = {}
 nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.size = 1
 
 -- Display: Inter Market Sweep Eligibility
-nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.display = function(value)
-  if value == "Y" then
-    return "Inter Market Sweep Eligibility: Eligible (Y)"
-  end
-  if value == "N" then
-    return "Inter Market Sweep Eligibility: Not Eligible (N)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.labels = {
+  ["Y"] = "Inter Market Sweep Eligibility: Eligible (Y)",
+  ["N"] = "Inter Market Sweep Eligibility: Not Eligible (N)",
+}
 
-  return "Inter Market Sweep Eligibility: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.inter_market_sweep_eligibility.labels[value] or "Inter Market Sweep Eligibility: Unknown("..value..")"
 end
 
 -- Dissect: Inter Market Sweep Eligibility
@@ -1707,96 +1539,40 @@ nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag = {}
 nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.size = 1
 
 -- Display: Liquidity Flag
-nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display = function(value)
-  if value == "A" then
-    return "Liquidity Flag: Added (A)"
-  end
-  if value == "C" then
-    return "Liquidity Flag: Closing (C)"
-  end
-  if value == "e" then
-    return "Liquidity Flag: Retail Designated (e)"
-  end
-  if value == "H" then
-    return "Liquidity Flag: Halt Ipo (H)"
-  end
-  if value == "i" then
-    return "Liquidity Flag: After Hours Closing (i)"
-  end
-  if value == "J" then
-    return "Liquidity Flag: Nondisplayed Adding Liquidity (J)"
-  end
-  if value == "j" then
-    return "Liquidity Flag: Rpi Order Provides Liquidity (j)"
-  end
-  if value == "k" then
-    return "Liquidity Flag: Added Liquidity Via A Midpoint Order (k)"
-  end
-  if value == "K" then
-    return "Liquidity Flag: Halt Cross (K)"
-  end
-  if value == "L" then
-    return "Liquidity Flag: Closing Cross (L)"
-  end
-  if value == "M" then
-    return "Liquidity Flag: Opening Cross (M)"
-  end
-  if value == "m" then
-    return "Liquidity Flag: Removed Liquidity At A Midpoint (m)"
-  end
-  if value == "N" then
-    return "Liquidity Flag: Passive Midpoint Execution (N)"
-  end
-  if value == "n" then
-    return "Liquidity Flag: Midpoint Extended Life Order Execution (n)"
-  end
-  if value == "O" then
-    return "Liquidity Flag: Opening (O)"
-  end
-  if value == "p" then
-    return "Liquidity Flag: Removed Price Improving Nondisplayed Liquidity (p)"
-  end
-  if value == "q" then
-    return "Liquidity Flag: Rmo Retail Order Removes Non Rpi Midpoint Liquidity (q)"
-  end
-  if value == "R" then
-    return "Liquidity Flag: Removed (R)"
-  end
-  if value == "r" then
-    return "Liquidity Flag: Retail Order Removes Rpi Liquidity (r)"
-  end
-  if value == "t" then
-    return "Liquidity Flag: Retail Order Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)"
-  end
-  if value == "u" then
-    return "Liquidity Flag: Added Nondisplayed Liquidity Via A Reserve Order (u)"
-  end
-  if value == "0" then
-    return "Liquidity Flag: Supplemental (0)"
-  end
-  if value == "7" then
-    return "Liquidity Flag: Displayed Liquidityadding Order Improves The Nbbo (7)"
-  end
-  if value == "8" then
-    return "Liquidity Flag: Displayed Liquidityadding Order Sets The Qbbo While Joining The Nbbo (8)"
-  end
-  if value == "1" then
-    return "Liquidity Flag: Rpi Order Provides Liquidity No Rpii (1)"
-  end
-  if value == "2" then
-    return "Liquidity Flag: Added In The Premarket (2)"
-  end
-  if value == "3" then
-    return "Liquidity Flag: Removed In The Premarket (3)"
-  end
-  if value == "5" then
-    return "Liquidity Flag: Displayed Liquidityadding Order Improves The Nbbo In The Premarket (5)"
-  end
-  if value == "9" then
-    return "Liquidity Flag: Nondisplayed Adding Liquidity In The Premarket (9)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.labels = {
+  ["A"] = "Liquidity Flag: Added (A)",
+  ["C"] = "Liquidity Flag: Closing (C)",
+  ["e"] = "Liquidity Flag: Retail Designated (e)",
+  ["H"] = "Liquidity Flag: Halt Ipo (H)",
+  ["i"] = "Liquidity Flag: After Hours Closing (i)",
+  ["J"] = "Liquidity Flag: Nondisplayed Adding Liquidity (J)",
+  ["j"] = "Liquidity Flag: Rpi Order Provides Liquidity (j)",
+  ["k"] = "Liquidity Flag: Added Liquidity Via A Midpoint Order (k)",
+  ["K"] = "Liquidity Flag: Halt Cross (K)",
+  ["L"] = "Liquidity Flag: Closing Cross (L)",
+  ["M"] = "Liquidity Flag: Opening Cross (M)",
+  ["m"] = "Liquidity Flag: Removed Liquidity At A Midpoint (m)",
+  ["N"] = "Liquidity Flag: Passive Midpoint Execution (N)",
+  ["n"] = "Liquidity Flag: Midpoint Extended Life Order Execution (n)",
+  ["O"] = "Liquidity Flag: Opening (O)",
+  ["p"] = "Liquidity Flag: Removed Price Improving Nondisplayed Liquidity (p)",
+  ["q"] = "Liquidity Flag: Rmo Retail Order Removes Non Rpi Midpoint Liquidity (q)",
+  ["R"] = "Liquidity Flag: Removed (R)",
+  ["r"] = "Liquidity Flag: Retail Order Removes Rpi Liquidity (r)",
+  ["t"] = "Liquidity Flag: Retail Order Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)",
+  ["u"] = "Liquidity Flag: Added Nondisplayed Liquidity Via A Reserve Order (u)",
+  ["0"] = "Liquidity Flag: Supplemental (0)",
+  ["7"] = "Liquidity Flag: Displayed Liquidityadding Order Improves The Nbbo (7)",
+  ["8"] = "Liquidity Flag: Displayed Liquidityadding Order Sets The Qbbo While Joining The Nbbo (8)",
+  ["1"] = "Liquidity Flag: Rpi Order Provides Liquidity No Rpii (1)",
+  ["2"] = "Liquidity Flag: Added In The Premarket (2)",
+  ["3"] = "Liquidity Flag: Removed In The Premarket (3)",
+  ["5"] = "Liquidity Flag: Displayed Liquidityadding Order Improves The Nbbo In The Premarket (5)",
+  ["9"] = "Liquidity Flag: Nondisplayed Adding Liquidity In The Premarket (9)",
+}
 
-  return "Liquidity Flag: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.labels[value] or "Liquidity Flag: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Flag
@@ -1841,18 +1617,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_field.size = 1
 
 -- Display: Mass Cancel Request Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_field.display = function(value)
-  if value == 27 then
-    return "Mass Cancel Request Optional Field: Side (27)"
-  end
-  if value == 24 then
-    return "Mass Cancel Request Optional Field: Group ID (24)"
-  end
-  if value == 28 then
-    return "Mass Cancel Request Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_field.labels = {
+  [27] = "Mass Cancel Request Optional Field: Side (27)",
+  [24] = "Mass Cancel Request Optional Field: Group ID (24)",
+  [28] = "Mass Cancel Request Optional Field: UserRefIdx (28)",
+}
 
-  return "Mass Cancel Request Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_field.labels[value] or "Mass Cancel Request Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Request Optional Field
@@ -1874,18 +1646,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_field.size = 1
 
 -- Display: Mass Cancel Response Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_field.display = function(value)
-  if value == 27 then
-    return "Mass Cancel Response Optional Field: Side (27)"
-  end
-  if value == 24 then
-    return "Mass Cancel Response Optional Field: Group ID (24)"
-  end
-  if value == 28 then
-    return "Mass Cancel Response Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_field.labels = {
+  [27] = "Mass Cancel Response Optional Field: Side (27)",
+  [24] = "Mass Cancel Response Optional Field: Group ID (24)",
+  [28] = "Mass Cancel Response Optional Field: UserRefIdx (28)",
+}
 
-  return "Mass Cancel Response Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_field.labels[value] or "Mass Cancel Response Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Response Optional Field
@@ -1976,18 +1744,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.size = 1
 
 -- Display: Modify Order Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.display = function(value)
-  if value == 28 then
-    return "Modify Order Optional Field: UserRefIdx (28)"
-  end
-  if value == 25 then
-    return "Modify Order Optional Field: Shares Located (25)"
-  end
-  if value == 26 then
-    return "Modify Order Optional Field: Locate Broker (26)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.labels = {
+  [28] = "Modify Order Optional Field: UserRefIdx (28)",
+  [25] = "Modify Order Optional Field: Shares Located (25)",
+  [26] = "Modify Order Optional Field: Locate Broker (26)",
+}
 
-  return "Modify Order Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.labels[value] or "Modify Order Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Modify Order Optional Field
@@ -2055,72 +1819,32 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.size = 1
 
 -- Display: Order Accepted Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.display = function(value)
-  if value == 2 then
-    return "Order Accepted Optional Field: Firm (2)"
-  end
-  if value == 3 then
-    return "Order Accepted Optional Field: MinQty (3)"
-  end
-  if value == 4 then
-    return "Order Accepted Optional Field: CustomerType (4)"
-  end
-  if value == 5 then
-    return "Order Accepted Optional Field: MaxFloor (5)"
-  end
-  if value == 6 then
-    return "Order Accepted Optional Field: PriceType (6)"
-  end
-  if value == 7 then
-    return "Order Accepted Optional Field: PegOffset (7)"
-  end
-  if value == 9 then
-    return "Order Accepted Optional Field: DiscretionPrice (9)"
-  end
-  if value == 10 then
-    return "Order Accepted Optional Field: DiscretionPriceType (10)"
-  end
-  if value == 11 then
-    return "Order Accepted Optional Field: DiscretionPegOffset (11)"
-  end
-  if value == 12 then
-    return "Order Accepted Optional Field: PostOnly (12)"
-  end
-  if value == 13 then
-    return "Order Accepted Optional Field: RandomReserves (13)"
-  end
-  if value == 14 then
-    return "Order Accepted Optional Field: Route (14)"
-  end
-  if value == 15 then
-    return "Order Accepted Optional Field: ExpireTime (15)"
-  end
-  if value == 16 then
-    return "Order Accepted Optional Field: TradeNow (16)"
-  end
-  if value == 17 then
-    return "Order Accepted Optional Field: HandleInst (17)"
-  end
-  if value == 18 then
-    return "Order Accepted Optional Field: BBO Weight Indicator (18)"
-  end
-  if value == 24 then
-    return "Order Accepted Optional Field: Group ID (24)"
-  end
-  if value == 25 then
-    return "Order Accepted Optional Field: Shares Located (25)"
-  end
-  if value == 28 then
-    return "Order Accepted Optional Field: UserRefIdx (28)"
-  end
-  if value == 29 then
-    return "Order Accepted Optional Field: AIQ Strategy (29)"
-  end
-  if value == 30 then
-    return "Order Accepted Optional Field: AIQ Group ID (30)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.labels = {
+  [2] = "Order Accepted Optional Field: Firm (2)",
+  [3] = "Order Accepted Optional Field: MinQty (3)",
+  [4] = "Order Accepted Optional Field: CustomerType (4)",
+  [5] = "Order Accepted Optional Field: MaxFloor (5)",
+  [6] = "Order Accepted Optional Field: PriceType (6)",
+  [7] = "Order Accepted Optional Field: PegOffset (7)",
+  [9] = "Order Accepted Optional Field: DiscretionPrice (9)",
+  [10] = "Order Accepted Optional Field: DiscretionPriceType (10)",
+  [11] = "Order Accepted Optional Field: DiscretionPegOffset (11)",
+  [12] = "Order Accepted Optional Field: PostOnly (12)",
+  [13] = "Order Accepted Optional Field: RandomReserves (13)",
+  [14] = "Order Accepted Optional Field: Route (14)",
+  [15] = "Order Accepted Optional Field: ExpireTime (15)",
+  [16] = "Order Accepted Optional Field: TradeNow (16)",
+  [17] = "Order Accepted Optional Field: HandleInst (17)",
+  [18] = "Order Accepted Optional Field: BBO Weight Indicator (18)",
+  [24] = "Order Accepted Optional Field: Group ID (24)",
+  [25] = "Order Accepted Optional Field: Shares Located (25)",
+  [28] = "Order Accepted Optional Field: UserRefIdx (28)",
+  [29] = "Order Accepted Optional Field: AIQ Strategy (29)",
+  [30] = "Order Accepted Optional Field: AIQ Group ID (30)",
+}
 
-  return "Order Accepted Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.labels[value] or "Order Accepted Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Accepted Optional Field
@@ -2165,12 +1889,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.size = 1
 
 -- Display: Order Executed Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.display = function(value)
-  if value == 28 then
-    return "Order Executed Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.labels = {
+  [28] = "Order Executed Optional Field: UserRefIdx (28)",
+}
 
-  return "Order Executed Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.labels[value] or "Order Executed Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Executed Optional Field
@@ -2192,18 +1916,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.size = 1
 
 -- Display: Order Modified Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.display = function(value)
-  if value == 28 then
-    return "Order Modified Optional Field: UserRefIdx (28)"
-  end
-  if value == 25 then
-    return "Order Modified Optional Field: Shares Located (25)"
-  end
-  if value == 26 then
-    return "Order Modified Optional Field: Locate Broker (26)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.labels = {
+  [28] = "Order Modified Optional Field: UserRefIdx (28)",
+  [25] = "Order Modified Optional Field: Shares Located (25)",
+  [26] = "Order Modified Optional Field: Locate Broker (26)",
+}
 
-  return "Order Modified Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.labels[value] or "Order Modified Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Modified Optional Field
@@ -2225,12 +1945,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.size = 1
 
 -- Display: Order Priority Update Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.display = function(value)
-  if value == 28 then
-    return "Order Priority Update Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.labels = {
+  [28] = "Order Priority Update Optional Field: UserRefIdx (28)",
+}
 
-  return "Order Priority Update Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.labels[value] or "Order Priority Update Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Priority Update Optional Field
@@ -2275,21 +1995,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field.size = 1
 
 -- Display: Order Restated Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field.display = function(value)
-  if value == 22 then
-    return "Order Restated Optional Field: Display Quantity (22)"
-  end
-  if value == 23 then
-    return "Order Restated Optional Field: Display Price (23)"
-  end
-  if value == 1 then
-    return "Order Restated Optional Field: SecondaryOrdRefNum (1)"
-  end
-  if value == 28 then
-    return "Order Restated Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field.labels = {
+  [22] = "Order Restated Optional Field: Display Quantity (22)",
+  [23] = "Order Restated Optional Field: Display Price (23)",
+  [1] = "Order Restated Optional Field: SecondaryOrdRefNum (1)",
+  [28] = "Order Restated Optional Field: UserRefIdx (28)",
+}
 
-  return "Order Restated Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field.labels[value] or "Order Restated Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Order Restated Optional Field
@@ -2311,15 +2025,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason.size = 1
 
 -- Display: Order Restated Reason
-nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason.display = function(value)
-  if value == "R" then
-    return "Order Restated Reason: Refresh Of Display (R)"
-  end
-  if value == "P" then
-    return "Order Restated Reason: Update Of Displayed Price (P)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason.labels = {
+  ["R"] = "Order Restated Reason: Refresh Of Display (R)",
+  ["P"] = "Order Restated Reason: Update Of Displayed Price (P)",
+}
 
-  return "Order Restated Reason: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_reason.labels[value] or "Order Restated Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Restated Reason
@@ -2341,15 +2053,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_state = {}
 nasdaq_nsmequities_orders_ouch_v5_0.order_state.size = 1
 
 -- Display: Order State
-nasdaq_nsmequities_orders_ouch_v5_0.order_state.display = function(value)
-  if value == "L" then
-    return "Order State: Order Live (L)"
-  end
-  if value == "D" then
-    return "Order State: Order Dead (D)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.order_state.labels = {
+  ["L"] = "Order State: Order Live (L)",
+  ["D"] = "Order State: Order Dead (D)",
+}
 
-  return "Order State: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.order_state.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -2469,15 +2179,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.post_only = {}
 nasdaq_nsmequities_orders_ouch_v5_0.post_only.size = 1
 
 -- Display: Post Only
-nasdaq_nsmequities_orders_ouch_v5_0.post_only.display = function(value)
-  if value == "P" then
-    return "Post Only: Post Only (P)"
-  end
-  if value == "N" then
-    return "Post Only: No (N)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.post_only.labels = {
+  ["P"] = "Post Only: Post Only (P)",
+  ["N"] = "Post Only: No (N)",
+}
 
-  return "Post Only: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.post_only.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.post_only.labels[value] or "Post Only: Unknown("..value..")"
 end
 
 -- Dissect: Post Only
@@ -2528,27 +2236,17 @@ nasdaq_nsmequities_orders_ouch_v5_0.price_type = {}
 nasdaq_nsmequities_orders_ouch_v5_0.price_type.size = 1
 
 -- Display: Price Type
-nasdaq_nsmequities_orders_ouch_v5_0.price_type.display = function(value)
-  if value == "L" then
-    return "Price Type: Limit (L)"
-  end
-  if value == "P" then
-    return "Price Type: Market Peg (P)"
-  end
-  if value == "M" then
-    return "Price Type: Midpoint Peg (M)"
-  end
-  if value == "R" then
-    return "Price Type: Primary Peg (R)"
-  end
-  if value == "Q" then
-    return "Price Type: Market Maker Peg (Q)"
-  end
-  if value == "m" then
-    return "Price Type: Midpoint (m)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.price_type.labels = {
+  ["L"] = "Price Type: Limit (L)",
+  ["P"] = "Price Type: Market Peg (P)",
+  ["M"] = "Price Type: Midpoint Peg (M)",
+  ["R"] = "Price Type: Primary Peg (R)",
+  ["Q"] = "Price Type: Market Maker Peg (Q)",
+  ["m"] = "Price Type: Midpoint (m)",
+}
 
-  return "Price Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.price_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -2639,15 +2337,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code = {}
 nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2669,12 +2365,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.size = 1
 
 -- Display: Rejected Order Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.display = function(value)
-  if value == 28 then
-    return "Rejected Order Optional Field: UserRefIdx (28)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.labels = {
+  [28] = "Rejected Order Optional Field: UserRefIdx (28)",
+}
 
-  return "Rejected Order Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.labels[value] or "Rejected Order Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Rejected Order Optional Field
@@ -2696,165 +2392,63 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason = {}
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.size = 2
 
 -- Display: Rejected Order Reason
-nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.display = function(value)
-  if value == 0x0001 then
-    return "Rejected Order Reason: Quote Unavailable (0x0001)"
-  end
-  if value == 0x0002 then
-    return "Rejected Order Reason: Destination Closed (0x0002)"
-  end
-  if value == 0x0003 then
-    return "Rejected Order Reason: Invalid Display (0x0003)"
-  end
-  if value == 0x0004 then
-    return "Rejected Order Reason: Invalid Max Floor (0x0004)"
-  end
-  if value == 0x0005 then
-    return "Rejected Order Reason: Invalid Peg Type (0x0005)"
-  end
-  if value == 0x0006 then
-    return "Rejected Order Reason: Fat Finger (0x0006)"
-  end
-  if value == 0x0007 then
-    return "Rejected Order Reason: Halted (0x0007)"
-  end
-  if value == 0x0008 then
-    return "Rejected Order Reason: Iso Not Allowed (0x0008)"
-  end
-  if value == 0x0009 then
-    return "Rejected Order Reason: Invalid Side (0x0009)"
-  end
-  if value == 0x000A then
-    return "Rejected Order Reason: Processing Error (0x000A)"
-  end
-  if value == 0x000B then
-    return "Rejected Order Reason: Cancel Pending (0x000B)"
-  end
-  if value == 0x000C then
-    return "Rejected Order Reason: Firm Not Authorized (0x000C)"
-  end
-  if value == 0x000D then
-    return "Rejected Order Reason: Invalid Min Quantity (0x000D)"
-  end
-  if value == 0x000E then
-    return "Rejected Order Reason: No Closing Reference Price (0x000E)"
-  end
-  if value == 0x000F then
-    return "Rejected Order Reason: Other (0x000F)"
-  end
-  if value == 0x0010 then
-    return "Rejected Order Reason: Cancel Not Allowed (0x0010)"
-  end
-  if value == 0x0011 then
-    return "Rejected Order Reason: Pegging Not Allowed (0x0011)"
-  end
-  if value == 0x0012 then
-    return "Rejected Order Reason: Crossed Market (0x0012)"
-  end
-  if value == 0x0013 then
-    return "Rejected Order Reason: Invalid Quantity (0x0013)"
-  end
-  if value == 0x0014 then
-    return "Rejected Order Reason: Invalid Cross Order (0x0014)"
-  end
-  if value == 0x0015 then
-    return "Rejected Order Reason: Replace Not Allowed (0x0015)"
-  end
-  if value == 0x0016 then
-    return "Rejected Order Reason: Routing Not Allowed (0x0016)"
-  end
-  if value == 0x0017 then
-    return "Rejected Order Reason: Invalid Symbol (0x0017)"
-  end
-  if value == 0x0018 then
-    return "Rejected Order Reason: Test (0x0018)"
-  end
-  if value == 0x0019 then
-    return "Rejected Order Reason: Late Loc Too Aggressive (0x0019)"
-  end
-  if value == 0x001A then
-    return "Rejected Order Reason: Retail Not Allowed (0x001A)"
-  end
-  if value == 0x001B then
-    return "Rejected Order Reason: Invalid Midpoint Post Only Price (0x001B)"
-  end
-  if value == 0x001C then
-    return "Rejected Order Reason: Invalid Destination (0x001C)"
-  end
-  if value == 0x001D then
-    return "Rejected Order Reason: Invalid Price (0x001D)"
-  end
-  if value == 0x001E then
-    return "Rejected Order Reason: Shares Exceed Threshold (0x001E)"
-  end
-  if value == 0x001F then
-    return "Rejected Order Reason: Exceeds Maximum Allowed Notional Value (0x001F)"
-  end
-  if value == 0x0020 then
-    return "Rejected Order Reason: Risk Aggregate Exposure Exceeded (0x0020)"
-  end
-  if value == 0x0021 then
-    return "Rejected Order Reason: Risk Market Impact (0x0021)"
-  end
-  if value == 0x0022 then
-    return "Rejected Order Reason: Risk Restricted Stock (0x0022)"
-  end
-  if value == 0x0023 then
-    return "Rejected Order Reason: Risk Short Sell Restricted (0x0023)"
-  end
-  if value == 0x0024 then
-    return "Rejected Order Reason: Risk Iso Not Allowed (0x0024)"
-  end
-  if value == 0x0025 then
-    return "Rejected Order Reason: Risk Exceeds Adv Limit (0x0025)"
-  end
-  if value == 0x0026 then
-    return "Rejected Order Reason: Risk Fat Finger (0x0026)"
-  end
-  if value == 0x0027 then
-    return "Rejected Order Reason: Risk Locate Required (0x0027)"
-  end
-  if value == 0x0028 then
-    return "Rejected Order Reason: Risk Symbol Message Rate Restriction (0x0028)"
-  end
-  if value == 0x0029 then
-    return "Rejected Order Reason: Risk Port Message Rate Restriction (0x0029)"
-  end
-  if value == 0x002A then
-    return "Rejected Order Reason: Risk Duplicate Message Rate Restriction (0x002A)"
-  end
-  if value == 0x002B then
-    return "Rejected Order Reason: Risk Short Sell Not Allowed (0x002B)"
-  end
-  if value == 0x002C then
-    return "Rejected Order Reason: Risk Market Order Not Allowed (0x002C)"
-  end
-  if value == 0x002D then
-    return "Rejected Order Reason: Risk Pre Market Not Allowed (0x002D)"
-  end
-  if value == 0x002E then
-    return "Rejected Order Reason: Risk Post Market Not Allowed (0x002E)"
-  end
-  if value == 0x002F then
-    return "Rejected Order Reason: Risk Short Sell Exempt Not Allowed (0x002F)"
-  end
-  if value == 0x0030 then
-    return "Rejected Order Reason: Risk Single Order Notional Exceeded (0x0030)"
-  end
-  if value == 0x0031 then
-    return "Rejected Order Reason: Risk Max Quantity Exceeded (0x0031)"
-  end
-  if value == 0x0032 then
-    return "Rejected Order Reason: Reg Sho State Not Available (0x0032)"
-  end
-  if value == 0x0033 then
-    return "Rejected Order Reason: Risk Ipo Market Buy Not Allowed (0x0033)"
-  end
-  if value == 0x0040 then
-    return "Rejected Order Reason: Invalid Aiq (0x0040)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.labels = {
+  [0x0001] = "Rejected Order Reason: Quote Unavailable (0x0001)",
+  [0x0002] = "Rejected Order Reason: Destination Closed (0x0002)",
+  [0x0003] = "Rejected Order Reason: Invalid Display (0x0003)",
+  [0x0004] = "Rejected Order Reason: Invalid Max Floor (0x0004)",
+  [0x0005] = "Rejected Order Reason: Invalid Peg Type (0x0005)",
+  [0x0006] = "Rejected Order Reason: Fat Finger (0x0006)",
+  [0x0007] = "Rejected Order Reason: Halted (0x0007)",
+  [0x0008] = "Rejected Order Reason: Iso Not Allowed (0x0008)",
+  [0x0009] = "Rejected Order Reason: Invalid Side (0x0009)",
+  [0x000A] = "Rejected Order Reason: Processing Error (0x000A)",
+  [0x000B] = "Rejected Order Reason: Cancel Pending (0x000B)",
+  [0x000C] = "Rejected Order Reason: Firm Not Authorized (0x000C)",
+  [0x000D] = "Rejected Order Reason: Invalid Min Quantity (0x000D)",
+  [0x000E] = "Rejected Order Reason: No Closing Reference Price (0x000E)",
+  [0x000F] = "Rejected Order Reason: Other (0x000F)",
+  [0x0010] = "Rejected Order Reason: Cancel Not Allowed (0x0010)",
+  [0x0011] = "Rejected Order Reason: Pegging Not Allowed (0x0011)",
+  [0x0012] = "Rejected Order Reason: Crossed Market (0x0012)",
+  [0x0013] = "Rejected Order Reason: Invalid Quantity (0x0013)",
+  [0x0014] = "Rejected Order Reason: Invalid Cross Order (0x0014)",
+  [0x0015] = "Rejected Order Reason: Replace Not Allowed (0x0015)",
+  [0x0016] = "Rejected Order Reason: Routing Not Allowed (0x0016)",
+  [0x0017] = "Rejected Order Reason: Invalid Symbol (0x0017)",
+  [0x0018] = "Rejected Order Reason: Test (0x0018)",
+  [0x0019] = "Rejected Order Reason: Late Loc Too Aggressive (0x0019)",
+  [0x001A] = "Rejected Order Reason: Retail Not Allowed (0x001A)",
+  [0x001B] = "Rejected Order Reason: Invalid Midpoint Post Only Price (0x001B)",
+  [0x001C] = "Rejected Order Reason: Invalid Destination (0x001C)",
+  [0x001D] = "Rejected Order Reason: Invalid Price (0x001D)",
+  [0x001E] = "Rejected Order Reason: Shares Exceed Threshold (0x001E)",
+  [0x001F] = "Rejected Order Reason: Exceeds Maximum Allowed Notional Value (0x001F)",
+  [0x0020] = "Rejected Order Reason: Risk Aggregate Exposure Exceeded (0x0020)",
+  [0x0021] = "Rejected Order Reason: Risk Market Impact (0x0021)",
+  [0x0022] = "Rejected Order Reason: Risk Restricted Stock (0x0022)",
+  [0x0023] = "Rejected Order Reason: Risk Short Sell Restricted (0x0023)",
+  [0x0024] = "Rejected Order Reason: Risk Iso Not Allowed (0x0024)",
+  [0x0025] = "Rejected Order Reason: Risk Exceeds Adv Limit (0x0025)",
+  [0x0026] = "Rejected Order Reason: Risk Fat Finger (0x0026)",
+  [0x0027] = "Rejected Order Reason: Risk Locate Required (0x0027)",
+  [0x0028] = "Rejected Order Reason: Risk Symbol Message Rate Restriction (0x0028)",
+  [0x0029] = "Rejected Order Reason: Risk Port Message Rate Restriction (0x0029)",
+  [0x002A] = "Rejected Order Reason: Risk Duplicate Message Rate Restriction (0x002A)",
+  [0x002B] = "Rejected Order Reason: Risk Short Sell Not Allowed (0x002B)",
+  [0x002C] = "Rejected Order Reason: Risk Market Order Not Allowed (0x002C)",
+  [0x002D] = "Rejected Order Reason: Risk Pre Market Not Allowed (0x002D)",
+  [0x002E] = "Rejected Order Reason: Risk Post Market Not Allowed (0x002E)",
+  [0x002F] = "Rejected Order Reason: Risk Short Sell Exempt Not Allowed (0x002F)",
+  [0x0030] = "Rejected Order Reason: Risk Single Order Notional Exceeded (0x0030)",
+  [0x0031] = "Rejected Order Reason: Risk Max Quantity Exceeded (0x0031)",
+  [0x0032] = "Rejected Order Reason: Reg Sho State Not Available (0x0032)",
+  [0x0033] = "Rejected Order Reason: Risk Ipo Market Buy Not Allowed (0x0033)",
+  [0x0040] = "Rejected Order Reason: Invalid Aiq (0x0040)",
+}
 
-  return "Rejected Order Reason: Unknown("..string.format("0x%04X", value)..")"
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.labels[value] or "Rejected Order Reason: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Rejected Order Reason
@@ -2876,63 +2470,29 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.size = 1
 
 -- Display: Replace Order Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.display = function(value)
-  if value == 3 then
-    return "Replace Order Optional Field: MinQty (3)"
-  end
-  if value == 5 then
-    return "Replace Order Optional Field: MaxFloor (5)"
-  end
-  if value == 6 then
-    return "Replace Order Optional Field: PriceType (6)"
-  end
-  if value == 12 then
-    return "Replace Order Optional Field: PostOnly (12)"
-  end
-  if value == 15 then
-    return "Replace Order Optional Field: ExpireTime (15)"
-  end
-  if value == 16 then
-    return "Replace Order Optional Field: TradeNow (16)"
-  end
-  if value == 17 then
-    return "Replace Order Optional Field: HandleInst (17)"
-  end
-  if value == 13 then
-    return "Replace Order Optional Field: RandomReserves (13)"
-  end
-  if value == 7 then
-    return "Replace Order Optional Field: PegOffset (7)"
-  end
-  if value == 9 then
-    return "Replace Order Optional Field: DiscretionPrice (9)"
-  end
-  if value == 10 then
-    return "Replace Order Optional Field: DiscretionPriceType (10)"
-  end
-  if value == 11 then
-    return "Replace Order Optional Field: DiscretionPegOffset (11)"
-  end
-  if value == 25 then
-    return "Replace Order Optional Field: Shares Located (25)"
-  end
-  if value == 26 then
-    return "Replace Order Optional Field: Locate Broker (26)"
-  end
-  if value == 28 then
-    return "Replace Order Optional Field: UserRefIdx (28)"
-  end
-  if value == 27 then
-    return "Replace Order Optional Field: Side (27)"
-  end
-  if value == 29 then
-    return "Replace Order Optional Field: AIQ Strategy (29)"
-  end
-  if value == 30 then
-    return "Replace Order Optional Field: AIQ Group ID (30)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.labels = {
+  [3] = "Replace Order Optional Field: MinQty (3)",
+  [5] = "Replace Order Optional Field: MaxFloor (5)",
+  [6] = "Replace Order Optional Field: PriceType (6)",
+  [12] = "Replace Order Optional Field: PostOnly (12)",
+  [15] = "Replace Order Optional Field: ExpireTime (15)",
+  [16] = "Replace Order Optional Field: TradeNow (16)",
+  [17] = "Replace Order Optional Field: HandleInst (17)",
+  [13] = "Replace Order Optional Field: RandomReserves (13)",
+  [7] = "Replace Order Optional Field: PegOffset (7)",
+  [9] = "Replace Order Optional Field: DiscretionPrice (9)",
+  [10] = "Replace Order Optional Field: DiscretionPriceType (10)",
+  [11] = "Replace Order Optional Field: DiscretionPegOffset (11)",
+  [25] = "Replace Order Optional Field: Shares Located (25)",
+  [26] = "Replace Order Optional Field: Locate Broker (26)",
+  [28] = "Replace Order Optional Field: UserRefIdx (28)",
+  [27] = "Replace Order Optional Field: Side (27)",
+  [29] = "Replace Order Optional Field: AIQ Strategy (29)",
+  [30] = "Replace Order Optional Field: AIQ Group ID (30)",
+}
 
-  return "Replace Order Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.labels[value] or "Replace Order Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Replace Order Optional Field
@@ -2954,45 +2514,23 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field = {}
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field.size = 1
 
 -- Display: Replaced Message Optional Field
-nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field.display = function(value)
-  if value == 2 then
-    return "Replaced Message Optional Field: Firm (2)"
-  end
-  if value == 3 then
-    return "Replaced Message Optional Field: MinQty (3)"
-  end
-  if value == 5 then
-    return "Replaced Message Optional Field: MaxFloor (5)"
-  end
-  if value == 6 then
-    return "Replaced Message Optional Field: PriceType (6)"
-  end
-  if value == 12 then
-    return "Replaced Message Optional Field: PostOnly (12)"
-  end
-  if value == 15 then
-    return "Replaced Message Optional Field: ExpireTime (15)"
-  end
-  if value == 16 then
-    return "Replaced Message Optional Field: TradeNow (16)"
-  end
-  if value == 17 then
-    return "Replaced Message Optional Field: HandleInst (17)"
-  end
-  if value == 18 then
-    return "Replaced Message Optional Field: BBO Weight Indicator (18)"
-  end
-  if value == 28 then
-    return "Replaced Message Optional Field: UserRefIdx (28)"
-  end
-  if value == 29 then
-    return "Replaced Message Optional Field: AIQ Strategy (29)"
-  end
-  if value == 30 then
-    return "Replaced Message Optional Field: AIQ Group ID (30)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field.labels = {
+  [2] = "Replaced Message Optional Field: Firm (2)",
+  [3] = "Replaced Message Optional Field: MinQty (3)",
+  [5] = "Replaced Message Optional Field: MaxFloor (5)",
+  [6] = "Replaced Message Optional Field: PriceType (6)",
+  [12] = "Replaced Message Optional Field: PostOnly (12)",
+  [15] = "Replaced Message Optional Field: ExpireTime (15)",
+  [16] = "Replaced Message Optional Field: TradeNow (16)",
+  [17] = "Replaced Message Optional Field: HandleInst (17)",
+  [18] = "Replaced Message Optional Field: BBO Weight Indicator (18)",
+  [28] = "Replaced Message Optional Field: UserRefIdx (28)",
+  [29] = "Replaced Message Optional Field: AIQ Strategy (29)",
+  [30] = "Replaced Message Optional Field: AIQ Group ID (30)",
+}
 
-  return "Replaced Message Optional Field: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field.labels[value] or "Replaced Message Optional Field: Unknown("..value..")"
 end
 
 -- Dissect: Replaced Message Optional Field
@@ -3114,60 +2652,28 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type = {}
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Order Accepted Message (A)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Canceled Message (C)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Aiq Canceled Message (D)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed Message (E)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Broken Trade Message (B)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Rejected Order Message (J)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Cancel Pending Message (P)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Cancel Reject Message (I)"
-  end
-  if value == "T" then
-    return "Sequenced Message Type: Order Priority Update Message (T)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: Order Modified Message (M)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Order Restated Message (R)"
-  end
-  if value == "Q" then
-    return "Sequenced Message Type: Account Query Response Message (Q)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Mass Cancel Response Message (X)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Disable Order Entry Response Message (G)"
-  end
-  if value == "K" then
-    return "Sequenced Message Type: Enable Order Entry Response Message (K)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["A"] = "Sequenced Message Type: Order Accepted Message (A)",
+  ["U"] = "Sequenced Message Type: Replaced Message (U)",
+  ["C"] = "Sequenced Message Type: Canceled Message (C)",
+  ["D"] = "Sequenced Message Type: Aiq Canceled Message (D)",
+  ["E"] = "Sequenced Message Type: Order Executed Message (E)",
+  ["B"] = "Sequenced Message Type: Broken Trade Message (B)",
+  ["J"] = "Sequenced Message Type: Rejected Order Message (J)",
+  ["P"] = "Sequenced Message Type: Cancel Pending Message (P)",
+  ["I"] = "Sequenced Message Type: Cancel Reject Message (I)",
+  ["T"] = "Sequenced Message Type: Order Priority Update Message (T)",
+  ["M"] = "Sequenced Message Type: Order Modified Message (M)",
+  ["R"] = "Sequenced Message Type: Order Restated Message (R)",
+  ["Q"] = "Sequenced Message Type: Account Query Response Message (Q)",
+  ["X"] = "Sequenced Message Type: Mass Cancel Response Message (X)",
+  ["G"] = "Sequenced Message Type: Disable Order Entry Response Message (G)",
+  ["K"] = "Sequenced Message Type: Enable Order Entry Response Message (K)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -3189,27 +2695,17 @@ nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type = {}
 nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -3231,15 +2727,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.shares_located = {}
 nasdaq_nsmequities_orders_ouch_v5_0.shares_located.size = 1
 
 -- Display: Shares Located
-nasdaq_nsmequities_orders_ouch_v5_0.shares_located.display = function(value)
-  if value == "Y" then
-    return "Shares Located: Yes (Y)"
-  end
-  if value == "N" then
-    return "Shares Located: No (N)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.shares_located.labels = {
+  ["Y"] = "Shares Located: Yes (Y)",
+  ["N"] = "Shares Located: No (N)",
+}
 
-  return "Shares Located: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.shares_located.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.labels[value] or "Shares Located: Unknown("..value..")"
 end
 
 -- Dissect: Shares Located
@@ -3261,21 +2755,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.side = {}
 nasdaq_nsmequities_orders_ouch_v5_0.side.size = 1
 
 -- Display: Side
-nasdaq_nsmequities_orders_ouch_v5_0.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "T" then
-    return "Side: Sell Short (T)"
-  end
-  if value == "E" then
-    return "Side: Sell Short Exempt (E)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["T"] = "Side: Sell Short (T)",
+  ["E"] = "Side: Sell Short Exempt (E)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.side.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -3320,24 +2808,16 @@ nasdaq_nsmequities_orders_ouch_v5_0.time_in_force = {}
 nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.size = 1
 
 -- Display: Time In Force
-nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.display = function(value)
-  if value == "0" then
-    return "Time In Force: Day (0)"
-  end
-  if value == "3" then
-    return "Time In Force: Ioc (3)"
-  end
-  if value == "5" then
-    return "Time In Force: Gtx Extended Hours (5)"
-  end
-  if value == "6" then
-    return "Time In Force: Gtt (6)"
-  end
-  if value == "E" then
-    return "Time In Force: After Hours (E)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.labels = {
+  ["0"] = "Time In Force: Day (0)",
+  ["3"] = "Time In Force: Ioc (3)",
+  ["5"] = "Time In Force: Gtx Extended Hours (5)",
+  ["6"] = "Time In Force: Gtt (6)",
+  ["E"] = "Time In Force: After Hours (E)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -3402,15 +2882,13 @@ nasdaq_nsmequities_orders_ouch_v5_0.trade_now = {}
 nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size = 1
 
 -- Display: Trade Now
-nasdaq_nsmequities_orders_ouch_v5_0.trade_now.display = function(value)
-  if value == "Y" then
-    return "Trade Now: Yes (Y)"
-  end
-  if value == "N" then
-    return "Trade Now: No (N)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.trade_now.labels = {
+  ["Y"] = "Trade Now: Yes (Y)",
+  ["N"] = "Trade Now: No (N)",
+}
 
-  return "Trade Now: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.trade_now.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.labels[value] or "Trade Now: Unknown("..value..")"
 end
 
 -- Dissect: Trade Now
@@ -3432,33 +2910,19 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message_type = {}
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
-  if value == "M" then
-    return "Unsequenced Message Type: Modify Order Message (M)"
-  end
-  if value == "Q" then
-    return "Unsequenced Message Type: Account Query Message (Q)"
-  end
-  if value == "C" then
-    return "Unsequenced Message Type: Mass Cancel Request Message (C)"
-  end
-  if value == "D" then
-    return "Unsequenced Message Type: Disable Order Entry Request Message (D)"
-  end
-  if value == "E" then
-    return "Unsequenced Message Type: Enable Order Entry Request Message (E)"
-  end
+nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order Message (O)",
+  ["U"] = "Unsequenced Message Type: Replace Order Message (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order Message (X)",
+  ["M"] = "Unsequenced Message Type: Modify Order Message (M)",
+  ["Q"] = "Unsequenced Message Type: Account Query Message (Q)",
+  ["C"] = "Unsequenced Message Type: Mass Cancel Request Message (C)",
+  ["D"] = "Unsequenced Message Type: Disable Order Entry Request Message (D)",
+  ["E"] = "Unsequenced Message Type: Enable Order Entry Request Message (E)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message_type.display = function(value)
+  return nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -3585,10 +3049,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_value = {}
 
 -- Dissect: Enable Order Entry Response Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_value.dissect = function(buffer, offset, packet, parent, enable_order_entry_response_optional_field)
-  -- Dissect User Ref Idx
-  if enable_order_entry_response_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_value.dispatch[enable_order_entry_response_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3713,10 +3181,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_value = {}
 
 -- Dissect: Disable Order Entry Response Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_value.dissect = function(buffer, offset, packet, parent, disable_order_entry_response_optional_field)
-  -- Dissect User Ref Idx
-  if disable_order_entry_response_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_value.dispatch[disable_order_entry_response_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3841,18 +3313,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_value = {}
 
 -- Dissect: Mass Cancel Response Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_value.dispatch = {
+  [27] = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect,
+  [24] = nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect,
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_value.dissect = function(buffer, offset, packet, parent, mass_cancel_response_optional_field)
-  -- Dissect Side
-  if mass_cancel_response_optional_field == 27 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Id
-  if mass_cancel_response_optional_field == 24 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Ref Idx
-  if mass_cancel_response_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_value.dispatch[mass_cancel_response_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3980,10 +3450,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value = {}
 
 -- Dissect: Account Query Response Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value.dissect = function(buffer, offset, packet, parent, account_query_response_optional_field)
-  -- Dissect User Ref Idx
-  if account_query_response_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value.dispatch[account_query_response_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4111,22 +3585,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value = {}
 
 -- Dissect: Order Restated Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dispatch = {
+  [22] = nasdaq_nsmequities_orders_ouch_v5_0.display_quantity.dissect,
+  [23] = nasdaq_nsmequities_orders_ouch_v5_0.display_price.dissect,
+  [1] = nasdaq_nsmequities_orders_ouch_v5_0.secondary_ord_ref_num.dissect,
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dissect = function(buffer, offset, packet, parent, order_restated_optional_field)
-  -- Dissect Display Quantity
-  if order_restated_optional_field == 22 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.display_quantity.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display Price
-  if order_restated_optional_field == 23 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.display_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secondary Ord Ref Num
-  if order_restated_optional_field == 1 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.secondary_ord_ref_num.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Ref Idx
-  if order_restated_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dispatch[order_restated_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4251,18 +3720,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value = {}
 
 -- Dissect: Order Modified Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+  [25] = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect,
+  [26] = nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value.dissect = function(buffer, offset, packet, parent, order_modified_optional_field)
-  -- Dissect User Ref Idx
-  if order_modified_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Shares Located
-  if order_modified_optional_field == 25 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Locate Broker
-  if order_modified_optional_field == 26 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value.dispatch[order_modified_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4396,10 +3863,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value = {}
 
 -- Dissect: Order Priority Update Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value.dissect = function(buffer, offset, packet, parent, order_priority_update_optional_field)
-  -- Dissect User Ref Idx
-  if order_priority_update_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value.dispatch[order_priority_update_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4536,10 +4007,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value = {}
 
 -- Dissect: Cancel Reject Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value.dissect = function(buffer, offset, packet, parent, cancel_reject_optional_field)
-  -- Dissect User Ref Idx
-  if cancel_reject_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value.dispatch[cancel_reject_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4667,10 +4142,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value = {}
 
 -- Dissect: Cancel Pending Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value.dissect = function(buffer, offset, packet, parent, cancel_pending_optional_field)
-  -- Dissect User Ref Idx
-  if cancel_pending_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value.dispatch[cancel_pending_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4798,10 +4277,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value = {}
 
 -- Dissect: Rejected Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value.dissect = function(buffer, offset, packet, parent, rejected_order_optional_field)
-  -- Dissect User Ref Idx
-  if rejected_order_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value.dispatch[rejected_order_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4935,10 +4418,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value = {}
 
 -- Dissect: Broken Trade Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value.dissect = function(buffer, offset, packet, parent, broken_trade_optional_field)
-  -- Dissect User Ref Idx
-  if broken_trade_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value.dispatch[broken_trade_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5075,10 +4562,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value = {}
 
 -- Dissect: Order Executed Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dissect = function(buffer, offset, packet, parent, order_executed_optional_field)
-  -- Dissect User Ref Idx
-  if order_executed_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dispatch[order_executed_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5212,10 +4703,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value = {}
 
 -- Dissect: Aiq Canceled Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value.dissect = function(buffer, offset, packet, parent, aiq_canceled_optional_field)
-  -- Dissect User Ref Idx
-  if aiq_canceled_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value.dispatch[aiq_canceled_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5361,10 +4856,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value = {}
 
 -- Dissect: Canceled Message Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value.dissect = function(buffer, offset, packet, parent, canceled_message_optional_field)
-  -- Dissect User Ref Idx
-  if canceled_message_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value.dispatch[canceled_message_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5498,54 +4997,25 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value = {}
 
 -- Dissect: Replaced Message Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dispatch = {
+  [2] = nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect,
+  [3] = nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect,
+  [5] = nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect,
+  [6] = nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect,
+  [12] = nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect,
+  [15] = nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect,
+  [16] = nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect,
+  [17] = nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect,
+  [18] = nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.dissect,
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+  [29] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect,
+  [30] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dissect = function(buffer, offset, packet, parent, replaced_message_optional_field)
-  -- Dissect Firm
-  if replaced_message_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty
-  if replaced_message_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if replaced_message_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Type
-  if replaced_message_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Post Only
-  if replaced_message_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if replaced_message_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Now
-  if replaced_message_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Handle Inst
-  if replaced_message_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bbo Weight Indicator
-  if replaced_message_optional_field == 18 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Ref Idx
-  if replaced_message_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Strategy
-  if replaced_message_optional_field == 29 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Group Id
-  if replaced_message_optional_field == 30 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dispatch[replaced_message_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5706,90 +5176,34 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value = {}
 
 -- Dissect: Order Accepted Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dispatch = {
+  [2] = nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect,
+  [3] = nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect,
+  [4] = nasdaq_nsmequities_orders_ouch_v5_0.customer_type.dissect,
+  [5] = nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect,
+  [6] = nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect,
+  [7] = nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect,
+  [9] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect,
+  [10] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect,
+  [11] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect,
+  [12] = nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect,
+  [13] = nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect,
+  [14] = nasdaq_nsmequities_orders_ouch_v5_0.route.dissect,
+  [15] = nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect,
+  [16] = nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect,
+  [17] = nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect,
+  [18] = nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.dissect,
+  [24] = nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect,
+  [25] = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect,
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+  [29] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect,
+  [30] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect = function(buffer, offset, packet, parent, order_accepted_optional_field)
-  -- Dissect Firm
-  if order_accepted_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty
-  if order_accepted_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Type
-  if order_accepted_optional_field == 4 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if order_accepted_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Type
-  if order_accepted_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Offset
-  if order_accepted_optional_field == 7 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Price
-  if order_accepted_optional_field == 9 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Price Type
-  if order_accepted_optional_field == 10 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Peg Offset
-  if order_accepted_optional_field == 11 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Post Only
-  if order_accepted_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Random Reserves
-  if order_accepted_optional_field == 13 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Route
-  if order_accepted_optional_field == 14 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.route.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if order_accepted_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Now
-  if order_accepted_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Handle Inst
-  if order_accepted_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bbo Weight Indicator
-  if order_accepted_optional_field == 18 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Id
-  if order_accepted_optional_field == 24 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Shares Located
-  if order_accepted_optional_field == 25 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Ref Idx
-  if order_accepted_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Strategy
-  if order_accepted_optional_field == 29 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Group Id
-  if order_accepted_optional_field == 30 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dispatch[order_accepted_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5991,74 +5405,30 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.dissect,
+  ["A"] = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.dissect,
+  ["U"] = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.dissect,
+  ["C"] = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.dissect,
+  ["D"] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.dissect,
+  ["E"] = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.dissect,
+  ["B"] = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.dissect,
+  ["J"] = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.dissect,
+  ["P"] = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.dissect,
+  ["I"] = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.dissect,
+  ["T"] = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.dissect,
+  ["M"] = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.dissect,
+  ["R"] = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.dissect,
+  ["Q"] = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.dissect,
+  ["X"] = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_message.dissect,
+  ["G"] = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_message.dissect,
+  ["K"] = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_message.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Accepted Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replaced Message
-  if sequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Canceled Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Canceled Message
-  if sequenced_message_type == "D" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if sequenced_message_type == "E" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rejected Order Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Pending Message
-  if sequenced_message_type == "P" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Reject Message
-  if sequenced_message_type == "I" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Priority Update Message
-  if sequenced_message_type == "T" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Message
-  if sequenced_message_type == "M" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Message
-  if sequenced_message_type == "R" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Query Response Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Response Message
-  if sequenced_message_type == "X" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disable Order Entry Response Message
-  if sequenced_message_type == "G" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enable Order Entry Response Message
-  if sequenced_message_type == "K" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6301,30 +5671,19 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nsmequities_orders_ouch_v5_0.server_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.dissect,
+  ["A"] = nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nsmequities_orders_ouch_v5_0.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nsmequities_orders_ouch_v5_0.server_heartbeat.dissect,
+  ["Z"] = nasdaq_nsmequities_orders_ouch_v5_0.end_of_session.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6524,10 +5883,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_value = {}
 
 -- Dissect: Enable Order Entry Request Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_value.dissect = function(buffer, offset, packet, parent, enable_order_entry_request_optional_field)
-  -- Dissect User Ref Idx
-  if enable_order_entry_request_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_value.dispatch[enable_order_entry_request_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6649,10 +6012,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_value = {}
 
 -- Dissect: Disable Order Entry Request Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_value.dissect = function(buffer, offset, packet, parent, disable_order_entry_request_optional_field)
-  -- Dissect User Ref Idx
-  if disable_order_entry_request_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_value.dispatch[disable_order_entry_request_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6774,18 +6141,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_value = {}
 
 -- Dissect: Mass Cancel Request Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_value.dispatch = {
+  [27] = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect,
+  [24] = nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect,
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_value.dissect = function(buffer, offset, packet, parent, mass_cancel_request_optional_field)
-  -- Dissect Side
-  if mass_cancel_request_optional_field == 27 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Id
-  if mass_cancel_request_optional_field == 24 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Ref Idx
-  if mass_cancel_request_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_value.dispatch[mass_cancel_request_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6910,10 +6275,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value = {}
 
 -- Dissect: Account Query Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value.dissect = function(buffer, offset, packet, parent, account_query_optional_field)
-  -- Dissect User Ref Idx
-  if account_query_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value.dispatch[account_query_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7035,18 +6404,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value = {}
 
 -- Dissect: Modify Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+  [25] = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect,
+  [26] = nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value.dissect = function(buffer, offset, packet, parent, modify_order_optional_field)
-  -- Dissect User Ref Idx
-  if modify_order_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Shares Located
-  if modify_order_optional_field == 25 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Locate Broker
-  if modify_order_optional_field == 26 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value.dispatch[modify_order_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7177,10 +6544,14 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value = {}
 
 -- Dissect: Cancel Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value.dispatch = {
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value.dissect = function(buffer, offset, packet, parent, cancel_order_optional_field)
-  -- Dissect User Ref Idx
-  if cancel_order_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value.dispatch[cancel_order_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7308,78 +6679,31 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value = {}
 
 -- Dissect: Replace Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dispatch = {
+  [3] = nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect,
+  [5] = nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect,
+  [6] = nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect,
+  [12] = nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect,
+  [15] = nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect,
+  [16] = nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect,
+  [17] = nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect,
+  [13] = nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect,
+  [7] = nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect,
+  [9] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect,
+  [10] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect,
+  [11] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect,
+  [25] = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect,
+  [26] = nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect,
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+  [27] = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect,
+  [29] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect,
+  [30] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dissect = function(buffer, offset, packet, parent, replace_order_optional_field)
-  -- Dissect Min Qty
-  if replace_order_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if replace_order_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Type
-  if replace_order_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Post Only
-  if replace_order_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if replace_order_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Now
-  if replace_order_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Handle Inst
-  if replace_order_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Random Reserves
-  if replace_order_optional_field == 13 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Offset
-  if replace_order_optional_field == 7 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Price
-  if replace_order_optional_field == 9 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Price Type
-  if replace_order_optional_field == 10 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Peg Offset
-  if replace_order_optional_field == 11 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Shares Located
-  if replace_order_optional_field == 25 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Locate Broker
-  if replace_order_optional_field == 26 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Ref Idx
-  if replace_order_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Side
-  if replace_order_optional_field == 27 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Strategy
-  if replace_order_optional_field == 29 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Group Id
-  if replace_order_optional_field == 30 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dispatch[replace_order_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7519,86 +6843,33 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value = {}
 
 -- Dissect: Enter Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dispatch = {
+  [2] = nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect,
+  [3] = nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect,
+  [4] = nasdaq_nsmequities_orders_ouch_v5_0.customer_type.dissect,
+  [5] = nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect,
+  [6] = nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect,
+  [7] = nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect,
+  [9] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect,
+  [10] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect,
+  [11] = nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect,
+  [12] = nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect,
+  [13] = nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect,
+  [15] = nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect,
+  [16] = nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect,
+  [17] = nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect,
+  [24] = nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect,
+  [25] = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect,
+  [26] = nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect,
+  [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
+  [29] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect,
+  [30] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dissect = function(buffer, offset, packet, parent, enter_order_optional_field)
-  -- Dissect Firm
-  if enter_order_optional_field == 2 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Min Qty
-  if enter_order_optional_field == 3 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Customer Type
-  if enter_order_optional_field == 4 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.customer_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Max Floor
-  if enter_order_optional_field == 5 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Type
-  if enter_order_optional_field == 6 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Peg Offset
-  if enter_order_optional_field == 7 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Price
-  if enter_order_optional_field == 9 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Price Type
-  if enter_order_optional_field == 10 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Discretion Peg Offset
-  if enter_order_optional_field == 11 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Post Only
-  if enter_order_optional_field == 12 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Random Reserves
-  if enter_order_optional_field == 13 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expire Time
-  if enter_order_optional_field == 15 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Now
-  if enter_order_optional_field == 16 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Handle Inst
-  if enter_order_optional_field == 17 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Group Id
-  if enter_order_optional_field == 24 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Shares Located
-  if enter_order_optional_field == 25 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Locate Broker
-  if enter_order_optional_field == 26 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Ref Idx
-  if enter_order_optional_field == 28 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Strategy
-  if enter_order_optional_field == 29 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Aiq Group Id
-  if enter_order_optional_field == 30 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dispatch[enter_order_optional_field]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7747,38 +7018,21 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dispatch = {
+  ["O"] = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.dissect,
+  ["U"] = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.dissect,
+  ["X"] = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.dissect,
+  ["M"] = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.dissect,
+  ["Q"] = nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.dissect,
+  ["C"] = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_message.dissect,
+  ["D"] = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_message.dissect,
+  ["E"] = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_message.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if unsequenced_message_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if unsequenced_message_type == "M" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Account Query Message
-  if unsequenced_message_type == "Q" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Request Message
-  if unsequenced_message_type == "C" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Disable Order Entry Request Message
-  if unsequenced_message_type == "D" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enable Order Entry Request Message
-  if unsequenced_message_type == "E" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -7893,26 +7147,18 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nsmequities_orders_ouch_v5_0.client_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.dissect,
+  ["L"] = nasdaq_nsmequities_orders_ouch_v5_0.login_request_packet.dissect,
+  ["U"] = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nsmequities_orders_ouch_v5_0.client_heartbeat.dissect,
+  ["O"] = nasdaq_nsmequities_orders_ouch_v5_0.logout_request.dissect,
+}
+
 nasdaq_nsmequities_orders_ouch_v5_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_orders_ouch_v5_0.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -165,18 +165,14 @@ lseg_millennium_level2recovery_mitch_v11_9.book_type = {}
 lseg_millennium_level2recovery_mitch_v11_9.book_type.size = 1
 
 -- Display: Book Type
-lseg_millennium_level2recovery_mitch_v11_9.book_type.display = function(value)
-  if value == 1 then
-    return "Book Type: On Book (1)"
-  end
-  if value == 2 then
-    return "Book Type: Off Book (2)"
-  end
-  if value == 3 then
-    return "Book Type: Private Rfq (3)"
-  end
+lseg_millennium_level2recovery_mitch_v11_9.book_type.labels = {
+  [1] = "Book Type: On Book (1)",
+  [2] = "Book Type: Off Book (2)",
+  [3] = "Book Type: Private Rfq (3)",
+}
 
-  return "Book Type: Unknown("..value..")"
+lseg_millennium_level2recovery_mitch_v11_9.book_type.display = function(value)
+  return lseg_millennium_level2recovery_mitch_v11_9.book_type.labels[value] or "Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Book Type
@@ -244,27 +240,17 @@ lseg_millennium_level2recovery_mitch_v11_9.login_status = {}
 lseg_millennium_level2recovery_mitch_v11_9.login_status.size = 1
 
 -- Display: Login Status
-lseg_millennium_level2recovery_mitch_v11_9.login_status.display = function(value)
-  if value == "A" then
-    return "Login Status: Login Accepted (A)"
-  end
-  if value == "a" then
-    return "Login Status: Comp Id Inactive Locked (a)"
-  end
-  if value == "b" then
-    return "Login Status: Login Limit Reached (b)"
-  end
-  if value == "c" then
-    return "Login Status: Service Unavailable (c)"
-  end
-  if value == "d" then
-    return "Login Status: Concurrent Limit Reached (d)"
-  end
-  if value == "e" then
-    return "Login Status: Failed Other (e)"
-  end
+lseg_millennium_level2recovery_mitch_v11_9.login_status.labels = {
+  ["A"] = "Login Status: Login Accepted (A)",
+  ["a"] = "Login Status: Comp Id Inactive Locked (a)",
+  ["b"] = "Login Status: Login Limit Reached (b)",
+  ["c"] = "Login Status: Service Unavailable (c)",
+  ["d"] = "Login Status: Concurrent Limit Reached (d)",
+  ["e"] = "Login Status: Failed Other (e)",
+}
 
-  return "Login Status: Unknown("..value..")"
+lseg_millennium_level2recovery_mitch_v11_9.login_status.display = function(value)
+  return lseg_millennium_level2recovery_mitch_v11_9.login_status.labels[value] or "Login Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Status
@@ -355,36 +341,20 @@ lseg_millennium_level2recovery_mitch_v11_9.message_type = {}
 lseg_millennium_level2recovery_mitch_v11_9.message_type.size = 1
 
 -- Display: Message Type
-lseg_millennium_level2recovery_mitch_v11_9.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Request Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x81 then
-    return "Message Type: Snapshot Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Snapshot Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Snapshot Complete Message (0x83)"
-  end
-  if value == 0x05 then
-    return "Message Type: Logout Request Message (0x05)"
-  end
-  if value == 0x48 then
-    return "Message Type: Symbol Status Message (0x48)"
-  end
-  if value == 0x41 then
-    return "Message Type: Add Order Message (0x41)"
-  end
-  if value == 0x46 then
-    return "Message Type: Add Attributed Order Message (0x46)"
-  end
+lseg_millennium_level2recovery_mitch_v11_9.message_type.labels = {
+  [0x01] = "Message Type: Login Request Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x81] = "Message Type: Snapshot Request Message (0x81)",
+  [0x82] = "Message Type: Snapshot Response Message (0x82)",
+  [0x83] = "Message Type: Snapshot Complete Message (0x83)",
+  [0x05] = "Message Type: Logout Request Message (0x05)",
+  [0x48] = "Message Type: Symbol Status Message (0x48)",
+  [0x41] = "Message Type: Add Order Message (0x41)",
+  [0x46] = "Message Type: Add Attributed Order Message (0x46)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_millennium_level2recovery_mitch_v11_9.message_type.display = function(value)
+  return lseg_millennium_level2recovery_mitch_v11_9.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -705,27 +675,17 @@ lseg_millennium_level2recovery_mitch_v11_9.session_change_reason = {}
 lseg_millennium_level2recovery_mitch_v11_9.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_millennium_level2recovery_mitch_v11_9.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable Recovery Service Only (9)"
-  end
+lseg_millennium_level2recovery_mitch_v11_9.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [9] = "Session Change Reason: Unavailable Recovery Service Only (9)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_millennium_level2recovery_mitch_v11_9.session_change_reason.display = function(value)
+  return lseg_millennium_level2recovery_mitch_v11_9.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -747,15 +707,13 @@ lseg_millennium_level2recovery_mitch_v11_9.side = {}
 lseg_millennium_level2recovery_mitch_v11_9.side.size = 1
 
 -- Display: Side
-lseg_millennium_level2recovery_mitch_v11_9.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
+lseg_millennium_level2recovery_mitch_v11_9.side.labels = {
+  ["B"] = "Side: Buy Order (B)",
+  ["S"] = "Side: Sell Order (S)",
+}
 
-  return "Side: Unknown("..value..")"
+lseg_millennium_level2recovery_mitch_v11_9.side.display = function(value)
+  return lseg_millennium_level2recovery_mitch_v11_9.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -777,33 +735,19 @@ lseg_millennium_level2recovery_mitch_v11_9.snapshot_status = {}
 lseg_millennium_level2recovery_mitch_v11_9.snapshot_status.size = 1
 
 -- Display: Snapshot Status
-lseg_millennium_level2recovery_mitch_v11_9.snapshot_status.display = function(value)
-  if value == "A" then
-    return "Snapshot Status: Request Accepted (A)"
-  end
-  if value == "O" then
-    return "Snapshot Status: Out Of Range (O)"
-  end
-  if value == "U" then
-    return "Snapshot Status: Snapshot Unavailable (U)"
-  end
-  if value == "a" then
-    return "Snapshot Status: Valid Segment Or Symbol Not Specified (a)"
-  end
-  if value == "b" then
-    return "Snapshot Status: Request Limit Reached (b)"
-  end
-  if value == "c" then
-    return "Snapshot Status: Concurrent Limit Reached (c)"
-  end
-  if value == "d" then
-    return "Snapshot Status: Unsupported Message Type (d)"
-  end
-  if value == "e" then
-    return "Snapshot Status: Failed Other (e)"
-  end
+lseg_millennium_level2recovery_mitch_v11_9.snapshot_status.labels = {
+  ["A"] = "Snapshot Status: Request Accepted (A)",
+  ["O"] = "Snapshot Status: Out Of Range (O)",
+  ["U"] = "Snapshot Status: Snapshot Unavailable (U)",
+  ["a"] = "Snapshot Status: Valid Segment Or Symbol Not Specified (a)",
+  ["b"] = "Snapshot Status: Request Limit Reached (b)",
+  ["c"] = "Snapshot Status: Concurrent Limit Reached (c)",
+  ["d"] = "Snapshot Status: Unsupported Message Type (d)",
+  ["e"] = "Snapshot Status: Failed Other (e)",
+}
 
-  return "Snapshot Status: Unknown("..value..")"
+lseg_millennium_level2recovery_mitch_v11_9.snapshot_status.display = function(value)
+  return lseg_millennium_level2recovery_mitch_v11_9.snapshot_status.labels[value] or "Snapshot Status: Unknown("..value..")"
 end
 
 -- Dissect: Snapshot Status
@@ -1631,42 +1575,22 @@ end
 lseg_millennium_level2recovery_mitch_v11_9.payload = {}
 
 -- Dissect: Payload
+lseg_millennium_level2recovery_mitch_v11_9.payload.dispatch = {
+  [0x01] = lseg_millennium_level2recovery_mitch_v11_9.login_request_message.dissect,
+  [0x02] = lseg_millennium_level2recovery_mitch_v11_9.login_response_message.dissect,
+  [0x81] = lseg_millennium_level2recovery_mitch_v11_9.snapshot_request_message.dissect,
+  [0x82] = lseg_millennium_level2recovery_mitch_v11_9.snapshot_response_message.dissect,
+  [0x83] = lseg_millennium_level2recovery_mitch_v11_9.snapshot_complete_message.dissect,
+  [0x05] = lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.dissect,
+  [0x48] = lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.dissect,
+  [0x41] = lseg_millennium_level2recovery_mitch_v11_9.add_order_message.dissect,
+  [0x46] = lseg_millennium_level2recovery_mitch_v11_9.add_attributed_order_message.dissect,
+}
+
 lseg_millennium_level2recovery_mitch_v11_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 0x01 then
-    return lseg_millennium_level2recovery_mitch_v11_9.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return lseg_millennium_level2recovery_mitch_v11_9.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Request Message
-  if message_type == 0x81 then
-    return lseg_millennium_level2recovery_mitch_v11_9.snapshot_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Response Message
-  if message_type == 0x82 then
-    return lseg_millennium_level2recovery_mitch_v11_9.snapshot_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Complete Message
-  if message_type == 0x83 then
-    return lseg_millennium_level2recovery_mitch_v11_9.snapshot_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Message
-  if message_type == 0x05 then
-    return lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Status Message
-  if message_type == 0x48 then
-    return lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 0x41 then
-    return lseg_millennium_level2recovery_mitch_v11_9.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Attributed Order Message
-  if message_type == 0x46 then
-    return lseg_millennium_level2recovery_mitch_v11_9.add_attributed_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_millennium_level2recovery_mitch_v11_9.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

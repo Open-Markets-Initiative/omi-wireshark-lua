@@ -329,15 +329,13 @@ jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator = {}
 jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell (S)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy (B)",
+  ["S"] = "Buy Sell Indicator: Sell (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -359,15 +357,13 @@ jnx_jnxbonds_pts_ouch_v1_4.capacity = {}
 jnx_jnxbonds_pts_ouch_v1_4.capacity.size = 1
 
 -- Display: Capacity
-jnx_jnxbonds_pts_ouch_v1_4.capacity.display = function(value)
-  if value == "A" then
-    return "Capacity: Agency (A)"
-  end
-  if value == "P" then
-    return "Capacity: Principal (P)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.capacity.labels = {
+  ["A"] = "Capacity: Agency (A)",
+  ["P"] = "Capacity: Principal (P)",
+}
 
-  return "Capacity: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.capacity.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -389,12 +385,12 @@ jnx_jnxbonds_pts_ouch_v1_4.cash_margin_type = {}
 jnx_jnxbonds_pts_ouch_v1_4.cash_margin_type.size = 1
 
 -- Display: Cash Margin Type
-jnx_jnxbonds_pts_ouch_v1_4.cash_margin_type.display = function(value)
-  if value == "1" then
-    return "Cash Margin Type: Cash (1)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.cash_margin_type.labels = {
+  ["1"] = "Cash Margin Type: Cash (1)",
+}
 
-  return "Cash Margin Type: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.cash_margin_type.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.cash_margin_type.labels[value] or "Cash Margin Type: Unknown("..value..")"
 end
 
 -- Dissect: Cash Margin Type
@@ -416,24 +412,16 @@ jnx_jnxbonds_pts_ouch_v1_4.client_packet_type = {}
 jnx_jnxbonds_pts_ouch_v1_4.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-jnx_jnxbonds_pts_ouch_v1_4.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.client_packet_type.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -671,12 +659,12 @@ jnx_jnxbonds_pts_ouch_v1_4.group = {}
 jnx_jnxbonds_pts_ouch_v1_4.group.size = 4
 
 -- Display: Group
-jnx_jnxbonds_pts_ouch_v1_4.group.display = function(value)
-  if value == "DJGB" then
-    return "Group: Jgb Market (DJGB)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.group.labels = {
+  ["DJGB"] = "Group: Jgb Market (DJGB)",
+}
 
-  return "Group: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.group.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.group.labels[value] or "Group: Unknown("..value..")"
 end
 
 -- Dissect: Group
@@ -698,15 +686,13 @@ jnx_jnxbonds_pts_ouch_v1_4.liquidity_indicator = {}
 jnx_jnxbonds_pts_ouch_v1_4.liquidity_indicator.size = 1
 
 -- Display: Liquidity Indicator
-jnx_jnxbonds_pts_ouch_v1_4.liquidity_indicator.display = function(value)
-  if value == "A" then
-    return "Liquidity Indicator: Added (A)"
-  end
-  if value == "R" then
-    return "Liquidity Indicator: Removed (R)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.liquidity_indicator.labels = {
+  ["A"] = "Liquidity Indicator: Added (A)",
+  ["R"] = "Liquidity Indicator: Removed (R)",
+}
 
-  return "Liquidity Indicator: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.liquidity_indicator.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.liquidity_indicator.labels[value] or "Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Indicator
@@ -774,51 +760,25 @@ jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason = {}
 jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.size = 1
 
 -- Display: Order Canceled Reason
-jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.display = function(value)
-  if value == "U" then
-    return "Order Canceled Reason: User Requested Cancel (U)"
-  end
-  if value == "L" then
-    return "Order Canceled Reason: User Logged Off (L)"
-  end
-  if value == "S" then
-    return "Order Canceled Reason: Canceled By Supervisory Terminal (S)"
-  end
-  if value == "I" then
-    return "Order Canceled Reason: Immediate Order Remaining Quantity Canceled (I)"
-  end
-  if value == "M" then
-    return "Order Canceled Reason: Order Expired During Matching (M)"
-  end
-  if value == "X" then
-    return "Order Canceled Reason: Invalid Price (X)"
-  end
-  if value == "Z" then
-    return "Order Canceled Reason: Invalid Quantity (Z)"
-  end
-  if value == "N" then
-    return "Order Canceled Reason: Invalid Minimum Quantity (N)"
-  end
-  if value == "Y" then
-    return "Order Canceled Reason: Invalid Order Type (Y)"
-  end
-  if value == "D" then
-    return "Order Canceled Reason: Invalid Display Type (D)"
-  end
-  if value == "R" then
-    return "Order Canceled Reason: Order Not Allowed At This Time (R)"
-  end
-  if value == "F" then
-    return "Order Canceled Reason: Flow Control Throttled (F)"
-  end
-  if value == "G" then
-    return "Order Canceled Reason: Margin Order Canceled Due To Margin Restriction (G)"
-  end
-  if value == "O" then
-    return "Order Canceled Reason: Other (O)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.labels = {
+  ["U"] = "Order Canceled Reason: User Requested Cancel (U)",
+  ["L"] = "Order Canceled Reason: User Logged Off (L)",
+  ["S"] = "Order Canceled Reason: Canceled By Supervisory Terminal (S)",
+  ["I"] = "Order Canceled Reason: Immediate Order Remaining Quantity Canceled (I)",
+  ["M"] = "Order Canceled Reason: Order Expired During Matching (M)",
+  ["X"] = "Order Canceled Reason: Invalid Price (X)",
+  ["Z"] = "Order Canceled Reason: Invalid Quantity (Z)",
+  ["N"] = "Order Canceled Reason: Invalid Minimum Quantity (N)",
+  ["Y"] = "Order Canceled Reason: Invalid Order Type (Y)",
+  ["D"] = "Order Canceled Reason: Invalid Display Type (D)",
+  ["R"] = "Order Canceled Reason: Order Not Allowed At This Time (R)",
+  ["F"] = "Order Canceled Reason: Flow Control Throttled (F)",
+  ["G"] = "Order Canceled Reason: Margin Order Canceled Due To Margin Restriction (G)",
+  ["O"] = "Order Canceled Reason: Other (O)",
+}
 
-  return "Order Canceled Reason: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.order_canceled_reason.labels[value] or "Order Canceled Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Canceled Reason
@@ -840,24 +800,16 @@ jnx_jnxbonds_pts_ouch_v1_4.order_classification = {}
 jnx_jnxbonds_pts_ouch_v1_4.order_classification.size = 1
 
 -- Display: Order Classification
-jnx_jnxbonds_pts_ouch_v1_4.order_classification.display = function(value)
-  if value == "1" then
-    return "Order Classification: Non Hft (1)"
-  end
-  if value == "3" then
-    return "Order Classification: Hft Market Making Strategy (3)"
-  end
-  if value == "4" then
-    return "Order Classification: Hft Arbitrage Strategy (4)"
-  end
-  if value == "5" then
-    return "Order Classification: Hft Directional Strategy (5)"
-  end
-  if value == "6" then
-    return "Order Classification: Hft Other Strategy (6)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.order_classification.labels = {
+  ["1"] = "Order Classification: Non Hft (1)",
+  ["3"] = "Order Classification: Hft Market Making Strategy (3)",
+  ["4"] = "Order Classification: Hft Arbitrage Strategy (4)",
+  ["5"] = "Order Classification: Hft Directional Strategy (5)",
+  ["6"] = "Order Classification: Hft Other Strategy (6)",
+}
 
-  return "Order Classification: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.order_classification.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.order_classification.labels[value] or "Order Classification: Unknown("..value..")"
 end
 
 -- Dissect: Order Classification
@@ -902,48 +854,24 @@ jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason = {}
 jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.size = 1
 
 -- Display: Order Rejected Reason
-jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.display = function(value)
-  if value == "H" then
-    return "Order Rejected Reason: Trading Halt (H)"
-  end
-  if value == "S" then
-    return "Order Rejected Reason: Invalid Order Book Identifier (S)"
-  end
-  if value == "X" then
-    return "Order Rejected Reason: Invalid Price (X)"
-  end
-  if value == "Z" then
-    return "Order Rejected Reason: Invalid Quantity (Z)"
-  end
-  if value == "N" then
-    return "Order Rejected Reason: Invalid Minimum Quantity (N)"
-  end
-  if value == "Y" then
-    return "Order Rejected Reason: Invalid Order Type (Y)"
-  end
-  if value == "D" then
-    return "Order Rejected Reason: Invalid Display Type (D)"
-  end
-  if value == "R" then
-    return "Order Rejected Reason: Order Not Allowed At This Time (R)"
-  end
-  if value == "F" then
-    return "Order Rejected Reason: Flow Control Throttled (F)"
-  end
-  if value == "G" then
-    return "Order Rejected Reason: Invalid Margin Specification (G)"
-  end
-  if value == "L" then
-    return "Order Rejected Reason: Mpid Not Allowed For This Port (L)"
-  end
-  if value == "c" then
-    return "Order Rejected Reason: No Permission To Enter Order On Given Board (c)"
-  end
-  if value == "O" then
-    return "Order Rejected Reason: Other (O)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.labels = {
+  ["H"] = "Order Rejected Reason: Trading Halt (H)",
+  ["S"] = "Order Rejected Reason: Invalid Order Book Identifier (S)",
+  ["X"] = "Order Rejected Reason: Invalid Price (X)",
+  ["Z"] = "Order Rejected Reason: Invalid Quantity (Z)",
+  ["N"] = "Order Rejected Reason: Invalid Minimum Quantity (N)",
+  ["Y"] = "Order Rejected Reason: Invalid Order Type (Y)",
+  ["D"] = "Order Rejected Reason: Invalid Display Type (D)",
+  ["R"] = "Order Rejected Reason: Order Not Allowed At This Time (R)",
+  ["F"] = "Order Rejected Reason: Flow Control Throttled (F)",
+  ["G"] = "Order Rejected Reason: Invalid Margin Specification (G)",
+  ["L"] = "Order Rejected Reason: Mpid Not Allowed For This Port (L)",
+  ["c"] = "Order Rejected Reason: No Permission To Enter Order On Given Board (c)",
+  ["O"] = "Order Rejected Reason: Other (O)",
+}
 
-  return "Order Rejected Reason: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.order_rejected_reason.labels[value] or "Order Rejected Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Rejected Reason
@@ -965,15 +893,13 @@ jnx_jnxbonds_pts_ouch_v1_4.order_state = {}
 jnx_jnxbonds_pts_ouch_v1_4.order_state.size = 1
 
 -- Display: Order State
-jnx_jnxbonds_pts_ouch_v1_4.order_state.display = function(value)
-  if value == "L" then
-    return "Order State: Live (L)"
-  end
-  if value == "D" then
-    return "Order State: Dead (D)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.order_state.labels = {
+  ["L"] = "Order State: Live (L)",
+  ["D"] = "Order State: Dead (D)",
+}
 
-  return "Order State: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.order_state.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -1185,15 +1111,13 @@ jnx_jnxbonds_pts_ouch_v1_4.reject_reason_code = {}
 jnx_jnxbonds_pts_ouch_v1_4.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-jnx_jnxbonds_pts_ouch_v1_4.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.reject_reason_code.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1292,30 +1216,18 @@ jnx_jnxbonds_pts_ouch_v1_4.sequenced_message_type = {}
 jnx_jnxbonds_pts_ouch_v1_4.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-jnx_jnxbonds_pts_ouch_v1_4.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Order Accepted Message (A)"
-  end
-  if value == "U" then
-    return "Sequenced Message Type: Order Replaced Message (U)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Order Canceled Message (C)"
-  end
-  if value == "D" then
-    return "Sequenced Message Type: Order Aiq Canceled Message (D)"
-  end
-  if value == "e" then
-    return "Sequenced Message Type: Order Executed With Counter Party Message (e)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Order Rejected Message (J)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["A"] = "Sequenced Message Type: Order Accepted Message (A)",
+  ["U"] = "Sequenced Message Type: Order Replaced Message (U)",
+  ["C"] = "Sequenced Message Type: Order Canceled Message (C)",
+  ["D"] = "Sequenced Message Type: Order Aiq Canceled Message (D)",
+  ["e"] = "Sequenced Message Type: Order Executed With Counter Party Message (e)",
+  ["J"] = "Sequenced Message Type: Order Rejected Message (J)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.sequenced_message_type.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1337,27 +1249,17 @@ jnx_jnxbonds_pts_ouch_v1_4.server_packet_type = {}
 jnx_jnxbonds_pts_ouch_v1_4.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-jnx_jnxbonds_pts_ouch_v1_4.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.server_packet_type.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1379,15 +1281,13 @@ jnx_jnxbonds_pts_ouch_v1_4.system_event = {}
 jnx_jnxbonds_pts_ouch_v1_4.system_event.size = 1
 
 -- Display: System Event
-jnx_jnxbonds_pts_ouch_v1_4.system_event.display = function(value)
-  if value == "S" then
-    return "System Event: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "System Event: End Of Day (E)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.system_event.labels = {
+  ["S"] = "System Event: Start Of Day (S)",
+  ["E"] = "System Event: End Of Day (E)",
+}
 
-  return "System Event: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.system_event.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.system_event.labels[value] or "System Event: Unknown("..value..")"
 end
 
 -- Dissect: System Event
@@ -1409,15 +1309,13 @@ jnx_jnxbonds_pts_ouch_v1_4.time_in_force = {}
 jnx_jnxbonds_pts_ouch_v1_4.time_in_force.size = 4
 
 -- Display: Time In Force
-jnx_jnxbonds_pts_ouch_v1_4.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Immediate (0)"
-  end
-  if value == 99999 then
-    return "Time In Force: Day (99999)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.time_in_force.labels = {
+  [0] = "Time In Force: Immediate (0)",
+  [99999] = "Time In Force: Day (99999)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.time_in_force.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -1482,18 +1380,14 @@ jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message_type = {}
 jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "U" then
-    return "Unsequenced Message Type: Replace Order Message (U)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
+jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order Message (O)",
+  ["U"] = "Unsequenced Message Type: Replace Order Message (U)",
+  ["X"] = "Unsequenced Message Type: Cancel Order Message (X)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message_type.display = function(value)
+  return jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2038,34 +1932,20 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+jnx_jnxbonds_pts_ouch_v1_4.sequenced_message.dispatch = {
+  ["S"] = jnx_jnxbonds_pts_ouch_v1_4.system_event_message.dissect,
+  ["A"] = jnx_jnxbonds_pts_ouch_v1_4.order_accepted_message.dissect,
+  ["U"] = jnx_jnxbonds_pts_ouch_v1_4.order_replaced_message.dissect,
+  ["C"] = jnx_jnxbonds_pts_ouch_v1_4.order_canceled_message.dissect,
+  ["D"] = jnx_jnxbonds_pts_ouch_v1_4.order_aiq_canceled_message.dissect,
+  ["e"] = jnx_jnxbonds_pts_ouch_v1_4.order_executed_with_counter_party_message.dissect,
+  ["J"] = jnx_jnxbonds_pts_ouch_v1_4.order_rejected_message.dissect,
+}
+
 jnx_jnxbonds_pts_ouch_v1_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return jnx_jnxbonds_pts_ouch_v1_4.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Accepted Message
-  if sequenced_message_type == "A" then
-    return jnx_jnxbonds_pts_ouch_v1_4.order_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replaced Message
-  if sequenced_message_type == "U" then
-    return jnx_jnxbonds_pts_ouch_v1_4.order_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled Message
-  if sequenced_message_type == "C" then
-    return jnx_jnxbonds_pts_ouch_v1_4.order_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Aiq Canceled Message
-  if sequenced_message_type == "D" then
-    return jnx_jnxbonds_pts_ouch_v1_4.order_aiq_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Counter Party Message
-  if sequenced_message_type == "e" then
-    return jnx_jnxbonds_pts_ouch_v1_4.order_executed_with_counter_party_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Message
-  if sequenced_message_type == "J" then
-    return jnx_jnxbonds_pts_ouch_v1_4.order_rejected_message.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxbonds_pts_ouch_v1_4.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2308,30 +2188,19 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.server_payload = {}
 
 -- Dissect: Server Payload
+jnx_jnxbonds_pts_ouch_v1_4.server_payload.dispatch = {
+  ["+"] = jnx_jnxbonds_pts_ouch_v1_4.debug_packet.dissect,
+  ["A"] = jnx_jnxbonds_pts_ouch_v1_4.login_accepted_packet.dissect,
+  ["J"] = jnx_jnxbonds_pts_ouch_v1_4.login_rejected_packet.dissect,
+  ["S"] = jnx_jnxbonds_pts_ouch_v1_4.sequenced_data_packet.dissect,
+  ["H"] = jnx_jnxbonds_pts_ouch_v1_4.server_heartbeat.dissect,
+  ["Z"] = jnx_jnxbonds_pts_ouch_v1_4.end_of_session.dissect,
+}
+
 jnx_jnxbonds_pts_ouch_v1_4.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return jnx_jnxbonds_pts_ouch_v1_4.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return jnx_jnxbonds_pts_ouch_v1_4.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return jnx_jnxbonds_pts_ouch_v1_4.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return jnx_jnxbonds_pts_ouch_v1_4.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return jnx_jnxbonds_pts_ouch_v1_4.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return jnx_jnxbonds_pts_ouch_v1_4.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxbonds_pts_ouch_v1_4.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2731,18 +2600,16 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message.dispatch = {
+  ["O"] = jnx_jnxbonds_pts_ouch_v1_4.enter_order_message.dissect,
+  ["U"] = jnx_jnxbonds_pts_ouch_v1_4.replace_order_message.dissect,
+  ["X"] = jnx_jnxbonds_pts_ouch_v1_4.cancel_order_message.dissect,
+}
+
 jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return jnx_jnxbonds_pts_ouch_v1_4.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replace Order Message
-  if unsequenced_message_type == "U" then
-    return jnx_jnxbonds_pts_ouch_v1_4.replace_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return jnx_jnxbonds_pts_ouch_v1_4.cancel_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2857,26 +2724,18 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.client_payload = {}
 
 -- Dissect: Client Payload
+jnx_jnxbonds_pts_ouch_v1_4.client_payload.dispatch = {
+  ["+"] = jnx_jnxbonds_pts_ouch_v1_4.debug_packet.dissect,
+  ["L"] = jnx_jnxbonds_pts_ouch_v1_4.login_request_packet.dissect,
+  ["U"] = jnx_jnxbonds_pts_ouch_v1_4.unsequenced_data_packet.dissect,
+  ["R"] = jnx_jnxbonds_pts_ouch_v1_4.client_heartbeat.dissect,
+  ["O"] = jnx_jnxbonds_pts_ouch_v1_4.logout_request.dissect,
+}
+
 jnx_jnxbonds_pts_ouch_v1_4.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return jnx_jnxbonds_pts_ouch_v1_4.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return jnx_jnxbonds_pts_ouch_v1_4.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return jnx_jnxbonds_pts_ouch_v1_4.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return jnx_jnxbonds_pts_ouch_v1_4.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return jnx_jnxbonds_pts_ouch_v1_4.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = jnx_jnxbonds_pts_ouch_v1_4.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

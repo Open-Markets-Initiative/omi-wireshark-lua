@@ -525,10 +525,14 @@ end
 iex_iexequities_iextpheader_udp_v1_0.messages = {}
 
 -- Dissect: Messages
+iex_iexequities_iextpheader_udp_v1_0.messages.dispatch = {
+  [0] = iex_iexequities_iextpheader_udp_v1_0.heartbeat.dissect,
+}
+
 iex_iexequities_iextpheader_udp_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return iex_iexequities_iextpheader_udp_v1_0.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexequities_iextpheader_udp_v1_0.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

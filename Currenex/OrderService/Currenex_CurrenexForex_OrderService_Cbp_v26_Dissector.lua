@@ -608,63 +608,29 @@ currenex_currenexforex_orderservice_cbp_v26.message_type = {}
 currenex_currenexforex_orderservice_cbp_v26.message_type.size = 1
 
 -- Display: Message Type
-currenex_currenexforex_orderservice_cbp_v26.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Logon (A)"
-  end
-  if value == "B" then
-    return "Message Type: Logout (B)"
-  end
-  if value == "C" then
-    return "Message Type: Heartbeat (C)"
-  end
-  if value == "E" then
-    return "Message Type: Instrument Info Request (E)"
-  end
-  if value == "D" then
-    return "Message Type: Instrument Info (D)"
-  end
-  if value == "L" then
-    return "Message Type: New Order Request (L)"
-  end
-  if value == "M" then
-    return "Message Type: New Order Ack (M)"
-  end
-  if value == "N" then
-    return "Message Type: Order Cancel Request (N)"
-  end
-  if value == "O" then
-    return "Message Type: Order Cancel Reject (O)"
-  end
-  if value == "P" then
-    return "Message Type: Order Replace Or Cancel Request (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Order Replace Or Cancel Ack (Q)"
-  end
-  if value == "R" then
-    return "Message Type: Order Canceled Or Expired (R)"
-  end
-  if value == "T" then
-    return "Message Type: Trade (T)"
-  end
-  if value == "U" then
-    return "Message Type: Pending Fill (U)"
-  end
-  if value == "V" then
-    return "Message Type: Pending Fill Cancel (V)"
-  end
-  if value == "t" then
-    return "Message Type: Trade Pending (t)"
-  end
-  if value == "2" then
-    return "Message Type: Resend Request (2)"
-  end
-  if value == "4" then
-    return "Message Type: Gap Fill (4)"
-  end
+currenex_currenexforex_orderservice_cbp_v26.message_type.labels = {
+  ["A"] = "Message Type: Logon (A)",
+  ["B"] = "Message Type: Logout (B)",
+  ["C"] = "Message Type: Heartbeat (C)",
+  ["E"] = "Message Type: Instrument Info Request (E)",
+  ["D"] = "Message Type: Instrument Info (D)",
+  ["L"] = "Message Type: New Order Request (L)",
+  ["M"] = "Message Type: New Order Ack (M)",
+  ["N"] = "Message Type: Order Cancel Request (N)",
+  ["O"] = "Message Type: Order Cancel Reject (O)",
+  ["P"] = "Message Type: Order Replace Or Cancel Request (P)",
+  ["Q"] = "Message Type: Order Replace Or Cancel Ack (Q)",
+  ["R"] = "Message Type: Order Canceled Or Expired (R)",
+  ["T"] = "Message Type: Trade (T)",
+  ["U"] = "Message Type: Pending Fill (U)",
+  ["V"] = "Message Type: Pending Fill Cancel (V)",
+  ["t"] = "Message Type: Trade Pending (t)",
+  ["2"] = "Message Type: Resend Request (2)",
+  ["4"] = "Message Type: Gap Fill (4)",
+}
 
-  return "Message Type: Unknown("..value..")"
+currenex_currenexforex_orderservice_cbp_v26.message_type.display = function(value)
+  return currenex_currenexforex_orderservice_cbp_v26.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1328,18 +1294,14 @@ currenex_currenexforex_orderservice_cbp_v26.type = {}
 currenex_currenexforex_orderservice_cbp_v26.type.size = 2
 
 -- Display: Type
-currenex_currenexforex_orderservice_cbp_v26.type.display = function(value)
-  if value == 0 then
-    return "Type: User (0)"
-  end
-  if value == 1 then
-    return "Type: System (1)"
-  end
-  if value == 2 then
-    return "Type: Below Min (2)"
-  end
+currenex_currenexforex_orderservice_cbp_v26.type.labels = {
+  [0] = "Type: User (0)",
+  [1] = "Type: System (1)",
+  [2] = "Type: Below Min (2)",
+}
 
-  return "Type: Unknown("..value..")"
+currenex_currenexforex_orderservice_cbp_v26.type.display = function(value)
+  return currenex_currenexforex_orderservice_cbp_v26.type.labels[value] or "Type: Unknown("..value..")"
 end
 
 -- Dissect: Type
@@ -2346,78 +2308,31 @@ end
 currenex_currenexforex_orderservice_cbp_v26.message_body = {}
 
 -- Dissect: Message Body
+currenex_currenexforex_orderservice_cbp_v26.message_body.dispatch = {
+  ["A"] = currenex_currenexforex_orderservice_cbp_v26.logon.dissect,
+  ["B"] = currenex_currenexforex_orderservice_cbp_v26.logout.dissect,
+  ["C"] = currenex_currenexforex_orderservice_cbp_v26.heartbeat.dissect,
+  ["E"] = currenex_currenexforex_orderservice_cbp_v26.instrument_info_request.dissect,
+  ["D"] = currenex_currenexforex_orderservice_cbp_v26.instrument_info.dissect,
+  ["L"] = currenex_currenexforex_orderservice_cbp_v26.new_order_request.dissect,
+  ["M"] = currenex_currenexforex_orderservice_cbp_v26.new_order_ack.dissect,
+  ["N"] = currenex_currenexforex_orderservice_cbp_v26.order_cancel_request.dissect,
+  ["O"] = currenex_currenexforex_orderservice_cbp_v26.order_cancel_reject.dissect,
+  ["P"] = currenex_currenexforex_orderservice_cbp_v26.order_replace_or_cancel_request.dissect,
+  ["Q"] = currenex_currenexforex_orderservice_cbp_v26.order_replace_or_cancel_ack.dissect,
+  ["R"] = currenex_currenexforex_orderservice_cbp_v26.order_canceled_or_expired.dissect,
+  ["T"] = currenex_currenexforex_orderservice_cbp_v26.trade.dissect,
+  ["U"] = currenex_currenexforex_orderservice_cbp_v26.pending_fill.dissect,
+  ["V"] = currenex_currenexforex_orderservice_cbp_v26.pending_fill_cancel.dissect,
+  ["t"] = currenex_currenexforex_orderservice_cbp_v26.trade_pending.dissect,
+  ["2"] = currenex_currenexforex_orderservice_cbp_v26.resend_request.dissect,
+  ["4"] = currenex_currenexforex_orderservice_cbp_v26.gap_fill.dissect,
+}
+
 currenex_currenexforex_orderservice_cbp_v26.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon
-  if message_type == "A" then
-    return currenex_currenexforex_orderservice_cbp_v26.logon.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout
-  if message_type == "B" then
-    return currenex_currenexforex_orderservice_cbp_v26.logout.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if message_type == "C" then
-    return currenex_currenexforex_orderservice_cbp_v26.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info Request
-  if message_type == "E" then
-    return currenex_currenexforex_orderservice_cbp_v26.instrument_info_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info
-  if message_type == "D" then
-    return currenex_currenexforex_orderservice_cbp_v26.instrument_info.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Request
-  if message_type == "L" then
-    return currenex_currenexforex_orderservice_cbp_v26.new_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Ack
-  if message_type == "M" then
-    return currenex_currenexforex_orderservice_cbp_v26.new_order_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Request
-  if message_type == "N" then
-    return currenex_currenexforex_orderservice_cbp_v26.order_cancel_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject
-  if message_type == "O" then
-    return currenex_currenexforex_orderservice_cbp_v26.order_cancel_reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Or Cancel Request
-  if message_type == "P" then
-    return currenex_currenexforex_orderservice_cbp_v26.order_replace_or_cancel_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Or Cancel Ack
-  if message_type == "Q" then
-    return currenex_currenexforex_orderservice_cbp_v26.order_replace_or_cancel_ack.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Canceled Or Expired
-  if message_type == "R" then
-    return currenex_currenexforex_orderservice_cbp_v26.order_canceled_or_expired.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade
-  if message_type == "T" then
-    return currenex_currenexforex_orderservice_cbp_v26.trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pending Fill
-  if message_type == "U" then
-    return currenex_currenexforex_orderservice_cbp_v26.pending_fill.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pending Fill Cancel
-  if message_type == "V" then
-    return currenex_currenexforex_orderservice_cbp_v26.pending_fill_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Pending
-  if message_type == "t" then
-    return currenex_currenexforex_orderservice_cbp_v26.trade_pending.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Resend Request
-  if message_type == "2" then
-    return currenex_currenexforex_orderservice_cbp_v26.resend_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Fill
-  if message_type == "4" then
-    return currenex_currenexforex_orderservice_cbp_v26.gap_fill.dissect(buffer, offset, packet, parent)
+  local dissect = currenex_currenexforex_orderservice_cbp_v26.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

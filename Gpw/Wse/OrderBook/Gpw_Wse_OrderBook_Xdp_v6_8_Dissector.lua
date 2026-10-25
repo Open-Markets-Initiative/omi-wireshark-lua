@@ -136,24 +136,16 @@ gpw_wse_orderbook_xdp_v6_8.action_type = {}
 gpw_wse_orderbook_xdp_v6_8.action_type.size = 1
 
 -- Display: Action Type
-gpw_wse_orderbook_xdp_v6_8.action_type.display = function(value)
-  if value == "A" then
-    return "Action Type: New Order (A)"
-  end
-  if value == "M" then
-    return "Action Type: Modification Of Existing Order Case Of Partial Fill (M)"
-  end
-  if value == "D" then
-    return "Action Type: Deletion Of Order Identified By Order Id (D)"
-  end
-  if value == "F" then
-    return "Action Type: Deletion All Orders For One Instrument At The Start Of The Day Before The Order Book Retransmission (F)"
-  end
-  if value == "Y" then
-    return "Action Type: Retransmission Of All Orders For The Given Instrument (Y)"
-  end
+gpw_wse_orderbook_xdp_v6_8.action_type.labels = {
+  ["A"] = "Action Type: New Order (A)",
+  ["M"] = "Action Type: Modification Of Existing Order Case Of Partial Fill (M)",
+  ["D"] = "Action Type: Deletion Of Order Identified By Order Id (D)",
+  ["F"] = "Action Type: Deletion All Orders For One Instrument At The Start Of The Day Before The Order Book Retransmission (F)",
+  ["Y"] = "Action Type: Retransmission Of All Orders For The Given Instrument (Y)",
+}
 
-  return "Action Type: Unknown("..value..")"
+gpw_wse_orderbook_xdp_v6_8.action_type.display = function(value)
+  return gpw_wse_orderbook_xdp_v6_8.action_type.labels[value] or "Action Type: Unknown("..value..")"
 end
 
 -- Dissect: Action Type
@@ -198,12 +190,12 @@ gpw_wse_orderbook_xdp_v6_8.application_id = {}
 gpw_wse_orderbook_xdp_v6_8.application_id.size = 2
 
 -- Display: Application Id
-gpw_wse_orderbook_xdp_v6_8.application_id.display = function(value)
-  if value == "W0" then
-    return "Application Id: The Application Where The Orderbooks Are Retransmitted (W0)"
-  end
+gpw_wse_orderbook_xdp_v6_8.application_id.labels = {
+  ["W0"] = "Application Id: The Application Where The Orderbooks Are Retransmitted (W0)",
+}
 
-  return "Application Id: Unknown("..value..")"
+gpw_wse_orderbook_xdp_v6_8.application_id.display = function(value)
+  return gpw_wse_orderbook_xdp_v6_8.application_id.labels[value] or "Application Id: Unknown("..value..")"
 end
 
 -- Dissect: Application Id
@@ -225,24 +217,16 @@ gpw_wse_orderbook_xdp_v6_8.delivery_flag = {}
 gpw_wse_orderbook_xdp_v6_8.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-gpw_wse_orderbook_xdp_v6_8.delivery_flag.display = function(value)
-  if value == 0 then
-    return "Delivery Flag: Real Time Message Uncompressed (0)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Retransmission Message Uncompressed (2)"
-  end
-  if value == 16 then
-    return "Delivery Flag: Real Time Message Zlib Compressed (16)"
-  end
-  if value == 17 then
-    return "Delivery Flag: Refresh Message Zlib Compressed (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Retransmission Message Compressed (18)"
-  end
+gpw_wse_orderbook_xdp_v6_8.delivery_flag.labels = {
+  [0] = "Delivery Flag: Real Time Message Uncompressed (0)",
+  [2] = "Delivery Flag: Retransmission Message Uncompressed (2)",
+  [16] = "Delivery Flag: Real Time Message Zlib Compressed (16)",
+  [17] = "Delivery Flag: Refresh Message Zlib Compressed (17)",
+  [18] = "Delivery Flag: Retransmission Message Compressed (18)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+gpw_wse_orderbook_xdp_v6_8.delivery_flag.display = function(value)
+  return gpw_wse_orderbook_xdp_v6_8.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -333,15 +317,13 @@ gpw_wse_orderbook_xdp_v6_8.message_type = {}
 gpw_wse_orderbook_xdp_v6_8.message_type.size = 2
 
 -- Display: Message Type
-gpw_wse_orderbook_xdp_v6_8.message_type.display = function(value)
-  if value == 230 then
-    return "Message Type: Order Update Market Sheet Message (230)"
-  end
-  if value == 231 then
-    return "Message Type: Order Book Retransmission Delimiter Message (231)"
-  end
+gpw_wse_orderbook_xdp_v6_8.message_type.labels = {
+  [230] = "Message Type: Order Update Market Sheet Message (230)",
+  [231] = "Message Type: Order Book Retransmission Delimiter Message (231)",
+}
 
-  return "Message Type: Unknown("..value..")"
+gpw_wse_orderbook_xdp_v6_8.message_type.display = function(value)
+  return gpw_wse_orderbook_xdp_v6_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -651,12 +633,12 @@ gpw_wse_orderbook_xdp_v6_8.packet_type = {}
 gpw_wse_orderbook_xdp_v6_8.packet_type.size = 2
 
 -- Display: Packet Type
-gpw_wse_orderbook_xdp_v6_8.packet_type.display = function(value)
-  if value == 501 then
-    return "Packet Type: Market Data Messages (501)"
-  end
+gpw_wse_orderbook_xdp_v6_8.packet_type.labels = {
+  [501] = "Packet Type: Market Data Messages (501)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+gpw_wse_orderbook_xdp_v6_8.packet_type.display = function(value)
+  return gpw_wse_orderbook_xdp_v6_8.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -747,15 +729,13 @@ gpw_wse_orderbook_xdp_v6_8.retransmission_indicator = {}
 gpw_wse_orderbook_xdp_v6_8.retransmission_indicator.size = 1
 
 -- Display: Retransmission Indicator
-gpw_wse_orderbook_xdp_v6_8.retransmission_indicator.display = function(value)
-  if value == "B" then
-    return "Retransmission Indicator: Beginning Of The Retransmission (B)"
-  end
-  if value == "E" then
-    return "Retransmission Indicator: End Of The Retransmission (E)"
-  end
+gpw_wse_orderbook_xdp_v6_8.retransmission_indicator.labels = {
+  ["B"] = "Retransmission Indicator: Beginning Of The Retransmission (B)",
+  ["E"] = "Retransmission Indicator: End Of The Retransmission (E)",
+}
 
-  return "Retransmission Indicator: Unknown("..value..")"
+gpw_wse_orderbook_xdp_v6_8.retransmission_indicator.display = function(value)
+  return gpw_wse_orderbook_xdp_v6_8.retransmission_indicator.labels[value] or "Retransmission Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Retransmission Indicator
@@ -823,18 +803,14 @@ gpw_wse_orderbook_xdp_v6_8.side = {}
 gpw_wse_orderbook_xdp_v6_8.side.size = 1
 
 -- Display: Side
-gpw_wse_orderbook_xdp_v6_8.side.display = function(value)
-  if value == "1" then
-    return "Side: Buy (1)"
-  end
-  if value == "2" then
-    return "Side: Sell (2)"
-  end
-  if value == "5" then
-    return "Side: Sell Short Equivalent To Value 2 Sell Optional For Exchange Members And Not Monitored By The Wse (5)"
-  end
+gpw_wse_orderbook_xdp_v6_8.side.labels = {
+  ["1"] = "Side: Buy (1)",
+  ["2"] = "Side: Sell (2)",
+  ["5"] = "Side: Sell Short Equivalent To Value 2 Sell Optional For Exchange Members And Not Monitored By The Wse (5)",
+}
 
-  return "Side: Unknown("..value..")"
+gpw_wse_orderbook_xdp_v6_8.side.display = function(value)
+  return gpw_wse_orderbook_xdp_v6_8.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -968,18 +944,14 @@ gpw_wse_orderbook_xdp_v6_8.system_id = {}
 gpw_wse_orderbook_xdp_v6_8.system_id.size = 4
 
 -- Display: System Id
-gpw_wse_orderbook_xdp_v6_8.system_id.display = function(value)
-  if value == 1 then
-    return "System Id: All Non Utp Systems (1)"
-  end
-  if value == 11 then
-    return "System Id: Utp Trading Unit 1 (11)"
-  end
-  if value == 12 then
-    return "System Id: Utp Trading Unit 2 (12)"
-  end
+gpw_wse_orderbook_xdp_v6_8.system_id.labels = {
+  [1] = "System Id: All Non Utp Systems (1)",
+  [11] = "System Id: Utp Trading Unit 1 (11)",
+  [12] = "System Id: Utp Trading Unit 2 (12)",
+}
 
-  return "System Id: Unknown("..value..")"
+gpw_wse_orderbook_xdp_v6_8.system_id.display = function(value)
+  return gpw_wse_orderbook_xdp_v6_8.system_id.labels[value] or "System Id: Unknown("..value..")"
 end
 
 -- Dissect: System Id
@@ -1202,14 +1174,15 @@ end
 gpw_wse_orderbook_xdp_v6_8.payload = {}
 
 -- Dissect: Payload
+gpw_wse_orderbook_xdp_v6_8.payload.dispatch = {
+  [230] = gpw_wse_orderbook_xdp_v6_8.order_update_market_sheet_message.dissect,
+  [231] = gpw_wse_orderbook_xdp_v6_8.order_book_retransmission_delimiter_message.dissect,
+}
+
 gpw_wse_orderbook_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Order Update Market Sheet Message
-  if message_type == 230 then
-    return gpw_wse_orderbook_xdp_v6_8.order_update_market_sheet_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Retransmission Delimiter Message
-  if message_type == 231 then
-    return gpw_wse_orderbook_xdp_v6_8.order_book_retransmission_delimiter_message.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_wse_orderbook_xdp_v6_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

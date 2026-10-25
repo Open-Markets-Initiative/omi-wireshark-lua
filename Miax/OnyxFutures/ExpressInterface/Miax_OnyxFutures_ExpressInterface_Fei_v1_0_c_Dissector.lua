@@ -1611,45 +1611,23 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.size = 2
 
 -- Display: Sequenced Message Type
-miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.display = function(value)
-  if value == "NR" then
-    return "Sequenced Message Type: New Order Response Message (NR)"
-  end
-  if value == "MR" then
-    return "Sequenced Message Type: Modify Order Response (MR)"
-  end
-  if value == "CR" then
-    return "Sequenced Message Type: Cancel Order Response (CR)"
-  end
-  if value == "XR" then
-    return "Sequenced Message Type: Mass Cancel Response (XR)"
-  end
-  if value == "SR" then
-    return "Sequenced Message Type: Strategy Creation Response Message (SR)"
-  end
-  if value == "SN" then
-    return "Sequenced Message Type: System State Notification Message (SN)"
-  end
-  if value == "O1" then
-    return "Sequenced Message Type: New Order Notification (O1)"
-  end
-  if value == "MN" then
-    return "Sequenced Message Type: Modify Order Notification (MN)"
-  end
-  if value == "XN" then
-    return "Sequenced Message Type: Cancel Reduce Size Order Notification (XN)"
-  end
-  if value == "OS" then
-    return "Sequenced Message Type: Order Status Update Notification (OS)"
-  end
-  if value == "EN" then
-    return "Sequenced Message Type: Simple Execution Notification (EN)"
-  end
-  if value == "CN" then
-    return "Sequenced Message Type: Complex Execution Notification (CN)"
-  end
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.labels = {
+  ["NR"] = "Sequenced Message Type: New Order Response Message (NR)",
+  ["MR"] = "Sequenced Message Type: Modify Order Response (MR)",
+  ["CR"] = "Sequenced Message Type: Cancel Order Response (CR)",
+  ["XR"] = "Sequenced Message Type: Mass Cancel Response (XR)",
+  ["SR"] = "Sequenced Message Type: Strategy Creation Response Message (SR)",
+  ["SN"] = "Sequenced Message Type: System State Notification Message (SN)",
+  ["O1"] = "Sequenced Message Type: New Order Notification (O1)",
+  ["MN"] = "Sequenced Message Type: Modify Order Notification (MN)",
+  ["XN"] = "Sequenced Message Type: Cancel Reduce Size Order Notification (XN)",
+  ["OS"] = "Sequenced Message Type: Order Status Update Notification (OS)",
+  ["EN"] = "Sequenced Message Type: Simple Execution Notification (EN)",
+  ["CN"] = "Sequenced Message Type: Complex Execution Notification (CN)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.display = function(value)
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1694,42 +1672,22 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.size = 1
 
 -- Display: Sesm Packet Type
-miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.display = function(value)
-  if value == "S" then
-    return "Sesm Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "U" then
-    return "Sesm Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "L" then
-    return "Sesm Packet Type: Login Request (L)"
-  end
-  if value == "R" then
-    return "Sesm Packet Type: Login Response (R)"
-  end
-  if value == "C" then
-    return "Sesm Packet Type: Synchronization Complete (C)"
-  end
-  if value == "A" then
-    return "Sesm Packet Type: Retransmission Request (A)"
-  end
-  if value == "X" then
-    return "Sesm Packet Type: Logout Request (X)"
-  end
-  if value == "G" then
-    return "Sesm Packet Type: Goodbye Packet (G)"
-  end
-  if value == "E" then
-    return "Sesm Packet Type: End Of Session (E)"
-  end
-  if value == "0" then
-    return "Sesm Packet Type: Server Heartbeat (0)"
-  end
-  if value == "1" then
-    return "Sesm Packet Type: Client Heartbeat (1)"
-  end
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.labels = {
+  ["S"] = "Sesm Packet Type: Sequenced Data Packet (S)",
+  ["U"] = "Sesm Packet Type: Unsequenced Data Packet (U)",
+  ["L"] = "Sesm Packet Type: Login Request (L)",
+  ["R"] = "Sesm Packet Type: Login Response (R)",
+  ["C"] = "Sesm Packet Type: Synchronization Complete (C)",
+  ["A"] = "Sesm Packet Type: Retransmission Request (A)",
+  ["X"] = "Sesm Packet Type: Logout Request (X)",
+  ["G"] = "Sesm Packet Type: Goodbye Packet (G)",
+  ["E"] = "Sesm Packet Type: End Of Session (E)",
+  ["0"] = "Sesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Sesm Packet Type: Client Heartbeat (1)",
+}
 
-  return "Sesm Packet Type: Unknown("..value..")"
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.display = function(value)
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_type.labels[value] or "Sesm Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Sesm Packet Type
@@ -2003,24 +1961,16 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.size = 1
 
 -- Display: Time In Force
-miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.display = function(value)
-  if value == "I" then
-    return "Time In Force: Ioc (I)"
-  end
-  if value == "D" then
-    return "Time In Force: Day (D)"
-  end
-  if value == "F" then
-    return "Time In Force: Fok (F)"
-  end
-  if value == "C" then
-    return "Time In Force: Gtc (C)"
-  end
-  if value == "X" then
-    return "Time In Force: Gtd (X)"
-  end
+miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.labels = {
+  ["I"] = "Time In Force: Ioc (I)",
+  ["D"] = "Time In Force: Day (D)",
+  ["F"] = "Time In Force: Fok (F)",
+  ["C"] = "Time In Force: Gtc (C)",
+  ["X"] = "Time In Force: Gtd (X)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.display = function(value)
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -2117,39 +2067,21 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message_type = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message_type.size = 2
 
 -- Display: Unsequenced Message Type
-miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message_type.display = function(value)
-  if value == "N1" then
-    return "Unsequenced Message Type: New Order Request Message (N1)"
-  end
-  if value == "NR" then
-    return "Unsequenced Message Type: New Order Response Message (NR)"
-  end
-  if value == "M1" then
-    return "Unsequenced Message Type: Modify Order Request Message (M1)"
-  end
-  if value == "MR" then
-    return "Unsequenced Message Type: Modify Order Response (MR)"
-  end
-  if value == "CO" then
-    return "Unsequenced Message Type: Cancel Order Request Message (CO)"
-  end
-  if value == "CR" then
-    return "Unsequenced Message Type: Cancel Order Response (CR)"
-  end
-  if value == "XQ" then
-    return "Unsequenced Message Type: Mass Cancel Request (XQ)"
-  end
-  if value == "XR" then
-    return "Unsequenced Message Type: Mass Cancel Response (XR)"
-  end
-  if value == "SD" then
-    return "Unsequenced Message Type: Strategy Creation Request (SD)"
-  end
-  if value == "SR" then
-    return "Unsequenced Message Type: Strategy Creation Response Message (SR)"
-  end
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message_type.labels = {
+  ["N1"] = "Unsequenced Message Type: New Order Request Message (N1)",
+  ["NR"] = "Unsequenced Message Type: New Order Response Message (NR)",
+  ["M1"] = "Unsequenced Message Type: Modify Order Request Message (M1)",
+  ["MR"] = "Unsequenced Message Type: Modify Order Response (MR)",
+  ["CO"] = "Unsequenced Message Type: Cancel Order Request Message (CO)",
+  ["CR"] = "Unsequenced Message Type: Cancel Order Response (CR)",
+  ["XQ"] = "Unsequenced Message Type: Mass Cancel Request (XQ)",
+  ["XR"] = "Unsequenced Message Type: Mass Cancel Response (XR)",
+  ["SD"] = "Unsequenced Message Type: Strategy Creation Request (SD)",
+  ["SR"] = "Unsequenced Message Type: Strategy Creation Response Message (SR)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message_type.display = function(value)
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -3564,46 +3496,23 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dispatch = {
+  ["N1"] = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect,
+  ["NR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect,
+  ["M1"] = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.dissect,
+  ["MR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.dissect,
+  ["CO"] = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.dissect,
+  ["CR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.dissect,
+  ["XQ"] = miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.dissect,
+  ["XR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.dissect,
+  ["SD"] = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.dissect,
+  ["SR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.dissect,
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect New Order Request Message
-  if unsequenced_message_type == "N1" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response Message
-  if unsequenced_message_type == "NR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Request Message
-  if unsequenced_message_type == "M1" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response
-  if unsequenced_message_type == "MR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Request Message
-  if unsequenced_message_type == "CO" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Response
-  if unsequenced_message_type == "CR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Request
-  if unsequenced_message_type == "XQ" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Response
-  if unsequenced_message_type == "XR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Creation Request
-  if unsequenced_message_type == "SD" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Creation Response Message
-  if unsequenced_message_type == "SR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4306,54 +4215,25 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dispatch = {
+  ["NR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect,
+  ["MR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.dissect,
+  ["CR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.dissect,
+  ["XR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.dissect,
+  ["SR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.dissect,
+  ["SN"] = miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.dissect,
+  ["O1"] = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.dissect,
+  ["MN"] = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.dissect,
+  ["XN"] = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification.dissect,
+  ["OS"] = miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.dissect,
+  ["EN"] = miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.dissect,
+  ["CN"] = miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.dissect,
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect New Order Response Message
-  if sequenced_message_type == "NR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response
-  if sequenced_message_type == "MR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Response
-  if sequenced_message_type == "CR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Response
-  if sequenced_message_type == "XR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Creation Response Message
-  if sequenced_message_type == "SR" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Notification Message
-  if sequenced_message_type == "SN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.system_state_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Notification
-  if sequenced_message_type == "O1" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Notification
-  if sequenced_message_type == "MN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Reduce Size Order Notification
-  if sequenced_message_type == "XN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Status Update Notification
-  if sequenced_message_type == "OS" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Simple Execution Notification
-  if sequenced_message_type == "EN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Execution Notification
-  if sequenced_message_type == "CN" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4419,50 +4299,24 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload = {}
 
 -- Dissect: Sesm Payload
+miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dispatch = {
+  ["S"] = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect,
+  ["U"] = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.dissect,
+  ["L"] = miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.dissect,
+  ["R"] = miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.dissect,
+  ["C"] = miax_onyxfutures_expressinterface_fei_v1_0_c.synchronization_complete.dissect,
+  ["A"] = miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.dissect,
+  ["X"] = miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.dissect,
+  ["G"] = miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.dissect,
+  ["E"] = miax_onyxfutures_expressinterface_fei_v1_0_c.end_of_session.dissect,
+  ["0"] = miax_onyxfutures_expressinterface_fei_v1_0_c.server_heartbeat.dissect,
+  ["1"] = miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat.dissect,
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
-  -- Dissect Sequenced Data Packet
-  if sesm_packet_type == "S" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if sesm_packet_type == "U" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request
-  if sesm_packet_type == "L" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if sesm_packet_type == "R" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Synchronization Complete
-  if sesm_packet_type == "C" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.synchronization_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request
-  if sesm_packet_type == "A" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if sesm_packet_type == "X" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Goodbye Packet
-  if sesm_packet_type == "G" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if sesm_packet_type == "E" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.end_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if sesm_packet_type == "0" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if sesm_packet_type == "1" then
-    return miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dispatch[sesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

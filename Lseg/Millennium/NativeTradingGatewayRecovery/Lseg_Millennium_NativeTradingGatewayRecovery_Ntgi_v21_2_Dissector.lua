@@ -227,12 +227,12 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type.size = 1
 
 -- Display: Account Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type.display = function(value)
-  if value == 1 then
-    return "Account Type: Client (1)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type.labels = {
+  [1] = "Account Type: Client (1)",
+}
 
-  return "Account Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type.labels[value] or "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -254,24 +254,16 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id.size = 1
 
 -- Display: App Id
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id.display = function(value)
-  if value == 0 then
-    return "App Id: System Suspended Unknown Instrument (0)"
-  end
-  if value == 1 then
-    return "App Id: Partition 1 (1)"
-  end
-  if value == 2 then
-    return "App Id: Partition 2 (2)"
-  end
-  if value == 3 then
-    return "App Id: Partition 3 (3)"
-  end
-  if value == 4 then
-    return "App Id: Partition 4 (4)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id.labels = {
+  [0] = "App Id: System Suspended Unknown Instrument (0)",
+  [1] = "App Id: Partition 1 (1)",
+  [2] = "App Id: Partition 2 (2)",
+  [3] = "App Id: Partition 3 (3)",
+  [4] = "App Id: Partition 4 (4)",
+}
 
-  return "App Id: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id.labels[value] or "App Id: Unknown("..value..")"
 end
 
 -- Dissect: App Id
@@ -293,18 +285,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status.size = 1
 
 -- Display: App Status
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status.display = function(value)
-  if value == 1 then
-    return "App Status: Recovery Service Resumed (1)"
-  end
-  if value == 2 then
-    return "App Status: Recovery Service Not Available (2)"
-  end
-  if value == 3 then
-    return "App Status: Realtime Channel To Indicate Service Non Availability Of A Partition Due To Order Cache Outage (3)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status.labels = {
+  [1] = "App Status: Recovery Service Resumed (1)",
+  [2] = "App Status: Recovery Service Not Available (2)",
+  [3] = "App Status: Realtime Channel To Indicate Service Non Availability Of A Partition Due To Order Cache Outage (3)",
+}
 
-  return "App Status: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status.labels[value] or "App Status: Unknown("..value..")"
 end
 
 -- Dissect: App Status
@@ -326,15 +314,13 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel.size = 1
 
 -- Display: Auto Cancel
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel.display = function(value)
-  if value == 0 then
-    return "Auto Cancel: Do Not Cancel (0)"
-  end
-  if value == 1 then
-    return "Auto Cancel: Conform To Users Configuration (1)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel.labels = {
+  [0] = "Auto Cancel: Do Not Cancel (0)",
+  [1] = "Auto Cancel: Conform To Users Configuration (1)",
+}
 
-  return "Auto Cancel: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel.labels[value] or "Auto Cancel: Unknown("..value..")"
 end
 
 -- Dissect: Auto Cancel
@@ -356,15 +342,13 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy =
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy.size = 1
 
 -- Display: Auto Rfq Exec Strategy
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy.display = function(value)
-  if value == 1 then
-    return "Auto Rfq Exec Strategy: Sub Lis Auction (1)"
-  end
-  if value == 4 then
-    return "Auto Rfq Exec Strategy: Lis Winner Takes All (4)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy.labels = {
+  [1] = "Auto Rfq Exec Strategy: Sub Lis Auction (1)",
+  [4] = "Auto Rfq Exec Strategy: Lis Winner Takes All (4)",
+}
 
-  return "Auto Rfq Exec Strategy: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy.labels[value] or "Auto Rfq Exec Strategy: Unknown("..value..")"
 end
 
 -- Dissect: Auto Rfq Exec Strategy
@@ -506,18 +490,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.size = 1
 
 -- Display: Capacity
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.display = function(value)
-  if value == 1 then
-    return "Capacity: Matched Principal Mtch (1)"
-  end
-  if value == 2 then
-    return "Capacity: Dealing On Own Account Deal (2)"
-  end
-  if value == 3 then
-    return "Capacity: Any Other Trading Capacity Aotc (3)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.labels = {
+  [1] = "Capacity: Matched Principal Mtch (1)",
+  [2] = "Capacity: Dealing On Own Account Deal (2)",
+  [3] = "Capacity: Any Other Trading Capacity Aotc (3)",
+}
 
-  return "Capacity: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -539,15 +519,13 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.size = 1
 
 -- Display: Clearing Account
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.display = function(value)
-  if value == 1 then
-    return "Clearing Account: Client (1)"
-  end
-  if value == 3 then
-    return "Clearing Account: House (3)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.labels = {
+  [1] = "Clearing Account: Client (1)",
+  [3] = "Clearing Account: House (3)",
+}
 
-  return "Clearing Account: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.labels[value] or "Clearing Account: Unknown("..value..")"
 end
 
 -- Dissect: Clearing Account
@@ -569,18 +547,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_id = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_id.size = 4
 
 -- Display: Client Id
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_id.display = function(value)
-  if value == 0 then
-    return "Client Id: None (0)"
-  end
-  if value == 1 then
-    return "Client Id: Aggr (1)"
-  end
-  if value == 2 then
-    return "Client Id: Pnal (2)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_id.labels = {
+  [0] = "Client Id: None (0)",
+  [1] = "Client Id: Aggr (1)",
+  [2] = "Client Id: Pnal (2)",
+}
 
-  return "Client Id: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_id.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_id.labels[value] or "Client Id: Unknown("..value..")"
 end
 
 -- Dissect: Client Id
@@ -680,12 +654,12 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book.size = 1
 
 -- Display: Contra Order Book
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book.display = function(value)
-  if value == 1 then
-    return "Contra Order Book: Regular (1)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book.labels = {
+  [1] = "Contra Order Book: Regular (1)",
+}
 
-  return "Contra Order Book: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book.labels[value] or "Contra Order Book: Unknown("..value..")"
 end
 
 -- Dissect: Contra Order Book
@@ -808,36 +782,20 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.exec_type = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.exec_type.size = 1
 
 -- Display: Exec Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.exec_type.display = function(value)
-  if value == "0" then
-    return "Exec Type: New (0)"
-  end
-  if value == "4" then
-    return "Exec Type: Cancelled (4)"
-  end
-  if value == "5" then
-    return "Exec Type: Replaced (5)"
-  end
-  if value == "8" then
-    return "Exec Type: Rejected (8)"
-  end
-  if value == "C" then
-    return "Exec Type: Expired (C)"
-  end
-  if value == "D" then
-    return "Exec Type: Restated (D)"
-  end
-  if value == "F" then
-    return "Exec Type: Trade (F)"
-  end
-  if value == "H" then
-    return "Exec Type: Trade Cancel (H)"
-  end
-  if value == "9" then
-    return "Exec Type: Suspended (9)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.exec_type.labels = {
+  ["0"] = "Exec Type: New (0)",
+  ["4"] = "Exec Type: Cancelled (4)",
+  ["5"] = "Exec Type: Replaced (5)",
+  ["8"] = "Exec Type: Rejected (8)",
+  ["C"] = "Exec Type: Expired (C)",
+  ["D"] = "Exec Type: Restated (D)",
+  ["F"] = "Exec Type: Trade (F)",
+  ["H"] = "Exec Type: Trade Cancel (H)",
+  ["9"] = "Exec Type: Suspended (9)",
+}
 
-  return "Exec Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.exec_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.exec_type.labels[value] or "Exec Type: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type
@@ -934,12 +892,12 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.executing_trader = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.executing_trader.size = 4
 
 -- Display: Executing Trader
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.executing_trader.display = function(value)
-  if value == 3 then
-    return "Executing Trader: Client (3)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.executing_trader.labels = {
+  [3] = "Executing Trader: Client (3)",
+}
 
-  return "Executing Trader: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.executing_trader.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.executing_trader.labels[value] or "Executing Trader: Unknown("..value..")"
 end
 
 -- Dissect: Executing Trader
@@ -1000,30 +958,18 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_s
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_status.size = 1
 
 -- Display: Execution Report Order Status
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_status.display = function(value)
-  if value == 0 then
-    return "Execution Report Order Status: New (0)"
-  end
-  if value == 1 then
-    return "Execution Report Order Status: Partially Filled (1)"
-  end
-  if value == 2 then
-    return "Execution Report Order Status: Filled (2)"
-  end
-  if value == 4 then
-    return "Execution Report Order Status: Cancelled (4)"
-  end
-  if value == 6 then
-    return "Execution Report Order Status: Expired (6)"
-  end
-  if value == 8 then
-    return "Execution Report Order Status: Rejected (8)"
-  end
-  if value == 9 then
-    return "Execution Report Order Status: Suspended (9)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_status.labels = {
+  [0] = "Execution Report Order Status: New (0)",
+  [1] = "Execution Report Order Status: Partially Filled (1)",
+  [2] = "Execution Report Order Status: Filled (2)",
+  [4] = "Execution Report Order Status: Cancelled (4)",
+  [6] = "Execution Report Order Status: Expired (6)",
+  [8] = "Execution Report Order Status: Rejected (8)",
+  [9] = "Execution Report Order Status: Suspended (9)",
+}
 
-  return "Execution Report Order Status: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_status.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_status.labels[value] or "Execution Report Order Status: Unknown("..value..")"
 end
 
 -- Dissect: Execution Report Order Status
@@ -1045,15 +991,13 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.size = 1
 
 -- Display: Execution Report Pegged Exec Inst
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.display = function(value)
-  if value == 1 then
-    return "Execution Report Pegged Exec Inst: Permissioned For Execution Against Midpriced Pegged Orders (1)"
-  end
-  if value == 2 then
-    return "Execution Report Pegged Exec Inst: Not Permissioned For Execution Against Midpriced Pegged Orders (2)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.labels = {
+  [1] = "Execution Report Pegged Exec Inst: Permissioned For Execution Against Midpriced Pegged Orders (1)",
+  [2] = "Execution Report Pegged Exec Inst: Not Permissioned For Execution Against Midpriced Pegged Orders (2)",
+}
 
-  return "Execution Report Pegged Exec Inst: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.labels[value] or "Execution Report Pegged Exec Inst: Unknown("..value..")"
 end
 
 -- Dissect: Execution Report Pegged Exec Inst
@@ -1114,24 +1058,16 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_type = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_type.size = 1
 
 -- Display: Execution Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_type.display = function(value)
-  if value == "4" then
-    return "Execution Type: Cancelled (4)"
-  end
-  if value == "C" then
-    return "Execution Type: Expired (C)"
-  end
-  if value == "D" then
-    return "Execution Type: Restated (D)"
-  end
-  if value == "F" then
-    return "Execution Type: Trade (F)"
-  end
-  if value == "H" then
-    return "Execution Type: Trade Cancel (H)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_type.labels = {
+  ["4"] = "Execution Type: Cancelled (4)",
+  ["C"] = "Execution Type: Expired (C)",
+  ["D"] = "Execution Type: Restated (D)",
+  ["F"] = "Execution Type: Trade (F)",
+  ["H"] = "Execution Type: Trade Cancel (H)",
+}
 
-  return "Execution Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_type.labels[value] or "Execution Type: Unknown("..value..")"
 end
 
 -- Dissect: Execution Type
@@ -1246,12 +1182,12 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.investment_decision_make
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.investment_decision_maker.size = 4
 
 -- Display: Investment Decision Maker
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.investment_decision_maker.display = function(value)
-  if value == 0 then
-    return "Investment Decision Maker: None (0)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.investment_decision_maker.labels = {
+  [0] = "Investment Decision Maker: None (0)",
+}
 
-  return "Investment Decision Maker: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.investment_decision_maker.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.investment_decision_maker.labels[value] or "Investment Decision Maker: Unknown("..value..")"
 end
 
 -- Dissect: Investment Decision Maker
@@ -1273,18 +1209,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.size = 1
 
 -- Display: Last Market
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.display = function(value)
-  if value == 21 then
-    return "Last Market: Xlon On Exchange Lse Rm (21)"
-  end
-  if value == 22 then
-    return "Last Market: Xlom On Exchange Non Aim Mtf (22)"
-  end
-  if value == 23 then
-    return "Last Market: Aimx On Exchange Aim Mtf (23)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.labels = {
+  [21] = "Last Market: Xlon On Exchange Lse Rm (21)",
+  [22] = "Last Market: Xlom On Exchange Non Aim Mtf (22)",
+  [23] = "Last Market: Aimx On Exchange Aim Mtf (23)",
+}
 
-  return "Last Market: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.labels[value] or "Last Market: Unknown("..value..")"
 end
 
 -- Dissect: Last Market
@@ -1567,15 +1499,13 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response = {
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response.size = 1
 
 -- Display: Mass Cancel Response
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Response: Rejected (0)"
-  end
-  if value == 7 then
-    return "Mass Cancel Response: Accepted (7)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response.labels = {
+  [0] = "Mass Cancel Response: Rejected (0)",
+  [7] = "Mass Cancel Response: Accepted (7)",
+}
 
-  return "Mass Cancel Response: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response.labels[value] or "Mass Cancel Response: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Response
@@ -1620,63 +1550,29 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_type = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_type.size = 1
 
 -- Display: Message Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Logon Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Logon Reply Message (B)"
-  end
-  if value == "5" then
-    return "Message Type: Logout Message (5)"
-  end
-  if value == "0" then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == "M" then
-    return "Message Type: Missed Message Request Message (M)"
-  end
-  if value == "N" then
-    return "Message Type: Missed Message Request Ack Message (N)"
-  end
-  if value == "P" then
-    return "Message Type: Missed Message Report Message (P)"
-  end
-  if value == "3" then
-    return "Message Type: Reject Message (3)"
-  end
-  if value == "n" then
-    return "Message Type: System Status Message (n)"
-  end
-  if value == "8" then
-    return "Message Type: Execution Report Message (8)"
-  end
-  if value == "r" then
-    return "Message Type: Order Mass Cancel Report Message (r)"
-  end
-  if value == "a" then
-    return "Message Type: Quote Request Message (a)"
-  end
-  if value == "c" then
-    return "Message Type: Quote Status Report Message (c)"
-  end
-  if value == "b" then
-    return "Message Type: Quote Request Reject Message (b)"
-  end
-  if value == "d" then
-    return "Message Type: Rfq Quote Message (d)"
-  end
-  if value == "e" then
-    return "Message Type: Quote Ack Message (e)"
-  end
-  if value == "f" then
-    return "Message Type: Quote Response Message (f)"
-  end
-  if value == "g" then
-    return "Message Type: Rfq Execution Report Message (g)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_type.labels = {
+  ["A"] = "Message Type: Logon Message (A)",
+  ["B"] = "Message Type: Logon Reply Message (B)",
+  ["5"] = "Message Type: Logout Message (5)",
+  ["0"] = "Message Type: Heartbeat Message (0)",
+  ["M"] = "Message Type: Missed Message Request Message (M)",
+  ["N"] = "Message Type: Missed Message Request Ack Message (N)",
+  ["P"] = "Message Type: Missed Message Report Message (P)",
+  ["3"] = "Message Type: Reject Message (3)",
+  ["n"] = "Message Type: System Status Message (n)",
+  ["8"] = "Message Type: Execution Report Message (8)",
+  ["r"] = "Message Type: Order Mass Cancel Report Message (r)",
+  ["a"] = "Message Type: Quote Request Message (a)",
+  ["c"] = "Message Type: Quote Status Report Message (c)",
+  ["b"] = "Message Type: Quote Request Reject Message (b)",
+  ["d"] = "Message Type: Rfq Quote Message (d)",
+  ["e"] = "Message Type: Quote Ack Message (e)",
+  ["f"] = "Message Type: Quote Response Message (f)",
+  ["g"] = "Message Type: Rfq Execution Report Message (g)",
+}
 
-  return "Message Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1744,18 +1640,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_re
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_response_type.size = 1
 
 -- Display: Missed Message Report Response Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_response_type.display = function(value)
-  if value == 0 then
-    return "Missed Message Report Response Type: Download Complete (0)"
-  end
-  if value == 1 then
-    return "Missed Message Report Response Type: Message Limit Reached (1)"
-  end
-  if value == 3 then
-    return "Missed Message Report Response Type: Service Unavailable (3)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_response_type.labels = {
+  [0] = "Missed Message Report Response Type: Download Complete (0)",
+  [1] = "Missed Message Report Response Type: Message Limit Reached (1)",
+  [3] = "Missed Message Report Response Type: Service Unavailable (3)",
+}
 
-  return "Missed Message Report Response Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_response_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_response_type.labels[value] or "Missed Message Report Response Type: Unknown("..value..")"
 end
 
 -- Dissect: Missed Message Report Response Type
@@ -1777,21 +1669,15 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_a
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_response_type.size = 1
 
 -- Display: Missed Message Request Ack Response Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_response_type.display = function(value)
-  if value == 0 then
-    return "Missed Message Request Ack Response Type: Successful (0)"
-  end
-  if value == 1 then
-    return "Missed Message Request Ack Response Type: Recovery Request Limit Reached (1)"
-  end
-  if value == 2 then
-    return "Missed Message Request Ack Response Type: Invalid App Id (2)"
-  end
-  if value == 3 then
-    return "Missed Message Request Ack Response Type: Service Unavailable (3)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_response_type.labels = {
+  [0] = "Missed Message Request Ack Response Type: Successful (0)",
+  [1] = "Missed Message Request Ack Response Type: Recovery Request Limit Reached (1)",
+  [2] = "Missed Message Request Ack Response Type: Invalid App Id (2)",
+  [3] = "Missed Message Request Ack Response Type: Service Unavailable (3)",
+}
 
-  return "Missed Message Request Ack Response Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_response_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_response_type.labels[value] or "Missed Message Request Ack Response Type: Unknown("..value..")"
 end
 
 -- Dissect: Missed Message Request Ack Response Type
@@ -1989,12 +1875,12 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book.size = 1
 
 -- Display: Order Book
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book.display = function(value)
-  if value == 11 then
-    return "Order Book: Rfq Trades (11)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book.labels = {
+  [11] = "Order Book: Rfq Trades (11)",
+}
 
-  return "Order Book: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book.labels[value] or "Order Book: Unknown("..value..")"
 end
 
 -- Dissect: Order Book
@@ -2016,18 +1902,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity.size = 1
 
 -- Display: Order Capacity
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity.display = function(value)
-  if value == 1 then
-    return "Order Capacity: Matched Principal Mtch (1)"
-  end
-  if value == 2 then
-    return "Order Capacity: Dealing On Own Account Deal (2)"
-  end
-  if value == 3 then
-    return "Order Capacity: Any Other Trading Capacity Aotc (3)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity.labels = {
+  [1] = "Order Capacity: Matched Principal Mtch (1)",
+  [2] = "Order Capacity: Dealing On Own Account Deal (2)",
+  [3] = "Order Capacity: Any Other Trading Capacity Aotc (3)",
+}
 
-  return "Order Capacity: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity.labels[value] or "Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Order Capacity
@@ -2134,18 +2016,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.size = 1
 
 -- Display: Owner Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.display = function(value)
-  if value == 0 then
-    return "Owner Type: Default (0)"
-  end
-  if value == 1 then
-    return "Owner Type: Retail Investor (1)"
-  end
-  if value == 2 then
-    return "Owner Type: Retail Liquidity Provider (2)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.labels = {
+  [0] = "Owner Type: Default (0)",
+  [1] = "Owner Type: Retail Investor (1)",
+  [2] = "Owner Type: Retail Liquidity Provider (2)",
+}
 
-  return "Owner Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.labels[value] or "Owner Type: Unknown("..value..")"
 end
 
 -- Dissect: Owner Type
@@ -2297,12 +2175,12 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote.size = 1
 
 -- Display: Private Quote
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote.display = function(value)
-  if value == 2 then
-    return "Private Quote: Private Quote (2)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote.labels = {
+  [2] = "Private Quote: Private Quote (2)",
+}
 
-  return "Private Quote: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote.labels[value] or "Private Quote: Unknown("..value..")"
 end
 
 -- Dissect: Private Quote
@@ -2363,15 +2241,13 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status.size = 1
 
 -- Display: Quote Ack Status
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status.display = function(value)
-  if value == 1 then
-    return "Quote Ack Status: Accepted (1)"
-  end
-  if value == 2 then
-    return "Quote Ack Status: Rejected (2)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status.labels = {
+  [1] = "Quote Ack Status: Accepted (1)",
+  [2] = "Quote Ack Status: Rejected (2)",
+}
 
-  return "Quote Ack Status: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status.labels[value] or "Quote Ack Status: Unknown("..value..")"
 end
 
 -- Dissect: Quote Ack Status
@@ -2471,27 +2347,17 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type.size = 1
 
 -- Display: Quote Request Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type.display = function(value)
-  if value == 0 then
-    return "Quote Request Type: Manual Named If Any Market Maker I Ds Are Specified Else Anonymous (0)"
-  end
-  if value == 1 then
-    return "Quote Request Type: Automatic Named If Any Market Maker I Ds Are Specified Else Anonymous (1)"
-  end
-  if value == 2 then
-    return "Quote Request Type: Manual Named (2)"
-  end
-  if value == 3 then
-    return "Quote Request Type: Manual Anonymous (3)"
-  end
-  if value == 4 then
-    return "Quote Request Type: Automatic Named (4)"
-  end
-  if value == 5 then
-    return "Quote Request Type: Automatic Anonymous (5)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type.labels = {
+  [0] = "Quote Request Type: Manual Named If Any Market Maker I Ds Are Specified Else Anonymous (0)",
+  [1] = "Quote Request Type: Automatic Named If Any Market Maker I Ds Are Specified Else Anonymous (1)",
+  [2] = "Quote Request Type: Manual Named (2)",
+  [3] = "Quote Request Type: Manual Anonymous (3)",
+  [4] = "Quote Request Type: Automatic Named (4)",
+  [5] = "Quote Request Type: Automatic Anonymous (5)",
+}
 
-  return "Quote Request Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type.labels[value] or "Quote Request Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Request Type
@@ -2513,33 +2379,19 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type.size = 1
 
 -- Display: Quote Resp Type
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type.display = function(value)
-  if value == 1 then
-    return "Quote Resp Type: Hit Lift (1)"
-  end
-  if value == 3 then
-    return "Quote Resp Type: Expired (3)"
-  end
-  if value == 7 then
-    return "Quote Resp Type: End Trade (7)"
-  end
-  if value == 8 then
-    return "Quote Resp Type: Timed Out (8)"
-  end
-  if value == 11 then
-    return "Quote Resp Type: Cancelled (11)"
-  end
-  if value == 100 then
-    return "Quote Resp Type: Replace (100)"
-  end
-  if value == 101 then
-    return "Quote Resp Type: Executable (101)"
-  end
-  if value == 102 then
-    return "Quote Resp Type: Make Rfq Quotes Public (102)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type.labels = {
+  [1] = "Quote Resp Type: Hit Lift (1)",
+  [3] = "Quote Resp Type: Expired (3)",
+  [7] = "Quote Resp Type: End Trade (7)",
+  [8] = "Quote Resp Type: Timed Out (8)",
+  [11] = "Quote Resp Type: Cancelled (11)",
+  [100] = "Quote Resp Type: Replace (100)",
+  [101] = "Quote Resp Type: Executable (101)",
+  [102] = "Quote Resp Type: Make Rfq Quotes Public (102)",
+}
 
-  return "Quote Resp Type: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type.labels[value] or "Quote Resp Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Resp Type
@@ -2561,15 +2413,13 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status.size = 1
 
 -- Display: Quote Status
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status.display = function(value)
-  if value == 1 then
-    return "Quote Status: Accepted (1)"
-  end
-  if value == 2 then
-    return "Quote Status: Rejected (2)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status.labels = {
+  [1] = "Quote Status: Accepted (1)",
+  [2] = "Quote Status: Rejected (2)",
+}
 
-  return "Quote Status: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status.labels[value] or "Quote Status: Unknown("..value..")"
 end
 
 -- Dissect: Quote Status
@@ -2853,15 +2703,13 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side.size = 1
 
 -- Display: Rfq Disclose Side
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side.display = function(value)
-  if value == 0 then
-    return "Rfq Disclose Side: Do Not Disclose (0)"
-  end
-  if value == 1 then
-    return "Rfq Disclose Side: Disclose (1)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side.labels = {
+  [0] = "Rfq Disclose Side: Do Not Disclose (0)",
+  [1] = "Rfq Disclose Side: Disclose (1)",
+}
 
-  return "Rfq Disclose Side: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side.labels[value] or "Rfq Disclose Side: Unknown("..value..")"
 end
 
 -- Dissect: Rfq Disclose Side
@@ -2906,21 +2754,15 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_ord
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.size = 1
 
 -- Display: Rfq Execution Report Order Status
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.display = function(value)
-  if value == 1 then
-    return "Rfq Execution Report Order Status: P Fill (1)"
-  end
-  if value == 2 then
-    return "Rfq Execution Report Order Status: Fill (2)"
-  end
-  if value == 4 then
-    return "Rfq Execution Report Order Status: Cancelled (4)"
-  end
-  if value == 6 then
-    return "Rfq Execution Report Order Status: Expired (6)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.labels = {
+  [1] = "Rfq Execution Report Order Status: P Fill (1)",
+  [2] = "Rfq Execution Report Order Status: Fill (2)",
+  [4] = "Rfq Execution Report Order Status: Cancelled (4)",
+  [6] = "Rfq Execution Report Order Status: Expired (6)",
+}
 
-  return "Rfq Execution Report Order Status: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.labels[value] or "Rfq Execution Report Order Status: Unknown("..value..")"
 end
 
 -- Dissect: Rfq Execution Report Order Status
@@ -3097,18 +2939,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side.size = 1
 
 -- Display: Side
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side.display = function(value)
-  if value == 0 then
-    return "Side: None (0)"
-  end
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side.labels = {
+  [0] = "Side: None (0)",
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
 
-  return "Side: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -3176,18 +3014,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.trade_liquidity_indicato
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.trade_liquidity_indicator.size = 1
 
 -- Display: Trade Liquidity Indicator
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.trade_liquidity_indicator.display = function(value)
-  if value == "A" then
-    return "Trade Liquidity Indicator: Added Liquidity (A)"
-  end
-  if value == "R" then
-    return "Trade Liquidity Indicator: Removed Liquidity (R)"
-  end
-  if value == "C" then
-    return "Trade Liquidity Indicator: Auction (C)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.trade_liquidity_indicator.labels = {
+  ["A"] = "Trade Liquidity Indicator: Added Liquidity (A)",
+  ["R"] = "Trade Liquidity Indicator: Removed Liquidity (R)",
+  ["C"] = "Trade Liquidity Indicator: Auction (C)",
+}
 
-  return "Trade Liquidity Indicator: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.trade_liquidity_indicator.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.trade_liquidity_indicator.labels[value] or "Trade Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Liquidity Indicator
@@ -3232,18 +3066,14 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade = {}
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade.size = 1
 
 -- Display: Type Of Trade
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade.display = function(value)
-  if value == 0 then
-    return "Type Of Trade: Visible (0)"
-  end
-  if value == 1 then
-    return "Type Of Trade: Hidden (1)"
-  end
-  if value == 2 then
-    return "Type Of Trade: Not Specified For Aggressive Side Auction Trades And Rfq Trades (2)"
-  end
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade.labels = {
+  [0] = "Type Of Trade: Visible (0)",
+  [1] = "Type Of Trade: Hidden (1)",
+  [2] = "Type Of Trade: Not Specified For Aggressive Side Auction Trades And Rfq Trades (2)",
+}
 
-  return "Type Of Trade: Unknown("..value..")"
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade.display = function(value)
+  return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade.labels[value] or "Type Of Trade: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Trade
@@ -4936,78 +4766,31 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.payload = {}
 
 -- Dissect: Payload
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.payload.dispatch = {
+  ["A"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.logon_message.dissect,
+  ["B"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.logon_reply_message.dissect,
+  ["5"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.logout_message.dissect,
+  ["0"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.heartbeat_message.dissect,
+  ["M"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_message.dissect,
+  ["N"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_message.dissect,
+  ["P"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_message.dissect,
+  ["3"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reject_message.dissect,
+  ["n"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.system_status_message.dissect,
+  ["8"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_message.dissect,
+  ["r"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_mass_cancel_report_message.dissect,
+  ["a"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_message.dissect,
+  ["c"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status_report_message.dissect,
+  ["b"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_reject_message.dissect,
+  ["d"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_quote_message.dissect,
+  ["e"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_message.dissect,
+  ["f"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_response_message.dissect,
+  ["g"] = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_message.dissect,
+}
+
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Logon Message
-  if message_type == "A" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.logon_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Reply Message
-  if message_type == "B" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.logon_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Message
-  if message_type == "5" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.logout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == "0" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Missed Message Request Message
-  if message_type == "M" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Missed Message Request Ack Message
-  if message_type == "N" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Missed Message Report Message
-  if message_type == "P" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject Message
-  if message_type == "3" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Status Message
-  if message_type == "n" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.system_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Message
-  if message_type == "8" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Cancel Report Message
-  if message_type == "r" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_mass_cancel_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Message
-  if message_type == "a" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Status Report Message
-  if message_type == "c" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Reject Message
-  if message_type == "b" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Quote Message
-  if message_type == "d" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Ack Message
-  if message_type == "e" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Response Message
-  if message_type == "f" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Execution Report Message
-  if message_type == "g" then
-    return lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

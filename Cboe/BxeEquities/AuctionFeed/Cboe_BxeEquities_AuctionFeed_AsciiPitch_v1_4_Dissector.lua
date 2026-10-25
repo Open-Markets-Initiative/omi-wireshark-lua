@@ -369,36 +369,20 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.packet_type = {}
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.packet_type.size = 1
 
 -- Display: Packet Type
-cboe_bxeequities_auctionfeed_asciipitch_v1_4.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.packet_type.display = function(value)
+  return cboe_bxeequities_auctionfeed_asciipitch_v1_4.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -611,15 +595,13 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message_type = {}
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message_type.display = function(value)
-  if value == "l" then
-    return "Sequenced Message Type: Auction Update Message (l)"
-  end
-  if value == "j" then
-    return "Sequenced Message Type: Auction Summary Message (j)"
-  end
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message_type.labels = {
+  ["l"] = "Sequenced Message Type: Auction Update Message (l)",
+  ["j"] = "Sequenced Message Type: Auction Summary Message (j)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message_type.display = function(value)
+  return cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1084,14 +1066,15 @@ end
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message.dispatch = {
+  ["l"] = cboe_bxeequities_auctionfeed_asciipitch_v1_4.auction_update_message.dissect,
+  ["j"] = cboe_bxeequities_auctionfeed_asciipitch_v1_4.auction_summary_message.dissect,
+}
+
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Auction Update Message
-  if sequenced_message_type == "l" then
-    return cboe_bxeequities_auctionfeed_asciipitch_v1_4.auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if sequenced_message_type == "j" then
-    return cboe_bxeequities_auctionfeed_asciipitch_v1_4.auction_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1325,30 +1308,19 @@ end
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.payload = {}
 
 -- Dissect: Payload
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.payload.dispatch = {
+  ["+"] = cboe_bxeequities_auctionfeed_asciipitch_v1_4.debug_packet.dissect,
+  ["A"] = cboe_bxeequities_auctionfeed_asciipitch_v1_4.login_accepted_packet.dissect,
+  ["J"] = cboe_bxeequities_auctionfeed_asciipitch_v1_4.login_rejected_packet.dissect,
+  ["S"] = cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_data_packet.dissect,
+  ["L"] = cboe_bxeequities_auctionfeed_asciipitch_v1_4.login_request_packet.dissect,
+  ["U"] = cboe_bxeequities_auctionfeed_asciipitch_v1_4.unsequenced_data_packet.dissect,
+}
+
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Debug Packet
-  if packet_type == "+" then
-    return cboe_bxeequities_auctionfeed_asciipitch_v1_4.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if packet_type == "A" then
-    return cboe_bxeequities_auctionfeed_asciipitch_v1_4.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if packet_type == "J" then
-    return cboe_bxeequities_auctionfeed_asciipitch_v1_4.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
-    return cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return cboe_bxeequities_auctionfeed_asciipitch_v1_4.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return cboe_bxeequities_auctionfeed_asciipitch_v1_4.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bxeequities_auctionfeed_asciipitch_v1_4.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

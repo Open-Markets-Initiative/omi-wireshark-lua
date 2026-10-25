@@ -409,39 +409,21 @@ biva_bivaequities_basic_itch_v1_12.event_code = {}
 biva_bivaequities_basic_itch_v1_12.event_code.size = 1
 
 -- Display: Event Code
-biva_bivaequities_basic_itch_v1_12.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "V" then
-    return "Event Code: Scheduled Auction Starts (V)"
-  end
-  if value == "U" then
-    return "Event Code: Scheduled Auction Closes (U)"
-  end
-  if value == "P" then
-    return "Event Code: Start Of Post Close Session (P)"
-  end
-  if value == "T" then
-    return "Event Code: End Of Post Close Session (T)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+biva_bivaequities_basic_itch_v1_12.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["V"] = "Event Code: Scheduled Auction Starts (V)",
+  ["U"] = "Event Code: Scheduled Auction Closes (U)",
+  ["P"] = "Event Code: Start Of Post Close Session (P)",
+  ["T"] = "Event Code: End Of Post Close Session (T)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.event_code.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -601,15 +583,13 @@ biva_bivaequities_basic_itch_v1_12.listing_type = {}
 biva_bivaequities_basic_itch_v1_12.listing_type.size = 1
 
 -- Display: Listing Type
-biva_bivaequities_basic_itch_v1_12.listing_type.display = function(value)
-  if value == "R" then
-    return "Listing Type: Regular Securities (R)"
-  end
-  if value == "S" then
-    return "Listing Type: Sub Rm Securities (S)"
-  end
+biva_bivaequities_basic_itch_v1_12.listing_type.labels = {
+  ["R"] = "Listing Type: Regular Securities (R)",
+  ["S"] = "Listing Type: Sub Rm Securities (S)",
+}
 
-  return "Listing Type: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.listing_type.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.listing_type.labels[value] or "Listing Type: Unknown("..value..")"
 end
 
 -- Dissect: Listing Type
@@ -700,39 +680,21 @@ biva_bivaequities_basic_itch_v1_12.message_type = {}
 biva_bivaequities_basic_itch_v1_12.message_type.size = 1
 
 -- Display: Message Type
-biva_bivaequities_basic_itch_v1_12.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Time Stamp Seconds Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "L" then
-    return "Message Type: Price Tick Size Message (L)"
-  end
-  if value == "M" then
-    return "Message Type: Quantity Tick Size Message (M)"
-  end
-  if value == "R" then
-    return "Message Type: Orderbook Directory Message (R)"
-  end
-  if value == "F" then
-    return "Message Type: Participant Directory Message (F)"
-  end
-  if value == "H" then
-    return "Message Type: Orderbook Trading Action Message (H)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Best Bid Offer Message (Q)"
-  end
-  if value == "X" then
-    return "Message Type: Orderbook Reference Price Message (X)"
-  end
+biva_bivaequities_basic_itch_v1_12.message_type.labels = {
+  ["T"] = "Message Type: Time Stamp Seconds Message (T)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["L"] = "Message Type: Price Tick Size Message (L)",
+  ["M"] = "Message Type: Quantity Tick Size Message (M)",
+  ["R"] = "Message Type: Orderbook Directory Message (R)",
+  ["F"] = "Message Type: Participant Directory Message (F)",
+  ["H"] = "Message Type: Orderbook Trading Action Message (H)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["Q"] = "Message Type: Best Bid Offer Message (Q)",
+  ["X"] = "Message Type: Orderbook Reference Price Message (X)",
+}
 
-  return "Message Type: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.message_type.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -961,21 +923,15 @@ biva_bivaequities_basic_itch_v1_12.price_type = {}
 biva_bivaequities_basic_itch_v1_12.price_type.size = 1
 
 -- Display: Price Type
-biva_bivaequities_basic_itch_v1_12.price_type.display = function(value)
-  if value == "C" then
-    return "Price Type: Close Price (C)"
-  end
-  if value == "R" then
-    return "Price Type: Reference Price (R)"
-  end
-  if value == "I" then
-    return "Price Type: Inav (I)"
-  end
-  if value == "V" then
-    return "Price Type: Vwap Or Ppp (V)"
-  end
+biva_bivaequities_basic_itch_v1_12.price_type.labels = {
+  ["C"] = "Price Type: Close Price (C)",
+  ["R"] = "Price Type: Reference Price (R)",
+  ["I"] = "Price Type: Inav (I)",
+  ["V"] = "Price Type: Vwap Or Ppp (V)",
+}
 
-  return "Price Type: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.price_type.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -997,15 +953,13 @@ biva_bivaequities_basic_itch_v1_12.printable = {}
 biva_bivaequities_basic_itch_v1_12.printable.size = 1
 
 -- Display: Printable
-biva_bivaequities_basic_itch_v1_12.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+biva_bivaequities_basic_itch_v1_12.printable.labels = {
+  ["N"] = "Printable: Non Printable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.printable.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1333,24 +1287,16 @@ biva_bivaequities_basic_itch_v1_12.stat_update = {}
 biva_bivaequities_basic_itch_v1_12.stat_update.size = 1
 
 -- Display: Stat Update
-biva_bivaequities_basic_itch_v1_12.stat_update.display = function(value)
-  if value == "A" then
-    return "Stat Update: All Stats (A)"
-  end
-  if value == "V" then
-    return "Stat Update: Last Traded Price And Volume (V)"
-  end
-  if value == "L" then
-    return "Stat Update: Last Traded Price Only (L)"
-  end
-  if value == "C" then
-    return "Stat Update: Volume Only (C)"
-  end
-  if value == "N" then
-    return "Stat Update: None (N)"
-  end
+biva_bivaequities_basic_itch_v1_12.stat_update.labels = {
+  ["A"] = "Stat Update: All Stats (A)",
+  ["V"] = "Stat Update: Last Traded Price And Volume (V)",
+  ["L"] = "Stat Update: Last Traded Price Only (L)",
+  ["C"] = "Stat Update: Volume Only (C)",
+  ["N"] = "Stat Update: None (N)",
+}
 
-  return "Stat Update: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.stat_update.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.stat_update.labels[value] or "Stat Update: Unknown("..value..")"
 end
 
 -- Dissect: Stat Update
@@ -1395,24 +1341,16 @@ biva_bivaequities_basic_itch_v1_12.trade_indicator = {}
 biva_bivaequities_basic_itch_v1_12.trade_indicator.size = 1
 
 -- Display: Trade Indicator
-biva_bivaequities_basic_itch_v1_12.trade_indicator.display = function(value)
-  if value == "C" then
-    return "Trade Indicator: Intentional Cross Trade (C)"
-  end
-  if value == "E" then
-    return "Trade Indicator: Exceptional Cross Trade At Vwap (E)"
-  end
-  if value == "I" then
-    return "Trade Indicator: Ipo Cross (I)"
-  end
-  if value == "R" then
-    return "Trade Indicator: Regular Trade (R)"
-  end
-  if value == "U" then
-    return "Trade Indicator: Unintentional Selfcross (U)"
-  end
+biva_bivaequities_basic_itch_v1_12.trade_indicator.labels = {
+  ["C"] = "Trade Indicator: Intentional Cross Trade (C)",
+  ["E"] = "Trade Indicator: Exceptional Cross Trade At Vwap (E)",
+  ["I"] = "Trade Indicator: Ipo Cross (I)",
+  ["R"] = "Trade Indicator: Regular Trade (R)",
+  ["U"] = "Trade Indicator: Unintentional Selfcross (U)",
+}
 
-  return "Trade Indicator: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.trade_indicator.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.trade_indicator.labels[value] or "Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Indicator
@@ -1434,45 +1372,23 @@ biva_bivaequities_basic_itch_v1_12.trading_action_reason = {}
 biva_bivaequities_basic_itch_v1_12.trading_action_reason.size = 1
 
 -- Display: Trading Action Reason
-biva_bivaequities_basic_itch_v1_12.trading_action_reason.display = function(value)
-  if value == "N" then
-    return "Trading Action Reason: Normal Trading (N)"
-  end
-  if value == "H" then
-    return "Trading Action Reason: Volatility Auction (H)"
-  end
-  if value == "A" then
-    return "Trading Action Reason: Continuous Auction Start (A)"
-  end
-  if value == "B" then
-    return "Trading Action Reason: Continuous Auction End (B)"
-  end
-  if value == "Q" then
-    return "Trading Action Reason: News Pending (Q)"
-  end
-  if value == "S" then
-    return "Trading Action Reason: Static Price Band Breach (S)"
-  end
-  if value == "M" then
-    return "Trading Action Reason: Market Surveillance Suspension (M)"
-  end
-  if value == "O" then
-    return "Trading Action Reason: Suspension By Market Of Origin (O)"
-  end
-  if value == "C" then
-    return "Trading Action Reason: Non Compliance (C)"
-  end
-  if value == "I" then
-    return "Trading Action Reason: Start Of Indication Of Interest (I)"
-  end
-  if value == "E" then
-    return "Trading Action Reason: Expired Security Is Unavailable For Trading (E)"
-  end
-  if value == "L" then
-    return "Trading Action Reason: Not Yet Available For Trading (L)"
-  end
+biva_bivaequities_basic_itch_v1_12.trading_action_reason.labels = {
+  ["N"] = "Trading Action Reason: Normal Trading (N)",
+  ["H"] = "Trading Action Reason: Volatility Auction (H)",
+  ["A"] = "Trading Action Reason: Continuous Auction Start (A)",
+  ["B"] = "Trading Action Reason: Continuous Auction End (B)",
+  ["Q"] = "Trading Action Reason: News Pending (Q)",
+  ["S"] = "Trading Action Reason: Static Price Band Breach (S)",
+  ["M"] = "Trading Action Reason: Market Surveillance Suspension (M)",
+  ["O"] = "Trading Action Reason: Suspension By Market Of Origin (O)",
+  ["C"] = "Trading Action Reason: Non Compliance (C)",
+  ["I"] = "Trading Action Reason: Start Of Indication Of Interest (I)",
+  ["E"] = "Trading Action Reason: Expired Security Is Unavailable For Trading (E)",
+  ["L"] = "Trading Action Reason: Not Yet Available For Trading (L)",
+}
 
-  return "Trading Action Reason: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.trading_action_reason.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.trading_action_reason.labels[value] or "Trading Action Reason: Unknown("..value..")"
 end
 
 -- Dissect: Trading Action Reason
@@ -1494,15 +1410,13 @@ biva_bivaequities_basic_itch_v1_12.trading_state = {}
 biva_bivaequities_basic_itch_v1_12.trading_state.size = 1
 
 -- Display: Trading State
-biva_bivaequities_basic_itch_v1_12.trading_state.display = function(value)
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
-  if value == "V" then
-    return "Trading State: Suspended (V)"
-  end
+biva_bivaequities_basic_itch_v1_12.trading_state.labels = {
+  ["T"] = "Trading State: Trading (T)",
+  ["V"] = "Trading State: Suspended (V)",
+}
 
-  return "Trading State: Unknown("..value..")"
+biva_bivaequities_basic_itch_v1_12.trading_state.display = function(value)
+  return biva_bivaequities_basic_itch_v1_12.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -2211,46 +2125,23 @@ end
 biva_bivaequities_basic_itch_v1_12.payload = {}
 
 -- Dissect: Payload
+biva_bivaequities_basic_itch_v1_12.payload.dispatch = {
+  ["T"] = biva_bivaequities_basic_itch_v1_12.time_stamp_seconds_message.dissect,
+  ["S"] = biva_bivaequities_basic_itch_v1_12.system_event_message.dissect,
+  ["L"] = biva_bivaequities_basic_itch_v1_12.price_tick_size_message.dissect,
+  ["M"] = biva_bivaequities_basic_itch_v1_12.quantity_tick_size_message.dissect,
+  ["R"] = biva_bivaequities_basic_itch_v1_12.orderbook_directory_message.dissect,
+  ["F"] = biva_bivaequities_basic_itch_v1_12.participant_directory_message.dissect,
+  ["H"] = biva_bivaequities_basic_itch_v1_12.orderbook_trading_action_message.dissect,
+  ["P"] = biva_bivaequities_basic_itch_v1_12.trade_message.dissect,
+  ["Q"] = biva_bivaequities_basic_itch_v1_12.best_bid_offer_message.dissect,
+  ["X"] = biva_bivaequities_basic_itch_v1_12.orderbook_reference_price_message.dissect,
+}
+
 biva_bivaequities_basic_itch_v1_12.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Stamp Seconds Message
-  if message_type == "T" then
-    return biva_bivaequities_basic_itch_v1_12.time_stamp_seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return biva_bivaequities_basic_itch_v1_12.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Tick Size Message
-  if message_type == "L" then
-    return biva_bivaequities_basic_itch_v1_12.price_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quantity Tick Size Message
-  if message_type == "M" then
-    return biva_bivaequities_basic_itch_v1_12.quantity_tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Directory Message
-  if message_type == "R" then
-    return biva_bivaequities_basic_itch_v1_12.orderbook_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Participant Directory Message
-  if message_type == "F" then
-    return biva_bivaequities_basic_itch_v1_12.participant_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Trading Action Message
-  if message_type == "H" then
-    return biva_bivaequities_basic_itch_v1_12.orderbook_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return biva_bivaequities_basic_itch_v1_12.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Offer Message
-  if message_type == "Q" then
-    return biva_bivaequities_basic_itch_v1_12.best_bid_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Reference Price Message
-  if message_type == "X" then
-    return biva_bivaequities_basic_itch_v1_12.orderbook_reference_price_message.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_basic_itch_v1_12.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2406,14 +2297,15 @@ end
 biva_bivaequities_basic_itch_v1_12.messages = {}
 
 -- Dissect: Messages
+biva_bivaequities_basic_itch_v1_12.messages.dispatch = {
+  [0] = biva_bivaequities_basic_itch_v1_12.heartbeat.dissect,
+  [65535] = biva_bivaequities_basic_itch_v1_12.end_of_session.dissect,
+}
+
 biva_bivaequities_basic_itch_v1_12.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return biva_bivaequities_basic_itch_v1_12.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return biva_bivaequities_basic_itch_v1_12.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = biva_bivaequities_basic_itch_v1_12.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

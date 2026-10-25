@@ -191,21 +191,15 @@ finra_finraorf_tdds_dfi_v2_0.action = {}
 finra_finraorf_tdds_dfi_v2_0.action.size = 1
 
 -- Display: Action
-finra_finraorf_tdds_dfi_v2_0.action.display = function(value)
-  if value == "H" then
-    return "Action: Trading Halt (H)"
-  end
-  if value == "Q" then
-    return "Action: Quotation Resumption (Q)"
-  end
-  if value == "T" then
-    return "Action: Trading Resumption (T)"
-  end
-  if value == "X" then
-    return "Action: Quotation And Trading Resumption (X)"
-  end
+finra_finraorf_tdds_dfi_v2_0.action.labels = {
+  ["H"] = "Action: Trading Halt (H)",
+  ["Q"] = "Action: Quotation Resumption (Q)",
+  ["T"] = "Action: Trading Resumption (T)",
+  ["X"] = "Action: Quotation And Trading Resumption (X)",
+}
 
-  return "Action: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.action.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -227,21 +221,15 @@ finra_finraorf_tdds_dfi_v2_0.administrative_message_type = {}
 finra_finraorf_tdds_dfi_v2_0.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
-finra_finraorf_tdds_dfi_v2_0.administrative_message_type.display = function(value)
-  if value == "A" then
-    return "Administrative Message Type: General Administrative Message (A)"
-  end
-  if value == "2" then
-    return "Administrative Message Type: Closing Trade Summary Report Message (2)"
-  end
-  if value == "H" then
-    return "Administrative Message Type: Trading Action Message (H)"
-  end
-  if value == "M" then
-    return "Administrative Message Type: Market Wide Circuit Breaker Event Message (M)"
-  end
+finra_finraorf_tdds_dfi_v2_0.administrative_message_type.labels = {
+  ["A"] = "Administrative Message Type: General Administrative Message (A)",
+  ["2"] = "Administrative Message Type: Closing Trade Summary Report Message (2)",
+  ["H"] = "Administrative Message Type: Trading Action Message (H)",
+  ["M"] = "Administrative Message Type: Market Wide Circuit Breaker Event Message (M)",
+}
 
-  return "Administrative Message Type: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.administrative_message_type.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.administrative_message_type.labels[value] or "Administrative Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Administrative Message Type
@@ -410,36 +398,20 @@ finra_finraorf_tdds_dfi_v2_0.control_message_type = {}
 finra_finraorf_tdds_dfi_v2_0.control_message_type.size = 1
 
 -- Display: Control Message Type
-finra_finraorf_tdds_dfi_v2_0.control_message_type.display = function(value)
-  if value == "I" then
-    return "Control Message Type: Start Of Day Message (I)"
-  end
-  if value == "J" then
-    return "Control Message Type: End Of Day Message (J)"
-  end
-  if value == "O" then
-    return "Control Message Type: Market Session Open Message (O)"
-  end
-  if value == "C" then
-    return "Control Message Type: Market Session Close Message (C)"
-  end
-  if value == "K" then
-    return "Control Message Type: End Of Retransmission Requests Message (K)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Transmissions Message (Z)"
-  end
-  if value == "T" then
-    return "Control Message Type: Line Integrity Message (T)"
-  end
-  if value == "L" then
-    return "Control Message Type: Sequence Number Reset Message (L)"
-  end
-  if value == "X" then
-    return "Control Message Type: End Of Trade Reporting Message (X)"
-  end
+finra_finraorf_tdds_dfi_v2_0.control_message_type.labels = {
+  ["I"] = "Control Message Type: Start Of Day Message (I)",
+  ["J"] = "Control Message Type: End Of Day Message (J)",
+  ["O"] = "Control Message Type: Market Session Open Message (O)",
+  ["C"] = "Control Message Type: Market Session Close Message (C)",
+  ["K"] = "Control Message Type: End Of Retransmission Requests Message (K)",
+  ["Z"] = "Control Message Type: End Of Transmissions Message (Z)",
+  ["T"] = "Control Message Type: Line Integrity Message (T)",
+  ["L"] = "Control Message Type: Sequence Number Reset Message (L)",
+  ["X"] = "Control Message Type: End Of Trade Reporting Message (X)",
+}
 
-  return "Control Message Type: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.control_message_type.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.control_message_type.labels[value] or "Control Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Control Message Type
@@ -849,21 +821,15 @@ finra_finraorf_tdds_dfi_v2_0.market_center_originator_id = {}
 finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.size = 2
 
 -- Display: Market Center Originator Id
-finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.display = function(value)
-  if value == "E" then
-    return "Market Center Originator Id: Market Center Independent (E)"
-  end
-  if value == "U" then
-    return "Market Center Originator Id: Otc Bulletin Board (U)"
-  end
-  if value == "u" then
-    return "Market Center Originator Id: Other Otc Security (u)"
-  end
-  if value == "F" then
-    return "Market Center Originator Id: Otcbb And Ootc (F)"
-  end
+finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.labels = {
+  ["E"] = "Market Center Originator Id: Market Center Independent (E)",
+  ["U"] = "Market Center Originator Id: Otc Bulletin Board (U)",
+  ["u"] = "Market Center Originator Id: Other Otc Security (u)",
+  ["F"] = "Market Center Originator Id: Otcbb And Ootc (F)",
+}
 
-  return "Market Center Originator Id: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.labels[value] or "Market Center Originator Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Center Originator Id
@@ -924,18 +890,14 @@ finra_finraorf_tdds_dfi_v2_0.message_category = {}
 finra_finraorf_tdds_dfi_v2_0.message_category.size = 1
 
 -- Display: Message Category
-finra_finraorf_tdds_dfi_v2_0.message_category.display = function(value)
-  if value == "T" then
-    return "Message Category: Trade (T)"
-  end
-  if value == "A" then
-    return "Message Category: Administrative (A)"
-  end
-  if value == "C" then
-    return "Message Category: Control (C)"
-  end
+finra_finraorf_tdds_dfi_v2_0.message_category.labels = {
+  ["T"] = "Message Category: Trade (T)",
+  ["A"] = "Message Category: Administrative (A)",
+  ["C"] = "Message Category: Control (C)",
+}
 
-  return "Message Category: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.message_category.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -957,15 +919,13 @@ finra_finraorf_tdds_dfi_v2_0.message_separator = {}
 finra_finraorf_tdds_dfi_v2_0.message_separator.size = 1
 
 -- Display: Message Separator
-finra_finraorf_tdds_dfi_v2_0.message_separator.display = function(value)
-  if value == 31 then
-    return "Message Separator: Unit Separator (31)"
-  end
-  if value == 3 then
-    return "Message Separator: End Of Text (3)"
-  end
+finra_finraorf_tdds_dfi_v2_0.message_separator.labels = {
+  [31] = "Message Separator: Unit Separator (31)",
+  [3] = "Message Separator: End Of Text (3)",
+}
 
-  return "Message Separator: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.message_separator.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.message_separator.labels[value] or "Message Separator: Unknown("..value..")"
 end
 
 -- Dissect: Message Separator
@@ -1229,33 +1189,19 @@ finra_finraorf_tdds_dfi_v2_0.price_change_indicator = {}
 finra_finraorf_tdds_dfi_v2_0.price_change_indicator.size = 1
 
 -- Display: Price Change Indicator
-finra_finraorf_tdds_dfi_v2_0.price_change_indicator.display = function(value)
-  if value == "0" then
-    return "Price Change Indicator: No Price Change (0)"
-  end
-  if value == "1" then
-    return "Price Change Indicator: Last Price Changed (1)"
-  end
-  if value == "2" then
-    return "Price Change Indicator: Low Price Changed (2)"
-  end
-  if value == "3" then
-    return "Price Change Indicator: Last And Low Prices Changed (3)"
-  end
-  if value == "4" then
-    return "Price Change Indicator: High Price Changed (4)"
-  end
-  if value == "5" then
-    return "Price Change Indicator: Last And High Prices Changed (5)"
-  end
-  if value == "6" then
-    return "Price Change Indicator: High And Low Prices Changed (6)"
-  end
-  if value == "7" then
-    return "Price Change Indicator: All Prices Changed (7)"
-  end
+finra_finraorf_tdds_dfi_v2_0.price_change_indicator.labels = {
+  ["0"] = "Price Change Indicator: No Price Change (0)",
+  ["1"] = "Price Change Indicator: Last Price Changed (1)",
+  ["2"] = "Price Change Indicator: Low Price Changed (2)",
+  ["3"] = "Price Change Indicator: Last And Low Prices Changed (3)",
+  ["4"] = "Price Change Indicator: High Price Changed (4)",
+  ["5"] = "Price Change Indicator: Last And High Prices Changed (5)",
+  ["6"] = "Price Change Indicator: High And Low Prices Changed (6)",
+  ["7"] = "Price Change Indicator: All Prices Changed (7)",
+}
 
-  return "Price Change Indicator: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.price_change_indicator.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.price_change_indicator.labels[value] or "Price Change Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Price Change Indicator
@@ -1277,18 +1223,14 @@ finra_finraorf_tdds_dfi_v2_0.report_function = {}
 finra_finraorf_tdds_dfi_v2_0.report_function.size = 1
 
 -- Display: Report Function
-finra_finraorf_tdds_dfi_v2_0.report_function.display = function(value)
-  if value == "C" then
-    return "Report Function: Cancel (C)"
-  end
-  if value == "E" then
-    return "Report Function: Error (E)"
-  end
-  if value == "N" then
-    return "Report Function: Correction (N)"
-  end
+finra_finraorf_tdds_dfi_v2_0.report_function.labels = {
+  ["C"] = "Report Function: Cancel (C)",
+  ["E"] = "Report Function: Error (E)",
+  ["N"] = "Report Function: Correction (N)",
+}
 
-  return "Report Function: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.report_function.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.report_function.labels[value] or "Report Function: Unknown("..value..")"
 end
 
 -- Dissect: Report Function
@@ -1418,21 +1360,15 @@ finra_finraorf_tdds_dfi_v2_0.sale_condition_level_1 = {}
 finra_finraorf_tdds_dfi_v2_0.sale_condition_level_1.size = 1
 
 -- Display: Sale Condition Level 1
-finra_finraorf_tdds_dfi_v2_0.sale_condition_level_1.display = function(value)
-  if value == "@" then
-    return "Sale Condition Level 1: Regular Trade (@)"
-  end
-  if value == "C" then
-    return "Sale Condition Level 1: Cash Trade (C)"
-  end
-  if value == "N" then
-    return "Sale Condition Level 1: Next Day (N)"
-  end
-  if value == "R" then
-    return "Sale Condition Level 1: Seller (R)"
-  end
+finra_finraorf_tdds_dfi_v2_0.sale_condition_level_1.labels = {
+  ["@"] = "Sale Condition Level 1: Regular Trade (@)",
+  ["C"] = "Sale Condition Level 1: Cash Trade (C)",
+  ["N"] = "Sale Condition Level 1: Next Day (N)",
+  ["R"] = "Sale Condition Level 1: Seller (R)",
+}
 
-  return "Sale Condition Level 1: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.sale_condition_level_1.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.sale_condition_level_1.labels[value] or "Sale Condition Level 1: Unknown("..value..")"
 end
 
 -- Dissect: Sale Condition Level 1
@@ -1657,15 +1593,13 @@ finra_finraorf_tdds_dfi_v2_0.session_identifier = {}
 finra_finraorf_tdds_dfi_v2_0.session_identifier.size = 1
 
 -- Display: Session Identifier
-finra_finraorf_tdds_dfi_v2_0.session_identifier.display = function(value)
-  if value == "A" then
-    return "Session Identifier: All Market Sessions Or Session Independent (A)"
-  end
-  if value == "U" then
-    return "Session Identifier: Us Market Session (U)"
-  end
+finra_finraorf_tdds_dfi_v2_0.session_identifier.labels = {
+  ["A"] = "Session Identifier: All Market Sessions Or Session Independent (A)",
+  ["U"] = "Session Identifier: Us Market Session (U)",
+}
 
-  return "Session Identifier: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.session_identifier.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.session_identifier.labels[value] or "Session Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Session Identifier
@@ -1737,21 +1671,15 @@ finra_finraorf_tdds_dfi_v2_0.trade_message_type = {}
 finra_finraorf_tdds_dfi_v2_0.trade_message_type.size = 1
 
 -- Display: Trade Message Type
-finra_finraorf_tdds_dfi_v2_0.trade_message_type.display = function(value)
-  if value == "5" then
-    return "Trade Message Type: Trade Report Short Form Message (5)"
-  end
-  if value == "6" then
-    return "Trade Message Type: Trade Report Long Form Message (6)"
-  end
-  if value == "7" then
-    return "Trade Message Type: Trade Cancel Error Message (7)"
-  end
-  if value == "8" then
-    return "Trade Message Type: Trade Correction Message (8)"
-  end
+finra_finraorf_tdds_dfi_v2_0.trade_message_type.labels = {
+  ["5"] = "Trade Message Type: Trade Report Short Form Message (5)",
+  ["6"] = "Trade Message Type: Trade Report Long Form Message (6)",
+  ["7"] = "Trade Message Type: Trade Cancel Error Message (7)",
+  ["8"] = "Trade Message Type: Trade Correction Message (8)",
+}
 
-  return "Trade Message Type: Unknown("..value..")"
+finra_finraorf_tdds_dfi_v2_0.trade_message_type.display = function(value)
+  return finra_finraorf_tdds_dfi_v2_0.trade_message_type.labels[value] or "Trade Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Message Type
@@ -2408,42 +2336,22 @@ end
 finra_finraorf_tdds_dfi_v2_0.control_message_payload = {}
 
 -- Dissect: Control Message Payload
+finra_finraorf_tdds_dfi_v2_0.control_message_payload.dispatch = {
+  ["I"] = finra_finraorf_tdds_dfi_v2_0.start_of_day_message.dissect,
+  ["J"] = finra_finraorf_tdds_dfi_v2_0.end_of_day_message.dissect,
+  ["O"] = finra_finraorf_tdds_dfi_v2_0.market_session_open_message.dissect,
+  ["C"] = finra_finraorf_tdds_dfi_v2_0.market_session_close_message.dissect,
+  ["K"] = finra_finraorf_tdds_dfi_v2_0.end_of_retransmission_requests_message.dissect,
+  ["Z"] = finra_finraorf_tdds_dfi_v2_0.end_of_transmissions_message.dissect,
+  ["T"] = finra_finraorf_tdds_dfi_v2_0.line_integrity_message.dissect,
+  ["L"] = finra_finraorf_tdds_dfi_v2_0.sequence_number_reset_message.dissect,
+  ["X"] = finra_finraorf_tdds_dfi_v2_0.end_of_trade_reporting_message.dissect,
+}
+
 finra_finraorf_tdds_dfi_v2_0.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
-  -- Dissect Start Of Day Message
-  if control_message_type == "I" then
-    return finra_finraorf_tdds_dfi_v2_0.start_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Message
-  if control_message_type == "J" then
-    return finra_finraorf_tdds_dfi_v2_0.end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Open Message
-  if control_message_type == "O" then
-    return finra_finraorf_tdds_dfi_v2_0.market_session_open_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Session Close Message
-  if control_message_type == "C" then
-    return finra_finraorf_tdds_dfi_v2_0.market_session_close_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Retransmission Requests Message
-  if control_message_type == "K" then
-    return finra_finraorf_tdds_dfi_v2_0.end_of_retransmission_requests_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Transmissions Message
-  if control_message_type == "Z" then
-    return finra_finraorf_tdds_dfi_v2_0.end_of_transmissions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Line Integrity Message
-  if control_message_type == "T" then
-    return finra_finraorf_tdds_dfi_v2_0.line_integrity_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Number Reset Message
-  if control_message_type == "L" then
-    return finra_finraorf_tdds_dfi_v2_0.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Trade Reporting Message
-  if control_message_type == "X" then
-    return finra_finraorf_tdds_dfi_v2_0.end_of_trade_reporting_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_finraorf_tdds_dfi_v2_0.control_message_payload.dispatch[control_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2828,22 +2736,17 @@ end
 finra_finraorf_tdds_dfi_v2_0.administrative_message_payload = {}
 
 -- Dissect: Administrative Message Payload
+finra_finraorf_tdds_dfi_v2_0.administrative_message_payload.dispatch = {
+  ["A"] = finra_finraorf_tdds_dfi_v2_0.general_administrative_message.dissect,
+  ["2"] = finra_finraorf_tdds_dfi_v2_0.closing_trade_summary_report_message.dissect,
+  ["H"] = finra_finraorf_tdds_dfi_v2_0.trading_action_message.dissect,
+  ["M"] = finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_event_message.dissect,
+}
+
 finra_finraorf_tdds_dfi_v2_0.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
-  -- Dissect General Administrative Message
-  if administrative_message_type == "A" then
-    return finra_finraorf_tdds_dfi_v2_0.general_administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Trade Summary Report Message
-  if administrative_message_type == "2" then
-    return finra_finraorf_tdds_dfi_v2_0.closing_trade_summary_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if administrative_message_type == "H" then
-    return finra_finraorf_tdds_dfi_v2_0.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Wide Circuit Breaker Event Message
-  if administrative_message_type == "M" then
-    return finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_event_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_finraorf_tdds_dfi_v2_0.administrative_message_payload.dispatch[administrative_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3582,22 +3485,17 @@ end
 finra_finraorf_tdds_dfi_v2_0.trade_message_payload = {}
 
 -- Dissect: Trade Message Payload
+finra_finraorf_tdds_dfi_v2_0.trade_message_payload.dispatch = {
+  ["5"] = finra_finraorf_tdds_dfi_v2_0.trade_report_short_form_message.dissect,
+  ["6"] = finra_finraorf_tdds_dfi_v2_0.trade_report_long_form_message.dissect,
+  ["7"] = finra_finraorf_tdds_dfi_v2_0.trade_cancel_error_message.dissect,
+  ["8"] = finra_finraorf_tdds_dfi_v2_0.trade_correction_message.dissect,
+}
+
 finra_finraorf_tdds_dfi_v2_0.trade_message_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
-  -- Dissect Trade Report Short Form Message
-  if trade_message_type == "5" then
-    return finra_finraorf_tdds_dfi_v2_0.trade_report_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Long Form Message
-  if trade_message_type == "6" then
-    return finra_finraorf_tdds_dfi_v2_0.trade_report_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Error Message
-  if trade_message_type == "7" then
-    return finra_finraorf_tdds_dfi_v2_0.trade_cancel_error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if trade_message_type == "8" then
-    return finra_finraorf_tdds_dfi_v2_0.trade_correction_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_finraorf_tdds_dfi_v2_0.trade_message_payload.dispatch[trade_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3660,18 +3558,16 @@ end
 finra_finraorf_tdds_dfi_v2_0.payload = {}
 
 -- Dissect: Payload
+finra_finraorf_tdds_dfi_v2_0.payload.dispatch = {
+  ["T"] = finra_finraorf_tdds_dfi_v2_0.trade_message.dissect,
+  ["A"] = finra_finraorf_tdds_dfi_v2_0.administrative_message.dissect,
+  ["C"] = finra_finraorf_tdds_dfi_v2_0.control_message.dissect,
+}
+
 finra_finraorf_tdds_dfi_v2_0.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Trade Message
-  if message_category == "T" then
-    return finra_finraorf_tdds_dfi_v2_0.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Administrative Message
-  if message_category == "A" then
-    return finra_finraorf_tdds_dfi_v2_0.administrative_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if message_category == "C" then
-    return finra_finraorf_tdds_dfi_v2_0.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = finra_finraorf_tdds_dfi_v2_0.payload.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

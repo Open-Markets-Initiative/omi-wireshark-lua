@@ -102,42 +102,22 @@ nyse_nyseoptions_commonclient_pillar_v2_6.delivery_flag = {}
 nyse_nyseoptions_commonclient_pillar_v2_6.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_nyseoptions_commonclient_pillar_v2_6.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Pillar Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_nyseoptions_commonclient_pillar_v2_6.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Pillar Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_nyseoptions_commonclient_pillar_v2_6.delivery_flag.display = function(value)
+  return nyse_nyseoptions_commonclient_pillar_v2_6.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -468,10 +448,14 @@ end
 nyse_nyseoptions_commonclient_pillar_v2_6.messages = {}
 
 -- Dissect: Messages
+nyse_nyseoptions_commonclient_pillar_v2_6.messages.dispatch = {
+  [1] = nyse_nyseoptions_commonclient_pillar_v2_6.heartbeat.dissect,
+}
+
 nyse_nyseoptions_commonclient_pillar_v2_6.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
-  -- Dissect Heartbeat
-  if delivery_flag == 1 then
-    return nyse_nyseoptions_commonclient_pillar_v2_6.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nyseoptions_commonclient_pillar_v2_6.messages.dispatch[delivery_flag]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

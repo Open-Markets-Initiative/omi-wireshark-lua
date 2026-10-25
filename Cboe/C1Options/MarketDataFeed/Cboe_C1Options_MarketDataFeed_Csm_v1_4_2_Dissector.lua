@@ -350,42 +350,22 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.eop_type = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.eop_type.size = 1
 
 -- Display: Eop Type
-cboe_c1options_marketdatafeed_csm_v1_4_2.eop_type.display = function(value)
-  if value == 0 then
-    return "Eop Type: Undefined (0)"
-  end
-  if value == 1 then
-    return "Eop Type: Opening Price (1)"
-  end
-  if value == 2 then
-    return "Eop Type: Need More Sellers (2)"
-  end
-  if value == 3 then
-    return "Eop Type: Need More Buyers (3)"
-  end
-  if value == 4 then
-    return "Eop Type: No Opening Trades (4)"
-  end
-  if value == 5 then
-    return "Eop Type: Multiple Opening Prices (5)"
-  end
-  if value == 6 then
-    return "Eop Type: Need Quote To Open (6)"
-  end
-  if value == 7 then
-    return "Eop Type: Price Not In Quote Range (7)"
-  end
-  if value == 8 then
-    return "Eop Type: Need Dpm Quote To Open (8)"
-  end
-  if value == 9 then
-    return "Eop Type: Dpm Quote Invalid (9)"
-  end
-  if value == 10 then
-    return "Eop Type: Price Not In Botr Range (10)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.eop_type.labels = {
+  [0] = "Eop Type: Undefined (0)",
+  [1] = "Eop Type: Opening Price (1)",
+  [2] = "Eop Type: Need More Sellers (2)",
+  [3] = "Eop Type: Need More Buyers (3)",
+  [4] = "Eop Type: No Opening Trades (4)",
+  [5] = "Eop Type: Multiple Opening Prices (5)",
+  [6] = "Eop Type: Need Quote To Open (6)",
+  [7] = "Eop Type: Price Not In Quote Range (7)",
+  [8] = "Eop Type: Need Dpm Quote To Open (8)",
+  [9] = "Eop Type: Dpm Quote Invalid (9)",
+  [10] = "Eop Type: Price Not In Botr Range (10)",
+}
 
-  return "Eop Type: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.eop_type.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.eop_type.labels[value] or "Eop Type: Unknown("..value..")"
 end
 
 -- Dissect: Eop Type
@@ -430,15 +410,13 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.exercise_style = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.exercise_style.size = 1
 
 -- Display: Exercise Style
-cboe_c1options_marketdatafeed_csm_v1_4_2.exercise_style.display = function(value)
-  if value == 0 then
-    return "Exercise Style: American (0)"
-  end
-  if value == 1 then
-    return "Exercise Style: European (1)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.exercise_style.labels = {
+  [0] = "Exercise Style: American (0)",
+  [1] = "Exercise Style: European (1)",
+}
 
-  return "Exercise Style: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.exercise_style.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.exercise_style.labels[value] or "Exercise Style: Unknown("..value..")"
 end
 
 -- Dissect: Exercise Style
@@ -529,15 +507,13 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.leg_side = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.leg_side.size = 1
 
 -- Display: Leg Side
-cboe_c1options_marketdatafeed_csm_v1_4_2.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Buy Bid (B)"
-  end
-  if value == "S" then
-    return "Leg Side: Sell Ask (S)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.leg_side.labels = {
+  ["B"] = "Leg Side: Buy Bid (B)",
+  ["S"] = "Leg Side: Sell Ask (S)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.leg_side.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -559,15 +535,13 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.legal_market = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.legal_market.size = 1
 
 -- Display: Legal Market
-cboe_c1options_marketdatafeed_csm_v1_4_2.legal_market.display = function(value)
-  if value == 0 then
-    return "Legal Market: Not A Legal Market (0)"
-  end
-  if value == 1 then
-    return "Legal Market: Legal Market (1)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.legal_market.labels = {
+  [0] = "Legal Market: Not A Legal Market (0)",
+  [1] = "Legal Market: Legal Market (1)",
+}
 
-  return "Legal Market: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.legal_market.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.legal_market.labels[value] or "Legal Market: Unknown("..value..")"
 end
 
 -- Dissect: Legal Market
@@ -658,21 +632,15 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.md_control_type = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.md_control_type.size = 1
 
 -- Display: Md Control Type
-cboe_c1options_marketdatafeed_csm_v1_4_2.md_control_type.display = function(value)
-  if value == 0 then
-    return "Md Control Type: Start Of Summary (0)"
-  end
-  if value == 1 then
-    return "Md Control Type: End Of Summary (1)"
-  end
-  if value == 2 then
-    return "Md Control Type: Start Of Settlement (2)"
-  end
-  if value == 3 then
-    return "Md Control Type: End Of Settlement (3)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.md_control_type.labels = {
+  [0] = "Md Control Type: Start Of Summary (0)",
+  [1] = "Md Control Type: End Of Summary (1)",
+  [2] = "Md Control Type: Start Of Settlement (2)",
+  [3] = "Md Control Type: End Of Settlement (3)",
+}
 
-  return "Md Control Type: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.md_control_type.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.md_control_type.labels[value] or "Md Control Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Control Type
@@ -763,33 +731,19 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.size = 1
 
 -- Display: Md Entry Type
-cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.display = function(value)
-  if value == "0" then
-    return "Md Entry Type: Bid (0)"
-  end
-  if value == "1" then
-    return "Md Entry Type: Ask (1)"
-  end
-  if value == "2" then
-    return "Md Entry Type: Trade (2)"
-  end
-  if value == "3" then
-    return "Md Entry Type: Index Value (3)"
-  end
-  if value == "4" then
-    return "Md Entry Type: Opening Price (4)"
-  end
-  if value == "6" then
-    return "Md Entry Type: Settlement Value (6)"
-  end
-  if value == "7" then
-    return "Md Entry Type: High (7)"
-  end
-  if value == "8" then
-    return "Md Entry Type: Low (8)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.labels = {
+  ["0"] = "Md Entry Type: Bid (0)",
+  ["1"] = "Md Entry Type: Ask (1)",
+  ["2"] = "Md Entry Type: Trade (2)",
+  ["3"] = "Md Entry Type: Index Value (3)",
+  ["4"] = "Md Entry Type: Opening Price (4)",
+  ["6"] = "Md Entry Type: Settlement Value (6)",
+  ["7"] = "Md Entry Type: High (7)",
+  ["8"] = "Md Entry Type: Low (8)",
+}
 
-  return "Md Entry Type: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.labels[value] or "Md Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
@@ -811,21 +765,15 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.md_volume_type = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.md_volume_type.size = 1
 
 -- Display: Md Volume Type
-cboe_c1options_marketdatafeed_csm_v1_4_2.md_volume_type.display = function(value)
-  if value == 0 then
-    return "Md Volume Type: Total Limit (0)"
-  end
-  if value == 1 then
-    return "Md Volume Type: Customer Limit (1)"
-  end
-  if value == 2 then
-    return "Md Volume Type: Total Contingency All Or None (2)"
-  end
-  if value == 3 then
-    return "Md Volume Type: Customer Contingency All Or None (3)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.md_volume_type.labels = {
+  [0] = "Md Volume Type: Total Limit (0)",
+  [1] = "Md Volume Type: Customer Limit (1)",
+  [2] = "Md Volume Type: Total Contingency All Or None (2)",
+  [3] = "Md Volume Type: Customer Contingency All Or None (3)",
+}
 
-  return "Md Volume Type: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.md_volume_type.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.md_volume_type.labels[value] or "Md Volume Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Volume Type
@@ -1330,15 +1278,13 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.put_or_call = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.put_or_call.size = 1
 
 -- Display: Put Or Call
-cboe_c1options_marketdatafeed_csm_v1_4_2.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.put_or_call.labels = {
+  [0] = "Put Or Call: Put (0)",
+  [1] = "Put Or Call: Call (1)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.put_or_call.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -1360,24 +1306,16 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_exchange = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.security_exchange.size = 1
 
 -- Display: Security Exchange
-cboe_c1options_marketdatafeed_csm_v1_4_2.security_exchange.display = function(value)
-  if value == "C" then
-    return "Security Exchange: Cboe (C)"
-  end
-  if value == "O" then
-    return "Security Exchange: One Chicago Not Supported (O)"
-  end
-  if value == "W" then
-    return "Security Exchange: Cbsx Not Supported (W)"
-  end
-  if value == "F" then
-    return "Security Exchange: Cfecof (F)"
-  end
-  if value == "2" then
-    return "Security Exchange: Cboe 2 Options (2)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.security_exchange.labels = {
+  ["C"] = "Security Exchange: Cboe (C)",
+  ["O"] = "Security Exchange: One Chicago Not Supported (O)",
+  ["W"] = "Security Exchange: Cbsx Not Supported (W)",
+  ["F"] = "Security Exchange: Cfecof (F)",
+  ["2"] = "Security Exchange: Cboe 2 Options (2)",
+}
 
-  return "Security Exchange: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.security_exchange.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.security_exchange.labels[value] or "Security Exchange: Unknown("..value..")"
 end
 
 -- Dissect: Security Exchange
@@ -1422,36 +1360,20 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Halted (2)"
-  end
-  if value == 17 then
-    return "Security Trading Status: Open (17)"
-  end
-  if value == 18 then
-    return "Security Trading Status: Closed (18)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Pre Open (21)"
-  end
-  if value == 22 then
-    return "Security Trading Status: Opening Rotation (22)"
-  end
-  if value == 23 then
-    return "Security Trading Status: Fast Market (23)"
-  end
-  if value == 24 then
-    return "Security Trading Status: Strategy Market In Opening Rotation (24)"
-  end
-  if value == 25 then
-    return "Security Trading Status: Strategy Market Quotes Non Firm (25)"
-  end
-  if value == 26 then
-    return "Security Trading Status: Suspended (26)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.labels = {
+  [2] = "Security Trading Status: Halted (2)",
+  [17] = "Security Trading Status: Open (17)",
+  [18] = "Security Trading Status: Closed (18)",
+  [21] = "Security Trading Status: Pre Open (21)",
+  [22] = "Security Trading Status: Opening Rotation (22)",
+  [23] = "Security Trading Status: Fast Market (23)",
+  [24] = "Security Trading Status: Strategy Market In Opening Rotation (24)",
+  [25] = "Security Trading Status: Strategy Market Quotes Non Firm (25)",
+  [26] = "Security Trading Status: Suspended (26)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -1668,45 +1590,23 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.template_id = {}
 cboe_c1options_marketdatafeed_csm_v1_4_2.template_id.size = 1
 
 -- Display: Template Id
-cboe_c1options_marketdatafeed_csm_v1_4_2.template_id.display = function(value)
-  if value == 13 then
-    return "Template Id: Security Definition Message (13)"
-  end
-  if value == 11 then
-    return "Template Id: Current Market Refresh Message (11)"
-  end
-  if value == 20 then
-    return "Template Id: Market Data Refresh Message (20)"
-  end
-  if value == 12 then
-    return "Template Id: Current Market Update Message (12)"
-  end
-  if value == 21 then
-    return "Template Id: Recap Update Message (21)"
-  end
-  if value == 14 then
-    return "Template Id: Ticker Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Expected Opening Price And Size Message (15)"
-  end
-  if value == 22 then
-    return "Template Id: Index Value Message (22)"
-  end
-  if value == 23 then
-    return "Template Id: Settlement Value Message (23)"
-  end
-  if value == 24 then
-    return "Template Id: Summary Message (24)"
-  end
-  if value == 25 then
-    return "Template Id: Market Data Control Message (25)"
-  end
-  if value == 16 then
-    return "Template Id: Heartbeat Message (16)"
-  end
+cboe_c1options_marketdatafeed_csm_v1_4_2.template_id.labels = {
+  [13] = "Template Id: Security Definition Message (13)",
+  [11] = "Template Id: Current Market Refresh Message (11)",
+  [20] = "Template Id: Market Data Refresh Message (20)",
+  [12] = "Template Id: Current Market Update Message (12)",
+  [21] = "Template Id: Recap Update Message (21)",
+  [14] = "Template Id: Ticker Message (14)",
+  [15] = "Template Id: Expected Opening Price And Size Message (15)",
+  [22] = "Template Id: Index Value Message (22)",
+  [23] = "Template Id: Settlement Value Message (23)",
+  [24] = "Template Id: Summary Message (24)",
+  [25] = "Template Id: Market Data Control Message (25)",
+  [16] = "Template Id: Heartbeat Message (16)",
+}
 
-  return "Template Id: Unknown("..value..")"
+cboe_c1options_marketdatafeed_csm_v1_4_2.template_id.display = function(value)
+  return cboe_c1options_marketdatafeed_csm_v1_4_2.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -4050,54 +3950,25 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.payload = {}
 
 -- Dissect: Payload
+cboe_c1options_marketdatafeed_csm_v1_4_2.payload.dispatch = {
+  [13] = cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_message.dissect,
+  [11] = cboe_c1options_marketdatafeed_csm_v1_4_2.current_market_refresh_message.dissect,
+  [20] = cboe_c1options_marketdatafeed_csm_v1_4_2.market_data_refresh_message.dissect,
+  [12] = cboe_c1options_marketdatafeed_csm_v1_4_2.current_market_update_message.dissect,
+  [21] = cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_message.dissect,
+  [14] = cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_message.dissect,
+  [15] = cboe_c1options_marketdatafeed_csm_v1_4_2.expected_opening_price_and_size_message.dissect,
+  [22] = cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_message.dissect,
+  [23] = cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_message.dissect,
+  [24] = cboe_c1options_marketdatafeed_csm_v1_4_2.summary_message.dissect,
+  [25] = cboe_c1options_marketdatafeed_csm_v1_4_2.market_data_control_message.dissect,
+  [16] = cboe_c1options_marketdatafeed_csm_v1_4_2.heartbeat_message.dissect,
+}
+
 cboe_c1options_marketdatafeed_csm_v1_4_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Security Definition Message
-  if template_id == 13 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Current Market Refresh Message
-  if template_id == 11 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.current_market_refresh_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Data Refresh Message
-  if template_id == 20 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.market_data_refresh_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Current Market Update Message
-  if template_id == 12 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.current_market_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Recap Update Message
-  if template_id == 21 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ticker Message
-  if template_id == 14 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Expected Opening Price And Size Message
-  if template_id == 15 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.expected_opening_price_and_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Value Message
-  if template_id == 22 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Value Message
-  if template_id == 23 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Summary Message
-  if template_id == 24 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Data Control Message
-  if template_id == 25 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.market_data_control_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if template_id == 16 then
-    return cboe_c1options_marketdatafeed_csm_v1_4_2.heartbeat_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_c1options_marketdatafeed_csm_v1_4_2.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

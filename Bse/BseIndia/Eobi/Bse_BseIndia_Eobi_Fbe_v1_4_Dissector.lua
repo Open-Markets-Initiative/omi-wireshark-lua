@@ -198,15 +198,13 @@ bse_bseindia_eobi_fbe_v1_4.aggressor_side = {}
 bse_bseindia_eobi_fbe_v1_4.aggressor_side.size = 1
 
 -- Display: Aggressor Side
-bse_bseindia_eobi_fbe_v1_4.aggressor_side.display = function(value)
-  if value == 1 then
-    return "Aggressor Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Aggressor Side: Sell (2)"
-  end
+bse_bseindia_eobi_fbe_v1_4.aggressor_side.labels = {
+  [1] = "Aggressor Side: Buy (1)",
+  [2] = "Aggressor Side: Sell (2)",
+}
 
-  return "Aggressor Side: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.aggressor_side.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.aggressor_side.labels[value] or "Aggressor Side: Unknown("..value..")"
 end
 
 -- Dissect: Aggressor Side
@@ -476,15 +474,13 @@ bse_bseindia_eobi_fbe_v1_4.fast_market_indicator = {}
 bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.size = 1
 
 -- Display: Fast Market Indicator
-bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.display = function(value)
-  if value == 0 then
-    return "Fast Market Indicator: No (0)"
-  end
-  if value == 1 then
-    return "Fast Market Indicator: Yes (1)"
-  end
+bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.labels = {
+  [0] = "Fast Market Indicator: No (0)",
+  [1] = "Fast Market Indicator: Yes (1)",
+}
 
-  return "Fast Market Indicator: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.labels[value] or "Fast Market Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Fast Market Indicator
@@ -506,15 +502,13 @@ bse_bseindia_eobi_fbe_v1_4.implied_market_indicator = {}
 bse_bseindia_eobi_fbe_v1_4.implied_market_indicator.size = 1
 
 -- Display: Implied Market Indicator
-bse_bseindia_eobi_fbe_v1_4.implied_market_indicator.display = function(value)
-  if value == 0 then
-    return "Implied Market Indicator: Not Implied (0)"
-  end
-  if value == 3 then
-    return "Implied Market Indicator: Implied In Out (3)"
-  end
+bse_bseindia_eobi_fbe_v1_4.implied_market_indicator.labels = {
+  [0] = "Implied Market Indicator: Not Implied (0)",
+  [3] = "Implied Market Indicator: Implied In Out (3)",
+}
 
-  return "Implied Market Indicator: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.implied_market_indicator.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.implied_market_indicator.labels[value] or "Implied Market Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Implied Market Indicator
@@ -686,15 +680,13 @@ bse_bseindia_eobi_fbe_v1_4.leg_side = {}
 bse_bseindia_eobi_fbe_v1_4.leg_side.size = 1
 
 -- Display: Leg Side
-bse_bseindia_eobi_fbe_v1_4.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell (2)"
-  end
+bse_bseindia_eobi_fbe_v1_4.leg_side.labels = {
+  [1] = "Leg Side: Buy (1)",
+  [2] = "Leg Side: Sell (2)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.leg_side.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -874,54 +866,26 @@ bse_bseindia_eobi_fbe_v1_4.md_entry_type = {}
 bse_bseindia_eobi_fbe_v1_4.md_entry_type.size = 1
 
 -- Display: Md Entry Type
-bse_bseindia_eobi_fbe_v1_4.md_entry_type.display = function(value)
-  if value == 2 then
-    return "Md Entry Type: Trade (2)"
-  end
-  if value == 4 then
-    return "Md Entry Type: Opening Price (4)"
-  end
-  if value == 5 then
-    return "Md Entry Type: Closing Price (5)"
-  end
-  if value == 7 then
-    return "Md Entry Type: High Price (7)"
-  end
-  if value == 8 then
-    return "Md Entry Type: Low Price (8)"
-  end
-  if value == 101 then
-    return "Md Entry Type: Previous Closing Price (101)"
-  end
-  if value == 200 then
-    return "Md Entry Type: Opening Auction (200)"
-  end
-  if value == 201 then
-    return "Md Entry Type: Intraday Auction (201)"
-  end
-  if value == 202 then
-    return "Md Entry Type: Circuit Breaker Auction (202)"
-  end
-  if value == 203 then
-    return "Md Entry Type: Closing Auction (203)"
-  end
-  if value == 204 then
-    return "Md Entry Type: Upper Ckt Limit (204)"
-  end
-  if value == 205 then
-    return "Md Entry Type: Lower Ckt Limit (205)"
-  end
-  if value == 206 then
-    return "Md Entry Type: Gross Trade Amt (206)"
-  end
-  if value == 208 then
-    return "Md Entry Type: Upper Exec Limit (208)"
-  end
-  if value == 209 then
-    return "Md Entry Type: Lower Exec Limit (209)"
-  end
+bse_bseindia_eobi_fbe_v1_4.md_entry_type.labels = {
+  [2] = "Md Entry Type: Trade (2)",
+  [4] = "Md Entry Type: Opening Price (4)",
+  [5] = "Md Entry Type: Closing Price (5)",
+  [7] = "Md Entry Type: High Price (7)",
+  [8] = "Md Entry Type: Low Price (8)",
+  [101] = "Md Entry Type: Previous Closing Price (101)",
+  [200] = "Md Entry Type: Opening Auction (200)",
+  [201] = "Md Entry Type: Intraday Auction (201)",
+  [202] = "Md Entry Type: Circuit Breaker Auction (202)",
+  [203] = "Md Entry Type: Closing Auction (203)",
+  [204] = "Md Entry Type: Upper Ckt Limit (204)",
+  [205] = "Md Entry Type: Lower Ckt Limit (205)",
+  [206] = "Md Entry Type: Gross Trade Amt (206)",
+  [208] = "Md Entry Type: Upper Exec Limit (208)",
+  [209] = "Md Entry Type: Lower Exec Limit (209)",
+}
 
-  return "Md Entry Type: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.md_entry_type.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.md_entry_type.labels[value] or "Md Entry Type: Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
@@ -1355,12 +1319,12 @@ bse_bseindia_eobi_fbe_v1_4.product_complex = {}
 bse_bseindia_eobi_fbe_v1_4.product_complex.size = 1
 
 -- Display: Product Complex
-bse_bseindia_eobi_fbe_v1_4.product_complex.display = function(value)
-  if value == 5 then
-    return "Product Complex: Futures Spread (5)"
-  end
+bse_bseindia_eobi_fbe_v1_4.product_complex.labels = {
+  [5] = "Product Complex: Futures Spread (5)",
+}
 
-  return "Product Complex: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.product_complex.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.product_complex.labels[value] or "Product Complex: Unknown("..value..")"
 end
 
 -- Dissect: Product Complex
@@ -1433,21 +1397,15 @@ bse_bseindia_eobi_fbe_v1_4.security_status = {}
 bse_bseindia_eobi_fbe_v1_4.security_status.size = 1
 
 -- Display: Security Status
-bse_bseindia_eobi_fbe_v1_4.security_status.display = function(value)
-  if value == 1 then
-    return "Security Status: Active (1)"
-  end
-  if value == 2 then
-    return "Security Status: Inactive (2)"
-  end
-  if value == 4 then
-    return "Security Status: Expired (4)"
-  end
-  if value == 9 then
-    return "Security Status: Suspended (9)"
-  end
+bse_bseindia_eobi_fbe_v1_4.security_status.labels = {
+  [1] = "Security Status: Active (1)",
+  [2] = "Security Status: Inactive (2)",
+  [4] = "Security Status: Expired (4)",
+  [9] = "Security Status: Suspended (9)",
+}
 
-  return "Security Status: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.security_status.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.security_status.labels[value] or "Security Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Status
@@ -1497,45 +1455,23 @@ bse_bseindia_eobi_fbe_v1_4.security_trading_status = {}
 bse_bseindia_eobi_fbe_v1_4.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-bse_bseindia_eobi_fbe_v1_4.security_trading_status.display = function(value)
-  if value == 200 then
-    return "Security Trading Status: Closed (200)"
-  end
-  if value == 201 then
-    return "Security Trading Status: Restricted (201)"
-  end
-  if value == 202 then
-    return "Security Trading Status: Book (202)"
-  end
-  if value == 203 then
-    return "Security Trading Status: Continuous (203)"
-  end
-  if value == 204 then
-    return "Security Trading Status: Opening Auction (204)"
-  end
-  if value == 205 then
-    return "Security Trading Status: Opening Auction Freeze (205)"
-  end
-  if value == 206 then
-    return "Security Trading Status: Intraday Auction (206)"
-  end
-  if value == 207 then
-    return "Security Trading Status: Intraday Auction Freeze (207)"
-  end
-  if value == 208 then
-    return "Security Trading Status: Circuit Breaker Auction (208)"
-  end
-  if value == 209 then
-    return "Security Trading Status: Circuit Breaker Auction Freeze (209)"
-  end
-  if value == 210 then
-    return "Security Trading Status: Closing Auction (210)"
-  end
-  if value == 211 then
-    return "Security Trading Status: Closing Auction Freeze (211)"
-  end
+bse_bseindia_eobi_fbe_v1_4.security_trading_status.labels = {
+  [200] = "Security Trading Status: Closed (200)",
+  [201] = "Security Trading Status: Restricted (201)",
+  [202] = "Security Trading Status: Book (202)",
+  [203] = "Security Trading Status: Continuous (203)",
+  [204] = "Security Trading Status: Opening Auction (204)",
+  [205] = "Security Trading Status: Opening Auction Freeze (205)",
+  [206] = "Security Trading Status: Intraday Auction (206)",
+  [207] = "Security Trading Status: Intraday Auction Freeze (207)",
+  [208] = "Security Trading Status: Circuit Breaker Auction (208)",
+  [209] = "Security Trading Status: Circuit Breaker Auction Freeze (209)",
+  [210] = "Security Trading Status: Closing Auction (210)",
+  [211] = "Security Trading Status: Closing Auction Freeze (211)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.security_trading_status.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -1557,15 +1493,13 @@ bse_bseindia_eobi_fbe_v1_4.side = {}
 bse_bseindia_eobi_fbe_v1_4.side.size = 1
 
 -- Display: Side
-bse_bseindia_eobi_fbe_v1_4.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
+bse_bseindia_eobi_fbe_v1_4.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
 
-  return "Side: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.side.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1587,75 +1521,33 @@ bse_bseindia_eobi_fbe_v1_4.template_id = {}
 bse_bseindia_eobi_fbe_v1_4.template_id.size = 2
 
 -- Display: Template Id
-bse_bseindia_eobi_fbe_v1_4.template_id.display = function(value)
-  if value == 13001 then
-    return "Template Id: Heartbeat Message (13001)"
-  end
-  if value == 13600 then
-    return "Template Id: Product Summary Message (13600)"
-  end
-  if value == 13602 then
-    return "Template Id: Snapshot Order Message (13602)"
-  end
-  if value == 13601 then
-    return "Template Id: Instrument Summary Message (13601)"
-  end
-  if value == 13500 then
-    return "Template Id: Auction Best Bid Offer Message (13500)"
-  end
-  if value == 13501 then
-    return "Template Id: Auction Clearing Price Message (13501)"
-  end
-  if value == 13504 then
-    return "Template Id: Top Of Book Message (13504)"
-  end
-  if value == 13100 then
-    return "Template Id: Order Add Message (13100)"
-  end
-  if value == 13101 then
-    return "Template Id: Order Modify Message (13101)"
-  end
-  if value == 13106 then
-    return "Template Id: Order Modify Same Priority Message (13106)"
-  end
-  if value == 13102 then
-    return "Template Id: Order Delete Message (13102)"
-  end
-  if value == 13103 then
-    return "Template Id: Order Mass Delete Message (13103)"
-  end
-  if value == 13105 then
-    return "Template Id: Partial Order Execution Message (13105)"
-  end
-  if value == 13104 then
-    return "Template Id: Full Order Execution Message (13104)"
-  end
-  if value == 13200 then
-    return "Template Id: Trade Reversal Message (13200)"
-  end
-  if value == 13202 then
-    return "Template Id: Execution Summary Message (13202)"
-  end
-  if value == 13203 then
-    return "Template Id: Instrument Info Message (13203)"
-  end
-  if value == 13204 then
-    return "Template Id: Lpp Range Message (13204)"
-  end
-  if value == 13300 then
-    return "Template Id: Product State Change Message (13300)"
-  end
-  if value == 13301 then
-    return "Template Id: Instrument State Change Message (13301)"
-  end
-  if value == 13400 then
-    return "Template Id: Add Complex Instrument Message (13400)"
-  end
-  if value == 13002 then
-    return "Template Id: Packet Header (13002)"
-  end
+bse_bseindia_eobi_fbe_v1_4.template_id.labels = {
+  [13001] = "Template Id: Heartbeat Message (13001)",
+  [13600] = "Template Id: Product Summary Message (13600)",
+  [13602] = "Template Id: Snapshot Order Message (13602)",
+  [13601] = "Template Id: Instrument Summary Message (13601)",
+  [13500] = "Template Id: Auction Best Bid Offer Message (13500)",
+  [13501] = "Template Id: Auction Clearing Price Message (13501)",
+  [13504] = "Template Id: Top Of Book Message (13504)",
+  [13100] = "Template Id: Order Add Message (13100)",
+  [13101] = "Template Id: Order Modify Message (13101)",
+  [13106] = "Template Id: Order Modify Same Priority Message (13106)",
+  [13102] = "Template Id: Order Delete Message (13102)",
+  [13103] = "Template Id: Order Mass Delete Message (13103)",
+  [13105] = "Template Id: Partial Order Execution Message (13105)",
+  [13104] = "Template Id: Full Order Execution Message (13104)",
+  [13200] = "Template Id: Trade Reversal Message (13200)",
+  [13202] = "Template Id: Execution Summary Message (13202)",
+  [13203] = "Template Id: Instrument Info Message (13203)",
+  [13204] = "Template Id: Lpp Range Message (13204)",
+  [13300] = "Template Id: Product State Change Message (13300)",
+  [13301] = "Template Id: Instrument State Change Message (13301)",
+  [13400] = "Template Id: Add Complex Instrument Message (13400)",
+  [13002] = "Template Id: Packet Header (13002)",
+}
 
-  return "Template Id: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.template_id.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1700,18 +1592,14 @@ bse_bseindia_eobi_fbe_v1_4.trad_ses_status = {}
 bse_bseindia_eobi_fbe_v1_4.trad_ses_status.size = 1
 
 -- Display: Trad Ses Status
-bse_bseindia_eobi_fbe_v1_4.trad_ses_status.display = function(value)
-  if value == 1 then
-    return "Trad Ses Status: Halted (1)"
-  end
-  if value == 2 then
-    return "Trad Ses Status: Open (2)"
-  end
-  if value == 3 then
-    return "Trad Ses Status: Closed (3)"
-  end
+bse_bseindia_eobi_fbe_v1_4.trad_ses_status.labels = {
+  [1] = "Trad Ses Status: Halted (1)",
+  [2] = "Trad Ses Status: Open (2)",
+  [3] = "Trad Ses Status: Closed (3)",
+}
 
-  return "Trad Ses Status: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.trad_ses_status.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.trad_ses_status.labels[value] or "Trad Ses Status: Unknown("..value..")"
 end
 
 -- Dissect: Trad Ses Status
@@ -1786,21 +1674,15 @@ bse_bseindia_eobi_fbe_v1_4.trading_session_id = {}
 bse_bseindia_eobi_fbe_v1_4.trading_session_id.size = 1
 
 -- Display: Trading Session Id
-bse_bseindia_eobi_fbe_v1_4.trading_session_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Id: Day (1)"
-  end
-  if value == 3 then
-    return "Trading Session Id: Morning (3)"
-  end
-  if value == 5 then
-    return "Trading Session Id: Evening (5)"
-  end
-  if value == 7 then
-    return "Trading Session Id: Holiday (7)"
-  end
+bse_bseindia_eobi_fbe_v1_4.trading_session_id.labels = {
+  [1] = "Trading Session Id: Day (1)",
+  [3] = "Trading Session Id: Morning (3)",
+  [5] = "Trading Session Id: Evening (5)",
+  [7] = "Trading Session Id: Holiday (7)",
+}
 
-  return "Trading Session Id: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.trading_session_id.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.trading_session_id.labels[value] or "Trading Session Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Id
@@ -1822,27 +1704,17 @@ bse_bseindia_eobi_fbe_v1_4.trading_session_sub_id = {}
 bse_bseindia_eobi_fbe_v1_4.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
-bse_bseindia_eobi_fbe_v1_4.trading_session_sub_id.display = function(value)
-  if value == 1 then
-    return "Trading Session Sub Id: Pre Trading (1)"
-  end
-  if value == 3 then
-    return "Trading Session Sub Id: Trading (3)"
-  end
-  if value == 4 then
-    return "Trading Session Sub Id: Closing (4)"
-  end
-  if value == 5 then
-    return "Trading Session Sub Id: Post Trading (5)"
-  end
-  if value == 6 then
-    return "Trading Session Sub Id: Post Closing (6)"
-  end
-  if value == 7 then
-    return "Trading Session Sub Id: Quiescent (7)"
-  end
+bse_bseindia_eobi_fbe_v1_4.trading_session_sub_id.labels = {
+  [1] = "Trading Session Sub Id: Pre Trading (1)",
+  [3] = "Trading Session Sub Id: Trading (3)",
+  [4] = "Trading Session Sub Id: Closing (4)",
+  [5] = "Trading Session Sub Id: Post Trading (5)",
+  [6] = "Trading Session Sub Id: Post Closing (6)",
+  [7] = "Trading Session Sub Id: Quiescent (7)",
+}
 
-  return "Trading Session Sub Id: Unknown("..value..")"
+bse_bseindia_eobi_fbe_v1_4.trading_session_sub_id.display = function(value)
+  return bse_bseindia_eobi_fbe_v1_4.trading_session_sub_id.labels[value] or "Trading Session Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Sub Id
@@ -3569,90 +3441,34 @@ end
 bse_bseindia_eobi_fbe_v1_4.payload = {}
 
 -- Dissect: Payload
+bse_bseindia_eobi_fbe_v1_4.payload.dispatch = {
+  [13001] = bse_bseindia_eobi_fbe_v1_4.heartbeat_message.dissect,
+  [13600] = bse_bseindia_eobi_fbe_v1_4.product_summary_message.dissect,
+  [13602] = bse_bseindia_eobi_fbe_v1_4.snapshot_order_message.dissect,
+  [13601] = bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.dissect,
+  [13500] = bse_bseindia_eobi_fbe_v1_4.auction_best_bid_offer_message.dissect,
+  [13501] = bse_bseindia_eobi_fbe_v1_4.auction_clearing_price_message.dissect,
+  [13504] = bse_bseindia_eobi_fbe_v1_4.top_of_book_message.dissect,
+  [13100] = bse_bseindia_eobi_fbe_v1_4.order_add_message.dissect,
+  [13101] = bse_bseindia_eobi_fbe_v1_4.order_modify_message.dissect,
+  [13106] = bse_bseindia_eobi_fbe_v1_4.order_modify_same_priority_message.dissect,
+  [13102] = bse_bseindia_eobi_fbe_v1_4.order_delete_message.dissect,
+  [13103] = bse_bseindia_eobi_fbe_v1_4.order_mass_delete_message.dissect,
+  [13105] = bse_bseindia_eobi_fbe_v1_4.partial_order_execution_message.dissect,
+  [13104] = bse_bseindia_eobi_fbe_v1_4.full_order_execution_message.dissect,
+  [13200] = bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.dissect,
+  [13202] = bse_bseindia_eobi_fbe_v1_4.execution_summary_message.dissect,
+  [13203] = bse_bseindia_eobi_fbe_v1_4.instrument_info_message.dissect,
+  [13204] = bse_bseindia_eobi_fbe_v1_4.lpp_range_message.dissect,
+  [13300] = bse_bseindia_eobi_fbe_v1_4.product_state_change_message.dissect,
+  [13301] = bse_bseindia_eobi_fbe_v1_4.instrument_state_change_message.dissect,
+  [13400] = bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.dissect,
+}
+
 bse_bseindia_eobi_fbe_v1_4.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Heartbeat Message
-  if template_id == 13001 then
-    return bse_bseindia_eobi_fbe_v1_4.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Product Summary Message
-  if template_id == 13600 then
-    return bse_bseindia_eobi_fbe_v1_4.product_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Order Message
-  if template_id == 13602 then
-    return bse_bseindia_eobi_fbe_v1_4.snapshot_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Summary Message
-  if template_id == 13601 then
-    return bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Best Bid Offer Message
-  if template_id == 13500 then
-    return bse_bseindia_eobi_fbe_v1_4.auction_best_bid_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Clearing Price Message
-  if template_id == 13501 then
-    return bse_bseindia_eobi_fbe_v1_4.auction_clearing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book Message
-  if template_id == 13504 then
-    return bse_bseindia_eobi_fbe_v1_4.top_of_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Message
-  if template_id == 13100 then
-    return bse_bseindia_eobi_fbe_v1_4.order_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Message
-  if template_id == 13101 then
-    return bse_bseindia_eobi_fbe_v1_4.order_modify_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Same Priority Message
-  if template_id == 13106 then
-    return bse_bseindia_eobi_fbe_v1_4.order_modify_same_priority_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if template_id == 13102 then
-    return bse_bseindia_eobi_fbe_v1_4.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Delete Message
-  if template_id == 13103 then
-    return bse_bseindia_eobi_fbe_v1_4.order_mass_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Partial Order Execution Message
-  if template_id == 13105 then
-    return bse_bseindia_eobi_fbe_v1_4.partial_order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Full Order Execution Message
-  if template_id == 13104 then
-    return bse_bseindia_eobi_fbe_v1_4.full_order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Reversal Message
-  if template_id == 13200 then
-    return bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Summary Message
-  if template_id == 13202 then
-    return bse_bseindia_eobi_fbe_v1_4.execution_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Info Message
-  if template_id == 13203 then
-    return bse_bseindia_eobi_fbe_v1_4.instrument_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Lpp Range Message
-  if template_id == 13204 then
-    return bse_bseindia_eobi_fbe_v1_4.lpp_range_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Product State Change Message
-  if template_id == 13300 then
-    return bse_bseindia_eobi_fbe_v1_4.product_state_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument State Change Message
-  if template_id == 13301 then
-    return bse_bseindia_eobi_fbe_v1_4.instrument_state_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Complex Instrument Message
-  if template_id == 13400 then
-    return bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.dissect(buffer, offset, packet, parent)
+  local dissect = bse_bseindia_eobi_fbe_v1_4.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

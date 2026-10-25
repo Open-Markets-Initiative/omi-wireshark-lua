@@ -238,24 +238,16 @@ a2x_a2xequities_snapshot_amd_v1_3_2.msg_type = {}
 a2x_a2xequities_snapshot_amd_v1_3_2.msg_type.size = 1
 
 -- Display: Msg Type
-a2x_a2xequities_snapshot_amd_v1_3_2.msg_type.display = function(value)
-  if value == 1 then
-    return "Msg Type: Heartbeat Message (1)"
-  end
-  if value == 10 then
-    return "Msg Type: Snapshot Start Message (10)"
-  end
-  if value == 11 then
-    return "Msg Type: Book Status Message (11)"
-  end
-  if value == 12 then
-    return "Msg Type: Book Entry Message (12)"
-  end
-  if value == 18 then
-    return "Msg Type: Market At Close Book Entry Message (18)"
-  end
+a2x_a2xequities_snapshot_amd_v1_3_2.msg_type.labels = {
+  [1] = "Msg Type: Heartbeat Message (1)",
+  [10] = "Msg Type: Snapshot Start Message (10)",
+  [11] = "Msg Type: Book Status Message (11)",
+  [12] = "Msg Type: Book Entry Message (12)",
+  [18] = "Msg Type: Market At Close Book Entry Message (18)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+a2x_a2xequities_snapshot_amd_v1_3_2.msg_type.display = function(value)
+  return a2x_a2xequities_snapshot_amd_v1_3_2.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -776,26 +768,18 @@ end
 a2x_a2xequities_snapshot_amd_v1_3_2.payload = {}
 
 -- Dissect: Payload
+a2x_a2xequities_snapshot_amd_v1_3_2.payload.dispatch = {
+  [1] = a2x_a2xequities_snapshot_amd_v1_3_2.heartbeat_message.dissect,
+  [10] = a2x_a2xequities_snapshot_amd_v1_3_2.snapshot_start_message.dissect,
+  [11] = a2x_a2xequities_snapshot_amd_v1_3_2.book_status_message.dissect,
+  [12] = a2x_a2xequities_snapshot_amd_v1_3_2.book_entry_message.dissect,
+  [18] = a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.dissect,
+}
+
 a2x_a2xequities_snapshot_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Heartbeat Message
-  if msg_type == 1 then
-    return a2x_a2xequities_snapshot_amd_v1_3_2.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Start Message
-  if msg_type == 10 then
-    return a2x_a2xequities_snapshot_amd_v1_3_2.snapshot_start_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Book Status Message
-  if msg_type == 11 then
-    return a2x_a2xequities_snapshot_amd_v1_3_2.book_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Book Entry Message
-  if msg_type == 12 then
-    return a2x_a2xequities_snapshot_amd_v1_3_2.book_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market At Close Book Entry Message
-  if msg_type == 18 then
-    return a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.dissect(buffer, offset, packet, parent)
+  local dissect = a2x_a2xequities_snapshot_amd_v1_3_2.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

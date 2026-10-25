@@ -953,24 +953,16 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.emission_allowance_type = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.emission_allowance_type.size = 4
 
 -- Display: Emission Allowance Type
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.emission_allowance_type.display = function(value)
-  if value == "EUAE" then
-    return "Emission Allowance Type: European Union Allowance (EUAE)"
-  end
-  if value == "CERE" then
-    return "Emission Allowance Type: Certified Emission Reductions (CERE)"
-  end
-  if value == "ERUE" then
-    return "Emission Allowance Type: Emission Reduction Units (ERUE)"
-  end
-  if value == "EUAA" then
-    return "Emission Allowance Type: European Union Aviation Allowances (EUAA)"
-  end
-  if value == "OTHR" then
-    return "Emission Allowance Type: Other (OTHR)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.emission_allowance_type.labels = {
+  ["EUAE"] = "Emission Allowance Type: European Union Allowance (EUAE)",
+  ["CERE"] = "Emission Allowance Type: Certified Emission Reductions (CERE)",
+  ["ERUE"] = "Emission Allowance Type: Emission Reduction Units (ERUE)",
+  ["EUAA"] = "Emission Allowance Type: European Union Aviation Allowances (EUAA)",
+  ["OTHR"] = "Emission Allowance Type: Other (OTHR)",
+}
 
-  return "Emission Allowance Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.emission_allowance_type.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.emission_allowance_type.labels[value] or "Emission Allowance Type: Unknown("..value..")"
 end
 
 -- Dissect: Emission Allowance Type
@@ -992,30 +984,18 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_standard_deferral_flags = 
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_standard_deferral_flags.size = 4
 
 -- Display: Esma Standard Deferral Flags
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_standard_deferral_flags.display = function(value)
-  if value == "MLF1" then
-    return "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Medium Size Liquid Market (MLF1)"
-  end
-  if value == "MIF2" then
-    return "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Medium Size Illiquid Market (MIF2)"
-  end
-  if value == "LLF3" then
-    return "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Large Size Liquid Market (LLF3)"
-  end
-  if value == "LIF4" then
-    return "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Large Size Illiquid Market (LIF4)"
-  end
-  if value == "VLF5" then
-    return "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Very Large Size Liquid Market (VLF5)"
-  end
-  if value == "VIF5" then
-    return "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Very Large Size Illiquid Market (VIF5)"
-  end
-  if value == "DEFF" then
-    return "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Et Cs Et Ns Sf Ps Emission Allowances (DEFF)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_standard_deferral_flags.labels = {
+  ["MLF1"] = "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Medium Size Liquid Market (MLF1)",
+  ["MIF2"] = "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Medium Size Illiquid Market (MIF2)",
+  ["LLF3"] = "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Large Size Liquid Market (LLF3)",
+  ["LIF4"] = "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Large Size Illiquid Market (LIF4)",
+  ["VLF5"] = "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Very Large Size Liquid Market (VLF5)",
+  ["VIF5"] = "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Very Large Size Illiquid Market (VIF5)",
+  ["DEFF"] = "Esma Standard Deferral Flags: Non Immediate Publication Deferral For Et Cs Et Ns Sf Ps Emission Allowances (DEFF)",
+}
 
-  return "Esma Standard Deferral Flags: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_standard_deferral_flags.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_standard_deferral_flags.labels[value] or "Esma Standard Deferral Flags: Unknown("..value..")"
 end
 
 -- Dissect: Esma Standard Deferral Flags
@@ -1037,21 +1017,15 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_supplementary_deferral_fla
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_supplementary_deferral_flags.size = 4
 
 -- Display: Esma Supplementary Deferral Flags
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_supplementary_deferral_flags.display = function(value)
-  if value == "OMIS" then
-    return "Esma Supplementary Deferral Flags: Volume Omission For Sovereign Bonds Trade (OMIS)"
-  end
-  if value == "FULO" then
-    return "Esma Supplementary Deferral Flags: Full Details Of Earlier Volume Omission Sovereign Bond Trade (FULO)"
-  end
-  if value == "AGFW" then
-    return "Esma Supplementary Deferral Flags: Four Weeks Aggregation For Sovereign Bonds Trade (AGFW)"
-  end
-  if value == "FULG" then
-    return "Esma Supplementary Deferral Flags: Full Details Of Earlier Aggregated Sovereign Bond Trade (FULG)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_supplementary_deferral_flags.labels = {
+  ["OMIS"] = "Esma Supplementary Deferral Flags: Volume Omission For Sovereign Bonds Trade (OMIS)",
+  ["FULO"] = "Esma Supplementary Deferral Flags: Full Details Of Earlier Volume Omission Sovereign Bond Trade (FULO)",
+  ["AGFW"] = "Esma Supplementary Deferral Flags: Four Weeks Aggregation For Sovereign Bonds Trade (AGFW)",
+  ["FULG"] = "Esma Supplementary Deferral Flags: Full Details Of Earlier Aggregated Sovereign Bond Trade (FULG)",
+}
 
-  return "Esma Supplementary Deferral Flags: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_supplementary_deferral_flags.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.esma_supplementary_deferral_flags.labels[value] or "Esma Supplementary Deferral Flags: Unknown("..value..")"
 end
 
 -- Dissect: Esma Supplementary Deferral Flags
@@ -1122,15 +1096,13 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.exchange_for_physicals_flag = {
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.exchange_for_physicals_flag.size = 4
 
 -- Display: Exchange For Physicals Flag
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.exchange_for_physicals_flag.display = function(value)
-  if value == "TPAC" then
-    return "Exchange For Physicals Flag: Package Trade Excluding Exchange For Physicals (TPAC)"
-  end
-  if value == "XFPH" then
-    return "Exchange For Physicals Flag: Exchange For Physicals Trade (XFPH)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.exchange_for_physicals_flag.labels = {
+  ["TPAC"] = "Exchange For Physicals Flag: Package Trade Excluding Exchange For Physicals (TPAC)",
+  ["XFPH"] = "Exchange For Physicals Flag: Exchange For Physicals Trade (XFPH)",
+}
 
-  return "Exchange For Physicals Flag: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.exchange_for_physicals_flag.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.exchange_for_physicals_flag.labels[value] or "Exchange For Physicals Flag: Unknown("..value..")"
 end
 
 -- Dissect: Exchange For Physicals Flag
@@ -1310,15 +1282,13 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_identification_code_
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_identification_code_type.size = 4
 
 -- Display: Instrument Identification Code Type
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_identification_code_type.display = function(value)
-  if value == "UPI" then
-    return "Instrument Identification Code Type: Unique Product Identifier (UPI)"
-  end
-  if value == "ISIN" then
-    return "Instrument Identification Code Type: International Securities Identification Number (ISIN)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_identification_code_type.labels = {
+  ["UPI"] = "Instrument Identification Code Type: Unique Product Identifier (UPI)",
+  ["ISIN"] = "Instrument Identification Code Type: International Securities Identification Number (ISIN)",
+}
 
-  return "Instrument Identification Code Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_identification_code_type.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_identification_code_type.labels[value] or "Instrument Identification Code Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Identification Code Type
@@ -1750,39 +1720,21 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.message_type = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.message_type.size = 1
 
 -- Display: Message Type
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Request Message (0x01)"
-  end
-  if value == 0x03 then
-    return "Message Type: Replay Request Message (0x03)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x04 then
-    return "Message Type: Replay Response Message (0x04)"
-  end
-  if value == 0x83 then
-    return "Message Type: Replay And Recovery Complete Message (0x83)"
-  end
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x70 then
-    return "Message Type: Instrument Directory Message (0x70)"
-  end
-  if value == 0x48 then
-    return "Message Type: Instrument Status Message (0x48)"
-  end
-  if value == 0x77 then
-    return "Message Type: Statistics Message (0x77)"
-  end
-  if value == 0x54 then
-    return "Message Type: Mifid Ii Trade Report Message (0x54)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.message_type.labels = {
+  [0x01] = "Message Type: Login Request Message (0x01)",
+  [0x03] = "Message Type: Replay Request Message (0x03)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x04] = "Message Type: Replay Response Message (0x04)",
+  [0x83] = "Message Type: Replay And Recovery Complete Message (0x83)",
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x70] = "Message Type: Instrument Directory Message (0x70)",
+  [0x48] = "Message Type: Instrument Status Message (0x48)",
+  [0x77] = "Message Type: Statistics Message (0x77)",
+  [0x54] = "Message Type: Mifid Ii Trade Report Message (0x54)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.message_type.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1804,15 +1756,13 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.missing_price_price_conditions 
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.missing_price_price_conditions.size = 4
 
 -- Display: Missing Price Price Conditions
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.missing_price_price_conditions.display = function(value)
-  if value == "PNDG" then
-    return "Missing Price Price Conditions: Price Is Currently Not Available But Pending (PNDG)"
-  end
-  if value == "NOAP" then
-    return "Missing Price Price Conditions: Price Is Not Applicable (NOAP)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.missing_price_price_conditions.labels = {
+  ["PNDG"] = "Missing Price Price Conditions: Price Is Currently Not Available But Pending (PNDG)",
+  ["NOAP"] = "Missing Price Price Conditions: Price Is Not Applicable (NOAP)",
+}
 
-  return "Missing Price Price Conditions: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.missing_price_price_conditions.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.missing_price_price_conditions.labels[value] or "Missing Price Price Conditions: Unknown("..value..")"
 end
 
 -- Dissect: Missing Price Price Conditions
@@ -2176,15 +2126,13 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.nt_liquidity_flag = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.nt_liquidity_flag.size = 4
 
 -- Display: Nt Liquidity Flag
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.nt_liquidity_flag.display = function(value)
-  if value == "NLIQ" then
-    return "Nt Liquidity Flag: Negotiated Trade In Liquid Financial Instruments (NLIQ)"
-  end
-  if value == "OILQ" then
-    return "Nt Liquidity Flag: Negotiated Trade In Illiquid Financial Instruments (OILQ)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.nt_liquidity_flag.labels = {
+  ["NLIQ"] = "Nt Liquidity Flag: Negotiated Trade In Liquid Financial Instruments (NLIQ)",
+  ["OILQ"] = "Nt Liquidity Flag: Negotiated Trade In Illiquid Financial Instruments (OILQ)",
+}
 
-  return "Nt Liquidity Flag: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.nt_liquidity_flag.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.nt_liquidity_flag.labels[value] or "Nt Liquidity Flag: Unknown("..value..")"
 end
 
 -- Dissect: Nt Liquidity Flag
@@ -2354,12 +2302,12 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.order_book_type = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.order_book_type.size = 1
 
 -- Display: Order Book Type
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.order_book_type.display = function(value)
-  if value == 2 then
-    return "Order Book Type: Offbook (2)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.order_book_type.labels = {
+  [2] = "Order Book Type: Offbook (2)",
+}
 
-  return "Order Book Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.order_book_type.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -2660,21 +2608,15 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price_notation = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price_notation.size = 4
 
 -- Display: Price Notation
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price_notation.display = function(value)
-  if value == "MONE" then
-    return "Price Notation: Monetary Value (MONE)"
-  end
-  if value == "PERC" then
-    return "Price Notation: Percentage (PERC)"
-  end
-  if value == "YIEL" then
-    return "Price Notation: Yield (YIEL)"
-  end
-  if value == "BAPO" then
-    return "Price Notation: Basis Point (BAPO)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price_notation.labels = {
+  ["MONE"] = "Price Notation: Monetary Value (MONE)",
+  ["PERC"] = "Price Notation: Percentage (PERC)",
+  ["YIEL"] = "Price Notation: Yield (YIEL)",
+  ["BAPO"] = "Price Notation: Basis Point (BAPO)",
+}
 
-  return "Price Notation: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price_notation.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -2696,15 +2638,13 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.pt_deferral_reason_flag = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.pt_deferral_reason_flag.size = 4
 
 -- Display: Pt Deferral Reason Flag
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.pt_deferral_reason_flag.display = function(value)
-  if value == "SIZE" then
-    return "Pt Deferral Reason Flag: Non Immediate Publication Deferral For Size Specific (SIZE)"
-  end
-  if value == "LRGS" then
-    return "Pt Deferral Reason Flag: Non Immediate Publication Deferral For Large In Scale (LRGS)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.pt_deferral_reason_flag.labels = {
+  ["SIZE"] = "Pt Deferral Reason Flag: Non Immediate Publication Deferral For Size Specific (SIZE)",
+  ["LRGS"] = "Pt Deferral Reason Flag: Non Immediate Publication Deferral For Large In Scale (LRGS)",
+}
 
-  return "Pt Deferral Reason Flag: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.pt_deferral_reason_flag.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.pt_deferral_reason_flag.labels[value] or "Pt Deferral Reason Flag: Unknown("..value..")"
 end
 
 -- Dissect: Pt Deferral Reason Flag
@@ -3254,12 +3194,12 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.session_change_reason = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.session_change_reason.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -3281,12 +3221,12 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.source_venue = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.source_venue.size = 2
 
 -- Display: Source Venue
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.source_venue.display = function(value)
-  if value == 11 then
-    return "Source Venue: Trad Echo (11)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.source_venue.labels = {
+  [11] = "Source Venue: Trad Echo (11)",
+}
 
-  return "Source Venue: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.source_venue.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
 end
 
 -- Dissect: Source Venue
@@ -3719,30 +3659,18 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.trading_system = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.trading_system.size = 4
 
 -- Display: Trading System
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.trading_system.display = function(value)
-  if value == "CLOB" then
-    return "Trading System: Central Limit Order Book (CLOB)"
-  end
-  if value == "QDTS" then
-    return "Trading System: Quote Driven Market (QDTS)"
-  end
-  if value == "PATS" then
-    return "Trading System: Periodic Auction (PATS)"
-  end
-  if value == "RFQT" then
-    return "Trading System: Request For Quote (RFQT)"
-  end
-  if value == "VOIC" then
-    return "Trading System: Voice Trading (VOIC)"
-  end
-  if value == "HYBR" then
-    return "Trading System: Hybrid System (HYBR)"
-  end
-  if value == "OTHR" then
-    return "Trading System: Any Other (OTHR)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.trading_system.labels = {
+  ["CLOB"] = "Trading System: Central Limit Order Book (CLOB)",
+  ["QDTS"] = "Trading System: Quote Driven Market (QDTS)",
+  ["PATS"] = "Trading System: Periodic Auction (PATS)",
+  ["RFQT"] = "Trading System: Request For Quote (RFQT)",
+  ["VOIC"] = "Trading System: Voice Trading (VOIC)",
+  ["HYBR"] = "Trading System: Hybrid System (HYBR)",
+  ["OTHR"] = "Trading System: Any Other (OTHR)",
+}
 
-  return "Trading System: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.trading_system.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.trading_system.labels[value] or "Trading System: Unknown("..value..")"
 end
 
 -- Dissect: Trading System
@@ -4014,15 +3942,13 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_book_definition_id = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_book_definition_id.size = 1
 
 -- Display: Venue Book Definition Id
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_book_definition_id.display = function(value)
-  if value == 0 then
-    return "Venue Book Definition Id: On Book (0)"
-  end
-  if value == 1 then
-    return "Venue Book Definition Id: Off Book (1)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_book_definition_id.labels = {
+  [0] = "Venue Book Definition Id: On Book (0)",
+  [1] = "Venue Book Definition Id: Off Book (1)",
+}
 
-  return "Venue Book Definition Id: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_book_definition_id.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_book_definition_id.labels[value] or "Venue Book Definition Id: Unknown("..value..")"
 end
 
 -- Dissect: Venue Book Definition Id
@@ -4128,21 +4054,15 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_type = {}
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_type.size = 1
 
 -- Display: Venue Type
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_type.display = function(value)
-  if value == 0 then
-    return "Venue Type: Unspecified (0)"
-  end
-  if value == 1 then
-    return "Venue Type: Mtf (1)"
-  end
-  if value == 2 then
-    return "Venue Type: Otf (2)"
-  end
-  if value == 3 then
-    return "Venue Type: Regulated Market (3)"
-  end
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_type.labels = {
+  [0] = "Venue Type: Unspecified (0)",
+  [1] = "Venue Type: Mtf (1)",
+  [2] = "Venue Type: Otf (2)",
+  [3] = "Venue Type: Regulated Market (3)",
+}
 
-  return "Venue Type: Unknown("..value..")"
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_type.display = function(value)
+  return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.venue_type.labels[value] or "Venue Type: Unknown("..value..")"
 end
 
 -- Dissect: Venue Type
@@ -5316,46 +5236,23 @@ end
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.payload = {}
 
 -- Dissect: Payload
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.payload.dispatch = {
+  [0x01] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.login_request_message.dissect,
+  [0x03] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.replay_request_message.dissect,
+  [0x02] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.login_response_message.dissect,
+  [0x04] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.replay_response_message.dissect,
+  [0x83] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.replay_and_recovery_complete_message.dissect,
+  [0x53] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.system_event_message.dissect,
+  [0x70] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_directory_message.dissect,
+  [0x48] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_status_message.dissect,
+  [0x77] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.statistics_message.dissect,
+  [0x54] = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.mifid_ii_trade_report_message.dissect,
+}
+
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 0x01 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Message
-  if message_type == 0x03 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Response Message
-  if message_type == 0x04 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.replay_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay And Recovery Complete Message
-  if message_type == 0x83 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.replay_and_recovery_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Directory Message
-  if message_type == 0x70 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Message
-  if message_type == 0x48 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if message_type == 0x77 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mifid Ii Trade Report Message
-  if message_type == 0x54 then
-    return lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.mifid_ii_trade_report_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

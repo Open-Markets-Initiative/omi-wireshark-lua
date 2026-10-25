@@ -212,18 +212,14 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.aggressor_side = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.aggressor_side.size = 1
 
 -- Display: Aggressor Side
-miax_onyxfutures_depthofmarket_mach_v1_3_a.aggressor_side.display = function(value)
-  if value == "B" then
-    return "Aggressor Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Aggressor Side: Sell (S)"
-  end
-  if value == "N" then
-    return "Aggressor Side: Not (N)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.aggressor_side.labels = {
+  ["B"] = "Aggressor Side: Buy (B)",
+  ["S"] = "Aggressor Side: Sell (S)",
+  ["N"] = "Aggressor Side: Not (N)",
+}
 
-  return "Aggressor Side: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.aggressor_side.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.aggressor_side.labels[value] or "Aggressor Side: Unknown("..value..")"
 end
 
 -- Dissect: Aggressor Side
@@ -376,12 +372,12 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.currency = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.currency.size = 1
 
 -- Display: Currency
-miax_onyxfutures_depthofmarket_mach_v1_3_a.currency.display = function(value)
-  if value == "U" then
-    return "Currency: Usd (U)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.currency.labels = {
+  ["U"] = "Currency: Usd (U)",
+}
 
-  return "Currency: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.currency.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -603,12 +599,12 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_id_source = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_id_source.size = 1
 
 -- Display: Instrument Id Source
-miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_id_source.display = function(value)
-  if value == "E" then
-    return "Instrument Id Source: Exchange (E)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_id_source.labels = {
+  ["E"] = "Instrument Id Source: Exchange (E)",
+}
 
-  return "Instrument Id Source: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_id_source.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_id_source.labels[value] or "Instrument Id Source: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Id Source
@@ -630,15 +626,13 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_listing_status = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_listing_status.size = 1
 
 -- Display: Instrument Listing Status
-miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_listing_status.display = function(value)
-  if value == "A" then
-    return "Instrument Listing Status: Active (A)"
-  end
-  if value == "I" then
-    return "Instrument Listing Status: Inactive (I)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_listing_status.labels = {
+  ["A"] = "Instrument Listing Status: Active (A)",
+  ["I"] = "Instrument Listing Status: Inactive (I)",
+}
 
-  return "Instrument Listing Status: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_listing_status.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_listing_status.labels[value] or "Instrument Listing Status: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Listing Status
@@ -660,21 +654,15 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_type.size = 1
 
 -- Display: Instrument Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_type.display = function(value)
-  if value == "F" then
-    return "Instrument Type: Futures (F)"
-  end
-  if value == "O" then
-    return "Instrument Type: Options On (O)"
-  end
-  if value == "T" then
-    return "Instrument Type: Trade At (T)"
-  end
-  if value == "B" then
-    return "Instrument Type: Basis (B)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_type.labels = {
+  ["F"] = "Instrument Type: Futures (F)",
+  ["O"] = "Instrument Type: Options On (O)",
+  ["T"] = "Instrument Type: Trade At (T)",
+  ["B"] = "Instrument Type: Basis (B)",
+}
 
-  return "Instrument Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_type.labels[value] or "Instrument Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Type
@@ -850,12 +838,12 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.match_algorithm = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.match_algorithm.size = 1
 
 -- Display: Match Algorithm
-miax_onyxfutures_depthofmarket_mach_v1_3_a.match_algorithm.display = function(value)
-  if value == "P" then
-    return "Match Algorithm: Price Time (P)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.match_algorithm.labels = {
+  ["P"] = "Match Algorithm: Price Time (P)",
+}
 
-  return "Match Algorithm: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.match_algorithm.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.match_algorithm.labels[value] or "Match Algorithm: Unknown("..value..")"
 end
 
 -- Dissect: Match Algorithm
@@ -923,54 +911,26 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.message_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.message_type.size = 1
 
 -- Display: Message Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Simple Instrument Definition Message (1)"
-  end
-  if value == 17 then
-    return "Message Type: Complex Instrument Definition Message (17)"
-  end
-  if value == 2 then
-    return "Message Type: Complex Instrument Definition Deprecated Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: System State Message (3)"
-  end
-  if value == 4 then
-    return "Message Type: Instrument Trading Status Notification Message (4)"
-  end
-  if value == 5 then
-    return "Message Type: Anticipated Opening Price Message (5)"
-  end
-  if value == 6 then
-    return "Message Type: Settlement Price Update Message (6)"
-  end
-  if value == 7 then
-    return "Message Type: Open Interest Update Message (7)"
-  end
-  if value == 8 then
-    return "Message Type: Total Volume Update Message (8)"
-  end
-  if value == 9 then
-    return "Message Type: Instrument Clear Message (9)"
-  end
-  if value == 10 then
-    return "Message Type: Add Order Message (10)"
-  end
-  if value == 11 then
-    return "Message Type: Modify Order Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Delete Order Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Order Execution Message (13)"
-  end
-  if value == 14 then
-    return "Message Type: Trade Cancel Message (14)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.message_type.labels = {
+  [1] = "Message Type: Simple Instrument Definition Message (1)",
+  [17] = "Message Type: Complex Instrument Definition Message (17)",
+  [2] = "Message Type: Complex Instrument Definition Deprecated Message (2)",
+  [3] = "Message Type: System State Message (3)",
+  [4] = "Message Type: Instrument Trading Status Notification Message (4)",
+  [5] = "Message Type: Anticipated Opening Price Message (5)",
+  [6] = "Message Type: Settlement Price Update Message (6)",
+  [7] = "Message Type: Open Interest Update Message (7)",
+  [8] = "Message Type: Total Volume Update Message (8)",
+  [9] = "Message Type: Instrument Clear Message (9)",
+  [10] = "Message Type: Add Order Message (10)",
+  [11] = "Message Type: Modify Order Message (11)",
+  [12] = "Message Type: Delete Order Message (12)",
+  [13] = "Message Type: Order Execution Message (13)",
+  [14] = "Message Type: Trade Cancel Message (14)",
+}
 
-  return "Message Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.message_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1084,18 +1044,14 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.option_expiration_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.option_expiration_type.size = 1
 
 -- Display: Option Expiration Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.option_expiration_type.display = function(value)
-  if value == "A" then
-    return "Option Expiration Type: American Style (A)"
-  end
-  if value == "E" then
-    return "Option Expiration Type: European Style (E)"
-  end
-  if value == "N" then
-    return "Option Expiration Type: Na When (N)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.option_expiration_type.labels = {
+  ["A"] = "Option Expiration Type: American Style (A)",
+  ["E"] = "Option Expiration Type: European Style (E)",
+  ["N"] = "Option Expiration Type: Na When (N)",
+}
 
-  return "Option Expiration Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.option_expiration_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.option_expiration_type.labels[value] or "Option Expiration Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Expiration Type
@@ -1117,15 +1073,13 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.option_strike_currency = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.option_strike_currency.size = 1
 
 -- Display: Option Strike Currency
-miax_onyxfutures_depthofmarket_mach_v1_3_a.option_strike_currency.display = function(value)
-  if value == "U" then
-    return "Option Strike Currency: Us Dollar (U)"
-  end
-  if value == "N" then
-    return "Option Strike Currency: Na When (N)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.option_strike_currency.labels = {
+  ["U"] = "Option Strike Currency: Us Dollar (U)",
+  ["N"] = "Option Strike Currency: Na When (N)",
+}
 
-  return "Option Strike Currency: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.option_strike_currency.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.option_strike_currency.labels[value] or "Option Strike Currency: Unknown("..value..")"
 end
 
 -- Dissect: Option Strike Currency
@@ -1186,18 +1140,14 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.option_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.option_type.size = 1
 
 -- Display: Option Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
-  if value == "N" then
-    return "Option Type: Na When (N)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+  ["N"] = "Option Type: Na When (N)",
+}
 
-  return "Option Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.option_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1242,15 +1192,13 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.order_side = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.order_side.size = 1
 
 -- Display: Order Side
-miax_onyxfutures_depthofmarket_mach_v1_3_a.order_side.display = function(value)
-  if value == "B" then
-    return "Order Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Side: Sell (S)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.order_side.labels = {
+  ["B"] = "Order Side: Buy (B)",
+  ["S"] = "Order Side: Sell (S)",
+}
 
-  return "Order Side: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.order_side.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.order_side.labels[value] or "Order Side: Unknown("..value..")"
 end
 
 -- Dissect: Order Side
@@ -1272,18 +1220,14 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.order_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.order_type.size = 1
 
 -- Display: Order Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.order_type.display = function(value)
-  if value == "S" then
-    return "Order Type: Simple (S)"
-  end
-  if value == "C" then
-    return "Order Type: Complex (C)"
-  end
-  if value == "D" then
-    return "Order Type: Derived (D)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.order_type.labels = {
+  ["S"] = "Order Type: Simple (S)",
+  ["C"] = "Order Type: Complex (C)",
+  ["D"] = "Order Type: Derived (D)",
+}
 
-  return "Order Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.order_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1328,21 +1272,15 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.packet_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.packet_type.size = 1
 
 -- Display: Packet Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Heartbeat (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Start Of Session (1)"
-  end
-  if value == 2 then
-    return "Packet Type: End Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: Application Message (3)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.packet_type.labels = {
+  [0] = "Packet Type: Heartbeat (0)",
+  [1] = "Packet Type: Start Of Session (1)",
+  [2] = "Packet Type: End Of Session (2)",
+  [3] = "Packet Type: Application Message (3)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.packet_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -1669,12 +1607,12 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_currency = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_currency.size = 1
 
 -- Display: Settlement Currency
-miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_currency.display = function(value)
-  if value == "U" then
-    return "Settlement Currency: Usd (U)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_currency.labels = {
+  ["U"] = "Settlement Currency: Usd (U)",
+}
 
-  return "Settlement Currency: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_currency.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_currency.labels[value] or "Settlement Currency: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Currency
@@ -1725,15 +1663,13 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type.size = 1
 
 -- Display: Settlement Price Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type.display = function(value)
-  if value == "D" then
-    return "Settlement Price Type: Daily (D)"
-  end
-  if value == "F" then
-    return "Settlement Price Type: Final (F)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type.labels = {
+  ["D"] = "Settlement Price Type: Daily (D)",
+  ["F"] = "Settlement Price Type: Final (F)",
+}
 
-  return "Settlement Price Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type.labels[value] or "Settlement Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Price Type
@@ -1755,15 +1691,13 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type_calc_method = {
 miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type_calc_method.size = 1
 
 -- Display: Settlement Price Type Calc Method
-miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type_calc_method.display = function(value)
-  if value == "A" then
-    return "Settlement Price Type Calc Method: Actual (A)"
-  end
-  if value == "T" then
-    return "Settlement Price Type Calc Method: Theoretical (T)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type_calc_method.labels = {
+  ["A"] = "Settlement Price Type Calc Method: Actual (A)",
+  ["T"] = "Settlement Price Type Calc Method: Theoretical (T)",
+}
 
-  return "Settlement Price Type Calc Method: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type_calc_method.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_type_calc_method.labels[value] or "Settlement Price Type Calc Method: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Price Type Calc Method
@@ -1831,21 +1765,15 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.spread_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.spread_type.size = 1
 
 -- Display: Spread Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.spread_type.display = function(value)
-  if value == "S" then
-    return "Spread Type: Standard (S)"
-  end
-  if value == "E" then
-    return "Spread Type: Equity (E)"
-  end
-  if value == "B" then
-    return "Spread Type: Butterfly (B)"
-  end
-  if value == "C" then
-    return "Spread Type: Cross (C)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.spread_type.labels = {
+  ["S"] = "Spread Type: Standard (S)",
+  ["E"] = "Spread Type: Equity (E)",
+  ["B"] = "Spread Type: Butterfly (B)",
+  ["C"] = "Spread Type: Cross (C)",
+}
 
-  return "Spread Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.spread_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.spread_type.labels[value] or "Spread Type: Unknown("..value..")"
 end
 
 -- Dissect: Spread Type
@@ -1867,21 +1795,15 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.system_status = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.system_status.size = 1
 
 -- Display: System Status
-miax_onyxfutures_depthofmarket_mach_v1_3_a.system_status.display = function(value)
-  if value == "S" then
-    return "System Status: Start Of (S)"
-  end
-  if value == "C" then
-    return "System Status: End Of (C)"
-  end
-  if value == "1" then
-    return "System Status: Start Of (1)"
-  end
-  if value == "2" then
-    return "System Status: End Of (2)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.system_status.labels = {
+  ["S"] = "System Status: Start Of (S)",
+  ["C"] = "System Status: End Of (C)",
+  ["1"] = "System Status: Start Of (1)",
+  ["2"] = "System Status: End Of (2)",
+}
 
-  return "System Status: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.system_status.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -2025,27 +1947,17 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.trade_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.trade_type.size = 1
 
 -- Display: Trade Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.trade_type.display = function(value)
-  if value == "O" then
-    return "Trade Type: Outright (O)"
-  end
-  if value == "S" then
-    return "Trade Type: Strategy (S)"
-  end
-  if value == "M" then
-    return "Trade Type: Strategy (M)"
-  end
-  if value == "C" then
-    return "Trade Type: Complex (C)"
-  end
-  if value == "L" then
-    return "Trade Type: Complex (L)"
-  end
-  if value == "A" then
-    return "Trade Type: Adjusted Late (A)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.trade_type.labels = {
+  ["O"] = "Trade Type: Outright (O)",
+  ["S"] = "Trade Type: Strategy (S)",
+  ["M"] = "Trade Type: Strategy (M)",
+  ["C"] = "Trade Type: Complex (C)",
+  ["L"] = "Trade Type: Complex (L)",
+  ["A"] = "Trade Type: Adjusted Late (A)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.trade_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -2096,18 +2008,14 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.trading_collar_variation_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.trading_collar_variation_type.size = 1
 
 -- Display: Trading Collar Variation Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.trading_collar_variation_type.display = function(value)
-  if value == "D" then
-    return "Trading Collar Variation Type: Product (D)"
-  end
-  if value == "P" then
-    return "Trading Collar Variation Type: Product (P)"
-  end
-  if value == "N" then
-    return "Trading Collar Variation Type: Not (N)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.trading_collar_variation_type.labels = {
+  ["D"] = "Trading Collar Variation Type: Product (D)",
+  ["P"] = "Trading Collar Variation Type: Product (P)",
+  ["N"] = "Trading Collar Variation Type: Not (N)",
+}
 
-  return "Trading Collar Variation Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.trading_collar_variation_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.trading_collar_variation_type.labels[value] or "Trading Collar Variation Type: Unknown("..value..")"
 end
 
 -- Dissect: Trading Collar Variation Type
@@ -2198,21 +2106,15 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.underlying_asset_type = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.underlying_asset_type.size = 1
 
 -- Display: Underlying Asset Type
-miax_onyxfutures_depthofmarket_mach_v1_3_a.underlying_asset_type.display = function(value)
-  if value == "E" then
-    return "Underlying Asset Type: Equity (E)"
-  end
-  if value == "A" then
-    return "Underlying Asset Type: Commodity Agriculture (A)"
-  end
-  if value == "F" then
-    return "Underlying Asset Type: Futures (F)"
-  end
-  if value == "N" then
-    return "Underlying Asset Type: Not (N)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.underlying_asset_type.labels = {
+  ["E"] = "Underlying Asset Type: Equity (E)",
+  ["A"] = "Underlying Asset Type: Commodity Agriculture (A)",
+  ["F"] = "Underlying Asset Type: Futures (F)",
+  ["N"] = "Underlying Asset Type: Not (N)",
+}
 
-  return "Underlying Asset Type: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.underlying_asset_type.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.underlying_asset_type.labels[value] or "Underlying Asset Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Asset Type
@@ -2257,24 +2159,16 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.unit_of_measure = {}
 miax_onyxfutures_depthofmarket_mach_v1_3_a.unit_of_measure.size = 5
 
 -- Display: Unit Of Measure
-miax_onyxfutures_depthofmarket_mach_v1_3_a.unit_of_measure.display = function(value)
-  if value == "BU" then
-    return "Unit Of Measure: Bushels (BU)"
-  end
-  if value == "USD" then
-    return "Unit Of Measure: Usd (USD)"
-  end
-  if value == "FUT" then
-    return "Unit Of Measure: Futures (FUT)"
-  end
-  if value == "ST" then
-    return "Unit Of Measure: Short (ST)"
-  end
-  if value == "LB" then
-    return "Unit Of Measure: Pounds (LB)"
-  end
+miax_onyxfutures_depthofmarket_mach_v1_3_a.unit_of_measure.labels = {
+  ["BU"] = "Unit Of Measure: Bushels (BU)",
+  ["USD"] = "Unit Of Measure: Usd (USD)",
+  ["FUT"] = "Unit Of Measure: Futures (FUT)",
+  ["ST"] = "Unit Of Measure: Short (ST)",
+  ["LB"] = "Unit Of Measure: Pounds (LB)",
+}
 
-  return "Unit Of Measure: Unknown("..value..")"
+miax_onyxfutures_depthofmarket_mach_v1_3_a.unit_of_measure.display = function(value)
+  return miax_onyxfutures_depthofmarket_mach_v1_3_a.unit_of_measure.labels[value] or "Unit Of Measure: Unknown("..value..")"
 end
 
 -- Dissect: Unit Of Measure
@@ -3751,66 +3645,28 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_3_a.data = {}
 
 -- Dissect: Data
+miax_onyxfutures_depthofmarket_mach_v1_3_a.data.dispatch = {
+  [1] = miax_onyxfutures_depthofmarket_mach_v1_3_a.simple_instrument_definition_message.dissect,
+  [17] = miax_onyxfutures_depthofmarket_mach_v1_3_a.complex_instrument_definition_message.dissect,
+  [2] = miax_onyxfutures_depthofmarket_mach_v1_3_a.complex_instrument_definition_deprecated_message.dissect,
+  [3] = miax_onyxfutures_depthofmarket_mach_v1_3_a.system_state_message.dissect,
+  [4] = miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_trading_status_notification_message.dissect,
+  [5] = miax_onyxfutures_depthofmarket_mach_v1_3_a.anticipated_opening_price_message.dissect,
+  [6] = miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_update_message.dissect,
+  [7] = miax_onyxfutures_depthofmarket_mach_v1_3_a.open_interest_update_message.dissect,
+  [8] = miax_onyxfutures_depthofmarket_mach_v1_3_a.total_volume_update_message.dissect,
+  [9] = miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_clear_message.dissect,
+  [10] = miax_onyxfutures_depthofmarket_mach_v1_3_a.add_order_message.dissect,
+  [11] = miax_onyxfutures_depthofmarket_mach_v1_3_a.modify_order_message.dissect,
+  [12] = miax_onyxfutures_depthofmarket_mach_v1_3_a.delete_order_message.dissect,
+  [13] = miax_onyxfutures_depthofmarket_mach_v1_3_a.order_execution_message.dissect,
+  [14] = miax_onyxfutures_depthofmarket_mach_v1_3_a.trade_cancel_message.dissect,
+}
+
 miax_onyxfutures_depthofmarket_mach_v1_3_a.data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Simple Instrument Definition Message
-  if message_type == 1 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.simple_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Message
-  if message_type == 17 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.complex_instrument_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Deprecated Message
-  if message_type == 2 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.complex_instrument_definition_deprecated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System State Message
-  if message_type == 3 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.system_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Trading Status Notification Message
-  if message_type == 4 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_trading_status_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Anticipated Opening Price Message
-  if message_type == 5 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.anticipated_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Price Update Message
-  if message_type == 6 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.settlement_price_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Interest Update Message
-  if message_type == 7 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.open_interest_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Total Volume Update Message
-  if message_type == 8 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.total_volume_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Clear Message
-  if message_type == 9 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.instrument_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 10 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Message
-  if message_type == 11 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.modify_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 12 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if message_type == 13 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if message_type == 14 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.trade_cancel_message.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_depthofmarket_mach_v1_3_a.data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3873,22 +3729,17 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_3_a.payload = {}
 
 -- Dissect: Payload
+miax_onyxfutures_depthofmarket_mach_v1_3_a.payload.dispatch = {
+  [3] = miax_onyxfutures_depthofmarket_mach_v1_3_a.application_message.dissect,
+  [0] = miax_onyxfutures_depthofmarket_mach_v1_3_a.heartbeat.dissect,
+  [1] = miax_onyxfutures_depthofmarket_mach_v1_3_a.start_of_session.dissect,
+  [2] = miax_onyxfutures_depthofmarket_mach_v1_3_a.end_of_session.dissect,
+}
+
 miax_onyxfutures_depthofmarket_mach_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Application Message
-  if packet_type == 3 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.application_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if packet_type == 0 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session
-  if packet_type == 1 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.start_of_session.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if packet_type == 2 then
-    return miax_onyxfutures_depthofmarket_mach_v1_3_a.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = miax_onyxfutures_depthofmarket_mach_v1_3_a.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

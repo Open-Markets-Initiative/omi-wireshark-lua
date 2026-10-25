@@ -144,27 +144,17 @@ txse_txseequities_framing_udp_v1_0.packet_type = {}
 txse_txseequities_framing_udp_v1_0.packet_type.size = 1
 
 -- Display: Packet Type
-txse_txseequities_framing_udp_v1_0.packet_type.display = function(value)
-  if value == 0 then
-    return "Packet Type: Sequenced Data (0)"
-  end
-  if value == 1 then
-    return "Packet Type: Heartbeat (1)"
-  end
-  if value == 2 then
-    return "Packet Type: Start Of Session (2)"
-  end
-  if value == 3 then
-    return "Packet Type: End Of Session (3)"
-  end
-  if value == 4 then
-    return "Packet Type: Gap Fill Request (4)"
-  end
-  if value == 5 then
-    return "Packet Type: Gap Fill Response (5)"
-  end
+txse_txseequities_framing_udp_v1_0.packet_type.labels = {
+  [0] = "Packet Type: Sequenced Data (0)",
+  [1] = "Packet Type: Heartbeat (1)",
+  [2] = "Packet Type: Start Of Session (2)",
+  [3] = "Packet Type: End Of Session (3)",
+  [4] = "Packet Type: Gap Fill Request (4)",
+  [5] = "Packet Type: Gap Fill Response (5)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+txse_txseequities_framing_udp_v1_0.packet_type.display = function(value)
+  return txse_txseequities_framing_udp_v1_0.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type

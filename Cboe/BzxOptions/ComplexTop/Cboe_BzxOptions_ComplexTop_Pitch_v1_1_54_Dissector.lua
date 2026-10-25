@@ -420,18 +420,14 @@ cboe_bzxoptions_complextop_pitch_v1_1_54.auction_type = {}
 cboe_bzxoptions_complextop_pitch_v1_1_54.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_bzxoptions_complextop_pitch_v1_1_54.auction_type.display = function(value)
-  if value == "G" then
-    return "Auction Type: Gth Opening (G)"
-  end
-  if value == "O" then
-    return "Auction Type: Rth Opening (O)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Re Opening (H)"
-  end
+cboe_bzxoptions_complextop_pitch_v1_1_54.auction_type.labels = {
+  ["G"] = "Auction Type: Gth Opening (G)",
+  ["O"] = "Auction Type: Rth Opening (O)",
+  ["H"] = "Auction Type: Halt Re Opening (H)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_bzxoptions_complextop_pitch_v1_1_54.auction_type.display = function(value)
+  return cboe_bzxoptions_complextop_pitch_v1_1_54.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -966,15 +962,13 @@ cboe_bzxoptions_complextop_pitch_v1_1_54.leg_security_type = {}
 cboe_bzxoptions_complextop_pitch_v1_1_54.leg_security_type.size = 1
 
 -- Display: Leg Security Type
-cboe_bzxoptions_complextop_pitch_v1_1_54.leg_security_type.display = function(value)
-  if value == "O" then
-    return "Leg Security Type: Leg Is An Option Instrument (O)"
-  end
-  if value == "E" then
-    return "Leg Security Type: Leg Is An Equity Instrument (E)"
-  end
+cboe_bzxoptions_complextop_pitch_v1_1_54.leg_security_type.labels = {
+  ["O"] = "Leg Security Type: Leg Is An Option Instrument (O)",
+  ["E"] = "Leg Security Type: Leg Is An Equity Instrument (E)",
+}
 
-  return "Leg Security Type: Unknown("..value..")"
+cboe_bzxoptions_complextop_pitch_v1_1_54.leg_security_type.display = function(value)
+  return cboe_bzxoptions_complextop_pitch_v1_1_54.leg_security_type.labels[value] or "Leg Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Leg Security Type
@@ -1088,48 +1082,24 @@ cboe_bzxoptions_complextop_pitch_v1_1_54.message_type = {}
 cboe_bzxoptions_complextop_pitch_v1_1_54.message_type.size = 1
 
 -- Display: Message Type
-cboe_bzxoptions_complextop_pitch_v1_1_54.message_type.display = function(value)
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x9A then
-    return "Message Type: Complex Instrument Definition Expanded Message (0x9A)"
-  end
-  if value == 0x2F then
-    return "Message Type: Symbol Mapping Message (0x2F)"
-  end
-  if value == 0xD4 then
-    return "Message Type: Single Side Update Expanded Short Message (0xD4)"
-  end
-  if value == 0xD5 then
-    return "Message Type: Single Side Update Expanded Long Message (0xD5)"
-  end
-  if value == 0xD6 then
-    return "Message Type: Two Side Update Expanded Short Message (0xD6)"
-  end
-  if value == 0xD7 then
-    return "Message Type: Two Side Update Expanded Long Message (0xD7)"
-  end
-  if value == 0xB8 then
-    return "Message Type: Top Trade Message (0xB8)"
-  end
-  if value == 0xD1 then
-    return "Message Type: Options Auction Update Message (0xD1)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_bzxoptions_complextop_pitch_v1_1_54.message_type.labels = {
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0x9A] = "Message Type: Complex Instrument Definition Expanded Message (0x9A)",
+  [0x2F] = "Message Type: Symbol Mapping Message (0x2F)",
+  [0xD4] = "Message Type: Single Side Update Expanded Short Message (0xD4)",
+  [0xD5] = "Message Type: Single Side Update Expanded Long Message (0xD5)",
+  [0xD6] = "Message Type: Two Side Update Expanded Short Message (0xD6)",
+  [0xD7] = "Message Type: Two Side Update Expanded Long Message (0xD7)",
+  [0xB8] = "Message Type: Top Trade Message (0xB8)",
+  [0xD1] = "Message Type: Options Auction Update Message (0xD1)",
+  [0x96] = "Message Type: Auction Summary Message (0x96)",
+  [0x31] = "Message Type: Trading Status Message (0x31)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_bzxoptions_complextop_pitch_v1_1_54.message_type.display = function(value)
+  return cboe_bzxoptions_complextop_pitch_v1_1_54.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1445,15 +1415,13 @@ cboe_bzxoptions_complextop_pitch_v1_1_54.side = {}
 cboe_bzxoptions_complextop_pitch_v1_1_54.side.size = 1
 
 -- Display: Side
-cboe_bzxoptions_complextop_pitch_v1_1_54.side.display = function(value)
-  if value == "B" then
-    return "Side: Bid Side (B)"
-  end
-  if value == "S" then
-    return "Side: Ask Side (S)"
-  end
+cboe_bzxoptions_complextop_pitch_v1_1_54.side.labels = {
+  ["B"] = "Side: Bid Side (B)",
+  ["S"] = "Side: Ask Side (S)",
+}
 
-  return "Side: Unknown("..value..")"
+cboe_bzxoptions_complextop_pitch_v1_1_54.side.display = function(value)
+  return cboe_bzxoptions_complextop_pitch_v1_1_54.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1475,15 +1443,13 @@ cboe_bzxoptions_complextop_pitch_v1_1_54.symbol_condition = {}
 cboe_bzxoptions_complextop_pitch_v1_1_54.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_bzxoptions_complextop_pitch_v1_1_54.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_bzxoptions_complextop_pitch_v1_1_54.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_bzxoptions_complextop_pitch_v1_1_54.symbol_condition.display = function(value)
+  return cboe_bzxoptions_complextop_pitch_v1_1_54.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -1607,48 +1573,24 @@ cboe_bzxoptions_complextop_pitch_v1_1_54.trade_condition = {}
 cboe_bzxoptions_complextop_pitch_v1_1_54.trade_condition.size = 1
 
 -- Display: Trade Condition
-cboe_bzxoptions_complextop_pitch_v1_1_54.trade_condition.display = function(value)
-  if value == "f" then
-    return "Trade Condition: Complex To Complex Electronic Trade Cboe Auction Type Is Coa (f)"
-  end
-  if value == "g" then
-    return "Trade Condition: Complex Auction Trade Cboe Order Types Include Caim Csam (g)"
-  end
-  if value == "h" then
-    return "Trade Condition: Complex Cross Cboe Auction Types Include Cust To Cust Caim Cqcc (h)"
-  end
-  if value == "j" then
-    return "Trade Condition: Complex Electronic Trade Against Single Legs (j)"
-  end
-  if value == "k" then
-    return "Trade Condition: Complex With Stock Options Auction Trade Cboe Auction Types Include Caim W Stock Csam W Stock (k)"
-  end
-  if value == "m" then
-    return "Trade Condition: Complex Floor Trade Against Single Legs All Complex Floor Executions Are Reported As Condition M (m)"
-  end
-  if value == "n" then
-    return "Trade Condition: Complex With Stock Electronic Trade Includes Coa Auctions Done Electronically (n)"
-  end
-  if value == "o" then
-    return "Trade Condition: Complex With Stock Cross Cboe Auction Types Include Cqcc W Stock (o)"
-  end
-  if value == "p" then
-    return "Trade Condition: Complex With Stock Floor Trade (p)"
-  end
-  if value == "t" then
-    return "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)"
-  end
-  if value == "v" then
-    return "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)"
-  end
-  if value == "I" then
-    return "Trade Condition: Electronic Trade (I)"
-  end
-  if value == "O" then
-    return "Trade Condition: Opening Trade (O)"
-  end
+cboe_bzxoptions_complextop_pitch_v1_1_54.trade_condition.labels = {
+  ["f"] = "Trade Condition: Complex To Complex Electronic Trade Cboe Auction Type Is Coa (f)",
+  ["g"] = "Trade Condition: Complex Auction Trade Cboe Order Types Include Caim Csam (g)",
+  ["h"] = "Trade Condition: Complex Cross Cboe Auction Types Include Cust To Cust Caim Cqcc (h)",
+  ["j"] = "Trade Condition: Complex Electronic Trade Against Single Legs (j)",
+  ["k"] = "Trade Condition: Complex With Stock Options Auction Trade Cboe Auction Types Include Caim W Stock Csam W Stock (k)",
+  ["m"] = "Trade Condition: Complex Floor Trade Against Single Legs All Complex Floor Executions Are Reported As Condition M (m)",
+  ["n"] = "Trade Condition: Complex With Stock Electronic Trade Includes Coa Auctions Done Electronically (n)",
+  ["o"] = "Trade Condition: Complex With Stock Cross Cboe Auction Types Include Cqcc W Stock (o)",
+  ["p"] = "Trade Condition: Complex With Stock Floor Trade (p)",
+  ["t"] = "Trade Condition: Complex Floor Trade Of Proprietary Products Marked As Combo Order (t)",
+  ["v"] = "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)",
+  ["I"] = "Trade Condition: Electronic Trade (I)",
+  ["O"] = "Trade Condition: Opening Trade (O)",
+}
 
-  return "Trade Condition: Unknown("..value..")"
+cboe_bzxoptions_complextop_pitch_v1_1_54.trade_condition.display = function(value)
+  return cboe_bzxoptions_complextop_pitch_v1_1_54.trade_condition.labels[value] or "Trade Condition: Unknown("..value..")"
 end
 
 -- Dissect: Trade Condition
@@ -1670,21 +1612,15 @@ cboe_bzxoptions_complextop_pitch_v1_1_54.trading_status = {}
 cboe_bzxoptions_complextop_pitch_v1_1_54.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_bzxoptions_complextop_pitch_v1_1_54.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "L" then
-    return "Trading Status: Curb Trading (L)"
-  end
-  if value == "Q" then
-    return "Trading Status: Quote Only (Q)"
-  end
-  if value == "T" then
-    return "Trading Status: Rth Trading (T)"
-  end
+cboe_bzxoptions_complextop_pitch_v1_1_54.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["L"] = "Trading Status: Curb Trading (L)",
+  ["Q"] = "Trading Status: Quote Only (Q)",
+  ["T"] = "Trading Status: Rth Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_bzxoptions_complextop_pitch_v1_1_54.trading_status.display = function(value)
+  return cboe_bzxoptions_complextop_pitch_v1_1_54.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -2692,58 +2628,26 @@ end
 cboe_bzxoptions_complextop_pitch_v1_1_54.payload = {}
 
 -- Dissect: Payload
+cboe_bzxoptions_complextop_pitch_v1_1_54.payload.dispatch = {
+  [0x20] = cboe_bzxoptions_complextop_pitch_v1_1_54.time_message.dissect,
+  [0x97] = cboe_bzxoptions_complextop_pitch_v1_1_54.unit_clear_message.dissect,
+  [0x9A] = cboe_bzxoptions_complextop_pitch_v1_1_54.complex_instrument_definition_expanded_message.dissect,
+  [0x2F] = cboe_bzxoptions_complextop_pitch_v1_1_54.symbol_mapping_message.dissect,
+  [0xD4] = cboe_bzxoptions_complextop_pitch_v1_1_54.single_side_update_expanded_short_message.dissect,
+  [0xD5] = cboe_bzxoptions_complextop_pitch_v1_1_54.single_side_update_expanded_long_message.dissect,
+  [0xD6] = cboe_bzxoptions_complextop_pitch_v1_1_54.two_side_update_expanded_short_message.dissect,
+  [0xD7] = cboe_bzxoptions_complextop_pitch_v1_1_54.two_side_update_expanded_long_message.dissect,
+  [0xB8] = cboe_bzxoptions_complextop_pitch_v1_1_54.top_trade_message.dissect,
+  [0xD1] = cboe_bzxoptions_complextop_pitch_v1_1_54.options_auction_update_message.dissect,
+  [0x96] = cboe_bzxoptions_complextop_pitch_v1_1_54.auction_summary_message.dissect,
+  [0x31] = cboe_bzxoptions_complextop_pitch_v1_1_54.trading_status_message.dissect,
+  [0x2D] = cboe_bzxoptions_complextop_pitch_v1_1_54.end_of_session_message.dissect,
+}
+
 cboe_bzxoptions_complextop_pitch_v1_1_54.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Expanded Message
-  if message_type == 0x9A then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.complex_instrument_definition_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Mapping Message
-  if message_type == 0x2F then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Expanded Short Message
-  if message_type == 0xD4 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.single_side_update_expanded_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Side Update Expanded Long Message
-  if message_type == 0xD5 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.single_side_update_expanded_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Two Side Update Expanded Short Message
-  if message_type == 0xD6 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.two_side_update_expanded_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Two Side Update Expanded Long Message
-  if message_type == 0xD7 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.two_side_update_expanded_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Trade Message
-  if message_type == 0xB8 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.top_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Auction Update Message
-  if message_type == 0xD1 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.options_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x31 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bzxoptions_complextop_pitch_v1_1_54.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2882,10 +2786,14 @@ end
 cboe_bzxoptions_complextop_pitch_v1_1_54.messages = {}
 
 -- Dissect: Messages
+cboe_bzxoptions_complextop_pitch_v1_1_54.messages.dispatch = {
+  [0] = cboe_bzxoptions_complextop_pitch_v1_1_54.heartbeat.dissect,
+}
+
 cboe_bzxoptions_complextop_pitch_v1_1_54.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_bzxoptions_complextop_pitch_v1_1_54.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bzxoptions_complextop_pitch_v1_1_54.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

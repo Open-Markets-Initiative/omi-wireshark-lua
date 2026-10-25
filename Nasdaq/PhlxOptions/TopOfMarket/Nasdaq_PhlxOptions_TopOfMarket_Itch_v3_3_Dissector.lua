@@ -453,15 +453,13 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.current_trading_state = {}
 nasdaq_phlxoptions_topofmarket_itch_v3_3.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_phlxoptions_topofmarket_itch_v3_3.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading Resumed (T)"
-  end
+nasdaq_phlxoptions_topofmarket_itch_v3_3.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Trading Resumed (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_phlxoptions_topofmarket_itch_v3_3.current_trading_state.display = function(value)
+  return nasdaq_phlxoptions_topofmarket_itch_v3_3.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -483,33 +481,19 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.event_code = {}
 nasdaq_phlxoptions_topofmarket_itch_v3_3.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_phlxoptions_topofmarket_itch_v3_3.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
+nasdaq_phlxoptions_topofmarket_itch_v3_3.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: Start Of Normal Hours Closing Process (N)",
+  ["L"] = "Event Code: Start Of Late Hours Closing Process (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_phlxoptions_topofmarket_itch_v3_3.event_code.display = function(value)
+  return nasdaq_phlxoptions_topofmarket_itch_v3_3.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -646,48 +630,24 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.message_type = {}
 nasdaq_phlxoptions_topofmarket_itch_v3_3.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_phlxoptions_topofmarket_itch_v3_3.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Timestamp Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "D" then
-    return "Message Type: Options Directory Message (D)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "O" then
-    return "Message Type: Security Open Closed Message (O)"
-  end
-  if value == "q" then
-    return "Message Type: Short Best Bid And Ask Update Message (q)"
-  end
-  if value == "Q" then
-    return "Message Type: Long Best Bid And Ask Update Message (Q)"
-  end
-  if value == "a" then
-    return "Message Type: Short Best Ask Update Message (a)"
-  end
-  if value == "b" then
-    return "Message Type: Short Best Bid Update Message (b)"
-  end
-  if value == "A" then
-    return "Message Type: Long Best Ask Update Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Long Best Bid Update Message (B)"
-  end
-  if value == "R" then
-    return "Message Type: Trade Report Message (R)"
-  end
-  if value == "X" then
-    return "Message Type: Broken Trade Report Message (X)"
-  end
+nasdaq_phlxoptions_topofmarket_itch_v3_3.message_type.labels = {
+  ["T"] = "Message Type: Timestamp Message (T)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["D"] = "Message Type: Options Directory Message (D)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["O"] = "Message Type: Security Open Closed Message (O)",
+  ["q"] = "Message Type: Short Best Bid And Ask Update Message (q)",
+  ["Q"] = "Message Type: Long Best Bid And Ask Update Message (Q)",
+  ["a"] = "Message Type: Short Best Ask Update Message (a)",
+  ["b"] = "Message Type: Short Best Bid Update Message (b)",
+  ["A"] = "Message Type: Long Best Ask Update Message (A)",
+  ["B"] = "Message Type: Long Best Bid Update Message (B)",
+  ["R"] = "Message Type: Trade Report Message (R)",
+  ["X"] = "Message Type: Broken Trade Report Message (X)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_phlxoptions_topofmarket_itch_v3_3.message_type.display = function(value)
+  return nasdaq_phlxoptions_topofmarket_itch_v3_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -709,18 +669,14 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.mpv = {}
 nasdaq_phlxoptions_topofmarket_itch_v3_3.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_phlxoptions_topofmarket_itch_v3_3.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_phlxoptions_topofmarket_itch_v3_3.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_phlxoptions_topofmarket_itch_v3_3.mpv.display = function(value)
+  return nasdaq_phlxoptions_topofmarket_itch_v3_3.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -765,15 +721,13 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.open_state = {}
 nasdaq_phlxoptions_topofmarket_itch_v3_3.open_state.size = 1
 
 -- Display: Open State
-nasdaq_phlxoptions_topofmarket_itch_v3_3.open_state.display = function(value)
-  if value == "Y" then
-    return "Open State: Open For Auto Execution (Y)"
-  end
-  if value == "N" then
-    return "Open State: Closed For Auto Execution (N)"
-  end
+nasdaq_phlxoptions_topofmarket_itch_v3_3.open_state.labels = {
+  ["Y"] = "Open State: Open For Auto Execution (Y)",
+  ["N"] = "Open State: Closed For Auto Execution (N)",
+}
 
-  return "Open State: Unknown("..value..")"
+nasdaq_phlxoptions_topofmarket_itch_v3_3.open_state.display = function(value)
+  return nasdaq_phlxoptions_topofmarket_itch_v3_3.open_state.labels[value] or "Open State: Unknown("..value..")"
 end
 
 -- Dissect: Open State
@@ -795,18 +749,14 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.option_closing_type = {}
 nasdaq_phlxoptions_topofmarket_itch_v3_3.option_closing_type.size = 1
 
 -- Display: Option Closing Type
-nasdaq_phlxoptions_topofmarket_itch_v3_3.option_closing_type.display = function(value)
-  if value == "N" then
-    return "Option Closing Type: Normal (N)"
-  end
-  if value == "L" then
-    return "Option Closing Type: Late (L)"
-  end
-  if value == "W" then
-    return "Option Closing Type: Wco Early Closing (W)"
-  end
+nasdaq_phlxoptions_topofmarket_itch_v3_3.option_closing_type.labels = {
+  ["N"] = "Option Closing Type: Normal (N)",
+  ["L"] = "Option Closing Type: Late (L)",
+  ["W"] = "Option Closing Type: Wco Early Closing (W)",
+}
 
-  return "Option Closing Type: Unknown("..value..")"
+nasdaq_phlxoptions_topofmarket_itch_v3_3.option_closing_type.display = function(value)
+  return nasdaq_phlxoptions_topofmarket_itch_v3_3.option_closing_type.labels[value] or "Option Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Closing Type
@@ -851,15 +801,13 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.option_type = {}
 nasdaq_phlxoptions_topofmarket_itch_v3_3.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_phlxoptions_topofmarket_itch_v3_3.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+nasdaq_phlxoptions_topofmarket_itch_v3_3.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_phlxoptions_topofmarket_itch_v3_3.option_type.display = function(value)
+  return nasdaq_phlxoptions_topofmarket_itch_v3_3.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1292,15 +1240,13 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.tradable = {}
 nasdaq_phlxoptions_topofmarket_itch_v3_3.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_phlxoptions_topofmarket_itch_v3_3.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Not Tradable (N)"
-  end
+nasdaq_phlxoptions_topofmarket_itch_v3_3.tradable.labels = {
+  ["Y"] = "Tradable: Tradable (Y)",
+  ["N"] = "Tradable: Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_phlxoptions_topofmarket_itch_v3_3.tradable.display = function(value)
+  return nasdaq_phlxoptions_topofmarket_itch_v3_3.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -2226,58 +2172,26 @@ end
 nasdaq_phlxoptions_topofmarket_itch_v3_3.payload = {}
 
 -- Dissect: Payload
+nasdaq_phlxoptions_topofmarket_itch_v3_3.payload.dispatch = {
+  ["T"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.timestamp_message.dissect,
+  ["S"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.system_event_message.dissect,
+  ["D"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.options_directory_message.dissect,
+  ["H"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.trading_action_message.dissect,
+  ["O"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.security_open_closed_message.dissect,
+  ["q"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.short_best_bid_and_ask_update_message.dissect,
+  ["Q"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.long_best_bid_and_ask_update_message.dissect,
+  ["a"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.short_best_ask_update_message.dissect,
+  ["b"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.short_best_bid_update_message.dissect,
+  ["A"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.long_best_ask_update_message.dissect,
+  ["B"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.long_best_bid_update_message.dissect,
+  ["R"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.trade_report_message.dissect,
+  ["X"] = nasdaq_phlxoptions_topofmarket_itch_v3_3.broken_trade_report_message.dissect,
+}
+
 nasdaq_phlxoptions_topofmarket_itch_v3_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Timestamp Message
-  if message_type == "T" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.timestamp_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Directory Message
-  if message_type == "D" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.options_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Open Closed Message
-  if message_type == "O" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.security_open_closed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Bid And Ask Update Message
-  if message_type == "q" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.short_best_bid_and_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Bid And Ask Update Message
-  if message_type == "Q" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.long_best_bid_and_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Ask Update Message
-  if message_type == "a" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.short_best_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Short Best Bid Update Message
-  if message_type == "b" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.short_best_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Ask Update Message
-  if message_type == "A" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.long_best_ask_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Long Best Bid Update Message
-  if message_type == "B" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.long_best_bid_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "R" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Report Message
-  if message_type == "X" then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.broken_trade_report_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_topofmarket_itch_v3_3.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2433,14 +2347,15 @@ end
 nasdaq_phlxoptions_topofmarket_itch_v3_3.messages = {}
 
 -- Dissect: Messages
+nasdaq_phlxoptions_topofmarket_itch_v3_3.messages.dispatch = {
+  [0] = nasdaq_phlxoptions_topofmarket_itch_v3_3.heartbeat.dissect,
+  [65535] = nasdaq_phlxoptions_topofmarket_itch_v3_3.end_of_session.dissect,
+}
+
 nasdaq_phlxoptions_topofmarket_itch_v3_3.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_phlxoptions_topofmarket_itch_v3_3.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_phlxoptions_topofmarket_itch_v3_3.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

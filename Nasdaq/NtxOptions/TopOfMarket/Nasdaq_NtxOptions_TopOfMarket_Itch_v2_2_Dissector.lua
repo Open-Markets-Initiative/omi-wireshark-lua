@@ -864,24 +864,16 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_type = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_type.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -903,15 +895,13 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.closing_type = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.closing_type.size = 1
 
 -- Display: Closing Type
-nasdaq_ntxoptions_topofmarket_itch_v2_2.closing_type.display = function(value)
-  if value == "N" then
-    return "Closing Type: Normal Hours (N)"
-  end
-  if value == "L" then
-    return "Closing Type: Late Hours (L)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.closing_type.labels = {
+  ["N"] = "Closing Type: Normal Hours (N)",
+  ["L"] = "Closing Type: Late Hours (L)",
+}
 
-  return "Closing Type: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.closing_type.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.closing_type.labels[value] or "Closing Type: Unknown("..value..")"
 end
 
 -- Dissect: Closing Type
@@ -956,33 +946,19 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.current_trading_state = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_ntxoptions_topofmarket_itch_v2_2.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "B" then
-    return "Current Trading State: Buy Side Trading Suspended (B)"
-  end
-  if value == "S" then
-    return "Current Trading State: Sell Side Trading Suspended (S)"
-  end
-  if value == "I" then
-    return "Current Trading State: Pre Open (I)"
-  end
-  if value == "O" then
-    return "Current Trading State: Opening Auction (O)"
-  end
-  if value == "R" then
-    return "Current Trading State: Re Opening (R)"
-  end
-  if value == "T" then
-    return "Current Trading State: Continuous Trading (T)"
-  end
-  if value == "X" then
-    return "Current Trading State: Closed (X)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["B"] = "Current Trading State: Buy Side Trading Suspended (B)",
+  ["S"] = "Current Trading State: Sell Side Trading Suspended (S)",
+  ["I"] = "Current Trading State: Pre Open (I)",
+  ["O"] = "Current Trading State: Opening Auction (O)",
+  ["R"] = "Current Trading State: Re Opening (R)",
+  ["T"] = "Current Trading State: Continuous Trading (T)",
+  ["X"] = "Current Trading State: Closed (X)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.current_trading_state.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -1092,30 +1068,18 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.event_code = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_ntxoptions_topofmarket_itch_v2_2.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: End Of Normal Hours Processing (N)"
-  end
-  if value == "L" then
-    return "Event Code: End Of Late Hours Processing (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.event_code.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -1442,42 +1406,22 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.message_type = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_ntxoptions_topofmarket_itch_v2_2.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Derivative Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "q" then
-    return "Message Type: Best Bid And Ask Update Short Form Message (q)"
-  end
-  if value == "Q" then
-    return "Message Type: Best Bid And Ask Update Long Form Message (Q)"
-  end
-  if value == "b" then
-    return "Message Type: Best Bid Or Ask Update Short Form Message (b)"
-  end
-  if value == "B" then
-    return "Message Type: Best Bid Or Ask Update Long Form Message (B)"
-  end
-  if value == "T" then
-    return "Message Type: Trade Report Message (T)"
-  end
-  if value == "X" then
-    return "Message Type: Broken Trade Report Message (X)"
-  end
-  if value == "a" then
-    return "Message Type: Best Ask Update Short Form Message (a)"
-  end
-  if value == "A" then
-    return "Message Type: Best Ask Update Long Form Message (A)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Derivative Directory Message (R)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["q"] = "Message Type: Best Bid And Ask Update Short Form Message (q)",
+  ["Q"] = "Message Type: Best Bid And Ask Update Long Form Message (Q)",
+  ["b"] = "Message Type: Best Bid Or Ask Update Short Form Message (b)",
+  ["B"] = "Message Type: Best Bid Or Ask Update Long Form Message (B)",
+  ["T"] = "Message Type: Trade Report Message (T)",
+  ["X"] = "Message Type: Broken Trade Report Message (X)",
+  ["a"] = "Message Type: Best Ask Update Short Form Message (a)",
+  ["A"] = "Message Type: Best Ask Update Long Form Message (A)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.message_type.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1522,18 +1466,14 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.mpv = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.mpv.size = 1
 
 -- Display: Mpv
-nasdaq_ntxoptions_topofmarket_itch_v2_2.mpv.display = function(value)
-  if value == "E" then
-    return "Mpv: Penny Everywhere (E)"
-  end
-  if value == "S" then
-    return "Mpv: Scaled (S)"
-  end
-  if value == "P" then
-    return "Mpv: Penny Pilot (P)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.mpv.labels = {
+  ["E"] = "Mpv: Penny Everywhere (E)",
+  ["S"] = "Mpv: Scaled (S)",
+  ["P"] = "Mpv: Penny Pilot (P)",
+}
 
-  return "Mpv: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.mpv.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.mpv.labels[value] or "Mpv: Unknown("..value..")"
 end
 
 -- Dissect: Mpv
@@ -1555,18 +1495,14 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.option_type = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.option_type.size = 1
 
 -- Display: Option Type
-nasdaq_ntxoptions_topofmarket_itch_v2_2.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call Option (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put Option (P)"
-  end
-  if value == "N" then
-    return "Option Type: Na (N)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.option_type.labels = {
+  ["C"] = "Option Type: Call Option (C)",
+  ["P"] = "Option Type: Put Option (P)",
+  ["N"] = "Option Type: Na (N)",
+}
 
-  return "Option Type: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.option_type.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1869,15 +1805,13 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.reject_reason_code = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_ntxoptions_topofmarket_itch_v2_2.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.reject_reason_code.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1999,45 +1933,23 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message_type = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Derivative Directory Message (R)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading Action Message (H)"
-  end
-  if value == "q" then
-    return "Sequenced Message Type: Best Bid And Ask Update Short Form Message (q)"
-  end
-  if value == "Q" then
-    return "Sequenced Message Type: Best Bid And Ask Update Long Form Message (Q)"
-  end
-  if value == "b" then
-    return "Sequenced Message Type: Best Bid Or Ask Update Short Form Message (b)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Best Bid Or Ask Update Long Form Message (B)"
-  end
-  if value == "T" then
-    return "Sequenced Message Type: Trade Report Message (T)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Broken Trade Report Message (X)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: End Of Replay Sequence Message (M)"
-  end
-  if value == "a" then
-    return "Sequenced Message Type: Best Ask Update Short Form Message (a)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Best Ask Update Long Form Message (A)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["R"] = "Sequenced Message Type: Derivative Directory Message (R)",
+  ["H"] = "Sequenced Message Type: Trading Action Message (H)",
+  ["q"] = "Sequenced Message Type: Best Bid And Ask Update Short Form Message (q)",
+  ["Q"] = "Sequenced Message Type: Best Bid And Ask Update Long Form Message (Q)",
+  ["b"] = "Sequenced Message Type: Best Bid Or Ask Update Short Form Message (b)",
+  ["B"] = "Sequenced Message Type: Best Bid Or Ask Update Long Form Message (B)",
+  ["T"] = "Sequenced Message Type: Trade Report Message (T)",
+  ["X"] = "Sequenced Message Type: Broken Trade Report Message (X)",
+  ["M"] = "Sequenced Message Type: End Of Replay Sequence Message (M)",
+  ["a"] = "Sequenced Message Type: Best Ask Update Short Form Message (a)",
+  ["A"] = "Sequenced Message Type: Best Ask Update Long Form Message (A)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message_type.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -2059,27 +1971,17 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_type = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_type.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2275,15 +2177,13 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.tradable = {}
 nasdaq_ntxoptions_topofmarket_itch_v2_2.tradable.size = 1
 
 -- Display: Tradable
-nasdaq_ntxoptions_topofmarket_itch_v2_2.tradable.display = function(value)
-  if value == "Y" then
-    return "Tradable: Instrument Is Tradable (Y)"
-  end
-  if value == "N" then
-    return "Tradable: Instrument Is Not Tradable (N)"
-  end
+nasdaq_ntxoptions_topofmarket_itch_v2_2.tradable.labels = {
+  ["Y"] = "Tradable: Instrument Is Tradable (Y)",
+  ["N"] = "Tradable: Instrument Is Not Tradable (N)",
+}
 
-  return "Tradable: Unknown("..value..")"
+nasdaq_ntxoptions_topofmarket_itch_v2_2.tradable.display = function(value)
+  return nasdaq_ntxoptions_topofmarket_itch_v2_2.tradable.labels[value] or "Tradable: Unknown("..value..")"
 end
 
 -- Dissect: Tradable
@@ -3163,50 +3063,24 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.udp_payload = {}
 
 -- Dissect: Udp Payload
+nasdaq_ntxoptions_topofmarket_itch_v2_2.udp_payload.dispatch = {
+  ["S"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.system_event_message.dissect,
+  ["R"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.derivative_directory_message.dissect,
+  ["H"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.trading_action_message.dissect,
+  ["q"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_and_ask_update_short_form_message.dissect,
+  ["Q"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_and_ask_update_long_form_message.dissect,
+  ["b"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_short_form_message.dissect,
+  ["B"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_long_form_message.dissect,
+  ["T"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.trade_report_message.dissect,
+  ["X"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.broken_trade_report_message.dissect,
+  ["a"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_short_form_message.dissect,
+  ["A"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_long_form_message.dissect,
+}
+
 nasdaq_ntxoptions_topofmarket_itch_v2_2.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Derivative Directory Message
-  if message_type == "R" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.derivative_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid And Ask Update Short Form Message
-  if message_type == "q" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_and_ask_update_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid And Ask Update Long Form Message
-  if message_type == "Q" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_and_ask_update_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Or Ask Update Short Form Message
-  if message_type == "b" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Or Ask Update Long Form Message
-  if message_type == "B" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if message_type == "T" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Report Message
-  if message_type == "X" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.broken_trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Or Ask Update Short Form Message
-  if message_type == "a" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Or Ask Update Long Form Message
-  if message_type == "A" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_long_form_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_topofmarket_itch_v2_2.udp_payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3362,14 +3236,15 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.messages = {}
 
 -- Dissect: Messages
+nasdaq_ntxoptions_topofmarket_itch_v2_2.messages.dispatch = {
+  [0] = nasdaq_ntxoptions_topofmarket_itch_v2_2.heartbeat.dissect,
+  [65535] = nasdaq_ntxoptions_topofmarket_itch_v2_2.end_of_session.dissect,
+}
+
 nasdaq_ntxoptions_topofmarket_itch_v2_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_topofmarket_itch_v2_2.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
@@ -3539,54 +3414,25 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message.dispatch = {
+  ["S"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.system_event_message.dissect,
+  ["R"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.derivative_directory_message.dissect,
+  ["H"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.trading_action_message.dissect,
+  ["q"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_and_ask_update_short_form_message.dissect,
+  ["Q"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_and_ask_update_long_form_message.dissect,
+  ["b"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_short_form_message.dissect,
+  ["B"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_long_form_message.dissect,
+  ["T"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.trade_report_message.dissect,
+  ["X"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.broken_trade_report_message.dissect,
+  ["M"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.end_of_replay_sequence_message.dissect,
+  ["a"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_short_form_message.dissect,
+  ["A"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_long_form_message.dissect,
+}
+
 nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Derivative Directory Message
-  if sequenced_message_type == "R" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.derivative_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid And Ask Update Short Form Message
-  if sequenced_message_type == "q" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_and_ask_update_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid And Ask Update Long Form Message
-  if sequenced_message_type == "Q" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_and_ask_update_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Or Ask Update Short Form Message
-  if sequenced_message_type == "b" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Or Ask Update Long Form Message
-  if sequenced_message_type == "B" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_long_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if sequenced_message_type == "T" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Report Message
-  if sequenced_message_type == "X" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.broken_trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Replay Sequence Message
-  if sequenced_message_type == "M" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.end_of_replay_sequence_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Or Ask Update Short Form Message
-  if sequenced_message_type == "a" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_short_form_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Or Ask Update Long Form Message
-  if sequenced_message_type == "A" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.best_bid_or_ask_update_long_form_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3829,30 +3675,19 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_payload.dispatch = {
+  ["+"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.debug_packet.dissect,
+  ["A"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.login_accepted_packet.dissect,
+  ["J"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.login_rejected_packet.dissect,
+  ["S"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.end_of_session_packet.dissect,
+}
+
 nasdaq_ntxoptions_topofmarket_itch_v2_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -4163,26 +3998,18 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_payload.dispatch = {
+  ["+"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.debug_packet.dissect,
+  ["L"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.login_request_packet.dissect,
+  ["U"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_ntxoptions_topofmarket_itch_v2_2.logout_request_packet.dissect,
+}
+
 nasdaq_ntxoptions_topofmarket_itch_v2_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

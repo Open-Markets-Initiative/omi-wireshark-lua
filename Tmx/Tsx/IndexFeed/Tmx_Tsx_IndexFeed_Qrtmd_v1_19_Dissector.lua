@@ -277,12 +277,12 @@ tmx_tsx_indexfeed_qrtmd_v1_19.continuation_identifier = {}
 tmx_tsx_indexfeed_qrtmd_v1_19.continuation_identifier.size = 1
 
 -- Display: Continuation Identifier
-tmx_tsx_indexfeed_qrtmd_v1_19.continuation_identifier.display = function(value)
-  if value == "0" then
-    return "Continuation Identifier: Stand Alone Message (0)"
-  end
+tmx_tsx_indexfeed_qrtmd_v1_19.continuation_identifier.labels = {
+  ["0"] = "Continuation Identifier: Stand Alone Message (0)",
+}
 
-  return "Continuation Identifier: Unknown("..value..")"
+tmx_tsx_indexfeed_qrtmd_v1_19.continuation_identifier.display = function(value)
+  return tmx_tsx_indexfeed_qrtmd_v1_19.continuation_identifier.labels[value] or "Continuation Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Continuation Identifier
@@ -304,18 +304,14 @@ tmx_tsx_indexfeed_qrtmd_v1_19.exchange_identifier = {}
 tmx_tsx_indexfeed_qrtmd_v1_19.exchange_identifier.size = 2
 
 -- Display: Exchange Identifier
-tmx_tsx_indexfeed_qrtmd_v1_19.exchange_identifier.display = function(value)
-  if value == "T" then
-    return "Exchange Identifier: Toronto Stock Exchange (T)"
-  end
-  if value == "V" then
-    return "Exchange Identifier: Tsx Venture Exchange (V)"
-  end
-  if value == "A" then
-    return "Exchange Identifier: Tsx Alpha Exchange (A)"
-  end
+tmx_tsx_indexfeed_qrtmd_v1_19.exchange_identifier.labels = {
+  ["T"] = "Exchange Identifier: Toronto Stock Exchange (T)",
+  ["V"] = "Exchange Identifier: Tsx Venture Exchange (V)",
+  ["A"] = "Exchange Identifier: Tsx Alpha Exchange (A)",
+}
 
-  return "Exchange Identifier: Unknown("..value..")"
+tmx_tsx_indexfeed_qrtmd_v1_19.exchange_identifier.display = function(value)
+  return tmx_tsx_indexfeed_qrtmd_v1_19.exchange_identifier.labels[value] or "Exchange Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Identifier
@@ -474,12 +470,12 @@ tmx_tsx_indexfeed_qrtmd_v1_19.markers = {}
 tmx_tsx_indexfeed_qrtmd_v1_19.markers.size = 1
 
 -- Display: Markers
-tmx_tsx_indexfeed_qrtmd_v1_19.markers.display = function(value)
-  if value == "C" then
-    return "Markers: Close (C)"
-  end
+tmx_tsx_indexfeed_qrtmd_v1_19.markers.labels = {
+  ["C"] = "Markers: Close (C)",
+}
 
-  return "Markers: Unknown("..value..")"
+tmx_tsx_indexfeed_qrtmd_v1_19.markers.display = function(value)
+  return tmx_tsx_indexfeed_qrtmd_v1_19.markers.labels[value] or "Markers: Unknown("..value..")"
 end
 
 -- Dissect: Markers
@@ -532,15 +528,13 @@ tmx_tsx_indexfeed_qrtmd_v1_19.message_type = {}
 tmx_tsx_indexfeed_qrtmd_v1_19.message_type.size = 2
 
 -- Display: Message Type
-tmx_tsx_indexfeed_qrtmd_v1_19.message_type.display = function(value)
-  if value == "K" then
-    return "Message Type: S And P Tsx Official Index Level Message (K)"
-  end
-  if value == "PA" then
-    return "Message Type: Beginning Of Index Summary Message (PA)"
-  end
+tmx_tsx_indexfeed_qrtmd_v1_19.message_type.labels = {
+  ["K"] = "Message Type: S And P Tsx Official Index Level Message (K)",
+  ["PA"] = "Message Type: Beginning Of Index Summary Message (PA)",
+}
 
-  return "Message Type: Unknown("..value..")"
+tmx_tsx_indexfeed_qrtmd_v1_19.message_type.display = function(value)
+  return tmx_tsx_indexfeed_qrtmd_v1_19.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -764,12 +758,12 @@ tmx_tsx_indexfeed_qrtmd_v1_19.retransmission_identifier = {}
 tmx_tsx_indexfeed_qrtmd_v1_19.retransmission_identifier.size = 1
 
 -- Display: Retransmission Identifier
-tmx_tsx_indexfeed_qrtmd_v1_19.retransmission_identifier.display = function(value)
-  if value == "0" then
-    return "Retransmission Identifier: Normal Transmission (0)"
-  end
+tmx_tsx_indexfeed_qrtmd_v1_19.retransmission_identifier.labels = {
+  ["0"] = "Retransmission Identifier: Normal Transmission (0)",
+}
 
-  return "Retransmission Identifier: Unknown("..value..")"
+tmx_tsx_indexfeed_qrtmd_v1_19.retransmission_identifier.display = function(value)
+  return tmx_tsx_indexfeed_qrtmd_v1_19.retransmission_identifier.labels[value] or "Retransmission Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Retransmission Identifier
@@ -822,36 +816,20 @@ tmx_tsx_indexfeed_qrtmd_v1_19.service_identifier = {}
 tmx_tsx_indexfeed_qrtmd_v1_19.service_identifier.size = 3
 
 -- Display: Service Identifier
-tmx_tsx_indexfeed_qrtmd_v1_19.service_identifier.display = function(value)
-  if value == "TL1" then
-    return "Service Identifier: Toronto Level 1 (TL1)"
-  end
-  if value == "CL1" then
-    return "Service Identifier: Tsx Venture Exchange Level 1 (CL1)"
-  end
-  if value == "AL1" then
-    return "Service Identifier: Alpha Level 1 (AL1)"
-  end
-  if value == "TL2" then
-    return "Service Identifier: Toronto Level 2 (TL2)"
-  end
-  if value == "CL2" then
-    return "Service Identifier: Tsx Venture Exchange Level 2 (CL2)"
-  end
-  if value == "AL2" then
-    return "Service Identifier: Alpha Level 2 (AL2)"
-  end
-  if value == "TX1" then
-    return "Service Identifier: Index Service Level 1 (TX1)"
-  end
-  if value == "TRD" then
-    return "Service Identifier: Reference Data Feed Toronto (TRD)"
-  end
-  if value == "VRD" then
-    return "Service Identifier: Reference Data Feed Venture (VRD)"
-  end
+tmx_tsx_indexfeed_qrtmd_v1_19.service_identifier.labels = {
+  ["TL1"] = "Service Identifier: Toronto Level 1 (TL1)",
+  ["CL1"] = "Service Identifier: Tsx Venture Exchange Level 1 (CL1)",
+  ["AL1"] = "Service Identifier: Alpha Level 1 (AL1)",
+  ["TL2"] = "Service Identifier: Toronto Level 2 (TL2)",
+  ["CL2"] = "Service Identifier: Tsx Venture Exchange Level 2 (CL2)",
+  ["AL2"] = "Service Identifier: Alpha Level 2 (AL2)",
+  ["TX1"] = "Service Identifier: Index Service Level 1 (TX1)",
+  ["TRD"] = "Service Identifier: Reference Data Feed Toronto (TRD)",
+  ["VRD"] = "Service Identifier: Reference Data Feed Venture (VRD)",
+}
 
-  return "Service Identifier: Unknown("..value..")"
+tmx_tsx_indexfeed_qrtmd_v1_19.service_identifier.display = function(value)
+  return tmx_tsx_indexfeed_qrtmd_v1_19.service_identifier.labels[value] or "Service Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Service Identifier
@@ -1199,14 +1177,15 @@ end
 tmx_tsx_indexfeed_qrtmd_v1_19.message_body = {}
 
 -- Dissect: Message Body
+tmx_tsx_indexfeed_qrtmd_v1_19.message_body.dispatch = {
+  ["K"] = tmx_tsx_indexfeed_qrtmd_v1_19.s_and_p_tsx_official_index_level_message.dissect,
+  ["PA"] = tmx_tsx_indexfeed_qrtmd_v1_19.beginning_of_index_summary_message.dissect,
+}
+
 tmx_tsx_indexfeed_qrtmd_v1_19.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect S And P Tsx Official Index Level Message
-  if message_type == "K" then
-    return tmx_tsx_indexfeed_qrtmd_v1_19.s_and_p_tsx_official_index_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Beginning Of Index Summary Message
-  if message_type == "PA" then
-    return tmx_tsx_indexfeed_qrtmd_v1_19.beginning_of_index_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsx_indexfeed_qrtmd_v1_19.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -144,15 +144,13 @@ bruceats_bruceequities_bestbidandoffer_itch_v1_0.authenticity = {}
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.authenticity.size = 1
 
 -- Display: Authenticity
-bruceats_bruceequities_bestbidandoffer_itch_v1_0.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.authenticity.labels = {
+  ["P"] = "Authenticity: Live Production (P)",
+  ["T"] = "Authenticity: Test (T)",
+}
 
-  return "Authenticity: Unknown("..value..")"
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.authenticity.display = function(value)
+  return bruceats_bruceequities_bestbidandoffer_itch_v1_0.authenticity.labels[value] or "Authenticity: Unknown("..value..")"
 end
 
 -- Dissect: Authenticity
@@ -278,27 +276,17 @@ bruceats_bruceequities_bestbidandoffer_itch_v1_0.event_code = {}
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.event_code.size = 1
 
 -- Display: Event Code
-bruceats_bruceequities_bestbidandoffer_itch_v1_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmissions (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Transmissions (C)"
-  end
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.event_code.labels = {
+  ["O"] = "Event Code: Start Of Transmissions (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Transmissions (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.event_code.display = function(value)
+  return bruceats_bruceequities_bestbidandoffer_itch_v1_0.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -411,24 +399,16 @@ bruceats_bruceequities_bestbidandoffer_itch_v1_0.message_type = {}
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.message_type.size = 1
 
 -- Display: Message Type
-bruceats_bruceequities_bestbidandoffer_itch_v1_0.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator (Y)"
-  end
-  if value == "Q" then
-    return "Message Type: Quotation Message (Q)"
-  end
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory (R)",
+  ["H"] = "Message Type: Stock Trading Action (H)",
+  ["Y"] = "Message Type: Reg Sho Short Sale Price Test Restricted Indicator (Y)",
+  ["Q"] = "Message Type: Quotation Message (Q)",
+}
 
-  return "Message Type: Unknown("..value..")"
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.message_type.display = function(value)
+  return bruceats_bruceequities_bestbidandoffer_itch_v1_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -450,18 +430,14 @@ bruceats_bruceequities_bestbidandoffer_itch_v1_0.reg_sho_action = {}
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-bruceats_bruceequities_bestbidandoffer_itch_v1_0.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Place (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Restriction In Effect (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)"
-  end
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Place (0)",
+  ["1"] = "Reg Sho Action: Reg Sho Restriction In Effect (1)",
+  ["2"] = "Reg Sho Action: Reg Sho Restriction Remains In Effect (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.reg_sho_action.display = function(value)
+  return bruceats_bruceequities_bestbidandoffer_itch_v1_0.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -638,15 +614,13 @@ bruceats_bruceequities_bestbidandoffer_itch_v1_0.trading_state = {}
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.trading_state.size = 1
 
 -- Display: Trading State
-bruceats_bruceequities_bestbidandoffer_itch_v1_0.trading_state.display = function(value)
-  if value == "H" then
-    return "Trading State: Halted (H)"
-  end
-  if value == "T" then
-    return "Trading State: Trading (T)"
-  end
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.trading_state.labels = {
+  ["H"] = "Trading State: Halted (H)",
+  ["T"] = "Trading State: Trading (T)",
+}
 
-  return "Trading State: Unknown("..value..")"
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.trading_state.display = function(value)
+  return bruceats_bruceequities_bestbidandoffer_itch_v1_0.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -946,26 +920,18 @@ end
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.payload = {}
 
 -- Dissect: Payload
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.payload.dispatch = {
+  ["S"] = bruceats_bruceequities_bestbidandoffer_itch_v1_0.system_event_message.dissect,
+  ["R"] = bruceats_bruceequities_bestbidandoffer_itch_v1_0.stock_directory.dissect,
+  ["H"] = bruceats_bruceequities_bestbidandoffer_itch_v1_0.stock_trading_action.dissect,
+  ["Y"] = bruceats_bruceequities_bestbidandoffer_itch_v1_0.reg_sho_short_sale_price_test_restricted_indicator.dissect,
+  ["Q"] = bruceats_bruceequities_bestbidandoffer_itch_v1_0.quotation_message.dissect,
+}
+
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return bruceats_bruceequities_bestbidandoffer_itch_v1_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory
-  if message_type == "R" then
-    return bruceats_bruceequities_bestbidandoffer_itch_v1_0.stock_directory.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action
-  if message_type == "H" then
-    return bruceats_bruceequities_bestbidandoffer_itch_v1_0.stock_trading_action.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator
-  if message_type == "Y" then
-    return bruceats_bruceequities_bestbidandoffer_itch_v1_0.reg_sho_short_sale_price_test_restricted_indicator.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quotation Message
-  if message_type == "Q" then
-    return bruceats_bruceequities_bestbidandoffer_itch_v1_0.quotation_message.dissect(buffer, offset, packet, parent)
+  local dissect = bruceats_bruceequities_bestbidandoffer_itch_v1_0.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1121,14 +1087,15 @@ end
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.messages = {}
 
 -- Dissect: Messages
+bruceats_bruceequities_bestbidandoffer_itch_v1_0.messages.dispatch = {
+  [0] = bruceats_bruceequities_bestbidandoffer_itch_v1_0.heartbeat.dissect,
+  [65535] = bruceats_bruceequities_bestbidandoffer_itch_v1_0.end_of_session.dissect,
+}
+
 bruceats_bruceequities_bestbidandoffer_itch_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return bruceats_bruceequities_bestbidandoffer_itch_v1_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return bruceats_bruceequities_bestbidandoffer_itch_v1_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = bruceats_bruceequities_bestbidandoffer_itch_v1_0.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

@@ -590,15 +590,13 @@ ice_icefutures_bgw_sbe_v7_0.aon_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.aon_allowed.size = 1
 
 -- Display: Aon Allowed
-ice_icefutures_bgw_sbe_v7_0.aon_allowed.display = function(value)
-  if value == 0 then
-    return "Aon Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Aon Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.aon_allowed.labels = {
+  [0] = "Aon Allowed: False (0)",
+  [1] = "Aon Allowed: True (1)",
+}
 
-  return "Aon Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.aon_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.aon_allowed.labels[value] or "Aon Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Aon Allowed
@@ -783,12 +781,12 @@ ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type = {}
 ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type.size = 1
 
 -- Display: Bench Mark Price Type
-ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type.display = function(value)
-  if value == 3 then
-    return "Bench Mark Price Type: Fixed Amount (3)"
-  end
+ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type.labels = {
+  [3] = "Bench Mark Price Type: Fixed Amount (3)",
+}
 
-  return "Bench Mark Price Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type.labels[value] or "Bench Mark Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Bench Mark Price Type
@@ -879,21 +877,15 @@ ice_icefutures_bgw_sbe_v7_0.block_details_block_type = {}
 ice_icefutures_bgw_sbe_v7_0.block_details_block_type.size = 1
 
 -- Display: Block Details Block Type
-ice_icefutures_bgw_sbe_v7_0.block_details_block_type.display = function(value)
-  if value == 0 then
-    return "Block Details Block Type: Regular (0)"
-  end
-  if value == 1 then
-    return "Block Details Block Type: Pnc (1)"
-  end
-  if value == 2 then
-    return "Block Details Block Type: Dp (2)"
-  end
-  if value == 3 then
-    return "Block Details Block Type: Lis (3)"
-  end
+ice_icefutures_bgw_sbe_v7_0.block_details_block_type.labels = {
+  [0] = "Block Details Block Type: Regular (0)",
+  [1] = "Block Details Block Type: Pnc (1)",
+  [2] = "Block Details Block Type: Dp (2)",
+  [3] = "Block Details Block Type: Lis (3)",
+}
 
-  return "Block Details Block Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.block_details_block_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.block_details_block_type.labels[value] or "Block Details Block Type: Unknown("..value..")"
 end
 
 -- Dissect: Block Details Block Type
@@ -1000,15 +992,13 @@ ice_icefutures_bgw_sbe_v7_0.block_only = {}
 ice_icefutures_bgw_sbe_v7_0.block_only.size = 1
 
 -- Display: Block Only
-ice_icefutures_bgw_sbe_v7_0.block_only.display = function(value)
-  if value == 0 then
-    return "Block Only: False (0)"
-  end
-  if value == 1 then
-    return "Block Only: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.block_only.labels = {
+  [0] = "Block Only: False (0)",
+  [1] = "Block Only: True (1)",
+}
 
-  return "Block Only: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.block_only.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.block_only.labels[value] or "Block Only: Unknown("..value..")"
 end
 
 -- Dissect: Block Only
@@ -1053,15 +1043,13 @@ ice_icefutures_bgw_sbe_v7_0.bypass_mqr = {}
 ice_icefutures_bgw_sbe_v7_0.bypass_mqr.size = 1
 
 -- Display: Bypass Mqr
-ice_icefutures_bgw_sbe_v7_0.bypass_mqr.display = function(value)
-  if value == 0 then
-    return "Bypass Mqr: False (0)"
-  end
-  if value == 1 then
-    return "Bypass Mqr: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.bypass_mqr.labels = {
+  [0] = "Bypass Mqr: False (0)",
+  [1] = "Bypass Mqr: True (1)",
+}
 
-  return "Bypass Mqr: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.bypass_mqr.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.bypass_mqr.labels[value] or "Bypass Mqr: Unknown("..value..")"
 end
 
 -- Dissect: Bypass Mqr
@@ -1083,33 +1071,19 @@ ice_icefutures_bgw_sbe_v7_0.cancel_reason = {}
 ice_icefutures_bgw_sbe_v7_0.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-ice_icefutures_bgw_sbe_v7_0.cancel_reason.display = function(value)
-  if value == 0 then
-    return "Cancel Reason: Canceled By User (0)"
-  end
-  if value == 7 then
-    return "Cancel Reason: Canceled By System (7)"
-  end
-  if value == 10 then
-    return "Cancel Reason: Canceled For Reasonability Limits (10)"
-  end
-  if value == 11 then
-    return "Cancel Reason: Canceled At Market Close (11)"
-  end
-  if value == 13 then
-    return "Cancel Reason: Canceled For Ipl (13)"
-  end
-  if value == 27 then
-    return "Cancel Reason: Canceled For Ioc (27)"
-  end
-  if value == 28 then
-    return "Cancel Reason: Canceled For Fok (28)"
-  end
-  if value == 31 then
-    return "Cancel Reason: Canceled For Market (31)"
-  end
+ice_icefutures_bgw_sbe_v7_0.cancel_reason.labels = {
+  [0] = "Cancel Reason: Canceled By User (0)",
+  [7] = "Cancel Reason: Canceled By System (7)",
+  [10] = "Cancel Reason: Canceled For Reasonability Limits (10)",
+  [11] = "Cancel Reason: Canceled At Market Close (11)",
+  [13] = "Cancel Reason: Canceled For Ipl (13)",
+  [27] = "Cancel Reason: Canceled For Ioc (27)",
+  [28] = "Cancel Reason: Canceled For Fok (28)",
+  [31] = "Cancel Reason: Canceled For Market (31)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.cancel_reason.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -1193,15 +1167,13 @@ ice_icefutures_bgw_sbe_v7_0.clearable = {}
 ice_icefutures_bgw_sbe_v7_0.clearable.size = 1
 
 -- Display: Clearable
-ice_icefutures_bgw_sbe_v7_0.clearable.display = function(value)
-  if value == 0 then
-    return "Clearable: False (0)"
-  end
-  if value == 1 then
-    return "Clearable: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.clearable.labels = {
+  [0] = "Clearable: False (0)",
+  [1] = "Clearable: True (1)",
+}
 
-  return "Clearable: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.clearable.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.clearable.labels[value] or "Clearable: Unknown("..value..")"
 end
 
 -- Dissect: Clearable
@@ -1435,15 +1407,13 @@ ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator = {}
 ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator.size = 1
 
 -- Display: Commodity Deriv Indicator
-ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator.display = function(value)
-  if value == 0 then
-    return "Commodity Deriv Indicator: False (0)"
-  end
-  if value == 1 then
-    return "Commodity Deriv Indicator: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator.labels = {
+  [0] = "Commodity Deriv Indicator: False (0)",
+  [1] = "Commodity Deriv Indicator: True (1)",
+}
 
-  return "Commodity Deriv Indicator: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator.labels[value] or "Commodity Deriv Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Commodity Deriv Indicator
@@ -1643,15 +1613,13 @@ ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed.size = 1
 
 -- Display: Crossing Order Futures Allowed
-ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed.display = function(value)
-  if value == 0 then
-    return "Crossing Order Futures Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Crossing Order Futures Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed.labels = {
+  [0] = "Crossing Order Futures Allowed: False (0)",
+  [1] = "Crossing Order Futures Allowed: True (1)",
+}
 
-  return "Crossing Order Futures Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed.labels[value] or "Crossing Order Futures Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Crossing Order Futures Allowed
@@ -1673,15 +1641,13 @@ ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed.size = 1
 
 -- Display: Crossing Order Options Allowed
-ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed.display = function(value)
-  if value == 0 then
-    return "Crossing Order Options Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Crossing Order Options Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed.labels = {
+  [0] = "Crossing Order Options Allowed: False (0)",
+  [1] = "Crossing Order Options Allowed: True (1)",
+}
 
-  return "Crossing Order Options Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed.labels[value] or "Crossing Order Options Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Crossing Order Options Allowed
@@ -1928,15 +1894,13 @@ ice_icefutures_bgw_sbe_v7_0.direct_electronic_access = {}
 ice_icefutures_bgw_sbe_v7_0.direct_electronic_access.size = 1
 
 -- Display: Direct Electronic Access
-ice_icefutures_bgw_sbe_v7_0.direct_electronic_access.display = function(value)
-  if value == 0 then
-    return "Direct Electronic Access: False (0)"
-  end
-  if value == 1 then
-    return "Direct Electronic Access: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.direct_electronic_access.labels = {
+  [0] = "Direct Electronic Access: False (0)",
+  [1] = "Direct Electronic Access: True (1)",
+}
 
-  return "Direct Electronic Access: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.direct_electronic_access.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.direct_electronic_access.labels[value] or "Direct Electronic Access: Unknown("..value..")"
 end
 
 -- Dissect: Direct Electronic Access
@@ -2050,18 +2014,14 @@ ice_icefutures_bgw_sbe_v7_0.exchange_silo = {}
 ice_icefutures_bgw_sbe_v7_0.exchange_silo.size = 1
 
 -- Display: Exchange Silo
-ice_icefutures_bgw_sbe_v7_0.exchange_silo.display = function(value)
-  if value == 0 then
-    return "Exchange Silo: Ice (0)"
-  end
-  if value == 1 then
-    return "Exchange Silo: Endex (1)"
-  end
-  if value == 2 then
-    return "Exchange Silo: Liffe (2)"
-  end
+ice_icefutures_bgw_sbe_v7_0.exchange_silo.labels = {
+  [0] = "Exchange Silo: Ice (0)",
+  [1] = "Exchange Silo: Endex (1)",
+  [2] = "Exchange Silo: Liffe (2)",
+}
 
-  return "Exchange Silo: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.exchange_silo.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.exchange_silo.labels[value] or "Exchange Silo: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Silo
@@ -2175,15 +2135,13 @@ ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason = {}
 ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.size = 1
 
 -- Display: Exec Restatement Reason
-ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.display = function(value)
-  if value == 3 then
-    return "Exec Restatement Reason: Repriced (3)"
-  end
-  if value == 99 then
-    return "Exec Restatement Reason: Other (99)"
-  end
+ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.labels = {
+  [3] = "Exec Restatement Reason: Repriced (3)",
+  [99] = "Exec Restatement Reason: Other (99)",
+}
 
-  return "Exec Restatement Reason: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.labels[value] or "Exec Restatement Reason: Unknown("..value..")"
 end
 
 -- Dissect: Exec Restatement Reason
@@ -2315,15 +2273,13 @@ ice_icefutures_bgw_sbe_v7_0.flex_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.flex_allowed.size = 1
 
 -- Display: Flex Allowed
-ice_icefutures_bgw_sbe_v7_0.flex_allowed.display = function(value)
-  if value == 0 then
-    return "Flex Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Flex Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.flex_allowed.labels = {
+  [0] = "Flex Allowed: False (0)",
+  [1] = "Flex Allowed: True (1)",
+}
 
-  return "Flex Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.flex_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.flex_allowed.labels[value] or "Flex Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Flex Allowed
@@ -2345,15 +2301,13 @@ ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed.size = 1
 
 -- Display: Flex Strike Allowed
-ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed.display = function(value)
-  if value == 0 then
-    return "Flex Strike Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Flex Strike Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed.labels = {
+  [0] = "Flex Strike Allowed: False (0)",
+  [1] = "Flex Strike Allowed: True (1)",
+}
 
-  return "Flex Strike Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed.labels[value] or "Flex Strike Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Flex Strike Allowed
@@ -2375,15 +2329,13 @@ ice_icefutures_bgw_sbe_v7_0.gap_fill_flag = {}
 ice_icefutures_bgw_sbe_v7_0.gap_fill_flag.size = 1
 
 -- Display: Gap Fill Flag
-ice_icefutures_bgw_sbe_v7_0.gap_fill_flag.display = function(value)
-  if value == 0 then
-    return "Gap Fill Flag: False (0)"
-  end
-  if value == 1 then
-    return "Gap Fill Flag: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.gap_fill_flag.labels = {
+  [0] = "Gap Fill Flag: False (0)",
+  [1] = "Gap Fill Flag: True (1)",
+}
 
-  return "Gap Fill Flag: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.gap_fill_flag.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.gap_fill_flag.labels[value] or "Gap Fill Flag: Unknown("..value..")"
 end
 
 -- Dissect: Gap Fill Flag
@@ -2467,15 +2419,13 @@ ice_icefutures_bgw_sbe_v7_0.gt_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.gt_allowed.size = 1
 
 -- Display: Gt Allowed
-ice_icefutures_bgw_sbe_v7_0.gt_allowed.display = function(value)
-  if value == 0 then
-    return "Gt Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Gt Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.gt_allowed.labels = {
+  [0] = "Gt Allowed: False (0)",
+  [1] = "Gt Allowed: True (1)",
+}
 
-  return "Gt Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.gt_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.gt_allowed.labels[value] or "Gt Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Gt Allowed
@@ -2543,15 +2493,13 @@ ice_icefutures_bgw_sbe_v7_0.hedge_only = {}
 ice_icefutures_bgw_sbe_v7_0.hedge_only.size = 1
 
 -- Display: Hedge Only
-ice_icefutures_bgw_sbe_v7_0.hedge_only.display = function(value)
-  if value == 0 then
-    return "Hedge Only: False (0)"
-  end
-  if value == 1 then
-    return "Hedge Only: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.hedge_only.labels = {
+  [0] = "Hedge Only: False (0)",
+  [1] = "Hedge Only: True (1)",
+}
 
-  return "Hedge Only: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.hedge_only.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.hedge_only.labels[value] or "Hedge Only: Unknown("..value..")"
 end
 
 -- Dissect: Hedge Only
@@ -2951,15 +2899,13 @@ ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted = {}
 ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted.size = 1
 
 -- Display: Is Dividend Adjusted
-ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted.display = function(value)
-  if value == 0 then
-    return "Is Dividend Adjusted: False (0)"
-  end
-  if value == 1 then
-    return "Is Dividend Adjusted: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted.labels = {
+  [0] = "Is Dividend Adjusted: False (0)",
+  [1] = "Is Dividend Adjusted: True (1)",
+}
 
-  return "Is Dividend Adjusted: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted.labels[value] or "Is Dividend Adjusted: Unknown("..value..")"
 end
 
 -- Dissect: Is Dividend Adjusted
@@ -3073,15 +3019,13 @@ ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed = {}
 ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed.size = 1
 
 -- Display: Leg Deals Suppressed
-ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed.display = function(value)
-  if value == 0 then
-    return "Leg Deals Suppressed: False (0)"
-  end
-  if value == 1 then
-    return "Leg Deals Suppressed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed.labels = {
+  [0] = "Leg Deals Suppressed: False (0)",
+  [1] = "Leg Deals Suppressed: True (1)",
+}
 
-  return "Leg Deals Suppressed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed.labels[value] or "Leg Deals Suppressed: Unknown("..value..")"
 end
 
 -- Dissect: Leg Deals Suppressed
@@ -3457,21 +3401,15 @@ ice_icefutures_bgw_sbe_v7_0.leg_security_type = {}
 ice_icefutures_bgw_sbe_v7_0.leg_security_type.size = 1
 
 -- Display: Leg Security Type
-ice_icefutures_bgw_sbe_v7_0.leg_security_type.display = function(value)
-  if value == 1 then
-    return "Leg Security Type: Fut (1)"
-  end
-  if value == 2 then
-    return "Leg Security Type: Opt (2)"
-  end
-  if value == 3 then
-    return "Leg Security Type: Common Stock (3)"
-  end
-  if value == 4 then
-    return "Leg Security Type: Mleg (4)"
-  end
+ice_icefutures_bgw_sbe_v7_0.leg_security_type.labels = {
+  [1] = "Leg Security Type: Fut (1)",
+  [2] = "Leg Security Type: Opt (2)",
+  [3] = "Leg Security Type: Common Stock (3)",
+  [4] = "Leg Security Type: Mleg (4)",
+}
 
-  return "Leg Security Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.leg_security_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.leg_security_type.labels[value] or "Leg Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Leg Security Type
@@ -3493,15 +3431,13 @@ ice_icefutures_bgw_sbe_v7_0.leg_side = {}
 ice_icefutures_bgw_sbe_v7_0.leg_side.size = 1
 
 -- Display: Leg Side
-ice_icefutures_bgw_sbe_v7_0.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell (2)"
-  end
+ice_icefutures_bgw_sbe_v7_0.leg_side.labels = {
+  [1] = "Leg Side: Buy (1)",
+  [2] = "Leg Side: Sell (2)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.leg_side.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -3592,15 +3528,13 @@ ice_icefutures_bgw_sbe_v7_0.liquidity_provision = {}
 ice_icefutures_bgw_sbe_v7_0.liquidity_provision.size = 1
 
 -- Display: Liquidity Provision
-ice_icefutures_bgw_sbe_v7_0.liquidity_provision.display = function(value)
-  if value == 0 then
-    return "Liquidity Provision: False (0)"
-  end
-  if value == 1 then
-    return "Liquidity Provision: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.liquidity_provision.labels = {
+  [0] = "Liquidity Provision: False (0)",
+  [1] = "Liquidity Provision: True (1)",
+}
 
-  return "Liquidity Provision: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.liquidity_provision.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.liquidity_provision.labels[value] or "Liquidity Provision: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Provision
@@ -3714,15 +3648,13 @@ ice_icefutures_bgw_sbe_v7_0.manual_order_indicator = {}
 ice_icefutures_bgw_sbe_v7_0.manual_order_indicator.size = 1
 
 -- Display: Manual Order Indicator
-ice_icefutures_bgw_sbe_v7_0.manual_order_indicator.display = function(value)
-  if value == 0 then
-    return "Manual Order Indicator: False (0)"
-  end
-  if value == 1 then
-    return "Manual Order Indicator: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.manual_order_indicator.labels = {
+  [0] = "Manual Order Indicator: False (0)",
+  [1] = "Manual Order Indicator: True (1)",
+}
 
-  return "Manual Order Indicator: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.manual_order_indicator.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.manual_order_indicator.labels[value] or "Manual Order Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Manual Order Indicator
@@ -3744,15 +3676,13 @@ ice_icefutures_bgw_sbe_v7_0.market_transparency_type = {}
 ice_icefutures_bgw_sbe_v7_0.market_transparency_type.size = 1
 
 -- Display: Market Transparency Type
-ice_icefutures_bgw_sbe_v7_0.market_transparency_type.display = function(value)
-  if value == 0 then
-    return "Market Transparency Type: False (0)"
-  end
-  if value == 1 then
-    return "Market Transparency Type: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.market_transparency_type.labels = {
+  [0] = "Market Transparency Type: False (0)",
+  [1] = "Market Transparency Type: True (1)",
+}
 
-  return "Market Transparency Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.market_transparency_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.market_transparency_type.labels[value] or "Market Transparency Type: Unknown("..value..")"
 end
 
 -- Dissect: Market Transparency Type
@@ -3820,21 +3750,15 @@ ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason = {}
 ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.size = 1
 
 -- Display: Mass Cancel Reject Reason
-ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Reject Reason: Unsupported (0)"
-  end
-  if value == 6 then
-    return "Mass Cancel Reject Reason: Invalid Trading Session (6)"
-  end
-  if value == 7 then
-    return "Mass Cancel Reject Reason: Invalid Market (7)"
-  end
-  if value == 99 then
-    return "Mass Cancel Reject Reason: Other (99)"
-  end
+ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.labels = {
+  [0] = "Mass Cancel Reject Reason: Unsupported (0)",
+  [6] = "Mass Cancel Reject Reason: Invalid Trading Session (6)",
+  [7] = "Mass Cancel Reject Reason: Invalid Market (7)",
+  [99] = "Mass Cancel Reject Reason: Other (99)",
+}
 
-  return "Mass Cancel Reject Reason: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.labels[value] or "Mass Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Reject Reason
@@ -3856,15 +3780,13 @@ ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type = {}
 ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.size = 1
 
 -- Display: Mass Cancel Request Type
-ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.display = function(value)
-  if value == 6 then
-    return "Mass Cancel Request Type: Cancel For Trading Session (6)"
-  end
-  if value == 10 then
-    return "Mass Cancel Request Type: Cancel All For Trader (10)"
-  end
+ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.labels = {
+  [6] = "Mass Cancel Request Type: Cancel For Trading Session (6)",
+  [10] = "Mass Cancel Request Type: Cancel All For Trader (10)",
+}
 
-  return "Mass Cancel Request Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.labels[value] or "Mass Cancel Request Type: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Request Type
@@ -3886,18 +3808,14 @@ ice_icefutures_bgw_sbe_v7_0.mass_cancel_response = {}
 ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.size = 1
 
 -- Display: Mass Cancel Response
-ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Response: Rejected (0)"
-  end
-  if value == 6 then
-    return "Mass Cancel Response: Cancel For Trading Session (6)"
-  end
-  if value == 10 then
-    return "Mass Cancel Response: Cancel All For Trader (10)"
-  end
+ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.labels = {
+  [0] = "Mass Cancel Response: Rejected (0)",
+  [6] = "Mass Cancel Response: Cancel For Trading Session (6)",
+  [10] = "Mass Cancel Response: Cancel All For Trader (10)",
+}
 
-  return "Mass Cancel Response: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.labels[value] or "Mass Cancel Response: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Response
@@ -3919,15 +3837,13 @@ ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed.size = 1
 
 -- Display: Mass Quotes Allowed
-ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed.display = function(value)
-  if value == 0 then
-    return "Mass Quotes Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Mass Quotes Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed.labels = {
+  [0] = "Mass Quotes Allowed: False (0)",
+  [1] = "Mass Quotes Allowed: True (1)",
+}
 
-  return "Mass Quotes Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed.labels[value] or "Mass Quotes Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Mass Quotes Allowed
@@ -4149,15 +4065,13 @@ ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum = {}
 ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum.size = 1
 
 -- Display: Mifid Regulated Market Boolean Enum
-ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum.display = function(value)
-  if value == 0 then
-    return "Mifid Regulated Market Boolean Enum: False (0)"
-  end
-  if value == 1 then
-    return "Mifid Regulated Market Boolean Enum: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum.labels = {
+  [0] = "Mifid Regulated Market Boolean Enum: False (0)",
+  [1] = "Mifid Regulated Market Boolean Enum: True (1)",
+}
 
-  return "Mifid Regulated Market Boolean Enum: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum.labels[value] or "Mifid Regulated Market Boolean Enum: Unknown("..value..")"
 end
 
 -- Dissect: Mifid Regulated Market Boolean Enum
@@ -4179,15 +4093,13 @@ ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null = {}
 ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null.size = 1
 
 -- Display: Mifid Regulated Market Boolean Enum Null
-ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null.display = function(value)
-  if value == 0 then
-    return "Mifid Regulated Market Boolean Enum Null: False (0)"
-  end
-  if value == 1 then
-    return "Mifid Regulated Market Boolean Enum Null: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null.labels = {
+  [0] = "Mifid Regulated Market Boolean Enum Null: False (0)",
+  [1] = "Mifid Regulated Market Boolean Enum Null: True (1)",
+}
 
-  return "Mifid Regulated Market Boolean Enum Null: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null.labels[value] or "Mifid Regulated Market Boolean Enum Null: Unknown("..value..")"
 end
 
 -- Dissect: Mifid Regulated Market Boolean Enum Null
@@ -4301,15 +4213,13 @@ ice_icefutures_bgw_sbe_v7_0.non_commoditized_market = {}
 ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.size = 1
 
 -- Display: Non Commoditized Market
-ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.display = function(value)
-  if value == 0 then
-    return "Non Commoditized Market: False (0)"
-  end
-  if value == 1 then
-    return "Non Commoditized Market: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.labels = {
+  [0] = "Non Commoditized Market: False (0)",
+  [1] = "Non Commoditized Market: True (1)",
+}
 
-  return "Non Commoditized Market: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.labels[value] or "Non Commoditized Market: Unknown("..value..")"
 end
 
 -- Dissect: Non Commoditized Market
@@ -4825,15 +4735,13 @@ ice_icefutures_bgw_sbe_v7_0.options_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.options_allowed.size = 1
 
 -- Display: Options Allowed
-ice_icefutures_bgw_sbe_v7_0.options_allowed.display = function(value)
-  if value == 0 then
-    return "Options Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Options Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.options_allowed.labels = {
+  [0] = "Options Allowed: False (0)",
+  [1] = "Options Allowed: True (1)",
+}
 
-  return "Options Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.options_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.options_allowed.labels[value] or "Options Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Options Allowed
@@ -4855,21 +4763,15 @@ ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum = {}
 ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.size = 1
 
 -- Display: Ord Type Order Type Enum
-ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.display = function(value)
-  if value == 1 then
-    return "Ord Type Order Type Enum: Market (1)"
-  end
-  if value == 2 then
-    return "Ord Type Order Type Enum: Limit (2)"
-  end
-  if value == 3 then
-    return "Ord Type Order Type Enum: Stop (3)"
-  end
-  if value == 4 then
-    return "Ord Type Order Type Enum: Stop Limit (4)"
-  end
+ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.labels = {
+  [1] = "Ord Type Order Type Enum: Market (1)",
+  [2] = "Ord Type Order Type Enum: Limit (2)",
+  [3] = "Ord Type Order Type Enum: Stop (3)",
+  [4] = "Ord Type Order Type Enum: Stop Limit (4)",
+}
 
-  return "Ord Type Order Type Enum: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.labels[value] or "Ord Type Order Type Enum: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type Order Type Enum
@@ -4891,21 +4793,15 @@ ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null = {}
 ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.size = 1
 
 -- Display: Ord Type Order Type Enum Null
-ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.display = function(value)
-  if value == 1 then
-    return "Ord Type Order Type Enum Null: Market (1)"
-  end
-  if value == 2 then
-    return "Ord Type Order Type Enum Null: Limit (2)"
-  end
-  if value == 3 then
-    return "Ord Type Order Type Enum Null: Stop (3)"
-  end
-  if value == 4 then
-    return "Ord Type Order Type Enum Null: Stop Limit (4)"
-  end
+ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.labels = {
+  [1] = "Ord Type Order Type Enum Null: Market (1)",
+  [2] = "Ord Type Order Type Enum Null: Limit (2)",
+  [3] = "Ord Type Order Type Enum Null: Stop (3)",
+  [4] = "Ord Type Order Type Enum Null: Stop Limit (4)",
+}
 
-  return "Ord Type Order Type Enum Null: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.labels[value] or "Ord Type Order Type Enum Null: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type Order Type Enum Null
@@ -4996,24 +4892,16 @@ ice_icefutures_bgw_sbe_v7_0.order_state = {}
 ice_icefutures_bgw_sbe_v7_0.order_state.size = 1
 
 -- Display: Order State
-ice_icefutures_bgw_sbe_v7_0.order_state.display = function(value)
-  if value == 0 then
-    return "Order State: Active (0)"
-  end
-  if value == 1 then
-    return "Order State: Inactive (1)"
-  end
-  if value == 2 then
-    return "Order State: Withdrawn (2)"
-  end
-  if value == 4 then
-    return "Order State: Consummated (4)"
-  end
-  if value == 6 then
-    return "Order State: Elected (6)"
-  end
+ice_icefutures_bgw_sbe_v7_0.order_state.labels = {
+  [0] = "Order State: Active (0)",
+  [1] = "Order State: Inactive (1)",
+  [2] = "Order State: Withdrawn (2)",
+  [4] = "Order State: Consummated (4)",
+  [6] = "Order State: Elected (6)",
+}
 
-  return "Order State: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.order_state.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.order_state.labels[value] or "Order State: Unknown("..value..")"
 end
 
 -- Dissect: Order State
@@ -5035,27 +4923,17 @@ ice_icefutures_bgw_sbe_v7_0.order_status = {}
 ice_icefutures_bgw_sbe_v7_0.order_status.size = 1
 
 -- Display: Order Status
-ice_icefutures_bgw_sbe_v7_0.order_status.display = function(value)
-  if value == 0 then
-    return "Order Status: New (0)"
-  end
-  if value == 1 then
-    return "Order Status: Partial Fill (1)"
-  end
-  if value == 2 then
-    return "Order Status: Fill (2)"
-  end
-  if value == 4 then
-    return "Order Status: Canceled (4)"
-  end
-  if value == 5 then
-    return "Order Status: Replace (5)"
-  end
-  if value == 8 then
-    return "Order Status: Rejected (8)"
-  end
+ice_icefutures_bgw_sbe_v7_0.order_status.labels = {
+  [0] = "Order Status: New (0)",
+  [1] = "Order Status: Partial Fill (1)",
+  [2] = "Order Status: Fill (2)",
+  [4] = "Order Status: Canceled (4)",
+  [5] = "Order Status: Replace (5)",
+  [8] = "Order Status: Rejected (8)",
+}
 
-  return "Order Status: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.order_status.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.order_status.labels[value] or "Order Status: Unknown("..value..")"
 end
 
 -- Dissect: Order Status
@@ -5208,15 +5086,13 @@ ice_icefutures_bgw_sbe_v7_0.override_block_min = {}
 ice_icefutures_bgw_sbe_v7_0.override_block_min.size = 1
 
 -- Display: Override Block Min
-ice_icefutures_bgw_sbe_v7_0.override_block_min.display = function(value)
-  if value == 0 then
-    return "Override Block Min: False (0)"
-  end
-  if value == 1 then
-    return "Override Block Min: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.override_block_min.labels = {
+  [0] = "Override Block Min: False (0)",
+  [1] = "Override Block Min: True (1)",
+}
 
-  return "Override Block Min: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.override_block_min.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.override_block_min.labels[value] or "Override Block Min: Unknown("..value..")"
 end
 
 -- Dissect: Override Block Min
@@ -5434,27 +5310,17 @@ ice_icefutures_bgw_sbe_v7_0.price_type = {}
 ice_icefutures_bgw_sbe_v7_0.price_type.size = 1
 
 -- Display: Price Type
-ice_icefutures_bgw_sbe_v7_0.price_type.display = function(value)
-  if value == 2 then
-    return "Price Type: Per Contract (2)"
-  end
-  if value == 10 then
-    return "Price Type: Fixed Cabinet Trade Price (10)"
-  end
-  if value == 100 then
-    return "Price Type: Fixed Rate (100)"
-  end
-  if value == 101 then
-    return "Price Type: Npv (101)"
-  end
-  if value == 102 then
-    return "Price Type: Rate Differential (102)"
-  end
-  if value == 103 then
-    return "Price Type: Npv Differential (103)"
-  end
+ice_icefutures_bgw_sbe_v7_0.price_type.labels = {
+  [2] = "Price Type: Per Contract (2)",
+  [10] = "Price Type: Fixed Cabinet Trade Price (10)",
+  [100] = "Price Type: Fixed Rate (100)",
+  [101] = "Price Type: Npv (101)",
+  [102] = "Price Type: Rate Differential (102)",
+  [103] = "Price Type: Npv Differential (103)",
+}
 
-  return "Price Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.price_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.price_type.labels[value] or "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -5729,15 +5595,13 @@ ice_icefutures_bgw_sbe_v7_0.put_or_call = {}
 ice_icefutures_bgw_sbe_v7_0.put_or_call.size = 1
 
 -- Display: Put Or Call
-ice_icefutures_bgw_sbe_v7_0.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: False (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.put_or_call.labels = {
+  [0] = "Put Or Call: False (0)",
+  [1] = "Put Or Call: True (1)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.put_or_call.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -5759,24 +5623,16 @@ ice_icefutures_bgw_sbe_v7_0.quote_ack_status = {}
 ice_icefutures_bgw_sbe_v7_0.quote_ack_status.size = 2
 
 -- Display: Quote Ack Status
-ice_icefutures_bgw_sbe_v7_0.quote_ack_status.display = function(value)
-  if value == 0 then
-    return "Quote Ack Status: Accepted (0)"
-  end
-  if value == 4 then
-    return "Quote Ack Status: Cancelled All (4)"
-  end
-  if value == 5 then
-    return "Quote Ack Status: Rejected (5)"
-  end
-  if value == 200 then
-    return "Quote Ack Status: Partially Cancelled (200)"
-  end
-  if value == 300 then
-    return "Quote Ack Status: Unreasonable Quotes (300)"
-  end
+ice_icefutures_bgw_sbe_v7_0.quote_ack_status.labels = {
+  [0] = "Quote Ack Status: Accepted (0)",
+  [4] = "Quote Ack Status: Cancelled All (4)",
+  [5] = "Quote Ack Status: Rejected (5)",
+  [200] = "Quote Ack Status: Partially Cancelled (200)",
+  [300] = "Quote Ack Status: Unreasonable Quotes (300)",
+}
 
-  return "Quote Ack Status: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.quote_ack_status.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.quote_ack_status.labels[value] or "Quote Ack Status: Unknown("..value..")"
 end
 
 -- Dissect: Quote Ack Status
@@ -5798,18 +5654,14 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_type = {}
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_type.size = 1
 
 -- Display: Quote Cancel Type
-ice_icefutures_bgw_sbe_v7_0.quote_cancel_type.display = function(value)
-  if value == 3 then
-    return "Quote Cancel Type: Cancel By Underlying Market (3)"
-  end
-  if value == 4 then
-    return "Quote Cancel Type: Cancel All (4)"
-  end
-  if value == 5 then
-    return "Quote Cancel Type: Cancel By Product Id (5)"
-  end
+ice_icefutures_bgw_sbe_v7_0.quote_cancel_type.labels = {
+  [3] = "Quote Cancel Type: Cancel By Underlying Market (3)",
+  [4] = "Quote Cancel Type: Cancel All (4)",
+  [5] = "Quote Cancel Type: Cancel By Product Id (5)",
+}
 
-  return "Quote Cancel Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.quote_cancel_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.quote_cancel_type.labels[value] or "Quote Cancel Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Cancel Type
@@ -5877,18 +5729,14 @@ ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason = {}
 ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason.size = 1
 
 -- Display: Quote Entry Reject Reason
-ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason.display = function(value)
-  if value == 99 then
-    return "Quote Entry Reject Reason: Other (99)"
-  end
-  if value == 102 then
-    return "Quote Entry Reject Reason: Risk Protection Active (102)"
-  end
-  if value == 113 then
-    return "Quote Entry Reject Reason: Risk Protection Active For Sell Side (113)"
-  end
+ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason.labels = {
+  [99] = "Quote Entry Reject Reason: Other (99)",
+  [102] = "Quote Entry Reject Reason: Risk Protection Active (102)",
+  [113] = "Quote Entry Reject Reason: Risk Protection Active For Sell Side (113)",
+}
 
-  return "Quote Entry Reject Reason: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason.labels[value] or "Quote Entry Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Quote Entry Reject Reason
@@ -5972,51 +5820,25 @@ ice_icefutures_bgw_sbe_v7_0.quote_reject_reason = {}
 ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.size = 1
 
 -- Display: Quote Reject Reason
-ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.display = function(value)
-  if value == 0 then
-    return "Quote Reject Reason: Accepted (0)"
-  end
-  if value == 99 then
-    return "Quote Reject Reason: Other (99)"
-  end
-  if value == 100 then
-    return "Quote Reject Reason: Validation Failure (100)"
-  end
-  if value == 101 then
-    return "Quote Reject Reason: Invalid User Id (101)"
-  end
-  if value == 102 then
-    return "Quote Reject Reason: Risk Protection Active (102)"
-  end
-  if value == 104 then
-    return "Quote Reject Reason: No Clearing Account For Trader (104)"
-  end
-  if value == 105 then
-    return "Quote Reject Reason: No Mass Quote Sets (105)"
-  end
-  if value == 106 then
-    return "Quote Reject Reason: First Set Mass Quote Is Empty (106)"
-  end
-  if value == 107 then
-    return "Quote Reject Reason: Invalid Clearing Account Status (107)"
-  end
-  if value == 108 then
-    return "Quote Reject Reason: Invalid Clearing Limits (108)"
-  end
-  if value == 109 then
-    return "Quote Reject Reason: Invalid Market Id (109)"
-  end
-  if value == 110 then
-    return "Quote Reject Reason: Exceeds Allowed Mass Quote Sets (110)"
-  end
-  if value == 111 then
-    return "Quote Reject Reason: Exceeds Allowed Mass Quotes (111)"
-  end
-  if value == 112 then
-    return "Quote Reject Reason: Invalid Mass Quote Id (112)"
-  end
+ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.labels = {
+  [0] = "Quote Reject Reason: Accepted (0)",
+  [99] = "Quote Reject Reason: Other (99)",
+  [100] = "Quote Reject Reason: Validation Failure (100)",
+  [101] = "Quote Reject Reason: Invalid User Id (101)",
+  [102] = "Quote Reject Reason: Risk Protection Active (102)",
+  [104] = "Quote Reject Reason: No Clearing Account For Trader (104)",
+  [105] = "Quote Reject Reason: No Mass Quote Sets (105)",
+  [106] = "Quote Reject Reason: First Set Mass Quote Is Empty (106)",
+  [107] = "Quote Reject Reason: Invalid Clearing Account Status (107)",
+  [108] = "Quote Reject Reason: Invalid Clearing Limits (108)",
+  [109] = "Quote Reject Reason: Invalid Market Id (109)",
+  [110] = "Quote Reject Reason: Exceeds Allowed Mass Quote Sets (110)",
+  [111] = "Quote Reject Reason: Exceeds Allowed Mass Quotes (111)",
+  [112] = "Quote Reject Reason: Invalid Mass Quote Id (112)",
+}
 
-  return "Quote Reject Reason: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.labels[value] or "Quote Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Quote Reject Reason
@@ -6146,45 +5968,23 @@ ice_icefutures_bgw_sbe_v7_0.reject_reason = {}
 ice_icefutures_bgw_sbe_v7_0.reject_reason.size = 1
 
 -- Display: Reject Reason
-ice_icefutures_bgw_sbe_v7_0.reject_reason.display = function(value)
-  if value == 0 then
-    return "Reject Reason: Too Late To Cancel (0)"
-  end
-  if value == 1 then
-    return "Reject Reason: Unknown Symbol (1)"
-  end
-  if value == 2 then
-    return "Reject Reason: Exchange Closed (2)"
-  end
-  if value == 3 then
-    return "Reject Reason: Order Exceeds Limit (3)"
-  end
-  if value == 4 then
-    return "Reject Reason: Unable To Process Request (4)"
-  end
-  if value == 5 then
-    return "Reject Reason: Unknown Order (5)"
-  end
-  if value == 6 then
-    return "Reject Reason: Duplicate Order (6)"
-  end
-  if value == 7 then
-    return "Reject Reason: Missing Permissions (7)"
-  end
-  if value == 9 then
-    return "Reject Reason: User Defined (9)"
-  end
-  if value == 10 then
-    return "Reject Reason: Cancel Or Replace Pending (10)"
-  end
-  if value == 11 then
-    return "Reject Reason: Unsupported (11)"
-  end
-  if value == 12 then
-    return "Reject Reason: Risk Protection Active (12)"
-  end
+ice_icefutures_bgw_sbe_v7_0.reject_reason.labels = {
+  [0] = "Reject Reason: Too Late To Cancel (0)",
+  [1] = "Reject Reason: Unknown Symbol (1)",
+  [2] = "Reject Reason: Exchange Closed (2)",
+  [3] = "Reject Reason: Order Exceeds Limit (3)",
+  [4] = "Reject Reason: Unable To Process Request (4)",
+  [5] = "Reject Reason: Unknown Order (5)",
+  [6] = "Reject Reason: Duplicate Order (6)",
+  [7] = "Reject Reason: Missing Permissions (7)",
+  [9] = "Reject Reason: User Defined (9)",
+  [10] = "Reject Reason: Cancel Or Replace Pending (10)",
+  [11] = "Reject Reason: Unsupported (11)",
+  [12] = "Reject Reason: Risk Protection Active (12)",
+}
 
-  return "Reject Reason: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.reject_reason.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.reject_reason.labels[value] or "Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason
@@ -6206,18 +6006,14 @@ ice_icefutures_bgw_sbe_v7_0.reject_response_to = {}
 ice_icefutures_bgw_sbe_v7_0.reject_response_to.size = 1
 
 -- Display: Reject Response To
-ice_icefutures_bgw_sbe_v7_0.reject_response_to.display = function(value)
-  if value == 1 then
-    return "Reject Response To: Cancel (1)"
-  end
-  if value == 2 then
-    return "Reject Response To: Cancel Replace (2)"
-  end
-  if value == 3 then
-    return "Reject Response To: New Order (3)"
-  end
+ice_icefutures_bgw_sbe_v7_0.reject_response_to.labels = {
+  [1] = "Reject Response To: Cancel (1)",
+  [2] = "Reject Response To: Cancel Replace (2)",
+  [3] = "Reject Response To: New Order (3)",
+}
 
-  return "Reject Response To: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.reject_response_to.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.reject_response_to.labels[value] or "Reject Response To: Unknown("..value..")"
 end
 
 -- Dissect: Reject Response To
@@ -6239,24 +6035,16 @@ ice_icefutures_bgw_sbe_v7_0.rfc_status = {}
 ice_icefutures_bgw_sbe_v7_0.rfc_status.size = 1
 
 -- Display: Rfc Status
-ice_icefutures_bgw_sbe_v7_0.rfc_status.display = function(value)
-  if value == 0 then
-    return "Rfc Status: None (0)"
-  end
-  if value == 1 then
-    return "Rfc Status: Success (1)"
-  end
-  if value == 2 then
-    return "Rfc Status: Partial Success Bid Failure (2)"
-  end
-  if value == 3 then
-    return "Rfc Status: Partial Success Offer Failure (3)"
-  end
-  if value == 4 then
-    return "Rfc Status: Failure (4)"
-  end
+ice_icefutures_bgw_sbe_v7_0.rfc_status.labels = {
+  [0] = "Rfc Status: None (0)",
+  [1] = "Rfc Status: Success (1)",
+  [2] = "Rfc Status: Partial Success Bid Failure (2)",
+  [3] = "Rfc Status: Partial Success Offer Failure (3)",
+  [4] = "Rfc Status: Failure (4)",
+}
 
-  return "Rfc Status: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.rfc_status.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.rfc_status.labels[value] or "Rfc Status: Unknown("..value..")"
 end
 
 -- Dissect: Rfc Status
@@ -6278,15 +6066,13 @@ ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed.size = 1
 
 -- Display: Rfq Futures Allowed
-ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed.display = function(value)
-  if value == 0 then
-    return "Rfq Futures Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Rfq Futures Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed.labels = {
+  [0] = "Rfq Futures Allowed: False (0)",
+  [1] = "Rfq Futures Allowed: True (1)",
+}
 
-  return "Rfq Futures Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed.labels[value] or "Rfq Futures Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Rfq Futures Allowed
@@ -6308,15 +6094,13 @@ ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed.size = 1
 
 -- Display: Rfq Options Allowed
-ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed.display = function(value)
-  if value == 0 then
-    return "Rfq Options Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Rfq Options Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed.labels = {
+  [0] = "Rfq Options Allowed: False (0)",
+  [1] = "Rfq Options Allowed: True (1)",
+}
 
-  return "Rfq Options Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed.labels[value] or "Rfq Options Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Rfq Options Allowed
@@ -6384,15 +6168,13 @@ ice_icefutures_bgw_sbe_v7_0.risk_protection_reset = {}
 ice_icefutures_bgw_sbe_v7_0.risk_protection_reset.size = 1
 
 -- Display: Risk Protection Reset
-ice_icefutures_bgw_sbe_v7_0.risk_protection_reset.display = function(value)
-  if value == 0 then
-    return "Risk Protection Reset: False (0)"
-  end
-  if value == 1 then
-    return "Risk Protection Reset: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.risk_protection_reset.labels = {
+  [0] = "Risk Protection Reset: False (0)",
+  [1] = "Risk Protection Reset: True (1)",
+}
 
-  return "Risk Protection Reset: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.risk_protection_reset.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.risk_protection_reset.labels[value] or "Risk Protection Reset: Unknown("..value..")"
 end
 
 -- Dissect: Risk Protection Reset
@@ -6737,30 +6519,18 @@ ice_icefutures_bgw_sbe_v7_0.security_request_type = {}
 ice_icefutures_bgw_sbe_v7_0.security_request_type.size = 1
 
 -- Display: Security Request Type
-ice_icefutures_bgw_sbe_v7_0.security_request_type.display = function(value)
-  if value == 1 then
-    return "Security Request Type: Create Strategy (1)"
-  end
-  if value == 3 then
-    return "Security Request Type: Request Listof Futures (3)"
-  end
-  if value == 100 then
-    return "Security Request Type: Request Listof Options (100)"
-  end
-  if value == 101 then
-    return "Security Request Type: Request Listof Strategies (101)"
-  end
-  if value == 102 then
-    return "Security Request Type: Create Flex Option (102)"
-  end
-  if value == 103 then
-    return "Security Request Type: Create Flex Expiry (103)"
-  end
-  if value == 104 then
-    return "Security Request Type: Request List Of Products (104)"
-  end
+ice_icefutures_bgw_sbe_v7_0.security_request_type.labels = {
+  [1] = "Security Request Type: Create Strategy (1)",
+  [3] = "Security Request Type: Request Listof Futures (3)",
+  [100] = "Security Request Type: Request Listof Options (100)",
+  [101] = "Security Request Type: Request Listof Strategies (101)",
+  [102] = "Security Request Type: Create Flex Option (102)",
+  [103] = "Security Request Type: Create Flex Expiry (103)",
+  [104] = "Security Request Type: Request List Of Products (104)",
+}
 
-  return "Security Request Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.security_request_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.security_request_type.labels[value] or "Security Request Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Request Type
@@ -6805,21 +6575,15 @@ ice_icefutures_bgw_sbe_v7_0.security_response_type = {}
 ice_icefutures_bgw_sbe_v7_0.security_response_type.size = 1
 
 -- Display: Security Response Type
-ice_icefutures_bgw_sbe_v7_0.security_response_type.display = function(value)
-  if value == 1 then
-    return "Security Response Type: Accepted Security As Defined (1)"
-  end
-  if value == 4 then
-    return "Security Response Type: Accepted Security Per Request (4)"
-  end
-  if value == 5 then
-    return "Security Response Type: Rejected Security Per Request (5)"
-  end
-  if value == 10 then
-    return "Security Response Type: Security Already Defined (10)"
-  end
+ice_icefutures_bgw_sbe_v7_0.security_response_type.labels = {
+  [1] = "Security Response Type: Accepted Security As Defined (1)",
+  [4] = "Security Response Type: Accepted Security Per Request (4)",
+  [5] = "Security Response Type: Rejected Security Per Request (5)",
+  [10] = "Security Response Type: Security Already Defined (10)",
+}
 
-  return "Security Response Type: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.security_response_type.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.security_response_type.labels[value] or "Security Response Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Response Type
@@ -6887,33 +6651,19 @@ ice_icefutures_bgw_sbe_v7_0.security_trading_status = {}
 ice_icefutures_bgw_sbe_v7_0.security_trading_status.size = 1
 
 -- Display: Security Trading Status
-ice_icefutures_bgw_sbe_v7_0.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Trading Halt Suspended (2)"
-  end
-  if value == 4 then
-    return "Security Trading Status: No Open No Resume Pre Close (4)"
-  end
-  if value == 17 then
-    return "Security Trading Status: Ready To Trade Open (17)"
-  end
-  if value == 18 then
-    return "Security Trading Status: Not Available For Trading Close (18)"
-  end
-  if value == 19 then
-    return "Security Trading Status: Not Traded (19)"
-  end
-  if value == 20 then
-    return "Security Trading Status: Unknown Or Invalid Expired (20)"
-  end
-  if value == 21 then
-    return "Security Trading Status: Pre Open (21)"
-  end
-  if value == 100 then
-    return "Security Trading Status: Trading As Strategy Leg Only Open (100)"
-  end
+ice_icefutures_bgw_sbe_v7_0.security_trading_status.labels = {
+  [2] = "Security Trading Status: Trading Halt Suspended (2)",
+  [4] = "Security Trading Status: No Open No Resume Pre Close (4)",
+  [17] = "Security Trading Status: Ready To Trade Open (17)",
+  [18] = "Security Trading Status: Not Available For Trading Close (18)",
+  [19] = "Security Trading Status: Not Traded (19)",
+  [20] = "Security Trading Status: Unknown Or Invalid Expired (20)",
+  [21] = "Security Trading Status: Pre Open (21)",
+  [100] = "Security Trading Status: Trading As Strategy Leg Only Open (100)",
+}
 
-  return "Security Trading Status: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.security_trading_status.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.security_trading_status.labels[value] or "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
@@ -6935,21 +6685,15 @@ ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum = {}
 ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum.size = 1
 
 -- Display: Security Type Security Type Enum
-ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum.display = function(value)
-  if value == 1 then
-    return "Security Type Security Type Enum: Fut (1)"
-  end
-  if value == 2 then
-    return "Security Type Security Type Enum: Opt (2)"
-  end
-  if value == 3 then
-    return "Security Type Security Type Enum: Common Stock (3)"
-  end
-  if value == 4 then
-    return "Security Type Security Type Enum: Mleg (4)"
-  end
+ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum.labels = {
+  [1] = "Security Type Security Type Enum: Fut (1)",
+  [2] = "Security Type Security Type Enum: Opt (2)",
+  [3] = "Security Type Security Type Enum: Common Stock (3)",
+  [4] = "Security Type Security Type Enum: Mleg (4)",
+}
 
-  return "Security Type Security Type Enum: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum.labels[value] or "Security Type Security Type Enum: Unknown("..value..")"
 end
 
 -- Dissect: Security Type Security Type Enum
@@ -6971,21 +6715,15 @@ ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null = {}
 ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.size = 1
 
 -- Display: Security Type Security Type Enum Null
-ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.display = function(value)
-  if value == 1 then
-    return "Security Type Security Type Enum Null: Fut (1)"
-  end
-  if value == 2 then
-    return "Security Type Security Type Enum Null: Opt (2)"
-  end
-  if value == 3 then
-    return "Security Type Security Type Enum Null: Common Stock (3)"
-  end
-  if value == 4 then
-    return "Security Type Security Type Enum Null: Mleg (4)"
-  end
+ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.labels = {
+  [1] = "Security Type Security Type Enum Null: Fut (1)",
+  [2] = "Security Type Security Type Enum Null: Opt (2)",
+  [3] = "Security Type Security Type Enum Null: Common Stock (3)",
+  [4] = "Security Type Security Type Enum Null: Mleg (4)",
+}
 
-  return "Security Type Security Type Enum Null: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.labels[value] or "Security Type Security Type Enum Null: Unknown("..value..")"
 end
 
 -- Dissect: Security Type Security Type Enum Null
@@ -7007,15 +6745,13 @@ ice_icefutures_bgw_sbe_v7_0.self_block_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.self_block_allowed.size = 1
 
 -- Display: Self Block Allowed
-ice_icefutures_bgw_sbe_v7_0.self_block_allowed.display = function(value)
-  if value == 0 then
-    return "Self Block Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Self Block Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.self_block_allowed.labels = {
+  [0] = "Self Block Allowed: False (0)",
+  [1] = "Self Block Allowed: True (1)",
+}
 
-  return "Self Block Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.self_block_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.self_block_allowed.labels[value] or "Self Block Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Self Block Allowed
@@ -7196,21 +6932,15 @@ ice_icefutures_bgw_sbe_v7_0.severity_level = {}
 ice_icefutures_bgw_sbe_v7_0.severity_level.size = 1
 
 -- Display: Severity Level
-ice_icefutures_bgw_sbe_v7_0.severity_level.display = function(value)
-  if value == 1 then
-    return "Severity Level: Info (1)"
-  end
-  if value == 2 then
-    return "Severity Level: Warning (2)"
-  end
-  if value == 3 then
-    return "Severity Level: Error (3)"
-  end
-  if value == 4 then
-    return "Severity Level: Fatal (4)"
-  end
+ice_icefutures_bgw_sbe_v7_0.severity_level.labels = {
+  [1] = "Severity Level: Info (1)",
+  [2] = "Severity Level: Warning (2)",
+  [3] = "Severity Level: Error (3)",
+  [4] = "Severity Level: Fatal (4)",
+}
 
-  return "Severity Level: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.severity_level.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.severity_level.labels[value] or "Severity Level: Unknown("..value..")"
 end
 
 -- Dissect: Severity Level
@@ -7232,15 +6962,13 @@ ice_icefutures_bgw_sbe_v7_0.side_side_enum = {}
 ice_icefutures_bgw_sbe_v7_0.side_side_enum.size = 1
 
 -- Display: Side Side Enum
-ice_icefutures_bgw_sbe_v7_0.side_side_enum.display = function(value)
-  if value == 1 then
-    return "Side Side Enum: Buy (1)"
-  end
-  if value == 2 then
-    return "Side Side Enum: Sell (2)"
-  end
+ice_icefutures_bgw_sbe_v7_0.side_side_enum.labels = {
+  [1] = "Side Side Enum: Buy (1)",
+  [2] = "Side Side Enum: Sell (2)",
+}
 
-  return "Side Side Enum: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.side_side_enum.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.side_side_enum.labels[value] or "Side Side Enum: Unknown("..value..")"
 end
 
 -- Dissect: Side Side Enum
@@ -7262,15 +6990,13 @@ ice_icefutures_bgw_sbe_v7_0.side_side_enum_null = {}
 ice_icefutures_bgw_sbe_v7_0.side_side_enum_null.size = 1
 
 -- Display: Side Side Enum Null
-ice_icefutures_bgw_sbe_v7_0.side_side_enum_null.display = function(value)
-  if value == 1 then
-    return "Side Side Enum Null: Buy (1)"
-  end
-  if value == 2 then
-    return "Side Side Enum Null: Sell (2)"
-  end
+ice_icefutures_bgw_sbe_v7_0.side_side_enum_null.labels = {
+  [1] = "Side Side Enum Null: Buy (1)",
+  [2] = "Side Side Enum Null: Sell (2)",
+}
 
-  return "Side Side Enum Null: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.side_side_enum_null.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.side_side_enum_null.labels[value] or "Side Side Enum Null: Unknown("..value..")"
 end
 
 -- Dissect: Side Side Enum Null
@@ -7315,18 +7041,14 @@ ice_icefutures_bgw_sbe_v7_0.status = {}
 ice_icefutures_bgw_sbe_v7_0.status.size = 1
 
 -- Display: Status
-ice_icefutures_bgw_sbe_v7_0.status.display = function(value)
-  if value == 0 then
-    return "Status: Success (0)"
-  end
-  if value == 1 then
-    return "Status: Partial Success (1)"
-  end
-  if value == 2 then
-    return "Status: Failure (2)"
-  end
+ice_icefutures_bgw_sbe_v7_0.status.labels = {
+  [0] = "Status: Success (0)",
+  [1] = "Status: Partial Success (1)",
+  [2] = "Status: Failure (2)",
+}
 
-  return "Status: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.status.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -7371,15 +7093,13 @@ ice_icefutures_bgw_sbe_v7_0.stops_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.stops_allowed.size = 1
 
 -- Display: Stops Allowed
-ice_icefutures_bgw_sbe_v7_0.stops_allowed.display = function(value)
-  if value == 0 then
-    return "Stops Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Stops Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.stops_allowed.labels = {
+  [0] = "Stops Allowed: False (0)",
+  [1] = "Stops Allowed: True (1)",
+}
 
-  return "Stops Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.stops_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.stops_allowed.labels[value] or "Stops Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Stops Allowed
@@ -7443,18 +7163,14 @@ ice_icefutures_bgw_sbe_v7_0.strike_exercise_style = {}
 ice_icefutures_bgw_sbe_v7_0.strike_exercise_style.size = 1
 
 -- Display: Strike Exercise Style
-ice_icefutures_bgw_sbe_v7_0.strike_exercise_style.display = function(value)
-  if value == 0 then
-    return "Strike Exercise Style: European (0)"
-  end
-  if value == 1 then
-    return "Strike Exercise Style: American (1)"
-  end
-  if value == 3 then
-    return "Strike Exercise Style: Asian (3)"
-  end
+ice_icefutures_bgw_sbe_v7_0.strike_exercise_style.labels = {
+  [0] = "Strike Exercise Style: European (0)",
+  [1] = "Strike Exercise Style: American (1)",
+  [3] = "Strike Exercise Style: Asian (3)",
+}
 
-  return "Strike Exercise Style: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.strike_exercise_style.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.strike_exercise_style.labels[value] or "Strike Exercise Style: Unknown("..value..")"
 end
 
 -- Dissect: Strike Exercise Style
@@ -7587,15 +7303,13 @@ ice_icefutures_bgw_sbe_v7_0.success = {}
 ice_icefutures_bgw_sbe_v7_0.success.size = 1
 
 -- Display: Success
-ice_icefutures_bgw_sbe_v7_0.success.display = function(value)
-  if value == 0 then
-    return "Success: False (0)"
-  end
-  if value == 1 then
-    return "Success: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.success.labels = {
+  [0] = "Success: False (0)",
+  [1] = "Success: True (1)",
+}
 
-  return "Success: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.success.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.success.labels[value] or "Success: Unknown("..value..")"
 end
 
 -- Dissect: Success
@@ -7748,135 +7462,53 @@ ice_icefutures_bgw_sbe_v7_0.template_id = {}
 ice_icefutures_bgw_sbe_v7_0.template_id.size = 2
 
 -- Display: Template Id
-ice_icefutures_bgw_sbe_v7_0.template_id.display = function(value)
-  if value == 0 then
-    return "Template Id: Simple Open Framing Header Message (0)"
-  end
-  if value == 1 then
-    return "Template Id: Logon Request Message (1)"
-  end
-  if value == 101 then
-    return "Template Id: Logon Report Message (101)"
-  end
-  if value == 13 then
-    return "Template Id: Logout Request Message (13)"
-  end
-  if value == 113 then
-    return "Template Id: Logout Report Message (113)"
-  end
-  if value == 51 then
-    return "Template Id: Heart Beat Message (51)"
-  end
-  if value == 114 then
-    return "Template Id: Error Message (114)"
-  end
-  if value == 116 then
-    return "Template Id: News Message (116)"
-  end
-  if value == 112 then
-    return "Template Id: Security Definition Report Strategy Message (112)"
-  end
-  if value == 115 then
-    return "Template Id: Security Definition Report Message (115)"
-  end
-  if value == 155 then
-    return "Template Id: Security Definition Reject Message (155)"
-  end
-  if value == 15 then
-    return "Template Id: Security Definition Request Message (15)"
-  end
-  if value == 154 then
-    return "Template Id: Security Definition Report Product Message (154)"
-  end
-  if value == 2001 then
-    return "Template Id: Ip Request Message (2001)"
-  end
-  if value == 2002 then
-    return "Template Id: Ip Report Message (2002)"
-  end
-  if value == 2 then
-    return "Template Id: Trader Logon Request Message (2)"
-  end
-  if value == 102 then
-    return "Template Id: Trader Logon Report Message (102)"
-  end
-  if value == 3 then
-    return "Template Id: Trader Logout Request Message (3)"
-  end
-  if value == 103 then
-    return "Template Id: Trader Logout Report Message (103)"
-  end
-  if value == 4 then
-    return "Template Id: New Order Request Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Cancel Replace Request Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Cancel Request Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Quote Request Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: New Order Cross Request Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Order Mass Cancel Request Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Mass Quote Request Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Quote Cancel Request Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Security Definition Request Create Strategy Message (12)"
-  end
-  if value == 14 then
-    return "Template Id: Security Definition Request Create Flex Message (14)"
-  end
-  if value == 104 then
-    return "Template Id: Execution Report New Message (104)"
-  end
-  if value == 105 then
-    return "Template Id: Execution Report Modify Message (105)"
-  end
-  if value == 106 then
-    return "Template Id: Execution Report Cancel Message (106)"
-  end
-  if value == 151 then
-    return "Template Id: Execution Report Reject Message (151)"
-  end
-  if value == 152 then
-    return "Template Id: Execution Report Snapshot Message (152)"
-  end
-  if value == 153 then
-    return "Template Id: Execution Report Trade Message (153)"
-  end
-  if value == 107 then
-    return "Template Id: Quote Report Message (107)"
-  end
-  if value == 108 then
-    return "Template Id: New Order Cross Report Message (108)"
-  end
-  if value == 109 then
-    return "Template Id: Order Mass Cancel Report Message (109)"
-  end
-  if value == 110 then
-    return "Template Id: Mass Quote Report Message (110)"
-  end
-  if value == 16 then
-    return "Template Id: Resend Request Message (16)"
-  end
-  if value == 117 then
-    return "Template Id: Resend Report Message (117)"
-  end
-  if value == 111 then
-    return "Template Id: Sequence Reset Message (111)"
-  end
+ice_icefutures_bgw_sbe_v7_0.template_id.labels = {
+  [0] = "Template Id: Simple Open Framing Header Message (0)",
+  [1] = "Template Id: Logon Request Message (1)",
+  [101] = "Template Id: Logon Report Message (101)",
+  [13] = "Template Id: Logout Request Message (13)",
+  [113] = "Template Id: Logout Report Message (113)",
+  [51] = "Template Id: Heart Beat Message (51)",
+  [114] = "Template Id: Error Message (114)",
+  [116] = "Template Id: News Message (116)",
+  [112] = "Template Id: Security Definition Report Strategy Message (112)",
+  [115] = "Template Id: Security Definition Report Message (115)",
+  [155] = "Template Id: Security Definition Reject Message (155)",
+  [15] = "Template Id: Security Definition Request Message (15)",
+  [154] = "Template Id: Security Definition Report Product Message (154)",
+  [2001] = "Template Id: Ip Request Message (2001)",
+  [2002] = "Template Id: Ip Report Message (2002)",
+  [2] = "Template Id: Trader Logon Request Message (2)",
+  [102] = "Template Id: Trader Logon Report Message (102)",
+  [3] = "Template Id: Trader Logout Request Message (3)",
+  [103] = "Template Id: Trader Logout Report Message (103)",
+  [4] = "Template Id: New Order Request Message (4)",
+  [5] = "Template Id: Cancel Replace Request Message (5)",
+  [6] = "Template Id: Cancel Request Message (6)",
+  [7] = "Template Id: Quote Request Message (7)",
+  [8] = "Template Id: New Order Cross Request Message (8)",
+  [9] = "Template Id: Order Mass Cancel Request Message (9)",
+  [10] = "Template Id: Mass Quote Request Message (10)",
+  [11] = "Template Id: Quote Cancel Request Message (11)",
+  [12] = "Template Id: Security Definition Request Create Strategy Message (12)",
+  [14] = "Template Id: Security Definition Request Create Flex Message (14)",
+  [104] = "Template Id: Execution Report New Message (104)",
+  [105] = "Template Id: Execution Report Modify Message (105)",
+  [106] = "Template Id: Execution Report Cancel Message (106)",
+  [151] = "Template Id: Execution Report Reject Message (151)",
+  [152] = "Template Id: Execution Report Snapshot Message (152)",
+  [153] = "Template Id: Execution Report Trade Message (153)",
+  [107] = "Template Id: Quote Report Message (107)",
+  [108] = "Template Id: New Order Cross Report Message (108)",
+  [109] = "Template Id: Order Mass Cancel Report Message (109)",
+  [110] = "Template Id: Mass Quote Report Message (110)",
+  [16] = "Template Id: Resend Request Message (16)",
+  [117] = "Template Id: Resend Report Message (117)",
+  [111] = "Template Id: Sequence Reset Message (111)",
+}
 
-  return "Template Id: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.template_id.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -7898,15 +7530,13 @@ ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum = {}
 ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum.size = 1
 
 -- Display: Test Market Indicator Boolean Enum
-ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum.display = function(value)
-  if value == 0 then
-    return "Test Market Indicator Boolean Enum: False (0)"
-  end
-  if value == 1 then
-    return "Test Market Indicator Boolean Enum: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum.labels = {
+  [0] = "Test Market Indicator Boolean Enum: False (0)",
+  [1] = "Test Market Indicator Boolean Enum: True (1)",
+}
 
-  return "Test Market Indicator Boolean Enum: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum.labels[value] or "Test Market Indicator Boolean Enum: Unknown("..value..")"
 end
 
 -- Dissect: Test Market Indicator Boolean Enum
@@ -7928,15 +7558,13 @@ ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null = {}
 ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.size = 1
 
 -- Display: Test Market Indicator Boolean Enum Null
-ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.display = function(value)
-  if value == 0 then
-    return "Test Market Indicator Boolean Enum Null: False (0)"
-  end
-  if value == 1 then
-    return "Test Market Indicator Boolean Enum Null: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.labels = {
+  [0] = "Test Market Indicator Boolean Enum Null: False (0)",
+  [1] = "Test Market Indicator Boolean Enum Null: True (1)",
+}
 
-  return "Test Market Indicator Boolean Enum Null: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.labels[value] or "Test Market Indicator Boolean Enum Null: Unknown("..value..")"
 end
 
 -- Dissect: Test Market Indicator Boolean Enum Null
@@ -8062,24 +7690,16 @@ ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum = {}
 ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum.size = 1
 
 -- Display: Time In Force Time In Force Enum
-ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum.display = function(value)
-  if value == 0 then
-    return "Time In Force Time In Force Enum: Day (0)"
-  end
-  if value == 1 then
-    return "Time In Force Time In Force Enum: Gtc (1)"
-  end
-  if value == 3 then
-    return "Time In Force Time In Force Enum: Fak (3)"
-  end
-  if value == 4 then
-    return "Time In Force Time In Force Enum: Fok (4)"
-  end
-  if value == 6 then
-    return "Time In Force Time In Force Enum: Gtd (6)"
-  end
+ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum.labels = {
+  [0] = "Time In Force Time In Force Enum: Day (0)",
+  [1] = "Time In Force Time In Force Enum: Gtc (1)",
+  [3] = "Time In Force Time In Force Enum: Fak (3)",
+  [4] = "Time In Force Time In Force Enum: Fok (4)",
+  [6] = "Time In Force Time In Force Enum: Gtd (6)",
+}
 
-  return "Time In Force Time In Force Enum: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum.labels[value] or "Time In Force Time In Force Enum: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force Time In Force Enum
@@ -8101,24 +7721,16 @@ ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null = {}
 ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null.size = 1
 
 -- Display: Time In Force Time In Force Enum Null
-ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null.display = function(value)
-  if value == 0 then
-    return "Time In Force Time In Force Enum Null: Day (0)"
-  end
-  if value == 1 then
-    return "Time In Force Time In Force Enum Null: Gtc (1)"
-  end
-  if value == 3 then
-    return "Time In Force Time In Force Enum Null: Fak (3)"
-  end
-  if value == 4 then
-    return "Time In Force Time In Force Enum Null: Fok (4)"
-  end
-  if value == 6 then
-    return "Time In Force Time In Force Enum Null: Gtd (6)"
-  end
+ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null.labels = {
+  [0] = "Time In Force Time In Force Enum Null: Day (0)",
+  [1] = "Time In Force Time In Force Enum Null: Gtc (1)",
+  [3] = "Time In Force Time In Force Enum Null: Fak (3)",
+  [4] = "Time In Force Time In Force Enum Null: Fok (4)",
+  [6] = "Time In Force Time In Force Enum Null: Gtd (6)",
+}
 
-  return "Time In Force Time In Force Enum Null: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null.labels[value] or "Time In Force Time In Force Enum Null: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force Time In Force Enum Null
@@ -8202,18 +7814,14 @@ ice_icefutures_bgw_sbe_v7_0.trading_capacity = {}
 ice_icefutures_bgw_sbe_v7_0.trading_capacity.size = 1
 
 -- Display: Trading Capacity
-ice_icefutures_bgw_sbe_v7_0.trading_capacity.display = function(value)
-  if value == 0 then
-    return "Trading Capacity: Deal (0)"
-  end
-  if value == 1 then
-    return "Trading Capacity: Mtch (1)"
-  end
-  if value == 2 then
-    return "Trading Capacity: Aotc (2)"
-  end
+ice_icefutures_bgw_sbe_v7_0.trading_capacity.labels = {
+  [0] = "Trading Capacity: Deal (0)",
+  [1] = "Trading Capacity: Mtch (1)",
+  [2] = "Trading Capacity: Aotc (2)",
+}
 
-  return "Trading Capacity: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.trading_capacity.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.trading_capacity.labels[value] or "Trading Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Trading Capacity
@@ -8320,15 +7928,13 @@ ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed.size = 1
 
 -- Display: Uds Futures Allowed
-ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed.display = function(value)
-  if value == 0 then
-    return "Uds Futures Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Uds Futures Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed.labels = {
+  [0] = "Uds Futures Allowed: False (0)",
+  [1] = "Uds Futures Allowed: True (1)",
+}
 
-  return "Uds Futures Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed.labels[value] or "Uds Futures Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Uds Futures Allowed
@@ -8350,15 +7956,13 @@ ice_icefutures_bgw_sbe_v7_0.uds_options_allowed = {}
 ice_icefutures_bgw_sbe_v7_0.uds_options_allowed.size = 1
 
 -- Display: Uds Options Allowed
-ice_icefutures_bgw_sbe_v7_0.uds_options_allowed.display = function(value)
-  if value == 0 then
-    return "Uds Options Allowed: False (0)"
-  end
-  if value == 1 then
-    return "Uds Options Allowed: True (1)"
-  end
+ice_icefutures_bgw_sbe_v7_0.uds_options_allowed.labels = {
+  [0] = "Uds Options Allowed: False (0)",
+  [1] = "Uds Options Allowed: True (1)",
+}
 
-  return "Uds Options Allowed: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.uds_options_allowed.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.uds_options_allowed.labels[value] or "Uds Options Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Uds Options Allowed
@@ -8603,18 +8207,14 @@ ice_icefutures_bgw_sbe_v7_0.waiver_indicator = {}
 ice_icefutures_bgw_sbe_v7_0.waiver_indicator.size = 1
 
 -- Display: Waiver Indicator
-ice_icefutures_bgw_sbe_v7_0.waiver_indicator.display = function(value)
-  if value == 1 then
-    return "Waiver Indicator: Lrgs (1)"
-  end
-  if value == 2 then
-    return "Waiver Indicator: Size (2)"
-  end
-  if value == 3 then
-    return "Waiver Indicator: Ilqd (3)"
-  end
+ice_icefutures_bgw_sbe_v7_0.waiver_indicator.labels = {
+  [1] = "Waiver Indicator: Lrgs (1)",
+  [2] = "Waiver Indicator: Size (2)",
+  [3] = "Waiver Indicator: Ilqd (3)",
+}
 
-  return "Waiver Indicator: Unknown("..value..")"
+ice_icefutures_bgw_sbe_v7_0.waiver_indicator.display = function(value)
+  return ice_icefutures_bgw_sbe_v7_0.waiver_indicator.labels[value] or "Waiver Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Waiver Indicator
@@ -15733,174 +15333,55 @@ end
 ice_icefutures_bgw_sbe_v7_0.payload = {}
 
 -- Dissect: Payload
+ice_icefutures_bgw_sbe_v7_0.payload.dispatch = {
+  [0] = ice_icefutures_bgw_sbe_v7_0.simple_open_framing_header_message.dissect,
+  [1] = ice_icefutures_bgw_sbe_v7_0.logon_request_message.dissect,
+  [101] = ice_icefutures_bgw_sbe_v7_0.logon_report_message.dissect,
+  [13] = ice_icefutures_bgw_sbe_v7_0.logout_request_message.dissect,
+  [113] = ice_icefutures_bgw_sbe_v7_0.logout_report_message.dissect,
+  [51] = ice_icefutures_bgw_sbe_v7_0.heart_beat_message.dissect,
+  [114] = ice_icefutures_bgw_sbe_v7_0.error_message.dissect,
+  [116] = ice_icefutures_bgw_sbe_v7_0.news_message.dissect,
+  [112] = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message.dissect,
+  [115] = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message.dissect,
+  [155] = ice_icefutures_bgw_sbe_v7_0.security_definition_reject_message.dissect,
+  [15] = ice_icefutures_bgw_sbe_v7_0.security_definition_request_message.dissect,
+  [154] = ice_icefutures_bgw_sbe_v7_0.security_definition_report_product_message.dissect,
+  [2001] = ice_icefutures_bgw_sbe_v7_0.ip_request_message.dissect,
+  [2002] = ice_icefutures_bgw_sbe_v7_0.ip_report_message.dissect,
+  [2] = ice_icefutures_bgw_sbe_v7_0.trader_logon_request_message.dissect,
+  [102] = ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message.dissect,
+  [3] = ice_icefutures_bgw_sbe_v7_0.trader_logout_request_message.dissect,
+  [103] = ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message.dissect,
+  [4] = ice_icefutures_bgw_sbe_v7_0.new_order_request_message.dissect,
+  [5] = ice_icefutures_bgw_sbe_v7_0.cancel_replace_request_message.dissect,
+  [6] = ice_icefutures_bgw_sbe_v7_0.cancel_request_message.dissect,
+  [7] = ice_icefutures_bgw_sbe_v7_0.quote_request_message.dissect,
+  [8] = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message.dissect,
+  [9] = ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_request_message.dissect,
+  [10] = ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message.dissect,
+  [11] = ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message.dissect,
+  [12] = ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message.dissect,
+  [14] = ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_flex_message.dissect,
+  [104] = ice_icefutures_bgw_sbe_v7_0.execution_report_new_message.dissect,
+  [105] = ice_icefutures_bgw_sbe_v7_0.execution_report_modify_message.dissect,
+  [106] = ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message.dissect,
+  [151] = ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message.dissect,
+  [152] = ice_icefutures_bgw_sbe_v7_0.execution_report_snapshot_message.dissect,
+  [153] = ice_icefutures_bgw_sbe_v7_0.execution_report_trade_message.dissect,
+  [107] = ice_icefutures_bgw_sbe_v7_0.quote_report_message.dissect,
+  [108] = ice_icefutures_bgw_sbe_v7_0.new_order_cross_report_message.dissect,
+  [109] = ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.dissect,
+  [110] = ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message.dissect,
+  [16] = ice_icefutures_bgw_sbe_v7_0.resend_request_message.dissect,
+  [117] = ice_icefutures_bgw_sbe_v7_0.resend_report_message.dissect,
+  [111] = ice_icefutures_bgw_sbe_v7_0.sequence_reset_message.dissect,
+}
+
 ice_icefutures_bgw_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Simple Open Framing Header Message
-  if template_id == 0 then
-    return ice_icefutures_bgw_sbe_v7_0.simple_open_framing_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Request Message
-  if template_id == 1 then
-    return ice_icefutures_bgw_sbe_v7_0.logon_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Report Message
-  if template_id == 101 then
-    return ice_icefutures_bgw_sbe_v7_0.logon_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Message
-  if template_id == 13 then
-    return ice_icefutures_bgw_sbe_v7_0.logout_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Report Message
-  if template_id == 113 then
-    return ice_icefutures_bgw_sbe_v7_0.logout_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heart Beat Message
-  if template_id == 51 then
-    return ice_icefutures_bgw_sbe_v7_0.heart_beat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Error Message
-  if template_id == 114 then
-    return ice_icefutures_bgw_sbe_v7_0.error_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Message
-  if template_id == 116 then
-    return ice_icefutures_bgw_sbe_v7_0.news_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Report Strategy Message
-  if template_id == 112 then
-    return ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Report Message
-  if template_id == 115 then
-    return ice_icefutures_bgw_sbe_v7_0.security_definition_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Reject Message
-  if template_id == 155 then
-    return ice_icefutures_bgw_sbe_v7_0.security_definition_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Request Message
-  if template_id == 15 then
-    return ice_icefutures_bgw_sbe_v7_0.security_definition_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Report Product Message
-  if template_id == 154 then
-    return ice_icefutures_bgw_sbe_v7_0.security_definition_report_product_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ip Request Message
-  if template_id == 2001 then
-    return ice_icefutures_bgw_sbe_v7_0.ip_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ip Report Message
-  if template_id == 2002 then
-    return ice_icefutures_bgw_sbe_v7_0.ip_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trader Logon Request Message
-  if template_id == 2 then
-    return ice_icefutures_bgw_sbe_v7_0.trader_logon_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trader Logon Report Message
-  if template_id == 102 then
-    return ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trader Logout Request Message
-  if template_id == 3 then
-    return ice_icefutures_bgw_sbe_v7_0.trader_logout_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trader Logout Report Message
-  if template_id == 103 then
-    return ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Request Message
-  if template_id == 4 then
-    return ice_icefutures_bgw_sbe_v7_0.new_order_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Replace Request Message
-  if template_id == 5 then
-    return ice_icefutures_bgw_sbe_v7_0.cancel_replace_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Request Message
-  if template_id == 6 then
-    return ice_icefutures_bgw_sbe_v7_0.cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request Message
-  if template_id == 7 then
-    return ice_icefutures_bgw_sbe_v7_0.quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Cross Request Message
-  if template_id == 8 then
-    return ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Cancel Request Message
-  if template_id == 9 then
-    return ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Request Message
-  if template_id == 10 then
-    return ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Cancel Request Message
-  if template_id == 11 then
-    return ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Request Create Strategy Message
-  if template_id == 12 then
-    return ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Request Create Flex Message
-  if template_id == 14 then
-    return ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_flex_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report New Message
-  if template_id == 104 then
-    return ice_icefutures_bgw_sbe_v7_0.execution_report_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Modify Message
-  if template_id == 105 then
-    return ice_icefutures_bgw_sbe_v7_0.execution_report_modify_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Cancel Message
-  if template_id == 106 then
-    return ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Reject Message
-  if template_id == 151 then
-    return ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Snapshot Message
-  if template_id == 152 then
-    return ice_icefutures_bgw_sbe_v7_0.execution_report_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Message
-  if template_id == 153 then
-    return ice_icefutures_bgw_sbe_v7_0.execution_report_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Report Message
-  if template_id == 107 then
-    return ice_icefutures_bgw_sbe_v7_0.quote_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Cross Report Message
-  if template_id == 108 then
-    return ice_icefutures_bgw_sbe_v7_0.new_order_cross_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Cancel Report Message
-  if template_id == 109 then
-    return ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Report Message
-  if template_id == 110 then
-    return ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Resend Request Message
-  if template_id == 16 then
-    return ice_icefutures_bgw_sbe_v7_0.resend_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Resend Report Message
-  if template_id == 117 then
-    return ice_icefutures_bgw_sbe_v7_0.resend_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequence Reset Message
-  if template_id == 111 then
-    return ice_icefutures_bgw_sbe_v7_0.sequence_reset_message.dissect(buffer, offset, packet, parent)
+  local dissect = ice_icefutures_bgw_sbe_v7_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

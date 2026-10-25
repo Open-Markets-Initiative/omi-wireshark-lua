@@ -326,15 +326,13 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.instrument_identification_code_type =
 nasdaq_nordicequities_lastsale_itch_v1_2_9.instrument_identification_code_type.size = 4
 
 -- Display: Instrument Identification Code Type
-nasdaq_nordicequities_lastsale_itch_v1_2_9.instrument_identification_code_type.display = function(value)
-  if value == "ISIN" then
-    return "Instrument Identification Code Type: Isin Code (ISIN)"
-  end
-  if value == "OTHR" then
-    return "Instrument Identification Code Type: Other Identifier (OTHR)"
-  end
+nasdaq_nordicequities_lastsale_itch_v1_2_9.instrument_identification_code_type.labels = {
+  ["ISIN"] = "Instrument Identification Code Type: Isin Code (ISIN)",
+  ["OTHR"] = "Instrument Identification Code Type: Other Identifier (OTHR)",
+}
 
-  return "Instrument Identification Code Type: Unknown("..value..")"
+nasdaq_nordicequities_lastsale_itch_v1_2_9.instrument_identification_code_type.display = function(value)
+  return nasdaq_nordicequities_lastsale_itch_v1_2_9.instrument_identification_code_type.labels[value] or "Instrument Identification Code Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Identification Code Type
@@ -402,18 +400,14 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.message_type = {}
 nasdaq_nordicequities_lastsale_itch_v1_2_9.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nordicequities_lastsale_itch_v1_2_9.message_type.display = function(value)
-  if value == "G" then
-    return "Message Type: Adjusted Closing Price Message (G)"
-  end
-  if value == "T" then
-    return "Message Type: On Exchange Trade Message (T)"
-  end
-  if value == "Z" then
-    return "Message Type: Otc Trade Message (Z)"
-  end
+nasdaq_nordicequities_lastsale_itch_v1_2_9.message_type.labels = {
+  ["G"] = "Message Type: Adjusted Closing Price Message (G)",
+  ["T"] = "Message Type: On Exchange Trade Message (T)",
+  ["Z"] = "Message Type: Otc Trade Message (Z)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nordicequities_lastsale_itch_v1_2_9.message_type.display = function(value)
+  return nasdaq_nordicequities_lastsale_itch_v1_2_9.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -665,21 +659,15 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation = {}
 nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation.size = 4
 
 -- Display: Price Notation
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation.display = function(value)
-  if value == "MONE" then
-    return "Price Notation: Monetary Value (MONE)"
-  end
-  if value == "PERC" then
-    return "Price Notation: Percentage (PERC)"
-  end
-  if value == "YIEL" then
-    return "Price Notation: Yield (YIEL)"
-  end
-  if value == "BAPO" then
-    return "Price Notation: Basis Points (BAPO)"
-  end
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation.labels = {
+  ["MONE"] = "Price Notation: Monetary Value (MONE)",
+  ["PERC"] = "Price Notation: Percentage (PERC)",
+  ["YIEL"] = "Price Notation: Yield (YIEL)",
+  ["BAPO"] = "Price Notation: Basis Points (BAPO)",
+}
 
-  return "Price Notation: Unknown("..value..")"
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation.display = function(value)
+  return nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -996,63 +984,29 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.trade_type = {}
 nasdaq_nordicequities_lastsale_itch_v1_2_9.trade_type.size = 1
 
 -- Display: Trade Type
-nasdaq_nordicequities_lastsale_itch_v1_2_9.trade_type.display = function(value)
-  if value == "1" then
-    return "Trade Type: Standard Trade (1)"
-  end
-  if value == "2" then
-    return "Trade Type: Non Standard Settlement (2)"
-  end
-  if value == "3" then
-    return "Trade Type: Exchange Granted Trade (3)"
-  end
-  if value == "5" then
-    return "Trade Type: Portfolio Trade (5)"
-  end
-  if value == "6" then
-    return "Trade Type: Volume Weighted Average Price Trade (6)"
-  end
-  if value == "8" then
-    return "Trade Type: Pre Opening Trade (8)"
-  end
-  if value == "D" then
-    return "Trade Type: Standard Routed Trade (D)"
-  end
-  if value == "E" then
-    return "Trade Type: Standard Routed Dark Trade (E)"
-  end
-  if value == "F" then
-    return "Trade Type: Standard Dark Trade (F)"
-  end
-  if value == "G" then
-    return "Trade Type: Standard Auction On Demand Trade (G)"
-  end
-  if value == "H" then
-    return "Trade Type: Standard Trade At Closing Trade (H)"
-  end
-  if value == "I" then
-    return "Trade Type: Contingent Trade (I)"
-  end
-  if value == "9" then
-    return "Trade Type: Otc Standard Trade (9)"
-  end
-  if value == "A" then
-    return "Trade Type: Otc Non Standard Trade (A)"
-  end
-  if value == "B" then
-    return "Trade Type: Si Standard Trade (B)"
-  end
-  if value == "C" then
-    return "Trade Type: Si Non Standard Trade (C)"
-  end
-  if value == "O" then
-    return "Trade Type: Otc Loan Payment (O)"
-  end
-  if value == "P" then
-    return "Trade Type: Otc Primary Transaction (P)"
-  end
+nasdaq_nordicequities_lastsale_itch_v1_2_9.trade_type.labels = {
+  ["1"] = "Trade Type: Standard Trade (1)",
+  ["2"] = "Trade Type: Non Standard Settlement (2)",
+  ["3"] = "Trade Type: Exchange Granted Trade (3)",
+  ["5"] = "Trade Type: Portfolio Trade (5)",
+  ["6"] = "Trade Type: Volume Weighted Average Price Trade (6)",
+  ["8"] = "Trade Type: Pre Opening Trade (8)",
+  ["D"] = "Trade Type: Standard Routed Trade (D)",
+  ["E"] = "Trade Type: Standard Routed Dark Trade (E)",
+  ["F"] = "Trade Type: Standard Dark Trade (F)",
+  ["G"] = "Trade Type: Standard Auction On Demand Trade (G)",
+  ["H"] = "Trade Type: Standard Trade At Closing Trade (H)",
+  ["I"] = "Trade Type: Contingent Trade (I)",
+  ["9"] = "Trade Type: Otc Standard Trade (9)",
+  ["A"] = "Trade Type: Otc Non Standard Trade (A)",
+  ["B"] = "Trade Type: Si Standard Trade (B)",
+  ["C"] = "Trade Type: Si Non Standard Trade (C)",
+  ["O"] = "Trade Type: Otc Loan Payment (O)",
+  ["P"] = "Trade Type: Otc Primary Transaction (P)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+nasdaq_nordicequities_lastsale_itch_v1_2_9.trade_type.display = function(value)
+  return nasdaq_nordicequities_lastsale_itch_v1_2_9.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -1097,15 +1051,13 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.transaction_to_be_cleared = {}
 nasdaq_nordicequities_lastsale_itch_v1_2_9.transaction_to_be_cleared.size = 1
 
 -- Display: Transaction To Be Cleared
-nasdaq_nordicequities_lastsale_itch_v1_2_9.transaction_to_be_cleared.display = function(value)
-  if value == "Y" then
-    return "Transaction To Be Cleared: Yes (Y)"
-  end
-  if value == "N" then
-    return "Transaction To Be Cleared: No (N)"
-  end
+nasdaq_nordicequities_lastsale_itch_v1_2_9.transaction_to_be_cleared.labels = {
+  ["Y"] = "Transaction To Be Cleared: Yes (Y)",
+  ["N"] = "Transaction To Be Cleared: No (N)",
+}
 
-  return "Transaction To Be Cleared: Unknown("..value..")"
+nasdaq_nordicequities_lastsale_itch_v1_2_9.transaction_to_be_cleared.display = function(value)
+  return nasdaq_nordicequities_lastsale_itch_v1_2_9.transaction_to_be_cleared.labels[value] or "Transaction To Be Cleared: Unknown("..value..")"
 end
 
 -- Dissect: Transaction To Be Cleared
@@ -1127,24 +1079,16 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.type = {}
 nasdaq_nordicequities_lastsale_itch_v1_2_9.type.size = 4
 
 -- Display: Type
-nasdaq_nordicequities_lastsale_itch_v1_2_9.type.display = function(value)
-  if value == "EUAE" then
-    return "Type: Eua (EUAE)"
-  end
-  if value == "CERE" then
-    return "Type: Cer (CERE)"
-  end
-  if value == "ERUE" then
-    return "Type: Eru (ERUE)"
-  end
-  if value == "EUAA" then
-    return "Type: Euaa (EUAA)"
-  end
-  if value == "OTHR" then
-    return "Type: Other (OTHR)"
-  end
+nasdaq_nordicequities_lastsale_itch_v1_2_9.type.labels = {
+  ["EUAE"] = "Type: Eua (EUAE)",
+  ["CERE"] = "Type: Cer (CERE)",
+  ["ERUE"] = "Type: Eru (ERUE)",
+  ["EUAA"] = "Type: Euaa (EUAA)",
+  ["OTHR"] = "Type: Other (OTHR)",
+}
 
-  return "Type: Unknown("..value..")"
+nasdaq_nordicequities_lastsale_itch_v1_2_9.type.display = function(value)
+  return nasdaq_nordicequities_lastsale_itch_v1_2_9.type.labels[value] or "Type: Unknown("..value..")"
 end
 
 -- Dissect: Type
@@ -1479,18 +1423,16 @@ end
 nasdaq_nordicequities_lastsale_itch_v1_2_9.payload = {}
 
 -- Dissect: Payload
+nasdaq_nordicequities_lastsale_itch_v1_2_9.payload.dispatch = {
+  ["G"] = nasdaq_nordicequities_lastsale_itch_v1_2_9.adjusted_closing_price_message.dissect,
+  ["T"] = nasdaq_nordicequities_lastsale_itch_v1_2_9.on_exchange_trade_message.dissect,
+  ["Z"] = nasdaq_nordicequities_lastsale_itch_v1_2_9.otc_trade_message.dissect,
+}
+
 nasdaq_nordicequities_lastsale_itch_v1_2_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Adjusted Closing Price Message
-  if message_type == "G" then
-    return nasdaq_nordicequities_lastsale_itch_v1_2_9.adjusted_closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect On Exchange Trade Message
-  if message_type == "T" then
-    return nasdaq_nordicequities_lastsale_itch_v1_2_9.on_exchange_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Otc Trade Message
-  if message_type == "Z" then
-    return nasdaq_nordicequities_lastsale_itch_v1_2_9.otc_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_lastsale_itch_v1_2_9.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1646,14 +1588,15 @@ end
 nasdaq_nordicequities_lastsale_itch_v1_2_9.messages = {}
 
 -- Dissect: Messages
+nasdaq_nordicequities_lastsale_itch_v1_2_9.messages.dispatch = {
+  [0] = nasdaq_nordicequities_lastsale_itch_v1_2_9.heartbeat.dissect,
+  [65535] = nasdaq_nordicequities_lastsale_itch_v1_2_9.end_of_session.dissect,
+}
+
 nasdaq_nordicequities_lastsale_itch_v1_2_9.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nordicequities_lastsale_itch_v1_2_9.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nordicequities_lastsale_itch_v1_2_9.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_lastsale_itch_v1_2_9.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

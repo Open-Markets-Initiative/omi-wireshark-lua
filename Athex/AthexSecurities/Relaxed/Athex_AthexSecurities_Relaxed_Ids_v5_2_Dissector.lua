@@ -217,15 +217,13 @@ athex_athexsecurities_relaxed_ids_v5_2.coaf = {}
 athex_athexsecurities_relaxed_ids_v5_2.coaf.size = 1
 
 -- Display: Coaf
-athex_athexsecurities_relaxed_ids_v5_2.coaf.display = function(value)
-  if value == "0" then
-    return "Coaf: False (0)"
-  end
-  if value == "1" then
-    return "Coaf: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.coaf.labels = {
+  ["0"] = "Coaf: False (0)",
+  ["1"] = "Coaf: True (1)",
+}
 
-  return "Coaf: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.coaf.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.coaf.labels[value] or "Coaf: Unknown("..value..")"
 end
 
 -- Dissect: Coaf
@@ -247,15 +245,13 @@ athex_athexsecurities_relaxed_ids_v5_2.datf = {}
 athex_athexsecurities_relaxed_ids_v5_2.datf.size = 1
 
 -- Display: Datf
-athex_athexsecurities_relaxed_ids_v5_2.datf.display = function(value)
-  if value == "0" then
-    return "Datf: False (0)"
-  end
-  if value == "1" then
-    return "Datf: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.datf.labels = {
+  ["0"] = "Datf: False (0)",
+  ["1"] = "Datf: True (1)",
+}
 
-  return "Datf: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.datf.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.datf.labels[value] or "Datf: Unknown("..value..")"
 end
 
 -- Dissect: Datf
@@ -277,15 +273,13 @@ athex_athexsecurities_relaxed_ids_v5_2.deferral_indicator = {}
 athex_athexsecurities_relaxed_ids_v5_2.deferral_indicator.size = 1
 
 -- Display: Deferral Indicator
-athex_athexsecurities_relaxed_ids_v5_2.deferral_indicator.display = function(value)
-  if value == "0" then
-    return "Deferral Indicator: False (0)"
-  end
-  if value == "1" then
-    return "Deferral Indicator: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.deferral_indicator.labels = {
+  ["0"] = "Deferral Indicator: False (0)",
+  ["1"] = "Deferral Indicator: True (1)",
+}
 
-  return "Deferral Indicator: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.deferral_indicator.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.deferral_indicator.labels[value] or "Deferral Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Deferral Indicator
@@ -307,18 +301,14 @@ athex_athexsecurities_relaxed_ids_v5_2.delivery_type = {}
 athex_athexsecurities_relaxed_ids_v5_2.delivery_type.size = 4
 
 -- Display: Delivery Type
-athex_athexsecurities_relaxed_ids_v5_2.delivery_type.display = function(value)
-  if value == "PHYS" then
-    return "Delivery Type: Physically Settled (PHYS)"
-  end
-  if value == "CASH" then
-    return "Delivery Type: Cash Settled (CASH)"
-  end
-  if value == "OPTL" then
-    return "Delivery Type: Optional (OPTL)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.delivery_type.labels = {
+  ["PHYS"] = "Delivery Type: Physically Settled (PHYS)",
+  ["CASH"] = "Delivery Type: Cash Settled (CASH)",
+  ["OPTL"] = "Delivery Type: Optional (OPTL)",
+}
 
-  return "Delivery Type: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.delivery_type.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.delivery_type.labels[value] or "Delivery Type: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Type
@@ -444,15 +434,13 @@ athex_athexsecurities_relaxed_ids_v5_2.fula = {}
 athex_athexsecurities_relaxed_ids_v5_2.fula.size = 1
 
 -- Display: Fula
-athex_athexsecurities_relaxed_ids_v5_2.fula.display = function(value)
-  if value == "0" then
-    return "Fula: False (0)"
-  end
-  if value == "1" then
-    return "Fula: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.fula.labels = {
+  ["0"] = "Fula: False (0)",
+  ["1"] = "Fula: True (1)",
+}
 
-  return "Fula: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.fula.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.fula.labels[value] or "Fula: Unknown("..value..")"
 end
 
 -- Dissect: Fula
@@ -474,15 +462,13 @@ athex_athexsecurities_relaxed_ids_v5_2.fulf = {}
 athex_athexsecurities_relaxed_ids_v5_2.fulf.size = 1
 
 -- Display: Fulf
-athex_athexsecurities_relaxed_ids_v5_2.fulf.display = function(value)
-  if value == "0" then
-    return "Fulf: False (0)"
-  end
-  if value == "1" then
-    return "Fulf: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.fulf.labels = {
+  ["0"] = "Fulf: False (0)",
+  ["1"] = "Fulf: True (1)",
+}
 
-  return "Fulf: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.fulf.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.fulf.labels[value] or "Fulf: Unknown("..value..")"
 end
 
 -- Dissect: Fulf
@@ -504,15 +490,13 @@ athex_athexsecurities_relaxed_ids_v5_2.fulj = {}
 athex_athexsecurities_relaxed_ids_v5_2.fulj.size = 1
 
 -- Display: Fulj
-athex_athexsecurities_relaxed_ids_v5_2.fulj.display = function(value)
-  if value == "0" then
-    return "Fulj: False (0)"
-  end
-  if value == "1" then
-    return "Fulj: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.fulj.labels = {
+  ["0"] = "Fulj: False (0)",
+  ["1"] = "Fulj: True (1)",
+}
 
-  return "Fulj: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.fulj.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.fulj.labels[value] or "Fulj: Unknown("..value..")"
 end
 
 -- Dissect: Fulj
@@ -534,15 +518,13 @@ athex_athexsecurities_relaxed_ids_v5_2.fulv = {}
 athex_athexsecurities_relaxed_ids_v5_2.fulv.size = 1
 
 -- Display: Fulv
-athex_athexsecurities_relaxed_ids_v5_2.fulv.display = function(value)
-  if value == "0" then
-    return "Fulv: False (0)"
-  end
-  if value == "1" then
-    return "Fulv: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.fulv.labels = {
+  ["0"] = "Fulv: False (0)",
+  ["1"] = "Fulv: True (1)",
+}
 
-  return "Fulv: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.fulv.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.fulv.labels[value] or "Fulv: Unknown("..value..")"
 end
 
 -- Dissect: Fulv
@@ -564,15 +546,13 @@ athex_athexsecurities_relaxed_ids_v5_2.fwaf = {}
 athex_athexsecurities_relaxed_ids_v5_2.fwaf.size = 1
 
 -- Display: Fwaf
-athex_athexsecurities_relaxed_ids_v5_2.fwaf.display = function(value)
-  if value == "0" then
-    return "Fwaf: False (0)"
-  end
-  if value == "1" then
-    return "Fwaf: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.fwaf.labels = {
+  ["0"] = "Fwaf: False (0)",
+  ["1"] = "Fwaf: True (1)",
+}
 
-  return "Fwaf: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.fwaf.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.fwaf.labels[value] or "Fwaf: Unknown("..value..")"
 end
 
 -- Dissect: Fwaf
@@ -594,15 +574,13 @@ athex_athexsecurities_relaxed_ids_v5_2.idaf = {}
 athex_athexsecurities_relaxed_ids_v5_2.idaf.size = 1
 
 -- Display: Idaf
-athex_athexsecurities_relaxed_ids_v5_2.idaf.display = function(value)
-  if value == "0" then
-    return "Idaf: False (0)"
-  end
-  if value == "1" then
-    return "Idaf: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.idaf.labels = {
+  ["0"] = "Idaf: False (0)",
+  ["1"] = "Idaf: True (1)",
+}
 
-  return "Idaf: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.idaf.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.idaf.labels[value] or "Idaf: Unknown("..value..")"
 end
 
 -- Dissect: Idaf
@@ -693,15 +671,13 @@ athex_athexsecurities_relaxed_ids_v5_2.instrument_id_type = {}
 athex_athexsecurities_relaxed_ids_v5_2.instrument_id_type.size = 4
 
 -- Display: Instrument Id Type
-athex_athexsecurities_relaxed_ids_v5_2.instrument_id_type.display = function(value)
-  if value == "ISIN" then
-    return "Instrument Id Type: Isin (ISIN)"
-  end
-  if value == "OTHR" then
-    return "Instrument Id Type: Other Identifier (OTHR)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.instrument_id_type.labels = {
+  ["ISIN"] = "Instrument Id Type: Isin (ISIN)",
+  ["OTHR"] = "Instrument Id Type: Other Identifier (OTHR)",
+}
 
-  return "Instrument Id Type: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.instrument_id_type.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.instrument_id_type.labels[value] or "Instrument Id Type: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Id Type
@@ -723,15 +699,13 @@ athex_athexsecurities_relaxed_ids_v5_2.lmtf = {}
 athex_athexsecurities_relaxed_ids_v5_2.lmtf.size = 1
 
 -- Display: Lmtf
-athex_athexsecurities_relaxed_ids_v5_2.lmtf.display = function(value)
-  if value == "0" then
-    return "Lmtf: False (0)"
-  end
-  if value == "1" then
-    return "Lmtf: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.lmtf.labels = {
+  ["0"] = "Lmtf: False (0)",
+  ["1"] = "Lmtf: True (1)",
+}
 
-  return "Lmtf: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.lmtf.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.lmtf.labels[value] or "Lmtf: Unknown("..value..")"
 end
 
 -- Dissect: Lmtf
@@ -803,15 +777,13 @@ athex_athexsecurities_relaxed_ids_v5_2.message_category = {}
 athex_athexsecurities_relaxed_ids_v5_2.message_category.size = 1
 
 -- Display: Message Category
-athex_athexsecurities_relaxed_ids_v5_2.message_category.display = function(value)
-  if value == "U" then
-    return "Message Category: Apa Post Trade Message (U)"
-  end
-  if value == "V" then
-    return "Message Category: Apa Pre Trade Message (V)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.message_category.labels = {
+  ["U"] = "Message Category: Apa Post Trade Message (U)",
+  ["V"] = "Message Category: Apa Pre Trade Message (V)",
+}
 
-  return "Message Category: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.message_category.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.message_category.labels[value] or "Message Category: Unknown("..value..")"
 end
 
 -- Dissect: Message Category
@@ -1005,24 +977,16 @@ athex_athexsecurities_relaxed_ids_v5_2.option_exercise_style = {}
 athex_athexsecurities_relaxed_ids_v5_2.option_exercise_style.size = 4
 
 -- Display: Option Exercise Style
-athex_athexsecurities_relaxed_ids_v5_2.option_exercise_style.display = function(value)
-  if value == "EURO" then
-    return "Option Exercise Style: European (EURO)"
-  end
-  if value == "AMER" then
-    return "Option Exercise Style: American (AMER)"
-  end
-  if value == "ASIA" then
-    return "Option Exercise Style: Asian (ASIA)"
-  end
-  if value == "BERM" then
-    return "Option Exercise Style: Bermudan (BERM)"
-  end
-  if value == "OTHR" then
-    return "Option Exercise Style: Other (OTHR)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.option_exercise_style.labels = {
+  ["EURO"] = "Option Exercise Style: European (EURO)",
+  ["AMER"] = "Option Exercise Style: American (AMER)",
+  ["ASIA"] = "Option Exercise Style: Asian (ASIA)",
+  ["BERM"] = "Option Exercise Style: Bermudan (BERM)",
+  ["OTHR"] = "Option Exercise Style: Other (OTHR)",
+}
 
-  return "Option Exercise Style: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.option_exercise_style.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.option_exercise_style.labels[value] or "Option Exercise Style: Unknown("..value..")"
 end
 
 -- Dissect: Option Exercise Style
@@ -1044,18 +1008,14 @@ athex_athexsecurities_relaxed_ids_v5_2.option_type = {}
 athex_athexsecurities_relaxed_ids_v5_2.option_type.size = 4
 
 -- Display: Option Type
-athex_athexsecurities_relaxed_ids_v5_2.option_type.display = function(value)
-  if value == "PUTO" then
-    return "Option Type: Put (PUTO)"
-  end
-  if value == "CALL" then
-    return "Option Type: Call (CALL)"
-  end
-  if value == "OTHR" then
-    return "Option Type: Other (OTHR)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.option_type.labels = {
+  ["PUTO"] = "Option Type: Put (PUTO)",
+  ["CALL"] = "Option Type: Call (CALL)",
+  ["OTHR"] = "Option Type: Other (OTHR)",
+}
 
-  return "Option Type: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.option_type.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1207,27 +1167,17 @@ athex_athexsecurities_relaxed_ids_v5_2.price_notation = {}
 athex_athexsecurities_relaxed_ids_v5_2.price_notation.size = 4
 
 -- Display: Price Notation
-athex_athexsecurities_relaxed_ids_v5_2.price_notation.display = function(value)
-  if value == "MONE" then
-    return "Price Notation: Monetary Value (MONE)"
-  end
-  if value == "PERC" then
-    return "Price Notation: Percentage (PERC)"
-  end
-  if value == "YIEL" then
-    return "Price Notation: Yield (YIEL)"
-  end
-  if value == "BAPO" then
-    return "Price Notation: Basis Points (BAPO)"
-  end
-  if value == "PNDG" then
-    return "Price Notation: Pending (PNDG)"
-  end
-  if value == "NOAP" then
-    return "Price Notation: Not Applicable (NOAP)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.price_notation.labels = {
+  ["MONE"] = "Price Notation: Monetary Value (MONE)",
+  ["PERC"] = "Price Notation: Percentage (PERC)",
+  ["YIEL"] = "Price Notation: Yield (YIEL)",
+  ["BAPO"] = "Price Notation: Basis Points (BAPO)",
+  ["PNDG"] = "Price Notation: Pending (PNDG)",
+  ["NOAP"] = "Price Notation: Not Applicable (NOAP)",
+}
 
-  return "Price Notation: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.price_notation.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -1421,15 +1371,13 @@ athex_athexsecurities_relaxed_ids_v5_2.quote_liquidity = {}
 athex_athexsecurities_relaxed_ids_v5_2.quote_liquidity.size = 1
 
 -- Display: Quote Liquidity
-athex_athexsecurities_relaxed_ids_v5_2.quote_liquidity.display = function(value)
-  if value == "1" then
-    return "Quote Liquidity: Liquid Market (1)"
-  end
-  if value == "2" then
-    return "Quote Liquidity: Illiquid Market (2)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.quote_liquidity.labels = {
+  ["1"] = "Quote Liquidity: Liquid Market (1)",
+  ["2"] = "Quote Liquidity: Illiquid Market (2)",
+}
 
-  return "Quote Liquidity: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.quote_liquidity.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.quote_liquidity.labels[value] or "Quote Liquidity: Unknown("..value..")"
 end
 
 -- Dissect: Quote Liquidity
@@ -1451,15 +1399,13 @@ athex_athexsecurities_relaxed_ids_v5_2.quote_type = {}
 athex_athexsecurities_relaxed_ids_v5_2.quote_type.size = 1
 
 -- Display: Quote Type
-athex_athexsecurities_relaxed_ids_v5_2.quote_type.display = function(value)
-  if value == "1" then
-    return "Quote Type: Bid (1)"
-  end
-  if value == "2" then
-    return "Quote Type: Offer (2)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.quote_type.labels = {
+  ["1"] = "Quote Type: Bid (1)",
+  ["2"] = "Quote Type: Offer (2)",
+}
 
-  return "Quote Type: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.quote_type.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.quote_type.labels[value] or "Quote Type: Unknown("..value..")"
 end
 
 -- Dissect: Quote Type
@@ -1481,18 +1427,14 @@ athex_athexsecurities_relaxed_ids_v5_2.report_status = {}
 athex_athexsecurities_relaxed_ids_v5_2.report_status.size = 4
 
 -- Display: Report Status
-athex_athexsecurities_relaxed_ids_v5_2.report_status.display = function(value)
-  if value == "NEWT" then
-    return "Report Status: New (NEWT)"
-  end
-  if value == "AMND" then
-    return "Report Status: Amend (AMND)"
-  end
-  if value == "CANC" then
-    return "Report Status: Cancellation (CANC)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.report_status.labels = {
+  ["NEWT"] = "Report Status: New (NEWT)",
+  ["AMND"] = "Report Status: Amend (AMND)",
+  ["CANC"] = "Report Status: Cancellation (CANC)",
+}
 
-  return "Report Status: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.report_status.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.report_status.labels[value] or "Report Status: Unknown("..value..")"
 end
 
 -- Dissect: Report Status
@@ -1602,27 +1544,17 @@ athex_athexsecurities_relaxed_ids_v5_2.strike_price_notation = {}
 athex_athexsecurities_relaxed_ids_v5_2.strike_price_notation.size = 4
 
 -- Display: Strike Price Notation
-athex_athexsecurities_relaxed_ids_v5_2.strike_price_notation.display = function(value)
-  if value == "MONE" then
-    return "Strike Price Notation: Monetary Value (MONE)"
-  end
-  if value == "PERC" then
-    return "Strike Price Notation: Percentage (PERC)"
-  end
-  if value == "YIEL" then
-    return "Strike Price Notation: Yield (YIEL)"
-  end
-  if value == "BAPO" then
-    return "Strike Price Notation: Basis Points (BAPO)"
-  end
-  if value == "PNDG" then
-    return "Strike Price Notation: Pending (PNDG)"
-  end
-  if value == "NOAP" then
-    return "Strike Price Notation: Not Applicable (NOAP)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.strike_price_notation.labels = {
+  ["MONE"] = "Strike Price Notation: Monetary Value (MONE)",
+  ["PERC"] = "Strike Price Notation: Percentage (PERC)",
+  ["YIEL"] = "Strike Price Notation: Yield (YIEL)",
+  ["BAPO"] = "Strike Price Notation: Basis Points (BAPO)",
+  ["PNDG"] = "Strike Price Notation: Pending (PNDG)",
+  ["NOAP"] = "Strike Price Notation: Not Applicable (NOAP)",
+}
 
-  return "Strike Price Notation: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.strike_price_notation.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.strike_price_notation.labels[value] or "Strike Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Notation
@@ -1713,15 +1645,13 @@ athex_athexsecurities_relaxed_ids_v5_2.trade_id_indicator = {}
 athex_athexsecurities_relaxed_ids_v5_2.trade_id_indicator.size = 1
 
 -- Display: Trade Id Indicator
-athex_athexsecurities_relaxed_ids_v5_2.trade_id_indicator.display = function(value)
-  if value == "1" then
-    return "Trade Id Indicator: Oasis Trade Id (1)"
-  end
-  if value == "2" then
-    return "Trade Id Indicator: Other Venue Trade Id (2)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.trade_id_indicator.labels = {
+  ["1"] = "Trade Id Indicator: Oasis Trade Id (1)",
+  ["2"] = "Trade Id Indicator: Other Venue Trade Id (2)",
+}
 
-  return "Trade Id Indicator: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.trade_id_indicator.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.trade_id_indicator.labels[value] or "Trade Id Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Id Indicator
@@ -1793,15 +1723,13 @@ athex_athexsecurities_relaxed_ids_v5_2.transaction_to_be_cleared = {}
 athex_athexsecurities_relaxed_ids_v5_2.transaction_to_be_cleared.size = 1
 
 -- Display: Transaction To Be Cleared
-athex_athexsecurities_relaxed_ids_v5_2.transaction_to_be_cleared.display = function(value)
-  if value == "0" then
-    return "Transaction To Be Cleared: False (0)"
-  end
-  if value == "1" then
-    return "Transaction To Be Cleared: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.transaction_to_be_cleared.labels = {
+  ["0"] = "Transaction To Be Cleared: False (0)",
+  ["1"] = "Transaction To Be Cleared: True (1)",
+}
 
-  return "Transaction To Be Cleared: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.transaction_to_be_cleared.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.transaction_to_be_cleared.labels[value] or "Transaction To Be Cleared: Unknown("..value..")"
 end
 
 -- Dissect: Transaction To Be Cleared
@@ -1823,24 +1751,16 @@ athex_athexsecurities_relaxed_ids_v5_2.type_emission_allowance = {}
 athex_athexsecurities_relaxed_ids_v5_2.type_emission_allowance.size = 4
 
 -- Display: Type Emission Allowance
-athex_athexsecurities_relaxed_ids_v5_2.type_emission_allowance.display = function(value)
-  if value == "EUAE" then
-    return "Type Emission Allowance: Eua (EUAE)"
-  end
-  if value == "CERE" then
-    return "Type Emission Allowance: Cer (CERE)"
-  end
-  if value == "ERUE" then
-    return "Type Emission Allowance: Eru (ERUE)"
-  end
-  if value == "EUAA" then
-    return "Type Emission Allowance: Euaa (EUAA)"
-  end
-  if value == "OTHR" then
-    return "Type Emission Allowance: Other (OTHR)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.type_emission_allowance.labels = {
+  ["EUAE"] = "Type Emission Allowance: Eua (EUAE)",
+  ["CERE"] = "Type Emission Allowance: Cer (CERE)",
+  ["ERUE"] = "Type Emission Allowance: Eru (ERUE)",
+  ["EUAA"] = "Type Emission Allowance: Euaa (EUAA)",
+  ["OTHR"] = "Type Emission Allowance: Other (OTHR)",
+}
 
-  return "Type Emission Allowance: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.type_emission_allowance.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.type_emission_allowance.labels[value] or "Type Emission Allowance: Unknown("..value..")"
 end
 
 -- Dissect: Type Emission Allowance
@@ -2000,15 +1920,13 @@ athex_athexsecurities_relaxed_ids_v5_2.volo = {}
 athex_athexsecurities_relaxed_ids_v5_2.volo.size = 1
 
 -- Display: Volo
-athex_athexsecurities_relaxed_ids_v5_2.volo.display = function(value)
-  if value == "0" then
-    return "Volo: False (0)"
-  end
-  if value == "1" then
-    return "Volo: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.volo.labels = {
+  ["0"] = "Volo: False (0)",
+  ["1"] = "Volo: True (1)",
+}
 
-  return "Volo: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.volo.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.volo.labels[value] or "Volo: Unknown("..value..")"
 end
 
 -- Dissect: Volo
@@ -2030,15 +1948,13 @@ athex_athexsecurities_relaxed_ids_v5_2.volw = {}
 athex_athexsecurities_relaxed_ids_v5_2.volw.size = 1
 
 -- Display: Volw
-athex_athexsecurities_relaxed_ids_v5_2.volw.display = function(value)
-  if value == "0" then
-    return "Volw: False (0)"
-  end
-  if value == "1" then
-    return "Volw: True (1)"
-  end
+athex_athexsecurities_relaxed_ids_v5_2.volw.labels = {
+  ["0"] = "Volw: False (0)",
+  ["1"] = "Volw: True (1)",
+}
 
-  return "Volw: Unknown("..value..")"
+athex_athexsecurities_relaxed_ids_v5_2.volw.display = function(value)
+  return athex_athexsecurities_relaxed_ids_v5_2.volw.labels[value] or "Volw: Unknown("..value..")"
 end
 
 -- Dissect: Volw
@@ -2442,14 +2358,15 @@ end
 athex_athexsecurities_relaxed_ids_v5_2.message_text = {}
 
 -- Dissect: Message Text
+athex_athexsecurities_relaxed_ids_v5_2.message_text.dispatch = {
+  ["U"] = athex_athexsecurities_relaxed_ids_v5_2.apa_post_trade_message.dissect,
+  ["V"] = athex_athexsecurities_relaxed_ids_v5_2.apa_pre_trade_message.dissect,
+}
+
 athex_athexsecurities_relaxed_ids_v5_2.message_text.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Apa Post Trade Message
-  if message_category == "U" then
-    return athex_athexsecurities_relaxed_ids_v5_2.apa_post_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Apa Pre Trade Message
-  if message_category == "V" then
-    return athex_athexsecurities_relaxed_ids_v5_2.apa_pre_trade_message.dissect(buffer, offset, packet, parent)
+  local dissect = athex_athexsecurities_relaxed_ids_v5_2.message_text.dispatch[message_category]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

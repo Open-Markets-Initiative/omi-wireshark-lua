@@ -274,36 +274,20 @@ box_boxoptions_solatradereporting_atr_v4_5.account_type = {}
 box_boxoptions_solatradereporting_atr_v4_5.account_type.size = 1
 
 -- Display: Account Type
-box_boxoptions_solatradereporting_atr_v4_5.account_type.display = function(value)
-  if value == "6" then
-    return "Account Type: Public Customer (6)"
-  end
-  if value == "7" then
-    return "Account Type: Broker Dealer (7)"
-  end
-  if value == "8" then
-    return "Account Type: Market Maker (8)"
-  end
-  if value == "T" then
-    return "Account Type: Professional Customer (T)"
-  end
-  if value == "V" then
-    return "Account Type: Floor Broker Customer (V)"
-  end
-  if value == "W" then
-    return "Account Type: Broker Dealer Cleared As Customer (W)"
-  end
-  if value == "X" then
-    return "Account Type: Away Market Maker (X)"
-  end
-  if value == "Y" then
-    return "Account Type: Floor Broker Dealer (Y)"
-  end
-  if value == "Z" then
-    return "Account Type: Floor Market Maker (Z)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.account_type.labels = {
+  ["6"] = "Account Type: Public Customer (6)",
+  ["7"] = "Account Type: Broker Dealer (7)",
+  ["8"] = "Account Type: Market Maker (8)",
+  ["T"] = "Account Type: Professional Customer (T)",
+  ["V"] = "Account Type: Floor Broker Customer (V)",
+  ["W"] = "Account Type: Broker Dealer Cleared As Customer (W)",
+  ["X"] = "Account Type: Away Market Maker (X)",
+  ["Y"] = "Account Type: Floor Broker Dealer (Y)",
+  ["Z"] = "Account Type: Floor Market Maker (Z)",
+}
 
-  return "Account Type: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.account_type.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.account_type.labels[value] or "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -814,15 +798,13 @@ box_boxoptions_solatradereporting_atr_v4_5.liquidity_status = {}
 box_boxoptions_solatradereporting_atr_v4_5.liquidity_status.size = 1
 
 -- Display: Liquidity Status
-box_boxoptions_solatradereporting_atr_v4_5.liquidity_status.display = function(value)
-  if value == "M" then
-    return "Liquidity Status: Maker (M)"
-  end
-  if value == "T" then
-    return "Liquidity Status: Taker (T)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.liquidity_status.labels = {
+  ["M"] = "Liquidity Status: Maker (M)",
+  ["T"] = "Liquidity Status: Taker (T)",
+}
 
-  return "Liquidity Status: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.liquidity_status.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.liquidity_status.labels[value] or "Liquidity Status: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Status
@@ -875,15 +857,13 @@ box_boxoptions_solatradereporting_atr_v4_5.message_flag = {}
 box_boxoptions_solatradereporting_atr_v4_5.message_flag.size = 1
 
 -- Display: Message Flag
-box_boxoptions_solatradereporting_atr_v4_5.message_flag.display = function(value)
-  if value == "R" then
-    return "Message Flag: Retransmitted Message (R)"
-  end
-  if value == "D" then
-    return "Message Flag: Duplicated Message (D)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.message_flag.labels = {
+  ["R"] = "Message Flag: Retransmitted Message (R)",
+  ["D"] = "Message Flag: Duplicated Message (D)",
+}
 
-  return "Message Flag: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.message_flag.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.message_flag.labels[value] or "Message Flag: Unknown("..value..")"
 end
 
 -- Dissect: Message Flag
@@ -905,78 +885,34 @@ box_boxoptions_solatradereporting_atr_v4_5.message_type = {}
 box_boxoptions_solatradereporting_atr_v4_5.message_type.size = 2
 
 -- Display: Message Type
-box_boxoptions_solatradereporting_atr_v4_5.message_type.display = function(value)
-  if value == "00" then
-    return "Message Type: Start Of Day (00)"
-  end
-  if value == "01" then
-    return "Message Type: Start Of Day Acknowledgement (01)"
-  end
-  if value == "02" then
-    return "Message Type: Circuit Assurance (02)"
-  end
-  if value == "03" then
-    return "Message Type: Circuit Response (03)"
-  end
-  if value == "04" then
-    return "Message Type: Restart Request (04)"
-  end
-  if value == "05" then
-    return "Message Type: Restart Accepted (05)"
-  end
-  if value == "08" then
-    return "Message Type: End Of Trading (08)"
-  end
-  if value == "09" then
-    return "Message Type: Client Signon (09)"
-  end
-  if value == "10" then
-    return "Message Type: Client Signon Acknowledgment (10)"
-  end
-  if value == "30" then
-    return "Message Type: Trade (30)"
-  end
-  if value == "31" then
-    return "Message Type: Trade Cancel (31)"
-  end
-  if value == "40" then
-    return "Message Type: Allocation (40)"
-  end
-  if value == "41" then
-    return "Message Type: Allocation Cancel (41)"
-  end
-  if value == "42" then
-    return "Message Type: New Allocation (42)"
-  end
-  if value == "43" then
-    return "Message Type: Modify Allocation (43)"
-  end
-  if value == "44" then
-    return "Message Type: Delete Allocation (44)"
-  end
-  if value == "50" then
-    return "Message Type: Give Up (50)"
-  end
-  if value == "51" then
-    return "Message Type: Give Up Cancel (51)"
-  end
-  if value == "52" then
-    return "Message Type: New Give Up (52)"
-  end
-  if value == "53" then
-    return "Message Type: Modify Give Up (53)"
-  end
-  if value == "54" then
-    return "Message Type: Delete Give Up (54)"
-  end
-  if value == "98" then
-    return "Message Type: Acknowledgement Message (98)"
-  end
-  if value == "99" then
-    return "Message Type: Error Message (99)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.message_type.labels = {
+  ["00"] = "Message Type: Start Of Day (00)",
+  ["01"] = "Message Type: Start Of Day Acknowledgement (01)",
+  ["02"] = "Message Type: Circuit Assurance (02)",
+  ["03"] = "Message Type: Circuit Response (03)",
+  ["04"] = "Message Type: Restart Request (04)",
+  ["05"] = "Message Type: Restart Accepted (05)",
+  ["08"] = "Message Type: End Of Trading (08)",
+  ["09"] = "Message Type: Client Signon (09)",
+  ["10"] = "Message Type: Client Signon Acknowledgment (10)",
+  ["30"] = "Message Type: Trade (30)",
+  ["31"] = "Message Type: Trade Cancel (31)",
+  ["40"] = "Message Type: Allocation (40)",
+  ["41"] = "Message Type: Allocation Cancel (41)",
+  ["42"] = "Message Type: New Allocation (42)",
+  ["43"] = "Message Type: Modify Allocation (43)",
+  ["44"] = "Message Type: Delete Allocation (44)",
+  ["50"] = "Message Type: Give Up (50)",
+  ["51"] = "Message Type: Give Up Cancel (51)",
+  ["52"] = "Message Type: New Give Up (52)",
+  ["53"] = "Message Type: Modify Give Up (53)",
+  ["54"] = "Message Type: Delete Give Up (54)",
+  ["98"] = "Message Type: Acknowledgement Message (98)",
+  ["99"] = "Message Type: Error Message (99)",
+}
 
-  return "Message Type: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.message_type.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -998,15 +934,13 @@ box_boxoptions_solatradereporting_atr_v4_5.open_close = {}
 box_boxoptions_solatradereporting_atr_v4_5.open_close.size = 1
 
 -- Display: Open Close
-box_boxoptions_solatradereporting_atr_v4_5.open_close.display = function(value)
-  if value == "O" then
-    return "Open Close: Open (O)"
-  end
-  if value == "C" then
-    return "Open Close: Close (C)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.open_close.labels = {
+  ["O"] = "Open Close: Open (O)",
+  ["C"] = "Open Close: Close (C)",
+}
 
-  return "Open Close: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.open_close.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.open_close.labels[value] or "Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Open Close
@@ -1028,36 +962,20 @@ box_boxoptions_solatradereporting_atr_v4_5.opposite_account_type = {}
 box_boxoptions_solatradereporting_atr_v4_5.opposite_account_type.size = 1
 
 -- Display: Opposite Account Type
-box_boxoptions_solatradereporting_atr_v4_5.opposite_account_type.display = function(value)
-  if value == "6" then
-    return "Opposite Account Type: Public Customer (6)"
-  end
-  if value == "7" then
-    return "Opposite Account Type: Broker Dealer (7)"
-  end
-  if value == "8" then
-    return "Opposite Account Type: Market Maker (8)"
-  end
-  if value == "T" then
-    return "Opposite Account Type: Professional Customer (T)"
-  end
-  if value == "V" then
-    return "Opposite Account Type: Floor Broker Customer (V)"
-  end
-  if value == "W" then
-    return "Opposite Account Type: Broker Dealer Cleared As Customer (W)"
-  end
-  if value == "X" then
-    return "Opposite Account Type: Away Market Maker (X)"
-  end
-  if value == "Y" then
-    return "Opposite Account Type: Floor Broker Dealer (Y)"
-  end
-  if value == "Z" then
-    return "Opposite Account Type: Floor Market Maker (Z)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.opposite_account_type.labels = {
+  ["6"] = "Opposite Account Type: Public Customer (6)",
+  ["7"] = "Opposite Account Type: Broker Dealer (7)",
+  ["8"] = "Opposite Account Type: Market Maker (8)",
+  ["T"] = "Opposite Account Type: Professional Customer (T)",
+  ["V"] = "Opposite Account Type: Floor Broker Customer (V)",
+  ["W"] = "Opposite Account Type: Broker Dealer Cleared As Customer (W)",
+  ["X"] = "Opposite Account Type: Away Market Maker (X)",
+  ["Y"] = "Opposite Account Type: Floor Broker Dealer (Y)",
+  ["Z"] = "Opposite Account Type: Floor Market Maker (Z)",
+}
 
-  return "Opposite Account Type: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.opposite_account_type.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.opposite_account_type.labels[value] or "Opposite Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Opposite Account Type
@@ -1110,15 +1028,13 @@ box_boxoptions_solatradereporting_atr_v4_5.option_type = {}
 box_boxoptions_solatradereporting_atr_v4_5.option_type.size = 1
 
 -- Display: Option Type
-box_boxoptions_solatradereporting_atr_v4_5.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put Blank If Not An Option (P)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put Blank If Not An Option (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.option_type.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1448,60 +1364,28 @@ box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator = {}
 box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size = 1
 
 -- Display: Strike Price Fraction Indicator
-box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.display = function(value)
-  if value == "0" then
-    return "Strike Price Fraction Indicator: Whole (0)"
-  end
-  if value == "1" then
-    return "Strike Price Fraction Indicator: Ten (1)"
-  end
-  if value == "2" then
-    return "Strike Price Fraction Indicator: Hundred (2)"
-  end
-  if value == "3" then
-    return "Strike Price Fraction Indicator: Thousand (3)"
-  end
-  if value == "4" then
-    return "Strike Price Fraction Indicator: Ten Thousand (4)"
-  end
-  if value == "5" then
-    return "Strike Price Fraction Indicator: Hundred Thousand (5)"
-  end
-  if value == "6" then
-    return "Strike Price Fraction Indicator: Million (6)"
-  end
-  if value == "7" then
-    return "Strike Price Fraction Indicator: Ten Million (7)"
-  end
-  if value == "8" then
-    return "Strike Price Fraction Indicator: Hundred Million (8)"
-  end
-  if value == "9" then
-    return "Strike Price Fraction Indicator: Billion (9)"
-  end
-  if value == "A" then
-    return "Strike Price Fraction Indicator: Negative Whole (A)"
-  end
-  if value == "B" then
-    return "Strike Price Fraction Indicator: Negative Ten (B)"
-  end
-  if value == "C" then
-    return "Strike Price Fraction Indicator: Negative Hundred (C)"
-  end
-  if value == "D" then
-    return "Strike Price Fraction Indicator: Negative Thousand (D)"
-  end
-  if value == "E" then
-    return "Strike Price Fraction Indicator: Negative Ten Thousand (E)"
-  end
-  if value == "F" then
-    return "Strike Price Fraction Indicator: Negative Hundred Thousand (F)"
-  end
-  if value == "G" then
-    return "Strike Price Fraction Indicator: Negative Million (G)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.labels = {
+  ["0"] = "Strike Price Fraction Indicator: Whole (0)",
+  ["1"] = "Strike Price Fraction Indicator: Ten (1)",
+  ["2"] = "Strike Price Fraction Indicator: Hundred (2)",
+  ["3"] = "Strike Price Fraction Indicator: Thousand (3)",
+  ["4"] = "Strike Price Fraction Indicator: Ten Thousand (4)",
+  ["5"] = "Strike Price Fraction Indicator: Hundred Thousand (5)",
+  ["6"] = "Strike Price Fraction Indicator: Million (6)",
+  ["7"] = "Strike Price Fraction Indicator: Ten Million (7)",
+  ["8"] = "Strike Price Fraction Indicator: Hundred Million (8)",
+  ["9"] = "Strike Price Fraction Indicator: Billion (9)",
+  ["A"] = "Strike Price Fraction Indicator: Negative Whole (A)",
+  ["B"] = "Strike Price Fraction Indicator: Negative Ten (B)",
+  ["C"] = "Strike Price Fraction Indicator: Negative Hundred (C)",
+  ["D"] = "Strike Price Fraction Indicator: Negative Thousand (D)",
+  ["E"] = "Strike Price Fraction Indicator: Negative Ten Thousand (E)",
+  ["F"] = "Strike Price Fraction Indicator: Negative Hundred Thousand (F)",
+  ["G"] = "Strike Price Fraction Indicator: Negative Million (G)",
+}
 
-  return "Strike Price Fraction Indicator: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.labels[value] or "Strike Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Fraction Indicator
@@ -1646,42 +1530,22 @@ box_boxoptions_solatradereporting_atr_v4_5.trade_type = {}
 box_boxoptions_solatradereporting_atr_v4_5.trade_type.size = 1
 
 -- Display: Trade Type
-box_boxoptions_solatradereporting_atr_v4_5.trade_type.display = function(value)
-  if value == "O" then
-    return "Trade Type: Crossed Orders A Trade With The Same Firm Id On Both Sides (O)"
-  end
-  if value == "T" then
-    return "Trade Type: Trader Crossed Orders A Trade With The Same Trader Id On Both Sides (T)"
-  end
-  if value == "M" then
-    return "Trade Type: Tpr Trade A Trade Done By A Third Party Router (M)"
-  end
-  if value == "P" then
-    return "Trade Type: Pip A Trade Done At The End Of A Pip Auction (P)"
-  end
-  if value == "F" then
-    return "Trade Type: Firm Do A Trade Resulting From A Directed Order (F)"
-  end
-  if value == "A" then
-    return "Trade Type: As Of A Trade Entered By The Box Moc To Correct A Trade Executed On A Previous Day (A)"
-  end
-  if value == "E" then
-    return "Trade Type: Late A Trade Entered By The Box Moc To Correct A Trade Executed On The Same Day (E)"
-  end
-  if value == "S" then
-    return "Trade Type: Solicitation A Trade Done As Part Of A Solicitation Auction (S)"
-  end
-  if value == "I" then
-    return "Trade Type: Facilitation A Trade Done As Part Of A Facilitation Auction (I)"
-  end
-  if value == "R" then
-    return "Trade Type: Floor Trade (R)"
-  end
-  if value == "C" then
-    return "Trade Type: Customer Cross Orders Or Qualified Contingent Cross Orders (C)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.trade_type.labels = {
+  ["O"] = "Trade Type: Crossed Orders A Trade With The Same Firm Id On Both Sides (O)",
+  ["T"] = "Trade Type: Trader Crossed Orders A Trade With The Same Trader Id On Both Sides (T)",
+  ["M"] = "Trade Type: Tpr Trade A Trade Done By A Third Party Router (M)",
+  ["P"] = "Trade Type: Pip A Trade Done At The End Of A Pip Auction (P)",
+  ["F"] = "Trade Type: Firm Do A Trade Resulting From A Directed Order (F)",
+  ["A"] = "Trade Type: As Of A Trade Entered By The Box Moc To Correct A Trade Executed On A Previous Day (A)",
+  ["E"] = "Trade Type: Late A Trade Entered By The Box Moc To Correct A Trade Executed On The Same Day (E)",
+  ["S"] = "Trade Type: Solicitation A Trade Done As Part Of A Solicitation Auction (S)",
+  ["I"] = "Trade Type: Facilitation A Trade Done As Part Of A Facilitation Auction (I)",
+  ["R"] = "Trade Type: Floor Trade (R)",
+  ["C"] = "Trade Type: Customer Cross Orders Or Qualified Contingent Cross Orders (C)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.trade_type.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -1703,15 +1567,13 @@ box_boxoptions_solatradereporting_atr_v4_5.transaction_type = {}
 box_boxoptions_solatradereporting_atr_v4_5.transaction_type.size = 1
 
 -- Display: Transaction Type
-box_boxoptions_solatradereporting_atr_v4_5.transaction_type.display = function(value)
-  if value == "B" then
-    return "Transaction Type: Buy (B)"
-  end
-  if value == "S" then
-    return "Transaction Type: Sell (S)"
-  end
+box_boxoptions_solatradereporting_atr_v4_5.transaction_type.labels = {
+  ["B"] = "Transaction Type: Buy (B)",
+  ["S"] = "Transaction Type: Sell (S)",
+}
 
-  return "Transaction Type: Unknown("..value..")"
+box_boxoptions_solatradereporting_atr_v4_5.transaction_type.display = function(value)
+  return box_boxoptions_solatradereporting_atr_v4_5.transaction_type.labels[value] or "Transaction Type: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Type
@@ -2916,58 +2778,26 @@ end
 box_boxoptions_solatradereporting_atr_v4_5.server_message = {}
 
 -- Dissect: Server Message
+box_boxoptions_solatradereporting_atr_v4_5.server_message.dispatch = {
+  ["00"] = box_boxoptions_solatradereporting_atr_v4_5.start_of_day.dissect,
+  ["02"] = box_boxoptions_solatradereporting_atr_v4_5.circuit_assurance.dissect,
+  ["05"] = box_boxoptions_solatradereporting_atr_v4_5.restart_accepted.dissect,
+  ["08"] = box_boxoptions_solatradereporting_atr_v4_5.end_of_trading.dissect,
+  ["10"] = box_boxoptions_solatradereporting_atr_v4_5.client_signon_acknowledgment.dissect,
+  ["30"] = box_boxoptions_solatradereporting_atr_v4_5.trade.dissect,
+  ["31"] = box_boxoptions_solatradereporting_atr_v4_5.trade_cancel.dissect,
+  ["40"] = box_boxoptions_solatradereporting_atr_v4_5.allocation.dissect,
+  ["41"] = box_boxoptions_solatradereporting_atr_v4_5.allocation_cancel.dissect,
+  ["50"] = box_boxoptions_solatradereporting_atr_v4_5.give_up.dissect,
+  ["51"] = box_boxoptions_solatradereporting_atr_v4_5.give_up_cancel.dissect,
+  ["98"] = box_boxoptions_solatradereporting_atr_v4_5.acknowledgement_message.dissect,
+  ["99"] = box_boxoptions_solatradereporting_atr_v4_5.error_message.dissect,
+}
+
 box_boxoptions_solatradereporting_atr_v4_5.server_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Start Of Day
-  if message_type == "00" then
-    return box_boxoptions_solatradereporting_atr_v4_5.start_of_day.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Circuit Assurance
-  if message_type == "02" then
-    return box_boxoptions_solatradereporting_atr_v4_5.circuit_assurance.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Restart Accepted
-  if message_type == "05" then
-    return box_boxoptions_solatradereporting_atr_v4_5.restart_accepted.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Trading
-  if message_type == "08" then
-    return box_boxoptions_solatradereporting_atr_v4_5.end_of_trading.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Signon Acknowledgment
-  if message_type == "10" then
-    return box_boxoptions_solatradereporting_atr_v4_5.client_signon_acknowledgment.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade
-  if message_type == "30" then
-    return box_boxoptions_solatradereporting_atr_v4_5.trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel
-  if message_type == "31" then
-    return box_boxoptions_solatradereporting_atr_v4_5.trade_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Allocation
-  if message_type == "40" then
-    return box_boxoptions_solatradereporting_atr_v4_5.allocation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Allocation Cancel
-  if message_type == "41" then
-    return box_boxoptions_solatradereporting_atr_v4_5.allocation_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Give Up
-  if message_type == "50" then
-    return box_boxoptions_solatradereporting_atr_v4_5.give_up.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Give Up Cancel
-  if message_type == "51" then
-    return box_boxoptions_solatradereporting_atr_v4_5.give_up_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Acknowledgement Message
-  if message_type == "98" then
-    return box_boxoptions_solatradereporting_atr_v4_5.acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Error Message
-  if message_type == "99" then
-    return box_boxoptions_solatradereporting_atr_v4_5.error_message.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solatradereporting_atr_v4_5.server_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3708,46 +3538,23 @@ end
 box_boxoptions_solatradereporting_atr_v4_5.client_message = {}
 
 -- Dissect: Client Message
+box_boxoptions_solatradereporting_atr_v4_5.client_message.dispatch = {
+  ["01"] = box_boxoptions_solatradereporting_atr_v4_5.start_of_day_acknowledgement.dissect,
+  ["03"] = box_boxoptions_solatradereporting_atr_v4_5.circuit_response.dissect,
+  ["04"] = box_boxoptions_solatradereporting_atr_v4_5.restart_request.dissect,
+  ["09"] = box_boxoptions_solatradereporting_atr_v4_5.client_signon.dissect,
+  ["42"] = box_boxoptions_solatradereporting_atr_v4_5.new_allocation.dissect,
+  ["43"] = box_boxoptions_solatradereporting_atr_v4_5.modify_allocation.dissect,
+  ["44"] = box_boxoptions_solatradereporting_atr_v4_5.delete_allocation.dissect,
+  ["52"] = box_boxoptions_solatradereporting_atr_v4_5.new_give_up.dissect,
+  ["53"] = box_boxoptions_solatradereporting_atr_v4_5.modify_give_up.dissect,
+  ["54"] = box_boxoptions_solatradereporting_atr_v4_5.delete_give_up.dissect,
+}
+
 box_boxoptions_solatradereporting_atr_v4_5.client_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Start Of Day Acknowledgement
-  if message_type == "01" then
-    return box_boxoptions_solatradereporting_atr_v4_5.start_of_day_acknowledgement.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Circuit Response
-  if message_type == "03" then
-    return box_boxoptions_solatradereporting_atr_v4_5.circuit_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Restart Request
-  if message_type == "04" then
-    return box_boxoptions_solatradereporting_atr_v4_5.restart_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Signon
-  if message_type == "09" then
-    return box_boxoptions_solatradereporting_atr_v4_5.client_signon.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Allocation
-  if message_type == "42" then
-    return box_boxoptions_solatradereporting_atr_v4_5.new_allocation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Allocation
-  if message_type == "43" then
-    return box_boxoptions_solatradereporting_atr_v4_5.modify_allocation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Allocation
-  if message_type == "44" then
-    return box_boxoptions_solatradereporting_atr_v4_5.delete_allocation.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Give Up
-  if message_type == "52" then
-    return box_boxoptions_solatradereporting_atr_v4_5.new_give_up.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Give Up
-  if message_type == "53" then
-    return box_boxoptions_solatradereporting_atr_v4_5.modify_give_up.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Give Up
-  if message_type == "54" then
-    return box_boxoptions_solatradereporting_atr_v4_5.delete_give_up.dissect(buffer, offset, packet, parent)
+  local dissect = box_boxoptions_solatradereporting_atr_v4_5.client_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

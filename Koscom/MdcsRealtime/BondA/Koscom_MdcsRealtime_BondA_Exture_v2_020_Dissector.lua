@@ -6842,33 +6842,19 @@ koscom_mdcsrealtime_bonda_exture_v2_020.currency_code = {}
 koscom_mdcsrealtime_bonda_exture_v2_020.currency_code.size = 3
 
 -- Display: Currency Code
-koscom_mdcsrealtime_bonda_exture_v2_020.currency_code.display = function(value)
-  if value == "KRW" then
-    return "Currency Code: Korean Won (KRW)"
-  end
-  if value == "JPY" then
-    return "Currency Code: Japanese Yen (JPY)"
-  end
-  if value == "USD" then
-    return "Currency Code: Us Dollar (USD)"
-  end
-  if value == "HKD" then
-    return "Currency Code: Hong Kong Dollar (HKD)"
-  end
-  if value == "TWD" then
-    return "Currency Code: Taiwan Dollar (TWD)"
-  end
-  if value == "CNY" then
-    return "Currency Code: Chinese Yuan (CNY)"
-  end
-  if value == "EUR" then
-    return "Currency Code: Euro (EUR)"
-  end
-  if value == "GBP" then
-    return "Currency Code: British Pound (GBP)"
-  end
+koscom_mdcsrealtime_bonda_exture_v2_020.currency_code.labels = {
+  ["KRW"] = "Currency Code: Korean Won (KRW)",
+  ["JPY"] = "Currency Code: Japanese Yen (JPY)",
+  ["USD"] = "Currency Code: Us Dollar (USD)",
+  ["HKD"] = "Currency Code: Hong Kong Dollar (HKD)",
+  ["TWD"] = "Currency Code: Taiwan Dollar (TWD)",
+  ["CNY"] = "Currency Code: Chinese Yuan (CNY)",
+  ["EUR"] = "Currency Code: Euro (EUR)",
+  ["GBP"] = "Currency Code: British Pound (GBP)",
+}
 
-  return "Currency Code: Unknown("..value..")"
+koscom_mdcsrealtime_bonda_exture_v2_020.currency_code.display = function(value)
+  return koscom_mdcsrealtime_bonda_exture_v2_020.currency_code.labels[value] or "Currency Code: Unknown("..value..")"
 end
 
 -- Dissect: Currency Code
@@ -8155,12 +8141,12 @@ koscom_mdcsrealtime_bonda_exture_v2_020.end_keyword = {}
 koscom_mdcsrealtime_bonda_exture_v2_020.end_keyword.size = 1
 
 -- Display: End Keyword
-koscom_mdcsrealtime_bonda_exture_v2_020.end_keyword.display = function(value)
-  if value == 255 then
-    return "End Keyword: End Of Message (255)"
-  end
+koscom_mdcsrealtime_bonda_exture_v2_020.end_keyword.labels = {
+  [255] = "End Keyword: End Of Message (255)",
+}
 
-  return "End Keyword: Unknown("..value..")"
+koscom_mdcsrealtime_bonda_exture_v2_020.end_keyword.display = function(value)
+  return koscom_mdcsrealtime_bonda_exture_v2_020.end_keyword.labels[value] or "End Keyword: Unknown("..value..")"
 end
 
 -- Dissect: End Keyword
@@ -8875,15 +8861,13 @@ koscom_mdcsrealtime_bonda_exture_v2_020.index_constituent = {}
 koscom_mdcsrealtime_bonda_exture_v2_020.index_constituent.size = 1
 
 -- Display: Index Constituent
-koscom_mdcsrealtime_bonda_exture_v2_020.index_constituent.display = function(value)
-  if value == "0" then
-    return "Index Constituent: Included In Etf Not In Index (0)"
-  end
-  if value == "1" then
-    return "Index Constituent: Included In Index (1)"
-  end
+koscom_mdcsrealtime_bonda_exture_v2_020.index_constituent.labels = {
+  ["0"] = "Index Constituent: Included In Etf Not In Index (0)",
+  ["1"] = "Index Constituent: Included In Index (1)",
+}
 
-  return "Index Constituent: Unknown("..value..")"
+koscom_mdcsrealtime_bonda_exture_v2_020.index_constituent.display = function(value)
+  return koscom_mdcsrealtime_bonda_exture_v2_020.index_constituent.labels[value] or "Index Constituent: Unknown("..value..")"
 end
 
 -- Dissect: Index Constituent
@@ -13238,396 +13222,140 @@ koscom_mdcsrealtime_bonda_exture_v2_020.tr_code = {}
 koscom_mdcsrealtime_bonda_exture_v2_020.tr_code.size = 5
 
 -- Display: Tr Code
-koscom_mdcsrealtime_bonda_exture_v2_020.tr_code.display = function(value)
-  if value == "I2000" then
-    return "Tr Code: Polling Data Message (I2000)"
-  end
-  if value == "IA000" then
-    return "Tr Code: Krx Index Message (IA000)"
-  end
-  if value == "IB000" then
-    return "Tr Code: Krx Estimated Index Message (IB000)"
-  end
-  if value == "J2000" then
-    return "Tr Code: Global Index Message (J2000)"
-  end
-  if value == "J4000" then
-    return "Tr Code: Bond Prime Index Message (J4000)"
-  end
-  if value == "K1000" then
-    return "Tr Code: Bond Ktb Index Message (K1000)"
-  end
-  if value == "K8000" then
-    return "Tr Code: Bond Ktb Index Term Structure Message (K8000)"
-  end
-  if value == "IG000" then
-    return "Tr Code: Bond Index Krx Message (IG000)"
-  end
-  if value == "A701S" then
-    return "Tr Code: Market Operation Ts Message (A701S)"
-  end
-  if value == "A702S" then
-    return "Tr Code: Market Operation Ts Message (A702S)"
-  end
-  if value == "A703S" then
-    return "Tr Code: Market Operation Ts Message (A703S)"
-  end
-  if value == "A704S" then
-    return "Tr Code: Market Operation Ts Message (A704S)"
-  end
-  if value == "A705S" then
-    return "Tr Code: Market Operation Ts Message (A705S)"
-  end
-  if value == "A701Q" then
-    return "Tr Code: Market Operation Ts Message (A701Q)"
-  end
-  if value == "A701X" then
-    return "Tr Code: Market Operation Ts Message (A701X)"
-  end
-  if value == "A701B" then
-    return "Tr Code: Market Operation Ts Message (A701B)"
-  end
-  if value == "A701M" then
-    return "Tr Code: Market Operation Ts Message (A701M)"
-  end
-  if value == "A701K" then
-    return "Tr Code: Market Operation Ts Message (A701K)"
-  end
-  if value == "A701R" then
-    return "Tr Code: Market Operation Ts Message (A701R)"
-  end
-  if value == "A701F" then
-    return "Tr Code: Market Operation Ts Message (A701F)"
-  end
-  if value == "A702F" then
-    return "Tr Code: Market Operation Ts Message (A702F)"
-  end
-  if value == "A703F" then
-    return "Tr Code: Market Operation Ts Message (A703F)"
-  end
-  if value == "A704F" then
-    return "Tr Code: Market Operation Ts Message (A704F)"
-  end
-  if value == "A705F" then
-    return "Tr Code: Market Operation Ts Message (A705F)"
-  end
-  if value == "A706F" then
-    return "Tr Code: Market Operation Ts Message (A706F)"
-  end
-  if value == "A707F" then
-    return "Tr Code: Market Operation Ts Message (A707F)"
-  end
-  if value == "A708F" then
-    return "Tr Code: Market Operation Ts Message (A708F)"
-  end
-  if value == "A709F" then
-    return "Tr Code: Market Operation Ts Message (A709F)"
-  end
-  if value == "A710F" then
-    return "Tr Code: Market Operation Ts Message (A710F)"
-  end
-  if value == "A711F" then
-    return "Tr Code: Market Operation Ts Message (A711F)"
-  end
-  if value == "A712F" then
-    return "Tr Code: Market Operation Ts Message (A712F)"
-  end
-  if value == "A713F" then
-    return "Tr Code: Market Operation Ts Message (A713F)"
-  end
-  if value == "A715F" then
-    return "Tr Code: Market Operation Ts Message (A715F)"
-  end
-  if value == "A716F" then
-    return "Tr Code: Market Operation Ts Message (A716F)"
-  end
-  if value == "A717F" then
-    return "Tr Code: Market Operation Ts Message (A717F)"
-  end
-  if value == "A718F" then
-    return "Tr Code: Market Operation Ts Message (A718F)"
-  end
-  if value == "A701G" then
-    return "Tr Code: Market Operation Ts Message (A701G)"
-  end
-  if value == "A701E" then
-    return "Tr Code: Market Operation Ts Message (A701E)"
-  end
-  if value == "M401S" then
-    return "Tr Code: Market Operation Schedule Message (M401S)"
-  end
-  if value == "M402S" then
-    return "Tr Code: Market Operation Schedule Message (M402S)"
-  end
-  if value == "M403S" then
-    return "Tr Code: Market Operation Schedule Message (M403S)"
-  end
-  if value == "M404S" then
-    return "Tr Code: Market Operation Schedule Message (M404S)"
-  end
-  if value == "M405S" then
-    return "Tr Code: Market Operation Schedule Message (M405S)"
-  end
-  if value == "M401Q" then
-    return "Tr Code: Market Operation Schedule Message (M401Q)"
-  end
-  if value == "M401X" then
-    return "Tr Code: Market Operation Schedule Message (M401X)"
-  end
-  if value == "M401B" then
-    return "Tr Code: Market Operation Schedule Message (M401B)"
-  end
-  if value == "M401M" then
-    return "Tr Code: Market Operation Schedule Message (M401M)"
-  end
-  if value == "M401K" then
-    return "Tr Code: Market Operation Schedule Message (M401K)"
-  end
-  if value == "M401R" then
-    return "Tr Code: Market Operation Schedule Message (M401R)"
-  end
-  if value == "M401F" then
-    return "Tr Code: Market Operation Schedule Message (M401F)"
-  end
-  if value == "M402F" then
-    return "Tr Code: Market Operation Schedule Message (M402F)"
-  end
-  if value == "M403F" then
-    return "Tr Code: Market Operation Schedule Message (M403F)"
-  end
-  if value == "M404F" then
-    return "Tr Code: Market Operation Schedule Message (M404F)"
-  end
-  if value == "M405F" then
-    return "Tr Code: Market Operation Schedule Message (M405F)"
-  end
-  if value == "M406F" then
-    return "Tr Code: Market Operation Schedule Message (M406F)"
-  end
-  if value == "M407F" then
-    return "Tr Code: Market Operation Schedule Message (M407F)"
-  end
-  if value == "M408F" then
-    return "Tr Code: Market Operation Schedule Message (M408F)"
-  end
-  if value == "M409F" then
-    return "Tr Code: Market Operation Schedule Message (M409F)"
-  end
-  if value == "M410F" then
-    return "Tr Code: Market Operation Schedule Message (M410F)"
-  end
-  if value == "M411F" then
-    return "Tr Code: Market Operation Schedule Message (M411F)"
-  end
-  if value == "M412F" then
-    return "Tr Code: Market Operation Schedule Message (M412F)"
-  end
-  if value == "M413F" then
-    return "Tr Code: Market Operation Schedule Message (M413F)"
-  end
-  if value == "M415F" then
-    return "Tr Code: Market Operation Schedule Message (M415F)"
-  end
-  if value == "M416F" then
-    return "Tr Code: Market Operation Schedule Message (M416F)"
-  end
-  if value == "M417F" then
-    return "Tr Code: Market Operation Schedule Message (M417F)"
-  end
-  if value == "M418F" then
-    return "Tr Code: Market Operation Schedule Message (M418F)"
-  end
-  if value == "M401G" then
-    return "Tr Code: Market Operation Schedule Message (M401G)"
-  end
-  if value == "M401E" then
-    return "Tr Code: Market Operation Schedule Message (M401E)"
-  end
-  if value == "A601B" then
-    return "Tr Code: Issue Closing Message (A601B)"
-  end
-  if value == "A601M" then
-    return "Tr Code: Issue Closing Message (A601M)"
-  end
-  if value == "A601K" then
-    return "Tr Code: Issue Closing Message (A601K)"
-  end
-  if value == "A601R" then
-    return "Tr Code: Issue Closing Message (A601R)"
-  end
-  if value == "R301S" then
-    return "Tr Code: Member Firm Sanctions Message (R301S)"
-  end
-  if value == "R302S" then
-    return "Tr Code: Member Firm Sanctions Message (R302S)"
-  end
-  if value == "R303S" then
-    return "Tr Code: Member Firm Sanctions Message (R303S)"
-  end
-  if value == "R304S" then
-    return "Tr Code: Member Firm Sanctions Message (R304S)"
-  end
-  if value == "R305S" then
-    return "Tr Code: Member Firm Sanctions Message (R305S)"
-  end
-  if value == "R301Q" then
-    return "Tr Code: Member Firm Sanctions Message (R301Q)"
-  end
-  if value == "R301X" then
-    return "Tr Code: Member Firm Sanctions Message (R301X)"
-  end
-  if value == "R301B" then
-    return "Tr Code: Member Firm Sanctions Message (R301B)"
-  end
-  if value == "R301M" then
-    return "Tr Code: Member Firm Sanctions Message (R301M)"
-  end
-  if value == "R301K" then
-    return "Tr Code: Member Firm Sanctions Message (R301K)"
-  end
-  if value == "R301R" then
-    return "Tr Code: Member Firm Sanctions Message (R301R)"
-  end
-  if value == "B601B" then
-    return "Tr Code: Regular Bonds Ktb Quote Message (B601B)"
-  end
-  if value == "B601K" then
-    return "Tr Code: Regular Bonds Ktb Quote Message (B601K)"
-  end
-  if value == "A301B" then
-    return "Tr Code: Bonds Order Filled Message (A301B)"
-  end
-  if value == "A301M" then
-    return "Tr Code: Bonds Order Filled Message (A301M)"
-  end
-  if value == "A301K" then
-    return "Tr Code: Bonds Order Filled Message (A301K)"
-  end
-  if value == "G701B" then
-    return "Tr Code: General Bonds Ktb Order Filled Plus Quote Message (G701B)"
-  end
-  if value == "G701K" then
-    return "Tr Code: General Bonds Ktb Order Filled Plus Quote Message (G701K)"
-  end
-  if value == "C401B" then
-    return "Tr Code: Bonds Negotiated Trade Data Message (C401B)"
-  end
-  if value == "C401K" then
-    return "Tr Code: Bonds Negotiated Trade Data Message (C401K)"
-  end
-  if value == "C401R" then
-    return "Tr Code: Repo Negotiated Trade Data Message (C401R)"
-  end
-  if value == "A001B" then
-    return "Tr Code: Bonds Batch Data Message (A001B)"
-  end
-  if value == "A001R" then
-    return "Tr Code: Repo Batch Data Message (A001R)"
-  end
-  if value == "I601S" then
-    return "Tr Code: Issue Event Message (I601S)"
-  end
-  if value == "I602S" then
-    return "Tr Code: Issue Event Message (I602S)"
-  end
-  if value == "I603S" then
-    return "Tr Code: Issue Event Message (I603S)"
-  end
-  if value == "I604S" then
-    return "Tr Code: Issue Event Message (I604S)"
-  end
-  if value == "I605S" then
-    return "Tr Code: Issue Event Message (I605S)"
-  end
-  if value == "I601Q" then
-    return "Tr Code: Issue Event Message (I601Q)"
-  end
-  if value == "I601X" then
-    return "Tr Code: Issue Event Message (I601X)"
-  end
-  if value == "I601B" then
-    return "Tr Code: Issue Event Message (I601B)"
-  end
-  if value == "I601M" then
-    return "Tr Code: Issue Event Message (I601M)"
-  end
-  if value == "I601K" then
-    return "Tr Code: Issue Event Message (I601K)"
-  end
-  if value == "I601R" then
-    return "Tr Code: Issue Event Message (I601R)"
-  end
-  if value == "F901B" then
-    return "Tr Code: Corporate Bonds Reference Message (F901B)"
-  end
-  if value == "F901M" then
-    return "Tr Code: Corporate Bonds Reference Message (F901M)"
-  end
-  if value == "BN01B" then
-    return "Tr Code: Regular Bonds Installment Repayment Date Message (BN01B)"
-  end
-  if value == "CB01R" then
-    return "Tr Code: Repo Classification Data Message (CB01R)"
-  end
-  if value == "S001R" then
-    return "Tr Code: Repo Trade Availability Per Term Message (S001R)"
-  end
-  if value == "G300B" then
-    return "Tr Code: Retail Bonds Type Code Message (G300B)"
-  end
-  if value == "G001M" then
-    return "Tr Code: Baby Bonds Reporting Market Yield Message (G001M)"
-  end
-  if value == "PA01K" then
-    return "Tr Code: Ktb Confirmed Info For Wit Message (PA01K)"
-  end
-  if value == "PB01K" then
-    return "Tr Code: Ktb Short Term Yield Message (PB01K)"
-  end
-  if value == "PC01K" then
-    return "Tr Code: Ktb Average Yield Message (PC01K)"
-  end
-  if value == "JA077" then
-    return "Tr Code: Bonds Credit Rating Information Message (JA077)"
-  end
-  if value == "R401B" then
-    return "Tr Code: Regular Bonds Disclosure Basic Exchange Rate Message (R401B)"
-  end
-  if value == "P401B" then
-    return "Tr Code: Investor Activities Per Bond Types Message (P401B)"
-  end
-  if value == "P401M" then
-    return "Tr Code: Investor Activities Per Bond Types Message (P401M)"
-  end
-  if value == "P401K" then
-    return "Tr Code: Investor Activities Per Bond Types Message (P401K)"
-  end
-  if value == "J9077" then
-    return "Tr Code: Bonds Isin Issue Information Message (J9077)"
-  end
-  if value == "JB077" then
-    return "Tr Code: Bonds Isin Information Text Message (JB077)"
-  end
-  if value == "B601M" then
-    return "Tr Code: Baby Bonds Quote Message (B601M)"
-  end
-  if value == "B601R" then
-    return "Tr Code: Repo Quote Message (B601R)"
-  end
-  if value == "OA01B" then
-    return "Tr Code: Bonds Total Remaining Volume On Quotes Message (OA01B)"
-  end
-  if value == "OA01M" then
-    return "Tr Code: Bonds Total Remaining Volume On Quotes Message (OA01M)"
-  end
-  if value == "G701M" then
-    return "Tr Code: Baby Bonds Order Filled Plus Quote Message (G701M)"
-  end
-  if value == "G701R" then
-    return "Tr Code: Repo Order Filled Plus Quote Message (G701R)"
-  end
+koscom_mdcsrealtime_bonda_exture_v2_020.tr_code.labels = {
+  ["I2000"] = "Tr Code: Polling Data Message (I2000)",
+  ["IA000"] = "Tr Code: Krx Index Message (IA000)",
+  ["IB000"] = "Tr Code: Krx Estimated Index Message (IB000)",
+  ["J2000"] = "Tr Code: Global Index Message (J2000)",
+  ["J4000"] = "Tr Code: Bond Prime Index Message (J4000)",
+  ["K1000"] = "Tr Code: Bond Ktb Index Message (K1000)",
+  ["K8000"] = "Tr Code: Bond Ktb Index Term Structure Message (K8000)",
+  ["IG000"] = "Tr Code: Bond Index Krx Message (IG000)",
+  ["A701S"] = "Tr Code: Market Operation Ts Message (A701S)",
+  ["A702S"] = "Tr Code: Market Operation Ts Message (A702S)",
+  ["A703S"] = "Tr Code: Market Operation Ts Message (A703S)",
+  ["A704S"] = "Tr Code: Market Operation Ts Message (A704S)",
+  ["A705S"] = "Tr Code: Market Operation Ts Message (A705S)",
+  ["A701Q"] = "Tr Code: Market Operation Ts Message (A701Q)",
+  ["A701X"] = "Tr Code: Market Operation Ts Message (A701X)",
+  ["A701B"] = "Tr Code: Market Operation Ts Message (A701B)",
+  ["A701M"] = "Tr Code: Market Operation Ts Message (A701M)",
+  ["A701K"] = "Tr Code: Market Operation Ts Message (A701K)",
+  ["A701R"] = "Tr Code: Market Operation Ts Message (A701R)",
+  ["A701F"] = "Tr Code: Market Operation Ts Message (A701F)",
+  ["A702F"] = "Tr Code: Market Operation Ts Message (A702F)",
+  ["A703F"] = "Tr Code: Market Operation Ts Message (A703F)",
+  ["A704F"] = "Tr Code: Market Operation Ts Message (A704F)",
+  ["A705F"] = "Tr Code: Market Operation Ts Message (A705F)",
+  ["A706F"] = "Tr Code: Market Operation Ts Message (A706F)",
+  ["A707F"] = "Tr Code: Market Operation Ts Message (A707F)",
+  ["A708F"] = "Tr Code: Market Operation Ts Message (A708F)",
+  ["A709F"] = "Tr Code: Market Operation Ts Message (A709F)",
+  ["A710F"] = "Tr Code: Market Operation Ts Message (A710F)",
+  ["A711F"] = "Tr Code: Market Operation Ts Message (A711F)",
+  ["A712F"] = "Tr Code: Market Operation Ts Message (A712F)",
+  ["A713F"] = "Tr Code: Market Operation Ts Message (A713F)",
+  ["A715F"] = "Tr Code: Market Operation Ts Message (A715F)",
+  ["A716F"] = "Tr Code: Market Operation Ts Message (A716F)",
+  ["A717F"] = "Tr Code: Market Operation Ts Message (A717F)",
+  ["A718F"] = "Tr Code: Market Operation Ts Message (A718F)",
+  ["A701G"] = "Tr Code: Market Operation Ts Message (A701G)",
+  ["A701E"] = "Tr Code: Market Operation Ts Message (A701E)",
+  ["M401S"] = "Tr Code: Market Operation Schedule Message (M401S)",
+  ["M402S"] = "Tr Code: Market Operation Schedule Message (M402S)",
+  ["M403S"] = "Tr Code: Market Operation Schedule Message (M403S)",
+  ["M404S"] = "Tr Code: Market Operation Schedule Message (M404S)",
+  ["M405S"] = "Tr Code: Market Operation Schedule Message (M405S)",
+  ["M401Q"] = "Tr Code: Market Operation Schedule Message (M401Q)",
+  ["M401X"] = "Tr Code: Market Operation Schedule Message (M401X)",
+  ["M401B"] = "Tr Code: Market Operation Schedule Message (M401B)",
+  ["M401M"] = "Tr Code: Market Operation Schedule Message (M401M)",
+  ["M401K"] = "Tr Code: Market Operation Schedule Message (M401K)",
+  ["M401R"] = "Tr Code: Market Operation Schedule Message (M401R)",
+  ["M401F"] = "Tr Code: Market Operation Schedule Message (M401F)",
+  ["M402F"] = "Tr Code: Market Operation Schedule Message (M402F)",
+  ["M403F"] = "Tr Code: Market Operation Schedule Message (M403F)",
+  ["M404F"] = "Tr Code: Market Operation Schedule Message (M404F)",
+  ["M405F"] = "Tr Code: Market Operation Schedule Message (M405F)",
+  ["M406F"] = "Tr Code: Market Operation Schedule Message (M406F)",
+  ["M407F"] = "Tr Code: Market Operation Schedule Message (M407F)",
+  ["M408F"] = "Tr Code: Market Operation Schedule Message (M408F)",
+  ["M409F"] = "Tr Code: Market Operation Schedule Message (M409F)",
+  ["M410F"] = "Tr Code: Market Operation Schedule Message (M410F)",
+  ["M411F"] = "Tr Code: Market Operation Schedule Message (M411F)",
+  ["M412F"] = "Tr Code: Market Operation Schedule Message (M412F)",
+  ["M413F"] = "Tr Code: Market Operation Schedule Message (M413F)",
+  ["M415F"] = "Tr Code: Market Operation Schedule Message (M415F)",
+  ["M416F"] = "Tr Code: Market Operation Schedule Message (M416F)",
+  ["M417F"] = "Tr Code: Market Operation Schedule Message (M417F)",
+  ["M418F"] = "Tr Code: Market Operation Schedule Message (M418F)",
+  ["M401G"] = "Tr Code: Market Operation Schedule Message (M401G)",
+  ["M401E"] = "Tr Code: Market Operation Schedule Message (M401E)",
+  ["A601B"] = "Tr Code: Issue Closing Message (A601B)",
+  ["A601M"] = "Tr Code: Issue Closing Message (A601M)",
+  ["A601K"] = "Tr Code: Issue Closing Message (A601K)",
+  ["A601R"] = "Tr Code: Issue Closing Message (A601R)",
+  ["R301S"] = "Tr Code: Member Firm Sanctions Message (R301S)",
+  ["R302S"] = "Tr Code: Member Firm Sanctions Message (R302S)",
+  ["R303S"] = "Tr Code: Member Firm Sanctions Message (R303S)",
+  ["R304S"] = "Tr Code: Member Firm Sanctions Message (R304S)",
+  ["R305S"] = "Tr Code: Member Firm Sanctions Message (R305S)",
+  ["R301Q"] = "Tr Code: Member Firm Sanctions Message (R301Q)",
+  ["R301X"] = "Tr Code: Member Firm Sanctions Message (R301X)",
+  ["R301B"] = "Tr Code: Member Firm Sanctions Message (R301B)",
+  ["R301M"] = "Tr Code: Member Firm Sanctions Message (R301M)",
+  ["R301K"] = "Tr Code: Member Firm Sanctions Message (R301K)",
+  ["R301R"] = "Tr Code: Member Firm Sanctions Message (R301R)",
+  ["B601B"] = "Tr Code: Regular Bonds Ktb Quote Message (B601B)",
+  ["B601K"] = "Tr Code: Regular Bonds Ktb Quote Message (B601K)",
+  ["A301B"] = "Tr Code: Bonds Order Filled Message (A301B)",
+  ["A301M"] = "Tr Code: Bonds Order Filled Message (A301M)",
+  ["A301K"] = "Tr Code: Bonds Order Filled Message (A301K)",
+  ["G701B"] = "Tr Code: General Bonds Ktb Order Filled Plus Quote Message (G701B)",
+  ["G701K"] = "Tr Code: General Bonds Ktb Order Filled Plus Quote Message (G701K)",
+  ["C401B"] = "Tr Code: Bonds Negotiated Trade Data Message (C401B)",
+  ["C401K"] = "Tr Code: Bonds Negotiated Trade Data Message (C401K)",
+  ["C401R"] = "Tr Code: Repo Negotiated Trade Data Message (C401R)",
+  ["A001B"] = "Tr Code: Bonds Batch Data Message (A001B)",
+  ["A001R"] = "Tr Code: Repo Batch Data Message (A001R)",
+  ["I601S"] = "Tr Code: Issue Event Message (I601S)",
+  ["I602S"] = "Tr Code: Issue Event Message (I602S)",
+  ["I603S"] = "Tr Code: Issue Event Message (I603S)",
+  ["I604S"] = "Tr Code: Issue Event Message (I604S)",
+  ["I605S"] = "Tr Code: Issue Event Message (I605S)",
+  ["I601Q"] = "Tr Code: Issue Event Message (I601Q)",
+  ["I601X"] = "Tr Code: Issue Event Message (I601X)",
+  ["I601B"] = "Tr Code: Issue Event Message (I601B)",
+  ["I601M"] = "Tr Code: Issue Event Message (I601M)",
+  ["I601K"] = "Tr Code: Issue Event Message (I601K)",
+  ["I601R"] = "Tr Code: Issue Event Message (I601R)",
+  ["F901B"] = "Tr Code: Corporate Bonds Reference Message (F901B)",
+  ["F901M"] = "Tr Code: Corporate Bonds Reference Message (F901M)",
+  ["BN01B"] = "Tr Code: Regular Bonds Installment Repayment Date Message (BN01B)",
+  ["CB01R"] = "Tr Code: Repo Classification Data Message (CB01R)",
+  ["S001R"] = "Tr Code: Repo Trade Availability Per Term Message (S001R)",
+  ["G300B"] = "Tr Code: Retail Bonds Type Code Message (G300B)",
+  ["G001M"] = "Tr Code: Baby Bonds Reporting Market Yield Message (G001M)",
+  ["PA01K"] = "Tr Code: Ktb Confirmed Info For Wit Message (PA01K)",
+  ["PB01K"] = "Tr Code: Ktb Short Term Yield Message (PB01K)",
+  ["PC01K"] = "Tr Code: Ktb Average Yield Message (PC01K)",
+  ["JA077"] = "Tr Code: Bonds Credit Rating Information Message (JA077)",
+  ["R401B"] = "Tr Code: Regular Bonds Disclosure Basic Exchange Rate Message (R401B)",
+  ["P401B"] = "Tr Code: Investor Activities Per Bond Types Message (P401B)",
+  ["P401M"] = "Tr Code: Investor Activities Per Bond Types Message (P401M)",
+  ["P401K"] = "Tr Code: Investor Activities Per Bond Types Message (P401K)",
+  ["J9077"] = "Tr Code: Bonds Isin Issue Information Message (J9077)",
+  ["JB077"] = "Tr Code: Bonds Isin Information Text Message (JB077)",
+  ["B601M"] = "Tr Code: Baby Bonds Quote Message (B601M)",
+  ["B601R"] = "Tr Code: Repo Quote Message (B601R)",
+  ["OA01B"] = "Tr Code: Bonds Total Remaining Volume On Quotes Message (OA01B)",
+  ["OA01M"] = "Tr Code: Bonds Total Remaining Volume On Quotes Message (OA01M)",
+  ["G701M"] = "Tr Code: Baby Bonds Order Filled Plus Quote Message (G701M)",
+  ["G701R"] = "Tr Code: Repo Order Filled Plus Quote Message (G701R)",
+}
 
-  return "Tr Code: Unknown("..value..")"
+koscom_mdcsrealtime_bonda_exture_v2_020.tr_code.display = function(value)
+  return koscom_mdcsrealtime_bonda_exture_v2_020.tr_code.labels[value] or "Tr Code: Unknown("..value..")"
 end
 
 -- Dissect: Tr Code
@@ -19738,522 +19466,142 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_020.payload = {}
 
 -- Dissect: Payload
+koscom_mdcsrealtime_bonda_exture_v2_020.payload.dispatch = {
+  ["I2000"] = koscom_mdcsrealtime_bonda_exture_v2_020.polling_data_message.dissect,
+  ["IA000"] = koscom_mdcsrealtime_bonda_exture_v2_020.krx_index_message.dissect,
+  ["IB000"] = koscom_mdcsrealtime_bonda_exture_v2_020.krx_estimated_index_message.dissect,
+  ["J2000"] = koscom_mdcsrealtime_bonda_exture_v2_020.global_index_message.dissect,
+  ["J4000"] = koscom_mdcsrealtime_bonda_exture_v2_020.bond_prime_index_message.dissect,
+  ["K1000"] = koscom_mdcsrealtime_bonda_exture_v2_020.bond_ktb_index_message.dissect,
+  ["K8000"] = koscom_mdcsrealtime_bonda_exture_v2_020.bond_ktb_index_term_structure_message.dissect,
+  ["IG000"] = koscom_mdcsrealtime_bonda_exture_v2_020.bond_index_krx_message.dissect,
+  ["A701S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A702S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A703S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A704S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A705S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701Q"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701X"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701B"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701M"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701K"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701R"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A702F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A703F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A704F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A705F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A706F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A707F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A708F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A709F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A710F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A711F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A712F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A713F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A715F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A716F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A717F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A718F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701G"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["A701E"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect,
+  ["M401S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M402S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M403S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M404S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M405S"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401Q"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401X"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401B"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401M"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401K"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401R"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M402F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M403F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M404F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M405F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M406F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M407F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M408F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M409F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M410F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M411F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M412F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M413F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M415F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M416F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M417F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M418F"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401G"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["M401E"] = koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect,
+  ["A601B"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_closing_message.dissect,
+  ["A601M"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_closing_message.dissect,
+  ["A601K"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_closing_message.dissect,
+  ["A601R"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_closing_message.dissect,
+  ["R301S"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R302S"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R303S"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R304S"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R305S"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R301Q"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R301X"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R301B"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R301M"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R301K"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["R301R"] = koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect,
+  ["B601B"] = koscom_mdcsrealtime_bonda_exture_v2_020.regular_bonds_ktb_quote_message.dissect,
+  ["B601K"] = koscom_mdcsrealtime_bonda_exture_v2_020.regular_bonds_ktb_quote_message.dissect,
+  ["A301B"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_order_filled_message.dissect,
+  ["A301M"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_order_filled_message.dissect,
+  ["A301K"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_order_filled_message.dissect,
+  ["G701B"] = koscom_mdcsrealtime_bonda_exture_v2_020.general_bonds_ktb_order_filled_plus_quote_message.dissect,
+  ["G701K"] = koscom_mdcsrealtime_bonda_exture_v2_020.general_bonds_ktb_order_filled_plus_quote_message.dissect,
+  ["C401B"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_negotiated_trade_data_message.dissect,
+  ["C401K"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_negotiated_trade_data_message.dissect,
+  ["C401R"] = koscom_mdcsrealtime_bonda_exture_v2_020.repo_negotiated_trade_data_message.dissect,
+  ["A001B"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_batch_data_message.dissect,
+  ["A001R"] = koscom_mdcsrealtime_bonda_exture_v2_020.repo_batch_data_message.dissect,
+  ["I601S"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I602S"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I603S"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I604S"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I605S"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I601Q"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I601X"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I601B"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I601M"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I601K"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["I601R"] = koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect,
+  ["F901B"] = koscom_mdcsrealtime_bonda_exture_v2_020.corporate_bonds_reference_message.dissect,
+  ["F901M"] = koscom_mdcsrealtime_bonda_exture_v2_020.corporate_bonds_reference_message.dissect,
+  ["BN01B"] = koscom_mdcsrealtime_bonda_exture_v2_020.regular_bonds_installment_repayment_date_message.dissect,
+  ["CB01R"] = koscom_mdcsrealtime_bonda_exture_v2_020.repo_classification_data_message.dissect,
+  ["S001R"] = koscom_mdcsrealtime_bonda_exture_v2_020.repo_trade_availability_per_term_message.dissect,
+  ["G300B"] = koscom_mdcsrealtime_bonda_exture_v2_020.retail_bonds_type_code_message.dissect,
+  ["G001M"] = koscom_mdcsrealtime_bonda_exture_v2_020.baby_bonds_reporting_market_yield_message.dissect,
+  ["PA01K"] = koscom_mdcsrealtime_bonda_exture_v2_020.ktb_confirmed_info_for_wit_message.dissect,
+  ["PB01K"] = koscom_mdcsrealtime_bonda_exture_v2_020.ktb_short_term_yield_message.dissect,
+  ["PC01K"] = koscom_mdcsrealtime_bonda_exture_v2_020.ktb_average_yield_message.dissect,
+  ["JA077"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_credit_rating_information_message.dissect,
+  ["R401B"] = koscom_mdcsrealtime_bonda_exture_v2_020.regular_bonds_disclosure_basic_exchange_rate_message.dissect,
+  ["P401B"] = koscom_mdcsrealtime_bonda_exture_v2_020.investor_activities_per_bond_types_message.dissect,
+  ["P401M"] = koscom_mdcsrealtime_bonda_exture_v2_020.investor_activities_per_bond_types_message.dissect,
+  ["P401K"] = koscom_mdcsrealtime_bonda_exture_v2_020.investor_activities_per_bond_types_message.dissect,
+  ["J9077"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_isin_issue_information_message.dissect,
+  ["JB077"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_isin_information_text_message.dissect,
+  ["B601M"] = koscom_mdcsrealtime_bonda_exture_v2_020.baby_bonds_quote_message.dissect,
+  ["B601R"] = koscom_mdcsrealtime_bonda_exture_v2_020.repo_quote_message.dissect,
+  ["OA01B"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_total_remaining_volume_on_quotes_message.dissect,
+  ["OA01M"] = koscom_mdcsrealtime_bonda_exture_v2_020.bonds_total_remaining_volume_on_quotes_message.dissect,
+  ["G701M"] = koscom_mdcsrealtime_bonda_exture_v2_020.baby_bonds_order_filled_plus_quote_message.dissect,
+  ["G701R"] = koscom_mdcsrealtime_bonda_exture_v2_020.repo_order_filled_plus_quote_message.dissect,
+}
+
 koscom_mdcsrealtime_bonda_exture_v2_020.payload.dissect = function(buffer, offset, packet, parent, tr_code)
-  -- Dissect Polling Data Message
-  if tr_code == "I2000" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.polling_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Krx Index Message
-  if tr_code == "IA000" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.krx_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Krx Estimated Index Message
-  if tr_code == "IB000" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.krx_estimated_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Index Message
-  if tr_code == "J2000" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.global_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Prime Index Message
-  if tr_code == "J4000" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bond_prime_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Ktb Index Message
-  if tr_code == "K1000" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bond_ktb_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Ktb Index Term Structure Message
-  if tr_code == "K8000" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bond_ktb_index_term_structure_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bond Index Krx Message
-  if tr_code == "IG000" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bond_index_krx_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A702S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A703S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A704S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A705S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701Q" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701X" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A702F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A703F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A704F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A705F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A706F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A707F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A708F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A709F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A710F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A711F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A712F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A713F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A715F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A716F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A717F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A718F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701G" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A701E" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M402S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M403S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M404S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M405S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401Q" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401X" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M402F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M403F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M404F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M405F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M406F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M407F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M408F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M409F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M410F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M411F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M412F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M413F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M415F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M416F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M417F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M418F" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401G" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Schedule Message
-  if tr_code == "M401E" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.market_operation_schedule_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A601B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A601M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A601K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A601R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R301S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R302S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R303S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R304S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R305S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R301Q" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R301X" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R301B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R301M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R301K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Member Firm Sanctions Message
-  if tr_code == "R301R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.member_firm_sanctions_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Regular Bonds Ktb Quote Message
-  if tr_code == "B601B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.regular_bonds_ktb_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Regular Bonds Ktb Quote Message
-  if tr_code == "B601K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.regular_bonds_ktb_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Order Filled Message
-  if tr_code == "A301B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Order Filled Message
-  if tr_code == "A301M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Order Filled Message
-  if tr_code == "A301K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect General Bonds Ktb Order Filled Plus Quote Message
-  if tr_code == "G701B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.general_bonds_ktb_order_filled_plus_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect General Bonds Ktb Order Filled Plus Quote Message
-  if tr_code == "G701K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.general_bonds_ktb_order_filled_plus_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Negotiated Trade Data Message
-  if tr_code == "C401B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_negotiated_trade_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Negotiated Trade Data Message
-  if tr_code == "C401K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_negotiated_trade_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Negotiated Trade Data Message
-  if tr_code == "C401R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.repo_negotiated_trade_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Batch Data Message
-  if tr_code == "A001B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Batch Data Message
-  if tr_code == "A001R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.repo_batch_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I602S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I603S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I604S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I605S" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601Q" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601X" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Event Message
-  if tr_code == "I601R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Corporate Bonds Reference Message
-  if tr_code == "F901B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.corporate_bonds_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Corporate Bonds Reference Message
-  if tr_code == "F901M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.corporate_bonds_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Regular Bonds Installment Repayment Date Message
-  if tr_code == "BN01B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.regular_bonds_installment_repayment_date_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Classification Data Message
-  if tr_code == "CB01R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.repo_classification_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Trade Availability Per Term Message
-  if tr_code == "S001R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.repo_trade_availability_per_term_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retail Bonds Type Code Message
-  if tr_code == "G300B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.retail_bonds_type_code_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Baby Bonds Reporting Market Yield Message
-  if tr_code == "G001M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.baby_bonds_reporting_market_yield_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ktb Confirmed Info For Wit Message
-  if tr_code == "PA01K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.ktb_confirmed_info_for_wit_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ktb Short Term Yield Message
-  if tr_code == "PB01K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.ktb_short_term_yield_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ktb Average Yield Message
-  if tr_code == "PC01K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.ktb_average_yield_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Credit Rating Information Message
-  if tr_code == "JA077" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_credit_rating_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Regular Bonds Disclosure Basic Exchange Rate Message
-  if tr_code == "R401B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.regular_bonds_disclosure_basic_exchange_rate_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Investor Activities Per Bond Types Message
-  if tr_code == "P401B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.investor_activities_per_bond_types_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Investor Activities Per Bond Types Message
-  if tr_code == "P401M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.investor_activities_per_bond_types_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Investor Activities Per Bond Types Message
-  if tr_code == "P401K" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.investor_activities_per_bond_types_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Isin Issue Information Message
-  if tr_code == "J9077" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_isin_issue_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Isin Information Text Message
-  if tr_code == "JB077" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_isin_information_text_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Baby Bonds Quote Message
-  if tr_code == "B601M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.baby_bonds_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Quote Message
-  if tr_code == "B601R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.repo_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Total Remaining Volume On Quotes Message
-  if tr_code == "OA01B" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_total_remaining_volume_on_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bonds Total Remaining Volume On Quotes Message
-  if tr_code == "OA01M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.bonds_total_remaining_volume_on_quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Baby Bonds Order Filled Plus Quote Message
-  if tr_code == "G701M" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.baby_bonds_order_filled_plus_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Repo Order Filled Plus Quote Message
-  if tr_code == "G701R" then
-    return koscom_mdcsrealtime_bonda_exture_v2_020.repo_order_filled_plus_quote_message.dissect(buffer, offset, packet, parent)
+  local dissect = koscom_mdcsrealtime_bonda_exture_v2_020.payload.dispatch[tr_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

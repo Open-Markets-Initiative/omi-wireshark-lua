@@ -309,27 +309,17 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_type = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction (H)"
-  end
-  if value == "I" then
-    return "Auction Type: Ipo Auction (I)"
-  end
-  if value == "M" then
-    return "Auction Type: Cboe Market Close (M)"
-  end
-  if value == "P" then
-    return "Auction Type: Periodic Auction Byx Only (P)"
-  end
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["H"] = "Auction Type: Halt Auction (H)",
+  ["I"] = "Auction Type: Ipo Auction (I)",
+  ["M"] = "Auction Type: Cboe Market Close (M)",
+  ["P"] = "Auction Type: Periodic Auction Byx Only (P)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_type.display = function(value)
+  return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -413,12 +403,12 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.customer_indicator = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.customer_indicator.display = function(value)
-  if value == "R" then
-    return "Customer Indicator: Retail (R)"
-  end
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.customer_indicator.labels = {
+  ["R"] = "Customer Indicator: Retail (R)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.customer_indicator.display = function(value)
+  return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -517,24 +507,16 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.halt_status = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.halt_status.size = 1
 
 -- Display: Halt Status
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.halt_status.display = function(value)
-  if value == "A" then
-    return "Halt Status: Accepting Orders For Queuing (A)"
-  end
-  if value == "H" then
-    return "Halt Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Halt Status: Quote Only Cboe Listings (Q)"
-  end
-  if value == "S" then
-    return "Halt Status: Exchange Specific Suspension (S)"
-  end
-  if value == "T" then
-    return "Halt Status: Trading (T)"
-  end
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.halt_status.labels = {
+  ["A"] = "Halt Status: Accepting Orders For Queuing (A)",
+  ["H"] = "Halt Status: Halted (H)",
+  ["Q"] = "Halt Status: Quote Only Cboe Listings (Q)",
+  ["S"] = "Halt Status: Exchange Specific Suspension (S)",
+  ["T"] = "Halt Status: Trading (T)",
+}
 
-  return "Halt Status: Unknown("..value..")"
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.halt_status.display = function(value)
+  return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.halt_status.labels[value] or "Halt Status: Unknown("..value..")"
 end
 
 -- Dissect: Halt Status
@@ -655,36 +637,20 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.packet_type = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.packet_type.size = 1
 
 -- Display: Packet Type
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.packet_type.display = function(value)
+  return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -904,15 +870,13 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.display = function(value)
-  if value == 0 then
-    return "Reg Sho Action: No Price Test In Effect (0)"
-  end
-  if value == 1 then
-    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
-  end
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.labels = {
+  [0] = "Reg Sho Action: No Price Test In Effect (0)",
+  [1] = "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.display = function(value)
+  return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -1080,21 +1044,15 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement = {
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement.size = 1
 
 -- Display: Retail Price Improvement
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement.display = function(value)
-  if value == "B" then
-    return "Retail Price Improvement: Buy Side Rpi (B)"
-  end
-  if value == "S" then
-    return "Retail Price Improvement: Sell Side Rpi (S)"
-  end
-  if value == "A" then
-    return "Retail Price Improvement: Buy And Sell Rpi (A)"
-  end
-  if value == "N" then
-    return "Retail Price Improvement: No Rpi (N)"
-  end
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement.labels = {
+  ["B"] = "Retail Price Improvement: Buy Side Rpi (B)",
+  ["S"] = "Retail Price Improvement: Sell Side Rpi (S)",
+  ["A"] = "Retail Price Improvement: Buy And Sell Rpi (A)",
+  ["N"] = "Retail Price Improvement: No Rpi (N)",
+}
 
-  return "Retail Price Improvement: Unknown("..value..")"
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement.display = function(value)
+  return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement.labels[value] or "Retail Price Improvement: Unknown("..value..")"
 end
 
 -- Dissect: Retail Price Improvement
@@ -1170,57 +1128,27 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message_type = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message_type.display = function(value)
-  if value == "s" then
-    return "Sequenced Message Type: Symbol Clear Message (s)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Add Order Short Message (A)"
-  end
-  if value == "d" then
-    return "Sequenced Message Type: Add Order Long Message (d)"
-  end
-  if value == "1" then
-    return "Sequenced Message Type: Add Order Extended Message (1)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Order Executed Message (E)"
-  end
-  if value == "X" then
-    return "Sequenced Message Type: Order Cancel Message (X)"
-  end
-  if value == "P" then
-    return "Sequenced Message Type: Trade Short Message (P)"
-  end
-  if value == "r" then
-    return "Sequenced Message Type: Trade Long Message (r)"
-  end
-  if value == "2" then
-    return "Sequenced Message Type: Trade Extended Message (2)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Trade Break Message (B)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Trading Status Message (H)"
-  end
-  if value == "I" then
-    return "Sequenced Message Type: Auction Update Message (I)"
-  end
-  if value == "3" then
-    return "Sequenced Message Type: Extended Auction Update Message (3)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Auction Summary Message (J)"
-  end
-  if value == "4" then
-    return "Sequenced Message Type: Extended Auction Summary Message (4)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Retail Price Improvement Message (R)"
-  end
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message_type.labels = {
+  ["s"] = "Sequenced Message Type: Symbol Clear Message (s)",
+  ["A"] = "Sequenced Message Type: Add Order Short Message (A)",
+  ["d"] = "Sequenced Message Type: Add Order Long Message (d)",
+  ["1"] = "Sequenced Message Type: Add Order Extended Message (1)",
+  ["E"] = "Sequenced Message Type: Order Executed Message (E)",
+  ["X"] = "Sequenced Message Type: Order Cancel Message (X)",
+  ["P"] = "Sequenced Message Type: Trade Short Message (P)",
+  ["r"] = "Sequenced Message Type: Trade Long Message (r)",
+  ["2"] = "Sequenced Message Type: Trade Extended Message (2)",
+  ["B"] = "Sequenced Message Type: Trade Break Message (B)",
+  ["H"] = "Sequenced Message Type: Trading Status Message (H)",
+  ["I"] = "Sequenced Message Type: Auction Update Message (I)",
+  ["3"] = "Sequenced Message Type: Extended Auction Update Message (3)",
+  ["J"] = "Sequenced Message Type: Auction Summary Message (J)",
+  ["4"] = "Sequenced Message Type: Extended Auction Summary Message (4)",
+  ["R"] = "Sequenced Message Type: Retail Price Improvement Message (R)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message_type.display = function(value)
+  return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1327,15 +1255,13 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.side_indicator = {}
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.side_indicator.display = function(value)
+  return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -2509,70 +2435,29 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message.dispatch = {
+  ["s"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.symbol_clear_message.dissect,
+  ["A"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.add_order_short_message.dissect,
+  ["d"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.add_order_long_message.dissect,
+  ["1"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.add_order_extended_message.dissect,
+  ["E"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.order_executed_message.dissect,
+  ["X"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.order_cancel_message.dissect,
+  ["P"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trade_short_message.dissect,
+  ["r"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trade_long_message.dissect,
+  ["2"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trade_extended_message.dissect,
+  ["B"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trade_break_message.dissect,
+  ["H"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trading_status_message.dissect,
+  ["I"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_update_message.dissect,
+  ["3"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.extended_auction_update_message.dissect,
+  ["J"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_summary_message.dissect,
+  ["4"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.extended_auction_summary_message.dissect,
+  ["R"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement_message.dissect,
+}
+
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Symbol Clear Message
-  if sequenced_message_type == "s" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Short Message
-  if sequenced_message_type == "A" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.add_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Long Message
-  if sequenced_message_type == "d" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.add_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Extended Message
-  if sequenced_message_type == "1" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.add_order_extended_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if sequenced_message_type == "E" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if sequenced_message_type == "X" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Short Message
-  if sequenced_message_type == "P" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trade_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Long Message
-  if sequenced_message_type == "r" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trade_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Extended Message
-  if sequenced_message_type == "2" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trade_extended_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if sequenced_message_type == "B" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if sequenced_message_type == "H" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Update Message
-  if sequenced_message_type == "I" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Auction Update Message
-  if sequenced_message_type == "3" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.extended_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if sequenced_message_type == "J" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Auction Summary Message
-  if sequenced_message_type == "4" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.extended_auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retail Price Improvement Message
-  if sequenced_message_type == "R" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2806,30 +2691,19 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload = {}
 
 -- Dissect: Payload
+cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload.dispatch = {
+  ["+"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.debug_packet.dissect,
+  ["A"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.login_accepted_packet.dissect,
+  ["J"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.login_rejected_packet.dissect,
+  ["S"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_data_packet.dissect,
+  ["L"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.login_request_packet.dissect,
+  ["U"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.unsequenced_data_packet.dissect,
+}
+
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Debug Packet
-  if packet_type == "+" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if packet_type == "A" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if packet_type == "J" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

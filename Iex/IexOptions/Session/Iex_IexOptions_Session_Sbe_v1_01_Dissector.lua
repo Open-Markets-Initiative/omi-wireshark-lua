@@ -208,15 +208,13 @@ iex_iexoptions_session_sbe_v1_01.joined = {}
 iex_iexoptions_session_sbe_v1_01.joined.size = 1
 
 -- Display: Joined
-iex_iexoptions_session_sbe_v1_01.joined.display = function(value)
-  if value == 0 then
-    return "Joined: False (0)"
-  end
-  if value == 1 then
-    return "Joined: True (1)"
-  end
+iex_iexoptions_session_sbe_v1_01.joined.labels = {
+  [0] = "Joined: False (0)",
+  [1] = "Joined: True (1)",
+}
 
-  return "Joined: Unknown("..value..")"
+iex_iexoptions_session_sbe_v1_01.joined.display = function(value)
+  return iex_iexoptions_session_sbe_v1_01.joined.labels[value] or "Joined: Unknown("..value..")"
 end
 
 -- Dissect: Joined
@@ -238,15 +236,13 @@ iex_iexoptions_session_sbe_v1_01.keep_alive = {}
 iex_iexoptions_session_sbe_v1_01.keep_alive.size = 1
 
 -- Display: Keep Alive
-iex_iexoptions_session_sbe_v1_01.keep_alive.display = function(value)
-  if value == 0 then
-    return "Keep Alive: False (0)"
-  end
-  if value == 1 then
-    return "Keep Alive: True (1)"
-  end
+iex_iexoptions_session_sbe_v1_01.keep_alive.labels = {
+  [0] = "Keep Alive: False (0)",
+  [1] = "Keep Alive: True (1)",
+}
 
-  return "Keep Alive: Unknown("..value..")"
+iex_iexoptions_session_sbe_v1_01.keep_alive.display = function(value)
+  return iex_iexoptions_session_sbe_v1_01.keep_alive.labels[value] or "Keep Alive: Unknown("..value..")"
 end
 
 -- Dissect: Keep Alive
@@ -376,63 +372,29 @@ iex_iexoptions_session_sbe_v1_01.reason = {}
 iex_iexoptions_session_sbe_v1_01.reason.size = 1
 
 -- Display: Reason
-iex_iexoptions_session_sbe_v1_01.reason.display = function(value)
-  if value == 0 then
-    return "Reason: Success (0)"
-  end
-  if value == 1 then
-    return "Reason: Session Level Reject (1)"
-  end
-  if value == 2 then
-    return "Reason: Logout Requested (2)"
-  end
-  if value == 3 then
-    return "Reason: Unknown (3)"
-  end
-  if value == 4 then
-    return "Reason: Invalid Logon Id (4)"
-  end
-  if value == 5 then
-    return "Reason: Invalid Token (5)"
-  end
-  if value == 6 then
-    return "Reason: Already Logged In (6)"
-  end
-  if value == 7 then
-    return "Reason: Login Timeout (7)"
-  end
-  if value == 8 then
-    return "Reason: Invalid Packet Length (8)"
-  end
-  if value == 9 then
-    return "Reason: Invalid Message (9)"
-  end
-  if value == 10 then
-    return "Reason: Join Revoked (10)"
-  end
-  if value == 11 then
-    return "Reason: Heartbeat Timeout (11)"
-  end
-  if value == 12 then
-    return "Reason: Message Out Of Sequence (12)"
-  end
-  if value == 13 then
-    return "Reason: Invalid Subsession Id (13)"
-  end
-  if value == 14 then
-    return "Reason: Subsession Not Joined (14)"
-  end
-  if value == 15 then
-    return "Reason: Denial Of Service (15)"
-  end
-  if value == 16 then
-    return "Reason: Invalid Argument (16)"
-  end
-  if value == 17 then
-    return "Reason: Already Joined (17)"
-  end
+iex_iexoptions_session_sbe_v1_01.reason.labels = {
+  [0] = "Reason: Success (0)",
+  [1] = "Reason: Session Level Reject (1)",
+  [2] = "Reason: Logout Requested (2)",
+  [3] = "Reason: Unknown (3)",
+  [4] = "Reason: Invalid Logon Id (4)",
+  [5] = "Reason: Invalid Token (5)",
+  [6] = "Reason: Already Logged In (6)",
+  [7] = "Reason: Login Timeout (7)",
+  [8] = "Reason: Invalid Packet Length (8)",
+  [9] = "Reason: Invalid Message (9)",
+  [10] = "Reason: Join Revoked (10)",
+  [11] = "Reason: Heartbeat Timeout (11)",
+  [12] = "Reason: Message Out Of Sequence (12)",
+  [13] = "Reason: Invalid Subsession Id (13)",
+  [14] = "Reason: Subsession Not Joined (14)",
+  [15] = "Reason: Denial Of Service (15)",
+  [16] = "Reason: Invalid Argument (16)",
+  [17] = "Reason: Already Joined (17)",
+}
 
-  return "Reason: Unknown("..value..")"
+iex_iexoptions_session_sbe_v1_01.reason.display = function(value)
+  return iex_iexoptions_session_sbe_v1_01.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -454,12 +416,12 @@ iex_iexoptions_session_sbe_v1_01.schema_id = {}
 iex_iexoptions_session_sbe_v1_01.schema_id.size = 2
 
 -- Display: Schema Id
-iex_iexoptions_session_sbe_v1_01.schema_id.display = function(value)
-  if value == 20000 then
-    return "Schema Id: Session (20000)"
-  end
+iex_iexoptions_session_sbe_v1_01.schema_id.labels = {
+  [20000] = "Schema Id: Session (20000)",
+}
 
-  return "Schema Id: Unknown("..value..")"
+iex_iexoptions_session_sbe_v1_01.schema_id.display = function(value)
+  return iex_iexoptions_session_sbe_v1_01.schema_id.labels[value] or "Schema Id: Unknown("..value..")"
 end
 
 -- Dissect: Schema Id
@@ -527,63 +489,29 @@ iex_iexoptions_session_sbe_v1_01.status = {}
 iex_iexoptions_session_sbe_v1_01.status.size = 1
 
 -- Display: Status
-iex_iexoptions_session_sbe_v1_01.status.display = function(value)
-  if value == 0 then
-    return "Status: Success (0)"
-  end
-  if value == 1 then
-    return "Status: Session Level Reject (1)"
-  end
-  if value == 2 then
-    return "Status: Logout Requested (2)"
-  end
-  if value == 3 then
-    return "Status: Unknown (3)"
-  end
-  if value == 4 then
-    return "Status: Invalid Logon Id (4)"
-  end
-  if value == 5 then
-    return "Status: Invalid Token (5)"
-  end
-  if value == 6 then
-    return "Status: Already Logged In (6)"
-  end
-  if value == 7 then
-    return "Status: Login Timeout (7)"
-  end
-  if value == 8 then
-    return "Status: Invalid Packet Length (8)"
-  end
-  if value == 9 then
-    return "Status: Invalid Message (9)"
-  end
-  if value == 10 then
-    return "Status: Join Revoked (10)"
-  end
-  if value == 11 then
-    return "Status: Heartbeat Timeout (11)"
-  end
-  if value == 12 then
-    return "Status: Message Out Of Sequence (12)"
-  end
-  if value == 13 then
-    return "Status: Invalid Subsession Id (13)"
-  end
-  if value == 14 then
-    return "Status: Subsession Not Joined (14)"
-  end
-  if value == 15 then
-    return "Status: Denial Of Service (15)"
-  end
-  if value == 16 then
-    return "Status: Invalid Argument (16)"
-  end
-  if value == 17 then
-    return "Status: Already Joined (17)"
-  end
+iex_iexoptions_session_sbe_v1_01.status.labels = {
+  [0] = "Status: Success (0)",
+  [1] = "Status: Session Level Reject (1)",
+  [2] = "Status: Logout Requested (2)",
+  [3] = "Status: Unknown (3)",
+  [4] = "Status: Invalid Logon Id (4)",
+  [5] = "Status: Invalid Token (5)",
+  [6] = "Status: Already Logged In (6)",
+  [7] = "Status: Login Timeout (7)",
+  [8] = "Status: Invalid Packet Length (8)",
+  [9] = "Status: Invalid Message (9)",
+  [10] = "Status: Join Revoked (10)",
+  [11] = "Status: Heartbeat Timeout (11)",
+  [12] = "Status: Message Out Of Sequence (12)",
+  [13] = "Status: Invalid Subsession Id (13)",
+  [14] = "Status: Subsession Not Joined (14)",
+  [15] = "Status: Denial Of Service (15)",
+  [16] = "Status: Invalid Argument (16)",
+  [17] = "Status: Already Joined (17)",
+}
 
-  return "Status: Unknown("..value..")"
+iex_iexoptions_session_sbe_v1_01.status.display = function(value)
+  return iex_iexoptions_session_sbe_v1_01.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -628,18 +556,14 @@ iex_iexoptions_session_sbe_v1_01.subsession_type = {}
 iex_iexoptions_session_sbe_v1_01.subsession_type.size = 1
 
 -- Display: Subsession Type
-iex_iexoptions_session_sbe_v1_01.subsession_type.display = function(value)
-  if value == 0 then
-    return "Subsession Type: Client To Gateway (0)"
-  end
-  if value == 1 then
-    return "Subsession Type: Gateway To Client (1)"
-  end
-  if value == 2 then
-    return "Subsession Type: Reference Data (2)"
-  end
+iex_iexoptions_session_sbe_v1_01.subsession_type.labels = {
+  [0] = "Subsession Type: Client To Gateway (0)",
+  [1] = "Subsession Type: Gateway To Client (1)",
+  [2] = "Subsession Type: Reference Data (2)",
+}
 
-  return "Subsession Type: Unknown("..value..")"
+iex_iexoptions_session_sbe_v1_01.subsession_type.display = function(value)
+  return iex_iexoptions_session_sbe_v1_01.subsession_type.labels[value] or "Subsession Type: Unknown("..value..")"
 end
 
 -- Dissect: Subsession Type
@@ -661,42 +585,22 @@ iex_iexoptions_session_sbe_v1_01.template_id = {}
 iex_iexoptions_session_sbe_v1_01.template_id.size = 2
 
 -- Display: Template Id
-iex_iexoptions_session_sbe_v1_01.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Login Response Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Gateway Heartbeat Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Client Heartbeat Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Logout Request Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Terminate Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Sequenced Message Header Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Subsession Join Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Subsession Join Response Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Subsession Leave Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Subsession Leave Response Message (11)"
-  end
+iex_iexoptions_session_sbe_v1_01.template_id.labels = {
+  [1] = "Template Id: Login Request Message (1)",
+  [2] = "Template Id: Login Response Message (2)",
+  [3] = "Template Id: Gateway Heartbeat Message (3)",
+  [4] = "Template Id: Client Heartbeat Message (4)",
+  [5] = "Template Id: Logout Request Message (5)",
+  [6] = "Template Id: Terminate Message (6)",
+  [7] = "Template Id: Sequenced Message Header Message (7)",
+  [8] = "Template Id: Subsession Join Message (8)",
+  [9] = "Template Id: Subsession Join Response Message (9)",
+  [10] = "Template Id: Subsession Leave Message (10)",
+  [11] = "Template Id: Subsession Leave Response Message (11)",
+}
 
-  return "Template Id: Unknown("..value..")"
+iex_iexoptions_session_sbe_v1_01.template_id.display = function(value)
+  return iex_iexoptions_session_sbe_v1_01.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1238,30 +1142,19 @@ end
 iex_iexoptions_session_sbe_v1_01.server_session_payload = {}
 
 -- Dissect: Server Session Payload
+iex_iexoptions_session_sbe_v1_01.server_session_payload.dispatch = {
+  [2] = iex_iexoptions_session_sbe_v1_01.login_response_message.dissect,
+  [3] = iex_iexoptions_session_sbe_v1_01.gateway_heartbeat_message.dissect,
+  [6] = iex_iexoptions_session_sbe_v1_01.terminate_message.dissect,
+  [7] = iex_iexoptions_session_sbe_v1_01.sequenced_message_header_message.dissect,
+  [9] = iex_iexoptions_session_sbe_v1_01.subsession_join_response_message.dissect,
+  [11] = iex_iexoptions_session_sbe_v1_01.subsession_leave_response_message.dissect,
+}
+
 iex_iexoptions_session_sbe_v1_01.server_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Login Response Message
-  if template_id == 2 then
-    return iex_iexoptions_session_sbe_v1_01.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Heartbeat Message
-  if template_id == 3 then
-    return iex_iexoptions_session_sbe_v1_01.gateway_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Terminate Message
-  if template_id == 6 then
-    return iex_iexoptions_session_sbe_v1_01.terminate_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message Header Message
-  if template_id == 7 then
-    return iex_iexoptions_session_sbe_v1_01.sequenced_message_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Join Response Message
-  if template_id == 9 then
-    return iex_iexoptions_session_sbe_v1_01.subsession_join_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Leave Response Message
-  if template_id == 11 then
-    return iex_iexoptions_session_sbe_v1_01.subsession_leave_response_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_session_sbe_v1_01.server_session_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1322,10 +1215,14 @@ end
 iex_iexoptions_session_sbe_v1_01.server_payload = {}
 
 -- Dissect: Server Payload
+iex_iexoptions_session_sbe_v1_01.server_payload.dispatch = {
+  [20000] = iex_iexoptions_session_sbe_v1_01.server_session_message.dissect,
+}
+
 iex_iexoptions_session_sbe_v1_01.server_payload.dissect = function(buffer, offset, packet, parent, schema_id)
-  -- Dissect Server Session Message
-  if schema_id == 20000 then
-    return iex_iexoptions_session_sbe_v1_01.server_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_session_sbe_v1_01.server_payload.dispatch[schema_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1660,30 +1557,19 @@ end
 iex_iexoptions_session_sbe_v1_01.client_session_payload = {}
 
 -- Dissect: Client Session Payload
+iex_iexoptions_session_sbe_v1_01.client_session_payload.dispatch = {
+  [1] = iex_iexoptions_session_sbe_v1_01.login_request_message.dissect,
+  [4] = iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.dissect,
+  [5] = iex_iexoptions_session_sbe_v1_01.logout_request_message.dissect,
+  [7] = iex_iexoptions_session_sbe_v1_01.sequenced_message_header_message.dissect,
+  [8] = iex_iexoptions_session_sbe_v1_01.subsession_join_message.dissect,
+  [10] = iex_iexoptions_session_sbe_v1_01.subsession_leave_message.dissect,
+}
+
 iex_iexoptions_session_sbe_v1_01.client_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Login Request Message
-  if template_id == 1 then
-    return iex_iexoptions_session_sbe_v1_01.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Message
-  if template_id == 4 then
-    return iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Message
-  if template_id == 5 then
-    return iex_iexoptions_session_sbe_v1_01.logout_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message Header Message
-  if template_id == 7 then
-    return iex_iexoptions_session_sbe_v1_01.sequenced_message_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Join Message
-  if template_id == 8 then
-    return iex_iexoptions_session_sbe_v1_01.subsession_join_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Leave Message
-  if template_id == 10 then
-    return iex_iexoptions_session_sbe_v1_01.subsession_leave_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_session_sbe_v1_01.client_session_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1744,10 +1630,14 @@ end
 iex_iexoptions_session_sbe_v1_01.client_payload = {}
 
 -- Dissect: Client Payload
+iex_iexoptions_session_sbe_v1_01.client_payload.dispatch = {
+  [20000] = iex_iexoptions_session_sbe_v1_01.client_session_message.dissect,
+}
+
 iex_iexoptions_session_sbe_v1_01.client_payload.dissect = function(buffer, offset, packet, parent, schema_id)
-  -- Dissect Client Session Message
-  if schema_id == 20000 then
-    return iex_iexoptions_session_sbe_v1_01.client_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = iex_iexoptions_session_sbe_v1_01.client_payload.dispatch[schema_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

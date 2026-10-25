@@ -201,30 +201,18 @@ lseg_millennium_level2_mitch_v11_9.auction_type = {}
 lseg_millennium_level2_mitch_v11_9.auction_type.size = 1
 
 -- Display: Auction Type
-lseg_millennium_level2_mitch_v11_9.auction_type.display = function(value)
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "A" then
-    return "Auction Type: Aesp (A)"
-  end
-  if value == "B" then
-    return "Auction Type: Edsp (B)"
-  end
-  if value == "E" then
-    return "Auction Type: Resume Auction (E)"
-  end
-  if value == "F" then
-    return "Auction Type: Periodic Auction (F)"
-  end
-  if value == "G" then
-    return "Auction Type: Scheduled Level 1 Only Auction (G)"
-  end
+lseg_millennium_level2_mitch_v11_9.auction_type.labels = {
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["A"] = "Auction Type: Aesp (A)",
+  ["B"] = "Auction Type: Edsp (B)",
+  ["E"] = "Auction Type: Resume Auction (E)",
+  ["F"] = "Auction Type: Periodic Auction (F)",
+  ["G"] = "Auction Type: Scheduled Level 1 Only Auction (G)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.auction_type.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -246,18 +234,14 @@ lseg_millennium_level2_mitch_v11_9.book_type = {}
 lseg_millennium_level2_mitch_v11_9.book_type.size = 1
 
 -- Display: Book Type
-lseg_millennium_level2_mitch_v11_9.book_type.display = function(value)
-  if value == 1 then
-    return "Book Type: On Book (1)"
-  end
-  if value == 2 then
-    return "Book Type: Off Book (2)"
-  end
-  if value == 3 then
-    return "Book Type: Private Rfq (3)"
-  end
+lseg_millennium_level2_mitch_v11_9.book_type.labels = {
+  [1] = "Book Type: On Book (1)",
+  [2] = "Book Type: Off Book (2)",
+  [3] = "Book Type: Private Rfq (3)",
+}
 
-  return "Book Type: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.book_type.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.book_type.labels[value] or "Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Book Type
@@ -410,15 +394,13 @@ lseg_millennium_level2_mitch_v11_9.event_code = {}
 lseg_millennium_level2_mitch_v11_9.event_code.size = 1
 
 -- Display: Event Code
-lseg_millennium_level2_mitch_v11_9.event_code.display = function(value)
-  if value == "C" then
-    return "Event Code: End Of Day (C)"
-  end
-  if value == "O" then
-    return "Event Code: Start Of Day (O)"
-  end
+lseg_millennium_level2_mitch_v11_9.event_code.labels = {
+  ["C"] = "Event Code: End Of Day (C)",
+  ["O"] = "Event Code: Start Of Day (O)",
+}
 
-  return "Event Code: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.event_code.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -601,57 +583,27 @@ lseg_millennium_level2_mitch_v11_9.message_type = {}
 lseg_millennium_level2_mitch_v11_9.message_type.size = 1
 
 -- Display: Message Type
-lseg_millennium_level2_mitch_v11_9.message_type.display = function(value)
-  if value == 0x54 then
-    return "Message Type: Time Message (0x54)"
-  end
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x52 then
-    return "Message Type: Symbol Directory Message (0x52)"
-  end
-  if value == 0x48 then
-    return "Message Type: Symbol Status Message (0x48)"
-  end
-  if value == 0x41 then
-    return "Message Type: Add Order Message (0x41)"
-  end
-  if value == 0x46 then
-    return "Message Type: Add Attributed Order Message (0x46)"
-  end
-  if value == 0x44 then
-    return "Message Type: Order Deleted Message (0x44)"
-  end
-  if value == 0x55 then
-    return "Message Type: Order Modified Message (0x55)"
-  end
-  if value == 0x79 then
-    return "Message Type: Order Book Clear Message (0x79)"
-  end
-  if value == 0x45 then
-    return "Message Type: Order Executed Message (0x45)"
-  end
-  if value == 0x43 then
-    return "Message Type: Order Executed With Price Size Message (0x43)"
-  end
-  if value == 0x50 then
-    return "Message Type: Trade Message (0x50)"
-  end
-  if value == 0x51 then
-    return "Message Type: Auction Trade Message (0x51)"
-  end
-  if value == 0x49 then
-    return "Message Type: Auction Info Message (0x49)"
-  end
-  if value == 0x77 then
-    return "Message Type: Statistics Message (0x77)"
-  end
-  if value == 0x71 then
-    return "Message Type: Top Of Book Message (0x71)"
-  end
+lseg_millennium_level2_mitch_v11_9.message_type.labels = {
+  [0x54] = "Message Type: Time Message (0x54)",
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x52] = "Message Type: Symbol Directory Message (0x52)",
+  [0x48] = "Message Type: Symbol Status Message (0x48)",
+  [0x41] = "Message Type: Add Order Message (0x41)",
+  [0x46] = "Message Type: Add Attributed Order Message (0x46)",
+  [0x44] = "Message Type: Order Deleted Message (0x44)",
+  [0x55] = "Message Type: Order Modified Message (0x55)",
+  [0x79] = "Message Type: Order Book Clear Message (0x79)",
+  [0x45] = "Message Type: Order Executed Message (0x45)",
+  [0x43] = "Message Type: Order Executed With Price Size Message (0x43)",
+  [0x50] = "Message Type: Trade Message (0x50)",
+  [0x51] = "Message Type: Auction Trade Message (0x51)",
+  [0x49] = "Message Type: Auction Info Message (0x49)",
+  [0x77] = "Message Type: Statistics Message (0x77)",
+  [0x71] = "Message Type: Top Of Book Message (0x71)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_millennium_level2_mitch_v11_9.message_type.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -765,30 +717,18 @@ lseg_millennium_level2_mitch_v11_9.open_close_price_indicator = {}
 lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.size = 1
 
 -- Display: Open Close Price Indicator
-lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.display = function(value)
-  if value == "A" then
-    return "Open Close Price Indicator: Ut (A)"
-  end
-  if value == "B" then
-    return "Open Close Price Indicator: At (B)"
-  end
-  if value == "C" then
-    return "Open Close Price Indicator: Mid Of Bbo (C)"
-  end
-  if value == "D" then
-    return "Open Close Price Indicator: Last At (D)"
-  end
-  if value == "E" then
-    return "Open Close Price Indicator: Last Ut (E)"
-  end
-  if value == "F" then
-    return "Open Close Price Indicator: Manual (F)"
-  end
-  if value == "I" then
-    return "Open Close Price Indicator: Derived From Previous Close (I)"
-  end
+lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.labels = {
+  ["A"] = "Open Close Price Indicator: Ut (A)",
+  ["B"] = "Open Close Price Indicator: At (B)",
+  ["C"] = "Open Close Price Indicator: Mid Of Bbo (C)",
+  ["D"] = "Open Close Price Indicator: Last At (D)",
+  ["E"] = "Open Close Price Indicator: Last Ut (E)",
+  ["F"] = "Open Close Price Indicator: Manual (F)",
+  ["I"] = "Open Close Price Indicator: Derived From Previous Close (I)",
+}
 
-  return "Open Close Price Indicator: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.labels[value] or "Open Close Price Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Open Close Price Indicator
@@ -902,15 +842,13 @@ lseg_millennium_level2_mitch_v11_9.printable = {}
 lseg_millennium_level2_mitch_v11_9.printable.size = 1
 
 -- Display: Printable
-lseg_millennium_level2_mitch_v11_9.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+lseg_millennium_level2_mitch_v11_9.printable.labels = {
+  ["N"] = "Printable: Non Printable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.printable.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1254,27 +1192,17 @@ lseg_millennium_level2_mitch_v11_9.session_change_reason = {}
 lseg_millennium_level2_mitch_v11_9.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_millennium_level2_mitch_v11_9.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable Recovery Service Only (9)"
-  end
+lseg_millennium_level2_mitch_v11_9.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [9] = "Session Change Reason: Unavailable Recovery Service Only (9)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.session_change_reason.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -1296,15 +1224,13 @@ lseg_millennium_level2_mitch_v11_9.side = {}
 lseg_millennium_level2_mitch_v11_9.side.size = 1
 
 -- Display: Side
-lseg_millennium_level2_mitch_v11_9.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
+lseg_millennium_level2_mitch_v11_9.side.labels = {
+  ["B"] = "Side: Buy Order (B)",
+  ["S"] = "Side: Sell Order (S)",
+}
 
-  return "Side: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.side.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1326,15 +1252,13 @@ lseg_millennium_level2_mitch_v11_9.statistic_type = {}
 lseg_millennium_level2_mitch_v11_9.statistic_type.size = 1
 
 -- Display: Statistic Type
-lseg_millennium_level2_mitch_v11_9.statistic_type.display = function(value)
-  if value == "O" then
-    return "Statistic Type: Opening Price (O)"
-  end
-  if value == "C" then
-    return "Statistic Type: Closing Price (C)"
-  end
+lseg_millennium_level2_mitch_v11_9.statistic_type.labels = {
+  ["O"] = "Statistic Type: Opening Price (O)",
+  ["C"] = "Statistic Type: Closing Price (C)",
+}
 
-  return "Statistic Type: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.statistic_type.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.statistic_type.labels[value] or "Statistic Type: Unknown("..value..")"
 end
 
 -- Dissect: Statistic Type
@@ -1356,15 +1280,13 @@ lseg_millennium_level2_mitch_v11_9.sub_book = {}
 lseg_millennium_level2_mitch_v11_9.sub_book.size = 1
 
 -- Display: Sub Book
-lseg_millennium_level2_mitch_v11_9.sub_book.display = function(value)
-  if value == 0 then
-    return "Sub Book: Regular Trades (0)"
-  end
-  if value == 11 then
-    return "Sub Book: Rfq Trades (11)"
-  end
+lseg_millennium_level2_mitch_v11_9.sub_book.labels = {
+  [0] = "Sub Book: Regular Trades (0)",
+  [11] = "Sub Book: Rfq Trades (11)",
+}
 
-  return "Sub Book: Unknown("..value..")"
+lseg_millennium_level2_mitch_v11_9.sub_book.display = function(value)
+  return lseg_millennium_level2_mitch_v11_9.sub_book.labels[value] or "Sub Book: Unknown("..value..")"
 end
 
 -- Dissect: Sub Book
@@ -2989,70 +2911,29 @@ end
 lseg_millennium_level2_mitch_v11_9.payload = {}
 
 -- Dissect: Payload
+lseg_millennium_level2_mitch_v11_9.payload.dispatch = {
+  [0x54] = lseg_millennium_level2_mitch_v11_9.time_message.dissect,
+  [0x53] = lseg_millennium_level2_mitch_v11_9.system_event_message.dissect,
+  [0x52] = lseg_millennium_level2_mitch_v11_9.symbol_directory_message.dissect,
+  [0x48] = lseg_millennium_level2_mitch_v11_9.symbol_status_message.dissect,
+  [0x41] = lseg_millennium_level2_mitch_v11_9.add_order_message.dissect,
+  [0x46] = lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.dissect,
+  [0x44] = lseg_millennium_level2_mitch_v11_9.order_deleted_message.dissect,
+  [0x55] = lseg_millennium_level2_mitch_v11_9.order_modified_message.dissect,
+  [0x79] = lseg_millennium_level2_mitch_v11_9.order_book_clear_message.dissect,
+  [0x45] = lseg_millennium_level2_mitch_v11_9.order_executed_message.dissect,
+  [0x43] = lseg_millennium_level2_mitch_v11_9.order_executed_with_price_size_message.dissect,
+  [0x50] = lseg_millennium_level2_mitch_v11_9.trade_message.dissect,
+  [0x51] = lseg_millennium_level2_mitch_v11_9.auction_trade_message.dissect,
+  [0x49] = lseg_millennium_level2_mitch_v11_9.auction_info_message.dissect,
+  [0x77] = lseg_millennium_level2_mitch_v11_9.statistics_message.dissect,
+  [0x71] = lseg_millennium_level2_mitch_v11_9.top_of_book_message.dissect,
+}
+
 lseg_millennium_level2_mitch_v11_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == 0x54 then
-    return lseg_millennium_level2_mitch_v11_9.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return lseg_millennium_level2_mitch_v11_9.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Directory Message
-  if message_type == 0x52 then
-    return lseg_millennium_level2_mitch_v11_9.symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Status Message
-  if message_type == 0x48 then
-    return lseg_millennium_level2_mitch_v11_9.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == 0x41 then
-    return lseg_millennium_level2_mitch_v11_9.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Attributed Order Message
-  if message_type == 0x46 then
-    return lseg_millennium_level2_mitch_v11_9.add_attributed_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Deleted Message
-  if message_type == 0x44 then
-    return lseg_millennium_level2_mitch_v11_9.order_deleted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Message
-  if message_type == 0x55 then
-    return lseg_millennium_level2_mitch_v11_9.order_modified_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Clear Message
-  if message_type == 0x79 then
-    return lseg_millennium_level2_mitch_v11_9.order_book_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 0x45 then
-    return lseg_millennium_level2_mitch_v11_9.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Size Message
-  if message_type == 0x43 then
-    return lseg_millennium_level2_mitch_v11_9.order_executed_with_price_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0x50 then
-    return lseg_millennium_level2_mitch_v11_9.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Trade Message
-  if message_type == 0x51 then
-    return lseg_millennium_level2_mitch_v11_9.auction_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Info Message
-  if message_type == 0x49 then
-    return lseg_millennium_level2_mitch_v11_9.auction_info_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Message
-  if message_type == 0x77 then
-    return lseg_millennium_level2_mitch_v11_9.statistics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book Message
-  if message_type == 0x71 then
-    return lseg_millennium_level2_mitch_v11_9.top_of_book_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_millennium_level2_mitch_v11_9.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

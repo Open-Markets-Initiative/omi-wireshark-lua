@@ -2715,12 +2715,12 @@ eurex_t7_eti_fbe_v10_0.default_cstm_appl_ver_sub_id = {}
 eurex_t7_eti_fbe_v10_0.default_cstm_appl_ver_sub_id.size = 5
 
 -- Display: Default Cstm Appl Ver Sub Id
-eurex_t7_eti_fbe_v10_0.default_cstm_appl_ver_sub_id.display = function(value)
-  if value == "D0002" then
-    return "Default Cstm Appl Ver Sub Id: Derivatives (D0002)"
-  end
+eurex_t7_eti_fbe_v10_0.default_cstm_appl_ver_sub_id.labels = {
+  ["D0002"] = "Default Cstm Appl Ver Sub Id: Derivatives (D0002)",
+}
 
-  return "Default Cstm Appl Ver Sub Id: Unknown("..value..")"
+eurex_t7_eti_fbe_v10_0.default_cstm_appl_ver_sub_id.display = function(value)
+  return eurex_t7_eti_fbe_v10_0.default_cstm_appl_ver_sub_id.labels[value] or "Default Cstm Appl Ver Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Default Cstm Appl Ver Sub Id
@@ -15957,12 +15957,12 @@ eurex_t7_eti_fbe_v10_0.underlying_stip_type = {}
 eurex_t7_eti_fbe_v10_0.underlying_stip_type.size = 7
 
 -- Display: Underlying Stip Type
-eurex_t7_eti_fbe_v10_0.underlying_stip_type.display = function(value)
-  if value == "PAYFREQ" then
-    return "Underlying Stip Type: Pay Frequency (PAYFREQ)"
-  end
+eurex_t7_eti_fbe_v10_0.underlying_stip_type.labels = {
+  ["PAYFREQ"] = "Underlying Stip Type: Pay Frequency (PAYFREQ)",
+}
 
-  return "Underlying Stip Type: Unknown("..value..")"
+eurex_t7_eti_fbe_v10_0.underlying_stip_type.display = function(value)
+  return eurex_t7_eti_fbe_v10_0.underlying_stip_type.labels[value] or "Underlying Stip Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Stip Type
@@ -27446,350 +27446,99 @@ end
 eurex_t7_eti_fbe_v10_0.server_payload = {}
 
 -- Dissect: Server Payload
+eurex_t7_eti_fbe_v10_0.server_payload.dispatch = {
+  [10302] = eurex_t7_eti_fbe_v10_0.add_complex_instrument_response.dissect,
+  [10310] = eurex_t7_eti_fbe_v10_0.add_flexible_instrument_response.dissect,
+  [10627] = eurex_t7_eti_fbe_v10_0.basket_approve_broadcast.dissect,
+  [10625] = eurex_t7_eti_fbe_v10_0.basket_broadcast.dissect,
+  [10626] = eurex_t7_eti_fbe_v10_0.basket_delete_broadcast.dissect,
+  [10628] = eurex_t7_eti_fbe_v10_0.basket_execution_broadcast.dissect,
+  [10624] = eurex_t7_eti_fbe_v10_0.basket_response.dissect,
+  [10032] = eurex_t7_eti_fbe_v10_0.broadcast_error_notification.dissect,
+  [10134] = eurex_t7_eti_fbe_v10_0.clip_deletion_notification.dissect,
+  [10135] = eurex_t7_eti_fbe_v10_0.clip_execution_notification.dissect,
+  [10133] = eurex_t7_eti_fbe_v10_0.clip_response.dissect,
+  [10119] = eurex_t7_eti_fbe_v10_0.cross_request_response.dissect,
+  [10122] = eurex_t7_eti_fbe_v10_0.delete_all_order_broadcast.dissect,
+  [10124] = eurex_t7_eti_fbe_v10_0.delete_all_order_nr_response.dissect,
+  [10308] = eurex_t7_eti_fbe_v10_0.delete_all_order_quote_event_broadcast.dissect,
+  [10121] = eurex_t7_eti_fbe_v10_0.delete_all_order_response.dissect,
+  [10410] = eurex_t7_eti_fbe_v10_0.delete_all_quote_broadcast.dissect,
+  [10409] = eurex_t7_eti_fbe_v10_0.delete_all_quote_response.dissect,
+  [10112] = eurex_t7_eti_fbe_v10_0.delete_order_broadcast.dissect,
+  [10111] = eurex_t7_eti_fbe_v10_0.delete_order_nr_response.dissect,
+  [10110] = eurex_t7_eti_fbe_v10_0.delete_order_response.dissect,
+  [10012] = eurex_t7_eti_fbe_v10_0.forced_logout_notification.dissect,
+  [10043] = eurex_t7_eti_fbe_v10_0.forced_user_logout_notification.dissect,
+  [10023] = eurex_t7_eti_fbe_v10_0.heartbeat_notification.dissect,
+  [10041] = eurex_t7_eti_fbe_v10_0.inquire_enrichment_rule_id_list_response.dissect,
+  [10306] = eurex_t7_eti_fbe_v10_0.inquire_mm_parameter_response.dissect,
+  [10036] = eurex_t7_eti_fbe_v10_0.inquire_session_list_response.dissect,
+  [10039] = eurex_t7_eti_fbe_v10_0.inquire_user_response.dissect,
+  [10037] = eurex_t7_eti_fbe_v10_0.legal_notification_broadcast.dissect,
+  [10001] = eurex_t7_eti_fbe_v10_0.logon_response.dissect,
+  [10003] = eurex_t7_eti_fbe_v10_0.logout_response.dissect,
+  [10304] = eurex_t7_eti_fbe_v10_0.mm_parameter_definition_response.dissect,
+  [10406] = eurex_t7_eti_fbe_v10_0.mass_quote_response.dissect,
+  [10108] = eurex_t7_eti_fbe_v10_0.modify_order_nr_response.dissect,
+  [10107] = eurex_t7_eti_fbe_v10_0.modify_order_response.dissect,
+  [10102] = eurex_t7_eti_fbe_v10_0.new_order_nr_response.dissect,
+  [10101] = eurex_t7_eti_fbe_v10_0.new_order_response.dissect,
+  [10031] = eurex_t7_eti_fbe_v10_0.news_broadcast.dissect,
+  [10104] = eurex_t7_eti_fbe_v10_0.order_exec_notification.dissect,
+  [10117] = eurex_t7_eti_fbe_v10_0.order_exec_report_broadcast.dissect,
+  [10103] = eurex_t7_eti_fbe_v10_0.order_exec_response.dissect,
+  [10042] = eurex_t7_eti_fbe_v10_0.party_action_report.dissect,
+  [10034] = eurex_t7_eti_fbe_v10_0.party_entitlements_update_report.dissect,
+  [10321] = eurex_t7_eti_fbe_v10_0.ping_response.dissect,
+  [10313] = eurex_t7_eti_fbe_v10_0.pre_trade_risk_limit_response.dissect,
+  [10411] = eurex_t7_eti_fbe_v10_0.quote_activation_notification.dissect,
+  [10404] = eurex_t7_eti_fbe_v10_0.quote_activation_response.dissect,
+  [10407] = eurex_t7_eti_fbe_v10_0.quote_execution_report.dissect,
+  [10402] = eurex_t7_eti_fbe_v10_0.rfq_response.dissect,
+  [10010] = eurex_t7_eti_fbe_v10_0.reject.dissect,
+  [10027] = eurex_t7_eti_fbe_v10_0.retransmit_me_message_response.dissect,
+  [10009] = eurex_t7_eti_fbe_v10_0.retransmit_response.dissect,
+  [10033] = eurex_t7_eti_fbe_v10_0.risk_notification_broadcast.dissect,
+  [10708] = eurex_t7_eti_fbe_v10_0.srqs_create_deal_notification.dissect,
+  [10709] = eurex_t7_eti_fbe_v10_0.srqs_deal_notification.dissect,
+  [10705] = eurex_t7_eti_fbe_v10_0.srqs_deal_response.dissect,
+  [10719] = eurex_t7_eti_fbe_v10_0.srqs_inquire_smart_respondent_response.dissect,
+  [10713] = eurex_t7_eti_fbe_v10_0.srqs_negotiation_notification.dissect,
+  [10712] = eurex_t7_eti_fbe_v10_0.srqs_negotiation_requester_notification.dissect,
+  [10715] = eurex_t7_eti_fbe_v10_0.srqs_negotiation_status_notification.dissect,
+  [10711] = eurex_t7_eti_fbe_v10_0.srqs_open_negotiation_notification.dissect,
+  [10710] = eurex_t7_eti_fbe_v10_0.srqs_open_negotiation_requester_notification.dissect,
+  [10707] = eurex_t7_eti_fbe_v10_0.srqs_quote_notification.dissect,
+  [10703] = eurex_t7_eti_fbe_v10_0.srqs_quote_response.dissect,
+  [10714] = eurex_t7_eti_fbe_v10_0.srqs_status_broadcast.dissect,
+  [10030] = eurex_t7_eti_fbe_v10_0.service_availability_broadcast.dissect,
+  [10044] = eurex_t7_eti_fbe_v10_0.service_availability_market_broadcast.dissect,
+  [10005] = eurex_t7_eti_fbe_v10_0.subscribe_response.dissect,
+  [10607] = eurex_t7_eti_fbe_v10_0.tes_approve_broadcast.dissect,
+  [10604] = eurex_t7_eti_fbe_v10_0.tes_broadcast.dissect,
+  [10618] = eurex_t7_eti_fbe_v10_0.tes_compression_run_status_broadcast.dissect,
+  [10617] = eurex_t7_eti_fbe_v10_0.tes_compression_run_status_response.dissect,
+  [10606] = eurex_t7_eti_fbe_v10_0.tes_delete_broadcast.dissect,
+  [10610] = eurex_t7_eti_fbe_v10_0.tes_execution_broadcast.dissect,
+  [10611] = eurex_t7_eti_fbe_v10_0.tes_response.dissect,
+  [10632] = eurex_t7_eti_fbe_v10_0.tes_reversal_broadcast.dissect,
+  [10614] = eurex_t7_eti_fbe_v10_0.tes_trade_broadcast.dissect,
+  [10615] = eurex_t7_eti_fbe_v10_0.tes_trading_session_status_broadcast.dissect,
+  [10613] = eurex_t7_eti_fbe_v10_0.tes_upload_broadcast.dissect,
+  [10501] = eurex_t7_eti_fbe_v10_0.tm_trading_session_status_broadcast.dissect,
+  [10028] = eurex_t7_eti_fbe_v10_0.throttle_update_notification.dissect,
+  [10500] = eurex_t7_eti_fbe_v10_0.trade_broadcast.dissect,
+  [10307] = eurex_t7_eti_fbe_v10_0.trading_session_status_broadcast.dissect,
+  [10007] = eurex_t7_eti_fbe_v10_0.unsubscribe_response.dissect,
+  [10019] = eurex_t7_eti_fbe_v10_0.user_login_response.dissect,
+  [10024] = eurex_t7_eti_fbe_v10_0.user_logout_response.dissect,
+}
+
 eurex_t7_eti_fbe_v10_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Add Complex Instrument Response
-  if template_id == 10302 then
-    return eurex_t7_eti_fbe_v10_0.add_complex_instrument_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Flexible Instrument Response
-  if template_id == 10310 then
-    return eurex_t7_eti_fbe_v10_0.add_flexible_instrument_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Approve Broadcast
-  if template_id == 10627 then
-    return eurex_t7_eti_fbe_v10_0.basket_approve_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Broadcast
-  if template_id == 10625 then
-    return eurex_t7_eti_fbe_v10_0.basket_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Delete Broadcast
-  if template_id == 10626 then
-    return eurex_t7_eti_fbe_v10_0.basket_delete_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Execution Broadcast
-  if template_id == 10628 then
-    return eurex_t7_eti_fbe_v10_0.basket_execution_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Basket Response
-  if template_id == 10624 then
-    return eurex_t7_eti_fbe_v10_0.basket_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broadcast Error Notification
-  if template_id == 10032 then
-    return eurex_t7_eti_fbe_v10_0.broadcast_error_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clip Deletion Notification
-  if template_id == 10134 then
-    return eurex_t7_eti_fbe_v10_0.clip_deletion_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clip Execution Notification
-  if template_id == 10135 then
-    return eurex_t7_eti_fbe_v10_0.clip_execution_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Clip Response
-  if template_id == 10133 then
-    return eurex_t7_eti_fbe_v10_0.clip_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Request Response
-  if template_id == 10119 then
-    return eurex_t7_eti_fbe_v10_0.cross_request_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Broadcast
-  if template_id == 10122 then
-    return eurex_t7_eti_fbe_v10_0.delete_all_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Nr Response
-  if template_id == 10124 then
-    return eurex_t7_eti_fbe_v10_0.delete_all_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Quote Event Broadcast
-  if template_id == 10308 then
-    return eurex_t7_eti_fbe_v10_0.delete_all_order_quote_event_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Response
-  if template_id == 10121 then
-    return eurex_t7_eti_fbe_v10_0.delete_all_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Broadcast
-  if template_id == 10410 then
-    return eurex_t7_eti_fbe_v10_0.delete_all_quote_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Response
-  if template_id == 10409 then
-    return eurex_t7_eti_fbe_v10_0.delete_all_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Broadcast
-  if template_id == 10112 then
-    return eurex_t7_eti_fbe_v10_0.delete_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Nr Response
-  if template_id == 10111 then
-    return eurex_t7_eti_fbe_v10_0.delete_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Response
-  if template_id == 10110 then
-    return eurex_t7_eti_fbe_v10_0.delete_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forced Logout Notification
-  if template_id == 10012 then
-    return eurex_t7_eti_fbe_v10_0.forced_logout_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forced User Logout Notification
-  if template_id == 10043 then
-    return eurex_t7_eti_fbe_v10_0.forced_user_logout_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Notification
-  if template_id == 10023 then
-    return eurex_t7_eti_fbe_v10_0.heartbeat_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Enrichment Rule Id List Response
-  if template_id == 10041 then
-    return eurex_t7_eti_fbe_v10_0.inquire_enrichment_rule_id_list_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Mm Parameter Response
-  if template_id == 10306 then
-    return eurex_t7_eti_fbe_v10_0.inquire_mm_parameter_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Session List Response
-  if template_id == 10036 then
-    return eurex_t7_eti_fbe_v10_0.inquire_session_list_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire User Response
-  if template_id == 10039 then
-    return eurex_t7_eti_fbe_v10_0.inquire_user_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Legal Notification Broadcast
-  if template_id == 10037 then
-    return eurex_t7_eti_fbe_v10_0.legal_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response
-  if template_id == 10001 then
-    return eurex_t7_eti_fbe_v10_0.logon_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response
-  if template_id == 10003 then
-    return eurex_t7_eti_fbe_v10_0.logout_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Parameter Definition Response
-  if template_id == 10304 then
-    return eurex_t7_eti_fbe_v10_0.mm_parameter_definition_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Response
-  if template_id == 10406 then
-    return eurex_t7_eti_fbe_v10_0.mass_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Nr Response
-  if template_id == 10108 then
-    return eurex_t7_eti_fbe_v10_0.modify_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response
-  if template_id == 10107 then
-    return eurex_t7_eti_fbe_v10_0.modify_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Nr Response
-  if template_id == 10102 then
-    return eurex_t7_eti_fbe_v10_0.new_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response
-  if template_id == 10101 then
-    return eurex_t7_eti_fbe_v10_0.new_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Broadcast
-  if template_id == 10031 then
-    return eurex_t7_eti_fbe_v10_0.news_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Notification
-  if template_id == 10104 then
-    return eurex_t7_eti_fbe_v10_0.order_exec_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Report Broadcast
-  if template_id == 10117 then
-    return eurex_t7_eti_fbe_v10_0.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Response
-  if template_id == 10103 then
-    return eurex_t7_eti_fbe_v10_0.order_exec_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Action Report
-  if template_id == 10042 then
-    return eurex_t7_eti_fbe_v10_0.party_action_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Entitlements Update Report
-  if template_id == 10034 then
-    return eurex_t7_eti_fbe_v10_0.party_entitlements_update_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ping Response
-  if template_id == 10321 then
-    return eurex_t7_eti_fbe_v10_0.ping_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pre Trade Risk Limit Response
-  if template_id == 10313 then
-    return eurex_t7_eti_fbe_v10_0.pre_trade_risk_limit_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Notification
-  if template_id == 10411 then
-    return eurex_t7_eti_fbe_v10_0.quote_activation_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Response
-  if template_id == 10404 then
-    return eurex_t7_eti_fbe_v10_0.quote_activation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Execution Report
-  if template_id == 10407 then
-    return eurex_t7_eti_fbe_v10_0.quote_execution_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Response
-  if template_id == 10402 then
-    return eurex_t7_eti_fbe_v10_0.rfq_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject
-  if template_id == 10010 then
-    return eurex_t7_eti_fbe_v10_0.reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Me Message Response
-  if template_id == 10027 then
-    return eurex_t7_eti_fbe_v10_0.retransmit_me_message_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Response
-  if template_id == 10009 then
-    return eurex_t7_eti_fbe_v10_0.retransmit_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Notification Broadcast
-  if template_id == 10033 then
-    return eurex_t7_eti_fbe_v10_0.risk_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Create Deal Notification
-  if template_id == 10708 then
-    return eurex_t7_eti_fbe_v10_0.srqs_create_deal_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Deal Notification
-  if template_id == 10709 then
-    return eurex_t7_eti_fbe_v10_0.srqs_deal_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Deal Response
-  if template_id == 10705 then
-    return eurex_t7_eti_fbe_v10_0.srqs_deal_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Inquire Smart Respondent Response
-  if template_id == 10719 then
-    return eurex_t7_eti_fbe_v10_0.srqs_inquire_smart_respondent_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Negotiation Notification
-  if template_id == 10713 then
-    return eurex_t7_eti_fbe_v10_0.srqs_negotiation_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Negotiation Requester Notification
-  if template_id == 10712 then
-    return eurex_t7_eti_fbe_v10_0.srqs_negotiation_requester_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Negotiation Status Notification
-  if template_id == 10715 then
-    return eurex_t7_eti_fbe_v10_0.srqs_negotiation_status_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Open Negotiation Notification
-  if template_id == 10711 then
-    return eurex_t7_eti_fbe_v10_0.srqs_open_negotiation_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Open Negotiation Requester Notification
-  if template_id == 10710 then
-    return eurex_t7_eti_fbe_v10_0.srqs_open_negotiation_requester_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Quote Notification
-  if template_id == 10707 then
-    return eurex_t7_eti_fbe_v10_0.srqs_quote_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Quote Response
-  if template_id == 10703 then
-    return eurex_t7_eti_fbe_v10_0.srqs_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Status Broadcast
-  if template_id == 10714 then
-    return eurex_t7_eti_fbe_v10_0.srqs_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Service Availability Broadcast
-  if template_id == 10030 then
-    return eurex_t7_eti_fbe_v10_0.service_availability_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Service Availability Market Broadcast
-  if template_id == 10044 then
-    return eurex_t7_eti_fbe_v10_0.service_availability_market_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscribe Response
-  if template_id == 10005 then
-    return eurex_t7_eti_fbe_v10_0.subscribe_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Approve Broadcast
-  if template_id == 10607 then
-    return eurex_t7_eti_fbe_v10_0.tes_approve_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Broadcast
-  if template_id == 10604 then
-    return eurex_t7_eti_fbe_v10_0.tes_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Compression Run Status Broadcast
-  if template_id == 10618 then
-    return eurex_t7_eti_fbe_v10_0.tes_compression_run_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Compression Run Status Response
-  if template_id == 10617 then
-    return eurex_t7_eti_fbe_v10_0.tes_compression_run_status_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Delete Broadcast
-  if template_id == 10606 then
-    return eurex_t7_eti_fbe_v10_0.tes_delete_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Execution Broadcast
-  if template_id == 10610 then
-    return eurex_t7_eti_fbe_v10_0.tes_execution_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Response
-  if template_id == 10611 then
-    return eurex_t7_eti_fbe_v10_0.tes_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Reversal Broadcast
-  if template_id == 10632 then
-    return eurex_t7_eti_fbe_v10_0.tes_reversal_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Trade Broadcast
-  if template_id == 10614 then
-    return eurex_t7_eti_fbe_v10_0.tes_trade_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Trading Session Status Broadcast
-  if template_id == 10615 then
-    return eurex_t7_eti_fbe_v10_0.tes_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Upload Broadcast
-  if template_id == 10613 then
-    return eurex_t7_eti_fbe_v10_0.tes_upload_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tm Trading Session Status Broadcast
-  if template_id == 10501 then
-    return eurex_t7_eti_fbe_v10_0.tm_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Throttle Update Notification
-  if template_id == 10028 then
-    return eurex_t7_eti_fbe_v10_0.throttle_update_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Broadcast
-  if template_id == 10500 then
-    return eurex_t7_eti_fbe_v10_0.trade_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Broadcast
-  if template_id == 10307 then
-    return eurex_t7_eti_fbe_v10_0.trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsubscribe Response
-  if template_id == 10007 then
-    return eurex_t7_eti_fbe_v10_0.unsubscribe_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Response
-  if template_id == 10019 then
-    return eurex_t7_eti_fbe_v10_0.user_login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Response
-  if template_id == 10024 then
-    return eurex_t7_eti_fbe_v10_0.user_logout_response.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_eti_fbe_v10_0.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -34264,234 +34013,70 @@ end
 eurex_t7_eti_fbe_v10_0.client_payload = {}
 
 -- Dissect: Client Payload
+eurex_t7_eti_fbe_v10_0.client_payload.dispatch = {
+  [10301] = eurex_t7_eti_fbe_v10_0.add_complex_instrument_request.dissect,
+  [10309] = eurex_t7_eti_fbe_v10_0.add_flexible_instrument_request.dissect,
+  [10629] = eurex_t7_eti_fbe_v10_0.amend_basket_trade_request.dissect,
+  [10623] = eurex_t7_eti_fbe_v10_0.approve_basket_trade_request.dissect,
+  [10631] = eurex_t7_eti_fbe_v10_0.approve_reverse_tes_trade_request.dissect,
+  [10603] = eurex_t7_eti_fbe_v10_0.approve_tes_trade_request.dissect,
+  [10118] = eurex_t7_eti_fbe_v10_0.cross_request.dissect,
+  [10120] = eurex_t7_eti_fbe_v10_0.delete_all_order_request.dissect,
+  [10408] = eurex_t7_eti_fbe_v10_0.delete_all_quote_request.dissect,
+  [10622] = eurex_t7_eti_fbe_v10_0.delete_basket_trade_request.dissect,
+  [10132] = eurex_t7_eti_fbe_v10_0.delete_clip_request.dissect,
+  [10123] = eurex_t7_eti_fbe_v10_0.delete_order_complex_request.dissect,
+  [10109] = eurex_t7_eti_fbe_v10_0.delete_order_single_request.dissect,
+  [10602] = eurex_t7_eti_fbe_v10_0.delete_tes_trade_request.dissect,
+  [10620] = eurex_t7_eti_fbe_v10_0.enter_basket_trade_request.dissect,
+  [10131] = eurex_t7_eti_fbe_v10_0.enter_clip_request.dissect,
+  [10600] = eurex_t7_eti_fbe_v10_0.enter_tes_trade_request.dissect,
+  [10011] = eurex_t7_eti_fbe_v10_0.heartbeat.dissect,
+  [10040] = eurex_t7_eti_fbe_v10_0.inquire_enrichment_rule_id_list_request.dissect,
+  [10305] = eurex_t7_eti_fbe_v10_0.inquire_mm_parameter_request.dissect,
+  [10311] = eurex_t7_eti_fbe_v10_0.inquire_pre_trade_risk_limits_request.dissect,
+  [10035] = eurex_t7_eti_fbe_v10_0.inquire_session_list_request.dissect,
+  [10038] = eurex_t7_eti_fbe_v10_0.inquire_user_request.dissect,
+  [10000] = eurex_t7_eti_fbe_v10_0.logon_request.dissect,
+  [10002] = eurex_t7_eti_fbe_v10_0.logout_request.dissect,
+  [10303] = eurex_t7_eti_fbe_v10_0.mm_parameter_definition_request.dissect,
+  [10405] = eurex_t7_eti_fbe_v10_0.mass_quote_request.dissect,
+  [10621] = eurex_t7_eti_fbe_v10_0.modify_basket_trade_request.dissect,
+  [10114] = eurex_t7_eti_fbe_v10_0.modify_order_complex_request.dissect,
+  [10130] = eurex_t7_eti_fbe_v10_0.modify_order_complex_short_request.dissect,
+  [10106] = eurex_t7_eti_fbe_v10_0.modify_order_single_request.dissect,
+  [10126] = eurex_t7_eti_fbe_v10_0.modify_order_single_short_request.dissect,
+  [10601] = eurex_t7_eti_fbe_v10_0.modify_tes_trade_request.dissect,
+  [10113] = eurex_t7_eti_fbe_v10_0.new_order_complex_request.dissect,
+  [10129] = eurex_t7_eti_fbe_v10_0.new_order_complex_short_request.dissect,
+  [10100] = eurex_t7_eti_fbe_v10_0.new_order_single_request.dissect,
+  [10125] = eurex_t7_eti_fbe_v10_0.new_order_single_short_request.dissect,
+  [10320] = eurex_t7_eti_fbe_v10_0.ping_request.dissect,
+  [10312] = eurex_t7_eti_fbe_v10_0.pre_trade_risk_limits_definition_request.dissect,
+  [10403] = eurex_t7_eti_fbe_v10_0.quote_activation_request.dissect,
+  [10401] = eurex_t7_eti_fbe_v10_0.rfq_request.dissect,
+  [10026] = eurex_t7_eti_fbe_v10_0.retransmit_me_message_request.dissect,
+  [10008] = eurex_t7_eti_fbe_v10_0.retransmit_request.dissect,
+  [10630] = eurex_t7_eti_fbe_v10_0.reverse_tes_trade_request.dissect,
+  [10702] = eurex_t7_eti_fbe_v10_0.srqs_enter_quote_request.dissect,
+  [10704] = eurex_t7_eti_fbe_v10_0.srqs_hit_quote_request.dissect,
+  [10718] = eurex_t7_eti_fbe_v10_0.srqs_inquire_smart_respondent_request.dissect,
+  [10700] = eurex_t7_eti_fbe_v10_0.srqs_open_negotiation_request.dissect,
+  [10717] = eurex_t7_eti_fbe_v10_0.srqs_quoting_status_request.dissect,
+  [10706] = eurex_t7_eti_fbe_v10_0.srqs_update_deal_status_request.dissect,
+  [10701] = eurex_t7_eti_fbe_v10_0.srqs_update_negotiation_request.dissect,
+  [10025] = eurex_t7_eti_fbe_v10_0.subscribe_request.dissect,
+  [10616] = eurex_t7_eti_fbe_v10_0.tes_compression_run_status_request.dissect,
+  [10006] = eurex_t7_eti_fbe_v10_0.unsubscribe_request.dissect,
+  [10612] = eurex_t7_eti_fbe_v10_0.upload_tes_trade_request.dissect,
+  [10018] = eurex_t7_eti_fbe_v10_0.user_login_request.dissect,
+  [10029] = eurex_t7_eti_fbe_v10_0.user_logout_request.dissect,
+}
+
 eurex_t7_eti_fbe_v10_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Add Complex Instrument Request
-  if template_id == 10301 then
-    return eurex_t7_eti_fbe_v10_0.add_complex_instrument_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Flexible Instrument Request
-  if template_id == 10309 then
-    return eurex_t7_eti_fbe_v10_0.add_flexible_instrument_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Amend Basket Trade Request
-  if template_id == 10629 then
-    return eurex_t7_eti_fbe_v10_0.amend_basket_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Approve Basket Trade Request
-  if template_id == 10623 then
-    return eurex_t7_eti_fbe_v10_0.approve_basket_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Approve Reverse Tes Trade Request
-  if template_id == 10631 then
-    return eurex_t7_eti_fbe_v10_0.approve_reverse_tes_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Approve Tes Trade Request
-  if template_id == 10603 then
-    return eurex_t7_eti_fbe_v10_0.approve_tes_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Request
-  if template_id == 10118 then
-    return eurex_t7_eti_fbe_v10_0.cross_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Request
-  if template_id == 10120 then
-    return eurex_t7_eti_fbe_v10_0.delete_all_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Request
-  if template_id == 10408 then
-    return eurex_t7_eti_fbe_v10_0.delete_all_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Basket Trade Request
-  if template_id == 10622 then
-    return eurex_t7_eti_fbe_v10_0.delete_basket_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Clip Request
-  if template_id == 10132 then
-    return eurex_t7_eti_fbe_v10_0.delete_clip_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Complex Request
-  if template_id == 10123 then
-    return eurex_t7_eti_fbe_v10_0.delete_order_complex_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Single Request
-  if template_id == 10109 then
-    return eurex_t7_eti_fbe_v10_0.delete_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Tes Trade Request
-  if template_id == 10602 then
-    return eurex_t7_eti_fbe_v10_0.delete_tes_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enter Basket Trade Request
-  if template_id == 10620 then
-    return eurex_t7_eti_fbe_v10_0.enter_basket_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enter Clip Request
-  if template_id == 10131 then
-    return eurex_t7_eti_fbe_v10_0.enter_clip_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enter Tes Trade Request
-  if template_id == 10600 then
-    return eurex_t7_eti_fbe_v10_0.enter_tes_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if template_id == 10011 then
-    return eurex_t7_eti_fbe_v10_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Enrichment Rule Id List Request
-  if template_id == 10040 then
-    return eurex_t7_eti_fbe_v10_0.inquire_enrichment_rule_id_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Mm Parameter Request
-  if template_id == 10305 then
-    return eurex_t7_eti_fbe_v10_0.inquire_mm_parameter_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Pre Trade Risk Limits Request
-  if template_id == 10311 then
-    return eurex_t7_eti_fbe_v10_0.inquire_pre_trade_risk_limits_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Session List Request
-  if template_id == 10035 then
-    return eurex_t7_eti_fbe_v10_0.inquire_session_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire User Request
-  if template_id == 10038 then
-    return eurex_t7_eti_fbe_v10_0.inquire_user_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Request
-  if template_id == 10000 then
-    return eurex_t7_eti_fbe_v10_0.logon_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if template_id == 10002 then
-    return eurex_t7_eti_fbe_v10_0.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mm Parameter Definition Request
-  if template_id == 10303 then
-    return eurex_t7_eti_fbe_v10_0.mm_parameter_definition_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Request
-  if template_id == 10405 then
-    return eurex_t7_eti_fbe_v10_0.mass_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Basket Trade Request
-  if template_id == 10621 then
-    return eurex_t7_eti_fbe_v10_0.modify_basket_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Complex Request
-  if template_id == 10114 then
-    return eurex_t7_eti_fbe_v10_0.modify_order_complex_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Complex Short Request
-  if template_id == 10130 then
-    return eurex_t7_eti_fbe_v10_0.modify_order_complex_short_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Single Request
-  if template_id == 10106 then
-    return eurex_t7_eti_fbe_v10_0.modify_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Single Short Request
-  if template_id == 10126 then
-    return eurex_t7_eti_fbe_v10_0.modify_order_single_short_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Tes Trade Request
-  if template_id == 10601 then
-    return eurex_t7_eti_fbe_v10_0.modify_tes_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Complex Request
-  if template_id == 10113 then
-    return eurex_t7_eti_fbe_v10_0.new_order_complex_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Complex Short Request
-  if template_id == 10129 then
-    return eurex_t7_eti_fbe_v10_0.new_order_complex_short_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Single Request
-  if template_id == 10100 then
-    return eurex_t7_eti_fbe_v10_0.new_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Single Short Request
-  if template_id == 10125 then
-    return eurex_t7_eti_fbe_v10_0.new_order_single_short_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ping Request
-  if template_id == 10320 then
-    return eurex_t7_eti_fbe_v10_0.ping_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pre Trade Risk Limits Definition Request
-  if template_id == 10312 then
-    return eurex_t7_eti_fbe_v10_0.pre_trade_risk_limits_definition_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Request
-  if template_id == 10403 then
-    return eurex_t7_eti_fbe_v10_0.quote_activation_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Request
-  if template_id == 10401 then
-    return eurex_t7_eti_fbe_v10_0.rfq_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Me Message Request
-  if template_id == 10026 then
-    return eurex_t7_eti_fbe_v10_0.retransmit_me_message_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Request
-  if template_id == 10008 then
-    return eurex_t7_eti_fbe_v10_0.retransmit_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reverse Tes Trade Request
-  if template_id == 10630 then
-    return eurex_t7_eti_fbe_v10_0.reverse_tes_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Enter Quote Request
-  if template_id == 10702 then
-    return eurex_t7_eti_fbe_v10_0.srqs_enter_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Hit Quote Request
-  if template_id == 10704 then
-    return eurex_t7_eti_fbe_v10_0.srqs_hit_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Inquire Smart Respondent Request
-  if template_id == 10718 then
-    return eurex_t7_eti_fbe_v10_0.srqs_inquire_smart_respondent_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Open Negotiation Request
-  if template_id == 10700 then
-    return eurex_t7_eti_fbe_v10_0.srqs_open_negotiation_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Quoting Status Request
-  if template_id == 10717 then
-    return eurex_t7_eti_fbe_v10_0.srqs_quoting_status_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Update Deal Status Request
-  if template_id == 10706 then
-    return eurex_t7_eti_fbe_v10_0.srqs_update_deal_status_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Srqs Update Negotiation Request
-  if template_id == 10701 then
-    return eurex_t7_eti_fbe_v10_0.srqs_update_negotiation_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscribe Request
-  if template_id == 10025 then
-    return eurex_t7_eti_fbe_v10_0.subscribe_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Compression Run Status Request
-  if template_id == 10616 then
-    return eurex_t7_eti_fbe_v10_0.tes_compression_run_status_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsubscribe Request
-  if template_id == 10006 then
-    return eurex_t7_eti_fbe_v10_0.unsubscribe_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Upload Tes Trade Request
-  if template_id == 10612 then
-    return eurex_t7_eti_fbe_v10_0.upload_tes_trade_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Request
-  if template_id == 10018 then
-    return eurex_t7_eti_fbe_v10_0.user_login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Request
-  if template_id == 10029 then
-    return eurex_t7_eti_fbe_v10_0.user_logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_eti_fbe_v10_0.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

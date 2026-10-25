@@ -226,15 +226,13 @@ otcmarkets_overnight_retransmission_link_v1_0.asset_class = {}
 otcmarkets_overnight_retransmission_link_v1_0.asset_class.size = 1
 
 -- Display: Asset Class
-otcmarkets_overnight_retransmission_link_v1_0.asset_class.display = function(value)
-  if value == 1 then
-    return "Asset Class: Equity (1)"
-  end
-  if value == 2 then
-    return "Asset Class: Fixed Income (2)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.asset_class.labels = {
+  [1] = "Asset Class: Equity (1)",
+  [2] = "Asset Class: Fixed Income (2)",
+}
 
-  return "Asset Class: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.asset_class.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.asset_class.labels[value] or "Asset Class: Unknown("..value..")"
 end
 
 -- Dissect: Asset Class
@@ -383,21 +381,15 @@ otcmarkets_overnight_retransmission_link_v1_0.current_inside_imbalance_side = {}
 otcmarkets_overnight_retransmission_link_v1_0.current_inside_imbalance_side.size = 1
 
 -- Display: Current Inside Imbalance Side
-otcmarkets_overnight_retransmission_link_v1_0.current_inside_imbalance_side.display = function(value)
-  if value == "B" then
-    return "Current Inside Imbalance Side: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Current Inside Imbalance Side: Sell Side (S)"
-  end
-  if value == "N" then
-    return "Current Inside Imbalance Side: No Imbalance (N)"
-  end
-  if value == "O" then
-    return "Current Inside Imbalance Side: No Marketable Orders (O)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.current_inside_imbalance_side.labels = {
+  ["B"] = "Current Inside Imbalance Side: Buy Side (B)",
+  ["S"] = "Current Inside Imbalance Side: Sell Side (S)",
+  ["N"] = "Current Inside Imbalance Side: No Imbalance (N)",
+  ["O"] = "Current Inside Imbalance Side: No Marketable Orders (O)",
+}
 
-  return "Current Inside Imbalance Side: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.current_inside_imbalance_side.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.current_inside_imbalance_side.labels[value] or "Current Inside Imbalance Side: Unknown("..value..")"
 end
 
 -- Dissect: Current Inside Imbalance Side
@@ -465,15 +457,13 @@ otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_status = {}
 otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_status.size = 1
 
 -- Display: Enhanced Spin Status
-otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_status.display = function(value)
-  if value == 83 then
-    return "Enhanced Spin Status: Start Of Spin (83)"
-  end
-  if value == 69 then
-    return "Enhanced Spin Status: End Of Spin (69)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_status.labels = {
+  [83] = "Enhanced Spin Status: Start Of Spin (83)",
+  [69] = "Enhanced Spin Status: End Of Spin (69)",
+}
 
-  return "Enhanced Spin Status: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_status.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_status.labels[value] or "Enhanced Spin Status: Unknown("..value..")"
 end
 
 -- Dissect: Enhanced Spin Status
@@ -640,12 +630,12 @@ otcmarkets_overnight_retransmission_link_v1_0.login_status = {}
 otcmarkets_overnight_retransmission_link_v1_0.login_status.size = 1
 
 -- Display: Login Status
-otcmarkets_overnight_retransmission_link_v1_0.login_status.display = function(value)
-  if value == 89 then
-    return "Login Status: Accepted (89)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.login_status.labels = {
+  [89] = "Login Status: Accepted (89)",
+}
 
-  return "Login Status: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.login_status.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.login_status.labels[value] or "Login Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Status
@@ -690,75 +680,33 @@ otcmarkets_overnight_retransmission_link_v1_0.message_type = {}
 otcmarkets_overnight_retransmission_link_v1_0.message_type.size = 1
 
 -- Display: Message Type
-otcmarkets_overnight_retransmission_link_v1_0.message_type.display = function(value)
-  if value == 11 then
-    return "Message Type: Start Of Spin Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: End Of Spin Message (12)"
-  end
-  if value == 20 then
-    return "Message Type: Trading Session Message (20)"
-  end
-  if value == 9 then
-    return "Message Type: Security Message (9)"
-  end
-  if value == 21 then
-    return "Message Type: Order Add Message (21)"
-  end
-  if value == 22 then
-    return "Message Type: Order Update Message (22)"
-  end
-  if value == 23 then
-    return "Message Type: Order Delete Message (23)"
-  end
-  if value == 24 then
-    return "Message Type: Order Execution Message (24)"
-  end
-  if value == 25 then
-    return "Message Type: Order Execution With Price Message (25)"
-  end
-  if value == 26 then
-    return "Message Type: Trade Message (26)"
-  end
-  if value == 27 then
-    return "Message Type: Top Of Book Message (27)"
-  end
-  if value == 28 then
-    return "Message Type: Imbalance Message (28)"
-  end
-  if value == 74 then
-    return "Message Type: System Recovery Event Message (74)"
-  end
-  if value == 108 then
-    return "Message Type: Login Request Message (108)"
-  end
-  if value == 97 then
-    return "Message Type: Login Response Message (97)"
-  end
-  if value == 114 then
-    return "Message Type: Retransmission Request Message (114)"
-  end
-  if value == 98 then
-    return "Message Type: Retransmission Response Message (98)"
-  end
-  if value == 115 then
-    return "Message Type: Spin Request Message (115)"
-  end
-  if value == 99 then
-    return "Message Type: Spin Response Message (99)"
-  end
-  if value == 116 then
-    return "Message Type: Enhanced Spin Request Message (116)"
-  end
-  if value == 100 then
-    return "Message Type: Enhanced Spin Response Message (100)"
-  end
-  if value == 104 then
-    return "Message Type: Heartbeat Message (104)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.message_type.labels = {
+  [11] = "Message Type: Start Of Spin Message (11)",
+  [12] = "Message Type: End Of Spin Message (12)",
+  [20] = "Message Type: Trading Session Message (20)",
+  [9] = "Message Type: Security Message (9)",
+  [21] = "Message Type: Order Add Message (21)",
+  [22] = "Message Type: Order Update Message (22)",
+  [23] = "Message Type: Order Delete Message (23)",
+  [24] = "Message Type: Order Execution Message (24)",
+  [25] = "Message Type: Order Execution With Price Message (25)",
+  [26] = "Message Type: Trade Message (26)",
+  [27] = "Message Type: Top Of Book Message (27)",
+  [28] = "Message Type: Imbalance Message (28)",
+  [74] = "Message Type: System Recovery Event Message (74)",
+  [108] = "Message Type: Login Request Message (108)",
+  [97] = "Message Type: Login Response Message (97)",
+  [114] = "Message Type: Retransmission Request Message (114)",
+  [98] = "Message Type: Retransmission Response Message (98)",
+  [115] = "Message Type: Spin Request Message (115)",
+  [99] = "Message Type: Spin Response Message (99)",
+  [116] = "Message Type: Enhanced Spin Request Message (116)",
+  [100] = "Message Type: Enhanced Spin Response Message (100)",
+  [104] = "Message Type: Heartbeat Message (104)",
+}
 
-  return "Message Type: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.message_type.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -780,18 +728,14 @@ otcmarkets_overnight_retransmission_link_v1_0.moc_shares_unmatched = {}
 otcmarkets_overnight_retransmission_link_v1_0.moc_shares_unmatched.size = 1
 
 -- Display: Moc Shares Unmatched
-otcmarkets_overnight_retransmission_link_v1_0.moc_shares_unmatched.display = function(value)
-  if value == "B" then
-    return "Moc Shares Unmatched: Buy Moc Not Matched (B)"
-  end
-  if value == "S" then
-    return "Moc Shares Unmatched: Sell Moc Not Matched (S)"
-  end
-  if value == "O" then
-    return "Moc Shares Unmatched: No Moc Unmatched (O)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.moc_shares_unmatched.labels = {
+  ["B"] = "Moc Shares Unmatched: Buy Moc Not Matched (B)",
+  ["S"] = "Moc Shares Unmatched: Sell Moc Not Matched (S)",
+  ["O"] = "Moc Shares Unmatched: No Moc Unmatched (O)",
+}
 
-  return "Moc Shares Unmatched: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.moc_shares_unmatched.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.moc_shares_unmatched.labels[value] or "Moc Shares Unmatched: Unknown("..value..")"
 end
 
 -- Dissect: Moc Shares Unmatched
@@ -1033,15 +977,13 @@ otcmarkets_overnight_retransmission_link_v1_0.recovery_type = {}
 otcmarkets_overnight_retransmission_link_v1_0.recovery_type.size = 1
 
 -- Display: Recovery Type
-otcmarkets_overnight_retransmission_link_v1_0.recovery_type.display = function(value)
-  if value == 83 then
-    return "Recovery Type: Scheduling Start (83)"
-  end
-  if value == 66 then
-    return "Recovery Type: Recovery Begins (66)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.recovery_type.labels = {
+  [83] = "Recovery Type: Scheduling Start (83)",
+  [66] = "Recovery Type: Recovery Begins (66)",
+}
 
-  return "Recovery Type: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.recovery_type.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.recovery_type.labels[value] or "Recovery Type: Unknown("..value..")"
 end
 
 -- Dissect: Recovery Type
@@ -1086,39 +1028,21 @@ otcmarkets_overnight_retransmission_link_v1_0.reporting_status = {}
 otcmarkets_overnight_retransmission_link_v1_0.reporting_status.size = 1
 
 -- Display: Reporting Status
-otcmarkets_overnight_retransmission_link_v1_0.reporting_status.display = function(value)
-  if value == "A" then
-    return "Reporting Status: Alternative Reporting Standard (A)"
-  end
-  if value == "B" then
-    return "Reporting Status: Bank Thrift (B)"
-  end
-  if value == "F" then
-    return "Reporting Status: Sec Reporting (F)"
-  end
-  if value == "G" then
-    return "Reporting Status: International Reporting (G)"
-  end
-  if value == "I" then
-    return "Reporting Status: Insurance Company (I)"
-  end
-  if value == "N" then
-    return "Reporting Status: No Reporting (N)"
-  end
-  if value == "O" then
-    return "Reporting Status: Other Reporting Standard (O)"
-  end
-  if value == "R" then
-    return "Reporting Status: Finra Reporting (R)"
-  end
-  if value == "V" then
-    return "Reporting Status: Sec Reporting Investment Company (V)"
-  end
-  if value == "W" then
-    return "Reporting Status: Sec Reporting Reg A (W)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.reporting_status.labels = {
+  ["A"] = "Reporting Status: Alternative Reporting Standard (A)",
+  ["B"] = "Reporting Status: Bank Thrift (B)",
+  ["F"] = "Reporting Status: Sec Reporting (F)",
+  ["G"] = "Reporting Status: International Reporting (G)",
+  ["I"] = "Reporting Status: Insurance Company (I)",
+  ["N"] = "Reporting Status: No Reporting (N)",
+  ["O"] = "Reporting Status: Other Reporting Standard (O)",
+  ["R"] = "Reporting Status: Finra Reporting (R)",
+  ["V"] = "Reporting Status: Sec Reporting Investment Company (V)",
+  ["W"] = "Reporting Status: Sec Reporting Reg A (W)",
+}
 
-  return "Reporting Status: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.reporting_status.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.reporting_status.labels[value] or "Reporting Status: Unknown("..value..")"
 end
 
 -- Dissect: Reporting Status
@@ -1163,12 +1087,12 @@ otcmarkets_overnight_retransmission_link_v1_0.retran_via_tcp = {}
 otcmarkets_overnight_retransmission_link_v1_0.retran_via_tcp.size = 1
 
 -- Display: Retran Via Tcp
-otcmarkets_overnight_retransmission_link_v1_0.retran_via_tcp.display = function(value)
-  if value == 89 then
-    return "Retran Via Tcp: Same Tcp Channel (89)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.retran_via_tcp.labels = {
+  [89] = "Retran Via Tcp: Same Tcp Channel (89)",
+}
 
-  return "Retran Via Tcp: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.retran_via_tcp.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.retran_via_tcp.labels[value] or "Retran Via Tcp: Unknown("..value..")"
 end
 
 -- Dissect: Retran Via Tcp
@@ -1190,15 +1114,13 @@ otcmarkets_overnight_retransmission_link_v1_0.retransmission_status = {}
 otcmarkets_overnight_retransmission_link_v1_0.retransmission_status.size = 1
 
 -- Display: Retransmission Status
-otcmarkets_overnight_retransmission_link_v1_0.retransmission_status.display = function(value)
-  if value == 89 then
-    return "Retransmission Status: Will Follow (89)"
-  end
-  if value == 78 then
-    return "Retransmission Status: Request Ignored (78)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.retransmission_status.labels = {
+  [89] = "Retransmission Status: Will Follow (89)",
+  [78] = "Retransmission Status: Request Ignored (78)",
+}
 
-  return "Retransmission Status: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.retransmission_status.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.retransmission_status.labels[value] or "Retransmission Status: Unknown("..value..")"
 end
 
 -- Dissect: Retransmission Status
@@ -1220,21 +1142,15 @@ otcmarkets_overnight_retransmission_link_v1_0.security_action = {}
 otcmarkets_overnight_retransmission_link_v1_0.security_action.size = 1
 
 -- Display: Security Action
-otcmarkets_overnight_retransmission_link_v1_0.security_action.display = function(value)
-  if value == 1 then
-    return "Security Action: Update (1)"
-  end
-  if value == 2 then
-    return "Security Action: Add (2)"
-  end
-  if value == 3 then
-    return "Security Action: Delete (3)"
-  end
-  if value == 4 then
-    return "Security Action: Spin (4)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.security_action.labels = {
+  [1] = "Security Action: Update (1)",
+  [2] = "Security Action: Add (2)",
+  [3] = "Security Action: Delete (3)",
+  [4] = "Security Action: Spin (4)",
+}
 
-  return "Security Action: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.security_action.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.security_action.labels[value] or "Security Action: Unknown("..value..")"
 end
 
 -- Dissect: Security Action
@@ -1279,33 +1195,19 @@ otcmarkets_overnight_retransmission_link_v1_0.security_status = {}
 otcmarkets_overnight_retransmission_link_v1_0.security_status.size = 1
 
 -- Display: Security Status
-otcmarkets_overnight_retransmission_link_v1_0.security_status.display = function(value)
-  if value == "A" then
-    return "Security Status: Active (A)"
-  end
-  if value == "Q" then
-    return "Security Status: Quote Only (Q)"
-  end
-  if value == "S" then
-    return "Security Status: Suspended (S)"
-  end
-  if value == "H" then
-    return "Security Status: Halted (H)"
-  end
-  if value == "I" then
-    return "Security Status: Internal Halt (I)"
-  end
-  if value == "R" then
-    return "Security Status: Revoked (R)"
-  end
-  if value == "D" then
-    return "Security Status: Deleted (D)"
-  end
-  if value == "X" then
-    return "Security Status: Removed From Idqs (X)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.security_status.labels = {
+  ["A"] = "Security Status: Active (A)",
+  ["Q"] = "Security Status: Quote Only (Q)",
+  ["S"] = "Security Status: Suspended (S)",
+  ["H"] = "Security Status: Halted (H)",
+  ["I"] = "Security Status: Internal Halt (I)",
+  ["R"] = "Security Status: Revoked (R)",
+  ["D"] = "Security Status: Deleted (D)",
+  ["X"] = "Security Status: Removed From Idqs (X)",
+}
 
-  return "Security Status: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.security_status.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.security_status.labels[value] or "Security Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Status
@@ -1351,15 +1253,13 @@ otcmarkets_overnight_retransmission_link_v1_0.side_indicator = {}
 otcmarkets_overnight_retransmission_link_v1_0.side_indicator.size = 1
 
 -- Display: Side Indicator
-otcmarkets_overnight_retransmission_link_v1_0.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.side_indicator.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1475,15 +1375,13 @@ otcmarkets_overnight_retransmission_link_v1_0.spin_status = {}
 otcmarkets_overnight_retransmission_link_v1_0.spin_status.size = 1
 
 -- Display: Spin Status
-otcmarkets_overnight_retransmission_link_v1_0.spin_status.display = function(value)
-  if value == 83 then
-    return "Spin Status: Start Of Spin (83)"
-  end
-  if value == 69 then
-    return "Spin Status: End Of Spin (69)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.spin_status.labels = {
+  [83] = "Spin Status: Start Of Spin (83)",
+  [69] = "Spin Status: End Of Spin (69)",
+}
 
-  return "Spin Status: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.spin_status.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.spin_status.labels[value] or "Spin Status: Unknown("..value..")"
 end
 
 -- Dissect: Spin Status
@@ -1505,12 +1403,12 @@ otcmarkets_overnight_retransmission_link_v1_0.spin_type = {}
 otcmarkets_overnight_retransmission_link_v1_0.spin_type.size = 1
 
 -- Display: Spin Type
-otcmarkets_overnight_retransmission_link_v1_0.spin_type.display = function(value)
-  if value == 1 then
-    return "Spin Type: Reference (1)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.spin_type.labels = {
+  [1] = "Spin Type: Reference (1)",
+}
 
-  return "Spin Type: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.spin_type.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.spin_type.labels[value] or "Spin Type: Unknown("..value..")"
 end
 
 -- Dissect: Spin Type
@@ -1578,36 +1476,20 @@ otcmarkets_overnight_retransmission_link_v1_0.tier = {}
 otcmarkets_overnight_retransmission_link_v1_0.tier.size = 1
 
 -- Display: Tier
-otcmarkets_overnight_retransmission_link_v1_0.tier.display = function(value)
-  if value == 0 then
-    return "Tier: No Tier (0)"
-  end
-  if value == 2 then
-    return "Tier: Otcqx Us (2)"
-  end
-  if value == 6 then
-    return "Tier: Otcqx International (6)"
-  end
-  if value == 10 then
-    return "Tier: Otcqb (10)"
-  end
-  if value == 20 then
-    return "Tier: Otcid (20)"
-  end
-  if value == 21 then
-    return "Tier: Pink Limited (21)"
-  end
-  if value == 30 then
-    return "Tier: Grey Market (30)"
-  end
-  if value == 40 then
-    return "Tier: Expert Market (40)"
-  end
-  if value == 50 then
-    return "Tier: Otc Bonds (50)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.tier.labels = {
+  [0] = "Tier: No Tier (0)",
+  [2] = "Tier: Otcqx Us (2)",
+  [6] = "Tier: Otcqx International (6)",
+  [10] = "Tier: Otcqb (10)",
+  [20] = "Tier: Otcid (20)",
+  [21] = "Tier: Pink Limited (21)",
+  [30] = "Tier: Grey Market (30)",
+  [40] = "Tier: Expert Market (40)",
+  [50] = "Tier: Otc Bonds (50)",
+}
 
-  return "Tier: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.tier.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.tier.labels[value] or "Tier: Unknown("..value..")"
 end
 
 -- Dissect: Tier
@@ -1672,18 +1554,14 @@ otcmarkets_overnight_retransmission_link_v1_0.trading_session = {}
 otcmarkets_overnight_retransmission_link_v1_0.trading_session.size = 1
 
 -- Display: Trading Session
-otcmarkets_overnight_retransmission_link_v1_0.trading_session.display = function(value)
-  if value == 1 then
-    return "Trading Session: Order Acceptance (1)"
-  end
-  if value == 5 then
-    return "Trading Session: Market Close (5)"
-  end
-  if value == 6 then
-    return "Trading Session: Overnight (6)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.trading_session.labels = {
+  [1] = "Trading Session: Order Acceptance (1)",
+  [5] = "Trading Session: Market Close (5)",
+  [6] = "Trading Session: Overnight (6)",
+}
 
-  return "Trading Session: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.trading_session.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.trading_session.labels[value] or "Trading Session: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session
@@ -1705,15 +1583,13 @@ otcmarkets_overnight_retransmission_link_v1_0.unsolicited = {}
 otcmarkets_overnight_retransmission_link_v1_0.unsolicited.size = 1
 
 -- Display: Unsolicited
-otcmarkets_overnight_retransmission_link_v1_0.unsolicited.display = function(value)
-  if value == "Y" then
-    return "Unsolicited: Unsolicited (Y)"
-  end
-  if value == "N" then
-    return "Unsolicited: Not Unsolicited (N)"
-  end
+otcmarkets_overnight_retransmission_link_v1_0.unsolicited.labels = {
+  ["Y"] = "Unsolicited: Unsolicited (Y)",
+  ["N"] = "Unsolicited: Not Unsolicited (N)",
+}
 
-  return "Unsolicited: Unknown("..value..")"
+otcmarkets_overnight_retransmission_link_v1_0.unsolicited.display = function(value)
+  return otcmarkets_overnight_retransmission_link_v1_0.unsolicited.labels[value] or "Unsolicited: Unknown("..value..")"
 end
 
 -- Dissect: Unsolicited
@@ -2983,94 +2859,35 @@ end
 otcmarkets_overnight_retransmission_link_v1_0.payload = {}
 
 -- Dissect: Payload
+otcmarkets_overnight_retransmission_link_v1_0.payload.dispatch = {
+  [11] = otcmarkets_overnight_retransmission_link_v1_0.start_of_spin_message.dissect,
+  [12] = otcmarkets_overnight_retransmission_link_v1_0.end_of_spin_message.dissect,
+  [20] = otcmarkets_overnight_retransmission_link_v1_0.trading_session_message.dissect,
+  [9] = otcmarkets_overnight_retransmission_link_v1_0.security_message.dissect,
+  [21] = otcmarkets_overnight_retransmission_link_v1_0.order_add_message.dissect,
+  [22] = otcmarkets_overnight_retransmission_link_v1_0.order_update_message.dissect,
+  [23] = otcmarkets_overnight_retransmission_link_v1_0.order_delete_message.dissect,
+  [24] = otcmarkets_overnight_retransmission_link_v1_0.order_execution_message.dissect,
+  [25] = otcmarkets_overnight_retransmission_link_v1_0.order_execution_with_price_message.dissect,
+  [26] = otcmarkets_overnight_retransmission_link_v1_0.trade_message.dissect,
+  [27] = otcmarkets_overnight_retransmission_link_v1_0.top_of_book_message.dissect,
+  [28] = otcmarkets_overnight_retransmission_link_v1_0.imbalance_message.dissect,
+  [74] = otcmarkets_overnight_retransmission_link_v1_0.system_recovery_event_message.dissect,
+  [108] = otcmarkets_overnight_retransmission_link_v1_0.login_request_message.dissect,
+  [97] = otcmarkets_overnight_retransmission_link_v1_0.login_response_message.dissect,
+  [114] = otcmarkets_overnight_retransmission_link_v1_0.retransmission_request_message.dissect,
+  [98] = otcmarkets_overnight_retransmission_link_v1_0.retransmission_response_message.dissect,
+  [115] = otcmarkets_overnight_retransmission_link_v1_0.spin_request_message.dissect,
+  [99] = otcmarkets_overnight_retransmission_link_v1_0.spin_response_message.dissect,
+  [116] = otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_request_message.dissect,
+  [100] = otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_response_message.dissect,
+  [104] = otcmarkets_overnight_retransmission_link_v1_0.heartbeat_message.dissect,
+}
+
 otcmarkets_overnight_retransmission_link_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Start Of Spin Message
-  if message_type == 11 then
-    return otcmarkets_overnight_retransmission_link_v1_0.start_of_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Spin Message
-  if message_type == 12 then
-    return otcmarkets_overnight_retransmission_link_v1_0.end_of_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Message
-  if message_type == 20 then
-    return otcmarkets_overnight_retransmission_link_v1_0.trading_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Message
-  if message_type == 9 then
-    return otcmarkets_overnight_retransmission_link_v1_0.security_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Message
-  if message_type == 21 then
-    return otcmarkets_overnight_retransmission_link_v1_0.order_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Update Message
-  if message_type == 22 then
-    return otcmarkets_overnight_retransmission_link_v1_0.order_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == 23 then
-    return otcmarkets_overnight_retransmission_link_v1_0.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if message_type == 24 then
-    return otcmarkets_overnight_retransmission_link_v1_0.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution With Price Message
-  if message_type == 25 then
-    return otcmarkets_overnight_retransmission_link_v1_0.order_execution_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 26 then
-    return otcmarkets_overnight_retransmission_link_v1_0.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book Message
-  if message_type == 27 then
-    return otcmarkets_overnight_retransmission_link_v1_0.top_of_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Imbalance Message
-  if message_type == 28 then
-    return otcmarkets_overnight_retransmission_link_v1_0.imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Recovery Event Message
-  if message_type == 74 then
-    return otcmarkets_overnight_retransmission_link_v1_0.system_recovery_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Message
-  if message_type == 108 then
-    return otcmarkets_overnight_retransmission_link_v1_0.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 97 then
-    return otcmarkets_overnight_retransmission_link_v1_0.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 114 then
-    return otcmarkets_overnight_retransmission_link_v1_0.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Response Message
-  if message_type == 98 then
-    return otcmarkets_overnight_retransmission_link_v1_0.retransmission_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 115 then
-    return otcmarkets_overnight_retransmission_link_v1_0.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 99 then
-    return otcmarkets_overnight_retransmission_link_v1_0.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Spin Request Message
-  if message_type == 116 then
-    return otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Spin Response Message
-  if message_type == 100 then
-    return otcmarkets_overnight_retransmission_link_v1_0.enhanced_spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if message_type == 104 then
-    return otcmarkets_overnight_retransmission_link_v1_0.heartbeat_message.dissect(buffer, offset, packet, parent)
+  local dissect = otcmarkets_overnight_retransmission_link_v1_0.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

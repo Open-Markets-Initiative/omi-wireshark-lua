@@ -408,15 +408,13 @@ ltse_ltseequities_memoirlastsale_sbe_v1_3.is_test_symbol = {}
 ltse_ltseequities_memoirlastsale_sbe_v1_3.is_test_symbol.size = 1
 
 -- Display: Is Test Symbol
-ltse_ltseequities_memoirlastsale_sbe_v1_3.is_test_symbol.display = function(value)
-  if value == 0 then
-    return "Is Test Symbol: False (0)"
-  end
-  if value == 1 then
-    return "Is Test Symbol: True (1)"
-  end
+ltse_ltseequities_memoirlastsale_sbe_v1_3.is_test_symbol.labels = {
+  [0] = "Is Test Symbol: False (0)",
+  [1] = "Is Test Symbol: True (1)",
+}
 
-  return "Is Test Symbol: Unknown("..value..")"
+ltse_ltseequities_memoirlastsale_sbe_v1_3.is_test_symbol.display = function(value)
+  return ltse_ltseequities_memoirlastsale_sbe_v1_3.is_test_symbol.labels[value] or "Is Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Is Test Symbol
@@ -513,18 +511,14 @@ ltse_ltseequities_memoirlastsale_sbe_v1_3.message_type = {}
 ltse_ltseequities_memoirlastsale_sbe_v1_3.message_type.size = 1
 
 -- Display: Message Type
-ltse_ltseequities_memoirlastsale_sbe_v1_3.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat Message (0)"
-  end
-  if value == 1 then
-    return "Message Type: Session Shutdown Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Sequenced Message (2)"
-  end
+ltse_ltseequities_memoirlastsale_sbe_v1_3.message_type.labels = {
+  [0] = "Message Type: Heartbeat Message (0)",
+  [1] = "Message Type: Session Shutdown Message (1)",
+  [2] = "Message Type: Sequenced Message (2)",
+}
 
-  return "Message Type: Unknown("..value..")"
+ltse_ltseequities_memoirlastsale_sbe_v1_3.message_type.display = function(value)
+  return ltse_ltseequities_memoirlastsale_sbe_v1_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1191,15 +1185,13 @@ ltse_ltseequities_memoirlastsale_sbe_v1_3.short_sale_restriction = {}
 ltse_ltseequities_memoirlastsale_sbe_v1_3.short_sale_restriction.size = 1
 
 -- Display: Short Sale Restriction
-ltse_ltseequities_memoirlastsale_sbe_v1_3.short_sale_restriction.display = function(value)
-  if value == 0 then
-    return "Short Sale Restriction: False (0)"
-  end
-  if value == 1 then
-    return "Short Sale Restriction: True (1)"
-  end
+ltse_ltseequities_memoirlastsale_sbe_v1_3.short_sale_restriction.labels = {
+  [0] = "Short Sale Restriction: False (0)",
+  [1] = "Short Sale Restriction: True (1)",
+}
 
-  return "Short Sale Restriction: Unknown("..value..")"
+ltse_ltseequities_memoirlastsale_sbe_v1_3.short_sale_restriction.display = function(value)
+  return ltse_ltseequities_memoirlastsale_sbe_v1_3.short_sale_restriction.labels[value] or "Short Sale Restriction: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction
@@ -1299,30 +1291,18 @@ ltse_ltseequities_memoirlastsale_sbe_v1_3.template_id = {}
 ltse_ltseequities_memoirlastsale_sbe_v1_3.template_id.size = 1
 
 -- Display: Template Id
-ltse_ltseequities_memoirlastsale_sbe_v1_3.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: Instrument Directory Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Reg Sho Restriction Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Security Trading Status Message (3)"
-  end
-  if value == 5 then
-    return "Template Id: Trading Session Status Message (5)"
-  end
-  if value == 10 then
-    return "Template Id: Trade Report Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Trade Cancel Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Trade Correct Message (12)"
-  end
+ltse_ltseequities_memoirlastsale_sbe_v1_3.template_id.labels = {
+  [1] = "Template Id: Instrument Directory Message (1)",
+  [2] = "Template Id: Reg Sho Restriction Message (2)",
+  [3] = "Template Id: Security Trading Status Message (3)",
+  [5] = "Template Id: Trading Session Status Message (5)",
+  [10] = "Template Id: Trade Report Message (10)",
+  [11] = "Template Id: Trade Cancel Message (11)",
+  [12] = "Template Id: Trade Correct Message (12)",
+}
 
-  return "Template Id: Unknown("..value..")"
+ltse_ltseequities_memoirlastsale_sbe_v1_3.template_id.display = function(value)
+  return ltse_ltseequities_memoirlastsale_sbe_v1_3.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -1968,34 +1948,20 @@ end
 ltse_ltseequities_memoirlastsale_sbe_v1_3.payload = {}
 
 -- Dissect: Payload
+ltse_ltseequities_memoirlastsale_sbe_v1_3.payload.dispatch = {
+  [1] = ltse_ltseequities_memoirlastsale_sbe_v1_3.instrument_directory_message.dissect,
+  [2] = ltse_ltseequities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.dissect,
+  [3] = ltse_ltseequities_memoirlastsale_sbe_v1_3.security_trading_status_message.dissect,
+  [5] = ltse_ltseequities_memoirlastsale_sbe_v1_3.trading_session_status_message.dissect,
+  [10] = ltse_ltseequities_memoirlastsale_sbe_v1_3.trade_report_message.dissect,
+  [11] = ltse_ltseequities_memoirlastsale_sbe_v1_3.trade_cancel_message.dissect,
+  [12] = ltse_ltseequities_memoirlastsale_sbe_v1_3.trade_correct_message.dissect,
+}
+
 ltse_ltseequities_memoirlastsale_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Instrument Directory Message
-  if template_id == 1 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.instrument_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Restriction Message
-  if template_id == 2 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.reg_sho_restriction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Trading Status Message
-  if template_id == 3 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.security_trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Message
-  if template_id == 5 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.trading_session_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report Message
-  if template_id == 10 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.trade_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancel Message
-  if template_id == 11 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correct Message
-  if template_id == 12 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.trade_correct_message.dissect(buffer, offset, packet, parent)
+  local dissect = ltse_ltseequities_memoirlastsale_sbe_v1_3.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2257,18 +2223,16 @@ end
 ltse_ltseequities_memoirlastsale_sbe_v1_3.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
+ltse_ltseequities_memoirlastsale_sbe_v1_3.sequenced_messages.dispatch = {
+  [0] = ltse_ltseequities_memoirlastsale_sbe_v1_3.heartbeat.dissect,
+  [1] = ltse_ltseequities_memoirlastsale_sbe_v1_3.session_shutdown.dissect,
+  [2] = ltse_ltseequities_memoirlastsale_sbe_v1_3.sequenced_message.dissect,
+}
+
 ltse_ltseequities_memoirlastsale_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Heartbeat
-  if message_type == 0 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Shutdown
-  if message_type == 1 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.session_shutdown.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 2 then
-    return ltse_ltseequities_memoirlastsale_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = ltse_ltseequities_memoirlastsale_sbe_v1_3.sequenced_messages.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

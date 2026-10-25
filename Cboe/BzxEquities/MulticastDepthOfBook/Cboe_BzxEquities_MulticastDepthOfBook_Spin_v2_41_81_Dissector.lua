@@ -201,27 +201,17 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_type = {}
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction (H)"
-  end
-  if value == "I" then
-    return "Auction Type: Ipo Auction (I)"
-  end
-  if value == "M" then
-    return "Auction Type: Cboe Market Close (M)"
-  end
-  if value == "P" then
-    return "Auction Type: Periodic Auction Byx Only (P)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["H"] = "Auction Type: Halt Auction (H)",
+  ["I"] = "Auction Type: Ipo Auction (I)",
+  ["M"] = "Auction Type: Cboe Market Close (M)",
+  ["P"] = "Auction Type: Periodic Auction Byx Only (P)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_type.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -312,12 +302,12 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.customer_indicator = {}
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.customer_indicator.size = 1
 
 -- Display: Customer Indicator
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.customer_indicator.display = function(value)
-  if value == "R" then
-    return "Customer Indicator: Retail Priority Order Edgx Equities Only (R)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.customer_indicator.labels = {
+  ["R"] = "Customer Indicator: Retail Priority Order Edgx Equities Only (R)",
+}
 
-  return "Customer Indicator: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.customer_indicator.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.customer_indicator.labels[value] or "Customer Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Customer Indicator
@@ -477,18 +467,14 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_respon
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_response_status.size = 1
 
 -- Display: Instrument Definition Response Status
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_response_status.display = function(value)
-  if value == "A" then
-    return "Instrument Definition Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Instrument Definition Response Status: Out Of Range Sequence Must Be 0 (O)"
-  end
-  if value == "S" then
-    return "Instrument Definition Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_response_status.labels = {
+  ["A"] = "Instrument Definition Response Status: Accepted (A)",
+  ["O"] = "Instrument Definition Response Status: Out Of Range Sequence Must Be 0 (O)",
+  ["S"] = "Instrument Definition Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Instrument Definition Response Status: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_response_status.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_response_status.labels[value] or "Instrument Definition Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Definition Response Status
@@ -533,21 +519,15 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_response_status = {}
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Login Accepted (A)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_response_status.labels = {
+  ["A"] = "Login Response Status: Login Accepted (A)",
+  ["N"] = "Login Response Status: Not Authorized Invalid Username Password (N)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_response_status.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -615,102 +595,42 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.message_type = {}
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.message_type.size = 1
 
 -- Display: Message Type
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Message (0x01)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x80 then
-    return "Message Type: Spin Image Available Message (0x80)"
-  end
-  if value == 0x81 then
-    return "Message Type: Spin Request Message (0x81)"
-  end
-  if value == 0x82 then
-    return "Message Type: Spin Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Spin Finished Message (0x83)"
-  end
-  if value == 0x84 then
-    return "Message Type: Instrument Definition Request Message (0x84)"
-  end
-  if value == 0x85 then
-    return "Message Type: Instrument Definition Response Message (0x85)"
-  end
-  if value == 0x86 then
-    return "Message Type: Instrument Definition Finished Message (0x86)"
-  end
-  if value == 0xB1 then
-    return "Message Type: Time Reference Message (0xB1)"
-  end
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0x21 then
-    return "Message Type: Add Order Long Message (0x21)"
-  end
-  if value == 0x22 then
-    return "Message Type: Add Order Short Message (0x22)"
-  end
-  if value == 0x2F then
-    return "Message Type: Add Order Expanded Message (0x2F)"
-  end
-  if value == 0x23 then
-    return "Message Type: Order Executed Message (0x23)"
-  end
-  if value == 0x24 then
-    return "Message Type: Order Executed At Price Size Message (0x24)"
-  end
-  if value == 0x25 then
-    return "Message Type: Reduce Size Long Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Reduce Size Short Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Modify Order Long Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Modify Order Short Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: Delete Order Message (0x29)"
-  end
-  if value == 0x2A then
-    return "Message Type: Trade Long Message (0x2A)"
-  end
-  if value == 0x2B then
-    return "Message Type: Trade Short Message (0x2B)"
-  end
-  if value == 0x30 then
-    return "Message Type: Trade Expanded Message (0x30)"
-  end
-  if value == 0x2C then
-    return "Message Type: Trade Break Message (0x2C)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0x95 then
-    return "Message Type: Auction Update Message (0x95)"
-  end
-  if value == 0x96 then
-    return "Message Type: Auction Summary Message (0x96)"
-  end
-  if value == 0x98 then
-    return "Message Type: Retail Price Improvement Message (0x98)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.message_type.labels = {
+  [0x01] = "Message Type: Login Message (0x01)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x80] = "Message Type: Spin Image Available Message (0x80)",
+  [0x81] = "Message Type: Spin Request Message (0x81)",
+  [0x82] = "Message Type: Spin Response Message (0x82)",
+  [0x83] = "Message Type: Spin Finished Message (0x83)",
+  [0x84] = "Message Type: Instrument Definition Request Message (0x84)",
+  [0x85] = "Message Type: Instrument Definition Response Message (0x85)",
+  [0x86] = "Message Type: Instrument Definition Finished Message (0x86)",
+  [0xB1] = "Message Type: Time Reference Message (0xB1)",
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0x21] = "Message Type: Add Order Long Message (0x21)",
+  [0x22] = "Message Type: Add Order Short Message (0x22)",
+  [0x2F] = "Message Type: Add Order Expanded Message (0x2F)",
+  [0x23] = "Message Type: Order Executed Message (0x23)",
+  [0x24] = "Message Type: Order Executed At Price Size Message (0x24)",
+  [0x25] = "Message Type: Reduce Size Long Message (0x25)",
+  [0x26] = "Message Type: Reduce Size Short Message (0x26)",
+  [0x27] = "Message Type: Modify Order Long Message (0x27)",
+  [0x28] = "Message Type: Modify Order Short Message (0x28)",
+  [0x29] = "Message Type: Delete Order Message (0x29)",
+  [0x2A] = "Message Type: Trade Long Message (0x2A)",
+  [0x2B] = "Message Type: Trade Short Message (0x2B)",
+  [0x30] = "Message Type: Trade Expanded Message (0x30)",
+  [0x2C] = "Message Type: Trade Break Message (0x2C)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+  [0x31] = "Message Type: Trading Status Message (0x31)",
+  [0x95] = "Message Type: Auction Update Message (0x95)",
+  [0x96] = "Message Type: Auction Summary Message (0x96)",
+  [0x98] = "Message Type: Retail Price Improvement Message (0x98)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.message_type.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -974,15 +894,13 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reg_sho_action = {}
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Effect (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Effect (0)",
+  ["1"] = "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reg_sho_action.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -1050,21 +968,15 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement = {
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement.size = 1
 
 -- Display: Retail Price Improvement
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement.display = function(value)
-  if value == "B" then
-    return "Retail Price Improvement: Buy Side Rpi (B)"
-  end
-  if value == "S" then
-    return "Retail Price Improvement: Sell Side Rpi (S)"
-  end
-  if value == "A" then
-    return "Retail Price Improvement: Buy And Sell Rpi (A)"
-  end
-  if value == "N" then
-    return "Retail Price Improvement: No Rpi (N)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement.labels = {
+  ["B"] = "Retail Price Improvement: Buy Side Rpi (B)",
+  ["S"] = "Retail Price Improvement: Sell Side Rpi (S)",
+  ["A"] = "Retail Price Improvement: Buy And Sell Rpi (A)",
+  ["N"] = "Retail Price Improvement: No Rpi (N)",
+}
 
-  return "Retail Price Improvement: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement.labels[value] or "Retail Price Improvement: Unknown("..value..")"
 end
 
 -- Dissect: Retail Price Improvement
@@ -1201,15 +1113,13 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.side_indicator = {}
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.side_indicator.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1231,18 +1141,14 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_response_status = {}
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_response_status.size = 1
 
 -- Display: Spin Response Status
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_response_status.display = function(value)
-  if value == "A" then
-    return "Spin Response Status: Accepted (A)"
-  end
-  if value == "O" then
-    return "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)"
-  end
-  if value == "S" then
-    return "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_response_status.labels = {
+  ["A"] = "Spin Response Status: Accepted (A)",
+  ["O"] = "Spin Response Status: Out Of Range Sequence Requested Is Greater Than Sequence Available By The Next Spin (O)",
+  ["S"] = "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)",
+}
 
-  return "Spin Response Status: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_response_status.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_response_status.labels[value] or "Spin Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Spin Response Status
@@ -1402,24 +1308,16 @@ cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trading_status = {}
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trading_status.display = function(value)
-  if value == "A" then
-    return "Trading Status: Accepting Orders For Queuing Equities Only (A)"
-  end
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Trading Status: Quote Only (Q)"
-  end
-  if value == "S" then
-    return "Trading Status: Exchange Specific Suspension (S)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trading_status.labels = {
+  ["A"] = "Trading Status: Accepting Orders For Queuing Equities Only (A)",
+  ["H"] = "Trading Status: Halted (H)",
+  ["Q"] = "Trading Status: Quote Only (Q)",
+  ["S"] = "Trading Status: Exchange Specific Suspension (S)",
+  ["T"] = "Trading Status: Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trading_status.display = function(value)
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -3158,130 +3056,44 @@ end
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.payload = {}
 
 -- Dissect: Payload
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.payload.dispatch = {
+  [0x01] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_message.dissect,
+  [0x02] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_response_message.dissect,
+  [0x80] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_image_available_message.dissect,
+  [0x81] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_request_message.dissect,
+  [0x82] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_response_message.dissect,
+  [0x83] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_finished_message.dissect,
+  [0x84] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_request_message.dissect,
+  [0x85] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_response_message.dissect,
+  [0x86] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_finished_message.dissect,
+  [0xB1] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.time_reference_message.dissect,
+  [0x20] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.time_message.dissect,
+  [0x97] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.unit_clear_message.dissect,
+  [0x21] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.add_order_long_message.dissect,
+  [0x22] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.add_order_short_message.dissect,
+  [0x2F] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.add_order_expanded_message.dissect,
+  [0x23] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.order_executed_message.dissect,
+  [0x24] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.order_executed_at_price_size_message.dissect,
+  [0x25] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reduce_size_long_message.dissect,
+  [0x26] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reduce_size_short_message.dissect,
+  [0x27] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.modify_order_long_message.dissect,
+  [0x28] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.modify_order_short_message.dissect,
+  [0x29] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.delete_order_message.dissect,
+  [0x2A] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trade_long_message.dissect,
+  [0x2B] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trade_short_message.dissect,
+  [0x30] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trade_expanded_message.dissect,
+  [0x2C] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trade_break_message.dissect,
+  [0x2D] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.end_of_session_message.dissect,
+  [0x31] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trading_status_message.dissect,
+  [0x95] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_update_message.dissect,
+  [0x96] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_summary_message.dissect,
+  [0x98] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement_message.dissect,
+}
+
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Message
-  if message_type == 0x01 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Image Available Message
-  if message_type == 0x80 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_image_available_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Request Message
-  if message_type == 0x81 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Response Message
-  if message_type == 0x82 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spin Finished Message
-  if message_type == 0x83 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.spin_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Request Message
-  if message_type == 0x84 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Response Message
-  if message_type == 0x85 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Definition Finished Message
-  if message_type == 0x86 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.instrument_definition_finished_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Reference Message
-  if message_type == 0xB1 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Long Message
-  if message_type == 0x21 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.add_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Short Message
-  if message_type == 0x22 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.add_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Expanded Message
-  if message_type == 0x2F then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.add_order_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 0x23 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed At Price Size Message
-  if message_type == 0x24 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Long Message
-  if message_type == 0x25 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reduce_size_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Short Message
-  if message_type == 0x26 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.reduce_size_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Long Message
-  if message_type == 0x27 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.modify_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Short Message
-  if message_type == 0x28 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.modify_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 0x29 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Long Message
-  if message_type == 0x2A then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trade_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Short Message
-  if message_type == 0x2B then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trade_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Expanded Message
-  if message_type == 0x30 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trade_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == 0x2C then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.end_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x31 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Update Message
-  if message_type == 0x95 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 0x96 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retail Price Improvement Message
-  if message_type == 0x98 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.retail_price_improvement_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3414,10 +3226,14 @@ end
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.messages = {}
 
 -- Dissect: Messages
+cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.messages.dispatch = {
+  [0] = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.heartbeat.dissect,
+}
+
 cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bzxequities_multicastdepthofbook_spin_v2_41_81.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

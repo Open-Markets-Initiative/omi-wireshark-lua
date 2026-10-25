@@ -673,15 +673,13 @@ lseg_turquoise_recovery_gtp_v24_4.clearing_type = {}
 lseg_turquoise_recovery_gtp_v24_4.clearing_type.size = 1
 
 -- Display: Clearing Type
-lseg_turquoise_recovery_gtp_v24_4.clearing_type.display = function(value)
-  if value == 0 then
-    return "Clearing Type: Not Cleared (0)"
-  end
-  if value == 1 then
-    return "Clearing Type: Cleared (1)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.clearing_type.labels = {
+  [0] = "Clearing Type: Not Cleared (0)",
+  [1] = "Clearing Type: Cleared (1)",
+}
 
-  return "Clearing Type: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.clearing_type.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.clearing_type.labels[value] or "Clearing Type: Unknown("..value..")"
 end
 
 -- Dissect: Clearing Type
@@ -818,15 +816,13 @@ lseg_turquoise_recovery_gtp_v24_4.cross_type = {}
 lseg_turquoise_recovery_gtp_v24_4.cross_type.size = 1
 
 -- Display: Cross Type
-lseg_turquoise_recovery_gtp_v24_4.cross_type.display = function(value)
-  if value == 6 then
-    return "Cross Type: Internal Btf (6)"
-  end
-  if value == 8 then
-    return "Cross Type: Committed Btf (8)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.cross_type.labels = {
+  [6] = "Cross Type: Internal Btf (6)",
+  [8] = "Cross Type: Committed Btf (8)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.cross_type.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -1371,18 +1367,14 @@ lseg_turquoise_recovery_gtp_v24_4.hidden_execution_indicator = {}
 lseg_turquoise_recovery_gtp_v24_4.hidden_execution_indicator.size = 1
 
 -- Display: Hidden Execution Indicator
-lseg_turquoise_recovery_gtp_v24_4.hidden_execution_indicator.display = function(value)
-  if value == 0 then
-    return "Hidden Execution Indicator: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Hidden Execution Indicator: Visible (1)"
-  end
-  if value == 2 then
-    return "Hidden Execution Indicator: Hidden (2)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.hidden_execution_indicator.labels = {
+  [0] = "Hidden Execution Indicator: Not Applicable (0)",
+  [1] = "Hidden Execution Indicator: Visible (1)",
+  [2] = "Hidden Execution Indicator: Hidden (2)",
+}
 
-  return "Hidden Execution Indicator: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.hidden_execution_indicator.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.hidden_execution_indicator.labels[value] or "Hidden Execution Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Hidden Execution Indicator
@@ -2065,57 +2057,27 @@ lseg_turquoise_recovery_gtp_v24_4.message_type = {}
 lseg_turquoise_recovery_gtp_v24_4.message_type.size = 1
 
 -- Display: Message Type
-lseg_turquoise_recovery_gtp_v24_4.message_type.display = function(value)
-  if value == 0x01 then
-    return "Message Type: Login Request Message (0x01)"
-  end
-  if value == 0x81 then
-    return "Message Type: Recovery Request Message (0x81)"
-  end
-  if value == 0x02 then
-    return "Message Type: Login Response Message (0x02)"
-  end
-  if value == 0x82 then
-    return "Message Type: Recovery Response Message (0x82)"
-  end
-  if value == 0x83 then
-    return "Message Type: Replay And Recovery Complete Message (0x83)"
-  end
-  if value == 0x53 then
-    return "Message Type: System Event Message (0x53)"
-  end
-  if value == 0x48 then
-    return "Message Type: Instrument Status Message (0x48)"
-  end
-  if value == 0x46 then
-    return "Message Type: Add Order Incremental Message (0x46)"
-  end
-  if value == 0x69 then
-    return "Message Type: Top Of Book Message (0x69)"
-  end
-  if value == 0x79 then
-    return "Message Type: Order Book Clear Message (0x79)"
-  end
-  if value == 0x50 then
-    return "Message Type: Trade Message (0x50)"
-  end
-  if value == 0x71 then
-    return "Message Type: Trade Cross Message (0x71)"
-  end
-  if value == 0x51 then
-    return "Message Type: Mifid Ii Trade Message (0x51)"
-  end
-  if value == 0x56 then
-    return "Message Type: Mi Fid Ii Trade Cross Message (0x56)"
-  end
-  if value == 0x52 then
-    return "Message Type: Instrument Directory Equities Message (0x52)"
-  end
-  if value == 0x6B then
-    return "Message Type: Statistics Snapshot Message (0x6B)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.message_type.labels = {
+  [0x01] = "Message Type: Login Request Message (0x01)",
+  [0x81] = "Message Type: Recovery Request Message (0x81)",
+  [0x02] = "Message Type: Login Response Message (0x02)",
+  [0x82] = "Message Type: Recovery Response Message (0x82)",
+  [0x83] = "Message Type: Replay And Recovery Complete Message (0x83)",
+  [0x53] = "Message Type: System Event Message (0x53)",
+  [0x48] = "Message Type: Instrument Status Message (0x48)",
+  [0x46] = "Message Type: Add Order Incremental Message (0x46)",
+  [0x69] = "Message Type: Top Of Book Message (0x69)",
+  [0x79] = "Message Type: Order Book Clear Message (0x79)",
+  [0x50] = "Message Type: Trade Message (0x50)",
+  [0x71] = "Message Type: Trade Cross Message (0x71)",
+  [0x51] = "Message Type: Mifid Ii Trade Message (0x51)",
+  [0x56] = "Message Type: Mi Fid Ii Trade Cross Message (0x56)",
+  [0x52] = "Message Type: Instrument Directory Equities Message (0x52)",
+  [0x6B] = "Message Type: Statistics Snapshot Message (0x6B)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+lseg_turquoise_recovery_gtp_v24_4.message_type.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -2753,12 +2715,12 @@ lseg_turquoise_recovery_gtp_v24_4.order_book_type = {}
 lseg_turquoise_recovery_gtp_v24_4.order_book_type.size = 1
 
 -- Display: Order Book Type
-lseg_turquoise_recovery_gtp_v24_4.order_book_type.display = function(value)
-  if value == 3 then
-    return "Order Book Type: Electronic (3)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.order_book_type.labels = {
+  [3] = "Order Book Type: Electronic (3)",
+}
 
-  return "Order Book Type: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.order_book_type.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Book Type
@@ -3246,30 +3208,18 @@ lseg_turquoise_recovery_gtp_v24_4.recovery_type = {}
 lseg_turquoise_recovery_gtp_v24_4.recovery_type.size = 1
 
 -- Display: Recovery Type
-lseg_turquoise_recovery_gtp_v24_4.recovery_type.display = function(value)
-  if value == 0 then
-    return "Recovery Type: Instrument Directory (0)"
-  end
-  if value == 1 then
-    return "Recovery Type: Order Book (1)"
-  end
-  if value == 2 then
-    return "Recovery Type: All Trades (2)"
-  end
-  if value == 3 then
-    return "Recovery Type: Statistics (3)"
-  end
-  if value == 4 then
-    return "Recovery Type: Instrument Status (4)"
-  end
-  if value == 5 then
-    return "Recovery Type: Reserved (5)"
-  end
-  if value == 6 then
-    return "Recovery Type: System Event (6)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.recovery_type.labels = {
+  [0] = "Recovery Type: Instrument Directory (0)",
+  [1] = "Recovery Type: Order Book (1)",
+  [2] = "Recovery Type: All Trades (2)",
+  [3] = "Recovery Type: Statistics (3)",
+  [4] = "Recovery Type: Instrument Status (4)",
+  [5] = "Recovery Type: Reserved (5)",
+  [6] = "Recovery Type: System Event (6)",
+}
 
-  return "Recovery Type: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.recovery_type.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.recovery_type.labels[value] or "Recovery Type: Unknown("..value..")"
 end
 
 -- Dissect: Recovery Type
@@ -3360,18 +3310,14 @@ lseg_turquoise_recovery_gtp_v24_4.request_level = {}
 lseg_turquoise_recovery_gtp_v24_4.request_level.size = 1
 
 -- Display: Request Level
-lseg_turquoise_recovery_gtp_v24_4.request_level.display = function(value)
-  if value == 0 then
-    return "Request Level: Instrument (0)"
-  end
-  if value == 1 then
-    return "Request Level: Group Segment (1)"
-  end
-  if value == 2 then
-    return "Request Level: Multicast Channel (2)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.request_level.labels = {
+  [0] = "Request Level: Instrument (0)",
+  [1] = "Request Level: Group Segment (1)",
+  [2] = "Request Level: Multicast Channel (2)",
+}
 
-  return "Request Level: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.request_level.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.request_level.labels[value] or "Request Level: Unknown("..value..")"
 end
 
 -- Dissect: Request Level
@@ -3393,15 +3339,13 @@ lseg_turquoise_recovery_gtp_v24_4.request_order_book_type = {}
 lseg_turquoise_recovery_gtp_v24_4.request_order_book_type.size = 1
 
 -- Display: Request Order Book Type
-lseg_turquoise_recovery_gtp_v24_4.request_order_book_type.display = function(value)
-  if value == 0 then
-    return "Request Order Book Type: All Books (0)"
-  end
-  if value == 3 then
-    return "Request Order Book Type: Electronic (3)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.request_order_book_type.labels = {
+  [0] = "Request Order Book Type: All Books (0)",
+  [3] = "Request Order Book Type: Electronic (3)",
+}
 
-  return "Request Order Book Type: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.request_order_book_type.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.request_order_book_type.labels[value] or "Request Order Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Request Order Book Type
@@ -3840,30 +3784,18 @@ lseg_turquoise_recovery_gtp_v24_4.session_change_reason = {}
 lseg_turquoise_recovery_gtp_v24_4.session_change_reason.size = 1
 
 -- Display: Session Change Reason
-lseg_turquoise_recovery_gtp_v24_4.session_change_reason.display = function(value)
-  if value == 0 then
-    return "Session Change Reason: Scheduled Transition (0)"
-  end
-  if value == 1 then
-    return "Session Change Reason: Extended By Market Ops (1)"
-  end
-  if value == 2 then
-    return "Session Change Reason: Shortened By Market Ops (2)"
-  end
-  if value == 3 then
-    return "Session Change Reason: Market Order Imbalance (3)"
-  end
-  if value == 4 then
-    return "Session Change Reason: Price Outside Range (4)"
-  end
-  if value == 5 then
-    return "Session Change Reason: Aesp Circuit Breaker Tripped (5)"
-  end
-  if value == 9 then
-    return "Session Change Reason: Unavailable (9)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [5] = "Session Change Reason: Aesp Circuit Breaker Tripped (5)",
+  [9] = "Session Change Reason: Unavailable (9)",
+}
 
-  return "Session Change Reason: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.session_change_reason.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
 end
 
 -- Dissect: Session Change Reason
@@ -3996,27 +3928,17 @@ lseg_turquoise_recovery_gtp_v24_4.source_venue = {}
 lseg_turquoise_recovery_gtp_v24_4.source_venue.size = 2
 
 -- Display: Source Venue
-lseg_turquoise_recovery_gtp_v24_4.source_venue.display = function(value)
-  if value == 5 then
-    return "Source Venue: Turquoise Lit Order Book (5)"
-  end
-  if value == 6 then
-    return "Source Venue: Turquoise Plato Order Book (6)"
-  end
-  if value == 12 then
-    return "Source Venue: Turquoise Plato Lit Auctions Order Book (12)"
-  end
-  if value == 14 then
-    return "Source Venue: Turquoise Lit Order Book (14)"
-  end
-  if value == 15 then
-    return "Source Venue: Turquoise Plato Order Book (15)"
-  end
-  if value == 16 then
-    return "Source Venue: Turquoise Plato Lit Auctions Order Book (16)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.source_venue.labels = {
+  [5] = "Source Venue: Turquoise Lit Order Book (5)",
+  [6] = "Source Venue: Turquoise Plato Order Book (6)",
+  [12] = "Source Venue: Turquoise Plato Lit Auctions Order Book (12)",
+  [14] = "Source Venue: Turquoise Lit Order Book (14)",
+  [15] = "Source Venue: Turquoise Plato Order Book (15)",
+  [16] = "Source Venue: Turquoise Plato Lit Auctions Order Book (16)",
+}
 
-  return "Source Venue: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.source_venue.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
 end
 
 -- Dissect: Source Venue
@@ -4496,18 +4418,14 @@ lseg_turquoise_recovery_gtp_v24_4.trade_type = {}
 lseg_turquoise_recovery_gtp_v24_4.trade_type.size = 1
 
 -- Display: Trade Type
-lseg_turquoise_recovery_gtp_v24_4.trade_type.display = function(value)
-  if value == 0 then
-    return "Trade Type: Regular (0)"
-  end
-  if value == 2 then
-    return "Trade Type: Auction Trade (2)"
-  end
-  if value == 9 then
-    return "Trade Type: Trade Cancellation (9)"
-  end
+lseg_turquoise_recovery_gtp_v24_4.trade_type.labels = {
+  [0] = "Trade Type: Regular (0)",
+  [2] = "Trade Type: Auction Trade (2)",
+  [9] = "Trade Type: Trade Cancellation (9)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+lseg_turquoise_recovery_gtp_v24_4.trade_type.display = function(value)
+  return lseg_turquoise_recovery_gtp_v24_4.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -6731,70 +6649,29 @@ end
 lseg_turquoise_recovery_gtp_v24_4.payload = {}
 
 -- Dissect: Payload
+lseg_turquoise_recovery_gtp_v24_4.payload.dispatch = {
+  [0x01] = lseg_turquoise_recovery_gtp_v24_4.login_request_message.dissect,
+  [0x81] = lseg_turquoise_recovery_gtp_v24_4.recovery_request_message.dissect,
+  [0x02] = lseg_turquoise_recovery_gtp_v24_4.login_response_message.dissect,
+  [0x82] = lseg_turquoise_recovery_gtp_v24_4.recovery_response_message.dissect,
+  [0x83] = lseg_turquoise_recovery_gtp_v24_4.replay_and_recovery_complete_message.dissect,
+  [0x53] = lseg_turquoise_recovery_gtp_v24_4.system_event_message.dissect,
+  [0x48] = lseg_turquoise_recovery_gtp_v24_4.instrument_status_message.dissect,
+  [0x46] = lseg_turquoise_recovery_gtp_v24_4.add_order_incremental_message.dissect,
+  [0x69] = lseg_turquoise_recovery_gtp_v24_4.top_of_book_message.dissect,
+  [0x79] = lseg_turquoise_recovery_gtp_v24_4.order_book_clear_message.dissect,
+  [0x50] = lseg_turquoise_recovery_gtp_v24_4.trade_message.dissect,
+  [0x71] = lseg_turquoise_recovery_gtp_v24_4.trade_cross_message.dissect,
+  [0x51] = lseg_turquoise_recovery_gtp_v24_4.mifid_ii_trade_message.dissect,
+  [0x56] = lseg_turquoise_recovery_gtp_v24_4.mi_fid_ii_trade_cross_message.dissect,
+  [0x52] = lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.dissect,
+  [0x6B] = lseg_turquoise_recovery_gtp_v24_4.statistics_snapshot_message.dissect,
+}
+
 lseg_turquoise_recovery_gtp_v24_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 0x01 then
-    return lseg_turquoise_recovery_gtp_v24_4.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Recovery Request Message
-  if message_type == 0x81 then
-    return lseg_turquoise_recovery_gtp_v24_4.recovery_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if message_type == 0x02 then
-    return lseg_turquoise_recovery_gtp_v24_4.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Recovery Response Message
-  if message_type == 0x82 then
-    return lseg_turquoise_recovery_gtp_v24_4.recovery_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay And Recovery Complete Message
-  if message_type == 0x83 then
-    return lseg_turquoise_recovery_gtp_v24_4.replay_and_recovery_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == 0x53 then
-    return lseg_turquoise_recovery_gtp_v24_4.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Status Message
-  if message_type == 0x48 then
-    return lseg_turquoise_recovery_gtp_v24_4.instrument_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Incremental Message
-  if message_type == 0x46 then
-    return lseg_turquoise_recovery_gtp_v24_4.add_order_incremental_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book Message
-  if message_type == 0x69 then
-    return lseg_turquoise_recovery_gtp_v24_4.top_of_book_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Clear Message
-  if message_type == 0x79 then
-    return lseg_turquoise_recovery_gtp_v24_4.order_book_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 0x50 then
-    return lseg_turquoise_recovery_gtp_v24_4.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cross Message
-  if message_type == 0x71 then
-    return lseg_turquoise_recovery_gtp_v24_4.trade_cross_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mifid Ii Trade Message
-  if message_type == 0x51 then
-    return lseg_turquoise_recovery_gtp_v24_4.mifid_ii_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mi Fid Ii Trade Cross Message
-  if message_type == 0x56 then
-    return lseg_turquoise_recovery_gtp_v24_4.mi_fid_ii_trade_cross_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Directory Equities Message
-  if message_type == 0x52 then
-    return lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Snapshot Message
-  if message_type == 0x6B then
-    return lseg_turquoise_recovery_gtp_v24_4.statistics_snapshot_message.dissect(buffer, offset, packet, parent)
+  local dissect = lseg_turquoise_recovery_gtp_v24_4.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

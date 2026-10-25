@@ -460,15 +460,13 @@ nyse_nyseequities_bqt_xdp_v1_7_a.complete = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.complete.size = 1
 
 -- Display: Complete
-nyse_nyseequities_bqt_xdp_v1_7_a.complete.display = function(value)
-  if value == 0 then
-    return "Complete: Normal (0)"
-  end
-  if value == 1 then
-    return "Complete: Abnormal (1)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.complete.labels = {
+  [0] = "Complete: Normal (0)",
+  [1] = "Complete: Abnormal (1)",
+}
 
-  return "Complete: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.complete.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.complete.labels[value] or "Complete: Unknown("..value..")"
 end
 
 -- Dissect: Complete
@@ -513,42 +511,22 @@ nyse_nyseequities_bqt_xdp_v1_7_a.delivery_flag = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-nyse_nyseequities_bqt_xdp_v1_7_a.delivery_flag.display = function(value)
-  if value == 1 then
-    return "Delivery Flag: Heartbeat (1)"
-  end
-  if value == 10 then
-    return "Delivery Flag: Xdp Failover (10)"
-  end
-  if value == 11 then
-    return "Delivery Flag: Original Message (11)"
-  end
-  if value == 12 then
-    return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Xdp Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.delivery_flag.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -839,36 +817,20 @@ nyse_nyseequities_bqt_xdp_v1_7_a.market_id = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.market_id.size = 2
 
 -- Display: Market Id
-nyse_nyseequities_bqt_xdp_v1_7_a.market_id.display = function(value)
-  if value == 0 then
-    return "Market Id: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market Id: Nyse Cash (1)"
-  end
-  if value == 3 then
-    return "Market Id: Nyse Arca Cash (3)"
-  end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 6 then
-    return "Market Id: Global Otc (6)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse Amex Options (8)"
-  end
-  if value == 9 then
-    return "Market Id: Nyse American Equities (9)"
-  end
-  if value == 10 then
-    return "Market Id: Nyse National Equities (10)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id.labels = {
+  [0] = "Market Id: Nyse Group Bqt (0)",
+  [1] = "Market Id: Nyse Cash (1)",
+  [3] = "Market Id: Nyse Arca Cash (3)",
+  [4] = "Market Id: Nyse Arca Options (4)",
+  [5] = "Market Id: Nyse Bonds (5)",
+  [6] = "Market Id: Global Otc (6)",
+  [8] = "Market Id: Nyse Amex Options (8)",
+  [9] = "Market Id: Nyse American Equities (9)",
+  [10] = "Market Id: Nyse National Equities (10)",
+}
 
-  return "Market Id: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.market_id.labels[value] or "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -890,21 +852,15 @@ nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_ask = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_ask.size = 2
 
 -- Display: Market Id Of Best Ask
-nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_ask.display = function(value)
-  if value == 0 then
-    return "Market Id Of Best Ask: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market Id Of Best Ask: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market Id Of Best Ask: Nyse Arca (3)"
-  end
-  if value == 9 then
-    return "Market Id Of Best Ask: Nyse American (9)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_ask.labels = {
+  [0] = "Market Id Of Best Ask: Nyse Group Bqt (0)",
+  [1] = "Market Id Of Best Ask: Nyse (1)",
+  [3] = "Market Id Of Best Ask: Nyse Arca (3)",
+  [9] = "Market Id Of Best Ask: Nyse American (9)",
+}
 
-  return "Market Id Of Best Ask: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_ask.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_ask.labels[value] or "Market Id Of Best Ask: Unknown("..value..")"
 end
 
 -- Dissect: Market Id Of Best Ask
@@ -926,21 +882,15 @@ nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_bid = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_bid.size = 2
 
 -- Display: Market Id Of Best Bid
-nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_bid.display = function(value)
-  if value == 0 then
-    return "Market Id Of Best Bid: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market Id Of Best Bid: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market Id Of Best Bid: Nyse Arca (3)"
-  end
-  if value == 9 then
-    return "Market Id Of Best Bid: Nyse American (9)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_bid.labels = {
+  [0] = "Market Id Of Best Bid: Nyse Group Bqt (0)",
+  [1] = "Market Id Of Best Bid: Nyse (1)",
+  [3] = "Market Id Of Best Bid: Nyse Arca (3)",
+  [9] = "Market Id Of Best Bid: Nyse American (9)",
+}
 
-  return "Market Id Of Best Bid: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_bid.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_best_bid.labels[value] or "Market Id Of Best Bid: Unknown("..value..")"
 end
 
 -- Dissect: Market Id Of Best Bid
@@ -962,21 +912,15 @@ nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_high_price = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_high_price.size = 2
 
 -- Display: Market Id Of High Price
-nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_high_price.display = function(value)
-  if value == 0 then
-    return "Market Id Of High Price: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market Id Of High Price: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market Id Of High Price: Nyse Arca (3)"
-  end
-  if value == 9 then
-    return "Market Id Of High Price: Nyse American (9)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_high_price.labels = {
+  [0] = "Market Id Of High Price: Nyse Group Bqt (0)",
+  [1] = "Market Id Of High Price: Nyse (1)",
+  [3] = "Market Id Of High Price: Nyse Arca (3)",
+  [9] = "Market Id Of High Price: Nyse American (9)",
+}
 
-  return "Market Id Of High Price: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_high_price.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_high_price.labels[value] or "Market Id Of High Price: Unknown("..value..")"
 end
 
 -- Dissect: Market Id Of High Price
@@ -998,21 +942,15 @@ nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_low_price = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_low_price.size = 2
 
 -- Display: Market Id Of Low Price
-nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_low_price.display = function(value)
-  if value == 0 then
-    return "Market Id Of Low Price: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market Id Of Low Price: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market Id Of Low Price: Nyse Arca (3)"
-  end
-  if value == 9 then
-    return "Market Id Of Low Price: Nyse American (9)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_low_price.labels = {
+  [0] = "Market Id Of Low Price: Nyse Group Bqt (0)",
+  [1] = "Market Id Of Low Price: Nyse (1)",
+  [3] = "Market Id Of Low Price: Nyse Arca (3)",
+  [9] = "Market Id Of Low Price: Nyse American (9)",
+}
 
-  return "Market Id Of Low Price: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_low_price.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_low_price.labels[value] or "Market Id Of Low Price: Unknown("..value..")"
 end
 
 -- Dissect: Market Id Of Low Price
@@ -1034,21 +972,15 @@ nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_open_price = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_open_price.size = 2
 
 -- Display: Market Id Of Open Price
-nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_open_price.display = function(value)
-  if value == 0 then
-    return "Market Id Of Open Price: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market Id Of Open Price: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market Id Of Open Price: Nyse Arca (3)"
-  end
-  if value == 9 then
-    return "Market Id Of Open Price: Nyse American (9)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_open_price.labels = {
+  [0] = "Market Id Of Open Price: Nyse Group Bqt (0)",
+  [1] = "Market Id Of Open Price: Nyse (1)",
+  [3] = "Market Id Of Open Price: Nyse Arca (3)",
+  [9] = "Market Id Of Open Price: Nyse American (9)",
+}
 
-  return "Market Id Of Open Price: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_open_price.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_open_price.labels[value] or "Market Id Of Open Price: Unknown("..value..")"
 end
 
 -- Dissect: Market Id Of Open Price
@@ -1070,21 +1002,15 @@ nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_the_close = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_the_close.size = 2
 
 -- Display: Market Id Of The Close
-nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_the_close.display = function(value)
-  if value == 0 then
-    return "Market Id Of The Close: Nyse Group Bqt (0)"
-  end
-  if value == 1 then
-    return "Market Id Of The Close: Nyse (1)"
-  end
-  if value == 3 then
-    return "Market Id Of The Close: Nyse Arca (3)"
-  end
-  if value == 9 then
-    return "Market Id Of The Close: Nyse American (9)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_the_close.labels = {
+  [0] = "Market Id Of The Close: Nyse Group Bqt (0)",
+  [1] = "Market Id Of The Close: Nyse (1)",
+  [3] = "Market Id Of The Close: Nyse Arca (3)",
+  [9] = "Market Id Of The Close: Nyse American (9)",
+}
 
-  return "Market Id Of The Close: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_the_close.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.market_id_of_the_close.labels[value] or "Market Id Of The Close: Unknown("..value..")"
 end
 
 -- Dissect: Market Id Of The Close
@@ -1207,66 +1133,30 @@ nyse_nyseequities_bqt_xdp_v1_7_a.message_type = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.message_type.size = 2
 
 -- Display: Message Type
-nyse_nyseequities_bqt_xdp_v1_7_a.message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Sequence Number Reset Message (1)"
-  end
-  if value == 3 then
-    return "Message Type: Symbol Index Mapping Message (3)"
-  end
-  if value == 10 then
-    return "Message Type: Retransmission Request Message (10)"
-  end
-  if value == 11 then
-    return "Message Type: Request Response Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: Heartbeat Response Message (12)"
-  end
-  if value == 13 then
-    return "Message Type: Symbol Index Mapping Request Message (13)"
-  end
-  if value == 15 then
-    return "Message Type: Refresh Request Message (15)"
-  end
-  if value == 31 then
-    return "Message Type: Message Unavailable Message (31)"
-  end
-  if value == 32 then
-    return "Message Type: Consolidated Symbol Clear Message (32)"
-  end
-  if value == 33 then
-    return "Message Type: Consolidated Trading Session Change Message (33)"
-  end
-  if value == 34 then
-    return "Message Type: Consolidated Security Status Message (34)"
-  end
-  if value == 35 then
-    return "Message Type: Refresh Header Message (35)"
-  end
-  if value == 142 then
-    return "Message Type: Bqt Message (142)"
-  end
-  if value == 143 then
-    return "Message Type: Consolidated Single Sided Quote Message (143)"
-  end
-  if value == 220 then
-    return "Message Type: Consolidated Trade Message (220)"
-  end
-  if value == 221 then
-    return "Message Type: Consolidated Trade Cancel Message (221)"
-  end
-  if value == 222 then
-    return "Message Type: Consolidated Trade Correction Message (222)"
-  end
-  if value == 229 then
-    return "Message Type: Consolidated Stock Summary Message (229)"
-  end
-  if value == 240 then
-    return "Message Type: Consolidated Volume Message (240)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.message_type.labels = {
+  [1] = "Message Type: Sequence Number Reset Message (1)",
+  [3] = "Message Type: Symbol Index Mapping Message (3)",
+  [10] = "Message Type: Retransmission Request Message (10)",
+  [11] = "Message Type: Request Response Message (11)",
+  [12] = "Message Type: Heartbeat Response Message (12)",
+  [13] = "Message Type: Symbol Index Mapping Request Message (13)",
+  [15] = "Message Type: Refresh Request Message (15)",
+  [31] = "Message Type: Message Unavailable Message (31)",
+  [32] = "Message Type: Consolidated Symbol Clear Message (32)",
+  [33] = "Message Type: Consolidated Trading Session Change Message (33)",
+  [34] = "Message Type: Consolidated Security Status Message (34)",
+  [35] = "Message Type: Refresh Header Message (35)",
+  [142] = "Message Type: Bqt Message (142)",
+  [143] = "Message Type: Consolidated Single Sided Quote Message (143)",
+  [220] = "Message Type: Consolidated Trade Message (220)",
+  [221] = "Message Type: Consolidated Trade Cancel Message (221)",
+  [222] = "Message Type: Consolidated Trade Correction Message (222)",
+  [229] = "Message Type: Consolidated Stock Summary Message (229)",
+  [240] = "Message Type: Consolidated Volume Message (240)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.message_type.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1564,18 +1454,14 @@ nyse_nyseequities_bqt_xdp_v1_7_a.price_resolution = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.price_resolution.size = 1
 
 -- Display: Price Resolution
-nyse_nyseequities_bqt_xdp_v1_7_a.price_resolution.display = function(value)
-  if value == 0 then
-    return "Price Resolution: All Penny (0)"
-  end
-  if value == 1 then
-    return "Price Resolution: Penny Nickel (1)"
-  end
-  if value == 5 then
-    return "Price Resolution: Nickel Dime (5)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.price_resolution.labels = {
+  [0] = "Price Resolution: All Penny (0)",
+  [1] = "Price Resolution: Penny Nickel (1)",
+  [5] = "Price Resolution: Nickel Dime (5)",
+}
 
-  return "Price Resolution: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.price_resolution.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.price_resolution.labels[value] or "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -1695,24 +1581,16 @@ nyse_nyseequities_bqt_xdp_v1_7_a.reason = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.reason.size = 1
 
 -- Display: Reason
-nyse_nyseequities_bqt_xdp_v1_7_a.reason.display = function(value)
-  if value == 0 then
-    return "Reason: New Trade (0)"
-  end
-  if value == 1 then
-    return "Reason: Trade Cancellation (1)"
-  end
-  if value == 2 then
-    return "Reason: Trade Error (2)"
-  end
-  if value == 3 then
-    return "Reason: Trade Correction (3)"
-  end
-  if value == 4 then
-    return "Reason: Closing End Trade Summary (4)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.reason.labels = {
+  [0] = "Reason: New Trade (0)",
+  [1] = "Reason: Trade Cancellation (1)",
+  [2] = "Reason: Trade Error (2)",
+  [3] = "Reason: Trade Correction (3)",
+  [4] = "Reason: Closing End Trade Summary (4)",
+}
 
-  return "Reason: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.reason.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1803,21 +1681,15 @@ nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.size = 1
 
 -- Display: Retail Pricing Indicator
-nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.display = function(value)
-  if value == 0x00 then
-    return "Retail Pricing Indicator: No Retail Interest (0x00)"
-  end
-  if value == 0x01 then
-    return "Retail Pricing Indicator: Retail Interest On The Bid Side (0x01)"
-  end
-  if value == 0x02 then
-    return "Retail Pricing Indicator: Retail Interest On The Ask Side (0x02)"
-  end
-  if value == 0x04 then
-    return "Retail Pricing Indicator: Combination Of Retail Interest On Bid And Ask Side (0x04)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.labels = {
+  [0x00] = "Retail Pricing Indicator: No Retail Interest (0x00)",
+  [0x01] = "Retail Pricing Indicator: Retail Interest On The Bid Side (0x01)",
+  [0x02] = "Retail Pricing Indicator: Retail Interest On The Ask Side (0x02)",
+  [0x04] = "Retail Pricing Indicator: Combination Of Retail Interest On Bid And Ask Side (0x04)",
+}
 
-  return "Retail Pricing Indicator: Unknown("..string.format("0x%02X", value)..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.labels[value] or "Retail Pricing Indicator: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Retail Pricing Indicator
@@ -1839,12 +1711,12 @@ nyse_nyseequities_bqt_xdp_v1_7_a.retransmit_method = {}
 nyse_nyseequities_bqt_xdp_v1_7_a.retransmit_method.size = 1
 
 -- Display: Retransmit Method
-nyse_nyseequities_bqt_xdp_v1_7_a.retransmit_method.display = function(value)
-  if value == 0 then
-    return "Retransmit Method: Udp (0)"
-  end
+nyse_nyseequities_bqt_xdp_v1_7_a.retransmit_method.labels = {
+  [0] = "Retransmit Method: Udp (0)",
+}
 
-  return "Retransmit Method: Unknown("..value..")"
+nyse_nyseequities_bqt_xdp_v1_7_a.retransmit_method.display = function(value)
+  return nyse_nyseequities_bqt_xdp_v1_7_a.retransmit_method.labels[value] or "Retransmit Method: Unknown("..value..")"
 end
 
 -- Dissect: Retransmit Method
@@ -4440,82 +4312,32 @@ end
 nyse_nyseequities_bqt_xdp_v1_7_a.payload = {}
 
 -- Dissect: Payload
+nyse_nyseequities_bqt_xdp_v1_7_a.payload.dispatch = {
+  [1] = nyse_nyseequities_bqt_xdp_v1_7_a.sequence_number_reset_message.dissect,
+  [3] = nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_message.dissect,
+  [10] = nyse_nyseequities_bqt_xdp_v1_7_a.retransmission_request_message.dissect,
+  [11] = nyse_nyseequities_bqt_xdp_v1_7_a.request_response_message.dissect,
+  [12] = nyse_nyseequities_bqt_xdp_v1_7_a.heartbeat_response_message.dissect,
+  [13] = nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_request_message.dissect,
+  [15] = nyse_nyseequities_bqt_xdp_v1_7_a.refresh_request_message.dissect,
+  [31] = nyse_nyseequities_bqt_xdp_v1_7_a.message_unavailable_message.dissect,
+  [32] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_symbol_clear_message.dissect,
+  [33] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trading_session_change_message.dissect,
+  [34] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_security_status_message.dissect,
+  [35] = nyse_nyseequities_bqt_xdp_v1_7_a.refresh_header_message.dissect,
+  [142] = nyse_nyseequities_bqt_xdp_v1_7_a.bqt_message.dissect,
+  [143] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_single_sided_quote_message.dissect,
+  [220] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_message.dissect,
+  [221] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_cancel_message.dissect,
+  [222] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_correction_message.dissect,
+  [229] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_stock_summary_message.dissect,
+  [240] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_volume_message.dissect,
+}
+
 nyse_nyseequities_bqt_xdp_v1_7_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Sequence Number Reset Message
-  if message_type == 1 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Message
-  if message_type == 3 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmission Request Message
-  if message_type == 10 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 11 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.request_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Response Message
-  if message_type == 12 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.heartbeat_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Request Message
-  if message_type == 13 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Request Message
-  if message_type == 15 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.refresh_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Unavailable Message
-  if message_type == 31 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.message_unavailable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Symbol Clear Message
-  if message_type == 32 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_symbol_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Trading Session Change Message
-  if message_type == 33 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trading_session_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Security Status Message
-  if message_type == 34 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Header Message
-  if message_type == 35 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.refresh_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bqt Message
-  if message_type == 142 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.bqt_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Single Sided Quote Message
-  if message_type == 143 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_single_sided_quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Trade Message
-  if message_type == 220 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Trade Cancel Message
-  if message_type == 221 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Trade Correction Message
-  if message_type == 222 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Stock Summary Message
-  if message_type == 229 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_stock_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Consolidated Volume Message
-  if message_type == 240 then
-    return nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_volume_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_nyseequities_bqt_xdp_v1_7_a.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

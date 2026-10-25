@@ -290,15 +290,13 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.contract_type = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.contract_type.size = 1
 
 -- Display: Contract Type
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.contract_type.display = function(value)
-  if value == "F" then
-    return "Contract Type: Future (F)"
-  end
-  if value == "O" then
-    return "Contract Type: Option (O)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.contract_type.labels = {
+  ["F"] = "Contract Type: Future (F)",
+  ["O"] = "Contract Type: Option (O)",
+}
 
-  return "Contract Type: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.contract_type.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.contract_type.labels[value] or "Contract Type: Unknown("..value..")"
 end
 
 -- Dissect: Contract Type
@@ -508,15 +506,13 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.leg_buy_sell = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.leg_buy_sell.size = 1
 
 -- Display: Leg Buy Sell
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.leg_buy_sell.display = function(value)
-  if value == "B" then
-    return "Leg Buy Sell: Buy (B)"
-  end
-  if value == "S" then
-    return "Leg Buy Sell: Sell (S)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.leg_buy_sell.labels = {
+  ["B"] = "Leg Buy Sell: Buy (B)",
+  ["S"] = "Leg Buy Sell: Sell (S)",
+}
 
-  return "Leg Buy Sell: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.leg_buy_sell.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.leg_buy_sell.labels[value] or "Leg Buy Sell: Unknown("..value..")"
 end
 
 -- Dissect: Leg Buy Sell
@@ -698,15 +694,13 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.lot_size_type = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.lot_size_type.size = 1
 
 -- Display: Lot Size Type
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.lot_size_type.display = function(value)
-  if value == "S" then
-    return "Lot Size Type: Standard (S)"
-  end
-  if value == "M" then
-    return "Lot Size Type: Mini (M)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.lot_size_type.labels = {
+  ["S"] = "Lot Size Type: Standard (S)",
+  ["M"] = "Lot Size Type: Mini (M)",
+}
 
-  return "Lot Size Type: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.lot_size_type.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.lot_size_type.labels[value] or "Lot Size Type: Unknown("..value..")"
 end
 
 -- Dissect: Lot Size Type
@@ -780,12 +774,12 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.market_code = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.market_code.size = 4
 
 -- Display: Market Code
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.market_code.display = function(value)
-  if value == "LME" then
-    return "Market Code: The Base Metals Market (LME)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.market_code.labels = {
+  ["LME"] = "Market Code: The Base Metals Market (LME)",
+}
 
-  return "Market Code: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.market_code.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.market_code.labels[value] or "Market Code: Unknown("..value..")"
 end
 
 -- Dissect: Market Code
@@ -904,30 +898,18 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.msg_type = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.msg_type.size = 2
 
 -- Display: Msg Type
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.msg_type.display = function(value)
-  if value == 100 then
-    return "Msg Type: Sequence Reset Message (100)"
-  end
-  if value == 300 then
-    return "Msg Type: Contract Definition Message (300)"
-  end
-  if value == 301 then
-    return "Msg Type: Outright Definition Message (301)"
-  end
-  if value == 302 then
-    return "Msg Type: Strategy Definition Message (302)"
-  end
-  if value == 305 then
-    return "Msg Type: Price Limits Message (305)"
-  end
-  if value == 351 then
-    return "Msg Type: Trade Statistics End Of Day Message (351)"
-  end
-  if value == 203 then
-    return "Msg Type: Refresh Complete Message (203)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.msg_type.labels = {
+  [100] = "Msg Type: Sequence Reset Message (100)",
+  [300] = "Msg Type: Contract Definition Message (300)",
+  [301] = "Msg Type: Outright Definition Message (301)",
+  [302] = "Msg Type: Strategy Definition Message (302)",
+  [305] = "Msg Type: Price Limits Message (305)",
+  [351] = "Msg Type: Trade Statistics End Of Day Message (351)",
+  [203] = "Msg Type: Refresh Complete Message (203)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.msg_type.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -1024,15 +1006,13 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.option_type = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.option_type.size = 1
 
 -- Display: Option Type
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.option_type.display = function(value)
-  if value == "C" then
-    return "Option Type: Call (C)"
-  end
-  if value == "P" then
-    return "Option Type: Put (P)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.option_type.labels = {
+  ["C"] = "Option Type: Call (C)",
+  ["P"] = "Option Type: Put (P)",
+}
 
-  return "Option Type: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.option_type.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.option_type.labels[value] or "Option Type: Unknown("..value..")"
 end
 
 -- Dissect: Option Type
@@ -1146,15 +1126,13 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prompt_type = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prompt_type.size = 1
 
 -- Display: Prompt Type
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prompt_type.display = function(value)
-  if value == "S" then
-    return "Prompt Type: Single (S)"
-  end
-  if value == "R" then
-    return "Prompt Type: Rolling (R)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prompt_type.labels = {
+  ["S"] = "Prompt Type: Single (S)",
+  ["R"] = "Prompt Type: Rolling (R)",
+}
 
-  return "Prompt Type: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prompt_type.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prompt_type.labels[value] or "Prompt Type: Unknown("..value..")"
 end
 
 -- Dissect: Prompt Type
@@ -1223,15 +1201,13 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_pricing_method = 
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_pricing_method.size = 1
 
 -- Display: Settlement Pricing Method
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_pricing_method.display = function(value)
-  if value == "D" then
-    return "Settlement Pricing Method: Daily (D)"
-  end
-  if value == "M" then
-    return "Settlement Pricing Method: Monthly Average (M)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_pricing_method.labels = {
+  ["D"] = "Settlement Pricing Method: Daily (D)",
+  ["M"] = "Settlement Pricing Method: Monthly Average (M)",
+}
 
-  return "Settlement Pricing Method: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_pricing_method.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_pricing_method.labels[value] or "Settlement Pricing Method: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Pricing Method
@@ -1253,15 +1229,13 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_type = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_type.size = 1
 
 -- Display: Settlement Type
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_type.display = function(value)
-  if value == "C" then
-    return "Settlement Type: Cash (C)"
-  end
-  if value == "P" then
-    return "Settlement Type: Physical (P)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_type.labels = {
+  ["C"] = "Settlement Type: Cash (C)",
+  ["P"] = "Settlement Type: Physical (P)",
+}
 
-  return "Settlement Type: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_type.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.settlement_type.labels[value] or "Settlement Type: Unknown("..value..")"
 end
 
 -- Dissect: Settlement Type
@@ -1524,18 +1498,14 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.trading_venue = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.trading_venue.size = 2
 
 -- Display: Trading Venue
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.trading_venue.display = function(value)
-  if value == "EL" then
-    return "Trading Venue: Electronic (EL)"
-  end
-  if value == "RK" then
-    return "Trading Venue: Ring (RK)"
-  end
-  if value == "IO" then
-    return "Trading Venue: Inter Office (IO)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.trading_venue.labels = {
+  ["EL"] = "Trading Venue: Electronic (EL)",
+  ["RK"] = "Trading Venue: Ring (RK)",
+  ["IO"] = "Trading Venue: Inter Office (IO)",
+}
 
-  return "Trading Venue: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.trading_venue.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.trading_venue.labels[value] or "Trading Venue: Unknown("..value..")"
 end
 
 -- Dissect: Trading Venue
@@ -1604,15 +1574,13 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.underlying_type = {}
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.underlying_type.size = 1
 
 -- Display: Underlying Type
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.underlying_type.display = function(value)
-  if value == "C" then
-    return "Underlying Type: Commodity (C)"
-  end
-  if value == "F" then
-    return "Underlying Type: Future (F)"
-  end
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.underlying_type.labels = {
+  ["C"] = "Underlying Type: Commodity (C)",
+  ["F"] = "Underlying Type: Future (F)",
+}
 
-  return "Underlying Type: Unknown("..value..")"
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.underlying_type.display = function(value)
+  return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.underlying_type.labels[value] or "Underlying Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Type
@@ -2312,34 +2280,20 @@ end
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.payload = {}
 
 -- Dissect: Payload
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.payload.dispatch = {
+  [100] = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.sequence_reset_message.dissect,
+  [300] = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.contract_definition_message.dissect,
+  [301] = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.outright_definition_message.dissect,
+  [302] = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.strategy_definition_message.dissect,
+  [305] = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.price_limits_message.dissect,
+  [351] = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.trade_statistics_end_of_day_message.dissect,
+  [203] = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.refresh_complete_message.dissect,
+}
+
 lme_lmeselect_referencedatasnapshot_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Sequence Reset Message
-  if msg_type == 100 then
-    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.sequence_reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Contract Definition Message
-  if msg_type == 300 then
-    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.contract_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Outright Definition Message
-  if msg_type == 301 then
-    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.outright_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Definition Message
-  if msg_type == 302 then
-    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.strategy_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Limits Message
-  if msg_type == 305 then
-    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.price_limits_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Statistics End Of Day Message
-  if msg_type == 351 then
-    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.trade_statistics_end_of_day_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Refresh Complete Message
-  if msg_type == 203 then
-    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.refresh_complete_message.dissect(buffer, offset, packet, parent)
+  local dissect = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

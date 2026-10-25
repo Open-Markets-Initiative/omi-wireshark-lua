@@ -483,15 +483,13 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.buy_sell_indicator = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
-nasdaq_nordicequities_totalview_itch_v3_04_6.buy_sell_indicator.display = function(value)
-  if value == "B" then
-    return "Buy Sell Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Buy Sell Indicator: Sell Order (S)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.buy_sell_indicator.labels = {
+  ["B"] = "Buy Sell Indicator: Buy Order (B)",
+  ["S"] = "Buy Sell Indicator: Sell Order (S)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.buy_sell_indicator.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -536,21 +534,15 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.cross_level = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.cross_level.size = 1
 
 -- Display: Cross Level
-nasdaq_nordicequities_totalview_itch_v3_04_6.cross_level.display = function(value)
-  if value == "B" then
-    return "Cross Level: Buy (B)"
-  end
-  if value == "S" then
-    return "Cross Level: Sell (S)"
-  end
-  if value == "M" then
-    return "Cross Level: Mid (M)"
-  end
-  if value == "L" then
-    return "Cross Level: Limit (L)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.cross_level.labels = {
+  ["B"] = "Cross Level: Buy (B)",
+  ["S"] = "Cross Level: Sell (S)",
+  ["M"] = "Cross Level: Mid (M)",
+  ["L"] = "Cross Level: Limit (L)",
+}
 
-  return "Cross Level: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.cross_level.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.cross_level.labels[value] or "Cross Level: Unknown("..value..")"
 end
 
 -- Dissect: Cross Level
@@ -601,24 +593,16 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.cross_type = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nordicequities_totalview_itch_v3_04_6.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Opening Cross (O)"
-  end
-  if value == "I" then
-    return "Cross Type: Scheduled Intraday Cross (I)"
-  end
-  if value == "C" then
-    return "Cross Type: Closing Cross (C)"
-  end
-  if value == "H" then
-    return "Cross Type: Cross For Halted Securities (H)"
-  end
-  if value == "A" then
-    return "Cross Type: Auction On Demand (A)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.cross_type.labels = {
+  ["O"] = "Cross Type: Opening Cross (O)",
+  ["I"] = "Cross Type: Scheduled Intraday Cross (I)",
+  ["C"] = "Cross Type: Closing Cross (C)",
+  ["H"] = "Cross Type: Cross For Halted Securities (H)",
+  ["A"] = "Cross Type: Auction On Demand (A)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.cross_type.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -692,15 +676,13 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.event_code = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nordicequities_totalview_itch_v3_04_6.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.event_code.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -745,12 +727,12 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.extension = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.extension.size = 1
 
 -- Display: Extension
-nasdaq_nordicequities_totalview_itch_v3_04_6.extension.display = function(value)
-  if value == "E" then
-    return "Extension: Cross Extension (E)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.extension.labels = {
+  ["E"] = "Extension: Cross Extension (E)",
+}
 
-  return "Extension: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.extension.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.extension.labels[value] or "Extension: Unknown("..value..")"
 end
 
 -- Dissect: Extension
@@ -801,36 +783,20 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.financial_product = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.financial_product.size = 1
 
 -- Display: Financial Product
-nasdaq_nordicequities_totalview_itch_v3_04_6.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Stock (1)"
-  end
-  if value == 2 then
-    return "Financial Product: Equity Warrant (2)"
-  end
-  if value == 3 then
-    return "Financial Product: Equity Right (3)"
-  end
-  if value == 4 then
-    return "Financial Product: Bond (4)"
-  end
-  if value == 6 then
-    return "Financial Product: Lottery Bond Series (6)"
-  end
-  if value == 7 then
-    return "Financial Product: Convertible (7)"
-  end
-  if value == 8 then
-    return "Financial Product: Warrant (8)"
-  end
-  if value == 11 then
-    return "Financial Product: Unit Trust Certificate (11)"
-  end
-  if value == 12 then
-    return "Financial Product: Index Fund Unit (12)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.financial_product.labels = {
+  [1] = "Financial Product: Stock (1)",
+  [2] = "Financial Product: Equity Warrant (2)",
+  [3] = "Financial Product: Equity Right (3)",
+  [4] = "Financial Product: Bond (4)",
+  [6] = "Financial Product: Lottery Bond Series (6)",
+  [7] = "Financial Product: Convertible (7)",
+  [8] = "Financial Product: Warrant (8)",
+  [11] = "Financial Product: Unit Trust Certificate (11)",
+  [12] = "Financial Product: Index Fund Unit (12)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.financial_product.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -875,21 +841,15 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.imbalance_direction = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.imbalance_direction.size = 1
 
 -- Display: Imbalance Direction
-nasdaq_nordicequities_totalview_itch_v3_04_6.imbalance_direction.display = function(value)
-  if value == "B" then
-    return "Imbalance Direction: Buy Imbalance (B)"
-  end
-  if value == "S" then
-    return "Imbalance Direction: Sell Imbalance (S)"
-  end
-  if value == "N" then
-    return "Imbalance Direction: No Imbalance (N)"
-  end
-  if value == "O" then
-    return "Imbalance Direction: Insufficient Orders To Calculate (O)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.imbalance_direction.labels = {
+  ["B"] = "Imbalance Direction: Buy Imbalance (B)",
+  ["S"] = "Imbalance Direction: Sell Imbalance (S)",
+  ["N"] = "Imbalance Direction: No Imbalance (N)",
+  ["O"] = "Imbalance Direction: Insufficient Orders To Calculate (O)",
+}
 
-  return "Imbalance Direction: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.imbalance_direction.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.imbalance_direction.labels[value] or "Imbalance Direction: Unknown("..value..")"
 end
 
 -- Dissect: Imbalance Direction
@@ -1049,60 +1009,28 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.message_type = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nordicequities_totalview_itch_v3_04_6.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "H" then
-    return "Message Type: Order Book Trading Action Message (H)"
-  end
-  if value == "R" then
-    return "Message Type: Order Book Directory Message (R)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "F" then
-    return "Message Type: Add Order Mpid Attribution Message (F)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "Y" then
-    return "Message Type: Order Book Flush Message (Y)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "Q" then
-    return "Message Type: Cross Trade Message (Q)"
-  end
-  if value == "B" then
-    return "Message Type: Broken Trade Message (B)"
-  end
-  if value == "I" then
-    return "Message Type: Noii Message (I)"
-  end
-  if value == "J" then
-    return "Message Type: Moii Message (J)"
-  end
-  if value == "K" then
-    return "Message Type: Execution Summary Message (K)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["H"] = "Message Type: Order Book Trading Action Message (H)",
+  ["R"] = "Message Type: Order Book Directory Message (R)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["F"] = "Message Type: Add Order Mpid Attribution Message (F)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["Y"] = "Message Type: Order Book Flush Message (Y)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["Q"] = "Message Type: Cross Trade Message (Q)",
+  ["B"] = "Message Type: Broken Trade Message (B)",
+  ["I"] = "Message Type: Noii Message (I)",
+  ["J"] = "Message Type: Moii Message (J)",
+  ["K"] = "Message Type: Execution Summary Message (K)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.message_type.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1556,12 +1484,12 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.price_notation = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.price_notation.size = 1
 
 -- Display: Price Notation
-nasdaq_nordicequities_totalview_itch_v3_04_6.price_notation.display = function(value)
-  if value == "M" then
-    return "Price Notation: Monetary Value (M)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.price_notation.labels = {
+  ["M"] = "Price Notation: Monetary Value (M)",
+}
 
-  return "Price Notation: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.price_notation.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
 end
 
 -- Dissect: Price Notation
@@ -1583,15 +1511,13 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.printable = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.printable.size = 1
 
 -- Display: Printable
-nasdaq_nordicequities_totalview_itch_v3_04_6.printable.display = function(value)
-  if value == "N" then
-    return "Printable: Non Printable (N)"
-  end
-  if value == "Y" then
-    return "Printable: Printable (Y)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.printable.labels = {
+  ["N"] = "Printable: Non Printable (N)",
+  ["Y"] = "Printable: Printable (Y)",
+}
 
-  return "Printable: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.printable.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1850,39 +1776,21 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.symbol_state = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.symbol_state.size = 1
 
 -- Display: Symbol State
-nasdaq_nordicequities_totalview_itch_v3_04_6.symbol_state.display = function(value)
-  if value == "C" then
-    return "Symbol State: Closed (C)"
-  end
-  if value == "P" then
-    return "Symbol State: Pre Open (P)"
-  end
-  if value == "O" then
-    return "Symbol State: Opening Auction (O)"
-  end
-  if value == "T" then
-    return "Symbol State: Continuous Trading (T)"
-  end
-  if value == "I" then
-    return "Symbol State: Scheduled Intraday Auction (I)"
-  end
-  if value == "L" then
-    return "Symbol State: Closing Auction (L)"
-  end
-  if value == "S" then
-    return "Symbol State: Post Trade (S)"
-  end
-  if value == "H" then
-    return "Symbol State: Halted (H)"
-  end
-  if value == "Q" then
-    return "Symbol State: Auction Period (Q)"
-  end
-  if value == "A" then
-    return "Symbol State: Trading At Closing Price (A)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.symbol_state.labels = {
+  ["C"] = "Symbol State: Closed (C)",
+  ["P"] = "Symbol State: Pre Open (P)",
+  ["O"] = "Symbol State: Opening Auction (O)",
+  ["T"] = "Symbol State: Continuous Trading (T)",
+  ["I"] = "Symbol State: Scheduled Intraday Auction (I)",
+  ["L"] = "Symbol State: Closing Auction (L)",
+  ["S"] = "Symbol State: Post Trade (S)",
+  ["H"] = "Symbol State: Halted (H)",
+  ["Q"] = "Symbol State: Auction Period (Q)",
+  ["A"] = "Symbol State: Trading At Closing Price (A)",
+}
 
-  return "Symbol State: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.symbol_state.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.symbol_state.labels[value] or "Symbol State: Unknown("..value..")"
 end
 
 -- Dissect: Symbol State
@@ -1999,15 +1907,13 @@ nasdaq_nordicequities_totalview_itch_v3_04_6.trade_type = {}
 nasdaq_nordicequities_totalview_itch_v3_04_6.trade_type.size = 1
 
 -- Display: Trade Type
-nasdaq_nordicequities_totalview_itch_v3_04_6.trade_type.display = function(value)
-  if value == "B" then
-    return "Trade Type: Main Book (B)"
-  end
-  if value == "S" then
-    return "Trade Type: Nordic Mid (S)"
-  end
+nasdaq_nordicequities_totalview_itch_v3_04_6.trade_type.labels = {
+  ["B"] = "Trade Type: Main Book (B)",
+  ["S"] = "Trade Type: Nordic Mid (S)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+nasdaq_nordicequities_totalview_itch_v3_04_6.trade_type.display = function(value)
+  return nasdaq_nordicequities_totalview_itch_v3_04_6.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -3711,74 +3617,30 @@ end
 nasdaq_nordicequities_totalview_itch_v3_04_6.payload = {}
 
 -- Dissect: Payload
+nasdaq_nordicequities_totalview_itch_v3_04_6.payload.dispatch = {
+  ["S"] = nasdaq_nordicequities_totalview_itch_v3_04_6.system_event_message.dissect,
+  ["H"] = nasdaq_nordicequities_totalview_itch_v3_04_6.order_book_trading_action_message.dissect,
+  ["R"] = nasdaq_nordicequities_totalview_itch_v3_04_6.order_book_directory_message.dissect,
+  ["A"] = nasdaq_nordicequities_totalview_itch_v3_04_6.add_order_message.dissect,
+  ["F"] = nasdaq_nordicequities_totalview_itch_v3_04_6.add_order_mpid_attribution_message.dissect,
+  ["E"] = nasdaq_nordicequities_totalview_itch_v3_04_6.order_executed_message.dissect,
+  ["C"] = nasdaq_nordicequities_totalview_itch_v3_04_6.order_executed_with_price_message.dissect,
+  ["X"] = nasdaq_nordicequities_totalview_itch_v3_04_6.order_cancel_message.dissect,
+  ["D"] = nasdaq_nordicequities_totalview_itch_v3_04_6.order_delete_message.dissect,
+  ["Y"] = nasdaq_nordicequities_totalview_itch_v3_04_6.order_book_flush_message.dissect,
+  ["U"] = nasdaq_nordicequities_totalview_itch_v3_04_6.order_replace_message.dissect,
+  ["P"] = nasdaq_nordicequities_totalview_itch_v3_04_6.trade_message.dissect,
+  ["Q"] = nasdaq_nordicequities_totalview_itch_v3_04_6.cross_trade_message.dissect,
+  ["B"] = nasdaq_nordicequities_totalview_itch_v3_04_6.broken_trade_message.dissect,
+  ["I"] = nasdaq_nordicequities_totalview_itch_v3_04_6.noii_message.dissect,
+  ["J"] = nasdaq_nordicequities_totalview_itch_v3_04_6.moii_message.dissect,
+  ["K"] = nasdaq_nordicequities_totalview_itch_v3_04_6.execution_summary_message.dissect,
+}
+
 nasdaq_nordicequities_totalview_itch_v3_04_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Trading Action Message
-  if message_type == "H" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.order_book_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory Message
-  if message_type == "R" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.order_book_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Mpid Attribution Message
-  if message_type == "F" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.add_order_mpid_attribution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Flush Message
-  if message_type == "Y" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.order_book_flush_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Trade Message
-  if message_type == "Q" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.cross_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if message_type == "B" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Noii Message
-  if message_type == "I" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.noii_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Moii Message
-  if message_type == "J" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.moii_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Summary Message
-  if message_type == "K" then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.execution_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_totalview_itch_v3_04_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3934,14 +3796,15 @@ end
 nasdaq_nordicequities_totalview_itch_v3_04_6.messages = {}
 
 -- Dissect: Messages
+nasdaq_nordicequities_totalview_itch_v3_04_6.messages.dispatch = {
+  [0] = nasdaq_nordicequities_totalview_itch_v3_04_6.heartbeat.dissect,
+  [65535] = nasdaq_nordicequities_totalview_itch_v3_04_6.end_of_session.dissect,
+}
+
 nasdaq_nordicequities_totalview_itch_v3_04_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nordicequities_totalview_itch_v3_04_6.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nordicequities_totalview_itch_v3_04_6.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

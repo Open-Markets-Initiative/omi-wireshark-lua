@@ -447,39 +447,21 @@ aquis_aquisequities_realtime_amd_v4_1.msg_type = {}
 aquis_aquisequities_realtime_amd_v4_1.msg_type.size = 1
 
 -- Display: Msg Type
-aquis_aquisequities_realtime_amd_v4_1.msg_type.display = function(value)
-  if value == 2 then
-    return "Msg Type: Order Add (2)"
-  end
-  if value == 3 then
-    return "Msg Type: Order Cancel (3)"
-  end
-  if value == 4 then
-    return "Msg Type: Order Modify (4)"
-  end
-  if value == 5 then
-    return "Msg Type: Trade (5)"
-  end
-  if value == 6 then
-    return "Msg Type: Trade Bust Message (6)"
-  end
-  if value == 7 then
-    return "Msg Type: Tick Table Data Message (7)"
-  end
-  if value == 8 then
-    return "Msg Type: Security Definition Message (8)"
-  end
-  if value == 9 then
-    return "Msg Type: Security Status Message (9)"
-  end
-  if value == 17 then
-    return "Msg Type: Ao D Update Message (17)"
-  end
-  if value == 16 then
-    return "Msg Type: Ma C Update Message (16)"
-  end
+aquis_aquisequities_realtime_amd_v4_1.msg_type.labels = {
+  [2] = "Msg Type: Order Add (2)",
+  [3] = "Msg Type: Order Cancel (3)",
+  [4] = "Msg Type: Order Modify (4)",
+  [5] = "Msg Type: Trade (5)",
+  [6] = "Msg Type: Trade Bust Message (6)",
+  [7] = "Msg Type: Tick Table Data Message (7)",
+  [8] = "Msg Type: Security Definition Message (8)",
+  [9] = "Msg Type: Security Status Message (9)",
+  [17] = "Msg Type: Ao D Update Message (17)",
+  [16] = "Msg Type: Ma C Update Message (16)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+aquis_aquisequities_realtime_amd_v4_1.msg_type.display = function(value)
+  return aquis_aquisequities_realtime_amd_v4_1.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -694,15 +676,13 @@ aquis_aquisequities_realtime_amd_v4_1.side = {}
 aquis_aquisequities_realtime_amd_v4_1.side.size = 1
 
 -- Display: Side
-aquis_aquisequities_realtime_amd_v4_1.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy Order (1)"
-  end
-  if value == 2 then
-    return "Side: Sell Order (2)"
-  end
+aquis_aquisequities_realtime_amd_v4_1.side.labels = {
+  [1] = "Side: Buy Order (1)",
+  [2] = "Side: Sell Order (2)",
+}
 
-  return "Side: Unknown("..value..")"
+aquis_aquisequities_realtime_amd_v4_1.side.display = function(value)
+  return aquis_aquisequities_realtime_amd_v4_1.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -839,30 +819,18 @@ aquis_aquisequities_realtime_amd_v4_1.trade_type = {}
 aquis_aquisequities_realtime_amd_v4_1.trade_type.size = 1
 
 -- Display: Trade Type
-aquis_aquisequities_realtime_amd_v4_1.trade_type.display = function(value)
-  if value == 1 then
-    return "Trade Type: Visible Order (1)"
-  end
-  if value == 2 then
-    return "Trade Type: Hidden Order (2)"
-  end
-  if value == 3 then
-    return "Trade Type: Market At Close (3)"
-  end
-  if value == 4 then
-    return "Trade Type: Lis Cross (4)"
-  end
-  if value == 5 then
-    return "Trade Type: Benchmark Cross (5)"
-  end
-  if value == 6 then
-    return "Trade Type: Auction On Demand (6)"
-  end
-  if value == 12 then
-    return "Trade Type: Aquis Vwap Match (12)"
-  end
+aquis_aquisequities_realtime_amd_v4_1.trade_type.labels = {
+  [1] = "Trade Type: Visible Order (1)",
+  [2] = "Trade Type: Hidden Order (2)",
+  [3] = "Trade Type: Market At Close (3)",
+  [4] = "Trade Type: Lis Cross (4)",
+  [5] = "Trade Type: Benchmark Cross (5)",
+  [6] = "Trade Type: Auction On Demand (6)",
+  [12] = "Trade Type: Aquis Vwap Match (12)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+aquis_aquisequities_realtime_amd_v4_1.trade_type.display = function(value)
+  return aquis_aquisequities_realtime_amd_v4_1.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -884,15 +852,13 @@ aquis_aquisequities_realtime_amd_v4_1.trading_phase = {}
 aquis_aquisequities_realtime_amd_v4_1.trading_phase.size = 1
 
 -- Display: Trading Phase
-aquis_aquisequities_realtime_amd_v4_1.trading_phase.display = function(value)
-  if value == 0 then
-    return "Trading Phase: Closed (0)"
-  end
-  if value == 1 then
-    return "Trading Phase: Continuous (1)"
-  end
+aquis_aquisequities_realtime_amd_v4_1.trading_phase.labels = {
+  [0] = "Trading Phase: Closed (0)",
+  [1] = "Trading Phase: Continuous (1)",
+}
 
-  return "Trading Phase: Unknown("..value..")"
+aquis_aquisequities_realtime_amd_v4_1.trading_phase.display = function(value)
+  return aquis_aquisequities_realtime_amd_v4_1.trading_phase.labels[value] or "Trading Phase: Unknown("..value..")"
 end
 
 -- Dissect: Trading Phase
@@ -914,24 +880,16 @@ aquis_aquisequities_realtime_amd_v4_1.trading_status = {}
 aquis_aquisequities_realtime_amd_v4_1.trading_status.size = 1
 
 -- Display: Trading Status
-aquis_aquisequities_realtime_amd_v4_1.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Active (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Halted (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Suspended (3)"
-  end
-  if value == 8 then
-    return "Trading Status: Ao D Start (8)"
-  end
-  if value == 24 then
-    return "Trading Status: Ao D End (24)"
-  end
+aquis_aquisequities_realtime_amd_v4_1.trading_status.labels = {
+  [1] = "Trading Status: Active (1)",
+  [2] = "Trading Status: Halted (2)",
+  [3] = "Trading Status: Suspended (3)",
+  [8] = "Trading Status: Ao D Start (8)",
+  [24] = "Trading Status: Ao D End (24)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+aquis_aquisequities_realtime_amd_v4_1.trading_status.display = function(value)
+  return aquis_aquisequities_realtime_amd_v4_1.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1873,46 +1831,23 @@ end
 aquis_aquisequities_realtime_amd_v4_1.payload = {}
 
 -- Dissect: Payload
+aquis_aquisequities_realtime_amd_v4_1.payload.dispatch = {
+  [2] = aquis_aquisequities_realtime_amd_v4_1.order_add.dissect,
+  [3] = aquis_aquisequities_realtime_amd_v4_1.order_cancel.dissect,
+  [4] = aquis_aquisequities_realtime_amd_v4_1.order_modify.dissect,
+  [5] = aquis_aquisequities_realtime_amd_v4_1.trade.dissect,
+  [6] = aquis_aquisequities_realtime_amd_v4_1.trade_bust_message.dissect,
+  [7] = aquis_aquisequities_realtime_amd_v4_1.tick_table_data_message.dissect,
+  [8] = aquis_aquisequities_realtime_amd_v4_1.security_definition_message.dissect,
+  [9] = aquis_aquisequities_realtime_amd_v4_1.security_status_message.dissect,
+  [17] = aquis_aquisequities_realtime_amd_v4_1.ao_d_update_message.dissect,
+  [16] = aquis_aquisequities_realtime_amd_v4_1.ma_c_update_message.dissect,
+}
+
 aquis_aquisequities_realtime_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Order Add
-  if msg_type == 2 then
-    return aquis_aquisequities_realtime_amd_v4_1.order_add.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel
-  if msg_type == 3 then
-    return aquis_aquisequities_realtime_amd_v4_1.order_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify
-  if msg_type == 4 then
-    return aquis_aquisequities_realtime_amd_v4_1.order_modify.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade
-  if msg_type == 5 then
-    return aquis_aquisequities_realtime_amd_v4_1.trade.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Message
-  if msg_type == 6 then
-    return aquis_aquisequities_realtime_amd_v4_1.trade_bust_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Table Data Message
-  if msg_type == 7 then
-    return aquis_aquisequities_realtime_amd_v4_1.tick_table_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Definition Message
-  if msg_type == 8 then
-    return aquis_aquisequities_realtime_amd_v4_1.security_definition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Status Message
-  if msg_type == 9 then
-    return aquis_aquisequities_realtime_amd_v4_1.security_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ao D Update Message
-  if msg_type == 17 then
-    return aquis_aquisequities_realtime_amd_v4_1.ao_d_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ma C Update Message
-  if msg_type == 16 then
-    return aquis_aquisequities_realtime_amd_v4_1.ma_c_update_message.dissect(buffer, offset, packet, parent)
+  local dissect = aquis_aquisequities_realtime_amd_v4_1.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

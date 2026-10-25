@@ -394,18 +394,14 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.auction_event = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.auction_event.size = 1
 
 -- Display: Auction Event
-nasdaq_iseoptions_spreadorders_itch_v2_1.auction_event.display = function(value)
-  if value == "S" then
-    return "Auction Event: Start (S)"
-  end
-  if value == "U" then
-    return "Auction Event: Auction Update (U)"
-  end
-  if value == "E" then
-    return "Auction Event: End Of Auction (E)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.auction_event.labels = {
+  ["S"] = "Auction Event: Start (S)",
+  ["U"] = "Auction Event: Auction Update (U)",
+  ["E"] = "Auction Event: End Of Auction (E)",
+}
 
-  return "Auction Event: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.auction_event.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.auction_event.labels[value] or "Auction Event: Unknown("..value..")"
 end
 
 -- Dissect: Auction Event
@@ -450,24 +446,16 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.auction_type = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.auction_type.size = 1
 
 -- Display: Auction Type
-nasdaq_iseoptions_spreadorders_itch_v2_1.auction_type.display = function(value)
-  if value == "E" then
-    return "Auction Type: Complex Exposure (E)"
-  end
-  if value == "P" then
-    return "Auction Type: Price Improvement Pim Auction (P)"
-  end
-  if value == "C" then
-    return "Auction Type: Facilitation (C)"
-  end
-  if value == "S" then
-    return "Auction Type: Solicitation (S)"
-  end
-  if value == "X" then
-    return "Auction Type: Flex Auction (X)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.auction_type.labels = {
+  ["E"] = "Auction Type: Complex Exposure (E)",
+  ["P"] = "Auction Type: Price Improvement Pim Auction (P)",
+  ["C"] = "Auction Type: Facilitation (C)",
+  ["S"] = "Auction Type: Solicitation (S)",
+  ["X"] = "Auction Type: Flex Auction (X)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.auction_type.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -489,24 +477,16 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.client_packet_type = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_iseoptions_spreadorders_itch_v2_1.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.client_packet_type.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -551,27 +531,17 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.current_trading_state = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_iseoptions_spreadorders_itch_v2_1.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halt In Effect (H)"
-  end
-  if value == "T" then
-    return "Current Trading State: Continuous Trading (T)"
-  end
-  if value == "I" then
-    return "Current Trading State: Pre Open (I)"
-  end
-  if value == "O" then
-    return "Current Trading State: Opening Auction (O)"
-  end
-  if value == "R" then
-    return "Current Trading State: Re Opening (R)"
-  end
-  if value == "X" then
-    return "Current Trading State: Closed (X)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halt In Effect (H)",
+  ["T"] = "Current Trading State: Continuous Trading (T)",
+  ["I"] = "Current Trading State: Pre Open (I)",
+  ["O"] = "Current Trading State: Opening Auction (O)",
+  ["R"] = "Current Trading State: Re Opening (R)",
+  ["X"] = "Current Trading State: Closed (X)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.current_trading_state.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -635,33 +605,19 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.event_code = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_iseoptions_spreadorders_itch_v2_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Opening Process (Q)"
-  end
-  if value == "N" then
-    return "Event Code: Start Of Normal Hours Closing Process (N)"
-  end
-  if value == "L" then
-    return "Event Code: Start Of Late Hours Closing Process (L)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
-  if value == "W" then
-    return "Event Code: End Of Wco Early Closing (W)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: Start Of Normal Hours Closing Process (N)",
+  ["L"] = "Event Code: Start Of Late Hours Closing Process (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of Wco Early Closing (W)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.event_code.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -683,15 +639,13 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.exec_flag = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.exec_flag.size = 1
 
 -- Display: Exec Flag
-nasdaq_iseoptions_spreadorders_itch_v2_1.exec_flag.display = function(value)
-  if value == "N" then
-    return "Exec Flag: None (N)"
-  end
-  if value == "A" then
-    return "Exec Flag: Aon (A)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.exec_flag.labels = {
+  ["N"] = "Exec Flag: None (N)",
+  ["A"] = "Exec Flag: Aon (A)",
+}
 
-  return "Exec Flag: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.exec_flag.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.exec_flag.labels[value] or "Exec Flag: Unknown("..value..")"
 end
 
 -- Dissect: Exec Flag
@@ -955,24 +909,16 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.message_type = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_iseoptions_spreadorders_itch_v2_1.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "s" then
-    return "Message Type: Complex Strategy Directory Message (s)"
-  end
-  if value == "H" then
-    return "Message Type: Strategy Trading Action Message (H)"
-  end
-  if value == "C" then
-    return "Message Type: Complex Add Order Message (C)"
-  end
-  if value == "a" then
-    return "Message Type: Complex Strategy Auction Message (a)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["s"] = "Message Type: Complex Strategy Directory Message (s)",
+  ["H"] = "Message Type: Strategy Trading Action Message (H)",
+  ["C"] = "Message Type: Complex Add Order Message (C)",
+  ["a"] = "Message Type: Complex Strategy Auction Message (a)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.message_type.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1096,30 +1042,18 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.order_capacity = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.order_capacity.size = 1
 
 -- Display: Order Capacity
-nasdaq_iseoptions_spreadorders_itch_v2_1.order_capacity.display = function(value)
-  if value == "C" then
-    return "Order Capacity: Customer Order (C)"
-  end
-  if value == "F" then
-    return "Order Capacity: Firm Order (F)"
-  end
-  if value == "M" then
-    return "Order Capacity: Nasdaq Registered Market Maker (M)"
-  end
-  if value == "B" then
-    return "Order Capacity: Broker Dealer Oder (B)"
-  end
-  if value == "P" then
-    return "Order Capacity: Professional Order (P)"
-  end
-  if value == "O" then
-    return "Order Capacity: Other Exchange Registered Market Maker (O)"
-  end
-  if value == "J" then
-    return "Order Capacity: Jbo Joint Back Office Only Phlx (J)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.order_capacity.labels = {
+  ["C"] = "Order Capacity: Customer Order (C)",
+  ["F"] = "Order Capacity: Firm Order (F)",
+  ["M"] = "Order Capacity: Nasdaq Registered Market Maker (M)",
+  ["B"] = "Order Capacity: Broker Dealer Oder (B)",
+  ["P"] = "Order Capacity: Professional Order (P)",
+  ["O"] = "Order Capacity: Other Exchange Registered Market Maker (O)",
+  ["J"] = "Order Capacity: Jbo Joint Back Office Only Phlx (J)",
+}
 
-  return "Order Capacity: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.order_capacity.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.order_capacity.labels[value] or "Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Order Capacity
@@ -1164,18 +1098,14 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.order_status = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.order_status.size = 1
 
 -- Display: Order Status
-nasdaq_iseoptions_spreadorders_itch_v2_1.order_status.display = function(value)
-  if value == "O" then
-    return "Order Status: Open (O)"
-  end
-  if value == "F" then
-    return "Order Status: Filled (F)"
-  end
-  if value == "C" then
-    return "Order Status: Cancelled (C)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.order_status.labels = {
+  ["O"] = "Order Status: Open (O)",
+  ["F"] = "Order Status: Filled (F)",
+  ["C"] = "Order Status: Cancelled (C)",
+}
 
-  return "Order Status: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.order_status.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.order_status.labels[value] or "Order Status: Unknown("..value..")"
 end
 
 -- Dissect: Order Status
@@ -1197,15 +1127,13 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.order_type = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.order_type.size = 1
 
 -- Display: Order Type
-nasdaq_iseoptions_spreadorders_itch_v2_1.order_type.display = function(value)
-  if value == "M" then
-    return "Order Type: Market (M)"
-  end
-  if value == "L" then
-    return "Order Type: Limit (L)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.order_type.labels = {
+  ["M"] = "Order Type: Market (M)",
+  ["L"] = "Order Type: Limit (L)",
+}
 
-  return "Order Type: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.order_type.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1348,15 +1276,13 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.reject_reason_code = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_iseoptions_spreadorders_itch_v2_1.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.reject_reason_code.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1553,15 +1479,13 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.scope = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.scope.size = 1
 
 -- Display: Scope
-nasdaq_iseoptions_spreadorders_itch_v2_1.scope.display = function(value)
-  if value == "L" then
-    return "Scope: Local (L)"
-  end
-  if value == "N" then
-    return "Scope: National (N)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.scope.labels = {
+  ["L"] = "Scope: Local (L)",
+  ["N"] = "Scope: National (N)",
+}
 
-  return "Scope: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.scope.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.scope.labels[value] or "Scope: Unknown("..value..")"
 end
 
 -- Dissect: Scope
@@ -1629,27 +1553,17 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message_type = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "s" then
-    return "Sequenced Message Type: Complex Strategy Directory Message (s)"
-  end
-  if value == "H" then
-    return "Sequenced Message Type: Strategy Trading Action Message (H)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Complex Add Order Message (C)"
-  end
-  if value == "a" then
-    return "Sequenced Message Type: Complex Strategy Auction Message (a)"
-  end
-  if value == "M" then
-    return "Sequenced Message Type: End Of Replay Sequence Message (M)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["s"] = "Sequenced Message Type: Complex Strategy Directory Message (s)",
+  ["H"] = "Sequenced Message Type: Strategy Trading Action Message (H)",
+  ["C"] = "Sequenced Message Type: Complex Add Order Message (C)",
+  ["a"] = "Sequenced Message Type: Complex Strategy Auction Message (a)",
+  ["M"] = "Sequenced Message Type: End Of Replay Sequence Message (M)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message_type.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1671,27 +1585,17 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.server_packet_type = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_iseoptions_spreadorders_itch_v2_1.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.server_packet_type.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -1752,15 +1656,13 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.side = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.side.size = 1
 
 -- Display: Side
-nasdaq_iseoptions_spreadorders_itch_v2_1.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.side.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1828,42 +1730,22 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_type = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_type.size = 1
 
 -- Display: Strategy Type
-nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_type.display = function(value)
-  if value == "V" then
-    return "Strategy Type: Vertical Spread (V)"
-  end
-  if value == "T" then
-    return "Strategy Type: Time Spread (T)"
-  end
-  if value == "D" then
-    return "Strategy Type: Diagonal Spread (D)"
-  end
-  if value == "S" then
-    return "Strategy Type: Straddle (S)"
-  end
-  if value == "G" then
-    return "Strategy Type: Strangle (G)"
-  end
-  if value == "C" then
-    return "Strategy Type: Combo (C)"
-  end
-  if value == "R" then
-    return "Strategy Type: Risk Reversal (R)"
-  end
-  if value == "A" then
-    return "Strategy Type: Ratio Spread (A)"
-  end
-  if value == "B" then
-    return "Strategy Type: Box Spread (B)"
-  end
-  if value == "F" then
-    return "Strategy Type: Butterfly Spread (F)"
-  end
-  if value == "U" then
-    return "Strategy Type: Custom (U)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_type.labels = {
+  ["V"] = "Strategy Type: Vertical Spread (V)",
+  ["T"] = "Strategy Type: Time Spread (T)",
+  ["D"] = "Strategy Type: Diagonal Spread (D)",
+  ["S"] = "Strategy Type: Straddle (S)",
+  ["G"] = "Strategy Type: Strangle (G)",
+  ["C"] = "Strategy Type: Combo (C)",
+  ["R"] = "Strategy Type: Risk Reversal (R)",
+  ["A"] = "Strategy Type: Ratio Spread (A)",
+  ["B"] = "Strategy Type: Box Spread (B)",
+  ["F"] = "Strategy Type: Butterfly Spread (F)",
+  ["U"] = "Strategy Type: Custom (U)",
+}
 
-  return "Strategy Type: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_type.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_type.labels[value] or "Strategy Type: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Type
@@ -1885,15 +1767,13 @@ nasdaq_iseoptions_spreadorders_itch_v2_1.time_in_force = {}
 nasdaq_iseoptions_spreadorders_itch_v2_1.time_in_force.size = 1
 
 -- Display: Time In Force
-nasdaq_iseoptions_spreadorders_itch_v2_1.time_in_force.display = function(value)
-  if value == "D" then
-    return "Time In Force: Day Order (D)"
-  end
-  if value == "G" then
-    return "Time In Force: Good Till Cancelled (G)"
-  end
+nasdaq_iseoptions_spreadorders_itch_v2_1.time_in_force.labels = {
+  ["D"] = "Time In Force: Day Order (D)",
+  ["G"] = "Time In Force: Good Till Cancelled (G)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+nasdaq_iseoptions_spreadorders_itch_v2_1.time_in_force.display = function(value)
+  return nasdaq_iseoptions_spreadorders_itch_v2_1.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -2633,26 +2513,18 @@ end
 nasdaq_iseoptions_spreadorders_itch_v2_1.udp_payload = {}
 
 -- Dissect: Udp Payload
+nasdaq_iseoptions_spreadorders_itch_v2_1.udp_payload.dispatch = {
+  ["S"] = nasdaq_iseoptions_spreadorders_itch_v2_1.system_event_message.dissect,
+  ["s"] = nasdaq_iseoptions_spreadorders_itch_v2_1.complex_strategy_directory_message.dissect,
+  ["H"] = nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_trading_action_message.dissect,
+  ["C"] = nasdaq_iseoptions_spreadorders_itch_v2_1.complex_add_order_message.dissect,
+  ["a"] = nasdaq_iseoptions_spreadorders_itch_v2_1.complex_strategy_auction_message.dissect,
+}
+
 nasdaq_iseoptions_spreadorders_itch_v2_1.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Strategy Directory Message
-  if message_type == "s" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.complex_strategy_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trading Action Message
-  if message_type == "H" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Add Order Message
-  if message_type == "C" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.complex_add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Strategy Auction Message
-  if message_type == "a" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.complex_strategy_auction_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_spreadorders_itch_v2_1.udp_payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2808,14 +2680,15 @@ end
 nasdaq_iseoptions_spreadorders_itch_v2_1.messages = {}
 
 -- Dissect: Messages
+nasdaq_iseoptions_spreadorders_itch_v2_1.messages.dispatch = {
+  [0] = nasdaq_iseoptions_spreadorders_itch_v2_1.heartbeat.dissect,
+  [65535] = nasdaq_iseoptions_spreadorders_itch_v2_1.end_of_session.dissect,
+}
+
 nasdaq_iseoptions_spreadorders_itch_v2_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_spreadorders_itch_v2_1.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
@@ -2985,30 +2858,19 @@ end
 nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message.dispatch = {
+  ["S"] = nasdaq_iseoptions_spreadorders_itch_v2_1.system_event_message.dissect,
+  ["s"] = nasdaq_iseoptions_spreadorders_itch_v2_1.complex_strategy_directory_message.dissect,
+  ["H"] = nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_trading_action_message.dissect,
+  ["C"] = nasdaq_iseoptions_spreadorders_itch_v2_1.complex_add_order_message.dissect,
+  ["a"] = nasdaq_iseoptions_spreadorders_itch_v2_1.complex_strategy_auction_message.dissect,
+  ["M"] = nasdaq_iseoptions_spreadorders_itch_v2_1.end_of_replay_sequence_message.dissect,
+}
+
 nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Strategy Directory Message
-  if sequenced_message_type == "s" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.complex_strategy_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Strategy Trading Action Message
-  if sequenced_message_type == "H" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.strategy_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Add Order Message
-  if sequenced_message_type == "C" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.complex_add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Strategy Auction Message
-  if sequenced_message_type == "a" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.complex_strategy_auction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Replay Sequence Message
-  if sequenced_message_type == "M" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.end_of_replay_sequence_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3251,30 +3113,19 @@ end
 nasdaq_iseoptions_spreadorders_itch_v2_1.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_iseoptions_spreadorders_itch_v2_1.server_payload.dispatch = {
+  ["+"] = nasdaq_iseoptions_spreadorders_itch_v2_1.debug_packet.dissect,
+  ["A"] = nasdaq_iseoptions_spreadorders_itch_v2_1.login_accepted_packet.dissect,
+  ["J"] = nasdaq_iseoptions_spreadorders_itch_v2_1.login_rejected_packet.dissect,
+  ["S"] = nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_iseoptions_spreadorders_itch_v2_1.server_heartbeat_packet.dissect,
+  ["Z"] = nasdaq_iseoptions_spreadorders_itch_v2_1.end_of_session_packet.dissect,
+}
+
 nasdaq_iseoptions_spreadorders_itch_v2_1.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat Packet
-  if server_packet_type == "H" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.server_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Packet
-  if server_packet_type == "Z" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.end_of_session_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_spreadorders_itch_v2_1.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3585,26 +3436,18 @@ end
 nasdaq_iseoptions_spreadorders_itch_v2_1.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_iseoptions_spreadorders_itch_v2_1.client_payload.dispatch = {
+  ["+"] = nasdaq_iseoptions_spreadorders_itch_v2_1.debug_packet.dissect,
+  ["L"] = nasdaq_iseoptions_spreadorders_itch_v2_1.login_request_packet.dissect,
+  ["U"] = nasdaq_iseoptions_spreadorders_itch_v2_1.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_iseoptions_spreadorders_itch_v2_1.client_heartbeat_packet.dissect,
+  ["O"] = nasdaq_iseoptions_spreadorders_itch_v2_1.logout_request_packet.dissect,
+}
+
 nasdaq_iseoptions_spreadorders_itch_v2_1.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Packet
-  if client_packet_type == "R" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.client_heartbeat_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Packet
-  if client_packet_type == "O" then
-    return nasdaq_iseoptions_spreadorders_itch_v2_1.logout_request_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_iseoptions_spreadorders_itch_v2_1.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

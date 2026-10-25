@@ -309,36 +309,20 @@ jpx_tseequities_tostnet_flex_v19_5.control_medium_classification = {}
 jpx_tseequities_tostnet_flex_v19_5.control_medium_classification.size = 2
 
 -- Display: Control Medium Classification
-jpx_tseequities_tostnet_flex_v19_5.control_medium_classification.display = function(value)
-  if value == "00" then
-    return "Control Medium Classification: Communication Control (00)"
-  end
-  if value == "02" then
-    return "Control Medium Classification: Issue Information Control (02)"
-  end
-  if value == "04" then
-    return "Control Medium Classification: Allday Information Control (04)"
-  end
-  if value == "05" then
-    return "Control Medium Classification: Health Check Control (05)"
-  end
-  if value == "06" then
-    return "Control Medium Classification: Stock Base Price Information Control (06)"
-  end
-  if value == "07" then
-    return "Control Medium Classification: CB Base Price Information Control (07)"
-  end
-  if value == "08" then
-    return "Control Medium Classification: Multicast Group Number Information Control (08)"
-  end
-  if value == "09" then
-    return "Control Medium Classification: Backup Information Control (09)"
-  end
-  if value == "90" then
-    return "Control Medium Classification: TCP Transmission Control (90)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.control_medium_classification.labels = {
+  ["00"] = "Control Medium Classification: Communication Control (00)",
+  ["02"] = "Control Medium Classification: Issue Information Control (02)",
+  ["04"] = "Control Medium Classification: Allday Information Control (04)",
+  ["05"] = "Control Medium Classification: Health Check Control (05)",
+  ["06"] = "Control Medium Classification: Stock Base Price Information Control (06)",
+  ["07"] = "Control Medium Classification: CB Base Price Information Control (07)",
+  ["08"] = "Control Medium Classification: Multicast Group Number Information Control (08)",
+  ["09"] = "Control Medium Classification: Backup Information Control (09)",
+  ["90"] = "Control Medium Classification: TCP Transmission Control (90)",
+}
 
-  return "Control Medium Classification: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.control_medium_classification.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.control_medium_classification.labels[value] or "Control Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Control Medium Classification
@@ -402,12 +386,12 @@ jpx_tseequities_tostnet_flex_v19_5.index_medium_classification = {}
 jpx_tseequities_tostnet_flex_v19_5.index_medium_classification.size = 2
 
 -- Display: Index Medium Classification
-jpx_tseequities_tostnet_flex_v19_5.index_medium_classification.display = function(value)
-  if value == "00" then
-    return "Index Medium Classification: Index Message (00)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.index_medium_classification.labels = {
+  ["00"] = "Index Medium Classification: Index Message (00)",
+}
 
-  return "Index Medium Classification: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.index_medium_classification.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.index_medium_classification.labels[value] or "Index Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Index Medium Classification
@@ -429,15 +413,13 @@ jpx_tseequities_tostnet_flex_v19_5.issue_basic_medium_classification = {}
 jpx_tseequities_tostnet_flex_v19_5.issue_basic_medium_classification.size = 2
 
 -- Display: Issue Basic Medium Classification
-jpx_tseequities_tostnet_flex_v19_5.issue_basic_medium_classification.display = function(value)
-  if value == "00" then
-    return "Issue Basic Medium Classification: Regular (00)"
-  end
-  if value == "01" then
-    return "Issue Basic Medium Classification: Special (01)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.issue_basic_medium_classification.labels = {
+  ["00"] = "Issue Basic Medium Classification: Regular (00)",
+  ["01"] = "Issue Basic Medium Classification: Special (01)",
+}
 
-  return "Issue Basic Medium Classification: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.issue_basic_medium_classification.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.issue_basic_medium_classification.labels[value] or "Issue Basic Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Basic Medium Classification
@@ -459,15 +441,13 @@ jpx_tseequities_tostnet_flex_v19_5.issue_classification_large_classification = {
 jpx_tseequities_tostnet_flex_v19_5.issue_classification_large_classification.size = 2
 
 -- Display: Issue Classification Large Classification
-jpx_tseequities_tostnet_flex_v19_5.issue_classification_large_classification.display = function(value)
-  if value == "01" then
-    return "Issue Classification Large Classification: Stockrelated (01)"
-  end
-  if value == "02" then
-    return "Issue Classification Large Classification: Cbrelated (02)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.issue_classification_large_classification.labels = {
+  ["01"] = "Issue Classification Large Classification: Stockrelated (01)",
+  ["02"] = "Issue Classification Large Classification: Cbrelated (02)",
+}
 
-  return "Issue Classification Large Classification: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.issue_classification_large_classification.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.issue_classification_large_classification.labels[value] or "Issue Classification Large Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification Large Classification
@@ -512,18 +492,14 @@ jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification = {}
 jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification.size = 2
 
 -- Display: Issue Realtime Medium Classification
-jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification.display = function(value)
-  if value == "00" then
-    return "Issue Realtime Medium Classification: New (00)"
-  end
-  if value == "01" then
-    return "Issue Realtime Medium Classification: Backup (01)"
-  end
-  if value == "02" then
-    return "Issue Realtime Medium Classification: Allday (02)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification.labels = {
+  ["00"] = "Issue Realtime Medium Classification: New (00)",
+  ["01"] = "Issue Realtime Medium Classification: Backup (01)",
+  ["02"] = "Issue Realtime Medium Classification: Allday (02)",
+}
 
-  return "Issue Realtime Medium Classification: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification.labels[value] or "Issue Realtime Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Realtime Medium Classification
@@ -587,18 +563,14 @@ jpx_tseequities_tostnet_flex_v19_5.market_identification_flag = {}
 jpx_tseequities_tostnet_flex_v19_5.market_identification_flag.size = 1
 
 -- Display: Market Identification Flag
-jpx_tseequities_tostnet_flex_v19_5.market_identification_flag.display = function(value)
-  if value == "1" then
-    return "Market Identification Flag: Singleissue Transaction (1)"
-  end
-  if value == "2" then
-    return "Market Identification Flag: Basket Transaction (2)"
-  end
-  if value == "3" then
-    return "Market Identification Flag: Closing Price Transaction (3)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.market_identification_flag.labels = {
+  ["1"] = "Market Identification Flag: Singleissue Transaction (1)",
+  ["2"] = "Market Identification Flag: Basket Transaction (2)",
+  ["3"] = "Market Identification Flag: Closing Price Transaction (3)",
+}
 
-  return "Market Identification Flag: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.market_identification_flag.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.market_identification_flag.labels[value] or "Market Identification Flag: Unknown("..value..")"
 end
 
 -- Dissect: Market Identification Flag
@@ -620,15 +592,13 @@ jpx_tseequities_tostnet_flex_v19_5.market_state_flag = {}
 jpx_tseequities_tostnet_flex_v19_5.market_state_flag.size = 2
 
 -- Display: Market State Flag
-jpx_tseequities_tostnet_flex_v19_5.market_state_flag.display = function(value)
-  if value == "D0" then
-    return "Market State Flag: Market Suspension (D0)"
-  end
-  if value == "D1" then
-    return "Market State Flag: Release From Market Suspension (D1)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.market_state_flag.labels = {
+  ["D0"] = "Market State Flag: Market Suspension (D0)",
+  ["D1"] = "Market State Flag: Release From Market Suspension (D1)",
+}
 
-  return "Market State Flag: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.market_state_flag.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.market_state_flag.labels[value] or "Market State Flag: Unknown("..value..")"
 end
 
 -- Dissect: Market State Flag
@@ -673,24 +643,16 @@ jpx_tseequities_tostnet_flex_v19_5.message_type_large_classification = {}
 jpx_tseequities_tostnet_flex_v19_5.message_type_large_classification.size = 1
 
 -- Display: Message Type Large Classification
-jpx_tseequities_tostnet_flex_v19_5.message_type_large_classification.display = function(value)
-  if value == "1" then
-    return "Message Type Large Classification: Issue Realtime Message (1)"
-  end
-  if value == "2" then
-    return "Message Type Large Classification: Statistics Message (2)"
-  end
-  if value == "3" then
-    return "Message Type Large Classification: Index Message (3)"
-  end
-  if value == "4" then
-    return "Message Type Large Classification: Issue Basic Message (4)"
-  end
-  if value == "9" then
-    return "Message Type Large Classification: Control Message (9)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.message_type_large_classification.labels = {
+  ["1"] = "Message Type Large Classification: Issue Realtime Message (1)",
+  ["2"] = "Message Type Large Classification: Statistics Message (2)",
+  ["3"] = "Message Type Large Classification: Index Message (3)",
+  ["4"] = "Message Type Large Classification: Issue Basic Message (4)",
+  ["9"] = "Message Type Large Classification: Control Message (9)",
+}
 
-  return "Message Type Large Classification: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.message_type_large_classification.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.message_type_large_classification.labels[value] or "Message Type Large Classification: Unknown("..value..")"
 end
 
 -- Dissect: Message Type Large Classification
@@ -867,15 +829,13 @@ jpx_tseequities_tostnet_flex_v19_5.separation_of_tag = {}
 jpx_tseequities_tostnet_flex_v19_5.separation_of_tag.size = 1
 
 -- Display: Separation Of Tag
-jpx_tseequities_tostnet_flex_v19_5.separation_of_tag.display = function(value)
-  if value == 19 then
-    return "Separation Of Tag: Separation Between Tag (19)"
-  end
-  if value == 17 then
-    return "Separation Of Tag: End Of Message (17)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.separation_of_tag.labels = {
+  [19] = "Separation Of Tag: Separation Between Tag (19)",
+  [17] = "Separation Of Tag: End Of Message (17)",
+}
 
-  return "Separation Of Tag: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.separation_of_tag.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.separation_of_tag.labels[value] or "Separation Of Tag: Unknown("..value..")"
 end
 
 -- Dissect: Separation Of Tag
@@ -1075,12 +1035,12 @@ jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification = {}
 jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification.size = 2
 
 -- Display: Statistics Medium Classification
-jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification.display = function(value)
-  if value == "00" then
-    return "Statistics Medium Classification: Statistics Message (00)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification.labels = {
+  ["00"] = "Statistics Medium Classification: Statistics Message (00)",
+}
 
-  return "Statistics Medium Classification: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification.labels[value] or "Statistics Medium Classification: Unknown("..value..")"
 end
 
 -- Dissect: Statistics Medium Classification
@@ -1171,18 +1131,14 @@ jpx_tseequities_tostnet_flex_v19_5.tag_id = {}
 jpx_tseequities_tostnet_flex_v19_5.tag_id.size = 2
 
 -- Display: Tag ID
-jpx_tseequities_tostnet_flex_v19_5.tag_id.display = function(value)
-  if value == "TI" then
-    return "Tag ID: ToSTNeT By-Issue Information Message (TI)"
-  end
-  if value == "TM" then
-    return "Tag ID: ToSTNeT Market Information Message (TM)"
-  end
-  if value == "LC" then
-    return "Tag ID: Control Message (LC)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.tag_id.labels = {
+  ["TI"] = "Tag ID: ToSTNeT By-Issue Information Message (TI)",
+  ["TM"] = "Tag ID: ToSTNeT Market Information Message (TM)",
+  ["LC"] = "Tag ID: Control Message (LC)",
+}
 
-  return "Tag ID: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.tag_id.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.tag_id.labels[value] or "Tag ID: Unknown("..value..")"
 end
 
 -- Dissect: Tag ID
@@ -1204,15 +1160,13 @@ jpx_tseequities_tostnet_flex_v19_5.test_mode_flag = {}
 jpx_tseequities_tostnet_flex_v19_5.test_mode_flag.size = 1
 
 -- Display: Test Mode Flag
-jpx_tseequities_tostnet_flex_v19_5.test_mode_flag.display = function(value)
-  if value == "1" then
-    return "Test Mode Flag: Real Operation (1)"
-  end
-  if value == "2" then
-    return "Test Mode Flag: Test Operation (2)"
-  end
+jpx_tseequities_tostnet_flex_v19_5.test_mode_flag.labels = {
+  ["1"] = "Test Mode Flag: Real Operation (1)",
+  ["2"] = "Test Mode Flag: Test Operation (2)",
+}
 
-  return "Test Mode Flag: Unknown("..value..")"
+jpx_tseequities_tostnet_flex_v19_5.test_mode_flag.display = function(value)
+  return jpx_tseequities_tostnet_flex_v19_5.test_mode_flag.labels[value] or "Test Mode Flag: Unknown("..value..")"
 end
 
 -- Dissect: Test Mode Flag
@@ -1903,18 +1857,16 @@ end
 jpx_tseequities_tostnet_flex_v19_5.payload = {}
 
 -- Dissect: Payload
+jpx_tseequities_tostnet_flex_v19_5.payload.dispatch = {
+  ["TI"] = jpx_tseequities_tostnet_flex_v19_5.tostnet_byissue_information_message.dissect,
+  ["TM"] = jpx_tseequities_tostnet_flex_v19_5.tostnet_market_information_message.dissect,
+  ["LC"] = jpx_tseequities_tostnet_flex_v19_5.control_message.dissect,
+}
+
 jpx_tseequities_tostnet_flex_v19_5.payload.dissect = function(buffer, offset, packet, parent, tag_id)
-  -- Dissect ToSTNeT By-Issue Information Message
-  if tag_id == "TI" then
-    return jpx_tseequities_tostnet_flex_v19_5.tostnet_byissue_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect ToSTNeT Market Information Message
-  if tag_id == "TM" then
-    return jpx_tseequities_tostnet_flex_v19_5.tostnet_market_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message
-  if tag_id == "LC" then
-    return jpx_tseequities_tostnet_flex_v19_5.control_message.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_tostnet_flex_v19_5.payload.dispatch[tag_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2147,26 +2099,18 @@ end
 jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification = {}
 
 -- Dissect: Message Type Medium Classification
+jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification.dispatch = {
+  ["1"] = jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification.dissect,
+  ["2"] = jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification.dissect,
+  ["3"] = jpx_tseequities_tostnet_flex_v19_5.index_medium_classification.dissect,
+  ["4"] = jpx_tseequities_tostnet_flex_v19_5.issue_basic_medium_classification.dissect,
+  ["9"] = jpx_tseequities_tostnet_flex_v19_5.control_medium_classification.dissect,
+}
+
 jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification.dissect = function(buffer, offset, packet, parent, message_type_large_classification)
-  -- Dissect Issue Realtime Medium Classification
-  if message_type_large_classification == "1" then
-    return jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Statistics Medium Classification
-  if message_type_large_classification == "2" then
-    return jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Medium Classification
-  if message_type_large_classification == "3" then
-    return jpx_tseequities_tostnet_flex_v19_5.index_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Basic Medium Classification
-  if message_type_large_classification == "4" then
-    return jpx_tseequities_tostnet_flex_v19_5.issue_basic_medium_classification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Medium Classification
-  if message_type_large_classification == "9" then
-    return jpx_tseequities_tostnet_flex_v19_5.control_medium_classification.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification.dispatch[message_type_large_classification]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

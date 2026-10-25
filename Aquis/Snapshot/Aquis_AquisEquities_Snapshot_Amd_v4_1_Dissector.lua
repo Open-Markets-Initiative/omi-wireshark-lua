@@ -239,21 +239,15 @@ aquis_aquisequities_snapshot_amd_v4_1.msg_type = {}
 aquis_aquisequities_snapshot_amd_v4_1.msg_type.size = 1
 
 -- Display: Msg Type
-aquis_aquisequities_snapshot_amd_v4_1.msg_type.display = function(value)
-  if value == 10 then
-    return "Msg Type: Snapshot Start Message (10)"
-  end
-  if value == 11 then
-    return "Msg Type: Book Status Message (11)"
-  end
-  if value == 12 then
-    return "Msg Type: Book Entry Message (12)"
-  end
-  if value == 18 then
-    return "Msg Type: Ma C Book Entry Message (18)"
-  end
+aquis_aquisequities_snapshot_amd_v4_1.msg_type.labels = {
+  [10] = "Msg Type: Snapshot Start Message (10)",
+  [11] = "Msg Type: Book Status Message (11)",
+  [12] = "Msg Type: Book Entry Message (12)",
+  [18] = "Msg Type: Ma C Book Entry Message (18)",
+}
 
-  return "Msg Type: Unknown("..value..")"
+aquis_aquisequities_snapshot_amd_v4_1.msg_type.display = function(value)
+  return aquis_aquisequities_snapshot_amd_v4_1.msg_type.labels[value] or "Msg Type: Unknown("..value..")"
 end
 
 -- Dissect: Msg Type
@@ -413,15 +407,13 @@ aquis_aquisequities_snapshot_amd_v4_1.side = {}
 aquis_aquisequities_snapshot_amd_v4_1.side.size = 1
 
 -- Display: Side
-aquis_aquisequities_snapshot_amd_v4_1.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy Order (1)"
-  end
-  if value == 2 then
-    return "Side: Sell Order (2)"
-  end
+aquis_aquisequities_snapshot_amd_v4_1.side.labels = {
+  [1] = "Side: Buy Order (1)",
+  [2] = "Side: Sell Order (2)",
+}
 
-  return "Side: Unknown("..value..")"
+aquis_aquisequities_snapshot_amd_v4_1.side.display = function(value)
+  return aquis_aquisequities_snapshot_amd_v4_1.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -489,24 +481,16 @@ aquis_aquisequities_snapshot_amd_v4_1.trading_status = {}
 aquis_aquisequities_snapshot_amd_v4_1.trading_status.size = 1
 
 -- Display: Trading Status
-aquis_aquisequities_snapshot_amd_v4_1.trading_status.display = function(value)
-  if value == 1 then
-    return "Trading Status: Active (1)"
-  end
-  if value == 2 then
-    return "Trading Status: Halted (2)"
-  end
-  if value == 3 then
-    return "Trading Status: Suspended (3)"
-  end
-  if value == 8 then
-    return "Trading Status: Ao D Start (8)"
-  end
-  if value == 24 then
-    return "Trading Status: Ao D End (24)"
-  end
+aquis_aquisequities_snapshot_amd_v4_1.trading_status.labels = {
+  [1] = "Trading Status: Active (1)",
+  [2] = "Trading Status: Halted (2)",
+  [3] = "Trading Status: Suspended (3)",
+  [8] = "Trading Status: Ao D Start (8)",
+  [24] = "Trading Status: Ao D End (24)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+aquis_aquisequities_snapshot_amd_v4_1.trading_status.display = function(value)
+  return aquis_aquisequities_snapshot_amd_v4_1.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -811,22 +795,17 @@ end
 aquis_aquisequities_snapshot_amd_v4_1.payload = {}
 
 -- Dissect: Payload
+aquis_aquisequities_snapshot_amd_v4_1.payload.dispatch = {
+  [10] = aquis_aquisequities_snapshot_amd_v4_1.snapshot_start_message.dissect,
+  [11] = aquis_aquisequities_snapshot_amd_v4_1.book_status_message.dissect,
+  [12] = aquis_aquisequities_snapshot_amd_v4_1.book_entry_message.dissect,
+  [18] = aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.dissect,
+}
+
 aquis_aquisequities_snapshot_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Snapshot Start Message
-  if msg_type == 10 then
-    return aquis_aquisequities_snapshot_amd_v4_1.snapshot_start_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Book Status Message
-  if msg_type == 11 then
-    return aquis_aquisequities_snapshot_amd_v4_1.book_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Book Entry Message
-  if msg_type == 12 then
-    return aquis_aquisequities_snapshot_amd_v4_1.book_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Ma C Book Entry Message
-  if msg_type == 18 then
-    return aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.dissect(buffer, offset, packet, parent)
+  local dissect = aquis_aquisequities_snapshot_amd_v4_1.payload.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

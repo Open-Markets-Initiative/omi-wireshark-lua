@@ -372,24 +372,16 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_packet_type = {}
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Client Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Client Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Client Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Client Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Client Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_packet_type.labels = {
+  ["+"] = "Client Packet Type: Debug Packet (+)",
+  ["L"] = "Client Packet Type: Login Request Packet (L)",
+  ["U"] = "Client Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Client Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Client Packet Type: Logout Request Packet (O)",
+}
 
-  return "Client Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_packet_type.display = function(value)
+  return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_packet_type.labels[value] or "Client Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -411,15 +403,13 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.display = {}
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.display.size = 1
 
 -- Display: Display
-nasdaq_nsmequities_totalview_asciiitch_v2_0_a.display.display = function(value)
-  if value == "Y" then
-    return "Display: Displayed (Y)"
-  end
-  if value == "A" then
-    return "Display: Attributable (A)"
-  end
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.display.labels = {
+  ["Y"] = "Display: Displayed (Y)",
+  ["A"] = "Display: Attributable (A)",
+}
 
-  return "Display: Unknown("..value..")"
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.display.display = function(value)
+  return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.display.labels[value] or "Display: Unknown("..value..")"
 end
 
 -- Dissect: Display
@@ -441,15 +431,13 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.event_code = {}
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_totalview_asciiitch_v2_0_a.event_code.display = function(value)
-  if value == "S" then
-    return "Event Code: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Event Code: End Of Day (E)"
-  end
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.event_code.labels = {
+  ["S"] = "Event Code: Start Of Day (S)",
+  ["E"] = "Event Code: End Of Day (E)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.event_code.display = function(value)
+  return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -579,30 +567,18 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_type = {}
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "X" then
-    return "Message Type: Order Cancel Message (X)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "B" then
-    return "Message Type: Broken Trade Message (B)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Halt Status Message (H)"
-  end
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["X"] = "Message Type: Order Cancel Message (X)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["B"] = "Message Type: Broken Trade Message (B)",
+  ["H"] = "Message Type: Stock Halt Status Message (H)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_type.display = function(value)
+  return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -839,24 +815,16 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_packet_type = {}
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Server Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Server Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Server Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Server Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Server Packet Type: Server Heartbeat Packet (H)"
-  end
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_packet_type.labels = {
+  ["+"] = "Server Packet Type: Debug Packet (+)",
+  ["A"] = "Server Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Server Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Server Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Server Packet Type: Server Heartbeat Packet (H)",
+}
 
-  return "Server Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_packet_type.display = function(value)
+  return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_packet_type.labels[value] or "Server Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -932,15 +900,13 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.side = {}
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.side.size = 1
 
 -- Display: Side
-nasdaq_nsmequities_totalview_asciiitch_v2_0_a.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.side.display = function(value)
+  return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1012,15 +978,13 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halted = {}
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halted.size = 1
 
 -- Display: Stock Halted
-nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halted.display = function(value)
-  if value == "T" then
-    return "Stock Halted: Halted (T)"
-  end
-  if value == "F" then
-    return "Stock Halted: Trading (F)"
-  end
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halted.labels = {
+  ["T"] = "Stock Halted: Halted (T)",
+  ["F"] = "Stock Halted: Trading (F)",
+}
 
-  return "Stock Halted: Unknown("..value..")"
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halted.display = function(value)
+  return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halted.labels[value] or "Stock Halted: Unknown("..value..")"
 end
 
 -- Dissect: Stock Halted
@@ -1500,34 +1464,20 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload = {}
 
 -- Dissect: Payload
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload.dispatch = {
+  ["S"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.system_event_message.dissect,
+  ["A"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.add_order_message.dissect,
+  ["E"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.order_executed_message.dissect,
+  ["X"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.order_cancel_message.dissect,
+  ["P"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.trade_message.dissect,
+  ["B"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.broken_trade_message.dissect,
+  ["H"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halt_status_message.dissect,
+}
+
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if message_type == "B" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Halt Status Message
-  if message_type == "H" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halt_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1652,10 +1602,14 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_body = {}
 
 -- Dissect: Message Body
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_body.dispatch = {
+  [0] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.end_of_session.dissect,
+}
+
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect End Of Session
-  if message_length == 0 then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Message Data
@@ -1748,10 +1702,14 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.messages = {}
 
 -- Dissect: Messages
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.messages.dispatch = {
+  [0] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.heartbeat.dissect,
+}
+
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
@@ -1857,34 +1815,20 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.system_event_message.dissect,
+  ["A"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.add_order_message.dissect,
+  ["E"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.order_executed_message.dissect,
+  ["X"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.order_cancel_message.dissect,
+  ["P"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.trade_message.dissect,
+  ["B"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.broken_trade_message.dissect,
+  ["H"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halt_status_message.dissect,
+}
+
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Message
-  if message_type == "X" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.order_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if message_type == "B" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Halt Status Message
-  if message_type == "H" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halt_status_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2127,22 +2071,17 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.debug_packet.dissect,
+  ["A"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_data_packet.dissect,
+}
+
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2402,18 +2341,16 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.debug_packet.dissect,
+  ["L"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.login_request_packet.dissect,
+  ["U"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.unsequenced_data_packet.dissect,
+}
+
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nsmequities_totalview_asciiitch_v2_0_a.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

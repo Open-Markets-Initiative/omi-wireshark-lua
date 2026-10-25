@@ -310,24 +310,16 @@ gpw_bondspot_indices_xdp_v6_8.delivery_flag = {}
 gpw_bondspot_indices_xdp_v6_8.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-gpw_bondspot_indices_xdp_v6_8.delivery_flag.display = function(value)
-  if value == 0 then
-    return "Delivery Flag: Real Time Message Uncompressed (0)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Retransmission Message Uncompressed (2)"
-  end
-  if value == 16 then
-    return "Delivery Flag: Real Time Message Zlib Compressed (16)"
-  end
-  if value == 17 then
-    return "Delivery Flag: Refresh Message Zlib Compressed (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Retransmission Message Compressed (18)"
-  end
+gpw_bondspot_indices_xdp_v6_8.delivery_flag.labels = {
+  [0] = "Delivery Flag: Real Time Message Uncompressed (0)",
+  [2] = "Delivery Flag: Retransmission Message Uncompressed (2)",
+  [16] = "Delivery Flag: Real Time Message Zlib Compressed (16)",
+  [17] = "Delivery Flag: Refresh Message Zlib Compressed (17)",
+  [18] = "Delivery Flag: Retransmission Message Compressed (18)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.delivery_flag.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -372,15 +364,13 @@ gpw_bondspot_indices_xdp_v6_8.dissemination_frequency_marker = {}
 gpw_bondspot_indices_xdp_v6_8.dissemination_frequency_marker.size = 1
 
 -- Display: Dissemination Frequency Marker
-gpw_bondspot_indices_xdp_v6_8.dissemination_frequency_marker.display = function(value)
-  if value == "0" then
-    return "Dissemination Frequency Marker: When The Message At A Particular Level Is Published Regularly At The Session (0)"
-  end
-  if value == "1" then
-    return "Dissemination Frequency Marker: When The Message At A Particular Level Is Published At The Session On A One Time Basis (1)"
-  end
+gpw_bondspot_indices_xdp_v6_8.dissemination_frequency_marker.labels = {
+  ["0"] = "Dissemination Frequency Marker: When The Message At A Particular Level Is Published Regularly At The Session (0)",
+  ["1"] = "Dissemination Frequency Marker: When The Message At A Particular Level Is Published At The Session On A One Time Basis (1)",
+}
 
-  return "Dissemination Frequency Marker: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.dissemination_frequency_marker.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.dissemination_frequency_marker.labels[value] or "Dissemination Frequency Marker: Unknown("..value..")"
 end
 
 -- Dissect: Dissemination Frequency Marker
@@ -540,45 +530,23 @@ gpw_bondspot_indices_xdp_v6_8.index_level_code = {}
 gpw_bondspot_indices_xdp_v6_8.index_level_code.size = 1
 
 -- Display: Index Level Code
-gpw_bondspot_indices_xdp_v6_8.index_level_code.display = function(value)
-  if value == "1" then
-    return "Index Level Code: First Value Of The Index At The Session (1)"
-  end
-  if value == "2" then
-    return "Index Level Code: Current Index (2)"
-  end
-  if value == "3" then
-    return "Index Level Code: Theoretical Value Of The Index Before Its Opening (3)"
-  end
-  if value == "5" then
-    return "Index Level Code: Closing Index From Previous Session Reference Index (5)"
-  end
-  if value == "8" then
-    return "Index Level Code: Theoretical Opening Index Before Opening The Session (8)"
-  end
-  if value == "9" then
-    return "Index Level Code: Index Without Opening (9)"
-  end
-  if value == "A" then
-    return "Index Level Code: Preliminary Opening Index (A)"
-  end
-  if value == "B" then
-    return "Index Level Code: Synthetic Opening Index 100% (B)"
-  end
-  if value == "C" then
-    return "Index Level Code: Final Opening Index (C)"
-  end
-  if value == "R" then
-    return "Index Level Code: Average Weighted Index (R)"
-  end
-  if value == "X" then
-    return "Index Level Code: Cancellation Of The Current Values Of The Index (X)"
-  end
-  if value == "Y" then
-    return "Index Level Code: Recalculated Current Values Of The Index (Y)"
-  end
+gpw_bondspot_indices_xdp_v6_8.index_level_code.labels = {
+  ["1"] = "Index Level Code: First Value Of The Index At The Session (1)",
+  ["2"] = "Index Level Code: Current Index (2)",
+  ["3"] = "Index Level Code: Theoretical Value Of The Index Before Its Opening (3)",
+  ["5"] = "Index Level Code: Closing Index From Previous Session Reference Index (5)",
+  ["8"] = "Index Level Code: Theoretical Opening Index Before Opening The Session (8)",
+  ["9"] = "Index Level Code: Index Without Opening (9)",
+  ["A"] = "Index Level Code: Preliminary Opening Index (A)",
+  ["B"] = "Index Level Code: Synthetic Opening Index 100% (B)",
+  ["C"] = "Index Level Code: Final Opening Index (C)",
+  ["R"] = "Index Level Code: Average Weighted Index (R)",
+  ["X"] = "Index Level Code: Cancellation Of The Current Values Of The Index (X)",
+  ["Y"] = "Index Level Code: Recalculated Current Values Of The Index (Y)",
+}
 
-  return "Index Level Code: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.index_level_code.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.index_level_code.labels[value] or "Index Level Code: Unknown("..value..")"
 end
 
 -- Dissect: Index Level Code
@@ -623,33 +591,19 @@ gpw_bondspot_indices_xdp_v6_8.index_status_indicator = {}
 gpw_bondspot_indices_xdp_v6_8.index_status_indicator.size = 2
 
 -- Display: Index Status Indicator
-gpw_bondspot_indices_xdp_v6_8.index_status_indicator.display = function(value)
-  if value == "PS" then
-    return "Index Status Indicator: Preparation Of The New Session (PS)"
-  end
-  if value == "ZI" then
-    return "Index Status Indicator: Index Setting (ZI)"
-  end
-  if value == "TO" then
-    return "Index Status Indicator: Theoretical Opening (TO)"
-  end
-  if value == "PO" then
-    return "Index Status Indicator: Before Opening (PO)"
-  end
-  if value == "SI" then
-    return "Index Status Indicator: Session (SI)"
-  end
-  if value == "ZW" then
-    return "Index Status Indicator: Preliminary Closing (ZW)"
-  end
-  if value == "IM" then
-    return "Index Status Indicator: Index Manager Intervention (IM)"
-  end
-  if value == "ZO" then
-    return "Index Status Indicator: Final Closing (ZO)"
-  end
+gpw_bondspot_indices_xdp_v6_8.index_status_indicator.labels = {
+  ["PS"] = "Index Status Indicator: Preparation Of The New Session (PS)",
+  ["ZI"] = "Index Status Indicator: Index Setting (ZI)",
+  ["TO"] = "Index Status Indicator: Theoretical Opening (TO)",
+  ["PO"] = "Index Status Indicator: Before Opening (PO)",
+  ["SI"] = "Index Status Indicator: Session (SI)",
+  ["ZW"] = "Index Status Indicator: Preliminary Closing (ZW)",
+  ["IM"] = "Index Status Indicator: Index Manager Intervention (IM)",
+  ["ZO"] = "Index Status Indicator: Final Closing (ZO)",
+}
 
-  return "Index Status Indicator: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.index_status_indicator.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.index_status_indicator.labels[value] or "Index Status Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Index Status Indicator
@@ -1109,15 +1063,13 @@ gpw_bondspot_indices_xdp_v6_8.message_continuation = {}
 gpw_bondspot_indices_xdp_v6_8.message_continuation.size = 1
 
 -- Display: Message Continuation
-gpw_bondspot_indices_xdp_v6_8.message_continuation.display = function(value)
-  if value == "0" then
-    return "Message Continuation: The Message Is Not The Last Message Information Of The Composition Of The Index Portfolio (0)"
-  end
-  if value == "1" then
-    return "Message Continuation: The Message Is The Last Message Information Of The Composition Of The Index Portfolio (1)"
-  end
+gpw_bondspot_indices_xdp_v6_8.message_continuation.labels = {
+  ["0"] = "Message Continuation: The Message Is Not The Last Message Information Of The Composition Of The Index Portfolio (0)",
+  ["1"] = "Message Continuation: The Message Is The Last Message Information Of The Composition Of The Index Portfolio (1)",
+}
 
-  return "Message Continuation: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.message_continuation.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.message_continuation.labels[value] or "Message Continuation: Unknown("..value..")"
 end
 
 -- Dissect: Message Continuation
@@ -1162,18 +1114,14 @@ gpw_bondspot_indices_xdp_v6_8.message_type = {}
 gpw_bondspot_indices_xdp_v6_8.message_type.size = 2
 
 -- Display: Message Type
-gpw_bondspot_indices_xdp_v6_8.message_type.display = function(value)
-  if value == 546 then
-    return "Message Type: Real Time Index Message (546)"
-  end
-  if value == 547 then
-    return "Message Type: Index Summary Message (547)"
-  end
-  if value == 548 then
-    return "Message Type: Index Portfolio Message (548)"
-  end
+gpw_bondspot_indices_xdp_v6_8.message_type.labels = {
+  [546] = "Message Type: Real Time Index Message (546)",
+  [547] = "Message Type: Index Summary Message (547)",
+  [548] = "Message Type: Index Portfolio Message (548)",
+}
 
-  return "Message Type: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.message_type.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1218,15 +1166,13 @@ gpw_bondspot_indices_xdp_v6_8.mode_index_dissemination = {}
 gpw_bondspot_indices_xdp_v6_8.mode_index_dissemination.size = 1
 
 -- Display: Mode Index Dissemination
-gpw_bondspot_indices_xdp_v6_8.mode_index_dissemination.display = function(value)
-  if value == "C" then
-    return "Mode Index Dissemination: Index Is Quoted In Determined Time Intervals (C)"
-  end
-  if value == "F" then
-    return "Mode Index Dissemination: Index Is Quoted On Determined Hours (F)"
-  end
+gpw_bondspot_indices_xdp_v6_8.mode_index_dissemination.labels = {
+  ["C"] = "Mode Index Dissemination: Index Is Quoted In Determined Time Intervals (C)",
+  ["F"] = "Mode Index Dissemination: Index Is Quoted On Determined Hours (F)",
+}
 
-  return "Mode Index Dissemination: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.mode_index_dissemination.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.mode_index_dissemination.labels[value] or "Mode Index Dissemination: Unknown("..value..")"
 end
 
 -- Dissect: Mode Index Dissemination
@@ -1386,15 +1332,13 @@ gpw_bondspot_indices_xdp_v6_8.opening_calc_formula = {}
 gpw_bondspot_indices_xdp_v6_8.opening_calc_formula.size = 1
 
 -- Display: Opening Calc Formula
-gpw_bondspot_indices_xdp_v6_8.opening_calc_formula.display = function(value)
-  if value == "S" then
-    return "Opening Calc Formula: Synthetic (S)"
-  end
-  if value == "O" then
-    return "Opening Calc Formula: Chronological (O)"
-  end
+gpw_bondspot_indices_xdp_v6_8.opening_calc_formula.labels = {
+  ["S"] = "Opening Calc Formula: Synthetic (S)",
+  ["O"] = "Opening Calc Formula: Chronological (O)",
+}
 
-  return "Opening Calc Formula: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.opening_calc_formula.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.opening_calc_formula.labels[value] or "Opening Calc Formula: Unknown("..value..")"
 end
 
 -- Dissect: Opening Calc Formula
@@ -1485,12 +1429,12 @@ gpw_bondspot_indices_xdp_v6_8.packet_type = {}
 gpw_bondspot_indices_xdp_v6_8.packet_type.size = 2
 
 -- Display: Packet Type
-gpw_bondspot_indices_xdp_v6_8.packet_type.display = function(value)
-  if value == 501 then
-    return "Packet Type: Market Data Messages (501)"
-  end
+gpw_bondspot_indices_xdp_v6_8.packet_type.labels = {
+  [501] = "Packet Type: Market Data Messages (501)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.packet_type.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -1650,27 +1594,17 @@ gpw_bondspot_indices_xdp_v6_8.product_classification = {}
 gpw_bondspot_indices_xdp_v6_8.product_classification.size = 1
 
 -- Display: Product Classification
-gpw_bondspot_indices_xdp_v6_8.product_classification.display = function(value)
-  if value == "W" then
-    return "Product Classification: Wse Index From The Main Market (W)"
-  end
-  if value == "Z" then
-    return "Product Classification: External Index (Z)"
-  end
-  if value == "V" then
-    return "Product Classification: Another Wse Information Product (V)"
-  end
-  if value == "M" then
-    return "Product Classification: Wse Strategy Dividend Point Index (M)"
-  end
-  if value == "S" then
-    return "Product Classification: Wse Strategy Index Of Short Type (S)"
-  end
-  if value == "L" then
-    return "Product Classification: Wse Strategy Index Of Leverage Type (L)"
-  end
+gpw_bondspot_indices_xdp_v6_8.product_classification.labels = {
+  ["W"] = "Product Classification: Wse Index From The Main Market (W)",
+  ["Z"] = "Product Classification: External Index (Z)",
+  ["V"] = "Product Classification: Another Wse Information Product (V)",
+  ["M"] = "Product Classification: Wse Strategy Dividend Point Index (M)",
+  ["S"] = "Product Classification: Wse Strategy Index Of Short Type (S)",
+  ["L"] = "Product Classification: Wse Strategy Index Of Leverage Type (L)",
+}
 
-  return "Product Classification: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.product_classification.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.product_classification.labels[value] or "Product Classification: Unknown("..value..")"
 end
 
 -- Dissect: Product Classification
@@ -1919,15 +1853,13 @@ gpw_bondspot_indices_xdp_v6_8.spread_dissemination = {}
 gpw_bondspot_indices_xdp_v6_8.spread_dissemination.size = 1
 
 -- Display: Spread Dissemination
-gpw_bondspot_indices_xdp_v6_8.spread_dissemination.display = function(value)
-  if value == "Y" then
-    return "Spread Dissemination: Spread Indicators Are Published (Y)"
-  end
-  if value == "N" then
-    return "Spread Dissemination: Spread Indicators Are Not Published (N)"
-  end
+gpw_bondspot_indices_xdp_v6_8.spread_dissemination.labels = {
+  ["Y"] = "Spread Dissemination: Spread Indicators Are Published (Y)",
+  ["N"] = "Spread Dissemination: Spread Indicators Are Not Published (N)",
+}
 
-  return "Spread Dissemination: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.spread_dissemination.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.spread_dissemination.labels[value] or "Spread Dissemination: Unknown("..value..")"
 end
 
 -- Dissect: Spread Dissemination
@@ -1972,18 +1904,14 @@ gpw_bondspot_indices_xdp_v6_8.system_id = {}
 gpw_bondspot_indices_xdp_v6_8.system_id.size = 4
 
 -- Display: System Id
-gpw_bondspot_indices_xdp_v6_8.system_id.display = function(value)
-  if value == 1 then
-    return "System Id: All Non Utp Systems (1)"
-  end
-  if value == 11 then
-    return "System Id: Utp Trading Unit 1 (11)"
-  end
-  if value == 12 then
-    return "System Id: Utp Trading Unit 2 (12)"
-  end
+gpw_bondspot_indices_xdp_v6_8.system_id.labels = {
+  [1] = "System Id: All Non Utp Systems (1)",
+  [11] = "System Id: Utp Trading Unit 1 (11)",
+  [12] = "System Id: Utp Trading Unit 2 (12)",
+}
 
-  return "System Id: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.system_id.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.system_id.labels[value] or "System Id: Unknown("..value..")"
 end
 
 -- Dissect: System Id
@@ -2217,15 +2145,13 @@ gpw_bondspot_indices_xdp_v6_8.toi_dissemination = {}
 gpw_bondspot_indices_xdp_v6_8.toi_dissemination.size = 1
 
 -- Display: Toi Dissemination
-gpw_bondspot_indices_xdp_v6_8.toi_dissemination.display = function(value)
-  if value == "Y" then
-    return "Toi Dissemination: Message 546 With Level 8 Is Sent (Y)"
-  end
-  if value == "N" then
-    return "Toi Dissemination: Message 546 With Level 8 Is Not Sent (N)"
-  end
+gpw_bondspot_indices_xdp_v6_8.toi_dissemination.labels = {
+  ["Y"] = "Toi Dissemination: Message 546 With Level 8 Is Sent (Y)",
+  ["N"] = "Toi Dissemination: Message 546 With Level 8 Is Not Sent (N)",
+}
 
-  return "Toi Dissemination: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.toi_dissemination.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.toi_dissemination.labels[value] or "Toi Dissemination: Unknown("..value..")"
 end
 
 -- Dissect: Toi Dissemination
@@ -2247,15 +2173,13 @@ gpw_bondspot_indices_xdp_v6_8.trading_value_publication = {}
 gpw_bondspot_indices_xdp_v6_8.trading_value_publication.size = 1
 
 -- Display: Trading Value Publication
-gpw_bondspot_indices_xdp_v6_8.trading_value_publication.display = function(value)
-  if value == "Y" then
-    return "Trading Value Publication: Value Is Provided (Y)"
-  end
-  if value == "N" then
-    return "Trading Value Publication: Value Is Not Provided (N)"
-  end
+gpw_bondspot_indices_xdp_v6_8.trading_value_publication.labels = {
+  ["Y"] = "Trading Value Publication: Value Is Provided (Y)",
+  ["N"] = "Trading Value Publication: Value Is Not Provided (N)",
+}
 
-  return "Trading Value Publication: Unknown("..value..")"
+gpw_bondspot_indices_xdp_v6_8.trading_value_publication.display = function(value)
+  return gpw_bondspot_indices_xdp_v6_8.trading_value_publication.labels[value] or "Trading Value Publication: Unknown("..value..")"
 end
 
 -- Dissect: Trading Value Publication
@@ -2845,18 +2769,16 @@ end
 gpw_bondspot_indices_xdp_v6_8.payload = {}
 
 -- Dissect: Payload
+gpw_bondspot_indices_xdp_v6_8.payload.dispatch = {
+  [546] = gpw_bondspot_indices_xdp_v6_8.real_time_index_message.dissect,
+  [547] = gpw_bondspot_indices_xdp_v6_8.index_summary_message.dissect,
+  [548] = gpw_bondspot_indices_xdp_v6_8.index_portfolio_message.dissect,
+}
+
 gpw_bondspot_indices_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Real Time Index Message
-  if message_type == 546 then
-    return gpw_bondspot_indices_xdp_v6_8.real_time_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Summary Message
-  if message_type == 547 then
-    return gpw_bondspot_indices_xdp_v6_8.index_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Portfolio Message
-  if message_type == 548 then
-    return gpw_bondspot_indices_xdp_v6_8.index_portfolio_message.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_bondspot_indices_xdp_v6_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

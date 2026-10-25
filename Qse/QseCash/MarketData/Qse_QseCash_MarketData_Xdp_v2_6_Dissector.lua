@@ -331,33 +331,19 @@ qse_qsecash_marketdata_xdp_v2_6.action_affecting_state = {}
 qse_qsecash_marketdata_xdp_v2_6.action_affecting_state.size = 1
 
 -- Display: Action Affecting State
-qse_qsecash_marketdata_xdp_v2_6.action_affecting_state.display = function(value)
-  if value == "0" then
-    return "Action Affecting State: Not Applicable (0)"
-  end
-  if value == "C" then
-    return "Action Affecting State: Trading On The Instrument At The Opening Sent Before O (C)"
-  end
-  if value == "D" then
-    return "Action Affecting State: Cancelled Programmed Opening (D)"
-  end
-  if value == "M" then
-    return "Action Affecting State: Instrument Manually Halted By Market Operations (M)"
-  end
-  if value == "N" then
-    return "Action Affecting State: Instrument Is Being Initialized Beginning Of The Trading Day (N)"
-  end
-  if value == "O" then
-    return "Action Affecting State: Instrument Opened (O)"
-  end
-  if value == "P" then
-    return "Action Affecting State: Deferred Programmed Opening (P)"
-  end
-  if value == "R" then
-    return "Action Affecting State: Automatic Halting At The Class Auction (R)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.action_affecting_state.labels = {
+  ["0"] = "Action Affecting State: Not Applicable (0)",
+  ["C"] = "Action Affecting State: Trading On The Instrument At The Opening Sent Before O (C)",
+  ["D"] = "Action Affecting State: Cancelled Programmed Opening (D)",
+  ["M"] = "Action Affecting State: Instrument Manually Halted By Market Operations (M)",
+  ["N"] = "Action Affecting State: Instrument Is Being Initialized Beginning Of The Trading Day (N)",
+  ["O"] = "Action Affecting State: Instrument Opened (O)",
+  ["P"] = "Action Affecting State: Deferred Programmed Opening (P)",
+  ["R"] = "Action Affecting State: Automatic Halting At The Class Auction (R)",
+}
 
-  return "Action Affecting State: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.action_affecting_state.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.action_affecting_state.labels[value] or "Action Affecting State: Unknown("..value..")"
 end
 
 -- Dissect: Action Affecting State
@@ -379,24 +365,16 @@ qse_qsecash_marketdata_xdp_v2_6.action_type = {}
 qse_qsecash_marketdata_xdp_v2_6.action_type.size = 1
 
 -- Display: Action Type
-qse_qsecash_marketdata_xdp_v2_6.action_type.display = function(value)
-  if value == "A" then
-    return "Action Type: New Order (A)"
-  end
-  if value == "D" then
-    return "Action Type: Deletion Of Order Identified By Order Id (D)"
-  end
-  if value == "P" then
-    return "Action Type: Deletion Of Order Identified By Order Id And All Preceding Orders (P)"
-  end
-  if value == "F" then
-    return "Action Type: Deletion Of All Orders For The Given Instrument Depending On The (F)"
-  end
-  if value == "Y" then
-    return "Action Type: Retransmission Of All Orders For The Given Instrument (Y)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.action_type.labels = {
+  ["A"] = "Action Type: New Order (A)",
+  ["D"] = "Action Type: Deletion Of Order Identified By Order Id (D)",
+  ["P"] = "Action Type: Deletion Of Order Identified By Order Id And All Preceding Orders (P)",
+  ["F"] = "Action Type: Deletion Of All Orders For The Given Instrument Depending On The (F)",
+  ["Y"] = "Action Type: Retransmission Of All Orders For The Given Instrument (Y)",
+}
 
-  return "Action Type: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.action_type.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.action_type.labels[value] or "Action Type: Unknown("..value..")"
 end
 
 -- Dissect: Action Type
@@ -503,15 +481,13 @@ qse_qsecash_marketdata_xdp_v2_6.algo = {}
 qse_qsecash_marketdata_xdp_v2_6.algo.size = 1
 
 -- Display: Algo
-qse_qsecash_marketdata_xdp_v2_6.algo.display = function(value)
-  if value == "F" then
-    return "Algo: Fifo (F)"
-  end
-  if value == "O" then
-    return "Algo: Fifo Origin (O)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.algo.labels = {
+  ["F"] = "Algo: Fifo (F)",
+  ["O"] = "Algo: Fifo Origin (O)",
+}
 
-  return "Algo: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.algo.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.algo.labels[value] or "Algo: Unknown("..value..")"
 end
 
 -- Dissect: Algo
@@ -749,36 +725,20 @@ qse_qsecash_marketdata_xdp_v2_6.class_state = {}
 qse_qsecash_marketdata_xdp_v2_6.class_state.size = 4
 
 -- Display: Class State
-qse_qsecash_marketdata_xdp_v2_6.class_state.display = function(value)
-  if value == "COCA" then
-    return "Class State: Core Call (COCA)"
-  end
-  if value == "COAU" then
-    return "Class State: Core Auction (COAU)"
-  end
-  if value == "COCO" then
-    return "Class State: Core Continuous (COCO)"
-  end
-  if value == "CLCA" then
-    return "Class State: Closing Call (CLCA)"
-  end
-  if value == "CLAU" then
-    return "Class State: Closing Auction (CLAU)"
-  end
-  if value == "TAL" then
-    return "Class State: Trading At Last (TAL)"
-  end
-  if value == "COMO" then
-    return "Class State: Core Monitoring (COMO)"
-  end
-  if value == "LAMO" then
-    return "Class State: Late Monitoring (LAMO)"
-  end
-  if value == "HALT" then
-    return "Class State: Halted (HALT)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.class_state.labels = {
+  ["COCA"] = "Class State: Core Call (COCA)",
+  ["COAU"] = "Class State: Core Auction (COAU)",
+  ["COCO"] = "Class State: Core Continuous (COCO)",
+  ["CLCA"] = "Class State: Closing Call (CLCA)",
+  ["CLAU"] = "Class State: Closing Auction (CLAU)",
+  ["TAL"] = "Class State: Trading At Last (TAL)",
+  ["COMO"] = "Class State: Core Monitoring (COMO)",
+  ["LAMO"] = "Class State: Late Monitoring (LAMO)",
+  ["HALT"] = "Class State: Halted (HALT)",
+}
 
-  return "Class State: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.class_state.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.class_state.labels[value] or "Class State: Unknown("..value..")"
 end
 
 -- Dissect: Class State
@@ -989,15 +949,13 @@ qse_qsecash_marketdata_xdp_v2_6.collar_type = {}
 qse_qsecash_marketdata_xdp_v2_6.collar_type.size = 1
 
 -- Display: Collar Type
-qse_qsecash_marketdata_xdp_v2_6.collar_type.display = function(value)
-  if value == "D" then
-    return "Collar Type: Dynamic Collars (D)"
-  end
-  if value == "S" then
-    return "Collar Type: Static Thresholds (S)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.collar_type.labels = {
+  ["D"] = "Collar Type: Dynamic Collars (D)",
+  ["S"] = "Collar Type: Static Thresholds (S)",
+}
 
-  return "Collar Type: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.collar_type.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.collar_type.labels[value] or "Collar Type: Unknown("..value..")"
 end
 
 -- Dissect: Collar Type
@@ -1115,18 +1073,14 @@ qse_qsecash_marketdata_xdp_v2_6.delivery_flag = {}
 qse_qsecash_marketdata_xdp_v2_6.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-qse_qsecash_marketdata_xdp_v2_6.delivery_flag.display = function(value)
-  if value == 0 then
-    return "Delivery Flag: Real Time Message Uncompressed (0)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Retransmission Message Uncompressed (2)"
-  end
-  if value == 17 then
-    return "Delivery Flag: Refresh Message Zlib Compressed (17)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.delivery_flag.labels = {
+  [0] = "Delivery Flag: Real Time Message Uncompressed (0)",
+  [2] = "Delivery Flag: Retransmission Message Uncompressed (2)",
+  [17] = "Delivery Flag: Refresh Message Zlib Compressed (17)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.delivery_flag.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -1148,42 +1102,22 @@ qse_qsecash_marketdata_xdp_v2_6.depositary_list = {}
 qse_qsecash_marketdata_xdp_v2_6.depositary_list.size = 25
 
 -- Display: Depositary List
-qse_qsecash_marketdata_xdp_v2_6.depositary_list.display = function(value)
-  if value == "00001" then
-    return "Depositary List: Euroclear France (00001)"
-  end
-  if value == "00002" then
-    return "Depositary List: Cik Belgium (00002)"
-  end
-  if value == "00003" then
-    return "Depositary List: Necigef The Netherlands (00003)"
-  end
-  if value == "00004" then
-    return "Depositary List: Xn Bo Bs System (00004)"
-  end
-  if value == "00005" then
-    return "Depositary List: Vif Nonfungible Belgian Instruments (00005)"
-  end
-  if value == "00006" then
-    return "Depositary List: Euroclear Bank (00006)"
-  end
-  if value == "00007" then
-    return "Depositary List: Niec (00007)"
-  end
-  if value == "00008" then
-    return "Depositary List: Physical (00008)"
-  end
-  if value == "00009" then
-    return "Depositary List: Euronext Paris Non Euroclear France (00009)"
-  end
-  if value == "00010" then
-    return "Depositary List: Interbolsa (00010)"
-  end
-  if value == "00000" then
-    return "Depositary List: No Depository Organization (00000)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.depositary_list.labels = {
+  ["00001"] = "Depositary List: Euroclear France (00001)",
+  ["00002"] = "Depositary List: Cik Belgium (00002)",
+  ["00003"] = "Depositary List: Necigef The Netherlands (00003)",
+  ["00004"] = "Depositary List: Xn Bo Bs System (00004)",
+  ["00005"] = "Depositary List: Vif Nonfungible Belgian Instruments (00005)",
+  ["00006"] = "Depositary List: Euroclear Bank (00006)",
+  ["00007"] = "Depositary List: Niec (00007)",
+  ["00008"] = "Depositary List: Physical (00008)",
+  ["00009"] = "Depositary List: Euronext Paris Non Euroclear France (00009)",
+  ["00010"] = "Depositary List: Interbolsa (00010)",
+  ["00000"] = "Depositary List: No Depository Organization (00000)",
+}
 
-  return "Depositary List: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.depositary_list.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.depositary_list.labels[value] or "Depositary List: Unknown("..value..")"
 end
 
 -- Dissect: Depositary List
@@ -1679,21 +1613,15 @@ qse_qsecash_marketdata_xdp_v2_6.halt_reason = {}
 qse_qsecash_marketdata_xdp_v2_6.halt_reason.size = 1
 
 -- Display: Halt Reason
-qse_qsecash_marketdata_xdp_v2_6.halt_reason.display = function(value)
-  if value == "0" then
-    return "Halt Reason: Not Applicable (0)"
-  end
-  if value == "R" then
-    return "Halt Reason: Halted No Liquidity Provider (R)"
-  end
-  if value == "C" then
-    return "Halt Reason: Opening Price Outside Collars (C)"
-  end
-  if value == "M" then
-    return "Halt Reason: Manuel Halting By Market Operations (M)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.halt_reason.labels = {
+  ["0"] = "Halt Reason: Not Applicable (0)",
+  ["R"] = "Halt Reason: Halted No Liquidity Provider (R)",
+  ["C"] = "Halt Reason: Opening Price Outside Collars (C)",
+  ["M"] = "Halt Reason: Manuel Halting By Market Operations (M)",
+}
 
-  return "Halt Reason: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.halt_reason.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.halt_reason.labels[value] or "Halt Reason: Unknown("..value..")"
 end
 
 -- Dissect: Halt Reason
@@ -2190,24 +2118,16 @@ qse_qsecash_marketdata_xdp_v2_6.instrument_category = {}
 qse_qsecash_marketdata_xdp_v2_6.instrument_category.size = 1
 
 -- Display: Instrument Category
-qse_qsecash_marketdata_xdp_v2_6.instrument_category.display = function(value)
-  if value == "A" then
-    return "Instrument Category: Stock (A)"
-  end
-  if value == "O" then
-    return "Instrument Category: Bond (O)"
-  end
-  if value == "W" then
-    return "Instrument Category: Warrant And Certificate (W)"
-  end
-  if value == "T" then
-    return "Instrument Category: Tracker (T)"
-  end
-  if value == "D" then
-    return "Instrument Category: Miscellaneous (D)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.instrument_category.labels = {
+  ["A"] = "Instrument Category: Stock (A)",
+  ["O"] = "Instrument Category: Bond (O)",
+  ["W"] = "Instrument Category: Warrant And Certificate (W)",
+  ["T"] = "Instrument Category: Tracker (T)",
+  ["D"] = "Instrument Category: Miscellaneous (D)",
+}
 
-  return "Instrument Category: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.instrument_category.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.instrument_category.labels[value] or "Instrument Category: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Category
@@ -2330,36 +2250,20 @@ qse_qsecash_marketdata_xdp_v2_6.instrument_group_state = {}
 qse_qsecash_marketdata_xdp_v2_6.instrument_group_state.size = 1
 
 -- Display: Instrument Group State
-qse_qsecash_marketdata_xdp_v2_6.instrument_group_state.display = function(value)
-  if value == "P" then
-    return "Instrument Group State: Pre Opening (P)"
-  end
-  if value == "C" then
-    return "Instrument Group State: Beginning Of Day Consultation (C)"
-  end
-  if value == "O" then
-    return "Instrument Group State: Opening (O)"
-  end
-  if value == "S" then
-    return "Instrument Group State: Market Session (S)"
-  end
-  if value == "R" then
-    return "Instrument Group State: Trading At Last (R)"
-  end
-  if value == "N" then
-    return "Instrument Group State: Surveillance Intervention (N)"
-  end
-  if value == "F" then
-    return "Instrument Group State: End Of Day Inquiry (F)"
-  end
-  if value == "Z" then
-    return "Instrument Group State: Interrupted (Z)"
-  end
-  if value == "I" then
-    return "Instrument Group State: Forbidden (I)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.instrument_group_state.labels = {
+  ["P"] = "Instrument Group State: Pre Opening (P)",
+  ["C"] = "Instrument Group State: Beginning Of Day Consultation (C)",
+  ["O"] = "Instrument Group State: Opening (O)",
+  ["S"] = "Instrument Group State: Market Session (S)",
+  ["R"] = "Instrument Group State: Trading At Last (R)",
+  ["N"] = "Instrument Group State: Surveillance Intervention (N)",
+  ["F"] = "Instrument Group State: End Of Day Inquiry (F)",
+  ["Z"] = "Instrument Group State: Interrupted (Z)",
+  ["I"] = "Instrument Group State: Forbidden (I)",
+}
 
-  return "Instrument Group State: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.instrument_group_state.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.instrument_group_state.labels[value] or "Instrument Group State: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Group State
@@ -2459,21 +2363,15 @@ qse_qsecash_marketdata_xdp_v2_6.instrument_state = {}
 qse_qsecash_marketdata_xdp_v2_6.instrument_state.size = 1
 
 -- Display: Instrument State
-qse_qsecash_marketdata_xdp_v2_6.instrument_state.display = function(value)
-  if value == "0" then
-    return "Instrument State: Not Applicable (0)"
-  end
-  if value == "A" then
-    return "Instrument State: Auction (A)"
-  end
-  if value == "H" then
-    return "Instrument State: Halted (H)"
-  end
-  if value == "C" then
-    return "Instrument State: Closed (C)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.instrument_state.labels = {
+  ["0"] = "Instrument State: Not Applicable (0)",
+  ["A"] = "Instrument State: Auction (A)",
+  ["H"] = "Instrument State: Halted (H)",
+  ["C"] = "Instrument State: Closed (C)",
+}
 
-  return "Instrument State: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.instrument_state.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.instrument_state.labels[value] or "Instrument State: Unknown("..value..")"
 end
 
 -- Dissect: Instrument State
@@ -2495,18 +2393,14 @@ qse_qsecash_marketdata_xdp_v2_6.instrument_state_tcs = {}
 qse_qsecash_marketdata_xdp_v2_6.instrument_state_tcs.size = 1
 
 -- Display: Instrument State Tcs
-qse_qsecash_marketdata_xdp_v2_6.instrument_state_tcs.display = function(value)
-  if value == "0" then
-    return "Instrument State Tcs: Not Applicable (0)"
-  end
-  if value == "S" then
-    return "Instrument State Tcs: Instrument Is Forbidden (S)"
-  end
-  if value == "A" then
-    return "Instrument State Tcs: Instrument Is Authorized (A)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.instrument_state_tcs.labels = {
+  ["0"] = "Instrument State Tcs: Not Applicable (0)",
+  ["S"] = "Instrument State Tcs: Instrument Is Forbidden (S)",
+  ["A"] = "Instrument State Tcs: Instrument Is Authorized (A)",
+}
 
-  return "Instrument State Tcs: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.instrument_state_tcs.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.instrument_state_tcs.labels[value] or "Instrument State Tcs: Unknown("..value..")"
 end
 
 -- Dissect: Instrument State Tcs
@@ -2528,12 +2422,12 @@ qse_qsecash_marketdata_xdp_v2_6.instrument_trading_status = {}
 qse_qsecash_marketdata_xdp_v2_6.instrument_trading_status.size = 1
 
 -- Display: Instrument Trading Status
-qse_qsecash_marketdata_xdp_v2_6.instrument_trading_status.display = function(value)
-  if value == "S" then
-    return "Instrument Trading Status: Suspended (S)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.instrument_trading_status.labels = {
+  ["S"] = "Instrument Trading Status: Suspended (S)",
+}
 
-  return "Instrument Trading Status: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.instrument_trading_status.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.instrument_trading_status.labels[value] or "Instrument Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Trading Status
@@ -2555,15 +2449,13 @@ qse_qsecash_marketdata_xdp_v2_6.instrument_valuation_price = {}
 qse_qsecash_marketdata_xdp_v2_6.instrument_valuation_price.size = 1
 
 -- Display: Instrument Valuation Price
-qse_qsecash_marketdata_xdp_v2_6.instrument_valuation_price.display = function(value)
-  if value == "0" then
-    return "Instrument Valuation Price: Not A Valuation Price (0)"
-  end
-  if value == "1" then
-    return "Instrument Valuation Price: Valuation Price (1)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.instrument_valuation_price.labels = {
+  ["0"] = "Instrument Valuation Price: Not A Valuation Price (0)",
+  ["1"] = "Instrument Valuation Price: Valuation Price (1)",
+}
 
-  return "Instrument Valuation Price: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.instrument_valuation_price.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.instrument_valuation_price.labels[value] or "Instrument Valuation Price: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Valuation Price
@@ -3149,18 +3041,14 @@ qse_qsecash_marketdata_xdp_v2_6.market_indicator = {}
 qse_qsecash_marketdata_xdp_v2_6.market_indicator.size = 1
 
 -- Display: Market Indicator
-qse_qsecash_marketdata_xdp_v2_6.market_indicator.display = function(value)
-  if value == 0 then
-    return "Market Indicator: Not Used (0)"
-  end
-  if value == 1 then
-    return "Market Indicator: Cash (1)"
-  end
-  if value == 9 then
-    return "Market Indicator: Not Defined (9)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.market_indicator.labels = {
+  [0] = "Market Indicator: Not Used (0)",
+  [1] = "Market Indicator: Cash (1)",
+  [9] = "Market Indicator: Not Defined (9)",
+}
 
-  return "Market Indicator: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.market_indicator.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.market_indicator.labels[value] or "Market Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Market Indicator
@@ -3244,81 +3132,35 @@ qse_qsecash_marketdata_xdp_v2_6.message_type = {}
 qse_qsecash_marketdata_xdp_v2_6.message_type.size = 2
 
 -- Display: Message Type
-qse_qsecash_marketdata_xdp_v2_6.message_type.display = function(value)
-  if value == 505 then
-    return "Message Type: Stock State Change Message (505)"
-  end
-  if value == 516 then
-    return "Message Type: Class State Change Message (516)"
-  end
-  if value == 523 then
-    return "Message Type: Mail Message (523)"
-  end
-  if value == 530 then
-    return "Message Type: Indicative Matching Price Message (530)"
-  end
-  if value == 537 then
-    return "Message Type: Collars Message (537)"
-  end
-  if value == 539 then
-    return "Message Type: Session Timetable Message (539)"
-  end
-  if value == 545 then
-    return "Message Type: Global Market Activity Summary Message (545)"
-  end
-  if value == 550 then
-    return "Message Type: Start Referential Message (550)"
-  end
-  if value == 551 then
-    return "Message Type: End Referential Message (551)"
-  end
-  if value == 555 then
-    return "Message Type: Referential Message (555)"
-  end
-  if value == 220 then
-    return "Message Type: Trade Creation Message (220)"
-  end
-  if value == 221 then
-    return "Message Type: Trade Cancellation Message (221)"
-  end
-  if value == 240 then
-    return "Message Type: Trade Full Information Message (240)"
-  end
-  if value == 241 then
-    return "Message Type: Price Update Message (241)"
-  end
-  if value == 245 then
-    return "Message Type: Auction Summary Message (245)"
-  end
-  if value == 247 then
-    return "Message Type: Vwap Closing Price Message (247)"
-  end
-  if value == 140 then
-    return "Message Type: Quotes Message (140)"
-  end
-  if value == 230 then
-    return "Message Type: Order Update Market Sheet Message (230)"
-  end
-  if value == 231 then
-    return "Message Type: Orderbook Retransmission Delimiter Message (231)"
-  end
-  if value == 542 then
-    return "Message Type: Real Time Index Message (542)"
-  end
-  if value == 543 then
-    return "Message Type: Index Summary Message (543)"
-  end
-  if value == 544 then
-    return "Message Type: Index Composition Message (544)"
-  end
-  if value == 580 then
-    return "Message Type: Start Refresh Message (580)"
-  end
-  if value == 581 then
-    return "Message Type: End Refresh Message (581)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.message_type.labels = {
+  [505] = "Message Type: Stock State Change Message (505)",
+  [516] = "Message Type: Class State Change Message (516)",
+  [523] = "Message Type: Mail Message (523)",
+  [530] = "Message Type: Indicative Matching Price Message (530)",
+  [537] = "Message Type: Collars Message (537)",
+  [539] = "Message Type: Session Timetable Message (539)",
+  [545] = "Message Type: Global Market Activity Summary Message (545)",
+  [550] = "Message Type: Start Referential Message (550)",
+  [551] = "Message Type: End Referential Message (551)",
+  [555] = "Message Type: Referential Message (555)",
+  [220] = "Message Type: Trade Creation Message (220)",
+  [221] = "Message Type: Trade Cancellation Message (221)",
+  [240] = "Message Type: Trade Full Information Message (240)",
+  [241] = "Message Type: Price Update Message (241)",
+  [245] = "Message Type: Auction Summary Message (245)",
+  [247] = "Message Type: Vwap Closing Price Message (247)",
+  [140] = "Message Type: Quotes Message (140)",
+  [230] = "Message Type: Order Update Market Sheet Message (230)",
+  [231] = "Message Type: Orderbook Retransmission Delimiter Message (231)",
+  [542] = "Message Type: Real Time Index Message (542)",
+  [543] = "Message Type: Index Summary Message (543)",
+  [544] = "Message Type: Index Composition Message (544)",
+  [580] = "Message Type: Start Refresh Message (580)",
+  [581] = "Message Type: End Refresh Message (581)",
+}
 
-  return "Message Type: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.message_type.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -3776,15 +3618,13 @@ qse_qsecash_marketdata_xdp_v2_6.opening_trade_indicator = {}
 qse_qsecash_marketdata_xdp_v2_6.opening_trade_indicator.size = 1
 
 -- Display: Opening Trade Indicator
-qse_qsecash_marketdata_xdp_v2_6.opening_trade_indicator.display = function(value)
-  if value == "O" then
-    return "Opening Trade Indicator: Opening (O)"
-  end
-  if value == "S" then
-    return "Opening Trade Indicator: Core Session (S)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.opening_trade_indicator.labels = {
+  ["O"] = "Opening Trade Indicator: Opening (O)",
+  ["S"] = "Opening Trade Indicator: Core Session (S)",
+}
 
-  return "Opening Trade Indicator: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.opening_trade_indicator.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.opening_trade_indicator.labels[value] or "Opening Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Opening Trade Indicator
@@ -3829,18 +3669,14 @@ qse_qsecash_marketdata_xdp_v2_6.order_entry_rejection = {}
 qse_qsecash_marketdata_xdp_v2_6.order_entry_rejection.size = 1
 
 -- Display: Order Entry Rejection
-qse_qsecash_marketdata_xdp_v2_6.order_entry_rejection.display = function(value)
-  if value == "0" then
-    return "Order Entry Rejection: Not Applicable (0)"
-  end
-  if value == "N" then
-    return "Order Entry Rejection: Order Entry Allowed (N)"
-  end
-  if value == "Y" then
-    return "Order Entry Rejection: Order Entry Forbidden (Y)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.order_entry_rejection.labels = {
+  ["0"] = "Order Entry Rejection: Not Applicable (0)",
+  ["N"] = "Order Entry Rejection: Order Entry Allowed (N)",
+  ["Y"] = "Order Entry Rejection: Order Entry Forbidden (Y)",
+}
 
-  return "Order Entry Rejection: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.order_entry_rejection.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.order_entry_rejection.labels[value] or "Order Entry Rejection: Unknown("..value..")"
 end
 
 -- Dissect: Order Entry Rejection
@@ -3982,21 +3818,15 @@ qse_qsecash_marketdata_xdp_v2_6.order_type = {}
 qse_qsecash_marketdata_xdp_v2_6.order_type.size = 1
 
 -- Display: Order Type
-qse_qsecash_marketdata_xdp_v2_6.order_type.display = function(value)
-  if value == "1" then
-    return "Order Type: Market Order (1)"
-  end
-  if value == "2" then
-    return "Order Type: Limit Order (2)"
-  end
-  if value == "K" then
-    return "Order Type: Market To Limit Order (K)"
-  end
-  if value == "P" then
-    return "Order Type: Peg Order (P)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.order_type.labels = {
+  ["1"] = "Order Type: Market Order (1)",
+  ["2"] = "Order Type: Limit Order (2)",
+  ["K"] = "Order Type: Market To Limit Order (K)",
+  ["P"] = "Order Type: Peg Order (P)",
+}
 
-  return "Order Type: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.order_type.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -4087,27 +3917,17 @@ qse_qsecash_marketdata_xdp_v2_6.packet_type = {}
 qse_qsecash_marketdata_xdp_v2_6.packet_type.size = 2
 
 -- Display: Packet Type
-qse_qsecash_marketdata_xdp_v2_6.packet_type.display = function(value)
-  if value == 994 then
-    return "Packet Type: Generic Quotes (994)"
-  end
-  if value == 995 then
-    return "Packet Type: Generic Market Information (995)"
-  end
-  if value == 996 then
-    return "Packet Type: Generic Indices (996)"
-  end
-  if value == 998 then
-    return "Packet Type: Generic Trades (998)"
-  end
-  if value == 230 then
-    return "Packet Type: Generic Orderbook (230)"
-  end
-  if value == 999 then
-    return "Packet Type: Refresh Combined Packet Type (999)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.packet_type.labels = {
+  [994] = "Packet Type: Generic Quotes (994)",
+  [995] = "Packet Type: Generic Market Information (995)",
+  [996] = "Packet Type: Generic Indices (996)",
+  [998] = "Packet Type: Generic Trades (998)",
+  [230] = "Packet Type: Generic Orderbook (230)",
+  [999] = "Packet Type: Refresh Combined Packet Type (999)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.packet_type.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -4198,15 +4018,13 @@ qse_qsecash_marketdata_xdp_v2_6.period_indicator = {}
 qse_qsecash_marketdata_xdp_v2_6.period_indicator.size = 1
 
 -- Display: Period Indicator
-qse_qsecash_marketdata_xdp_v2_6.period_indicator.display = function(value)
-  if value == "M" then
-    return "Period Indicator: Morning Effective For The Current Day (M)"
-  end
-  if value == "E" then
-    return "Period Indicator: Evening Effective For The Next Trading Day (E)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.period_indicator.labels = {
+  ["M"] = "Period Indicator: Morning Effective For The Current Day (M)",
+  ["E"] = "Period Indicator: Evening Effective For The Next Trading Day (E)",
+}
 
-  return "Period Indicator: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.period_indicator.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.period_indicator.labels[value] or "Period Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Period Indicator
@@ -4228,18 +4046,14 @@ qse_qsecash_marketdata_xdp_v2_6.period_side = {}
 qse_qsecash_marketdata_xdp_v2_6.period_side.size = 1
 
 -- Display: Period Side
-qse_qsecash_marketdata_xdp_v2_6.period_side.display = function(value)
-  if value == "0" then
-    return "Period Side: Not Applicable (0)"
-  end
-  if value == "A" then
-    return "Period Side: Bid Only Period (A)"
-  end
-  if value == "V" then
-    return "Period Side: Offer Only Period (V)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.period_side.labels = {
+  ["0"] = "Period Side: Not Applicable (0)",
+  ["A"] = "Period Side: Bid Only Period (A)",
+  ["V"] = "Period Side: Offer Only Period (V)",
+}
 
-  return "Period Side: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.period_side.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.period_side.labels[value] or "Period Side: Unknown("..value..")"
 end
 
 -- Dissect: Period Side
@@ -4465,15 +4279,13 @@ qse_qsecash_marketdata_xdp_v2_6.priority_indicator = {}
 qse_qsecash_marketdata_xdp_v2_6.priority_indicator.size = 1
 
 -- Display: Priority Indicator
-qse_qsecash_marketdata_xdp_v2_6.priority_indicator.display = function(value)
-  if value == "O" then
-    return "Priority Indicator: Urgent Message (O)"
-  end
-  if value == "N" then
-    return "Priority Indicator: Non Urgent Message (N)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.priority_indicator.labels = {
+  ["O"] = "Priority Indicator: Urgent Message (O)",
+  ["N"] = "Priority Indicator: Non Urgent Message (N)",
+}
 
-  return "Priority Indicator: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.priority_indicator.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.priority_indicator.labels[value] or "Priority Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Priority Indicator
@@ -4545,15 +4357,13 @@ qse_qsecash_marketdata_xdp_v2_6.quantity_notation = {}
 qse_qsecash_marketdata_xdp_v2_6.quantity_notation.size = 4
 
 -- Display: Quantity Notation
-qse_qsecash_marketdata_xdp_v2_6.quantity_notation.display = function(value)
-  if value == "UNT" then
-    return "Quantity Notation: In Unit Ie Number Of Shares Left Padded (UNT)"
-  end
-  if value == "FMT" then
-    return "Quantity Notation: In Facial Amount Ie Bonds Expressed In Left Padded (FMT)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.quantity_notation.labels = {
+  ["UNT"] = "Quantity Notation: In Unit Ie Number Of Shares Left Padded (UNT)",
+  ["FMT"] = "Quantity Notation: In Facial Amount Ie Bonds Expressed In Left Padded (FMT)",
+}
 
-  return "Quantity Notation: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.quantity_notation.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.quantity_notation.labels[value] or "Quantity Notation: Unknown("..value..")"
 end
 
 -- Dissect: Quantity Notation
@@ -4586,21 +4396,15 @@ qse_qsecash_marketdata_xdp_v2_6.quote_condition = {}
 qse_qsecash_marketdata_xdp_v2_6.quote_condition.size = 1
 
 -- Display: Quote Condition
-qse_qsecash_marketdata_xdp_v2_6.quote_condition.display = function(value)
-  if value == "0" then
-    return "Quote Condition: No Liquidity Provider Lp (0)"
-  end
-  if value == "1" then
-    return "Quote Condition: Lp Only On Ask Side (1)"
-  end
-  if value == "2" then
-    return "Quote Condition: Lp Only On Bid Side (2)"
-  end
-  if value == "3" then
-    return "Quote Condition: Lp On Ask And Bid Sides (3)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.quote_condition.labels = {
+  ["0"] = "Quote Condition: No Liquidity Provider Lp (0)",
+  ["1"] = "Quote Condition: Lp Only On Ask Side (1)",
+  ["2"] = "Quote Condition: Lp Only On Bid Side (2)",
+  ["3"] = "Quote Condition: Lp On Ask And Bid Sides (3)",
+}
 
-  return "Quote Condition: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.quote_condition.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.quote_condition.labels[value] or "Quote Condition: Unknown("..value..")"
 end
 
 -- Dissect: Quote Condition
@@ -4668,15 +4472,13 @@ qse_qsecash_marketdata_xdp_v2_6.rebroadcast_indicator = {}
 qse_qsecash_marketdata_xdp_v2_6.rebroadcast_indicator.size = 1
 
 -- Display: Rebroadcast Indicator
-qse_qsecash_marketdata_xdp_v2_6.rebroadcast_indicator.display = function(value)
-  if value == "0" then
-    return "Rebroadcast Indicator: Current Day (0)"
-  end
-  if value == "1" then
-    return "Rebroadcast Indicator: Previous Day (1)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.rebroadcast_indicator.labels = {
+  ["0"] = "Rebroadcast Indicator: Current Day (0)",
+  ["1"] = "Rebroadcast Indicator: Previous Day (1)",
+}
 
-  return "Rebroadcast Indicator: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.rebroadcast_indicator.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.rebroadcast_indicator.labels[value] or "Rebroadcast Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Rebroadcast Indicator
@@ -4737,24 +4539,16 @@ qse_qsecash_marketdata_xdp_v2_6.repo_indicator = {}
 qse_qsecash_marketdata_xdp_v2_6.repo_indicator.size = 1
 
 -- Display: Repo Indicator
-qse_qsecash_marketdata_xdp_v2_6.repo_indicator.display = function(value)
-  if value == "0" then
-    return "Repo Indicator: Instrument Neither Eligible For The Srd Nor Eligible For The Loan (0)"
-  end
-  if value == "1" then
-    return "Repo Indicator: Instrument Eligible For The Srd And For The Loan And Lending (1)"
-  end
-  if value == "2" then
-    return "Repo Indicator: Instrument Eligible For The Srd But Not For The Loan And Lending (2)"
-  end
-  if value == "3" then
-    return "Repo Indicator: Instrument Eligible For The Loan And Lending Market But Not For The (3)"
-  end
-  if value == "8" then
-    return "Repo Indicator: Non Significant (8)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.repo_indicator.labels = {
+  ["0"] = "Repo Indicator: Instrument Neither Eligible For The Srd Nor Eligible For The Loan (0)",
+  ["1"] = "Repo Indicator: Instrument Eligible For The Srd And For The Loan And Lending (1)",
+  ["2"] = "Repo Indicator: Instrument Eligible For The Srd But Not For The Loan And Lending (2)",
+  ["3"] = "Repo Indicator: Instrument Eligible For The Loan And Lending Market But Not For The (3)",
+  ["8"] = "Repo Indicator: Non Significant (8)",
+}
 
-  return "Repo Indicator: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.repo_indicator.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.repo_indicator.labels[value] or "Repo Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Repo Indicator
@@ -4960,18 +4754,14 @@ qse_qsecash_marketdata_xdp_v2_6.session_type = {}
 qse_qsecash_marketdata_xdp_v2_6.session_type.size = 1
 
 -- Display: Session Type
-qse_qsecash_marketdata_xdp_v2_6.session_type.display = function(value)
-  if value == "E" then
-    return "Session Type: Early (E)"
-  end
-  if value == "C" then
-    return "Session Type: Core Session (C)"
-  end
-  if value == "L" then
-    return "Session Type: Late (L)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.session_type.labels = {
+  ["E"] = "Session Type: Early (E)",
+  ["C"] = "Session Type: Core Session (C)",
+  ["L"] = "Session Type: Late (L)",
+}
 
-  return "Session Type: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.session_type.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.session_type.labels[value] or "Session Type: Unknown("..value..")"
 end
 
 -- Dissect: Session Type
@@ -5062,15 +4852,13 @@ qse_qsecash_marketdata_xdp_v2_6.small_trade_indicator = {}
 qse_qsecash_marketdata_xdp_v2_6.small_trade_indicator.size = 1
 
 -- Display: Small Trade Indicator
-qse_qsecash_marketdata_xdp_v2_6.small_trade_indicator.display = function(value)
-  if value == "1" then
-    return "Small Trade Indicator: Not A Small Trade (1)"
-  end
-  if value == "2" then
-    return "Small Trade Indicator: Small Trade (2)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.small_trade_indicator.labels = {
+  ["1"] = "Small Trade Indicator: Not A Small Trade (1)",
+  ["2"] = "Small Trade Indicator: Small Trade (2)",
+}
 
-  return "Small Trade Indicator: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.small_trade_indicator.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.small_trade_indicator.labels[value] or "Small Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Small Trade Indicator
@@ -5412,18 +5200,14 @@ qse_qsecash_marketdata_xdp_v2_6.tax_code = {}
 qse_qsecash_marketdata_xdp_v2_6.tax_code.size = 1
 
 -- Display: Tax Code
-qse_qsecash_marketdata_xdp_v2_6.tax_code.display = function(value)
-  if value == 0 then
-    return "Tax Code: Not Eligible To Pea (0)"
-  end
-  if value == 3 then
-    return "Tax Code: Eligible To Pea (3)"
-  end
-  if value == 9 then
-    return "Tax Code: Not Provided (9)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.tax_code.labels = {
+  [0] = "Tax Code: Not Eligible To Pea (0)",
+  [3] = "Tax Code: Eligible To Pea (3)",
+  [9] = "Tax Code: Not Provided (9)",
+}
 
-  return "Tax Code: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.tax_code.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.tax_code.labels[value] or "Tax Code: Unknown("..value..")"
 end
 
 -- Dissect: Tax Code
@@ -5484,18 +5268,14 @@ qse_qsecash_marketdata_xdp_v2_6.tick_direction = {}
 qse_qsecash_marketdata_xdp_v2_6.tick_direction.size = 1
 
 -- Display: Tick Direction
-qse_qsecash_marketdata_xdp_v2_6.tick_direction.display = function(value)
-  if value == "+" then
-    return "Tick Direction: Positive (+)"
-  end
-  if value == "-" then
-    return "Tick Direction: Negative (-)"
-  end
-  if value == "0" then
-    return "Tick Direction: No Variation Or Data Field Not Significant (0)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.tick_direction.labels = {
+  ["+"] = "Tick Direction: Positive (+)",
+  ["-"] = "Tick Direction: Negative (-)",
+  ["0"] = "Tick Direction: No Variation Or Data Field Not Significant (0)",
+}
 
-  return "Tick Direction: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.tick_direction.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.tick_direction.labels[value] or "Tick Direction: Unknown("..value..")"
 end
 
 -- Dissect: Tick Direction
@@ -5985,15 +5765,13 @@ qse_qsecash_marketdata_xdp_v2_6.trad_cond_2 = {}
 qse_qsecash_marketdata_xdp_v2_6.trad_cond_2.size = 1
 
 -- Display: Trad Cond 2
-qse_qsecash_marketdata_xdp_v2_6.trad_cond_2.display = function(value)
-  if value == "0" then
-    return "Trad Cond 2: Not Last Of A Series Of Trades At The Same Price (0)"
-  end
-  if value == "1" then
-    return "Trad Cond 2: Last Of A Series Of Trade At The Same Price (1)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.trad_cond_2.labels = {
+  ["0"] = "Trad Cond 2: Not Last Of A Series Of Trades At The Same Price (0)",
+  ["1"] = "Trad Cond 2: Last Of A Series Of Trade At The Same Price (1)",
+}
 
-  return "Trad Cond 2: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.trad_cond_2.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.trad_cond_2.labels[value] or "Trad Cond 2: Unknown("..value..")"
 end
 
 -- Dissect: Trad Cond 2
@@ -6015,18 +5793,14 @@ qse_qsecash_marketdata_xdp_v2_6.trad_cond_3 = {}
 qse_qsecash_marketdata_xdp_v2_6.trad_cond_3.size = 1
 
 -- Display: Trad Cond 3
-qse_qsecash_marketdata_xdp_v2_6.trad_cond_3.display = function(value)
-  if value == "0" then
-    return "Trad Cond 3: Trade Does Not Stem From A Cross Order (0)"
-  end
-  if value == "1" then
-    return "Trad Cond 3: Trade Stems From A Cross Order (1)"
-  end
-  if value == "4" then
-    return "Trad Cond 3: Valuation Trade (4)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.trad_cond_3.labels = {
+  ["0"] = "Trad Cond 3: Trade Does Not Stem From A Cross Order (0)",
+  ["1"] = "Trad Cond 3: Trade Stems From A Cross Order (1)",
+  ["4"] = "Trad Cond 3: Valuation Trade (4)",
+}
 
-  return "Trad Cond 3: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.trad_cond_3.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.trad_cond_3.labels[value] or "Trad Cond 3: Unknown("..value..")"
 end
 
 -- Dissect: Trad Cond 3
@@ -6071,15 +5845,13 @@ qse_qsecash_marketdata_xdp_v2_6.trade_origin = {}
 qse_qsecash_marketdata_xdp_v2_6.trade_origin.size = 1
 
 -- Display: Trade Origin
-qse_qsecash_marketdata_xdp_v2_6.trade_origin.display = function(value)
-  if value == "B" then
-    return "Trade Origin: Orders From The Book (B)"
-  end
-  if value == "O" then
-    return "Trade Origin: Block Trade (O)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.trade_origin.labels = {
+  ["B"] = "Trade Origin: Orders From The Book (B)",
+  ["O"] = "Trade Origin: Block Trade (O)",
+}
 
-  return "Trade Origin: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.trade_origin.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.trade_origin.labels[value] or "Trade Origin: Unknown("..value..")"
 end
 
 -- Dissect: Trade Origin
@@ -6241,18 +6013,14 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_ask_price = {}
 qse_qsecash_marketdata_xdp_v2_6.type_of_ask_price.size = 1
 
 -- Display: Type Of Ask Price
-qse_qsecash_marketdata_xdp_v2_6.type_of_ask_price.display = function(value)
-  if value == 0 then
-    return "Type Of Ask Price: Limit Order (0)"
-  end
-  if value == 1 then
-    return "Type Of Ask Price: Market Order (1)"
-  end
-  if value == 2 then
-    return "Type Of Ask Price: At Opening Order Nsc Only (2)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.type_of_ask_price.labels = {
+  [0] = "Type Of Ask Price: Limit Order (0)",
+  [1] = "Type Of Ask Price: Market Order (1)",
+  [2] = "Type Of Ask Price: At Opening Order Nsc Only (2)",
+}
 
-  return "Type Of Ask Price: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.type_of_ask_price.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.type_of_ask_price.labels[value] or "Type Of Ask Price: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Ask Price
@@ -6274,18 +6042,14 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_bid_price = {}
 qse_qsecash_marketdata_xdp_v2_6.type_of_bid_price.size = 1
 
 -- Display: Type Of Bid Price
-qse_qsecash_marketdata_xdp_v2_6.type_of_bid_price.display = function(value)
-  if value == 0 then
-    return "Type Of Bid Price: Limit Order (0)"
-  end
-  if value == 1 then
-    return "Type Of Bid Price: Market Order (1)"
-  end
-  if value == 2 then
-    return "Type Of Bid Price: At Opening Order Nsc Only (2)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.type_of_bid_price.labels = {
+  [0] = "Type Of Bid Price: Limit Order (0)",
+  [1] = "Type Of Bid Price: Market Order (1)",
+  [2] = "Type Of Bid Price: At Opening Order Nsc Only (2)",
+}
 
-  return "Type Of Bid Price: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.type_of_bid_price.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.type_of_bid_price.labels[value] or "Type Of Bid Price: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Bid Price
@@ -6307,60 +6071,28 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_corporate_event = {}
 qse_qsecash_marketdata_xdp_v2_6.type_of_corporate_event.size = 2
 
 -- Display: Type Of Corporate Event
-qse_qsecash_marketdata_xdp_v2_6.type_of_corporate_event.display = function(value)
-  if value == "00" then
-    return "Type Of Corporate Event: No Specific Event (00)"
-  end
-  if value == "01" then
-    return "Type Of Corporate Event: Dividend Payment In Cash Or In Stocks (01)"
-  end
-  if value == "02" then
-    return "Type Of Corporate Event: Interest Payment Bonds For Which The Price Is Not Expressed In (02)"
-  end
-  if value == "04" then
-    return "Type Of Corporate Event: Split (04)"
-  end
-  if value == "05" then
-    return "Type Of Corporate Event: Bonus Ie Attribution (05)"
-  end
-  if value == "06" then
-    return "Type Of Corporate Event: Subscription (06)"
-  end
-  if value == "07" then
-    return "Type Of Corporate Event: Share Allocation (07)"
-  end
-  if value == "08" then
-    return "Type Of Corporate Event: Share Swap (08)"
-  end
-  if value == "09" then
-    return "Type Of Corporate Event: Reverse Split (09)"
-  end
-  if value == "10" then
-    return "Type Of Corporate Event: Merger (10)"
-  end
-  if value == "11" then
-    return "Type Of Corporate Event: Final Bond Redemption (11)"
-  end
-  if value == "12" then
-    return "Type Of Corporate Event: Capital Amortization (12)"
-  end
-  if value == "13" then
-    return "Type Of Corporate Event: Draw Announcement Belgian Bonds Only (13)"
-  end
-  if value == "14" then
-    return "Type Of Corporate Event: Block Trade Of Controlling Interest (14)"
-  end
-  if value == "15" then
-    return "Type Of Corporate Event: Optional Corporate Eventsdividend Option (15)"
-  end
-  if value == "16" then
-    return "Type Of Corporate Event: Complex Corporate Event (16)"
-  end
-  if value == "17" then
-    return "Type Of Corporate Event: Purge Of The Order Book Purge Is Initiated Manually In The (17)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.type_of_corporate_event.labels = {
+  ["00"] = "Type Of Corporate Event: No Specific Event (00)",
+  ["01"] = "Type Of Corporate Event: Dividend Payment In Cash Or In Stocks (01)",
+  ["02"] = "Type Of Corporate Event: Interest Payment Bonds For Which The Price Is Not Expressed In (02)",
+  ["04"] = "Type Of Corporate Event: Split (04)",
+  ["05"] = "Type Of Corporate Event: Bonus Ie Attribution (05)",
+  ["06"] = "Type Of Corporate Event: Subscription (06)",
+  ["07"] = "Type Of Corporate Event: Share Allocation (07)",
+  ["08"] = "Type Of Corporate Event: Share Swap (08)",
+  ["09"] = "Type Of Corporate Event: Reverse Split (09)",
+  ["10"] = "Type Of Corporate Event: Merger (10)",
+  ["11"] = "Type Of Corporate Event: Final Bond Redemption (11)",
+  ["12"] = "Type Of Corporate Event: Capital Amortization (12)",
+  ["13"] = "Type Of Corporate Event: Draw Announcement Belgian Bonds Only (13)",
+  ["14"] = "Type Of Corporate Event: Block Trade Of Controlling Interest (14)",
+  ["15"] = "Type Of Corporate Event: Optional Corporate Eventsdividend Option (15)",
+  ["16"] = "Type Of Corporate Event: Complex Corporate Event (16)",
+  ["17"] = "Type Of Corporate Event: Purge Of The Order Book Purge Is Initiated Manually In The (17)",
+}
 
-  return "Type Of Corporate Event: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.type_of_corporate_event.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.type_of_corporate_event.labels[value] or "Type Of Corporate Event: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Corporate Event
@@ -6393,21 +6125,15 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_derivatives = {}
 qse_qsecash_marketdata_xdp_v2_6.type_of_derivatives.size = 1
 
 -- Display: Type Of Derivatives
-qse_qsecash_marketdata_xdp_v2_6.type_of_derivatives.display = function(value)
-  if value == "1" then
-    return "Type Of Derivatives: Inav Indicative Net Asset Value For Etf Exchange Traded (1)"
-  end
-  if value == "4" then
-    return "Type Of Derivatives: Supports Short Terms Options (4)"
-  end
-  if value == "6" then
-    return "Type Of Derivatives: Supports Long Term Options (6)"
-  end
-  if value == "9" then
-    return "Type Of Derivatives: No (9)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.type_of_derivatives.labels = {
+  ["1"] = "Type Of Derivatives: Inav Indicative Net Asset Value For Etf Exchange Traded (1)",
+  ["4"] = "Type Of Derivatives: Supports Short Terms Options (4)",
+  ["6"] = "Type Of Derivatives: Supports Long Term Options (6)",
+  ["9"] = "Type Of Derivatives: No (9)",
+}
 
-  return "Type Of Derivatives: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.type_of_derivatives.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.type_of_derivatives.labels[value] or "Type Of Derivatives: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Derivatives
@@ -6452,15 +6178,13 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_last_price = {}
 qse_qsecash_marketdata_xdp_v2_6.type_of_last_price.size = 2
 
 -- Display: Type Of Last Price
-qse_qsecash_marketdata_xdp_v2_6.type_of_last_price.display = function(value)
-  if value == 4 then
-    return "Type Of Last Price: 1st traded price (4)"
-  end
-  if value == 7 then
-    return "Type Of Last Price: N Traded Price Resume After Reservation (7)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.type_of_last_price.labels = {
+  [4] = "Type Of Last Price: 1st traded price (4)",
+  [7] = "Type Of Last Price: N Traded Price Resume After Reservation (7)",
+}
 
-  return "Type Of Last Price: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.type_of_last_price.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.type_of_last_price.labels[value] or "Type Of Last Price: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Last Price
@@ -6528,18 +6252,14 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_message = {}
 qse_qsecash_marketdata_xdp_v2_6.type_of_message.size = 1
 
 -- Display: Type Of Message
-qse_qsecash_marketdata_xdp_v2_6.type_of_message.display = function(value)
-  if value == "B" then
-    return "Type Of Message: Market Information Contents (B)"
-  end
-  if value == "T" then
-    return "Type Of Message: Technical Information (T)"
-  end
-  if value == "R" then
-    return "Type Of Message: Market And Technical Information (R)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.type_of_message.labels = {
+  ["B"] = "Type Of Message: Market Information Contents (B)",
+  ["T"] = "Type Of Message: Technical Information (T)",
+  ["R"] = "Type Of Message: Market And Technical Information (R)",
+}
 
-  return "Type Of Message: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.type_of_message.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.type_of_message.labels[value] or "Type Of Message: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Message
@@ -6561,51 +6281,25 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_price = {}
 qse_qsecash_marketdata_xdp_v2_6.type_of_price.size = 2
 
 -- Display: Type Of Price
-qse_qsecash_marketdata_xdp_v2_6.type_of_price.display = function(value)
-  if value == 0 then
-    return "Type Of Price: Trade Cancellation (0)"
-  end
-  if value == 2 then
-    return "Type Of Price: Ask Price (2)"
-  end
-  if value == 3 then
-    return "Type Of Price: Bid Price (3)"
-  end
-  if value == 4 then
-    return "Type Of Price: First Traded Price One Quotation Only (4)"
-  end
-  if value == 5 then
-    return "Type Of Price: Market Imbalance Ask Price (5)"
-  end
-  if value == 6 then
-    return "Type Of Price: Market Imbalance Bid Price (6)"
-  end
-  if value == 30 then
-    return "Type Of Price: Change Of First Price (30)"
-  end
-  if value == 31 then
-    return "Type Of Price: New High Price (31)"
-  end
-  if value == 32 then
-    return "Type Of Price: New Low Price (32)"
-  end
-  if value == 33 then
-    return "Type Of Price: New Last Price (33)"
-  end
-  if value == 34 then
-    return "Type Of Price: New Previous Days Closing Price (34)"
-  end
-  if value == 41 then
-    return "Type Of Price: Warrant Opening Indicative Value (41)"
-  end
-  if value == 42 then
-    return "Type Of Price: Warrant Closing Indicative Value (42)"
-  end
-  if value == 51 then
-    return "Type Of Price: Indicative Price (51)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.type_of_price.labels = {
+  [0] = "Type Of Price: Trade Cancellation (0)",
+  [2] = "Type Of Price: Ask Price (2)",
+  [3] = "Type Of Price: Bid Price (3)",
+  [4] = "Type Of Price: First Traded Price One Quotation Only (4)",
+  [5] = "Type Of Price: Market Imbalance Ask Price (5)",
+  [6] = "Type Of Price: Market Imbalance Bid Price (6)",
+  [30] = "Type Of Price: Change Of First Price (30)",
+  [31] = "Type Of Price: New High Price (31)",
+  [32] = "Type Of Price: New Low Price (32)",
+  [33] = "Type Of Price: New Last Price (33)",
+  [34] = "Type Of Price: New Previous Days Closing Price (34)",
+  [41] = "Type Of Price: Warrant Opening Indicative Value (41)",
+  [42] = "Type Of Price: Warrant Closing Indicative Value (42)",
+  [51] = "Type Of Price: Indicative Price (51)",
+}
 
-  return "Type Of Price: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.type_of_price.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.type_of_price.labels[value] or "Type Of Price: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Price
@@ -6627,24 +6321,16 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_unit_exp = {}
 qse_qsecash_marketdata_xdp_v2_6.type_of_unit_exp.size = 1
 
 -- Display: Type Of Unit Exp
-qse_qsecash_marketdata_xdp_v2_6.type_of_unit_exp.display = function(value)
-  if value == 1 then
-    return "Type Of Unit Exp: In Units (1)"
-  end
-  if value == 2 then
-    return "Type Of Unit Exp: As A Of Nominal (2)"
-  end
-  if value == 3 then
-    return "Type Of Unit Exp: As A Of Nominal Including Accrued Interest (3)"
-  end
-  if value == 8 then
-    return "Type Of Unit Exp: In Kilograms (8)"
-  end
-  if value == 9 then
-    return "Type Of Unit Exp: In Ounces (9)"
-  end
+qse_qsecash_marketdata_xdp_v2_6.type_of_unit_exp.labels = {
+  [1] = "Type Of Unit Exp: In Units (1)",
+  [2] = "Type Of Unit Exp: As A Of Nominal (2)",
+  [3] = "Type Of Unit Exp: As A Of Nominal Including Accrued Interest (3)",
+  [8] = "Type Of Unit Exp: In Kilograms (8)",
+  [9] = "Type Of Unit Exp: In Ounces (9)",
+}
 
-  return "Type Of Unit Exp: Unknown("..value..")"
+qse_qsecash_marketdata_xdp_v2_6.type_of_unit_exp.display = function(value)
+  return qse_qsecash_marketdata_xdp_v2_6.type_of_unit_exp.labels[value] or "Type Of Unit Exp: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Unit Exp
@@ -9184,102 +8870,37 @@ end
 qse_qsecash_marketdata_xdp_v2_6.payload = {}
 
 -- Dissect: Payload
+qse_qsecash_marketdata_xdp_v2_6.payload.dispatch = {
+  [505] = qse_qsecash_marketdata_xdp_v2_6.stock_state_change_message.dissect,
+  [516] = qse_qsecash_marketdata_xdp_v2_6.class_state_change_message.dissect,
+  [523] = qse_qsecash_marketdata_xdp_v2_6.mail_message.dissect,
+  [530] = qse_qsecash_marketdata_xdp_v2_6.indicative_matching_price_message.dissect,
+  [537] = qse_qsecash_marketdata_xdp_v2_6.collars_message.dissect,
+  [539] = qse_qsecash_marketdata_xdp_v2_6.session_timetable_message.dissect,
+  [545] = qse_qsecash_marketdata_xdp_v2_6.global_market_activity_summary_message.dissect,
+  [550] = qse_qsecash_marketdata_xdp_v2_6.start_referential_message.dissect,
+  [551] = qse_qsecash_marketdata_xdp_v2_6.end_referential_message.dissect,
+  [555] = qse_qsecash_marketdata_xdp_v2_6.referential_message.dissect,
+  [220] = qse_qsecash_marketdata_xdp_v2_6.trade_creation_message.dissect,
+  [221] = qse_qsecash_marketdata_xdp_v2_6.trade_cancellation_message.dissect,
+  [240] = qse_qsecash_marketdata_xdp_v2_6.trade_full_information_message.dissect,
+  [241] = qse_qsecash_marketdata_xdp_v2_6.price_update_message.dissect,
+  [245] = qse_qsecash_marketdata_xdp_v2_6.auction_summary_message.dissect,
+  [247] = qse_qsecash_marketdata_xdp_v2_6.vwap_closing_price_message.dissect,
+  [140] = qse_qsecash_marketdata_xdp_v2_6.quotes_message.dissect,
+  [230] = qse_qsecash_marketdata_xdp_v2_6.order_update_market_sheet_message.dissect,
+  [231] = qse_qsecash_marketdata_xdp_v2_6.orderbook_retransmission_delimiter_message.dissect,
+  [542] = qse_qsecash_marketdata_xdp_v2_6.real_time_index_message.dissect,
+  [543] = qse_qsecash_marketdata_xdp_v2_6.index_summary_message.dissect,
+  [544] = qse_qsecash_marketdata_xdp_v2_6.index_composition_message.dissect,
+  [580] = qse_qsecash_marketdata_xdp_v2_6.start_refresh_message.dissect,
+  [581] = qse_qsecash_marketdata_xdp_v2_6.end_refresh_message.dissect,
+}
+
 qse_qsecash_marketdata_xdp_v2_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Stock State Change Message
-  if message_type == 505 then
-    return qse_qsecash_marketdata_xdp_v2_6.stock_state_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Class State Change Message
-  if message_type == 516 then
-    return qse_qsecash_marketdata_xdp_v2_6.class_state_change_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mail Message
-  if message_type == 523 then
-    return qse_qsecash_marketdata_xdp_v2_6.mail_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Matching Price Message
-  if message_type == 530 then
-    return qse_qsecash_marketdata_xdp_v2_6.indicative_matching_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Collars Message
-  if message_type == 537 then
-    return qse_qsecash_marketdata_xdp_v2_6.collars_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Timetable Message
-  if message_type == 539 then
-    return qse_qsecash_marketdata_xdp_v2_6.session_timetable_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Market Activity Summary Message
-  if message_type == 545 then
-    return qse_qsecash_marketdata_xdp_v2_6.global_market_activity_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Referential Message
-  if message_type == 550 then
-    return qse_qsecash_marketdata_xdp_v2_6.start_referential_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Referential Message
-  if message_type == 551 then
-    return qse_qsecash_marketdata_xdp_v2_6.end_referential_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Referential Message
-  if message_type == 555 then
-    return qse_qsecash_marketdata_xdp_v2_6.referential_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Creation Message
-  if message_type == 220 then
-    return qse_qsecash_marketdata_xdp_v2_6.trade_creation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancellation Message
-  if message_type == 221 then
-    return qse_qsecash_marketdata_xdp_v2_6.trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Full Information Message
-  if message_type == 240 then
-    return qse_qsecash_marketdata_xdp_v2_6.trade_full_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Update Message
-  if message_type == 241 then
-    return qse_qsecash_marketdata_xdp_v2_6.price_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if message_type == 245 then
-    return qse_qsecash_marketdata_xdp_v2_6.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Vwap Closing Price Message
-  if message_type == 247 then
-    return qse_qsecash_marketdata_xdp_v2_6.vwap_closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quotes Message
-  if message_type == 140 then
-    return qse_qsecash_marketdata_xdp_v2_6.quotes_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Update Market Sheet Message
-  if message_type == 230 then
-    return qse_qsecash_marketdata_xdp_v2_6.order_update_market_sheet_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Orderbook Retransmission Delimiter Message
-  if message_type == 231 then
-    return qse_qsecash_marketdata_xdp_v2_6.orderbook_retransmission_delimiter_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Real Time Index Message
-  if message_type == 542 then
-    return qse_qsecash_marketdata_xdp_v2_6.real_time_index_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Summary Message
-  if message_type == 543 then
-    return qse_qsecash_marketdata_xdp_v2_6.index_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Index Composition Message
-  if message_type == 544 then
-    return qse_qsecash_marketdata_xdp_v2_6.index_composition_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Refresh Message
-  if message_type == 580 then
-    return qse_qsecash_marketdata_xdp_v2_6.start_refresh_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Refresh Message
-  if message_type == 581 then
-    return qse_qsecash_marketdata_xdp_v2_6.end_refresh_message.dissect(buffer, offset, packet, parent)
+  local dissect = qse_qsecash_marketdata_xdp_v2_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

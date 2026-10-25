@@ -406,15 +406,13 @@ tmx_tsx_level1_qrtmd_v2_8.bulletin_indicator = {}
 tmx_tsx_level1_qrtmd_v2_8.bulletin_indicator.size = 1
 
 -- Display: Bulletin Indicator
-tmx_tsx_level1_qrtmd_v2_8.bulletin_indicator.display = function(value)
-  if value == "Y" then
-    return "Bulletin Indicator: Yes (Y)"
-  end
-  if value == "N" then
-    return "Bulletin Indicator: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.bulletin_indicator.labels = {
+  ["Y"] = "Bulletin Indicator: Yes (Y)",
+  ["N"] = "Bulletin Indicator: No (N)",
+}
 
-  return "Bulletin Indicator: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.bulletin_indicator.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.bulletin_indicator.labels[value] or "Bulletin Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bulletin Indicator
@@ -556,15 +554,13 @@ tmx_tsx_level1_qrtmd_v2_8.bypass = {}
 tmx_tsx_level1_qrtmd_v2_8.bypass.size = 1
 
 -- Display: Bypass
-tmx_tsx_level1_qrtmd_v2_8.bypass.display = function(value)
-  if value == "Y" then
-    return "Bypass: Yes (Y)"
-  end
-  if value == "N" then
-    return "Bypass: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.bypass.labels = {
+  ["Y"] = "Bypass: Yes (Y)",
+  ["N"] = "Bypass: No (N)",
+}
 
-  return "Bypass: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.bypass.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.bypass.labels[value] or "Bypass: Unknown("..value..")"
 end
 
 -- Dissect: Bypass
@@ -647,12 +643,12 @@ tmx_tsx_level1_qrtmd_v2_8.continuation_identifier = {}
 tmx_tsx_level1_qrtmd_v2_8.continuation_identifier.size = 1
 
 -- Display: Continuation Identifier
-tmx_tsx_level1_qrtmd_v2_8.continuation_identifier.display = function(value)
-  if value == "0" then
-    return "Continuation Identifier: Stand Alone Message (0)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.continuation_identifier.labels = {
+  ["0"] = "Continuation Identifier: Stand Alone Message (0)",
+}
 
-  return "Continuation Identifier: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.continuation_identifier.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.continuation_identifier.labels[value] or "Continuation Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Continuation Identifier
@@ -829,18 +825,14 @@ tmx_tsx_level1_qrtmd_v2_8.exchange_identifier = {}
 tmx_tsx_level1_qrtmd_v2_8.exchange_identifier.size = 2
 
 -- Display: Exchange Identifier
-tmx_tsx_level1_qrtmd_v2_8.exchange_identifier.display = function(value)
-  if value == "T" then
-    return "Exchange Identifier: Toronto Stock Exchange (T)"
-  end
-  if value == "V" then
-    return "Exchange Identifier: Tsx Venture Exchange (V)"
-  end
-  if value == "A" then
-    return "Exchange Identifier: Tsx Alpha Exchange (A)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.exchange_identifier.labels = {
+  ["T"] = "Exchange Identifier: Toronto Stock Exchange (T)",
+  ["V"] = "Exchange Identifier: Tsx Venture Exchange (V)",
+  ["A"] = "Exchange Identifier: Tsx Alpha Exchange (A)",
+}
 
-  return "Exchange Identifier: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.exchange_identifier.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.exchange_identifier.labels[value] or "Exchange Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Identifier
@@ -1078,15 +1070,13 @@ tmx_tsx_level1_qrtmd_v2_8.is_conditional = {}
 tmx_tsx_level1_qrtmd_v2_8.is_conditional.size = 1
 
 -- Display: Is Conditional
-tmx_tsx_level1_qrtmd_v2_8.is_conditional.display = function(value)
-  if value == "Y" then
-    return "Is Conditional: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Conditional: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.is_conditional.labels = {
+  ["Y"] = "Is Conditional: Yes (Y)",
+  ["N"] = "Is Conditional: No (N)",
+}
 
-  return "Is Conditional: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.is_conditional.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.is_conditional.labels[value] or "Is Conditional: Unknown("..value..")"
 end
 
 -- Dissect: Is Conditional
@@ -1108,15 +1098,13 @@ tmx_tsx_level1_qrtmd_v2_8.is_dark = {}
 tmx_tsx_level1_qrtmd_v2_8.is_dark.size = 1
 
 -- Display: Is Dark
-tmx_tsx_level1_qrtmd_v2_8.is_dark.display = function(value)
-  if value == "Y" then
-    return "Is Dark: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Dark: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.is_dark.labels = {
+  ["Y"] = "Is Dark: Yes (Y)",
+  ["N"] = "Is Dark: No (N)",
+}
 
-  return "Is Dark: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.is_dark.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.is_dark.labels[value] or "Is Dark: Unknown("..value..")"
 end
 
 -- Dissect: Is Dark
@@ -1138,15 +1126,13 @@ tmx_tsx_level1_qrtmd_v2_8.is_mid_only = {}
 tmx_tsx_level1_qrtmd_v2_8.is_mid_only.size = 1
 
 -- Display: Is Mid Only
-tmx_tsx_level1_qrtmd_v2_8.is_mid_only.display = function(value)
-  if value == "Y" then
-    return "Is Mid Only: Yes (Y)"
-  end
-  if value == "N" then
-    return "Is Mid Only: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.is_mid_only.labels = {
+  ["Y"] = "Is Mid Only: Yes (Y)",
+  ["N"] = "Is Mid Only: No (N)",
+}
 
-  return "Is Mid Only: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.is_mid_only.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.is_mid_only.labels[value] or "Is Mid Only: Unknown("..value..")"
 end
 
 -- Dissect: Is Mid Only
@@ -1206,30 +1192,18 @@ tmx_tsx_level1_qrtmd_v2_8.listing_market = {}
 tmx_tsx_level1_qrtmd_v2_8.listing_market.size = 1
 
 -- Display: Listing Market
-tmx_tsx_level1_qrtmd_v2_8.listing_market.display = function(value)
-  if value == "T" then
-    return "Listing Market: Tsx (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsxv (V)"
-  end
-  if value == "N" then
-    return "Listing Market: Navex (N)"
-  end
-  if value == "Q" then
-    return "Listing Market: Nasdaq (Q)"
-  end
-  if value == "S" then
-    return "Listing Market: Nyse (S)"
-  end
-  if value == "M" then
-    return "Listing Market: Nyse Mkt (M)"
-  end
-  if value == "X" then
-    return "Listing Market: No Market (X)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.listing_market.labels = {
+  ["T"] = "Listing Market: Tsx (T)",
+  ["V"] = "Listing Market: Tsxv (V)",
+  ["N"] = "Listing Market: Navex (N)",
+  ["Q"] = "Listing Market: Nasdaq (Q)",
+  ["S"] = "Listing Market: Nyse (S)",
+  ["M"] = "Listing Market: Nyse Mkt (M)",
+  ["X"] = "Listing Market: No Market (X)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.listing_market.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -1315,63 +1289,29 @@ tmx_tsx_level1_qrtmd_v2_8.market_state = {}
 tmx_tsx_level1_qrtmd_v2_8.market_state.size = 1
 
 -- Display: Market State
-tmx_tsx_level1_qrtmd_v2_8.market_state.display = function(value)
-  if value == "P" then
-    return "Market State: Pre Open (P)"
-  end
-  if value == "O" then
-    return "Market State: Opening (O)"
-  end
-  if value == "S" then
-    return "Market State: Open (S)"
-  end
-  if value == "C" then
-    return "Market State: Closed (C)"
-  end
-  if value == "R" then
-    return "Market State: Extended Hours Open (R)"
-  end
-  if value == "F" then
-    return "Market State: Extended Hours Close (F)"
-  end
-  if value == "N" then
-    return "Market State: Extended Hours Cxls (N)"
-  end
-  if value == "M" then
-    return "Market State: Moc Imbalance (M)"
-  end
-  if value == "T" then
-    return "Market State: Moc Freeze (T)"
-  end
-  if value == "A" then
-    return "Market State: Ccp Determination (A)"
-  end
-  if value == "E" then
-    return "Market State: Price Movement Extension (E)"
-  end
-  if value == "L" then
-    return "Market State: Closing (L)"
-  end
-  if value == "J" then
-    return "Market State: Navex Closed (J)"
-  end
-  if value == "G" then
-    return "Market State: Navex Order Entry (G)"
-  end
-  if value == "H" then
-    return "Market State: Navex Order Entry Close (H)"
-  end
-  if value == "K" then
-    return "Market State: Navex Am Execution (K)"
-  end
-  if value == "X" then
-    return "Market State: Navex Pm Execution (X)"
-  end
-  if value == "Y" then
-    return "Market State: Navex Close (Y)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.market_state.labels = {
+  ["P"] = "Market State: Pre Open (P)",
+  ["O"] = "Market State: Opening (O)",
+  ["S"] = "Market State: Open (S)",
+  ["C"] = "Market State: Closed (C)",
+  ["R"] = "Market State: Extended Hours Open (R)",
+  ["F"] = "Market State: Extended Hours Close (F)",
+  ["N"] = "Market State: Extended Hours Cxls (N)",
+  ["M"] = "Market State: Moc Imbalance (M)",
+  ["T"] = "Market State: Moc Freeze (T)",
+  ["A"] = "Market State: Ccp Determination (A)",
+  ["E"] = "Market State: Price Movement Extension (E)",
+  ["L"] = "Market State: Closing (L)",
+  ["J"] = "Market State: Navex Closed (J)",
+  ["G"] = "Market State: Navex Order Entry (G)",
+  ["H"] = "Market State: Navex Order Entry Close (H)",
+  ["K"] = "Market State: Navex Am Execution (K)",
+  ["X"] = "Market State: Navex Pm Execution (X)",
+  ["Y"] = "Market State: Navex Close (Y)",
+}
 
-  return "Market State: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.market_state.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.market_state.labels[value] or "Market State: Unknown("..value..")"
 end
 
 -- Dissect: Market State
@@ -1447,51 +1387,25 @@ tmx_tsx_level1_qrtmd_v2_8.message_type = {}
 tmx_tsx_level1_qrtmd_v2_8.message_type.size = 2
 
 -- Display: Message Type
-tmx_tsx_level1_qrtmd_v2_8.message_type.display = function(value)
-  if value == "A" then
-    return "Message Type: Trade Message (A)"
-  end
-  if value == "B" then
-    return "Message Type: Symbol Status Message (B)"
-  end
-  if value == "C" then
-    return "Message Type: Moc Imbalance Notification Message (C)"
-  end
-  if value == "CA" then
-    return "Message Type: Moc Price Movement Delay Message (CA)"
-  end
-  if value == "D" then
-    return "Message Type: Stock State Message (D)"
-  end
-  if value == "E" then
-    return "Message Type: Quote Message (E)"
-  end
-  if value == "G" then
-    return "Message Type: General Message (G)"
-  end
-  if value == "H" then
-    return "Message Type: Trade Cancellation Message (H)"
-  end
-  if value == "I" then
-    return "Message Type: Indicative Price Message (I)"
-  end
-  if value == "O" then
-    return "Message Type: Calculated Opening Price Message (O)"
-  end
-  if value == "R" then
-    return "Message Type: Tsx Tsxv Closing Price Message (R)"
-  end
-  if value == "S" then
-    return "Message Type: Market State Message (S)"
-  end
-  if value == "T" then
-    return "Message Type: Trading Tier Status Message (T)"
-  end
-  if value == "X" then
-    return "Message Type: Trade Correction Message (X)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.message_type.labels = {
+  ["A"] = "Message Type: Trade Message (A)",
+  ["B"] = "Message Type: Symbol Status Message (B)",
+  ["C"] = "Message Type: Moc Imbalance Notification Message (C)",
+  ["CA"] = "Message Type: Moc Price Movement Delay Message (CA)",
+  ["D"] = "Message Type: Stock State Message (D)",
+  ["E"] = "Message Type: Quote Message (E)",
+  ["G"] = "Message Type: General Message (G)",
+  ["H"] = "Message Type: Trade Cancellation Message (H)",
+  ["I"] = "Message Type: Indicative Price Message (I)",
+  ["O"] = "Message Type: Calculated Opening Price Message (O)",
+  ["R"] = "Message Type: Tsx Tsxv Closing Price Message (R)",
+  ["S"] = "Message Type: Market State Message (S)",
+  ["T"] = "Message Type: Trading Tier Status Message (T)",
+  ["X"] = "Message Type: Trade Correction Message (X)",
+}
 
-  return "Message Type: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.message_type.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1513,15 +1427,13 @@ tmx_tsx_level1_qrtmd_v2_8.moc = {}
 tmx_tsx_level1_qrtmd_v2_8.moc.size = 1
 
 -- Display: Moc
-tmx_tsx_level1_qrtmd_v2_8.moc.display = function(value)
-  if value == "Y" then
-    return "Moc: Yes (Y)"
-  end
-  if value == "N" then
-    return "Moc: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.moc.labels = {
+  ["Y"] = "Moc: Yes (Y)",
+  ["N"] = "Moc: No (N)",
+}
 
-  return "Moc: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.moc.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.moc.labels[value] or "Moc: Unknown("..value..")"
 end
 
 -- Dissect: Moc
@@ -1543,15 +1455,13 @@ tmx_tsx_level1_qrtmd_v2_8.moc_eligible = {}
 tmx_tsx_level1_qrtmd_v2_8.moc_eligible.size = 1
 
 -- Display: Moc Eligible
-tmx_tsx_level1_qrtmd_v2_8.moc_eligible.display = function(value)
-  if value == "Y" then
-    return "Moc Eligible: Yes (Y)"
-  end
-  if value == "N" then
-    return "Moc Eligible: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.moc_eligible.labels = {
+  ["Y"] = "Moc Eligible: Yes (Y)",
+  ["N"] = "Moc Eligible: No (N)",
+}
 
-  return "Moc Eligible: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.moc_eligible.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.moc_eligible.labels[value] or "Moc Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Moc Eligible
@@ -1638,15 +1548,13 @@ tmx_tsx_level1_qrtmd_v2_8.opening_trade = {}
 tmx_tsx_level1_qrtmd_v2_8.opening_trade.size = 1
 
 -- Display: Opening Trade
-tmx_tsx_level1_qrtmd_v2_8.opening_trade.display = function(value)
-  if value == "Y" then
-    return "Opening Trade: Yes (Y)"
-  end
-  if value == "N" then
-    return "Opening Trade: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.opening_trade.labels = {
+  ["Y"] = "Opening Trade: Yes (Y)",
+  ["N"] = "Opening Trade: No (N)",
+}
 
-  return "Opening Trade: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.opening_trade.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.opening_trade.labels[value] or "Opening Trade: Unknown("..value..")"
 end
 
 -- Dissect: Opening Trade
@@ -1730,15 +1638,13 @@ tmx_tsx_level1_qrtmd_v2_8.price_marker = {}
 tmx_tsx_level1_qrtmd_v2_8.price_marker.size = 1
 
 -- Display: Price Marker
-tmx_tsx_level1_qrtmd_v2_8.price_marker.display = function(value)
-  if value == "C" then
-    return "Price Marker: Indicative Closing Price (C)"
-  end
-  if value == "O" then
-    return "Price Marker: Calculated Opening Price (O)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.price_marker.labels = {
+  ["C"] = "Price Marker: Indicative Closing Price (C)",
+  ["O"] = "Price Marker: Calculated Opening Price (O)",
+}
 
-  return "Price Marker: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.price_marker.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.price_marker.labels[value] or "Price Marker: Unknown("..value..")"
 end
 
 -- Dissect: Price Marker
@@ -1798,27 +1704,17 @@ tmx_tsx_level1_qrtmd_v2_8.product_type = {}
 tmx_tsx_level1_qrtmd_v2_8.product_type.size = 1
 
 -- Display: Product Type
-tmx_tsx_level1_qrtmd_v2_8.product_type.display = function(value)
-  if value == "B" then
-    return "Product Type: Debenture (B)"
-  end
-  if value == "E" then
-    return "Product Type: Equity (E)"
-  end
-  if value == "M" then
-    return "Product Type: Mutual Fund (M)"
-  end
-  if value == "F" then
-    return "Product Type: Etf (F)"
-  end
-  if value == "U" then
-    return "Product Type: Us Equity (U)"
-  end
-  if value == "O" then
-    return "Product Type: Bond (O)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.product_type.labels = {
+  ["B"] = "Product Type: Debenture (B)",
+  ["E"] = "Product Type: Equity (E)",
+  ["M"] = "Product Type: Mutual Fund (M)",
+  ["F"] = "Product Type: Etf (F)",
+  ["U"] = "Product Type: Us Equity (U)",
+  ["O"] = "Product Type: Bond (O)",
+}
 
-  return "Product Type: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.product_type.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -1890,12 +1786,12 @@ tmx_tsx_level1_qrtmd_v2_8.retransmission_identifier = {}
 tmx_tsx_level1_qrtmd_v2_8.retransmission_identifier.size = 1
 
 -- Display: Retransmission Identifier
-tmx_tsx_level1_qrtmd_v2_8.retransmission_identifier.display = function(value)
-  if value == "0" then
-    return "Retransmission Identifier: Normal Transmission (0)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.retransmission_identifier.labels = {
+  ["0"] = "Retransmission Identifier: Normal Transmission (0)",
+}
 
-  return "Retransmission Identifier: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.retransmission_identifier.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.retransmission_identifier.labels[value] or "Retransmission Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Retransmission Identifier
@@ -2041,36 +1937,20 @@ tmx_tsx_level1_qrtmd_v2_8.service_identifier = {}
 tmx_tsx_level1_qrtmd_v2_8.service_identifier.size = 3
 
 -- Display: Service Identifier
-tmx_tsx_level1_qrtmd_v2_8.service_identifier.display = function(value)
-  if value == "TL1" then
-    return "Service Identifier: Toronto Level 1 (TL1)"
-  end
-  if value == "CL1" then
-    return "Service Identifier: Tsx Venture Exchange Level 1 (CL1)"
-  end
-  if value == "AL1" then
-    return "Service Identifier: Alpha Level 1 (AL1)"
-  end
-  if value == "TL2" then
-    return "Service Identifier: Toronto Level 2 (TL2)"
-  end
-  if value == "CL2" then
-    return "Service Identifier: Tsx Venture Exchange Level 2 (CL2)"
-  end
-  if value == "AL2" then
-    return "Service Identifier: Alpha Level 2 (AL2)"
-  end
-  if value == "TX1" then
-    return "Service Identifier: Index Service Level 1 (TX1)"
-  end
-  if value == "TRD" then
-    return "Service Identifier: Reference Data Feed Toronto (TRD)"
-  end
-  if value == "VRD" then
-    return "Service Identifier: Reference Data Feed Venture (VRD)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.service_identifier.labels = {
+  ["TL1"] = "Service Identifier: Toronto Level 1 (TL1)",
+  ["CL1"] = "Service Identifier: Tsx Venture Exchange Level 1 (CL1)",
+  ["AL1"] = "Service Identifier: Alpha Level 1 (AL1)",
+  ["TL2"] = "Service Identifier: Toronto Level 2 (TL2)",
+  ["CL2"] = "Service Identifier: Tsx Venture Exchange Level 2 (CL2)",
+  ["AL2"] = "Service Identifier: Alpha Level 2 (AL2)",
+  ["TX1"] = "Service Identifier: Index Service Level 1 (TX1)",
+  ["TRD"] = "Service Identifier: Reference Data Feed Toronto (TRD)",
+  ["VRD"] = "Service Identifier: Reference Data Feed Venture (VRD)",
+}
 
-  return "Service Identifier: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.service_identifier.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.service_identifier.labels[value] or "Service Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Service Identifier
@@ -2165,33 +2045,19 @@ tmx_tsx_level1_qrtmd_v2_8.stock_state = {}
 tmx_tsx_level1_qrtmd_v2_8.stock_state.size = 2
 
 -- Display: Stock State
-tmx_tsx_level1_qrtmd_v2_8.stock_state.display = function(value)
-  if value == "AR" then
-    return "Stock State: Authorized Delayed (AR)"
-  end
-  if value == "IR" then
-    return "Stock State: Inhibited Delayed (IR)"
-  end
-  if value == "AS" then
-    return "Stock State: Authorized Halted (AS)"
-  end
-  if value == "IS" then
-    return "Stock State: Inhibited Halted (IS)"
-  end
-  if value == "A" then
-    return "Stock State: Authorized (A)"
-  end
-  if value == "I" then
-    return "Stock State: Inhibited (I)"
-  end
-  if value == "AE" then
-    return "Stock State: Authorized Price Movement Delayed (AE)"
-  end
-  if value == "IE" then
-    return "Stock State: Inhibited Price Movement Delayed (IE)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.stock_state.labels = {
+  ["AR"] = "Stock State: Authorized Delayed (AR)",
+  ["IR"] = "Stock State: Inhibited Delayed (IR)",
+  ["AS"] = "Stock State: Authorized Halted (AS)",
+  ["IS"] = "Stock State: Inhibited Halted (IS)",
+  ["A"] = "Stock State: Authorized (A)",
+  ["I"] = "Stock State: Inhibited (I)",
+  ["AE"] = "Stock State: Authorized Price Movement Delayed (AE)",
+  ["IE"] = "Stock State: Inhibited Price Movement Delayed (IE)",
+}
 
-  return "Stock State: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.stock_state.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.stock_state.labels[value] or "Stock State: Unknown("..value..")"
 end
 
 -- Dissect: Stock State
@@ -2259,15 +2125,13 @@ tmx_tsx_level1_qrtmd_v2_8.test_symbol = {}
 tmx_tsx_level1_qrtmd_v2_8.test_symbol.size = 1
 
 -- Display: Test Symbol
-tmx_tsx_level1_qrtmd_v2_8.test_symbol.display = function(value)
-  if value == "Y" then
-    return "Test Symbol: Yes (Y)"
-  end
-  if value == "N" then
-    return "Test Symbol: No (N)"
-  end
+tmx_tsx_level1_qrtmd_v2_8.test_symbol.labels = {
+  ["Y"] = "Test Symbol: Yes (Y)",
+  ["N"] = "Test Symbol: No (N)",
+}
 
-  return "Test Symbol: Unknown("..value..")"
+tmx_tsx_level1_qrtmd_v2_8.test_symbol.display = function(value)
+  return tmx_tsx_level1_qrtmd_v2_8.test_symbol.labels[value] or "Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Test Symbol
@@ -3725,62 +3589,27 @@ end
 tmx_tsx_level1_qrtmd_v2_8.message_body = {}
 
 -- Dissect: Message Body
+tmx_tsx_level1_qrtmd_v2_8.message_body.dispatch = {
+  ["A"] = tmx_tsx_level1_qrtmd_v2_8.trade_message.dissect,
+  ["B"] = tmx_tsx_level1_qrtmd_v2_8.symbol_status_message.dissect,
+  ["C"] = tmx_tsx_level1_qrtmd_v2_8.moc_imbalance_notification_message.dissect,
+  ["CA"] = tmx_tsx_level1_qrtmd_v2_8.moc_price_movement_delay_message.dissect,
+  ["D"] = tmx_tsx_level1_qrtmd_v2_8.stock_state_message.dissect,
+  ["E"] = tmx_tsx_level1_qrtmd_v2_8.quote_message.dissect,
+  ["G"] = tmx_tsx_level1_qrtmd_v2_8.general_message.dissect,
+  ["H"] = tmx_tsx_level1_qrtmd_v2_8.trade_cancellation_message.dissect,
+  ["I"] = tmx_tsx_level1_qrtmd_v2_8.indicative_price_message.dissect,
+  ["O"] = tmx_tsx_level1_qrtmd_v2_8.calculated_opening_price_message.dissect,
+  ["R"] = tmx_tsx_level1_qrtmd_v2_8.tsx_tsxv_closing_price_message.dissect,
+  ["S"] = tmx_tsx_level1_qrtmd_v2_8.market_state_message.dissect,
+  ["T"] = tmx_tsx_level1_qrtmd_v2_8.trading_tier_status_message.dissect,
+  ["X"] = tmx_tsx_level1_qrtmd_v2_8.trade_correction_message.dissect,
+}
+
 tmx_tsx_level1_qrtmd_v2_8.message_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Trade Message
-  if message_type == "A" then
-    return tmx_tsx_level1_qrtmd_v2_8.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Status Message
-  if message_type == "B" then
-    return tmx_tsx_level1_qrtmd_v2_8.symbol_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Moc Imbalance Notification Message
-  if message_type == "C" then
-    return tmx_tsx_level1_qrtmd_v2_8.moc_imbalance_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Moc Price Movement Delay Message
-  if message_type == "CA" then
-    return tmx_tsx_level1_qrtmd_v2_8.moc_price_movement_delay_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock State Message
-  if message_type == "D" then
-    return tmx_tsx_level1_qrtmd_v2_8.stock_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Message
-  if message_type == "E" then
-    return tmx_tsx_level1_qrtmd_v2_8.quote_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect General Message
-  if message_type == "G" then
-    return tmx_tsx_level1_qrtmd_v2_8.general_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Cancellation Message
-  if message_type == "H" then
-    return tmx_tsx_level1_qrtmd_v2_8.trade_cancellation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indicative Price Message
-  if message_type == "I" then
-    return tmx_tsx_level1_qrtmd_v2_8.indicative_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Calculated Opening Price Message
-  if message_type == "O" then
-    return tmx_tsx_level1_qrtmd_v2_8.calculated_opening_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tsx Tsxv Closing Price Message
-  if message_type == "R" then
-    return tmx_tsx_level1_qrtmd_v2_8.tsx_tsxv_closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market State Message
-  if message_type == "S" then
-    return tmx_tsx_level1_qrtmd_v2_8.market_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Tier Status Message
-  if message_type == "T" then
-    return tmx_tsx_level1_qrtmd_v2_8.trading_tier_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if message_type == "X" then
-    return tmx_tsx_level1_qrtmd_v2_8.trade_correction_message.dissect(buffer, offset, packet, parent)
+  local dissect = tmx_tsx_level1_qrtmd_v2_8.message_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

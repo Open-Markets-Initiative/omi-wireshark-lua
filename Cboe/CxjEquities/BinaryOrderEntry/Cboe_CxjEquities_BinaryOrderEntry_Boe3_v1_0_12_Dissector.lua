@@ -703,51 +703,25 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message_type = {}
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message_type.size = 2
 
 -- Display: Exchange Message Type
-cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message_type.display = function(value)
-  if value == 501 then
-    return "Message Type: Login Response Message (501)"
-  end
-  if value == 502 then
-    return "Message Type: Replay Complete Message (502)"
-  end
-  if value == 503 then
-    return "Message Type: Logout Response Message (503)"
-  end
-  if value == 504 then
-    return "Message Type: Server Heartbeat Message (504)"
-  end
-  if value == 5501 then
-    return "Message Type: Order Acknowledgement Jp Equities V 1 (5501)"
-  end
-  if value == 5502 then
-    return "Message Type: Order Rejected Jp Equities V 1 (5502)"
-  end
-  if value == 5503 then
-    return "Message Type: Order Modified Jp Equities V 1 (5503)"
-  end
-  if value == 5504 then
-    return "Message Type: Modify Rejected Jp Equities V 1 (5504)"
-  end
-  if value == 5505 then
-    return "Message Type: Order Restated Jp Equities V 1 (5505)"
-  end
-  if value == 5506 then
-    return "Message Type: Order Execution Jp Equities V 1 (5506)"
-  end
-  if value == 5507 then
-    return "Message Type: Order Cancelled Jp Equities V 1 (5507)"
-  end
-  if value == 5508 then
-    return "Message Type: Cancel Rejected Jp Equities V 1 (5508)"
-  end
-  if value == 5510 then
-    return "Message Type: Purge Acknowledgement Jp Equities V 1 (5510)"
-  end
-  if value == 5511 then
-    return "Message Type: Purge Rejected Jp Equities V 1 (5511)"
-  end
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message_type.labels = {
+  [501] = "Message Type: Login Response Message (501)",
+  [502] = "Message Type: Replay Complete Message (502)",
+  [503] = "Message Type: Logout Response Message (503)",
+  [504] = "Message Type: Server Heartbeat Message (504)",
+  [5501] = "Message Type: Order Acknowledgement Jp Equities V 1 (5501)",
+  [5502] = "Message Type: Order Rejected Jp Equities V 1 (5502)",
+  [5503] = "Message Type: Order Modified Jp Equities V 1 (5503)",
+  [5504] = "Message Type: Modify Rejected Jp Equities V 1 (5504)",
+  [5505] = "Message Type: Order Restated Jp Equities V 1 (5505)",
+  [5506] = "Message Type: Order Execution Jp Equities V 1 (5506)",
+  [5507] = "Message Type: Order Cancelled Jp Equities V 1 (5507)",
+  [5508] = "Message Type: Cancel Rejected Jp Equities V 1 (5508)",
+  [5510] = "Message Type: Purge Acknowledgement Jp Equities V 1 (5510)",
+  [5511] = "Message Type: Purge Rejected Jp Equities V 1 (5511)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message_type.display = function(value)
+  return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Message Type
@@ -816,30 +790,18 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message_type = {}
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message_type.size = 2
 
 -- Display: Firm Message Type
-cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message_type.display = function(value)
-  if value == 1 then
-    return "Message Type: Login Request Message (1)"
-  end
-  if value == 2 then
-    return "Message Type: Logout Request Message (2)"
-  end
-  if value == 3 then
-    return "Message Type: Client Heartbeat Message (3)"
-  end
-  if value == 5001 then
-    return "Message Type: New Order Jp Equities V 1 (5001)"
-  end
-  if value == 5002 then
-    return "Message Type: Modify Order Jp Equities V 1 (5002)"
-  end
-  if value == 5003 then
-    return "Message Type: Cancel Order Jp Equities V 1 (5003)"
-  end
-  if value == 5004 then
-    return "Message Type: Purge Orders Jp Equities V 1 (5004)"
-  end
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message_type.labels = {
+  [1] = "Message Type: Login Request Message (1)",
+  [2] = "Message Type: Logout Request Message (2)",
+  [3] = "Message Type: Client Heartbeat Message (3)",
+  [5001] = "Message Type: New Order Jp Equities V 1 (5001)",
+  [5002] = "Message Type: Modify Order Jp Equities V 1 (5002)",
+  [5003] = "Message Type: Cancel Order Jp Equities V 1 (5003)",
+  [5004] = "Message Type: Purge Orders Jp Equities V 1 (5004)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message_type.display = function(value)
+  return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Firm Message Type
@@ -985,33 +947,19 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_status = {}
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_status.size = 1
 
 -- Display: Login Response Status
-cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_status.display = function(value)
-  if value == "A" then
-    return "Login Response Status: Accepted (A)"
-  end
-  if value == "B" then
-    return "Login Response Status: Session In Use (B)"
-  end
-  if value == "D" then
-    return "Login Response Status: Disabled (D)"
-  end
-  if value == "I" then
-    return "Login Response Status: Invalid Unit (I)"
-  end
-  if value == "M" then
-    return "Login Response Status: Invalid Message (M)"
-  end
-  if value == "N" then
-    return "Login Response Status: Not Authorized (N)"
-  end
-  if value == "Q" then
-    return "Login Response Status: Sequence Ahead (Q)"
-  end
-  if value == "S" then
-    return "Login Response Status: Invalid Session (S)"
-  end
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_status.labels = {
+  ["A"] = "Login Response Status: Accepted (A)",
+  ["B"] = "Login Response Status: Session In Use (B)",
+  ["D"] = "Login Response Status: Disabled (D)",
+  ["I"] = "Login Response Status: Invalid Unit (I)",
+  ["M"] = "Login Response Status: Invalid Message (M)",
+  ["N"] = "Login Response Status: Not Authorized (N)",
+  ["Q"] = "Login Response Status: Sequence Ahead (Q)",
+  ["S"] = "Login Response Status: Invalid Session (S)",
+}
 
-  return "Login Response Status: Unknown("..value..")"
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_status.display = function(value)
+  return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_status.labels[value] or "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -1072,18 +1020,14 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_reason = {}
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_reason.size = 1
 
 -- Display: Logout Reason
-cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_reason.display = function(value)
-  if value == "U" then
-    return "Logout Reason: User Requested (U)"
-  end
-  if value == "A" then
-    return "Logout Reason: Administrative (A)"
-  end
-  if value == "!" then
-    return "Logout Reason: Protocol Violation (!)"
-  end
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_reason.labels = {
+  ["U"] = "Logout Reason: User Requested (U)",
+  ["A"] = "Logout Reason: Administrative (A)",
+  ["!"] = "Logout Reason: Protocol Violation (!)",
+}
 
-  return "Logout Reason: Unknown("..value..")"
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_reason.display = function(value)
+  return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_reason.labels[value] or "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -1977,18 +1921,14 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.replay_unspecified_unit = {}
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.replay_unspecified_unit.size = 1
 
 -- Display: Replay Unspecified Unit
-cboe_cxjequities_binaryorderentry_boe3_v1_0_12.replay_unspecified_unit.display = function(value)
-  if value == "F" then
-    return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
-  end
-  if value == "R" then
-    return "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)"
-  end
-  if value == "S" then
-    return "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)"
-  end
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.replay_unspecified_unit.labels = {
+  ["F"] = "Replay Unspecified Unit: Fail If Unit Not Specified (F)",
+  ["R"] = "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)",
+  ["S"] = "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)",
+}
 
-  return "Replay Unspecified Unit: Unknown("..value..")"
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.replay_unspecified_unit.display = function(value)
+  return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.replay_unspecified_unit.labels[value] or "Replay Unspecified Unit: Unknown("..value..")"
 end
 
 -- Dissect: Replay Unspecified Unit
@@ -3415,62 +3355,27 @@ end
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message = {}
 
 -- Dissect: Exchange Message
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message.dispatch = {
+  [501] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_message.dissect,
+  [502] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.replay_complete.dissect,
+  [503] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect,
+  [504] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.server_heartbeat.dissect,
+  [5501] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_acknowledgement_jp_equities_v_1.dissect,
+  [5502] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_rejected_jp_equities_v_1.dissect,
+  [5503] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_modified_jp_equities_v_1.dissect,
+  [5504] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.modify_rejected_jp_equities_v_1.dissect,
+  [5505] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_restated_jp_equities_v_1.dissect,
+  [5506] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_execution_jp_equities_v_1.dissect,
+  [5507] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_cancelled_jp_equities_v_1.dissect,
+  [5508] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.cancel_rejected_jp_equities_v_1.dissect,
+  [5510] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.purge_acknowledgement_jp_equities_v_1.dissect,
+  [5511] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.purge_rejected_jp_equities_v_1.dissect,
+}
+
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
-  -- Dissect Login Response Message
-  if exchange_message_type == 501 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete
-  if exchange_message_type == 502 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.replay_complete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response Message
-  if exchange_message_type == 503 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if exchange_message_type == 504 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Acknowledgement Jp Equities V 1
-  if exchange_message_type == 5501 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_acknowledgement_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Rejected Jp Equities V 1
-  if exchange_message_type == 5502 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_rejected_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modified Jp Equities V 1
-  if exchange_message_type == 5503 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_modified_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Rejected Jp Equities V 1
-  if exchange_message_type == 5504 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.modify_rejected_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Restated Jp Equities V 1
-  if exchange_message_type == 5505 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_restated_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Jp Equities V 1
-  if exchange_message_type == 5506 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_execution_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancelled Jp Equities V 1
-  if exchange_message_type == 5507 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_cancelled_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Rejected Jp Equities V 1
-  if exchange_message_type == 5508 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.cancel_rejected_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Acknowledgement Jp Equities V 1
-  if exchange_message_type == 5510 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.purge_acknowledgement_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Rejected Jp Equities V 1
-  if exchange_message_type == 5511 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.purge_rejected_jp_equities_v_1.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message.dispatch[exchange_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3962,34 +3867,20 @@ end
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message = {}
 
 -- Dissect: Firm Message
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message.dispatch = {
+  [1] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_request_message.dissect,
+  [2] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_request.dissect,
+  [3] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.client_heartbeat.dissect,
+  [5001] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.new_order_jp_equities_v_1.dissect,
+  [5002] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.modify_order_jp_equities_v_1.dissect,
+  [5003] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.cancel_order_jp_equities_v_1.dissect,
+  [5004] = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.purge_orders_jp_equities_v_1.dissect,
+}
+
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
-  -- Dissect Login Request Message
-  if firm_message_type == 1 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if firm_message_type == 2 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if firm_message_type == 3 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Jp Equities V 1
-  if firm_message_type == 5001 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.new_order_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Jp Equities V 1
-  if firm_message_type == 5002 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.modify_order_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Jp Equities V 1
-  if firm_message_type == 5003 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.cancel_order_jp_equities_v_1.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Orders Jp Equities V 1
-  if firm_message_type == 5004 then
-    return cboe_cxjequities_binaryorderentry_boe3_v1_0_12.purge_orders_jp_equities_v_1.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message.dispatch[firm_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

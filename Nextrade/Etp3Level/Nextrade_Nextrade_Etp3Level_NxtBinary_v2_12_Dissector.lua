@@ -1568,36 +1568,20 @@ nextrade_nextrade_etp3level_nxtbinary_v2_12.tr_code = {}
 nextrade_nextrade_etp3level_nxtbinary_v2_12.tr_code.size = 5
 
 -- Display: TR Code
-nextrade_nextrade_etp3level_nxtbinary_v2_12.tr_code.display = function(value)
-  if value == "I2500" then
-    return "TR Code: Polling Data Message (I2500)"
-  end
-  if value == "B753S" then
-    return "TR Code: Securities Quote Mm Lp Quotes Included 3 Level Message (B753S)"
-  end
-  if value == "G753S" then
-    return "TR Code: Securities Order Filled Plus Quote Mm Lp Quotes Included 3 Level Message (G753S)"
-  end
-  if value == "R153S" then
-    return "TR Code: Market Operation Ts Plus Quote Mm Lp Quotes Included 3 Level Message (R153S)"
-  end
-  if value == "A353S" then
-    return "TR Code: Securities Order Filled Message (A353S)"
-  end
-  if value == "A753S" then
-    return "TR Code: Market Operation Ts Message (A753S)"
-  end
-  if value == "A653S" then
-    return "TR Code: Issue Closing Message (A653S)"
-  end
-  if value == "R853S" then
-    return "TR Code: Triggering Removing Vi Message (R853S)"
-  end
-  if value == "E153S" then
-    return "TR Code: Closing Price Trading Quote Message (E153S)"
-  end
+nextrade_nextrade_etp3level_nxtbinary_v2_12.tr_code.labels = {
+  ["I2500"] = "TR Code: Polling Data Message (I2500)",
+  ["B753S"] = "TR Code: Securities Quote Mm Lp Quotes Included 3 Level Message (B753S)",
+  ["G753S"] = "TR Code: Securities Order Filled Plus Quote Mm Lp Quotes Included 3 Level Message (G753S)",
+  ["R153S"] = "TR Code: Market Operation Ts Plus Quote Mm Lp Quotes Included 3 Level Message (R153S)",
+  ["A353S"] = "TR Code: Securities Order Filled Message (A353S)",
+  ["A753S"] = "TR Code: Market Operation Ts Message (A753S)",
+  ["A653S"] = "TR Code: Issue Closing Message (A653S)",
+  ["R853S"] = "TR Code: Triggering Removing Vi Message (R853S)",
+  ["E153S"] = "TR Code: Closing Price Trading Quote Message (E153S)",
+}
 
-  return "TR Code: Unknown("..value..")"
+nextrade_nextrade_etp3level_nxtbinary_v2_12.tr_code.display = function(value)
+  return nextrade_nextrade_etp3level_nxtbinary_v2_12.tr_code.labels[value] or "TR Code: Unknown("..value..")"
 end
 
 -- Dissect: TR Code
@@ -2810,42 +2794,22 @@ end
 nextrade_nextrade_etp3level_nxtbinary_v2_12.payload = {}
 
 -- Dissect: Payload
+nextrade_nextrade_etp3level_nxtbinary_v2_12.payload.dispatch = {
+  ["I2500"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.polling_data_message.dissect,
+  ["B753S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.securities_quote_mm_lp_quotes_included_3_level_message.dissect,
+  ["G753S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.securities_order_filled_plus_quote_mm_lp_quotes_included_3_level_message.dissect,
+  ["R153S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.market_operation_ts_plus_quote_mm_lp_quotes_included_3_level_message.dissect,
+  ["A353S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.securities_order_filled_message.dissect,
+  ["A753S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.market_operation_ts_message.dissect,
+  ["A653S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.issue_closing_message.dissect,
+  ["R853S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.triggering_removing_vi_message.dissect,
+  ["E153S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.closing_price_trading_quote_message.dissect,
+}
+
 nextrade_nextrade_etp3level_nxtbinary_v2_12.payload.dissect = function(buffer, offset, packet, parent, tr_code)
-  -- Dissect Polling Data Message
-  if tr_code == "I2500" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.polling_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Quote Mm Lp Quotes Included 3 Level Message
-  if tr_code == "B753S" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.securities_quote_mm_lp_quotes_included_3_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Plus Quote Mm Lp Quotes Included 3 Level Message
-  if tr_code == "G753S" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.securities_order_filled_plus_quote_mm_lp_quotes_included_3_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Plus Quote Mm Lp Quotes Included 3 Level Message
-  if tr_code == "R153S" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.market_operation_ts_plus_quote_mm_lp_quotes_included_3_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Securities Order Filled Message
-  if tr_code == "A353S" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.securities_order_filled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Operation Ts Message
-  if tr_code == "A753S" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.market_operation_ts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Issue Closing Message
-  if tr_code == "A653S" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.issue_closing_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Triggering Removing Vi Message
-  if tr_code == "R853S" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.triggering_removing_vi_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price Trading Quote Message
-  if tr_code == "E153S" then
-    return nextrade_nextrade_etp3level_nxtbinary_v2_12.closing_price_trading_quote_message.dissect(buffer, offset, packet, parent)
+  local dissect = nextrade_nextrade_etp3level_nxtbinary_v2_12.payload.dispatch[tr_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

@@ -440,15 +440,13 @@ asx_asxsecurities_trade_itch_v2_0.event_code = {}
 asx_asxsecurities_trade_itch_v2_0.event_code.size = 1
 
 -- Display: Event Code
-asx_asxsecurities_trade_itch_v2_0.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages (O)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages (C)"
-  end
+asx_asxsecurities_trade_itch_v2_0.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["C"] = "Event Code: End Of Messages (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.event_code.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -493,21 +491,15 @@ asx_asxsecurities_trade_itch_v2_0.financial_product = {}
 asx_asxsecurities_trade_itch_v2_0.financial_product.size = 1
 
 -- Display: Financial Product
-asx_asxsecurities_trade_itch_v2_0.financial_product.display = function(value)
-  if value == 1 then
-    return "Financial Product: Option (1)"
-  end
-  if value == 3 then
-    return "Financial Product: Future (3)"
-  end
-  if value == 5 then
-    return "Financial Product: Cash (5)"
-  end
-  if value == 11 then
-    return "Financial Product: Standard Combination (11)"
-  end
+asx_asxsecurities_trade_itch_v2_0.financial_product.labels = {
+  [1] = "Financial Product: Option (1)",
+  [3] = "Financial Product: Future (3)",
+  [5] = "Financial Product: Cash (5)",
+  [11] = "Financial Product: Standard Combination (11)",
+}
 
-  return "Financial Product: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.financial_product.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.financial_product.labels[value] or "Financial Product: Unknown("..value..")"
 end
 
 -- Dissect: Financial Product
@@ -575,15 +567,13 @@ asx_asxsecurities_trade_itch_v2_0.leg_1_side = {}
 asx_asxsecurities_trade_itch_v2_0.leg_1_side.size = 1
 
 -- Display: Leg 1 Side
-asx_asxsecurities_trade_itch_v2_0.leg_1_side.display = function(value)
-  if value == "B" then
-    return "Leg 1 Side: Buy Leg (B)"
-  end
-  if value == "C" then
-    return "Leg 1 Side: Sell Leg (C)"
-  end
+asx_asxsecurities_trade_itch_v2_0.leg_1_side.labels = {
+  ["B"] = "Leg 1 Side: Buy Leg (B)",
+  ["C"] = "Leg 1 Side: Sell Leg (C)",
+}
 
-  return "Leg 1 Side: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.leg_1_side.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.leg_1_side.labels[value] or "Leg 1 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 1 Side
@@ -651,15 +641,13 @@ asx_asxsecurities_trade_itch_v2_0.leg_2_side = {}
 asx_asxsecurities_trade_itch_v2_0.leg_2_side.size = 1
 
 -- Display: Leg 2 Side
-asx_asxsecurities_trade_itch_v2_0.leg_2_side.display = function(value)
-  if value == "B" then
-    return "Leg 2 Side: Buy Leg (B)"
-  end
-  if value == "C" then
-    return "Leg 2 Side: Sell Leg (C)"
-  end
+asx_asxsecurities_trade_itch_v2_0.leg_2_side.labels = {
+  ["B"] = "Leg 2 Side: Buy Leg (B)",
+  ["C"] = "Leg 2 Side: Sell Leg (C)",
+}
 
-  return "Leg 2 Side: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.leg_2_side.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.leg_2_side.labels[value] or "Leg 2 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 2 Side
@@ -727,18 +715,14 @@ asx_asxsecurities_trade_itch_v2_0.leg_3_side = {}
 asx_asxsecurities_trade_itch_v2_0.leg_3_side.size = 1
 
 -- Display: Leg 3 Side
-asx_asxsecurities_trade_itch_v2_0.leg_3_side.display = function(value)
-  if value == "B" then
-    return "Leg 3 Side: Buy Leg (B)"
-  end
-  if value == "C" then
-    return "Leg 3 Side: Sell Leg (C)"
-  end
-  if value == "?" then
-    return "Leg 3 Side: Not Defined (?)"
-  end
+asx_asxsecurities_trade_itch_v2_0.leg_3_side.labels = {
+  ["B"] = "Leg 3 Side: Buy Leg (B)",
+  ["C"] = "Leg 3 Side: Sell Leg (C)",
+  ["?"] = "Leg 3 Side: Not Defined (?)",
+}
 
-  return "Leg 3 Side: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.leg_3_side.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.leg_3_side.labels[value] or "Leg 3 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 3 Side
@@ -806,18 +790,14 @@ asx_asxsecurities_trade_itch_v2_0.leg_4_side = {}
 asx_asxsecurities_trade_itch_v2_0.leg_4_side.size = 1
 
 -- Display: Leg 4 Side
-asx_asxsecurities_trade_itch_v2_0.leg_4_side.display = function(value)
-  if value == "B" then
-    return "Leg 4 Side: Buy Leg (B)"
-  end
-  if value == "C" then
-    return "Leg 4 Side: Sell Leg (C)"
-  end
-  if value == "?" then
-    return "Leg 4 Side: Not Defined (?)"
-  end
+asx_asxsecurities_trade_itch_v2_0.leg_4_side.labels = {
+  ["B"] = "Leg 4 Side: Buy Leg (B)",
+  ["C"] = "Leg 4 Side: Sell Leg (C)",
+  ["?"] = "Leg 4 Side: Not Defined (?)",
+}
 
-  return "Leg 4 Side: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.leg_4_side.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.leg_4_side.labels[value] or "Leg 4 Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg 4 Side
@@ -885,24 +865,16 @@ asx_asxsecurities_trade_itch_v2_0.lot_type = {}
 asx_asxsecurities_trade_itch_v2_0.lot_type.size = 1
 
 -- Display: Lot Type
-asx_asxsecurities_trade_itch_v2_0.lot_type.display = function(value)
-  if value == 0 then
-    return "Lot Type: Undefined (0)"
-  end
-  if value == 1 then
-    return "Lot Type: Odd Lot (1)"
-  end
-  if value == 2 then
-    return "Lot Type: Round Lot (2)"
-  end
-  if value == 3 then
-    return "Lot Type: Block Lot (3)"
-  end
-  if value == 4 then
-    return "Lot Type: All Or None Lot (4)"
-  end
+asx_asxsecurities_trade_itch_v2_0.lot_type.labels = {
+  [0] = "Lot Type: Undefined (0)",
+  [1] = "Lot Type: Odd Lot (1)",
+  [2] = "Lot Type: Round Lot (2)",
+  [3] = "Lot Type: Block Lot (3)",
+  [4] = "Lot Type: All Or None Lot (4)",
+}
 
-  return "Lot Type: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.lot_type.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.lot_type.labels[value] or "Lot Type: Unknown("..value..")"
 end
 
 -- Dissect: Lot Type
@@ -993,51 +965,25 @@ asx_asxsecurities_trade_itch_v2_0.message_type = {}
 asx_asxsecurities_trade_itch_v2_0.message_type.size = 1
 
 -- Display: Message Type
-asx_asxsecurities_trade_itch_v2_0.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Message (T)"
-  end
-  if value == "R" then
-    return "Message Type: Order Book Directory Message (R)"
-  end
-  if value == "M" then
-    return "Message Type: Combination Order Book Directory Message (M)"
-  end
-  if value == "L" then
-    return "Message Type: Tick Size Message (L)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "O" then
-    return "Message Type: Order Book State Message (O)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order No Participant Id Message (A)"
-  end
-  if value == "F" then
-    return "Message Type: Add Order Participant Id Message (F)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "Z" then
-    return "Message Type: Equilibrium Price Update Message (Z)"
-  end
+asx_asxsecurities_trade_itch_v2_0.message_type.labels = {
+  ["T"] = "Message Type: Seconds Message (T)",
+  ["R"] = "Message Type: Order Book Directory Message (R)",
+  ["M"] = "Message Type: Combination Order Book Directory Message (M)",
+  ["L"] = "Message Type: Tick Size Message (L)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["O"] = "Message Type: Order Book State Message (O)",
+  ["A"] = "Message Type: Add Order No Participant Id Message (A)",
+  ["F"] = "Message Type: Add Order Participant Id Message (F)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["Z"] = "Message Type: Equilibrium Price Update Message (Z)",
+}
 
-  return "Message Type: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.message_type.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1174,15 +1120,13 @@ asx_asxsecurities_trade_itch_v2_0.occurred_at_cross = {}
 asx_asxsecurities_trade_itch_v2_0.occurred_at_cross.size = 1
 
 -- Display: Occurred At Cross
-asx_asxsecurities_trade_itch_v2_0.occurred_at_cross.display = function(value)
-  if value == "Y" then
-    return "Occurred At Cross: Yes (Y)"
-  end
-  if value == "N" then
-    return "Occurred At Cross: No (N)"
-  end
+asx_asxsecurities_trade_itch_v2_0.occurred_at_cross.labels = {
+  ["Y"] = "Occurred At Cross: Yes (Y)",
+  ["N"] = "Occurred At Cross: No (N)",
+}
 
-  return "Occurred At Cross: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.occurred_at_cross.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.occurred_at_cross.labels[value] or "Occurred At Cross: Unknown("..value..")"
 end
 
 -- Dissect: Occurred At Cross
@@ -1452,15 +1396,13 @@ asx_asxsecurities_trade_itch_v2_0.printable = {}
 asx_asxsecurities_trade_itch_v2_0.printable.size = 1
 
 -- Display: Printable
-asx_asxsecurities_trade_itch_v2_0.printable.display = function(value)
-  if value == "Y" then
-    return "Printable: Yes (Y)"
-  end
-  if value == "N" then
-    return "Printable: No (N)"
-  end
+asx_asxsecurities_trade_itch_v2_0.printable.labels = {
+  ["Y"] = "Printable: Yes (Y)",
+  ["N"] = "Printable: No (N)",
+}
 
-  return "Printable: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.printable.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.printable.labels[value] or "Printable: Unknown("..value..")"
 end
 
 -- Dissect: Printable
@@ -1627,15 +1569,13 @@ asx_asxsecurities_trade_itch_v2_0.side = {}
 asx_asxsecurities_trade_itch_v2_0.side.size = 1
 
 -- Display: Side
-asx_asxsecurities_trade_itch_v2_0.side.display = function(value)
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
+asx_asxsecurities_trade_itch_v2_0.side.labels = {
+  ["S"] = "Side: Sell (S)",
+  ["B"] = "Side: Buy (B)",
+}
 
-  return "Side: Unknown("..value..")"
+asx_asxsecurities_trade_itch_v2_0.side.display = function(value)
+  return asx_asxsecurities_trade_itch_v2_0.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2869,62 +2809,27 @@ end
 asx_asxsecurities_trade_itch_v2_0.payload = {}
 
 -- Dissect: Payload
+asx_asxsecurities_trade_itch_v2_0.payload.dispatch = {
+  ["T"] = asx_asxsecurities_trade_itch_v2_0.seconds_message.dissect,
+  ["R"] = asx_asxsecurities_trade_itch_v2_0.order_book_directory_message.dissect,
+  ["M"] = asx_asxsecurities_trade_itch_v2_0.combination_order_book_directory_message.dissect,
+  ["L"] = asx_asxsecurities_trade_itch_v2_0.tick_size_message.dissect,
+  ["S"] = asx_asxsecurities_trade_itch_v2_0.system_event_message.dissect,
+  ["O"] = asx_asxsecurities_trade_itch_v2_0.order_book_state_message.dissect,
+  ["A"] = asx_asxsecurities_trade_itch_v2_0.add_order_no_participant_id_message.dissect,
+  ["F"] = asx_asxsecurities_trade_itch_v2_0.add_order_participant_id_message.dissect,
+  ["E"] = asx_asxsecurities_trade_itch_v2_0.order_executed_message.dissect,
+  ["C"] = asx_asxsecurities_trade_itch_v2_0.order_executed_with_price_message.dissect,
+  ["U"] = asx_asxsecurities_trade_itch_v2_0.order_replace_message.dissect,
+  ["D"] = asx_asxsecurities_trade_itch_v2_0.order_delete_message.dissect,
+  ["P"] = asx_asxsecurities_trade_itch_v2_0.trade_message.dissect,
+  ["Z"] = asx_asxsecurities_trade_itch_v2_0.equilibrium_price_update_message.dissect,
+}
+
 asx_asxsecurities_trade_itch_v2_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Message
-  if message_type == "T" then
-    return asx_asxsecurities_trade_itch_v2_0.seconds_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book Directory Message
-  if message_type == "R" then
-    return asx_asxsecurities_trade_itch_v2_0.order_book_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Combination Order Book Directory Message
-  if message_type == "M" then
-    return asx_asxsecurities_trade_itch_v2_0.combination_order_book_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tick Size Message
-  if message_type == "L" then
-    return asx_asxsecurities_trade_itch_v2_0.tick_size_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return asx_asxsecurities_trade_itch_v2_0.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Book State Message
-  if message_type == "O" then
-    return asx_asxsecurities_trade_itch_v2_0.order_book_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order No Participant Id Message
-  if message_type == "A" then
-    return asx_asxsecurities_trade_itch_v2_0.add_order_no_participant_id_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Participant Id Message
-  if message_type == "F" then
-    return asx_asxsecurities_trade_itch_v2_0.add_order_participant_id_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return asx_asxsecurities_trade_itch_v2_0.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return asx_asxsecurities_trade_itch_v2_0.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return asx_asxsecurities_trade_itch_v2_0.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return asx_asxsecurities_trade_itch_v2_0.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return asx_asxsecurities_trade_itch_v2_0.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Equilibrium Price Update Message
-  if message_type == "Z" then
-    return asx_asxsecurities_trade_itch_v2_0.equilibrium_price_update_message.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxsecurities_trade_itch_v2_0.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3080,14 +2985,15 @@ end
 asx_asxsecurities_trade_itch_v2_0.messages = {}
 
 -- Dissect: Messages
+asx_asxsecurities_trade_itch_v2_0.messages.dispatch = {
+  [0] = asx_asxsecurities_trade_itch_v2_0.heartbeat.dissect,
+  [65535] = asx_asxsecurities_trade_itch_v2_0.end_of_session.dissect,
+}
+
 asx_asxsecurities_trade_itch_v2_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return asx_asxsecurities_trade_itch_v2_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return asx_asxsecurities_trade_itch_v2_0.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = asx_asxsecurities_trade_itch_v2_0.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

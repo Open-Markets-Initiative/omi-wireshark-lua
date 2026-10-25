@@ -213,15 +213,13 @@ jpx_fseequities_marketbyorder_flex_v1_3.adopted_pricing_method = {}
 jpx_fseequities_marketbyorder_flex_v1_3.adopted_pricing_method.size = 1
 
 -- Display: Adopted Pricing Method
-jpx_fseequities_marketbyorder_flex_v1_3.adopted_pricing_method.display = function(value)
-  if value == 1 then
-    return "Adopted Pricing Method: Itayose Method (1)"
-  end
-  if value == 2 then
-    return "Adopted Pricing Method: Quote Displayed (2)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.adopted_pricing_method.labels = {
+  [1] = "Adopted Pricing Method: Itayose Method (1)",
+  [2] = "Adopted Pricing Method: Quote Displayed (2)",
+}
 
-  return "Adopted Pricing Method: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.adopted_pricing_method.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.adopted_pricing_method.labels[value] or "Adopted Pricing Method: Unknown("..value..")"
 end
 
 -- Dissect: Adopted Pricing Method
@@ -350,18 +348,14 @@ jpx_fseequities_marketbyorder_flex_v1_3.communication_start_end_flag = {}
 jpx_fseequities_marketbyorder_flex_v1_3.communication_start_end_flag.size = 1
 
 -- Display: Communication Start End Flag
-jpx_fseequities_marketbyorder_flex_v1_3.communication_start_end_flag.display = function(value)
-  if value == 0 then
-    return "Communication Start End Flag: Health Check Control (0)"
-  end
-  if value == 1 then
-    return "Communication Start End Flag: Communication Start (1)"
-  end
-  if value == 2 then
-    return "Communication Start End Flag: Communication End (2)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.communication_start_end_flag.labels = {
+  [0] = "Communication Start End Flag: Health Check Control (0)",
+  [1] = "Communication Start End Flag: Communication Start (1)",
+  [2] = "Communication Start End Flag: Communication End (2)",
+}
 
-  return "Communication Start End Flag: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.communication_start_end_flag.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.communication_start_end_flag.labels[value] or "Communication Start End Flag: Unknown("..value..")"
 end
 
 -- Dissect: Communication Start End Flag
@@ -402,15 +396,13 @@ jpx_fseequities_marketbyorder_flex_v1_3.delete_modification_flag = {}
 jpx_fseequities_marketbyorder_flex_v1_3.delete_modification_flag.size = 1
 
 -- Display: Delete Modification Flag
-jpx_fseequities_marketbyorder_flex_v1_3.delete_modification_flag.display = function(value)
-  if value == 0 then
-    return "Delete Modification Flag: Cancel Order Modification Order That Changes Time Priority Or Expired Order (0)"
-  end
-  if value == 1 then
-    return "Delete Modification Flag: Modification Order That Does Not Change Time Priority (1)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.delete_modification_flag.labels = {
+  [0] = "Delete Modification Flag: Cancel Order Modification Order That Changes Time Priority Or Expired Order (0)",
+  [1] = "Delete Modification Flag: Modification Order That Does Not Change Time Priority (1)",
+}
 
-  return "Delete Modification Flag: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.delete_modification_flag.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.delete_modification_flag.labels[value] or "Delete Modification Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delete Modification Flag
@@ -513,30 +505,18 @@ jpx_fseequities_marketbyorder_flex_v1_3.market_status = {}
 jpx_fseequities_marketbyorder_flex_v1_3.market_status.size = 1
 
 -- Display: Market Status
-jpx_fseequities_marketbyorder_flex_v1_3.market_status.display = function(value)
-  if value == 11 then
-    return "Market Status: Morning Session Order Acceptance Time (11)"
-  end
-  if value == 12 then
-    return "Market Status: Morning Session Trading Hours (12)"
-  end
-  if value == 19 then
-    return "Market Status: End Of Morning Session (19)"
-  end
-  if value == 21 then
-    return "Market Status: Afternoon Session Order Acceptance Time (21)"
-  end
-  if value == 22 then
-    return "Market Status: Afternoon Session Trading Hours (22)"
-  end
-  if value == 23 then
-    return "Market Status: Afternoon Session Preclosing (23)"
-  end
-  if value == 29 then
-    return "Market Status: End Of Afternoon Session (29)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.market_status.labels = {
+  [11] = "Market Status: Morning Session Order Acceptance Time (11)",
+  [12] = "Market Status: Morning Session Trading Hours (12)",
+  [19] = "Market Status: End Of Morning Session (19)",
+  [21] = "Market Status: Afternoon Session Order Acceptance Time (21)",
+  [22] = "Market Status: Afternoon Session Trading Hours (22)",
+  [23] = "Market Status: Afternoon Session Preclosing (23)",
+  [29] = "Market Status: End Of Afternoon Session (29)",
+}
 
-  return "Market Status: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.market_status.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.market_status.labels[value] or "Market Status: Unknown("..value..")"
 end
 
 -- Dissect: Market Status
@@ -604,36 +584,20 @@ jpx_fseequities_marketbyorder_flex_v1_3.message_type = {}
 jpx_fseequities_marketbyorder_flex_v1_3.message_type.size = 1
 
 -- Display: Message Type
-jpx_fseequities_marketbyorder_flex_v1_3.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Seconds Timestamp Message (T)"
-  end
-  if value == "O" then
-    return "Message Type: Trading Status Message (O)"
-  end
-  if value == "K" then
-    return "Message Type: Execution Summary Message (K)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "R" then
-    return "Message Type: Reset Message (R)"
-  end
-  if value == "L" then
-    return "Message Type: Communication Control Message (L)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.message_type.labels = {
+  ["T"] = "Message Type: Seconds Timestamp Message (T)",
+  ["O"] = "Message Type: Trading Status Message (O)",
+  ["K"] = "Message Type: Execution Summary Message (K)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["R"] = "Message Type: Reset Message (R)",
+  ["L"] = "Message Type: Communication Control Message (L)",
+}
 
-  return "Message Type: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.message_type.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -655,15 +619,13 @@ jpx_fseequities_marketbyorder_flex_v1_3.modification_flag = {}
 jpx_fseequities_marketbyorder_flex_v1_3.modification_flag.size = 1
 
 -- Display: Modification Flag
-jpx_fseequities_marketbyorder_flex_v1_3.modification_flag.display = function(value)
-  if value == 0 then
-    return "Modification Flag: Cancel Order Or Modification Order That Changes Time Priority (0)"
-  end
-  if value == 1 then
-    return "Modification Flag: Modification Order That Does Not Change Time Priority (1)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.modification_flag.labels = {
+  [0] = "Modification Flag: Cancel Order Or Modification Order That Changes Time Priority (0)",
+  [1] = "Modification Flag: Modification Order That Does Not Change Time Priority (1)",
+}
 
-  return "Modification Flag: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.modification_flag.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.modification_flag.labels[value] or "Modification Flag: Unknown("..value..")"
 end
 
 -- Dissect: Modification Flag
@@ -754,21 +716,15 @@ jpx_fseequities_marketbyorder_flex_v1_3.order_condition = {}
 jpx_fseequities_marketbyorder_flex_v1_3.order_condition.size = 1
 
 -- Display: Order Condition
-jpx_fseequities_marketbyorder_flex_v1_3.order_condition.display = function(value)
-  if value == 0 then
-    return "Order Condition: Nonconditional (0)"
-  end
-  if value == 2 then
-    return "Order Condition: Onopen (2)"
-  end
-  if value == 4 then
-    return "Order Condition: Onclose (4)"
-  end
-  if value == 6 then
-    return "Order Condition: Funari (6)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.order_condition.labels = {
+  [0] = "Order Condition: Nonconditional (0)",
+  [2] = "Order Condition: Onopen (2)",
+  [4] = "Order Condition: Onclose (4)",
+  [6] = "Order Condition: Funari (6)",
+}
 
-  return "Order Condition: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.order_condition.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.order_condition.labels[value] or "Order Condition: Unknown("..value..")"
 end
 
 -- Dissect: Order Condition
@@ -859,27 +815,17 @@ jpx_fseequities_marketbyorder_flex_v1_3.packet_type = {}
 jpx_fseequities_marketbyorder_flex_v1_3.packet_type.size = 1
 
 -- Display: Packet Type
-jpx_fseequities_marketbyorder_flex_v1_3.packet_type.display = function(value)
-  if value == "R" then
-    return "Packet Type: Login Request Retransmission Message (R)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Snapshot Message (L)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Result Accepted Message (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Result Rejected Message (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Message Response Message (S)"
-  end
-  if value == "G" then
-    return "Packet Type: End Of Message Message (G)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.packet_type.labels = {
+  ["R"] = "Packet Type: Login Request Retransmission Message (R)",
+  ["L"] = "Packet Type: Login Request Snapshot Message (L)",
+  ["A"] = "Packet Type: Login Result Accepted Message (A)",
+  ["J"] = "Packet Type: Login Result Rejected Message (J)",
+  ["S"] = "Packet Type: Message Response Message (S)",
+  ["G"] = "Packet Type: End Of Message Message (G)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.packet_type.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -940,21 +886,15 @@ jpx_fseequities_marketbyorder_flex_v1_3.price_direction = {}
 jpx_fseequities_marketbyorder_flex_v1_3.price_direction.size = 1
 
 -- Display: Price Direction
-jpx_fseequities_marketbyorder_flex_v1_3.price_direction.display = function(value)
-  if value == 1 then
-    return "Price Direction: Up (1)"
-  end
-  if value == 2 then
-    return "Price Direction: Down (2)"
-  end
-  if value == 3 then
-    return "Price Direction: Same (3)"
-  end
-  if value == 0 then
-    return "Price Direction: Other (0)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.price_direction.labels = {
+  [1] = "Price Direction: Up (1)",
+  [2] = "Price Direction: Down (2)",
+  [3] = "Price Direction: Same (3)",
+  [0] = "Price Direction: Other (0)",
+}
 
-  return "Price Direction: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.price_direction.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.price_direction.labels[value] or "Price Direction: Unknown("..value..")"
 end
 
 -- Dissect: Price Direction
@@ -976,30 +916,18 @@ jpx_fseequities_marketbyorder_flex_v1_3.pricing_method = {}
 jpx_fseequities_marketbyorder_flex_v1_3.pricing_method.size = 1
 
 -- Display: Pricing Method
-jpx_fseequities_marketbyorder_flex_v1_3.pricing_method.display = function(value)
-  if value == 1 then
-    return "Pricing Method: Itayose Method (1)"
-  end
-  if value == 2 then
-    return "Pricing Method: Zaraba Method (2)"
-  end
-  if value == 3 then
-    return "Pricing Method: Sell Special Quote Displayed (3)"
-  end
-  if value == 4 then
-    return "Pricing Method: Buy Special Quote Displayed (4)"
-  end
-  if value == 5 then
-    return "Pricing Method: Sell Sequential Trade Quote Displayed (5)"
-  end
-  if value == 6 then
-    return "Pricing Method: Buy Sequential Trade Quote Displayed (6)"
-  end
-  if value == 0 then
-    return "Pricing Method: Other Than The Above (0)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.pricing_method.labels = {
+  [1] = "Pricing Method: Itayose Method (1)",
+  [2] = "Pricing Method: Zaraba Method (2)",
+  [3] = "Pricing Method: Sell Special Quote Displayed (3)",
+  [4] = "Pricing Method: Buy Special Quote Displayed (4)",
+  [5] = "Pricing Method: Sell Sequential Trade Quote Displayed (5)",
+  [6] = "Pricing Method: Buy Sequential Trade Quote Displayed (6)",
+  [0] = "Pricing Method: Other Than The Above (0)",
+}
 
-  return "Pricing Method: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.pricing_method.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.pricing_method.labels[value] or "Pricing Method: Unknown("..value..")"
 end
 
 -- Dissect: Pricing Method
@@ -1067,15 +995,13 @@ jpx_fseequities_marketbyorder_flex_v1_3.reset_start_end_flag = {}
 jpx_fseequities_marketbyorder_flex_v1_3.reset_start_end_flag.size = 1
 
 -- Display: Reset Start End Flag
-jpx_fseequities_marketbyorder_flex_v1_3.reset_start_end_flag.display = function(value)
-  if value == 1 then
-    return "Reset Start End Flag: Start Of Reset Dissemination (1)"
-  end
-  if value == 2 then
-    return "Reset Start End Flag: End Of Reset Dissemination (2)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.reset_start_end_flag.labels = {
+  [1] = "Reset Start End Flag: Start Of Reset Dissemination (1)",
+  [2] = "Reset Start End Flag: End Of Reset Dissemination (2)",
+}
 
-  return "Reset Start End Flag: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.reset_start_end_flag.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.reset_start_end_flag.labels[value] or "Reset Start End Flag: Unknown("..value..")"
 end
 
 -- Dissect: Reset Start End Flag
@@ -1097,30 +1023,18 @@ jpx_fseequities_marketbyorder_flex_v1_3.result_code = {}
 jpx_fseequities_marketbyorder_flex_v1_3.result_code.size = 1
 
 -- Display: Result Code
-jpx_fseequities_marketbyorder_flex_v1_3.result_code.display = function(value)
-  if value == "A" then
-    return "Result Code: Accepted (A)"
-  end
-  if value == "O" then
-    return "Result Code: Out Of Service (O)"
-  end
-  if value == "U" then
-    return "Result Code: Incorrect User Id (U)"
-  end
-  if value == "S" then
-    return "Result Code: Incorrect Sequence Number (S)"
-  end
-  if value == "T" then
-    return "Result Code: Incorrect Packet Type (T)"
-  end
-  if value == "M" then
-    return "Result Code: Incorrect Mcg Number (M)"
-  end
-  if value == "Z" then
-    return "Result Code: Other Error (Z)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.result_code.labels = {
+  ["A"] = "Result Code: Accepted (A)",
+  ["O"] = "Result Code: Out Of Service (O)",
+  ["U"] = "Result Code: Incorrect User Id (U)",
+  ["S"] = "Result Code: Incorrect Sequence Number (S)",
+  ["T"] = "Result Code: Incorrect Packet Type (T)",
+  ["M"] = "Result Code: Incorrect Mcg Number (M)",
+  ["Z"] = "Result Code: Other Error (Z)",
+}
 
-  return "Result Code: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.result_code.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.result_code.labels[value] or "Result Code: Unknown("..value..")"
 end
 
 -- Dissect: Result Code
@@ -1165,15 +1079,13 @@ jpx_fseequities_marketbyorder_flex_v1_3.short_selling_status = {}
 jpx_fseequities_marketbyorder_flex_v1_3.short_selling_status.size = 1
 
 -- Display: Short Selling Status
-jpx_fseequities_marketbyorder_flex_v1_3.short_selling_status.display = function(value)
-  if value == 0 then
-    return "Short Selling Status: Short Selling Regulation Is Not Applied (0)"
-  end
-  if value == 1 then
-    return "Short Selling Status: Short Selling Regulation Is Applied (1)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.short_selling_status.labels = {
+  [0] = "Short Selling Status: Short Selling Regulation Is Not Applied (0)",
+  [1] = "Short Selling Status: Short Selling Regulation Is Applied (1)",
+}
 
-  return "Short Selling Status: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.short_selling_status.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.short_selling_status.labels[value] or "Short Selling Status: Unknown("..value..")"
 end
 
 -- Dissect: Short Selling Status
@@ -1195,15 +1107,13 @@ jpx_fseequities_marketbyorder_flex_v1_3.side = {}
 jpx_fseequities_marketbyorder_flex_v1_3.side.size = 1
 
 -- Display: Side
-jpx_fseequities_marketbyorder_flex_v1_3.side.display = function(value)
-  if value == "S" then
-    return "Side: Sell Order (S)"
-  end
-  if value == "B" then
-    return "Side: Buy Order (B)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.side.labels = {
+  ["S"] = "Side: Sell Order (S)",
+  ["B"] = "Side: Buy Order (B)",
+}
 
-  return "Side: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.side.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1335,15 +1245,13 @@ jpx_fseequities_marketbyorder_flex_v1_3.test_mode_flag = {}
 jpx_fseequities_marketbyorder_flex_v1_3.test_mode_flag.size = 1
 
 -- Display: Test Mode Flag
-jpx_fseequities_marketbyorder_flex_v1_3.test_mode_flag.display = function(value)
-  if value == 1 then
-    return "Test Mode Flag: Production (1)"
-  end
-  if value == 2 then
-    return "Test Mode Flag: Test (2)"
-  end
+jpx_fseequities_marketbyorder_flex_v1_3.test_mode_flag.labels = {
+  [1] = "Test Mode Flag: Production (1)",
+  [2] = "Test Mode Flag: Test (2)",
+}
 
-  return "Test Mode Flag: Unknown("..value..")"
+jpx_fseequities_marketbyorder_flex_v1_3.test_mode_flag.display = function(value)
+  return jpx_fseequities_marketbyorder_flex_v1_3.test_mode_flag.labels[value] or "Test Mode Flag: Unknown("..value..")"
 end
 
 -- Dissect: Test Mode Flag
@@ -1961,30 +1869,19 @@ end
 jpx_fseequities_marketbyorder_flex_v1_3.tcp_payload = {}
 
 -- Dissect: Tcp Payload
+jpx_fseequities_marketbyorder_flex_v1_3.tcp_payload.dispatch = {
+  ["R"] = jpx_fseequities_marketbyorder_flex_v1_3.login_request_retransmission_message.dissect,
+  ["L"] = jpx_fseequities_marketbyorder_flex_v1_3.login_request_snapshot_message.dissect,
+  ["A"] = jpx_fseequities_marketbyorder_flex_v1_3.login_result_accepted_message.dissect,
+  ["J"] = jpx_fseequities_marketbyorder_flex_v1_3.login_result_rejected_message.dissect,
+  ["S"] = jpx_fseequities_marketbyorder_flex_v1_3.message_response_message.dissect,
+  ["G"] = jpx_fseequities_marketbyorder_flex_v1_3.end_of_message_message.dissect,
+}
+
 jpx_fseequities_marketbyorder_flex_v1_3.tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Login Request Retransmission Message
-  if packet_type == "R" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.login_request_retransmission_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Snapshot Message
-  if packet_type == "L" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.login_request_snapshot_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Result Accepted Message
-  if packet_type == "A" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.login_result_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Result Rejected Message
-  if packet_type == "J" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.login_result_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Response Message
-  if packet_type == "S" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.message_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Message Message
-  if packet_type == "G" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.end_of_message_message.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_fseequities_marketbyorder_flex_v1_3.tcp_payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2565,42 +2462,22 @@ end
 jpx_fseequities_marketbyorder_flex_v1_3.payload = {}
 
 -- Dissect: Payload
+jpx_fseequities_marketbyorder_flex_v1_3.payload.dispatch = {
+  ["T"] = jpx_fseequities_marketbyorder_flex_v1_3.seconds_timestamp_message.dissect,
+  ["O"] = jpx_fseequities_marketbyorder_flex_v1_3.trading_status_message.dissect,
+  ["K"] = jpx_fseequities_marketbyorder_flex_v1_3.execution_summary_message.dissect,
+  ["A"] = jpx_fseequities_marketbyorder_flex_v1_3.add_order_message.dissect,
+  ["E"] = jpx_fseequities_marketbyorder_flex_v1_3.order_executed_message.dissect,
+  ["C"] = jpx_fseequities_marketbyorder_flex_v1_3.order_executed_with_price_message.dissect,
+  ["D"] = jpx_fseequities_marketbyorder_flex_v1_3.order_delete_message.dissect,
+  ["R"] = jpx_fseequities_marketbyorder_flex_v1_3.reset_message.dissect,
+  ["L"] = jpx_fseequities_marketbyorder_flex_v1_3.communication_control_message.dissect,
+}
+
 jpx_fseequities_marketbyorder_flex_v1_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Seconds Timestamp Message
-  if message_type == "T" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.seconds_timestamp_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == "O" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Summary Message
-  if message_type == "K" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.execution_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset Message
-  if message_type == "R" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.reset_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Communication Control Message
-  if message_type == "L" then
-    return jpx_fseequities_marketbyorder_flex_v1_3.communication_control_message.dissect(buffer, offset, packet, parent)
+  local dissect = jpx_fseequities_marketbyorder_flex_v1_3.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

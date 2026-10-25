@@ -5710,63 +5710,29 @@ eurex_t7_xti_fbe_v5_0.root_party_contra_settlement_location = {}
 eurex_t7_xti_fbe_v5_0.root_party_contra_settlement_location.size = 3
 
 -- Display: Root Party Contra Settlement Location
-eurex_t7_xti_fbe_v5_0.root_party_contra_settlement_location.display = function(value)
-  if value == "APK" then
-    return "Root Party Contra Settlement Location: Apk (APK)"
-  end
-  if value == "CBF" then
-    return "Root Party Contra Settlement Location: Cbf (CBF)"
-  end
-  if value == "CBL" then
-    return "Root Party Contra Settlement Location: Cbl (CBL)"
-  end
-  if value == "CCO" then
-    return "Root Party Contra Settlement Location: Cco (CCO)"
-  end
-  if value == "CIK" then
-    return "Root Party Contra Settlement Location: Cik (CIK)"
-  end
-  if value == "EOC" then
-    return "Root Party Contra Settlement Location: Eoc (EOC)"
-  end
-  if value == "HEL" then
-    return "Root Party Contra Settlement Location: Hel (HEL)"
-  end
-  if value == "IBC" then
-    return "Root Party Contra Settlement Location: Ibc (IBC)"
-  end
-  if value == "INT" then
-    return "Root Party Contra Settlement Location: Int (INT)"
-  end
-  if value == "KDP" then
-    return "Root Party Contra Settlement Location: Kdp (KDP)"
-  end
-  if value == "MOT" then
-    return "Root Party Contra Settlement Location: Mot (MOT)"
-  end
-  if value == "NEC" then
-    return "Root Party Contra Settlement Location: Nec (NEC)"
-  end
-  if value == "OEB" then
-    return "Root Party Contra Settlement Location: Oeb (OEB)"
-  end
-  if value == "SIC" then
-    return "Root Party Contra Settlement Location: Sic (SIC)"
-  end
-  if value == "SIS" then
-    return "Root Party Contra Settlement Location: Sis (SIS)"
-  end
-  if value == "VPC" then
-    return "Root Party Contra Settlement Location: Vpc (VPC)"
-  end
-  if value == "VPD" then
-    return "Root Party Contra Settlement Location: Vpd (VPD)"
-  end
-  if value == "VPS" then
-    return "Root Party Contra Settlement Location: Vps (VPS)"
-  end
+eurex_t7_xti_fbe_v5_0.root_party_contra_settlement_location.labels = {
+  ["APK"] = "Root Party Contra Settlement Location: Apk (APK)",
+  ["CBF"] = "Root Party Contra Settlement Location: Cbf (CBF)",
+  ["CBL"] = "Root Party Contra Settlement Location: Cbl (CBL)",
+  ["CCO"] = "Root Party Contra Settlement Location: Cco (CCO)",
+  ["CIK"] = "Root Party Contra Settlement Location: Cik (CIK)",
+  ["EOC"] = "Root Party Contra Settlement Location: Eoc (EOC)",
+  ["HEL"] = "Root Party Contra Settlement Location: Hel (HEL)",
+  ["IBC"] = "Root Party Contra Settlement Location: Ibc (IBC)",
+  ["INT"] = "Root Party Contra Settlement Location: Int (INT)",
+  ["KDP"] = "Root Party Contra Settlement Location: Kdp (KDP)",
+  ["MOT"] = "Root Party Contra Settlement Location: Mot (MOT)",
+  ["NEC"] = "Root Party Contra Settlement Location: Nec (NEC)",
+  ["OEB"] = "Root Party Contra Settlement Location: Oeb (OEB)",
+  ["SIC"] = "Root Party Contra Settlement Location: Sic (SIC)",
+  ["SIS"] = "Root Party Contra Settlement Location: Sis (SIS)",
+  ["VPC"] = "Root Party Contra Settlement Location: Vpc (VPC)",
+  ["VPD"] = "Root Party Contra Settlement Location: Vpd (VPD)",
+  ["VPS"] = "Root Party Contra Settlement Location: Vps (VPS)",
+}
 
-  return "Root Party Contra Settlement Location: Unknown("..value..")"
+eurex_t7_xti_fbe_v5_0.root_party_contra_settlement_location.display = function(value)
+  return eurex_t7_xti_fbe_v5_0.root_party_contra_settlement_location.labels[value] or "Root Party Contra Settlement Location: Unknown("..value..")"
 end
 
 -- Dissect: Root Party Contra Settlement Location
@@ -6124,63 +6090,29 @@ eurex_t7_xti_fbe_v5_0.root_party_settlement_location = {}
 eurex_t7_xti_fbe_v5_0.root_party_settlement_location.size = 3
 
 -- Display: Root Party Settlement Location
-eurex_t7_xti_fbe_v5_0.root_party_settlement_location.display = function(value)
-  if value == "APK" then
-    return "Root Party Settlement Location: Apk (APK)"
-  end
-  if value == "CBF" then
-    return "Root Party Settlement Location: Cbf (CBF)"
-  end
-  if value == "CBL" then
-    return "Root Party Settlement Location: Cbl (CBL)"
-  end
-  if value == "CCO" then
-    return "Root Party Settlement Location: Cco (CCO)"
-  end
-  if value == "CIK" then
-    return "Root Party Settlement Location: Cik (CIK)"
-  end
-  if value == "EOC" then
-    return "Root Party Settlement Location: Eoc (EOC)"
-  end
-  if value == "HEL" then
-    return "Root Party Settlement Location: Hel (HEL)"
-  end
-  if value == "IBC" then
-    return "Root Party Settlement Location: Ibc (IBC)"
-  end
-  if value == "INT" then
-    return "Root Party Settlement Location: Int (INT)"
-  end
-  if value == "KDP" then
-    return "Root Party Settlement Location: Kdp (KDP)"
-  end
-  if value == "MOT" then
-    return "Root Party Settlement Location: Mot (MOT)"
-  end
-  if value == "NEC" then
-    return "Root Party Settlement Location: Nec (NEC)"
-  end
-  if value == "OEB" then
-    return "Root Party Settlement Location: Oeb (OEB)"
-  end
-  if value == "SIC" then
-    return "Root Party Settlement Location: Sic (SIC)"
-  end
-  if value == "SIS" then
-    return "Root Party Settlement Location: Sis (SIS)"
-  end
-  if value == "VPC" then
-    return "Root Party Settlement Location: Vpc (VPC)"
-  end
-  if value == "VPD" then
-    return "Root Party Settlement Location: Vpd (VPD)"
-  end
-  if value == "VPS" then
-    return "Root Party Settlement Location: Vps (VPS)"
-  end
+eurex_t7_xti_fbe_v5_0.root_party_settlement_location.labels = {
+  ["APK"] = "Root Party Settlement Location: Apk (APK)",
+  ["CBF"] = "Root Party Settlement Location: Cbf (CBF)",
+  ["CBL"] = "Root Party Settlement Location: Cbl (CBL)",
+  ["CCO"] = "Root Party Settlement Location: Cco (CCO)",
+  ["CIK"] = "Root Party Settlement Location: Cik (CIK)",
+  ["EOC"] = "Root Party Settlement Location: Eoc (EOC)",
+  ["HEL"] = "Root Party Settlement Location: Hel (HEL)",
+  ["IBC"] = "Root Party Settlement Location: Ibc (IBC)",
+  ["INT"] = "Root Party Settlement Location: Int (INT)",
+  ["KDP"] = "Root Party Settlement Location: Kdp (KDP)",
+  ["MOT"] = "Root Party Settlement Location: Mot (MOT)",
+  ["NEC"] = "Root Party Settlement Location: Nec (NEC)",
+  ["OEB"] = "Root Party Settlement Location: Oeb (OEB)",
+  ["SIC"] = "Root Party Settlement Location: Sic (SIC)",
+  ["SIS"] = "Root Party Settlement Location: Sis (SIS)",
+  ["VPC"] = "Root Party Settlement Location: Vpc (VPC)",
+  ["VPD"] = "Root Party Settlement Location: Vpd (VPD)",
+  ["VPS"] = "Root Party Settlement Location: Vps (VPS)",
+}
 
-  return "Root Party Settlement Location: Unknown("..value..")"
+eurex_t7_xti_fbe_v5_0.root_party_settlement_location.display = function(value)
+  return eurex_t7_xti_fbe_v5_0.root_party_settlement_location.labels[value] or "Root Party Settlement Location: Unknown("..value..")"
 end
 
 -- Dissect: Root Party Settlement Location
@@ -13256,206 +13188,63 @@ end
 eurex_t7_xti_fbe_v5_0.server_payload = {}
 
 -- Dissect: Server Payload
+eurex_t7_xti_fbe_v5_0.server_payload.dispatch = {
+  [10032] = eurex_t7_xti_fbe_v5_0.broadcast_error_notification.dissect,
+  [10119] = eurex_t7_xti_fbe_v5_0.cross_request_response.dissect,
+  [10122] = eurex_t7_xti_fbe_v5_0.delete_all_order_broadcast.dissect,
+  [10124] = eurex_t7_xti_fbe_v5_0.delete_all_order_nr_response.dissect,
+  [10308] = eurex_t7_xti_fbe_v5_0.delete_all_order_quote_event_broadcast.dissect,
+  [10121] = eurex_t7_xti_fbe_v5_0.delete_all_order_response.dissect,
+  [10410] = eurex_t7_xti_fbe_v5_0.delete_all_quote_broadcast.dissect,
+  [10409] = eurex_t7_xti_fbe_v5_0.delete_all_quote_response.dissect,
+  [10112] = eurex_t7_xti_fbe_v5_0.delete_order_broadcast.dissect,
+  [10111] = eurex_t7_xti_fbe_v5_0.delete_order_nr_response.dissect,
+  [10110] = eurex_t7_xti_fbe_v5_0.delete_order_response.dissect,
+  [10128] = eurex_t7_xti_fbe_v5_0.extended_deletion_report.dissect,
+  [10012] = eurex_t7_xti_fbe_v5_0.forced_logout_notification.dissect,
+  [10043] = eurex_t7_xti_fbe_v5_0.forced_user_logout_notification.dissect,
+  [10021] = eurex_t7_xti_fbe_v5_0.gateway_response.dissect,
+  [10023] = eurex_t7_xti_fbe_v5_0.heartbeat_notification.dissect,
+  [10041] = eurex_t7_xti_fbe_v5_0.inquire_enrichment_rule_id_list_response.dissect,
+  [10036] = eurex_t7_xti_fbe_v5_0.inquire_session_list_response.dissect,
+  [10039] = eurex_t7_xti_fbe_v5_0.inquire_user_response.dissect,
+  [10037] = eurex_t7_xti_fbe_v5_0.legal_notification_broadcast.dissect,
+  [10001] = eurex_t7_xti_fbe_v5_0.logon_response.dissect,
+  [10003] = eurex_t7_xti_fbe_v5_0.logout_response.dissect,
+  [10406] = eurex_t7_xti_fbe_v5_0.mass_quote_response.dissect,
+  [10108] = eurex_t7_xti_fbe_v5_0.modify_order_nr_response.dissect,
+  [10107] = eurex_t7_xti_fbe_v5_0.modify_order_response.dissect,
+  [10102] = eurex_t7_xti_fbe_v5_0.new_order_nr_response.dissect,
+  [10101] = eurex_t7_xti_fbe_v5_0.new_order_response.dissect,
+  [10031] = eurex_t7_xti_fbe_v5_0.news_broadcast.dissect,
+  [10104] = eurex_t7_xti_fbe_v5_0.order_exec_notification.dissect,
+  [10117] = eurex_t7_xti_fbe_v5_0.order_exec_report_broadcast.dissect,
+  [10103] = eurex_t7_xti_fbe_v5_0.order_exec_response.dissect,
+  [10042] = eurex_t7_xti_fbe_v5_0.party_action_report.dissect,
+  [10034] = eurex_t7_xti_fbe_v5_0.party_entitlements_update_report.dissect,
+  [10411] = eurex_t7_xti_fbe_v5_0.quote_activation_notification.dissect,
+  [10404] = eurex_t7_xti_fbe_v5_0.quote_activation_response.dissect,
+  [10407] = eurex_t7_xti_fbe_v5_0.quote_execution_report.dissect,
+  [10402] = eurex_t7_xti_fbe_v5_0.rfq_response.dissect,
+  [10010] = eurex_t7_xti_fbe_v5_0.reject.dissect,
+  [10027] = eurex_t7_xti_fbe_v5_0.retransmit_me_message_response.dissect,
+  [10009] = eurex_t7_xti_fbe_v5_0.retransmit_response.dissect,
+  [10030] = eurex_t7_xti_fbe_v5_0.service_availability_broadcast.dissect,
+  [10005] = eurex_t7_xti_fbe_v5_0.subscribe_response.dissect,
+  [10501] = eurex_t7_xti_fbe_v5_0.tm_trading_session_status_broadcast.dissect,
+  [10028] = eurex_t7_xti_fbe_v5_0.throttle_update_notification.dissect,
+  [10500] = eurex_t7_xti_fbe_v5_0.trade_broadcast.dissect,
+  [10307] = eurex_t7_xti_fbe_v5_0.trading_session_status_broadcast.dissect,
+  [10127] = eurex_t7_xti_fbe_v5_0.trailing_stop_update_notification.dissect,
+  [10007] = eurex_t7_xti_fbe_v5_0.unsubscribe_response.dissect,
+  [10019] = eurex_t7_xti_fbe_v5_0.user_login_response.dissect,
+  [10024] = eurex_t7_xti_fbe_v5_0.user_logout_response.dissect,
+}
+
 eurex_t7_xti_fbe_v5_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Broadcast Error Notification
-  if template_id == 10032 then
-    return eurex_t7_xti_fbe_v5_0.broadcast_error_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Request Response
-  if template_id == 10119 then
-    return eurex_t7_xti_fbe_v5_0.cross_request_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Broadcast
-  if template_id == 10122 then
-    return eurex_t7_xti_fbe_v5_0.delete_all_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Nr Response
-  if template_id == 10124 then
-    return eurex_t7_xti_fbe_v5_0.delete_all_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Quote Event Broadcast
-  if template_id == 10308 then
-    return eurex_t7_xti_fbe_v5_0.delete_all_order_quote_event_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Response
-  if template_id == 10121 then
-    return eurex_t7_xti_fbe_v5_0.delete_all_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Broadcast
-  if template_id == 10410 then
-    return eurex_t7_xti_fbe_v5_0.delete_all_quote_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Response
-  if template_id == 10409 then
-    return eurex_t7_xti_fbe_v5_0.delete_all_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Broadcast
-  if template_id == 10112 then
-    return eurex_t7_xti_fbe_v5_0.delete_order_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Nr Response
-  if template_id == 10111 then
-    return eurex_t7_xti_fbe_v5_0.delete_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Response
-  if template_id == 10110 then
-    return eurex_t7_xti_fbe_v5_0.delete_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Deletion Report
-  if template_id == 10128 then
-    return eurex_t7_xti_fbe_v5_0.extended_deletion_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forced Logout Notification
-  if template_id == 10012 then
-    return eurex_t7_xti_fbe_v5_0.forced_logout_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Forced User Logout Notification
-  if template_id == 10043 then
-    return eurex_t7_xti_fbe_v5_0.forced_user_logout_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Response
-  if template_id == 10021 then
-    return eurex_t7_xti_fbe_v5_0.gateway_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Notification
-  if template_id == 10023 then
-    return eurex_t7_xti_fbe_v5_0.heartbeat_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Enrichment Rule Id List Response
-  if template_id == 10041 then
-    return eurex_t7_xti_fbe_v5_0.inquire_enrichment_rule_id_list_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Session List Response
-  if template_id == 10036 then
-    return eurex_t7_xti_fbe_v5_0.inquire_session_list_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire User Response
-  if template_id == 10039 then
-    return eurex_t7_xti_fbe_v5_0.inquire_user_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Legal Notification Broadcast
-  if template_id == 10037 then
-    return eurex_t7_xti_fbe_v5_0.legal_notification_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response
-  if template_id == 10001 then
-    return eurex_t7_xti_fbe_v5_0.logon_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response
-  if template_id == 10003 then
-    return eurex_t7_xti_fbe_v5_0.logout_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Response
-  if template_id == 10406 then
-    return eurex_t7_xti_fbe_v5_0.mass_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Nr Response
-  if template_id == 10108 then
-    return eurex_t7_xti_fbe_v5_0.modify_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Response
-  if template_id == 10107 then
-    return eurex_t7_xti_fbe_v5_0.modify_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Nr Response
-  if template_id == 10102 then
-    return eurex_t7_xti_fbe_v5_0.new_order_nr_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Response
-  if template_id == 10101 then
-    return eurex_t7_xti_fbe_v5_0.new_order_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect News Broadcast
-  if template_id == 10031 then
-    return eurex_t7_xti_fbe_v5_0.news_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Notification
-  if template_id == 10104 then
-    return eurex_t7_xti_fbe_v5_0.order_exec_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Report Broadcast
-  if template_id == 10117 then
-    return eurex_t7_xti_fbe_v5_0.order_exec_report_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Exec Response
-  if template_id == 10103 then
-    return eurex_t7_xti_fbe_v5_0.order_exec_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Action Report
-  if template_id == 10042 then
-    return eurex_t7_xti_fbe_v5_0.party_action_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Party Entitlements Update Report
-  if template_id == 10034 then
-    return eurex_t7_xti_fbe_v5_0.party_entitlements_update_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Notification
-  if template_id == 10411 then
-    return eurex_t7_xti_fbe_v5_0.quote_activation_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Response
-  if template_id == 10404 then
-    return eurex_t7_xti_fbe_v5_0.quote_activation_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Execution Report
-  if template_id == 10407 then
-    return eurex_t7_xti_fbe_v5_0.quote_execution_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Response
-  if template_id == 10402 then
-    return eurex_t7_xti_fbe_v5_0.rfq_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject
-  if template_id == 10010 then
-    return eurex_t7_xti_fbe_v5_0.reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Me Message Response
-  if template_id == 10027 then
-    return eurex_t7_xti_fbe_v5_0.retransmit_me_message_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Response
-  if template_id == 10009 then
-    return eurex_t7_xti_fbe_v5_0.retransmit_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Service Availability Broadcast
-  if template_id == 10030 then
-    return eurex_t7_xti_fbe_v5_0.service_availability_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscribe Response
-  if template_id == 10005 then
-    return eurex_t7_xti_fbe_v5_0.subscribe_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tm Trading Session Status Broadcast
-  if template_id == 10501 then
-    return eurex_t7_xti_fbe_v5_0.tm_trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Throttle Update Notification
-  if template_id == 10028 then
-    return eurex_t7_xti_fbe_v5_0.throttle_update_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Broadcast
-  if template_id == 10500 then
-    return eurex_t7_xti_fbe_v5_0.trade_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status Broadcast
-  if template_id == 10307 then
-    return eurex_t7_xti_fbe_v5_0.trading_session_status_broadcast.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trailing Stop Update Notification
-  if template_id == 10127 then
-    return eurex_t7_xti_fbe_v5_0.trailing_stop_update_notification.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsubscribe Response
-  if template_id == 10007 then
-    return eurex_t7_xti_fbe_v5_0.unsubscribe_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Response
-  if template_id == 10019 then
-    return eurex_t7_xti_fbe_v5_0.user_login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Response
-  if template_id == 10024 then
-    return eurex_t7_xti_fbe_v5_0.user_logout_response.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_xti_fbe_v5_0.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -15557,102 +15346,37 @@ end
 eurex_t7_xti_fbe_v5_0.client_payload = {}
 
 -- Dissect: Client Payload
+eurex_t7_xti_fbe_v5_0.client_payload.dispatch = {
+  [10118] = eurex_t7_xti_fbe_v5_0.cross_request.dissect,
+  [10120] = eurex_t7_xti_fbe_v5_0.delete_all_order_request.dissect,
+  [10408] = eurex_t7_xti_fbe_v5_0.delete_all_quote_request.dissect,
+  [10109] = eurex_t7_xti_fbe_v5_0.delete_order_single_request.dissect,
+  [10020] = eurex_t7_xti_fbe_v5_0.gateway_request.dissect,
+  [10011] = eurex_t7_xti_fbe_v5_0.heartbeat.dissect,
+  [10040] = eurex_t7_xti_fbe_v5_0.inquire_enrichment_rule_id_list_request.dissect,
+  [10035] = eurex_t7_xti_fbe_v5_0.inquire_session_list_request.dissect,
+  [10038] = eurex_t7_xti_fbe_v5_0.inquire_user_request.dissect,
+  [10000] = eurex_t7_xti_fbe_v5_0.logon_request.dissect,
+  [10002] = eurex_t7_xti_fbe_v5_0.logout_request.dissect,
+  [10405] = eurex_t7_xti_fbe_v5_0.mass_quote_request.dissect,
+  [10106] = eurex_t7_xti_fbe_v5_0.modify_order_single_request.dissect,
+  [10126] = eurex_t7_xti_fbe_v5_0.modify_order_single_short_request.dissect,
+  [10100] = eurex_t7_xti_fbe_v5_0.new_order_single_request.dissect,
+  [10125] = eurex_t7_xti_fbe_v5_0.new_order_single_short_request.dissect,
+  [10403] = eurex_t7_xti_fbe_v5_0.quote_activation_request.dissect,
+  [10401] = eurex_t7_xti_fbe_v5_0.rfq_request.dissect,
+  [10026] = eurex_t7_xti_fbe_v5_0.retransmit_me_message_request.dissect,
+  [10008] = eurex_t7_xti_fbe_v5_0.retransmit_request.dissect,
+  [10025] = eurex_t7_xti_fbe_v5_0.subscribe_request.dissect,
+  [10006] = eurex_t7_xti_fbe_v5_0.unsubscribe_request.dissect,
+  [10018] = eurex_t7_xti_fbe_v5_0.user_login_request.dissect,
+  [10029] = eurex_t7_xti_fbe_v5_0.user_logout_request.dissect,
+}
+
 eurex_t7_xti_fbe_v5_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Cross Request
-  if template_id == 10118 then
-    return eurex_t7_xti_fbe_v5_0.cross_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Order Request
-  if template_id == 10120 then
-    return eurex_t7_xti_fbe_v5_0.delete_all_order_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete All Quote Request
-  if template_id == 10408 then
-    return eurex_t7_xti_fbe_v5_0.delete_all_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Single Request
-  if template_id == 10109 then
-    return eurex_t7_xti_fbe_v5_0.delete_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Request
-  if template_id == 10020 then
-    return eurex_t7_xti_fbe_v5_0.gateway_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if template_id == 10011 then
-    return eurex_t7_xti_fbe_v5_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Enrichment Rule Id List Request
-  if template_id == 10040 then
-    return eurex_t7_xti_fbe_v5_0.inquire_enrichment_rule_id_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire Session List Request
-  if template_id == 10035 then
-    return eurex_t7_xti_fbe_v5_0.inquire_session_list_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Inquire User Request
-  if template_id == 10038 then
-    return eurex_t7_xti_fbe_v5_0.inquire_user_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Request
-  if template_id == 10000 then
-    return eurex_t7_xti_fbe_v5_0.logon_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if template_id == 10002 then
-    return eurex_t7_xti_fbe_v5_0.logout_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Request
-  if template_id == 10405 then
-    return eurex_t7_xti_fbe_v5_0.mass_quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Single Request
-  if template_id == 10106 then
-    return eurex_t7_xti_fbe_v5_0.modify_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Single Short Request
-  if template_id == 10126 then
-    return eurex_t7_xti_fbe_v5_0.modify_order_single_short_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Single Request
-  if template_id == 10100 then
-    return eurex_t7_xti_fbe_v5_0.new_order_single_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Single Short Request
-  if template_id == 10125 then
-    return eurex_t7_xti_fbe_v5_0.new_order_single_short_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Activation Request
-  if template_id == 10403 then
-    return eurex_t7_xti_fbe_v5_0.quote_activation_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rfq Request
-  if template_id == 10401 then
-    return eurex_t7_xti_fbe_v5_0.rfq_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Me Message Request
-  if template_id == 10026 then
-    return eurex_t7_xti_fbe_v5_0.retransmit_me_message_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Retransmit Request
-  if template_id == 10008 then
-    return eurex_t7_xti_fbe_v5_0.retransmit_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subscribe Request
-  if template_id == 10025 then
-    return eurex_t7_xti_fbe_v5_0.subscribe_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsubscribe Request
-  if template_id == 10006 then
-    return eurex_t7_xti_fbe_v5_0.unsubscribe_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Login Request
-  if template_id == 10018 then
-    return eurex_t7_xti_fbe_v5_0.user_login_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Logout Request
-  if template_id == 10029 then
-    return eurex_t7_xti_fbe_v5_0.user_logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_xti_fbe_v5_0.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

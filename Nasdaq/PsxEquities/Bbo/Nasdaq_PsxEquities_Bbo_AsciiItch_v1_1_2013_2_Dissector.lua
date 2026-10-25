@@ -222,21 +222,15 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.current_trading_state = {}
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halted Or Paused On Nasdaq And All Utp Participants (H)"
-  end
-  if value == "Q" then
-    return "Current Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)"
-  end
-  if value == "R" then
-    return "Current Trading State: Quotation Only Period For Nasdaq Omx Only Halt Or Pause (R)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading On Nasdaq (T)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halted Or Paused On Nasdaq And All Utp Participants (H)",
+  ["Q"] = "Current Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)",
+  ["R"] = "Current Trading State: Quotation Only Period For Nasdaq Omx Only Halt Or Pause (R)",
+  ["T"] = "Current Trading State: Trading On Nasdaq (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.current_trading_state.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -258,36 +252,20 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.event_code = {}
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmissions (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Transmissions (C)"
-  end
-  if value == "A" then
-    return "Event Code: Emergency Market Condition Halt (A)"
-  end
-  if value == "R" then
-    return "Event Code: Emergency Market Condition Quote Only Period (R)"
-  end
-  if value == "B" then
-    return "Event Code: Emergency Market Condition Resumption (B)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.event_code.labels = {
+  ["O"] = "Event Code: Start Of Transmissions (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Transmissions (C)",
+  ["A"] = "Event Code: Emergency Market Condition Halt (A)",
+  ["R"] = "Event Code: Emergency Market Condition Quote Only Period (R)",
+  ["B"] = "Event Code: Emergency Market Condition Resumption (B)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.event_code.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -474,24 +452,16 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_type = {}
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
-  end
-  if value == "Q" then
-    return "Message Type: Quotation Message (Q)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["Y"] = "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)",
+  ["Q"] = "Message Type: Quotation Message (Q)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_type.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -777,18 +747,14 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.reg_sho_action = {}
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Place (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Restriction In Effect (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Restriction Remains In Effect (2)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Place (0)",
+  ["1"] = "Reg Sho Action: Restriction In Effect (1)",
+  ["2"] = "Reg Sho Action: Restriction Remains In Effect (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.reg_sho_action.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -810,24 +776,16 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.security_class = {}
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.security_class.size = 1
 
 -- Display: Security Class
-nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.security_class.display = function(value)
-  if value == "Q" then
-    return "Security Class: Nasdaq Listed Issue (Q)"
-  end
-  if value == "N" then
-    return "Security Class: Nyse (N)"
-  end
-  if value == "A" then
-    return "Security Class: Nyse Amex (A)"
-  end
-  if value == "P" then
-    return "Security Class: Nyse Arca (P)"
-  end
-  if value == "Z" then
-    return "Security Class: Bats (Z)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.security_class.labels = {
+  ["Q"] = "Security Class: Nasdaq Listed Issue (Q)",
+  ["N"] = "Security Class: Nyse (N)",
+  ["A"] = "Security Class: Nyse Amex (A)",
+  ["P"] = "Security Class: Nyse Arca (P)",
+  ["Z"] = "Security Class: Bats (Z)",
+}
 
-  return "Security Class: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.security_class.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.security_class.labels[value] or "Security Class: Unknown("..value..")"
 end
 
 -- Dissect: Security Class
@@ -1219,26 +1177,18 @@ end
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload = {}
 
 -- Dissect: Payload
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload.dispatch = {
+  ["S"] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.system_event_message.dissect,
+  ["R"] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.stock_directory_message.dissect,
+  ["H"] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.stock_trading_action_message.dissect,
+  ["Y"] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.reg_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["Q"] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.quotation_message.dissect,
+}
+
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quotation Message
-  if message_type == "Q" then
-    return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.quotation_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1363,10 +1313,14 @@ end
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_body = {}
 
 -- Dissect: Message Body
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_body.dispatch = {
+  [0] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.end_of_session.dissect,
+}
+
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect End Of Session
-  if message_length == 0 then
-    return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Message Data
@@ -1459,10 +1413,14 @@ end
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages = {}
 
 -- Dissect: Messages
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages.dispatch = {
+  [0] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.heartbeat.dissect,
+}
+
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

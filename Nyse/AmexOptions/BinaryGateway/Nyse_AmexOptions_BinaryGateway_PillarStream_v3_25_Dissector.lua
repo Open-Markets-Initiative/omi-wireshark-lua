@@ -387,18 +387,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_status = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_status.size = 1
 
 -- Display: Ack Status
-nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_status.display = function(value)
-  if value == 0 then
-    return "Ack Status: Unsolicited (0)"
-  end
-  if value == 1 then
-    return "Ack Status: User Request Valid (1)"
-  end
-  if value == 2 then
-    return "Ack Status: User Request Invalid (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_status.labels = {
+  [0] = "Ack Status: Unsolicited (0)",
+  [1] = "Ack Status: User Request Valid (1)",
+  [2] = "Ack Status: User Request Invalid (2)",
+}
 
-  return "Ack Status: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_status.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_status.labels[value] or "Ack Status: Unknown("..value..")"
 end
 
 -- Dissect: Ack Status
@@ -420,48 +416,24 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_type.size = 1
 
 -- Display: Ack Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_type.display = function(value)
-  if value == 1 then
-    return "Ack Type: New Interest (1)"
-  end
-  if value == 2 then
-    return "Ack Type: Order Priority Update New Order Id (2)"
-  end
-  if value == 3 then
-    return "Ack Type: Order Priority Update Same Order Id (3)"
-  end
-  if value == 4 then
-    return "Ack Type: Bulk Cancel Ack (4)"
-  end
-  if value == 5 then
-    return "Ack Type: Pending Cancel (5)"
-  end
-  if value == 6 then
-    return "Ack Type: Pending Replace (6)"
-  end
-  if value == 7 then
-    return "Ack Type: Pending Modify (7)"
-  end
-  if value == 8 then
-    return "Ack Type: Replaced (8)"
-  end
-  if value == 9 then
-    return "Ack Type: Modified (9)"
-  end
-  if value == 11 then
-    return "Ack Type: Canceled (11)"
-  end
-  if value == 12 then
-    return "Ack Type: Done For Day (12)"
-  end
-  if value == 17 then
-    return "Ack Type: Gtc Renewal Or Restatement (17)"
-  end
-  if value == 18 then
-    return "Ack Type: Individual Market Maker Quote Reject (18)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_type.labels = {
+  [1] = "Ack Type: New Interest (1)",
+  [2] = "Ack Type: Order Priority Update New Order Id (2)",
+  [3] = "Ack Type: Order Priority Update Same Order Id (3)",
+  [4] = "Ack Type: Bulk Cancel Ack (4)",
+  [5] = "Ack Type: Pending Cancel (5)",
+  [6] = "Ack Type: Pending Replace (6)",
+  [7] = "Ack Type: Pending Modify (7)",
+  [8] = "Ack Type: Replaced (8)",
+  [9] = "Ack Type: Modified (9)",
+  [11] = "Ack Type: Canceled (11)",
+  [12] = "Ack Type: Done For Day (12)",
+  [17] = "Ack Type: Gtc Renewal Or Restatement (17)",
+  [18] = "Ack Type: Individual Market Maker Quote Reject (18)",
+}
 
-  return "Ack Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.ack_type.labels[value] or "Ack Type: Unknown("..value..")"
 end
 
 -- Dissect: Ack Type
@@ -506,15 +478,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.appointment_status = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.appointment_status.size = 1
 
 -- Display: Appointment Status
-nyse_amexoptions_binarygateway_pillarstream_v3_25.appointment_status.display = function(value)
-  if value == 0 then
-    return "Appointment Status: Not Appointed (0)"
-  end
-  if value == 1 then
-    return "Appointment Status: Appointed (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.appointment_status.labels = {
+  [0] = "Appointment Status: Not Appointed (0)",
+  [1] = "Appointment Status: Appointed (1)",
+}
 
-  return "Appointment Status: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.appointment_status.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.appointment_status.labels[value] or "Appointment Status: Unknown("..value..")"
 end
 
 -- Dissect: Appointment Status
@@ -582,21 +552,15 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_breach_indicator = 
 nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_breach_indicator.size = 1
 
 -- Display: Blocked By Breach Indicator
-nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_breach_indicator.display = function(value)
-  if value == 0 then
-    return "Blocked By Breach Indicator: Not Blocked By Breach (0)"
-  end
-  if value == 1 then
-    return "Blocked By Breach Indicator: Blocked By Breach (1)"
-  end
-  if value == 2 then
-    return "Blocked By Breach Indicator: Blocked By Arbitrage Check (2)"
-  end
-  if value == 3 then
-    return "Blocked By Breach Indicator: Blocked By Intrinsic Value Check (3)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_breach_indicator.labels = {
+  [0] = "Blocked By Breach Indicator: Not Blocked By Breach (0)",
+  [1] = "Blocked By Breach Indicator: Blocked By Breach (1)",
+  [2] = "Blocked By Breach Indicator: Blocked By Arbitrage Check (2)",
+  [3] = "Blocked By Breach Indicator: Blocked By Intrinsic Value Check (3)",
+}
 
-  return "Blocked By Breach Indicator: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_breach_indicator.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_breach_indicator.labels[value] or "Blocked By Breach Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Blocked By Breach Indicator
@@ -618,15 +582,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_kill_switch_indicat
 nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_kill_switch_indicator.size = 1
 
 -- Display: Blocked By Kill Switch Indicator
-nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_kill_switch_indicator.display = function(value)
-  if value == 0 then
-    return "Blocked By Kill Switch Indicator: Not Blocked By Kill Switch (0)"
-  end
-  if value == 1 then
-    return "Blocked By Kill Switch Indicator: Blocked By Kill Switch (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_kill_switch_indicator.labels = {
+  [0] = "Blocked By Kill Switch Indicator: Not Blocked By Kill Switch (0)",
+  [1] = "Blocked By Kill Switch Indicator: Blocked By Kill Switch (1)",
+}
 
-  return "Blocked By Kill Switch Indicator: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_kill_switch_indicator.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.blocked_by_kill_switch_indicator.labels[value] or "Blocked By Kill Switch Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Blocked By Kill Switch Indicator
@@ -648,27 +610,17 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.bold_designation = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.bold_designation.size = 1
 
 -- Display: Bold Designation
-nyse_amexoptions_binarygateway_pillarstream_v3_25.bold_designation.display = function(value)
-  if value == 0 then
-    return "Bold Designation: Not Applicable (0)"
-  end
-  if value == 4 then
-    return "Bold Designation: Expose Order Info Only (4)"
-  end
-  if value == 5 then
-    return "Bold Designation: Expose Order Info And Capacity (5)"
-  end
-  if value == 6 then
-    return "Bold Designation: Expose Order Info And Participant Id (6)"
-  end
-  if value == 7 then
-    return "Bold Designation: Expose Order Info Capacity And Participant Id (7)"
-  end
-  if value == 8 then
-    return "Bold Designation: No Bold Defaulting (8)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.bold_designation.labels = {
+  [0] = "Bold Designation: Not Applicable (0)",
+  [4] = "Bold Designation: Expose Order Info Only (4)",
+  [5] = "Bold Designation: Expose Order Info And Capacity (5)",
+  [6] = "Bold Designation: Expose Order Info And Participant Id (6)",
+  [7] = "Bold Designation: Expose Order Info Capacity And Participant Id (7)",
+  [8] = "Bold Designation: No Bold Defaulting (8)",
+}
 
-  return "Bold Designation: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.bold_designation.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.bold_designation.labels[value] or "Bold Designation: Unknown("..value..")"
 end
 
 -- Dissect: Bold Designation
@@ -690,21 +642,15 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_request = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_request.size = 1
 
 -- Display: Breach Action Request
-nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_request.display = function(value)
-  if value == 0 then
-    return "Breach Action Request: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Breach Action Request: Notifications Only (1)"
-  end
-  if value == 2 then
-    return "Breach Action Request: Cancel And Block (2)"
-  end
-  if value == 3 then
-    return "Breach Action Request: Block Only (3)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_request.labels = {
+  [0] = "Breach Action Request: Not Applicable (0)",
+  [1] = "Breach Action Request: Notifications Only (1)",
+  [2] = "Breach Action Request: Cancel And Block (2)",
+  [3] = "Breach Action Request: Block Only (3)",
+}
 
-  return "Breach Action Request: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_request.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_request.labels[value] or "Breach Action Request: Unknown("..value..")"
 end
 
 -- Dissect: Breach Action Request
@@ -726,21 +672,15 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_response = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_response.size = 1
 
 -- Display: Breach Action Response
-nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_response.display = function(value)
-  if value == 0 then
-    return "Breach Action Response: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Breach Action Response: Notifications Only (1)"
-  end
-  if value == 2 then
-    return "Breach Action Response: Cancel Non Auction Orders And Block (2)"
-  end
-  if value == 3 then
-    return "Breach Action Response: Block (3)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_response.labels = {
+  [0] = "Breach Action Response: Not Applicable (0)",
+  [1] = "Breach Action Response: Notifications Only (1)",
+  [2] = "Breach Action Response: Cancel Non Auction Orders And Block (2)",
+  [3] = "Breach Action Response: Block (3)",
+}
 
-  return "Breach Action Response: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_response.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.breach_action_response.labels[value] or "Breach Action Response: Unknown("..value..")"
 end
 
 -- Dissect: Breach Action Response
@@ -762,27 +702,17 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_action = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_action.size = 1
 
 -- Display: Bulk Action
-nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_action.display = function(value)
-  if value == 0 then
-    return "Bulk Action: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Bulk Action: Cancel Single Leg Only (1)"
-  end
-  if value == 2 then
-    return "Bulk Action: Cancel Complex Only (2)"
-  end
-  if value == 3 then
-    return "Bulk Action: Cancel Single And Complex (3)"
-  end
-  if value == 4 then
-    return "Bulk Action: Block And Cancel (4)"
-  end
-  if value == 5 then
-    return "Bulk Action: Unblock (5)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_action.labels = {
+  [0] = "Bulk Action: Not Applicable (0)",
+  [1] = "Bulk Action: Cancel Single Leg Only (1)",
+  [2] = "Bulk Action: Cancel Complex Only (2)",
+  [3] = "Bulk Action: Cancel Single And Complex (3)",
+  [4] = "Bulk Action: Block And Cancel (4)",
+  [5] = "Bulk Action: Unblock (5)",
+}
 
-  return "Bulk Action: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_action.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_action.labels[value] or "Bulk Action: Unknown("..value..")"
 end
 
 -- Dissect: Bulk Action
@@ -804,15 +734,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.bust_correct_indicator = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.bust_correct_indicator.size = 1
 
 -- Display: Bust Correct Indicator
-nyse_amexoptions_binarygateway_pillarstream_v3_25.bust_correct_indicator.display = function(value)
-  if value == 0 then
-    return "Bust Correct Indicator: Trade Bust (0)"
-  end
-  if value == 1 then
-    return "Bust Correct Indicator: Trade Correction (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.bust_correct_indicator.labels = {
+  [0] = "Bust Correct Indicator: Trade Bust (0)",
+  [1] = "Bust Correct Indicator: Trade Correction (1)",
+}
 
-  return "Bust Correct Indicator: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.bust_correct_indicator.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.bust_correct_indicator.labels[value] or "Bust Correct Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bust Correct Indicator
@@ -834,15 +762,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_on_disconnect = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_on_disconnect.size = 1
 
 -- Display: Cancel On Disconnect
-nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_on_disconnect.display = function(value)
-  if value == 1 then
-    return "Cancel On Disconnect: Cancel Day Orders (1)"
-  end
-  if value == 2 then
-    return "Cancel On Disconnect: Cancel All Orders (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_on_disconnect.labels = {
+  [1] = "Cancel On Disconnect: Cancel Day Orders (1)",
+  [2] = "Cancel On Disconnect: Cancel All Orders (2)",
+}
 
-  return "Cancel On Disconnect: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_on_disconnect.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_on_disconnect.labels[value] or "Cancel On Disconnect: Unknown("..value..")"
 end
 
 -- Dissect: Cancel On Disconnect
@@ -864,18 +790,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_scope = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_scope.size = 1
 
 -- Display: Cancel Scope
-nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_scope.display = function(value)
-  if value == 0 then
-    return "Cancel Scope: Orders Only (0)"
-  end
-  if value == 1 then
-    return "Cancel Scope: Quotes Only (1)"
-  end
-  if value == 2 then
-    return "Cancel Scope: Orders And Quotes (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_scope.labels = {
+  [0] = "Cancel Scope: Orders Only (0)",
+  [1] = "Cancel Scope: Quotes Only (1)",
+  [2] = "Cancel Scope: Orders And Quotes (2)",
+}
 
-  return "Cancel Scope: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_scope.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.cancel_scope.labels[value] or "Cancel Scope: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Scope
@@ -1216,15 +1138,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.closing_only_indicator = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.closing_only_indicator.size = 1
 
 -- Display: Closing Only Indicator
-nyse_amexoptions_binarygateway_pillarstream_v3_25.closing_only_indicator.display = function(value)
-  if value == 0 then
-    return "Closing Only Indicator: Standard Series (0)"
-  end
-  if value == 1 then
-    return "Closing Only Indicator: Closing Only Series (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.closing_only_indicator.labels = {
+  [0] = "Closing Only Indicator: Standard Series (0)",
+  [1] = "Closing Only Indicator: Closing Only Series (1)",
+}
 
-  return "Closing Only Indicator: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.closing_only_indicator.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.closing_only_indicator.labels[value] or "Closing Only Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Closing Only Indicator
@@ -1324,18 +1244,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_covered_or_uncovered = 
 nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_covered_or_uncovered.size = 1
 
 -- Display: Contra Covered Or Uncovered
-nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_covered_or_uncovered.display = function(value)
-  if value == 0 then
-    return "Contra Covered Or Uncovered: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Contra Covered Or Uncovered: Exposed (1)"
-  end
-  if value == 2 then
-    return "Contra Covered Or Uncovered: Covered (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_covered_or_uncovered.labels = {
+  [0] = "Contra Covered Or Uncovered: Not Applicable (0)",
+  [1] = "Contra Covered Or Uncovered: Exposed (1)",
+  [2] = "Contra Covered Or Uncovered: Covered (2)",
+}
 
-  return "Contra Covered Or Uncovered: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_covered_or_uncovered.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_covered_or_uncovered.labels[value] or "Contra Covered Or Uncovered: Unknown("..value..")"
 end
 
 -- Dissect: Contra Covered Or Uncovered
@@ -1357,24 +1273,16 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_cross_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_cross_type.size = 2
 
 -- Display: Contra Cross Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_cross_type.display = function(value)
-  if value == 0 then
-    return "Contra Cross Type: Not Applicable (0)"
-  end
-  if value == 5 then
-    return "Contra Cross Type: Price Improvement Cube (5)"
-  end
-  if value == 7 then
-    return "Contra Cross Type: Aoncube Solicitation (7)"
-  end
-  if value == 10 then
-    return "Contra Cross Type: Qcc (10)"
-  end
-  if value == 11 then
-    return "Contra Cross Type: Customer To Customer Cross (11)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_cross_type.labels = {
+  [0] = "Contra Cross Type: Not Applicable (0)",
+  [5] = "Contra Cross Type: Price Improvement Cube (5)",
+  [7] = "Contra Cross Type: Aoncube Solicitation (7)",
+  [10] = "Contra Cross Type: Qcc (10)",
+  [11] = "Contra Cross Type: Customer To Customer Cross (11)",
+}
 
-  return "Contra Cross Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_cross_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_cross_type.labels[value] or "Contra Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Contra Cross Type
@@ -1396,30 +1304,18 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_customer_or_firm = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_customer_or_firm.size = 1
 
 -- Display: Contra Customer Or Firm
-nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_customer_or_firm.display = function(value)
-  if value == 0 then
-    return "Contra Customer Or Firm: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Contra Customer Or Firm: Customer (1)"
-  end
-  if value == 2 then
-    return "Contra Customer Or Firm: Firm (2)"
-  end
-  if value == 3 then
-    return "Contra Customer Or Firm: Broker (3)"
-  end
-  if value == 4 then
-    return "Contra Customer Or Firm: Market Maker (4)"
-  end
-  if value == 5 then
-    return "Contra Customer Or Firm: Away Market Maker (5)"
-  end
-  if value == 6 then
-    return "Contra Customer Or Firm: Prof Customer (6)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_customer_or_firm.labels = {
+  [0] = "Contra Customer Or Firm: Not Applicable (0)",
+  [1] = "Contra Customer Or Firm: Customer (1)",
+  [2] = "Contra Customer Or Firm: Firm (2)",
+  [3] = "Contra Customer Or Firm: Broker (3)",
+  [4] = "Contra Customer Or Firm: Market Maker (4)",
+  [5] = "Contra Customer Or Firm: Away Market Maker (5)",
+  [6] = "Contra Customer Or Firm: Prof Customer (6)",
+}
 
-  return "Contra Customer Or Firm: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_customer_or_firm.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_customer_or_firm.labels[value] or "Contra Customer Or Firm: Unknown("..value..")"
 end
 
 -- Dissect: Contra Customer Or Firm
@@ -1519,18 +1415,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_open_close = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_open_close.size = 1
 
 -- Display: Contra Open Close
-nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_open_close.display = function(value)
-  if value == 0 then
-    return "Contra Open Close: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Contra Open Close: Open (1)"
-  end
-  if value == 2 then
-    return "Contra Open Close: Close (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_open_close.labels = {
+  [0] = "Contra Open Close: Not Applicable (0)",
+  [1] = "Contra Open Close: Open (1)",
+  [2] = "Contra Open Close: Close (2)",
+}
 
-  return "Contra Open Close: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_open_close.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.contra_open_close.labels[value] or "Contra Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Contra Open Close
@@ -1621,18 +1513,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.covered_or_uncovered = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.covered_or_uncovered.size = 1
 
 -- Display: Covered Or Uncovered
-nyse_amexoptions_binarygateway_pillarstream_v3_25.covered_or_uncovered.display = function(value)
-  if value == 0 then
-    return "Covered Or Uncovered: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Covered Or Uncovered: Exposed (1)"
-  end
-  if value == 2 then
-    return "Covered Or Uncovered: Covered (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.covered_or_uncovered.labels = {
+  [0] = "Covered Or Uncovered: Not Applicable (0)",
+  [1] = "Covered Or Uncovered: Exposed (1)",
+  [2] = "Covered Or Uncovered: Covered (2)",
+}
 
-  return "Covered Or Uncovered: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.covered_or_uncovered.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.covered_or_uncovered.labels[value] or "Covered Or Uncovered: Unknown("..value..")"
 end
 
 -- Dissect: Covered Or Uncovered
@@ -1808,18 +1696,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.ioc_attribution = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.ioc_attribution.size = 1
 
 -- Display: Ioc Attribution
-nyse_amexoptions_binarygateway_pillarstream_v3_25.ioc_attribution.display = function(value)
-  if value == 0 then
-    return "Ioc Attribution: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Ioc Attribution: Include Ioc (1)"
-  end
-  if value == 2 then
-    return "Ioc Attribution: Exclude Ioc (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.ioc_attribution.labels = {
+  [0] = "Ioc Attribution: Not Applicable (0)",
+  [1] = "Ioc Attribution: Include Ioc (1)",
+  [2] = "Ioc Attribution: Exclude Ioc (2)",
+}
 
-  return "Ioc Attribution: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.ioc_attribution.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.ioc_attribution.labels[value] or "Ioc Attribution: Unknown("..value..")"
 end
 
 -- Dissect: Ioc Attribution
@@ -1916,15 +1800,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_open_close = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_open_close.size = 8
 
 -- Display: Leg Open Close
-nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_open_close.display = function(value)
-  if value == 0 then
-    return "Leg Open Close: Open (0)"
-  end
-  if value == 1 then
-    return "Leg Open Close: Close (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_open_close.labels = {
+  [0] = "Leg Open Close: Open (0)",
+  [1] = "Leg Open Close: Close (1)",
+}
 
-  return "Leg Open Close: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_open_close.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_open_close.labels[value] or "Leg Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Leg Open Close
@@ -1969,15 +1851,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_side = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_side.size = 1
 
 -- Display: Leg Side
-nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_side.display = function(value)
-  if value == 1 then
-    return "Leg Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Leg Side: Sell (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_side.labels = {
+  [1] = "Leg Side: Buy (1)",
+  [2] = "Leg Side: Sell (2)",
+}
 
-  return "Leg Side: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_side.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.leg_side.labels[value] or "Leg Side: Unknown("..value..")"
 end
 
 -- Dissect: Leg Side
@@ -2123,12 +2003,12 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81 = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.size = 1
 
 -- Display: Locate Reqd U 81
-nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.display = function(value)
-  if value == 0 then
-    return "Locate Reqd U 81: No Locate Reqd (0)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.labels = {
+  [0] = "Locate Reqd U 81: No Locate Reqd (0)",
+}
 
-  return "Locate Reqd U 81: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.labels[value] or "Locate Reqd U 81: Unknown("..value..")"
 end
 
 -- Dissect: Locate Reqd U 81
@@ -2332,12 +2212,12 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.mic = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.mic.size = 4
 
 -- Display: Mic
-nyse_amexoptions_binarygateway_pillarstream_v3_25.mic.display = function(value)
-  if value == "AMXO" then
-    return "Mic: Nyse American Options (AMXO)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.mic.labels = {
+  ["AMXO"] = "Mic: Nyse American Options (AMXO)",
+}
 
-  return "Mic: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.mic.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.mic.labels[value] or "Mic: Unknown("..value..")"
 end
 
 -- Dissect: Mic
@@ -2406,27 +2286,17 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_type.size = 1
 
 -- Display: Mm Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_type.display = function(value)
-  if value == 1 then
-    return "Mm Type: Nyse American Options Market Maker (1)"
-  end
-  if value == 2 then
-    return "Mm Type: Nyse American Options Specialist (2)"
-  end
-  if value == 3 then
-    return "Mm Type: Nyse American Optionse Specialist (3)"
-  end
-  if value == 4 then
-    return "Mm Type: Nyse American Options Domm (4)"
-  end
-  if value == 5 then
-    return "Mm Type: Nyse American Options Specialist And Domm (5)"
-  end
-  if value == 6 then
-    return "Mm Type: Nyse American Optionse Specialist And Domm (6)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_type.labels = {
+  [1] = "Mm Type: Nyse American Options Market Maker (1)",
+  [2] = "Mm Type: Nyse American Options Specialist (2)",
+  [3] = "Mm Type: Nyse American Optionse Specialist (3)",
+  [4] = "Mm Type: Nyse American Options Domm (4)",
+  [5] = "Mm Type: Nyse American Options Specialist And Domm (5)",
+  [6] = "Mm Type: Nyse American Optionse Specialist And Domm (6)",
+}
 
-  return "Mm Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.mm_type.labels[value] or "Mm Type: Unknown("..value..")"
 end
 
 -- Dissect: Mm Type
@@ -2549,18 +2419,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid_status = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid_status.size = 1
 
 -- Display: Mpid Status
-nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid_status.display = function(value)
-  if value == 1 then
-    return "Mpid Status: Active (1)"
-  end
-  if value == 2 then
-    return "Mpid Status: Inactive (2)"
-  end
-  if value == 3 then
-    return "Mpid Status: Prospect (3)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid_status.labels = {
+  [1] = "Mpid Status: Active (1)",
+  [2] = "Mpid Status: Inactive (2)",
+  [3] = "Mpid Status: Prospect (3)",
+}
 
-  return "Mpid Status: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid_status.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid_status.labels[value] or "Mpid Status: Unknown("..value..")"
 end
 
 -- Dissect: Mpid Status
@@ -2690,36 +2556,20 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_type.size = 2
 
 -- Display: Msg Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_type.display = function(value)
-  if value == 0x0201 then
-    return "Msg Type: Login (0x0201)"
-  end
-  if value == 0x0202 then
-    return "Msg Type: Login Response (0x0202)"
-  end
-  if value == 0x0203 then
-    return "Msg Type: Stream Avail (0x0203)"
-  end
-  if value == 0x0204 then
-    return "Msg Type: Heartbeat (0x0204)"
-  end
-  if value == 0x0205 then
-    return "Msg Type: Open (0x0205)"
-  end
-  if value == 0x0206 then
-    return "Msg Type: Open Response (0x0206)"
-  end
-  if value == 0x0207 then
-    return "Msg Type: Close (0x0207)"
-  end
-  if value == 0x0208 then
-    return "Msg Type: Close Response (0x0208)"
-  end
-  if value == 0x0905 then
-    return "Msg Type: Seq Msg (0x0905)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_type.labels = {
+  [0x0201] = "Msg Type: Login (0x0201)",
+  [0x0202] = "Msg Type: Login Response (0x0202)",
+  [0x0203] = "Msg Type: Stream Avail (0x0203)",
+  [0x0204] = "Msg Type: Heartbeat (0x0204)",
+  [0x0205] = "Msg Type: Open (0x0205)",
+  [0x0206] = "Msg Type: Open Response (0x0206)",
+  [0x0207] = "Msg Type: Close (0x0207)",
+  [0x0208] = "Msg Type: Close Response (0x0208)",
+  [0x0905] = "Msg Type: Seq Msg (0x0905)",
+}
 
-  return "Msg Type: Unknown("..string.format("0x%04X", value)..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_type.labels[value] or "Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Msg Type
@@ -2741,18 +2591,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.multileg_reporting_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.multileg_reporting_type.size = 1
 
 -- Display: Multileg Reporting Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.multileg_reporting_type.display = function(value)
-  if value == 1 then
-    return "Multileg Reporting Type: Single Leg Security (1)"
-  end
-  if value == 2 then
-    return "Multileg Reporting Type: Individual Leg Of Multi Leg Security (2)"
-  end
-  if value == 3 then
-    return "Multileg Reporting Type: Multi Leg Security (3)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.multileg_reporting_type.labels = {
+  [1] = "Multileg Reporting Type: Single Leg Security (1)",
+  [2] = "Multileg Reporting Type: Individual Leg Of Multi Leg Security (2)",
+  [3] = "Multileg Reporting Type: Multi Leg Security (3)",
+}
 
-  return "Multileg Reporting Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.multileg_reporting_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.multileg_reporting_type.labels[value] or "Multileg Reporting Type: Unknown("..value..")"
 end
 
 -- Dissect: Multileg Reporting Type
@@ -2843,18 +2689,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.open_close_u_81 = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.open_close_u_81.size = 1
 
 -- Display: Open Close U 81
-nyse_amexoptions_binarygateway_pillarstream_v3_25.open_close_u_81.display = function(value)
-  if value == 0 then
-    return "Open Close U 81: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Open Close U 81: Open (1)"
-  end
-  if value == 2 then
-    return "Open Close U 81: Close (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.open_close_u_81.labels = {
+  [0] = "Open Close U 81: Not Applicable (0)",
+  [1] = "Open Close U 81: Open (1)",
+  [2] = "Open Close U 81: Close (2)",
+}
 
-  return "Open Close U 81: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.open_close_u_81.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.open_close_u_81.labels[value] or "Open Close U 81: Unknown("..value..")"
 end
 
 -- Dissect: Open Close U 81
@@ -3045,18 +2887,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.order_priority_update_ack_subs
 nyse_amexoptions_binarygateway_pillarstream_v3_25.order_priority_update_ack_subscription.size = 1
 
 -- Display: Order Priority Update Ack Subscription
-nyse_amexoptions_binarygateway_pillarstream_v3_25.order_priority_update_ack_subscription.display = function(value)
-  if value == 0 then
-    return "Order Priority Update Ack Subscription: Not Subscribed (0)"
-  end
-  if value == 1 then
-    return "Order Priority Update Ack Subscription: Order Priority Update Only (1)"
-  end
-  if value == 2 then
-    return "Order Priority Update Ack Subscription: Order Priority Update And Repricing (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.order_priority_update_ack_subscription.labels = {
+  [0] = "Order Priority Update Ack Subscription: Not Subscribed (0)",
+  [1] = "Order Priority Update Ack Subscription: Order Priority Update Only (1)",
+  [2] = "Order Priority Update Ack Subscription: Order Priority Update And Repricing (2)",
+}
 
-  return "Order Priority Update Ack Subscription: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.order_priority_update_ack_subscription.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.order_priority_update_ack_subscription.labels[value] or "Order Priority Update Ack Subscription: Unknown("..value..")"
 end
 
 -- Dissect: Order Priority Update Ack Subscription
@@ -3124,12 +2962,12 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.participant_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.participant_type.size = 1
 
 -- Display: Participant Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.participant_type.display = function(value)
-  if value == 0 then
-    return "Participant Type: Not Applicable (0)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.participant_type.labels = {
+  [0] = "Participant Type: Not Applicable (0)",
+}
 
-  return "Participant Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.participant_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.participant_type.labels[value] or "Participant Type: Unknown("..value..")"
 end
 
 -- Dissect: Participant Type
@@ -3213,21 +3051,15 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.pre_liquidity_indicator = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.pre_liquidity_indicator.size = 4
 
 -- Display: Pre Liquidity Indicator
-nyse_amexoptions_binarygateway_pillarstream_v3_25.pre_liquidity_indicator.display = function(value)
-  if value == "0" then
-    return "Pre Liquidity Indicator: None (0)"
-  end
-  if value == "1" then
-    return "Pre Liquidity Indicator: Local Market Candidate (1)"
-  end
-  if value == "4" then
-    return "Pre Liquidity Indicator: Join Nbbo Candidate (4)"
-  end
-  if value == "5" then
-    return "Pre Liquidity Indicator: Set Nbbo Candidate (5)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.pre_liquidity_indicator.labels = {
+  ["0"] = "Pre Liquidity Indicator: None (0)",
+  ["1"] = "Pre Liquidity Indicator: Local Market Candidate (1)",
+  ["4"] = "Pre Liquidity Indicator: Join Nbbo Candidate (4)",
+  ["5"] = "Pre Liquidity Indicator: Set Nbbo Candidate (5)",
+}
 
-  return "Pre Liquidity Indicator: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.pre_liquidity_indicator.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.pre_liquidity_indicator.labels[value] or "Pre Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Pre Liquidity Indicator
@@ -3289,15 +3121,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.price_scale = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.price_scale.size = 1
 
 -- Display: Price Scale
-nyse_amexoptions_binarygateway_pillarstream_v3_25.price_scale.display = function(value)
-  if value == 0 then
-    return "Price Scale: No Decimals (0)"
-  end
-  if value == 2 then
-    return "Price Scale: Two Decimals (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.price_scale.labels = {
+  [0] = "Price Scale: No Decimals (0)",
+  [2] = "Price Scale: Two Decimals (2)",
+}
 
-  return "Price Scale: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.price_scale.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.price_scale.labels[value] or "Price Scale: Unknown("..value..")"
 end
 
 -- Dissect: Price Scale
@@ -3319,15 +3149,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.put_or_call = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.put_or_call.size = 1
 
 -- Display: Put Or Call
-nyse_amexoptions_binarygateway_pillarstream_v3_25.put_or_call.display = function(value)
-  if value == 0 then
-    return "Put Or Call: Put (0)"
-  end
-  if value == 1 then
-    return "Put Or Call: Call (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.put_or_call.labels = {
+  [0] = "Put Or Call: Put (0)",
+  [1] = "Put Or Call: Call (1)",
+}
 
-  return "Put Or Call: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.put_or_call.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.put_or_call.labels[value] or "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -3401,930 +3229,318 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.reason_code = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.reason_code.size = 2
 
 -- Display: Reason Code
-nyse_amexoptions_binarygateway_pillarstream_v3_25.reason_code.display = function(value)
-  if value == 0 then
-    return "Reason Code: Ok (0)"
-  end
-  if value == 1 then
-    return "Reason Code: Invalid Sender Comp Id (1)"
-  end
-  if value == 2 then
-    return "Reason Code: Invalid Sender Sub Id (2)"
-  end
-  if value == 3 then
-    return "Reason Code: Invalid Sending Time (3)"
-  end
-  if value == 4 then
-    return "Reason Code: Invalid Target Comp Id (4)"
-  end
-  if value == 5 then
-    return "Reason Code: Invalid Target Sub Id (5)"
-  end
-  if value == 6 then
-    return "Reason Code: Invalid On Behalf Of Comp Id (6)"
-  end
-  if value == 7 then
-    return "Reason Code: Invalid On Behalf Of Sub Id (7)"
-  end
-  if value == 8 then
-    return "Reason Code: Invalid Deliver To Comp Id (8)"
-  end
-  if value == 9 then
-    return "Reason Code: Invalid Deliver To Sub Id (9)"
-  end
-  if value == 10 then
-    return "Reason Code: Invalid Account (10)"
-  end
-  if value == 11 then
-    return "Reason Code: Invalid Cl Ord Id (11)"
-  end
-  if value == 12 then
-    return "Reason Code: Invalid Exec Inst (12)"
-  end
-  if value == 13 then
-    return "Reason Code: Invalid Id Source (13)"
-  end
-  if value == 14 then
-    return "Reason Code: Invalid Order Qty (14)"
-  end
-  if value == 15 then
-    return "Reason Code: Invalid Ord Type (15)"
-  end
-  if value == 16 then
-    return "Reason Code: Invalid Price (16)"
-  end
-  if value == 17 then
-    return "Reason Code: Invalid Order Capacity (17)"
-  end
-  if value == 18 then
-    return "Reason Code: Invalid Security Id (18)"
-  end
-  if value == 19 then
-    return "Reason Code: Invalid Side (19)"
-  end
-  if value == 20 then
-    return "Reason Code: Invalid Symbol Series (20)"
-  end
-  if value == 21 then
-    return "Reason Code: Invalid Text (21)"
-  end
-  if value == 22 then
-    return "Reason Code: Invalid Time In Force (22)"
-  end
-  if value == 23 then
-    return "Reason Code: Invalid Settlement Type (23)"
-  end
-  if value == 24 then
-    return "Reason Code: Invalid Fut Sett Date (24)"
-  end
-  if value == 25 then
-    return "Reason Code: Invalid Symbol Sfx (25)"
-  end
-  if value == 26 then
-    return "Reason Code: Invalid Open Close (26)"
-  end
-  if value == 27 then
-    return "Reason Code: Invalid Stop Px (27)"
-  end
-  if value == 28 then
-    return "Reason Code: Invalid Client Id (28)"
-  end
-  if value == 29 then
-    return "Reason Code: Invalid Min Qty (29)"
-  end
-  if value == 30 then
-    return "Reason Code: Invalid Max Floor (30)"
-  end
-  if value == 31 then
-    return "Reason Code: Invalid Locate Reqd (31)"
-  end
-  if value == 32 then
-    return "Reason Code: Invalid Expire Time (32)"
-  end
-  if value == 33 then
-    return "Reason Code: Invalid Security Type (33)"
-  end
-  if value == 34 then
-    return "Reason Code: Invalid Maturity Month Year (34)"
-  end
-  if value == 35 then
-    return "Reason Code: Invalid Put Or Call (35)"
-  end
-  if value == 36 then
-    return "Reason Code: Invalid Strike Price (36)"
-  end
-  if value == 37 then
-    return "Reason Code: Invalid Covered Or Uncovered (37)"
-  end
-  if value == 38 then
-    return "Reason Code: Invalid Customer Or Firm (38)"
-  end
-  if value == 39 then
-    return "Reason Code: Invalid Maturity Day (39)"
-  end
-  if value == 40 then
-    return "Reason Code: Invalid Peg Difference (40)"
-  end
-  if value == 41 then
-    return "Reason Code: Invalid Sellers Days (41)"
-  end
-  if value == 42 then
-    return "Reason Code: Invalid Trading Session Id (42)"
-  end
-  if value == 43 then
-    return "Reason Code: Invalid No Trading Sessions (43)"
-  end
-  if value == 44 then
-    return "Reason Code: Invalid Discretion Inst (44)"
-  end
-  if value == 45 then
-    return "Reason Code: Invalid Discretion Offset (45)"
-  end
-  if value == 46 then
-    return "Reason Code: Invalid Price Type (46)"
-  end
-  if value == 47 then
-    return "Reason Code: Invalid Clearing Firm (47)"
-  end
-  if value == 48 then
-    return "Reason Code: Invalid Clearing Account (48)"
-  end
-  if value == 49 then
-    return "Reason Code: Invalid Party Id (49)"
-  end
-  if value == 50 then
-    return "Reason Code: Invalid Optional Data (50)"
-  end
-  if value == 51 then
-    return "Reason Code: Invalid Cross Id (51)"
-  end
-  if value == 52 then
-    return "Reason Code: Invalid Strategy Indicator (52)"
-  end
-  if value == 53 then
-    return "Reason Code: Invalid Trade Id (53)"
-  end
-  if value == 54 then
-    return "Reason Code: Invalid No Self Trade (54)"
-  end
-  if value == 55 then
-    return "Reason Code: Invalid Cap Strategy (55)"
-  end
-  if value == 56 then
-    return "Reason Code: Invalid Special Ord Type (56)"
-  end
-  if value == 57 then
-    return "Reason Code: Invalid Routing Inst (57)"
-  end
-  if value == 58 then
-    return "Reason Code: Invalid Offset Price (58)"
-  end
-  if value == 59 then
-    return "Reason Code: Invalid Extended Exec Inst (59)"
-  end
-  if value == 60 then
-    return "Reason Code: Invalid Introducing Badge Id (60)"
-  end
-  if value == 61 then
-    return "Reason Code: Invalid Bill To (61)"
-  end
-  if value == 62 then
-    return "Reason Code: Invalid Parent Firm Cl Ord Id (62)"
-  end
-  if value == 63 then
-    return "Reason Code: Invalid Parent Firm Exchange Ord Id (63)"
-  end
-  if value == 64 then
-    return "Reason Code: Invalid Parent Firm (64)"
-  end
-  if value == 65 then
-    return "Reason Code: Invalid Interest Type (65)"
-  end
-  if value == 66 then
-    return "Reason Code: Invalid Display Ind (66)"
-  end
-  if value == 67 then
-    return "Reason Code: Invalid Peg Ind (67)"
-  end
-  if value == 68 then
-    return "Reason Code: Invalid Ceiling Floor Price (68)"
-  end
-  if value == 69 then
-    return "Reason Code: Invalid Min Peg Qty (69)"
-  end
-  if value == 70 then
-    return "Reason Code: Invalid D Order Auction Price (70)"
-  end
-  if value == 71 then
-    return "Reason Code: Invalid Disc Max Vol (71)"
-  end
-  if value == 72 then
-    return "Reason Code: Invalid Dics Route Ind (72)"
-  end
-  if value == 73 then
-    return "Reason Code: Invalid Minimum Trigger Vol Mtv (73)"
-  end
-  if value == 74 then
-    return "Reason Code: Invalid Attributed Quote (74)"
-  end
-  if value == 75 then
-    return "Reason Code: Invalid Proactive If Locked (75)"
-  end
-  if value == 76 then
-    return "Reason Code: System Not Available (76)"
-  end
-  if value == 77 then
-    return "Reason Code: System Full Mengrateexceeded (77)"
-  end
-  if value == 78 then
-    return "Reason Code: Throttle Reject (78)"
-  end
-  if value == 79 then
-    return "Reason Code: Symbol Series Halted (79)"
-  end
-  if value == 80 then
-    return "Reason Code: No Symbolseries Permission (80)"
-  end
-  if value == 81 then
-    return "Reason Code: Price Too Far Outside (81)"
-  end
-  if value == 82 then
-    return "Reason Code: Mwcb Halt (82)"
-  end
-  if value == 83 then
-    return "Reason Code: Market Closed (83)"
-  end
-  if value == 84 then
-    return "Reason Code: Symbolseries Closed (84)"
-  end
-  if value == 85 then
-    return "Reason Code: Luld Cancel Instruction (85)"
-  end
-  if value == 86 then
-    return "Reason Code: No Price Slide Inst During Ssr (86)"
-  end
-  if value == 87 then
-    return "Reason Code: Invalid Stock Leg Give Up (87)"
-  end
-  if value == 88 then
-    return "Reason Code: Invalid No Legs (88)"
-  end
-  if value == 89 then
-    return "Reason Code: Invalid Leg Position Effect (89)"
-  end
-  if value == 90 then
-    return "Reason Code: Invalid Leg Symbol (90)"
-  end
-  if value == 91 then
-    return "Reason Code: Invalid Leg Cfi Code (91)"
-  end
-  if value == 92 then
-    return "Reason Code: Invalid Leg Maturity Date (92)"
-  end
-  if value == 93 then
-    return "Reason Code: Invalid Leg Strike Price (93)"
-  end
-  if value == 94 then
-    return "Reason Code: Invalid Leg Contract Multiplier (94)"
-  end
-  if value == 95 then
-    return "Reason Code: Invalid Leg Ratio Qty (95)"
-  end
-  if value == 96 then
-    return "Reason Code: Invalid Leg Side (96)"
-  end
-  if value == 97 then
-    return "Reason Code: Invalid Leg Ref Id (97)"
-  end
-  if value == 98 then
-    return "Reason Code: Unsupported Order Type (98)"
-  end
-  if value == 99 then
-    return "Reason Code: Urout (99)"
-  end
-  if value == 100 then
-    return "Reason Code: Primary Market Not Available (100)"
-  end
-  if value == 101 then
-    return "Reason Code: No Nbbopbbo For Peg (101)"
-  end
-  if value == 102 then
-    return "Reason Code: No Market For Market Order (102)"
-  end
-  if value == 103 then
-    return "Reason Code: Marketable Price (103)"
-  end
-  if value == 104 then
-    return "Reason Code: Done For Day (104)"
-  end
-  if value == 105 then
-    return "Reason Code: Credit Limit Violation (105)"
-  end
-  if value == 106 then
-    return "Reason Code: Cancel Remaining Ioc (106)"
-  end
-  if value == 107 then
-    return "Reason Code: Too Late To Cancel (107)"
-  end
-  if value == 108 then
-    return "Reason Code: Invalid Poss Resend (108)"
-  end
-  if value == 109 then
-    return "Reason Code: Cancel Pending (109)"
-  end
-  if value == 110 then
-    return "Reason Code: Symbol Series Already Opened (110)"
-  end
-  if value == 111 then
-    return "Reason Code: Firm Bulk Cancel (111)"
-  end
-  if value == 112 then
-    return "Reason Code: On Behalf Of Comp Id Blocked (112)"
-  end
-  if value == 113 then
-    return "Reason Code: Clearing Firm Blocked (113)"
-  end
-  if value == 114 then
-    return "Reason Code: Cancel Replace Pending (114)"
-  end
-  if value == 115 then
-    return "Reason Code: Modify Pending (115)"
-  end
-  if value == 116 then
-    return "Reason Code: Cannot Flip Imbalance (116)"
-  end
-  if value == 117 then
-    return "Reason Code: Cannot Increase Imbalance (117)"
-  end
-  if value == 118 then
-    return "Reason Code: Pending Cancel Imbalance Freeze (118)"
-  end
-  if value == 119 then
-    return "Reason Code: Pending Replace Imbalance Freeze (119)"
-  end
-  if value == 120 then
-    return "Reason Code: Pending Modify Imbalance Freeze (120)"
-  end
-  if value == 121 then
-    return "Reason Code: Pending Cancel Routed Interest (121)"
-  end
-  if value == 122 then
-    return "Reason Code: Pending Replace Routed Interest (122)"
-  end
-  if value == 123 then
-    return "Reason Code: Pending Modify Routed Interest (123)"
-  end
-  if value == 124 then
-    return "Reason Code: Pending Auction Running (124)"
-  end
-  if value == 125 then
-    return "Reason Code: Duplicative Order Check (125)"
-  end
-  if value == 126 then
-    return "Reason Code: Cancelled By Exchange (126)"
-  end
-  if value == 127 then
-    return "Reason Code: New Order (127)"
-  end
-  if value == 128 then
-    return "Reason Code: Fill (128)"
-  end
-  if value == 129 then
-    return "Reason Code: Partial Fill (129)"
-  end
-  if value == 130 then
-    return "Reason Code: Reduced (130)"
-  end
-  if value == 131 then
-    return "Reason Code: Replaced (131)"
-  end
-  if value == 132 then
-    return "Reason Code: No Market For Cross (132)"
-  end
-  if value == 133 then
-    return "Reason Code: Stp Cancel (133)"
-  end
-  if value == 134 then
-    return "Reason Code: Invalid Poss Dupe (134)"
-  end
-  if value == 135 then
-    return "Reason Code: Tpid Blocked (135)"
-  end
-  if value == 136 then
-    return "Reason Code: Invalid Bulk Cancel (136)"
-  end
-  if value == 137 then
-    return "Reason Code: Pending Bulk Cancel (137)"
-  end
-  if value == 138 then
-    return "Reason Code: Symbol Series Not Open (138)"
-  end
-  if value == 139 then
-    return "Reason Code: Symbol Series Suspended (139)"
-  end
-  if value == 140 then
-    return "Reason Code: Symbol Ipo Halt (140)"
-  end
-  if value == 141 then
-    return "Reason Code: Invld Inst During Imbalance Freeze (141)"
-  end
-  if value == 142 then
-    return "Reason Code: Invld Inst After Cutoff Time (142)"
-  end
-  if value == 143 then
-    return "Reason Code: Cancelled By Primary Market (143)"
-  end
-  if value == 144 then
-    return "Reason Code: Pending Imbalance Freeze (144)"
-  end
-  if value == 145 then
-    return "Reason Code: No Rlp Permission (145)"
-  end
-  if value == 146 then
-    return "Reason Code: Invalid Instruction For Io Cs (146)"
-  end
-  if value == 147 then
-    return "Reason Code: System Full Cgrateexceeded (147)"
-  end
-  if value == 148 then
-    return "Reason Code: Pending Cancel Auction Running (148)"
-  end
-  if value == 149 then
-    return "Reason Code: Pending Modify Auction Running (149)"
-  end
-  if value == 150 then
-    return "Reason Code: Pending Replace Auction Running (150)"
-  end
-  if value == 151 then
-    return "Reason Code: Invld Inst For Pending Order (151)"
-  end
-  if value == 152 then
-    return "Reason Code: Ssh Price Below Nbb On Iso (152)"
-  end
-  if value == 153 then
-    return "Reason Code: Ioc Received While Auction Running (153)"
-  end
-  if value == 154 then
-    return "Reason Code: Pending Session Transition (154)"
-  end
-  if value == 155 then
-    return "Reason Code: Pending Cancel Session Transition (155)"
-  end
-  if value == 156 then
-    return "Reason Code: Pending Modify Session Transition (156)"
-  end
-  if value == 157 then
-    return "Reason Code: Pending Replace Session Transition (157)"
-  end
-  if value == 158 then
-    return "Reason Code: Invalid For Tick Pilot (158)"
-  end
-  if value == 159 then
-    return "Reason Code: Invalid Mmid (159)"
-  end
-  if value == 160 then
-    return "Reason Code: Invalid Mpid (160)"
-  end
-  if value == 161 then
-    return "Reason Code: Invalid Cancel Instead Of Reprice (161)"
-  end
-  if value == 162 then
-    return "Reason Code: Invalid Retail Indicator (162)"
-  end
-  if value == 163 then
-    return "Reason Code: Sender Comp Id Not Active (163)"
-  end
-  if value == 164 then
-    return "Reason Code: Mpid Blocked (164)"
-  end
-  if value == 165 then
-    return "Reason Code: Invalid Timestamp (165)"
-  end
-  if value == 166 then
-    return "Reason Code: Invalid Permission For Sender Comp Id (166)"
-  end
-  if value == 167 then
-    return "Reason Code: Invalid User Data (167)"
-  end
-  if value == 168 then
-    return "Reason Code: Pillar Risk Mitigation (168)"
-  end
-  if value == 169 then
-    return "Reason Code: No Last Sale For Peg (169)"
-  end
-  if value == 170 then
-    return "Reason Code: Symbol Pending Closing Auction (170)"
-  end
-  if value == 171 then
-    return "Reason Code: Extreme Closing Order Imbalance (171)"
-  end
-  if value == 172 then
-    return "Reason Code: Invalid Multi Message (172)"
-  end
-  if value == 173 then
-    return "Reason Code: Invalid Request Targeting Manual Sender Comp Id (173)"
-  end
-  if value == 174 then
-    return "Reason Code: Invalid Dmm Reject Reason (174)"
-  end
-  if value == 175 then
-    return "Reason Code: Pending Pending Auction State (175)"
-  end
-  if value == 176 then
-    return "Reason Code: Pending Cancel Pending Auction State (176)"
-  end
-  if value == 177 then
-    return "Reason Code: Pending Modify Pending Auction State (177)"
-  end
-  if value == 178 then
-    return "Reason Code: Pending Replace Pending Auction State (178)"
-  end
-  if value == 179 then
-    return "Reason Code: Cancelled Dmm Manual Order Reprice (179)"
-  end
-  if value == 180 then
-    return "Reason Code: Too Early To Open (180)"
-  end
-  if value == 181 then
-    return "Reason Code: Too Early To Close (181)"
-  end
-  if value == 182 then
-    return "Reason Code: Symbol Not Frozen By Auction Request (182)"
-  end
-  if value == 183 then
-    return "Reason Code: Symbol Is Frozen By Dbk Gui (183)"
-  end
-  if value == 184 then
-    return "Reason Code: Too Late Auction Running (184)"
-  end
-  if value == 185 then
-    return "Reason Code: Too Late Symbol Transition (185)"
-  end
-  if value == 186 then
-    return "Reason Code: No Eligible Crossing Interest (186)"
-  end
-  if value == 187 then
-    return "Reason Code: Book Is Lockedcrossed (187)"
-  end
-  if value == 188 then
-    return "Reason Code: No Interest Exists (188)"
-  end
-  if value == 189 then
-    return "Reason Code: Imbalance Too Large (189)"
-  end
-  if value == 190 then
-    return "Reason Code: Ssh Price Below Ssr Filing Price (190)"
-  end
-  if value == 191 then
-    return "Reason Code: Symbol Already Closed (191)"
-  end
-  if value == 192 then
-    return "Reason Code: Opening Template Opened (192)"
-  end
-  if value == 193 then
-    return "Reason Code: Closing Template Opened (193)"
-  end
-  if value == 194 then
-    return "Reason Code: Prin Entered On Auction Template (194)"
-  end
-  if value == 195 then
-    return "Reason Code: Mandatory Indication Submitted (195)"
-  end
-  if value == 196 then
-    return "Reason Code: Pending Crowd Exists (196)"
-  end
-  if value == 197 then
-    return "Reason Code: No Consolidated Last Sale (197)"
-  end
-  if value == 198 then
-    return "Reason Code: Paired Qty Exceeds Max Trade Parameter (198)"
-  end
-  if value == 199 then
-    return "Reason Code: Luld Or Mwcb Timer Running (199)"
-  end
-  if value == 200 then
-    return "Reason Code: Locking Crossing Away Quote (200)"
-  end
-  if value == 201 then
-    return "Reason Code: Cross Not Eligible (201)"
-  end
-  if value == 202 then
-    return "Reason Code: Reserved For Future Use 202 (202)"
-  end
-  if value == 203 then
-    return "Reason Code: Pending Acceptance For Ack On Order Arrival (203)"
-  end
-  if value == 204 then
-    return "Reason Code: Rejected Cancel By Dmm (204)"
-  end
-  if value == 205 then
-    return "Reason Code: Cancelled By Dmm (205)"
-  end
-  if value == 206 then
-    return "Reason Code: Price Is Outside Allowable Range (206)"
-  end
-  if value == 207 then
-    return "Reason Code: Auction Validation In Progress (207)"
-  end
-  if value == 208 then
-    return "Reason Code: Invalid Manual Action Id (208)"
-  end
-  if value == 209 then
-    return "Reason Code: Invalid Auction Sell Indicator (209)"
-  end
-  if value == 210 then
-    return "Reason Code: Invalid Intraday Sell Short Qty (210)"
-  end
-  if value == 211 then
-    return "Reason Code: Indication Template Is Open (211)"
-  end
-  if value == 212 then
-    return "Reason Code: No Prev Closing Price (212)"
-  end
-  if value == 213 then
-    return "Reason Code: Cancelled Due To Trading Collars (213)"
-  end
-  if value == 214 then
-    return "Reason Code: Underlying Is In Luld State (214)"
-  end
-  if value == 215 then
-    return "Reason Code: Invalid Manual Response Type (215)"
-  end
-  if value == 216 then
-    return "Reason Code: No Nyse Last Sale (216)"
-  end
-  if value == 217 then
-    return "Reason Code: Symbol Direct Listing State (217)"
-  end
-  if value == 218 then
-    return "Reason Code: Dmm Gui Reduction In Manual Order Qty (218)"
-  end
-  if value == 219 then
-    return "Reason Code: Cross Eligible (219)"
-  end
-  if value == 220 then
-    return "Reason Code: Dry Run (220)"
-  end
-  if value == 221 then
-    return "Reason Code: Unsupported By Broker Plex (221)"
-  end
-  if value == 222 then
-    return "Reason Code: Cross Blocked By Bbopbbo (222)"
-  end
-  if value == 223 then
-    return "Reason Code: Risk Single Ord Max Qty (223)"
-  end
-  if value == 224 then
-    return "Reason Code: Risk Single Ord Max Notional (224)"
-  end
-  if value == 225 then
-    return "Reason Code: Risk Gross Credit Breach (225)"
-  end
-  if value == 226 then
-    return "Reason Code: Risk Kill Switch (226)"
-  end
-  if value == 227 then
-    return "Reason Code: Invalid Route To Broker (227)"
-  end
-  if value == 228 then
-    return "Reason Code: Spread Too Wide (228)"
-  end
-  if value == 229 then
-    return "Reason Code: Expire Fok (229)"
-  end
-  if value == 230 then
-    return "Reason Code: Locks Displayed Interest (230)"
-  end
-  if value == 231 then
-    return "Reason Code: Mm Quote Price Lockcross Contra Side Nbbo (231)"
-  end
-  if value == 232 then
-    return "Reason Code: Invalid Leg Symbols (232)"
-  end
-  if value == 233 then
-    return "Reason Code: Duplicate Leg Symbol (233)"
-  end
-  if value == 234 then
-    return "Reason Code: Symbol Not In Underlying (234)"
-  end
-  if value == 235 then
-    return "Reason Code: Leg Ratios Not In The Most Reduced Form (235)"
-  end
-  if value == 236 then
-    return "Reason Code: Option Leg Ratio Too High (236)"
-  end
-  if value == 237 then
-    return "Reason Code: Stock Leg Ratio Too Low (237)"
-  end
-  if value == 238 then
-    return "Reason Code: Complex Series Already Exists (238)"
-  end
-  if value == 239 then
-    return "Reason Code: Number Of Legs Incorrect (239)"
-  end
-  if value == 240 then
-    return "Reason Code: Cancel Does Not Set Nbbo Inst (240)"
-  end
-  if value == 241 then
-    return "Reason Code: Cancel Avoid Reprice Inst (241)"
-  end
-  if value == 242 then
-    return "Reason Code: Allow Reprice Once Then Cancel Inst (242)"
-  end
-  if value == 243 then
-    return "Reason Code: Invalid Allocation Pct (243)"
-  end
-  if value == 244 then
-    return "Reason Code: Invalid Mm Quote Type (244)"
-  end
-  if value == 245 then
-    return "Reason Code: Invalid Mm Sent Time (245)"
-  end
-  if value == 246 then
-    return "Reason Code: Series Expired (246)"
-  end
-  if value == 247 then
-    return "Reason Code: Invalid Give Up Mmid (247)"
-  end
-  if value == 248 then
-    return "Reason Code: Invalid No Sides (248)"
-  end
-  if value == 249 then
-    return "Reason Code: Pending To Acceptance (249)"
-  end
-  if value == 250 then
-    return "Reason Code: Reserved For Future Use 250 (250)"
-  end
-  if value == 251 then
-    return "Reason Code: Invalid Bulk Action (251)"
-  end
-  if value == 252 then
-    return "Reason Code: Invalid Cancel Scope (252)"
-  end
-  if value == 253 then
-    return "Reason Code: No Legal Width Spread (253)"
-  end
-  if value == 254 then
-    return "Reason Code: Invalid Target Cancel Mpid (254)"
-  end
-  if value == 255 then
-    return "Reason Code: Invalid Target Cancel Sender Comp Id (255)"
-  end
-  if value == 256 then
-    return "Reason Code: Clear The Book Prev Entered (256)"
-  end
-  if value == 257 then
-    return "Reason Code: Timer Expired Api Allocation (257)"
-  end
-  if value == 258 then
-    return "Reason Code: Invalid Number Of Quotes (258)"
-  end
-  if value == 259 then
-    return "Reason Code: Invalid Order Id (259)"
-  end
-  if value == 260 then
-    return "Reason Code: Risk Control Event (260)"
-  end
-  if value == 261 then
-    return "Reason Code: To Rejected (261)"
-  end
-  if value == 262 then
-    return "Reason Code: Cancelled Corporate Action (262)"
-  end
-  if value == 263 then
-    return "Reason Code: Too Late To Replace (263)"
-  end
-  if value == 264 then
-    return "Reason Code: Invalid Ref Delta (264)"
-  end
-  if value == 265 then
-    return "Reason Code: Invalid Stock Price (265)"
-  end
-  if value == 266 then
-    return "Reason Code: Reserved For Future Use 266 (266)"
-  end
-  if value == 267 then
-    return "Reason Code: Invalid Tied To Stock (267)"
-  end
-  if value == 268 then
-    return "Reason Code: Too Late To Allocate (268)"
-  end
-  if value == 269 then
-    return "Reason Code: Customer Interest On Bbo (269)"
-  end
-  if value == 270 then
-    return "Reason Code: Ido Cannot Be Modified (270)"
-  end
-  if value == 271 then
-    return "Reason Code: Cross Outside Bbo (271)"
-  end
-  if value == 272 then
-    return "Reason Code: Pending To Approval (272)"
-  end
-  if value == 273 then
-    return "Reason Code: Invalid Leg Open Close (273)"
-  end
-  if value == 274 then
-    return "Reason Code: Invalid Risk Control Type (274)"
-  end
-  if value == 275 then
-    return "Reason Code: Invalid Risk Control Activation (275)"
-  end
-  if value == 276 then
-    return "Reason Code: Invalid Breach Action Request (276)"
-  end
-  if value == 277 then
-    return "Reason Code: Invalid Ioc Attribution (277)"
-  end
-  if value == 278 then
-    return "Reason Code: Invalid Risk Action Type (278)"
-  end
-  if value == 279 then
-    return "Reason Code: Invalid Usd Limit (279)"
-  end
-  if value == 280 then
-    return "Reason Code: Ido Already Exists (280)"
-  end
-  if value == 281 then
-    return "Reason Code: Invalid Time Limit (281)"
-  end
-  if value == 282 then
-    return "Reason Code: Invalid Percentage Limit (282)"
-  end
-  if value == 283 then
-    return "Reason Code: Invalid Count Limit (283)"
-  end
-  if value == 284 then
-    return "Reason Code: Risk Roll Transact Breach (284)"
-  end
-  if value == 285 then
-    return "Reason Code: Risk Roll Vol Breach (285)"
-  end
-  if value == 286 then
-    return "Reason Code: Risk Roll Pct Breach (286)"
-  end
-  if value == 287 then
-    return "Reason Code: Risk Roll Grmp Breach (287)"
-  end
-  if value == 288 then
-    return "Reason Code: Risk Mm Arbitrage Breach (288)"
-  end
-  if value == 289 then
-    return "Reason Code: Risk Mm Intrinsic Breach (289)"
-  end
-  if value == 290 then
-    return "Reason Code: Ido Must Exist (290)"
-  end
-  if value == 291 then
-    return "Reason Code: Invalid Allocation Tag (291)"
-  end
-  if value == 292 then
-    return "Reason Code: Invalid Trade Tag (292)"
-  end
-  if value == 293 then
-    return "Reason Code: Arbitrage Check (293)"
-  end
-  if value == 294 then
-    return "Reason Code: Intrinsic Value Check (294)"
-  end
-  if value == 295 then
-    return "Reason Code: Credit Debit Check (295)"
-  end
-  if value == 296 then
-    return "Reason Code: Invalid Risk User (296)"
-  end
-  if value == 297 then
-    return "Reason Code: Invalid Risk Entity (297)"
-  end
-  if value == 298 then
-    return "Reason Code: Invalid Flex Series Already Exists (298)"
-  end
-  if value == 299 then
-    return "Reason Code: Invalid Flex Series Key (299)"
-  end
-  if value == 300 then
-    return "Reason Code: Invalid Clear The Book (300)"
-  end
-  if value == 301 then
-    return "Reason Code: Invalid Stock Qty (301)"
-  end
-  if value == 302 then
-    return "Reason Code: Invalid Package Link Id (302)"
-  end
-  if value == 303 then
-    return "Reason Code: Complex Max Series Breach (303)"
-  end
-  if value == 304 then
-    return "Reason Code: Invalid Flex Eod Tag (304)"
-  end
-  if value == 305 then
-    return "Reason Code: Invalid Percentage Price (305)"
-  end
-  if value == 999 then
-    return "Reason Code: Unknown Issue Encountered (999)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.reason_code.labels = {
+  [0] = "Reason Code: Ok (0)",
+  [1] = "Reason Code: Invalid Sender Comp Id (1)",
+  [2] = "Reason Code: Invalid Sender Sub Id (2)",
+  [3] = "Reason Code: Invalid Sending Time (3)",
+  [4] = "Reason Code: Invalid Target Comp Id (4)",
+  [5] = "Reason Code: Invalid Target Sub Id (5)",
+  [6] = "Reason Code: Invalid On Behalf Of Comp Id (6)",
+  [7] = "Reason Code: Invalid On Behalf Of Sub Id (7)",
+  [8] = "Reason Code: Invalid Deliver To Comp Id (8)",
+  [9] = "Reason Code: Invalid Deliver To Sub Id (9)",
+  [10] = "Reason Code: Invalid Account (10)",
+  [11] = "Reason Code: Invalid Cl Ord Id (11)",
+  [12] = "Reason Code: Invalid Exec Inst (12)",
+  [13] = "Reason Code: Invalid Id Source (13)",
+  [14] = "Reason Code: Invalid Order Qty (14)",
+  [15] = "Reason Code: Invalid Ord Type (15)",
+  [16] = "Reason Code: Invalid Price (16)",
+  [17] = "Reason Code: Invalid Order Capacity (17)",
+  [18] = "Reason Code: Invalid Security Id (18)",
+  [19] = "Reason Code: Invalid Side (19)",
+  [20] = "Reason Code: Invalid Symbol Series (20)",
+  [21] = "Reason Code: Invalid Text (21)",
+  [22] = "Reason Code: Invalid Time In Force (22)",
+  [23] = "Reason Code: Invalid Settlement Type (23)",
+  [24] = "Reason Code: Invalid Fut Sett Date (24)",
+  [25] = "Reason Code: Invalid Symbol Sfx (25)",
+  [26] = "Reason Code: Invalid Open Close (26)",
+  [27] = "Reason Code: Invalid Stop Px (27)",
+  [28] = "Reason Code: Invalid Client Id (28)",
+  [29] = "Reason Code: Invalid Min Qty (29)",
+  [30] = "Reason Code: Invalid Max Floor (30)",
+  [31] = "Reason Code: Invalid Locate Reqd (31)",
+  [32] = "Reason Code: Invalid Expire Time (32)",
+  [33] = "Reason Code: Invalid Security Type (33)",
+  [34] = "Reason Code: Invalid Maturity Month Year (34)",
+  [35] = "Reason Code: Invalid Put Or Call (35)",
+  [36] = "Reason Code: Invalid Strike Price (36)",
+  [37] = "Reason Code: Invalid Covered Or Uncovered (37)",
+  [38] = "Reason Code: Invalid Customer Or Firm (38)",
+  [39] = "Reason Code: Invalid Maturity Day (39)",
+  [40] = "Reason Code: Invalid Peg Difference (40)",
+  [41] = "Reason Code: Invalid Sellers Days (41)",
+  [42] = "Reason Code: Invalid Trading Session Id (42)",
+  [43] = "Reason Code: Invalid No Trading Sessions (43)",
+  [44] = "Reason Code: Invalid Discretion Inst (44)",
+  [45] = "Reason Code: Invalid Discretion Offset (45)",
+  [46] = "Reason Code: Invalid Price Type (46)",
+  [47] = "Reason Code: Invalid Clearing Firm (47)",
+  [48] = "Reason Code: Invalid Clearing Account (48)",
+  [49] = "Reason Code: Invalid Party Id (49)",
+  [50] = "Reason Code: Invalid Optional Data (50)",
+  [51] = "Reason Code: Invalid Cross Id (51)",
+  [52] = "Reason Code: Invalid Strategy Indicator (52)",
+  [53] = "Reason Code: Invalid Trade Id (53)",
+  [54] = "Reason Code: Invalid No Self Trade (54)",
+  [55] = "Reason Code: Invalid Cap Strategy (55)",
+  [56] = "Reason Code: Invalid Special Ord Type (56)",
+  [57] = "Reason Code: Invalid Routing Inst (57)",
+  [58] = "Reason Code: Invalid Offset Price (58)",
+  [59] = "Reason Code: Invalid Extended Exec Inst (59)",
+  [60] = "Reason Code: Invalid Introducing Badge Id (60)",
+  [61] = "Reason Code: Invalid Bill To (61)",
+  [62] = "Reason Code: Invalid Parent Firm Cl Ord Id (62)",
+  [63] = "Reason Code: Invalid Parent Firm Exchange Ord Id (63)",
+  [64] = "Reason Code: Invalid Parent Firm (64)",
+  [65] = "Reason Code: Invalid Interest Type (65)",
+  [66] = "Reason Code: Invalid Display Ind (66)",
+  [67] = "Reason Code: Invalid Peg Ind (67)",
+  [68] = "Reason Code: Invalid Ceiling Floor Price (68)",
+  [69] = "Reason Code: Invalid Min Peg Qty (69)",
+  [70] = "Reason Code: Invalid D Order Auction Price (70)",
+  [71] = "Reason Code: Invalid Disc Max Vol (71)",
+  [72] = "Reason Code: Invalid Dics Route Ind (72)",
+  [73] = "Reason Code: Invalid Minimum Trigger Vol Mtv (73)",
+  [74] = "Reason Code: Invalid Attributed Quote (74)",
+  [75] = "Reason Code: Invalid Proactive If Locked (75)",
+  [76] = "Reason Code: System Not Available (76)",
+  [77] = "Reason Code: System Full Mengrateexceeded (77)",
+  [78] = "Reason Code: Throttle Reject (78)",
+  [79] = "Reason Code: Symbol Series Halted (79)",
+  [80] = "Reason Code: No Symbolseries Permission (80)",
+  [81] = "Reason Code: Price Too Far Outside (81)",
+  [82] = "Reason Code: Mwcb Halt (82)",
+  [83] = "Reason Code: Market Closed (83)",
+  [84] = "Reason Code: Symbolseries Closed (84)",
+  [85] = "Reason Code: Luld Cancel Instruction (85)",
+  [86] = "Reason Code: No Price Slide Inst During Ssr (86)",
+  [87] = "Reason Code: Invalid Stock Leg Give Up (87)",
+  [88] = "Reason Code: Invalid No Legs (88)",
+  [89] = "Reason Code: Invalid Leg Position Effect (89)",
+  [90] = "Reason Code: Invalid Leg Symbol (90)",
+  [91] = "Reason Code: Invalid Leg Cfi Code (91)",
+  [92] = "Reason Code: Invalid Leg Maturity Date (92)",
+  [93] = "Reason Code: Invalid Leg Strike Price (93)",
+  [94] = "Reason Code: Invalid Leg Contract Multiplier (94)",
+  [95] = "Reason Code: Invalid Leg Ratio Qty (95)",
+  [96] = "Reason Code: Invalid Leg Side (96)",
+  [97] = "Reason Code: Invalid Leg Ref Id (97)",
+  [98] = "Reason Code: Unsupported Order Type (98)",
+  [99] = "Reason Code: Urout (99)",
+  [100] = "Reason Code: Primary Market Not Available (100)",
+  [101] = "Reason Code: No Nbbopbbo For Peg (101)",
+  [102] = "Reason Code: No Market For Market Order (102)",
+  [103] = "Reason Code: Marketable Price (103)",
+  [104] = "Reason Code: Done For Day (104)",
+  [105] = "Reason Code: Credit Limit Violation (105)",
+  [106] = "Reason Code: Cancel Remaining Ioc (106)",
+  [107] = "Reason Code: Too Late To Cancel (107)",
+  [108] = "Reason Code: Invalid Poss Resend (108)",
+  [109] = "Reason Code: Cancel Pending (109)",
+  [110] = "Reason Code: Symbol Series Already Opened (110)",
+  [111] = "Reason Code: Firm Bulk Cancel (111)",
+  [112] = "Reason Code: On Behalf Of Comp Id Blocked (112)",
+  [113] = "Reason Code: Clearing Firm Blocked (113)",
+  [114] = "Reason Code: Cancel Replace Pending (114)",
+  [115] = "Reason Code: Modify Pending (115)",
+  [116] = "Reason Code: Cannot Flip Imbalance (116)",
+  [117] = "Reason Code: Cannot Increase Imbalance (117)",
+  [118] = "Reason Code: Pending Cancel Imbalance Freeze (118)",
+  [119] = "Reason Code: Pending Replace Imbalance Freeze (119)",
+  [120] = "Reason Code: Pending Modify Imbalance Freeze (120)",
+  [121] = "Reason Code: Pending Cancel Routed Interest (121)",
+  [122] = "Reason Code: Pending Replace Routed Interest (122)",
+  [123] = "Reason Code: Pending Modify Routed Interest (123)",
+  [124] = "Reason Code: Pending Auction Running (124)",
+  [125] = "Reason Code: Duplicative Order Check (125)",
+  [126] = "Reason Code: Cancelled By Exchange (126)",
+  [127] = "Reason Code: New Order (127)",
+  [128] = "Reason Code: Fill (128)",
+  [129] = "Reason Code: Partial Fill (129)",
+  [130] = "Reason Code: Reduced (130)",
+  [131] = "Reason Code: Replaced (131)",
+  [132] = "Reason Code: No Market For Cross (132)",
+  [133] = "Reason Code: Stp Cancel (133)",
+  [134] = "Reason Code: Invalid Poss Dupe (134)",
+  [135] = "Reason Code: Tpid Blocked (135)",
+  [136] = "Reason Code: Invalid Bulk Cancel (136)",
+  [137] = "Reason Code: Pending Bulk Cancel (137)",
+  [138] = "Reason Code: Symbol Series Not Open (138)",
+  [139] = "Reason Code: Symbol Series Suspended (139)",
+  [140] = "Reason Code: Symbol Ipo Halt (140)",
+  [141] = "Reason Code: Invld Inst During Imbalance Freeze (141)",
+  [142] = "Reason Code: Invld Inst After Cutoff Time (142)",
+  [143] = "Reason Code: Cancelled By Primary Market (143)",
+  [144] = "Reason Code: Pending Imbalance Freeze (144)",
+  [145] = "Reason Code: No Rlp Permission (145)",
+  [146] = "Reason Code: Invalid Instruction For Io Cs (146)",
+  [147] = "Reason Code: System Full Cgrateexceeded (147)",
+  [148] = "Reason Code: Pending Cancel Auction Running (148)",
+  [149] = "Reason Code: Pending Modify Auction Running (149)",
+  [150] = "Reason Code: Pending Replace Auction Running (150)",
+  [151] = "Reason Code: Invld Inst For Pending Order (151)",
+  [152] = "Reason Code: Ssh Price Below Nbb On Iso (152)",
+  [153] = "Reason Code: Ioc Received While Auction Running (153)",
+  [154] = "Reason Code: Pending Session Transition (154)",
+  [155] = "Reason Code: Pending Cancel Session Transition (155)",
+  [156] = "Reason Code: Pending Modify Session Transition (156)",
+  [157] = "Reason Code: Pending Replace Session Transition (157)",
+  [158] = "Reason Code: Invalid For Tick Pilot (158)",
+  [159] = "Reason Code: Invalid Mmid (159)",
+  [160] = "Reason Code: Invalid Mpid (160)",
+  [161] = "Reason Code: Invalid Cancel Instead Of Reprice (161)",
+  [162] = "Reason Code: Invalid Retail Indicator (162)",
+  [163] = "Reason Code: Sender Comp Id Not Active (163)",
+  [164] = "Reason Code: Mpid Blocked (164)",
+  [165] = "Reason Code: Invalid Timestamp (165)",
+  [166] = "Reason Code: Invalid Permission For Sender Comp Id (166)",
+  [167] = "Reason Code: Invalid User Data (167)",
+  [168] = "Reason Code: Pillar Risk Mitigation (168)",
+  [169] = "Reason Code: No Last Sale For Peg (169)",
+  [170] = "Reason Code: Symbol Pending Closing Auction (170)",
+  [171] = "Reason Code: Extreme Closing Order Imbalance (171)",
+  [172] = "Reason Code: Invalid Multi Message (172)",
+  [173] = "Reason Code: Invalid Request Targeting Manual Sender Comp Id (173)",
+  [174] = "Reason Code: Invalid Dmm Reject Reason (174)",
+  [175] = "Reason Code: Pending Pending Auction State (175)",
+  [176] = "Reason Code: Pending Cancel Pending Auction State (176)",
+  [177] = "Reason Code: Pending Modify Pending Auction State (177)",
+  [178] = "Reason Code: Pending Replace Pending Auction State (178)",
+  [179] = "Reason Code: Cancelled Dmm Manual Order Reprice (179)",
+  [180] = "Reason Code: Too Early To Open (180)",
+  [181] = "Reason Code: Too Early To Close (181)",
+  [182] = "Reason Code: Symbol Not Frozen By Auction Request (182)",
+  [183] = "Reason Code: Symbol Is Frozen By Dbk Gui (183)",
+  [184] = "Reason Code: Too Late Auction Running (184)",
+  [185] = "Reason Code: Too Late Symbol Transition (185)",
+  [186] = "Reason Code: No Eligible Crossing Interest (186)",
+  [187] = "Reason Code: Book Is Lockedcrossed (187)",
+  [188] = "Reason Code: No Interest Exists (188)",
+  [189] = "Reason Code: Imbalance Too Large (189)",
+  [190] = "Reason Code: Ssh Price Below Ssr Filing Price (190)",
+  [191] = "Reason Code: Symbol Already Closed (191)",
+  [192] = "Reason Code: Opening Template Opened (192)",
+  [193] = "Reason Code: Closing Template Opened (193)",
+  [194] = "Reason Code: Prin Entered On Auction Template (194)",
+  [195] = "Reason Code: Mandatory Indication Submitted (195)",
+  [196] = "Reason Code: Pending Crowd Exists (196)",
+  [197] = "Reason Code: No Consolidated Last Sale (197)",
+  [198] = "Reason Code: Paired Qty Exceeds Max Trade Parameter (198)",
+  [199] = "Reason Code: Luld Or Mwcb Timer Running (199)",
+  [200] = "Reason Code: Locking Crossing Away Quote (200)",
+  [201] = "Reason Code: Cross Not Eligible (201)",
+  [202] = "Reason Code: Reserved For Future Use 202 (202)",
+  [203] = "Reason Code: Pending Acceptance For Ack On Order Arrival (203)",
+  [204] = "Reason Code: Rejected Cancel By Dmm (204)",
+  [205] = "Reason Code: Cancelled By Dmm (205)",
+  [206] = "Reason Code: Price Is Outside Allowable Range (206)",
+  [207] = "Reason Code: Auction Validation In Progress (207)",
+  [208] = "Reason Code: Invalid Manual Action Id (208)",
+  [209] = "Reason Code: Invalid Auction Sell Indicator (209)",
+  [210] = "Reason Code: Invalid Intraday Sell Short Qty (210)",
+  [211] = "Reason Code: Indication Template Is Open (211)",
+  [212] = "Reason Code: No Prev Closing Price (212)",
+  [213] = "Reason Code: Cancelled Due To Trading Collars (213)",
+  [214] = "Reason Code: Underlying Is In Luld State (214)",
+  [215] = "Reason Code: Invalid Manual Response Type (215)",
+  [216] = "Reason Code: No Nyse Last Sale (216)",
+  [217] = "Reason Code: Symbol Direct Listing State (217)",
+  [218] = "Reason Code: Dmm Gui Reduction In Manual Order Qty (218)",
+  [219] = "Reason Code: Cross Eligible (219)",
+  [220] = "Reason Code: Dry Run (220)",
+  [221] = "Reason Code: Unsupported By Broker Plex (221)",
+  [222] = "Reason Code: Cross Blocked By Bbopbbo (222)",
+  [223] = "Reason Code: Risk Single Ord Max Qty (223)",
+  [224] = "Reason Code: Risk Single Ord Max Notional (224)",
+  [225] = "Reason Code: Risk Gross Credit Breach (225)",
+  [226] = "Reason Code: Risk Kill Switch (226)",
+  [227] = "Reason Code: Invalid Route To Broker (227)",
+  [228] = "Reason Code: Spread Too Wide (228)",
+  [229] = "Reason Code: Expire Fok (229)",
+  [230] = "Reason Code: Locks Displayed Interest (230)",
+  [231] = "Reason Code: Mm Quote Price Lockcross Contra Side Nbbo (231)",
+  [232] = "Reason Code: Invalid Leg Symbols (232)",
+  [233] = "Reason Code: Duplicate Leg Symbol (233)",
+  [234] = "Reason Code: Symbol Not In Underlying (234)",
+  [235] = "Reason Code: Leg Ratios Not In The Most Reduced Form (235)",
+  [236] = "Reason Code: Option Leg Ratio Too High (236)",
+  [237] = "Reason Code: Stock Leg Ratio Too Low (237)",
+  [238] = "Reason Code: Complex Series Already Exists (238)",
+  [239] = "Reason Code: Number Of Legs Incorrect (239)",
+  [240] = "Reason Code: Cancel Does Not Set Nbbo Inst (240)",
+  [241] = "Reason Code: Cancel Avoid Reprice Inst (241)",
+  [242] = "Reason Code: Allow Reprice Once Then Cancel Inst (242)",
+  [243] = "Reason Code: Invalid Allocation Pct (243)",
+  [244] = "Reason Code: Invalid Mm Quote Type (244)",
+  [245] = "Reason Code: Invalid Mm Sent Time (245)",
+  [246] = "Reason Code: Series Expired (246)",
+  [247] = "Reason Code: Invalid Give Up Mmid (247)",
+  [248] = "Reason Code: Invalid No Sides (248)",
+  [249] = "Reason Code: Pending To Acceptance (249)",
+  [250] = "Reason Code: Reserved For Future Use 250 (250)",
+  [251] = "Reason Code: Invalid Bulk Action (251)",
+  [252] = "Reason Code: Invalid Cancel Scope (252)",
+  [253] = "Reason Code: No Legal Width Spread (253)",
+  [254] = "Reason Code: Invalid Target Cancel Mpid (254)",
+  [255] = "Reason Code: Invalid Target Cancel Sender Comp Id (255)",
+  [256] = "Reason Code: Clear The Book Prev Entered (256)",
+  [257] = "Reason Code: Timer Expired Api Allocation (257)",
+  [258] = "Reason Code: Invalid Number Of Quotes (258)",
+  [259] = "Reason Code: Invalid Order Id (259)",
+  [260] = "Reason Code: Risk Control Event (260)",
+  [261] = "Reason Code: To Rejected (261)",
+  [262] = "Reason Code: Cancelled Corporate Action (262)",
+  [263] = "Reason Code: Too Late To Replace (263)",
+  [264] = "Reason Code: Invalid Ref Delta (264)",
+  [265] = "Reason Code: Invalid Stock Price (265)",
+  [266] = "Reason Code: Reserved For Future Use 266 (266)",
+  [267] = "Reason Code: Invalid Tied To Stock (267)",
+  [268] = "Reason Code: Too Late To Allocate (268)",
+  [269] = "Reason Code: Customer Interest On Bbo (269)",
+  [270] = "Reason Code: Ido Cannot Be Modified (270)",
+  [271] = "Reason Code: Cross Outside Bbo (271)",
+  [272] = "Reason Code: Pending To Approval (272)",
+  [273] = "Reason Code: Invalid Leg Open Close (273)",
+  [274] = "Reason Code: Invalid Risk Control Type (274)",
+  [275] = "Reason Code: Invalid Risk Control Activation (275)",
+  [276] = "Reason Code: Invalid Breach Action Request (276)",
+  [277] = "Reason Code: Invalid Ioc Attribution (277)",
+  [278] = "Reason Code: Invalid Risk Action Type (278)",
+  [279] = "Reason Code: Invalid Usd Limit (279)",
+  [280] = "Reason Code: Ido Already Exists (280)",
+  [281] = "Reason Code: Invalid Time Limit (281)",
+  [282] = "Reason Code: Invalid Percentage Limit (282)",
+  [283] = "Reason Code: Invalid Count Limit (283)",
+  [284] = "Reason Code: Risk Roll Transact Breach (284)",
+  [285] = "Reason Code: Risk Roll Vol Breach (285)",
+  [286] = "Reason Code: Risk Roll Pct Breach (286)",
+  [287] = "Reason Code: Risk Roll Grmp Breach (287)",
+  [288] = "Reason Code: Risk Mm Arbitrage Breach (288)",
+  [289] = "Reason Code: Risk Mm Intrinsic Breach (289)",
+  [290] = "Reason Code: Ido Must Exist (290)",
+  [291] = "Reason Code: Invalid Allocation Tag (291)",
+  [292] = "Reason Code: Invalid Trade Tag (292)",
+  [293] = "Reason Code: Arbitrage Check (293)",
+  [294] = "Reason Code: Intrinsic Value Check (294)",
+  [295] = "Reason Code: Credit Debit Check (295)",
+  [296] = "Reason Code: Invalid Risk User (296)",
+  [297] = "Reason Code: Invalid Risk Entity (297)",
+  [298] = "Reason Code: Invalid Flex Series Already Exists (298)",
+  [299] = "Reason Code: Invalid Flex Series Key (299)",
+  [300] = "Reason Code: Invalid Clear The Book (300)",
+  [301] = "Reason Code: Invalid Stock Qty (301)",
+  [302] = "Reason Code: Invalid Package Link Id (302)",
+  [303] = "Reason Code: Complex Max Series Breach (303)",
+  [304] = "Reason Code: Invalid Flex Eod Tag (304)",
+  [305] = "Reason Code: Invalid Percentage Price (305)",
+  [999] = "Reason Code: Unknown Issue Encountered (999)",
+}
 
-  return "Reason Code: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.reason_code.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.reason_code.labels[value] or "Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reason Code
@@ -4369,15 +3585,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_othe
 nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_other.size = 1
 
 -- Display: Reinstatement Required By Other
-nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_other.display = function(value)
-  if value == 0 then
-    return "Reinstatement Required By Other: Not Required (0)"
-  end
-  if value == 1 then
-    return "Reinstatement Required By Other: Required (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_other.labels = {
+  [0] = "Reinstatement Required By Other: Not Required (0)",
+  [1] = "Reinstatement Required By Other: Required (1)",
+}
 
-  return "Reinstatement Required By Other: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_other.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_other.labels[value] or "Reinstatement Required By Other: Unknown("..value..")"
 end
 
 -- Dissect: Reinstatement Required By Other
@@ -4399,15 +3613,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_self
 nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_self.size = 1
 
 -- Display: Reinstatement Required By Self
-nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_self.display = function(value)
-  if value == 0 then
-    return "Reinstatement Required By Self: Not Required (0)"
-  end
-  if value == 1 then
-    return "Reinstatement Required By Self: Required (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_self.labels = {
+  [0] = "Reinstatement Required By Self: Not Required (0)",
+  [1] = "Reinstatement Required By Self: Required (1)",
+}
 
-  return "Reinstatement Required By Self: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_self.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.reinstatement_required_by_self.labels[value] or "Reinstatement Required By Self: Unknown("..value..")"
 end
 
 -- Dissect: Reinstatement Required By Self
@@ -4429,36 +3641,20 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.reject_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.reject_type.size = 1
 
 -- Display: Reject Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.reject_type.display = function(value)
-  if value == 1 then
-    return "Reject Type: Order Or Cancel Replace Reject (1)"
-  end
-  if value == 2 then
-    return "Reject Type: Modify Request Reject (2)"
-  end
-  if value == 3 then
-    return "Reject Type: Cancel Request Reject (3)"
-  end
-  if value == 5 then
-    return "Reject Type: New Bulk Quote Reject (5)"
-  end
-  if value == 7 then
-    return "Reject Type: Risk Limit Update Request Reject (7)"
-  end
-  if value == 8 then
-    return "Reject Type: Bulk Cancel Request Reject Options (8)"
-  end
-  if value == 9 then
-    return "Reject Type: Cross Order Reject (9)"
-  end
-  if value == 10 then
-    return "Reject Type: New Complex Series Request Reject (10)"
-  end
-  if value == 11 then
-    return "Reject Type: Risk Action Request Reject (11)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.reject_type.labels = {
+  [1] = "Reject Type: Order Or Cancel Replace Reject (1)",
+  [2] = "Reject Type: Modify Request Reject (2)",
+  [3] = "Reject Type: Cancel Request Reject (3)",
+  [5] = "Reject Type: New Bulk Quote Reject (5)",
+  [7] = "Reject Type: Risk Limit Update Request Reject (7)",
+  [8] = "Reject Type: Bulk Cancel Request Reject Options (8)",
+  [9] = "Reject Type: Cross Order Reject (9)",
+  [10] = "Reject Type: New Complex Series Request Reject (10)",
+  [11] = "Reject Type: Risk Action Request Reject (11)",
+}
 
-  return "Reject Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.reject_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.reject_type.labels[value] or "Reject Type: Unknown("..value..")"
 end
 
 -- Dissect: Reject Type
@@ -4756,36 +3952,20 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_action_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_action_type.size = 1
 
 -- Display: Risk Action Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_action_type.display = function(value)
-  if value == 0 then
-    return "Risk Action Type: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Risk Action Type: Query (1)"
-  end
-  if value == 2 then
-    return "Risk Action Type: Kill Switch Block (2)"
-  end
-  if value == 3 then
-    return "Risk Action Type: Kill Switch Unblock (3)"
-  end
-  if value == 4 then
-    return "Risk Action Type: Kill Switch Cancel Auction Orders (4)"
-  end
-  if value == 5 then
-    return "Risk Action Type: Kill Switch Cancel Non Auction Orders (5)"
-  end
-  if value == 6 then
-    return "Risk Action Type: Kill Switch Cancel Gtc Orders (6)"
-  end
-  if value == 7 then
-    return "Risk Action Type: Approve Reinstatement (7)"
-  end
-  if value == 8 then
-    return "Risk Action Type: Risk Entity Reinstated (8)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_action_type.labels = {
+  [0] = "Risk Action Type: Not Applicable (0)",
+  [1] = "Risk Action Type: Query (1)",
+  [2] = "Risk Action Type: Kill Switch Block (2)",
+  [3] = "Risk Action Type: Kill Switch Unblock (3)",
+  [4] = "Risk Action Type: Kill Switch Cancel Auction Orders (4)",
+  [5] = "Risk Action Type: Kill Switch Cancel Non Auction Orders (5)",
+  [6] = "Risk Action Type: Kill Switch Cancel Gtc Orders (6)",
+  [7] = "Risk Action Type: Approve Reinstatement (7)",
+  [8] = "Risk Action Type: Risk Entity Reinstated (8)",
+}
 
-  return "Risk Action Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_action_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_action_type.labels[value] or "Risk Action Type: Unknown("..value..")"
 end
 
 -- Dissect: Risk Action Type
@@ -4807,15 +3987,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_activation = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_activation.size = 1
 
 -- Display: Risk Control Activation
-nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_activation.display = function(value)
-  if value == 0 then
-    return "Risk Control Activation: Off (0)"
-  end
-  if value == 1 then
-    return "Risk Control Activation: On (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_activation.labels = {
+  [0] = "Risk Control Activation: Off (0)",
+  [1] = "Risk Control Activation: On (1)",
+}
 
-  return "Risk Control Activation: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_activation.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_activation.labels[value] or "Risk Control Activation: Unknown("..value..")"
 end
 
 -- Dissect: Risk Control Activation
@@ -4837,66 +4015,30 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_type.size = 1
 
 -- Display: Risk Control Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_type.display = function(value)
-  if value == 0 then
-    return "Risk Control Type: Not Applicable (0)"
-  end
-  if value == 1 then
-    return "Risk Control Type: Single Order Max Qty (1)"
-  end
-  if value == 2 then
-    return "Risk Control Type: Single Order Max Notional (2)"
-  end
-  if value == 3 then
-    return "Risk Control Type: Gross Credit Executed (3)"
-  end
-  if value == 4 then
-    return "Risk Control Type: Gross Credit Open (4)"
-  end
-  if value == 5 then
-    return "Risk Control Type: Gross Credit Open And Executed (5)"
-  end
-  if value == 6 then
-    return "Risk Control Type: Maximum Duplicative Orders (6)"
-  end
-  if value == 8 then
-    return "Risk Control Type: Activity Rolling Transaction (8)"
-  end
-  if value == 9 then
-    return "Risk Control Type: Activity Rolling Volume (9)"
-  end
-  if value == 10 then
-    return "Risk Control Type: Activity Rolling Percentage (10)"
-  end
-  if value == 11 then
-    return "Risk Control Type: Global Risk Mitigation Protection (11)"
-  end
-  if value == 13 then
-    return "Risk Control Type: Reject Market Orders (13)"
-  end
-  if value == 14 then
-    return "Risk Control Type: Reject Moo And Moc (14)"
-  end
-  if value == 19 then
-    return "Risk Control Type: Reject Restricted Symbol (19)"
-  end
-  if value == 26 then
-    return "Risk Control Type: Limit Order Price Protection Options Single Leg (26)"
-  end
-  if value == 27 then
-    return "Risk Control Type: Limit Order Price Protection Options Complex (27)"
-  end
-  if value == 29 then
-    return "Risk Control Type: Order Rate Threshold (29)"
-  end
-  if value == 30 then
-    return "Risk Control Type: Reject Isoioc (30)"
-  end
-  if value == 31 then
-    return "Risk Control Type: Reject Iso Day (31)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_type.labels = {
+  [0] = "Risk Control Type: Not Applicable (0)",
+  [1] = "Risk Control Type: Single Order Max Qty (1)",
+  [2] = "Risk Control Type: Single Order Max Notional (2)",
+  [3] = "Risk Control Type: Gross Credit Executed (3)",
+  [4] = "Risk Control Type: Gross Credit Open (4)",
+  [5] = "Risk Control Type: Gross Credit Open And Executed (5)",
+  [6] = "Risk Control Type: Maximum Duplicative Orders (6)",
+  [8] = "Risk Control Type: Activity Rolling Transaction (8)",
+  [9] = "Risk Control Type: Activity Rolling Volume (9)",
+  [10] = "Risk Control Type: Activity Rolling Percentage (10)",
+  [11] = "Risk Control Type: Global Risk Mitigation Protection (11)",
+  [13] = "Risk Control Type: Reject Market Orders (13)",
+  [14] = "Risk Control Type: Reject Moo And Moc (14)",
+  [19] = "Risk Control Type: Reject Restricted Symbol (19)",
+  [26] = "Risk Control Type: Limit Order Price Protection Options Single Leg (26)",
+  [27] = "Risk Control Type: Limit Order Price Protection Options Complex (27)",
+  [29] = "Risk Control Type: Order Rate Threshold (29)",
+  [30] = "Risk Control Type: Reject Isoioc (30)",
+  [31] = "Risk Control Type: Reject Iso Day (31)",
+}
 
-  return "Risk Control Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_type.labels[value] or "Risk Control Type: Unknown("..value..")"
 end
 
 -- Dissect: Risk Control Type
@@ -4987,18 +4129,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_user_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_user_type.size = 1
 
 -- Display: Risk User Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_user_type.display = function(value)
-  if value == "E" then
-    return "Risk User Type: Entering Firm (E)"
-  end
-  if value == "C" then
-    return "Risk User Type: Clearing Firm (C)"
-  end
-  if value == "O" then
-    return "Risk User Type: Options Market Maker Firm (O)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_user_type.labels = {
+  ["E"] = "Risk User Type: Entering Firm (E)",
+  ["C"] = "Risk User Type: Clearing Firm (C)",
+  ["O"] = "Risk User Type: Options Market Maker Firm (O)",
+}
 
-  return "Risk User Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_user_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_user_type.labels[value] or "Risk User Type: Unknown("..value..")"
 end
 
 -- Dissect: Risk User Type
@@ -5049,21 +4187,15 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_prevention = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_prevention.size = 1
 
 -- Display: Self Trade Prevention
-nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_prevention.display = function(value)
-  if value == 1 then
-    return "Self Trade Prevention: No Self Trade Prevention (1)"
-  end
-  if value == 2 then
-    return "Self Trade Prevention: Cancel Newest (2)"
-  end
-  if value == 3 then
-    return "Self Trade Prevention: Cancel Oldest (3)"
-  end
-  if value == 4 then
-    return "Self Trade Prevention: Cancel Both (4)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_prevention.labels = {
+  [1] = "Self Trade Prevention: No Self Trade Prevention (1)",
+  [2] = "Self Trade Prevention: Cancel Newest (2)",
+  [3] = "Self Trade Prevention: Cancel Oldest (3)",
+  [4] = "Self Trade Prevention: Cancel Both (4)",
+}
 
-  return "Self Trade Prevention: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_prevention.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_prevention.labels[value] or "Self Trade Prevention: Unknown("..value..")"
 end
 
 -- Dissect: Self Trade Prevention
@@ -5085,24 +4217,16 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_type_u_81 = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_type_u_81.size = 1
 
 -- Display: Self Trade Type U 81
-nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_type_u_81.display = function(value)
-  if value == 0 then
-    return "Self Trade Type U 81: Use Session Configuration (0)"
-  end
-  if value == 1 then
-    return "Self Trade Type U 81: No Self Trade Prevention (1)"
-  end
-  if value == 2 then
-    return "Self Trade Type U 81: Cancel Newest (2)"
-  end
-  if value == 3 then
-    return "Self Trade Type U 81: Cancel Oldest (3)"
-  end
-  if value == 4 then
-    return "Self Trade Type U 81: Cancel Both (4)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_type_u_81.labels = {
+  [0] = "Self Trade Type U 81: Use Session Configuration (0)",
+  [1] = "Self Trade Type U 81: No Self Trade Prevention (1)",
+  [2] = "Self Trade Type U 81: Cancel Newest (2)",
+  [3] = "Self Trade Type U 81: Cancel Oldest (3)",
+  [4] = "Self Trade Type U 81: Cancel Both (4)",
+}
 
-  return "Self Trade Type U 81: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_type_u_81.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_type_u_81.labels[value] or "Self Trade Type U 81: Unknown("..value..")"
 end
 
 -- Dissect: Self Trade Type U 81
@@ -5170,102 +4294,42 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_type.size = 2
 
 -- Display: Seq Msg Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_type.display = function(value)
-  if value == 0x0220 then
-    return "Seq Msg Type: Session Configuration Request Message (0x0220)"
-  end
-  if value == 0x0282 then
-    return "Seq Msg Type: Sequenced Filler Message (0x0282)"
-  end
-  if value == 0x0248 then
-    return "Seq Msg Type: New Order Message (0x0248)"
-  end
-  if value == 0x0250 then
-    return "Seq Msg Type: Order Cancel Request Message (0x0250)"
-  end
-  if value == 0x0251 then
-    return "Seq Msg Type: Order Modify Request Message (0x0251)"
-  end
-  if value == 0x0243 then
-    return "Seq Msg Type: New Bulk Quote Type 243 Message (0x0243)"
-  end
-  if value == 0x0259 then
-    return "Seq Msg Type: New Bulk Quote Type 259 Message (0x0259)"
-  end
-  if value == 0x0222 then
-    return "Seq Msg Type: New Order Cross Message (0x0222)"
-  end
-  if value == 0x0223 then
-    return "Seq Msg Type: Bulk Cancel Request Type 223 Message (0x0223)"
-  end
-  if value == 0x0224 then
-    return "Seq Msg Type: Bulk Cancel Request Type 224 Message (0x0224)"
-  end
-  if value == 0x0330 then
-    return "Seq Msg Type: Risk Limit Update Request Message (0x0330)"
-  end
-  if value == 0x0331 then
-    return "Seq Msg Type: Risk Action Request Message (0x0331)"
-  end
-  if value == 0x0357 then
-    return "Seq Msg Type: New Complex Series Request Message (0x0357)"
-  end
-  if value == 0x0233 then
-    return "Seq Msg Type: Underlying Symbol Reference Data Message (0x0233)"
-  end
-  if value == 0x0234 then
-    return "Seq Msg Type: Series Reference Data Message (0x0234)"
-  end
-  if value == 0x0230 then
-    return "Seq Msg Type: Minimum Price Variant Class Reference Data Message (0x0230)"
-  end
-  if value == 0x0231 then
-    return "Seq Msg Type: Minimum Price Variant Level Reference Data Message (0x0231)"
-  end
-  if value == 0x0272 then
-    return "Seq Msg Type: Mpid Configuration Message (0x0272)"
-  end
-  if value == 0x0833 then
-    return "Seq Msg Type: Options Market Maker Symbol Appointment Reference Data Message (0x0833)"
-  end
-  if value == 0x0221 then
-    return "Seq Msg Type: Session Configuration Acknowledgement Message (0x0221)"
-  end
-  if value == 0x0269 then
-    return "Seq Msg Type: Order And Cancel Replace Acknowledgement Message (0x0269)"
-  end
-  if value == 0x0294 then
-    return "Seq Msg Type: Bulk Quote Acknowledgment Type 294 Message (0x0294)"
-  end
-  if value == 0x0308 then
-    return "Seq Msg Type: Bulk Quote Acknowledgment Message (0x0308)"
-  end
-  if value == 0x0278 then
-    return "Seq Msg Type: Order Single Complex Modify Cancel Request Acknowledgment And Urout Message (0x0278)"
-  end
-  if value == 0x0268 then
-    return "Seq Msg Type: Order Priority Update Acknowledgment Message (0x0268)"
-  end
-  if value == 0x0295 then
-    return "Seq Msg Type: Execution Report Message (0x0295)"
-  end
-  if value == 0x0293 then
-    return "Seq Msg Type: Trade Bust Correct Message (0x0293)"
-  end
-  if value == 0x0267 then
-    return "Seq Msg Type: Application Layer Reject Message (0x0267)"
-  end
-  if value == 0x0332 then
-    return "Seq Msg Type: Risk Control Acknowledgement Message (0x0332)"
-  end
-  if value == 0x0333 then
-    return "Seq Msg Type: Risk Control Alert Message (0x0333)"
-  end
-  if value == 0x0358 then
-    return "Seq Msg Type: Complex Series Request Acknowledgement Message (0x0358)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_type.labels = {
+  [0x0220] = "Seq Msg Type: Session Configuration Request Message (0x0220)",
+  [0x0282] = "Seq Msg Type: Sequenced Filler Message (0x0282)",
+  [0x0248] = "Seq Msg Type: New Order Message (0x0248)",
+  [0x0250] = "Seq Msg Type: Order Cancel Request Message (0x0250)",
+  [0x0251] = "Seq Msg Type: Order Modify Request Message (0x0251)",
+  [0x0243] = "Seq Msg Type: New Bulk Quote Type 243 Message (0x0243)",
+  [0x0259] = "Seq Msg Type: New Bulk Quote Type 259 Message (0x0259)",
+  [0x0222] = "Seq Msg Type: New Order Cross Message (0x0222)",
+  [0x0223] = "Seq Msg Type: Bulk Cancel Request Type 223 Message (0x0223)",
+  [0x0224] = "Seq Msg Type: Bulk Cancel Request Type 224 Message (0x0224)",
+  [0x0330] = "Seq Msg Type: Risk Limit Update Request Message (0x0330)",
+  [0x0331] = "Seq Msg Type: Risk Action Request Message (0x0331)",
+  [0x0357] = "Seq Msg Type: New Complex Series Request Message (0x0357)",
+  [0x0233] = "Seq Msg Type: Underlying Symbol Reference Data Message (0x0233)",
+  [0x0234] = "Seq Msg Type: Series Reference Data Message (0x0234)",
+  [0x0230] = "Seq Msg Type: Minimum Price Variant Class Reference Data Message (0x0230)",
+  [0x0231] = "Seq Msg Type: Minimum Price Variant Level Reference Data Message (0x0231)",
+  [0x0272] = "Seq Msg Type: Mpid Configuration Message (0x0272)",
+  [0x0833] = "Seq Msg Type: Options Market Maker Symbol Appointment Reference Data Message (0x0833)",
+  [0x0221] = "Seq Msg Type: Session Configuration Acknowledgement Message (0x0221)",
+  [0x0269] = "Seq Msg Type: Order And Cancel Replace Acknowledgement Message (0x0269)",
+  [0x0294] = "Seq Msg Type: Bulk Quote Acknowledgment Type 294 Message (0x0294)",
+  [0x0308] = "Seq Msg Type: Bulk Quote Acknowledgment Message (0x0308)",
+  [0x0278] = "Seq Msg Type: Order Single Complex Modify Cancel Request Acknowledgment And Urout Message (0x0278)",
+  [0x0268] = "Seq Msg Type: Order Priority Update Acknowledgment Message (0x0268)",
+  [0x0295] = "Seq Msg Type: Execution Report Message (0x0295)",
+  [0x0293] = "Seq Msg Type: Trade Bust Correct Message (0x0293)",
+  [0x0267] = "Seq Msg Type: Application Layer Reject Message (0x0267)",
+  [0x0332] = "Seq Msg Type: Risk Control Acknowledgement Message (0x0332)",
+  [0x0333] = "Seq Msg Type: Risk Control Alert Message (0x0333)",
+  [0x0358] = "Seq Msg Type: Complex Series Request Acknowledgement Message (0x0358)",
+}
 
-  return "Seq Msg Type: Unknown("..string.format("0x%04X", value)..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_type.labels[value] or "Seq Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Seq Msg Type
@@ -5310,12 +4374,12 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.series_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.series_type.size = 1
 
 -- Display: Series Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.series_type.display = function(value)
-  if value == 0 then
-    return "Series Type: Standard (0)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.series_type.labels = {
+  [0] = "Series Type: Standard (0)",
+}
 
-  return "Series Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.series_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.series_type.labels[value] or "Series Type: Unknown("..value..")"
 end
 
 -- Dissect: Series Type
@@ -5360,18 +4424,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.side_u_81 = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.side_u_81.size = 1
 
 -- Display: Side U 81
-nyse_amexoptions_binarygateway_pillarstream_v3_25.side_u_81.display = function(value)
-  if value == 0 then
-    return "Side U 81: No Change In Side (0)"
-  end
-  if value == 1 then
-    return "Side U 81: Buy (1)"
-  end
-  if value == 2 then
-    return "Side U 81: Sell (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.side_u_81.labels = {
+  [0] = "Side U 81: No Change In Side (0)",
+  [1] = "Side U 81: Buy (1)",
+  [2] = "Side U 81: Sell (2)",
+}
 
-  return "Side U 81: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.side_u_81.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.side_u_81.labels[value] or "Side U 81: Unknown("..value..")"
 end
 
 -- Dissect: Side U 81
@@ -5416,57 +4476,27 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.status = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.status.size = 1
 
 -- Display: Status
-nyse_amexoptions_binarygateway_pillarstream_v3_25.status.display = function(value)
-  if value == 0 then
-    return "Status: Request Processed Successfully (0)"
-  end
-  if value == 18 then
-    return "Status: Not Logged In (18)"
-  end
-  if value == 24 then
-    return "Status: Invalid Login Details (24)"
-  end
-  if value == 27 then
-    return "Status: Already Logged In (27)"
-  end
-  if value == 28 then
-    return "Status: Heartbeat Timeout (28)"
-  end
-  if value == 29 then
-    return "Status: Login Timed Out (29)"
-  end
-  if value == 33 then
-    return "Status: Invalid Message (33)"
-  end
-  if value == 54 then
-    return "Status: No Stream Permission (54)"
-  end
-  if value == 81 then
-    return "Status: Invalid Protocol Version (81)"
-  end
-  if value == 82 then
-    return "Status: Message Out Of Sequence (82)"
-  end
-  if value == 84 then
-    return "Status: Invalid Stream (84)"
-  end
-  if value == 85 then
-    return "Status: Stream Not Open (85)"
-  end
-  if value == 86 then
-    return "Status: Invalid Timestamp (86)"
-  end
-  if value == 89 then
-    return "Status: Denial Of Service (89)"
-  end
-  if value == 90 then
-    return "Status: Write Permission Revoked (90)"
-  end
-  if value == 93 then
-    return "Status: Invalid Multimessage (93)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.status.labels = {
+  [0] = "Status: Request Processed Successfully (0)",
+  [18] = "Status: Not Logged In (18)",
+  [24] = "Status: Invalid Login Details (24)",
+  [27] = "Status: Already Logged In (27)",
+  [28] = "Status: Heartbeat Timeout (28)",
+  [29] = "Status: Login Timed Out (29)",
+  [33] = "Status: Invalid Message (33)",
+  [54] = "Status: No Stream Permission (54)",
+  [81] = "Status: Invalid Protocol Version (81)",
+  [82] = "Status: Message Out Of Sequence (82)",
+  [84] = "Status: Invalid Stream (84)",
+  [85] = "Status: Stream Not Open (85)",
+  [86] = "Status: Invalid Timestamp (86)",
+  [89] = "Status: Denial Of Service (89)",
+  [90] = "Status: Write Permission Revoked (90)",
+  [93] = "Status: Invalid Multimessage (93)",
+}
 
-  return "Status: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.status.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -5631,15 +4661,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.symbol_eligibility = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.symbol_eligibility.size = 1
 
 -- Display: Symbol Eligibility
-nyse_amexoptions_binarygateway_pillarstream_v3_25.symbol_eligibility.display = function(value)
-  if value == 1 then
-    return "Symbol Eligibility: All Symbols (1)"
-  end
-  if value == 2 then
-    return "Symbol Eligibility: Test Symbols Only (2)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.symbol_eligibility.labels = {
+  [1] = "Symbol Eligibility: All Symbols (1)",
+  [2] = "Symbol Eligibility: Test Symbols Only (2)",
+}
 
-  return "Symbol Eligibility: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.symbol_eligibility.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.symbol_eligibility.labels[value] or "Symbol Eligibility: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Eligibility
@@ -5746,15 +4774,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.test_symbol_indicator = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.test_symbol_indicator.size = 1
 
 -- Display: Test Symbol Indicator
-nyse_amexoptions_binarygateway_pillarstream_v3_25.test_symbol_indicator.display = function(value)
-  if value == 0 then
-    return "Test Symbol Indicator: Production (0)"
-  end
-  if value == 1 then
-    return "Test Symbol Indicator: Test (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.test_symbol_indicator.labels = {
+  [0] = "Test Symbol Indicator: Production (0)",
+  [1] = "Test Symbol Indicator: Test (1)",
+}
 
-  return "Test Symbol Indicator: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.test_symbol_indicator.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.test_symbol_indicator.labels[value] or "Test Symbol Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Test Symbol Indicator
@@ -5776,15 +4802,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.threshold_breach_level = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.threshold_breach_level.size = 1
 
 -- Display: Threshold Breach Level
-nyse_amexoptions_binarygateway_pillarstream_v3_25.threshold_breach_level.display = function(value)
-  if value == 0 then
-    return "Threshold Breach Level: Not Applicable (0)"
-  end
-  if value == 4 then
-    return "Threshold Breach Level: Greater Than 100 Percent (4)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.threshold_breach_level.labels = {
+  [0] = "Threshold Breach Level: Not Applicable (0)",
+  [4] = "Threshold Breach Level: Greater Than 100 Percent (4)",
+}
 
-  return "Threshold Breach Level: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.threshold_breach_level.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.threshold_breach_level.labels[value] or "Threshold Breach Level: Unknown("..value..")"
 end
 
 -- Dissect: Threshold Breach Level
@@ -5806,15 +4830,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.throttle_preference = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.throttle_preference.size = 1
 
 -- Display: Throttle Preference
-nyse_amexoptions_binarygateway_pillarstream_v3_25.throttle_preference.display = function(value)
-  if value == 0 then
-    return "Throttle Preference: Queue When Throttled (0)"
-  end
-  if value == 1 then
-    return "Throttle Preference: Reject When Throttled (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.throttle_preference.labels = {
+  [0] = "Throttle Preference: Queue When Throttled (0)",
+  [1] = "Throttle Preference: Reject When Throttled (1)",
+}
 
-  return "Throttle Preference: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.throttle_preference.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.throttle_preference.labels[value] or "Throttle Preference: Unknown("..value..")"
 end
 
 -- Dissect: Throttle Preference
@@ -6005,66 +5027,30 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.underlying_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.underlying_type.size = 1
 
 -- Display: Underlying Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.underlying_type.display = function(value)
-  if value == "A" then
-    return "Underlying Type: Adr (A)"
-  end
-  if value == "C" then
-    return "Underlying Type: Common Stock (C)"
-  end
-  if value == "D" then
-    return "Underlying Type: Debentures (D)"
-  end
-  if value == "E" then
-    return "Underlying Type: Etf (E)"
-  end
-  if value == "F" then
-    return "Underlying Type: Foreign (F)"
-  end
-  if value == "H" then
-    return "Underlying Type: Ads (H)"
-  end
-  if value == "I" then
-    return "Underlying Type: Units (I)"
-  end
-  if value == "M" then
-    return "Underlying Type: Miscellaneous (M)"
-  end
-  if value == "L" then
-    return "Underlying Type: Index Linked Notes (L)"
-  end
-  if value == "N" then
-    return "Underlying Type: Bonds (N)"
-  end
-  if value == "O" then
-    return "Underlying Type: Ordinary Shares (O)"
-  end
-  if value == "P" then
-    return "Underlying Type: Preferred Stock (P)"
-  end
-  if value == "R" then
-    return "Underlying Type: Rights (R)"
-  end
-  if value == "S" then
-    return "Underlying Type: Beneficiary Interest (S)"
-  end
-  if value == "T" then
-    return "Underlying Type: Structured Notes (T)"
-  end
-  if value == "U" then
-    return "Underlying Type: Closed End Fund (U)"
-  end
-  if value == "W" then
-    return "Underlying Type: Warrant (W)"
-  end
-  if value == "X" then
-    return "Underlying Type: Index (X)"
-  end
-  if value == "Z" then
-    return "Underlying Type: Options (Z)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.underlying_type.labels = {
+  ["A"] = "Underlying Type: Adr (A)",
+  ["C"] = "Underlying Type: Common Stock (C)",
+  ["D"] = "Underlying Type: Debentures (D)",
+  ["E"] = "Underlying Type: Etf (E)",
+  ["F"] = "Underlying Type: Foreign (F)",
+  ["H"] = "Underlying Type: Ads (H)",
+  ["I"] = "Underlying Type: Units (I)",
+  ["M"] = "Underlying Type: Miscellaneous (M)",
+  ["L"] = "Underlying Type: Index Linked Notes (L)",
+  ["N"] = "Underlying Type: Bonds (N)",
+  ["O"] = "Underlying Type: Ordinary Shares (O)",
+  ["P"] = "Underlying Type: Preferred Stock (P)",
+  ["R"] = "Underlying Type: Rights (R)",
+  ["S"] = "Underlying Type: Beneficiary Interest (S)",
+  ["T"] = "Underlying Type: Structured Notes (T)",
+  ["U"] = "Underlying Type: Closed End Fund (U)",
+  ["W"] = "Underlying Type: Warrant (W)",
+  ["X"] = "Underlying Type: Index (X)",
+  ["Z"] = "Underlying Type: Options (Z)",
+}
 
-  return "Underlying Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.underlying_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.underlying_type.labels[value] or "Underlying Type: Unknown("..value..")"
 end
 
 -- Dissect: Underlying Type
@@ -6240,18 +5226,14 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_status = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_status.size = 1
 
 -- Display: User Session Status
-nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_status.display = function(value)
-  if value == 1 then
-    return "User Session Status: Active (1)"
-  end
-  if value == 2 then
-    return "User Session Status: Inactive (2)"
-  end
-  if value == 3 then
-    return "User Session Status: Prospect (3)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_status.labels = {
+  [1] = "User Session Status: Active (1)",
+  [2] = "User Session Status: Inactive (2)",
+  [3] = "User Session Status: Prospect (3)",
+}
 
-  return "User Session Status: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_status.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_status.labels[value] or "User Session Status: Unknown("..value..")"
 end
 
 -- Dissect: User Session Status
@@ -6273,21 +5255,15 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_type = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_type.size = 1
 
 -- Display: User Session Type
-nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_type.display = function(value)
-  if value == 1 then
-    return "User Session Type: Customer (1)"
-  end
-  if value == 2 then
-    return "User Session Type: Service Bureau (2)"
-  end
-  if value == 4 then
-    return "User Session Type: Options Market Maker (4)"
-  end
-  if value == 12 then
-    return "User Session Type: Risk Admin (12)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_type.labels = {
+  [1] = "User Session Type: Customer (1)",
+  [2] = "User Session Type: Service Bureau (2)",
+  [4] = "User Session Type: Options Market Maker (4)",
+  [12] = "User Session Type: Risk Admin (12)",
+}
 
-  return "User Session Type: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_type.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.user_session_type.labels[value] or "User Session Type: Unknown("..value..")"
 end
 
 -- Dissect: User Session Type
@@ -6394,15 +5370,13 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.working_away_from_display = {}
 nyse_amexoptions_binarygateway_pillarstream_v3_25.working_away_from_display.size = 1
 
 -- Display: Working Away From Display
-nyse_amexoptions_binarygateway_pillarstream_v3_25.working_away_from_display.display = function(value)
-  if value == 0 then
-    return "Working Away From Display: Equal To Display Price (0)"
-  end
-  if value == 1 then
-    return "Working Away From Display: Away From Display Price (1)"
-  end
+nyse_amexoptions_binarygateway_pillarstream_v3_25.working_away_from_display.labels = {
+  [0] = "Working Away From Display: Equal To Display Price (0)",
+  [1] = "Working Away From Display: Away From Display Price (1)",
+}
 
-  return "Working Away From Display: Unknown("..value..")"
+nyse_amexoptions_binarygateway_pillarstream_v3_25.working_away_from_display.display = function(value)
+  return nyse_amexoptions_binarygateway_pillarstream_v3_25.working_away_from_display.labels[value] or "Working Away From Display: Unknown("..value..")"
 end
 
 -- Dissect: Working Away From Display
@@ -8572,78 +7546,31 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_25.server_sequenced_message = {}
 
 -- Dissect: Server Sequenced Message
+nyse_amexoptions_binarygateway_pillarstream_v3_25.server_sequenced_message.dispatch = {
+  [0x0233] = nyse_amexoptions_binarygateway_pillarstream_v3_25.underlying_symbol_reference_data_message.dissect,
+  [0x0234] = nyse_amexoptions_binarygateway_pillarstream_v3_25.series_reference_data_message.dissect,
+  [0x0230] = nyse_amexoptions_binarygateway_pillarstream_v3_25.minimum_price_variant_class_reference_data_message.dissect,
+  [0x0231] = nyse_amexoptions_binarygateway_pillarstream_v3_25.minimum_price_variant_level_reference_data_message.dissect,
+  [0x0272] = nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid_configuration_message.dissect,
+  [0x0833] = nyse_amexoptions_binarygateway_pillarstream_v3_25.options_market_maker_symbol_appointment_reference_data_message.dissect,
+  [0x0221] = nyse_amexoptions_binarygateway_pillarstream_v3_25.session_configuration_acknowledgement_message.dissect,
+  [0x0269] = nyse_amexoptions_binarygateway_pillarstream_v3_25.order_and_cancel_replace_acknowledgement_message.dissect,
+  [0x0294] = nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_quote_acknowledgment_type_294_message.dissect,
+  [0x0308] = nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_quote_acknowledgment_message.dissect,
+  [0x0278] = nyse_amexoptions_binarygateway_pillarstream_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect,
+  [0x0268] = nyse_amexoptions_binarygateway_pillarstream_v3_25.order_priority_update_acknowledgment_message.dissect,
+  [0x0295] = nyse_amexoptions_binarygateway_pillarstream_v3_25.execution_report_message.dissect,
+  [0x0293] = nyse_amexoptions_binarygateway_pillarstream_v3_25.trade_bust_correct_message.dissect,
+  [0x0267] = nyse_amexoptions_binarygateway_pillarstream_v3_25.application_layer_reject_message.dissect,
+  [0x0332] = nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_acknowledgement_message.dissect,
+  [0x0333] = nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_alert_message.dissect,
+  [0x0358] = nyse_amexoptions_binarygateway_pillarstream_v3_25.complex_series_request_acknowledgement_message.dissect,
+}
+
 nyse_amexoptions_binarygateway_pillarstream_v3_25.server_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
-  -- Dissect Underlying Symbol Reference Data Message
-  if seq_msg_type == 0x0233 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.underlying_symbol_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Reference Data Message
-  if seq_msg_type == 0x0234 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.series_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Price Variant Class Reference Data Message
-  if seq_msg_type == 0x0230 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.minimum_price_variant_class_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Price Variant Level Reference Data Message
-  if seq_msg_type == 0x0231 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.minimum_price_variant_level_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mpid Configuration Message
-  if seq_msg_type == 0x0272 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid_configuration_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Market Maker Symbol Appointment Reference Data Message
-  if seq_msg_type == 0x0833 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.options_market_maker_symbol_appointment_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Configuration Acknowledgement Message
-  if seq_msg_type == 0x0221 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order And Cancel Replace Acknowledgement Message
-  if seq_msg_type == 0x0269 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.order_and_cancel_replace_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Acknowledgment Type 294 Message
-  if seq_msg_type == 0x0294 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_quote_acknowledgment_type_294_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Acknowledgment Message
-  if seq_msg_type == 0x0308 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_quote_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Single Complex Modify Cancel Request Acknowledgment And Urout Message
-  if seq_msg_type == 0x0278 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Priority Update Acknowledgment Message
-  if seq_msg_type == 0x0268 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.order_priority_update_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Message
-  if seq_msg_type == 0x0295 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.execution_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Correct Message
-  if seq_msg_type == 0x0293 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Layer Reject Message
-  if seq_msg_type == 0x0267 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.application_layer_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Acknowledgement Message
-  if seq_msg_type == 0x0332 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Alert Message
-  if seq_msg_type == 0x0333 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_alert_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Series Request Acknowledgement Message
-  if seq_msg_type == 0x0358 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.complex_series_request_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_amexoptions_binarygateway_pillarstream_v3_25.server_sequenced_message.dispatch[seq_msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -9133,30 +8060,19 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_25.server_message = {}
 
 -- Dissect: Server Message
+nyse_amexoptions_binarygateway_pillarstream_v3_25.server_message.dispatch = {
+  [0x0202] = nyse_amexoptions_binarygateway_pillarstream_v3_25.login_response.dissect,
+  [0x0203] = nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_avail.dissect,
+  [0x0204] = nyse_amexoptions_binarygateway_pillarstream_v3_25.heartbeat.dissect,
+  [0x0206] = nyse_amexoptions_binarygateway_pillarstream_v3_25.open_response.dissect,
+  [0x0208] = nyse_amexoptions_binarygateway_pillarstream_v3_25.close_response.dissect,
+  [0x0905] = nyse_amexoptions_binarygateway_pillarstream_v3_25.server_seq_msg.dissect,
+}
+
 nyse_amexoptions_binarygateway_pillarstream_v3_25.server_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Login Response
-  if msg_type == 0x0202 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Avail
-  if msg_type == 0x0203 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.stream_avail.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if msg_type == 0x0204 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open Response
-  if msg_type == 0x0206 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.open_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Close Response
-  if msg_type == 0x0208 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.close_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Seq Msg
-  if msg_type == 0x0905 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.server_seq_msg.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_amexoptions_binarygateway_pillarstream_v3_25.server_message.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -10508,58 +9424,26 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_25.client_sequenced_message = {}
 
 -- Dissect: Client Sequenced Message
+nyse_amexoptions_binarygateway_pillarstream_v3_25.client_sequenced_message.dispatch = {
+  [0x0220] = nyse_amexoptions_binarygateway_pillarstream_v3_25.session_configuration_request_message.dissect,
+  [0x0282] = nyse_amexoptions_binarygateway_pillarstream_v3_25.sequenced_filler_message.dissect,
+  [0x0248] = nyse_amexoptions_binarygateway_pillarstream_v3_25.new_order_message.dissect,
+  [0x0250] = nyse_amexoptions_binarygateway_pillarstream_v3_25.order_cancel_request_message.dissect,
+  [0x0251] = nyse_amexoptions_binarygateway_pillarstream_v3_25.order_modify_request_message.dissect,
+  [0x0243] = nyse_amexoptions_binarygateway_pillarstream_v3_25.new_bulk_quote_type_243_message.dissect,
+  [0x0259] = nyse_amexoptions_binarygateway_pillarstream_v3_25.new_bulk_quote_type_259_message.dissect,
+  [0x0222] = nyse_amexoptions_binarygateway_pillarstream_v3_25.new_order_cross_message.dissect,
+  [0x0223] = nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_cancel_request_type_223_message.dissect,
+  [0x0224] = nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_cancel_request_type_224_message.dissect,
+  [0x0330] = nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_limit_update_request_message.dissect,
+  [0x0331] = nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_action_request_message.dissect,
+  [0x0357] = nyse_amexoptions_binarygateway_pillarstream_v3_25.new_complex_series_request_message.dissect,
+}
+
 nyse_amexoptions_binarygateway_pillarstream_v3_25.client_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
-  -- Dissect Session Configuration Request Message
-  if seq_msg_type == 0x0220 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.session_configuration_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Filler Message
-  if seq_msg_type == 0x0282 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.sequenced_filler_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Message
-  if seq_msg_type == 0x0248 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.new_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Request Message
-  if seq_msg_type == 0x0250 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.order_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Request Message
-  if seq_msg_type == 0x0251 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.order_modify_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Bulk Quote Type 243 Message
-  if seq_msg_type == 0x0243 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.new_bulk_quote_type_243_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Bulk Quote Type 259 Message
-  if seq_msg_type == 0x0259 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.new_bulk_quote_type_259_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Order Cross Message
-  if seq_msg_type == 0x0222 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.new_order_cross_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Cancel Request Type 223 Message
-  if seq_msg_type == 0x0223 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_cancel_request_type_223_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Cancel Request Type 224 Message
-  if seq_msg_type == 0x0224 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.bulk_cancel_request_type_224_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Limit Update Request Message
-  if seq_msg_type == 0x0330 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_limit_update_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Action Request Message
-  if seq_msg_type == 0x0331 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_action_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Complex Series Request Message
-  if seq_msg_type == 0x0357 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.new_complex_series_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_amexoptions_binarygateway_pillarstream_v3_25.client_sequenced_message.dispatch[seq_msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -10817,26 +9701,18 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_25.client_message = {}
 
 -- Dissect: Client Message
+nyse_amexoptions_binarygateway_pillarstream_v3_25.client_message.dispatch = {
+  [0x0201] = nyse_amexoptions_binarygateway_pillarstream_v3_25.login_message.dissect,
+  [0x0204] = nyse_amexoptions_binarygateway_pillarstream_v3_25.heartbeat.dissect,
+  [0x0205] = nyse_amexoptions_binarygateway_pillarstream_v3_25.open.dissect,
+  [0x0207] = nyse_amexoptions_binarygateway_pillarstream_v3_25.close.dissect,
+  [0x0905] = nyse_amexoptions_binarygateway_pillarstream_v3_25.client_seq_msg.dissect,
+}
+
 nyse_amexoptions_binarygateway_pillarstream_v3_25.client_message.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Login Message
-  if msg_type == 0x0201 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if msg_type == 0x0204 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Open
-  if msg_type == 0x0205 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.open.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Close
-  if msg_type == 0x0207 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.close.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Seq Msg
-  if msg_type == 0x0905 then
-    return nyse_amexoptions_binarygateway_pillarstream_v3_25.client_seq_msg.dissect(buffer, offset, packet, parent)
+  local dissect = nyse_amexoptions_binarygateway_pillarstream_v3_25.client_message.dispatch[msg_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

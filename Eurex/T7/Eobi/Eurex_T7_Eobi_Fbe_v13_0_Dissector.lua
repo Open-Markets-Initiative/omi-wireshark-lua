@@ -6669,110 +6669,39 @@ end
 eurex_t7_eobi_fbe_v13_0.payload = {}
 
 -- Dissect: Payload
+eurex_t7_eobi_fbe_v13_0.payload.dispatch = {
+  [13400] = eurex_t7_eobi_fbe_v13_0.add_complex_instrument.dissect,
+  [13401] = eurex_t7_eobi_fbe_v13_0.add_flexible_instrument.dissect,
+  [13402] = eurex_t7_eobi_fbe_v13_0.add_scaled_simple_instrument.dissect,
+  [13500] = eurex_t7_eobi_fbe_v13_0.auction_bbo.dissect,
+  [13501] = eurex_t7_eobi_fbe_v13_0.auction_clearing_price.dissect,
+  [13502] = eurex_t7_eobi_fbe_v13_0.cross_request.dissect,
+  [13202] = eurex_t7_eobi_fbe_v13_0.execution_summary.dissect,
+  [13104] = eurex_t7_eobi_fbe_v13_0.full_order_execution.dissect,
+  [13001] = eurex_t7_eobi_fbe_v13_0.heartbeat.dissect,
+  [13301] = eurex_t7_eobi_fbe_v13_0.instrument_state_change.dissect,
+  [13601] = eurex_t7_eobi_fbe_v13_0.instrument_summary.dissect,
+  [13302] = eurex_t7_eobi_fbe_v13_0.mass_instrument_state_change.dissect,
+  [13100] = eurex_t7_eobi_fbe_v13_0.order_add.dissect,
+  [13102] = eurex_t7_eobi_fbe_v13_0.order_delete.dissect,
+  [13103] = eurex_t7_eobi_fbe_v13_0.order_mass_delete.dissect,
+  [13101] = eurex_t7_eobi_fbe_v13_0.order_modify.dissect,
+  [13106] = eurex_t7_eobi_fbe_v13_0.order_modify_same_prio.dissect,
+  [13105] = eurex_t7_eobi_fbe_v13_0.partial_order_execution.dissect,
+  [13300] = eurex_t7_eobi_fbe_v13_0.product_state_change.dissect,
+  [13600] = eurex_t7_eobi_fbe_v13_0.product_summary.dissect,
+  [13503] = eurex_t7_eobi_fbe_v13_0.quote_request.dissect,
+  [13602] = eurex_t7_eobi_fbe_v13_0.snapshot_order.dissect,
+  [13203] = eurex_t7_eobi_fbe_v13_0.tes_trade_report.dissect,
+  [13504] = eurex_t7_eobi_fbe_v13_0.top_of_book.dissect,
+  [13201] = eurex_t7_eobi_fbe_v13_0.trade_report.dissect,
+  [13200] = eurex_t7_eobi_fbe_v13_0.trade_reversal.dissect,
+}
+
 eurex_t7_eobi_fbe_v13_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Add Complex Instrument
-  if template_id == 13400 then
-    return eurex_t7_eobi_fbe_v13_0.add_complex_instrument.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Flexible Instrument
-  if template_id == 13401 then
-    return eurex_t7_eobi_fbe_v13_0.add_flexible_instrument.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Scaled Simple Instrument
-  if template_id == 13402 then
-    return eurex_t7_eobi_fbe_v13_0.add_scaled_simple_instrument.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Bbo
-  if template_id == 13500 then
-    return eurex_t7_eobi_fbe_v13_0.auction_bbo.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Clearing Price
-  if template_id == 13501 then
-    return eurex_t7_eobi_fbe_v13_0.auction_clearing_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cross Request
-  if template_id == 13502 then
-    return eurex_t7_eobi_fbe_v13_0.cross_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Summary
-  if template_id == 13202 then
-    return eurex_t7_eobi_fbe_v13_0.execution_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Full Order Execution
-  if template_id == 13104 then
-    return eurex_t7_eobi_fbe_v13_0.full_order_execution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if template_id == 13001 then
-    return eurex_t7_eobi_fbe_v13_0.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument State Change
-  if template_id == 13301 then
-    return eurex_t7_eobi_fbe_v13_0.instrument_state_change.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Summary
-  if template_id == 13601 then
-    return eurex_t7_eobi_fbe_v13_0.instrument_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Instrument State Change
-  if template_id == 13302 then
-    return eurex_t7_eobi_fbe_v13_0.mass_instrument_state_change.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add
-  if template_id == 13100 then
-    return eurex_t7_eobi_fbe_v13_0.order_add.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete
-  if template_id == 13102 then
-    return eurex_t7_eobi_fbe_v13_0.order_delete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Delete
-  if template_id == 13103 then
-    return eurex_t7_eobi_fbe_v13_0.order_mass_delete.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify
-  if template_id == 13101 then
-    return eurex_t7_eobi_fbe_v13_0.order_modify.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Same Prio
-  if template_id == 13106 then
-    return eurex_t7_eobi_fbe_v13_0.order_modify_same_prio.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Partial Order Execution
-  if template_id == 13105 then
-    return eurex_t7_eobi_fbe_v13_0.partial_order_execution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Product State Change
-  if template_id == 13300 then
-    return eurex_t7_eobi_fbe_v13_0.product_state_change.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Product Summary
-  if template_id == 13600 then
-    return eurex_t7_eobi_fbe_v13_0.product_summary.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Request
-  if template_id == 13503 then
-    return eurex_t7_eobi_fbe_v13_0.quote_request.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Snapshot Order
-  if template_id == 13602 then
-    return eurex_t7_eobi_fbe_v13_0.snapshot_order.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tes Trade Report
-  if template_id == 13203 then
-    return eurex_t7_eobi_fbe_v13_0.tes_trade_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Top Of Book
-  if template_id == 13504 then
-    return eurex_t7_eobi_fbe_v13_0.top_of_book.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Report
-  if template_id == 13201 then
-    return eurex_t7_eobi_fbe_v13_0.trade_report.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Reversal
-  if template_id == 13200 then
-    return eurex_t7_eobi_fbe_v13_0.trade_reversal.dissect(buffer, offset, packet, parent)
+  local dissect = eurex_t7_eobi_fbe_v13_0.payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

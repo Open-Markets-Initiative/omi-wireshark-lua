@@ -439,18 +439,14 @@ ltse_ltseequities_memo_sbe_v1_12.cust_order_capacity = {}
 ltse_ltseequities_memo_sbe_v1_12.cust_order_capacity.size = 1
 
 -- Display: Cust Order Capacity
-ltse_ltseequities_memo_sbe_v1_12.cust_order_capacity.display = function(value)
-  if value == 1 then
-    return "Cust Order Capacity: Member Trading On Their Own Account (1)"
-  end
-  if value == 5 then
-    return "Cust Order Capacity: Retail Customer (5)"
-  end
-  if value == 255 then
-    return "Cust Order Capacity: Null Value (255)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.cust_order_capacity.labels = {
+  [1] = "Cust Order Capacity: Member Trading On Their Own Account (1)",
+  [5] = "Cust Order Capacity: Retail Customer (5)",
+  [255] = "Cust Order Capacity: Null Value (255)",
+}
 
-  return "Cust Order Capacity: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.cust_order_capacity.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.cust_order_capacity.labels[value] or "Cust Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Cust Order Capacity
@@ -472,126 +468,50 @@ ltse_ltseequities_memo_sbe_v1_12.cxl_rej_reason = {}
 ltse_ltseequities_memo_sbe_v1_12.cxl_rej_reason.size = 1
 
 -- Display: Cxl Rej Reason
-ltse_ltseequities_memo_sbe_v1_12.cxl_rej_reason.display = function(value)
-  if value == 1 then
-    return "Cxl Rej Reason: Unknown Orig Order (1)"
-  end
-  if value == 3 then
-    return "Cxl Rej Reason: Order In Pending State (3)"
-  end
-  if value == 6 then
-    return "Cxl Rej Reason: Duplicate Cl Ord Id (6)"
-  end
-  if value == 18 then
-    return "Cxl Rej Reason: Invalid Limit Price Increment (18)"
-  end
-  if value == 99 then
-    return "Cxl Rej Reason: Other (99)"
-  end
-  if value == 100 then
-    return "Cxl Rej Reason: Missing Symbol (100)"
-  end
-  if value == 101 then
-    return "Cxl Rej Reason: Missing Locate (101)"
-  end
-  if value == 102 then
-    return "Cxl Rej Reason: Missing Cl Ord Id (102)"
-  end
-  if value == 103 then
-    return "Cxl Rej Reason: Invalid Order Quantity (103)"
-  end
-  if value == 104 then
-    return "Cxl Rej Reason: Invalid Symbol (104)"
-  end
-  if value == 105 then
-    return "Cxl Rej Reason: Invalid Limit Price (105)"
-  end
-  if value == 107 then
-    return "Cxl Rej Reason: Symbol Halted Or Paused (107)"
-  end
-  if value == 108 then
-    return "Cxl Rej Reason: Order Size Exceeds Limit (108)"
-  end
-  if value == 109 then
-    return "Cxl Rej Reason: Exceeded Max Notional Order Amt (109)"
-  end
-  if value == 110 then
-    return "Cxl Rej Reason: Missing Orig Order Identifiers (110)"
-  end
-  if value == 111 then
-    return "Cxl Rej Reason: Ambiguous Orig Order Identifiers (111)"
-  end
-  if value == 112 then
-    return "Cxl Rej Reason: Orig Order Symbol Not Matching Request Symbol (112)"
-  end
-  if value == 113 then
-    return "Cxl Rej Reason: Unsupported Display Quantity Change (113)"
-  end
-  if value == 114 then
-    return "Cxl Rej Reason: Unsupported Ord Type Change (114)"
-  end
-  if value == 115 then
-    return "Cxl Rej Reason: Unsupported Side Change (115)"
-  end
-  if value == 116 then
-    return "Cxl Rej Reason: Unsupported Quantity Change (116)"
-  end
-  if value == 117 then
-    return "Cxl Rej Reason: Invalid Locate (117)"
-  end
-  if value == 118 then
-    return "Cxl Rej Reason: Exchange Closed (118)"
-  end
-  if value == 119 then
-    return "Cxl Rej Reason: Block Session Risk Rule Violated (119)"
-  end
-  if value == 120 then
-    return "Cxl Rej Reason: Block Sell Short Risk Rule Violated (120)"
-  end
-  if value == 121 then
-    return "Cxl Rej Reason: Max Shares Per Order Risk Rule Breach (121)"
-  end
-  if value == 122 then
-    return "Cxl Rej Reason: No Nbbo Available (122)"
-  end
-  if value == 123 then
-    return "Cxl Rej Reason: Max Notional Value Per Order Risk Rule Breach (123)"
-  end
-  if value == 124 then
-    return "Cxl Rej Reason: Max Adv Percent Per Order Risk Rule Breach (124)"
-  end
-  if value == 125 then
-    return "Cxl Rej Reason: Price Percent Collar Risk Rule Violated (125)"
-  end
-  if value == 126 then
-    return "Cxl Rej Reason: Price Value Collar Risk Rule Violated (126)"
-  end
-  if value == 127 then
-    return "Cxl Rej Reason: Hard To Borrow Security Risk Rule Violated (127)"
-  end
-  if value == 128 then
-    return "Cxl Rej Reason: Invalid Side (128)"
-  end
-  if value == 129 then
-    return "Cxl Rej Reason: Invalid Ord Type (129)"
-  end
-  if value == 130 then
-    return "Cxl Rej Reason: Invalid Cl Ord Id (130)"
-  end
-  if value == 131 then
-    return "Cxl Rej Reason: Invalid Lnk Id (131)"
-  end
-  if value == 132 then
-    return "Cxl Rej Reason: Missing Locate Broker (132)"
-  end
-  if value == 133 then
-    return "Cxl Rej Reason: Invalid Locate Broker (133)"
-  end
-  if value == 255 then
-    return "Cxl Rej Reason: Null Value (255)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.cxl_rej_reason.labels = {
+  [1] = "Cxl Rej Reason: Unknown Orig Order (1)",
+  [3] = "Cxl Rej Reason: Order In Pending State (3)",
+  [6] = "Cxl Rej Reason: Duplicate Cl Ord Id (6)",
+  [18] = "Cxl Rej Reason: Invalid Limit Price Increment (18)",
+  [99] = "Cxl Rej Reason: Other (99)",
+  [100] = "Cxl Rej Reason: Missing Symbol (100)",
+  [101] = "Cxl Rej Reason: Missing Locate (101)",
+  [102] = "Cxl Rej Reason: Missing Cl Ord Id (102)",
+  [103] = "Cxl Rej Reason: Invalid Order Quantity (103)",
+  [104] = "Cxl Rej Reason: Invalid Symbol (104)",
+  [105] = "Cxl Rej Reason: Invalid Limit Price (105)",
+  [107] = "Cxl Rej Reason: Symbol Halted Or Paused (107)",
+  [108] = "Cxl Rej Reason: Order Size Exceeds Limit (108)",
+  [109] = "Cxl Rej Reason: Exceeded Max Notional Order Amt (109)",
+  [110] = "Cxl Rej Reason: Missing Orig Order Identifiers (110)",
+  [111] = "Cxl Rej Reason: Ambiguous Orig Order Identifiers (111)",
+  [112] = "Cxl Rej Reason: Orig Order Symbol Not Matching Request Symbol (112)",
+  [113] = "Cxl Rej Reason: Unsupported Display Quantity Change (113)",
+  [114] = "Cxl Rej Reason: Unsupported Ord Type Change (114)",
+  [115] = "Cxl Rej Reason: Unsupported Side Change (115)",
+  [116] = "Cxl Rej Reason: Unsupported Quantity Change (116)",
+  [117] = "Cxl Rej Reason: Invalid Locate (117)",
+  [118] = "Cxl Rej Reason: Exchange Closed (118)",
+  [119] = "Cxl Rej Reason: Block Session Risk Rule Violated (119)",
+  [120] = "Cxl Rej Reason: Block Sell Short Risk Rule Violated (120)",
+  [121] = "Cxl Rej Reason: Max Shares Per Order Risk Rule Breach (121)",
+  [122] = "Cxl Rej Reason: No Nbbo Available (122)",
+  [123] = "Cxl Rej Reason: Max Notional Value Per Order Risk Rule Breach (123)",
+  [124] = "Cxl Rej Reason: Max Adv Percent Per Order Risk Rule Breach (124)",
+  [125] = "Cxl Rej Reason: Price Percent Collar Risk Rule Violated (125)",
+  [126] = "Cxl Rej Reason: Price Value Collar Risk Rule Violated (126)",
+  [127] = "Cxl Rej Reason: Hard To Borrow Security Risk Rule Violated (127)",
+  [128] = "Cxl Rej Reason: Invalid Side (128)",
+  [129] = "Cxl Rej Reason: Invalid Ord Type (129)",
+  [130] = "Cxl Rej Reason: Invalid Cl Ord Id (130)",
+  [131] = "Cxl Rej Reason: Invalid Lnk Id (131)",
+  [132] = "Cxl Rej Reason: Missing Locate Broker (132)",
+  [133] = "Cxl Rej Reason: Invalid Locate Broker (133)",
+  [255] = "Cxl Rej Reason: Null Value (255)",
+}
 
-  return "Cxl Rej Reason: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.cxl_rej_reason.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.cxl_rej_reason.labels[value] or "Cxl Rej Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cxl Rej Reason
@@ -807,21 +727,15 @@ ltse_ltseequities_memo_sbe_v1_12.exec_restatement_reason = {}
 ltse_ltseequities_memo_sbe_v1_12.exec_restatement_reason.size = 1
 
 -- Display: Exec Restatement Reason
-ltse_ltseequities_memo_sbe_v1_12.exec_restatement_reason.display = function(value)
-  if value == 3 then
-    return "Exec Restatement Reason: Order Reprice (3)"
-  end
-  if value == 5 then
-    return "Exec Restatement Reason: Self Trade Prevention (5)"
-  end
-  if value == 99 then
-    return "Exec Restatement Reason: Other (99)"
-  end
-  if value == 255 then
-    return "Exec Restatement Reason: Null Value (255)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.exec_restatement_reason.labels = {
+  [3] = "Exec Restatement Reason: Order Reprice (3)",
+  [5] = "Exec Restatement Reason: Self Trade Prevention (5)",
+  [99] = "Exec Restatement Reason: Other (99)",
+  [255] = "Exec Restatement Reason: Null Value (255)",
+}
 
-  return "Exec Restatement Reason: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.exec_restatement_reason.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.exec_restatement_reason.labels[value] or "Exec Restatement Reason: Unknown("..value..")"
 end
 
 -- Dissect: Exec Restatement Reason
@@ -964,81 +878,35 @@ ltse_ltseequities_memo_sbe_v1_12.last_liquidity_ind = {}
 ltse_ltseequities_memo_sbe_v1_12.last_liquidity_ind.size = 1
 
 -- Display: Last Liquidity Ind
-ltse_ltseequities_memo_sbe_v1_12.last_liquidity_ind.display = function(value)
-  if value == 1 then
-    return "Last Liquidity Ind: Add Displayed (1)"
-  end
-  if value == 2 then
-    return "Last Liquidity Ind: Removed (2)"
-  end
-  if value == 3 then
-    return "Last Liquidity Ind: Routed (3)"
-  end
-  if value == 4 then
-    return "Last Liquidity Ind: Cross (4)"
-  end
-  if value == 51 then
-    return "Last Liquidity Ind: Add Hidden (51)"
-  end
-  if value == 52 then
-    return "Last Liquidity Ind: Add Midpoint Peg (52)"
-  end
-  if value == 53 then
-    return "Last Liquidity Ind: Add Displayed Nbbo Improve (53)"
-  end
-  if value == 54 then
-    return "Last Liquidity Ind: Add Displayed Nbbo Join (54)"
-  end
-  if value == 61 then
-    return "Last Liquidity Ind: Immediate Midpoint Remove On Entry (61)"
-  end
-  if value == 62 then
-    return "Last Liquidity Ind: Add Displayed Price Improvement (62)"
-  end
-  if value == 63 then
-    return "Last Liquidity Ind: Add Hidden Price Improvement (63)"
-  end
-  if value == 101 then
-    return "Last Liquidity Ind: Retail Add Displayed (101)"
-  end
-  if value == 102 then
-    return "Last Liquidity Ind: Retail Removed (102)"
-  end
-  if value == 103 then
-    return "Last Liquidity Ind: Retail Routed (103)"
-  end
-  if value == 104 then
-    return "Last Liquidity Ind: Retail Cross (104)"
-  end
-  if value == 151 then
-    return "Last Liquidity Ind: Retail Add Hidden (151)"
-  end
-  if value == 152 then
-    return "Last Liquidity Ind: Retail Add Midpoint Peg (152)"
-  end
-  if value == 153 then
-    return "Last Liquidity Ind: Retail Add Displayed Nbbo Improve (153)"
-  end
-  if value == 154 then
-    return "Last Liquidity Ind: Retail Add Displayed Nbbo Join (154)"
-  end
-  if value == 160 then
-    return "Last Liquidity Ind: Retail Removed On Entry (160)"
-  end
-  if value == 161 then
-    return "Last Liquidity Ind: Retail Immediate Midpoint Remove On Entry (161)"
-  end
-  if value == 162 then
-    return "Last Liquidity Ind: Retail Add Displayed Price Improvement (162)"
-  end
-  if value == 163 then
-    return "Last Liquidity Ind: Retail Add Hidden Price Improvement (163)"
-  end
-  if value == 255 then
-    return "Last Liquidity Ind: Null Value (255)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.last_liquidity_ind.labels = {
+  [1] = "Last Liquidity Ind: Add Displayed (1)",
+  [2] = "Last Liquidity Ind: Removed (2)",
+  [3] = "Last Liquidity Ind: Routed (3)",
+  [4] = "Last Liquidity Ind: Cross (4)",
+  [51] = "Last Liquidity Ind: Add Hidden (51)",
+  [52] = "Last Liquidity Ind: Add Midpoint Peg (52)",
+  [53] = "Last Liquidity Ind: Add Displayed Nbbo Improve (53)",
+  [54] = "Last Liquidity Ind: Add Displayed Nbbo Join (54)",
+  [61] = "Last Liquidity Ind: Immediate Midpoint Remove On Entry (61)",
+  [62] = "Last Liquidity Ind: Add Displayed Price Improvement (62)",
+  [63] = "Last Liquidity Ind: Add Hidden Price Improvement (63)",
+  [101] = "Last Liquidity Ind: Retail Add Displayed (101)",
+  [102] = "Last Liquidity Ind: Retail Removed (102)",
+  [103] = "Last Liquidity Ind: Retail Routed (103)",
+  [104] = "Last Liquidity Ind: Retail Cross (104)",
+  [151] = "Last Liquidity Ind: Retail Add Hidden (151)",
+  [152] = "Last Liquidity Ind: Retail Add Midpoint Peg (152)",
+  [153] = "Last Liquidity Ind: Retail Add Displayed Nbbo Improve (153)",
+  [154] = "Last Liquidity Ind: Retail Add Displayed Nbbo Join (154)",
+  [160] = "Last Liquidity Ind: Retail Removed On Entry (160)",
+  [161] = "Last Liquidity Ind: Retail Immediate Midpoint Remove On Entry (161)",
+  [162] = "Last Liquidity Ind: Retail Add Displayed Price Improvement (162)",
+  [163] = "Last Liquidity Ind: Retail Add Hidden Price Improvement (163)",
+  [255] = "Last Liquidity Ind: Null Value (255)",
+}
 
-  return "Last Liquidity Ind: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.last_liquidity_ind.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.last_liquidity_ind.labels[value] or "Last Liquidity Ind: Unknown("..value..")"
 end
 
 -- Dissect: Last Liquidity Ind
@@ -1429,21 +1297,15 @@ ltse_ltseequities_memo_sbe_v1_12.login_reject_code = {}
 ltse_ltseequities_memo_sbe_v1_12.login_reject_code.size = 1
 
 -- Display: Login Reject Code
-ltse_ltseequities_memo_sbe_v1_12.login_reject_code.display = function(value)
-  if value == "T" then
-    return "Login Reject Code: Malformed Token (T)"
-  end
-  if value == "U" then
-    return "Login Reject Code: Token Type Unsupported (U)"
-  end
-  if value == "V" then
-    return "Login Reject Code: Token Type Invalid (V)"
-  end
-  if value == "A" then
-    return "Login Reject Code: Authorization Failed (A)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.login_reject_code.labels = {
+  ["T"] = "Login Reject Code: Malformed Token (T)",
+  ["U"] = "Login Reject Code: Token Type Unsupported (U)",
+  ["V"] = "Login Reject Code: Token Type Invalid (V)",
+  ["A"] = "Login Reject Code: Authorization Failed (A)",
+}
 
-  return "Login Reject Code: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.login_reject_code.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.login_reject_code.labels[value] or "Login Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Login Reject Code
@@ -1504,48 +1366,24 @@ ltse_ltseequities_memo_sbe_v1_12.mass_cancel_reject_reason = {}
 ltse_ltseequities_memo_sbe_v1_12.mass_cancel_reject_reason.size = 1
 
 -- Display: Mass Cancel Reject Reason
-ltse_ltseequities_memo_sbe_v1_12.mass_cancel_reject_reason.display = function(value)
-  if value == 0 then
-    return "Mass Cancel Reject Reason: Other (0)"
-  end
-  if value == 1 then
-    return "Mass Cancel Reject Reason: Unknown Product (1)"
-  end
-  if value == 2 then
-    return "Mass Cancel Reject Reason: Unknown Side (2)"
-  end
-  if value == 3 then
-    return "Mass Cancel Reject Reason: Unknown Group Id (3)"
-  end
-  if value == 4 then
-    return "Mass Cancel Reject Reason: Higher Price Lower Or Equal To Lower Price (4)"
-  end
-  if value == 5 then
-    return "Mass Cancel Reject Reason: Product Missing For Price Restriction (5)"
-  end
-  if value == 6 then
-    return "Mass Cancel Reject Reason: Duplicate Cl Ord Id (6)"
-  end
-  if value == 7 then
-    return "Mass Cancel Reject Reason: Malformed Request Missing Cl Ord Id Field (7)"
-  end
-  if value == 8 then
-    return "Mass Cancel Reject Reason: Invalid Cancel Group Id (8)"
-  end
-  if value == 9 then
-    return "Mass Cancel Reject Reason: Invalid Cl Ord Id (9)"
-  end
-  if value == 10 then
-    return "Mass Cancel Reject Reason: Invalid Lower Price (10)"
-  end
-  if value == 11 then
-    return "Mass Cancel Reject Reason: Invalid Higher Price (11)"
-  end
-  if value == 255 then
-    return "Mass Cancel Reject Reason: Null Value (255)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.mass_cancel_reject_reason.labels = {
+  [0] = "Mass Cancel Reject Reason: Other (0)",
+  [1] = "Mass Cancel Reject Reason: Unknown Product (1)",
+  [2] = "Mass Cancel Reject Reason: Unknown Side (2)",
+  [3] = "Mass Cancel Reject Reason: Unknown Group Id (3)",
+  [4] = "Mass Cancel Reject Reason: Higher Price Lower Or Equal To Lower Price (4)",
+  [5] = "Mass Cancel Reject Reason: Product Missing For Price Restriction (5)",
+  [6] = "Mass Cancel Reject Reason: Duplicate Cl Ord Id (6)",
+  [7] = "Mass Cancel Reject Reason: Malformed Request Missing Cl Ord Id Field (7)",
+  [8] = "Mass Cancel Reject Reason: Invalid Cancel Group Id (8)",
+  [9] = "Mass Cancel Reject Reason: Invalid Cl Ord Id (9)",
+  [10] = "Mass Cancel Reject Reason: Invalid Lower Price (10)",
+  [11] = "Mass Cancel Reject Reason: Invalid Higher Price (11)",
+  [255] = "Mass Cancel Reject Reason: Null Value (255)",
+}
 
-  return "Mass Cancel Reject Reason: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.mass_cancel_reject_reason.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.mass_cancel_reject_reason.labels[value] or "Mass Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Reject Reason
@@ -1636,60 +1474,28 @@ ltse_ltseequities_memo_sbe_v1_12.message_type = {}
 ltse_ltseequities_memo_sbe_v1_12.message_type.size = 1
 
 -- Display: Message Type
-ltse_ltseequities_memo_sbe_v1_12.message_type.display = function(value)
-  if value == 0 then
-    return "Message Type: Heartbeat (0)"
-  end
-  if value == 100 then
-    return "Message Type: Login Request (100)"
-  end
-  if value == 101 then
-    return "Message Type: Replay Request (101)"
-  end
-  if value == 102 then
-    return "Message Type: Replay All Request (102)"
-  end
-  if value == 103 then
-    return "Message Type: Stream Request (103)"
-  end
-  if value == 104 then
-    return "Message Type: Unsequenced Message (104)"
-  end
-  if value == 1 then
-    return "Message Type: Login Accepted (1)"
-  end
-  if value == 2 then
-    return "Message Type: Login Rejected (2)"
-  end
-  if value == 3 then
-    return "Message Type: Start Of Session (3)"
-  end
-  if value == 4 then
-    return "Message Type: End Of Session (4)"
-  end
-  if value == 5 then
-    return "Message Type: Replay Begin (5)"
-  end
-  if value == 6 then
-    return "Message Type: Replay Rejected (6)"
-  end
-  if value == 7 then
-    return "Message Type: Replay Complete (7)"
-  end
-  if value == 8 then
-    return "Message Type: Stream Begin (8)"
-  end
-  if value == 9 then
-    return "Message Type: Stream Rejected (9)"
-  end
-  if value == 10 then
-    return "Message Type: Stream Complete (10)"
-  end
-  if value == 11 then
-    return "Message Type: Sequenced Message (11)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.message_type.labels = {
+  [0] = "Message Type: Heartbeat (0)",
+  [100] = "Message Type: Login Request (100)",
+  [101] = "Message Type: Replay Request (101)",
+  [102] = "Message Type: Replay All Request (102)",
+  [103] = "Message Type: Stream Request (103)",
+  [104] = "Message Type: Unsequenced Message (104)",
+  [1] = "Message Type: Login Accepted (1)",
+  [2] = "Message Type: Login Rejected (2)",
+  [3] = "Message Type: Start Of Session (3)",
+  [4] = "Message Type: End Of Session (4)",
+  [5] = "Message Type: Replay Begin (5)",
+  [6] = "Message Type: Replay Rejected (6)",
+  [7] = "Message Type: Replay Complete (7)",
+  [8] = "Message Type: Stream Begin (8)",
+  [9] = "Message Type: Stream Rejected (9)",
+  [10] = "Message Type: Stream Complete (10)",
+  [11] = "Message Type: Sequenced Message (11)",
+}
 
-  return "Message Type: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.message_type.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -2031,294 +1837,106 @@ ltse_ltseequities_memo_sbe_v1_12.order_reject_reason = {}
 ltse_ltseequities_memo_sbe_v1_12.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
-ltse_ltseequities_memo_sbe_v1_12.order_reject_reason.display = function(value)
-  if value == 1 then
-    return "Order Reject Reason: Invalid Symbol (1)"
-  end
-  if value == 2 then
-    return "Order Reject Reason: Exchange Closed (2)"
-  end
-  if value == 3 then
-    return "Order Reject Reason: Order Size Exceeds Limit (3)"
-  end
-  if value == 6 then
-    return "Order Reject Reason: Duplicate Cl Ord Id (6)"
-  end
-  if value == 18 then
-    return "Order Reject Reason: Invalid Limit Price Increment (18)"
-  end
-  if value == 19 then
-    return "Order Reject Reason: No Nbbo Available (19)"
-  end
-  if value == 20 then
-    return "Order Reject Reason: Order Notional Exceeds Limit (20)"
-  end
-  if value == 22 then
-    return "Order Reject Reason: Block Sell Short Risk Rule Violated (22)"
-  end
-  if value == 23 then
-    return "Order Reject Reason: Hard To Borrow Security Risk Rule Violated (23)"
-  end
-  if value == 27 then
-    return "Order Reject Reason: Max Notional Value Per Order Risk Rule Breach (27)"
-  end
-  if value == 99 then
-    return "Order Reject Reason: Other (99)"
-  end
-  if value == 100 then
-    return "Order Reject Reason: Missing Symbol (100)"
-  end
-  if value == 101 then
-    return "Order Reject Reason: Missing Locate (101)"
-  end
-  if value == 102 then
-    return "Order Reject Reason: Invalid Locate (102)"
-  end
-  if value == 103 then
-    return "Order Reject Reason: Missing Cl Ord Id (103)"
-  end
-  if value == 104 then
-    return "Order Reject Reason: Invalid Cl Ord Id (104)"
-  end
-  if value == 105 then
-    return "Order Reject Reason: Missing Side (105)"
-  end
-  if value == 106 then
-    return "Order Reject Reason: Invalid Side (106)"
-  end
-  if value == 107 then
-    return "Order Reject Reason: Missing Order Quantity (107)"
-  end
-  if value == 108 then
-    return "Order Reject Reason: Invalid Order Quantity (108)"
-  end
-  if value == 109 then
-    return "Order Reject Reason: Missing Order Type (109)"
-  end
-  if value == 110 then
-    return "Order Reject Reason: Invalid Order Type (110)"
-  end
-  if value == 111 then
-    return "Order Reject Reason: Missing Time In Force (111)"
-  end
-  if value == 112 then
-    return "Order Reject Reason: Invalid Time In Force (112)"
-  end
-  if value == 113 then
-    return "Order Reject Reason: Missing Order Capacity (113)"
-  end
-  if value == 114 then
-    return "Order Reject Reason: Invalid Order Capacity (114)"
-  end
-  if value == 115 then
-    return "Order Reject Reason: Missing Exec Inst (115)"
-  end
-  if value == 116 then
-    return "Order Reject Reason: Missing Limit Price (116)"
-  end
-  if value == 117 then
-    return "Order Reject Reason: Invalid Limit Price (117)"
-  end
-  if value == 118 then
-    return "Order Reject Reason: Missing Max Floor (118)"
-  end
-  if value == 119 then
-    return "Order Reject Reason: Invalid Max Floor (119)"
-  end
-  if value == 120 then
-    return "Order Reject Reason: Missing Reserve Replenish Amount Type (120)"
-  end
-  if value == 121 then
-    return "Order Reject Reason: Invalid Reserve Replenish Amount Type (121)"
-  end
-  if value == 122 then
-    return "Order Reject Reason: Missing Reserve Replenish Time Type (122)"
-  end
-  if value == 123 then
-    return "Order Reject Reason: Invalid Reserve Replenish Time Type (123)"
-  end
-  if value == 124 then
-    return "Order Reject Reason: Missing Random Replenish Value (124)"
-  end
-  if value == 125 then
-    return "Order Reject Reason: Invalid Random Replenish Value (125)"
-  end
-  if value == 126 then
-    return "Order Reject Reason: Invalid Random Replenish Value For Reserve Type (126)"
-  end
-  if value == 127 then
-    return "Order Reject Reason: Missing Reprice Frequency Type (127)"
-  end
-  if value == 128 then
-    return "Order Reject Reason: Invalid Reprice Frequency Type (128)"
-  end
-  if value == 129 then
-    return "Order Reject Reason: Missing Reprice Behavior Type (129)"
-  end
-  if value == 130 then
-    return "Order Reject Reason: Invalid Reprice Behavior Type (130)"
-  end
-  if value == 131 then
-    return "Order Reject Reason: Invalid Reprice Behavior For Reprice Frequency (131)"
-  end
-  if value == 132 then
-    return "Order Reject Reason: Missing Customer Capacity Type (132)"
-  end
-  if value == 133 then
-    return "Order Reject Reason: Invalid Customer Capacity (133)"
-  end
-  if value == 134 then
-    return "Order Reject Reason: Missing Expire Time (134)"
-  end
-  if value == 135 then
-    return "Order Reject Reason: Invalid Expire Time (135)"
-  end
-  if value == 136 then
-    return "Order Reject Reason: Missing Peg Type (136)"
-  end
-  if value == 137 then
-    return "Order Reject Reason: Invalid Peg Type (137)"
-  end
-  if value == 138 then
-    return "Order Reject Reason: Invalid Modifier For Order Type (138)"
-  end
-  if value == 139 then
-    return "Order Reject Reason: Invalid Modifiers Combination (139)"
-  end
-  if value == 140 then
-    return "Order Reject Reason: Invalid Trading Session For Order Type (140)"
-  end
-  if value == 141 then
-    return "Order Reject Reason: Invalid Time In Force For Order Type (141)"
-  end
-  if value == 142 then
-    return "Order Reject Reason: Invalid Modifier For Peg Type (142)"
-  end
-  if value == 143 then
-    return "Order Reject Reason: Invalid Min Quantity (143)"
-  end
-  if value == 145 then
-    return "Order Reject Reason: Invalid Mpid Value (145)"
-  end
-  if value == 146 then
-    return "Order Reject Reason: Symbol Halted Or Paused (146)"
-  end
-  if value == 147 then
-    return "Order Reject Reason: Block Iso Risk Rule Violated (147)"
-  end
-  if value == 148 then
-    return "Order Reject Reason: Block Session Risk Rule Violated (148)"
-  end
-  if value == 149 then
-    return "Order Reject Reason: Block Non Test Symbols Risk Rule Violated (149)"
-  end
-  if value == 150 then
-    return "Order Reject Reason: Max Shares Per Order Risk Rule Breach (150)"
-  end
-  if value == 151 then
-    return "Order Reject Reason: Price Percent Collar Risk Rule Violated (151)"
-  end
-  if value == 152 then
-    return "Order Reject Reason: Price Value Collar Risk Rule Violated (152)"
-  end
-  if value == 153 then
-    return "Order Reject Reason: Max Adv Percent Per Order Risk Rule Breach (153)"
-  end
-  if value == 154 then
-    return "Order Reject Reason: Daily Gross Notional Exposure Risk Rule Breach (154)"
-  end
-  if value == 155 then
-    return "Order Reject Reason: Daily Net Notional Exposure Risk Rule Breach (155)"
-  end
-  if value == 156 then
-    return "Order Reject Reason: Max Num Duplicate Orders Risk Rule Breach (156)"
-  end
-  if value == 157 then
-    return "Order Reject Reason: Max Order Rate Risk Rule Breach (157)"
-  end
-  if value == 158 then
-    return "Order Reject Reason: Restricted Security Risk Rule Violated (158)"
-  end
-  if value == 159 then
-    return "Order Reject Reason: Invalid Self Trade Prevention Configuration (159)"
-  end
-  if value == 160 then
-    return "Order Reject Reason: Invalid Self Trade Prevention Type (160)"
-  end
-  if value == 161 then
-    return "Order Reject Reason: Invalid Risk Group Id (161)"
-  end
-  if value == 162 then
-    return "Order Reject Reason: Firm Disabled (162)"
-  end
-  if value == 163 then
-    return "Order Reject Reason: Mpid Disabled (163)"
-  end
-  if value == 164 then
-    return "Order Reject Reason: Account Disabled (164)"
-  end
-  if value == 165 then
-    return "Order Reject Reason: Cannot Trade Non Test Symbol (165)"
-  end
-  if value == 166 then
-    return "Order Reject Reason: Missing Firm (166)"
-  end
-  if value == 167 then
-    return "Order Reject Reason: Missing Account (167)"
-  end
-  if value == 168 then
-    return "Order Reject Reason: Missing Mpid (168)"
-  end
-  if value == 169 then
-    return "Order Reject Reason: Missing Risk Group (169)"
-  end
-  if value == 170 then
-    return "Order Reject Reason: Daily Market Order Gross Notional Exposure Risk Rule Breach (170)"
-  end
-  if value == 171 then
-    return "Order Reject Reason: Daily Market Order Net Notional Exposure Risk Rule Breach (171)"
-  end
-  if value == 172 then
-    return "Order Reject Reason: Missing Disp Method Type (172)"
-  end
-  if value == 173 then
-    return "Order Reject Reason: Missing Firm Risk Setting (173)"
-  end
-  if value == 174 then
-    return "Order Reject Reason: Invalid Account Mpid To Firm (174)"
-  end
-  if value == 175 then
-    return "Order Reject Reason: Invalid Peg Offset Value (175)"
-  end
-  if value == 176 then
-    return "Order Reject Reason: Invalid Disp Method Type (176)"
-  end
-  if value == 177 then
-    return "Order Reject Reason: Missing Cancel Group Id (177)"
-  end
-  if value == 178 then
-    return "Order Reject Reason: Invalid Cancel Group Id (178)"
-  end
-  if value == 179 then
-    return "Order Reject Reason: Missing Stp Group Id (179)"
-  end
-  if value == 180 then
-    return "Order Reject Reason: Invalid Stp Group Id (180)"
-  end
-  if value == 181 then
-    return "Order Reject Reason: Invalid Lnk Id (181)"
-  end
-  if value == 182 then
-    return "Order Reject Reason: Missing Locate Broker (182)"
-  end
-  if value == 183 then
-    return "Order Reject Reason: Invalid Locate Broker (183)"
-  end
-  if value == 255 then
-    return "Order Reject Reason: Null Value (255)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.order_reject_reason.labels = {
+  [1] = "Order Reject Reason: Invalid Symbol (1)",
+  [2] = "Order Reject Reason: Exchange Closed (2)",
+  [3] = "Order Reject Reason: Order Size Exceeds Limit (3)",
+  [6] = "Order Reject Reason: Duplicate Cl Ord Id (6)",
+  [18] = "Order Reject Reason: Invalid Limit Price Increment (18)",
+  [19] = "Order Reject Reason: No Nbbo Available (19)",
+  [20] = "Order Reject Reason: Order Notional Exceeds Limit (20)",
+  [22] = "Order Reject Reason: Block Sell Short Risk Rule Violated (22)",
+  [23] = "Order Reject Reason: Hard To Borrow Security Risk Rule Violated (23)",
+  [27] = "Order Reject Reason: Max Notional Value Per Order Risk Rule Breach (27)",
+  [99] = "Order Reject Reason: Other (99)",
+  [100] = "Order Reject Reason: Missing Symbol (100)",
+  [101] = "Order Reject Reason: Missing Locate (101)",
+  [102] = "Order Reject Reason: Invalid Locate (102)",
+  [103] = "Order Reject Reason: Missing Cl Ord Id (103)",
+  [104] = "Order Reject Reason: Invalid Cl Ord Id (104)",
+  [105] = "Order Reject Reason: Missing Side (105)",
+  [106] = "Order Reject Reason: Invalid Side (106)",
+  [107] = "Order Reject Reason: Missing Order Quantity (107)",
+  [108] = "Order Reject Reason: Invalid Order Quantity (108)",
+  [109] = "Order Reject Reason: Missing Order Type (109)",
+  [110] = "Order Reject Reason: Invalid Order Type (110)",
+  [111] = "Order Reject Reason: Missing Time In Force (111)",
+  [112] = "Order Reject Reason: Invalid Time In Force (112)",
+  [113] = "Order Reject Reason: Missing Order Capacity (113)",
+  [114] = "Order Reject Reason: Invalid Order Capacity (114)",
+  [115] = "Order Reject Reason: Missing Exec Inst (115)",
+  [116] = "Order Reject Reason: Missing Limit Price (116)",
+  [117] = "Order Reject Reason: Invalid Limit Price (117)",
+  [118] = "Order Reject Reason: Missing Max Floor (118)",
+  [119] = "Order Reject Reason: Invalid Max Floor (119)",
+  [120] = "Order Reject Reason: Missing Reserve Replenish Amount Type (120)",
+  [121] = "Order Reject Reason: Invalid Reserve Replenish Amount Type (121)",
+  [122] = "Order Reject Reason: Missing Reserve Replenish Time Type (122)",
+  [123] = "Order Reject Reason: Invalid Reserve Replenish Time Type (123)",
+  [124] = "Order Reject Reason: Missing Random Replenish Value (124)",
+  [125] = "Order Reject Reason: Invalid Random Replenish Value (125)",
+  [126] = "Order Reject Reason: Invalid Random Replenish Value For Reserve Type (126)",
+  [127] = "Order Reject Reason: Missing Reprice Frequency Type (127)",
+  [128] = "Order Reject Reason: Invalid Reprice Frequency Type (128)",
+  [129] = "Order Reject Reason: Missing Reprice Behavior Type (129)",
+  [130] = "Order Reject Reason: Invalid Reprice Behavior Type (130)",
+  [131] = "Order Reject Reason: Invalid Reprice Behavior For Reprice Frequency (131)",
+  [132] = "Order Reject Reason: Missing Customer Capacity Type (132)",
+  [133] = "Order Reject Reason: Invalid Customer Capacity (133)",
+  [134] = "Order Reject Reason: Missing Expire Time (134)",
+  [135] = "Order Reject Reason: Invalid Expire Time (135)",
+  [136] = "Order Reject Reason: Missing Peg Type (136)",
+  [137] = "Order Reject Reason: Invalid Peg Type (137)",
+  [138] = "Order Reject Reason: Invalid Modifier For Order Type (138)",
+  [139] = "Order Reject Reason: Invalid Modifiers Combination (139)",
+  [140] = "Order Reject Reason: Invalid Trading Session For Order Type (140)",
+  [141] = "Order Reject Reason: Invalid Time In Force For Order Type (141)",
+  [142] = "Order Reject Reason: Invalid Modifier For Peg Type (142)",
+  [143] = "Order Reject Reason: Invalid Min Quantity (143)",
+  [145] = "Order Reject Reason: Invalid Mpid Value (145)",
+  [146] = "Order Reject Reason: Symbol Halted Or Paused (146)",
+  [147] = "Order Reject Reason: Block Iso Risk Rule Violated (147)",
+  [148] = "Order Reject Reason: Block Session Risk Rule Violated (148)",
+  [149] = "Order Reject Reason: Block Non Test Symbols Risk Rule Violated (149)",
+  [150] = "Order Reject Reason: Max Shares Per Order Risk Rule Breach (150)",
+  [151] = "Order Reject Reason: Price Percent Collar Risk Rule Violated (151)",
+  [152] = "Order Reject Reason: Price Value Collar Risk Rule Violated (152)",
+  [153] = "Order Reject Reason: Max Adv Percent Per Order Risk Rule Breach (153)",
+  [154] = "Order Reject Reason: Daily Gross Notional Exposure Risk Rule Breach (154)",
+  [155] = "Order Reject Reason: Daily Net Notional Exposure Risk Rule Breach (155)",
+  [156] = "Order Reject Reason: Max Num Duplicate Orders Risk Rule Breach (156)",
+  [157] = "Order Reject Reason: Max Order Rate Risk Rule Breach (157)",
+  [158] = "Order Reject Reason: Restricted Security Risk Rule Violated (158)",
+  [159] = "Order Reject Reason: Invalid Self Trade Prevention Configuration (159)",
+  [160] = "Order Reject Reason: Invalid Self Trade Prevention Type (160)",
+  [161] = "Order Reject Reason: Invalid Risk Group Id (161)",
+  [162] = "Order Reject Reason: Firm Disabled (162)",
+  [163] = "Order Reject Reason: Mpid Disabled (163)",
+  [164] = "Order Reject Reason: Account Disabled (164)",
+  [165] = "Order Reject Reason: Cannot Trade Non Test Symbol (165)",
+  [166] = "Order Reject Reason: Missing Firm (166)",
+  [167] = "Order Reject Reason: Missing Account (167)",
+  [168] = "Order Reject Reason: Missing Mpid (168)",
+  [169] = "Order Reject Reason: Missing Risk Group (169)",
+  [170] = "Order Reject Reason: Daily Market Order Gross Notional Exposure Risk Rule Breach (170)",
+  [171] = "Order Reject Reason: Daily Market Order Net Notional Exposure Risk Rule Breach (171)",
+  [172] = "Order Reject Reason: Missing Disp Method Type (172)",
+  [173] = "Order Reject Reason: Missing Firm Risk Setting (173)",
+  [174] = "Order Reject Reason: Invalid Account Mpid To Firm (174)",
+  [175] = "Order Reject Reason: Invalid Peg Offset Value (175)",
+  [176] = "Order Reject Reason: Invalid Disp Method Type (176)",
+  [177] = "Order Reject Reason: Missing Cancel Group Id (177)",
+  [178] = "Order Reject Reason: Invalid Cancel Group Id (178)",
+  [179] = "Order Reject Reason: Missing Stp Group Id (179)",
+  [180] = "Order Reject Reason: Invalid Stp Group Id (180)",
+  [181] = "Order Reject Reason: Invalid Lnk Id (181)",
+  [182] = "Order Reject Reason: Missing Locate Broker (182)",
+  [183] = "Order Reject Reason: Invalid Locate Broker (183)",
+  [255] = "Order Reject Reason: Null Value (255)",
+}
 
-  return "Order Reject Reason: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.order_reject_reason.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.order_reject_reason.labels[value] or "Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Reject Reason
@@ -2555,21 +2173,15 @@ ltse_ltseequities_memo_sbe_v1_12.replay_reject_code = {}
 ltse_ltseequities_memo_sbe_v1_12.replay_reject_code.size = 1
 
 -- Display: Replay Reject Code
-ltse_ltseequities_memo_sbe_v1_12.replay_reject_code.display = function(value)
-  if value == "R" then
-    return "Replay Reject Code: Replay Requests Are Not Allowed (R)"
-  end
-  if value == "A" then
-    return "Replay Reject Code: Replay All Requests Are Not Allowed (A)"
-  end
-  if value == "P" then
-    return "Replay Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Replay Reject Code: Sequence Number Out Of Range (S)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.replay_reject_code.labels = {
+  ["R"] = "Replay Reject Code: Replay Requests Are Not Allowed (R)",
+  ["A"] = "Replay Reject Code: Replay All Requests Are Not Allowed (A)",
+  ["P"] = "Replay Reject Code: Not The Active Session (P)",
+  ["S"] = "Replay Reject Code: Sequence Number Out Of Range (S)",
+}
 
-  return "Replay Reject Code: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.replay_reject_code.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.replay_reject_code.labels[value] or "Replay Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Replay Reject Code
@@ -3014,18 +2626,14 @@ ltse_ltseequities_memo_sbe_v1_12.stream_reject_code = {}
 ltse_ltseequities_memo_sbe_v1_12.stream_reject_code.size = 1
 
 -- Display: Stream Reject Code
-ltse_ltseequities_memo_sbe_v1_12.stream_reject_code.display = function(value)
-  if value == "R" then
-    return "Stream Reject Code: Stream Requests Are Not Allowed (R)"
-  end
-  if value == "P" then
-    return "Stream Reject Code: Not The Active Session (P)"
-  end
-  if value == "S" then
-    return "Stream Reject Code: Sequence Number Out Of Range (S)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.stream_reject_code.labels = {
+  ["R"] = "Stream Reject Code: Stream Requests Are Not Allowed (R)",
+  ["P"] = "Stream Reject Code: Not The Active Session (P)",
+  ["S"] = "Stream Reject Code: Sequence Number Out Of Range (S)",
+}
 
-  return "Stream Reject Code: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.stream_reject_code.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.stream_reject_code.labels[value] or "Stream Reject Code: Unknown("..value..")"
 end
 
 -- Dissect: Stream Reject Code
@@ -3047,18 +2655,14 @@ ltse_ltseequities_memo_sbe_v1_12.supported_request_mode = {}
 ltse_ltseequities_memo_sbe_v1_12.supported_request_mode.size = 1
 
 -- Display: Supported Request Mode
-ltse_ltseequities_memo_sbe_v1_12.supported_request_mode.display = function(value)
-  if value == "S" then
-    return "Supported Request Mode: Stream (S)"
-  end
-  if value == "R" then
-    return "Supported Request Mode: Replay (R)"
-  end
-  if value == "T" then
-    return "Supported Request Mode: Snapshot Mode (T)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.supported_request_mode.labels = {
+  ["S"] = "Supported Request Mode: Stream (S)",
+  ["R"] = "Supported Request Mode: Replay (R)",
+  ["T"] = "Supported Request Mode: Snapshot Mode (T)",
+}
 
-  return "Supported Request Mode: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.supported_request_mode.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.supported_request_mode.labels[value] or "Supported Request Mode: Unknown("..value..")"
 end
 
 -- Dissect: Supported Request Mode
@@ -3158,66 +2762,30 @@ ltse_ltseequities_memo_sbe_v1_12.template_id = {}
 ltse_ltseequities_memo_sbe_v1_12.template_id.size = 1
 
 -- Display: Template Id
-ltse_ltseequities_memo_sbe_v1_12.template_id.display = function(value)
-  if value == 1 then
-    return "Template Id: New Order Single Message (1)"
-  end
-  if value == 2 then
-    return "Template Id: Order Cancel Replace Request Message (2)"
-  end
-  if value == 3 then
-    return "Template Id: Order Cancel Request Message (3)"
-  end
-  if value == 4 then
-    return "Template Id: Mass Cancel Request Message (4)"
-  end
-  if value == 5 then
-    return "Template Id: Execution Report Pending New Message (5)"
-  end
-  if value == 6 then
-    return "Template Id: Execution Report New Message (6)"
-  end
-  if value == 7 then
-    return "Template Id: Execution Report Rejected Message (7)"
-  end
-  if value == 8 then
-    return "Template Id: Execution Report Trade Message (8)"
-  end
-  if value == 9 then
-    return "Template Id: Execution Report Pending Cancel Message (9)"
-  end
-  if value == 10 then
-    return "Template Id: Pending Mass Cancel Message (10)"
-  end
-  if value == 11 then
-    return "Template Id: Execution Report Canceled Message (11)"
-  end
-  if value == 12 then
-    return "Template Id: Mass Cancel Done Message (12)"
-  end
-  if value == 13 then
-    return "Template Id: Execution Report Pending Replace Message (13)"
-  end
-  if value == 14 then
-    return "Template Id: Execution Report Replaced Message (14)"
-  end
-  if value == 15 then
-    return "Template Id: Execution Report Trade Correction Message (15)"
-  end
-  if value == 16 then
-    return "Template Id: Execution Report Trade Break Message (16)"
-  end
-  if value == 17 then
-    return "Template Id: Execution Report Restatement Message (17)"
-  end
-  if value == 18 then
-    return "Template Id: Order Cancel Reject Message (18)"
-  end
-  if value == 20 then
-    return "Template Id: Mass Cancel Reject Message (20)"
-  end
+ltse_ltseequities_memo_sbe_v1_12.template_id.labels = {
+  [1] = "Template Id: New Order Single Message (1)",
+  [2] = "Template Id: Order Cancel Replace Request Message (2)",
+  [3] = "Template Id: Order Cancel Request Message (3)",
+  [4] = "Template Id: Mass Cancel Request Message (4)",
+  [5] = "Template Id: Execution Report Pending New Message (5)",
+  [6] = "Template Id: Execution Report New Message (6)",
+  [7] = "Template Id: Execution Report Rejected Message (7)",
+  [8] = "Template Id: Execution Report Trade Message (8)",
+  [9] = "Template Id: Execution Report Pending Cancel Message (9)",
+  [10] = "Template Id: Pending Mass Cancel Message (10)",
+  [11] = "Template Id: Execution Report Canceled Message (11)",
+  [12] = "Template Id: Mass Cancel Done Message (12)",
+  [13] = "Template Id: Execution Report Pending Replace Message (13)",
+  [14] = "Template Id: Execution Report Replaced Message (14)",
+  [15] = "Template Id: Execution Report Trade Correction Message (15)",
+  [16] = "Template Id: Execution Report Trade Break Message (16)",
+  [17] = "Template Id: Execution Report Restatement Message (17)",
+  [18] = "Template Id: Order Cancel Reject Message (18)",
+  [20] = "Template Id: Mass Cancel Reject Message (20)",
+}
 
-  return "Template Id: Unknown("..value..")"
+ltse_ltseequities_memo_sbe_v1_12.template_id.display = function(value)
+  return ltse_ltseequities_memo_sbe_v1_12.template_id.labels[value] or "Template Id: Unknown("..value..")"
 end
 
 -- Dissect: Template Id
@@ -4919,66 +4487,28 @@ end
 ltse_ltseequities_memo_sbe_v1_12.server_payload = {}
 
 -- Dissect: Server Payload
+ltse_ltseequities_memo_sbe_v1_12.server_payload.dispatch = {
+  [5] = ltse_ltseequities_memo_sbe_v1_12.execution_report_pending_new_message.dissect,
+  [6] = ltse_ltseequities_memo_sbe_v1_12.execution_report_new_message.dissect,
+  [7] = ltse_ltseequities_memo_sbe_v1_12.execution_report_rejected_message.dissect,
+  [8] = ltse_ltseequities_memo_sbe_v1_12.execution_report_trade_message.dissect,
+  [9] = ltse_ltseequities_memo_sbe_v1_12.execution_report_pending_cancel_message.dissect,
+  [10] = ltse_ltseequities_memo_sbe_v1_12.pending_mass_cancel_message.dissect,
+  [11] = ltse_ltseequities_memo_sbe_v1_12.execution_report_canceled_message.dissect,
+  [12] = ltse_ltseequities_memo_sbe_v1_12.mass_cancel_done_message.dissect,
+  [13] = ltse_ltseequities_memo_sbe_v1_12.execution_report_pending_replace_message.dissect,
+  [14] = ltse_ltseequities_memo_sbe_v1_12.execution_report_replaced_message.dissect,
+  [15] = ltse_ltseequities_memo_sbe_v1_12.execution_report_trade_correction_message.dissect,
+  [16] = ltse_ltseequities_memo_sbe_v1_12.execution_report_trade_break_message.dissect,
+  [17] = ltse_ltseequities_memo_sbe_v1_12.execution_report_restatement_message.dissect,
+  [18] = ltse_ltseequities_memo_sbe_v1_12.order_cancel_reject_message.dissect,
+  [20] = ltse_ltseequities_memo_sbe_v1_12.mass_cancel_reject_message.dissect,
+}
+
 ltse_ltseequities_memo_sbe_v1_12.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Execution Report Pending New Message
-  if template_id == 5 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_pending_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report New Message
-  if template_id == 6 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Rejected Message
-  if template_id == 7 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Message
-  if template_id == 8 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Pending Cancel Message
-  if template_id == 9 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_pending_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pending Mass Cancel Message
-  if template_id == 10 then
-    return ltse_ltseequities_memo_sbe_v1_12.pending_mass_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Canceled Message
-  if template_id == 11 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Done Message
-  if template_id == 12 then
-    return ltse_ltseequities_memo_sbe_v1_12.mass_cancel_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Pending Replace Message
-  if template_id == 13 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_pending_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Replaced Message
-  if template_id == 14 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Correction Message
-  if template_id == 15 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Break Message
-  if template_id == 16 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Restatement Message
-  if template_id == 17 then
-    return ltse_ltseequities_memo_sbe_v1_12.execution_report_restatement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject Message
-  if template_id == 18 then
-    return ltse_ltseequities_memo_sbe_v1_12.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Reject Message
-  if template_id == 20 then
-    return ltse_ltseequities_memo_sbe_v1_12.mass_cancel_reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = ltse_ltseequities_memo_sbe_v1_12.server_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5509,46 +5039,23 @@ end
 ltse_ltseequities_memo_sbe_v1_12.server_data = {}
 
 -- Dissect: Server Data
+ltse_ltseequities_memo_sbe_v1_12.server_data.dispatch = {
+  [1] = ltse_ltseequities_memo_sbe_v1_12.login_accepted_message.dissect,
+  [2] = ltse_ltseequities_memo_sbe_v1_12.login_rejected_message.dissect,
+  [3] = ltse_ltseequities_memo_sbe_v1_12.start_of_session_message.dissect,
+  [5] = ltse_ltseequities_memo_sbe_v1_12.replay_begin_message.dissect,
+  [6] = ltse_ltseequities_memo_sbe_v1_12.replay_rejected_message.dissect,
+  [7] = ltse_ltseequities_memo_sbe_v1_12.replay_complete_message.dissect,
+  [8] = ltse_ltseequities_memo_sbe_v1_12.stream_begin_message.dissect,
+  [9] = ltse_ltseequities_memo_sbe_v1_12.stream_rejected_message.dissect,
+  [10] = ltse_ltseequities_memo_sbe_v1_12.stream_complete_message.dissect,
+  [11] = ltse_ltseequities_memo_sbe_v1_12.sequenced_message.dissect,
+}
+
 ltse_ltseequities_memo_sbe_v1_12.server_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Accepted Message
-  if message_type == 1 then
-    return ltse_ltseequities_memo_sbe_v1_12.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == 2 then
-    return ltse_ltseequities_memo_sbe_v1_12.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session Message
-  if message_type == 3 then
-    return ltse_ltseequities_memo_sbe_v1_12.start_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Begin Message
-  if message_type == 5 then
-    return ltse_ltseequities_memo_sbe_v1_12.replay_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Rejected Message
-  if message_type == 6 then
-    return ltse_ltseequities_memo_sbe_v1_12.replay_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete Message
-  if message_type == 7 then
-    return ltse_ltseequities_memo_sbe_v1_12.replay_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Begin Message
-  if message_type == 8 then
-    return ltse_ltseequities_memo_sbe_v1_12.stream_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Rejected Message
-  if message_type == 9 then
-    return ltse_ltseequities_memo_sbe_v1_12.stream_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Complete Message
-  if message_type == 10 then
-    return ltse_ltseequities_memo_sbe_v1_12.stream_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 11 then
-    return ltse_ltseequities_memo_sbe_v1_12.sequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = ltse_ltseequities_memo_sbe_v1_12.server_data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -5982,22 +5489,17 @@ end
 ltse_ltseequities_memo_sbe_v1_12.client_payload = {}
 
 -- Dissect: Client Payload
+ltse_ltseequities_memo_sbe_v1_12.client_payload.dispatch = {
+  [1] = ltse_ltseequities_memo_sbe_v1_12.new_order_single_message.dissect,
+  [2] = ltse_ltseequities_memo_sbe_v1_12.order_cancel_replace_request_message.dissect,
+  [3] = ltse_ltseequities_memo_sbe_v1_12.order_cancel_request_message.dissect,
+  [4] = ltse_ltseequities_memo_sbe_v1_12.mass_cancel_request_message.dissect,
+}
+
 ltse_ltseequities_memo_sbe_v1_12.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect New Order Single Message
-  if template_id == 1 then
-    return ltse_ltseequities_memo_sbe_v1_12.new_order_single_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Replace Request Message
-  if template_id == 2 then
-    return ltse_ltseequities_memo_sbe_v1_12.order_cancel_replace_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Request Message
-  if template_id == 3 then
-    return ltse_ltseequities_memo_sbe_v1_12.order_cancel_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Request Message
-  if template_id == 4 then
-    return ltse_ltseequities_memo_sbe_v1_12.mass_cancel_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = ltse_ltseequities_memo_sbe_v1_12.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -6284,26 +5786,18 @@ end
 ltse_ltseequities_memo_sbe_v1_12.client_data = {}
 
 -- Dissect: Client Data
+ltse_ltseequities_memo_sbe_v1_12.client_data.dispatch = {
+  [100] = ltse_ltseequities_memo_sbe_v1_12.login_request_message.dissect,
+  [101] = ltse_ltseequities_memo_sbe_v1_12.replay_request_message.dissect,
+  [102] = ltse_ltseequities_memo_sbe_v1_12.replay_all_request_message.dissect,
+  [103] = ltse_ltseequities_memo_sbe_v1_12.stream_request_message.dissect,
+  [104] = ltse_ltseequities_memo_sbe_v1_12.unsequenced_message.dissect,
+}
+
 ltse_ltseequities_memo_sbe_v1_12.client_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Request Message
-  if message_type == 100 then
-    return ltse_ltseequities_memo_sbe_v1_12.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Request Message
-  if message_type == 101 then
-    return ltse_ltseequities_memo_sbe_v1_12.replay_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay All Request Message
-  if message_type == 102 then
-    return ltse_ltseequities_memo_sbe_v1_12.replay_all_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Request Message
-  if message_type == 103 then
-    return ltse_ltseequities_memo_sbe_v1_12.stream_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Message
-  if message_type == 104 then
-    return ltse_ltseequities_memo_sbe_v1_12.unsequenced_message.dissect(buffer, offset, packet, parent)
+  local dissect = ltse_ltseequities_memo_sbe_v1_12.client_data.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

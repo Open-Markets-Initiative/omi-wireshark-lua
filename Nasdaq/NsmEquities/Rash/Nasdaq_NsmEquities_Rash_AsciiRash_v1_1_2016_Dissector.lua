@@ -391,21 +391,15 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.broken_trade_reason = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.broken_trade_reason.size = 1
 
 -- Display: Broken Trade Reason
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.broken_trade_reason.display = function(value)
-  if value == "E" then
-    return "Broken Trade Reason: Erroneous (E)"
-  end
-  if value == "C" then
-    return "Broken Trade Reason: Consent (C)"
-  end
-  if value == "S" then
-    return "Broken Trade Reason: Supervisory (S)"
-  end
-  if value == "X" then
-    return "Broken Trade Reason: External (X)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.broken_trade_reason.labels = {
+  ["E"] = "Broken Trade Reason: Erroneous (E)",
+  ["C"] = "Broken Trade Reason: Consent (C)",
+  ["S"] = "Broken Trade Reason: Supervisory (S)",
+  ["X"] = "Broken Trade Reason: External (X)",
+}
 
-  return "Broken Trade Reason: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.broken_trade_reason.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.broken_trade_reason.labels[value] or "Broken Trade Reason: Unknown("..value..")"
 end
 
 -- Dissect: Broken Trade Reason
@@ -427,36 +421,20 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.cancel_reason = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.cancel_reason.display = function(value)
-  if value == "U" then
-    return "Cancel Reason: User Requested Cancel (U)"
-  end
-  if value == "I" then
-    return "Cancel Reason: Immediate Or Cancel (I)"
-  end
-  if value == "T" then
-    return "Cancel Reason: Timeout (T)"
-  end
-  if value == "S" then
-    return "Cancel Reason: Supervisory (S)"
-  end
-  if value == "D" then
-    return "Cancel Reason: Regulatory Restriction (D)"
-  end
-  if value == "Q" then
-    return "Cancel Reason: Self Match Prevention (Q)"
-  end
-  if value == "K" then
-    return "Cancel Reason: Market Collars (K)"
-  end
-  if value == "E" then
-    return "Cancel Reason: Closed (E)"
-  end
-  if value == "X" then
-    return "Cancel Reason: Closing (X)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.cancel_reason.labels = {
+  ["U"] = "Cancel Reason: User Requested Cancel (U)",
+  ["I"] = "Cancel Reason: Immediate Or Cancel (I)",
+  ["T"] = "Cancel Reason: Timeout (T)",
+  ["S"] = "Cancel Reason: Supervisory (S)",
+  ["D"] = "Cancel Reason: Regulatory Restriction (D)",
+  ["Q"] = "Cancel Reason: Self Match Prevention (Q)",
+  ["K"] = "Cancel Reason: Market Collars (K)",
+  ["E"] = "Cancel Reason: Closed (E)",
+  ["X"] = "Cancel Reason: Closing (X)",
+}
 
-  return "Cancel Reason: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.cancel_reason.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -501,24 +479,16 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_packet_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_packet_type.size = 1
 
 -- Display: Client Packet Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_packet_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Client Packet Type
@@ -540,24 +510,16 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.cross_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.cross_type.size = 1
 
 -- Display: Cross Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.cross_type.display = function(value)
-  if value == "O" then
-    return "Cross Type: Opening Cross (O)"
-  end
-  if value == "C" then
-    return "Cross Type: Closing Cross (C)"
-  end
-  if value == "I" then
-    return "Cross Type: Intraday Cross (I)"
-  end
-  if value == "N" then
-    return "Cross Type: Immediately Live (N)"
-  end
-  if value == "R" then
-    return "Cross Type: Retail Cross (R)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.cross_type.labels = {
+  ["O"] = "Cross Type: Opening Cross (O)",
+  ["C"] = "Cross Type: Closing Cross (C)",
+  ["I"] = "Cross Type: Intraday Cross (I)",
+  ["N"] = "Cross Type: Immediately Live (N)",
+  ["R"] = "Cross Type: Retail Cross (R)",
+}
 
-  return "Cross Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.cross_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.cross_type.labels[value] or "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -602,15 +564,13 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.customer_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.customer_type.size = 1
 
 -- Display: Customer Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.customer_type.display = function(value)
-  if value == "R" then
-    return "Customer Type: Retail Designated Order (R)"
-  end
-  if value == "N" then
-    return "Customer Type: Not A Retail Designated Order (N)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.customer_type.labels = {
+  ["R"] = "Customer Type: Retail Designated Order (R)",
+  ["N"] = "Customer Type: Not A Retail Designated Order (N)",
+}
 
-  return "Customer Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.customer_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.customer_type.labels[value] or "Customer Type: Unknown("..value..")"
 end
 
 -- Dissect: Customer Type
@@ -689,15 +649,13 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_difference_sign = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_difference_sign.size = 1
 
 -- Display: Discretion Peg Difference Sign
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_difference_sign.display = function(value)
-  if value == "+" then
-    return "Discretion Peg Difference Sign: Plus (+)"
-  end
-  if value == "-" then
-    return "Discretion Peg Difference Sign: Minus (-)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_difference_sign.labels = {
+  ["+"] = "Discretion Peg Difference Sign: Plus (+)",
+  ["-"] = "Discretion Peg Difference Sign: Minus (-)",
+}
 
-  return "Discretion Peg Difference Sign: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_difference_sign.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_difference_sign.labels[value] or "Discretion Peg Difference Sign: Unknown("..value..")"
 end
 
 -- Dissect: Discretion Peg Difference Sign
@@ -719,24 +677,16 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_type.size = 1
 
 -- Display: Discretion Peg Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_type.display = function(value)
-  if value == "M" then
-    return "Discretion Peg Type: Midpoint (M)"
-  end
-  if value == "N" then
-    return "Discretion Peg Type: No Peg (N)"
-  end
-  if value == "P" then
-    return "Discretion Peg Type: Market (P)"
-  end
-  if value == "R" then
-    return "Discretion Peg Type: Primary (R)"
-  end
-  if value == "I" then
-    return "Discretion Peg Type: Inav Peg (I)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_type.labels = {
+  ["M"] = "Discretion Peg Type: Midpoint (M)",
+  ["N"] = "Discretion Peg Type: No Peg (N)",
+  ["P"] = "Discretion Peg Type: Market (P)",
+  ["R"] = "Discretion Peg Type: Primary (R)",
+  ["I"] = "Discretion Peg Type: Inav Peg (I)",
+}
 
-  return "Discretion Peg Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.discretion_peg_type.labels[value] or "Discretion Peg Type: Unknown("..value..")"
 end
 
 -- Dissect: Discretion Peg Type
@@ -796,42 +746,22 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.display = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.display.size = 1
 
 -- Display: Display
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.display.display = function(value)
-  if value == "Y" then
-    return "Display: Anonymous Price To Comply (Y)"
-  end
-  if value == "N" then
-    return "Display: Non Displayed (N)"
-  end
-  if value == "A" then
-    return "Display: Attributable Price To Display (A)"
-  end
-  if value == "I" then
-    return "Display: Imbalance Only (I)"
-  end
-  if value == "P" then
-    return "Display: Post Only (P)"
-  end
-  if value == "W" then
-    return "Display: Mid Point Peg Post Only (W)"
-  end
-  if value == "L" then
-    return "Display: Post Only And Attributable Price To Display (L)"
-  end
-  if value == "O" then
-    return "Display: Retail Order Type 1 (O)"
-  end
-  if value == "T" then
-    return "Display: Retail Order Type 2 (T)"
-  end
-  if value == "Q" then
-    return "Display: Retail Price Improvement Order (Q)"
-  end
-  if value == "M" then
-    return "Display: Mid Point Peg (M)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.display.labels = {
+  ["Y"] = "Display: Anonymous Price To Comply (Y)",
+  ["N"] = "Display: Non Displayed (N)",
+  ["A"] = "Display: Attributable Price To Display (A)",
+  ["I"] = "Display: Imbalance Only (I)",
+  ["P"] = "Display: Post Only (P)",
+  ["W"] = "Display: Mid Point Peg Post Only (W)",
+  ["L"] = "Display: Post Only And Attributable Price To Display (L)",
+  ["O"] = "Display: Retail Order Type 1 (O)",
+  ["T"] = "Display: Retail Order Type 2 (T)",
+  ["Q"] = "Display: Retail Price Improvement Order (Q)",
+  ["M"] = "Display: Mid Point Peg (M)",
+}
 
-  return "Display: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.display.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.display.labels[value] or "Display: Unknown("..value..")"
 end
 
 -- Dissect: Display
@@ -853,15 +783,13 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.event_code = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.event_code.display = function(value)
-  if value == "S" then
-    return "Event Code: Start Of Day (S)"
-  end
-  if value == "E" then
-    return "Event Code: End Of Day (E)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.event_code.labels = {
+  ["S"] = "Event Code: Start Of Day (S)",
+  ["E"] = "Event Code: End Of Day (E)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.event_code.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -906,15 +834,13 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.intermarket_sweep_eligibility = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.intermarket_sweep_eligibility.size = 1
 
 -- Display: Intermarket Sweep Eligibility
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.intermarket_sweep_eligibility.display = function(value)
-  if value == "Y" then
-    return "Intermarket Sweep Eligibility: Eligible (Y)"
-  end
-  if value == "N" then
-    return "Intermarket Sweep Eligibility: Not Eligible (N)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.intermarket_sweep_eligibility.labels = {
+  ["Y"] = "Intermarket Sweep Eligibility: Eligible (Y)",
+  ["N"] = "Intermarket Sweep Eligibility: Not Eligible (N)",
+}
 
-  return "Intermarket Sweep Eligibility: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.intermarket_sweep_eligibility.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.intermarket_sweep_eligibility.labels[value] or "Intermarket Sweep Eligibility: Unknown("..value..")"
 end
 
 -- Dissect: Intermarket Sweep Eligibility
@@ -936,120 +862,48 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.liquidity = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.liquidity.size = 1
 
 -- Display: Liquidity
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.liquidity.display = function(value)
-  if value == "A" then
-    return "Liquidity: Added (A)"
-  end
-  if value == "R" then
-    return "Liquidity: Removed (R)"
-  end
-  if value == "J" then
-    return "Liquidity: Non Displayed Adding Liquidity (J)"
-  end
-  if value == "X" then
-    return "Liquidity: Routed (X)"
-  end
-  if value == "D" then
-    return "Liquidity: Dot (D)"
-  end
-  if value == "F" then
-    return "Liquidity: Opening Trade (F)"
-  end
-  if value == "G" then
-    return "Liquidity: On Close Order (G)"
-  end
-  if value == "O" then
-    return "Liquidity: Opening Cross (O)"
-  end
-  if value == "M" then
-    return "Liquidity: Opening Cross (M)"
-  end
-  if value == "C" then
-    return "Liquidity: Closing Cross (C)"
-  end
-  if value == "L" then
-    return "Liquidity: Closing Cross (L)"
-  end
-  if value == "H" then
-    return "Liquidity: Halt Ipo Cross (H)"
-  end
-  if value == "K" then
-    return "Liquidity: Halt Cross (K)"
-  end
-  if value == "Y" then
-    return "Liquidity: Re Routed By Nyse (Y)"
-  end
-  if value == "S" then
-    return "Liquidity: Odd Lot Execution (S)"
-  end
-  if value == "U" then
-    return "Liquidity: Added Liquidity (U)"
-  end
-  if value == "B" then
-    return "Liquidity: Routed To Bx (B)"
-  end
-  if value == "E" then
-    return "Liquidity: Nyse Other (E)"
-  end
-  if value == "P" then
-    return "Liquidity: Routed To Psx (P)"
-  end
-  if value == "T" then
-    return "Liquidity: Opening Trade (T)"
-  end
-  if value == "Z" then
-    return "Liquidity: On Close Order (Z)"
-  end
-  if value == "W" then
-    return "Liquidity: Added Post Only (W)"
-  end
-  if value == "m" then
-    return "Liquidity: Removed Liquidity At A Midpoint (m)"
-  end
-  if value == "k" then
-    return "Liquidity: Added Liquidity Via A Midpoint Order (k)"
-  end
-  if value == "0" then
-    return "Liquidity: Supplemental Order Execution (0)"
-  end
-  if value == "7" then
-    return "Liquidity: Displayed Liquidity Adding Order Improves The Nbbo (7)"
-  end
-  if value == "8" then
-    return "Liquidity: Displayed Liquidity Adding Order Sets The Qbbo While Joining The Nbbo (8)"
-  end
-  if value == "d" then
-    return "Liquidity: Retail Designated Execution That Removed Liquidity (d)"
-  end
-  if value == "e" then
-    return "Liquidity: Retail Designated Execution That Added Displayed Liquidity (e)"
-  end
-  if value == "f" then
-    return "Liquidity: Retail Designated Execution That Added Non Displayed Liquidity (f)"
-  end
-  if value == "j" then
-    return "Liquidity: Rpi Order Provides Liquidity (j)"
-  end
-  if value == "r" then
-    return "Liquidity: Retail Order Removes Rpi Liquidity (r)"
-  end
-  if value == "t" then
-    return "Liquidity: Retail Order Removes Price Improving Non Displayed Liquidity Other Than Rpi Liquidity (t)"
-  end
-  if value == "4" then
-    return "Liquidity: Added Displayed Liquidity In A Select Symbol (4)"
-  end
-  if value == "5" then
-    return "Liquidity: Added Non Displayed Liquidity In A Select Symbol (5)"
-  end
-  if value == "6" then
-    return "Liquidity: Removed Liquidity In A Select Symbol (6)"
-  end
-  if value == "g" then
-    return "Liquidity: Added Non Displayed Mid Point Liquidity In A Select Symbol (g)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.liquidity.labels = {
+  ["A"] = "Liquidity: Added (A)",
+  ["R"] = "Liquidity: Removed (R)",
+  ["J"] = "Liquidity: Non Displayed Adding Liquidity (J)",
+  ["X"] = "Liquidity: Routed (X)",
+  ["D"] = "Liquidity: Dot (D)",
+  ["F"] = "Liquidity: Opening Trade (F)",
+  ["G"] = "Liquidity: On Close Order (G)",
+  ["O"] = "Liquidity: Opening Cross (O)",
+  ["M"] = "Liquidity: Opening Cross (M)",
+  ["C"] = "Liquidity: Closing Cross (C)",
+  ["L"] = "Liquidity: Closing Cross (L)",
+  ["H"] = "Liquidity: Halt Ipo Cross (H)",
+  ["K"] = "Liquidity: Halt Cross (K)",
+  ["Y"] = "Liquidity: Re Routed By Nyse (Y)",
+  ["S"] = "Liquidity: Odd Lot Execution (S)",
+  ["U"] = "Liquidity: Added Liquidity (U)",
+  ["B"] = "Liquidity: Routed To Bx (B)",
+  ["E"] = "Liquidity: Nyse Other (E)",
+  ["P"] = "Liquidity: Routed To Psx (P)",
+  ["T"] = "Liquidity: Opening Trade (T)",
+  ["Z"] = "Liquidity: On Close Order (Z)",
+  ["W"] = "Liquidity: Added Post Only (W)",
+  ["m"] = "Liquidity: Removed Liquidity At A Midpoint (m)",
+  ["k"] = "Liquidity: Added Liquidity Via A Midpoint Order (k)",
+  ["0"] = "Liquidity: Supplemental Order Execution (0)",
+  ["7"] = "Liquidity: Displayed Liquidity Adding Order Improves The Nbbo (7)",
+  ["8"] = "Liquidity: Displayed Liquidity Adding Order Sets The Qbbo While Joining The Nbbo (8)",
+  ["d"] = "Liquidity: Retail Designated Execution That Removed Liquidity (d)",
+  ["e"] = "Liquidity: Retail Designated Execution That Added Displayed Liquidity (e)",
+  ["f"] = "Liquidity: Retail Designated Execution That Added Non Displayed Liquidity (f)",
+  ["j"] = "Liquidity: Rpi Order Provides Liquidity (j)",
+  ["r"] = "Liquidity: Retail Order Removes Rpi Liquidity (r)",
+  ["t"] = "Liquidity: Retail Order Removes Price Improving Non Displayed Liquidity Other Than Rpi Liquidity (t)",
+  ["4"] = "Liquidity: Added Displayed Liquidity In A Select Symbol (4)",
+  ["5"] = "Liquidity: Added Non Displayed Liquidity In A Select Symbol (5)",
+  ["6"] = "Liquidity: Removed Liquidity In A Select Symbol (6)",
+  ["g"] = "Liquidity: Added Non Displayed Mid Point Liquidity In A Select Symbol (g)",
+}
 
-  return "Liquidity: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.liquidity.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.liquidity.labels[value] or "Liquidity: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity
@@ -1325,15 +1179,13 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_difference_sign = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_difference_sign.size = 1
 
 -- Display: Peg Difference Sign
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_difference_sign.display = function(value)
-  if value == "+" then
-    return "Peg Difference Sign: Plus (+)"
-  end
-  if value == "-" then
-    return "Peg Difference Sign: Minus (-)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_difference_sign.labels = {
+  ["+"] = "Peg Difference Sign: Plus (+)",
+  ["-"] = "Peg Difference Sign: Minus (-)",
+}
 
-  return "Peg Difference Sign: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_difference_sign.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_difference_sign.labels[value] or "Peg Difference Sign: Unknown("..value..")"
 end
 
 -- Dissect: Peg Difference Sign
@@ -1355,27 +1207,17 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_type.size = 1
 
 -- Display: Peg Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_type.display = function(value)
-  if value == "M" then
-    return "Peg Type: Midpoint (M)"
-  end
-  if value == "N" then
-    return "Peg Type: No Peg (N)"
-  end
-  if value == "P" then
-    return "Peg Type: Market (P)"
-  end
-  if value == "R" then
-    return "Peg Type: Primary (R)"
-  end
-  if value == "Q" then
-    return "Peg Type: Market Maker Peg (Q)"
-  end
-  if value == "I" then
-    return "Peg Type: Inav Peg (I)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_type.labels = {
+  ["M"] = "Peg Type: Midpoint (M)",
+  ["N"] = "Peg Type: No Peg (N)",
+  ["P"] = "Peg Type: Market (P)",
+  ["R"] = "Peg Type: Primary (R)",
+  ["Q"] = "Peg Type: Market Maker Peg (Q)",
+  ["I"] = "Peg Type: Inav Peg (I)",
+}
 
-  return "Peg Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.peg_type.labels[value] or "Peg Type: Unknown("..value..")"
 end
 
 -- Dissect: Peg Type
@@ -1504,12 +1346,12 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.reference_price_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.reference_price_type.size = 1
 
 -- Display: Reference Price Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.reference_price_type.display = function(value)
-  if value == "I" then
-    return "Reference Price Type: Intraday Indicative Value (I)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.reference_price_type.labels = {
+  ["I"] = "Reference Price Type: Intraday Indicative Value (I)",
+}
 
-  return "Reference Price Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.reference_price_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.reference_price_type.labels[value] or "Reference Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Reference Price Type
@@ -1531,153 +1373,59 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason.size = 1
 
 -- Display: Reject Reason
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason.display = function(value)
-  if value == "Y" then
-    return "Reject Reason: No Shares Found For Routing (Y)"
-  end
-  if value == "C" then
-    return "Reject Reason: Nasdaq Omx Psx Is Closed (C)"
-  end
-  if value == "I" then
-    return "Reject Reason: Invalid Order Side (I)"
-  end
-  if value == "E" then
-    return "Reject Reason: Invalid Peg (E)"
-  end
-  if value == "L" then
-    return "Reject Reason: Invalid Firm (L)"
-  end
-  if value == "Z" then
-    return "Reject Reason: Quantity Exceeds Threshold (Z)"
-  end
-  if value == "O" then
-    return "Reject Reason: Other (O)"
-  end
-  if value == "B" then
-    return "Reject Reason: Quote Not Available For Pegged Order (B)"
-  end
-  if value == "P" then
-    return "Reject Reason: Pegging Not Allowed (P)"
-  end
-  if value == "X" then
-    return "Reject Reason: Invalid Price (X)"
-  end
-  if value == "G" then
-    return "Reject Reason: Destination Not Available (G)"
-  end
-  if value == "J" then
-    return "Reject Reason: Processing Error (J)"
-  end
-  if value == "N" then
-    return "Reject Reason: Invalid Routing Instructions (N)"
-  end
-  if value == "D" then
-    return "Reject Reason: Invalid Display Value (D)"
-  end
-  if value == "M" then
-    return "Reject Reason: Outside Of Permitted Times For Clearing Destination (M)"
-  end
-  if value == "H" then
-    return "Reject Reason: Security Is Halted (H)"
-  end
-  if value == "S" then
-    return "Reject Reason: Invalid Symbol (S)"
-  end
-  if value == "Q" then
-    return "Reject Reason: Invalid Order Quantity (Q)"
-  end
-  if value == "K" then
-    return "Reject Reason: Invalid Minimum Quantity (K)"
-  end
-  if value == "W" then
-    return "Reject Reason: Invalid Destination (W)"
-  end
-  if value == "A" then
-    return "Reject Reason: Advance Features Not Allowed (A)"
-  end
-  if value == "U" then
-    return "Reject Reason: Possible Duplicate Order (U)"
-  end
-  if value == "V" then
-    return "Reject Reason: Invalid Order Type (V)"
-  end
-  if value == "T" then
-    return "Reject Reason: Test Mode (T)"
-  end
-  if value == "R" then
-    return "Reject Reason: Routing Not Allowed (R)"
-  end
-  if value == "F" then
-    return "Reject Reason: Order Not Marketable (F)"
-  end
-  if value == "a" then
-    return "Reject Reason: Prm Invalid Message Format (a)"
-  end
-  if value == "b" then
-    return "Reject Reason: Prm No Quote (b)"
-  end
-  if value == "c" then
-    return "Reject Reason: Prm Invalid Account (c)"
-  end
-  if value == "d" then
-    return "Reject Reason: Prm Short Sale Violation (d)"
-  end
-  if value == "e" then
-    return "Reject Reason: Prm Iso Order Check (e)"
-  end
-  if value == "f" then
-    return "Reject Reason: Prm Gtc Order Check (f)"
-  end
-  if value == "g" then
-    return "Reject Reason: Prm Pre Market Order Check (g)"
-  end
-  if value == "h" then
-    return "Reject Reason: Prm Post Market Order Check (h)"
-  end
-  if value == "i" then
-    return "Reject Reason: Prm Delayed Checking Flag Off (i)"
-  end
-  if value == "j" then
-    return "Reject Reason: Prm Exceeded Maximum Shares Threshold (j)"
-  end
-  if value == "k" then
-    return "Reject Reason: Prm Exceeded Maximum Value Threshold (k)"
-  end
-  if value == "m" then
-    return "Reject Reason: Prm Reject All Orders (m)"
-  end
-  if value == "n" then
-    return "Reject Reason: Prm Invalid Price Fat Finger (n)"
-  end
-  if value == "o" then
-    return "Reject Reason: Prm Not On Easy To Borrow List (o)"
-  end
-  if value == "p" then
-    return "Reject Reason: Prm Not Available (p)"
-  end
-  if value == "q" then
-    return "Reject Reason: Prm Invalid Message (q)"
-  end
-  if value == "r" then
-    return "Reject Reason: Prm Snap In Process (r)"
-  end
-  if value == "s" then
-    return "Reject Reason: Prm Symbol Halted (s)"
-  end
-  if value == "t" then
-    return "Reject Reason: Prm On Open (t)"
-  end
-  if value == "u" then
-    return "Reject Reason: Prm On Close (u)"
-  end
-  if value == "v" then
-    return "Reject Reason: Prm Program Trading (v)"
-  end
-  if value == "{" then
-    return "Reject Reason: Prm Not On Restricted List ({)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason.labels = {
+  ["Y"] = "Reject Reason: No Shares Found For Routing (Y)",
+  ["C"] = "Reject Reason: Nasdaq Omx Psx Is Closed (C)",
+  ["I"] = "Reject Reason: Invalid Order Side (I)",
+  ["E"] = "Reject Reason: Invalid Peg (E)",
+  ["L"] = "Reject Reason: Invalid Firm (L)",
+  ["Z"] = "Reject Reason: Quantity Exceeds Threshold (Z)",
+  ["O"] = "Reject Reason: Other (O)",
+  ["B"] = "Reject Reason: Quote Not Available For Pegged Order (B)",
+  ["P"] = "Reject Reason: Pegging Not Allowed (P)",
+  ["X"] = "Reject Reason: Invalid Price (X)",
+  ["G"] = "Reject Reason: Destination Not Available (G)",
+  ["J"] = "Reject Reason: Processing Error (J)",
+  ["N"] = "Reject Reason: Invalid Routing Instructions (N)",
+  ["D"] = "Reject Reason: Invalid Display Value (D)",
+  ["M"] = "Reject Reason: Outside Of Permitted Times For Clearing Destination (M)",
+  ["H"] = "Reject Reason: Security Is Halted (H)",
+  ["S"] = "Reject Reason: Invalid Symbol (S)",
+  ["Q"] = "Reject Reason: Invalid Order Quantity (Q)",
+  ["K"] = "Reject Reason: Invalid Minimum Quantity (K)",
+  ["W"] = "Reject Reason: Invalid Destination (W)",
+  ["A"] = "Reject Reason: Advance Features Not Allowed (A)",
+  ["U"] = "Reject Reason: Possible Duplicate Order (U)",
+  ["V"] = "Reject Reason: Invalid Order Type (V)",
+  ["T"] = "Reject Reason: Test Mode (T)",
+  ["R"] = "Reject Reason: Routing Not Allowed (R)",
+  ["F"] = "Reject Reason: Order Not Marketable (F)",
+  ["a"] = "Reject Reason: Prm Invalid Message Format (a)",
+  ["b"] = "Reject Reason: Prm No Quote (b)",
+  ["c"] = "Reject Reason: Prm Invalid Account (c)",
+  ["d"] = "Reject Reason: Prm Short Sale Violation (d)",
+  ["e"] = "Reject Reason: Prm Iso Order Check (e)",
+  ["f"] = "Reject Reason: Prm Gtc Order Check (f)",
+  ["g"] = "Reject Reason: Prm Pre Market Order Check (g)",
+  ["h"] = "Reject Reason: Prm Post Market Order Check (h)",
+  ["i"] = "Reject Reason: Prm Delayed Checking Flag Off (i)",
+  ["j"] = "Reject Reason: Prm Exceeded Maximum Shares Threshold (j)",
+  ["k"] = "Reject Reason: Prm Exceeded Maximum Value Threshold (k)",
+  ["m"] = "Reject Reason: Prm Reject All Orders (m)",
+  ["n"] = "Reject Reason: Prm Invalid Price Fat Finger (n)",
+  ["o"] = "Reject Reason: Prm Not On Easy To Borrow List (o)",
+  ["p"] = "Reject Reason: Prm Not Available (p)",
+  ["q"] = "Reject Reason: Prm Invalid Message (q)",
+  ["r"] = "Reject Reason: Prm Snap In Process (r)",
+  ["s"] = "Reject Reason: Prm Symbol Halted (s)",
+  ["t"] = "Reject Reason: Prm On Open (t)",
+  ["u"] = "Reject Reason: Prm On Close (u)",
+  ["v"] = "Reject Reason: Prm Program Trading (v)",
+  ["{"] = "Reject Reason: Prm Not On Restricted List ({)",
+}
 
-  return "Reject Reason: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason.labels[value] or "Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason
@@ -1699,15 +1447,13 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason_code = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason_code.display = function(value)
-  if value == "A" then
-    return "Reject Reason Code: Not Authorized (A)"
-  end
-  if value == "S" then
-    return "Reject Reason Code: Session Not Available (S)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason_code.labels = {
+  ["A"] = "Reject Reason Code: Not Authorized (A)",
+  ["S"] = "Reject Reason Code: Session Not Available (S)",
+}
 
-  return "Reject Reason Code: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason_code.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.reject_reason_code.labels[value] or "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -1783,141 +1529,55 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.route_dest_exec_broker = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.route_dest_exec_broker.size = 4
 
 -- Display: Route Dest Exec Broker
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.route_dest_exec_broker.display = function(value)
-  if value == "INET" then
-    return "Route Dest Exec Broker: Inet Strategy (INET)"
-  end
-  if value == "DOTA" then
-    return "Route Dest Exec Broker: Dota Strategy (DOTA)"
-  end
-  if value == "DOTD" then
-    return "Route Dest Exec Broker: Dotd Strategy (DOTD)"
-  end
-  if value == "DOTI" then
-    return "Route Dest Exec Broker: Doti Strategy (DOTI)"
-  end
-  if value == "DOTM" then
-    return "Route Dest Exec Broker: Dotm Strategy (DOTM)"
-  end
-  if value == "TFTY" then
-    return "Route Dest Exec Broker: Tfty Strategy (TFTY)"
-  end
-  if value == "MOPP" then
-    return "Route Dest Exec Broker: Mopp Strategy (MOPP)"
-  end
-  if value == "STGY" then
-    return "Route Dest Exec Broker: Stgy Strategy (STGY)"
-  end
-  if value == "SCAN" then
-    return "Route Dest Exec Broker: Scan Strategy (SCAN)"
-  end
-  if value == "SKIP" then
-    return "Route Dest Exec Broker: Skip Strategy (SKIP)"
-  end
-  if value == "SKNY" then
-    return "Route Dest Exec Broker: Skny Strategy (SKNY)"
-  end
-  if value == "SAVE" then
-    return "Route Dest Exec Broker: Save Strategy (SAVE)"
-  end
-  if value == "QSAV" then
-    return "Route Dest Exec Broker: Qsav Strategy (QSAV)"
-  end
-  if value == "QTFY" then
-    return "Route Dest Exec Broker: Qtfy Strategy (QTFY)"
-  end
-  if value == "DOTZ" then
-    return "Route Dest Exec Broker: Dotz Strategy (DOTZ)"
-  end
-  if value == "LIST" then
-    return "Route Dest Exec Broker: List Strategy (LIST)"
-  end
-  if value == "SOLV" then
-    return "Route Dest Exec Broker: Solv Strategy (SOLV)"
-  end
-  if value == "CART" then
-    return "Route Dest Exec Broker: Cart Strategy (CART)"
-  end
-  if value == "QSLV" then
-    return "Route Dest Exec Broker: Qslv Strategy (QSLV)"
-  end
-  if value == "ESCN" then
-    return "Route Dest Exec Broker: Escn Strategy (ESCN)"
-  end
-  if value == "QDRK" then
-    return "Route Dest Exec Broker: Qdrk Strategy (QDRK)"
-  end
-  if value == "QCST" then
-    return "Route Dest Exec Broker: Qcst Strategy (QCST)"
-  end
-  if value == "MOPB" then
-    return "Route Dest Exec Broker: Mopb Strategy (MOPB)"
-  end
-  if value == "PMOP" then
-    return "Route Dest Exec Broker: Pmop Strategy (PMOP)"
-  end
-  if value == "PSTG" then
-    return "Route Dest Exec Broker: Pstg Strategy (PSTG)"
-  end
-  if value == "PSCN" then
-    return "Route Dest Exec Broker: Pscn Strategy (PSCN)"
-  end
-  if value == "PTFY" then
-    return "Route Dest Exec Broker: Ptfy Strategy (PTFY)"
-  end
-  if value == "PCRT" then
-    return "Route Dest Exec Broker: Pcrt Strategy (PCRT)"
-  end
-  if value == "TFYX" then
-    return "Route Dest Exec Broker: Tfyx Strategy (TFYX)"
-  end
-  if value == "XDRK" then
-    return "Route Dest Exec Broker: Xdrk Strategy (XDRK)"
-  end
-  if value == "XCST" then
-    return "Route Dest Exec Broker: Xcst Strategy (XCST)"
-  end
-  if value == "ISAM" then
-    return "Route Dest Exec Broker: Directed To Amex (ISAM)"
-  end
-  if value == "ISPA" then
-    return "Route Dest Exec Broker: Directed To Arca Pcx (ISPA)"
-  end
-  if value == "ISBX" then
-    return "Route Dest Exec Broker: Directed To Nasdaq Omx Bx (ISBX)"
-  end
-  if value == "ISCB" then
-    return "Route Dest Exec Broker: Directed To Cboe (ISCB)"
-  end
-  if value == "ISCX" then
-    return "Route Dest Exec Broker: Directed To Chsx (ISCX)"
-  end
-  if value == "ISCN" then
-    return "Route Dest Exec Broker: Directed To Cinn Nsx (ISCN)"
-  end
-  if value == "ISNY" then
-    return "Route Dest Exec Broker: Directed To Nyse (ISNY)"
-  end
-  if value == "ISBZ" then
-    return "Route Dest Exec Broker: Directed To Bats (ISBZ)"
-  end
-  if value == "ISBY" then
-    return "Route Dest Exec Broker: Directed To Bats Y Exchange (ISBY)"
-  end
-  if value == "ISNA" then
-    return "Route Dest Exec Broker: Directed To Edga (ISNA)"
-  end
-  if value == "ISNX" then
-    return "Route Dest Exec Broker: Directed To Edgx (ISNX)"
-  end
-  if value == "ISPX" then
-    return "Route Dest Exec Broker: Directed To Nasdaq Omx Psx (ISPX)"
-  end
-  if value == "ISLF" then
-    return "Route Dest Exec Broker: Directed To Lava Flow (ISLF)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.route_dest_exec_broker.labels = {
+  ["INET"] = "Route Dest Exec Broker: Inet Strategy (INET)",
+  ["DOTA"] = "Route Dest Exec Broker: Dota Strategy (DOTA)",
+  ["DOTD"] = "Route Dest Exec Broker: Dotd Strategy (DOTD)",
+  ["DOTI"] = "Route Dest Exec Broker: Doti Strategy (DOTI)",
+  ["DOTM"] = "Route Dest Exec Broker: Dotm Strategy (DOTM)",
+  ["TFTY"] = "Route Dest Exec Broker: Tfty Strategy (TFTY)",
+  ["MOPP"] = "Route Dest Exec Broker: Mopp Strategy (MOPP)",
+  ["STGY"] = "Route Dest Exec Broker: Stgy Strategy (STGY)",
+  ["SCAN"] = "Route Dest Exec Broker: Scan Strategy (SCAN)",
+  ["SKIP"] = "Route Dest Exec Broker: Skip Strategy (SKIP)",
+  ["SKNY"] = "Route Dest Exec Broker: Skny Strategy (SKNY)",
+  ["SAVE"] = "Route Dest Exec Broker: Save Strategy (SAVE)",
+  ["QSAV"] = "Route Dest Exec Broker: Qsav Strategy (QSAV)",
+  ["QTFY"] = "Route Dest Exec Broker: Qtfy Strategy (QTFY)",
+  ["DOTZ"] = "Route Dest Exec Broker: Dotz Strategy (DOTZ)",
+  ["LIST"] = "Route Dest Exec Broker: List Strategy (LIST)",
+  ["SOLV"] = "Route Dest Exec Broker: Solv Strategy (SOLV)",
+  ["CART"] = "Route Dest Exec Broker: Cart Strategy (CART)",
+  ["QSLV"] = "Route Dest Exec Broker: Qslv Strategy (QSLV)",
+  ["ESCN"] = "Route Dest Exec Broker: Escn Strategy (ESCN)",
+  ["QDRK"] = "Route Dest Exec Broker: Qdrk Strategy (QDRK)",
+  ["QCST"] = "Route Dest Exec Broker: Qcst Strategy (QCST)",
+  ["MOPB"] = "Route Dest Exec Broker: Mopb Strategy (MOPB)",
+  ["PMOP"] = "Route Dest Exec Broker: Pmop Strategy (PMOP)",
+  ["PSTG"] = "Route Dest Exec Broker: Pstg Strategy (PSTG)",
+  ["PSCN"] = "Route Dest Exec Broker: Pscn Strategy (PSCN)",
+  ["PTFY"] = "Route Dest Exec Broker: Ptfy Strategy (PTFY)",
+  ["PCRT"] = "Route Dest Exec Broker: Pcrt Strategy (PCRT)",
+  ["TFYX"] = "Route Dest Exec Broker: Tfyx Strategy (TFYX)",
+  ["XDRK"] = "Route Dest Exec Broker: Xdrk Strategy (XDRK)",
+  ["XCST"] = "Route Dest Exec Broker: Xcst Strategy (XCST)",
+  ["ISAM"] = "Route Dest Exec Broker: Directed To Amex (ISAM)",
+  ["ISPA"] = "Route Dest Exec Broker: Directed To Arca Pcx (ISPA)",
+  ["ISBX"] = "Route Dest Exec Broker: Directed To Nasdaq Omx Bx (ISBX)",
+  ["ISCB"] = "Route Dest Exec Broker: Directed To Cboe (ISCB)",
+  ["ISCX"] = "Route Dest Exec Broker: Directed To Chsx (ISCX)",
+  ["ISCN"] = "Route Dest Exec Broker: Directed To Cinn Nsx (ISCN)",
+  ["ISNY"] = "Route Dest Exec Broker: Directed To Nyse (ISNY)",
+  ["ISBZ"] = "Route Dest Exec Broker: Directed To Bats (ISBZ)",
+  ["ISBY"] = "Route Dest Exec Broker: Directed To Bats Y Exchange (ISBY)",
+  ["ISNA"] = "Route Dest Exec Broker: Directed To Edga (ISNA)",
+  ["ISNX"] = "Route Dest Exec Broker: Directed To Edgx (ISNX)",
+  ["ISPX"] = "Route Dest Exec Broker: Directed To Nasdaq Omx Psx (ISPX)",
+  ["ISLF"] = "Route Dest Exec Broker: Directed To Lava Flow (ISLF)",
+}
 
-  return "Route Dest Exec Broker: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.route_dest_exec_broker.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.route_dest_exec_broker.labels[value] or "Route Dest Exec Broker: Unknown("..value..")"
 end
 
 -- Dissect: Route Dest Exec Broker
@@ -1939,36 +1599,20 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message_type.display = function(value)
-  if value == "S" then
-    return "Sequenced Message Type: System Event Message (S)"
-  end
-  if value == "A" then
-    return "Sequenced Message Type: Accepted Order Message (A)"
-  end
-  if value == "R" then
-    return "Sequenced Message Type: Accepted Order Message With Cross Functionality (R)"
-  end
-  if value == "C" then
-    return "Sequenced Message Type: Canceled Order Message (C)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Rejected Order Message (J)"
-  end
-  if value == "E" then
-    return "Sequenced Message Type: Executed Order Message (E)"
-  end
-  if value == "B" then
-    return "Sequenced Message Type: Broken Trade Message (B)"
-  end
-  if value == "G" then
-    return "Sequenced Message Type: Executed With Reference Price Message (G)"
-  end
-  if value == "F" then
-    return "Sequenced Message Type: Trade Correction Message (F)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message_type.labels = {
+  ["S"] = "Sequenced Message Type: System Event Message (S)",
+  ["A"] = "Sequenced Message Type: Accepted Order Message (A)",
+  ["R"] = "Sequenced Message Type: Accepted Order Message With Cross Functionality (R)",
+  ["C"] = "Sequenced Message Type: Canceled Order Message (C)",
+  ["J"] = "Sequenced Message Type: Rejected Order Message (J)",
+  ["E"] = "Sequenced Message Type: Executed Order Message (E)",
+  ["B"] = "Sequenced Message Type: Broken Trade Message (B)",
+  ["G"] = "Sequenced Message Type: Executed With Reference Price Message (G)",
+  ["F"] = "Sequenced Message Type: Trade Correction Message (F)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1990,27 +1634,17 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_packet_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_packet_type.size = 1
 
 -- Display: Server Packet Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "Z" then
-    return "Packet Type: End Of Session Packet (Z)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["Z"] = "Packet Type: End Of Session Packet (Z)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_packet_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Server Packet Type
@@ -2094,21 +1728,15 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.side = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.side.size = 1
 
 -- Display: Side
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.side.display = function(value)
-  if value == "B" then
-    return "Side: Buy (B)"
-  end
-  if value == "S" then
-    return "Side: Sell (S)"
-  end
-  if value == "T" then
-    return "Side: Short (T)"
-  end
-  if value == "E" then
-    return "Side: Short Exempt (E)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.side.labels = {
+  ["B"] = "Side: Buy (B)",
+  ["S"] = "Side: Sell (S)",
+  ["T"] = "Side: Short (T)",
+  ["E"] = "Side: Short Exempt (E)",
+}
 
-  return "Side: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.side.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2239,12 +1867,12 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.trade_correction_reason = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.trade_correction_reason.size = 1
 
 -- Display: Trade Correction Reason
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.trade_correction_reason.display = function(value)
-  if value == "N" then
-    return "Trade Correction Reason: Adjusted To Nav (N)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.trade_correction_reason.labels = {
+  ["N"] = "Trade Correction Reason: Adjusted To Nav (N)",
+}
 
-  return "Trade Correction Reason: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.trade_correction_reason.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.trade_correction_reason.labels[value] or "Trade Correction Reason: Unknown("..value..")"
 end
 
 -- Dissect: Trade Correction Reason
@@ -2266,18 +1894,14 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message_type = {}
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message_type.display = function(value)
-  if value == "O" then
-    return "Unsequenced Message Type: Enter Order Message (O)"
-  end
-  if value == "Q" then
-    return "Unsequenced Message Type: Enter Order Message With Cross Functionality (Q)"
-  end
-  if value == "X" then
-    return "Unsequenced Message Type: Cancel Order Message (X)"
-  end
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message_type.labels = {
+  ["O"] = "Unsequenced Message Type: Enter Order Message (O)",
+  ["Q"] = "Unsequenced Message Type: Enter Order Message With Cross Functionality (Q)",
+  ["X"] = "Unsequenced Message Type: Cancel Order Message (X)",
+}
 
-  return "Unsequenced Message Type: Unknown("..value..")"
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message_type.display = function(value)
+  return nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2974,42 +2598,22 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message.dispatch = {
+  ["S"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.system_event_message.dissect,
+  ["A"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.accepted_order_message.dissect,
+  ["R"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.accepted_order_message_with_cross_functionality.dissect,
+  ["C"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.canceled_order_message.dissect,
+  ["J"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.rejected_order_message.dissect,
+  ["E"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.executed_order_message.dissect,
+  ["B"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.broken_trade_message.dissect,
+  ["G"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.executed_with_reference_price_message.dissect,
+  ["F"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.trade_correction_message.dissect,
+}
+
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect System Event Message
-  if sequenced_message_type == "S" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Accepted Order Message
-  if sequenced_message_type == "A" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.accepted_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Accepted Order Message With Cross Functionality
-  if sequenced_message_type == "R" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.accepted_order_message_with_cross_functionality.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Canceled Order Message
-  if sequenced_message_type == "C" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.canceled_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Rejected Order Message
-  if sequenced_message_type == "J" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.rejected_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Executed Order Message
-  if sequenced_message_type == "E" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.executed_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if sequenced_message_type == "B" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Executed With Reference Price Message
-  if sequenced_message_type == "G" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.executed_with_reference_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Correction Message
-  if sequenced_message_type == "F" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.trade_correction_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3299,30 +2903,19 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_payload = {}
 
 -- Dissect: Server Payload
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.dissect,
+  ["A"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.login_accepted_packet.dissect,
+  ["J"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.login_rejected_packet.dissect,
+  ["S"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_data_packet.dissect,
+  ["H"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_heartbeat.dissect,
+  ["Z"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.end_of_session.dissect,
+}
+
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
-  -- Dissect Debug Packet
-  if server_packet_type == "+" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if server_packet_type == "A" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if server_packet_type == "J" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if server_packet_type == "S" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Server Heartbeat
-  if server_packet_type == "H" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session
-  if server_packet_type == "Z" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_payload.dispatch[server_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3822,18 +3415,16 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message = {}
 
 -- Dissect: Unsequenced Message
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message.dispatch = {
+  ["O"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.enter_order_message.dissect,
+  ["Q"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.enter_order_message_with_cross_functionality.dissect,
+  ["X"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.cancel_order_message.dissect,
+}
+
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
-  -- Dissect Enter Order Message
-  if unsequenced_message_type == "O" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.enter_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enter Order Message With Cross Functionality
-  if unsequenced_message_type == "Q" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.enter_order_message_with_cross_functionality.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cancel Order Message
-  if unsequenced_message_type == "X" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.cancel_order_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3948,26 +3539,18 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_payload = {}
 
 -- Dissect: Client Payload
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_payload.dispatch = {
+  ["+"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.dissect,
+  ["L"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.login_request_packet.dissect,
+  ["U"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_data_packet.dissect,
+  ["R"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_heartbeat.dissect,
+  ["O"] = nasdaq_nsmequities_rash_asciirash_v1_1_2016.logout_request.dissect,
+}
+
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
-  -- Dissect Debug Packet
-  if client_packet_type == "+" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if client_packet_type == "L" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if client_packet_type == "U" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat
-  if client_packet_type == "R" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request
-  if client_packet_type == "O" then
-    return nasdaq_nsmequities_rash_asciirash_v1_1_2016.logout_request.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_payload.dispatch[client_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

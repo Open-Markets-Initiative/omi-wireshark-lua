@@ -263,15 +263,13 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.authenticity = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.authenticity.size = 1
 
 -- Display: Authenticity
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.authenticity.display = function(value)
-  if value == "P" then
-    return "Authenticity: Live Production (P)"
-  end
-  if value == "T" then
-    return "Authenticity: Test (T)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.authenticity.labels = {
+  ["P"] = "Authenticity: Live Production (P)",
+  ["T"] = "Authenticity: Test (T)",
+}
 
-  return "Authenticity: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.authenticity.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.authenticity.labels[value] or "Authenticity: Unknown("..value..")"
 end
 
 -- Dissect: Authenticity
@@ -293,18 +291,14 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.breached_level = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.breached_level.size = 1
 
 -- Display: Breached Level
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.breached_level.display = function(value)
-  if value == "1" then
-    return "Breached Level: Level 1 (1)"
-  end
-  if value == "2" then
-    return "Breached Level: Level 2 (2)"
-  end
-  if value == "3" then
-    return "Breached Level: Level 3 (3)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.breached_level.labels = {
+  ["1"] = "Breached Level: Level 1 (1)",
+  ["2"] = "Breached Level: Level 2 (2)",
+  ["3"] = "Breached Level: Level 3 (3)",
+}
 
-  return "Breached Level: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.breached_level.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.breached_level.labels[value] or "Breached Level: Unknown("..value..")"
 end
 
 -- Dissect: Breached Level
@@ -326,21 +320,15 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.current_trading_state = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.current_trading_state.size = 1
 
 -- Display: Current Trading State
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.current_trading_state.display = function(value)
-  if value == "H" then
-    return "Current Trading State: Halted Or Paused On Nasdaq And All Utp Participants (H)"
-  end
-  if value == "Q" then
-    return "Current Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)"
-  end
-  if value == "R" then
-    return "Current Trading State: Quotation Only Period For Nasdaq Omx Only Halt Or Pause (R)"
-  end
-  if value == "T" then
-    return "Current Trading State: Trading On Nasdaq (T)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.current_trading_state.labels = {
+  ["H"] = "Current Trading State: Halted Or Paused On Nasdaq And All Utp Participants (H)",
+  ["Q"] = "Current Trading State: Quotation Only Period For Cross Sro Halt Or Pause (Q)",
+  ["R"] = "Current Trading State: Quotation Only Period For Nasdaq Omx Only Halt Or Pause (R)",
+  ["T"] = "Current Trading State: Trading On Nasdaq (T)",
+}
 
-  return "Current Trading State: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.current_trading_state.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.current_trading_state.labels[value] or "Current Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Current Trading State
@@ -426,27 +414,17 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.event_code = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.event_code.size = 1
 
 -- Display: Event Code
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Transmissions (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Transmissions (C)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.event_code.labels = {
+  ["O"] = "Event Code: Start Of Transmissions (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Market Hours (Q)",
+  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Transmissions (C)",
+}
 
-  return "Event Code: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.event_code.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -525,15 +503,13 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.inverse_indicator = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.inverse_indicator.size = 1
 
 -- Display: Inverse Indicator
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.inverse_indicator.display = function(value)
-  if value == "Y" then
-    return "Inverse Indicator: Inverse Etp (Y)"
-  end
-  if value == "N" then
-    return "Inverse Indicator: Not Inverse Etp (N)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.inverse_indicator.labels = {
+  ["Y"] = "Inverse Indicator: Inverse Etp (Y)",
+  ["N"] = "Inverse Indicator: Not Inverse Etp (N)",
+}
 
-  return "Inverse Indicator: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.inverse_indicator.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.inverse_indicator.labels[value] or "Inverse Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Inverse Indicator
@@ -588,57 +564,27 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_classification = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_classification.size = 1
 
 -- Display: Issue Classification
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_classification.display = function(value)
-  if value == "A" then
-    return "Issue Classification: American Depositary Share (A)"
-  end
-  if value == "B" then
-    return "Issue Classification: Bond (B)"
-  end
-  if value == "C" then
-    return "Issue Classification: Common Stock (C)"
-  end
-  if value == "F" then
-    return "Issue Classification: Depository Receipt (F)"
-  end
-  if value == "I" then
-    return "Issue Classification: Sec 144 A (I)"
-  end
-  if value == "L" then
-    return "Issue Classification: Limited Partnership (L)"
-  end
-  if value == "N" then
-    return "Issue Classification: Notes (N)"
-  end
-  if value == "O" then
-    return "Issue Classification: Ordinary Share (O)"
-  end
-  if value == "P" then
-    return "Issue Classification: Preferred Stock (P)"
-  end
-  if value == "Q" then
-    return "Issue Classification: Other Securities (Q)"
-  end
-  if value == "R" then
-    return "Issue Classification: Right (R)"
-  end
-  if value == "S" then
-    return "Issue Classification: Shares Of Beneficial Interest (S)"
-  end
-  if value == "T" then
-    return "Issue Classification: Convertible Debenture (T)"
-  end
-  if value == "U" then
-    return "Issue Classification: Unit (U)"
-  end
-  if value == "V" then
-    return "Issue Classification: Units Benif Int (V)"
-  end
-  if value == "W" then
-    return "Issue Classification: Warrant (W)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_classification.labels = {
+  ["A"] = "Issue Classification: American Depositary Share (A)",
+  ["B"] = "Issue Classification: Bond (B)",
+  ["C"] = "Issue Classification: Common Stock (C)",
+  ["F"] = "Issue Classification: Depository Receipt (F)",
+  ["I"] = "Issue Classification: Sec 144 A (I)",
+  ["L"] = "Issue Classification: Limited Partnership (L)",
+  ["N"] = "Issue Classification: Notes (N)",
+  ["O"] = "Issue Classification: Ordinary Share (O)",
+  ["P"] = "Issue Classification: Preferred Stock (P)",
+  ["Q"] = "Issue Classification: Other Securities (Q)",
+  ["R"] = "Issue Classification: Right (R)",
+  ["S"] = "Issue Classification: Shares Of Beneficial Interest (S)",
+  ["T"] = "Issue Classification: Convertible Debenture (T)",
+  ["U"] = "Issue Classification: Unit (U)",
+  ["V"] = "Issue Classification: Units Benif Int (V)",
+  ["W"] = "Issue Classification: Warrant (W)",
+}
 
-  return "Issue Classification: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_classification.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_classification.labels[value] or "Issue Classification: Unknown("..value..")"
 end
 
 -- Dissect: Issue Classification
@@ -660,141 +606,55 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_sub_type = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_sub_type.size = 2
 
 -- Display: Issue Sub Type
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_sub_type.display = function(value)
-  if value == "A" then
-    return "Issue Sub Type: Preferred Trust Securities (A)"
-  end
-  if value == "B" then
-    return "Issue Sub Type: Index Based Derivative (B)"
-  end
-  if value == "C" then
-    return "Issue Sub Type: Common Shares (C)"
-  end
-  if value == "CB" then
-    return "Issue Sub Type: Commodity Based Trust Shares (CB)"
-  end
-  if value == "CF" then
-    return "Issue Sub Type: Commodity Futures Trust Shares (CF)"
-  end
-  if value == "CL" then
-    return "Issue Sub Type: Commodity Linked Securities (CL)"
-  end
-  if value == "CM" then
-    return "Issue Sub Type: Commodity Index Trust Shares (CM)"
-  end
-  if value == "CT" then
-    return "Issue Sub Type: Currency Trust Shares (CT)"
-  end
-  if value == "CU" then
-    return "Issue Sub Type: Commodity Currency Linked Securities (CU)"
-  end
-  if value == "CW" then
-    return "Issue Sub Type: Currency Warrants (CW)"
-  end
-  if value == "D" then
-    return "Issue Sub Type: Global Depositary Shares (D)"
-  end
-  if value == "E" then
-    return "Issue Sub Type: Etf Portfolio Depositary Receipt (E)"
-  end
-  if value == "EG" then
-    return "Issue Sub Type: Equity Gold Shares (EG)"
-  end
-  if value == "EI" then
-    return "Issue Sub Type: Etn Equity Index Linked Securities (EI)"
-  end
-  if value == "EN" then
-    return "Issue Sub Type: Exchange Traded Notes (EN)"
-  end
-  if value == "FI" then
-    return "Issue Sub Type: Etn Fixed Income Linked Securities (FI)"
-  end
-  if value == "FL" then
-    return "Issue Sub Type: Etn Futures Linked Securities (FL)"
-  end
-  if value == "G" then
-    return "Issue Sub Type: Global Shares (G)"
-  end
-  if value == "H" then
-    return "Issue Sub Type: Debt Based Derivative (H)"
-  end
-  if value == "I" then
-    return "Issue Sub Type: Etf Index Fund Shares (I)"
-  end
-  if value == "IX" then
-    return "Issue Sub Type: Index Linked Exchangeable Notes (IX)"
-  end
-  if value == "K" then
-    return "Issue Sub Type: Callable Common Stock (K)"
-  end
-  if value == "L" then
-    return "Issue Sub Type: Contingent Litigation Right (L)"
-  end
-  if value == "LL" then
-    return "Issue Sub Type: Limited Liability Company (LL)"
-  end
-  if value == "M" then
-    return "Issue Sub Type: Equity Based Derivative (M)"
-  end
-  if value == "MF" then
-    return "Issue Sub Type: Managed Fund Shares (MF)"
-  end
-  if value == "ML" then
-    return "Issue Sub Type: Etn Multi Factor Index Linked Securities (ML)"
-  end
-  if value == "MP" then
-    return "Issue Sub Type: Master Limited Partnership (MP)"
-  end
-  if value == "MT" then
-    return "Issue Sub Type: Managed Trust Securities (MT)"
-  end
-  if value == "N" then
-    return "Issue Sub Type: Ny Registry Shares (N)"
-  end
-  if value == "O" then
-    return "Issue Sub Type: Open Ended Mutual Fund (O)"
-  end
-  if value == "P" then
-    return "Issue Sub Type: Privately Held Security (P)"
-  end
-  if value == "PU" then
-    return "Issue Sub Type: Partnership Units (PU)"
-  end
-  if value == "R" then
-    return "Issue Sub Type: Reg S (R)"
-  end
-  if value == "RC" then
-    return "Issue Sub Type: Commodity Redeemable Commodity Linked Securities (RC)"
-  end
-  if value == "RF" then
-    return "Issue Sub Type: Etn Redeemable Futures Linked Securities (RF)"
-  end
-  if value == "RU" then
-    return "Issue Sub Type: Commodity Redeemable Currency Linked Securities (RU)"
-  end
-  if value == "S" then
-    return "Issue Sub Type: Seed (S)"
-  end
-  if value == "T" then
-    return "Issue Sub Type: Tracking Stock (T)"
-  end
-  if value == "TC" then
-    return "Issue Sub Type: Trust Certificates (TC)"
-  end
-  if value == "TU" then
-    return "Issue Sub Type: Trust Units (TU)"
-  end
-  if value == "U" then
-    return "Issue Sub Type: Portal (U)"
-  end
-  if value == "V" then
-    return "Issue Sub Type: Contingent Value Right (V)"
-  end
-  if value == "W" then
-    return "Issue Sub Type: Trust Issued Receipts (W)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_sub_type.labels = {
+  ["A"] = "Issue Sub Type: Preferred Trust Securities (A)",
+  ["B"] = "Issue Sub Type: Index Based Derivative (B)",
+  ["C"] = "Issue Sub Type: Common Shares (C)",
+  ["CB"] = "Issue Sub Type: Commodity Based Trust Shares (CB)",
+  ["CF"] = "Issue Sub Type: Commodity Futures Trust Shares (CF)",
+  ["CL"] = "Issue Sub Type: Commodity Linked Securities (CL)",
+  ["CM"] = "Issue Sub Type: Commodity Index Trust Shares (CM)",
+  ["CT"] = "Issue Sub Type: Currency Trust Shares (CT)",
+  ["CU"] = "Issue Sub Type: Commodity Currency Linked Securities (CU)",
+  ["CW"] = "Issue Sub Type: Currency Warrants (CW)",
+  ["D"] = "Issue Sub Type: Global Depositary Shares (D)",
+  ["E"] = "Issue Sub Type: Etf Portfolio Depositary Receipt (E)",
+  ["EG"] = "Issue Sub Type: Equity Gold Shares (EG)",
+  ["EI"] = "Issue Sub Type: Etn Equity Index Linked Securities (EI)",
+  ["EN"] = "Issue Sub Type: Exchange Traded Notes (EN)",
+  ["FI"] = "Issue Sub Type: Etn Fixed Income Linked Securities (FI)",
+  ["FL"] = "Issue Sub Type: Etn Futures Linked Securities (FL)",
+  ["G"] = "Issue Sub Type: Global Shares (G)",
+  ["H"] = "Issue Sub Type: Debt Based Derivative (H)",
+  ["I"] = "Issue Sub Type: Etf Index Fund Shares (I)",
+  ["IX"] = "Issue Sub Type: Index Linked Exchangeable Notes (IX)",
+  ["K"] = "Issue Sub Type: Callable Common Stock (K)",
+  ["L"] = "Issue Sub Type: Contingent Litigation Right (L)",
+  ["LL"] = "Issue Sub Type: Limited Liability Company (LL)",
+  ["M"] = "Issue Sub Type: Equity Based Derivative (M)",
+  ["MF"] = "Issue Sub Type: Managed Fund Shares (MF)",
+  ["ML"] = "Issue Sub Type: Etn Multi Factor Index Linked Securities (ML)",
+  ["MP"] = "Issue Sub Type: Master Limited Partnership (MP)",
+  ["MT"] = "Issue Sub Type: Managed Trust Securities (MT)",
+  ["N"] = "Issue Sub Type: Ny Registry Shares (N)",
+  ["O"] = "Issue Sub Type: Open Ended Mutual Fund (O)",
+  ["P"] = "Issue Sub Type: Privately Held Security (P)",
+  ["PU"] = "Issue Sub Type: Partnership Units (PU)",
+  ["R"] = "Issue Sub Type: Reg S (R)",
+  ["RC"] = "Issue Sub Type: Commodity Redeemable Commodity Linked Securities (RC)",
+  ["RF"] = "Issue Sub Type: Etn Redeemable Futures Linked Securities (RF)",
+  ["RU"] = "Issue Sub Type: Commodity Redeemable Currency Linked Securities (RU)",
+  ["S"] = "Issue Sub Type: Seed (S)",
+  ["T"] = "Issue Sub Type: Tracking Stock (T)",
+  ["TC"] = "Issue Sub Type: Trust Certificates (TC)",
+  ["TU"] = "Issue Sub Type: Trust Units (TU)",
+  ["U"] = "Issue Sub Type: Portal (U)",
+  ["V"] = "Issue Sub Type: Contingent Value Right (V)",
+  ["W"] = "Issue Sub Type: Trust Issued Receipts (W)",
+}
 
-  return "Issue Sub Type: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_sub_type.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.issue_sub_type.labels[value] or "Issue Sub Type: Unknown("..value..")"
 end
 
 -- Dissect: Issue Sub Type
@@ -1044,30 +904,18 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_type = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_type.size = 1
 
 -- Display: Message Type
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_type.display = function(value)
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
-  end
-  if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
-  end
-  if value == "Y" then
-    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
-  end
-  if value == "V" then
-    return "Message Type: Mwcb Decline Level Message (V)"
-  end
-  if value == "W" then
-    return "Message Type: Mwcb Status Message (W)"
-  end
-  if value == "Q" then
-    return "Message Type: Quotation Message (Q)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_type.labels = {
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Stock Directory Message (R)",
+  ["H"] = "Message Type: Stock Trading Action Message (H)",
+  ["Y"] = "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)",
+  ["V"] = "Message Type: Mwcb Decline Level Message (V)",
+  ["W"] = "Message Type: Mwcb Status Message (W)",
+  ["Q"] = "Message Type: Quotation Message (Q)",
+}
 
-  return "Message Type: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_type.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1353,18 +1201,14 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reg_sho_action = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reg_sho_action.display = function(value)
-  if value == "0" then
-    return "Reg Sho Action: No Price Test In Place (0)"
-  end
-  if value == "1" then
-    return "Reg Sho Action: Restriction In Effect (1)"
-  end
-  if value == "2" then
-    return "Reg Sho Action: Restriction Remains In Effect (2)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reg_sho_action.labels = {
+  ["0"] = "Reg Sho Action: No Price Test In Place (0)",
+  ["1"] = "Reg Sho Action: Restriction In Effect (1)",
+  ["2"] = "Reg Sho Action: Restriction Remains In Effect (2)",
+}
 
-  return "Reg Sho Action: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reg_sho_action.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reg_sho_action.labels[value] or "Reg Sho Action: Unknown("..value..")"
 end
 
 -- Dissect: Reg Sho Action
@@ -1417,15 +1261,13 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.round_lots_only = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.round_lots_only.size = 1
 
 -- Display: Round Lots Only
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.round_lots_only.display = function(value)
-  if value == "Y" then
-    return "Round Lots Only: Round Lots Only (Y)"
-  end
-  if value == "N" then
-    return "Round Lots Only: Odd And Mixed Lots Allowed (N)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.round_lots_only.labels = {
+  ["Y"] = "Round Lots Only: Round Lots Only (Y)",
+  ["N"] = "Round Lots Only: Odd And Mixed Lots Allowed (N)",
+}
 
-  return "Round Lots Only: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.round_lots_only.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.round_lots_only.labels[value] or "Round Lots Only: Unknown("..value..")"
 end
 
 -- Dissect: Round Lots Only
@@ -1447,24 +1289,16 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.security_class = {}
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.security_class.size = 1
 
 -- Display: Security Class
-nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.security_class.display = function(value)
-  if value == "Q" then
-    return "Security Class: Nasdaq Listed Issue (Q)"
-  end
-  if value == "N" then
-    return "Security Class: Nyse (N)"
-  end
-  if value == "A" then
-    return "Security Class: Nyse Mkt (A)"
-  end
-  if value == "P" then
-    return "Security Class: Nyse Arca (P)"
-  end
-  if value == "Z" then
-    return "Security Class: Bats (Z)"
-  end
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.security_class.labels = {
+  ["Q"] = "Security Class: Nasdaq Listed Issue (Q)",
+  ["N"] = "Security Class: Nyse (N)",
+  ["A"] = "Security Class: Nyse Mkt (A)",
+  ["P"] = "Security Class: Nyse Arca (P)",
+  ["Z"] = "Security Class: Bats (Z)",
+}
 
-  return "Security Class: Unknown("..value..")"
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.security_class.display = function(value)
+  return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.security_class.labels[value] or "Security Class: Unknown("..value..")"
 end
 
 -- Dissect: Security Class
@@ -2052,34 +1886,20 @@ end
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.payload = {}
 
 -- Dissect: Payload
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.payload.dispatch = {
+  ["S"] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.system_event_message.dissect,
+  ["R"] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.stock_directory_message.dissect,
+  ["H"] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.stock_trading_action_message.dissect,
+  ["Y"] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reg_sho_short_sale_price_test_restricted_indicator_message.dissect,
+  ["V"] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.mwcb_decline_level_message.dissect,
+  ["W"] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.mwcb_status_message.dissect,
+  ["Q"] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.quotation_message.dissect,
+}
+
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Directory Message
-  if message_type == "R" then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.stock_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stock Trading Action Message
-  if message_type == "H" then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.stock_trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
-  if message_type == "Y" then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mwcb Decline Level Message
-  if message_type == "V" then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.mwcb_decline_level_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mwcb Status Message
-  if message_type == "W" then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.mwcb_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quotation Message
-  if message_type == "Q" then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.quotation_message.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2204,10 +2024,14 @@ end
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_body = {}
 
 -- Dissect: Message Body
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_body.dispatch = {
+  [0] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.end_of_session.dissect,
+}
+
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect End Of Session
-  if message_length == 0 then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.end_of_session.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.message_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Dissect Message Data
@@ -2300,10 +2124,14 @@ end
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.messages = {}
 
 -- Dissect: Messages
+nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.messages.dispatch = {
+  [0] = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.heartbeat.dissect,
+}
+
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

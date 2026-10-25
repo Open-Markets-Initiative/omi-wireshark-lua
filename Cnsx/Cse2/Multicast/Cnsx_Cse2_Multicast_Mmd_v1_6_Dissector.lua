@@ -246,15 +246,13 @@ cnsx_cse2_multicast_mmd_v1_6.anonymous_setting = {}
 cnsx_cse2_multicast_mmd_v1_6.anonymous_setting.size = 1
 
 -- Display: Anonymous Setting
-cnsx_cse2_multicast_mmd_v1_6.anonymous_setting.display = function(value)
-  if value == "Y" then
-    return "Anonymous Setting: Anonymous Enabled (Y)"
-  end
-  if value == "N" then
-    return "Anonymous Setting: Anonymous Disabled (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.anonymous_setting.labels = {
+  ["Y"] = "Anonymous Setting: Anonymous Enabled (Y)",
+  ["N"] = "Anonymous Setting: Anonymous Disabled (N)",
+}
 
-  return "Anonymous Setting: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.anonymous_setting.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.anonymous_setting.labels[value] or "Anonymous Setting: Unknown("..value..")"
 end
 
 -- Dissect: Anonymous Setting
@@ -449,15 +447,13 @@ cnsx_cse2_multicast_mmd_v1_6.ccp_session_trade = {}
 cnsx_cse2_multicast_mmd_v1_6.ccp_session_trade.size = 1
 
 -- Display: Ccp Session Trade
-cnsx_cse2_multicast_mmd_v1_6.ccp_session_trade.display = function(value)
-  if value == "Y" then
-    return "Ccp Session Trade: Ccp Session Trade (Y)"
-  end
-  if value == "N" then
-    return "Ccp Session Trade: Not Ccp Session Trade (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.ccp_session_trade.labels = {
+  ["Y"] = "Ccp Session Trade: Ccp Session Trade (Y)",
+  ["N"] = "Ccp Session Trade: Not Ccp Session Trade (N)",
+}
 
-  return "Ccp Session Trade: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.ccp_session_trade.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.ccp_session_trade.labels[value] or "Ccp Session Trade: Unknown("..value..")"
 end
 
 -- Dissect: Ccp Session Trade
@@ -599,33 +595,19 @@ cnsx_cse2_multicast_mmd_v1_6.event_code = {}
 cnsx_cse2_multicast_mmd_v1_6.event_code.size = 1
 
 -- Display: Event Code
-cnsx_cse2_multicast_mmd_v1_6.event_code.display = function(value)
-  if value == "O" then
-    return "Event Code: Start Of Messages The First Message Is Sent (O)"
-  end
-  if value == "S" then
-    return "Event Code: Start Of System Hours (S)"
-  end
-  if value == "H" then
-    return "Event Code: Trading Halted Orders Can Be Cancelled But No New Orders Can Be Entered (H)"
-  end
-  if value == "Q" then
-    return "Event Code: Start Of Market Hours The Preopen Auction Is Concluded And Continuous Trading Begins (Q)"
-  end
-  if value == "M" then
-    return "Event Code: End Of Market Hours Indicates The End Of Continuous Trading (M)"
-  end
-  if value == "E" then
-    return "Event Code: End Of System Hours Indicates The Exchange Is Closed (E)"
-  end
-  if value == "C" then
-    return "Event Code: End Of Messages The Last Message Sent (C)"
-  end
-  if value == "Z" then
-    return "Event Code: Failover Event (Z)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.event_code.labels = {
+  ["O"] = "Event Code: Start Of Messages The First Message Is Sent (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["H"] = "Event Code: Trading Halted Orders Can Be Cancelled But No New Orders Can Be Entered (H)",
+  ["Q"] = "Event Code: Start Of Market Hours The Preopen Auction Is Concluded And Continuous Trading Begins (Q)",
+  ["M"] = "Event Code: End Of Market Hours Indicates The End Of Continuous Trading (M)",
+  ["E"] = "Event Code: End Of System Hours Indicates The Exchange Is Closed (E)",
+  ["C"] = "Event Code: End Of Messages The Last Message Sent (C)",
+  ["Z"] = "Event Code: Failover Event (Z)",
+}
 
-  return "Event Code: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.event_code.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.event_code.labels[value] or "Event Code: Unknown("..value..")"
 end
 
 -- Dissect: Event Code
@@ -800,15 +782,13 @@ cnsx_cse2_multicast_mmd_v1_6.gmf_setting = {}
 cnsx_cse2_multicast_mmd_v1_6.gmf_setting.size = 1
 
 -- Display: Gmf Setting
-cnsx_cse2_multicast_mmd_v1_6.gmf_setting.display = function(value)
-  if value == "Y" then
-    return "Gmf Setting: Gmf Enabled (Y)"
-  end
-  if value == "N" then
-    return "Gmf Setting: Gmf Disabled (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.gmf_setting.labels = {
+  ["Y"] = "Gmf Setting: Gmf Enabled (Y)",
+  ["N"] = "Gmf Setting: Gmf Disabled (N)",
+}
 
-  return "Gmf Setting: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.gmf_setting.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.gmf_setting.labels[value] or "Gmf Setting: Unknown("..value..")"
 end
 
 -- Dissect: Gmf Setting
@@ -907,24 +887,16 @@ cnsx_cse2_multicast_mmd_v1_6.listing_market = {}
 cnsx_cse2_multicast_mmd_v1_6.listing_market.size = 1
 
 -- Display: Listing Market
-cnsx_cse2_multicast_mmd_v1_6.listing_market.display = function(value)
-  if value == "C" then
-    return "Listing Market: Cse (C)"
-  end
-  if value == "T" then
-    return "Listing Market: Tse (T)"
-  end
-  if value == "V" then
-    return "Listing Market: Tsxv (V)"
-  end
-  if value == "A" then
-    return "Listing Market: Alpha (A)"
-  end
-  if value == "N" then
-    return "Listing Market: Cboe Canada (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.listing_market.labels = {
+  ["C"] = "Listing Market: Cse (C)",
+  ["T"] = "Listing Market: Tse (T)",
+  ["V"] = "Listing Market: Tsxv (V)",
+  ["A"] = "Listing Market: Alpha (A)",
+  ["N"] = "Listing Market: Cboe Canada (N)",
+}
 
-  return "Listing Market: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.listing_market.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.listing_market.labels[value] or "Listing Market: Unknown("..value..")"
 end
 
 -- Dissect: Listing Market
@@ -946,18 +918,14 @@ cnsx_cse2_multicast_mmd_v1_6.listing_tier = {}
 cnsx_cse2_multicast_mmd_v1_6.listing_tier.size = 1
 
 -- Display: Listing Tier
-cnsx_cse2_multicast_mmd_v1_6.listing_tier.display = function(value)
-  if value == 0 then
-    return "Listing Tier: No Tier (0)"
-  end
-  if value == 1 then
-    return "Listing Tier: Senior Tier (1)"
-  end
-  if value == 2 then
-    return "Listing Tier: Venture Tier (2)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.listing_tier.labels = {
+  [0] = "Listing Tier: No Tier (0)",
+  [1] = "Listing Tier: Senior Tier (1)",
+  [2] = "Listing Tier: Venture Tier (2)",
+}
 
-  return "Listing Tier: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.listing_tier.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.listing_tier.labels[value] or "Listing Tier: Unknown("..value..")"
 end
 
 -- Dissect: Listing Tier
@@ -1094,54 +1062,26 @@ cnsx_cse2_multicast_mmd_v1_6.message_type = {}
 cnsx_cse2_multicast_mmd_v1_6.message_type.size = 1
 
 -- Display: Message Type
-cnsx_cse2_multicast_mmd_v1_6.message_type.display = function(value)
-  if value == "T" then
-    return "Message Type: Time Message (T)"
-  end
-  if value == "S" then
-    return "Message Type: System Event Message (S)"
-  end
-  if value == "R" then
-    return "Message Type: Symbol Directory Message (R)"
-  end
-  if value == "O" then
-    return "Message Type: Symbol Dynamics Message (O)"
-  end
-  if value == "H" then
-    return "Message Type: Trading Action Message (H)"
-  end
-  if value == "A" then
-    return "Message Type: Add Order Message (A)"
-  end
-  if value == "E" then
-    return "Message Type: Order Executed Message (E)"
-  end
-  if value == "C" then
-    return "Message Type: Order Executed With Price Message (C)"
-  end
-  if value == "P" then
-    return "Message Type: Trade Message (P)"
-  end
-  if value == "B" then
-    return "Message Type: Broken Trade Message (B)"
-  end
-  if value == "D" then
-    return "Message Type: Order Delete Message (D)"
-  end
-  if value == "U" then
-    return "Message Type: Order Replace Message (U)"
-  end
-  if value == "Q" then
-    return "Message Type: Best Bid Offer Message (Q)"
-  end
-  if value == "F" then
-    return "Message Type: Closing Price Message (F)"
-  end
-  if value == "G" then
-    return "Message Type: General Message (G)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.message_type.labels = {
+  ["T"] = "Message Type: Time Message (T)",
+  ["S"] = "Message Type: System Event Message (S)",
+  ["R"] = "Message Type: Symbol Directory Message (R)",
+  ["O"] = "Message Type: Symbol Dynamics Message (O)",
+  ["H"] = "Message Type: Trading Action Message (H)",
+  ["A"] = "Message Type: Add Order Message (A)",
+  ["E"] = "Message Type: Order Executed Message (E)",
+  ["C"] = "Message Type: Order Executed With Price Message (C)",
+  ["P"] = "Message Type: Trade Message (P)",
+  ["B"] = "Message Type: Broken Trade Message (B)",
+  ["D"] = "Message Type: Order Delete Message (D)",
+  ["U"] = "Message Type: Order Replace Message (U)",
+  ["Q"] = "Message Type: Best Bid Offer Message (Q)",
+  ["F"] = "Message Type: Closing Price Message (F)",
+  ["G"] = "Message Type: General Message (G)",
+}
 
-  return "Message Type: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.message_type.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1186,12 +1126,12 @@ cnsx_cse2_multicast_mmd_v1_6.moc_eligible = {}
 cnsx_cse2_multicast_mmd_v1_6.moc_eligible.size = 1
 
 -- Display: Moc Eligible
-cnsx_cse2_multicast_mmd_v1_6.moc_eligible.display = function(value)
-  if value == "N" then
-    return "Moc Eligible: Not Moc Eligible (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.moc_eligible.labels = {
+  ["N"] = "Moc Eligible: Not Moc Eligible (N)",
+}
 
-  return "Moc Eligible: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.moc_eligible.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.moc_eligible.labels[value] or "Moc Eligible: Unknown("..value..")"
 end
 
 -- Dissect: Moc Eligible
@@ -1213,15 +1153,13 @@ cnsx_cse2_multicast_mmd_v1_6.moc_trade_marker = {}
 cnsx_cse2_multicast_mmd_v1_6.moc_trade_marker.size = 1
 
 -- Display: Moc Trade Marker
-cnsx_cse2_multicast_mmd_v1_6.moc_trade_marker.display = function(value)
-  if value == "Y" then
-    return "Moc Trade Marker: Moc Or Loc Trade (Y)"
-  end
-  if value == "N" then
-    return "Moc Trade Marker: Not Moc Or Loc Trade (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.moc_trade_marker.labels = {
+  ["Y"] = "Moc Trade Marker: Moc Or Loc Trade (Y)",
+  ["N"] = "Moc Trade Marker: Not Moc Or Loc Trade (N)",
+}
 
-  return "Moc Trade Marker: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.moc_trade_marker.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.moc_trade_marker.labels[value] or "Moc Trade Marker: Unknown("..value..")"
 end
 
 -- Dissect: Moc Trade Marker
@@ -1243,15 +1181,13 @@ cnsx_cse2_multicast_mmd_v1_6.odd_lot_flag = {}
 cnsx_cse2_multicast_mmd_v1_6.odd_lot_flag.size = 1
 
 -- Display: Odd Lot Flag
-cnsx_cse2_multicast_mmd_v1_6.odd_lot_flag.display = function(value)
-  if value == "Y" then
-    return "Odd Lot Flag: Odd Lot Order (Y)"
-  end
-  if value == "N" then
-    return "Odd Lot Flag: Not An Odd Lot (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.odd_lot_flag.labels = {
+  ["Y"] = "Odd Lot Flag: Odd Lot Order (Y)",
+  ["N"] = "Odd Lot Flag: Not An Odd Lot (N)",
+}
 
-  return "Odd Lot Flag: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.odd_lot_flag.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.odd_lot_flag.labels[value] or "Odd Lot Flag: Unknown("..value..")"
 end
 
 -- Dissect: Odd Lot Flag
@@ -1273,15 +1209,13 @@ cnsx_cse2_multicast_mmd_v1_6.opening_trade = {}
 cnsx_cse2_multicast_mmd_v1_6.opening_trade.size = 1
 
 -- Display: Opening Trade
-cnsx_cse2_multicast_mmd_v1_6.opening_trade.display = function(value)
-  if value == "Y" then
-    return "Opening Trade: Opening Trade (Y)"
-  end
-  if value == "N" then
-    return "Opening Trade: Not Opening Trade (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.opening_trade.labels = {
+  ["Y"] = "Opening Trade: Opening Trade (Y)",
+  ["N"] = "Opening Trade: Not Opening Trade (N)",
+}
 
-  return "Opening Trade: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.opening_trade.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.opening_trade.labels[value] or "Opening Trade: Unknown("..value..")"
 end
 
 -- Dissect: Opening Trade
@@ -1326,15 +1260,13 @@ cnsx_cse2_multicast_mmd_v1_6.order_verb = {}
 cnsx_cse2_multicast_mmd_v1_6.order_verb.size = 1
 
 -- Display: Order Verb
-cnsx_cse2_multicast_mmd_v1_6.order_verb.display = function(value)
-  if value == "B" then
-    return "Order Verb: Buy (B)"
-  end
-  if value == "S" then
-    return "Order Verb: Sell (S)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.order_verb.labels = {
+  ["B"] = "Order Verb: Buy (B)",
+  ["S"] = "Order Verb: Sell (S)",
+}
 
-  return "Order Verb: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.order_verb.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.order_verb.labels[value] or "Order Verb: Unknown("..value..")"
 end
 
 -- Dissect: Order Verb
@@ -1461,15 +1393,13 @@ cnsx_cse2_multicast_mmd_v1_6.reason = {}
 cnsx_cse2_multicast_mmd_v1_6.reason.size = 1
 
 -- Display: Reason
-cnsx_cse2_multicast_mmd_v1_6.reason.display = function(value)
-  if value == "S" then
-    return "Reason: Supervisory The Trade Was Manually Broken By The Exchange (S)"
-  end
-  if value == "A" then
-    return "Reason: Amended (A)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.reason.labels = {
+  ["S"] = "Reason: Supervisory The Trade Was Manually Broken By The Exchange (S)",
+  ["A"] = "Reason: Amended (A)",
+}
 
-  return "Reason: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.reason.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.reason.labels[value] or "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1547,15 +1477,13 @@ cnsx_cse2_multicast_mmd_v1_6.sets_the_last_price = {}
 cnsx_cse2_multicast_mmd_v1_6.sets_the_last_price.size = 1
 
 -- Display: Sets The Last Price
-cnsx_cse2_multicast_mmd_v1_6.sets_the_last_price.display = function(value)
-  if value == "Y" then
-    return "Sets The Last Price: Last Sale (Y)"
-  end
-  if value == "N" then
-    return "Sets The Last Price: Not Last Sale (N)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.sets_the_last_price.labels = {
+  ["Y"] = "Sets The Last Price: Last Sale (Y)",
+  ["N"] = "Sets The Last Price: Not Last Sale (N)",
+}
 
-  return "Sets The Last Price: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.sets_the_last_price.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.sets_the_last_price.labels[value] or "Sets The Last Price: Unknown("..value..")"
 end
 
 -- Dissect: Sets The Last Price
@@ -1600,15 +1528,13 @@ cnsx_cse2_multicast_mmd_v1_6.stock_group = {}
 cnsx_cse2_multicast_mmd_v1_6.stock_group.size = 8
 
 -- Display: Stock Group
-cnsx_cse2_multicast_mmd_v1_6.stock_group.display = function(value)
-  if value == 1 then
-    return "Stock Group: CSE Listed Securities (1)"
-  end
-  if value == 2 then
-    return "Stock Group: Other Canadian Listed Securities (2)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.stock_group.labels = {
+  [1] = "Stock Group: CSE Listed Securities (1)",
+  [2] = "Stock Group: Other Canadian Listed Securities (2)",
+}
 
-  return "Stock Group: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.stock_group.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.stock_group.labels[value] or "Stock Group: Unknown("..value..")"
 end
 
 -- Dissect: Stock Group
@@ -1729,18 +1655,14 @@ cnsx_cse2_multicast_mmd_v1_6.trading_state = {}
 cnsx_cse2_multicast_mmd_v1_6.trading_state.size = 1
 
 -- Display: Trading State
-cnsx_cse2_multicast_mmd_v1_6.trading_state.display = function(value)
-  if value == "N" then
-    return "Trading State: Normal Trading (N)"
-  end
-  if value == "V" then
-    return "Trading State: Suspend Trading (V)"
-  end
-  if value == "H" then
-    return "Trading State: Halt (H)"
-  end
+cnsx_cse2_multicast_mmd_v1_6.trading_state.labels = {
+  ["N"] = "Trading State: Normal Trading (N)",
+  ["V"] = "Trading State: Suspend Trading (V)",
+  ["H"] = "Trading State: Halt (H)",
+}
 
-  return "Trading State: Unknown("..value..")"
+cnsx_cse2_multicast_mmd_v1_6.trading_state.display = function(value)
+  return cnsx_cse2_multicast_mmd_v1_6.trading_state.labels[value] or "Trading State: Unknown("..value..")"
 end
 
 -- Dissect: Trading State
@@ -2750,66 +2672,28 @@ end
 cnsx_cse2_multicast_mmd_v1_6.payload = {}
 
 -- Dissect: Payload
+cnsx_cse2_multicast_mmd_v1_6.payload.dispatch = {
+  ["T"] = cnsx_cse2_multicast_mmd_v1_6.time_message.dissect,
+  ["S"] = cnsx_cse2_multicast_mmd_v1_6.system_event_message.dissect,
+  ["R"] = cnsx_cse2_multicast_mmd_v1_6.symbol_directory_message.dissect,
+  ["O"] = cnsx_cse2_multicast_mmd_v1_6.symbol_dynamics_message.dissect,
+  ["H"] = cnsx_cse2_multicast_mmd_v1_6.trading_action_message.dissect,
+  ["A"] = cnsx_cse2_multicast_mmd_v1_6.add_order_message.dissect,
+  ["E"] = cnsx_cse2_multicast_mmd_v1_6.order_executed_message.dissect,
+  ["C"] = cnsx_cse2_multicast_mmd_v1_6.order_executed_with_price_message.dissect,
+  ["P"] = cnsx_cse2_multicast_mmd_v1_6.trade_message.dissect,
+  ["B"] = cnsx_cse2_multicast_mmd_v1_6.broken_trade_message.dissect,
+  ["D"] = cnsx_cse2_multicast_mmd_v1_6.order_delete_message.dissect,
+  ["U"] = cnsx_cse2_multicast_mmd_v1_6.order_replace_message.dissect,
+  ["Q"] = cnsx_cse2_multicast_mmd_v1_6.best_bid_offer_message.dissect,
+  ["F"] = cnsx_cse2_multicast_mmd_v1_6.closing_price_message.dissect,
+  ["G"] = cnsx_cse2_multicast_mmd_v1_6.general_message.dissect,
+}
+
 cnsx_cse2_multicast_mmd_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Message
-  if message_type == "T" then
-    return cnsx_cse2_multicast_mmd_v1_6.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Event Message
-  if message_type == "S" then
-    return cnsx_cse2_multicast_mmd_v1_6.system_event_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Directory Message
-  if message_type == "R" then
-    return cnsx_cse2_multicast_mmd_v1_6.symbol_directory_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Dynamics Message
-  if message_type == "O" then
-    return cnsx_cse2_multicast_mmd_v1_6.symbol_dynamics_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Action Message
-  if message_type == "H" then
-    return cnsx_cse2_multicast_mmd_v1_6.trading_action_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Message
-  if message_type == "A" then
-    return cnsx_cse2_multicast_mmd_v1_6.add_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == "E" then
-    return cnsx_cse2_multicast_mmd_v1_6.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed With Price Message
-  if message_type == "C" then
-    return cnsx_cse2_multicast_mmd_v1_6.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == "P" then
-    return cnsx_cse2_multicast_mmd_v1_6.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Broken Trade Message
-  if message_type == "B" then
-    return cnsx_cse2_multicast_mmd_v1_6.broken_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == "D" then
-    return cnsx_cse2_multicast_mmd_v1_6.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Replace Message
-  if message_type == "U" then
-    return cnsx_cse2_multicast_mmd_v1_6.order_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Best Bid Offer Message
-  if message_type == "Q" then
-    return cnsx_cse2_multicast_mmd_v1_6.best_bid_offer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Closing Price Message
-  if message_type == "F" then
-    return cnsx_cse2_multicast_mmd_v1_6.closing_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect General Message
-  if message_type == "G" then
-    return cnsx_cse2_multicast_mmd_v1_6.general_message.dissect(buffer, offset, packet, parent)
+  local dissect = cnsx_cse2_multicast_mmd_v1_6.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

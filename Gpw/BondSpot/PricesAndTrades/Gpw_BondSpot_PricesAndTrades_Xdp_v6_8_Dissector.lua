@@ -177,24 +177,16 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.delivery_flag = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.delivery_flag.size = 1
 
 -- Display: Delivery Flag
-gpw_bondspot_pricesandtrades_xdp_v6_8.delivery_flag.display = function(value)
-  if value == 0 then
-    return "Delivery Flag: Real Time Message Uncompressed (0)"
-  end
-  if value == 2 then
-    return "Delivery Flag: Retransmission Message Uncompressed (2)"
-  end
-  if value == 16 then
-    return "Delivery Flag: Real Time Message Zlib Compressed (16)"
-  end
-  if value == 17 then
-    return "Delivery Flag: Refresh Message Zlib Compressed (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Retransmission Message Compressed (18)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.delivery_flag.labels = {
+  [0] = "Delivery Flag: Real Time Message Uncompressed (0)",
+  [2] = "Delivery Flag: Retransmission Message Uncompressed (2)",
+  [16] = "Delivery Flag: Real Time Message Zlib Compressed (16)",
+  [17] = "Delivery Flag: Refresh Message Zlib Compressed (17)",
+  [18] = "Delivery Flag: Retransmission Message Compressed (18)",
+}
 
-  return "Delivery Flag: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.delivery_flag.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
 end
 
 -- Dissect: Delivery Flag
@@ -285,15 +277,13 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.last_trade_indicator = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.last_trade_indicator.size = 1
 
 -- Display: Last Trade Indicator
-gpw_bondspot_pricesandtrades_xdp_v6_8.last_trade_indicator.display = function(value)
-  if value == "0" then
-    return "Last Trade Indicator: Not Last Of A Series Of Trade At The Same Price (0)"
-  end
-  if value == "1" then
-    return "Last Trade Indicator: Last Of A Series Of Trade At The Same Price And (1)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.last_trade_indicator.labels = {
+  ["0"] = "Last Trade Indicator: Not Last Of A Series Of Trade At The Same Price (0)",
+  ["1"] = "Last Trade Indicator: Last Of A Series Of Trade At The Same Price And (1)",
+}
 
-  return "Last Trade Indicator: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.last_trade_indicator.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.last_trade_indicator.labels[value] or "Last Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Last Trade Indicator
@@ -361,15 +351,13 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.message_type = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.message_type.size = 2
 
 -- Display: Message Type
-gpw_bondspot_pricesandtrades_xdp_v6_8.message_type.display = function(value)
-  if value == 240 then
-    return "Message Type: Trade Full Information Message (240)"
-  end
-  if value == 241 then
-    return "Message Type: Price Update Message (241)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.message_type.labels = {
+  [240] = "Message Type: Trade Full Information Message (240)",
+  [241] = "Message Type: Price Update Message (241)",
+}
 
-  return "Message Type: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.message_type.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -723,12 +711,12 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.packet_type = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.packet_type.size = 2
 
 -- Display: Packet Type
-gpw_bondspot_pricesandtrades_xdp_v6_8.packet_type.display = function(value)
-  if value == 501 then
-    return "Packet Type: Market Data Messages (501)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.packet_type.labels = {
+  [501] = "Packet Type: Market Data Messages (501)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.packet_type.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -1115,18 +1103,14 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.system_id = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.system_id.size = 4
 
 -- Display: System Id
-gpw_bondspot_pricesandtrades_xdp_v6_8.system_id.display = function(value)
-  if value == 1 then
-    return "System Id: All Non Utp Systems (1)"
-  end
-  if value == 11 then
-    return "System Id: Utp Trading Unit 1 (11)"
-  end
-  if value == 12 then
-    return "System Id: Utp Trading Unit 2 (12)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.system_id.labels = {
+  [1] = "System Id: All Non Utp Systems (1)",
+  [11] = "System Id: Utp Trading Unit 1 (11)",
+  [12] = "System Id: Utp Trading Unit 2 (12)",
+}
 
-  return "System Id: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.system_id.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.system_id.labels[value] or "System Id: Unknown("..value..")"
 end
 
 -- Dissect: System Id
@@ -1148,18 +1132,14 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.tick_direction = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.tick_direction.size = 1
 
 -- Display: Tick Direction
-gpw_bondspot_pricesandtrades_xdp_v6_8.tick_direction.display = function(value)
-  if value == "+" then
-    return "Tick Direction: Positive Rising (+)"
-  end
-  if value == "-" then
-    return "Tick Direction: Negative Falling (-)"
-  end
-  if value == "0" then
-    return "Tick Direction: No Variation Unchanged Or Data Field Not Significant Used For Trade Cancellation (0)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.tick_direction.labels = {
+  ["+"] = "Tick Direction: Positive Rising (+)",
+  ["-"] = "Tick Direction: Negative Falling (-)",
+  ["0"] = "Tick Direction: No Variation Unchanged Or Data Field Not Significant Used For Trade Cancellation (0)",
+}
 
-  return "Tick Direction: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.tick_direction.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.tick_direction.labels[value] or "Tick Direction: Unknown("..value..")"
 end
 
 -- Dissect: Tick Direction
@@ -1204,27 +1184,17 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.trade_origin = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.trade_origin.size = 1
 
 -- Display: Trade Origin
-gpw_bondspot_pricesandtrades_xdp_v6_8.trade_origin.display = function(value)
-  if value == "B" then
-    return "Trade Origin: Orders From The Book (B)"
-  end
-  if value == "O" then
-    return "Trade Origin: Block Trade (O)"
-  end
-  if value == "I" then
-    return "Trade Origin: Ipo Trade (I)"
-  end
-  if value == "T" then
-    return "Trade Origin: Tender Offer Trade (T)"
-  end
-  if value == "S" then
-    return "Trade Origin: Biso Trade (S)"
-  end
-  if value == "R" then
-    return "Trade Origin: Trade Reporting For Future Use (R)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.trade_origin.labels = {
+  ["B"] = "Trade Origin: Orders From The Book (B)",
+  ["O"] = "Trade Origin: Block Trade (O)",
+  ["I"] = "Trade Origin: Ipo Trade (I)",
+  ["T"] = "Trade Origin: Tender Offer Trade (T)",
+  ["S"] = "Trade Origin: Biso Trade (S)",
+  ["R"] = "Trade Origin: Trade Reporting For Future Use (R)",
+}
 
-  return "Trade Origin: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.trade_origin.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.trade_origin.labels[value] or "Trade Origin: Unknown("..value..")"
 end
 
 -- Dissect: Trade Origin
@@ -1315,45 +1285,23 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_price = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_price.size = 2
 
 -- Display: Type Of Price
-gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_price.display = function(value)
-  if value == 2 then
-    return "Type Of Price: Bid Price The Indicative Sell Price Of Instrument Calculated In Accordance With The Regulation For Treasury Securities Fixing Determined By Nbp (2)"
-  end
-  if value == 3 then
-    return "Type Of Price: Ask Price The Indicative Buy Price Of Instrument Calculated In Accordance With The Regulation For Treasury Securities Fixing Determined By Nbp (3)"
-  end
-  if value == 30 then
-    return "Type Of Price: Change Of First Price (30)"
-  end
-  if value == 31 then
-    return "Type Of Price: New High Price (31)"
-  end
-  if value == 32 then
-    return "Type Of Price: New Low Price (32)"
-  end
-  if value == 33 then
-    return "Type Of Price: New Last Price (33)"
-  end
-  if value == 34 then
-    return "Type Of Price: Reference Price (34)"
-  end
-  if value == 50 then
-    return "Type Of Price: Fixing Price Calculated As The Arithmetic Mean Of The Indicative Buy Price And The Indicative Sell Price Of A Given Treasury Security (50)"
-  end
-  if value == 77 then
-    return "Type Of Price: Reference Price Tbsp Price (77)"
-  end
-  if value == 78 then
-    return "Type Of Price: Reference Price Tbs Pfix Price (78)"
-  end
-  if value == 88 then
-    return "Type Of Price: Mid Price (88)"
-  end
-  if value == 99 then
-    return "Type Of Price: Treasury Bond Spot Spot Price The Reference Price For Repo Trades For Fixing Instruments (99)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_price.labels = {
+  [2] = "Type Of Price: Bid Price The Indicative Sell Price Of Instrument Calculated In Accordance With The Regulation For Treasury Securities Fixing Determined By Nbp (2)",
+  [3] = "Type Of Price: Ask Price The Indicative Buy Price Of Instrument Calculated In Accordance With The Regulation For Treasury Securities Fixing Determined By Nbp (3)",
+  [30] = "Type Of Price: Change Of First Price (30)",
+  [31] = "Type Of Price: New High Price (31)",
+  [32] = "Type Of Price: New Low Price (32)",
+  [33] = "Type Of Price: New Last Price (33)",
+  [34] = "Type Of Price: Reference Price (34)",
+  [50] = "Type Of Price: Fixing Price Calculated As The Arithmetic Mean Of The Indicative Buy Price And The Indicative Sell Price Of A Given Treasury Security (50)",
+  [77] = "Type Of Price: Reference Price Tbsp Price (77)",
+  [78] = "Type Of Price: Reference Price Tbs Pfix Price (78)",
+  [88] = "Type Of Price: Mid Price (88)",
+  [99] = "Type Of Price: Treasury Bond Spot Spot Price The Reference Price For Repo Trades For Fixing Instruments (99)",
+}
 
-  return "Type Of Price: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_price.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_price.labels[value] or "Type Of Price: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Price
@@ -1375,24 +1323,16 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_trade = {}
 gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_trade.size = 1
 
 -- Display: Type Of Trade
-gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_trade.display = function(value)
-  if value == "0" then
-    return "Type Of Trade: Trade Does Not Stem From A Cross Order (0)"
-  end
-  if value == "1" then
-    return "Type Of Trade: Trade Stems From A Cross Order (1)"
-  end
-  if value == "4" then
-    return "Type Of Trade: Valuation Trade (4)"
-  end
-  if value == "5" then
-    return "Type Of Trade: Internalized Trade (5)"
-  end
-  if value == "6" then
-    return "Type Of Trade: Internalized Cross Trade (6)"
-  end
+gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_trade.labels = {
+  ["0"] = "Type Of Trade: Trade Does Not Stem From A Cross Order (0)",
+  ["1"] = "Type Of Trade: Trade Stems From A Cross Order (1)",
+  ["4"] = "Type Of Trade: Valuation Trade (4)",
+  ["5"] = "Type Of Trade: Internalized Trade (5)",
+  ["6"] = "Type Of Trade: Internalized Cross Trade (6)",
+}
 
-  return "Type Of Trade: Unknown("..value..")"
+gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_trade.display = function(value)
+  return gpw_bondspot_pricesandtrades_xdp_v6_8.type_of_trade.labels[value] or "Type Of Trade: Unknown("..value..")"
 end
 
 -- Dissect: Type Of Trade
@@ -1765,14 +1705,15 @@ end
 gpw_bondspot_pricesandtrades_xdp_v6_8.payload = {}
 
 -- Dissect: Payload
+gpw_bondspot_pricesandtrades_xdp_v6_8.payload.dispatch = {
+  [240] = gpw_bondspot_pricesandtrades_xdp_v6_8.trade_full_information_message.dissect,
+  [241] = gpw_bondspot_pricesandtrades_xdp_v6_8.price_update_message.dissect,
+}
+
 gpw_bondspot_pricesandtrades_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Trade Full Information Message
-  if message_type == 240 then
-    return gpw_bondspot_pricesandtrades_xdp_v6_8.trade_full_information_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Update Message
-  if message_type == 241 then
-    return gpw_bondspot_pricesandtrades_xdp_v6_8.price_update_message.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_bondspot_pricesandtrades_xdp_v6_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

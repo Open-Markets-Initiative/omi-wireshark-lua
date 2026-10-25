@@ -171,15 +171,13 @@ otcmarkets_moonats_depthofbook_link_v1_3.asset_class = {}
 otcmarkets_moonats_depthofbook_link_v1_3.asset_class.size = 1
 
 -- Display: Asset Class
-otcmarkets_moonats_depthofbook_link_v1_3.asset_class.display = function(value)
-  if value == 1 then
-    return "Asset Class: Equity (1)"
-  end
-  if value == 2 then
-    return "Asset Class: Fixed Income (2)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.asset_class.labels = {
+  [1] = "Asset Class: Equity (1)",
+  [2] = "Asset Class: Fixed Income (2)",
+}
 
-  return "Asset Class: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.asset_class.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.asset_class.labels[value] or "Asset Class: Unknown("..value..")"
 end
 
 -- Dissect: Asset Class
@@ -253,21 +251,15 @@ otcmarkets_moonats_depthofbook_link_v1_3.current_inside_imbalance_side = {}
 otcmarkets_moonats_depthofbook_link_v1_3.current_inside_imbalance_side.size = 1
 
 -- Display: Current Inside Imbalance Side
-otcmarkets_moonats_depthofbook_link_v1_3.current_inside_imbalance_side.display = function(value)
-  if value == "B" then
-    return "Current Inside Imbalance Side: Buy Side (B)"
-  end
-  if value == "S" then
-    return "Current Inside Imbalance Side: Sell Side (S)"
-  end
-  if value == "N" then
-    return "Current Inside Imbalance Side: No Imbalance (N)"
-  end
-  if value == "O" then
-    return "Current Inside Imbalance Side: No Marketable Orders (O)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.current_inside_imbalance_side.labels = {
+  ["B"] = "Current Inside Imbalance Side: Buy Side (B)",
+  ["S"] = "Current Inside Imbalance Side: Sell Side (S)",
+  ["N"] = "Current Inside Imbalance Side: No Imbalance (N)",
+  ["O"] = "Current Inside Imbalance Side: No Marketable Orders (O)",
+}
 
-  return "Current Inside Imbalance Side: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.current_inside_imbalance_side.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.current_inside_imbalance_side.labels[value] or "Current Inside Imbalance Side: Unknown("..value..")"
 end
 
 -- Dissect: Current Inside Imbalance Side
@@ -503,45 +495,23 @@ otcmarkets_moonats_depthofbook_link_v1_3.message_type = {}
 otcmarkets_moonats_depthofbook_link_v1_3.message_type.size = 1
 
 -- Display: Message Type
-otcmarkets_moonats_depthofbook_link_v1_3.message_type.display = function(value)
-  if value == 11 then
-    return "Message Type: Start Of Spin Message (11)"
-  end
-  if value == 12 then
-    return "Message Type: End Of Spin Message (12)"
-  end
-  if value == 20 then
-    return "Message Type: Trading Session Message (20)"
-  end
-  if value == 9 then
-    return "Message Type: Security Message (9)"
-  end
-  if value == 21 then
-    return "Message Type: Order Add Message (21)"
-  end
-  if value == 22 then
-    return "Message Type: Order Update Message (22)"
-  end
-  if value == 23 then
-    return "Message Type: Order Delete Message (23)"
-  end
-  if value == 24 then
-    return "Message Type: Order Execution Message (24)"
-  end
-  if value == 25 then
-    return "Message Type: Order Execution With Price Message (25)"
-  end
-  if value == 26 then
-    return "Message Type: Trade Message (26)"
-  end
-  if value == 28 then
-    return "Message Type: Imbalance Message (28)"
-  end
-  if value == 74 then
-    return "Message Type: System Recovery Event Message (74)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.message_type.labels = {
+  [11] = "Message Type: Start Of Spin Message (11)",
+  [12] = "Message Type: End Of Spin Message (12)",
+  [20] = "Message Type: Trading Session Message (20)",
+  [9] = "Message Type: Security Message (9)",
+  [21] = "Message Type: Order Add Message (21)",
+  [22] = "Message Type: Order Update Message (22)",
+  [23] = "Message Type: Order Delete Message (23)",
+  [24] = "Message Type: Order Execution Message (24)",
+  [25] = "Message Type: Order Execution With Price Message (25)",
+  [26] = "Message Type: Trade Message (26)",
+  [28] = "Message Type: Imbalance Message (28)",
+  [74] = "Message Type: System Recovery Event Message (74)",
+}
 
-  return "Message Type: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.message_type.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -563,18 +533,14 @@ otcmarkets_moonats_depthofbook_link_v1_3.moc_shares_unmatched = {}
 otcmarkets_moonats_depthofbook_link_v1_3.moc_shares_unmatched.size = 1
 
 -- Display: Moc Shares Unmatched
-otcmarkets_moonats_depthofbook_link_v1_3.moc_shares_unmatched.display = function(value)
-  if value == "B" then
-    return "Moc Shares Unmatched: Buy Moc Not Matched (B)"
-  end
-  if value == "S" then
-    return "Moc Shares Unmatched: Sell Moc Not Matched (S)"
-  end
-  if value == "O" then
-    return "Moc Shares Unmatched: No Moc Unmatched (O)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.moc_shares_unmatched.labels = {
+  ["B"] = "Moc Shares Unmatched: Buy Moc Not Matched (B)",
+  ["S"] = "Moc Shares Unmatched: Sell Moc Not Matched (S)",
+  ["O"] = "Moc Shares Unmatched: No Moc Unmatched (O)",
+}
 
-  return "Moc Shares Unmatched: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.moc_shares_unmatched.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.moc_shares_unmatched.labels[value] or "Moc Shares Unmatched: Unknown("..value..")"
 end
 
 -- Dissect: Moc Shares Unmatched
@@ -836,15 +802,13 @@ otcmarkets_moonats_depthofbook_link_v1_3.recovery_type = {}
 otcmarkets_moonats_depthofbook_link_v1_3.recovery_type.size = 1
 
 -- Display: Recovery Type
-otcmarkets_moonats_depthofbook_link_v1_3.recovery_type.display = function(value)
-  if value == 83 then
-    return "Recovery Type: Scheduling Start (83)"
-  end
-  if value == 66 then
-    return "Recovery Type: Recovery Begins (66)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.recovery_type.labels = {
+  [83] = "Recovery Type: Scheduling Start (83)",
+  [66] = "Recovery Type: Recovery Begins (66)",
+}
 
-  return "Recovery Type: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.recovery_type.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.recovery_type.labels[value] or "Recovery Type: Unknown("..value..")"
 end
 
 -- Dissect: Recovery Type
@@ -889,39 +853,21 @@ otcmarkets_moonats_depthofbook_link_v1_3.reporting_status = {}
 otcmarkets_moonats_depthofbook_link_v1_3.reporting_status.size = 1
 
 -- Display: Reporting Status
-otcmarkets_moonats_depthofbook_link_v1_3.reporting_status.display = function(value)
-  if value == "A" then
-    return "Reporting Status: Alternative Reporting Standard (A)"
-  end
-  if value == "B" then
-    return "Reporting Status: Bank Thrift (B)"
-  end
-  if value == "F" then
-    return "Reporting Status: Sec Reporting (F)"
-  end
-  if value == "G" then
-    return "Reporting Status: International Reporting (G)"
-  end
-  if value == "I" then
-    return "Reporting Status: Insurance Company (I)"
-  end
-  if value == "N" then
-    return "Reporting Status: No Reporting (N)"
-  end
-  if value == "O" then
-    return "Reporting Status: Other Reporting Standard (O)"
-  end
-  if value == "R" then
-    return "Reporting Status: Finra Reporting (R)"
-  end
-  if value == "V" then
-    return "Reporting Status: Sec Reporting Investment Company (V)"
-  end
-  if value == "W" then
-    return "Reporting Status: Sec Reporting Reg A (W)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.reporting_status.labels = {
+  ["A"] = "Reporting Status: Alternative Reporting Standard (A)",
+  ["B"] = "Reporting Status: Bank Thrift (B)",
+  ["F"] = "Reporting Status: Sec Reporting (F)",
+  ["G"] = "Reporting Status: International Reporting (G)",
+  ["I"] = "Reporting Status: Insurance Company (I)",
+  ["N"] = "Reporting Status: No Reporting (N)",
+  ["O"] = "Reporting Status: Other Reporting Standard (O)",
+  ["R"] = "Reporting Status: Finra Reporting (R)",
+  ["V"] = "Reporting Status: Sec Reporting Investment Company (V)",
+  ["W"] = "Reporting Status: Sec Reporting Reg A (W)",
+}
 
-  return "Reporting Status: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.reporting_status.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.reporting_status.labels[value] or "Reporting Status: Unknown("..value..")"
 end
 
 -- Dissect: Reporting Status
@@ -966,21 +912,15 @@ otcmarkets_moonats_depthofbook_link_v1_3.security_action = {}
 otcmarkets_moonats_depthofbook_link_v1_3.security_action.size = 1
 
 -- Display: Security Action
-otcmarkets_moonats_depthofbook_link_v1_3.security_action.display = function(value)
-  if value == 1 then
-    return "Security Action: Update (1)"
-  end
-  if value == 2 then
-    return "Security Action: Add (2)"
-  end
-  if value == 3 then
-    return "Security Action: Delete (3)"
-  end
-  if value == 4 then
-    return "Security Action: Spin (4)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.security_action.labels = {
+  [1] = "Security Action: Update (1)",
+  [2] = "Security Action: Add (2)",
+  [3] = "Security Action: Delete (3)",
+  [4] = "Security Action: Spin (4)",
+}
 
-  return "Security Action: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.security_action.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.security_action.labels[value] or "Security Action: Unknown("..value..")"
 end
 
 -- Dissect: Security Action
@@ -1025,33 +965,19 @@ otcmarkets_moonats_depthofbook_link_v1_3.security_status = {}
 otcmarkets_moonats_depthofbook_link_v1_3.security_status.size = 1
 
 -- Display: Security Status
-otcmarkets_moonats_depthofbook_link_v1_3.security_status.display = function(value)
-  if value == "A" then
-    return "Security Status: Active (A)"
-  end
-  if value == "Q" then
-    return "Security Status: Quote Only (Q)"
-  end
-  if value == "S" then
-    return "Security Status: Suspended (S)"
-  end
-  if value == "H" then
-    return "Security Status: Halted (H)"
-  end
-  if value == "I" then
-    return "Security Status: Internal Halt (I)"
-  end
-  if value == "R" then
-    return "Security Status: Revoked (R)"
-  end
-  if value == "D" then
-    return "Security Status: Deleted (D)"
-  end
-  if value == "X" then
-    return "Security Status: Removed From Idqs (X)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.security_status.labels = {
+  ["A"] = "Security Status: Active (A)",
+  ["Q"] = "Security Status: Quote Only (Q)",
+  ["S"] = "Security Status: Suspended (S)",
+  ["H"] = "Security Status: Halted (H)",
+  ["I"] = "Security Status: Internal Halt (I)",
+  ["R"] = "Security Status: Revoked (R)",
+  ["D"] = "Security Status: Deleted (D)",
+  ["X"] = "Security Status: Removed From Idqs (X)",
+}
 
-  return "Security Status: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.security_status.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.security_status.labels[value] or "Security Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Status
@@ -1120,15 +1046,13 @@ otcmarkets_moonats_depthofbook_link_v1_3.side_indicator = {}
 otcmarkets_moonats_depthofbook_link_v1_3.side_indicator.size = 1
 
 -- Display: Side Indicator
-otcmarkets_moonats_depthofbook_link_v1_3.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.side_indicator.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1244,12 +1168,12 @@ otcmarkets_moonats_depthofbook_link_v1_3.spin_type = {}
 otcmarkets_moonats_depthofbook_link_v1_3.spin_type.size = 1
 
 -- Display: Spin Type
-otcmarkets_moonats_depthofbook_link_v1_3.spin_type.display = function(value)
-  if value == 1 then
-    return "Spin Type: Reference (1)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.spin_type.labels = {
+  [1] = "Spin Type: Reference (1)",
+}
 
-  return "Spin Type: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.spin_type.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.spin_type.labels[value] or "Spin Type: Unknown("..value..")"
 end
 
 -- Dissect: Spin Type
@@ -1294,12 +1218,12 @@ otcmarkets_moonats_depthofbook_link_v1_3.tier = {}
 otcmarkets_moonats_depthofbook_link_v1_3.tier.size = 1
 
 -- Display: Tier
-otcmarkets_moonats_depthofbook_link_v1_3.tier.display = function(value)
-  if value == 0 then
-    return "Tier: No Tier (0)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.tier.labels = {
+  [0] = "Tier: No Tier (0)",
+}
 
-  return "Tier: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.tier.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.tier.labels[value] or "Tier: Unknown("..value..")"
 end
 
 -- Dissect: Tier
@@ -1364,18 +1288,14 @@ otcmarkets_moonats_depthofbook_link_v1_3.trading_session = {}
 otcmarkets_moonats_depthofbook_link_v1_3.trading_session.size = 1
 
 -- Display: Trading Session
-otcmarkets_moonats_depthofbook_link_v1_3.trading_session.display = function(value)
-  if value == 1 then
-    return "Trading Session: Order Acceptance (1)"
-  end
-  if value == 5 then
-    return "Trading Session: Market Close (5)"
-  end
-  if value == 6 then
-    return "Trading Session: Overnight (6)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.trading_session.labels = {
+  [1] = "Trading Session: Order Acceptance (1)",
+  [5] = "Trading Session: Market Close (5)",
+  [6] = "Trading Session: Overnight (6)",
+}
 
-  return "Trading Session: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.trading_session.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.trading_session.labels[value] or "Trading Session: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session
@@ -1397,15 +1317,13 @@ otcmarkets_moonats_depthofbook_link_v1_3.unsolicited = {}
 otcmarkets_moonats_depthofbook_link_v1_3.unsolicited.size = 1
 
 -- Display: Unsolicited
-otcmarkets_moonats_depthofbook_link_v1_3.unsolicited.display = function(value)
-  if value == "Y" then
-    return "Unsolicited: Unsolicited (Y)"
-  end
-  if value == "N" then
-    return "Unsolicited: Not Unsolicited (N)"
-  end
+otcmarkets_moonats_depthofbook_link_v1_3.unsolicited.labels = {
+  ["Y"] = "Unsolicited: Unsolicited (Y)",
+  ["N"] = "Unsolicited: Not Unsolicited (N)",
+}
 
-  return "Unsolicited: Unknown("..value..")"
+otcmarkets_moonats_depthofbook_link_v1_3.unsolicited.display = function(value)
+  return otcmarkets_moonats_depthofbook_link_v1_3.unsolicited.labels[value] or "Unsolicited: Unknown("..value..")"
 end
 
 -- Dissect: Unsolicited
@@ -2192,54 +2110,25 @@ end
 otcmarkets_moonats_depthofbook_link_v1_3.payload = {}
 
 -- Dissect: Payload
+otcmarkets_moonats_depthofbook_link_v1_3.payload.dispatch = {
+  [11] = otcmarkets_moonats_depthofbook_link_v1_3.start_of_spin_message.dissect,
+  [12] = otcmarkets_moonats_depthofbook_link_v1_3.end_of_spin_message.dissect,
+  [20] = otcmarkets_moonats_depthofbook_link_v1_3.trading_session_message.dissect,
+  [9] = otcmarkets_moonats_depthofbook_link_v1_3.security_message.dissect,
+  [21] = otcmarkets_moonats_depthofbook_link_v1_3.order_add_message.dissect,
+  [22] = otcmarkets_moonats_depthofbook_link_v1_3.order_update_message.dissect,
+  [23] = otcmarkets_moonats_depthofbook_link_v1_3.order_delete_message.dissect,
+  [24] = otcmarkets_moonats_depthofbook_link_v1_3.order_execution_message.dissect,
+  [25] = otcmarkets_moonats_depthofbook_link_v1_3.order_execution_with_price_message.dissect,
+  [26] = otcmarkets_moonats_depthofbook_link_v1_3.trade_message.dissect,
+  [28] = otcmarkets_moonats_depthofbook_link_v1_3.imbalance_message.dissect,
+  [74] = otcmarkets_moonats_depthofbook_link_v1_3.system_recovery_event_message.dissect,
+}
+
 otcmarkets_moonats_depthofbook_link_v1_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Start Of Spin Message
-  if message_type == 11 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.start_of_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Spin Message
-  if message_type == 12 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.end_of_spin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Message
-  if message_type == 20 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.trading_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Security Message
-  if message_type == 9 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.security_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Message
-  if message_type == 21 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.order_add_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Update Message
-  if message_type == 22 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.order_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Delete Message
-  if message_type == 23 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.order_delete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution Message
-  if message_type == 24 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.order_execution_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execution With Price Message
-  if message_type == 25 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.order_execution_with_price_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Message
-  if message_type == 26 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Imbalance Message
-  if message_type == 28 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.imbalance_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Recovery Event Message
-  if message_type == 74 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.system_recovery_event_message.dissect(buffer, offset, packet, parent)
+  local dissect = otcmarkets_moonats_depthofbook_link_v1_3.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -2372,10 +2261,14 @@ end
 otcmarkets_moonats_depthofbook_link_v1_3.message_block = {}
 
 -- Dissect: Message Block
+otcmarkets_moonats_depthofbook_link_v1_3.message_block.dispatch = {
+  [1] = otcmarkets_moonats_depthofbook_link_v1_3.heartbeat_packet.dissect,
+}
+
 otcmarkets_moonats_depthofbook_link_v1_3.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
-  -- Dissect Heartbeat Packet
-  if bit.band(packet_flag, 0x01) == 1 then
-    return otcmarkets_moonats_depthofbook_link_v1_3.heartbeat_packet.dissect(buffer, offset, packet, parent)
+  local dissect = otcmarkets_moonats_depthofbook_link_v1_3.message_block.dispatch[bit.band(packet_flag, 0x01)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

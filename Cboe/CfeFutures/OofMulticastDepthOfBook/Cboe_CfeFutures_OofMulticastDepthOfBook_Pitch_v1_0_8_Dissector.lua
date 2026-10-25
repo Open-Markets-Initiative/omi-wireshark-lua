@@ -266,15 +266,13 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.call_put_indicator = {}
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.call_put_indicator.size = 1
 
 -- Display: Call Put Indicator
-cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.call_put_indicator.display = function(value)
-  if value == "C" then
-    return "Call Put Indicator: Call (C)"
-  end
-  if value == "P" then
-    return "Call Put Indicator: Put (P)"
-  end
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.call_put_indicator.labels = {
+  ["C"] = "Call Put Indicator: Call (C)",
+  ["P"] = "Call Put Indicator: Put (P)",
+}
 
-  return "Call Put Indicator: Unknown("..value..")"
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.call_put_indicator.display = function(value)
+  return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.call_put_indicator.labels[value] or "Call Put Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Call Put Indicator
@@ -653,18 +651,14 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.issue = {}
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.issue.size = 1
 
 -- Display: Issue
-cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.issue.display = function(value)
-  if value == "I" then
-    return "Issue: Indicative Settlement (I)"
-  end
-  if value == "S" then
-    return "Issue: Initial Settlement (S)"
-  end
-  if value == "R" then
-    return "Issue: Reissued Settlement (R)"
-  end
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.issue.labels = {
+  ["I"] = "Issue: Indicative Settlement (I)",
+  ["S"] = "Issue: Initial Settlement (S)",
+  ["R"] = "Issue: Reissued Settlement (R)",
+}
 
-  return "Issue: Unknown("..value..")"
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.issue.display = function(value)
+  return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.issue.labels[value] or "Issue: Unknown("..value..")"
 end
 
 -- Dissect: Issue
@@ -732,12 +726,12 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.leg_security_type = {}
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.leg_security_type.size = 1
 
 -- Display: Leg Security Type
-cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.leg_security_type.display = function(value)
-  if value == "O" then
-    return "Leg Security Type: Leg Is An Option Instrument (O)"
-  end
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.leg_security_type.labels = {
+  ["O"] = "Leg Security Type: Leg Is An Option Instrument (O)",
+}
 
-  return "Leg Security Type: Unknown("..value..")"
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.leg_security_type.display = function(value)
+  return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.leg_security_type.labels[value] or "Leg Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Leg Security Type
@@ -880,75 +874,33 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.message_type = {}
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.message_type.size = 1
 
 -- Display: Message Type
-cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.message_type.display = function(value)
-  if value == 0xB1 then
-    return "Message Type: Time Reference Message (0xB1)"
-  end
-  if value == 0x20 then
-    return "Message Type: Time Message (0x20)"
-  end
-  if value == 0x97 then
-    return "Message Type: Unit Clear Message (0x97)"
-  end
-  if value == 0xBC then
-    return "Message Type: Transaction Begin Message (0xBC)"
-  end
-  if value == 0xBD then
-    return "Message Type: Transaction End Message (0xBD)"
-  end
-  if value == 0xF9 then
-    return "Message Type: Oof Symbol Mapping Message (0xF9)"
-  end
-  if value == 0x9A then
-    return "Message Type: Complex Instrument Definition Expanded Message (0x9A)"
-  end
-  if value == 0x31 then
-    return "Message Type: Trading Status Message (0x31)"
-  end
-  if value == 0x21 then
-    return "Message Type: Add Order Long Message (0x21)"
-  end
-  if value == 0x22 then
-    return "Message Type: Add Order Short Message (0x22)"
-  end
-  if value == 0x23 then
-    return "Message Type: Order Executed Message (0x23)"
-  end
-  if value == 0x25 then
-    return "Message Type: Reduce Size Long Message (0x25)"
-  end
-  if value == 0x26 then
-    return "Message Type: Reduce Size Short Message (0x26)"
-  end
-  if value == 0x27 then
-    return "Message Type: Modify Order Long Message (0x27)"
-  end
-  if value == 0x28 then
-    return "Message Type: Modify Order Short Message (0x28)"
-  end
-  if value == 0x29 then
-    return "Message Type: Delete Order Message (0x29)"
-  end
-  if value == 0x2A then
-    return "Message Type: Trade Long Message (0x2A)"
-  end
-  if value == 0x2B then
-    return "Message Type: Trade Short Message (0x2B)"
-  end
-  if value == 0x2C then
-    return "Message Type: Trade Break Message (0x2C)"
-  end
-  if value == 0xB9 then
-    return "Message Type: Settlement Message (0xB9)"
-  end
-  if value == 0xBA then
-    return "Message Type: End Of Day Summary Message (0xBA)"
-  end
-  if value == 0x2D then
-    return "Message Type: End Of Session Message (0x2D)"
-  end
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.message_type.labels = {
+  [0xB1] = "Message Type: Time Reference Message (0xB1)",
+  [0x20] = "Message Type: Time Message (0x20)",
+  [0x97] = "Message Type: Unit Clear Message (0x97)",
+  [0xBC] = "Message Type: Transaction Begin Message (0xBC)",
+  [0xBD] = "Message Type: Transaction End Message (0xBD)",
+  [0xF9] = "Message Type: Oof Symbol Mapping Message (0xF9)",
+  [0x9A] = "Message Type: Complex Instrument Definition Expanded Message (0x9A)",
+  [0x31] = "Message Type: Trading Status Message (0x31)",
+  [0x21] = "Message Type: Add Order Long Message (0x21)",
+  [0x22] = "Message Type: Add Order Short Message (0x22)",
+  [0x23] = "Message Type: Order Executed Message (0x23)",
+  [0x25] = "Message Type: Reduce Size Long Message (0x25)",
+  [0x26] = "Message Type: Reduce Size Short Message (0x26)",
+  [0x27] = "Message Type: Modify Order Long Message (0x27)",
+  [0x28] = "Message Type: Modify Order Short Message (0x28)",
+  [0x29] = "Message Type: Delete Order Message (0x29)",
+  [0x2A] = "Message Type: Trade Long Message (0x2A)",
+  [0x2B] = "Message Type: Trade Short Message (0x2B)",
+  [0x2C] = "Message Type: Trade Break Message (0x2C)",
+  [0xB9] = "Message Type: Settlement Message (0xB9)",
+  [0xBA] = "Message Type: End Of Day Summary Message (0xBA)",
+  [0x2D] = "Message Type: End Of Session Message (0x2D)",
+}
 
-  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.message_type.display = function(value)
+  return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.message_type.labels[value] or "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -1330,15 +1282,13 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.side_indicator = {}
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.side_indicator.size = 1
 
 -- Display: Side Indicator
-cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.side_indicator.display = function(value)
-  if value == "B" then
-    return "Side Indicator: Buy Order (B)"
-  end
-  if value == "S" then
-    return "Side Indicator: Sell Order (S)"
-  end
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.side_indicator.labels = {
+  ["B"] = "Side Indicator: Buy Order (B)",
+  ["S"] = "Side Indicator: Sell Order (S)",
+}
 
-  return "Side Indicator: Unknown("..value..")"
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.side_indicator.display = function(value)
+  return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.side_indicator.labels[value] or "Side Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Side Indicator
@@ -1412,15 +1362,13 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.symbol_condition = {}
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.symbol_condition.size = 1
 
 -- Display: Symbol Condition
-cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.symbol_condition.display = function(value)
-  if value == "N" then
-    return "Symbol Condition: Normal (N)"
-  end
-  if value == "C" then
-    return "Symbol Condition: Closing Only (C)"
-  end
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.symbol_condition.labels = {
+  ["N"] = "Symbol Condition: Normal (N)",
+  ["C"] = "Symbol Condition: Closing Only (C)",
+}
 
-  return "Symbol Condition: Unknown("..value..")"
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.symbol_condition.display = function(value)
+  return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.symbol_condition.labels[value] or "Symbol Condition: Unknown("..value..")"
 end
 
 -- Dissect: Symbol Condition
@@ -1580,18 +1528,14 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trading_status = {}
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trading_status.size = 1
 
 -- Display: Trading Status
-cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trading_status.display = function(value)
-  if value == "H" then
-    return "Trading Status: Halted (H)"
-  end
-  if value == "Q" then
-    return "Trading Status: Queuing (Q)"
-  end
-  if value == "T" then
-    return "Trading Status: Trading (T)"
-  end
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trading_status.labels = {
+  ["H"] = "Trading Status: Halted (H)",
+  ["Q"] = "Trading Status: Queuing (Q)",
+  ["T"] = "Trading Status: Trading (T)",
+}
 
-  return "Trading Status: Unknown("..value..")"
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trading_status.display = function(value)
+  return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -3028,94 +2972,35 @@ end
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.payload = {}
 
 -- Dissect: Payload
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.payload.dispatch = {
+  [0xB1] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.time_reference_message.dissect,
+  [0x20] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.time_message.dissect,
+  [0x97] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.unit_clear_message.dissect,
+  [0xBC] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.transaction_begin_message.dissect,
+  [0xBD] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.transaction_end_message.dissect,
+  [0xF9] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.oof_symbol_mapping_message.dissect,
+  [0x9A] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.complex_instrument_definition_expanded_message.dissect,
+  [0x31] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trading_status_message.dissect,
+  [0x21] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.add_order_long_message.dissect,
+  [0x22] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.add_order_short_message.dissect,
+  [0x23] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.order_executed_message.dissect,
+  [0x25] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.reduce_size_long_message.dissect,
+  [0x26] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.reduce_size_short_message.dissect,
+  [0x27] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.modify_order_long_message.dissect,
+  [0x28] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.modify_order_short_message.dissect,
+  [0x29] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.delete_order_message.dissect,
+  [0x2A] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trade_long_message.dissect,
+  [0x2B] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trade_short_message.dissect,
+  [0x2C] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trade_break_message.dissect,
+  [0xB9] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.settlement_message.dissect,
+  [0xBA] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.end_of_day_summary_message.dissect,
+  [0x2D] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.end_of_session_message.dissect,
+}
+
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Time Reference Message
-  if message_type == 0xB1 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.time_reference_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Time Message
-  if message_type == 0x20 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.time_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unit Clear Message
-  if message_type == 0x97 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.unit_clear_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction Begin Message
-  if message_type == 0xBC then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.transaction_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Transaction End Message
-  if message_type == 0xBD then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.transaction_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Oof Symbol Mapping Message
-  if message_type == 0xF9 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.oof_symbol_mapping_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Instrument Definition Expanded Message
-  if message_type == 0x9A then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.complex_instrument_definition_expanded_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Status Message
-  if message_type == 0x31 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trading_status_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Long Message
-  if message_type == 0x21 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.add_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Add Order Short Message
-  if message_type == 0x22 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.add_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Executed Message
-  if message_type == 0x23 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.order_executed_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Long Message
-  if message_type == 0x25 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.reduce_size_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reduce Size Short Message
-  if message_type == 0x26 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.reduce_size_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Long Message
-  if message_type == 0x27 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.modify_order_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Modify Order Short Message
-  if message_type == 0x28 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.modify_order_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Delete Order Message
-  if message_type == 0x29 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.delete_order_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Long Message
-  if message_type == 0x2A then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trade_long_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Short Message
-  if message_type == 0x2B then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trade_short_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Break Message
-  if message_type == 0x2C then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Settlement Message
-  if message_type == 0xB9 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.settlement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Day Summary Message
-  if message_type == 0xBA then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.end_of_day_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if message_type == 0x2D then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.end_of_session_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3254,10 +3139,14 @@ end
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.messages = {}
 
 -- Dissect: Messages
+cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.messages.dispatch = {
+  [0] = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.heartbeat.dissect,
+}
+
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.messages.dissect = function(buffer, offset, packet, parent, message_count)
-  -- Dissect Heartbeat
-  if message_count == 0 then
-    return cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.heartbeat.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message

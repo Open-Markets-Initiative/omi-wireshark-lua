@@ -274,24 +274,16 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type = {}
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.size = 1
 
 -- Display: Auction Type
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.display = function(value)
-  if value == "O" then
-    return "Auction Type: Opening Auction (O)"
-  end
-  if value == "C" then
-    return "Auction Type: Closing Auction (C)"
-  end
-  if value == "H" then
-    return "Auction Type: Halt Auction (H)"
-  end
-  if value == "I" then
-    return "Auction Type: Ipo Auction (I)"
-  end
-  if value == "M" then
-    return "Auction Type: Cboe Market Close (M)"
-  end
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.labels = {
+  ["O"] = "Auction Type: Opening Auction (O)",
+  ["C"] = "Auction Type: Closing Auction (C)",
+  ["H"] = "Auction Type: Halt Auction (H)",
+  ["I"] = "Auction Type: Ipo Auction (I)",
+  ["M"] = "Auction Type: Cboe Market Close (M)",
+}
 
-  return "Auction Type: Unknown("..value..")"
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.display = function(value)
+  return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.labels[value] or "Auction Type: Unknown("..value..")"
 end
 
 -- Dissect: Auction Type
@@ -413,36 +405,20 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.packet_type = {}
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.packet_type.size = 1
 
 -- Display: Packet Type
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.packet_type.labels = {
+  ["+"] = "Packet Type: Debug Packet (+)",
+  ["A"] = "Packet Type: Login Accepted Packet (A)",
+  ["J"] = "Packet Type: Login Rejected Packet (J)",
+  ["S"] = "Packet Type: Sequenced Data Packet (S)",
+  ["H"] = "Packet Type: Server Heartbeat Packet (H)",
+  ["L"] = "Packet Type: Login Request Packet (L)",
+  ["U"] = "Packet Type: Unsequenced Data Packet (U)",
+  ["R"] = "Packet Type: Client Heartbeat Packet (R)",
+  ["O"] = "Packet Type: Logout Request Packet (O)",
+}
 
-  return "Packet Type: Unknown("..value..")"
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.packet_type.display = function(value)
+  return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.packet_type.labels[value] or "Packet Type: Unknown("..value..")"
 end
 
 -- Dissect: Packet Type
@@ -748,21 +724,15 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message_type = {}
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message_type.size = 1
 
 -- Display: Sequenced Message Type
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message_type.display = function(value)
-  if value == "I" then
-    return "Sequenced Message Type: Auction Update Message (I)"
-  end
-  if value == "3" then
-    return "Sequenced Message Type: Extended Auction Update Message (3)"
-  end
-  if value == "J" then
-    return "Sequenced Message Type: Auction Summary Message (J)"
-  end
-  if value == "4" then
-    return "Sequenced Message Type: Extended Auction Summary Message (4)"
-  end
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message_type.labels = {
+  ["I"] = "Sequenced Message Type: Auction Update Message (I)",
+  ["3"] = "Sequenced Message Type: Extended Auction Update Message (3)",
+  ["J"] = "Sequenced Message Type: Auction Summary Message (J)",
+  ["4"] = "Sequenced Message Type: Extended Auction Summary Message (4)",
+}
 
-  return "Sequenced Message Type: Unknown("..value..")"
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message_type.display = function(value)
+  return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Sequenced Message Type
@@ -1319,22 +1289,17 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message = {}
 
 -- Dissect: Sequenced Message
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message.dispatch = {
+  ["I"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_update_message.dissect,
+  ["3"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_update_message.dissect,
+  ["J"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_summary_message.dissect,
+  ["4"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_summary_message.dissect,
+}
+
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
-  -- Dissect Auction Update Message
-  if sequenced_message_type == "I" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Auction Update Message
-  if sequenced_message_type == "3" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Summary Message
-  if sequenced_message_type == "J" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_summary_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Extended Auction Summary Message
-  if sequenced_message_type == "4" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_summary_message.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1568,30 +1533,19 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload = {}
 
 -- Dissect: Payload
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload.dispatch = {
+  ["+"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.debug_packet.dissect,
+  ["A"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.login_accepted_packet.dissect,
+  ["J"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.login_rejected_packet.dissect,
+  ["S"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_data_packet.dissect,
+  ["L"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.login_request_packet.dissect,
+  ["U"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.unsequenced_data_packet.dissect,
+}
+
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Debug Packet
-  if packet_type == "+" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.debug_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Accepted Packet
-  if packet_type == "A" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.login_accepted_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Packet
-  if packet_type == "J" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.login_rejected_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_data_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Request Packet
-  if packet_type == "L" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.login_request_packet.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
-    return cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
+  local dissect = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload.dispatch[packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

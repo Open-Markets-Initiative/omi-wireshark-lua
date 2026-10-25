@@ -276,18 +276,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.account_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.account_type.size = 1
 
 -- Display: Account Type
-gpw_wse_orderentry_wats_v1_7_6_20.account_type.display = function(value)
-  if value == 1 then
-    return "Account Type: Missing (1)"
-  end
-  if value == 2 then
-    return "Account Type: Customer (2)"
-  end
-  if value == 3 then
-    return "Account Type: House (3)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.account_type.labels = {
+  [1] = "Account Type: Missing (1)",
+  [2] = "Account Type: Customer (2)",
+  [3] = "Account Type: House (3)",
+}
 
-  return "Account Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.account_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.account_type.labels[value] or "Account Type: Unknown("..value..")"
 end
 
 -- Dissect: Account Type
@@ -309,18 +305,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.action = {}
 gpw_wse_orderentry_wats_v1_7_6_20.action.size = 1
 
 -- Display: Action
-gpw_wse_orderentry_wats_v1_7_6_20.action.display = function(value)
-  if value == 1 then
-    return "Action: Change To Hybrid Buy Only (1)"
-  end
-  if value == 2 then
-    return "Action: Change To Knock Out (2)"
-  end
-  if value == 3 then
-    return "Action: Revoke Knock Out (3)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.action.labels = {
+  [1] = "Action: Change To Hybrid Buy Only (1)",
+  [2] = "Action: Change To Knock Out (2)",
+  [3] = "Action: Revoke Knock Out (3)",
+}
 
-  return "Action: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.action.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -342,18 +334,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator = {}
 gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator.size = 1
 
 -- Display: Algorithmic Trade Indicator
-gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator.display = function(value)
-  if value == 1 then
-    return "Algorithmic Trade Indicator: Na (1)"
-  end
-  if value == 2 then
-    return "Algorithmic Trade Indicator: Non Algorithmic Trade (2)"
-  end
-  if value == 3 then
-    return "Algorithmic Trade Indicator: Algorithmic Trade (3)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator.labels = {
+  [1] = "Algorithmic Trade Indicator: Na (1)",
+  [2] = "Algorithmic Trade Indicator: Non Algorithmic Trade (2)",
+  [3] = "Algorithmic Trade Indicator: Algorithmic Trade (3)",
+}
 
-  return "Algorithmic Trade Indicator: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator.labels[value] or "Algorithmic Trade Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Algorithmic Trade Indicator
@@ -398,18 +386,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.capacity = {}
 gpw_wse_orderentry_wats_v1_7_6_20.capacity.size = 1
 
 -- Display: Capacity
-gpw_wse_orderentry_wats_v1_7_6_20.capacity.display = function(value)
-  if value == 1 then
-    return "Capacity: Agency (1)"
-  end
-  if value == 2 then
-    return "Capacity: Principal (2)"
-  end
-  if value == 3 then
-    return "Capacity: Riskless Principal (3)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.capacity.labels = {
+  [1] = "Capacity: Agency (1)",
+  [2] = "Capacity: Principal (2)",
+  [3] = "Capacity: Riskless Principal (3)",
+}
 
-  return "Capacity: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.capacity.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.capacity.labels[value] or "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -431,18 +415,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier = {}
 gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier.size = 1
 
 -- Display: Clearing Member Clearing Identifier
-gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier.display = function(value)
-  if value == 33 then
-    return "Clearing Member Clearing Identifier: Not Applicable (33)"
-  end
-  if value == 78 then
-    return "Clearing Member Clearing Identifier: Lei (78)"
-  end
-  if value == 68 then
-    return "Clearing Member Clearing Identifier: Custom (68)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier.labels = {
+  [33] = "Clearing Member Clearing Identifier: Not Applicable (33)",
+  [78] = "Clearing Member Clearing Identifier: Lei (78)",
+  [68] = "Clearing Member Clearing Identifier: Custom (68)",
+}
 
-  return "Clearing Member Clearing Identifier: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier.labels[value] or "Clearing Member Clearing Identifier: Unknown("..value..")"
 end
 
 -- Dissect: Clearing Member Clearing Identifier
@@ -579,549 +559,191 @@ gpw_wse_orderentry_wats_v1_7_6_20.currency = {}
 gpw_wse_orderentry_wats_v1_7_6_20.currency.size = 2
 
 -- Display: Currency
-gpw_wse_orderentry_wats_v1_7_6_20.currency.display = function(value)
-  if value == 8 then
-    return "Currency: All (8)"
-  end
-  if value == 12 then
-    return "Currency: Dzd (12)"
-  end
-  if value == 32 then
-    return "Currency: Ars (32)"
-  end
-  if value == 36 then
-    return "Currency: Aud (36)"
-  end
-  if value == 44 then
-    return "Currency: Bsd (44)"
-  end
-  if value == 48 then
-    return "Currency: Bhd (48)"
-  end
-  if value == 50 then
-    return "Currency: Bdt (50)"
-  end
-  if value == 51 then
-    return "Currency: Amd (51)"
-  end
-  if value == 52 then
-    return "Currency: Bbd (52)"
-  end
-  if value == 60 then
-    return "Currency: Bmd (60)"
-  end
-  if value == 64 then
-    return "Currency: Btn (64)"
-  end
-  if value == 68 then
-    return "Currency: Bob (68)"
-  end
-  if value == 72 then
-    return "Currency: Bwp (72)"
-  end
-  if value == 84 then
-    return "Currency: Bzd (84)"
-  end
-  if value == 90 then
-    return "Currency: Sbd (90)"
-  end
-  if value == 96 then
-    return "Currency: Bnd (96)"
-  end
-  if value == 104 then
-    return "Currency: Mmk (104)"
-  end
-  if value == 108 then
-    return "Currency: Bif (108)"
-  end
-  if value == 116 then
-    return "Currency: Khr (116)"
-  end
-  if value == 124 then
-    return "Currency: Cad (124)"
-  end
-  if value == 132 then
-    return "Currency: Cve (132)"
-  end
-  if value == 136 then
-    return "Currency: Kyd (136)"
-  end
-  if value == 144 then
-    return "Currency: Lkr (144)"
-  end
-  if value == 152 then
-    return "Currency: Clp (152)"
-  end
-  if value == 156 then
-    return "Currency: Cny (156)"
-  end
-  if value == 170 then
-    return "Currency: Cop (170)"
-  end
-  if value == 174 then
-    return "Currency: Kmf (174)"
-  end
-  if value == 188 then
-    return "Currency: Crc (188)"
-  end
-  if value == 191 then
-    return "Currency: Hrk (191)"
-  end
-  if value == 192 then
-    return "Currency: Cup (192)"
-  end
-  if value == 203 then
-    return "Currency: Czk (203)"
-  end
-  if value == 208 then
-    return "Currency: Dkk (208)"
-  end
-  if value == 214 then
-    return "Currency: Dop (214)"
-  end
-  if value == 222 then
-    return "Currency: Svc (222)"
-  end
-  if value == 230 then
-    return "Currency: Etb (230)"
-  end
-  if value == 232 then
-    return "Currency: Ern (232)"
-  end
-  if value == 238 then
-    return "Currency: Fkp (238)"
-  end
-  if value == 242 then
-    return "Currency: Fjd (242)"
-  end
-  if value == 262 then
-    return "Currency: Djf (262)"
-  end
-  if value == 270 then
-    return "Currency: Gmd (270)"
-  end
-  if value == 292 then
-    return "Currency: Gip (292)"
-  end
-  if value == 320 then
-    return "Currency: Gtq (320)"
-  end
-  if value == 324 then
-    return "Currency: Gnf (324)"
-  end
-  if value == 328 then
-    return "Currency: Gyd (328)"
-  end
-  if value == 332 then
-    return "Currency: Htg (332)"
-  end
-  if value == 340 then
-    return "Currency: Hnl (340)"
-  end
-  if value == 344 then
-    return "Currency: Hkd (344)"
-  end
-  if value == 348 then
-    return "Currency: Huf (348)"
-  end
-  if value == 352 then
-    return "Currency: Isk (352)"
-  end
-  if value == 356 then
-    return "Currency: Inr (356)"
-  end
-  if value == 360 then
-    return "Currency: Idr (360)"
-  end
-  if value == 364 then
-    return "Currency: Irr (364)"
-  end
-  if value == 368 then
-    return "Currency: Iqd (368)"
-  end
-  if value == 376 then
-    return "Currency: Ils (376)"
-  end
-  if value == 388 then
-    return "Currency: Jmd (388)"
-  end
-  if value == 392 then
-    return "Currency: Jpy (392)"
-  end
-  if value == 398 then
-    return "Currency: Kzt (398)"
-  end
-  if value == 400 then
-    return "Currency: Jod (400)"
-  end
-  if value == 404 then
-    return "Currency: Kes (404)"
-  end
-  if value == 408 then
-    return "Currency: Kpw (408)"
-  end
-  if value == 410 then
-    return "Currency: Krw (410)"
-  end
-  if value == 414 then
-    return "Currency: Kwd (414)"
-  end
-  if value == 417 then
-    return "Currency: Kgs (417)"
-  end
-  if value == 418 then
-    return "Currency: Lak (418)"
-  end
-  if value == 422 then
-    return "Currency: Lbp (422)"
-  end
-  if value == 426 then
-    return "Currency: Lsl (426)"
-  end
-  if value == 430 then
-    return "Currency: Lrd (430)"
-  end
-  if value == 434 then
-    return "Currency: Lyd (434)"
-  end
-  if value == 446 then
-    return "Currency: Mop (446)"
-  end
-  if value == 454 then
-    return "Currency: Mwk (454)"
-  end
-  if value == 458 then
-    return "Currency: Myr (458)"
-  end
-  if value == 462 then
-    return "Currency: Mvr (462)"
-  end
-  if value == 480 then
-    return "Currency: Mur (480)"
-  end
-  if value == 484 then
-    return "Currency: Mxn (484)"
-  end
-  if value == 496 then
-    return "Currency: Mnt (496)"
-  end
-  if value == 498 then
-    return "Currency: Mdl (498)"
-  end
-  if value == 504 then
-    return "Currency: Mad (504)"
-  end
-  if value == 512 then
-    return "Currency: Omr (512)"
-  end
-  if value == 516 then
-    return "Currency: Nad (516)"
-  end
-  if value == 524 then
-    return "Currency: Npr (524)"
-  end
-  if value == 532 then
-    return "Currency: Ang (532)"
-  end
-  if value == 533 then
-    return "Currency: Awg (533)"
-  end
-  if value == 548 then
-    return "Currency: Vuv (548)"
-  end
-  if value == 554 then
-    return "Currency: Nzd (554)"
-  end
-  if value == 558 then
-    return "Currency: Nio (558)"
-  end
-  if value == 566 then
-    return "Currency: Ngn (566)"
-  end
-  if value == 578 then
-    return "Currency: Nok (578)"
-  end
-  if value == 586 then
-    return "Currency: Pkr (586)"
-  end
-  if value == 590 then
-    return "Currency: Pab (590)"
-  end
-  if value == 598 then
-    return "Currency: Pgk (598)"
-  end
-  if value == 600 then
-    return "Currency: Pyg (600)"
-  end
-  if value == 604 then
-    return "Currency: Pen (604)"
-  end
-  if value == 608 then
-    return "Currency: Php (608)"
-  end
-  if value == 634 then
-    return "Currency: Qar (634)"
-  end
-  if value == 643 then
-    return "Currency: Rub (643)"
-  end
-  if value == 646 then
-    return "Currency: Rwf (646)"
-  end
-  if value == 654 then
-    return "Currency: Shp (654)"
-  end
-  if value == 682 then
-    return "Currency: Sar (682)"
-  end
-  if value == 690 then
-    return "Currency: Scr (690)"
-  end
-  if value == 702 then
-    return "Currency: Sgd (702)"
-  end
-  if value == 704 then
-    return "Currency: Vnd (704)"
-  end
-  if value == 706 then
-    return "Currency: Sos (706)"
-  end
-  if value == 710 then
-    return "Currency: Zar (710)"
-  end
-  if value == 728 then
-    return "Currency: Ssp (728)"
-  end
-  if value == 748 then
-    return "Currency: Szl (748)"
-  end
-  if value == 752 then
-    return "Currency: Sek (752)"
-  end
-  if value == 756 then
-    return "Currency: Chf (756)"
-  end
-  if value == 760 then
-    return "Currency: Syp (760)"
-  end
-  if value == 764 then
-    return "Currency: Thb (764)"
-  end
-  if value == 776 then
-    return "Currency: Top (776)"
-  end
-  if value == 780 then
-    return "Currency: Ttd (780)"
-  end
-  if value == 784 then
-    return "Currency: Aed (784)"
-  end
-  if value == 788 then
-    return "Currency: Tnd (788)"
-  end
-  if value == 800 then
-    return "Currency: Ugx (800)"
-  end
-  if value == 807 then
-    return "Currency: Mkd (807)"
-  end
-  if value == 818 then
-    return "Currency: Egp (818)"
-  end
-  if value == 826 then
-    return "Currency: Gbp (826)"
-  end
-  if value == 834 then
-    return "Currency: Tzs (834)"
-  end
-  if value == 840 then
-    return "Currency: Usd (840)"
-  end
-  if value == 858 then
-    return "Currency: Uyu (858)"
-  end
-  if value == 860 then
-    return "Currency: Uzs (860)"
-  end
-  if value == 882 then
-    return "Currency: Wst (882)"
-  end
-  if value == 886 then
-    return "Currency: Yer (886)"
-  end
-  if value == 901 then
-    return "Currency: Twd (901)"
-  end
-  if value == 925 then
-    return "Currency: Sle (925)"
-  end
-  if value == 926 then
-    return "Currency: Ved (926)"
-  end
-  if value == 927 then
-    return "Currency: Uyw (927)"
-  end
-  if value == 928 then
-    return "Currency: Ves (928)"
-  end
-  if value == 929 then
-    return "Currency: Mru (929)"
-  end
-  if value == 930 then
-    return "Currency: Stn (930)"
-  end
-  if value == 931 then
-    return "Currency: Cuc (931)"
-  end
-  if value == 932 then
-    return "Currency: Zwl (932)"
-  end
-  if value == 933 then
-    return "Currency: Byn (933)"
-  end
-  if value == 934 then
-    return "Currency: Tmt (934)"
-  end
-  if value == 936 then
-    return "Currency: Ghs (936)"
-  end
-  if value == 938 then
-    return "Currency: Sdg (938)"
-  end
-  if value == 940 then
-    return "Currency: Uyi (940)"
-  end
-  if value == 941 then
-    return "Currency: Rsd (941)"
-  end
-  if value == 943 then
-    return "Currency: Mzn (943)"
-  end
-  if value == 944 then
-    return "Currency: Azn (944)"
-  end
-  if value == 946 then
-    return "Currency: Ron (946)"
-  end
-  if value == 947 then
-    return "Currency: Che (947)"
-  end
-  if value == 948 then
-    return "Currency: Chw (948)"
-  end
-  if value == 949 then
-    return "Currency: Try (949)"
-  end
-  if value == 950 then
-    return "Currency: Xaf (950)"
-  end
-  if value == 951 then
-    return "Currency: Xcd (951)"
-  end
-  if value == 952 then
-    return "Currency: Xof (952)"
-  end
-  if value == 953 then
-    return "Currency: Xpf (953)"
-  end
-  if value == 955 then
-    return "Currency: Xba (955)"
-  end
-  if value == 956 then
-    return "Currency: Xbb (956)"
-  end
-  if value == 957 then
-    return "Currency: Xbc (957)"
-  end
-  if value == 958 then
-    return "Currency: Xbd (958)"
-  end
-  if value == 959 then
-    return "Currency: Xau (959)"
-  end
-  if value == 960 then
-    return "Currency: Xdr (960)"
-  end
-  if value == 961 then
-    return "Currency: Xag (961)"
-  end
-  if value == 962 then
-    return "Currency: Xpt (962)"
-  end
-  if value == 963 then
-    return "Currency: Xts (963)"
-  end
-  if value == 964 then
-    return "Currency: Xpd (964)"
-  end
-  if value == 965 then
-    return "Currency: Xua (965)"
-  end
-  if value == 967 then
-    return "Currency: Zmw (967)"
-  end
-  if value == 968 then
-    return "Currency: Srd (968)"
-  end
-  if value == 969 then
-    return "Currency: Mga (969)"
-  end
-  if value == 970 then
-    return "Currency: Cou (970)"
-  end
-  if value == 971 then
-    return "Currency: Afn (971)"
-  end
-  if value == 972 then
-    return "Currency: Tjs (972)"
-  end
-  if value == 973 then
-    return "Currency: Aoa (973)"
-  end
-  if value == 975 then
-    return "Currency: Bgn (975)"
-  end
-  if value == 976 then
-    return "Currency: Cdf (976)"
-  end
-  if value == 977 then
-    return "Currency: Bam (977)"
-  end
-  if value == 978 then
-    return "Currency: Eur (978)"
-  end
-  if value == 979 then
-    return "Currency: Mxv (979)"
-  end
-  if value == 980 then
-    return "Currency: Uah (980)"
-  end
-  if value == 981 then
-    return "Currency: Gel (981)"
-  end
-  if value == 984 then
-    return "Currency: Bov (984)"
-  end
-  if value == 985 then
-    return "Currency: Pln (985)"
-  end
-  if value == 986 then
-    return "Currency: Brl (986)"
-  end
-  if value == 990 then
-    return "Currency: Clf (990)"
-  end
-  if value == 994 then
-    return "Currency: Xsu (994)"
-  end
-  if value == 997 then
-    return "Currency: Usn (997)"
-  end
-  if value == 999 then
-    return "Currency: Xxx (999)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.currency.labels = {
+  [8] = "Currency: All (8)",
+  [12] = "Currency: Dzd (12)",
+  [32] = "Currency: Ars (32)",
+  [36] = "Currency: Aud (36)",
+  [44] = "Currency: Bsd (44)",
+  [48] = "Currency: Bhd (48)",
+  [50] = "Currency: Bdt (50)",
+  [51] = "Currency: Amd (51)",
+  [52] = "Currency: Bbd (52)",
+  [60] = "Currency: Bmd (60)",
+  [64] = "Currency: Btn (64)",
+  [68] = "Currency: Bob (68)",
+  [72] = "Currency: Bwp (72)",
+  [84] = "Currency: Bzd (84)",
+  [90] = "Currency: Sbd (90)",
+  [96] = "Currency: Bnd (96)",
+  [104] = "Currency: Mmk (104)",
+  [108] = "Currency: Bif (108)",
+  [116] = "Currency: Khr (116)",
+  [124] = "Currency: Cad (124)",
+  [132] = "Currency: Cve (132)",
+  [136] = "Currency: Kyd (136)",
+  [144] = "Currency: Lkr (144)",
+  [152] = "Currency: Clp (152)",
+  [156] = "Currency: Cny (156)",
+  [170] = "Currency: Cop (170)",
+  [174] = "Currency: Kmf (174)",
+  [188] = "Currency: Crc (188)",
+  [191] = "Currency: Hrk (191)",
+  [192] = "Currency: Cup (192)",
+  [203] = "Currency: Czk (203)",
+  [208] = "Currency: Dkk (208)",
+  [214] = "Currency: Dop (214)",
+  [222] = "Currency: Svc (222)",
+  [230] = "Currency: Etb (230)",
+  [232] = "Currency: Ern (232)",
+  [238] = "Currency: Fkp (238)",
+  [242] = "Currency: Fjd (242)",
+  [262] = "Currency: Djf (262)",
+  [270] = "Currency: Gmd (270)",
+  [292] = "Currency: Gip (292)",
+  [320] = "Currency: Gtq (320)",
+  [324] = "Currency: Gnf (324)",
+  [328] = "Currency: Gyd (328)",
+  [332] = "Currency: Htg (332)",
+  [340] = "Currency: Hnl (340)",
+  [344] = "Currency: Hkd (344)",
+  [348] = "Currency: Huf (348)",
+  [352] = "Currency: Isk (352)",
+  [356] = "Currency: Inr (356)",
+  [360] = "Currency: Idr (360)",
+  [364] = "Currency: Irr (364)",
+  [368] = "Currency: Iqd (368)",
+  [376] = "Currency: Ils (376)",
+  [388] = "Currency: Jmd (388)",
+  [392] = "Currency: Jpy (392)",
+  [398] = "Currency: Kzt (398)",
+  [400] = "Currency: Jod (400)",
+  [404] = "Currency: Kes (404)",
+  [408] = "Currency: Kpw (408)",
+  [410] = "Currency: Krw (410)",
+  [414] = "Currency: Kwd (414)",
+  [417] = "Currency: Kgs (417)",
+  [418] = "Currency: Lak (418)",
+  [422] = "Currency: Lbp (422)",
+  [426] = "Currency: Lsl (426)",
+  [430] = "Currency: Lrd (430)",
+  [434] = "Currency: Lyd (434)",
+  [446] = "Currency: Mop (446)",
+  [454] = "Currency: Mwk (454)",
+  [458] = "Currency: Myr (458)",
+  [462] = "Currency: Mvr (462)",
+  [480] = "Currency: Mur (480)",
+  [484] = "Currency: Mxn (484)",
+  [496] = "Currency: Mnt (496)",
+  [498] = "Currency: Mdl (498)",
+  [504] = "Currency: Mad (504)",
+  [512] = "Currency: Omr (512)",
+  [516] = "Currency: Nad (516)",
+  [524] = "Currency: Npr (524)",
+  [532] = "Currency: Ang (532)",
+  [533] = "Currency: Awg (533)",
+  [548] = "Currency: Vuv (548)",
+  [554] = "Currency: Nzd (554)",
+  [558] = "Currency: Nio (558)",
+  [566] = "Currency: Ngn (566)",
+  [578] = "Currency: Nok (578)",
+  [586] = "Currency: Pkr (586)",
+  [590] = "Currency: Pab (590)",
+  [598] = "Currency: Pgk (598)",
+  [600] = "Currency: Pyg (600)",
+  [604] = "Currency: Pen (604)",
+  [608] = "Currency: Php (608)",
+  [634] = "Currency: Qar (634)",
+  [643] = "Currency: Rub (643)",
+  [646] = "Currency: Rwf (646)",
+  [654] = "Currency: Shp (654)",
+  [682] = "Currency: Sar (682)",
+  [690] = "Currency: Scr (690)",
+  [702] = "Currency: Sgd (702)",
+  [704] = "Currency: Vnd (704)",
+  [706] = "Currency: Sos (706)",
+  [710] = "Currency: Zar (710)",
+  [728] = "Currency: Ssp (728)",
+  [748] = "Currency: Szl (748)",
+  [752] = "Currency: Sek (752)",
+  [756] = "Currency: Chf (756)",
+  [760] = "Currency: Syp (760)",
+  [764] = "Currency: Thb (764)",
+  [776] = "Currency: Top (776)",
+  [780] = "Currency: Ttd (780)",
+  [784] = "Currency: Aed (784)",
+  [788] = "Currency: Tnd (788)",
+  [800] = "Currency: Ugx (800)",
+  [807] = "Currency: Mkd (807)",
+  [818] = "Currency: Egp (818)",
+  [826] = "Currency: Gbp (826)",
+  [834] = "Currency: Tzs (834)",
+  [840] = "Currency: Usd (840)",
+  [858] = "Currency: Uyu (858)",
+  [860] = "Currency: Uzs (860)",
+  [882] = "Currency: Wst (882)",
+  [886] = "Currency: Yer (886)",
+  [901] = "Currency: Twd (901)",
+  [925] = "Currency: Sle (925)",
+  [926] = "Currency: Ved (926)",
+  [927] = "Currency: Uyw (927)",
+  [928] = "Currency: Ves (928)",
+  [929] = "Currency: Mru (929)",
+  [930] = "Currency: Stn (930)",
+  [931] = "Currency: Cuc (931)",
+  [932] = "Currency: Zwl (932)",
+  [933] = "Currency: Byn (933)",
+  [934] = "Currency: Tmt (934)",
+  [936] = "Currency: Ghs (936)",
+  [938] = "Currency: Sdg (938)",
+  [940] = "Currency: Uyi (940)",
+  [941] = "Currency: Rsd (941)",
+  [943] = "Currency: Mzn (943)",
+  [944] = "Currency: Azn (944)",
+  [946] = "Currency: Ron (946)",
+  [947] = "Currency: Che (947)",
+  [948] = "Currency: Chw (948)",
+  [949] = "Currency: Try (949)",
+  [950] = "Currency: Xaf (950)",
+  [951] = "Currency: Xcd (951)",
+  [952] = "Currency: Xof (952)",
+  [953] = "Currency: Xpf (953)",
+  [955] = "Currency: Xba (955)",
+  [956] = "Currency: Xbb (956)",
+  [957] = "Currency: Xbc (957)",
+  [958] = "Currency: Xbd (958)",
+  [959] = "Currency: Xau (959)",
+  [960] = "Currency: Xdr (960)",
+  [961] = "Currency: Xag (961)",
+  [962] = "Currency: Xpt (962)",
+  [963] = "Currency: Xts (963)",
+  [964] = "Currency: Xpd (964)",
+  [965] = "Currency: Xua (965)",
+  [967] = "Currency: Zmw (967)",
+  [968] = "Currency: Srd (968)",
+  [969] = "Currency: Mga (969)",
+  [970] = "Currency: Cou (970)",
+  [971] = "Currency: Afn (971)",
+  [972] = "Currency: Tjs (972)",
+  [973] = "Currency: Aoa (973)",
+  [975] = "Currency: Bgn (975)",
+  [976] = "Currency: Cdf (976)",
+  [977] = "Currency: Bam (977)",
+  [978] = "Currency: Eur (978)",
+  [979] = "Currency: Mxv (979)",
+  [980] = "Currency: Uah (980)",
+  [981] = "Currency: Gel (981)",
+  [984] = "Currency: Bov (984)",
+  [985] = "Currency: Pln (985)",
+  [986] = "Currency: Brl (986)",
+  [990] = "Currency: Clf (990)",
+  [994] = "Currency: Xsu (994)",
+  [997] = "Currency: Usn (997)",
+  [999] = "Currency: Xxx (999)",
+}
 
-  return "Currency: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.currency.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.currency.labels[value] or "Currency: Unknown("..value..")"
 end
 
 -- Dissect: Currency
@@ -1192,18 +814,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.event_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.event_type.size = 1
 
 -- Display: Event Type
-gpw_wse_orderentry_wats_v1_7_6_20.event_type.display = function(value)
-  if value == 1 then
-    return "Event Type: Flush (1)"
-  end
-  if value == 2 then
-    return "Event Type: Scenario Start (2)"
-  end
-  if value == 3 then
-    return "Event Type: Scenario End (3)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.event_type.labels = {
+  [1] = "Event Type: Flush (1)",
+  [2] = "Event Type: Scenario Start (2)",
+  [3] = "Event Type: Scenario End (3)",
+}
 
-  return "Event Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.event_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.event_type.labels[value] or "Event Type: Unknown("..value..")"
 end
 
 -- Dissect: Event Type
@@ -1225,27 +843,17 @@ gpw_wse_orderentry_wats_v1_7_6_20.exec_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.exec_type.size = 1
 
 -- Display: Exec Type
-gpw_wse_orderentry_wats_v1_7_6_20.exec_type.display = function(value)
-  if value == 1 then
-    return "Exec Type: Na (1)"
-  end
-  if value == 8 then
-    return "Exec Type: Rejected (8)"
-  end
-  if value == 12 then
-    return "Exec Type: Expired (12)"
-  end
-  if value == 15 then
-    return "Exec Type: Trade (15)"
-  end
-  if value == 16 then
-    return "Exec Type: Trade Correct (16)"
-  end
-  if value == 17 then
-    return "Exec Type: Trade Cancel (17)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.exec_type.labels = {
+  [1] = "Exec Type: Na (1)",
+  [8] = "Exec Type: Rejected (8)",
+  [12] = "Exec Type: Expired (12)",
+  [15] = "Exec Type: Trade (15)",
+  [16] = "Exec Type: Trade Correct (16)",
+  [17] = "Exec Type: Trade Cancel (17)",
+}
 
-  return "Exec Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.exec_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.exec_type.labels[value] or "Exec Type: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type
@@ -1267,72 +875,32 @@ gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason = {}
 gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.size = 1
 
 -- Display: Exec Type Reason
-gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.display = function(value)
-  if value == 1 then
-    return "Exec Type Reason: Na (1)"
-  end
-  if value == 2 then
-    return "Exec Type Reason: Cancel On Disconnect (2)"
-  end
-  if value == 3 then
-    return "Exec Type Reason: Expired (3)"
-  end
-  if value == 4 then
-    return "Exec Type Reason: Triggered (4)"
-  end
-  if value == 5 then
-    return "Exec Type Reason: Cancel On Suspension (5)"
-  end
-  if value == 6 then
-    return "Exec Type Reason: Order Restatement (6)"
-  end
-  if value == 7 then
-    return "Exec Type Reason: Iceberg Order Refill (7)"
-  end
-  if value == 8 then
-    return "Exec Type Reason: Cancel By Stp (8)"
-  end
-  if value == 9 then
-    return "Exec Type Reason: Cancel By Corporate Action (9)"
-  end
-  if value == 10 then
-    return "Exec Type Reason: Cancel By Mass Cancel (10)"
-  end
-  if value == 11 then
-    return "Exec Type Reason: Cancel Ioc Fok Order (11)"
-  end
-  if value == 12 then
-    return "Exec Type Reason: Cancel By Market Operations (12)"
-  end
-  if value == 13 then
-    return "Exec Type Reason: Replaced (13)"
-  end
-  if value == 14 then
-    return "Exec Type Reason: First Trade On Aggressive Order (14)"
-  end
-  if value == 15 then
-    return "Exec Type Reason: Rejected (15)"
-  end
-  if value == 16 then
-    return "Exec Type Reason: Cancelon Buy Only State Entry (16)"
-  end
-  if value == 17 then
-    return "Exec Type Reason: Cancelon Knocked Out State Entry (17)"
-  end
-  if value == 18 then
-    return "Exec Type Reason: Cancel By Risk Management (18)"
-  end
-  if value == 19 then
-    return "Exec Type Reason: Cancel On Dc Disconnect (19)"
-  end
-  if value == 20 then
-    return "Exec Type Reason: Vfa Activated (20)"
-  end
-  if value == 21 then
-    return "Exec Type Reason: Hybrid Activated (21)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.labels = {
+  [1] = "Exec Type Reason: Na (1)",
+  [2] = "Exec Type Reason: Cancel On Disconnect (2)",
+  [3] = "Exec Type Reason: Expired (3)",
+  [4] = "Exec Type Reason: Triggered (4)",
+  [5] = "Exec Type Reason: Cancel On Suspension (5)",
+  [6] = "Exec Type Reason: Order Restatement (6)",
+  [7] = "Exec Type Reason: Iceberg Order Refill (7)",
+  [8] = "Exec Type Reason: Cancel By Stp (8)",
+  [9] = "Exec Type Reason: Cancel By Corporate Action (9)",
+  [10] = "Exec Type Reason: Cancel By Mass Cancel (10)",
+  [11] = "Exec Type Reason: Cancel Ioc Fok Order (11)",
+  [12] = "Exec Type Reason: Cancel By Market Operations (12)",
+  [13] = "Exec Type Reason: Replaced (13)",
+  [14] = "Exec Type Reason: First Trade On Aggressive Order (14)",
+  [15] = "Exec Type Reason: Rejected (15)",
+  [16] = "Exec Type Reason: Cancelon Buy Only State Entry (16)",
+  [17] = "Exec Type Reason: Cancelon Knocked Out State Entry (17)",
+  [18] = "Exec Type Reason: Cancel By Risk Management (18)",
+  [19] = "Exec Type Reason: Cancel On Dc Disconnect (19)",
+  [20] = "Exec Type Reason: Vfa Activated (20)",
+  [21] = "Exec Type Reason: Hybrid Activated (21)",
+}
 
-  return "Exec Type Reason: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.labels[value] or "Exec Type Reason: Unknown("..value..")"
 end
 
 -- Dissect: Exec Type Reason
@@ -1591,21 +1159,15 @@ gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator = {}
 gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.size = 1
 
 -- Display: Liquidity Indicator
-gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.display = function(value)
-  if value == 1 then
-    return "Liquidity Indicator: Buy Order Execution (1)"
-  end
-  if value == 2 then
-    return "Liquidity Indicator: Sell Order Execution (2)"
-  end
-  if value == 3 then
-    return "Liquidity Indicator: Auction Execution (3)"
-  end
-  if value == 4 then
-    return "Liquidity Indicator: Not Applicable (4)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.labels = {
+  [1] = "Liquidity Indicator: Buy Order Execution (1)",
+  [2] = "Liquidity Indicator: Sell Order Execution (2)",
+  [3] = "Liquidity Indicator: Auction Execution (3)",
+  [4] = "Liquidity Indicator: Not Applicable (4)",
+}
 
-  return "Liquidity Indicator: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.labels[value] or "Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Liquidity Indicator
@@ -1673,18 +1235,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.size = 1
 
 -- Display: Mass Cancel Request Type
-gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.display = function(value)
-  if value == 1 then
-    return "Mass Cancel Request Type: Cancel For Security (1)"
-  end
-  if value == 7 then
-    return "Mass Cancel Request Type: Cancel All Orders (7)"
-  end
-  if value == 9 then
-    return "Mass Cancel Request Type: Cancel Orders For Market Segment (9)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.labels = {
+  [1] = "Mass Cancel Request Type: Cancel For Security (1)",
+  [7] = "Mass Cancel Request Type: Cancel All Orders (7)",
+  [9] = "Mass Cancel Request Type: Cancel Orders For Market Segment (9)",
+}
 
-  return "Mass Cancel Request Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.labels[value] or "Mass Cancel Request Type: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Request Type
@@ -1752,99 +1310,41 @@ gpw_wse_orderentry_wats_v1_7_6_20.message_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.message_type.size = 2
 
 -- Display: Message Type
-gpw_wse_orderentry_wats_v1_7_6_20.message_type.display = function(value)
-  if value == 2 then
-    return "Message Type: Login (2)"
-  end
-  if value == 3 then
-    return "Message Type: Login Response (3)"
-  end
-  if value == 11 then
-    return "Message Type: Logout (11)"
-  end
-  if value == 14 then
-    return "Message Type: Logout Response (14)"
-  end
-  if value == 12 then
-    return "Message Type: Connection Close (12)"
-  end
-  if value == 13 then
-    return "Message Type: Heartbeat (13)"
-  end
-  if value == 15 then
-    return "Message Type: Reject (15)"
-  end
-  if value == 34 then
-    return "Message Type: Gap Fill (34)"
-  end
-  if value == 1 then
-    return "Message Type: Test (1)"
-  end
-  if value == 255 then
-    return "Message Type: Test Event (255)"
-  end
-  if value == 35 then
-    return "Message Type: Trading Session Status (35)"
-  end
-  if value == 4 then
-    return "Message Type: Order Add (4)"
-  end
-  if value == 5 then
-    return "Message Type: Order Add Response (5)"
-  end
-  if value == 6 then
-    return "Message Type: Order Cancel (6)"
-  end
-  if value == 7 then
-    return "Message Type: Order Cancel Response (7)"
-  end
-  if value == 8 then
-    return "Message Type: Order Modify (8)"
-  end
-  if value == 9 then
-    return "Message Type: Order Modify Response (9)"
-  end
-  if value == 29 then
-    return "Message Type: Order Mass Cancel (29)"
-  end
-  if value == 30 then
-    return "Message Type: Order Mass Cancel Response (30)"
-  end
-  if value == 10 then
-    return "Message Type: Order Execute (10)"
-  end
-  if value == 24 then
-    return "Message Type: Mass Quote (24)"
-  end
-  if value == 25 then
-    return "Message Type: Mass Quote Response (25)"
-  end
-  if value == 32 then
-    return "Message Type: Market Maker Command (32)"
-  end
-  if value == 33 then
-    return "Message Type: Market Maker Command Response (33)"
-  end
-  if value == 28 then
-    return "Message Type: Request For Execution (28)"
-  end
-  if value == 31 then
-    return "Message Type: Bid Offer Update (31)"
-  end
-  if value == 18 then
-    return "Message Type: Trade Capture Report Single (18)"
-  end
-  if value == 19 then
-    return "Message Type: Trade Capture Report Dual (19)"
-  end
-  if value == 20 then
-    return "Message Type: Trade Capture Report Response (20)"
-  end
-  if value == 23 then
-    return "Message Type: Trade Bust (23)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.message_type.labels = {
+  [2] = "Message Type: Login (2)",
+  [3] = "Message Type: Login Response (3)",
+  [11] = "Message Type: Logout (11)",
+  [14] = "Message Type: Logout Response (14)",
+  [12] = "Message Type: Connection Close (12)",
+  [13] = "Message Type: Heartbeat (13)",
+  [15] = "Message Type: Reject (15)",
+  [34] = "Message Type: Gap Fill (34)",
+  [1] = "Message Type: Test (1)",
+  [255] = "Message Type: Test Event (255)",
+  [35] = "Message Type: Trading Session Status (35)",
+  [4] = "Message Type: Order Add (4)",
+  [5] = "Message Type: Order Add Response (5)",
+  [6] = "Message Type: Order Cancel (6)",
+  [7] = "Message Type: Order Cancel Response (7)",
+  [8] = "Message Type: Order Modify (8)",
+  [9] = "Message Type: Order Modify Response (9)",
+  [29] = "Message Type: Order Mass Cancel (29)",
+  [30] = "Message Type: Order Mass Cancel Response (30)",
+  [10] = "Message Type: Order Execute (10)",
+  [24] = "Message Type: Mass Quote (24)",
+  [25] = "Message Type: Mass Quote Response (25)",
+  [32] = "Message Type: Market Maker Command (32)",
+  [33] = "Message Type: Market Maker Command Response (33)",
+  [28] = "Message Type: Request For Execution (28)",
+  [31] = "Message Type: Bid Offer Update (31)",
+  [18] = "Message Type: Trade Capture Report Single (18)",
+  [19] = "Message Type: Trade Capture Report Dual (19)",
+  [20] = "Message Type: Trade Capture Report Response (20)",
+  [23] = "Message Type: Trade Bust (23)",
+}
 
-  return "Message Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.message_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.message_type.labels[value] or "Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Message Type
@@ -1912,18 +1412,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_capacity = {}
 gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.size = 1
 
 -- Display: Order Capacity
-gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.display = function(value)
-  if value == 1 then
-    return "Order Capacity: Agency (1)"
-  end
-  if value == 2 then
-    return "Order Capacity: Principal (2)"
-  end
-  if value == 3 then
-    return "Order Capacity: Riskless Principal (3)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.labels = {
+  [1] = "Order Capacity: Agency (1)",
+  [2] = "Order Capacity: Principal (2)",
+  [3] = "Order Capacity: Riskless Principal (3)",
+}
 
-  return "Order Capacity: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.labels[value] or "Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Order Capacity
@@ -1945,27 +1441,17 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.order_type.size = 1
 
 -- Display: Order Type
-gpw_wse_orderentry_wats_v1_7_6_20.order_type.display = function(value)
-  if value == 1 then
-    return "Order Type: Limit (1)"
-  end
-  if value == 2 then
-    return "Order Type: Market (2)"
-  end
-  if value == 3 then
-    return "Order Type: Market To Limit (3)"
-  end
-  if value == 4 then
-    return "Order Type: Iceberg (4)"
-  end
-  if value == 5 then
-    return "Order Type: Stop Limit (5)"
-  end
-  if value == 6 then
-    return "Order Type: Stop Loss (6)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.order_type.labels = {
+  [1] = "Order Type: Limit (1)",
+  [2] = "Order Type: Market (2)",
+  [3] = "Order Type: Market To Limit (3)",
+  [4] = "Order Type: Iceberg (4)",
+  [5] = "Order Type: Stop Limit (5)",
+  [6] = "Order Type: Stop Loss (6)",
+}
 
-  return "Order Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.order_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -2016,15 +1502,13 @@ gpw_wse_orderentry_wats_v1_7_6_20.priority_flag = {}
 gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.size = 1
 
 -- Display: Priority Flag
-gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.display = function(value)
-  if value == 1 then
-    return "Priority Flag: Lost (1)"
-  end
-  if value == 2 then
-    return "Priority Flag: Retained (2)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.labels = {
+  [1] = "Priority Flag: Lost (1)",
+  [2] = "Priority Flag: Retained (2)",
+}
 
-  return "Priority Flag: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.labels[value] or "Priority Flag: Unknown("..value..")"
 end
 
 -- Dissect: Priority Flag
@@ -2069,21 +1553,15 @@ gpw_wse_orderentry_wats_v1_7_6_20.qualifier = {}
 gpw_wse_orderentry_wats_v1_7_6_20.qualifier.size = 1
 
 -- Display: Qualifier
-gpw_wse_orderentry_wats_v1_7_6_20.qualifier.display = function(value)
-  if value == 1 then
-    return "Qualifier: Na (1)"
-  end
-  if value == 2 then
-    return "Qualifier: Algorithm (2)"
-  end
-  if value == 3 then
-    return "Qualifier: Firm Or Legal Entity (3)"
-  end
-  if value == 4 then
-    return "Qualifier: Natural Person (4)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.qualifier.labels = {
+  [1] = "Qualifier: Na (1)",
+  [2] = "Qualifier: Algorithm (2)",
+  [3] = "Qualifier: Firm Or Legal Entity (3)",
+  [4] = "Qualifier: Natural Person (4)",
+}
 
-  return "Qualifier: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.qualifier.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.qualifier.labels[value] or "Qualifier: Unknown("..value..")"
 end
 
 -- Dissect: Qualifier
@@ -2151,33 +1629,19 @@ gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason = {}
 gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.size = 1
 
 -- Display: Reason Connection Close Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.display = function(value)
-  if value == 1 then
-    return "Reason Connection Close Reason: Protocol Error (1)"
-  end
-  if value == 2 then
-    return "Reason Connection Close Reason: Invalid Seq Num (2)"
-  end
-  if value == 3 then
-    return "Reason Connection Close Reason: End Of Day (3)"
-  end
-  if value == 4 then
-    return "Reason Connection Close Reason: Sync Fail (4)"
-  end
-  if value == 5 then
-    return "Reason Connection Close Reason: Anti Flooding Threshold Exceeded (5)"
-  end
-  if value == 6 then
-    return "Reason Connection Close Reason: Connection Config Changed (6)"
-  end
-  if value == 7 then
-    return "Reason Connection Close Reason: Close Ops (7)"
-  end
-  if value == 8 then
-    return "Reason Connection Close Reason: Disconnect (8)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.labels = {
+  [1] = "Reason Connection Close Reason: Protocol Error (1)",
+  [2] = "Reason Connection Close Reason: Invalid Seq Num (2)",
+  [3] = "Reason Connection Close Reason: End Of Day (3)",
+  [4] = "Reason Connection Close Reason: Sync Fail (4)",
+  [5] = "Reason Connection Close Reason: Anti Flooding Threshold Exceeded (5)",
+  [6] = "Reason Connection Close Reason: Connection Config Changed (6)",
+  [7] = "Reason Connection Close Reason: Close Ops (7)",
+  [8] = "Reason Connection Close Reason: Disconnect (8)",
+}
 
-  return "Reason Connection Close Reason: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.labels[value] or "Reason Connection Close Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Connection Close Reason
@@ -2199,39 +1663,21 @@ gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason = {}
 gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.size = 2
 
 -- Display: Reason Mass Cancel Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.display = function(value)
-  if value == 99 then
-    return "Reason Mass Cancel Rejection Reason: Other (99)"
-  end
-  if value == 101 then
-    return "Reason Mass Cancel Rejection Reason: Na (101)"
-  end
-  if value == 1001 then
-    return "Reason Mass Cancel Rejection Reason: Unknown Instrument (1001)"
-  end
-  if value == 1005 then
-    return "Reason Mass Cancel Rejection Reason: Invalid Execution Trader (1005)"
-  end
-  if value == 1016 then
-    return "Reason Mass Cancel Rejection Reason: Unknown Market Segment Id (1016)"
-  end
-  if value == 1017 then
-    return "Reason Mass Cancel Rejection Reason: Unknown Connection Id (1017)"
-  end
-  if value == 1053 then
-    return "Reason Mass Cancel Rejection Reason: Instrument Forbidden (1053)"
-  end
-  if value == 1054 then
-    return "Reason Mass Cancel Rejection Reason: Market Segment Id Forbidden (1054)"
-  end
-  if value == 1056 then
-    return "Reason Mass Cancel Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)"
-  end
-  if value == 2025 then
-    return "Reason Mass Cancel Rejection Reason: Request Not Allowed On Sponsored Connection (2025)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.labels = {
+  [99] = "Reason Mass Cancel Rejection Reason: Other (99)",
+  [101] = "Reason Mass Cancel Rejection Reason: Na (101)",
+  [1001] = "Reason Mass Cancel Rejection Reason: Unknown Instrument (1001)",
+  [1005] = "Reason Mass Cancel Rejection Reason: Invalid Execution Trader (1005)",
+  [1016] = "Reason Mass Cancel Rejection Reason: Unknown Market Segment Id (1016)",
+  [1017] = "Reason Mass Cancel Rejection Reason: Unknown Connection Id (1017)",
+  [1053] = "Reason Mass Cancel Rejection Reason: Instrument Forbidden (1053)",
+  [1054] = "Reason Mass Cancel Rejection Reason: Market Segment Id Forbidden (1054)",
+  [1056] = "Reason Mass Cancel Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
+  [2025] = "Reason Mass Cancel Rejection Reason: Request Not Allowed On Sponsored Connection (2025)",
+}
 
-  return "Reason Mass Cancel Rejection Reason: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.labels[value] or "Reason Mass Cancel Rejection Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Mass Cancel Rejection Reason
@@ -2253,84 +1699,36 @@ gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason = {}
 gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.size = 2
 
 -- Display: Reason Mass Quote Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.display = function(value)
-  if value == 1 then
-    return "Reason Mass Quote Rejection Reason: Na (1)"
-  end
-  if value == 2 then
-    return "Reason Mass Quote Rejection Reason: Exchange Closed (2)"
-  end
-  if value == 99 then
-    return "Reason Mass Quote Rejection Reason: Other (99)"
-  end
-  if value == 1005 then
-    return "Reason Mass Quote Rejection Reason: Invalid Execution Trader (1005)"
-  end
-  if value == 1006 then
-    return "Reason Mass Quote Rejection Reason: Invalid Decision Maker (1006)"
-  end
-  if value == 1007 then
-    return "Reason Mass Quote Rejection Reason: Invalid Client Id (1007)"
-  end
-  if value == 1008 then
-    return "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)"
-  end
-  if value == 1009 then
-    return "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)"
-  end
-  if value == 1010 then
-    return "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)"
-  end
-  if value == 1055 then
-    return "Reason Mass Quote Rejection Reason: Missing Order Origination For Sponsored Access Connection (1055)"
-  end
-  if value == 1061 then
-    return "Reason Mass Quote Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)"
-  end
-  if value == 1070 then
-    return "Reason Mass Quote Rejection Reason: Invalid Party Id For Client Id (1070)"
-  end
-  if value == 1071 then
-    return "Reason Mass Quote Rejection Reason: Invalid Party Id For Executing Trader (1071)"
-  end
-  if value == 1072 then
-    return "Reason Mass Quote Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)"
-  end
-  if value == 1075 then
-    return "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)"
-  end
-  if value == 1076 then
-    return "Reason Mass Quote Rejection Reason: Missing Clearing Member Code (1076)"
-  end
-  if value == 1077 then
-    return "Reason Mass Quote Rejection Reason: Forbidden Clearing Member Code (1077)"
-  end
-  if value == 1078 then
-    return "Reason Mass Quote Rejection Reason: Invalid Client Id For Sponsored Connection (1078)"
-  end
-  if value == 1080 then
-    return "Reason Mass Quote Rejection Reason: Forbidden Order Capacity Value For Sponsored Connection (1080)"
-  end
-  if value == 1081 then
-    return "Reason Mass Quote Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)"
-  end
-  if value == 1085 then
-    return "Reason Mass Quote Rejection Reason: Invalid Clearing Member Code Length (1085)"
-  end
-  if value == 1202 then
-    return "Reason Mass Quote Rejection Reason: Duplicate Instrument (1202)"
-  end
-  if value == 1204 then
-    return "Reason Mass Quote Rejection Reason: Invalid Quotes Count (1204)"
-  end
-  if value == 1210 then
-    return "Reason Mass Quote Rejection Reason: Forbidden Order Capacity Value (1210)"
-  end
-  if value == 1212 then
-    return "Reason Mass Quote Rejection Reason: Liquidity Provision Activity Flag Not Set For Mass Quote (1212)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.labels = {
+  [1] = "Reason Mass Quote Rejection Reason: Na (1)",
+  [2] = "Reason Mass Quote Rejection Reason: Exchange Closed (2)",
+  [99] = "Reason Mass Quote Rejection Reason: Other (99)",
+  [1005] = "Reason Mass Quote Rejection Reason: Invalid Execution Trader (1005)",
+  [1006] = "Reason Mass Quote Rejection Reason: Invalid Decision Maker (1006)",
+  [1007] = "Reason Mass Quote Rejection Reason: Invalid Client Id (1007)",
+  [1008] = "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
+  [1009] = "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
+  [1010] = "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
+  [1055] = "Reason Mass Quote Rejection Reason: Missing Order Origination For Sponsored Access Connection (1055)",
+  [1061] = "Reason Mass Quote Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
+  [1070] = "Reason Mass Quote Rejection Reason: Invalid Party Id For Client Id (1070)",
+  [1071] = "Reason Mass Quote Rejection Reason: Invalid Party Id For Executing Trader (1071)",
+  [1072] = "Reason Mass Quote Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
+  [1075] = "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
+  [1076] = "Reason Mass Quote Rejection Reason: Missing Clearing Member Code (1076)",
+  [1077] = "Reason Mass Quote Rejection Reason: Forbidden Clearing Member Code (1077)",
+  [1078] = "Reason Mass Quote Rejection Reason: Invalid Client Id For Sponsored Connection (1078)",
+  [1080] = "Reason Mass Quote Rejection Reason: Forbidden Order Capacity Value For Sponsored Connection (1080)",
+  [1081] = "Reason Mass Quote Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
+  [1085] = "Reason Mass Quote Rejection Reason: Invalid Clearing Member Code Length (1085)",
+  [1202] = "Reason Mass Quote Rejection Reason: Duplicate Instrument (1202)",
+  [1204] = "Reason Mass Quote Rejection Reason: Invalid Quotes Count (1204)",
+  [1210] = "Reason Mass Quote Rejection Reason: Forbidden Order Capacity Value (1210)",
+  [1212] = "Reason Mass Quote Rejection Reason: Liquidity Provision Activity Flag Not Set For Mass Quote (1212)",
+}
 
-  return "Reason Mass Quote Rejection Reason: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.labels[value] or "Reason Mass Quote Rejection Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Mass Quote Rejection Reason
@@ -2352,321 +1750,115 @@ gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason = {}
 gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.size = 2
 
 -- Display: Reason Order Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.display = function(value)
-  if value == 0 then
-    return "Reason Order Rejection Reason: Na (0)"
-  end
-  if value == 1 then
-    return "Reason Order Rejection Reason: Unknown Order (1)"
-  end
-  if value == 2 then
-    return "Reason Order Rejection Reason: Exchange Closed (2)"
-  end
-  if value == 18 then
-    return "Reason Order Rejection Reason: Invalid Price Increment (18)"
-  end
-  if value == 99 then
-    return "Reason Order Rejection Reason: Other (99)"
-  end
-  if value == 106 then
-    return "Reason Order Rejection Reason: Instrument Phase No Trading (106)"
-  end
-  if value == 1001 then
-    return "Reason Order Rejection Reason: Unknown Instrument (1001)"
-  end
-  if value == 1005 then
-    return "Reason Order Rejection Reason: Invalid Execution Trader (1005)"
-  end
-  if value == 1006 then
-    return "Reason Order Rejection Reason: Invalid Decision Maker (1006)"
-  end
-  if value == 1007 then
-    return "Reason Order Rejection Reason: Invalid Client Id (1007)"
-  end
-  if value == 1008 then
-    return "Reason Order Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)"
-  end
-  if value == 1009 then
-    return "Reason Order Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)"
-  end
-  if value == 1010 then
-    return "Reason Order Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)"
-  end
-  if value == 1012 then
-    return "Reason Order Rejection Reason: Cannot Modify Mifid Flags (1012)"
-  end
-  if value == 1013 then
-    return "Reason Order Rejection Reason: Wrong Display Qty Value (1013)"
-  end
-  if value == 1014 then
-    return "Reason Order Rejection Reason: Invalid Display Qty (1014)"
-  end
-  if value == 1015 then
-    return "Reason Order Rejection Reason: Iceberg Order Value Less Than Required (1015)"
-  end
-  if value == 1019 then
-    return "Reason Order Rejection Reason: Cod Disabled For The Connection Id (1019)"
-  end
-  if value == 1025 then
-    return "Reason Order Rejection Reason: Order Quantity Must Be Greater Than Minimum Quantity (1025)"
-  end
-  if value == 1026 then
-    return "Reason Order Rejection Reason: Order Quantity Must Be Lower Than Maximum Quantity (1026)"
-  end
-  if value == 1027 then
-    return "Reason Order Rejection Reason: Order Price Must Be Greater Than Minimum Price (1027)"
-  end
-  if value == 1028 then
-    return "Reason Order Rejection Reason: Order Price Must Be Lower Than Maximum Price (1028)"
-  end
-  if value == 1029 then
-    return "Reason Order Rejection Reason: Order Price Must Be Nonzero (1029)"
-  end
-  if value == 1030 then
-    return "Reason Order Rejection Reason: Order Value Must Be Greater Than Minimum Value (1030)"
-  end
-  if value == 1031 then
-    return "Reason Order Rejection Reason: Order Value Must Be Lower Than Maximum Value (1031)"
-  end
-  if value == 1032 then
-    return "Reason Order Rejection Reason: Invalid Ord Type For Selected Market Model (1032)"
-  end
-  if value == 1034 then
-    return "Reason Order Rejection Reason: Leaves Quantity Must Be Greater Than Zero After Modification (1034)"
-  end
-  if value == 1035 then
-    return "Reason Order Rejection Reason: Price Not Allowed (1035)"
-  end
-  if value == 1039 then
-    return "Reason Order Rejection Reason: Invalid Time In Force For Order Type (1039)"
-  end
-  if value == 1040 then
-    return "Reason Order Rejection Reason: Invalid Time In Force For Current Market Phase (1040)"
-  end
-  if value == 1041 then
-    return "Reason Order Rejection Reason: Invalid Time In Force For Selected Market Model (1041)"
-  end
-  if value == 1042 then
-    return "Reason Order Rejection Reason: Forbidden Ord Type And Time In Force Combination For Market Segment (1042)"
-  end
-  if value == 1043 then
-    return "Reason Order Rejection Reason: Expire Time Cannot Be Modified (1043)"
-  end
-  if value == 1044 then
-    return "Reason Order Rejection Reason: Obsolete Expire Date (1044)"
-  end
-  if value == 1045 then
-    return "Reason Order Rejection Reason: Expire Date In Past (1045)"
-  end
-  if value == 1046 then
-    return "Reason Order Rejection Reason: Obsolete Expire Time (1046)"
-  end
-  if value == 1047 then
-    return "Reason Order Rejection Reason: Expire Time In Past (1047)"
-  end
-  if value == 1048 then
-    return "Reason Order Rejection Reason: Ambigous Expire (1048)"
-  end
-  if value == 1049 then
-    return "Reason Order Rejection Reason: Expire Date Exceeds Limit (1049)"
-  end
-  if value == 1037 then
-    return "Reason Order Rejection Reason: Price Below Low Collar (1037)"
-  end
-  if value == 1038 then
-    return "Reason Order Rejection Reason: Price Above High Collar (1038)"
-  end
-  if value == 1050 then
-    return "Reason Order Rejection Reason: Firm Is Not A Market Maker (1050)"
-  end
-  if value == 1055 then
-    return "Reason Order Rejection Reason: Missing Order Origination For Sponsored Access Connection (1055)"
-  end
-  if value == 1056 then
-    return "Reason Order Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)"
-  end
-  if value == 1057 then
-    return "Reason Order Rejection Reason: Firm Not Authorized To Buy And Sell The Instrument (1057)"
-  end
-  if value == 1058 then
-    return "Reason Order Rejection Reason: Firm Not Authorized To Buy The Instrument (1058)"
-  end
-  if value == 1059 then
-    return "Reason Order Rejection Reason: Firm Not Authorized To Sell The Instrument (1059)"
-  end
-  if value == 1060 then
-    return "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden During Uncrossing (1060)"
-  end
-  if value == 1061 then
-    return "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)"
-  end
-  if value == 1062 then
-    return "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden Due To Drop Copy Disconnection (1062)"
-  end
-  if value == 1063 then
-    return "Reason Order Rejection Reason: Trigger Price Not Allowed (1063)"
-  end
-  if value == 1064 then
-    return "Reason Order Rejection Reason: Trigger Price Not Higher Than Ltp (1064)"
-  end
-  if value == 1065 then
-    return "Reason Order Rejection Reason: Trigger Price Not Lower Than Ltp (1065)"
-  end
-  if value == 1066 then
-    return "Reason Order Rejection Reason: Trigger Price Lower Than Price (1066)"
-  end
-  if value == 1067 then
-    return "Reason Order Rejection Reason: Trigger Price Higher Than Price (1067)"
-  end
-  if value == 1068 then
-    return "Reason Order Rejection Reason: Trigger Price Modified For Activated Order (1068)"
-  end
-  if value == 1069 then
-    return "Reason Order Rejection Reason: Trigger Price Must Be Greater Than Zero (1069)"
-  end
-  if value == 1070 then
-    return "Reason Order Rejection Reason: Invalid Party Id For Client Id (1070)"
-  end
-  if value == 1071 then
-    return "Reason Order Rejection Reason: Invalid Party Id For Executing Trader (1071)"
-  end
-  if value == 1072 then
-    return "Reason Order Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)"
-  end
-  if value == 1075 then
-    return "Reason Order Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)"
-  end
-  if value == 1076 then
-    return "Reason Order Rejection Reason: Missing Clearing Member Code (1076)"
-  end
-  if value == 1077 then
-    return "Reason Order Rejection Reason: Forbidden Clearing Member Code (1077)"
-  end
-  if value == 1078 then
-    return "Reason Order Rejection Reason: Invalid Client Id For Sponsored Connection (1078)"
-  end
-  if value == 1079 then
-    return "Reason Order Rejection Reason: Invalid Ord Type For Sponsored Connection (1079)"
-  end
-  if value == 1080 then
-    return "Reason Order Rejection Reason: Forbidden Order Capacity Value For Sponsored Connection (1080)"
-  end
-  if value == 1081 then
-    return "Reason Order Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)"
-  end
-  if value == 1083 then
-    return "Reason Order Rejection Reason: Invalid Time In Force For Sponsored Connection (1083)"
-  end
-  if value == 1084 then
-    return "Reason Order Rejection Reason: Operation Forbidden During Early Late Monitoring (1084)"
-  end
-  if value == 1085 then
-    return "Reason Order Rejection Reason: Invalid Clearing Member Code Length (1085)"
-  end
-  if value == 1086 then
-    return "Reason Order Rejection Reason: Operation Unsuccessful Retry Needed (1086)"
-  end
-  if value == 1201 then
-    return "Reason Order Rejection Reason: Mass Quote Not Allowed For Selected Market Model (1201)"
-  end
-  if value == 1203 then
-    return "Reason Order Rejection Reason: Instrument Closed (1203)"
-  end
-  if value == 1208 then
-    return "Reason Order Rejection Reason: Invalid Bid Ask Spread (1208)"
-  end
-  if value == 1209 then
-    return "Reason Order Rejection Reason: Not Authorized To Quote Instrument (1209)"
-  end
-  if value == 1301 then
-    return "Reason Order Rejection Reason: Buy Order Not Allowed (1301)"
-  end
-  if value == 1307 then
-    return "Reason Order Rejection Reason: Stop Orders Not Allowed (1307)"
-  end
-  if value == 1308 then
-    return "Reason Order Rejection Reason: Trigger Price Must Be Higher Than Lp Sell Quote (1308)"
-  end
-  if value == 1309 then
-    return "Reason Order Rejection Reason: Trigger Price Must Be Lower Than Lp Buy Quote (1309)"
-  end
-  if value == 1310 then
-    return "Reason Order Rejection Reason: Market Making Via Mass Quote Only On Hybrid Market (1310)"
-  end
-  if value == 1311 then
-    return "Reason Order Rejection Reason: Sell Quotes Not Allowed During Buy Only State (1311)"
-  end
-  if value == 1312 then
-    return "Reason Order Rejection Reason: Instrument Knocked Out (1312)"
-  end
-  if value == 1401 then
-    return "Reason Order Rejection Reason: Only One Sell Order Is Allowed For Ipo (1401)"
-  end
-  if value == 1402 then
-    return "Reason Order Rejection Reason: Only One Buy Order Is Allowed For Tender (1402)"
-  end
-  if value == 2026 then
-    return "Reason Order Rejection Reason: Request Not Allowed For Block Instrument (2026)"
-  end
-  if value == 2028 then
-    return "Reason Order Rejection Reason: Request Not Allowed For Cross Instrument (2028)"
-  end
-  if value == 7000 then
-    return "Reason Order Rejection Reason: Risk Limit Not Defined (7000)"
-  end
-  if value == 7001 then
-    return "Reason Order Rejection Reason: Risk Maximum Order Volume Exceeded (7001)"
-  end
-  if value == 7002 then
-    return "Reason Order Rejection Reason: Risk Maximum Order Value Exceeded (7002)"
-  end
-  if value == 7003 then
-    return "Reason Order Rejection Reason: Risk Order Price Collar Exceeded (7003)"
-  end
-  if value == 7004 then
-    return "Reason Order Rejection Reason: Dynamic Order Price Collar Not Defined (7004)"
-  end
-  if value == 7005 then
-    return "Reason Order Rejection Reason: Static Order Price Collar Not Defined (7005)"
-  end
-  if value == 7011 then
-    return "Reason Order Rejection Reason: Total Traded Value Exceeded (7011)"
-  end
-  if value == 7012 then
-    return "Reason Order Rejection Reason: Total Traded Buy Value Exceeded (7012)"
-  end
-  if value == 7013 then
-    return "Reason Order Rejection Reason: Total Traded Sell Value Exceeded (7013)"
-  end
-  if value == 7014 then
-    return "Reason Order Rejection Reason: Total Open Value Exceeded (7014)"
-  end
-  if value == 7015 then
-    return "Reason Order Rejection Reason: Total Open Buy Value Exceeded (7015)"
-  end
-  if value == 7016 then
-    return "Reason Order Rejection Reason: Total Open Sell Value Exceeded (7016)"
-  end
-  if value == 7017 then
-    return "Reason Order Rejection Reason: Total Risk Value Exceeded (7017)"
-  end
-  if value == 7018 then
-    return "Reason Order Rejection Reason: Total Buy Risk Value Exceeded (7018)"
-  end
-  if value == 7019 then
-    return "Reason Order Rejection Reason: Total Sell Risk Value Exceeded (7019)"
-  end
-  if value == 7020 then
-    return "Reason Order Rejection Reason: Total Net Risk Value Exceeded (7020)"
-  end
-  if value == 7021 then
-    return "Reason Order Rejection Reason: Max Order Count Exceeded (7021)"
-  end
-  if value == 7022 then
-    return "Reason Order Rejection Reason: Rejected Due To Kill Switch Activation (7022)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.labels = {
+  [0] = "Reason Order Rejection Reason: Na (0)",
+  [1] = "Reason Order Rejection Reason: Unknown Order (1)",
+  [2] = "Reason Order Rejection Reason: Exchange Closed (2)",
+  [18] = "Reason Order Rejection Reason: Invalid Price Increment (18)",
+  [99] = "Reason Order Rejection Reason: Other (99)",
+  [106] = "Reason Order Rejection Reason: Instrument Phase No Trading (106)",
+  [1001] = "Reason Order Rejection Reason: Unknown Instrument (1001)",
+  [1005] = "Reason Order Rejection Reason: Invalid Execution Trader (1005)",
+  [1006] = "Reason Order Rejection Reason: Invalid Decision Maker (1006)",
+  [1007] = "Reason Order Rejection Reason: Invalid Client Id (1007)",
+  [1008] = "Reason Order Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
+  [1009] = "Reason Order Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
+  [1010] = "Reason Order Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
+  [1012] = "Reason Order Rejection Reason: Cannot Modify Mifid Flags (1012)",
+  [1013] = "Reason Order Rejection Reason: Wrong Display Qty Value (1013)",
+  [1014] = "Reason Order Rejection Reason: Invalid Display Qty (1014)",
+  [1015] = "Reason Order Rejection Reason: Iceberg Order Value Less Than Required (1015)",
+  [1019] = "Reason Order Rejection Reason: Cod Disabled For The Connection Id (1019)",
+  [1025] = "Reason Order Rejection Reason: Order Quantity Must Be Greater Than Minimum Quantity (1025)",
+  [1026] = "Reason Order Rejection Reason: Order Quantity Must Be Lower Than Maximum Quantity (1026)",
+  [1027] = "Reason Order Rejection Reason: Order Price Must Be Greater Than Minimum Price (1027)",
+  [1028] = "Reason Order Rejection Reason: Order Price Must Be Lower Than Maximum Price (1028)",
+  [1029] = "Reason Order Rejection Reason: Order Price Must Be Nonzero (1029)",
+  [1030] = "Reason Order Rejection Reason: Order Value Must Be Greater Than Minimum Value (1030)",
+  [1031] = "Reason Order Rejection Reason: Order Value Must Be Lower Than Maximum Value (1031)",
+  [1032] = "Reason Order Rejection Reason: Invalid Ord Type For Selected Market Model (1032)",
+  [1034] = "Reason Order Rejection Reason: Leaves Quantity Must Be Greater Than Zero After Modification (1034)",
+  [1035] = "Reason Order Rejection Reason: Price Not Allowed (1035)",
+  [1039] = "Reason Order Rejection Reason: Invalid Time In Force For Order Type (1039)",
+  [1040] = "Reason Order Rejection Reason: Invalid Time In Force For Current Market Phase (1040)",
+  [1041] = "Reason Order Rejection Reason: Invalid Time In Force For Selected Market Model (1041)",
+  [1042] = "Reason Order Rejection Reason: Forbidden Ord Type And Time In Force Combination For Market Segment (1042)",
+  [1043] = "Reason Order Rejection Reason: Expire Time Cannot Be Modified (1043)",
+  [1044] = "Reason Order Rejection Reason: Obsolete Expire Date (1044)",
+  [1045] = "Reason Order Rejection Reason: Expire Date In Past (1045)",
+  [1046] = "Reason Order Rejection Reason: Obsolete Expire Time (1046)",
+  [1047] = "Reason Order Rejection Reason: Expire Time In Past (1047)",
+  [1048] = "Reason Order Rejection Reason: Ambigous Expire (1048)",
+  [1049] = "Reason Order Rejection Reason: Expire Date Exceeds Limit (1049)",
+  [1037] = "Reason Order Rejection Reason: Price Below Low Collar (1037)",
+  [1038] = "Reason Order Rejection Reason: Price Above High Collar (1038)",
+  [1050] = "Reason Order Rejection Reason: Firm Is Not A Market Maker (1050)",
+  [1055] = "Reason Order Rejection Reason: Missing Order Origination For Sponsored Access Connection (1055)",
+  [1056] = "Reason Order Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
+  [1057] = "Reason Order Rejection Reason: Firm Not Authorized To Buy And Sell The Instrument (1057)",
+  [1058] = "Reason Order Rejection Reason: Firm Not Authorized To Buy The Instrument (1058)",
+  [1059] = "Reason Order Rejection Reason: Firm Not Authorized To Sell The Instrument (1059)",
+  [1060] = "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden During Uncrossing (1060)",
+  [1061] = "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
+  [1062] = "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden Due To Drop Copy Disconnection (1062)",
+  [1063] = "Reason Order Rejection Reason: Trigger Price Not Allowed (1063)",
+  [1064] = "Reason Order Rejection Reason: Trigger Price Not Higher Than Ltp (1064)",
+  [1065] = "Reason Order Rejection Reason: Trigger Price Not Lower Than Ltp (1065)",
+  [1066] = "Reason Order Rejection Reason: Trigger Price Lower Than Price (1066)",
+  [1067] = "Reason Order Rejection Reason: Trigger Price Higher Than Price (1067)",
+  [1068] = "Reason Order Rejection Reason: Trigger Price Modified For Activated Order (1068)",
+  [1069] = "Reason Order Rejection Reason: Trigger Price Must Be Greater Than Zero (1069)",
+  [1070] = "Reason Order Rejection Reason: Invalid Party Id For Client Id (1070)",
+  [1071] = "Reason Order Rejection Reason: Invalid Party Id For Executing Trader (1071)",
+  [1072] = "Reason Order Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
+  [1075] = "Reason Order Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
+  [1076] = "Reason Order Rejection Reason: Missing Clearing Member Code (1076)",
+  [1077] = "Reason Order Rejection Reason: Forbidden Clearing Member Code (1077)",
+  [1078] = "Reason Order Rejection Reason: Invalid Client Id For Sponsored Connection (1078)",
+  [1079] = "Reason Order Rejection Reason: Invalid Ord Type For Sponsored Connection (1079)",
+  [1080] = "Reason Order Rejection Reason: Forbidden Order Capacity Value For Sponsored Connection (1080)",
+  [1081] = "Reason Order Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
+  [1083] = "Reason Order Rejection Reason: Invalid Time In Force For Sponsored Connection (1083)",
+  [1084] = "Reason Order Rejection Reason: Operation Forbidden During Early Late Monitoring (1084)",
+  [1085] = "Reason Order Rejection Reason: Invalid Clearing Member Code Length (1085)",
+  [1086] = "Reason Order Rejection Reason: Operation Unsuccessful Retry Needed (1086)",
+  [1201] = "Reason Order Rejection Reason: Mass Quote Not Allowed For Selected Market Model (1201)",
+  [1203] = "Reason Order Rejection Reason: Instrument Closed (1203)",
+  [1208] = "Reason Order Rejection Reason: Invalid Bid Ask Spread (1208)",
+  [1209] = "Reason Order Rejection Reason: Not Authorized To Quote Instrument (1209)",
+  [1301] = "Reason Order Rejection Reason: Buy Order Not Allowed (1301)",
+  [1307] = "Reason Order Rejection Reason: Stop Orders Not Allowed (1307)",
+  [1308] = "Reason Order Rejection Reason: Trigger Price Must Be Higher Than Lp Sell Quote (1308)",
+  [1309] = "Reason Order Rejection Reason: Trigger Price Must Be Lower Than Lp Buy Quote (1309)",
+  [1310] = "Reason Order Rejection Reason: Market Making Via Mass Quote Only On Hybrid Market (1310)",
+  [1311] = "Reason Order Rejection Reason: Sell Quotes Not Allowed During Buy Only State (1311)",
+  [1312] = "Reason Order Rejection Reason: Instrument Knocked Out (1312)",
+  [1401] = "Reason Order Rejection Reason: Only One Sell Order Is Allowed For Ipo (1401)",
+  [1402] = "Reason Order Rejection Reason: Only One Buy Order Is Allowed For Tender (1402)",
+  [2026] = "Reason Order Rejection Reason: Request Not Allowed For Block Instrument (2026)",
+  [2028] = "Reason Order Rejection Reason: Request Not Allowed For Cross Instrument (2028)",
+  [7000] = "Reason Order Rejection Reason: Risk Limit Not Defined (7000)",
+  [7001] = "Reason Order Rejection Reason: Risk Maximum Order Volume Exceeded (7001)",
+  [7002] = "Reason Order Rejection Reason: Risk Maximum Order Value Exceeded (7002)",
+  [7003] = "Reason Order Rejection Reason: Risk Order Price Collar Exceeded (7003)",
+  [7004] = "Reason Order Rejection Reason: Dynamic Order Price Collar Not Defined (7004)",
+  [7005] = "Reason Order Rejection Reason: Static Order Price Collar Not Defined (7005)",
+  [7011] = "Reason Order Rejection Reason: Total Traded Value Exceeded (7011)",
+  [7012] = "Reason Order Rejection Reason: Total Traded Buy Value Exceeded (7012)",
+  [7013] = "Reason Order Rejection Reason: Total Traded Sell Value Exceeded (7013)",
+  [7014] = "Reason Order Rejection Reason: Total Open Value Exceeded (7014)",
+  [7015] = "Reason Order Rejection Reason: Total Open Buy Value Exceeded (7015)",
+  [7016] = "Reason Order Rejection Reason: Total Open Sell Value Exceeded (7016)",
+  [7017] = "Reason Order Rejection Reason: Total Risk Value Exceeded (7017)",
+  [7018] = "Reason Order Rejection Reason: Total Buy Risk Value Exceeded (7018)",
+  [7019] = "Reason Order Rejection Reason: Total Sell Risk Value Exceeded (7019)",
+  [7020] = "Reason Order Rejection Reason: Total Net Risk Value Exceeded (7020)",
+  [7021] = "Reason Order Rejection Reason: Max Order Count Exceeded (7021)",
+  [7022] = "Reason Order Rejection Reason: Rejected Due To Kill Switch Activation (7022)",
+}
 
-  return "Reason Order Rejection Reason: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.labels[value] or "Reason Order Rejection Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Order Rejection Reason
@@ -2688,15 +1880,13 @@ gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason = {}
 gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.size = 1
 
 -- Display: Reason Request For Execution Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.display = function(value)
-  if value == 1 then
-    return "Reason Request For Execution Reason: Passive Quote (1)"
-  end
-  if value == 2 then
-    return "Reason Request For Execution Reason: Aggressive Quote (2)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.labels = {
+  [1] = "Reason Request For Execution Reason: Passive Quote (1)",
+  [2] = "Reason Request For Execution Reason: Aggressive Quote (2)",
+}
 
-  return "Reason Request For Execution Reason: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.labels[value] or "Reason Request For Execution Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Request For Execution Reason
@@ -2718,177 +1908,67 @@ gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason = {}
 gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.size = 2
 
 -- Display: Reason Tcr Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.display = function(value)
-  if value == 1 then
-    return "Reason Tcr Rejection Reason: Na (1)"
-  end
-  if value == 2 then
-    return "Reason Tcr Rejection Reason: Exchange Closed (2)"
-  end
-  if value == 18 then
-    return "Reason Tcr Rejection Reason: Invalid Price Increment (18)"
-  end
-  if value == 99 then
-    return "Reason Tcr Rejection Reason: Other (99)"
-  end
-  if value == 106 then
-    return "Reason Tcr Rejection Reason: Instrument Phase No Trading (106)"
-  end
-  if value == 1001 then
-    return "Reason Tcr Rejection Reason: Unknown Instrument (1001)"
-  end
-  if value == 1005 then
-    return "Reason Tcr Rejection Reason: Invalid Execution Trader (1005)"
-  end
-  if value == 1006 then
-    return "Reason Tcr Rejection Reason: Invalid Decision Maker (1006)"
-  end
-  if value == 1007 then
-    return "Reason Tcr Rejection Reason: Invalid Client Id (1007)"
-  end
-  if value == 1008 then
-    return "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)"
-  end
-  if value == 1009 then
-    return "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)"
-  end
-  if value == 1010 then
-    return "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)"
-  end
-  if value == 1025 then
-    return "Reason Tcr Rejection Reason: Order Quantity Must Be Greater Than Minimum Quantity (1025)"
-  end
-  if value == 1026 then
-    return "Reason Tcr Rejection Reason: Order Quantity Must Be Lower Than Maximum Quantity (1026)"
-  end
-  if value == 1027 then
-    return "Reason Tcr Rejection Reason: Order Price Must Be Greater Than Minimum Price (1027)"
-  end
-  if value == 1028 then
-    return "Reason Tcr Rejection Reason: Order Price Must Be Lower Than Maximum Price (1028)"
-  end
-  if value == 1029 then
-    return "Reason Tcr Rejection Reason: Order Price Must Be Nonzero (1029)"
-  end
-  if value == 1030 then
-    return "Reason Tcr Rejection Reason: Order Value Must Be Greater Than Minimum Value (1030)"
-  end
-  if value == 1031 then
-    return "Reason Tcr Rejection Reason: Order Value Must Be Lower Than Maximum Value (1031)"
-  end
-  if value == 1037 then
-    return "Reason Tcr Rejection Reason: Price Below Low Collar (1037)"
-  end
-  if value == 1038 then
-    return "Reason Tcr Rejection Reason: Price Above High Collar (1038)"
-  end
-  if value == 1050 then
-    return "Reason Tcr Rejection Reason: Firm Is Not A Market Maker (1050)"
-  end
-  if value == 1056 then
-    return "Reason Tcr Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)"
-  end
-  if value == 1057 then
-    return "Reason Tcr Rejection Reason: Firm Not Authorized To Buy And Sell The Instrument (1057)"
-  end
-  if value == 1058 then
-    return "Reason Tcr Rejection Reason: Firm Not Authorized To Buy The Instrument (1058)"
-  end
-  if value == 1059 then
-    return "Reason Tcr Rejection Reason: Firm Not Authorized To Sell The Instrument (1059)"
-  end
-  if value == 1061 then
-    return "Reason Tcr Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)"
-  end
-  if value == 1070 then
-    return "Reason Tcr Rejection Reason: Invalid Party Id For Client Id (1070)"
-  end
-  if value == 1071 then
-    return "Reason Tcr Rejection Reason: Invalid Party Id For Executing Trader (1071)"
-  end
-  if value == 1072 then
-    return "Reason Tcr Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)"
-  end
-  if value == 1075 then
-    return "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)"
-  end
-  if value == 1076 then
-    return "Reason Tcr Rejection Reason: Missing Clearing Member Code (1076)"
-  end
-  if value == 1077 then
-    return "Reason Tcr Rejection Reason: Forbidden Clearing Member Code (1077)"
-  end
-  if value == 1081 then
-    return "Reason Tcr Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)"
-  end
-  if value == 1084 then
-    return "Reason Tcr Rejection Reason: Operation Forbidden During Early Late Monitoring (1084)"
-  end
-  if value == 1085 then
-    return "Reason Tcr Rejection Reason: Invalid Clearing Member Code Length (1085)"
-  end
-  if value == 1209 then
-    return "Reason Tcr Rejection Reason: Not Authorized To Quote Instrument (1209)"
-  end
-  if value == 2001 then
-    return "Reason Tcr Rejection Reason: Unknown Trade Report (2001)"
-  end
-  if value == 2002 then
-    return "Reason Tcr Rejection Reason: Duplicate Trade Report Id (2002)"
-  end
-  if value == 2005 then
-    return "Reason Tcr Rejection Reason: Trade Report Type Not Compatible With Trade Report Trans Type (2005)"
-  end
-  if value == 2008 then
-    return "Reason Tcr Rejection Reason: Invalid Exec Type (2008)"
-  end
-  if value == 2009 then
-    return "Reason Tcr Rejection Reason: Trade Report Ref Id Not Allowed (2009)"
-  end
-  if value == 2015 then
-    return "Reason Tcr Rejection Reason: Settlement Date Cannot Be Earlier Than Minimum Settlement Date (2015)"
-  end
-  if value == 2016 then
-    return "Reason Tcr Rejection Reason: Settlement Date Cannot Be Later Than Maximum Settlement Date (2016)"
-  end
-  if value == 2017 then
-    return "Reason Tcr Rejection Reason: Settlement Date Must Be A Settlement Day (2017)"
-  end
-  if value == 2022 then
-    return "Reason Tcr Rejection Reason: Unknown Contra Firm (2022)"
-  end
-  if value == 2024 then
-    return "Reason Tcr Rejection Reason: Sent Attribute Does Not Match Original Value (2024)"
-  end
-  if value == 2026 then
-    return "Reason Tcr Rejection Reason: Request Not Allowed For Block Instrument (2026)"
-  end
-  if value == 2027 then
-    return "Reason Tcr Rejection Reason: Request Not Allowed For Clob Instrument (2027)"
-  end
-  if value == 2028 then
-    return "Reason Tcr Rejection Reason: Request Not Allowed For Cross Instrument (2028)"
-  end
-  if value == 2030 then
-    return "Reason Tcr Rejection Reason: Cross Not Allowed Outside Of Clob Instrument Spread (2030)"
-  end
-  if value == 2031 then
-    return "Reason Tcr Rejection Reason: Cross Price Not Equal To The Reference Price (2031)"
-  end
-  if value == 2032 then
-    return "Reason Tcr Rejection Reason: Cross Not Allowed During Clob Instrument Auction Or Suspension (2032)"
-  end
-  if value == 2033 then
-    return "Reason Tcr Rejection Reason: Forbidden Secondary Tradereport Id (2033)"
-  end
-  if value == 2034 then
-    return "Reason Tcr Rejection Reason: Unknown Secondary Tradereport Id (2034)"
-  end
-  if value == 2035 then
-    return "Reason Tcr Rejection Reason: No Trade For Clob Reference Instrument (2035)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.labels = {
+  [1] = "Reason Tcr Rejection Reason: Na (1)",
+  [2] = "Reason Tcr Rejection Reason: Exchange Closed (2)",
+  [18] = "Reason Tcr Rejection Reason: Invalid Price Increment (18)",
+  [99] = "Reason Tcr Rejection Reason: Other (99)",
+  [106] = "Reason Tcr Rejection Reason: Instrument Phase No Trading (106)",
+  [1001] = "Reason Tcr Rejection Reason: Unknown Instrument (1001)",
+  [1005] = "Reason Tcr Rejection Reason: Invalid Execution Trader (1005)",
+  [1006] = "Reason Tcr Rejection Reason: Invalid Decision Maker (1006)",
+  [1007] = "Reason Tcr Rejection Reason: Invalid Client Id (1007)",
+  [1008] = "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
+  [1009] = "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
+  [1010] = "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
+  [1025] = "Reason Tcr Rejection Reason: Order Quantity Must Be Greater Than Minimum Quantity (1025)",
+  [1026] = "Reason Tcr Rejection Reason: Order Quantity Must Be Lower Than Maximum Quantity (1026)",
+  [1027] = "Reason Tcr Rejection Reason: Order Price Must Be Greater Than Minimum Price (1027)",
+  [1028] = "Reason Tcr Rejection Reason: Order Price Must Be Lower Than Maximum Price (1028)",
+  [1029] = "Reason Tcr Rejection Reason: Order Price Must Be Nonzero (1029)",
+  [1030] = "Reason Tcr Rejection Reason: Order Value Must Be Greater Than Minimum Value (1030)",
+  [1031] = "Reason Tcr Rejection Reason: Order Value Must Be Lower Than Maximum Value (1031)",
+  [1037] = "Reason Tcr Rejection Reason: Price Below Low Collar (1037)",
+  [1038] = "Reason Tcr Rejection Reason: Price Above High Collar (1038)",
+  [1050] = "Reason Tcr Rejection Reason: Firm Is Not A Market Maker (1050)",
+  [1056] = "Reason Tcr Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
+  [1057] = "Reason Tcr Rejection Reason: Firm Not Authorized To Buy And Sell The Instrument (1057)",
+  [1058] = "Reason Tcr Rejection Reason: Firm Not Authorized To Buy The Instrument (1058)",
+  [1059] = "Reason Tcr Rejection Reason: Firm Not Authorized To Sell The Instrument (1059)",
+  [1061] = "Reason Tcr Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
+  [1070] = "Reason Tcr Rejection Reason: Invalid Party Id For Client Id (1070)",
+  [1071] = "Reason Tcr Rejection Reason: Invalid Party Id For Executing Trader (1071)",
+  [1072] = "Reason Tcr Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
+  [1075] = "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
+  [1076] = "Reason Tcr Rejection Reason: Missing Clearing Member Code (1076)",
+  [1077] = "Reason Tcr Rejection Reason: Forbidden Clearing Member Code (1077)",
+  [1081] = "Reason Tcr Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
+  [1084] = "Reason Tcr Rejection Reason: Operation Forbidden During Early Late Monitoring (1084)",
+  [1085] = "Reason Tcr Rejection Reason: Invalid Clearing Member Code Length (1085)",
+  [1209] = "Reason Tcr Rejection Reason: Not Authorized To Quote Instrument (1209)",
+  [2001] = "Reason Tcr Rejection Reason: Unknown Trade Report (2001)",
+  [2002] = "Reason Tcr Rejection Reason: Duplicate Trade Report Id (2002)",
+  [2005] = "Reason Tcr Rejection Reason: Trade Report Type Not Compatible With Trade Report Trans Type (2005)",
+  [2008] = "Reason Tcr Rejection Reason: Invalid Exec Type (2008)",
+  [2009] = "Reason Tcr Rejection Reason: Trade Report Ref Id Not Allowed (2009)",
+  [2015] = "Reason Tcr Rejection Reason: Settlement Date Cannot Be Earlier Than Minimum Settlement Date (2015)",
+  [2016] = "Reason Tcr Rejection Reason: Settlement Date Cannot Be Later Than Maximum Settlement Date (2016)",
+  [2017] = "Reason Tcr Rejection Reason: Settlement Date Must Be A Settlement Day (2017)",
+  [2022] = "Reason Tcr Rejection Reason: Unknown Contra Firm (2022)",
+  [2024] = "Reason Tcr Rejection Reason: Sent Attribute Does Not Match Original Value (2024)",
+  [2026] = "Reason Tcr Rejection Reason: Request Not Allowed For Block Instrument (2026)",
+  [2027] = "Reason Tcr Rejection Reason: Request Not Allowed For Clob Instrument (2027)",
+  [2028] = "Reason Tcr Rejection Reason: Request Not Allowed For Cross Instrument (2028)",
+  [2030] = "Reason Tcr Rejection Reason: Cross Not Allowed Outside Of Clob Instrument Spread (2030)",
+  [2031] = "Reason Tcr Rejection Reason: Cross Price Not Equal To The Reference Price (2031)",
+  [2032] = "Reason Tcr Rejection Reason: Cross Not Allowed During Clob Instrument Auction Or Suspension (2032)",
+  [2033] = "Reason Tcr Rejection Reason: Forbidden Secondary Tradereport Id (2033)",
+  [2034] = "Reason Tcr Rejection Reason: Unknown Secondary Tradereport Id (2034)",
+  [2035] = "Reason Tcr Rejection Reason: No Trade For Clob Reference Instrument (2035)",
+}
 
-  return "Reason Tcr Rejection Reason: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.labels[value] or "Reason Tcr Rejection Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason Tcr Rejection Reason
@@ -2956,45 +2036,23 @@ gpw_wse_orderentry_wats_v1_7_6_20.reject_reason = {}
 gpw_wse_orderentry_wats_v1_7_6_20.reject_reason.size = 1
 
 -- Display: Reject Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reject_reason.display = function(value)
-  if value == 0 then
-    return "Reject Reason: Na (0)"
-  end
-  if value == 1 then
-    return "Reject Reason: Max Throughput Exceeded (1)"
-  end
-  if value == 2 then
-    return "Reject Reason: Invalid Msg Type (2)"
-  end
-  if value == 3 then
-    return "Reject Reason: Invalid Expire Time Precision (3)"
-  end
-  if value == 4 then
-    return "Reject Reason: Invalid Settlement Date (4)"
-  end
-  if value == 5 then
-    return "Reject Reason: Settlement Date Required (5)"
-  end
-  if value == 6 then
-    return "Reject Reason: Trade Report Id Required (6)"
-  end
-  if value == 7 then
-    return "Reject Reason: Missing Report Id Secondary Trade Report Id Or Trade Report Ref Id (7)"
-  end
-  if value == 8 then
-    return "Reject Reason: Invalid Trade Id (8)"
-  end
-  if value == 9 then
-    return "Reject Reason: Invalid Algorithmic Trade Indicator (9)"
-  end
-  if value == 10 then
-    return "Reject Reason: Invalid Trade Report Id (10)"
-  end
-  if value == 11 then
-    return "Reject Reason: Invalid Gap Fill Seq Num (11)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.reject_reason.labels = {
+  [0] = "Reject Reason: Na (0)",
+  [1] = "Reject Reason: Max Throughput Exceeded (1)",
+  [2] = "Reject Reason: Invalid Msg Type (2)",
+  [3] = "Reject Reason: Invalid Expire Time Precision (3)",
+  [4] = "Reject Reason: Invalid Settlement Date (4)",
+  [5] = "Reject Reason: Settlement Date Required (5)",
+  [6] = "Reject Reason: Trade Report Id Required (6)",
+  [7] = "Reject Reason: Missing Report Id Secondary Trade Report Id Or Trade Report Ref Id (7)",
+  [8] = "Reject Reason: Invalid Trade Id (8)",
+  [9] = "Reject Reason: Invalid Algorithmic Trade Indicator (9)",
+  [10] = "Reject Reason: Invalid Trade Report Id (10)",
+  [11] = "Reject Reason: Invalid Gap Fill Seq Num (11)",
+}
 
-  return "Reject Reason: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.reject_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.reject_reason.labels[value] or "Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason
@@ -3016,54 +2074,26 @@ gpw_wse_orderentry_wats_v1_7_6_20.rejection_code = {}
 gpw_wse_orderentry_wats_v1_7_6_20.rejection_code.size = 2
 
 -- Display: Rejection Code
-gpw_wse_orderentry_wats_v1_7_6_20.rejection_code.display = function(value)
-  if value == 99 then
-    return "Rejection Code: Other (99)"
-  end
-  if value == 1001 then
-    return "Rejection Code: Unknown Instrument (1001)"
-  end
-  if value == 1304 then
-    return "Rejection Code: Firm Not Authorized For Mm Command (1304)"
-  end
-  if value == 1313 then
-    return "Rejection Code: Instrument Already Knocked Out (1313)"
-  end
-  if value == 1314 then
-    return "Rejection Code: Mm Cannot Revoke Market Operation Knock Out (1314)"
-  end
-  if value == 1315 then
-    return "Rejection Code: Knock Out Or Revoke Knock Out Operations Not Allowed During Instrument Suspension (1315)"
-  end
-  if value == 1316 then
-    return "Rejection Code: Revoke Knock Out Operations Not Allowed Once Barrier Is Reached (1316)"
-  end
-  if value == 1317 then
-    return "Rejection Code: Mm Command Not Allowed For Selected Market Model (1317)"
-  end
-  if value == 1318 then
-    return "Rejection Code: Revoke Knock Out Operations Not Allowed For Active Instrument (1318)"
-  end
-  if value == 2026 then
-    return "Rejection Code: Request Not Allowed For Block Instrument (2026)"
-  end
-  if value == 2027 then
-    return "Rejection Code: Request Not Allowed For Clob Instrument (2027)"
-  end
-  if value == 2028 then
-    return "Rejection Code: Request Not Allowed For Cross Instrument (2028)"
-  end
-  if value == 3002 then
-    return "Rejection Code: Exchange Closed (3002)"
-  end
-  if value == 3009 then
-    return "Rejection Code: Firm Not Authorized To Quote Instrument (3009)"
-  end
-  if value == 3020 then
-    return "Rejection Code: Command Not Allowed In Current State (3020)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.rejection_code.labels = {
+  [99] = "Rejection Code: Other (99)",
+  [1001] = "Rejection Code: Unknown Instrument (1001)",
+  [1304] = "Rejection Code: Firm Not Authorized For Mm Command (1304)",
+  [1313] = "Rejection Code: Instrument Already Knocked Out (1313)",
+  [1314] = "Rejection Code: Mm Cannot Revoke Market Operation Knock Out (1314)",
+  [1315] = "Rejection Code: Knock Out Or Revoke Knock Out Operations Not Allowed During Instrument Suspension (1315)",
+  [1316] = "Rejection Code: Revoke Knock Out Operations Not Allowed Once Barrier Is Reached (1316)",
+  [1317] = "Rejection Code: Mm Command Not Allowed For Selected Market Model (1317)",
+  [1318] = "Rejection Code: Revoke Knock Out Operations Not Allowed For Active Instrument (1318)",
+  [2026] = "Rejection Code: Request Not Allowed For Block Instrument (2026)",
+  [2027] = "Rejection Code: Request Not Allowed For Clob Instrument (2027)",
+  [2028] = "Rejection Code: Request Not Allowed For Cross Instrument (2028)",
+  [3002] = "Rejection Code: Exchange Closed (3002)",
+  [3009] = "Rejection Code: Firm Not Authorized To Quote Instrument (3009)",
+  [3020] = "Rejection Code: Command Not Allowed In Current State (3020)",
+}
 
-  return "Rejection Code: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.rejection_code.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.rejection_code.labels[value] or "Rejection Code: Unknown("..value..")"
 end
 
 -- Dissect: Rejection Code
@@ -3085,15 +2115,13 @@ gpw_wse_orderentry_wats_v1_7_6_20.result_command_result = {}
 gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.size = 1
 
 -- Display: Result Command Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.display = function(value)
-  if value == 1 then
-    return "Result Command Result: Success (1)"
-  end
-  if value == 2 then
-    return "Result Command Result: Failure (2)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.labels = {
+  [1] = "Result Command Result: Success (1)",
+  [2] = "Result Command Result: Failure (2)",
+}
 
-  return "Result Command Result: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.labels[value] or "Result Command Result: Unknown("..value..")"
 end
 
 -- Dissect: Result Command Result
@@ -3115,36 +2143,20 @@ gpw_wse_orderentry_wats_v1_7_6_20.result_login_result = {}
 gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.size = 1
 
 -- Display: Result Login Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.display = function(value)
-  if value == 1 then
-    return "Result Login Result: Ok (1)"
-  end
-  if value == 2 then
-    return "Result Login Result: Not Found (2)"
-  end
-  if value == 3 then
-    return "Result Login Result: Invalid Token (3)"
-  end
-  if value == 4 then
-    return "Result Login Result: Already Logged In (4)"
-  end
-  if value == 5 then
-    return "Result Login Result: Account Locked (5)"
-  end
-  if value == 6 then
-    return "Result Login Result: Login Not Allowed (6)"
-  end
-  if value == 7 then
-    return "Result Login Result: Invalid Login Parameters (7)"
-  end
-  if value == 8 then
-    return "Result Login Result: Throttling Temporary Lock (8)"
-  end
-  if value == 9 then
-    return "Result Login Result: Other (9)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.labels = {
+  [1] = "Result Login Result: Ok (1)",
+  [2] = "Result Login Result: Not Found (2)",
+  [3] = "Result Login Result: Invalid Token (3)",
+  [4] = "Result Login Result: Already Logged In (4)",
+  [5] = "Result Login Result: Account Locked (5)",
+  [6] = "Result Login Result: Login Not Allowed (6)",
+  [7] = "Result Login Result: Invalid Login Parameters (7)",
+  [8] = "Result Login Result: Throttling Temporary Lock (8)",
+  [9] = "Result Login Result: Other (9)",
+}
 
-  return "Result Login Result: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.labels[value] or "Result Login Result: Unknown("..value..")"
 end
 
 -- Dissect: Result Login Result
@@ -3284,15 +2296,13 @@ gpw_wse_orderentry_wats_v1_7_6_20.side = {}
 gpw_wse_orderentry_wats_v1_7_6_20.side.size = 1
 
 -- Display: Side
-gpw_wse_orderentry_wats_v1_7_6_20.side.display = function(value)
-  if value == 1 then
-    return "Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Side: Sell (2)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.side.labels = {
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
 
-  return "Side: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.side.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.side.labels[value] or "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -3338,15 +2348,13 @@ gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status = {}
 gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.size = 1
 
 -- Display: Status Mass Quote Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.display = function(value)
-  if value == 1 then
-    return "Status Mass Quote Status: Accepted (1)"
-  end
-  if value == 2 then
-    return "Status Mass Quote Status: Rejected (2)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.labels = {
+  [1] = "Status Mass Quote Status: Accepted (1)",
+  [2] = "Status Mass Quote Status: Rejected (2)",
+}
 
-  return "Status Mass Quote Status: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.labels[value] or "Status Mass Quote Status: Unknown("..value..")"
 end
 
 -- Dissect: Status Mass Quote Status
@@ -3368,27 +2376,17 @@ gpw_wse_orderentry_wats_v1_7_6_20.status_order_status = {}
 gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.size = 1
 
 -- Display: Status Order Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.display = function(value)
-  if value == 1 then
-    return "Status Order Status: New (1)"
-  end
-  if value == 2 then
-    return "Status Order Status: Cancelled (2)"
-  end
-  if value == 3 then
-    return "Status Order Status: Rejected (3)"
-  end
-  if value == 4 then
-    return "Status Order Status: Filled (4)"
-  end
-  if value == 5 then
-    return "Status Order Status: Partially Filled (5)"
-  end
-  if value == 6 then
-    return "Status Order Status: Expired (6)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.labels = {
+  [1] = "Status Order Status: New (1)",
+  [2] = "Status Order Status: Cancelled (2)",
+  [3] = "Status Order Status: Rejected (3)",
+  [4] = "Status Order Status: Filled (4)",
+  [5] = "Status Order Status: Partially Filled (5)",
+  [6] = "Status Order Status: Expired (6)",
+}
 
-  return "Status Order Status: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.labels[value] or "Status Order Status: Unknown("..value..")"
 end
 
 -- Dissect: Status Order Status
@@ -3410,21 +2408,15 @@ gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status = {}
 gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.size = 1
 
 -- Display: Status Tcr Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.display = function(value)
-  if value == 1 then
-    return "Status Tcr Status: New (1)"
-  end
-  if value == 2 then
-    return "Status Tcr Status: Accepted (2)"
-  end
-  if value == 3 then
-    return "Status Tcr Status: Rejected (3)"
-  end
-  if value == 4 then
-    return "Status Tcr Status: Cancelled (4)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.labels = {
+  [1] = "Status Tcr Status: New (1)",
+  [2] = "Status Tcr Status: Accepted (2)",
+  [3] = "Status Tcr Status: Rejected (3)",
+  [4] = "Status Tcr Status: Cancelled (4)",
+}
 
-  return "Status Tcr Status: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.labels[value] or "Status Tcr Status: Unknown("..value..")"
 end
 
 -- Dissect: Status Tcr Status
@@ -3492,30 +2484,18 @@ gpw_wse_orderentry_wats_v1_7_6_20.target_party_role = {}
 gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.size = 1
 
 -- Display: Target Party Role
-gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.display = function(value)
-  if value == 0 then
-    return "Target Party Role: None (0)"
-  end
-  if value == 35 then
-    return "Target Party Role: Liquidity Provider (35)"
-  end
-  if value == 54 then
-    return "Target Party Role: Sender Location (54)"
-  end
-  if value == 66 then
-    return "Target Party Role: Market Maker (66)"
-  end
-  if value == 3 then
-    return "Target Party Role: Client Id (3)"
-  end
-  if value == 12 then
-    return "Target Party Role: Executing Trader (12)"
-  end
-  if value == 122 then
-    return "Target Party Role: Investment Decision Maker (122)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.labels = {
+  [0] = "Target Party Role: None (0)",
+  [35] = "Target Party Role: Liquidity Provider (35)",
+  [54] = "Target Party Role: Sender Location (54)",
+  [66] = "Target Party Role: Market Maker (66)",
+  [3] = "Target Party Role: Client Id (3)",
+  [12] = "Target Party Role: Executing Trader (12)",
+  [122] = "Target Party Role: Investment Decision Maker (122)",
+}
 
-  return "Target Party Role: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.labels[value] or "Target Party Role: Unknown("..value..")"
 end
 
 -- Dissect: Target Party Role
@@ -3561,33 +2541,19 @@ gpw_wse_orderentry_wats_v1_7_6_20.time_in_force = {}
 gpw_wse_orderentry_wats_v1_7_6_20.time_in_force.size = 1
 
 -- Display: Time In Force
-gpw_wse_orderentry_wats_v1_7_6_20.time_in_force.display = function(value)
-  if value == 1 then
-    return "Time In Force: Day (1)"
-  end
-  if value == 2 then
-    return "Time In Force: Gtc (2)"
-  end
-  if value == 3 then
-    return "Time In Force: Ioc (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fok (4)"
-  end
-  if value == 5 then
-    return "Time In Force: Vfa (5)"
-  end
-  if value == 6 then
-    return "Time In Force: Gtd (6)"
-  end
-  if value == 7 then
-    return "Time In Force: Vfc (7)"
-  end
-  if value == 8 then
-    return "Time In Force: Gtt (8)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.time_in_force.labels = {
+  [1] = "Time In Force: Day (1)",
+  [2] = "Time In Force: Gtc (2)",
+  [3] = "Time In Force: Ioc (3)",
+  [4] = "Time In Force: Fok (4)",
+  [5] = "Time In Force: Vfa (5)",
+  [6] = "Time In Force: Gtd (6)",
+  [7] = "Time In Force: Vfc (7)",
+  [8] = "Time In Force: Gtt (8)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.time_in_force.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -3794,18 +2760,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type.size = 1
 
 -- Display: Trade Report Trans Type
-gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type.display = function(value)
-  if value == 1 then
-    return "Trade Report Trans Type: New (1)"
-  end
-  if value == 2 then
-    return "Trade Report Trans Type: Cancel (2)"
-  end
-  if value == 3 then
-    return "Trade Report Trans Type: Replace (3)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type.labels = {
+  [1] = "Trade Report Trans Type: New (1)",
+  [2] = "Trade Report Trans Type: Cancel (2)",
+  [3] = "Trade Report Trans Type: Replace (3)",
+}
 
-  return "Trade Report Trans Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type.labels[value] or "Trade Report Trans Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Report Trans Type
@@ -3827,27 +2789,17 @@ gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type.size = 1
 
 -- Display: Trade Report Type
-gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type.display = function(value)
-  if value == 1 then
-    return "Trade Report Type: Submit (1)"
-  end
-  if value == 2 then
-    return "Trade Report Type: Alleged (2)"
-  end
-  if value == 3 then
-    return "Trade Report Type: Accept (3)"
-  end
-  if value == 4 then
-    return "Trade Report Type: Decline (4)"
-  end
-  if value == 7 then
-    return "Trade Report Type: Trade Report Cancel (7)"
-  end
-  if value == 8 then
-    return "Trade Report Type: Trade Break (8)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type.labels = {
+  [1] = "Trade Report Type: Submit (1)",
+  [2] = "Trade Report Type: Alleged (2)",
+  [3] = "Trade Report Type: Accept (3)",
+  [4] = "Trade Report Type: Decline (4)",
+  [7] = "Trade Report Type: Trade Report Cancel (7)",
+  [8] = "Trade Report Type: Trade Break (8)",
+}
 
-  return "Trade Report Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type.labels[value] or "Trade Report Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Report Type
@@ -3869,15 +2821,13 @@ gpw_wse_orderentry_wats_v1_7_6_20.trade_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.trade_type.size = 1
 
 -- Display: Trade Type
-gpw_wse_orderentry_wats_v1_7_6_20.trade_type.display = function(value)
-  if value == 22 then
-    return "Trade Type: Privately Negotiated Trade (22)"
-  end
-  if value == 38 then
-    return "Trade Type: Block Trade (38)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.trade_type.labels = {
+  [22] = "Trade Type: Privately Negotiated Trade (22)",
+  [38] = "Trade Type: Block Trade (38)",
+}
 
-  return "Trade Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.trade_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.trade_type.labels[value] or "Trade Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Type
@@ -3899,21 +2849,15 @@ gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event = {}
 gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event.size = 1
 
 -- Display: Trading Session Event
-gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event.display = function(value)
-  if value == 1 then
-    return "Trading Session Event: Previous Day Restate Start (1)"
-  end
-  if value == 2 then
-    return "Trading Session Event: Previous Day Restate End (2)"
-  end
-  if value == 3 then
-    return "Trading Session Event: Start Of Trading Session Mic (3)"
-  end
-  if value == 4 then
-    return "Trading Session Event: End Of Trading Session Mic (4)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event.labels = {
+  [1] = "Trading Session Event: Previous Day Restate Start (1)",
+  [2] = "Trading Session Event: Previous Day Restate End (2)",
+  [3] = "Trading Session Event: Start Of Trading Session Mic (3)",
+  [4] = "Trading Session Event: End Of Trading Session Mic (4)",
+}
 
-  return "Trading Session Event: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event.labels[value] or "Trading Session Event: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Event
@@ -3964,15 +2908,13 @@ gpw_wse_orderentry_wats_v1_7_6_20.update_type = {}
 gpw_wse_orderentry_wats_v1_7_6_20.update_type.size = 1
 
 -- Display: Update Type
-gpw_wse_orderentry_wats_v1_7_6_20.update_type.display = function(value)
-  if value == 1 then
-    return "Update Type: Ipo (1)"
-  end
-  if value == 2 then
-    return "Update Type: Tender Offer (2)"
-  end
+gpw_wse_orderentry_wats_v1_7_6_20.update_type.labels = {
+  [1] = "Update Type: Ipo (1)",
+  [2] = "Update Type: Tender Offer (2)",
+}
 
-  return "Update Type: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.update_type.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.update_type.labels[value] or "Update Type: Unknown("..value..")"
 end
 
 -- Dissect: Update Type
@@ -6881,126 +5823,43 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.payload = {}
 
 -- Dissect: Payload
+gpw_wse_orderentry_wats_v1_7_6_20.payload.dispatch = {
+  [2] = gpw_wse_orderentry_wats_v1_7_6_20.login.dissect,
+  [3] = gpw_wse_orderentry_wats_v1_7_6_20.login_response.dissect,
+  [11] = gpw_wse_orderentry_wats_v1_7_6_20.logout.dissect,
+  [14] = gpw_wse_orderentry_wats_v1_7_6_20.logout_response.dissect,
+  [12] = gpw_wse_orderentry_wats_v1_7_6_20.connection_close.dissect,
+  [13] = gpw_wse_orderentry_wats_v1_7_6_20.heartbeat.dissect,
+  [15] = gpw_wse_orderentry_wats_v1_7_6_20.reject.dissect,
+  [34] = gpw_wse_orderentry_wats_v1_7_6_20.gap_fill.dissect,
+  [1] = gpw_wse_orderentry_wats_v1_7_6_20.test.dissect,
+  [255] = gpw_wse_orderentry_wats_v1_7_6_20.test_event.dissect,
+  [35] = gpw_wse_orderentry_wats_v1_7_6_20.trading_session_status.dissect,
+  [4] = gpw_wse_orderentry_wats_v1_7_6_20.order_add.dissect,
+  [5] = gpw_wse_orderentry_wats_v1_7_6_20.order_add_response.dissect,
+  [6] = gpw_wse_orderentry_wats_v1_7_6_20.order_cancel.dissect,
+  [7] = gpw_wse_orderentry_wats_v1_7_6_20.order_cancel_response.dissect,
+  [8] = gpw_wse_orderentry_wats_v1_7_6_20.order_modify.dissect,
+  [9] = gpw_wse_orderentry_wats_v1_7_6_20.order_modify_response.dissect,
+  [29] = gpw_wse_orderentry_wats_v1_7_6_20.order_mass_cancel.dissect,
+  [30] = gpw_wse_orderentry_wats_v1_7_6_20.order_mass_cancel_response.dissect,
+  [10] = gpw_wse_orderentry_wats_v1_7_6_20.order_execute.dissect,
+  [24] = gpw_wse_orderentry_wats_v1_7_6_20.mass_quote.dissect,
+  [25] = gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_response.dissect,
+  [32] = gpw_wse_orderentry_wats_v1_7_6_20.market_maker_command.dissect,
+  [33] = gpw_wse_orderentry_wats_v1_7_6_20.market_maker_command_response.dissect,
+  [28] = gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution.dissect,
+  [31] = gpw_wse_orderentry_wats_v1_7_6_20.bid_offer_update.dissect,
+  [18] = gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_single.dissect,
+  [19] = gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_dual.dissect,
+  [20] = gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_response.dissect,
+  [23] = gpw_wse_orderentry_wats_v1_7_6_20.trade_bust.dissect,
+}
+
 gpw_wse_orderentry_wats_v1_7_6_20.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login
-  if message_type == 2 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.login.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if message_type == 3 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout
-  if message_type == 11 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.logout.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Response
-  if message_type == 14 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.logout_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Connection Close
-  if message_type == 12 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.connection_close.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat
-  if message_type == 13 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.heartbeat.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reject
-  if message_type == 15 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.reject.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gap Fill
-  if message_type == 34 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.gap_fill.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test
-  if message_type == 1 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.test.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Test Event
-  if message_type == 255 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.test_event.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trading Session Status
-  if message_type == 35 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.trading_session_status.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add
-  if message_type == 4 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_add.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Add Response
-  if message_type == 5 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_add_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel
-  if message_type == 6 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Response
-  if message_type == 7 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_cancel_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify
-  if message_type == 8 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_modify.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Response
-  if message_type == 9 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_modify_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Cancel
-  if message_type == 29 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_mass_cancel.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Mass Cancel Response
-  if message_type == 30 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_mass_cancel_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Execute
-  if message_type == 10 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.order_execute.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote
-  if message_type == 24 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.mass_quote.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Quote Response
-  if message_type == 25 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Maker Command
-  if message_type == 32 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.market_maker_command.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Maker Command Response
-  if message_type == 33 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.market_maker_command_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request For Execution
-  if message_type == 28 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bid Offer Update
-  if message_type == 31 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.bid_offer_update.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Capture Report Single
-  if message_type == 18 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_single.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Capture Report Dual
-  if message_type == 19 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_dual.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Capture Report Response
-  if message_type == 20 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust
-  if message_type == 23 then
-    return gpw_wse_orderentry_wats_v1_7_6_20.trade_bust.dissect(buffer, offset, packet, parent)
+  local dissect = gpw_wse_orderentry_wats_v1_7_6_20.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

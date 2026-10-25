@@ -915,30 +915,18 @@ nse_nsefo_orderentry_nnfdirect_v9_50.book_type = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.book_type.size = 2
 
 -- Display: Book Type
-nse_nsefo_orderentry_nnfdirect_v9_50.book_type.display = function(value)
-  if value == 1 then
-    return "Book Type: Regular Lot Order (1)"
-  end
-  if value == 2 then
-    return "Book Type: Special Terms Order (2)"
-  end
-  if value == 3 then
-    return "Book Type: Stop Loss Or Mit Order (3)"
-  end
-  if value == 4 then
-    return "Book Type: Negotiated Order (4)"
-  end
-  if value == 5 then
-    return "Book Type: Odd Lot Order (5)"
-  end
-  if value == 6 then
-    return "Book Type: Spot Order (6)"
-  end
-  if value == 7 then
-    return "Book Type: Auction Order (7)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.book_type.labels = {
+  [1] = "Book Type: Regular Lot Order (1)",
+  [2] = "Book Type: Special Terms Order (2)",
+  [3] = "Book Type: Stop Loss Or Mit Order (3)",
+  [4] = "Book Type: Negotiated Order (4)",
+  [5] = "Book Type: Odd Lot Order (5)",
+  [6] = "Book Type: Spot Order (6)",
+  [7] = "Book Type: Auction Order (7)",
+}
 
-  return "Book Type: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.book_type.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.book_type.labels[value] or "Book Type: Unknown("..value..")"
 end
 
 -- Dissect: Book Type
@@ -960,15 +948,13 @@ nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1 = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.size = 2
 
 -- Display: Book Type 1
-nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.display = function(value)
-  if value == 1 then
-    return "Book Type 1: Regular Lot Order (1)"
-  end
-  if value == 2 then
-    return "Book Type 1: Special Terms Order (2)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.labels = {
+  [1] = "Book Type 1: Regular Lot Order (1)",
+  [2] = "Book Type 1: Special Terms Order (2)",
+}
 
-  return "Book Type 1: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.labels[value] or "Book Type 1: Unknown("..value..")"
 end
 
 -- Dissect: Book Type 1
@@ -1404,15 +1390,13 @@ nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell.size = 2
 
 -- Display: Buy Sell
-nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell.display = function(value)
-  if value == 1 then
-    return "Buy Sell: Buy Order (1)"
-  end
-  if value == 2 then
-    return "Buy Sell: Sell Order (2)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell.labels = {
+  [1] = "Buy Sell: Buy Order (1)",
+  [2] = "Buy Sell: Sell Order (2)",
+}
 
-  return "Buy Sell: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell.labels[value] or "Buy Sell: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell
@@ -1480,15 +1464,13 @@ nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_indicator = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_indicator.size = 2
 
 -- Display: Buy Sell Indicator
-nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_indicator.display = function(value)
-  if value == 1 then
-    return "Buy Sell Indicator: Buy Order (1)"
-  end
-  if value == 2 then
-    return "Buy Sell Indicator: Sell Order (2)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_indicator.labels = {
+  [1] = "Buy Sell Indicator: Buy Order (1)",
+  [2] = "Buy Sell Indicator: Sell Order (2)",
+}
 
-  return "Buy Sell Indicator: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_indicator.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_indicator.labels[value] or "Buy Sell Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Buy Sell Indicator
@@ -2408,750 +2390,258 @@ nse_nsefo_orderentry_nnfdirect_v9_50.error_code = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.error_code.size = 2
 
 -- Display: Error Code
-nse_nsefo_orderentry_nnfdirect_v9_50.error_code.display = function(value)
-  if value == 293 then
-    return "Error Code: Invalid Instrument Type (293)"
-  end
-  if value == 509 then
-    return "Error Code: Order Number Invalid (509)"
-  end
-  if value == 8049 then
-    return "Error Code: Ord Cxl Initiator Auc Not Allowed (8049)"
-  end
-  if value == 8485 then
-    return "Error Code: Auction Number Invalid (8485)"
-  end
-  if value == 16000 then
-    return "Error Code: Market Closed (16000)"
-  end
-  if value == 16001 then
-    return "Error Code: E Invalid User (16001)"
-  end
-  if value == 16003 then
-    return "Error Code: Error Bad Trans Code (16003)"
-  end
-  if value == 16004 then
-    return "Error Code: E User Already Signed On (16004)"
-  end
-  if value == 16005 then
-    return "Error Code: E Invalid Signoff (16005)"
-  end
-  if value == 16006 then
-    return "Error Code: E Invalid Signon (16006)"
-  end
-  if value == 16007 then
-    return "Error Code: E Signon Not Possible (16007)"
-  end
-  if value == 16012 then
-    return "Error Code: Err Invalid Symbol (16012)"
-  end
-  if value == 16013 then
-    return "Error Code: Err Invalid Order Number (16013)"
-  end
-  if value == 16014 then
-    return "Error Code: E Not Your Order (16014)"
-  end
-  if value == 16015 then
-    return "Error Code: E Not Your Fill (16015)"
-  end
-  if value == 16016 then
-    return "Error Code: E Invalid Fill Number (16016)"
-  end
-  if value == 16019 then
-    return "Error Code: E Stock Not Found (16019)"
-  end
-  if value == 16020 then
-    return "Error Code: E Order Price Out Of Revised Price Ra (16020)"
-  end
-  if value == 16035 then
-    return "Error Code: Security Not Available (16035)"
-  end
-  if value == 16041 then
-    return "Error Code: Broker Not Found (16041)"
-  end
-  if value == 16042 then
-    return "Error Code: User Not Found (16042)"
-  end
-  if value == 16043 then
-    return "Error Code: Duplicate Record (16043)"
-  end
-  if value == 16044 then
-    return "Error Code: E Order Modified (16044)"
-  end
-  if value == 16049 then
-    return "Error Code: Stock Suspended (16049)"
-  end
-  if value == 16052 then
-    return "Error Code: Err Function Not Available (16052)"
-  end
-  if value == 16053 then
-    return "Error Code: E Change Password (16053)"
-  end
-  if value == 16054 then
-    return "Error Code: Err Invalid Branch (16054)"
-  end
-  if value == 16056 then
-    return "Error Code: Oe Program Error (16056)"
-  end
-  if value == 16063 then
-    return "Error Code: Err Invalid Status (16063)"
-  end
-  if value == 16070 then
-    return "Error Code: Err Data Not Changed (16070)"
-  end
-  if value == 16086 then
-    return "Error Code: E Dup Trd Cxl Request (16086)"
-  end
-  if value == 16098 then
-    return "Error Code: Err Invalid Buyer User Id (16098)"
-  end
-  if value == 16099 then
-    return "Error Code: Err Invalid Seller User Id (16099)"
-  end
-  if value == 16100 then
-    return "Error Code: E Invalid Version (16100)"
-  end
-  if value == 16104 then
-    return "Error Code: Oe System Error (16104)"
-  end
-  if value == 16134 then
-    return "Error Code: Err User Disabled (16134)"
-  end
-  if value == 16145 then
-    return "Error Code: Oe Invalid Stock Status (16145)"
-  end
-  if value == 16148 then
-    return "Error Code: Err Invalid User Id (16148)"
-  end
-  if value == 16154 then
-    return "Error Code: Err Invalid Trader Id (16154)"
-  end
-  if value == 16169 then
-    return "Error Code: Oe Ato In Open (16169)"
-  end
-  if value == 16198 then
-    return "Error Code: E Dup Request (16198)"
-  end
-  if value == 16227 then
-    return "Error Code: E Only Cp Allowed (16227)"
-  end
-  if value == 16228 then
-    return "Error Code: E Sl Mit Nt Not Allowed Pclose (16228)"
-  end
-  if value == 16229 then
-    return "Error Code: E Gtc Gtd Ord Not Allowed Pclose (16229)"
-  end
-  if value == 16230 then
-    return "Error Code: Oe Cont Mod Not Allowed (16230)"
-  end
-  if value == 16231 then
-    return "Error Code: Trd Cont Mod Not Allowed (16231)"
-  end
-  if value == 16233 then
-    return "Error Code: Str Pro Partivipant Invalid (16233)"
-  end
-  if value == 16247 then
-    return "Error Code: Error Invalid Price (16247)"
-  end
-  if value == 16251 then
-    return "Error Code: Oe Diff Trd Mod Vol (16251)"
-  end
-  if value == 16260 then
-    return "Error Code: Error User Not Exists In System (16260)"
-  end
-  if value == 16264 then
-    return "Error Code: Err Already Deleted (16264)"
-  end
-  if value == 16273 then
-    return "Error Code: Record Not Found (16273)"
-  end
-  if value == 16278 then
-    return "Error Code: Oe Markets Closed (16278)"
-  end
-  if value == 16279 then
-    return "Error Code: Oe Security Not Admitted (16279)"
-  end
-  if value == 16280 then
-    return "Error Code: Oe Security Matured (16280)"
-  end
-  if value == 16281 then
-    return "Error Code: Oe Security Expelled (16281)"
-  end
-  if value == 16282 then
-    return "Error Code: Oe Issued Cap Exceeds (16282)"
-  end
-  if value == 16283 then
-    return "Error Code: Oe Price Not Mult (16283)"
-  end
-  if value == 16284 then
-    return "Error Code: Oe Price Exceeds Day Min Max (16284)"
-  end
-  if value == 16285 then
-    return "Error Code: Oe Is Not Active (16285)"
-  end
-  if value == 16300 then
-    return "Error Code: E System Wrong State (16300)"
-  end
-  if value == 16303 then
-    return "Error Code: Oe Auction Pending (16303)"
-  end
-  if value == 16307 then
-    return "Error Code: Oe Qty Freeze Can (16307)"
-  end
-  if value == 16308 then
-    return "Error Code: Oe Price Freeze Can (16308)"
-  end
-  if value == 16311 then
-    return "Error Code: Oe Sol Period Over (16311)"
-  end
-  if value == 16312 then
-    return "Error Code: Oe Comp Period Over (16312)"
-  end
-  if value == 16313 then
-    return "Error Code: Oe Auc Period Greater (16313)"
-  end
-  if value == 16315 then
-    return "Error Code: Oe Limit Trigger (16315)"
-  end
-  if value == 16316 then
-    return "Error Code: Oe Trigger Price Not Mult (16316)"
-  end
-  if value == 16317 then
-    return "Error Code: Oe No Aon Attrib (16317)"
-  end
-  if value == 16318 then
-    return "Error Code: Oe No Mf Attrib (16318)"
-  end
-  if value == 16319 then
-    return "Error Code: Oe No Aon In Attrib 1 (16319)"
-  end
-  if value == 16320 then
-    return "Error Code: Oe No Mf Attrib 1 (16320)"
-  end
-  if value == 16321 then
-    return "Error Code: Oe Mf Greater Disc (16321)"
-  end
-  if value == 16322 then
-    return "Error Code: Oe Mf Not Mult (16322)"
-  end
-  if value == 16323 then
-    return "Error Code: Oe Mf Greater Original (16323)"
-  end
-  if value == 16324 then
-    return "Error Code: Oe Disc Greater Original (16324)"
-  end
-  if value == 16325 then
-    return "Error Code: Oe Disc Not Mult (16325)"
-  end
-  if value == 16326 then
-    return "Error Code: Oe Gtd Greater (16326)"
-  end
-  if value == 16327 then
-    return "Error Code: Oe Quantity Gerater Rl (16327)"
-  end
-  if value == 16328 then
-    return "Error Code: Oe Quantity Not Mult Rl (16328)"
-  end
-  if value == 16329 then
-    return "Error Code: Oe Broker Not Permitted (16329)"
-  end
-  if value == 16330 then
-    return "Error Code: Oe Is Suspended (16330)"
-  end
-  if value == 16333 then
-    return "Error Code: Oe Branch Li Mit Exceeded (16333)"
-  end
-  if value == 16343 then
-    return "Error Code: Oe Ord Can Changed (16343)"
-  end
-  if value == 16344 then
-    return "Error Code: Oe Ord Cannot Cancel (16344)"
-  end
-  if value == 16345 then
-    return "Error Code: Oe Init Ord Cancel (16345)"
-  end
-  if value == 16346 then
-    return "Error Code: Oe Ord Cannot Modify (16346)"
-  end
-  if value == 16348 then
-    return "Error Code: Err Trading Not Allowed (16348)"
-  end
-  if value == 16357 then
-    return "Error Code: Oe Nt Rejected (16357)"
-  end
-  if value == 16363 then
-    return "Error Code: Chg St Exists (16363)"
-  end
-  if value == 16369 then
-    return "Error Code: Oe Security In Preopen (16369)"
-  end
-  if value == 16372 then
-    return "Error Code: Oe Inq Not Allowed (16372)"
-  end
-  if value == 16387 then
-    return "Error Code: Oe Security Ineligible (16387)"
-  end
-  if value == 16388 then
-    return "Error Code: E Fok Order Cancelled (16388)"
-  end
-  if value == 16392 then
-    return "Error Code: Turnover Limit Not Provided (16392)"
-  end
-  if value == 16397 then
-    return "Error Code: Err Cannot Mod Auc Order (16397)"
-  end
-  if value == 16400 then
-    return "Error Code: Oe Max Dq Allowed (16400)"
-  end
-  if value == 16404 then
-    return "Error Code: Oe Admin Susp Can (16404)"
-  end
-  if value == 16405 then
-    return "Error Code: E Invalid Buy Sell Type (16405)"
-  end
-  if value == 16406 then
-    return "Error Code: E Invalid Book Type (16406)"
-  end
-  if value == 16408 then
-    return "Error Code: E Invalid Trigger Price (16408)"
-  end
-  if value == 16414 then
-    return "Error Code: E Invalid Pro Client (16414)"
-  end
-  if value == 16415 then
-    return "Error Code: E Invalid Instructions (16415)"
-  end
-  if value == 16416 then
-    return "Error Code: E Invalid Order Parameters (16416)"
-  end
-  if value == 16418 then
-    return "Error Code: E Nnf Req Exceeded (16418)"
-  end
-  if value == 16419 then
-    return "Error Code: Invalid Order (16419)"
-  end
-  if value == 16420 then
-    return "Error Code: Err Box Rate Exceeded At Millisecond Level (16420)"
-  end
-  if value == 16440 then
-    return "Error Code: E Gtd Gt Maturity (16440)"
-  end
-  if value == 16441 then
-    return "Error Code: Dq Not Allowed In Preopen (16441)"
-  end
-  if value == 16442 then
-    return "Error Code: St Ord Not Allowed Popen (16442)"
-  end
-  if value == 16443 then
-    return "Error Code: E Ord Lim Exceeds Ord Val Lim (16443)"
-  end
-  if value == 16444 then
-    return "Error Code: Err Usr Ord Value Limit Exceeded (16444)"
-  end
-  if value == 16445 then
-    return "Error Code: Sl Not Allowed (16445)"
-  end
-  if value == 16446 then
-    return "Error Code: Mit Not Allowed (16446)"
-  end
-  if value == 16447 then
-    return "Error Code: E Ord Not Allowed In Preopen (16447)"
-  end
-  if value == 16448 then
-    return "Error Code: Error Sl Lmt Rsnblty Check (16448)"
-  end
-  if value == 16514 then
-    return "Error Code: E Not Modifiable (16514)"
-  end
-  if value == 16518 then
-    return "Error Code: E Tm Cm Does Not Exist (16518)"
-  end
-  if value == 16521 then
-    return "Error Code: E Not Clg Mem (16521)"
-  end
-  if value == 16523 then
-    return "Error Code: E User Not Corp Mgr (16523)"
-  end
-  if value == 16532 then
-    return "Error Code: E Pm Cm Invalid (16532)"
-  end
-  if value == 16533 then
-    return "Error Code: E Corp Mgr Vu Mod (16533)"
-  end
-  if value == 16541 then
-    return "Error Code: E Invalid Participant (16541)"
-  end
-  if value == 16550 then
-    return "Error Code: E Trade Approved By Cm (16550)"
-  end
-  if value == 16552 then
-    return "Error Code: E Cm Stock Suspended (16552)"
-  end
-  if value == 16554 then
-    return "Error Code: E Broker Not Permitted In Fut (16554)"
-  end
-  if value == 16555 then
-    return "Error Code: E Broker Not Permitted In Opt (16555)"
-  end
-  if value == 16556 then
-    return "Error Code: E Qty Less Than Min Lot (16556)"
-  end
-  if value == 16557 then
-    return "Error Code: E Disc Qty Less Than Min Lot (16557)"
-  end
-  if value == 16558 then
-    return "Error Code: E Mf Qty Less Than Min Lot (16558)"
-  end
-  if value == 16560 then
-    return "Error Code: E Already Rejected (16560)"
-  end
-  if value == 16561 then
-    return "Error Code: E Nt Orders Not Allowed (16561)"
-  end
-  if value == 16562 then
-    return "Error Code: E Nt Trade Not Allowed (16562)"
-  end
-  if value == 16566 then
-    return "Error Code: E Inconsistent Broker Branch (16566)"
-  end
-  if value == 16570 then
-    return "Error Code: M Post Close Start (16570)"
-  end
-  if value == 16571 then
-    return "Error Code: M Post Close Ended (16571)"
-  end
-  if value == 16572 then
-    return "Error Code: M Post Close Trades (16572)"
-  end
-  if value == 16573 then
-    return "Error Code: E Invalid Msg Length (16573)"
-  end
-  if value == 16574 then
-    return "Error Code: E Invalid Open Close Type (16574)"
-  end
-  if value == 16576 then
-    return "Error Code: E Nnf Inq Req Exceeded (16576)"
-  end
-  if value == 16577 then
-    return "Error Code: E Participant And Volume Changed (16577)"
-  end
-  if value == 16578 then
-    return "Error Code: E Invalid Cover Uncover Type (16578)"
-  end
-  if value == 16580 then
-    return "Error Code: E Illegal Participant (16580)"
-  end
-  if value == 16581 then
-    return "Error Code: E Invalid Fill Price (16581)"
-  end
-  if value == 16583 then
-    return "Error Code: E Pro No Participant (16583)"
-  end
-  if value == 16585 then
-    return "Error Code: E Invalid Account No (16585)"
-  end
-  if value == 16586 then
-    return "Error Code: E Allow No Participant Order (16586)"
-  end
-  if value == 16589 then
-    return "Error Code: M Delete All Orders (16589)"
-  end
-  if value == 16597 then
-    return "Error Code: E Cum Ur Ord Val Limit Exceede (16597)"
-  end
-  if value == 16598 then
-    return "Error Code: E Branch Ord Val Limit Exceeded (16598)"
-  end
-  if value == 16600 then
-    return "Error Code: Err Ord Val Exceeded (16600)"
-  end
-  if value == 16601 then
-    return "Error Code: Err Preopen Order Reject (16601)"
-  end
-  if value == 16602 then
-    return "Error Code: E Dealer Value Limit Exceeds (16602)"
-  end
-  if value == 16604 then
-    return "Error Code: E Participant Not Found (16604)"
-  end
-  if value == 16605 then
-    return "Error Code: E Either Leg Failed (16605)"
-  end
-  if value == 16606 then
-    return "Error Code: E Qty Greater Than Freeze Qty (16606)"
-  end
-  if value == 16607 then
-    return "Error Code: E Spread Not Allowed (16607)"
-  end
-  if value == 16609 then
-    return "Error Code: E Spread Allowed If Stock Open (16609)"
-  end
-  if value == 16610 then
-    return "Error Code: E Qty Should Be Same (16610)"
-  end
-  if value == 16611 then
-    return "Error Code: E Ord Mod Qty Frz Not Allowed (16611)"
-  end
-  if value == 16612 then
-    return "Error Code: E Trade Rec Modified (16612)"
-  end
-  if value == 16615 then
-    return "Error Code: E Tm Order Cant Be Modified (16615)"
-  end
-  if value == 16616 then
-    return "Error Code: E Tm Order Cant Be Cancelled (16616)"
-  end
-  if value == 16617 then
-    return "Error Code: E Tm Trade Cant Be Manipulated (16617)"
-  end
-  if value == 16625 then
-    return "Error Code: E Cm Of Tm Suspended (16625)"
-  end
-  if value == 16626 then
-    return "Error Code: E Expdate Not In Ascending Ord (16626)"
-  end
-  if value == 16627 then
-    return "Error Code: E Invalid Contract Comb (16627)"
-  end
-  if value == 16628 then
-    return "Error Code: E Bm Cannot Cancel Cm Orders (16628)"
-  end
-  if value == 16629 then
-    return "Error Code: E Bm Cannot Cancel Bm Orders (16629)"
-  end
-  if value == 16630 then
-    return "Error Code: E Cm Cannot Cancel Cm Orders (16630)"
-  end
-  if value == 16631 then
-    return "Error Code: E Spread In Different Underlying (16631)"
-  end
-  if value == 16632 then
-    return "Error Code: E Invalid Cli Ac (16632)"
-  end
-  if value == 16636 then
-    return "Error Code: E Br Ord Limit Fut Buy Exceeded (16636)"
-  end
-  if value == 16637 then
-    return "Error Code: E Br Ord Limit Fut Sell Exceeded (16637)"
-  end
-  if value == 16638 then
-    return "Error Code: E Br Ord Limit Opt Buy Exceeded (16638)"
-  end
-  if value == 16639 then
-    return "Error Code: E Br Ord Limit Opt Sell Exceeded (16639)"
-  end
-  if value == 16640 then
-    return "Error Code: E Ur Ord Limit Fut Buy Exceeded (16640)"
-  end
-  if value == 16641 then
-    return "Error Code: E Ur Ord Limit Fut Sell Exceeded (16641)"
-  end
-  if value == 16642 then
-    return "Error Code: E Ur Ord Limit Opt Buy Exceeded (16642)"
-  end
-  if value == 16643 then
-    return "Error Code: E Ur Ord Limit Opt Sell Exceeded (16643)"
-  end
-  if value == 16645 then
-    return "Error Code: E Cant Appr Bhav Copy Generated (16645)"
-  end
-  if value == 16646 then
-    return "Error Code: E Collateral Lmt Chk (16646)"
-  end
-  if value == 16656 then
-    return "Error Code: E Address Not Found (16656)"
-  end
-  if value == 16662 then
-    return "Error Code: E Stk In Popen (16662)"
-  end
-  if value == 16666 then
-    return "Error Code: E Invalid Nnf Field (16666)"
-  end
-  if value == 16667 then
-    return "Error Code: E Gtcgtd Not Allowed (16667)"
-  end
-  if value == 16683 then
-    return "Error Code: Err User Already Signed Off (16683)"
-  end
-  if value == 16684 then
-    return "Error Code: Err No Privilege (16684)"
-  end
-  if value == 16686 then
-    return "Error Code: Closeout Order Reject (16686)"
-  end
-  if value == 16687 then
-    return "Error Code: Closeout Frz Reject (16687)"
-  end
-  if value == 16688 then
-    return "Error Code: Closeout Not Allowed (16688)"
-  end
-  if value == 16690 then
-    return "Error Code: Closeout Trdmod Reject (16690)"
-  end
-  if value == 16706 then
-    return "Error Code: Partial Order Reject (16706)"
-  end
-  if value == 16708 then
-    return "Error Code: Partial Quick Order Cxl Rej (16708)"
-  end
-  if value == 16711 then
-    return "Error Code: Error Invalid Sprd Combination (16711)"
-  end
-  if value == 16713 then
-    return "Error Code: E Price Diff Out Of Range (16713)"
-  end
-  if value == 16725 then
-    return "Error Code: Rms Rejected In Preopen (16725)"
-  end
-  if value == 16730 then
-    return "Error Code: Error Algoid Nnfid Mismatch 1 (16730)"
-  end
-  if value == 16731 then
-    return "Error Code: Error Algoid Nnfid Mismatch 2 (16731)"
-  end
-  if value == 16732 then
-    return "Error Code: Error Algo Mkt Not Allowed (16732)"
-  end
-  if value == 16733 then
-    return "Error Code: Error Invalid Nnf Id (16733)"
-  end
-  if value == 16749 then
-    return "Error Code: Error Preopn Ato Mod Can Rej (16749)"
-  end
-  if value == 16752 then
-    return "Error Code: Error Preopn Ato Not Allowed (16752)"
-  end
-  if value == 16778 then
-    return "Error Code: Err Usr Not Found In Nnf File (16778)"
-  end
-  if value == 16793 then
-    return "Error Code: E Vc Order Rejected (16793)"
-  end
-  if value == 16794 then
-    return "Error Code: E Ssd Order Rejected (16794)"
-  end
-  if value == 16795 then
-    return "Error Code: E Order Cancelled For Vc (16795)"
-  end
-  if value == 16796 then
-    return "Error Code: E Order Cancelled For Ssd (16796)"
-  end
-  if value == 16797 then
-    return "Error Code: Msg Code Voluntary Close Out Status (16797)"
-  end
-  if value == 16798 then
-    return "Error Code: Msg Code Suspended Status (16798)"
-  end
-  if value == 16803 then
-    return "Error Code: E Bo Price Out Of Range (16803)"
-  end
-  if value == 16804 then
-    return "Error Code: E Bo Excess Quantity (16804)"
-  end
-  if value == 16805 then
-    return "Error Code: E User Ineligible For Bulk Orders (16805)"
-  end
-  if value == 16806 then
-    return "Error Code: E User Not Allowed For Regular (16806)"
-  end
-  if value == 16807 then
-    return "Error Code: E Account Debarred (16807)"
-  end
-  if value == 16816 then
-    return "Error Code: E Account Debarred By Pit (16816)"
-  end
-  if value == 16810 then
-    return "Error Code: Err Usr Already Unlcked (16810)"
-  end
-  if value == 16811 then
-    return "Error Code: Err Duplicate Unlck Alrt (16811)"
-  end
-  if value == 17022 then
-    return "Error Code: Err Actv Num Of Usrs In Brnch Exceeded (17022)"
-  end
-  if value == 17039 then
-    return "Error Code: Ec Trd Mod Rej Cli Cp Mod Not Allowed (17039)"
-  end
-  if value == 17045 then
-    return "Error Code: Error Quantity Lim Exceeds Qty Val Lim (17045)"
-  end
-  if value == 17046 then
-    return "Error Code: User Trd Mod Disabled (17046)"
-  end
-  if value == 16055 then
-    return "Error Code: Preopen Trade Cancellation Not Allowed (16055)"
-  end
-  if value == 17063 then
-    return "Error Code: Err Depndent Sessn Not Active (17063)"
-  end
-  if value == 17070 then
-    return "Error Code: E Trd Price Out Of Stock Tpp (17070)"
-  end
-  if value == 17071 then
-    return "Error Code: E Order Cancelled For Self Trade (17071)"
-  end
-  if value == 17101 then
-    return "Error Code: E Invalid Packet (17101)"
-  end
-  if value == 17102 then
-    return "Error Code: Sssssse Hearbeat Not Received (17102)"
-  end
-  if value == 17104 then
-    return "Error Code: E Invalid Box Id (17104)"
-  end
-  if value == 17105 then
-    return "Error Code: E Seq No Mismatch (17105)"
-  end
-  if value == 17106 then
-    return "Error Code: E Box Rate Exceeded (17106)"
-  end
-  if value == 17107 then
-    return "Error Code: Error Hb Rate Exceeded (17107)"
-  end
-  if value == 17142 then
-    return "Error Code: E Max User Count Exceeded (17142)"
-  end
-  if value == 16403 then
-    return "Error Code: E Invalid Box Ip Combination (16403)"
-  end
-  if value == 17177 then
-    return "Error Code: Err Invalid Pan Id (17177)"
-  end
-  if value == 17179 then
-    return "Error Code: Err Invalid Algo Id (17179)"
-  end
-  if value == 17180 then
-    return "Error Code: Err Invalid Value In Reserved (17180)"
-  end
-  if value == 17185 then
-    return "Error Code: Err Algo Id Disabled (17185)"
-  end
-  if value == 17186 then
-    return "Error Code: Err Order Cancelled Algoid Disabled (17186)"
-  end
-  if value == 19028 then
-    return "Error Code: Err Checksum Failed Gr (19028)"
-  end
-  if value == 19029 then
-    return "Error Code: Err Multiple Gr Query Rcv (19029)"
-  end
-  if value == 17181 then
-    return "Error Code: Err Mkt Order Not Allowed (17181)"
-  end
-  if value == 17182 then
-    return "Error Code: Err Trade Beyond Markup Price (17182)"
-  end
-  if value == 19030 then
-    return "Error Code: Err Encryption Flag Mismatch (19030)"
-  end
-  if value == 19031 then
-    return "Error Code: Err Md 5 Checksum Failure (19031)"
-  end
-  if value == 17184 then
-    return "Error Code: Err User Having Null Rights (17184)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.error_code.labels = {
+  [293] = "Error Code: Invalid Instrument Type (293)",
+  [509] = "Error Code: Order Number Invalid (509)",
+  [8049] = "Error Code: Ord Cxl Initiator Auc Not Allowed (8049)",
+  [8485] = "Error Code: Auction Number Invalid (8485)",
+  [16000] = "Error Code: Market Closed (16000)",
+  [16001] = "Error Code: E Invalid User (16001)",
+  [16003] = "Error Code: Error Bad Trans Code (16003)",
+  [16004] = "Error Code: E User Already Signed On (16004)",
+  [16005] = "Error Code: E Invalid Signoff (16005)",
+  [16006] = "Error Code: E Invalid Signon (16006)",
+  [16007] = "Error Code: E Signon Not Possible (16007)",
+  [16012] = "Error Code: Err Invalid Symbol (16012)",
+  [16013] = "Error Code: Err Invalid Order Number (16013)",
+  [16014] = "Error Code: E Not Your Order (16014)",
+  [16015] = "Error Code: E Not Your Fill (16015)",
+  [16016] = "Error Code: E Invalid Fill Number (16016)",
+  [16019] = "Error Code: E Stock Not Found (16019)",
+  [16020] = "Error Code: E Order Price Out Of Revised Price Ra (16020)",
+  [16035] = "Error Code: Security Not Available (16035)",
+  [16041] = "Error Code: Broker Not Found (16041)",
+  [16042] = "Error Code: User Not Found (16042)",
+  [16043] = "Error Code: Duplicate Record (16043)",
+  [16044] = "Error Code: E Order Modified (16044)",
+  [16049] = "Error Code: Stock Suspended (16049)",
+  [16052] = "Error Code: Err Function Not Available (16052)",
+  [16053] = "Error Code: E Change Password (16053)",
+  [16054] = "Error Code: Err Invalid Branch (16054)",
+  [16056] = "Error Code: Oe Program Error (16056)",
+  [16063] = "Error Code: Err Invalid Status (16063)",
+  [16070] = "Error Code: Err Data Not Changed (16070)",
+  [16086] = "Error Code: E Dup Trd Cxl Request (16086)",
+  [16098] = "Error Code: Err Invalid Buyer User Id (16098)",
+  [16099] = "Error Code: Err Invalid Seller User Id (16099)",
+  [16100] = "Error Code: E Invalid Version (16100)",
+  [16104] = "Error Code: Oe System Error (16104)",
+  [16134] = "Error Code: Err User Disabled (16134)",
+  [16145] = "Error Code: Oe Invalid Stock Status (16145)",
+  [16148] = "Error Code: Err Invalid User Id (16148)",
+  [16154] = "Error Code: Err Invalid Trader Id (16154)",
+  [16169] = "Error Code: Oe Ato In Open (16169)",
+  [16198] = "Error Code: E Dup Request (16198)",
+  [16227] = "Error Code: E Only Cp Allowed (16227)",
+  [16228] = "Error Code: E Sl Mit Nt Not Allowed Pclose (16228)",
+  [16229] = "Error Code: E Gtc Gtd Ord Not Allowed Pclose (16229)",
+  [16230] = "Error Code: Oe Cont Mod Not Allowed (16230)",
+  [16231] = "Error Code: Trd Cont Mod Not Allowed (16231)",
+  [16233] = "Error Code: Str Pro Partivipant Invalid (16233)",
+  [16247] = "Error Code: Error Invalid Price (16247)",
+  [16251] = "Error Code: Oe Diff Trd Mod Vol (16251)",
+  [16260] = "Error Code: Error User Not Exists In System (16260)",
+  [16264] = "Error Code: Err Already Deleted (16264)",
+  [16273] = "Error Code: Record Not Found (16273)",
+  [16278] = "Error Code: Oe Markets Closed (16278)",
+  [16279] = "Error Code: Oe Security Not Admitted (16279)",
+  [16280] = "Error Code: Oe Security Matured (16280)",
+  [16281] = "Error Code: Oe Security Expelled (16281)",
+  [16282] = "Error Code: Oe Issued Cap Exceeds (16282)",
+  [16283] = "Error Code: Oe Price Not Mult (16283)",
+  [16284] = "Error Code: Oe Price Exceeds Day Min Max (16284)",
+  [16285] = "Error Code: Oe Is Not Active (16285)",
+  [16300] = "Error Code: E System Wrong State (16300)",
+  [16303] = "Error Code: Oe Auction Pending (16303)",
+  [16307] = "Error Code: Oe Qty Freeze Can (16307)",
+  [16308] = "Error Code: Oe Price Freeze Can (16308)",
+  [16311] = "Error Code: Oe Sol Period Over (16311)",
+  [16312] = "Error Code: Oe Comp Period Over (16312)",
+  [16313] = "Error Code: Oe Auc Period Greater (16313)",
+  [16315] = "Error Code: Oe Limit Trigger (16315)",
+  [16316] = "Error Code: Oe Trigger Price Not Mult (16316)",
+  [16317] = "Error Code: Oe No Aon Attrib (16317)",
+  [16318] = "Error Code: Oe No Mf Attrib (16318)",
+  [16319] = "Error Code: Oe No Aon In Attrib 1 (16319)",
+  [16320] = "Error Code: Oe No Mf Attrib 1 (16320)",
+  [16321] = "Error Code: Oe Mf Greater Disc (16321)",
+  [16322] = "Error Code: Oe Mf Not Mult (16322)",
+  [16323] = "Error Code: Oe Mf Greater Original (16323)",
+  [16324] = "Error Code: Oe Disc Greater Original (16324)",
+  [16325] = "Error Code: Oe Disc Not Mult (16325)",
+  [16326] = "Error Code: Oe Gtd Greater (16326)",
+  [16327] = "Error Code: Oe Quantity Gerater Rl (16327)",
+  [16328] = "Error Code: Oe Quantity Not Mult Rl (16328)",
+  [16329] = "Error Code: Oe Broker Not Permitted (16329)",
+  [16330] = "Error Code: Oe Is Suspended (16330)",
+  [16333] = "Error Code: Oe Branch Li Mit Exceeded (16333)",
+  [16343] = "Error Code: Oe Ord Can Changed (16343)",
+  [16344] = "Error Code: Oe Ord Cannot Cancel (16344)",
+  [16345] = "Error Code: Oe Init Ord Cancel (16345)",
+  [16346] = "Error Code: Oe Ord Cannot Modify (16346)",
+  [16348] = "Error Code: Err Trading Not Allowed (16348)",
+  [16357] = "Error Code: Oe Nt Rejected (16357)",
+  [16363] = "Error Code: Chg St Exists (16363)",
+  [16369] = "Error Code: Oe Security In Preopen (16369)",
+  [16372] = "Error Code: Oe Inq Not Allowed (16372)",
+  [16387] = "Error Code: Oe Security Ineligible (16387)",
+  [16388] = "Error Code: E Fok Order Cancelled (16388)",
+  [16392] = "Error Code: Turnover Limit Not Provided (16392)",
+  [16397] = "Error Code: Err Cannot Mod Auc Order (16397)",
+  [16400] = "Error Code: Oe Max Dq Allowed (16400)",
+  [16404] = "Error Code: Oe Admin Susp Can (16404)",
+  [16405] = "Error Code: E Invalid Buy Sell Type (16405)",
+  [16406] = "Error Code: E Invalid Book Type (16406)",
+  [16408] = "Error Code: E Invalid Trigger Price (16408)",
+  [16414] = "Error Code: E Invalid Pro Client (16414)",
+  [16415] = "Error Code: E Invalid Instructions (16415)",
+  [16416] = "Error Code: E Invalid Order Parameters (16416)",
+  [16418] = "Error Code: E Nnf Req Exceeded (16418)",
+  [16419] = "Error Code: Invalid Order (16419)",
+  [16420] = "Error Code: Err Box Rate Exceeded At Millisecond Level (16420)",
+  [16440] = "Error Code: E Gtd Gt Maturity (16440)",
+  [16441] = "Error Code: Dq Not Allowed In Preopen (16441)",
+  [16442] = "Error Code: St Ord Not Allowed Popen (16442)",
+  [16443] = "Error Code: E Ord Lim Exceeds Ord Val Lim (16443)",
+  [16444] = "Error Code: Err Usr Ord Value Limit Exceeded (16444)",
+  [16445] = "Error Code: Sl Not Allowed (16445)",
+  [16446] = "Error Code: Mit Not Allowed (16446)",
+  [16447] = "Error Code: E Ord Not Allowed In Preopen (16447)",
+  [16448] = "Error Code: Error Sl Lmt Rsnblty Check (16448)",
+  [16514] = "Error Code: E Not Modifiable (16514)",
+  [16518] = "Error Code: E Tm Cm Does Not Exist (16518)",
+  [16521] = "Error Code: E Not Clg Mem (16521)",
+  [16523] = "Error Code: E User Not Corp Mgr (16523)",
+  [16532] = "Error Code: E Pm Cm Invalid (16532)",
+  [16533] = "Error Code: E Corp Mgr Vu Mod (16533)",
+  [16541] = "Error Code: E Invalid Participant (16541)",
+  [16550] = "Error Code: E Trade Approved By Cm (16550)",
+  [16552] = "Error Code: E Cm Stock Suspended (16552)",
+  [16554] = "Error Code: E Broker Not Permitted In Fut (16554)",
+  [16555] = "Error Code: E Broker Not Permitted In Opt (16555)",
+  [16556] = "Error Code: E Qty Less Than Min Lot (16556)",
+  [16557] = "Error Code: E Disc Qty Less Than Min Lot (16557)",
+  [16558] = "Error Code: E Mf Qty Less Than Min Lot (16558)",
+  [16560] = "Error Code: E Already Rejected (16560)",
+  [16561] = "Error Code: E Nt Orders Not Allowed (16561)",
+  [16562] = "Error Code: E Nt Trade Not Allowed (16562)",
+  [16566] = "Error Code: E Inconsistent Broker Branch (16566)",
+  [16570] = "Error Code: M Post Close Start (16570)",
+  [16571] = "Error Code: M Post Close Ended (16571)",
+  [16572] = "Error Code: M Post Close Trades (16572)",
+  [16573] = "Error Code: E Invalid Msg Length (16573)",
+  [16574] = "Error Code: E Invalid Open Close Type (16574)",
+  [16576] = "Error Code: E Nnf Inq Req Exceeded (16576)",
+  [16577] = "Error Code: E Participant And Volume Changed (16577)",
+  [16578] = "Error Code: E Invalid Cover Uncover Type (16578)",
+  [16580] = "Error Code: E Illegal Participant (16580)",
+  [16581] = "Error Code: E Invalid Fill Price (16581)",
+  [16583] = "Error Code: E Pro No Participant (16583)",
+  [16585] = "Error Code: E Invalid Account No (16585)",
+  [16586] = "Error Code: E Allow No Participant Order (16586)",
+  [16589] = "Error Code: M Delete All Orders (16589)",
+  [16597] = "Error Code: E Cum Ur Ord Val Limit Exceede (16597)",
+  [16598] = "Error Code: E Branch Ord Val Limit Exceeded (16598)",
+  [16600] = "Error Code: Err Ord Val Exceeded (16600)",
+  [16601] = "Error Code: Err Preopen Order Reject (16601)",
+  [16602] = "Error Code: E Dealer Value Limit Exceeds (16602)",
+  [16604] = "Error Code: E Participant Not Found (16604)",
+  [16605] = "Error Code: E Either Leg Failed (16605)",
+  [16606] = "Error Code: E Qty Greater Than Freeze Qty (16606)",
+  [16607] = "Error Code: E Spread Not Allowed (16607)",
+  [16609] = "Error Code: E Spread Allowed If Stock Open (16609)",
+  [16610] = "Error Code: E Qty Should Be Same (16610)",
+  [16611] = "Error Code: E Ord Mod Qty Frz Not Allowed (16611)",
+  [16612] = "Error Code: E Trade Rec Modified (16612)",
+  [16615] = "Error Code: E Tm Order Cant Be Modified (16615)",
+  [16616] = "Error Code: E Tm Order Cant Be Cancelled (16616)",
+  [16617] = "Error Code: E Tm Trade Cant Be Manipulated (16617)",
+  [16625] = "Error Code: E Cm Of Tm Suspended (16625)",
+  [16626] = "Error Code: E Expdate Not In Ascending Ord (16626)",
+  [16627] = "Error Code: E Invalid Contract Comb (16627)",
+  [16628] = "Error Code: E Bm Cannot Cancel Cm Orders (16628)",
+  [16629] = "Error Code: E Bm Cannot Cancel Bm Orders (16629)",
+  [16630] = "Error Code: E Cm Cannot Cancel Cm Orders (16630)",
+  [16631] = "Error Code: E Spread In Different Underlying (16631)",
+  [16632] = "Error Code: E Invalid Cli Ac (16632)",
+  [16636] = "Error Code: E Br Ord Limit Fut Buy Exceeded (16636)",
+  [16637] = "Error Code: E Br Ord Limit Fut Sell Exceeded (16637)",
+  [16638] = "Error Code: E Br Ord Limit Opt Buy Exceeded (16638)",
+  [16639] = "Error Code: E Br Ord Limit Opt Sell Exceeded (16639)",
+  [16640] = "Error Code: E Ur Ord Limit Fut Buy Exceeded (16640)",
+  [16641] = "Error Code: E Ur Ord Limit Fut Sell Exceeded (16641)",
+  [16642] = "Error Code: E Ur Ord Limit Opt Buy Exceeded (16642)",
+  [16643] = "Error Code: E Ur Ord Limit Opt Sell Exceeded (16643)",
+  [16645] = "Error Code: E Cant Appr Bhav Copy Generated (16645)",
+  [16646] = "Error Code: E Collateral Lmt Chk (16646)",
+  [16656] = "Error Code: E Address Not Found (16656)",
+  [16662] = "Error Code: E Stk In Popen (16662)",
+  [16666] = "Error Code: E Invalid Nnf Field (16666)",
+  [16667] = "Error Code: E Gtcgtd Not Allowed (16667)",
+  [16683] = "Error Code: Err User Already Signed Off (16683)",
+  [16684] = "Error Code: Err No Privilege (16684)",
+  [16686] = "Error Code: Closeout Order Reject (16686)",
+  [16687] = "Error Code: Closeout Frz Reject (16687)",
+  [16688] = "Error Code: Closeout Not Allowed (16688)",
+  [16690] = "Error Code: Closeout Trdmod Reject (16690)",
+  [16706] = "Error Code: Partial Order Reject (16706)",
+  [16708] = "Error Code: Partial Quick Order Cxl Rej (16708)",
+  [16711] = "Error Code: Error Invalid Sprd Combination (16711)",
+  [16713] = "Error Code: E Price Diff Out Of Range (16713)",
+  [16725] = "Error Code: Rms Rejected In Preopen (16725)",
+  [16730] = "Error Code: Error Algoid Nnfid Mismatch 1 (16730)",
+  [16731] = "Error Code: Error Algoid Nnfid Mismatch 2 (16731)",
+  [16732] = "Error Code: Error Algo Mkt Not Allowed (16732)",
+  [16733] = "Error Code: Error Invalid Nnf Id (16733)",
+  [16749] = "Error Code: Error Preopn Ato Mod Can Rej (16749)",
+  [16752] = "Error Code: Error Preopn Ato Not Allowed (16752)",
+  [16778] = "Error Code: Err Usr Not Found In Nnf File (16778)",
+  [16793] = "Error Code: E Vc Order Rejected (16793)",
+  [16794] = "Error Code: E Ssd Order Rejected (16794)",
+  [16795] = "Error Code: E Order Cancelled For Vc (16795)",
+  [16796] = "Error Code: E Order Cancelled For Ssd (16796)",
+  [16797] = "Error Code: Msg Code Voluntary Close Out Status (16797)",
+  [16798] = "Error Code: Msg Code Suspended Status (16798)",
+  [16803] = "Error Code: E Bo Price Out Of Range (16803)",
+  [16804] = "Error Code: E Bo Excess Quantity (16804)",
+  [16805] = "Error Code: E User Ineligible For Bulk Orders (16805)",
+  [16806] = "Error Code: E User Not Allowed For Regular (16806)",
+  [16807] = "Error Code: E Account Debarred (16807)",
+  [16816] = "Error Code: E Account Debarred By Pit (16816)",
+  [16810] = "Error Code: Err Usr Already Unlcked (16810)",
+  [16811] = "Error Code: Err Duplicate Unlck Alrt (16811)",
+  [17022] = "Error Code: Err Actv Num Of Usrs In Brnch Exceeded (17022)",
+  [17039] = "Error Code: Ec Trd Mod Rej Cli Cp Mod Not Allowed (17039)",
+  [17045] = "Error Code: Error Quantity Lim Exceeds Qty Val Lim (17045)",
+  [17046] = "Error Code: User Trd Mod Disabled (17046)",
+  [16055] = "Error Code: Preopen Trade Cancellation Not Allowed (16055)",
+  [17063] = "Error Code: Err Depndent Sessn Not Active (17063)",
+  [17070] = "Error Code: E Trd Price Out Of Stock Tpp (17070)",
+  [17071] = "Error Code: E Order Cancelled For Self Trade (17071)",
+  [17101] = "Error Code: E Invalid Packet (17101)",
+  [17102] = "Error Code: Sssssse Hearbeat Not Received (17102)",
+  [17104] = "Error Code: E Invalid Box Id (17104)",
+  [17105] = "Error Code: E Seq No Mismatch (17105)",
+  [17106] = "Error Code: E Box Rate Exceeded (17106)",
+  [17107] = "Error Code: Error Hb Rate Exceeded (17107)",
+  [17142] = "Error Code: E Max User Count Exceeded (17142)",
+  [16403] = "Error Code: E Invalid Box Ip Combination (16403)",
+  [17177] = "Error Code: Err Invalid Pan Id (17177)",
+  [17179] = "Error Code: Err Invalid Algo Id (17179)",
+  [17180] = "Error Code: Err Invalid Value In Reserved (17180)",
+  [17185] = "Error Code: Err Algo Id Disabled (17185)",
+  [17186] = "Error Code: Err Order Cancelled Algoid Disabled (17186)",
+  [19028] = "Error Code: Err Checksum Failed Gr (19028)",
+  [19029] = "Error Code: Err Multiple Gr Query Rcv (19029)",
+  [17181] = "Error Code: Err Mkt Order Not Allowed (17181)",
+  [17182] = "Error Code: Err Trade Beyond Markup Price (17182)",
+  [19030] = "Error Code: Err Encryption Flag Mismatch (19030)",
+  [19031] = "Error Code: Err Md 5 Checksum Failure (19031)",
+  [17184] = "Error Code: Err User Having Null Rights (17184)",
+}
 
-  return "Error Code: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.error_code.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.error_code.labels[value] or "Error Code: Unknown("..value..")"
 end
 
 -- Dissect: Error Code
@@ -3173,24 +2663,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_auction = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_auction.size = 2
 
 -- Display: Ex Market Status Auction
-nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_auction.display = function(value)
-  if value == 0 then
-    return "Ex Market Status Auction: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Ex Market Status Auction: Open (1)"
-  end
-  if value == 2 then
-    return "Ex Market Status Auction: Closed (2)"
-  end
-  if value == 3 then
-    return "Ex Market Status Auction: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Ex Market Status Auction: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_auction.labels = {
+  [0] = "Ex Market Status Auction: Pre Open (0)",
+  [1] = "Ex Market Status Auction: Open (1)",
+  [2] = "Ex Market Status Auction: Closed (2)",
+  [3] = "Ex Market Status Auction: Pre Open Ended (3)",
+  [4] = "Ex Market Status Auction: Postclose (4)",
+}
 
-  return "Ex Market Status Auction: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_auction.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_auction.labels[value] or "Ex Market Status Auction: Unknown("..value..")"
 end
 
 -- Dissect: Ex Market Status Auction
@@ -3212,24 +2694,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_normal = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_normal.size = 2
 
 -- Display: Ex Market Status Normal
-nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_normal.display = function(value)
-  if value == 0 then
-    return "Ex Market Status Normal: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Ex Market Status Normal: Open (1)"
-  end
-  if value == 2 then
-    return "Ex Market Status Normal: Closed (2)"
-  end
-  if value == 3 then
-    return "Ex Market Status Normal: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Ex Market Status Normal: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_normal.labels = {
+  [0] = "Ex Market Status Normal: Pre Open (0)",
+  [1] = "Ex Market Status Normal: Open (1)",
+  [2] = "Ex Market Status Normal: Closed (2)",
+  [3] = "Ex Market Status Normal: Pre Open Ended (3)",
+  [4] = "Ex Market Status Normal: Postclose (4)",
+}
 
-  return "Ex Market Status Normal: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_normal.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_normal.labels[value] or "Ex Market Status Normal: Unknown("..value..")"
 end
 
 -- Dissect: Ex Market Status Normal
@@ -3251,24 +2725,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_oddlot = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_oddlot.size = 2
 
 -- Display: Ex Market Status Oddlot
-nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_oddlot.display = function(value)
-  if value == 0 then
-    return "Ex Market Status Oddlot: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Ex Market Status Oddlot: Open (1)"
-  end
-  if value == 2 then
-    return "Ex Market Status Oddlot: Closed (2)"
-  end
-  if value == 3 then
-    return "Ex Market Status Oddlot: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Ex Market Status Oddlot: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_oddlot.labels = {
+  [0] = "Ex Market Status Oddlot: Pre Open (0)",
+  [1] = "Ex Market Status Oddlot: Open (1)",
+  [2] = "Ex Market Status Oddlot: Closed (2)",
+  [3] = "Ex Market Status Oddlot: Pre Open Ended (3)",
+  [4] = "Ex Market Status Oddlot: Postclose (4)",
+}
 
-  return "Ex Market Status Oddlot: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_oddlot.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_oddlot.labels[value] or "Ex Market Status Oddlot: Unknown("..value..")"
 end
 
 -- Dissect: Ex Market Status Oddlot
@@ -3290,24 +2756,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_spot = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_spot.size = 2
 
 -- Display: Ex Market Status Spot
-nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_spot.display = function(value)
-  if value == 0 then
-    return "Ex Market Status Spot: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Ex Market Status Spot: Open (1)"
-  end
-  if value == 2 then
-    return "Ex Market Status Spot: Closed (2)"
-  end
-  if value == 3 then
-    return "Ex Market Status Spot: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Ex Market Status Spot: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_spot.labels = {
+  [0] = "Ex Market Status Spot: Pre Open (0)",
+  [1] = "Ex Market Status Spot: Open (1)",
+  [2] = "Ex Market Status Spot: Closed (2)",
+  [3] = "Ex Market Status Spot: Pre Open Ended (3)",
+  [4] = "Ex Market Status Spot: Postclose (4)",
+}
 
-  return "Ex Market Status Spot: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_spot.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.ex_market_status_spot.labels[value] or "Ex Market Status Spot: Unknown("..value..")"
 end
 
 -- Dissect: Ex Market Status Spot
@@ -5177,24 +4635,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.market_status_auction = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.market_status_auction.size = 2
 
 -- Display: Market Status Auction
-nse_nsefo_orderentry_nnfdirect_v9_50.market_status_auction.display = function(value)
-  if value == 0 then
-    return "Market Status Auction: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Market Status Auction: Open (1)"
-  end
-  if value == 2 then
-    return "Market Status Auction: Closed (2)"
-  end
-  if value == 3 then
-    return "Market Status Auction: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Market Status Auction: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.market_status_auction.labels = {
+  [0] = "Market Status Auction: Pre Open (0)",
+  [1] = "Market Status Auction: Open (1)",
+  [2] = "Market Status Auction: Closed (2)",
+  [3] = "Market Status Auction: Pre Open Ended (3)",
+  [4] = "Market Status Auction: Postclose (4)",
+}
 
-  return "Market Status Auction: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.market_status_auction.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.market_status_auction.labels[value] or "Market Status Auction: Unknown("..value..")"
 end
 
 -- Dissect: Market Status Auction
@@ -5216,24 +4666,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.market_status_normal = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.market_status_normal.size = 2
 
 -- Display: Market Status Normal
-nse_nsefo_orderentry_nnfdirect_v9_50.market_status_normal.display = function(value)
-  if value == 0 then
-    return "Market Status Normal: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Market Status Normal: Open (1)"
-  end
-  if value == 2 then
-    return "Market Status Normal: Closed (2)"
-  end
-  if value == 3 then
-    return "Market Status Normal: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Market Status Normal: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.market_status_normal.labels = {
+  [0] = "Market Status Normal: Pre Open (0)",
+  [1] = "Market Status Normal: Open (1)",
+  [2] = "Market Status Normal: Closed (2)",
+  [3] = "Market Status Normal: Pre Open Ended (3)",
+  [4] = "Market Status Normal: Postclose (4)",
+}
 
-  return "Market Status Normal: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.market_status_normal.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.market_status_normal.labels[value] or "Market Status Normal: Unknown("..value..")"
 end
 
 -- Dissect: Market Status Normal
@@ -5255,24 +4697,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.market_status_oddlot = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.market_status_oddlot.size = 2
 
 -- Display: Market Status Oddlot
-nse_nsefo_orderentry_nnfdirect_v9_50.market_status_oddlot.display = function(value)
-  if value == 0 then
-    return "Market Status Oddlot: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Market Status Oddlot: Open (1)"
-  end
-  if value == 2 then
-    return "Market Status Oddlot: Closed (2)"
-  end
-  if value == 3 then
-    return "Market Status Oddlot: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Market Status Oddlot: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.market_status_oddlot.labels = {
+  [0] = "Market Status Oddlot: Pre Open (0)",
+  [1] = "Market Status Oddlot: Open (1)",
+  [2] = "Market Status Oddlot: Closed (2)",
+  [3] = "Market Status Oddlot: Pre Open Ended (3)",
+  [4] = "Market Status Oddlot: Postclose (4)",
+}
 
-  return "Market Status Oddlot: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.market_status_oddlot.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.market_status_oddlot.labels[value] or "Market Status Oddlot: Unknown("..value..")"
 end
 
 -- Dissect: Market Status Oddlot
@@ -5294,24 +4728,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.market_status_spot = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.market_status_spot.size = 2
 
 -- Display: Market Status Spot
-nse_nsefo_orderentry_nnfdirect_v9_50.market_status_spot.display = function(value)
-  if value == 0 then
-    return "Market Status Spot: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Market Status Spot: Open (1)"
-  end
-  if value == 2 then
-    return "Market Status Spot: Closed (2)"
-  end
-  if value == 3 then
-    return "Market Status Spot: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Market Status Spot: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.market_status_spot.labels = {
+  [0] = "Market Status Spot: Pre Open (0)",
+  [1] = "Market Status Spot: Open (1)",
+  [2] = "Market Status Spot: Closed (2)",
+  [3] = "Market Status Spot: Pre Open Ended (3)",
+  [4] = "Market Status Spot: Postclose (4)",
+}
 
-  return "Market Status Spot: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.market_status_spot.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.market_status_spot.labels[value] or "Market Status Spot: Unknown("..value..")"
 end
 
 -- Dissect: Market Status Spot
@@ -5540,21 +4966,15 @@ nse_nsefo_orderentry_nnfdirect_v9_50.mkt_type = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.mkt_type.size = 1
 
 -- Display: Mkt Type
-nse_nsefo_orderentry_nnfdirect_v9_50.mkt_type.display = function(value)
-  if value == "1" then
-    return "Mkt Type: Normal Market (1)"
-  end
-  if value == "2" then
-    return "Mkt Type: Odd Lot Market (2)"
-  end
-  if value == "3" then
-    return "Mkt Type: Spot Market (3)"
-  end
-  if value == "4" then
-    return "Mkt Type: Auction Market (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.mkt_type.labels = {
+  ["1"] = "Mkt Type: Normal Market (1)",
+  ["2"] = "Mkt Type: Odd Lot Market (2)",
+  ["3"] = "Mkt Type: Spot Market (3)",
+  ["4"] = "Mkt Type: Auction Market (4)",
+}
 
-  return "Mkt Type: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.mkt_type.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.mkt_type.labels[value] or "Mkt Type: Unknown("..value..")"
 end
 
 -- Dissect: Mkt Type
@@ -5599,21 +5019,15 @@ nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by.size = 1
 
 -- Display: Modified Cancelled By
-nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by.display = function(value)
-  if value == "T" then
-    return "Modified Cancelled By: Trader (T)"
-  end
-  if value == "B" then
-    return "Modified Cancelled By: Branch Manager (B)"
-  end
-  if value == "M" then
-    return "Modified Cancelled By: Corporate Manager (M)"
-  end
-  if value == "C" then
-    return "Modified Cancelled By: Exchange (C)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by.labels = {
+  ["T"] = "Modified Cancelled By: Trader (T)",
+  ["B"] = "Modified Cancelled By: Branch Manager (B)",
+  ["M"] = "Modified Cancelled By: Corporate Manager (M)",
+  ["C"] = "Modified Cancelled By: Exchange (C)",
+}
 
-  return "Modified Cancelled By: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.modified_cancelled_by.labels[value] or "Modified Cancelled By: Unknown("..value..")"
 end
 
 -- Dissect: Modified Cancelled By
@@ -6607,18 +6021,14 @@ nse_nsefo_orderentry_nnfdirect_v9_50.participant_type = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.size = 1
 
 -- Display: Participant Type
-nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.display = function(value)
-  if value == "I" then
-    return "Participant Type: Initiator (I)"
-  end
-  if value == "C" then
-    return "Participant Type: Competitor (C)"
-  end
-  if value == "S" then
-    return "Participant Type: Solicitor (S)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.labels = {
+  ["I"] = "Participant Type: Initiator (I)",
+  ["C"] = "Participant Type: Competitor (C)",
+  ["S"] = "Participant Type: Solicitor (S)",
+}
 
-  return "Participant Type: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.labels[value] or "Participant Type: Unknown("..value..")"
 end
 
 -- Dissect: Participant Type
@@ -6686,24 +6096,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_auction = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_auction.size = 2
 
 -- Display: Pl Market Status Auction
-nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_auction.display = function(value)
-  if value == 0 then
-    return "Pl Market Status Auction: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Pl Market Status Auction: Open (1)"
-  end
-  if value == 2 then
-    return "Pl Market Status Auction: Closed (2)"
-  end
-  if value == 3 then
-    return "Pl Market Status Auction: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Pl Market Status Auction: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_auction.labels = {
+  [0] = "Pl Market Status Auction: Pre Open (0)",
+  [1] = "Pl Market Status Auction: Open (1)",
+  [2] = "Pl Market Status Auction: Closed (2)",
+  [3] = "Pl Market Status Auction: Pre Open Ended (3)",
+  [4] = "Pl Market Status Auction: Postclose (4)",
+}
 
-  return "Pl Market Status Auction: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_auction.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_auction.labels[value] or "Pl Market Status Auction: Unknown("..value..")"
 end
 
 -- Dissect: Pl Market Status Auction
@@ -6725,24 +6127,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_normal = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_normal.size = 2
 
 -- Display: Pl Market Status Normal
-nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_normal.display = function(value)
-  if value == 0 then
-    return "Pl Market Status Normal: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Pl Market Status Normal: Open (1)"
-  end
-  if value == 2 then
-    return "Pl Market Status Normal: Closed (2)"
-  end
-  if value == 3 then
-    return "Pl Market Status Normal: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Pl Market Status Normal: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_normal.labels = {
+  [0] = "Pl Market Status Normal: Pre Open (0)",
+  [1] = "Pl Market Status Normal: Open (1)",
+  [2] = "Pl Market Status Normal: Closed (2)",
+  [3] = "Pl Market Status Normal: Pre Open Ended (3)",
+  [4] = "Pl Market Status Normal: Postclose (4)",
+}
 
-  return "Pl Market Status Normal: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_normal.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_normal.labels[value] or "Pl Market Status Normal: Unknown("..value..")"
 end
 
 -- Dissect: Pl Market Status Normal
@@ -6764,24 +6158,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_oddlot = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_oddlot.size = 2
 
 -- Display: Pl Market Status Oddlot
-nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_oddlot.display = function(value)
-  if value == 0 then
-    return "Pl Market Status Oddlot: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Pl Market Status Oddlot: Open (1)"
-  end
-  if value == 2 then
-    return "Pl Market Status Oddlot: Closed (2)"
-  end
-  if value == 3 then
-    return "Pl Market Status Oddlot: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Pl Market Status Oddlot: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_oddlot.labels = {
+  [0] = "Pl Market Status Oddlot: Pre Open (0)",
+  [1] = "Pl Market Status Oddlot: Open (1)",
+  [2] = "Pl Market Status Oddlot: Closed (2)",
+  [3] = "Pl Market Status Oddlot: Pre Open Ended (3)",
+  [4] = "Pl Market Status Oddlot: Postclose (4)",
+}
 
-  return "Pl Market Status Oddlot: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_oddlot.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_oddlot.labels[value] or "Pl Market Status Oddlot: Unknown("..value..")"
 end
 
 -- Dissect: Pl Market Status Oddlot
@@ -6803,24 +6189,16 @@ nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_spot = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_spot.size = 2
 
 -- Display: Pl Market Status Spot
-nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_spot.display = function(value)
-  if value == 0 then
-    return "Pl Market Status Spot: Pre Open (0)"
-  end
-  if value == 1 then
-    return "Pl Market Status Spot: Open (1)"
-  end
-  if value == 2 then
-    return "Pl Market Status Spot: Closed (2)"
-  end
-  if value == 3 then
-    return "Pl Market Status Spot: Pre Open Ended (3)"
-  end
-  if value == 4 then
-    return "Pl Market Status Spot: Postclose (4)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_spot.labels = {
+  [0] = "Pl Market Status Spot: Pre Open (0)",
+  [1] = "Pl Market Status Spot: Open (1)",
+  [2] = "Pl Market Status Spot: Closed (2)",
+  [3] = "Pl Market Status Spot: Pre Open Ended (3)",
+  [4] = "Pl Market Status Spot: Postclose (4)",
+}
 
-  return "Pl Market Status Spot: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_spot.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.pl_market_status_spot.labels[value] or "Pl Market Status Spot: Unknown("..value..")"
 end
 
 -- Dissect: Pl Market Status Spot
@@ -7079,57 +6457,27 @@ nse_nsefo_orderentry_nnfdirect_v9_50.reason_code = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.reason_code.size = 2
 
 -- Display: Reason Code
-nse_nsefo_orderentry_nnfdirect_v9_50.reason_code.display = function(value)
-  if value == 2 then
-    return "Reason Code: Exercise (2)"
-  end
-  if value == 3 then
-    return "Reason Code: Position Liquidation (3)"
-  end
-  if value == 5 then
-    return "Reason Code: Security (5)"
-  end
-  if value == 6 then
-    return "Reason Code: Broker (6)"
-  end
-  if value == 7 then
-    return "Reason Code: Branch (7)"
-  end
-  if value == 8 then
-    return "Reason Code: User (8)"
-  end
-  if value == 9 then
-    return "Reason Code: Participant (9)"
-  end
-  if value == 10 then
-    return "Reason Code: Counter Party (10)"
-  end
-  if value == 11 then
-    return "Reason Code: Order Number (11)"
-  end
-  if value == 12 then
-    return "Reason Code: Market Status (12)"
-  end
-  if value == 15 then
-    return "Reason Code: Auction Number (15)"
-  end
-  if value == 16 then
-    return "Reason Code: Order Type (16)"
-  end
-  if value == 17 then
-    return "Reason Code: Price Freeze (17)"
-  end
-  if value == 18 then
-    return "Reason Code: Quantity Freeze (18)"
-  end
-  if value == 20 then
-    return "Reason Code: Contract (20)"
-  end
-  if value == 30 then
-    return "Reason Code: Exercise Mode Mismatch (30)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.reason_code.labels = {
+  [2] = "Reason Code: Exercise (2)",
+  [3] = "Reason Code: Position Liquidation (3)",
+  [5] = "Reason Code: Security (5)",
+  [6] = "Reason Code: Broker (6)",
+  [7] = "Reason Code: Branch (7)",
+  [8] = "Reason Code: User (8)",
+  [9] = "Reason Code: Participant (9)",
+  [10] = "Reason Code: Counter Party (10)",
+  [11] = "Reason Code: Order Number (11)",
+  [12] = "Reason Code: Market Status (12)",
+  [15] = "Reason Code: Auction Number (15)",
+  [16] = "Reason Code: Order Type (16)",
+  [17] = "Reason Code: Price Freeze (17)",
+  [18] = "Reason Code: Quantity Freeze (18)",
+  [20] = "Reason Code: Contract (20)",
+  [30] = "Reason Code: Exercise Mode Mismatch (30)",
+}
 
-  return "Reason Code: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.reason_code.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.reason_code.labels[value] or "Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reason Code
@@ -8348,15 +7696,13 @@ nse_nsefo_orderentry_nnfdirect_v9_50.status = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.status.size = 2
 
 -- Display: Status
-nse_nsefo_orderentry_nnfdirect_v9_50.status.display = function(value)
-  if value == 0 then
-    return "Status: End Of Outage (0)"
-  end
-  if value == 1 then
-    return "Status: Start Of Outage (1)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.status.labels = {
+  [0] = "Status: End Of Outage (0)",
+  [1] = "Status: Start Of Outage (1)",
+}
 
-  return "Status: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.status.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.status.labels[value] or "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -9040,297 +8386,107 @@ nse_nsefo_orderentry_nnfdirect_v9_50.transaction_code = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.transaction_code.size = 2
 
 -- Display: Transaction Code
-nse_nsefo_orderentry_nnfdirect_v9_50.transaction_code.display = function(value)
-  if value == 2300 then
-    return "Transaction Code: Sign On Request In Message (2300)"
-  end
-  if value == 2301 then
-    return "Transaction Code: Sign On Request Out Message (2301)"
-  end
-  if value == 2321 then
-    return "Transaction Code: Sign Off Request Out Message (2321)"
-  end
-  if value == 1600 then
-    return "Transaction Code: System Information In Message (1600)"
-  end
-  if value == 1601 then
-    return "Transaction Code: System Information Out Message (1601)"
-  end
-  if value == 2400 then
-    return "Transaction Code: Gateway Router Request Message (2400)"
-  end
-  if value == 2401 then
-    return "Transaction Code: Gateway Router Response Message (2401)"
-  end
-  if value == 2320 then
-    return "Transaction Code: Sign Off Request In Message (2320)"
-  end
-  if value == 7300 then
-    return "Transaction Code: Update Local Database In Message (7300)"
-  end
-  if value == 7307 then
-    return "Transaction Code: Update Local Database Header Message (7307)"
-  end
-  if value == 7308 then
-    return "Transaction Code: Update Local Database Trailer Message (7308)"
-  end
-  if value == 7000 then
-    return "Transaction Code: Download Request Message (7000)"
-  end
-  if value == 7304 then
-    return "Transaction Code: Update Local Database Data Message (7304)"
-  end
-  if value == 7011 then
-    return "Transaction Code: Header Record Message (7011)"
-  end
-  if value == 7021 then
-    return "Transaction Code: Message Record Message (7021)"
-  end
-  if value == 7031 then
-    return "Transaction Code: Trailer Record Message (7031)"
-  end
-  if value == 2000 then
-    return "Transaction Code: Order Entry Request Message (2000)"
-  end
-  if value == 2040 then
-    return "Transaction Code: Order Modification Request Message (2040)"
-  end
-  if value == 2070 then
-    return "Transaction Code: Order Cancellation Request Message (2070)"
-  end
-  if value == 2073 then
-    return "Transaction Code: Order Confirmation Message (2073)"
-  end
-  if value == 2074 then
-    return "Transaction Code: Order Modification Confirmation Message (2074)"
-  end
-  if value == 2012 then
-    return "Transaction Code: Order Entry Message (2012)"
-  end
-  if value == 2042 then
-    return "Transaction Code: Order Entry Message (2042)"
-  end
-  if value == 2062 then
-    return "Transaction Code: Order Entry Message (2062)"
-  end
-  if value == 2072 then
-    return "Transaction Code: Order Entry Message (2072)"
-  end
-  if value == 2170 then
-    return "Transaction Code: Order Entry Message (2170)"
-  end
-  if value == 2231 then
-    return "Transaction Code: Order Entry Message (2231)"
-  end
-  if value == 9002 then
-    return "Transaction Code: Order Entry Message (9002)"
-  end
-  if value == 2013 then
-    return "Transaction Code: Price Modification Message (2013)"
-  end
-  if value == 20406 then
-    return "Transaction Code: Price Modification Message (20406)"
-  end
-  if value == 5445 then
-    return "Transaction Code: Trade Inquiry Message (5445)"
-  end
-  if value == 5440 then
-    return "Transaction Code: Trade Inquiry Message (5440)"
-  end
-  if value == 5441 then
-    return "Transaction Code: Trade Inquiry Message (5441)"
-  end
-  if value == 2223 then
-    return "Transaction Code: Trade Inquiry Message (2223)"
-  end
-  if value == 2100 then
-    return "Transaction Code: Spread Order Entry Message (2100)"
-  end
-  if value == 2102 then
-    return "Transaction Code: Spread Order Entry Message (2102)"
-  end
-  if value == 2104 then
-    return "Transaction Code: Spread Order Entry Message (2104)"
-  end
-  if value == 2106 then
-    return "Transaction Code: Spread Order Entry Message (2106)"
-  end
-  if value == 2118 then
-    return "Transaction Code: Spread Order Entry Message (2118)"
-  end
-  if value == 2124 then
-    return "Transaction Code: Spread Order Entry Message (2124)"
-  end
-  if value == 2125 then
-    return "Transaction Code: Spread Order Entry Message (2125)"
-  end
-  if value == 2126 then
-    return "Transaction Code: Spread Order Entry Message (2126)"
-  end
-  if value == 2127 then
-    return "Transaction Code: Spread Order Entry Message (2127)"
-  end
-  if value == 2130 then
-    return "Transaction Code: Spread Order Entry Message (2130)"
-  end
-  if value == 2131 then
-    return "Transaction Code: Spread Order Entry Message (2131)"
-  end
-  if value == 2132 then
-    return "Transaction Code: Spread Order Entry Message (2132)"
-  end
-  if value == 2133 then
-    return "Transaction Code: Spread Order Entry Message (2133)"
-  end
-  if value == 2136 then
-    return "Transaction Code: Spread Order Entry Message (2136)"
-  end
-  if value == 2154 then
-    return "Transaction Code: Spread Order Entry Message (2154)"
-  end
-  if value == 2155 then
-    return "Transaction Code: Spread Order Entry Message (2155)"
-  end
-  if value == 2156 then
-    return "Transaction Code: Spread Order Entry Message (2156)"
-  end
-  if value == 9004 then
-    return "Transaction Code: Spread Order Entry Message (9004)"
-  end
-  if value == 20408 then
-    return "Transaction Code: Spread Order Entry Message (20408)"
-  end
-  if value == 20410 then
-    return "Transaction Code: Spread Order Entry Message (20410)"
-  end
-  if value == 20412 then
-    return "Transaction Code: Spread Order Entry Message (20412)"
-  end
-  if value == 20414 then
-    return "Transaction Code: Spread Order Entry Message (20414)"
-  end
-  if value == 20416 then
-    return "Transaction Code: Spread Order Entry Message (20416)"
-  end
-  if value == 2222 then
-    return "Transaction Code: Trade Confirmation Message (2222)"
-  end
-  if value == 2212 then
-    return "Transaction Code: Trade Confirmation Message (2212)"
-  end
-  if value == 2282 then
-    return "Transaction Code: Trade Confirmation Message (2282)"
-  end
-  if value == 2286 then
-    return "Transaction Code: Trade Confirmation Message (2286)"
-  end
-  if value == 2287 then
-    return "Transaction Code: Trade Confirmation Message (2287)"
-  end
-  if value == 2288 then
-    return "Transaction Code: Trade Confirmation Message (2288)"
-  end
-  if value == 5731 then
-    return "Transaction Code: User Order Limit Update Message (5731)"
-  end
-  if value == 5733 then
-    return "Transaction Code: Dealer Limit Update Message (5733)"
-  end
-  if value == 5772 then
-    return "Transaction Code: Spread Order Limit Update Message (5772)"
-  end
-  if value == 5295 then
-    return "Transaction Code: Control Message To Trader Message (5295)"
-  end
-  if value == 1833 then
-    return "Transaction Code: Market Statistics Report Message (1833)"
-  end
-  if value == 11833 then
-    return "Transaction Code: Enhanced Market Statistics Report Message (11833)"
-  end
-  if value == 1836 then
-    return "Transaction Code: Market Index Report Message (1836)"
-  end
-  if value == 1837 then
-    return "Transaction Code: Industry Index Report Message (1837)"
-  end
-  if value == 1838 then
-    return "Transaction Code: Sector Index Report Message (1838)"
-  end
-  if value == 1862 then
-    return "Transaction Code: Spread Bhavcopy Message (1862)"
-  end
-  if value == 7732 then
-    return "Transaction Code: Global Indices Message (7732)"
-  end
-  if value == 7733 then
-    return "Transaction Code: Global Contracts Message (7733)"
-  end
-  if value == 23008 then
-    return "Transaction Code: Secure Box Registration Request In Message (23008)"
-  end
-  if value == 23009 then
-    return "Transaction Code: Secure Box Registration Response Out Message (23009)"
-  end
-  if value == 23000 then
-    return "Transaction Code: Box Sign On Request In Message (23000)"
-  end
-  if value == 23001 then
-    return "Transaction Code: Box Sign On Request Out Message (23001)"
-  end
-  if value == 23506 then
-    return "Transaction Code: Heartbeat Message (23506)"
-  end
-  if value == 20322 then
-    return "Transaction Code: Box Sign Off Message (20322)"
-  end
-  if value == 5294 then
-    return "Transaction Code: Contingency Broadcast Message (5294)"
-  end
-  if value == 5716 then
-    return "Transaction Code: Branch Order Value Limit Update Message (5716)"
-  end
-  if value == 5730 then
-    return "Transaction Code: User Order Value Limit Update Message (5730)"
-  end
-  if value == 5732 then
-    return "Transaction Code: Normal Order Limit Update Message (5732)"
-  end
-  if value == 5740 then
-    return "Transaction Code: Reset User Password Message (5740)"
-  end
-  if value == 5744 then
-    return "Transaction Code: Collateral User Status Change Request Message (5744)"
-  end
-  if value == 5745 then
-    return "Transaction Code: Collateral User Status Change Response Message (5745)"
-  end
-  if value == 5738 then
-    return "Transaction Code: User Trade Modify Cancel Status Change Request Message (5738)"
-  end
-  if value == 5739 then
-    return "Transaction Code: User Trade Modify Cancel Status Change Response Message (5739)"
-  end
-  if value == 5427 then
-    return "Transaction Code: User Address Unlock Request Message (5427)"
-  end
-  if value == 5428 then
-    return "Transaction Code: User Address Unlock Confirm Message (5428)"
-  end
-  if value == 5483 then
-    return "Transaction Code: User Address Unlock Approve Message (5483)"
-  end
-  if value == 4506 then
-    return "Transaction Code: Giveup Confirmation Message (4506)"
-  end
-  if value == 4507 then
-    return "Transaction Code: Giveup Confirmation Message (4507)"
-  end
-  if value == 2075 then
-    return "Transaction Code: Order Cancellation Confirmation Message (2075)"
-  end
+nse_nsefo_orderentry_nnfdirect_v9_50.transaction_code.labels = {
+  [2300] = "Transaction Code: Sign On Request In Message (2300)",
+  [2301] = "Transaction Code: Sign On Request Out Message (2301)",
+  [2321] = "Transaction Code: Sign Off Request Out Message (2321)",
+  [1600] = "Transaction Code: System Information In Message (1600)",
+  [1601] = "Transaction Code: System Information Out Message (1601)",
+  [2400] = "Transaction Code: Gateway Router Request Message (2400)",
+  [2401] = "Transaction Code: Gateway Router Response Message (2401)",
+  [2320] = "Transaction Code: Sign Off Request In Message (2320)",
+  [7300] = "Transaction Code: Update Local Database In Message (7300)",
+  [7307] = "Transaction Code: Update Local Database Header Message (7307)",
+  [7308] = "Transaction Code: Update Local Database Trailer Message (7308)",
+  [7000] = "Transaction Code: Download Request Message (7000)",
+  [7304] = "Transaction Code: Update Local Database Data Message (7304)",
+  [7011] = "Transaction Code: Header Record Message (7011)",
+  [7021] = "Transaction Code: Message Record Message (7021)",
+  [7031] = "Transaction Code: Trailer Record Message (7031)",
+  [2000] = "Transaction Code: Order Entry Request Message (2000)",
+  [2040] = "Transaction Code: Order Modification Request Message (2040)",
+  [2070] = "Transaction Code: Order Cancellation Request Message (2070)",
+  [2073] = "Transaction Code: Order Confirmation Message (2073)",
+  [2074] = "Transaction Code: Order Modification Confirmation Message (2074)",
+  [2012] = "Transaction Code: Order Entry Message (2012)",
+  [2042] = "Transaction Code: Order Entry Message (2042)",
+  [2062] = "Transaction Code: Order Entry Message (2062)",
+  [2072] = "Transaction Code: Order Entry Message (2072)",
+  [2170] = "Transaction Code: Order Entry Message (2170)",
+  [2231] = "Transaction Code: Order Entry Message (2231)",
+  [9002] = "Transaction Code: Order Entry Message (9002)",
+  [2013] = "Transaction Code: Price Modification Message (2013)",
+  [20406] = "Transaction Code: Price Modification Message (20406)",
+  [5445] = "Transaction Code: Trade Inquiry Message (5445)",
+  [5440] = "Transaction Code: Trade Inquiry Message (5440)",
+  [5441] = "Transaction Code: Trade Inquiry Message (5441)",
+  [2223] = "Transaction Code: Trade Inquiry Message (2223)",
+  [2100] = "Transaction Code: Spread Order Entry Message (2100)",
+  [2102] = "Transaction Code: Spread Order Entry Message (2102)",
+  [2104] = "Transaction Code: Spread Order Entry Message (2104)",
+  [2106] = "Transaction Code: Spread Order Entry Message (2106)",
+  [2118] = "Transaction Code: Spread Order Entry Message (2118)",
+  [2124] = "Transaction Code: Spread Order Entry Message (2124)",
+  [2125] = "Transaction Code: Spread Order Entry Message (2125)",
+  [2126] = "Transaction Code: Spread Order Entry Message (2126)",
+  [2127] = "Transaction Code: Spread Order Entry Message (2127)",
+  [2130] = "Transaction Code: Spread Order Entry Message (2130)",
+  [2131] = "Transaction Code: Spread Order Entry Message (2131)",
+  [2132] = "Transaction Code: Spread Order Entry Message (2132)",
+  [2133] = "Transaction Code: Spread Order Entry Message (2133)",
+  [2136] = "Transaction Code: Spread Order Entry Message (2136)",
+  [2154] = "Transaction Code: Spread Order Entry Message (2154)",
+  [2155] = "Transaction Code: Spread Order Entry Message (2155)",
+  [2156] = "Transaction Code: Spread Order Entry Message (2156)",
+  [9004] = "Transaction Code: Spread Order Entry Message (9004)",
+  [20408] = "Transaction Code: Spread Order Entry Message (20408)",
+  [20410] = "Transaction Code: Spread Order Entry Message (20410)",
+  [20412] = "Transaction Code: Spread Order Entry Message (20412)",
+  [20414] = "Transaction Code: Spread Order Entry Message (20414)",
+  [20416] = "Transaction Code: Spread Order Entry Message (20416)",
+  [2222] = "Transaction Code: Trade Confirmation Message (2222)",
+  [2212] = "Transaction Code: Trade Confirmation Message (2212)",
+  [2282] = "Transaction Code: Trade Confirmation Message (2282)",
+  [2286] = "Transaction Code: Trade Confirmation Message (2286)",
+  [2287] = "Transaction Code: Trade Confirmation Message (2287)",
+  [2288] = "Transaction Code: Trade Confirmation Message (2288)",
+  [5731] = "Transaction Code: User Order Limit Update Message (5731)",
+  [5733] = "Transaction Code: Dealer Limit Update Message (5733)",
+  [5772] = "Transaction Code: Spread Order Limit Update Message (5772)",
+  [5295] = "Transaction Code: Control Message To Trader Message (5295)",
+  [1833] = "Transaction Code: Market Statistics Report Message (1833)",
+  [11833] = "Transaction Code: Enhanced Market Statistics Report Message (11833)",
+  [1836] = "Transaction Code: Market Index Report Message (1836)",
+  [1837] = "Transaction Code: Industry Index Report Message (1837)",
+  [1838] = "Transaction Code: Sector Index Report Message (1838)",
+  [1862] = "Transaction Code: Spread Bhavcopy Message (1862)",
+  [7732] = "Transaction Code: Global Indices Message (7732)",
+  [7733] = "Transaction Code: Global Contracts Message (7733)",
+  [23008] = "Transaction Code: Secure Box Registration Request In Message (23008)",
+  [23009] = "Transaction Code: Secure Box Registration Response Out Message (23009)",
+  [23000] = "Transaction Code: Box Sign On Request In Message (23000)",
+  [23001] = "Transaction Code: Box Sign On Request Out Message (23001)",
+  [23506] = "Transaction Code: Heartbeat Message (23506)",
+  [20322] = "Transaction Code: Box Sign Off Message (20322)",
+  [5294] = "Transaction Code: Contingency Broadcast Message (5294)",
+  [5716] = "Transaction Code: Branch Order Value Limit Update Message (5716)",
+  [5730] = "Transaction Code: User Order Value Limit Update Message (5730)",
+  [5732] = "Transaction Code: Normal Order Limit Update Message (5732)",
+  [5740] = "Transaction Code: Reset User Password Message (5740)",
+  [5744] = "Transaction Code: Collateral User Status Change Request Message (5744)",
+  [5745] = "Transaction Code: Collateral User Status Change Response Message (5745)",
+  [5738] = "Transaction Code: User Trade Modify Cancel Status Change Request Message (5738)",
+  [5739] = "Transaction Code: User Trade Modify Cancel Status Change Response Message (5739)",
+  [5427] = "Transaction Code: User Address Unlock Request Message (5427)",
+  [5428] = "Transaction Code: User Address Unlock Confirm Message (5428)",
+  [5483] = "Transaction Code: User Address Unlock Approve Message (5483)",
+  [4506] = "Transaction Code: Giveup Confirmation Message (4506)",
+  [4507] = "Transaction Code: Giveup Confirmation Message (4507)",
+  [2075] = "Transaction Code: Order Cancellation Confirmation Message (2075)",
+}
 
-  return "Transaction Code: Unknown("..value..")"
+nse_nsefo_orderentry_nnfdirect_v9_50.transaction_code.display = function(value)
+  return nse_nsefo_orderentry_nnfdirect_v9_50.transaction_code.labels[value] or "Transaction Code: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Code
@@ -10748,14 +9904,15 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.cancellation_confirmation_body = {}
 
 -- Dissect: Cancellation Confirmation Body
+nse_nsefo_orderentry_nnfdirect_v9_50.cancellation_confirmation_body.dispatch = {
+  [316] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect,
+  [480] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.dissect,
+}
+
 nse_nsefo_orderentry_nnfdirect_v9_50.cancellation_confirmation_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect Order Entry Body
-  if message_length == 316 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Body
-  if message_length == 480 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_orderentry_nnfdirect_v9_50.cancellation_confirmation_body.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -11849,42 +11006,22 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_body = {}
 
 -- Dissect: Spread Report Body
+nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_body.dispatch = {
+  ["H"] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_header_body.dissect,
+  ["X"] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_header_body.dissect,
+  ["L"] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_header_body.dissect,
+  ["R"] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.dissect,
+  ["Y"] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.dissect,
+  ["M"] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.dissect,
+  ["T"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect,
+  ["Z"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect,
+  ["N"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect,
+}
+
 nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Spread Report Header Body
-  if message_type == "H" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_header_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Report Header Body
-  if message_type == "X" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_header_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Report Header Body
-  if message_type == "L" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_header_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Report Statistics Body
-  if message_type == "R" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Report Statistics Body
-  if message_type == "Y" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Report Statistics Body
-  if message_type == "M" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Trailer Body
-  if message_type == "T" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Trailer Body
-  if message_type == "Z" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Trailer Body
-  if message_type == "N" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -12623,42 +11760,22 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.report_body = {}
 
 -- Dissect: Report Body
+nse_nsefo_orderentry_nnfdirect_v9_50.report_body.dispatch = {
+  ["H"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_header_body.dissect,
+  ["X"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_header_body.dissect,
+  ["L"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_header_body.dissect,
+  ["R"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.dissect,
+  ["Y"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.dissect,
+  ["M"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.dissect,
+  ["T"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect,
+  ["Z"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect,
+  ["N"] = nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect,
+}
+
 nse_nsefo_orderentry_nnfdirect_v9_50.report_body.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Report Header Body
-  if message_type == "H" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_header_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Header Body
-  if message_type == "X" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_header_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Header Body
-  if message_type == "L" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_header_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Statistics Body
-  if message_type == "R" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Statistics Body
-  if message_type == "Y" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Statistics Body
-  if message_type == "M" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Trailer Body
-  if message_type == "T" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Trailer Body
-  if message_type == "Z" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Report Trailer Body
-  if message_type == "N" then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.report_trailer_body.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_orderentry_nnfdirect_v9_50.report_body.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -13701,14 +12818,15 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.cryptographic_payload = {}
 
 -- Dissect: Cryptographic Payload
+nse_nsefo_orderentry_nnfdirect_v9_50.cryptographic_payload.dispatch = {
+  [124] = nse_nsefo_orderentry_nnfdirect_v9_50.existing_encryption_tail.dissect,
+  [136] = nse_nsefo_orderentry_nnfdirect_v9_50.new_encryption_tail.dissect,
+}
+
 nse_nsefo_orderentry_nnfdirect_v9_50.cryptographic_payload.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect Existing Encryption Tail
-  if message_length == 124 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.existing_encryption_tail.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Encryption Tail
-  if message_length == 136 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.new_encryption_tail.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_orderentry_nnfdirect_v9_50.cryptographic_payload.dispatch[message_length]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -14437,158 +13555,51 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.server_message_payload = {}
 
 -- Dissect: Server Message Payload
+nse_nsefo_orderentry_nnfdirect_v9_50.server_message_payload.dispatch = {
+  [2301] = nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.dissect,
+  [2321] = nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_out_message.dissect,
+  [1601] = nse_nsefo_orderentry_nnfdirect_v9_50.system_information_out_message.dissect,
+  [2401] = nse_nsefo_orderentry_nnfdirect_v9_50.gateway_router_response_message.dissect,
+  [7307] = nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_header_message.dissect,
+  [7308] = nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_trailer_message.dissect,
+  [7304] = nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_data_message.dissect,
+  [7011] = nse_nsefo_orderentry_nnfdirect_v9_50.header_record_message.dissect,
+  [7021] = nse_nsefo_orderentry_nnfdirect_v9_50.message_record_message.dissect,
+  [7031] = nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message.dissect,
+  [2222] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect,
+  [2212] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect,
+  [2282] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect,
+  [2286] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect,
+  [2287] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect,
+  [2288] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect,
+  [5731] = nse_nsefo_orderentry_nnfdirect_v9_50.user_order_limit_update_message.dissect,
+  [5733] = nse_nsefo_orderentry_nnfdirect_v9_50.dealer_limit_update_message.dissect,
+  [5772] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_limit_update_message.dissect,
+  [5295] = nse_nsefo_orderentry_nnfdirect_v9_50.control_message_to_trader_message.dissect,
+  [1833] = nse_nsefo_orderentry_nnfdirect_v9_50.market_statistics_report_message.dissect,
+  [11833] = nse_nsefo_orderentry_nnfdirect_v9_50.enhanced_market_statistics_report_message.dissect,
+  [1836] = nse_nsefo_orderentry_nnfdirect_v9_50.market_index_report_message.dissect,
+  [1837] = nse_nsefo_orderentry_nnfdirect_v9_50.industry_index_report_message.dissect,
+  [1838] = nse_nsefo_orderentry_nnfdirect_v9_50.sector_index_report_message.dissect,
+  [1862] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_bhavcopy_message.dissect,
+  [7732] = nse_nsefo_orderentry_nnfdirect_v9_50.global_indices_message.dissect,
+  [7733] = nse_nsefo_orderentry_nnfdirect_v9_50.global_contracts_message.dissect,
+  [23009] = nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_response_out_message.dissect,
+  [23001] = nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_out_message.dissect,
+  [5294] = nse_nsefo_orderentry_nnfdirect_v9_50.contingency_broadcast_message.dissect,
+  [5745] = nse_nsefo_orderentry_nnfdirect_v9_50.collateral_user_status_change_response_message.dissect,
+  [5739] = nse_nsefo_orderentry_nnfdirect_v9_50.user_trade_modify_cancel_status_change_response_message.dissect,
+  [5428] = nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_confirm_message.dissect,
+  [5483] = nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_approve_message.dissect,
+  [4506] = nse_nsefo_orderentry_nnfdirect_v9_50.giveup_confirmation_message.dissect,
+  [4507] = nse_nsefo_orderentry_nnfdirect_v9_50.giveup_confirmation_message.dissect,
+  [2075] = nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_confirmation_message.dissect,
+}
+
 nse_nsefo_orderentry_nnfdirect_v9_50.server_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Sign On Request Out Message
-  if transaction_code == 2301 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign Off Request Out Message
-  if transaction_code == 2321 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Information Out Message
-  if transaction_code == 1601 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.system_information_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Router Response Message
-  if transaction_code == 2401 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.gateway_router_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Header Message
-  if transaction_code == 7307 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Trailer Message
-  if transaction_code == 7308 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_trailer_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Data Message
-  if transaction_code == 7304 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Header Record Message
-  if transaction_code == 7011 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.header_record_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Record Message
-  if transaction_code == 7021 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.message_record_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trailer Record Message
-  if transaction_code == 7031 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2222 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2212 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2282 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2286 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2287 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2288 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Order Limit Update Message
-  if transaction_code == 5731 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.user_order_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dealer Limit Update Message
-  if transaction_code == 5733 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.dealer_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Limit Update Message
-  if transaction_code == 5772 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message To Trader Message
-  if transaction_code == 5295 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.control_message_to_trader_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Statistics Report Message
-  if transaction_code == 1833 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.market_statistics_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Market Statistics Report Message
-  if transaction_code == 11833 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.enhanced_market_statistics_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Index Report Message
-  if transaction_code == 1836 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.market_index_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Industry Index Report Message
-  if transaction_code == 1837 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.industry_index_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sector Index Report Message
-  if transaction_code == 1838 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.sector_index_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Bhavcopy Message
-  if transaction_code == 1862 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_bhavcopy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Indices Message
-  if transaction_code == 7732 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.global_indices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Contracts Message
-  if transaction_code == 7733 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.global_contracts_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secure Box Registration Response Out Message
-  if transaction_code == 23009 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_response_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign On Request Out Message
-  if transaction_code == 23001 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Contingency Broadcast Message
-  if transaction_code == 5294 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.contingency_broadcast_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Collateral User Status Change Response Message
-  if transaction_code == 5745 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.collateral_user_status_change_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Trade Modify Cancel Status Change Response Message
-  if transaction_code == 5739 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.user_trade_modify_cancel_status_change_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Address Unlock Confirm Message
-  if transaction_code == 5428 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_confirm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Address Unlock Approve Message
-  if transaction_code == 5483 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_approve_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Giveup Confirmation Message
-  if transaction_code == 4506 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.giveup_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Giveup Confirmation Message
-  if transaction_code == 4507 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.giveup_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Confirmation Message
-  if transaction_code == 2075 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_confirmation_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_orderentry_nnfdirect_v9_50.server_message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -16283,238 +15294,71 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.client_message_payload = {}
 
 -- Dissect: Client Message Payload
+nse_nsefo_orderentry_nnfdirect_v9_50.client_message_payload.dispatch = {
+  [2300] = nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.dissect,
+  [1600] = nse_nsefo_orderentry_nnfdirect_v9_50.system_information_in_message.dissect,
+  [2400] = nse_nsefo_orderentry_nnfdirect_v9_50.gateway_router_request_message.dissect,
+  [2320] = nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_in_message.dissect,
+  [7300] = nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_in_message.dissect,
+  [7000] = nse_nsefo_orderentry_nnfdirect_v9_50.download_request_message.dissect,
+  [2000] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.dissect,
+  [2040] = nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.dissect,
+  [2070] = nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.dissect,
+  [2073] = nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.dissect,
+  [2074] = nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.dissect,
+  [2012] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect,
+  [2042] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect,
+  [2062] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect,
+  [2072] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect,
+  [2170] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect,
+  [2231] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect,
+  [9002] = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect,
+  [2013] = nse_nsefo_orderentry_nnfdirect_v9_50.price_modification_message.dissect,
+  [20406] = nse_nsefo_orderentry_nnfdirect_v9_50.price_modification_message.dissect,
+  [5445] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.dissect,
+  [5440] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.dissect,
+  [5441] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.dissect,
+  [2223] = nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.dissect,
+  [2100] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2102] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2104] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2106] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2118] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2124] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2125] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2126] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2127] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2130] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2131] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2132] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2133] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2136] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2154] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2155] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [2156] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [9004] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [20408] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [20410] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [20412] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [20414] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [20416] = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect,
+  [23008] = nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_request_in_message.dissect,
+  [23000] = nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_in_message.dissect,
+  [23506] = nse_nsefo_orderentry_nnfdirect_v9_50.heartbeat_message.dissect,
+  [20322] = nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_off_message.dissect,
+  [5716] = nse_nsefo_orderentry_nnfdirect_v9_50.branch_order_value_limit_update_message.dissect,
+  [5730] = nse_nsefo_orderentry_nnfdirect_v9_50.user_order_value_limit_update_message.dissect,
+  [5732] = nse_nsefo_orderentry_nnfdirect_v9_50.normal_order_limit_update_message.dissect,
+  [5740] = nse_nsefo_orderentry_nnfdirect_v9_50.reset_user_password_message.dissect,
+  [5744] = nse_nsefo_orderentry_nnfdirect_v9_50.collateral_user_status_change_request_message.dissect,
+  [5738] = nse_nsefo_orderentry_nnfdirect_v9_50.user_trade_modify_cancel_status_change_request_message.dissect,
+  [5427] = nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_request_message.dissect,
+}
+
 nse_nsefo_orderentry_nnfdirect_v9_50.client_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
-  -- Dissect Sign On Request In Message
-  if transaction_code == 2300 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.sign_on_request_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect System Information In Message
-  if transaction_code == 1600 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.system_information_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Router Request Message
-  if transaction_code == 2400 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.gateway_router_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign Off Request In Message
-  if transaction_code == 2320 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database In Message
-  if transaction_code == 7300 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Download Request Message
-  if transaction_code == 7000 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.download_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Request Message
-  if transaction_code == 2000 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modification Request Message
-  if transaction_code == 2040 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Request Message
-  if transaction_code == 2070 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Confirmation Message
-  if transaction_code == 2073 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modification Confirmation Message
-  if transaction_code == 2074 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2012 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2042 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2062 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2072 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2170 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2231 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 9002 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Modification Message
-  if transaction_code == 2013 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.price_modification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Modification Message
-  if transaction_code == 20406 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.price_modification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Inquiry Message
-  if transaction_code == 5445 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Inquiry Message
-  if transaction_code == 5440 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Inquiry Message
-  if transaction_code == 5441 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Inquiry Message
-  if transaction_code == 2223 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.trade_inquiry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2100 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2102 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2104 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2106 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2118 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2124 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2125 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2126 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2127 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2130 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2131 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2132 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2133 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2136 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2154 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2155 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 2156 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 9004 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 20408 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 20410 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 20412 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 20414 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Entry Message
-  if transaction_code == 20416 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Secure Box Registration Request In Message
-  if transaction_code == 23008 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_request_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign On Request In Message
-  if transaction_code == 23000 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heartbeat Message
-  if transaction_code == 23506 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign Off Message
-  if transaction_code == 20322 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_off_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Branch Order Value Limit Update Message
-  if transaction_code == 5716 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.branch_order_value_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Order Value Limit Update Message
-  if transaction_code == 5730 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.user_order_value_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Normal Order Limit Update Message
-  if transaction_code == 5732 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.normal_order_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reset User Password Message
-  if transaction_code == 5740 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.reset_user_password_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Collateral User Status Change Request Message
-  if transaction_code == 5744 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.collateral_user_status_change_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Trade Modify Cancel Status Change Request Message
-  if transaction_code == 5738 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.user_trade_modify_cancel_status_change_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Address Unlock Request Message
-  if transaction_code == 5427 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.user_address_unlock_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nse_nsefo_orderentry_nnfdirect_v9_50.client_message_payload.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
