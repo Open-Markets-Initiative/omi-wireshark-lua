@@ -5078,6 +5078,122 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Tmp Message: would its message dispatch accept this frame?
+taifex_taifexderivatives_dropcopy_tmp_v2_18_7.tmp_message.fingerprint = function(buffer)
+  if buffer:len() < 13 then
+    return false
+  end
+
+  local message_type = buffer(12, 1):uint()
+
+  -- Wake Up Call Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Wake Up Call Confirmed Message
+  if message_type == 20 then
+    return true
+  end
+
+  -- Logon Notice Message
+  if message_type == 30 then
+    return true
+  end
+
+  -- Final Sequential Number Notification For Group Message
+  if message_type == 230 then
+    return true
+  end
+
+  -- Request Logon Message
+  if message_type == 40 then
+    return true
+  end
+
+  -- Activate Application System Message
+  if message_type == 50 then
+    return true
+  end
+
+  -- Activate Application System Confirmed Message
+  if message_type == 60 then
+    return true
+  end
+
+  -- Logout Message
+  if message_type == 70 then
+    return true
+  end
+
+  -- Logout Confirmed Message
+  if message_type == 80 then
+    return true
+  end
+
+  -- Confirm Connection Message
+  if message_type == 104 then
+    return true
+  end
+
+  -- Connection Confirmed Message
+  if message_type == 105 then
+    return true
+  end
+
+  -- Order Status Report Message
+  if message_type == 102 then
+    return true
+  end
+
+  -- Order Status Report Long Format Message
+  if message_type == 132 then
+    return true
+  end
+
+  -- Error Report Message
+  if message_type == 103 then
+    return true
+  end
+
+  -- Flex Order Status Report Message
+  if message_type == 202 then
+    return true
+  end
+
+  -- Flex Error Report Message
+  if message_type == 203 then
+    return true
+  end
+
+  -- Drop Copy Initiate Operation Message
+  if message_type == 115 then
+    return true
+  end
+
+  -- Drop Copy Initiate Operation Confirmed Message
+  if message_type == 116 then
+    return true
+  end
+
+  -- Flex Drop Copy Initiate Operation Message
+  if message_type == 215 then
+    return true
+  end
+
+  -- Flex Drop Copy Initiate Operation Confirmed Message
+  if message_type == 216 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5085,6 +5201,9 @@ end
 local function omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not taifex_taifexderivatives_dropcopy_tmp_v2_18_7.tmp_message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp tmp message message dispatch
+  if not taifex_taifexderivatives_dropcopy_tmp_v2_18_7.tmp_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_taifex_taifexderivatives_dropcopy_tmp_v2_18_7

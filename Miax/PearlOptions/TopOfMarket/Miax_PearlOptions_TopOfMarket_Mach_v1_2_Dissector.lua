@@ -4666,6 +4666,42 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Udp Packet: would its message dispatch accept this frame?
+miax_pearloptions_topofmarket_mach_v1_2.udp_packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local packet_type = buffer(10, 1):le_uint()
+
+  -- Heartbeat
+  if packet_type == 0 then
+    return true
+  end
+
+  -- Start Of Session
+  if packet_type == 1 then
+    return true
+  end
+
+  -- End Of Session
+  if packet_type == 2 then
+    return true
+  end
+
+  -- Application Message
+  if packet_type == 3 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -4673,6 +4709,9 @@ end
 local function omi_miax_pearloptions_topofmarket_mach_v1_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_pearloptions_topofmarket_mach_v1_2.udp_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp udp packet message dispatch
+  if not miax_pearloptions_topofmarket_mach_v1_2.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_pearloptions_topofmarket_mach_v1_2

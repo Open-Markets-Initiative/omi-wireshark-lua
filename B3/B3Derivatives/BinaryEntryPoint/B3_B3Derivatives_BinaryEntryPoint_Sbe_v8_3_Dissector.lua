@@ -205,7 +205,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.received_time = ProtoField
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.received_time_utc = ProtoField.new("Received Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.receivedtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "receivedTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.refmsgtype", ftypes.UINT8, nil, nil, nil, "refMsgType")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.ref_seq_num = ProtoField.new("Ref Seq Num", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.refseqnum", ftypes.UINT32, nil, nil, nil, "refSeqNum")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.request_timestamp = ProtoField.new("Request Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.requesttimestamp", ftypes.UINT64, nil, nil, nil, "requestTimestamp")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.request_timestamp = ProtoField.new("Request Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "requestTimestamp")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "requestTimestamp")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.retransmit_reject_code = ProtoField.new("Retransmit Reject Code", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.retransmitrejectcode", ftypes.UINT8, nil, nil, nil, "retransmitRejectCode")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.routing_instruction = ProtoField.new("Routing Instruction", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.routinginstruction", ftypes.UINT8, nil, nil, nil, "routingInstruction")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.schema_id = ProtoField.new("Schema Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
@@ -247,7 +248,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.threshold_amount = ProtoFi
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.time_in_force = ProtoField.new("Time In Force", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timeinforce", ftypes.STRING, nil, nil, nil, "timeInForce")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.time_in_force_optional = ProtoField.new("Time In Force Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timeinforceoptional", ftypes.STRING, nil, nil, nil, "timeInForce")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.time_in_force_simple = ProtoField.new("Time In Force Simple", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timeinforcesimple", ftypes.STRING, nil, nil, nil, "timeInForce")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.timestamp = ProtoField.new("Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timestamp", ftypes.UINT64)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.timestamp = ProtoField.new("Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.timestamp_utc = ProtoField.new("Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.tot_no_related_sym = ProtoField.new("Tot No Related Sym", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.totnorelatedsym", ftypes.UINT8, nil, nil, nil, "totNoRelatedSym")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.trade_date = ProtoField.new("Trade Date", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradedate", ftypes.UINT16, nil, nil, nil, "tradeDate")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.trade_date_optional = ProtoField.new("Trade Date Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradedateoptional", ftypes.UINT16, nil, nil, nil, "tradeDate")
@@ -5886,19 +5888,20 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.request_timestamp = {}
 -- Size: Request Timestamp
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.request_timestamp.size = 8
 
--- Display: Request Timestamp
-b3_b3derivatives_binaryentrypoint_sbe_v8_3.request_timestamp.display = function(value)
-  return "Request Timestamp: "..value
-end
-
 -- Dissect: Request Timestamp
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.request_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_3.request_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_3.request_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.request_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.request_timestamp
+  if b3_b3derivatives_binaryentrypoint_sbe_v8_3.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.request_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -7198,19 +7201,20 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.timestamp = {}
 -- Size: Timestamp
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.timestamp.size = 8
 
--- Display: Timestamp
-b3_b3derivatives_binaryentrypoint_sbe_v8_3.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_3.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_3.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.timestamp
+  if b3_b3derivatives_binaryentrypoint_sbe_v8_3.absolute_time_base == 1 then field = omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

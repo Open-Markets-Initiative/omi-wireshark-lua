@@ -1961,6 +1961,37 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+n24x_24xequities_memoirtopofbook_sbe_v1_3.packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local message_type = buffer(0, 1):uint()
+
+  -- Heartbeat
+  if message_type == 0 then
+    return true
+  end
+
+  -- Session Shutdown
+  if message_type == 1 then
+    return true
+  end
+
+  -- Sequenced Message
+  if message_type == 2 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1968,6 +1999,9 @@ end
 local function omi_n24x_24xequities_memoirtopofbook_sbe_v1_3_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not n24x_24xequities_memoirtopofbook_sbe_v1_3.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not n24x_24xequities_memoirtopofbook_sbe_v1_3.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_n24x_24xequities_memoirtopofbook_sbe_v1_3

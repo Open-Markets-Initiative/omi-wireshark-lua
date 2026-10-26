@@ -9255,6 +9255,137 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+nse_nsefo_broadcast_nnfbcast_v9_50.packet.fingerprint = function(buffer)
+  if buffer:len() < 26 then
+    return false
+  end
+
+  local transaction_code = buffer(24, 2):int()
+
+  -- Broadcast Journal Vct Message
+  if transaction_code == 6501 then
+    return true
+  end
+
+  -- Security Open Price Message
+  if transaction_code == 6013 then
+    return true
+  end
+
+  -- Security Master Change Message
+  if transaction_code == 7305 then
+    return true
+  end
+
+  -- Instrument Master Change Message
+  if transaction_code == 7324 then
+    return true
+  end
+
+  -- Participant Master Change Message
+  if transaction_code == 7306 then
+    return true
+  end
+
+  -- Security Status Change Message
+  if transaction_code == 7320 then
+    return true
+  end
+
+  -- Market By Order And Market By Price Message
+  if transaction_code == 7200 then
+    return true
+  end
+
+  -- Only Market By Price Message
+  if transaction_code == 7208 then
+    return true
+  end
+
+  -- Enhanced Only Market By Price Message
+  if transaction_code == 17208 then
+    return true
+  end
+
+  -- Ticker And Market Index Message
+  if transaction_code == 7202 then
+    return true
+  end
+
+  -- Enhanced Ticker And Market Index Message
+  if transaction_code == 17202 then
+    return true
+  end
+
+  -- Market Watch Round Robin Message
+  if transaction_code == 7201 then
+    return true
+  end
+
+  -- Enhanced Market Watch Round Robin Message
+  if transaction_code == 17201 then
+    return true
+  end
+
+  -- Indices Message
+  if transaction_code == 7207 then
+    return true
+  end
+
+  -- Industry Index Update Message
+  if transaction_code == 7203 then
+    return true
+  end
+
+  -- Spread Market By Price Delta Message
+  if transaction_code == 7211 then
+    return true
+  end
+
+  -- Enhanced Spread Market By Price Delta Message
+  if transaction_code == 17211 then
+    return true
+  end
+
+  -- Asset Open Interest Message
+  if transaction_code == 7130 then
+    return true
+  end
+
+  -- Enhanced Asset Open Interest Message
+  if transaction_code == 17130 then
+    return true
+  end
+
+  -- Limit Price Protection Range Message
+  if transaction_code == 7220 then
+    return true
+  end
+
+  -- Cas Reference Price Message
+  if transaction_code == 7338 then
+    return true
+  end
+
+  -- Turnover Exceeded Message
+  if transaction_code == 9010 then
+    return true
+  end
+
+  -- Turnover Exceeded Message
+  if transaction_code == 9011 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -9262,6 +9393,9 @@ end
 local function omi_nse_nsefo_broadcast_nnfbcast_v9_50_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nse_nsefo_broadcast_nnfbcast_v9_50.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not nse_nsefo_broadcast_nnfbcast_v9_50.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nse_nsefo_broadcast_nnfbcast_v9_50

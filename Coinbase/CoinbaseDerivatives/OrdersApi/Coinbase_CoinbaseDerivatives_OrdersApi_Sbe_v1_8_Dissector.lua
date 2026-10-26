@@ -5226,6 +5226,32 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.packet.fingerprint = function(buffer)
+  if buffer:len() < 30 then
+    return false
+  end
+
+  local schema_id = buffer(28, 2):le_uint()
+
+  -- Session Message
+  if schema_id == 1100 then
+    return true
+  end
+
+  -- Order Message
+  if schema_id == 1101 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -5257,6 +5283,9 @@ local function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_tcp_heuristic
 
   -- Verify Version
   if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8

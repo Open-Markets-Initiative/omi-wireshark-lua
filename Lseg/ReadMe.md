@@ -63,8 +63,8 @@
 
 | Division | [Protocol][Omi.Lseg.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Lseg.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Millennium][Millennium.Platform] | [NativeTradingGateway][Lseg.Millennium.NativeTradingGateway] | [Ntgi][Omi.Encoding.Ntgi] | [21.2][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Dissector] | 1/5/2024 | 6324 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Url] - [pdf][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Pdf] |
-| [Millennium][Millennium.Platform] | [NativeTradingGatewayRecovery][Lseg.Millennium.NativeTradingGatewayRecovery] | [Ntgi][Omi.Encoding.Ntgi] | [21.2][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Dissector] | 1/5/2024 | 5134 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Url] - [pdf][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Pdf] |
+| [Millennium][Millennium.Platform] | [NativeTradingGateway][Lseg.Millennium.NativeTradingGateway] | [Ntgi][Omi.Encoding.Ntgi] | [21.2][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Dissector] | 1/5/2024 | 6195 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Url] - [pdf][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Pdf] |
+| [Millennium][Millennium.Platform] | [NativeTradingGatewayRecovery][Lseg.Millennium.NativeTradingGatewayRecovery] | [Ntgi][Omi.Encoding.Ntgi] | [21.2][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Dissector] | 1/5/2024 | 5025 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Url] - [pdf][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Pdf] |
 
 
 ### Protocols

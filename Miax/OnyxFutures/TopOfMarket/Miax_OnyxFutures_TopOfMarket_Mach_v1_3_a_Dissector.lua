@@ -3349,6 +3349,42 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+miax_onyxfutures_topofmarket_mach_v1_3_a.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local packet_type = buffer(10, 1):uint()
+
+  -- Application Message
+  if packet_type == 3 then
+    return true
+  end
+
+  -- Heartbeat
+  if packet_type == 0 then
+    return true
+  end
+
+  -- Start Of Session
+  if packet_type == 1 then
+    return true
+  end
+
+  -- End Of Session
+  if packet_type == 2 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -3356,6 +3392,9 @@ end
 local function omi_miax_onyxfutures_topofmarket_mach_v1_3_a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not miax_onyxfutures_topofmarket_mach_v1_3_a.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not miax_onyxfutures_topofmarket_mach_v1_3_a.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_miax_onyxfutures_topofmarket_mach_v1_3_a

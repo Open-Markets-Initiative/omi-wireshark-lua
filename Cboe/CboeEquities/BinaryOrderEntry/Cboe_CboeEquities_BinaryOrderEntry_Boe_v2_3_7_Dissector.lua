@@ -13183,6 +13183,132 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+cboe_cboeequities_binaryorderentry_boe_v2_3_7.packet.fingerprint = function(buffer)
+  if buffer:len() < 5 then
+    return false
+  end
+
+  local message_type = buffer(4, 1):le_uint()
+
+  -- Login Request Message
+  if message_type == 0x37 then
+    return true
+  end
+
+  -- Logout Request Message
+  if message_type == 0x02 then
+    return true
+  end
+
+  -- Client Heartbeat Message
+  if message_type == 0x03 then
+    return true
+  end
+
+  -- Login Response Message
+  if message_type == 0x24 then
+    return true
+  end
+
+  -- Logout Message
+  if message_type == 0x08 then
+    return true
+  end
+
+  -- Server Heartbeat Message
+  if message_type == 0x09 then
+    return true
+  end
+
+  -- Replay Complete Message
+  if message_type == 0x13 then
+    return true
+  end
+
+  -- New Order Message
+  if message_type == 0x38 then
+    return true
+  end
+
+  -- Cancel Order Message
+  if message_type == 0x39 then
+    return true
+  end
+
+  -- Modify Order Message
+  if message_type == 0x3A then
+    return true
+  end
+
+  -- Purge Order Message
+  if message_type == 0x47 then
+    return true
+  end
+
+  -- Order Acknowledgment Message
+  if message_type == 0x25 then
+    return true
+  end
+
+  -- Order Rejected Message
+  if message_type == 0x26 then
+    return true
+  end
+
+  -- Order Modified Message
+  if message_type == 0x27 then
+    return true
+  end
+
+  -- Order Restated Message
+  if message_type == 0x28 then
+    return true
+  end
+
+  -- User Modify Rejected Message
+  if message_type == 0x29 then
+    return true
+  end
+
+  -- Order Cancelled Message
+  if message_type == 0x2A then
+    return true
+  end
+
+  -- Cancel Rejected Message
+  if message_type == 0x2B then
+    return true
+  end
+
+  -- Order Execution Message
+  if message_type == 0x2C then
+    return true
+  end
+
+  -- Trade Cancel Or Correct Message
+  if message_type == 0x2D then
+    return true
+  end
+
+  -- Mass Cancel Acknowledgment Message
+  if message_type == 0x36 then
+    return true
+  end
+
+  -- Purge Rejected Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -13190,6 +13316,9 @@ end
 local function omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cboeequities_binaryorderentry_boe_v2_3_7.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp packet message dispatch
+  if not cboe_cboeequities_binaryorderentry_boe_v2_3_7.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7

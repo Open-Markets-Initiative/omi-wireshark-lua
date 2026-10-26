@@ -2644,108 +2644,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Udp Packet: would its message dispatch accept this frame?
-jpx_sseequities_marketbyorder_flex_v1_1.udp_packet.fingerprint = function(buffer)
-  if buffer:len() < 28 then
-    return false
-  end
-
-  local message_type = buffer(27, 1):string()
-
-  -- Seconds Timestamp Message
-  if message_type == "T" then
-    return true
-  end
-
-  -- Trading Status Message
-  if message_type == "O" then
-    return true
-  end
-
-  -- Execution Summary Message
-  if message_type == "K" then
-    return true
-  end
-
-  -- Add Order Message
-  if message_type == "A" then
-    return true
-  end
-
-  -- Order Executed Message
-  if message_type == "E" then
-    return true
-  end
-
-  -- Order Executed With Price Message
-  if message_type == "C" then
-    return true
-  end
-
-  -- Order Delete Message
-  if message_type == "D" then
-    return true
-  end
-
-  -- Reset Message
-  if message_type == "R" then
-    return true
-  end
-
-  -- Communication Control Message
-  if message_type == "L" then
-    return true
-  end
-
-  return false
-end
-
--- Fingerprint of Tcp Packet: would its message dispatch accept this frame?
-jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet.fingerprint = function(buffer)
-  if buffer:len() < 3 then
-    return false
-  end
-
-  local packet_type = buffer(2, 1):string()
-
-  -- Login Request Retransmission Message
-  if packet_type == "R" then
-    return true
-  end
-
-  -- Login Request Snapshot Message
-  if packet_type == "L" then
-    return true
-  end
-
-  -- Login Result Accepted Message
-  if packet_type == "A" then
-    return true
-  end
-
-  -- Login Result Rejected Message
-  if packet_type == "J" then
-    return true
-  end
-
-  -- Message Response Message
-  if packet_type == "S" then
-    return true
-  end
-
-  -- End Of Message Message
-  if packet_type == "G" then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -2753,9 +2651,6 @@ end
 local function omi_jpx_sseequities_marketbyorder_flex_v1_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not jpx_sseequities_marketbyorder_flex_v1_1.udp_packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this udp udp packet message dispatch
-  if not jpx_sseequities_marketbyorder_flex_v1_1.udp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jpx_sseequities_marketbyorder_flex_v1_1
@@ -2768,9 +2663,6 @@ end
 local function omi_jpx_sseequities_marketbyorder_flex_v1_1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet.requiredsize(buffer) then return false end
-
-  -- Verify the frame matches this tcp tcp packet message dispatch
-  if not jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jpx_sseequities_marketbyorder_flex_v1_1

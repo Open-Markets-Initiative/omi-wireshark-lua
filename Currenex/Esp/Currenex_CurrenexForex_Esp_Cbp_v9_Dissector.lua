@@ -1621,77 +1621,6 @@ end
 
 
 -----------------------------------------------------------------------
--- Protocol Fingerprints
------------------------------------------------------------------------
-
--- Fingerprint of Packet: would its message dispatch accept this frame?
-currenex_currenexforex_esp_cbp_v9.packet.fingerprint = function(buffer)
-  if buffer:len() < 10 then
-    return false
-  end
-
-  local message_type = buffer(9, 1):string()
-
-  -- Logon
-  if message_type == "A" then
-    return true
-  end
-
-  -- Logout
-  if message_type == "B" then
-    return true
-  end
-
-  -- Heartbeat
-  if message_type == "C" then
-    return true
-  end
-
-  -- Instrument Info
-  if message_type == "D" then
-    return true
-  end
-
-  -- Instrument Info Ack
-  if message_type == "E" then
-    return true
-  end
-
-  -- Subscription Request
-  if message_type == "F" then
-    return true
-  end
-
-  -- Subscription Reply
-  if message_type == "G" then
-    return true
-  end
-
-  -- Price Message
-  if message_type == "H" then
-    return true
-  end
-
-  -- Price Cancel Message
-  if message_type == "I" then
-    return true
-  end
-
-  -- Trade Ticker Message
-  if message_type == "J" then
-    return true
-  end
-
-  -- Reject Message
-  if message_type == "K" then
-    return true
-  end
-
-  return false
-end
-
-
------------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
@@ -1719,9 +1648,6 @@ local function omi_currenex_currenexforex_esp_cbp_v9_udp_heuristic(buffer, packe
 
   -- Verify Itch Soh
   if not currenex_currenexforex_esp_cbp_v9.itch_soh.verify(buffer) then return false end
-
-  -- Verify the frame matches this udp packet message dispatch
-  if not currenex_currenexforex_esp_cbp_v9.packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_currenex_currenexforex_esp_cbp_v9

@@ -10360,6 +10360,262 @@ nse_nsecm_orderentry_nnf_v6_6.client_packet.fingerprint = function(buffer)
   return false
 end
 
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nse_nsecm_orderentry_nnf_v6_6.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local transaction_code = buffer(0, 2):int()
+
+  -- Auction Inquiry Response Message
+  if transaction_code == 18017 then
+    return true
+  end
+
+  -- Branch Order Value Limit Update Out Message
+  if transaction_code == 5717 then
+    return true
+  end
+
+  -- Cancel On Logout Status Response Message
+  if transaction_code == 5791 then
+    return true
+  end
+
+  -- Error Response Message
+  if transaction_code == 2302 then
+    return true
+  end
+
+  -- Secure Box Registration Request Message
+  if transaction_code == 23008 then
+    return true
+  end
+
+  -- Box Sign On Response Message
+  if transaction_code == 23001 then
+    return true
+  end
+
+  -- Gateway Router Response Message
+  if transaction_code == 2401 then
+    return true
+  end
+
+  -- Control Message To Trader Message
+  if transaction_code == 5295 then
+    return true
+  end
+
+  -- Trade Confirmation Message
+  if transaction_code == 2212 then
+    return true
+  end
+
+  -- Trade Confirmation Message
+  if transaction_code == 2222 then
+    return true
+  end
+
+  -- Trade Confirmation Message
+  if transaction_code == 2282 then
+    return true
+  end
+
+  -- Trade Confirmation Message
+  if transaction_code == 2286 then
+    return true
+  end
+
+  -- Trade Confirmation Message
+  if transaction_code == 2287 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2012 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2042 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2061 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2072 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2073 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2074 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2075 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2170 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 2231 then
+    return true
+  end
+
+  -- Order Entry Out Message
+  if transaction_code == 9002 then
+    return true
+  end
+
+  -- Order Entry Short Message
+  if transaction_code == 2001 then
+    return true
+  end
+
+  -- Order Entry Short Message
+  if transaction_code == 2071 then
+    return true
+  end
+
+  -- Order Limit Update Out Message
+  if transaction_code == 5722 then
+    return true
+  end
+
+  -- Password Reset Out Message
+  if transaction_code == 5739 then
+    return true
+  end
+
+  -- Security Status Change Message
+  if transaction_code == 18130 then
+    return true
+  end
+
+  -- Security Status Change Message
+  if transaction_code == 18707 then
+    return true
+  end
+
+  -- Security Master Change Message
+  if transaction_code == 18720 then
+    return true
+  end
+
+  -- Sign On Request Out Message
+  if transaction_code == 5724 then
+    return true
+  end
+
+  -- Sign On Response Message
+  if transaction_code == 2301 then
+    return true
+  end
+
+  -- System Information Message
+  if transaction_code == 1601 then
+    return true
+  end
+
+  -- System Information Message
+  if transaction_code == 7321 then
+    return true
+  end
+
+  -- Trade Inquiry Out Message
+  if transaction_code == 2223 then
+    return true
+  end
+
+  -- Trade Inquiry Out Message
+  if transaction_code == 5441 then
+    return true
+  end
+
+  -- Update Local Database Header Message
+  if transaction_code == 7307 then
+    return true
+  end
+
+  -- Update Local Database Trailer Message
+  if transaction_code == 7308 then
+    return true
+  end
+
+  -- User Unlock Approval Rejection Message
+  if transaction_code == 5575 then
+    return true
+  end
+
+  -- User Unlock Approval Rejection Message
+  if transaction_code == 5579 then
+    return true
+  end
+
+  -- User Unlock Requested Response Message
+  if transaction_code == 5425 then
+    return true
+  end
+
+  -- User Order Value Limit Update Out Message
+  if transaction_code == 5720 then
+    return true
+  end
+
+  -- Trade Modification Cancellation Status Response Message
+  if transaction_code == 5793 then
+    return true
+  end
+
+  -- Sign Off Confirmation Message
+  if transaction_code == 2321 then
+    return true
+  end
+
+  -- Header Record Message
+  if transaction_code == 7011 then
+    return true
+  end
+
+  -- Message Record Message
+  if transaction_code == 7021 then
+    return true
+  end
+
+  -- Trailer Record Message
+  if transaction_code == 7031 then
+    return true
+  end
+
+  -- Secure Box Registration Response Message
+  if transaction_code == 23009 then
+    return true
+  end
+
+  -- Update Local Database Data Message
+  if transaction_code == 7304 then
+    return true
+  end
+
+  return false
+end
+
 
 -----------------------------------------------------------------------
 -- Protocol Heuristics
@@ -10384,6 +10640,9 @@ end
 local function omi_nse_nsecm_orderentry_nnf_v6_6_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nse_nsecm_orderentry_nnf_v6_6.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp server packet message dispatch
+  if not nse_nsecm_orderentry_nnf_v6_6.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nse_nsecm_orderentry_nnf_v6_6
