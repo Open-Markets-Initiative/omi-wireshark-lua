@@ -3800,7 +3800,7 @@ end
 -- Data
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data = {}
 
--- Dissect: Data
+-- Dispatch: Data
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data.dispatch = {
   [1] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.simple_instrument_definition_message.dissect,
   [17] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_definition_message.dissect,
@@ -3812,6 +3812,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data.dispatch = {
   [14] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_cancel_message.dissect,
 }
 
+-- Dissect: Data
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.data.dispatch[message_type]
   if dissect then
@@ -3920,13 +3921,14 @@ end
 -- Refresh Payload
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_payload = {}
 
--- Dissect: Refresh Payload
+-- Dispatch: Refresh Payload
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_payload.dispatch = {
   ["R"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_request.dissect,
   ["r"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_response.dissect,
   ["E"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.end_of_refresh.dissect,
 }
 
+-- Dissect: Refresh Payload
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_payload.dissect = function(buffer, offset, packet, parent, refresh_type)
   local dissect = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.refresh_payload.dispatch[refresh_type]
   if dissect then
@@ -4048,7 +4050,7 @@ end
 -- Sesm Payload
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload = {}
 
--- Dissect: Sesm Payload
+-- Dispatch: Sesm Payload
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload.dispatch = {
   ["S"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sequenced_data_packet.dissect,
   ["U"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unsequenced_data_packet.dissect,
@@ -4063,6 +4065,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload.dispatch = {
   ["1"] = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.client_heartbeat.dissect,
 }
 
+-- Dissect: Sesm Payload
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   local dissect = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.sesm_payload.dispatch[sesm_packet_type]
   if dissect then

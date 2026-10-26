@@ -30248,7 +30248,7 @@ end
 -- Server Payload
 eurex_t7_eti_fbe_v14_1.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 eurex_t7_eti_fbe_v14_1.server_payload.dispatch = {
   [10302] = eurex_t7_eti_fbe_v14_1.add_complex_instrument_response.dissect,
   [10310] = eurex_t7_eti_fbe_v14_1.add_flexible_instrument_response.dissect,
@@ -30344,6 +30344,7 @@ eurex_t7_eti_fbe_v14_1.server_payload.dispatch = {
   [10024] = eurex_t7_eti_fbe_v14_1.user_logout_response.dissect,
 }
 
+-- Dissect: Server Payload
 eurex_t7_eti_fbe_v14_1.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = eurex_t7_eti_fbe_v14_1.server_payload.dispatch[template_id]
   if dissect then
@@ -37183,7 +37184,7 @@ end
 -- Client Payload
 eurex_t7_eti_fbe_v14_1.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 eurex_t7_eti_fbe_v14_1.client_payload.dispatch = {
   [10301] = eurex_t7_eti_fbe_v14_1.add_complex_instrument_request.dissect,
   [10309] = eurex_t7_eti_fbe_v14_1.add_flexible_instrument_request.dissect,
@@ -37246,6 +37247,7 @@ eurex_t7_eti_fbe_v14_1.client_payload.dispatch = {
   [10029] = eurex_t7_eti_fbe_v14_1.user_logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 eurex_t7_eti_fbe_v14_1.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = eurex_t7_eti_fbe_v14_1.client_payload.dispatch[template_id]
   if dissect then

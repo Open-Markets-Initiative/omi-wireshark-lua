@@ -2334,12 +2334,13 @@ end
 -- Adap Update
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.adap_update = {}
 
--- Dissect: Adap Update
+-- Dispatch: Adap Update
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.adap_update.dispatch = {
   [10] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.short_update_adap_block.dissect,
   [18] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.long_update_adap_block.dissect,
 }
 
+-- Dissect: Adap Update
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.adap_update.dissect = function(buffer, offset, packet, parent, adap_block_size)
   local dissect = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.adap_update.dispatch[adap_block_size]
   if dissect then
@@ -3291,11 +3292,12 @@ end
 -- Messages
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.messages.dispatch = {
   [0] = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_titaniumconsolidated_multicastoneequities_cboeone_v1_4_13.messages.dispatch[message_count]
   if dissect then

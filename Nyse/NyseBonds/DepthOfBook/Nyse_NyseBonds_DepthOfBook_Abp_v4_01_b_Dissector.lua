@@ -1743,7 +1743,7 @@ end
 -- Client Data
 nyse_nysebonds_depthofbook_abp_v4_01_b.client_data = {}
 
--- Dissect: Client Data
+-- Dispatch: Client Data
 nyse_nysebonds_depthofbook_abp_v4_01_b.client_data.dispatch = {
   ["L"] = nyse_nysebonds_depthofbook_abp_v4_01_b.login_message.dissect,
   ["O"] = nyse_nysebonds_depthofbook_abp_v4_01_b.logoff_message.dissect,
@@ -1751,6 +1751,7 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.client_data.dispatch = {
   ["T"] = nyse_nysebonds_depthofbook_abp_v4_01_b.test_request_message.dissect,
 }
 
+-- Dissect: Client Data
 nyse_nysebonds_depthofbook_abp_v4_01_b.client_data.dissect = function(buffer, offset, packet, parent, client_message_type)
   local dissect = nyse_nysebonds_depthofbook_abp_v4_01_b.client_data.dispatch[client_message_type]
   if dissect then
@@ -2448,7 +2449,7 @@ end
 -- Payload
 nyse_nysebonds_depthofbook_abp_v4_01_b.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nysebonds_depthofbook_abp_v4_01_b.payload.dispatch = {
   ["Q"] = nyse_nysebonds_depthofbook_abp_v4_01_b.login_accepted_message.dissect,
   ["R"] = nyse_nysebonds_depthofbook_abp_v4_01_b.login_rejected_message.dissect,
@@ -2461,6 +2462,7 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.payload.dispatch = {
   ["Y"] = nyse_nysebonds_depthofbook_abp_v4_01_b.system_event_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_nysebonds_depthofbook_abp_v4_01_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nysebonds_depthofbook_abp_v4_01_b.payload.dispatch[message_type]
   if dissect then

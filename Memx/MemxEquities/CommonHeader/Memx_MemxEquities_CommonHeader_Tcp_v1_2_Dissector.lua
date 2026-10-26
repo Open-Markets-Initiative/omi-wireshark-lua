@@ -964,7 +964,7 @@ end
 -- Server Data
 memx_memxequities_commonheader_tcp_v1_2.server_data = {}
 
--- Dissect: Server Data
+-- Dispatch: Server Data
 memx_memxequities_commonheader_tcp_v1_2.server_data.dispatch = {
   [1] = memx_memxequities_commonheader_tcp_v1_2.login_accepted_message.dissect,
   [2] = memx_memxequities_commonheader_tcp_v1_2.login_rejected_message.dissect,
@@ -978,6 +978,7 @@ memx_memxequities_commonheader_tcp_v1_2.server_data.dispatch = {
   [11] = memx_memxequities_commonheader_tcp_v1_2.sequenced_message.dissect,
 }
 
+-- Dissect: Server Data
 memx_memxequities_commonheader_tcp_v1_2.server_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxequities_commonheader_tcp_v1_2.server_data.dispatch[message_type]
   if dissect then
@@ -1287,7 +1288,7 @@ end
 -- Client Data
 memx_memxequities_commonheader_tcp_v1_2.client_data = {}
 
--- Dissect: Client Data
+-- Dispatch: Client Data
 memx_memxequities_commonheader_tcp_v1_2.client_data.dispatch = {
   [100] = memx_memxequities_commonheader_tcp_v1_2.login_request_message.dissect,
   [101] = memx_memxequities_commonheader_tcp_v1_2.replay_request_message.dissect,
@@ -1296,6 +1297,7 @@ memx_memxequities_commonheader_tcp_v1_2.client_data.dispatch = {
   [104] = memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.dissect,
 }
 
+-- Dissect: Client Data
 memx_memxequities_commonheader_tcp_v1_2.client_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxequities_commonheader_tcp_v1_2.client_data.dispatch[message_type]
   if dissect then

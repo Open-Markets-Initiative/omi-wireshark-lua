@@ -2148,7 +2148,7 @@ end
 -- Data
 miax_onyxfutures_topofmarket_mach_v1_0_b.data = {}
 
--- Dissect: Data
+-- Dispatch: Data
 miax_onyxfutures_topofmarket_mach_v1_0_b.data.dispatch = {
   [1] = miax_onyxfutures_topofmarket_mach_v1_0_b.simple_instrument_definition_message.dissect,
   [2] = miax_onyxfutures_topofmarket_mach_v1_0_b.complex_instrument_definition_message.dissect,
@@ -2159,6 +2159,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.data.dispatch = {
   [14] = miax_onyxfutures_topofmarket_mach_v1_0_b.trade_cancel_message.dissect,
 }
 
+-- Dissect: Data
 miax_onyxfutures_topofmarket_mach_v1_0_b.data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = miax_onyxfutures_topofmarket_mach_v1_0_b.data.dispatch[message_type]
   if dissect then
@@ -2224,7 +2225,7 @@ end
 -- Payload
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dispatch = {
   [3] = miax_onyxfutures_topofmarket_mach_v1_0_b.application_message.dissect,
   [0] = miax_onyxfutures_topofmarket_mach_v1_0_b.heartbeat.dissect,
@@ -2232,6 +2233,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dispatch = {
   [2] = miax_onyxfutures_topofmarket_mach_v1_0_b.end_of_session.dissect,
 }
 
+-- Dissect: Payload
 miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = miax_onyxfutures_topofmarket_mach_v1_0_b.payload.dispatch[packet_type]
   if dissect then

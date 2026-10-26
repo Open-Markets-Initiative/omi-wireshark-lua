@@ -1532,7 +1532,7 @@ end
 -- Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.payload.dispatch = {
   ["S"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.system_event_message.dissect,
   ["R"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stock_directory_message.dissect,
@@ -1541,6 +1541,7 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.payload.dispatch = {
   ["A"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.add_order_message.dissect,
 }
 
+-- Dissect: Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.payload.dispatch[message_type]
   if dissect then
@@ -1808,7 +1809,7 @@ end
 -- Server Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.server_payload.dispatch = {
   ["A"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.login_accepted_packet.dissect,
   ["J"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.login_rejected_packet.dissect,
@@ -1816,6 +1817,7 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.server_payload.dispatch = {
   ["S"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_data_packet.dissect,
 }
 
+-- Dissect: Server Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2122,7 +2124,7 @@ end
 -- Client Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.client_payload.dispatch = {
   ["L"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.login_request_packet.dissect,
   ["U"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.unsequenced_data_packet.dissect,
@@ -2130,6 +2132,7 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.client_payload.dispatch = {
   ["O"] = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.client_payload.dispatch[client_packet_type]
   if dissect then

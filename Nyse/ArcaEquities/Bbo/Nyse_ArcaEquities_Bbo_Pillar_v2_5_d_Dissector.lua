@@ -3074,7 +3074,7 @@ end
 -- Payload
 nyse_arcaequities_bbo_pillar_v2_5_d.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_arcaequities_bbo_pillar_v2_5_d.payload.dispatch = {
   [1] = nyse_arcaequities_bbo_pillar_v2_5_d.sequence_number_reset_message.dissect,
   [2] = nyse_arcaequities_bbo_pillar_v2_5_d.source_time_reference_message.dissect,
@@ -3091,6 +3091,7 @@ nyse_arcaequities_bbo_pillar_v2_5_d.payload.dispatch = {
   [140] = nyse_arcaequities_bbo_pillar_v2_5_d.quote_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_arcaequities_bbo_pillar_v2_5_d.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_arcaequities_bbo_pillar_v2_5_d.payload.dispatch[message_type]
   if dissect then
@@ -3232,11 +3233,12 @@ end
 -- Messages
 nyse_arcaequities_bbo_pillar_v2_5_d.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_arcaequities_bbo_pillar_v2_5_d.messages.dispatch = {
   [1] = nyse_arcaequities_bbo_pillar_v2_5_d.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_arcaequities_bbo_pillar_v2_5_d.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_arcaequities_bbo_pillar_v2_5_d.messages.dispatch[delivery_flag]
   if dissect then

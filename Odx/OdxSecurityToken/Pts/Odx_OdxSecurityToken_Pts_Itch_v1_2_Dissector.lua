@@ -2159,7 +2159,7 @@ end
 -- Sequenced Message
 odx_odxsecuritytoken_pts_itch_v1_2.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 odx_odxsecuritytoken_pts_itch_v1_2.sequenced_message.dispatch = {
   ["T"] = odx_odxsecuritytoken_pts_itch_v1_2.seconds_message.dissect,
   ["S"] = odx_odxsecuritytoken_pts_itch_v1_2.system_event_message.dissect,
@@ -2174,6 +2174,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.sequenced_message.dispatch = {
   ["Z"] = odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price_update_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 odx_odxsecuritytoken_pts_itch_v1_2.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = odx_odxsecuritytoken_pts_itch_v1_2.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2419,7 +2420,7 @@ end
 -- Server Payload
 odx_odxsecuritytoken_pts_itch_v1_2.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 odx_odxsecuritytoken_pts_itch_v1_2.server_payload.dispatch = {
   ["+"] = odx_odxsecuritytoken_pts_itch_v1_2.debug_packet.dissect,
   ["A"] = odx_odxsecuritytoken_pts_itch_v1_2.login_accepted_packet.dissect,
@@ -2429,6 +2430,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.server_payload.dispatch = {
   ["Z"] = odx_odxsecuritytoken_pts_itch_v1_2.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 odx_odxsecuritytoken_pts_itch_v1_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = odx_odxsecuritytoken_pts_itch_v1_2.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2744,7 +2746,7 @@ end
 -- Client Payload
 odx_odxsecuritytoken_pts_itch_v1_2.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 odx_odxsecuritytoken_pts_itch_v1_2.client_payload.dispatch = {
   ["+"] = odx_odxsecuritytoken_pts_itch_v1_2.debug_packet.dissect,
   ["L"] = odx_odxsecuritytoken_pts_itch_v1_2.login_request_packet.dissect,
@@ -2753,6 +2755,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.client_payload.dispatch = {
   ["O"] = odx_odxsecuritytoken_pts_itch_v1_2.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 odx_odxsecuritytoken_pts_itch_v1_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = odx_odxsecuritytoken_pts_itch_v1_2.client_payload.dispatch[client_packet_type]
   if dissect then

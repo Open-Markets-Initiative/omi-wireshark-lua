@@ -672,11 +672,12 @@ end
 -- Server Payload
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_payload.dispatch = {
   [11] = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.dissect,
 }
 
+-- Dissect: Server Payload
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_payload.dispatch[message_type]
   if dissect then
@@ -1136,7 +1137,7 @@ end
 -- Client Payload
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_payload.dispatch = {
   [10] = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.retransmission_request_message.dissect,
   [12] = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.heartbeat_response_message.dissect,
@@ -1144,6 +1145,7 @@ nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_payload.dispatch = 
   [15] = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.refresh_request_message.dissect,
 }
 
+-- Dissect: Client Payload
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_payload.dispatch[message_type]
   if dissect then

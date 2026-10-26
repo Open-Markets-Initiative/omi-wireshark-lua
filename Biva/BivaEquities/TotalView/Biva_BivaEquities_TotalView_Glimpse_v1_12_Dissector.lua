@@ -2427,7 +2427,7 @@ end
 -- Sequenced Message
 biva_bivaequities_totalview_glimpse_v1_12.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 biva_bivaequities_totalview_glimpse_v1_12.sequenced_message.dispatch = {
   ["T"] = biva_bivaequities_totalview_glimpse_v1_12.time_stamp_seconds_message.dissect,
   ["S"] = biva_bivaequities_totalview_glimpse_v1_12.system_event_message.dissect,
@@ -2442,6 +2442,7 @@ biva_bivaequities_totalview_glimpse_v1_12.sequenced_message.dispatch = {
   ["G"] = biva_bivaequities_totalview_glimpse_v1_12.glimpse_snapshot_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 biva_bivaequities_totalview_glimpse_v1_12.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = biva_bivaequities_totalview_glimpse_v1_12.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2687,7 +2688,7 @@ end
 -- Server Payload
 biva_bivaequities_totalview_glimpse_v1_12.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 biva_bivaequities_totalview_glimpse_v1_12.server_payload.dispatch = {
   ["+"] = biva_bivaequities_totalview_glimpse_v1_12.debug_packet.dissect,
   ["A"] = biva_bivaequities_totalview_glimpse_v1_12.login_accepted_packet.dissect,
@@ -2697,6 +2698,7 @@ biva_bivaequities_totalview_glimpse_v1_12.server_payload.dispatch = {
   ["Z"] = biva_bivaequities_totalview_glimpse_v1_12.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 biva_bivaequities_totalview_glimpse_v1_12.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = biva_bivaequities_totalview_glimpse_v1_12.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3012,7 +3014,7 @@ end
 -- Client Payload
 biva_bivaequities_totalview_glimpse_v1_12.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 biva_bivaequities_totalview_glimpse_v1_12.client_payload.dispatch = {
   ["+"] = biva_bivaequities_totalview_glimpse_v1_12.debug_packet.dissect,
   ["L"] = biva_bivaequities_totalview_glimpse_v1_12.login_request_packet.dissect,
@@ -3021,6 +3023,7 @@ biva_bivaequities_totalview_glimpse_v1_12.client_payload.dispatch = {
   ["O"] = biva_bivaequities_totalview_glimpse_v1_12.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 biva_bivaequities_totalview_glimpse_v1_12.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = biva_bivaequities_totalview_glimpse_v1_12.client_payload.dispatch[client_packet_type]
   if dissect then

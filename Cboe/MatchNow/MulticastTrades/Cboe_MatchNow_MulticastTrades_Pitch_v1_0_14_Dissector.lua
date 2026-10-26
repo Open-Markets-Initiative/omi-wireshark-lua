@@ -1067,11 +1067,12 @@ end
 -- Messages
 cboe_matchnow_multicasttrades_pitch_v1_0_14.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dispatch = {
   [0] = cboe_matchnow_multicasttrades_pitch_v1_0_14.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dispatch[message_count]
   if dissect then

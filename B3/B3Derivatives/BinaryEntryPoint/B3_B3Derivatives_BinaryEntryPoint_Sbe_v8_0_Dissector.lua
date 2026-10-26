@@ -1608,7 +1608,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_0.encoding_type.size = 2
 
 -- Display: Encoding Type
 b3_b3derivatives_binaryentrypoint_sbe_v8_0.encoding_type.display = function(value)
-  return "Encoding Type: "..value
+  if value == 60240 then
+    return "Encoding Type: Sbe Little Endian"
+  end
+
+  return "Encoding Type: Unknown("..value..")"
 end
 
 -- Dissect: Encoding Type
@@ -5374,7 +5378,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_0.schema_id.size = 2
 -- Display: Schema Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_0.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -12239,7 +12243,7 @@ end
 -- Payload
 b3_b3derivatives_binaryentrypoint_sbe_v8_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 b3_b3derivatives_binaryentrypoint_sbe_v8_0.payload.dispatch = {
   [1] = b3_b3derivatives_binaryentrypoint_sbe_v8_0.negotiate_message.dissect,
   [2] = b3_b3derivatives_binaryentrypoint_sbe_v8_0.negotiate_response_message.dissect,
@@ -12282,6 +12286,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_0.payload.dispatch = {
   [702] = b3_b3derivatives_binaryentrypoint_sbe_v8_0.order_mass_action_report_message.dissect,
 }
 
+-- Dissect: Payload
 b3_b3derivatives_binaryentrypoint_sbe_v8_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = b3_b3derivatives_binaryentrypoint_sbe_v8_0.payload.dispatch[template_id]
   if dissect then
@@ -12729,6 +12734,23 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Encoding Type Field
+b3_b3derivatives_binaryentrypoint_sbe_v8_0.encoding_type.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 2 + 2 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(2, 2):le_uint()
+
+  if value == 60240 then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Schema Id Field
 b3_b3derivatives_binaryentrypoint_sbe_v8_0.schema_id.verify = function(buffer)
   -- Too short to carry the field: not this protocol
@@ -12767,6 +12789,9 @@ end
 local function omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not b3_b3derivatives_binaryentrypoint_sbe_v8_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify Encoding Type
+  if not b3_b3derivatives_binaryentrypoint_sbe_v8_0.encoding_type.verify(buffer) then return false end
 
   -- Verify Schema Id
   if not b3_b3derivatives_binaryentrypoint_sbe_v8_0.schema_id.verify(buffer) then return false end

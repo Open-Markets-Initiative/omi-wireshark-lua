@@ -6459,7 +6459,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.schema_id.size = 2
 -- Display: Schema Id
 euronext_optiq_orderentrygateway_sbe_v5_52.schema_id.display = function(value)
   if value == 0 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 0"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -18054,7 +18054,7 @@ end
 -- Payload
 euronext_optiq_orderentrygateway_sbe_v5_52.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 euronext_optiq_orderentrygateway_sbe_v5_52.payload.dispatch = {
   [1] = euronext_optiq_orderentrygateway_sbe_v5_52.new_order_message.dissect,
   [3] = euronext_optiq_orderentrygateway_sbe_v5_52.ack_message.dissect,
@@ -18113,6 +18113,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.payload.dispatch = {
   [46] = euronext_optiq_orderentrygateway_sbe_v5_52.declaration_entry_reject_message.dissect,
 }
 
+-- Dissect: Payload
 euronext_optiq_orderentrygateway_sbe_v5_52.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = euronext_optiq_orderentrygateway_sbe_v5_52.payload.dispatch[template_id]
   if dissect then

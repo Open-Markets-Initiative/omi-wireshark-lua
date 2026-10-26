@@ -2516,7 +2516,7 @@ end
 -- Payload
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload.dispatch = {
   ["T"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.seconds_message.dissect,
   ["R"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.dissect,
@@ -2530,6 +2530,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload.dispatch = {
   ["p"] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.payload.dispatch[message_type]
   if dissect then
@@ -2688,12 +2689,13 @@ end
 -- Messages
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.messages.dispatch = {
   [0] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.heartbeat.dissect,
   [65535] = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.messages.dispatch[message_count]
   if dissect then

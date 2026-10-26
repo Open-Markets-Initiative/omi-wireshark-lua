@@ -1726,7 +1726,7 @@ end
 -- Payload
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.payload.dispatch = {
   ["S"] = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.system_event_message.dissect,
   ["T"] = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.trade_report_message.dissect,
@@ -1734,6 +1734,7 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.payload.dispa
   ["C"] = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.trade_correction_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.payload.dispatch[message_type]
   if dissect then
@@ -1861,11 +1862,12 @@ end
 -- Message Body
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.message_body.dispatch = {
   [0] = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.end_of_session.dissect,
 }
 
+-- Dissect: Message Body
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.message_body.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.message_body.dispatch[message_length]
   if dissect then
@@ -1961,11 +1963,12 @@ end
 -- Messages
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.messages.dispatch = {
   [0] = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v2_0_2013.messages.dispatch[message_count]
   if dissect then

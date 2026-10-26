@@ -2130,7 +2130,7 @@ end
 -- Udp Payload
 jnx_jnxequities_pts_itch_v1_7.udp_payload = {}
 
--- Dissect: Udp Payload
+-- Dispatch: Udp Payload
 jnx_jnxequities_pts_itch_v1_7.udp_payload.dispatch = {
   ["T"] = jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect,
   ["S"] = jnx_jnxequities_pts_itch_v1_7.system_event_message.dissect,
@@ -2145,6 +2145,7 @@ jnx_jnxequities_pts_itch_v1_7.udp_payload.dispatch = {
   ["U"] = jnx_jnxequities_pts_itch_v1_7.order_replaced_message.dissect,
 }
 
+-- Dissect: Udp Payload
 jnx_jnxequities_pts_itch_v1_7.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = jnx_jnxequities_pts_itch_v1_7.udp_payload.dispatch[message_type]
   if dissect then
@@ -2303,12 +2304,13 @@ end
 -- Messages
 jnx_jnxequities_pts_itch_v1_7.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 jnx_jnxequities_pts_itch_v1_7.messages.dispatch = {
   [0] = jnx_jnxequities_pts_itch_v1_7.heartbeat.dissect,
   [65535] = jnx_jnxequities_pts_itch_v1_7.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 jnx_jnxequities_pts_itch_v1_7.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = jnx_jnxequities_pts_itch_v1_7.messages.dispatch[message_count]
   if dissect then
@@ -2449,7 +2451,7 @@ end
 -- Sequenced Message
 jnx_jnxequities_pts_itch_v1_7.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 jnx_jnxequities_pts_itch_v1_7.sequenced_message.dispatch = {
   ["T"] = jnx_jnxequities_pts_itch_v1_7.seconds_message.dissect,
   ["S"] = jnx_jnxequities_pts_itch_v1_7.system_event_message.dissect,
@@ -2464,6 +2466,7 @@ jnx_jnxequities_pts_itch_v1_7.sequenced_message.dispatch = {
   ["U"] = jnx_jnxequities_pts_itch_v1_7.order_replaced_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 jnx_jnxequities_pts_itch_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = jnx_jnxequities_pts_itch_v1_7.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2709,7 +2712,7 @@ end
 -- Server Payload
 jnx_jnxequities_pts_itch_v1_7.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 jnx_jnxequities_pts_itch_v1_7.server_payload.dispatch = {
   ["+"] = jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect,
   ["A"] = jnx_jnxequities_pts_itch_v1_7.login_accepted_packet.dissect,
@@ -2719,6 +2722,7 @@ jnx_jnxequities_pts_itch_v1_7.server_payload.dispatch = {
   ["Z"] = jnx_jnxequities_pts_itch_v1_7.end_of_session_packet.dissect,
 }
 
+-- Dissect: Server Payload
 jnx_jnxequities_pts_itch_v1_7.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = jnx_jnxequities_pts_itch_v1_7.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3034,7 +3038,7 @@ end
 -- Client Payload
 jnx_jnxequities_pts_itch_v1_7.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 jnx_jnxequities_pts_itch_v1_7.client_payload.dispatch = {
   ["+"] = jnx_jnxequities_pts_itch_v1_7.debug_packet.dissect,
   ["L"] = jnx_jnxequities_pts_itch_v1_7.login_request_packet.dissect,
@@ -3043,6 +3047,7 @@ jnx_jnxequities_pts_itch_v1_7.client_payload.dispatch = {
   ["O"] = jnx_jnxequities_pts_itch_v1_7.logout_request_packet.dissect,
 }
 
+-- Dissect: Client Payload
 jnx_jnxequities_pts_itch_v1_7.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = jnx_jnxequities_pts_itch_v1_7.client_payload.dispatch[client_packet_type]
   if dissect then

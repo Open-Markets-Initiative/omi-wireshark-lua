@@ -2883,7 +2883,7 @@ memx_memxoptions_memo_sbe_v1_6_a.schema_id.size = 1
 -- Display: Schema Id
 memx_memxoptions_memo_sbe_v1_6_a.schema_id.display = function(value)
   if value == 9 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 9"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -6076,7 +6076,7 @@ end
 -- Server Payload
 memx_memxoptions_memo_sbe_v1_6_a.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 memx_memxoptions_memo_sbe_v1_6_a.server_payload.dispatch = {
   [11] = memx_memxoptions_memo_sbe_v1_6_a.execution_report_new_message.dissect,
   [12] = memx_memxoptions_memo_sbe_v1_6_a.execution_report_bulk_quote_pending_new_message.dissect,
@@ -6101,6 +6101,7 @@ memx_memxoptions_memo_sbe_v1_6_a.server_payload.dispatch = {
   [31] = memx_memxoptions_memo_sbe_v1_6_a.mass_cancel_clear_lockout_done_message.dissect,
 }
 
+-- Dissect: Server Payload
 memx_memxoptions_memo_sbe_v1_6_a.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = memx_memxoptions_memo_sbe_v1_6_a.server_payload.dispatch[template_id]
   if dissect then
@@ -6638,7 +6639,7 @@ end
 -- Server Data
 memx_memxoptions_memo_sbe_v1_6_a.server_data = {}
 
--- Dissect: Server Data
+-- Dispatch: Server Data
 memx_memxoptions_memo_sbe_v1_6_a.server_data.dispatch = {
   [1] = memx_memxoptions_memo_sbe_v1_6_a.login_accepted_message.dissect,
   [2] = memx_memxoptions_memo_sbe_v1_6_a.login_rejected_message.dissect,
@@ -6652,6 +6653,7 @@ memx_memxoptions_memo_sbe_v1_6_a.server_data.dispatch = {
   [11] = memx_memxoptions_memo_sbe_v1_6_a.sequenced_message.dissect,
 }
 
+-- Dissect: Server Data
 memx_memxoptions_memo_sbe_v1_6_a.server_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxoptions_memo_sbe_v1_6_a.server_data.dispatch[message_type]
   if dissect then
@@ -7944,7 +7946,7 @@ end
 -- Client Payload
 memx_memxoptions_memo_sbe_v1_6_a.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 memx_memxoptions_memo_sbe_v1_6_a.client_payload.dispatch = {
   [1] = memx_memxoptions_memo_sbe_v1_6_a.new_order_single_message.dissect,
   [2] = memx_memxoptions_memo_sbe_v1_6_a.short_two_sided_bulk_quote_message.dissect,
@@ -7958,6 +7960,7 @@ memx_memxoptions_memo_sbe_v1_6_a.client_payload.dispatch = {
   [10] = memx_memxoptions_memo_sbe_v1_6_a.allocation_instruction_message.dissect,
 }
 
+-- Dissect: Client Payload
 memx_memxoptions_memo_sbe_v1_6_a.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = memx_memxoptions_memo_sbe_v1_6_a.client_payload.dispatch[template_id]
   if dissect then
@@ -8247,7 +8250,7 @@ end
 -- Client Data
 memx_memxoptions_memo_sbe_v1_6_a.client_data = {}
 
--- Dissect: Client Data
+-- Dispatch: Client Data
 memx_memxoptions_memo_sbe_v1_6_a.client_data.dispatch = {
   [100] = memx_memxoptions_memo_sbe_v1_6_a.login_request_message.dissect,
   [101] = memx_memxoptions_memo_sbe_v1_6_a.replay_request_message.dissect,
@@ -8256,6 +8259,7 @@ memx_memxoptions_memo_sbe_v1_6_a.client_data.dispatch = {
   [104] = memx_memxoptions_memo_sbe_v1_6_a.unsequenced_message.dissect,
 }
 
+-- Dissect: Client Data
 memx_memxoptions_memo_sbe_v1_6_a.client_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxoptions_memo_sbe_v1_6_a.client_data.dispatch[message_type]
   if dissect then
@@ -8766,7 +8770,7 @@ tcp_table:add_for_decode_as(omi_memx_memxoptions_memo_sbe_v1_6_a)
 --   Organization: The Members Exchange
 --   Version: 1.6.a
 --   Date: Monday, November 13, 2023
---   Specification: MEMO for US Options - SBE-v1_6b (2024-08-07).pdf
+--   Specification: MEMO for US Options - SBE-v1_6b.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

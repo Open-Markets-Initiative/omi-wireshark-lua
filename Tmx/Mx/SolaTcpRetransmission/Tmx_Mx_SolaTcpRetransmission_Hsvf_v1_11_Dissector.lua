@@ -10769,7 +10769,7 @@ end
 -- Tick Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair = {}
 
--- Dissect: Tick Price Fraction Pair
+-- Dispatch: Tick Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_ten_pair.dissect,
@@ -10780,6 +10780,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Tick Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair.dissect = function(buffer, offset, packet, parent, tick_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_price_fraction_pair.dispatch[tick_price_fraction_indicator]
   if dissect then
@@ -11145,7 +11146,7 @@ end
 -- Min Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair = {}
 
--- Dissect: Min Price Fraction Pair
+-- Dispatch: Min Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_ten_pair.dissect,
@@ -11156,6 +11157,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Min Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair.dissect = function(buffer, offset, packet, parent, min_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.min_price_fraction_pair.dispatch[min_price_fraction_indicator]
   if dissect then
@@ -11443,12 +11445,13 @@ end
 -- Bulletin
 tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin = {}
 
--- Dissect: Bulletin
+-- Dispatch: Bulletin
 tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin.dispatch = {
   ["1"] = tmx_mx_solatcpretransmission_hsvf_v1_11.regular_text_bulletin.dissect,
   ["2"] = tmx_mx_solatcpretransmission_hsvf_v1_11.special_text_bulletin.dissect,
 }
 
+-- Dissect: Bulletin
 tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin.dissect = function(buffer, offset, packet, parent, bulletin_type)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.bulletin.dispatch[bulletin_type]
   if dissect then
@@ -11967,7 +11970,7 @@ end
 -- Net Change Futures Trade Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fraction_pair = {}
 
--- Dissect: Net Change Futures Trade Message Fraction Pair
+-- Dispatch: Net Change Futures Trade Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_ten_pair.dissect,
@@ -11978,6 +11981,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fractio
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_negative_million_pair.dissect,
 }
 
+-- Dissect: Net Change Futures Trade Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_trade_message_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
@@ -12343,7 +12347,7 @@ end
 -- Trade Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair = {}
 
--- Dissect: Trade Price Fraction Pair
+-- Dispatch: Trade Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_ten_pair.dissect,
@@ -12354,6 +12358,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Trade Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair.dissect = function(buffer, offset, packet, parent, trade_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.trade_price_fraction_pair.dispatch[trade_price_fraction_indicator]
   if dissect then
@@ -12719,7 +12724,7 @@ end
 -- Fixed Rate Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair = {}
 
--- Dissect: Fixed Rate Fraction Pair
+-- Dispatch: Fixed Rate Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_ten_pair.dissect,
@@ -12730,6 +12735,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_negative_million_pair.dissect,
 }
 
+-- Dissect: Fixed Rate Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair.dissect = function(buffer, offset, packet, parent, fixed_rate_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.fixed_rate_fraction_pair.dispatch[fixed_rate_fraction_indicator]
   if dissect then
@@ -13223,7 +13229,7 @@ end
 -- Net Change Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair = {}
 
--- Dissect: Net Change Fraction Pair
+-- Dispatch: Net Change Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_ten_pair.dissect,
@@ -13234,6 +13240,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_negative_million_pair.dissect,
 }
 
+-- Dissect: Net Change Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
@@ -13823,7 +13830,7 @@ end
 -- Net Change Future Options Trade Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair = {}
 
--- Dissect: Net Change Future Options Trade Message Fraction Pair
+-- Dispatch: Net Change Future Options Trade Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_ten_pair.dissect,
@@ -13834,6 +13841,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_negative_million_pair.dissect,
 }
 
+-- Dissect: Net Change Future Options Trade Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_trade_message_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
@@ -14199,7 +14207,7 @@ end
 -- Strike Price Instrument Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair = {}
 
--- Dissect: Strike Price Instrument Fraction Pair
+-- Dispatch: Strike Price Instrument Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_ten_pair.dissect,
@@ -14210,6 +14218,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair.di
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_negative_million_pair.dissect,
 }
 
+-- Dissect: Strike Price Instrument Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_instrument_fraction_pair.dispatch[strike_price_fraction_indicator]
   if dissect then
@@ -15061,7 +15070,7 @@ end
 -- Previous Reset Rate Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair = {}
 
--- Dissect: Previous Reset Rate Fraction Pair
+-- Dispatch: Previous Reset Rate Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_ten_pair.dissect,
@@ -15072,6 +15081,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair.dispat
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_negative_million_pair.dissect,
 }
 
+-- Dissect: Previous Reset Rate Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_reset_rate_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_reset_rate_fraction_pair.dispatch[previous_reset_rate_fraction_indicator]
   if dissect then
@@ -15437,7 +15447,7 @@ end
 -- Previous Settlement Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair = {}
 
--- Dissect: Previous Settlement Price Fraction Pair
+-- Dispatch: Previous Settlement Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_ten_pair.dissect,
@@ -15448,6 +15458,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair.
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Previous Settlement Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_settlement_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_price_fraction_pair.dispatch[previous_settlement_price_fraction_indicator]
   if dissect then
@@ -15813,7 +15824,7 @@ end
 -- Net Change Swap Future Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair = {}
 
--- Dissect: Net Change Swap Future Summary Message Fraction Pair
+-- Dispatch: Net Change Swap Future Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_ten_pair.dissect,
@@ -15824,6 +15835,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_f
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_negative_million_pair.dissect,
 }
 
+-- Dissect: Net Change Swap Future Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_swap_future_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
@@ -16189,7 +16201,7 @@ end
 -- Price Alignment Interest C Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair = {}
 
--- Dissect: Price Alignment Interest C Fraction Pair
+-- Dispatch: Price Alignment Interest C Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_ten_pair.dissect,
@@ -16200,6 +16212,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_negative_million_pair.dissect,
 }
 
+-- Dissect: Price Alignment Interest C Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair.dissect = function(buffer, offset, packet, parent, price_alignment_interest_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.price_alignment_interest_c_fraction_pair.dispatch[price_alignment_interest_fraction_indicator]
   if dissect then
@@ -16565,7 +16578,7 @@ end
 -- Historical Coupon B Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair = {}
 
--- Dissect: Historical Coupon B Fraction Pair
+-- Dispatch: Historical Coupon B Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_ten_pair.dissect,
@@ -16576,6 +16589,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair.dispat
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_negative_million_pair.dissect,
 }
 
+-- Dissect: Historical Coupon B Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair.dissect = function(buffer, offset, packet, parent, historical_coupon_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.historical_coupon_b_fraction_pair.dispatch[historical_coupon_fraction_indicator]
   if dissect then
@@ -16941,7 +16955,7 @@ end
 -- Net Present Value A Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair = {}
 
--- Dissect: Net Present Value A Fraction Pair
+-- Dispatch: Net Present Value A Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_ten_pair.dissect,
@@ -16952,6 +16966,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair.dispat
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_negative_million_pair.dissect,
 }
 
+-- Dissect: Net Present Value A Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair.dissect = function(buffer, offset, packet, parent, net_present_value_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_present_value_a_fraction_pair.dispatch[net_present_value_fraction_indicator]
   if dissect then
@@ -17317,7 +17332,7 @@ end
 -- Settlement Price Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair = {}
 
--- Dissect: Settlement Price Future Options Summary Message Fraction Pair
+-- Dispatch: Settlement Price Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_ten_pair.dissect,
@@ -17328,6 +17343,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_negative_million_pair.dissect,
 }
 
+-- Dissect: Settlement Price Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, settlement_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_future_options_summary_message_fraction_pair.dispatch[settlement_price_fraction_indicator]
   if dissect then
@@ -17693,7 +17709,7 @@ end
 -- Low Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair = {}
 
--- Dissect: Low Price Fraction Pair
+-- Dispatch: Low Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_ten_pair.dissect,
@@ -17704,6 +17720,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Low Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair.dissect = function(buffer, offset, packet, parent, low_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.low_price_fraction_pair.dispatch[low_price_fraction_indicator]
   if dissect then
@@ -18069,7 +18086,7 @@ end
 -- High Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair = {}
 
--- Dissect: High Price Fraction Pair
+-- Dispatch: High Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_ten_pair.dissect,
@@ -18080,6 +18097,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_negative_million_pair.dissect,
 }
 
+-- Dissect: High Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair.dissect = function(buffer, offset, packet, parent, high_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.high_price_fraction_pair.dispatch[high_price_fraction_indicator]
   if dissect then
@@ -18445,7 +18463,7 @@ end
 -- Open Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair = {}
 
--- Dissect: Open Price Fraction Pair
+-- Dispatch: Open Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_ten_pair.dissect,
@@ -18456,6 +18474,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Open Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair.dissect = function(buffer, offset, packet, parent, open_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.open_price_fraction_pair.dispatch[open_price_fraction_indicator]
   if dissect then
@@ -18821,7 +18840,7 @@ end
 -- Last Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair = {}
 
--- Dissect: Last Price Fraction Pair
+-- Dispatch: Last Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_ten_pair.dissect,
@@ -18832,6 +18851,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Last Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair.dissect = function(buffer, offset, packet, parent, last_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_fraction_pair.dispatch[last_price_fraction_indicator]
   if dissect then
@@ -19197,7 +19217,7 @@ end
 -- Ask Price Summary Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair = {}
 
--- Dissect: Ask Price Summary Fraction Pair
+-- Dispatch: Ask Price Summary Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_ten_pair.dissect,
@@ -19208,6 +19228,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair.dispatch
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_negative_million_pair.dissect,
 }
 
+-- Dissect: Ask Price Summary Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent, ask_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.ask_price_summary_fraction_pair.dispatch[ask_price_fraction_indicator]
   if dissect then
@@ -19573,7 +19594,7 @@ end
 -- Bid Price Summary Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair = {}
 
--- Dissect: Bid Price Summary Fraction Pair
+-- Dispatch: Bid Price Summary Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_ten_pair.dissect,
@@ -19584,6 +19605,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair.dispatch
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_negative_million_pair.dissect,
 }
 
+-- Dissect: Bid Price Summary Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair.dissect = function(buffer, offset, packet, parent, bid_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.bid_price_summary_fraction_pair.dispatch[bid_price_fraction_indicator]
   if dissect then
@@ -20257,7 +20279,7 @@ end
 -- Net Change Strategy Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_fraction_pair = {}
 
--- Dissect: Net Change Strategy Summary Message Fraction Pair
+-- Dispatch: Net Change Strategy Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_ten_pair.dissect,
@@ -20268,6 +20290,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_frac
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_negative_million_pair.dissect,
 }
 
+-- Dissect: Net Change Strategy Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_strategy_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
@@ -20829,7 +20852,7 @@ end
 -- External Price At Source Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair = {}
 
--- Dissect: External Price At Source Fraction Pair
+-- Dispatch: External Price At Source Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_ten_pair.dissect,
@@ -20840,6 +20863,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair.d
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_negative_million_pair.dissect,
 }
 
+-- Dissect: External Price At Source Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair.dissect = function(buffer, offset, packet, parent, external_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.external_price_at_source_fraction_pair.dispatch[external_price_fraction_indicator]
   if dissect then
@@ -21205,7 +21229,7 @@ end
 -- Previous Settlement Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair = {}
 
--- Dissect: Previous Settlement Fraction Pair
+-- Dispatch: Previous Settlement Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_ten_pair.dissect,
@@ -21216,6 +21240,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair.dispat
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_negative_million_pair.dissect,
 }
 
+-- Dissect: Previous Settlement Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair.dissect = function(buffer, offset, packet, parent, previous_settlement_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.previous_settlement_fraction_pair.dispatch[previous_settlement_fraction_indicator]
   if dissect then
@@ -21581,7 +21606,7 @@ end
 -- Net Change Futures Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fraction_pair = {}
 
--- Dissect: Net Change Futures Summary Message Fraction Pair
+-- Dispatch: Net Change Futures Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_ten_pair.dissect,
@@ -21592,6 +21617,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fract
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_negative_million_pair.dissect,
 }
 
+-- Dissect: Net Change Futures Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_futures_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
@@ -22162,7 +22188,7 @@ end
 -- Opening Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair = {}
 
--- Dissect: Opening Price Fraction Pair
+-- Dispatch: Opening Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_ten_pair.dissect,
@@ -22173,6 +22199,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Opening Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair.dissect = function(buffer, offset, packet, parent, opening_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.opening_price_fraction_pair.dispatch[opening_price_fraction_indicator]
   if dissect then
@@ -22538,7 +22565,7 @@ end
 -- Net Change Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair = {}
 
--- Dissect: Net Change Future Options Summary Message Fraction Pair
+-- Dispatch: Net Change Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_ten_pair.dissect,
@@ -22549,6 +22576,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_messag
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_negative_million_pair.dissect,
 }
 
+-- Dissect: Net Change Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.net_change_future_options_summary_message_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
@@ -22914,7 +22942,7 @@ end
 -- Last Price Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair = {}
 
--- Dissect: Last Price Future Options Summary Message Fraction Pair
+-- Dispatch: Last Price Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_ten_pair.dissect,
@@ -22925,6 +22953,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_messag
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_negative_million_pair.dissect,
 }
 
+-- Dissect: Last Price Future Options Summary Message Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair.dissect = function(buffer, offset, packet, parent, last_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.last_price_future_options_summary_message_fraction_pair.dispatch[last_price_fraction_indicator]
   if dissect then
@@ -23525,7 +23554,7 @@ end
 -- Settlement Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair = {}
 
--- Dissect: Settlement Price Fraction Pair
+-- Dispatch: Settlement Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_ten_pair.dissect,
@@ -23536,6 +23565,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair.dispatch 
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_negative_million_pair.dissect,
 }
 
+-- Dissect: Settlement Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair.dissect = function(buffer, offset, packet, parent, settlement_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.settlement_price_fraction_pair.dispatch[settlement_price_fraction_indicator]
   if dissect then
@@ -24126,7 +24156,7 @@ end
 -- Notional Principal Amount Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair = {}
 
--- Dissect: Notional Principal Amount Fraction Pair
+-- Dispatch: Notional Principal Amount Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_ten_pair.dissect,
@@ -24137,6 +24167,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair.
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_negative_million_pair.dissect,
 }
 
+-- Dissect: Notional Principal Amount Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair.dissect = function(buffer, offset, packet, parent, notional_principal_amount_faction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.notional_principal_amount_fraction_pair.dispatch[notional_principal_amount_faction_indicator]
   if dissect then
@@ -24502,7 +24533,7 @@ end
 -- Tick Value Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair = {}
 
--- Dissect: Tick Value Fraction Pair
+-- Dispatch: Tick Value Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_ten_pair.dissect,
@@ -24513,6 +24544,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_negative_million_pair.dissect,
 }
 
+-- Dissect: Tick Value Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair.dissect = function(buffer, offset, packet, parent, tick_value_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_value_fraction_pair.dispatch[tick_value_fraction_indicator]
   if dissect then
@@ -24922,7 +24954,7 @@ end
 -- Tick Increment
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment = {}
 
--- Dissect: Tick Increment
+-- Dispatch: Tick Increment
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment.dispatch = {
   ["0"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
   ["1"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_pair.dissect,
@@ -24943,6 +24975,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment_numeric_negative_million_pair.dissect,
 }
 
+-- Dissect: Tick Increment
 tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment.dissect = function(buffer, offset, packet, parent, tick_increment_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.tick_increment.dispatch[tick_increment_fraction_indicator]
   if dissect then
@@ -25308,7 +25341,7 @@ end
 -- Minimum Threshold Price Options Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction_pair = {}
 
--- Dissect: Minimum Threshold Price Options Fraction Pair
+-- Dispatch: Minimum Threshold Price Options Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_ten_pair.dissect,
@@ -25319,6 +25352,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_negative_million_pair.dissect,
 }
 
+-- Dissect: Minimum Threshold Price Options Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_options_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
   if dissect then
@@ -25684,7 +25718,7 @@ end
 -- Maximum Threshold Price Options Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction_pair = {}
 
--- Dissect: Maximum Threshold Price Options Fraction Pair
+-- Dispatch: Maximum Threshold Price Options Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_ten_pair.dissect,
@@ -25695,6 +25729,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_negative_million_pair.dissect,
 }
 
+-- Dissect: Maximum Threshold Price Options Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_options_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
   if dissect then
@@ -26429,7 +26464,7 @@ end
 -- Minimum Threshold Price Futures Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair = {}
 
--- Dissect: Minimum Threshold Price Futures Fraction Pair
+-- Dispatch: Minimum Threshold Price Futures Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_ten_pair.dissect,
@@ -26440,6 +26475,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_negative_million_pair.dissect,
 }
 
+-- Dissect: Minimum Threshold Price Futures Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.minimum_threshold_price_futures_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
   if dissect then
@@ -26805,7 +26841,7 @@ end
 -- Maximum Threshold Price Futures Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair = {}
 
--- Dissect: Maximum Threshold Price Futures Fraction Pair
+-- Dispatch: Maximum Threshold Price Futures Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_ten_pair.dissect,
@@ -26816,6 +26852,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_negative_million_pair.dissect,
 }
 
+-- Dissect: Maximum Threshold Price Futures Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.maximum_threshold_price_futures_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
   if dissect then
@@ -28081,7 +28118,7 @@ end
 -- Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair = {}
 
--- Dissect: Price Fraction Pair
+-- Dispatch: Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_ten_pair.dissect,
@@ -28092,6 +28129,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair.dispatch = {
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.price_negative_million_pair.dissect,
 }
 
+-- Dissect: Price Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair.dissect = function(buffer, offset, packet, parent, price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.price_fraction_pair.dispatch[price_fraction_indicator]
   if dissect then
@@ -34129,7 +34167,7 @@ end
 -- Strike Price Schedule Notice Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pair = {}
 
--- Dissect: Strike Price Schedule Notice Fraction Pair
+-- Dispatch: Strike Price Schedule Notice Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.dispatch = {
   ["A"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_whole_pair.dissect,
   ["B"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_ten_pair.dissect,
@@ -34140,6 +34178,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pa
   ["G"] = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_negative_million_pair.dissect,
 }
 
+-- Dissect: Strike Price Schedule Notice Fraction Pair
 tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.strike_price_schedule_notice_fraction_pair.dispatch[strike_price_fraction_indicator]
   if dissect then
@@ -35271,7 +35310,7 @@ end
 -- Message Body
 tmx_mx_solatcpretransmission_hsvf_v1_11.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 tmx_mx_solatcpretransmission_hsvf_v1_11.message_body.dispatch = {
   ["C"] = tmx_mx_solatcpretransmission_hsvf_v1_11.option_trade_message.dissect,
   ["CB"] = tmx_mx_solatcpretransmission_hsvf_v1_11.future_options_trade_message.dissect,
@@ -35334,6 +35373,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.message_body.dispatch = {
   ["Z"] = tmx_mx_solatcpretransmission_hsvf_v1_11.timebeat_message.dissect,
 }
 
+-- Dissect: Message Body
 tmx_mx_solatcpretransmission_hsvf_v1_11.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.message_body.dispatch[message_type]
   if dissect then
@@ -35509,7 +35549,7 @@ end
 -- Server Message
 tmx_mx_solatcpretransmission_hsvf_v1_11.server_message = {}
 
--- Dissect: Server Message
+-- Dispatch: Server Message
 tmx_mx_solatcpretransmission_hsvf_v1_11.server_message.dispatch = {
   ["KI"] = tmx_mx_solatcpretransmission_hsvf_v1_11.login_acknowledgement_message.dissect,
   ["KO"] = tmx_mx_solatcpretransmission_hsvf_v1_11.logout_acknowledgement_message.dissect,
@@ -35518,6 +35558,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_11.server_message.dispatch = {
   ["ER"] = tmx_mx_solatcpretransmission_hsvf_v1_11.error_message.dissect,
 }
 
+-- Dissect: Server Message
 tmx_mx_solatcpretransmission_hsvf_v1_11.server_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.server_message.dispatch[message_type]
   if dissect then
@@ -35804,13 +35845,14 @@ end
 -- Client Message Body
 tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_body = {}
 
--- Dissect: Client Message Body
+-- Dispatch: Client Message Body
 tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_body.dispatch = {
   ["LI"] = tmx_mx_solatcpretransmission_hsvf_v1_11.login_message.dissect,
   ["LO"] = tmx_mx_solatcpretransmission_hsvf_v1_11.logout_message.dissect,
   ["RT"] = tmx_mx_solatcpretransmission_hsvf_v1_11.retransmission_request_message.dissect,
 }
 
+-- Dissect: Client Message Body
 tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_body.dissect = function(buffer, offset, packet, parent, client_message_type)
   local dissect = tmx_mx_solatcpretransmission_hsvf_v1_11.client_message_body.dispatch[client_message_type]
   if dissect then

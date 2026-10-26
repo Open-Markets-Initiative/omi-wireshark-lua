@@ -8147,7 +8147,7 @@ end
 -- Exchange Message
 tmx_mx_solaorderentry_sail_v1_21.exchange_message = {}
 
--- Dissect: Exchange Message
+-- Dispatch: Exchange Message
 tmx_mx_solaorderentry_sail_v1_21.exchange_message.dispatch = {
   ["TK"] = tmx_mx_solaorderentry_sail_v1_21.connection_acknowledgement.dissect,
   ["TM"] = tmx_mx_solaorderentry_sail_v1_21.disconnection_instruction_acknowledgement.dissect,
@@ -8181,6 +8181,7 @@ tmx_mx_solaorderentry_sail_v1_21.exchange_message.dispatch = {
   ["QW"] = tmx_mx_solaorderentry_sail_v1_21.request_for_quote_with_side_acknowledgement.dissect,
 }
 
+-- Dissect: Exchange Message
 tmx_mx_solaorderentry_sail_v1_21.exchange_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tmx_mx_solaorderentry_sail_v1_21.exchange_message.dispatch[message_type]
   if dissect then
@@ -12300,7 +12301,7 @@ end
 -- Firm Message
 tmx_mx_solaorderentry_sail_v1_21.firm_message = {}
 
--- Dissect: Firm Message
+-- Dispatch: Firm Message
 tmx_mx_solaorderentry_sail_v1_21.firm_message.dispatch = {
   ["TC"] = tmx_mx_solaorderentry_sail_v1_21.user_connection.dissect,
   ["TA"] = tmx_mx_solaorderentry_sail_v1_21.disconnection_instruction.dissect,
@@ -12339,6 +12340,7 @@ tmx_mx_solaorderentry_sail_v1_21.firm_message.dispatch = {
   ["XE"] = tmx_mx_solaorderentry_sail_v1_21.order_cancellation.dissect,
 }
 
+-- Dissect: Firm Message
 tmx_mx_solaorderentry_sail_v1_21.firm_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tmx_mx_solaorderentry_sail_v1_21.firm_message.dispatch[message_type]
   if dissect then

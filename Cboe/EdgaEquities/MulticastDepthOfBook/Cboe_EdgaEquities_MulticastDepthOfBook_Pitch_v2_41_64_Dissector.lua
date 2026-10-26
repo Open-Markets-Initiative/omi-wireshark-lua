@@ -2738,11 +2738,12 @@ end
 -- Messages
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dispatch = {
   [0] = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.messages.dispatch[message_count]
   if dissect then

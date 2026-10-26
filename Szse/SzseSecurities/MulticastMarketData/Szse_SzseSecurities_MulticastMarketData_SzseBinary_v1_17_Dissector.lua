@@ -6281,7 +6281,7 @@ end
 -- Payload
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.payload.dispatch = {
   [390095] = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.channel_heartbeat_message.dissect,
   [390094] = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.retransmitting_message.dissect,
@@ -6313,6 +6313,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.payload.dispatch = {
   [300491] = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.transaction_tick_data_of_bid_quotation_message.dissect,
 }
 
+-- Dissect: Payload
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.payload.dispatch[msg_type]
   if dissect then

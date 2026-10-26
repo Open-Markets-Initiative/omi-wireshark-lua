@@ -6264,7 +6264,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.schema_id.size = 2
 -- Display: Schema Id
 euronext_optiq_dropcopygateway_sbe_v5_56.schema_id.display = function(value)
   if value == 0 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 0"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -15354,7 +15354,7 @@ end
 -- Payload
 euronext_optiq_dropcopygateway_sbe_v5_56.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 euronext_optiq_dropcopygateway_sbe_v5_56.payload.dispatch = {
   [16001] = euronext_optiq_dropcopygateway_sbe_v5_56.dc_market_status_change_message.dissect,
   [16003] = euronext_optiq_dropcopygateway_sbe_v5_56.dc_price_update_message.dissect,
@@ -15377,6 +15377,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.payload.dispatch = {
   [16061] = euronext_optiq_dropcopygateway_sbe_v5_56.dc_clear_book_message.dissect,
 }
 
+-- Dissect: Payload
 euronext_optiq_dropcopygateway_sbe_v5_56.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = euronext_optiq_dropcopygateway_sbe_v5_56.payload.dispatch[template_id]
   if dissect then

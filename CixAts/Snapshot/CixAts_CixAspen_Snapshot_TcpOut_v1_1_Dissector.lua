@@ -1379,7 +1379,7 @@ end
 -- Payload
 cixats_cixaspen_snapshot_tcpout_v1_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cixats_cixaspen_snapshot_tcpout_v1_1.payload.dispatch = {
   ["A"] = cixats_cixaspen_snapshot_tcpout_v1_1.market_event_message.dissect,
   ["B"] = cixats_cixaspen_snapshot_tcpout_v1_1.symbol_information_message.dissect,
@@ -1391,6 +1391,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.payload.dispatch = {
   ["X"] = cixats_cixaspen_snapshot_tcpout_v1_1.end_of_snapshot_message.dissect,
 }
 
+-- Dissect: Payload
 cixats_cixaspen_snapshot_tcpout_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = cixats_cixaspen_snapshot_tcpout_v1_1.payload.dispatch[message_type]
   if dissect then
@@ -1634,7 +1635,7 @@ end
 -- Packet Payload
 cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload = {}
 
--- Dissect: Packet Payload
+-- Dispatch: Packet Payload
 cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dispatch = {
   ["L"] = cixats_cixaspen_snapshot_tcpout_v1_1.login_message.dissect,
   ["R"] = cixats_cixaspen_snapshot_tcpout_v1_1.client_heartbeat_message.dissect,
@@ -1644,6 +1645,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dispatch = {
   ["S"] = cixats_cixaspen_snapshot_tcpout_v1_1.binary_data_message.dissect,
 }
 
+-- Dissect: Packet Payload
 cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dispatch[packet_type]
   if dissect then

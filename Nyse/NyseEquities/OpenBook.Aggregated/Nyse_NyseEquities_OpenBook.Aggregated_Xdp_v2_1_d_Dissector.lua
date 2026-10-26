@@ -3209,7 +3209,7 @@ end
 -- Payload
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.payload.dispatch = {
   [1] = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.sequence_number_reset_message.dissect,
   [2] = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_reference_message.dissect,
@@ -3227,6 +3227,7 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.payload.dispatch = {
   [111] = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.payload.dispatch[message_type]
   if dissect then

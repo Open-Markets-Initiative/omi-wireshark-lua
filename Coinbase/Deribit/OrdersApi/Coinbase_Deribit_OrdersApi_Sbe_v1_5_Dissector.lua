@@ -8104,7 +8104,7 @@ end
 -- Payload
 coinbase_deribit_ordersapi_sbe_v1_5.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 coinbase_deribit_ordersapi_sbe_v1_5.payload.dispatch = {
   [1] = coinbase_deribit_ordersapi_sbe_v1_5.logon_message.dissect,
   [2] = coinbase_deribit_ordersapi_sbe_v1_5.logon_conf_message.dissect,
@@ -8148,6 +8148,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.payload.dispatch = {
   [326] = coinbase_deribit_ordersapi_sbe_v1_5.orders_mmp_unfrozen_message.dissect,
 }
 
+-- Dissect: Payload
 coinbase_deribit_ordersapi_sbe_v1_5.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = coinbase_deribit_ordersapi_sbe_v1_5.payload.dispatch[template_id]
   if dissect then

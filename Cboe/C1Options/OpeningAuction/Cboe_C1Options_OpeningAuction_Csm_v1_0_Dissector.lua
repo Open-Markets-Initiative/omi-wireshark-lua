@@ -2833,7 +2833,7 @@ end
 -- Payload
 cboe_c1options_openingauction_csm_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cboe_c1options_openingauction_csm_v1_0.payload.dispatch = {
   [13] = cboe_c1options_openingauction_csm_v1_0.security_definition_message.dissect,
   [20] = cboe_c1options_openingauction_csm_v1_0.market_data_refresh_message.dissect,
@@ -2842,6 +2842,7 @@ cboe_c1options_openingauction_csm_v1_0.payload.dispatch = {
   [16] = cboe_c1options_openingauction_csm_v1_0.heartbeat_message.dissect,
 }
 
+-- Dissect: Payload
 cboe_c1options_openingauction_csm_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cboe_c1options_openingauction_csm_v1_0.payload.dispatch[template_id]
   if dissect then

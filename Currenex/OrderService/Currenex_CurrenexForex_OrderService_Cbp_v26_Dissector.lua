@@ -2307,7 +2307,7 @@ end
 -- Message Body
 currenex_currenexforex_orderservice_cbp_v26.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 currenex_currenexforex_orderservice_cbp_v26.message_body.dispatch = {
   ["A"] = currenex_currenexforex_orderservice_cbp_v26.logon.dissect,
   ["B"] = currenex_currenexforex_orderservice_cbp_v26.logout.dissect,
@@ -2329,6 +2329,7 @@ currenex_currenexforex_orderservice_cbp_v26.message_body.dispatch = {
   ["4"] = currenex_currenexforex_orderservice_cbp_v26.gap_fill.dissect,
 }
 
+-- Dissect: Message Body
 currenex_currenexforex_orderservice_cbp_v26.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = currenex_currenexforex_orderservice_cbp_v26.message_body.dispatch[message_type]
   if dissect then

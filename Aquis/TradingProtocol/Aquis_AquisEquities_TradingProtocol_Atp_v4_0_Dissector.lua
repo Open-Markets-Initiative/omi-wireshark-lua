@@ -3285,7 +3285,7 @@ end
 -- Payload
 aquis_aquisequities_tradingprotocol_atp_v4_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 aquis_aquisequities_tradingprotocol_atp_v4_0.payload.dispatch = {
   [1] = aquis_aquisequities_tradingprotocol_atp_v4_0.login_message.dissect,
   [2] = aquis_aquisequities_tradingprotocol_atp_v4_0.login_response_message.dissect,
@@ -3310,6 +3310,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.payload.dispatch = {
   [29] = aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_firmup_message.dissect,
 }
 
+-- Dissect: Payload
 aquis_aquisequities_tradingprotocol_atp_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = aquis_aquisequities_tradingprotocol_atp_v4_0.payload.dispatch[msg_type]
   if dissect then

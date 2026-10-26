@@ -2451,7 +2451,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.schema_id.size = 1
 -- Display: Schema Id
 blueoceanats_blueequities_memo_sbe_v1_13.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -5029,7 +5029,7 @@ end
 -- Server Payload
 blueoceanats_blueequities_memo_sbe_v1_13.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 blueoceanats_blueequities_memo_sbe_v1_13.server_payload.dispatch = {
   [5] = blueoceanats_blueequities_memo_sbe_v1_13.execution_report_pending_new_message.dissect,
   [6] = blueoceanats_blueequities_memo_sbe_v1_13.execution_report_new_message.dissect,
@@ -5048,6 +5048,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.server_payload.dispatch = {
   [20] = blueoceanats_blueequities_memo_sbe_v1_13.mass_cancel_reject_message.dissect,
 }
 
+-- Dissect: Server Payload
 blueoceanats_blueequities_memo_sbe_v1_13.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = blueoceanats_blueequities_memo_sbe_v1_13.server_payload.dispatch[template_id]
   if dissect then
@@ -5585,7 +5586,7 @@ end
 -- Server Data
 blueoceanats_blueequities_memo_sbe_v1_13.server_data = {}
 
--- Dissect: Server Data
+-- Dispatch: Server Data
 blueoceanats_blueequities_memo_sbe_v1_13.server_data.dispatch = {
   [1] = blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.dissect,
   [2] = blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.dissect,
@@ -5599,6 +5600,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.server_data.dispatch = {
   [11] = blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.dissect,
 }
 
+-- Dissect: Server Data
 blueoceanats_blueequities_memo_sbe_v1_13.server_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = blueoceanats_blueequities_memo_sbe_v1_13.server_data.dispatch[message_type]
   if dissect then
@@ -6068,7 +6070,7 @@ end
 -- Client Payload
 blueoceanats_blueequities_memo_sbe_v1_13.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 blueoceanats_blueequities_memo_sbe_v1_13.client_payload.dispatch = {
   [1] = blueoceanats_blueequities_memo_sbe_v1_13.new_order_single_message.dissect,
   [2] = blueoceanats_blueequities_memo_sbe_v1_13.order_cancel_replace_request_message.dissect,
@@ -6076,6 +6078,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.client_payload.dispatch = {
   [4] = blueoceanats_blueequities_memo_sbe_v1_13.mass_cancel_request_message.dissect,
 }
 
+-- Dissect: Client Payload
 blueoceanats_blueequities_memo_sbe_v1_13.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = blueoceanats_blueequities_memo_sbe_v1_13.client_payload.dispatch[template_id]
   if dissect then
@@ -6365,7 +6368,7 @@ end
 -- Client Data
 blueoceanats_blueequities_memo_sbe_v1_13.client_data = {}
 
--- Dissect: Client Data
+-- Dispatch: Client Data
 blueoceanats_blueequities_memo_sbe_v1_13.client_data.dispatch = {
   [100] = blueoceanats_blueequities_memo_sbe_v1_13.login_request_message.dissect,
   [101] = blueoceanats_blueequities_memo_sbe_v1_13.replay_request_message.dissect,
@@ -6374,6 +6377,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.client_data.dispatch = {
   [104] = blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message.dissect,
 }
 
+-- Dissect: Client Data
 blueoceanats_blueequities_memo_sbe_v1_13.client_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = blueoceanats_blueequities_memo_sbe_v1_13.client_data.dispatch[message_type]
   if dissect then

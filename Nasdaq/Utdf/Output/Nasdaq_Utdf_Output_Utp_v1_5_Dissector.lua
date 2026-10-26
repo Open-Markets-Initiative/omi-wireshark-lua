@@ -3136,7 +3136,7 @@ end
 -- Control Message Payload
 nasdaq_utdf_output_utp_v1_5.control_message_payload = {}
 
--- Dissect: Control Message Payload
+-- Dispatch: Control Message Payload
 nasdaq_utdf_output_utp_v1_5.control_message_payload.dispatch = {
   ["I"] = nasdaq_utdf_output_utp_v1_5.start_of_day_message.dissect,
   ["J"] = nasdaq_utdf_output_utp_v1_5.end_of_day_message.dissect,
@@ -3147,6 +3147,7 @@ nasdaq_utdf_output_utp_v1_5.control_message_payload.dispatch = {
   ["S"] = nasdaq_utdf_output_utp_v1_5.end_of_consolidated_last_sale_eligibility.dissect,
 }
 
+-- Dissect: Control Message Payload
 nasdaq_utdf_output_utp_v1_5.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   local dissect = nasdaq_utdf_output_utp_v1_5.control_message_payload.dispatch[control_message_type]
   if dissect then
@@ -3326,11 +3327,12 @@ end
 -- Volume Message Payload
 nasdaq_utdf_output_utp_v1_5.volume_message_payload = {}
 
--- Dissect: Volume Message Payload
+-- Dispatch: Volume Message Payload
 nasdaq_utdf_output_utp_v1_5.volume_message_payload.dispatch = {
   ["M"] = nasdaq_utdf_output_utp_v1_5.total_consolidated_and_market_center_volume_message.dissect,
 }
 
+-- Dissect: Volume Message Payload
 nasdaq_utdf_output_utp_v1_5.volume_message_payload.dissect = function(buffer, offset, packet, parent, volume_message_type)
   local dissect = nasdaq_utdf_output_utp_v1_5.volume_message_payload.dispatch[volume_message_type]
   if dissect then
@@ -4076,7 +4078,7 @@ end
 -- Administrative Message Payload
 nasdaq_utdf_output_utp_v1_5.administrative_message_payload = {}
 
--- Dissect: Administrative Message Payload
+-- Dispatch: Administrative Message Payload
 nasdaq_utdf_output_utp_v1_5.administrative_message_payload.dispatch = {
   ["A"] = nasdaq_utdf_output_utp_v1_5.general_administrative_message.dissect,
   ["H"] = nasdaq_utdf_output_utp_v1_5.cross_sro_trading_action_message.dissect,
@@ -4090,6 +4092,7 @@ nasdaq_utdf_output_utp_v1_5.administrative_message_payload.dispatch = {
   ["Z"] = nasdaq_utdf_output_utp_v1_5.closing_trade_summary_report_message.dissect,
 }
 
+-- Dissect: Administrative Message Payload
 nasdaq_utdf_output_utp_v1_5.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   local dissect = nasdaq_utdf_output_utp_v1_5.administrative_message_payload.dispatch[administrative_message_type]
   if dissect then
@@ -4799,7 +4802,7 @@ end
 -- Trade Message Payload
 nasdaq_utdf_output_utp_v1_5.trade_message_payload = {}
 
--- Dissect: Trade Message Payload
+-- Dispatch: Trade Message Payload
 nasdaq_utdf_output_utp_v1_5.trade_message_payload.dispatch = {
   ["A"] = nasdaq_utdf_output_utp_v1_5.trade_report_message_short_form_message.dissect,
   ["W"] = nasdaq_utdf_output_utp_v1_5.trade_report_message_long_form_message.dissect,
@@ -4808,6 +4811,7 @@ nasdaq_utdf_output_utp_v1_5.trade_message_payload.dispatch = {
   ["H"] = nasdaq_utdf_output_utp_v1_5.prior_day_as_of_trade_message.dissect,
 }
 
+-- Dissect: Trade Message Payload
 nasdaq_utdf_output_utp_v1_5.trade_message_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
   local dissect = nasdaq_utdf_output_utp_v1_5.trade_message_payload.dispatch[trade_message_type]
   if dissect then
@@ -4873,7 +4877,7 @@ end
 -- Payload
 nasdaq_utdf_output_utp_v1_5.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_utdf_output_utp_v1_5.payload.dispatch = {
   ["T"] = nasdaq_utdf_output_utp_v1_5.trade_message.dissect,
   ["A"] = nasdaq_utdf_output_utp_v1_5.administrative_message.dissect,
@@ -4881,6 +4885,7 @@ nasdaq_utdf_output_utp_v1_5.payload.dispatch = {
   ["C"] = nasdaq_utdf_output_utp_v1_5.control_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_utdf_output_utp_v1_5.payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = nasdaq_utdf_output_utp_v1_5.payload.dispatch[message_category]
   if dissect then

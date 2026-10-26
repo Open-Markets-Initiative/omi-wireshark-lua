@@ -2850,7 +2850,7 @@ end
 -- Payload
 otcmarkets_moonats_retransmission_link_v1_3.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 otcmarkets_moonats_retransmission_link_v1_3.payload.dispatch = {
   [11] = otcmarkets_moonats_retransmission_link_v1_3.start_of_spin_message.dissect,
   [12] = otcmarkets_moonats_retransmission_link_v1_3.end_of_spin_message.dissect,
@@ -2876,6 +2876,7 @@ otcmarkets_moonats_retransmission_link_v1_3.payload.dispatch = {
   [104] = otcmarkets_moonats_retransmission_link_v1_3.heartbeat_message.dissect,
 }
 
+-- Dissect: Payload
 otcmarkets_moonats_retransmission_link_v1_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = otcmarkets_moonats_retransmission_link_v1_3.payload.dispatch[message_type]
   if dissect then

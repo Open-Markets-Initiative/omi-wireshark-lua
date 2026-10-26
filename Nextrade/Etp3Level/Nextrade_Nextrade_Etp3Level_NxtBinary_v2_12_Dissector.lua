@@ -2793,7 +2793,7 @@ end
 -- Payload
 nextrade_nextrade_etp3level_nxtbinary_v2_12.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nextrade_nextrade_etp3level_nxtbinary_v2_12.payload.dispatch = {
   ["I2500"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.polling_data_message.dissect,
   ["B753S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.securities_quote_mm_lp_quotes_included_3_level_message.dissect,
@@ -2806,6 +2806,7 @@ nextrade_nextrade_etp3level_nxtbinary_v2_12.payload.dispatch = {
   ["E153S"] = nextrade_nextrade_etp3level_nxtbinary_v2_12.closing_price_trading_quote_message.dissect,
 }
 
+-- Dissect: Payload
 nextrade_nextrade_etp3level_nxtbinary_v2_12.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   local dissect = nextrade_nextrade_etp3level_nxtbinary_v2_12.payload.dispatch[tr_code]
   if dissect then

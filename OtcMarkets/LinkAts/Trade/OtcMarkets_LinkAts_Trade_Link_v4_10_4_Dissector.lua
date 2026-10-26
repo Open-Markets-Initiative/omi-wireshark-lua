@@ -1064,7 +1064,7 @@ end
 -- Payload
 otcmarkets_linkats_trade_link_v4_10_4.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 otcmarkets_linkats_trade_link_v4_10_4.payload.dispatch = {
   [11] = otcmarkets_linkats_trade_link_v4_10_4.start_of_spin_message.dissect,
   [12] = otcmarkets_linkats_trade_link_v4_10_4.end_of_spin_message.dissect,
@@ -1073,6 +1073,7 @@ otcmarkets_linkats_trade_link_v4_10_4.payload.dispatch = {
   [17] = otcmarkets_linkats_trade_link_v4_10_4.trade_message.dissect,
 }
 
+-- Dissect: Payload
 otcmarkets_linkats_trade_link_v4_10_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = otcmarkets_linkats_trade_link_v4_10_4.payload.dispatch[message_type]
   if dissect then
@@ -1208,11 +1209,12 @@ end
 -- Message Block
 otcmarkets_linkats_trade_link_v4_10_4.message_block = {}
 
--- Dissect: Message Block
+-- Dispatch: Message Block
 otcmarkets_linkats_trade_link_v4_10_4.message_block.dispatch = {
   [1] = otcmarkets_linkats_trade_link_v4_10_4.heartbeat_packet.dissect,
 }
 
+-- Dissect: Message Block
 otcmarkets_linkats_trade_link_v4_10_4.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
   local dissect = otcmarkets_linkats_trade_link_v4_10_4.message_block.dispatch[bit.band(packet_flag, 0x01)]
   if dissect then

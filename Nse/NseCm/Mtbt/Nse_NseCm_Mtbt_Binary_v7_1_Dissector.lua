@@ -1108,7 +1108,7 @@ end
 -- Payload
 nse_nsecm_mtbt_binary_v7_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nse_nsecm_mtbt_binary_v7_1.payload.dispatch = {
   ["N"] = nse_nsecm_mtbt_binary_v7_1.new_order_message.dissect,
   ["M"] = nse_nsecm_mtbt_binary_v7_1.order_modification_message.dissect,
@@ -1122,6 +1122,7 @@ nse_nsecm_mtbt_binary_v7_1.payload.dispatch = {
   ["Z"] = nse_nsecm_mtbt_binary_v7_1.heartbeat_message.dissect,
 }
 
+-- Dissect: Payload
 nse_nsecm_mtbt_binary_v7_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nse_nsecm_mtbt_binary_v7_1.payload.dispatch[message_type]
   if dissect then

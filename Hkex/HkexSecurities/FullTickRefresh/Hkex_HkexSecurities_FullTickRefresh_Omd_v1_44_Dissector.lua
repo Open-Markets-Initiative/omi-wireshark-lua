@@ -3725,7 +3725,7 @@ end
 -- Payload
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.payload.dispatch = {
   [30] = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.add_order_message.dissect,
   [41] = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.indicative_equilibrium_price_message.dissect,
@@ -3741,6 +3741,7 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.payload.dispatch = {
   [23] = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.vcm_trigger_message.dissect,
 }
 
+-- Dissect: Payload
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = hkex_hkexsecurities_fulltickrefresh_omd_v1_44.payload.dispatch[msg_type]
   if dissect then

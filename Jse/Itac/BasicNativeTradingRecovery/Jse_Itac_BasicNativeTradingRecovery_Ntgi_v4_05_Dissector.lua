@@ -2681,7 +2681,7 @@ end
 -- Payload
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload.dispatch = {
   ["A"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.logon_message.dissect,
   ["B"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.logon_response_message.dissect,
@@ -2699,6 +2699,7 @@ jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload.dispatch = {
   ["j"] = jse_itac_basicnativetradingrecovery_ntgi_v4_05.business_reject_message.dissect,
 }
 
+-- Dissect: Payload
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = jse_itac_basicnativetradingrecovery_ntgi_v4_05.payload.dispatch[message_type]
   if dissect then

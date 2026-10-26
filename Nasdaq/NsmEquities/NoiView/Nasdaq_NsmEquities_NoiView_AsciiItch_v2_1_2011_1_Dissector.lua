@@ -1514,7 +1514,7 @@ end
 -- Payload
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.payload.dispatch = {
   ["S"] = nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.system_event_message.dissect,
   ["R"] = nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.stock_directory_message.dissect,
@@ -1524,6 +1524,7 @@ nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.payload.dispatch = {
   ["Q"] = nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.cross_trade_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.payload.dispatch[message_type]
   if dissect then
@@ -1651,11 +1652,12 @@ end
 -- Message Body
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.message_body.dispatch = {
   [0] = nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.end_of_session.dissect,
 }
 
+-- Dissect: Message Body
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.message_body.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.message_body.dispatch[message_length]
   if dissect then
@@ -1751,11 +1753,12 @@ end
 -- Messages
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.messages.dispatch = {
   [0] = nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1.messages.dispatch[message_count]
   if dissect then

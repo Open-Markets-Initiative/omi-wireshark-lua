@@ -2851,7 +2851,7 @@ end
 -- Payload
 bist_borsaistanbul_geniuminet_itch_v21_12.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 bist_borsaistanbul_geniuminet_itch_v21_12.payload.dispatch = {
   ["T"] = bist_borsaistanbul_geniuminet_itch_v21_12.seconds_message.dissect,
   ["R"] = bist_borsaistanbul_geniuminet_itch_v21_12.order_book_directory.dissect,
@@ -2871,6 +2871,7 @@ bist_borsaistanbul_geniuminet_itch_v21_12.payload.dispatch = {
   ["Z"] = bist_borsaistanbul_geniuminet_itch_v21_12.equilibrium_price_update.dissect,
 }
 
+-- Dissect: Payload
 bist_borsaistanbul_geniuminet_itch_v21_12.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = bist_borsaistanbul_geniuminet_itch_v21_12.payload.dispatch[message_type]
   if dissect then
@@ -3029,12 +3030,13 @@ end
 -- Messages
 bist_borsaistanbul_geniuminet_itch_v21_12.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 bist_borsaistanbul_geniuminet_itch_v21_12.messages.dispatch = {
   [0] = bist_borsaistanbul_geniuminet_itch_v21_12.heartbeat.dissect,
   [65535] = bist_borsaistanbul_geniuminet_itch_v21_12.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 bist_borsaistanbul_geniuminet_itch_v21_12.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = bist_borsaistanbul_geniuminet_itch_v21_12.messages.dispatch[message_count]
   if dissect then

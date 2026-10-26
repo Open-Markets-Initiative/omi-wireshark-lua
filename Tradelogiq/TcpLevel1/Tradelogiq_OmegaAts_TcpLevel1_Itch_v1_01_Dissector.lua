@@ -2028,7 +2028,7 @@ end
 -- Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.payload.dispatch = {
   ["W"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.quote_message.dissect,
   ["T"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.trade_report_message.dissect,
@@ -2040,6 +2040,7 @@ tradelogiq_omegaats_tcplevel1_itch_v1_01.payload.dispatch = {
   ["H"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.stock_status_message.dissect,
 }
 
+-- Dissect: Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tradelogiq_omegaats_tcplevel1_itch_v1_01.payload.dispatch[message_type]
   if dissect then
@@ -2307,7 +2308,7 @@ end
 -- Server Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.server_payload.dispatch = {
   ["A"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.login_accepted_packet.dissect,
   ["J"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.login_rejected_packet.dissect,
@@ -2315,6 +2316,7 @@ tradelogiq_omegaats_tcplevel1_itch_v1_01.server_payload.dispatch = {
   ["S"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.sequenced_data_packet.dissect,
 }
 
+-- Dissect: Server Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = tradelogiq_omegaats_tcplevel1_itch_v1_01.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2621,7 +2623,7 @@ end
 -- Client Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.client_payload.dispatch = {
   ["L"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.login_request_packet.dissect,
   ["U"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.unsequenced_data_packet.dissect,
@@ -2629,6 +2631,7 @@ tradelogiq_omegaats_tcplevel1_itch_v1_01.client_payload.dispatch = {
   ["O"] = tradelogiq_omegaats_tcplevel1_itch_v1_01.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 tradelogiq_omegaats_tcplevel1_itch_v1_01.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = tradelogiq_omegaats_tcplevel1_itch_v1_01.client_payload.dispatch[client_packet_type]
   if dissect then

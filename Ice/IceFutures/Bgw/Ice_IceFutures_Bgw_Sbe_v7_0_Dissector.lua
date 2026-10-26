@@ -6198,7 +6198,7 @@ ice_icefutures_bgw_sbe_v7_0.schema_id.size = 2
 -- Display: Schema Id
 ice_icefutures_bgw_sbe_v7_0.schema_id.display = function(value)
   if value == 7 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 7"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -15332,7 +15332,7 @@ end
 -- Payload
 ice_icefutures_bgw_sbe_v7_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 ice_icefutures_bgw_sbe_v7_0.payload.dispatch = {
   [0] = ice_icefutures_bgw_sbe_v7_0.simple_open_framing_header_message.dissect,
   [1] = ice_icefutures_bgw_sbe_v7_0.logon_request_message.dissect,
@@ -15378,6 +15378,7 @@ ice_icefutures_bgw_sbe_v7_0.payload.dispatch = {
   [111] = ice_icefutures_bgw_sbe_v7_0.sequence_reset_message.dissect,
 }
 
+-- Dissect: Payload
 ice_icefutures_bgw_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = ice_icefutures_bgw_sbe_v7_0.payload.dispatch[template_id]
   if dissect then

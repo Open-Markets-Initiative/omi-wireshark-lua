@@ -1585,7 +1585,7 @@ end
 -- Payload
 lme_lmeselect_level1snapshot_lmesource_v4_18.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 lme_lmeselect_level1snapshot_lmesource_v4_18.payload.dispatch = {
   [100] = lme_lmeselect_level1snapshot_lmesource_v4_18.sequence_reset_message.dissect,
   [311] = lme_lmeselect_level1snapshot_lmesource_v4_18.market_state_contract_message.dissect,
@@ -1596,6 +1596,7 @@ lme_lmeselect_level1snapshot_lmesource_v4_18.payload.dispatch = {
   [203] = lme_lmeselect_level1snapshot_lmesource_v4_18.refresh_complete_message.dissect,
 }
 
+-- Dissect: Payload
 lme_lmeselect_level1snapshot_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = lme_lmeselect_level1snapshot_lmesource_v4_18.payload.dispatch[msg_type]
   if dissect then

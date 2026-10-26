@@ -3462,7 +3462,7 @@ end
 -- Payload
 nyse_amexoptions_topfeed_xdp_v1_3_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_amexoptions_topfeed_xdp_v1_3_a.payload.dispatch = {
   [401] = nyse_amexoptions_topfeed_xdp_v1_3_a.outright_quote_message.dissect,
   [407] = nyse_amexoptions_topfeed_xdp_v1_3_a.outright_trade_message.dissect,
@@ -3483,6 +3483,7 @@ nyse_amexoptions_topfeed_xdp_v1_3_a.payload.dispatch = {
   [1] = nyse_amexoptions_topfeed_xdp_v1_3_a.sequence_number_reset_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_amexoptions_topfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_amexoptions_topfeed_xdp_v1_3_a.payload.dispatch[message_type]
   if dissect then

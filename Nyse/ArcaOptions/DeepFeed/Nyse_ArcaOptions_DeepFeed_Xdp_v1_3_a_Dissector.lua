@@ -2392,7 +2392,7 @@ end
 -- Payload
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.payload.dispatch = {
   [403] = nyse_arcaoptions_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.dissect,
   [405] = nyse_arcaoptions_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.dissect,
@@ -2406,6 +2406,7 @@ nyse_arcaoptions_deepfeed_xdp_v1_3_a.payload.dispatch = {
   [1] = nyse_arcaoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_arcaoptions_deepfeed_xdp_v1_3_a.payload.dispatch[message_type]
   if dissect then

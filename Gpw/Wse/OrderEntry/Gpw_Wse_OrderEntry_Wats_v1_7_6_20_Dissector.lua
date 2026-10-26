@@ -5822,7 +5822,7 @@ end
 -- Payload
 gpw_wse_orderentry_wats_v1_7_6_20.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_wse_orderentry_wats_v1_7_6_20.payload.dispatch = {
   [2] = gpw_wse_orderentry_wats_v1_7_6_20.login.dissect,
   [3] = gpw_wse_orderentry_wats_v1_7_6_20.login_response.dissect,
@@ -5856,6 +5856,7 @@ gpw_wse_orderentry_wats_v1_7_6_20.payload.dispatch = {
   [23] = gpw_wse_orderentry_wats_v1_7_6_20.trade_bust.dissect,
 }
 
+-- Dissect: Payload
 gpw_wse_orderentry_wats_v1_7_6_20.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_wse_orderentry_wats_v1_7_6_20.payload.dispatch[message_type]
   if dissect then

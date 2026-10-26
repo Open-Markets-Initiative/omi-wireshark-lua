@@ -4780,7 +4780,7 @@ cme_globex_mdp3_sbe_v1_8.version.size = 2
 -- Display: Version
 cme_globex_mdp3_sbe_v1_8.version.display = function(value)
   if value == 8 then
-    return "Version: Version"
+    return "Version: Version FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"
@@ -10119,7 +10119,7 @@ end
 -- Server Payload
 cme_globex_mdp3_sbe_v1_8.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 cme_globex_mdp3_sbe_v1_8.server_payload.dispatch = {
   [4] = cme_globex_mdp3_sbe_v1_8.channel_reset.dissect,
   [12] = cme_globex_mdp3_sbe_v1_8.admin_heartbeat.dissect,
@@ -10147,6 +10147,7 @@ cme_globex_mdp3_sbe_v1_8.server_payload.dispatch = {
   [207] = cme_globex_mdp3_sbe_v1_8.request_reject.dissect,
 }
 
+-- Dissect: Server Payload
 cme_globex_mdp3_sbe_v1_8.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_mdp3_sbe_v1_8.server_payload.dispatch[template_id]
   if dissect then
@@ -11335,7 +11336,7 @@ end
 -- Client Payload
 cme_globex_mdp3_sbe_v1_8.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 cme_globex_mdp3_sbe_v1_8.client_payload.dispatch = {
   [200] = cme_globex_mdp3_sbe_v1_8.negotiate.dissect,
   [203] = cme_globex_mdp3_sbe_v1_8.terminate.dissect,
@@ -11345,6 +11346,7 @@ cme_globex_mdp3_sbe_v1_8.client_payload.dispatch = {
   [210] = cme_globex_mdp3_sbe_v1_8.subscriber_heartbeat.dissect,
 }
 
+-- Dissect: Client Payload
 cme_globex_mdp3_sbe_v1_8.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_mdp3_sbe_v1_8.client_payload.dispatch[template_id]
   if dissect then
@@ -11562,7 +11564,7 @@ end
 -- Mdpsessionmgmt Payload
 cme_globex_mdp3_sbe_v1_8.mdpsessionmgmt_payload = {}
 
--- Dissect: Mdpsessionmgmt Payload
+-- Dispatch: Mdpsessionmgmt Payload
 cme_globex_mdp3_sbe_v1_8.mdpsessionmgmt_payload.dispatch = {
   [200] = cme_globex_mdp3_sbe_v1_8.negotiate.dissect,
   [201] = cme_globex_mdp3_sbe_v1_8.negotiation_reject.dissect,
@@ -11576,6 +11578,7 @@ cme_globex_mdp3_sbe_v1_8.mdpsessionmgmt_payload.dispatch = {
   [210] = cme_globex_mdp3_sbe_v1_8.subscriber_heartbeat.dissect,
 }
 
+-- Dissect: Mdpsessionmgmt Payload
 cme_globex_mdp3_sbe_v1_8.mdpsessionmgmt_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_mdp3_sbe_v1_8.mdpsessionmgmt_payload.dispatch[template_id]
   if dissect then
@@ -11639,7 +11642,7 @@ end
 -- Mktdata Payload
 cme_globex_mdp3_sbe_v1_8.mktdata_payload = {}
 
--- Dissect: Mktdata Payload
+-- Dispatch: Mktdata Payload
 cme_globex_mdp3_sbe_v1_8.mktdata_payload.dispatch = {
   [4] = cme_globex_mdp3_sbe_v1_8.channel_reset.dissect,
   [12] = cme_globex_mdp3_sbe_v1_8.admin_heartbeat.dissect,
@@ -11662,6 +11665,7 @@ cme_globex_mdp3_sbe_v1_8.mktdata_payload.dispatch = {
   [44] = cme_globex_mdp3_sbe_v1_8.snapshot_full_refresh_order_book.dissect,
 }
 
+-- Dissect: Mktdata Payload
 cme_globex_mdp3_sbe_v1_8.mktdata_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_mdp3_sbe_v1_8.mktdata_payload.dispatch[template_id]
   if dissect then
@@ -11725,12 +11729,13 @@ end
 -- Payload
 cme_globex_mdp3_sbe_v1_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cme_globex_mdp3_sbe_v1_8.payload.dispatch = {
   [1] = cme_globex_mdp3_sbe_v1_8.mktdata_message.dissect,
   [2] = cme_globex_mdp3_sbe_v1_8.mdpsessionmgmt_message.dissect,
 }
 
+-- Dissect: Payload
 cme_globex_mdp3_sbe_v1_8.payload.dissect = function(buffer, offset, packet, parent, schema_id)
   local dissect = cme_globex_mdp3_sbe_v1_8.payload.dispatch[schema_id]
   if dissect then

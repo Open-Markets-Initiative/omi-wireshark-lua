@@ -875,7 +875,7 @@ memx_memxoptions_memoirdepth_sbe_v1_6_a.schema_id.size = 1
 -- Display: Schema Id
 memx_memxoptions_memoirdepth_sbe_v1_6_a.schema_id.display = function(value)
   if value == 10 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 10"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -2088,7 +2088,7 @@ end
 -- Payload
 memx_memxoptions_memoirdepth_sbe_v1_6_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 memx_memxoptions_memoirdepth_sbe_v1_6_a.payload.dispatch = {
   [1] = memx_memxoptions_memoirdepth_sbe_v1_6_a.instrument_directory_message.dissect,
   [2] = memx_memxoptions_memoirdepth_sbe_v1_6_a.options_instrument_status_message.dissect,
@@ -2105,6 +2105,7 @@ memx_memxoptions_memoirdepth_sbe_v1_6_a.payload.dispatch = {
   [18] = memx_memxoptions_memoirdepth_sbe_v1_6_a.clear_book_message.dissect,
 }
 
+-- Dissect: Payload
 memx_memxoptions_memoirdepth_sbe_v1_6_a.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = memx_memxoptions_memoirdepth_sbe_v1_6_a.payload.dispatch[template_id]
   if dissect then
@@ -2374,13 +2375,14 @@ end
 -- Sequenced Messages
 memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_messages = {}
 
--- Dissect: Sequenced Messages
+-- Dispatch: Sequenced Messages
 memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_messages.dispatch = {
   [0] = memx_memxoptions_memoirdepth_sbe_v1_6_a.heartbeat.dissect,
   [1] = memx_memxoptions_memoirdepth_sbe_v1_6_a.session_shutdown.dissect,
   [2] = memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_message.dissect,
 }
 
+-- Dissect: Sequenced Messages
 memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_messages.dispatch[message_type]
   if dissect then

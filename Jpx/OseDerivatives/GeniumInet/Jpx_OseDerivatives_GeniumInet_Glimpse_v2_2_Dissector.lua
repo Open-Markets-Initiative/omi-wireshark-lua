@@ -2773,7 +2773,7 @@ end
 -- Sequenced Message
 jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message.dispatch = {
   ["T"] = jpx_osederivatives_geniuminet_glimpse_v2_2.seconds_message.dissect,
   ["R"] = jpx_osederivatives_geniuminet_glimpse_v2_2.series_information_basic_message.dissect,
@@ -2789,6 +2789,7 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message.dispatch = {
   ["G"] = jpx_osederivatives_geniuminet_glimpse_v2_2.snapshot_completion_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = jpx_osederivatives_geniuminet_glimpse_v2_2.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -3034,7 +3035,7 @@ end
 -- Server Payload
 jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload.dispatch = {
   ["+"] = jpx_osederivatives_geniuminet_glimpse_v2_2.debug_packet.dissect,
   ["A"] = jpx_osederivatives_geniuminet_glimpse_v2_2.login_accepted_packet.dissect,
@@ -3044,6 +3045,7 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload.dispatch = {
   ["Z"] = jpx_osederivatives_geniuminet_glimpse_v2_2.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = jpx_osederivatives_geniuminet_glimpse_v2_2.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3359,7 +3361,7 @@ end
 -- Client Payload
 jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload.dispatch = {
   ["+"] = jpx_osederivatives_geniuminet_glimpse_v2_2.debug_packet.dissect,
   ["L"] = jpx_osederivatives_geniuminet_glimpse_v2_2.login_request_packet.dissect,
@@ -3368,6 +3370,7 @@ jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload.dispatch = {
   ["O"] = jpx_osederivatives_geniuminet_glimpse_v2_2.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = jpx_osederivatives_geniuminet_glimpse_v2_2.client_payload.dispatch[client_packet_type]
   if dissect then

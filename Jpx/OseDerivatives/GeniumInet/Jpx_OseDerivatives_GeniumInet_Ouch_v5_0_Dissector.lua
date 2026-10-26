@@ -1892,7 +1892,7 @@ end
 -- Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dispatch = {
   ["A"] = jpx_osederivatives_geniuminet_ouch_v5_0.order_accepted.dissect,
   ["M"] = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel_accepted.dissect,
@@ -1902,6 +1902,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dispatch = {
   ["E"] = jpx_osederivatives_geniuminet_ouch_v5_0.order_executed.dissect,
 }
 
+-- Dissect: Sequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2147,7 +2148,7 @@ end
 -- Server Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dispatch = {
   ["+"] = jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect,
   ["A"] = jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.dissect,
@@ -2157,6 +2158,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dispatch = {
   ["Z"] = jpx_osederivatives_geniuminet_ouch_v5_0.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = jpx_osederivatives_geniuminet_ouch_v5_0.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2707,7 +2709,7 @@ end
 -- Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dispatch = {
   ["O"] = jpx_osederivatives_geniuminet_ouch_v5_0.enter_order.dissect,
   ["P"] = jpx_osederivatives_geniuminet_ouch_v5_0.enter_mm_order.dissect,
@@ -2717,6 +2719,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dispatch = {
   ["M"] = jpx_osederivatives_geniuminet_ouch_v5_0.mass_cancel.dissect,
 }
 
+-- Dissect: Unsequenced Message
 jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = jpx_osederivatives_geniuminet_ouch_v5_0.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -2834,7 +2837,7 @@ end
 -- Client Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dispatch = {
   ["+"] = jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.dissect,
   ["L"] = jpx_osederivatives_geniuminet_ouch_v5_0.login_request_packet.dissect,
@@ -2843,6 +2846,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dispatch = {
   ["O"] = jpx_osederivatives_geniuminet_ouch_v5_0.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = jpx_osederivatives_geniuminet_ouch_v5_0.client_payload.dispatch[client_packet_type]
   if dissect then

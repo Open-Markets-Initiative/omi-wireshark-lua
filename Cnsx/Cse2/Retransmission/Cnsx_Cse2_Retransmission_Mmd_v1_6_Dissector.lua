@@ -3190,7 +3190,7 @@ end
 -- Payload
 cnsx_cse2_retransmission_mmd_v1_6.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cnsx_cse2_retransmission_mmd_v1_6.payload.dispatch = {
   ["T"] = cnsx_cse2_retransmission_mmd_v1_6.time_message.dissect,
   ["S"] = cnsx_cse2_retransmission_mmd_v1_6.system_event_message.dissect,
@@ -3216,6 +3216,7 @@ cnsx_cse2_retransmission_mmd_v1_6.payload.dispatch = {
   ["h"] = cnsx_cse2_retransmission_mmd_v1_6.heartbeat_message.dissect,
 }
 
+-- Dissect: Payload
 cnsx_cse2_retransmission_mmd_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = cnsx_cse2_retransmission_mmd_v1_6.payload.dispatch[message_type]
   if dissect then

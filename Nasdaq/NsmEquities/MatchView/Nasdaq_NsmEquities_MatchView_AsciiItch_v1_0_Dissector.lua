@@ -530,11 +530,12 @@ end
 -- Payload
 nasdaq_nsmequities_matchview_asciiitch_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nsmequities_matchview_asciiitch_v1_0.payload.dispatch = {
   ["U"] = nasdaq_nsmequities_matchview_asciiitch_v1_0.best_bid_and_offer_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nsmequities_matchview_asciiitch_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_matchview_asciiitch_v1_0.payload.dispatch[message_type]
   if dissect then
@@ -662,11 +663,12 @@ end
 -- Message Body
 nasdaq_nsmequities_matchview_asciiitch_v1_0.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 nasdaq_nsmequities_matchview_asciiitch_v1_0.message_body.dispatch = {
   [0] = nasdaq_nsmequities_matchview_asciiitch_v1_0.end_of_session.dissect,
 }
 
+-- Dissect: Message Body
 nasdaq_nsmequities_matchview_asciiitch_v1_0.message_body.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nasdaq_nsmequities_matchview_asciiitch_v1_0.message_body.dispatch[message_length]
   if dissect then
@@ -762,11 +764,12 @@ end
 -- Messages
 nasdaq_nsmequities_matchview_asciiitch_v1_0.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nsmequities_matchview_asciiitch_v1_0.messages.dispatch = {
   [0] = nasdaq_nsmequities_matchview_asciiitch_v1_0.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nsmequities_matchview_asciiitch_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nsmequities_matchview_asciiitch_v1_0.messages.dispatch[message_count]
   if dissect then

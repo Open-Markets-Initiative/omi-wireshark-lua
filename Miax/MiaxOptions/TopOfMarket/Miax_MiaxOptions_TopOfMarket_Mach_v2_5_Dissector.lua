@@ -3727,7 +3727,7 @@ end
 -- Data
 miax_miaxoptions_topofmarket_mach_v2_5.data = {}
 
--- Dissect: Data
+-- Dispatch: Data
 miax_miaxoptions_topofmarket_mach_v2_5.data.dispatch = {
   ["1"] = miax_miaxoptions_topofmarket_mach_v2_5.system_time_message.dissect,
   ["P"] = miax_miaxoptions_topofmarket_mach_v2_5.simple_series_update_message.dissect,
@@ -3743,6 +3743,7 @@ miax_miaxoptions_topofmarket_mach_v2_5.data.dispatch = {
   ["H"] = miax_miaxoptions_topofmarket_mach_v2_5.underlying_trading_status_notification_message.dissect,
 }
 
+-- Dissect: Data
 miax_miaxoptions_topofmarket_mach_v2_5.data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = miax_miaxoptions_topofmarket_mach_v2_5.data.dispatch[message_type]
   if dissect then
@@ -3894,13 +3895,14 @@ end
 -- Unsequenced Message
 miax_miaxoptions_topofmarket_mach_v2_5.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 miax_miaxoptions_topofmarket_mach_v2_5.unsequenced_message.dispatch = {
   ["R"] = miax_miaxoptions_topofmarket_mach_v2_5.refresh_request_message.dissect,
   ["r"] = miax_miaxoptions_topofmarket_mach_v2_5.refresh_response_message.dissect,
   ["E"] = miax_miaxoptions_topofmarket_mach_v2_5.end_of_refresh_notification_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 miax_miaxoptions_topofmarket_mach_v2_5.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = miax_miaxoptions_topofmarket_mach_v2_5.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -4025,7 +4027,7 @@ end
 -- Sesm Payload
 miax_miaxoptions_topofmarket_mach_v2_5.sesm_payload = {}
 
--- Dissect: Sesm Payload
+-- Dispatch: Sesm Payload
 miax_miaxoptions_topofmarket_mach_v2_5.sesm_payload.dispatch = {
   ["s"] = miax_miaxoptions_topofmarket_mach_v2_5.sequenced_data_packet.dissect,
   ["U"] = miax_miaxoptions_topofmarket_mach_v2_5.unsequenced_data_packet.dissect,
@@ -4041,6 +4043,7 @@ miax_miaxoptions_topofmarket_mach_v2_5.sesm_payload.dispatch = {
   ["T"] = miax_miaxoptions_topofmarket_mach_v2_5.test_packet.dissect,
 }
 
+-- Dissect: Sesm Payload
 miax_miaxoptions_topofmarket_mach_v2_5.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   local dissect = miax_miaxoptions_topofmarket_mach_v2_5.sesm_payload.dispatch[sesm_packet_type]
   if dissect then
@@ -4260,7 +4263,7 @@ end
 -- Payload
 miax_miaxoptions_topofmarket_mach_v2_5.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 miax_miaxoptions_topofmarket_mach_v2_5.payload.dispatch = {
   [0] = miax_miaxoptions_topofmarket_mach_v2_5.heartbeat.dissect,
   [1] = miax_miaxoptions_topofmarket_mach_v2_5.start_of_session.dissect,
@@ -4268,6 +4271,7 @@ miax_miaxoptions_topofmarket_mach_v2_5.payload.dispatch = {
   [3] = miax_miaxoptions_topofmarket_mach_v2_5.application_message.dissect,
 }
 
+-- Dissect: Payload
 miax_miaxoptions_topofmarket_mach_v2_5.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = miax_miaxoptions_topofmarket_mach_v2_5.payload.dispatch[packet_type]
   if dissect then

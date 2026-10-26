@@ -2268,7 +2268,7 @@ end
 -- Sequenced Message
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message.dispatch = {
   ["A"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_accepted.dissect,
   ["J"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_rejected.dissect,
@@ -2279,6 +2279,7 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message.dispatch = {
   ["R"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.mass_quote_rejection.dissect,
 }
 
+-- Dissect: Sequenced Message
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = bist_borsaistanbul_geniuminet_ouch_v2025_0206.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2524,7 +2525,7 @@ end
 -- Server Payload
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload.dispatch = {
   ["+"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.dissect,
   ["A"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.login_accepted_packet.dissect,
@@ -2534,6 +2535,7 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload.dispatch = {
   ["Z"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3144,7 +3146,7 @@ end
 -- Unsequenced Message
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message.dispatch = {
   ["O"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.enter_order.dissect,
   ["U"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.replace_order.dissect,
@@ -3153,6 +3155,7 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message.dispatch = {
   ["Q"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.mass_quote.dissect,
 }
 
+-- Dissect: Unsequenced Message
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = bist_borsaistanbul_geniuminet_ouch_v2025_0206.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -3270,7 +3273,7 @@ end
 -- Client Payload
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload.dispatch = {
   ["+"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.dissect,
   ["L"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.login_request_packet.dissect,
@@ -3279,6 +3282,7 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload.dispatch = {
   ["O"] = bist_borsaistanbul_geniuminet_ouch_v2025_0206.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_payload.dispatch[client_packet_type]
   if dissect then

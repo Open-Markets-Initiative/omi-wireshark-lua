@@ -2283,7 +2283,7 @@ end
 -- Udp Payload
 nasdaq_phlxoptions_orders_itch_v2_1.udp_payload = {}
 
--- Dissect: Udp Payload
+-- Dispatch: Udp Payload
 nasdaq_phlxoptions_orders_itch_v2_1.udp_payload.dispatch = {
   ["S"] = nasdaq_phlxoptions_orders_itch_v2_1.system_event_message.dissect,
   ["m"] = nasdaq_phlxoptions_orders_itch_v2_1.derivative_directory_message.dissect,
@@ -2292,6 +2292,7 @@ nasdaq_phlxoptions_orders_itch_v2_1.udp_payload.dispatch = {
   ["J"] = nasdaq_phlxoptions_orders_itch_v2_1.auction_message.dissect,
 }
 
+-- Dissect: Udp Payload
 nasdaq_phlxoptions_orders_itch_v2_1.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_phlxoptions_orders_itch_v2_1.udp_payload.dispatch[message_type]
   if dissect then
@@ -2450,12 +2451,13 @@ end
 -- Messages
 nasdaq_phlxoptions_orders_itch_v2_1.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_phlxoptions_orders_itch_v2_1.messages.dispatch = {
   [0] = nasdaq_phlxoptions_orders_itch_v2_1.heartbeat.dissect,
   [65535] = nasdaq_phlxoptions_orders_itch_v2_1.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_phlxoptions_orders_itch_v2_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_phlxoptions_orders_itch_v2_1.messages.dispatch[message_count]
   if dissect then
@@ -2628,7 +2630,7 @@ end
 -- Sequenced Message
 nasdaq_phlxoptions_orders_itch_v2_1.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_phlxoptions_orders_itch_v2_1.sequenced_message.dispatch = {
   ["S"] = nasdaq_phlxoptions_orders_itch_v2_1.system_event_message.dissect,
   ["m"] = nasdaq_phlxoptions_orders_itch_v2_1.derivative_directory_message.dissect,
@@ -2638,6 +2640,7 @@ nasdaq_phlxoptions_orders_itch_v2_1.sequenced_message.dispatch = {
   ["M"] = nasdaq_phlxoptions_orders_itch_v2_1.end_of_replay_sequence_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_phlxoptions_orders_itch_v2_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_phlxoptions_orders_itch_v2_1.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2883,7 +2886,7 @@ end
 -- Server Payload
 nasdaq_phlxoptions_orders_itch_v2_1.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_phlxoptions_orders_itch_v2_1.server_payload.dispatch = {
   ["+"] = nasdaq_phlxoptions_orders_itch_v2_1.debug_packet.dissect,
   ["A"] = nasdaq_phlxoptions_orders_itch_v2_1.login_accepted_packet.dissect,
@@ -2893,6 +2896,7 @@ nasdaq_phlxoptions_orders_itch_v2_1.server_payload.dispatch = {
   ["Z"] = nasdaq_phlxoptions_orders_itch_v2_1.end_of_session_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_phlxoptions_orders_itch_v2_1.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_phlxoptions_orders_itch_v2_1.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3206,7 +3210,7 @@ end
 -- Client Payload
 nasdaq_phlxoptions_orders_itch_v2_1.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_phlxoptions_orders_itch_v2_1.client_payload.dispatch = {
   ["+"] = nasdaq_phlxoptions_orders_itch_v2_1.debug_packet.dissect,
   ["L"] = nasdaq_phlxoptions_orders_itch_v2_1.login_request_packet.dissect,
@@ -3215,6 +3219,7 @@ nasdaq_phlxoptions_orders_itch_v2_1.client_payload.dispatch = {
   ["O"] = nasdaq_phlxoptions_orders_itch_v2_1.logout_request_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_phlxoptions_orders_itch_v2_1.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_phlxoptions_orders_itch_v2_1.client_payload.dispatch[client_packet_type]
   if dissect then

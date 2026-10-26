@@ -1953,7 +1953,7 @@ end
 -- Message Data
 iex_iexequities_deepplus_iextp_v1_01.message_data = {}
 
--- Dissect: Message Data
+-- Dispatch: Message Data
 iex_iexequities_deepplus_iextp_v1_01.message_data.dispatch = {
   ["S"] = iex_iexequities_deepplus_iextp_v1_01.system_event_message.dissect,
   ["D"] = iex_iexequities_deepplus_iextp_v1_01.security_directory_message.dissect,
@@ -1971,6 +1971,7 @@ iex_iexequities_deepplus_iextp_v1_01.message_data.dispatch = {
   ["C"] = iex_iexequities_deepplus_iextp_v1_01.clear_book_message.dissect,
 }
 
+-- Dissect: Message Data
 iex_iexequities_deepplus_iextp_v1_01.message_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = iex_iexequities_deepplus_iextp_v1_01.message_data.dispatch[message_type]
   if dissect then
@@ -2112,11 +2113,12 @@ end
 -- Messages
 iex_iexequities_deepplus_iextp_v1_01.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 iex_iexequities_deepplus_iextp_v1_01.messages.dispatch = {
   [0] = iex_iexequities_deepplus_iextp_v1_01.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 iex_iexequities_deepplus_iextp_v1_01.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = iex_iexequities_deepplus_iextp_v1_01.messages.dispatch[message_count]
   if dissect then

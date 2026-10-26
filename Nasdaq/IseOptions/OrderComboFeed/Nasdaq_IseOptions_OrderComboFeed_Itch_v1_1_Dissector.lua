@@ -1968,7 +1968,7 @@ end
 -- Payload
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.dispatch = {
   ["S"] = nasdaq_iseoptions_ordercombofeed_itch_v1_1.system_event_message.dissect,
   ["R"] = nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_directory_message.dissect,
@@ -1978,6 +1978,7 @@ nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.dispatch = {
   ["J"] = nasdaq_iseoptions_ordercombofeed_itch_v1_1.complex_strategy_auction_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_iseoptions_ordercombofeed_itch_v1_1.payload.dispatch[message_type]
   if dissect then
@@ -2136,12 +2137,13 @@ end
 -- Messages
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages.dispatch = {
   [0] = nasdaq_iseoptions_ordercombofeed_itch_v1_1.heartbeat.dissect,
   [65535] = nasdaq_iseoptions_ordercombofeed_itch_v1_1.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_iseoptions_ordercombofeed_itch_v1_1.messages.dispatch[message_count]
   if dissect then

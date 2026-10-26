@@ -794,7 +794,7 @@ end
 -- Payload
 aquis_aquisequities_snapshot_amd_v4_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 aquis_aquisequities_snapshot_amd_v4_1.payload.dispatch = {
   [10] = aquis_aquisequities_snapshot_amd_v4_1.snapshot_start_message.dissect,
   [11] = aquis_aquisequities_snapshot_amd_v4_1.book_status_message.dissect,
@@ -802,6 +802,7 @@ aquis_aquisequities_snapshot_amd_v4_1.payload.dispatch = {
   [18] = aquis_aquisequities_snapshot_amd_v4_1.ma_c_book_entry_message.dissect,
 }
 
+-- Dissect: Payload
 aquis_aquisequities_snapshot_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = aquis_aquisequities_snapshot_amd_v4_1.payload.dispatch[msg_type]
   if dissect then

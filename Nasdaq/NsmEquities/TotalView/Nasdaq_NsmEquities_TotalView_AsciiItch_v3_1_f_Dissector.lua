@@ -3117,7 +3117,7 @@ end
 -- Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.payload.dispatch = {
   ["T"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.seconds_message.dissect,
   ["M"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.milliseconds_message.dissect,
@@ -3139,6 +3139,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.payload.dispatch = {
   ["I"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.net_order_imbalance_indicator_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.payload.dispatch[message_type]
   if dissect then
@@ -3297,12 +3298,13 @@ end
 -- Messages
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.messages.dispatch = {
   [0] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.heartbeat.dissect,
   [65535] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.messages.dispatch[message_count]
   if dissect then
@@ -3409,7 +3411,7 @@ end
 -- Sequenced Message
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.sequenced_message.dispatch = {
   ["T"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.seconds_message.dissect,
   ["M"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.milliseconds_message.dissect,
@@ -3431,6 +3433,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.sequenced_message.dispatch = {
   ["I"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.net_order_imbalance_indicator_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.sequenced_message.dispatch[message_type]
   if dissect then
@@ -3672,7 +3675,7 @@ end
 -- Server Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.server_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.debug_packet.dissect,
   ["A"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.login_accepted_packet.dissect,
@@ -3680,6 +3683,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1_f.server_payload.dispatch = {
   ["S"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.sequenced_data_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3950,13 +3954,14 @@ end
 -- Client Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.client_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.debug_packet.dissect,
   ["L"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.login_request_packet.dissect,
   ["U"] = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.unsequenced_data_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nsmequities_totalview_asciiitch_v3_1_f.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v3_1_f.client_payload.dispatch[client_packet_type]
   if dissect then

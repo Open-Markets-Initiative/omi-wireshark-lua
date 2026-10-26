@@ -1491,7 +1491,7 @@ end
 -- Message Body
 currenex_currenexforex_esp_cbp_v9.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 currenex_currenexforex_esp_cbp_v9.message_body.dispatch = {
   ["A"] = currenex_currenexforex_esp_cbp_v9.logon.dissect,
   ["B"] = currenex_currenexforex_esp_cbp_v9.logout.dissect,
@@ -1506,6 +1506,7 @@ currenex_currenexforex_esp_cbp_v9.message_body.dispatch = {
   ["K"] = currenex_currenexforex_esp_cbp_v9.reject_message.dissect,
 }
 
+-- Dissect: Message Body
 currenex_currenexforex_esp_cbp_v9.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = currenex_currenexforex_esp_cbp_v9.message_body.dispatch[message_type]
   if dissect then

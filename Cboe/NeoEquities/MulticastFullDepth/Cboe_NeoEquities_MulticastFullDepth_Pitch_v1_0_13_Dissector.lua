@@ -2866,11 +2866,12 @@ end
 -- Messages
 cboe_neoequities_multicastfulldepth_pitch_v1_0_13.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_neoequities_multicastfulldepth_pitch_v1_0_13.messages.dispatch = {
   [0] = cboe_neoequities_multicastfulldepth_pitch_v1_0_13.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_neoequities_multicastfulldepth_pitch_v1_0_13.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_neoequities_multicastfulldepth_pitch_v1_0_13.messages.dispatch[message_count]
   if dissect then

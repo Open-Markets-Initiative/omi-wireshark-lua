@@ -1838,7 +1838,7 @@ end
 -- Payload
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload.dispatch = {
   ["W"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.quote_message.dissect,
   ["T"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.trade_report_message.dissect,
@@ -1850,6 +1850,7 @@ tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload.dispatch = {
   ["H"] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.stock_status_message.dissect,
 }
 
+-- Dissect: Payload
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tradelogiq_lynxats_multicastlevel1_itch_v1_01.payload.dispatch[message_type]
   if dissect then
@@ -1991,11 +1992,12 @@ end
 -- Messages
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.messages.dispatch = {
   [0] = tradelogiq_lynxats_multicastlevel1_itch_v1_01.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 tradelogiq_lynxats_multicastlevel1_itch_v1_01.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = tradelogiq_lynxats_multicastlevel1_itch_v1_01.messages.dispatch[message_count]
   if dissect then

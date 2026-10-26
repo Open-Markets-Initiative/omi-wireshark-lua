@@ -3301,7 +3301,7 @@ end
 -- Return Control Messages Message Payload
 nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload = {}
 
--- Dissect: Return Control Messages Message Payload
+-- Dispatch: Return Control Messages Message Payload
 nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload.dispatch = {
   ["E"] = nasdaq_utp_input_utp_v4_0.start_of_day_message.dissect,
   ["F"] = nasdaq_utp_input_utp_v4_0.end_of_day_message.dissect,
@@ -3309,6 +3309,7 @@ nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload.dispatch = {
   ["S"] = nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_response_message.dissect,
 }
 
+-- Dissect: Return Control Messages Message Payload
 nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload.dissect = function(buffer, offset, packet, parent, return_control_messages_message_type)
   local dissect = nasdaq_utp_input_utp_v4_0.return_control_messages_message_payload.dispatch[return_control_messages_message_type]
   if dissect then
@@ -3750,7 +3751,7 @@ end
 -- Return Administrative Messages Message Payload
 nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload = {}
 
--- Dissect: Return Administrative Messages Message Payload
+-- Dispatch: Return Administrative Messages Message Payload
 nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload.dispatch = {
   ["A"] = nasdaq_utp_input_utp_v4_0.return_general_administrative_message.dissect,
   ["J"] = nasdaq_utp_input_utp_v4_0.return_market_center_trading_action_acknowledgement_message.dissect,
@@ -3761,6 +3762,7 @@ nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload.dispatc
   ["W"] = nasdaq_utp_input_utp_v4_0.participant_input_warning_message.dissect,
 }
 
+-- Dissect: Return Administrative Messages Message Payload
 nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload.dissect = function(buffer, offset, packet, parent, return_administrative_messages_message_type)
   local dissect = nasdaq_utp_input_utp_v4_0.return_administrative_messages_message_payload.dispatch[return_administrative_messages_message_type]
   if dissect then
@@ -3986,13 +3988,14 @@ end
 -- Inbound Control Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_control_messages_message_payload = {}
 
--- Dissect: Inbound Control Messages Message Payload
+-- Dispatch: Inbound Control Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_control_messages_message_payload.dispatch = {
   ["C"] = nasdaq_utp_input_utp_v4_0.sequence_inquiry_message.dissect,
   ["S"] = nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_message.dissect,
   ["G"] = nasdaq_utp_input_utp_v4_0.end_of_participant_reporting_message.dissect,
 }
 
+-- Dissect: Inbound Control Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_control_messages_message_payload.dissect = function(buffer, offset, packet, parent, inbound_control_messages_message_type)
   local dissect = nasdaq_utp_input_utp_v4_0.inbound_control_messages_message_payload.dispatch[inbound_control_messages_message_type]
   if dissect then
@@ -4682,7 +4685,7 @@ end
 -- Inbound Administrative Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload = {}
 
--- Dissect: Inbound Administrative Messages Message Payload
+-- Dispatch: Inbound Administrative Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload.dispatch = {
   ["A"] = nasdaq_utp_input_utp_v4_0.general_administrative_message.dissect,
   ["O"] = nasdaq_utp_input_utp_v4_0.trading_action_message.dissect,
@@ -4696,6 +4699,7 @@ nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload.dispat
   ["E"] = nasdaq_utp_input_utp_v4_0.auction_collar_message.dissect,
 }
 
+-- Dissect: Inbound Administrative Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload.dissect = function(buffer, offset, packet, parent, inbound_administrative_messages_message_type)
   local dissect = nasdaq_utp_input_utp_v4_0.inbound_administrative_messages_message_payload.dispatch[inbound_administrative_messages_message_type]
   if dissect then
@@ -5529,7 +5533,7 @@ end
 -- Inbound Trade Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload = {}
 
--- Dissect: Inbound Trade Messages Message Payload
+-- Dispatch: Inbound Trade Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload.dispatch = {
   ["E"] = nasdaq_utp_input_utp_v4_0.regular_trade_report_message.dissect,
   ["I"] = nasdaq_utp_input_utp_v4_0.trade_cancel_error_message.dissect,
@@ -5541,6 +5545,7 @@ nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload.dispatch = {
   ["Q"] = nasdaq_utp_input_utp_v4_0.fractional_as_of_trade_report_message.dissect,
 }
 
+-- Dissect: Inbound Trade Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload.dissect = function(buffer, offset, packet, parent, inbound_trade_messages_message_type)
   local dissect = nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message_payload.dispatch[inbound_trade_messages_message_type]
   if dissect then
@@ -6972,7 +6977,7 @@ end
 -- Inbound Quote Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload = {}
 
--- Dissect: Inbound Quote Messages Message Payload
+-- Dispatch: Inbound Quote Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload.dispatch = {
   ["Q"] = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.dissect,
   ["L"] = nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.dissect,
@@ -6986,6 +6991,7 @@ nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload.dispatch = {
   ["R"] = nasdaq_utp_input_utp_v4_0.finra_adf_combined_quote_message_with_bbo.dissect,
 }
 
+-- Dissect: Inbound Quote Messages Message Payload
 nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload.dissect = function(buffer, offset, packet, parent, inbound_quote_messages_message_type)
   local dissect = nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message_payload.dispatch[inbound_quote_messages_message_type]
   if dissect then
@@ -7051,7 +7057,7 @@ end
 -- Category Payload
 nasdaq_utp_input_utp_v4_0.category_payload = {}
 
--- Dissect: Category Payload
+-- Dispatch: Category Payload
 nasdaq_utp_input_utp_v4_0.category_payload.dispatch = {
   ["Q"] = nasdaq_utp_input_utp_v4_0.inbound_quote_messages_message.dissect,
   ["T"] = nasdaq_utp_input_utp_v4_0.inbound_trade_messages_message.dissect,
@@ -7061,6 +7067,7 @@ nasdaq_utp_input_utp_v4_0.category_payload.dispatch = {
   ["c"] = nasdaq_utp_input_utp_v4_0.return_control_messages_message.dissect,
 }
 
+-- Dissect: Category Payload
 nasdaq_utp_input_utp_v4_0.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = nasdaq_utp_input_utp_v4_0.category_payload.dispatch[message_category]
   if dissect then
@@ -7171,7 +7178,7 @@ end
 -- Server Tcp Payload
 nasdaq_utp_input_utp_v4_0.server_tcp_payload = {}
 
--- Dissect: Server Tcp Payload
+-- Dispatch: Server Tcp Payload
 nasdaq_utp_input_utp_v4_0.server_tcp_payload.dispatch = {
   ["S"] = nasdaq_utp_input_utp_v4_0.sequenced_data_packet.dissect,
   ["+"] = nasdaq_utp_input_utp_v4_0.debug_packet.dissect,
@@ -7181,6 +7188,7 @@ nasdaq_utp_input_utp_v4_0.server_tcp_payload.dispatch = {
   ["Z"] = nasdaq_utp_input_utp_v4_0.end_of_session_packet.dissect,
 }
 
+-- Dissect: Server Tcp Payload
 nasdaq_utp_input_utp_v4_0.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_utp_input_utp_v4_0.server_tcp_payload.dispatch[server_packet_type]
   if dissect then
@@ -7407,7 +7415,7 @@ end
 -- Client Tcp Payload
 nasdaq_utp_input_utp_v4_0.client_tcp_payload = {}
 
--- Dissect: Client Tcp Payload
+-- Dispatch: Client Tcp Payload
 nasdaq_utp_input_utp_v4_0.client_tcp_payload.dispatch = {
   ["U"] = nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.dissect,
   ["+"] = nasdaq_utp_input_utp_v4_0.debug_packet.dissect,
@@ -7416,6 +7424,7 @@ nasdaq_utp_input_utp_v4_0.client_tcp_payload.dispatch = {
   ["O"] = nasdaq_utp_input_utp_v4_0.logout_request_packet.dissect,
 }
 
+-- Dissect: Client Tcp Payload
 nasdaq_utp_input_utp_v4_0.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_utp_input_utp_v4_0.client_tcp_payload.dispatch[client_packet_type]
   if dissect then

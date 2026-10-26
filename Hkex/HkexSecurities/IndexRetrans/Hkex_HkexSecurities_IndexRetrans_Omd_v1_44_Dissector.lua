@@ -1580,7 +1580,7 @@ end
 -- Payload
 hkex_hkexsecurities_indexretrans_omd_v1_44.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 hkex_hkexsecurities_indexretrans_omd_v1_44.payload.dispatch = {
   [100] = hkex_hkexsecurities_indexretrans_omd_v1_44.sequence_reset_message.dissect,
   [105] = hkex_hkexsecurities_indexretrans_omd_v1_44.disaster_recovery_signal_message.dissect,
@@ -1593,6 +1593,7 @@ hkex_hkexsecurities_indexretrans_omd_v1_44.payload.dispatch = {
   [202] = hkex_hkexsecurities_indexretrans_omd_v1_44.retransmission_response_message.dissect,
 }
 
+-- Dissect: Payload
 hkex_hkexsecurities_indexretrans_omd_v1_44.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = hkex_hkexsecurities_indexretrans_omd_v1_44.payload.dispatch[msg_type]
   if dissect then

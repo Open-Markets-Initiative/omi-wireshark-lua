@@ -3143,7 +3143,7 @@ end
 -- Payload
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload.dispatch = {
   ["T"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.seconds_message.dissect,
   ["R"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.order_book_directory.dissect,
@@ -3164,6 +3164,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload.dispatch = {
   ["q"] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.quote_request_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.payload.dispatch[message_type]
   if dissect then
@@ -3322,12 +3323,13 @@ end
 -- Messages
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.messages.dispatch = {
   [0] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.heartbeat.dissect,
   [65535] = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.messages.dispatch[message_count]
   if dissect then

@@ -7390,7 +7390,7 @@ end
 -- Exchange Message
 box_boxoptions_solaorderentry_sail_v2_25.exchange_message = {}
 
--- Dissect: Exchange Message
+-- Dispatch: Exchange Message
 box_boxoptions_solaorderentry_sail_v2_25.exchange_message.dispatch = {
   ["TH"] = box_boxoptions_solaorderentry_sail_v2_25.heartbeat_question.dissect,
   ["TO"] = box_boxoptions_solaorderentry_sail_v2_25.out_of_sequence.dissect,
@@ -7426,6 +7426,7 @@ box_boxoptions_solaorderentry_sail_v2_25.exchange_message.dispatch = {
   ["NZ"] = box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_notice_by_system.dissect,
 }
 
+-- Dissect: Exchange Message
 box_boxoptions_solaorderentry_sail_v2_25.exchange_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = box_boxoptions_solaorderentry_sail_v2_25.exchange_message.dispatch[message_type]
   if dissect then
@@ -9636,7 +9637,7 @@ end
 -- Firm Message
 box_boxoptions_solaorderentry_sail_v2_25.firm_message = {}
 
--- Dissect: Firm Message
+-- Dispatch: Firm Message
 box_boxoptions_solaorderentry_sail_v2_25.firm_message.dispatch = {
   ["TC"] = box_boxoptions_solaorderentry_sail_v2_25.user_connection.dissect,
   ["TD"] = box_boxoptions_solaorderentry_sail_v2_25.user_disconnection.dissect,
@@ -9662,6 +9663,7 @@ box_boxoptions_solaorderentry_sail_v2_25.firm_message.dispatch = {
   ["XI"] = box_boxoptions_solaorderentry_sail_v2_25.improvement_order_cancellation.dissect,
 }
 
+-- Dissect: Firm Message
 box_boxoptions_solaorderentry_sail_v2_25.firm_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = box_boxoptions_solaorderentry_sail_v2_25.firm_message.dispatch[message_type]
   if dissect then

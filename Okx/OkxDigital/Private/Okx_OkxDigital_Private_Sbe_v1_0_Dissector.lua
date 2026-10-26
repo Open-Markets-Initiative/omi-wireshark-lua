@@ -985,7 +985,7 @@ okx_okxdigital_private_sbe_v1_0.schema_id.size = 2
 -- Display: Schema Id
 okx_okxdigital_private_sbe_v1_0.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -1563,12 +1563,13 @@ end
 -- Payload
 okx_okxdigital_private_sbe_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 okx_okxdigital_private_sbe_v1_0.payload.dispatch = {
   [1100] = okx_okxdigital_private_sbe_v1_0.orders_channel_event_message.dissect,
   [1101] = okx_okxdigital_private_sbe_v1_0.fills_channel_event_message.dissect,
 }
 
+-- Dissect: Payload
 okx_okxdigital_private_sbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = okx_okxdigital_private_sbe_v1_0.payload.dispatch[template_id]
   if dissect then

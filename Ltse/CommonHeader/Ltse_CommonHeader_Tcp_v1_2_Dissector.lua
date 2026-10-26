@@ -1349,7 +1349,7 @@ end
 -- Data
 ltse_commonheader_tcp_v1_2.data = {}
 
--- Dissect: Data
+-- Dispatch: Data
 ltse_commonheader_tcp_v1_2.data.dispatch = {
   [100] = ltse_commonheader_tcp_v1_2.login_request_message.dissect,
   [101] = ltse_commonheader_tcp_v1_2.replay_request_message.dissect,
@@ -1368,6 +1368,7 @@ ltse_commonheader_tcp_v1_2.data.dispatch = {
   [11] = ltse_commonheader_tcp_v1_2.sequenced_message.dissect,
 }
 
+-- Dissect: Data
 ltse_commonheader_tcp_v1_2.data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = ltse_commonheader_tcp_v1_2.data.dispatch[message_type]
   if dissect then

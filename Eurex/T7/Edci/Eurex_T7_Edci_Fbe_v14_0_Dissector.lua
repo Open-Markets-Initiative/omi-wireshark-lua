@@ -4269,7 +4269,7 @@ end
 -- Server Payload
 eurex_t7_edci_fbe_v14_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 eurex_t7_edci_fbe_v14_0.server_payload.dispatch = {
   [10902] = eurex_t7_edci_fbe_v14_0.delete_order_broadcast.dissect,
   [10012] = eurex_t7_edci_fbe_v14_0.forced_logout_notification.dissect,
@@ -4283,6 +4283,7 @@ eurex_t7_edci_fbe_v14_0.server_payload.dispatch = {
   [10903] = eurex_t7_edci_fbe_v14_0.session_status_broadcast.dissect,
 }
 
+-- Dissect: Server Payload
 eurex_t7_edci_fbe_v14_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = eurex_t7_edci_fbe_v14_0.server_payload.dispatch[template_id]
   if dissect then
@@ -4658,13 +4659,14 @@ end
 -- Client Payload
 eurex_t7_edci_fbe_v14_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 eurex_t7_edci_fbe_v14_0.client_payload.dispatch = {
   [10011] = eurex_t7_edci_fbe_v14_0.heartbeat.dissect,
   [10000] = eurex_t7_edci_fbe_v14_0.logon_request.dissect,
   [10002] = eurex_t7_edci_fbe_v14_0.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 eurex_t7_edci_fbe_v14_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = eurex_t7_edci_fbe_v14_0.client_payload.dispatch[template_id]
   if dissect then

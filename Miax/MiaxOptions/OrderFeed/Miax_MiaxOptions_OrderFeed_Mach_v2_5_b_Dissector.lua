@@ -3359,7 +3359,7 @@ end
 -- Data
 miax_miaxoptions_orderfeed_mach_v2_5_b.data = {}
 
--- Dissect: Data
+-- Dispatch: Data
 miax_miaxoptions_orderfeed_mach_v2_5_b.data.dispatch = {
   ["1"] = miax_miaxoptions_orderfeed_mach_v2_5_b.system_time_message.dissect,
   ["P"] = miax_miaxoptions_orderfeed_mach_v2_5_b.simple_series_update_message.dissect,
@@ -3371,6 +3371,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.data.dispatch = {
   ["x"] = miax_miaxoptions_orderfeed_mach_v2_5_b.order_close_message.dissect,
 }
 
+-- Dissect: Data
 miax_miaxoptions_orderfeed_mach_v2_5_b.data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = miax_miaxoptions_orderfeed_mach_v2_5_b.data.dispatch[message_type]
   if dissect then
@@ -3522,13 +3523,14 @@ end
 -- Unsequenced Message
 miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message.dispatch = {
   ["R"] = miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_request_message.dissect,
   ["r"] = miax_miaxoptions_orderfeed_mach_v2_5_b.refresh_response_message.dissect,
   ["E"] = miax_miaxoptions_orderfeed_mach_v2_5_b.end_of_refresh_notification_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -3653,7 +3655,7 @@ end
 -- Sesm Payload
 miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload = {}
 
--- Dissect: Sesm Payload
+-- Dispatch: Sesm Payload
 miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload.dispatch = {
   ["s"] = miax_miaxoptions_orderfeed_mach_v2_5_b.sequenced_data_packet.dissect,
   ["U"] = miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_data_packet.dissect,
@@ -3669,6 +3671,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload.dispatch = {
   ["T"] = miax_miaxoptions_orderfeed_mach_v2_5_b.test_packet.dissect,
 }
 
+-- Dissect: Sesm Payload
 miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   local dissect = miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_payload.dispatch[sesm_packet_type]
   if dissect then
@@ -3888,7 +3891,7 @@ end
 -- Payload
 miax_miaxoptions_orderfeed_mach_v2_5_b.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 miax_miaxoptions_orderfeed_mach_v2_5_b.payload.dispatch = {
   [0] = miax_miaxoptions_orderfeed_mach_v2_5_b.heartbeat.dissect,
   [1] = miax_miaxoptions_orderfeed_mach_v2_5_b.start_of_session.dissect,
@@ -3896,6 +3899,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.payload.dispatch = {
   [3] = miax_miaxoptions_orderfeed_mach_v2_5_b.application_message.dissect,
 }
 
+-- Dissect: Payload
 miax_miaxoptions_orderfeed_mach_v2_5_b.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = miax_miaxoptions_orderfeed_mach_v2_5_b.payload.dispatch[packet_type]
   if dissect then

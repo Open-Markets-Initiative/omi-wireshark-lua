@@ -5291,11 +5291,12 @@ end
 -- Messages
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.messages.dispatch = {
   [0] = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.messages.dispatch[message_count]
   if dissect then

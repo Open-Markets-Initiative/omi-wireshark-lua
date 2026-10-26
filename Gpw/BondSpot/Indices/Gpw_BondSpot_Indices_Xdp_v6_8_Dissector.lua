@@ -2768,13 +2768,14 @@ end
 -- Payload
 gpw_bondspot_indices_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_bondspot_indices_xdp_v6_8.payload.dispatch = {
   [546] = gpw_bondspot_indices_xdp_v6_8.real_time_index_message.dissect,
   [547] = gpw_bondspot_indices_xdp_v6_8.index_summary_message.dissect,
   [548] = gpw_bondspot_indices_xdp_v6_8.index_portfolio_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_bondspot_indices_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_bondspot_indices_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

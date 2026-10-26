@@ -5178,7 +5178,7 @@ end
 -- Unsequenced Message
 miax_pearlequities_expressorders_meo_v2_7_a.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 miax_pearlequities_expressorders_meo_v2_7_a.unsequenced_message.dispatch = {
   ["N1"] = miax_pearlequities_expressorders_meo_v2_7_a.new_order_request_message.dissect,
   ["NR"] = miax_pearlequities_expressorders_meo_v2_7_a.new_order_response_message.dissect,
@@ -5196,6 +5196,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.unsequenced_message.dispatch = {
   ["E1"] = miax_pearlequities_expressorders_meo_v2_7_a.execution_notification.dissect,
 }
 
+-- Dissect: Unsequenced Message
 miax_pearlequities_expressorders_meo_v2_7_a.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = miax_pearlequities_expressorders_meo_v2_7_a.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -5797,7 +5798,7 @@ end
 -- Sequenced Message
 miax_pearlequities_expressorders_meo_v2_7_a.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 miax_pearlequities_expressorders_meo_v2_7_a.sequenced_message.dispatch = {
   ["SU"] = miax_pearlequities_expressorders_meo_v2_7_a.symbol_update.dissect,
   ["NR"] = miax_pearlequities_expressorders_meo_v2_7_a.new_order_response_message.dissect,
@@ -5813,6 +5814,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.sequenced_message.dispatch = {
   ["E1"] = miax_pearlequities_expressorders_meo_v2_7_a.execution_notification.dissect,
 }
 
+-- Dissect: Sequenced Message
 miax_pearlequities_expressorders_meo_v2_7_a.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = miax_pearlequities_expressorders_meo_v2_7_a.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -5884,7 +5886,7 @@ end
 -- Esesm Payload
 miax_pearlequities_expressorders_meo_v2_7_a.esesm_payload = {}
 
--- Dissect: Esesm Payload
+-- Dispatch: Esesm Payload
 miax_pearlequities_expressorders_meo_v2_7_a.esesm_payload.dispatch = {
   ["s"] = miax_pearlequities_expressorders_meo_v2_7_a.sequenced_data_packet.dissect,
   ["U"] = miax_pearlequities_expressorders_meo_v2_7_a.unsequenced_data_packet.dissect,
@@ -5900,6 +5902,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.esesm_payload.dispatch = {
   ["T"] = miax_pearlequities_expressorders_meo_v2_7_a.test_packet.dissect,
 }
 
+-- Dissect: Esesm Payload
 miax_pearlequities_expressorders_meo_v2_7_a.esesm_payload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
   local dissect = miax_pearlequities_expressorders_meo_v2_7_a.esesm_payload.dispatch[esesm_packet_type]
   if dissect then

@@ -3511,7 +3511,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.schema_id.size = 2
 -- Display: Schema Id
 b3_b3derivatives_binaryumdf_sbe_v2_1.schema_id.display = function(value)
   if value == 2 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 2"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -8755,7 +8755,7 @@ end
 -- Payload
 b3_b3derivatives_binaryumdf_sbe_v2_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 b3_b3derivatives_binaryumdf_sbe_v2_1.payload.dispatch = {
   [1] = b3_b3derivatives_binaryumdf_sbe_v2_1.sequence_reset_message.dissect,
   [2] = b3_b3derivatives_binaryumdf_sbe_v2_1.sequence_message.dissect,
@@ -8788,6 +8788,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.payload.dispatch = {
   [71] = b3_b3derivatives_binaryumdf_sbe_v2_1.snapshot_full_refresh_orders_mb_o_71_message.dissect,
 }
 
+-- Dissect: Payload
 b3_b3derivatives_binaryumdf_sbe_v2_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = b3_b3derivatives_binaryumdf_sbe_v2_1.payload.dispatch[template_id]
   if dissect then

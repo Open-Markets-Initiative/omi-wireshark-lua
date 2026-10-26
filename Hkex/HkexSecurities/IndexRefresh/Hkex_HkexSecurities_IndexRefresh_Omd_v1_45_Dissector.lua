@@ -1045,13 +1045,14 @@ end
 -- Payload
 hkex_hkexsecurities_indexrefresh_omd_v1_45.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 hkex_hkexsecurities_indexrefresh_omd_v1_45.payload.dispatch = {
   [70] = hkex_hkexsecurities_indexrefresh_omd_v1_45.index_definition_message.dissect,
   [71] = hkex_hkexsecurities_indexrefresh_omd_v1_45.index_data_message.dissect,
   [203] = hkex_hkexsecurities_indexrefresh_omd_v1_45.refresh_complete_message.dissect,
 }
 
+-- Dissect: Payload
 hkex_hkexsecurities_indexrefresh_omd_v1_45.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = hkex_hkexsecurities_indexrefresh_omd_v1_45.payload.dispatch[msg_type]
   if dissect then

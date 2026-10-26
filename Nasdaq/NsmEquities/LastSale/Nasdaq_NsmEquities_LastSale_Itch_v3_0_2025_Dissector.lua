@@ -3930,7 +3930,7 @@ end
 -- Payload
 nasdaq_nsmequities_lastsale_itch_v3_0_2025.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nsmequities_lastsale_itch_v3_0_2025.payload.dispatch = {
   ["S"] = nasdaq_nsmequities_lastsale_itch_v3_0_2025.system_event_message.dissect,
   ["T"] = nasdaq_nsmequities_lastsale_itch_v3_0_2025.trade_report_message.dissect,
@@ -3953,6 +3953,7 @@ nasdaq_nsmequities_lastsale_itch_v3_0_2025.payload.dispatch = {
   ["h"] = nasdaq_nsmequities_lastsale_itch_v3_0_2025.operational_halt_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nsmequities_lastsale_itch_v3_0_2025.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_lastsale_itch_v3_0_2025.payload.dispatch[message_type]
   if dissect then
@@ -4119,12 +4120,13 @@ end
 -- Messages
 nasdaq_nsmequities_lastsale_itch_v3_0_2025.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nsmequities_lastsale_itch_v3_0_2025.messages.dispatch = {
   [0] = nasdaq_nsmequities_lastsale_itch_v3_0_2025.heartbeat.dissect,
   [65535] = nasdaq_nsmequities_lastsale_itch_v3_0_2025.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nsmequities_lastsale_itch_v3_0_2025.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nsmequities_lastsale_itch_v3_0_2025.messages.dispatch[message_count]
   if dissect then

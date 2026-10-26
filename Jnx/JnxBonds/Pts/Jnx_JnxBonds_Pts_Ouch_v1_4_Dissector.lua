@@ -1931,7 +1931,7 @@ end
 -- Sequenced Message
 jnx_jnxbonds_pts_ouch_v1_4.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 jnx_jnxbonds_pts_ouch_v1_4.sequenced_message.dispatch = {
   ["S"] = jnx_jnxbonds_pts_ouch_v1_4.system_event_message.dissect,
   ["A"] = jnx_jnxbonds_pts_ouch_v1_4.order_accepted_message.dissect,
@@ -1942,6 +1942,7 @@ jnx_jnxbonds_pts_ouch_v1_4.sequenced_message.dispatch = {
   ["J"] = jnx_jnxbonds_pts_ouch_v1_4.order_rejected_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 jnx_jnxbonds_pts_ouch_v1_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = jnx_jnxbonds_pts_ouch_v1_4.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2187,7 +2188,7 @@ end
 -- Server Payload
 jnx_jnxbonds_pts_ouch_v1_4.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 jnx_jnxbonds_pts_ouch_v1_4.server_payload.dispatch = {
   ["+"] = jnx_jnxbonds_pts_ouch_v1_4.debug_packet.dissect,
   ["A"] = jnx_jnxbonds_pts_ouch_v1_4.login_accepted_packet.dissect,
@@ -2197,6 +2198,7 @@ jnx_jnxbonds_pts_ouch_v1_4.server_payload.dispatch = {
   ["Z"] = jnx_jnxbonds_pts_ouch_v1_4.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 jnx_jnxbonds_pts_ouch_v1_4.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = jnx_jnxbonds_pts_ouch_v1_4.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2599,13 +2601,14 @@ end
 -- Unsequenced Message
 jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message.dispatch = {
   ["O"] = jnx_jnxbonds_pts_ouch_v1_4.enter_order_message.dissect,
   ["U"] = jnx_jnxbonds_pts_ouch_v1_4.replace_order_message.dissect,
   ["X"] = jnx_jnxbonds_pts_ouch_v1_4.cancel_order_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = jnx_jnxbonds_pts_ouch_v1_4.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -2723,7 +2726,7 @@ end
 -- Client Payload
 jnx_jnxbonds_pts_ouch_v1_4.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 jnx_jnxbonds_pts_ouch_v1_4.client_payload.dispatch = {
   ["+"] = jnx_jnxbonds_pts_ouch_v1_4.debug_packet.dissect,
   ["L"] = jnx_jnxbonds_pts_ouch_v1_4.login_request_packet.dissect,
@@ -2732,6 +2735,7 @@ jnx_jnxbonds_pts_ouch_v1_4.client_payload.dispatch = {
   ["O"] = jnx_jnxbonds_pts_ouch_v1_4.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 jnx_jnxbonds_pts_ouch_v1_4.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = jnx_jnxbonds_pts_ouch_v1_4.client_payload.dispatch[client_packet_type]
   if dissect then

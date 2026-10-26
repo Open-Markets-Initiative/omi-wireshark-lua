@@ -571,7 +571,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.size = 2
 -- Display: Schema Id
 coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.display = function(value)
   if value == 1100 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1100"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -1152,7 +1152,7 @@ end
 -- Payload
 coinbase_coinbasederivatives_session_tcp_v1_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 coinbase_coinbasederivatives_session_tcp_v1_2.payload.dispatch = {
   [100] = coinbase_coinbasederivatives_session_tcp_v1_2.logon_message.dissect,
   [200] = coinbase_coinbasederivatives_session_tcp_v1_2.logon_conf_message.dissect,
@@ -1165,6 +1165,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.payload.dispatch = {
   [210] = coinbase_coinbasederivatives_session_tcp_v1_2.reject_message.dissect,
 }
 
+-- Dissect: Payload
 coinbase_coinbasederivatives_session_tcp_v1_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = coinbase_coinbasederivatives_session_tcp_v1_2.payload.dispatch[template_id]
   if dissect then

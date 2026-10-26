@@ -1275,7 +1275,7 @@ memx_memxoptions_riskcontrol_sbe_v1_6.schema_id.size = 1
 -- Display: Schema Id
 memx_memxoptions_riskcontrol_sbe_v1_6.schema_id.display = function(value)
   if value == 12 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 12"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -3588,7 +3588,7 @@ end
 -- Server Payload
 memx_memxoptions_riskcontrol_sbe_v1_6.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 memx_memxoptions_riskcontrol_sbe_v1_6.server_payload.dispatch = {
   [30] = memx_memxoptions_riskcontrol_sbe_v1_6.active_risk_threshold_state_message.dissect,
   [31] = memx_memxoptions_riskcontrol_sbe_v1_6.active_risk_threshold_change_rej_message.dissect,
@@ -3621,6 +3621,7 @@ memx_memxoptions_riskcontrol_sbe_v1_6.server_payload.dispatch = {
   [65] = memx_memxoptions_riskcontrol_sbe_v1_6.cp_order_rate_threshold_state_message.dissect,
 }
 
+-- Dissect: Server Payload
 memx_memxoptions_riskcontrol_sbe_v1_6.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = memx_memxoptions_riskcontrol_sbe_v1_6.server_payload.dispatch[template_id]
   if dissect then
@@ -4154,7 +4155,7 @@ end
 -- Server Data
 memx_memxoptions_riskcontrol_sbe_v1_6.server_data = {}
 
--- Dissect: Server Data
+-- Dispatch: Server Data
 memx_memxoptions_riskcontrol_sbe_v1_6.server_data.dispatch = {
   [1] = memx_memxoptions_riskcontrol_sbe_v1_6.login_accepted_message.dissect,
   [2] = memx_memxoptions_riskcontrol_sbe_v1_6.login_rejected_message.dissect,
@@ -4168,6 +4169,7 @@ memx_memxoptions_riskcontrol_sbe_v1_6.server_data.dispatch = {
   [11] = memx_memxoptions_riskcontrol_sbe_v1_6.sequenced_message.dissect,
 }
 
+-- Dissect: Server Data
 memx_memxoptions_riskcontrol_sbe_v1_6.server_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxoptions_riskcontrol_sbe_v1_6.server_data.dispatch[message_type]
   if dissect then
@@ -5360,7 +5362,7 @@ end
 -- Client Payload
 memx_memxoptions_riskcontrol_sbe_v1_6.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 memx_memxoptions_riskcontrol_sbe_v1_6.client_payload.dispatch = {
   [1] = memx_memxoptions_riskcontrol_sbe_v1_6.risk_settings_query_message.dissect,
   [2] = memx_memxoptions_riskcontrol_sbe_v1_6.active_risk_threshold_change_req_message.dissect,
@@ -5384,6 +5386,7 @@ memx_memxoptions_riskcontrol_sbe_v1_6.client_payload.dispatch = {
   [23] = memx_memxoptions_riskcontrol_sbe_v1_6.cp_order_rate_threshold_change_req_message.dissect,
 }
 
+-- Dissect: Client Payload
 memx_memxoptions_riskcontrol_sbe_v1_6.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = memx_memxoptions_riskcontrol_sbe_v1_6.client_payload.dispatch[template_id]
   if dissect then
@@ -5673,7 +5676,7 @@ end
 -- Client Data
 memx_memxoptions_riskcontrol_sbe_v1_6.client_data = {}
 
--- Dissect: Client Data
+-- Dispatch: Client Data
 memx_memxoptions_riskcontrol_sbe_v1_6.client_data.dispatch = {
   [100] = memx_memxoptions_riskcontrol_sbe_v1_6.login_request_message.dissect,
   [101] = memx_memxoptions_riskcontrol_sbe_v1_6.replay_request_message.dissect,
@@ -5682,6 +5685,7 @@ memx_memxoptions_riskcontrol_sbe_v1_6.client_data.dispatch = {
   [104] = memx_memxoptions_riskcontrol_sbe_v1_6.unsequenced_message.dissect,
 }
 
+-- Dissect: Client Data
 memx_memxoptions_riskcontrol_sbe_v1_6.client_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxoptions_riskcontrol_sbe_v1_6.client_data.dispatch[message_type]
   if dissect then

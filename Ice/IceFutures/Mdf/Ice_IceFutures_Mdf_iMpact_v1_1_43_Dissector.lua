@@ -9173,7 +9173,7 @@ end
 -- Variable Field
 ice_icefutures_mdf_impact_v1_1_43.variable_field = {}
 
--- Dissect: Variable Field
+-- Dispatch: Variable Field
 ice_icefutures_mdf_impact_v1_1_43.variable_field.dispatch = {
   [1] = ice_icefutures_mdf_impact_v1_1_43.alt_price.dissect,
   [2] = ice_icefutures_mdf_impact_v1_1_43.alt_high_price.dissect,
@@ -9183,6 +9183,7 @@ ice_icefutures_mdf_impact_v1_1_43.variable_field.dispatch = {
   [6] = ice_icefutures_mdf_impact_v1_1_43.aon.dissect,
 }
 
+-- Dissect: Variable Field
 ice_icefutures_mdf_impact_v1_1_43.variable_field.dissect = function(buffer, offset, packet, parent, special_field_id)
   local dissect = ice_icefutures_mdf_impact_v1_1_43.variable_field.dispatch[special_field_id]
   if dissect then
@@ -11268,7 +11269,7 @@ end
 -- Payload
 ice_icefutures_mdf_impact_v1_1_43.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 ice_icefutures_mdf_impact_v1_1_43.payload.dispatch = {
   ["C"] = ice_icefutures_mdf_impact_v1_1_43.market_snapshot_message.dissect,
   ["G"] = ice_icefutures_mdf_impact_v1_1_43.trade_message.dissect,
@@ -11311,6 +11312,7 @@ ice_icefutures_mdf_impact_v1_1_43.payload.dispatch = {
   ["W"] = ice_icefutures_mdf_impact_v1_1_43.old_style_options_trade_and_market_stats_message.dissect,
 }
 
+-- Dissect: Payload
 ice_icefutures_mdf_impact_v1_1_43.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = ice_icefutures_mdf_impact_v1_1_43.payload.dispatch[message_type]
   if dissect then
@@ -11452,11 +11454,12 @@ end
 -- Messages
 ice_icefutures_mdf_impact_v1_1_43.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 ice_icefutures_mdf_impact_v1_1_43.messages.dispatch = {
   [0] = ice_icefutures_mdf_impact_v1_1_43.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 ice_icefutures_mdf_impact_v1_1_43.messages.dissect = function(buffer, offset, packet, parent, number_of_msgs)
   local dissect = ice_icefutures_mdf_impact_v1_1_43.messages.dispatch[number_of_msgs]
   if dissect then

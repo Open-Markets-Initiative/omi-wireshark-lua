@@ -2269,7 +2269,7 @@ end
 -- Message Body
 tmx_tsxalpha_level1_qrtmd_v2_1.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 tmx_tsxalpha_level1_qrtmd_v2_1.message_body.dispatch = {
   ["A"] = tmx_tsxalpha_level1_qrtmd_v2_1.trade_message.dissect,
   ["B"] = tmx_tsxalpha_level1_qrtmd_v2_1.symbol_status_message.dissect,
@@ -2282,6 +2282,7 @@ tmx_tsxalpha_level1_qrtmd_v2_1.message_body.dispatch = {
   ["X"] = tmx_tsxalpha_level1_qrtmd_v2_1.trade_correction_message.dissect,
 }
 
+-- Dissect: Message Body
 tmx_tsxalpha_level1_qrtmd_v2_1.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tmx_tsxalpha_level1_qrtmd_v2_1.message_body.dispatch[message_type]
   if dissect then

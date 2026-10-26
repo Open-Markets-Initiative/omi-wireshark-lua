@@ -2671,7 +2671,7 @@ end
 -- Payload
 cnsx_cse2_multicast_mmd_v1_6.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cnsx_cse2_multicast_mmd_v1_6.payload.dispatch = {
   ["T"] = cnsx_cse2_multicast_mmd_v1_6.time_message.dissect,
   ["S"] = cnsx_cse2_multicast_mmd_v1_6.system_event_message.dissect,
@@ -2690,6 +2690,7 @@ cnsx_cse2_multicast_mmd_v1_6.payload.dispatch = {
   ["G"] = cnsx_cse2_multicast_mmd_v1_6.general_message.dissect,
 }
 
+-- Dissect: Payload
 cnsx_cse2_multicast_mmd_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = cnsx_cse2_multicast_mmd_v1_6.payload.dispatch[message_type]
   if dissect then

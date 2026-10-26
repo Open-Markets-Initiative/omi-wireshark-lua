@@ -2677,7 +2677,7 @@ end
 -- Payload
 jpx_osederivatives_geniuminet_itch_v5_0_6.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 jpx_osederivatives_geniuminet_itch_v5_0_6.payload.dispatch = {
   ["T"] = jpx_osederivatives_geniuminet_itch_v5_0_6.seconds_message.dissect,
   ["R"] = jpx_osederivatives_geniuminet_itch_v5_0_6.order_book_directory.dissect,
@@ -2695,6 +2695,7 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.payload.dispatch = {
   ["Z"] = jpx_osederivatives_geniuminet_itch_v5_0_6.equilibrium_price_update.dissect,
 }
 
+-- Dissect: Payload
 jpx_osederivatives_geniuminet_itch_v5_0_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = jpx_osederivatives_geniuminet_itch_v5_0_6.payload.dispatch[message_type]
   if dissect then
@@ -2853,12 +2854,13 @@ end
 -- Messages
 jpx_osederivatives_geniuminet_itch_v5_0_6.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 jpx_osederivatives_geniuminet_itch_v5_0_6.messages.dispatch = {
   [0] = jpx_osederivatives_geniuminet_itch_v5_0_6.heartbeat.dissect,
   [65535] = jpx_osederivatives_geniuminet_itch_v5_0_6.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 jpx_osederivatives_geniuminet_itch_v5_0_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = jpx_osederivatives_geniuminet_itch_v5_0_6.messages.dispatch[message_count]
   if dissect then

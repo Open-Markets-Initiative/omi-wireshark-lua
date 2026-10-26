@@ -4377,7 +4377,7 @@ end
 -- Server Unsequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.server_unsequenced_message = {}
 
--- Dissect: Server Unsequenced Message
+-- Dispatch: Server Unsequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.server_unsequenced_message.dispatch = {
   ["Ab"] = nasdaq_mrxoptions_quoting_sqf_v9_0.notification_subscription_reply_message.dissect,
   ["Ac"] = nasdaq_mrxoptions_quoting_sqf_v9_0.add_complex_instrument_reply_message.dissect,
@@ -4394,6 +4394,7 @@ nasdaq_mrxoptions_quoting_sqf_v9_0.server_unsequenced_message.dispatch = {
   ["NR"] = nasdaq_mrxoptions_quoting_sqf_v9_0.market_reentry_notification_message.dissect,
 }
 
+-- Dissect: Server Unsequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.server_unsequenced_message.dissect = function(buffer, offset, packet, parent, server_unsequenced_message_type)
   local dissect = nasdaq_mrxoptions_quoting_sqf_v9_0.server_unsequenced_message.dispatch[server_unsequenced_message_type]
   if dissect then
@@ -5868,7 +5869,7 @@ end
 -- Sequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.sequenced_message.dispatch = {
   ["SA"] = nasdaq_mrxoptions_quoting_sqf_v9_0.msar_accept_message.dissect,
   ["SR"] = nasdaq_mrxoptions_quoting_sqf_v9_0.msar_reject_message.dissect,
@@ -5891,6 +5892,7 @@ nasdaq_mrxoptions_quoting_sqf_v9_0.sequenced_message.dispatch = {
   ["AM"] = nasdaq_mrxoptions_quoting_sqf_v9_0.opening_rotation_quote_spread_multiplier_notification_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_mrxoptions_quoting_sqf_v9_0.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -6136,7 +6138,7 @@ end
 -- Server Payload
 nasdaq_mrxoptions_quoting_sqf_v9_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_mrxoptions_quoting_sqf_v9_0.server_payload.dispatch = {
   ["+"] = nasdaq_mrxoptions_quoting_sqf_v9_0.debug_packet.dissect,
   ["A"] = nasdaq_mrxoptions_quoting_sqf_v9_0.login_accepted_packet.dissect,
@@ -6147,6 +6149,7 @@ nasdaq_mrxoptions_quoting_sqf_v9_0.server_payload.dispatch = {
   ["Z"] = nasdaq_mrxoptions_quoting_sqf_v9_0.end_of_session_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_mrxoptions_quoting_sqf_v9_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_mrxoptions_quoting_sqf_v9_0.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -7530,7 +7533,7 @@ end
 -- Unsequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.unsequenced_message.dispatch = {
   ["AB"] = nasdaq_mrxoptions_quoting_sqf_v9_0.notification_subscription_request_message.dissect,
   ["AC"] = nasdaq_mrxoptions_quoting_sqf_v9_0.add_complex_instrument_request_message.dissect,
@@ -7549,6 +7552,7 @@ nasdaq_mrxoptions_quoting_sqf_v9_0.unsequenced_message.dispatch = {
   ["SX"] = nasdaq_mrxoptions_quoting_sqf_v9_0.complex_msar_request_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 nasdaq_mrxoptions_quoting_sqf_v9_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = nasdaq_mrxoptions_quoting_sqf_v9_0.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -7670,7 +7674,7 @@ end
 -- Client Payload
 nasdaq_mrxoptions_quoting_sqf_v9_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_mrxoptions_quoting_sqf_v9_0.client_payload.dispatch = {
   ["+"] = nasdaq_mrxoptions_quoting_sqf_v9_0.debug_packet.dissect,
   ["L"] = nasdaq_mrxoptions_quoting_sqf_v9_0.login_request_packet.dissect,
@@ -7679,6 +7683,7 @@ nasdaq_mrxoptions_quoting_sqf_v9_0.client_payload.dispatch = {
   ["O"] = nasdaq_mrxoptions_quoting_sqf_v9_0.logout_request_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_mrxoptions_quoting_sqf_v9_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_mrxoptions_quoting_sqf_v9_0.client_payload.dispatch[client_packet_type]
   if dissect then

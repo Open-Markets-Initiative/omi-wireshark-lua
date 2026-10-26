@@ -5019,7 +5019,7 @@ end
 -- Payload
 asx_asxderivatives_t24_itch_v1_13.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 asx_asxderivatives_t24_itch_v1_13.payload.dispatch = {
   ["T"] = asx_asxderivatives_t24_itch_v1_13.time_message.dissect,
   ["S"] = asx_asxderivatives_t24_itch_v1_13.system_event_message.dissect,
@@ -5053,6 +5053,7 @@ asx_asxderivatives_t24_itch_v1_13.payload.dispatch = {
   ["V"] = asx_asxderivatives_t24_itch_v1_13.volume_and_open_interest_message.dissect,
 }
 
+-- Dissect: Payload
 asx_asxderivatives_t24_itch_v1_13.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = asx_asxderivatives_t24_itch_v1_13.payload.dispatch[message_type]
   if dissect then
@@ -5211,12 +5212,13 @@ end
 -- Messages
 asx_asxderivatives_t24_itch_v1_13.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 asx_asxderivatives_t24_itch_v1_13.messages.dispatch = {
   [0] = asx_asxderivatives_t24_itch_v1_13.heartbeat.dissect,
   [65535] = asx_asxderivatives_t24_itch_v1_13.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 asx_asxderivatives_t24_itch_v1_13.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = asx_asxderivatives_t24_itch_v1_13.messages.dispatch[message_count]
   if dissect then

@@ -405,12 +405,13 @@ end
 -- Payload
 lme_lmeselect_drsignal_lmesource_v4_18.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 lme_lmeselect_drsignal_lmesource_v4_18.payload.dispatch = {
   [100] = lme_lmeselect_drsignal_lmesource_v4_18.sequence_reset_message.dissect,
   [105] = lme_lmeselect_drsignal_lmesource_v4_18.disaster_recovery_signal_message.dissect,
 }
 
+-- Dissect: Payload
 lme_lmeselect_drsignal_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = lme_lmeselect_drsignal_lmesource_v4_18.payload.dispatch[msg_type]
   if dissect then

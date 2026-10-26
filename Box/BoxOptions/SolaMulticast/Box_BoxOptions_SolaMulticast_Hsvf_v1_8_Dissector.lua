@@ -6945,7 +6945,7 @@ end
 -- Strike Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair = {}
 
--- Dissect: Strike Price Fraction Pair
+-- Dispatch: Strike Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_negative_ten_pair.dissect,
@@ -6966,6 +6966,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_numeric_pair.dissect,
 }
 
+-- Dissect: Strike Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.dissect = function(buffer, offset, packet, parent, strike_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.strike_price_fraction_pair.dispatch[strike_price_fraction_indicator]
   if dissect then
@@ -7526,7 +7527,7 @@ end
 -- Limit Entered For An Order Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair = {}
 
--- Dissect: Limit Entered For An Order Fraction Pair
+-- Dispatch: Limit Entered For An Order Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_negative_ten_pair.dissect,
@@ -7547,6 +7548,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_numeric_pair.dissect,
 }
 
+-- Dissect: Limit Entered For An Order Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.dissect = function(buffer, offset, packet, parent, limit_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.limit_entered_for_an_order_fraction_pair.dispatch[limit_fraction_indicator]
   if dissect then
@@ -8193,7 +8195,7 @@ end
 -- Initial Order Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair = {}
 
--- Dissect: Initial Order Price Fraction Pair
+-- Dispatch: Initial Order Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_negative_ten_pair.dissect,
@@ -8214,6 +8216,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dispatc
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_numeric_pair.dissect,
 }
 
+-- Dissect: Initial Order Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dissect = function(buffer, offset, packet, parent, initial_order_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price_fraction_pair.dispatch[initial_order_price_fraction_indicator]
   if dissect then
@@ -8959,7 +8962,7 @@ end
 -- Net Change Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair = {}
 
--- Dissect: Net Change Fraction Pair
+-- Dispatch: Net Change Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_negative_ten_pair.dissect,
@@ -8980,6 +8983,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.net_change_numeric_pair.dissect,
 }
 
+-- Dissect: Net Change Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dissect = function(buffer, offset, packet, parent, net_change_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.net_change_fraction_pair.dispatch[net_change_fraction_indicator]
   if dissect then
@@ -9389,7 +9393,7 @@ end
 -- Low Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair = {}
 
--- Dissect: Low Price Fraction Pair
+-- Dispatch: Low Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_negative_ten_pair.dissect,
@@ -9410,6 +9414,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.low_price_numeric_pair.dissect,
 }
 
+-- Dissect: Low Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dissect = function(buffer, offset, packet, parent, low_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.low_price_fraction_pair.dispatch[low_price_fraction_indicator]
   if dissect then
@@ -9819,7 +9824,7 @@ end
 -- High Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair = {}
 
--- Dissect: High Price Fraction Pair
+-- Dispatch: High Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_negative_ten_pair.dissect,
@@ -9840,6 +9845,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.high_price_numeric_pair.dissect,
 }
 
+-- Dissect: High Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dissect = function(buffer, offset, packet, parent, high_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.high_price_fraction_pair.dispatch[high_price_fraction_indicator]
   if dissect then
@@ -10249,7 +10255,7 @@ end
 -- Open Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair = {}
 
--- Dissect: Open Price Fraction Pair
+-- Dispatch: Open Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_negative_ten_pair.dissect,
@@ -10270,6 +10276,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.open_price_numeric_pair.dissect,
 }
 
+-- Dissect: Open Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dissect = function(buffer, offset, packet, parent, open_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.open_price_fraction_pair.dispatch[open_price_fraction_indicator]
   if dissect then
@@ -10679,7 +10686,7 @@ end
 -- Last Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair = {}
 
--- Dissect: Last Price Fraction Pair
+-- Dispatch: Last Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_negative_ten_pair.dissect,
@@ -10700,6 +10707,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.last_price_numeric_pair.dissect,
 }
 
+-- Dissect: Last Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dissect = function(buffer, offset, packet, parent, last_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.last_price_fraction_pair.dispatch[last_price_fraction_indicator]
   if dissect then
@@ -11109,7 +11117,7 @@ end
 -- Ask Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair = {}
 
--- Dissect: Ask Price Fraction Pair
+-- Dispatch: Ask Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_negative_ten_pair.dissect,
@@ -11130,6 +11138,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_numeric_pair.dissect,
 }
 
+-- Dissect: Ask Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dissect = function(buffer, offset, packet, parent, ask_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_pair.dispatch[ask_price_fraction_indicator]
   if dissect then
@@ -11539,7 +11548,7 @@ end
 -- Bid Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair = {}
 
--- Dissect: Bid Price Fraction Pair
+-- Dispatch: Bid Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_negative_ten_pair.dissect,
@@ -11560,6 +11569,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_numeric_pair.dissect,
 }
 
+-- Dissect: Bid Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dissect = function(buffer, offset, packet, parent, bid_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.bid_price_fraction_pair.dispatch[bid_price_fraction_indicator]
   if dissect then
@@ -12146,7 +12156,7 @@ end
 -- Reference Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair = {}
 
--- Dissect: Reference Price Fraction Pair
+-- Dispatch: Reference Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_negative_ten_pair.dissect,
@@ -12167,6 +12177,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.dispatch = 
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_numeric_pair.dissect,
 }
 
+-- Dissect: Reference Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.dissect = function(buffer, offset, packet, parent, reference_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.reference_price_fraction_pair.dispatch[reference_price_fraction_indicator]
   if dissect then
@@ -13426,7 +13437,7 @@ end
 -- Min Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair = {}
 
--- Dissect: Min Threshold Price Fraction Pair
+-- Dispatch: Min Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_negative_ten_pair.dissect,
@@ -13447,6 +13458,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.dispatc
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_numeric_pair.dissect,
 }
 
+-- Dissect: Min Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, min_threshold_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price_fraction_pair.dispatch[min_threshold_price_fraction_indicator]
   if dissect then
@@ -13856,7 +13868,7 @@ end
 -- Max Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair = {}
 
--- Dissect: Max Threshold Price Fraction Pair
+-- Dispatch: Max Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_negative_ten_pair.dissect,
@@ -13877,6 +13889,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.dispatc
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_numeric_pair.dissect,
 }
 
+-- Dissect: Max Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, max_threshold_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price_fraction_pair.dispatch[max_threshold_price_fraction_indicator]
   if dissect then
@@ -14493,7 +14506,7 @@ end
 -- Minimum Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair = {}
 
--- Dissect: Minimum Threshold Price Fraction Pair
+-- Dispatch: Minimum Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_negative_ten_pair.dissect,
@@ -14514,6 +14527,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.dis
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_numeric_pair.dissect,
 }
 
+-- Dissect: Minimum Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, minimum_threshold_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price_fraction_pair.dispatch[minimum_threshold_price_fraction_indicator]
   if dissect then
@@ -14923,7 +14937,7 @@ end
 -- Maximum Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair = {}
 
--- Dissect: Maximum Threshold Price Fraction Pair
+-- Dispatch: Maximum Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_negative_ten_pair.dissect,
@@ -14944,6 +14958,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.dis
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_numeric_pair.dissect,
 }
 
+-- Dissect: Maximum Threshold Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.dissect = function(buffer, offset, packet, parent, maximum_threshold_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price_fraction_pair.dispatch[maximum_threshold_price_fraction_indicator]
   if dissect then
@@ -15492,7 +15507,7 @@ end
 -- Trade Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair = {}
 
--- Dissect: Trade Price Fraction Pair
+-- Dispatch: Trade Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dispatch = {
   ["A"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_whole_pair.dissect,
   ["B"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_negative_ten_pair.dissect,
@@ -15513,6 +15528,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dispatch = {
   ["9"] = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_numeric_pair.dissect,
 }
 
+-- Dissect: Trade Price Fraction Pair
 box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dissect = function(buffer, offset, packet, parent, trade_price_fraction_indicator)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.trade_price_fraction_pair.dispatch[trade_price_fraction_indicator]
   if dissect then
@@ -17876,7 +17892,7 @@ end
 -- Message Body
 box_boxoptions_solamulticast_hsvf_v1_8.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 box_boxoptions_solamulticast_hsvf_v1_8.message_body.dispatch = {
   ["U"] = box_boxoptions_solamulticast_hsvf_v1_8.end_of_transmission_message.dissect,
   ["V"] = box_boxoptions_solamulticast_hsvf_v1_8.circuit_assurance_message.dissect,
@@ -17909,6 +17925,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.message_body.dispatch = {
   ["TS"] = box_boxoptions_solamulticast_hsvf_v1_8.complex_order_initial_and_improvement_order_message.dissect,
 }
 
+-- Dissect: Message Body
 box_boxoptions_solamulticast_hsvf_v1_8.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = box_boxoptions_solamulticast_hsvf_v1_8.message_body.dispatch[message_type]
   if dissect then

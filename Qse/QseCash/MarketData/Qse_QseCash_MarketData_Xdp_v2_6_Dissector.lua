@@ -8869,7 +8869,7 @@ end
 -- Payload
 qse_qsecash_marketdata_xdp_v2_6.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 qse_qsecash_marketdata_xdp_v2_6.payload.dispatch = {
   [505] = qse_qsecash_marketdata_xdp_v2_6.stock_state_change_message.dissect,
   [516] = qse_qsecash_marketdata_xdp_v2_6.class_state_change_message.dissect,
@@ -8897,6 +8897,7 @@ qse_qsecash_marketdata_xdp_v2_6.payload.dispatch = {
   [581] = qse_qsecash_marketdata_xdp_v2_6.end_refresh_message.dissect,
 }
 
+-- Dissect: Payload
 qse_qsecash_marketdata_xdp_v2_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = qse_qsecash_marketdata_xdp_v2_6.payload.dispatch[message_type]
   if dissect then

@@ -2639,7 +2639,7 @@ end
 -- Business Message
 tmx_tsx_quantumfeedlevel1_xmt_v2_8.business_message = {}
 
--- Dissect: Business Message
+-- Dispatch: Business Message
 tmx_tsx_quantumfeedlevel1_xmt_v2_8.business_message.dispatch = {
   ["J"] = tmx_tsx_quantumfeedlevel1_xmt_v2_8.symbol_status_message.dissect,
   ["s"] = tmx_tsx_quantumfeedlevel1_xmt_v2_8.trade_report_message.dissect,
@@ -2649,6 +2649,7 @@ tmx_tsx_quantumfeedlevel1_xmt_v2_8.business_message.dispatch = {
   ["w"] = tmx_tsx_quantumfeedlevel1_xmt_v2_8.quote_message.dissect,
 }
 
+-- Dissect: Business Message
 tmx_tsx_quantumfeedlevel1_xmt_v2_8.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = tmx_tsx_quantumfeedlevel1_xmt_v2_8.business_message.dispatch[msg_type]
   if dissect then
@@ -3038,11 +3039,12 @@ end
 -- Packet Body
 tmx_tsx_quantumfeedlevel1_xmt_v2_8.packet_body = {}
 
--- Dissect: Packet Body
+-- Dispatch: Packet Body
 tmx_tsx_quantumfeedlevel1_xmt_v2_8.packet_body.dispatch = {
   ["0"] = tmx_tsx_quantumfeedlevel1_xmt_v2_8.heartbeat_body.dissect,
 }
 
+-- Dissect: Packet Body
 tmx_tsx_quantumfeedlevel1_xmt_v2_8.packet_body.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = tmx_tsx_quantumfeedlevel1_xmt_v2_8.packet_body.dispatch[msg_type]
   if dissect then

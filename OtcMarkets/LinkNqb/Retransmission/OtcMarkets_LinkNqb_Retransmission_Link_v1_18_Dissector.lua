@@ -2860,7 +2860,7 @@ end
 -- Payload
 otcmarkets_linknqb_retransmission_link_v1_18.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 otcmarkets_linknqb_retransmission_link_v1_18.payload.dispatch = {
   [11] = otcmarkets_linknqb_retransmission_link_v1_18.start_of_spin_message.dissect,
   [12] = otcmarkets_linknqb_retransmission_link_v1_18.end_of_spin_message.dissect,
@@ -2886,6 +2886,7 @@ otcmarkets_linknqb_retransmission_link_v1_18.payload.dispatch = {
   [104] = otcmarkets_linknqb_retransmission_link_v1_18.heartbeat_message.dissect,
 }
 
+-- Dissect: Payload
 otcmarkets_linknqb_retransmission_link_v1_18.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = otcmarkets_linknqb_retransmission_link_v1_18.payload.dispatch[message_type]
   if dissect then

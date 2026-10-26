@@ -389,13 +389,14 @@ end
 -- Sequenced Messages
 memx_memxequities_commonheader_udp_v1_1.sequenced_messages = {}
 
--- Dissect: Sequenced Messages
+-- Dispatch: Sequenced Messages
 memx_memxequities_commonheader_udp_v1_1.sequenced_messages.dispatch = {
   [0] = memx_memxequities_commonheader_udp_v1_1.heartbeat.dissect,
   [1] = memx_memxequities_commonheader_udp_v1_1.session_shutdown.dissect,
   [2] = memx_memxequities_commonheader_udp_v1_1.sequenced_message.dissect,
 }
 
+-- Dissect: Sequenced Messages
 memx_memxequities_commonheader_udp_v1_1.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxequities_commonheader_udp_v1_1.sequenced_messages.dispatch[message_type]
   if dissect then

@@ -1611,7 +1611,7 @@ end
 -- Payload
 cixats_cixaspen_marketdatafeed_aspen_v1_4.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cixats_cixaspen_marketdatafeed_aspen_v1_4.payload.dispatch = {
   ["A"] = cixats_cixaspen_marketdatafeed_aspen_v1_4.market_event_message.dissect,
   ["B"] = cixats_cixaspen_marketdatafeed_aspen_v1_4.symbol_information_message.dissect,
@@ -1625,6 +1625,7 @@ cixats_cixaspen_marketdatafeed_aspen_v1_4.payload.dispatch = {
   ["M"] = cixats_cixaspen_marketdatafeed_aspen_v1_4.trade_correct_message.dissect,
 }
 
+-- Dissect: Payload
 cixats_cixaspen_marketdatafeed_aspen_v1_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = cixats_cixaspen_marketdatafeed_aspen_v1_4.payload.dispatch[message_type]
   if dissect then

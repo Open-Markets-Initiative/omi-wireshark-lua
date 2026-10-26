@@ -2326,7 +2326,7 @@ end
 -- Sequenced Message
 bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message.dispatch = {
   ["T"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.seconds_message.dissect,
   ["R"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.order_book_directory.dissect,
@@ -2339,6 +2339,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message.dispatch = {
   ["G"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.end_of_snapshot_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2584,7 +2585,7 @@ end
 -- Server Payload
 bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload.dispatch = {
   ["+"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.dissect,
   ["A"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.login_accepted_packet.dissect,
@@ -2594,6 +2595,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload.dispatch = {
   ["Z"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = bist_borsaistanbul_geniuminet_glimpse_v2_7.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2909,7 +2911,7 @@ end
 -- Client Payload
 bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload.dispatch = {
   ["+"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.dissect,
   ["L"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.login_request_packet.dissect,
@@ -2918,6 +2920,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload.dispatch = {
   ["O"] = bist_borsaistanbul_geniuminet_glimpse_v2_7.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = bist_borsaistanbul_geniuminet_glimpse_v2_7.client_payload.dispatch[client_packet_type]
   if dissect then

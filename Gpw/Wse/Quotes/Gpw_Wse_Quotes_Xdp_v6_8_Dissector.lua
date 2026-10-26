@@ -1330,12 +1330,13 @@ end
 -- Payload
 gpw_wse_quotes_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_wse_quotes_xdp_v6_8.payload.dispatch = {
   [140] = gpw_wse_quotes_xdp_v6_8.quotes_and_bbo_5_message.dissect,
   [142] = gpw_wse_quotes_xdp_v6_8.indication_of_interest_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_wse_quotes_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_wse_quotes_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

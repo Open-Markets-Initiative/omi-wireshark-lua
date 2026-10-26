@@ -3383,7 +3383,7 @@ end
 -- Payload
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload.dispatch = {
   ["T"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.seconds_message.dissect,
   ["R"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.dissect,
@@ -3400,6 +3400,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload.dispatch = {
   ["U"] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.underlying_price_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.payload.dispatch[message_type]
   if dissect then
@@ -3558,12 +3559,13 @@ end
 -- Messages
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.messages.dispatch = {
   [0] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.heartbeat.dissect,
   [65535] = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.messages.dispatch[message_count]
   if dissect then

@@ -5849,7 +5849,7 @@ end
 -- Payload
 nyse_arcaoptions_topfeed_pillar_v1_2_j.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_arcaoptions_topfeed_pillar_v1_2_j.payload.dispatch = {
   [1] = nyse_arcaoptions_topfeed_pillar_v1_2_j.sequence_number_reset_message.dissect,
   [2] = nyse_arcaoptions_topfeed_pillar_v1_2_j.source_time_reference_message.dissect,
@@ -5875,6 +5875,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_j.payload.dispatch = {
   [323] = nyse_arcaoptions_topfeed_pillar_v1_2_j.outright_series_summary_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_arcaoptions_topfeed_pillar_v1_2_j.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_arcaoptions_topfeed_pillar_v1_2_j.payload.dispatch[message_type]
   if dissect then
@@ -6016,11 +6017,12 @@ end
 -- Messages
 nyse_arcaoptions_topfeed_pillar_v1_2_j.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_arcaoptions_topfeed_pillar_v1_2_j.messages.dispatch = {
   [1] = nyse_arcaoptions_topfeed_pillar_v1_2_j.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_arcaoptions_topfeed_pillar_v1_2_j.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_arcaoptions_topfeed_pillar_v1_2_j.messages.dispatch[delivery_flag]
   if dissect then

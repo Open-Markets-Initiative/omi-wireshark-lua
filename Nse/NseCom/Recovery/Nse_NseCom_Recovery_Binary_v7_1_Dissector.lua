@@ -657,11 +657,12 @@ end
 -- Client Payload
 nse_nsecom_recovery_binary_v7_1.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nse_nsecom_recovery_binary_v7_1.client_payload.dispatch = {
   ["R"] = nse_nsecom_recovery_binary_v7_1.tick_data_recovery_request_message.dissect,
 }
 
+-- Dissect: Client Payload
 nse_nsecom_recovery_binary_v7_1.client_payload.dissect = function(buffer, offset, packet, parent, client_message_type)
   local dissect = nse_nsecom_recovery_binary_v7_1.client_payload.dispatch[client_message_type]
   if dissect then
@@ -1367,7 +1368,7 @@ end
 -- Payload
 nse_nsecom_recovery_binary_v7_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nse_nsecom_recovery_binary_v7_1.payload.dispatch = {
   ["N"] = nse_nsecom_recovery_binary_v7_1.new_order_message.dissect,
   ["M"] = nse_nsecom_recovery_binary_v7_1.order_modification_message.dissect,
@@ -1382,6 +1383,7 @@ nse_nsecom_recovery_binary_v7_1.payload.dispatch = {
   ["Y"] = nse_nsecom_recovery_binary_v7_1.tick_data_recovery_response_message.dissect,
 }
 
+-- Dissect: Payload
 nse_nsecom_recovery_binary_v7_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nse_nsecom_recovery_binary_v7_1.payload.dispatch[message_type]
   if dissect then

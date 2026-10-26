@@ -3440,7 +3440,7 @@ end
 -- Payload
 bse_bseindia_eobi_fbe_v1_4.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 bse_bseindia_eobi_fbe_v1_4.payload.dispatch = {
   [13001] = bse_bseindia_eobi_fbe_v1_4.heartbeat_message.dissect,
   [13600] = bse_bseindia_eobi_fbe_v1_4.product_summary_message.dissect,
@@ -3465,6 +3465,7 @@ bse_bseindia_eobi_fbe_v1_4.payload.dispatch = {
   [13400] = bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.dissect,
 }
 
+-- Dissect: Payload
 bse_bseindia_eobi_fbe_v1_4.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = bse_bseindia_eobi_fbe_v1_4.payload.dispatch[template_id]
   if dissect then

@@ -1792,12 +1792,13 @@ end
 -- Sequenced Message
 cboe_bxeequities_lastsale_asciipitch_v1_9.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 cboe_bxeequities_lastsale_asciipitch_v1_9.sequenced_message.dispatch = {
   ["u"] = cboe_bxeequities_lastsale_asciipitch_v1_9.last_sale_europe_message.dissect,
   ["7"] = cboe_bxeequities_lastsale_asciipitch_v1_9.last_sale_europe_message_new.dissect,
 }
 
+-- Dissect: Sequenced Message
 cboe_bxeequities_lastsale_asciipitch_v1_9.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = cboe_bxeequities_lastsale_asciipitch_v1_9.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2034,7 +2035,7 @@ end
 -- Payload
 cboe_bxeequities_lastsale_asciipitch_v1_9.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cboe_bxeequities_lastsale_asciipitch_v1_9.payload.dispatch = {
   ["+"] = cboe_bxeequities_lastsale_asciipitch_v1_9.debug_packet.dissect,
   ["A"] = cboe_bxeequities_lastsale_asciipitch_v1_9.login_accepted_packet.dissect,
@@ -2044,6 +2045,7 @@ cboe_bxeequities_lastsale_asciipitch_v1_9.payload.dispatch = {
   ["U"] = cboe_bxeequities_lastsale_asciipitch_v1_9.unsequenced_data_packet.dissect,
 }
 
+-- Dissect: Payload
 cboe_bxeequities_lastsale_asciipitch_v1_9.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = cboe_bxeequities_lastsale_asciipitch_v1_9.payload.dispatch[packet_type]
   if dissect then

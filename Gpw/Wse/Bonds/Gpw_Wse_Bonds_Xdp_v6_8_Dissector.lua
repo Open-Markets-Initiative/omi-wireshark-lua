@@ -941,12 +941,13 @@ end
 -- Payload
 gpw_wse_bonds_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_wse_bonds_xdp_v6_8.payload.dispatch = {
   [601] = gpw_wse_bonds_xdp_v6_8.accrued_interest_message.dissect,
   [602] = gpw_wse_bonds_xdp_v6_8.interest_for_settlement_day_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_wse_bonds_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_wse_bonds_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

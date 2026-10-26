@@ -2831,7 +2831,7 @@ end
 -- Payload
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload.dispatch = {
   [1] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.sequence_number_reset_message.dissect,
   [3] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.symbol_index_mapping_message.dissect,
@@ -2847,6 +2847,7 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload.dispatch = {
   [105] = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.imbalance_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.payload.dispatch[message_type]
   if dissect then

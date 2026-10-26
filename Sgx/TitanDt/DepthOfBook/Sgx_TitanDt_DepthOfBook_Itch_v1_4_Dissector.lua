@@ -2720,7 +2720,7 @@ end
 -- Payload
 sgx_titandt_depthofbook_itch_v1_4.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 sgx_titandt_depthofbook_itch_v1_4.payload.dispatch = {
   ["T"] = sgx_titandt_depthofbook_itch_v1_4.seconds_message.dissect,
   ["R"] = sgx_titandt_depthofbook_itch_v1_4.order_book_directory_message.dissect,
@@ -2737,6 +2737,7 @@ sgx_titandt_depthofbook_itch_v1_4.payload.dispatch = {
   ["Z"] = sgx_titandt_depthofbook_itch_v1_4.equilibrium_price_update_message.dissect,
 }
 
+-- Dissect: Payload
 sgx_titandt_depthofbook_itch_v1_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = sgx_titandt_depthofbook_itch_v1_4.payload.dispatch[message_type]
   if dissect then
@@ -2895,12 +2896,13 @@ end
 -- Messages
 sgx_titandt_depthofbook_itch_v1_4.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 sgx_titandt_depthofbook_itch_v1_4.messages.dispatch = {
   [0] = sgx_titandt_depthofbook_itch_v1_4.heartbeat.dissect,
   [65535] = sgx_titandt_depthofbook_itch_v1_4.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 sgx_titandt_depthofbook_itch_v1_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = sgx_titandt_depthofbook_itch_v1_4.messages.dispatch[message_count]
   if dissect then

@@ -2437,7 +2437,7 @@ end
 -- Iex Tp Message Data
 iex_iexequities_deep_snap_v1_6.iex_tp_message_data = {}
 
--- Dissect: Iex Tp Message Data
+-- Dispatch: Iex Tp Message Data
 iex_iexequities_deep_snap_v1_6.iex_tp_message_data.dispatch = {
   ["S"] = iex_iexequities_deep_snap_v1_6.system_event_message.dissect,
   ["D"] = iex_iexequities_deep_snap_v1_6.security_directory_message.dissect,
@@ -2454,6 +2454,7 @@ iex_iexequities_deep_snap_v1_6.iex_tp_message_data.dispatch = {
   ["A"] = iex_iexequities_deep_snap_v1_6.auction_information_message.dissect,
 }
 
+-- Dissect: Iex Tp Message Data
 iex_iexequities_deep_snap_v1_6.iex_tp_message_data.dissect = function(buffer, offset, packet, parent, iex_tp_message_type)
   local dissect = iex_iexequities_deep_snap_v1_6.iex_tp_message_data.dispatch[iex_tp_message_type]
   if dissect then
@@ -2736,7 +2737,7 @@ end
 -- Message Data
 iex_iexequities_deep_snap_v1_6.message_data = {}
 
--- Dissect: Message Data
+-- Dispatch: Message Data
 iex_iexequities_deep_snap_v1_6.message_data.dispatch = {
   ["r"] = iex_iexequities_deep_snap_v1_6.snapshot_request_message.dissect,
   ["e"] = iex_iexequities_deep_snap_v1_6.error_response_message.dissect,
@@ -2745,6 +2746,7 @@ iex_iexequities_deep_snap_v1_6.message_data.dispatch = {
   ["x"] = iex_iexequities_deep_snap_v1_6.snapshot_end_message.dissect,
 }
 
+-- Dissect: Message Data
 iex_iexequities_deep_snap_v1_6.message_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = iex_iexequities_deep_snap_v1_6.message_data.dispatch[message_type]
   if dissect then

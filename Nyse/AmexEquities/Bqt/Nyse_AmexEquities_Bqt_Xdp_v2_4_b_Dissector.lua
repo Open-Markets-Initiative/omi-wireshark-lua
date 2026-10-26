@@ -5566,7 +5566,7 @@ end
 -- Payload
 nyse_amexequities_bqt_xdp_v2_4_b.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_amexequities_bqt_xdp_v2_4_b.payload.dispatch = {
   [1] = nyse_amexequities_bqt_xdp_v2_4_b.sequence_number_reset_message.dissect,
   [2] = nyse_amexequities_bqt_xdp_v2_4_b.source_time_reference_message.dissect,
@@ -5593,6 +5593,7 @@ nyse_amexequities_bqt_xdp_v2_4_b.payload.dispatch = {
   [201] = nyse_amexequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_amexequities_bqt_xdp_v2_4_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_amexequities_bqt_xdp_v2_4_b.payload.dispatch[message_type]
   if dissect then

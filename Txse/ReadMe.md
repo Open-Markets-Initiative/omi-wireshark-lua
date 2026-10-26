@@ -7,22 +7,22 @@
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TxseEquities][TxseEquities.Exchange] | [Bale][Txse.TxseEquities.Bale] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Bale.Rake.v1.0.Dissector] | 6/12/2026 | 2378 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Bale.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Bale.Rake.v1.0.Pdf] |
-| [TxseEquities][TxseEquities.Exchange] | [Feed][Txse.TxseEquities.Feed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Feed.Rake.v1.0.Dissector] | 6/12/2026 | 2809 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Feed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Feed.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Bale][Txse.TxseEquities.Bale] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Bale.Rake.v1.0.Dissector] | 6/12/2026 | 2379 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Bale.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Bale.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Feed][Txse.TxseEquities.Feed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Feed.Rake.v1.0.Dissector] | 6/12/2026 | 2810 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Feed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Feed.Rake.v1.0.Pdf] |
 
 
 ### Order Entry
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11535 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11539 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
 
 
 ### Protocols
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.TxseEquities.Framing.Tcp.v1.0.Dissector] | 6/12/2026 | 1318 | [Header][Omi.Glossary.Deployment.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Tcp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Tcp.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.TxseEquities.Framing.Tcp.v1.0.Dissector] | 6/12/2026 | 1320 | [Header][Omi.Glossary.Deployment.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Tcp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Tcp.v1.0.Pdf] |
 | [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Udp][Omi.Encoding.Udp] | [1.0][Txse.TxseEquities.Framing.Udp.v1.0.Dissector] | 6/12/2026 | 481 | [Header][Omi.Glossary.Deployment.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Udp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Udp.v1.0.Pdf] |
 
 

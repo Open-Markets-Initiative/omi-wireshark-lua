@@ -9512,7 +9512,7 @@ euronext_optiq_marketdatagateway_sbe_v5_23.schema_id.size = 2
 -- Display: Schema Id
 euronext_optiq_marketdatagateway_sbe_v5_23.schema_id.display = function(value)
   if value == 0 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 0"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -17571,7 +17571,7 @@ end
 -- Payload
 euronext_optiq_marketdatagateway_sbe_v5_23.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 euronext_optiq_marketdatagateway_sbe_v5_23.payload.dispatch = {
   [1101] = euronext_optiq_marketdatagateway_sbe_v5_23.start_of_day_message.dissect,
   [1102] = euronext_optiq_marketdatagateway_sbe_v5_23.end_of_day_message.dissect,
@@ -17603,6 +17603,7 @@ euronext_optiq_marketdatagateway_sbe_v5_23.payload.dispatch = {
   [2102] = euronext_optiq_marketdatagateway_sbe_v5_23.end_of_snapshot_message.dissect,
 }
 
+-- Dissect: Payload
 euronext_optiq_marketdatagateway_sbe_v5_23.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = euronext_optiq_marketdatagateway_sbe_v5_23.payload.dispatch[template_id]
   if dissect then

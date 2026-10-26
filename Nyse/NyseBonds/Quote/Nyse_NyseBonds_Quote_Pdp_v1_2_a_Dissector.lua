@@ -1298,7 +1298,7 @@ end
 -- Payload
 nyse_nysebonds_quote_pdp_v1_2_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nysebonds_quote_pdp_v1_2_a.payload.dispatch = {
   [1] = nyse_nysebonds_quote_pdp_v1_2_a.sequence_number_reset_message.dissect,
   [2] = nyse_nysebonds_quote_pdp_v1_2_a.heartbeat_message.dissect,
@@ -1308,6 +1308,7 @@ nyse_nysebonds_quote_pdp_v1_2_a.payload.dispatch = {
   [141] = nyse_nysebonds_quote_pdp_v1_2_a.quote_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_nysebonds_quote_pdp_v1_2_a.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = nyse_nysebonds_quote_pdp_v1_2_a.payload.dispatch[msg_type]
   if dissect then

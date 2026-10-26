@@ -5931,7 +5931,7 @@ end
 -- Payload
 lseg_millennium_nativetradinggateway_ntgi_v21_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 lseg_millennium_nativetradinggateway_ntgi_v21_2.payload.dispatch = {
   ["A"] = lseg_millennium_nativetradinggateway_ntgi_v21_2.logon_message.dissect,
   ["B"] = lseg_millennium_nativetradinggateway_ntgi_v21_2.logon_reply_message.dissect,
@@ -5957,6 +5957,7 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.payload.dispatch = {
   ["j"] = lseg_millennium_nativetradinggateway_ntgi_v21_2.business_reject_message.dissect,
 }
 
+-- Dissect: Payload
 lseg_millennium_nativetradinggateway_ntgi_v21_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = lseg_millennium_nativetradinggateway_ntgi_v21_2.payload.dispatch[message_type]
   if dissect then

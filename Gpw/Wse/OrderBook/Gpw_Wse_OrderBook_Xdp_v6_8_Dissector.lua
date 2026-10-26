@@ -1173,12 +1173,13 @@ end
 -- Payload
 gpw_wse_orderbook_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_wse_orderbook_xdp_v6_8.payload.dispatch = {
   [230] = gpw_wse_orderbook_xdp_v6_8.order_update_market_sheet_message.dissect,
   [231] = gpw_wse_orderbook_xdp_v6_8.order_book_retransmission_delimiter_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_wse_orderbook_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_wse_orderbook_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

@@ -2549,7 +2549,7 @@ n24x_24xequities_memo_sbe_v2_0.schema_id.size = 1
 -- Display: Schema Id
 n24x_24xequities_memo_sbe_v2_0.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -5137,7 +5137,7 @@ end
 -- Server Payload
 n24x_24xequities_memo_sbe_v2_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 n24x_24xequities_memo_sbe_v2_0.server_payload.dispatch = {
   [6] = n24x_24xequities_memo_sbe_v2_0.execution_report_new_message.dissect,
   [7] = n24x_24xequities_memo_sbe_v2_0.execution_report_rejected_message.dissect,
@@ -5155,6 +5155,7 @@ n24x_24xequities_memo_sbe_v2_0.server_payload.dispatch = {
   [20] = n24x_24xequities_memo_sbe_v2_0.mass_cancel_reject_message.dissect,
 }
 
+-- Dissect: Server Payload
 n24x_24xequities_memo_sbe_v2_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = n24x_24xequities_memo_sbe_v2_0.server_payload.dispatch[template_id]
   if dissect then
@@ -5692,7 +5693,7 @@ end
 -- Server Data
 n24x_24xequities_memo_sbe_v2_0.server_data = {}
 
--- Dissect: Server Data
+-- Dispatch: Server Data
 n24x_24xequities_memo_sbe_v2_0.server_data.dispatch = {
   [1] = n24x_24xequities_memo_sbe_v2_0.login_accepted_message.dissect,
   [2] = n24x_24xequities_memo_sbe_v2_0.login_rejected_message.dissect,
@@ -5706,6 +5707,7 @@ n24x_24xequities_memo_sbe_v2_0.server_data.dispatch = {
   [11] = n24x_24xequities_memo_sbe_v2_0.sequenced_message.dissect,
 }
 
+-- Dissect: Server Data
 n24x_24xequities_memo_sbe_v2_0.server_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = n24x_24xequities_memo_sbe_v2_0.server_data.dispatch[message_type]
   if dissect then
@@ -6180,7 +6182,7 @@ end
 -- Client Payload
 n24x_24xequities_memo_sbe_v2_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 n24x_24xequities_memo_sbe_v2_0.client_payload.dispatch = {
   [1] = n24x_24xequities_memo_sbe_v2_0.new_order_single_message.dissect,
   [2] = n24x_24xequities_memo_sbe_v2_0.order_cancel_replace_request_message.dissect,
@@ -6188,6 +6190,7 @@ n24x_24xequities_memo_sbe_v2_0.client_payload.dispatch = {
   [4] = n24x_24xequities_memo_sbe_v2_0.mass_cancel_request_message.dissect,
 }
 
+-- Dissect: Client Payload
 n24x_24xequities_memo_sbe_v2_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = n24x_24xequities_memo_sbe_v2_0.client_payload.dispatch[template_id]
   if dissect then
@@ -6477,7 +6480,7 @@ end
 -- Client Data
 n24x_24xequities_memo_sbe_v2_0.client_data = {}
 
--- Dissect: Client Data
+-- Dispatch: Client Data
 n24x_24xequities_memo_sbe_v2_0.client_data.dispatch = {
   [100] = n24x_24xequities_memo_sbe_v2_0.login_request_message.dissect,
   [101] = n24x_24xequities_memo_sbe_v2_0.replay_request_message.dissect,
@@ -6486,6 +6489,7 @@ n24x_24xequities_memo_sbe_v2_0.client_data.dispatch = {
   [104] = n24x_24xequities_memo_sbe_v2_0.unsequenced_message.dissect,
 }
 
+-- Dissect: Client Data
 n24x_24xequities_memo_sbe_v2_0.client_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = n24x_24xequities_memo_sbe_v2_0.client_data.dispatch[message_type]
   if dissect then

@@ -1424,13 +1424,14 @@ end
 -- Payload
 nasdaq_nordicequities_lastsale_itch_v1_2_11.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nordicequities_lastsale_itch_v1_2_11.payload.dispatch = {
   ["G"] = nasdaq_nordicequities_lastsale_itch_v1_2_11.adjusted_closing_price_message.dissect,
   ["T"] = nasdaq_nordicequities_lastsale_itch_v1_2_11.on_exchange_trade_message.dissect,
   ["Z"] = nasdaq_nordicequities_lastsale_itch_v1_2_11.otc_trade_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nordicequities_lastsale_itch_v1_2_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nordicequities_lastsale_itch_v1_2_11.payload.dispatch[message_type]
   if dissect then
@@ -1589,12 +1590,13 @@ end
 -- Messages
 nasdaq_nordicequities_lastsale_itch_v1_2_11.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nordicequities_lastsale_itch_v1_2_11.messages.dispatch = {
   [0] = nasdaq_nordicequities_lastsale_itch_v1_2_11.heartbeat.dissect,
   [65535] = nasdaq_nordicequities_lastsale_itch_v1_2_11.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nordicequities_lastsale_itch_v1_2_11.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nordicequities_lastsale_itch_v1_2_11.messages.dispatch[message_count]
   if dissect then

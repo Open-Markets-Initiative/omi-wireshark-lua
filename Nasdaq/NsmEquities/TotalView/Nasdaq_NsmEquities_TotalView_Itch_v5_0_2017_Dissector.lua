@@ -4337,7 +4337,7 @@ end
 -- Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.payload.dispatch = {
   ["S"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.system_event_message.dissect,
   ["R"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_directory_message.dissect,
@@ -4362,6 +4362,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.payload.dispatch = {
   ["N"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.retail_interest_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_totalview_itch_v5_0_2017.payload.dispatch[message_type]
   if dissect then
@@ -4520,12 +4521,13 @@ end
 -- Messages
 nasdaq_nsmequities_totalview_itch_v5_0_2017.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nsmequities_totalview_itch_v5_0_2017.messages.dispatch = {
   [0] = nasdaq_nsmequities_totalview_itch_v5_0_2017.heartbeat.dissect,
   [65535] = nasdaq_nsmequities_totalview_itch_v5_0_2017.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nsmequities_totalview_itch_v5_0_2017.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nsmequities_totalview_itch_v5_0_2017.messages.dispatch[message_count]
   if dissect then
@@ -4647,7 +4649,7 @@ end
 -- Sequenced Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.sequenced_message.dispatch = {
   ["S"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.system_event_message.dissect,
   ["R"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_directory_message.dissect,
@@ -4672,6 +4674,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.sequenced_message.dispatch = {
   ["N"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.retail_interest_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_nsmequities_totalview_itch_v5_0_2017.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -4917,7 +4920,7 @@ end
 -- Server Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.server_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.debug_packet.dissect,
   ["A"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.login_accepted_packet.dissect,
@@ -4927,6 +4930,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.server_payload.dispatch = {
   ["Z"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nsmequities_totalview_itch_v5_0_2017.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -5240,7 +5244,7 @@ end
 -- Client Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.client_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.debug_packet.dissect,
   ["L"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.login_request_packet.dissect,
@@ -5249,6 +5253,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.client_payload.dispatch = {
   ["O"] = nasdaq_nsmequities_totalview_itch_v5_0_2017.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nsmequities_totalview_itch_v5_0_2017.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nsmequities_totalview_itch_v5_0_2017.client_payload.dispatch[client_packet_type]
   if dissect then

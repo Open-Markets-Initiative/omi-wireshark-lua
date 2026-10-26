@@ -1455,7 +1455,7 @@ end
 -- Payload
 jnx_jnxbonds_pts_itch_v1_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 jnx_jnxbonds_pts_itch_v1_2.payload.dispatch = {
   ["T"] = jnx_jnxbonds_pts_itch_v1_2.seconds_message.dissect,
   ["S"] = jnx_jnxbonds_pts_itch_v1_2.system_event_message.dissect,
@@ -1468,6 +1468,7 @@ jnx_jnxbonds_pts_itch_v1_2.payload.dispatch = {
   ["U"] = jnx_jnxbonds_pts_itch_v1_2.order_replaced_message.dissect,
 }
 
+-- Dissect: Payload
 jnx_jnxbonds_pts_itch_v1_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = jnx_jnxbonds_pts_itch_v1_2.payload.dispatch[message_type]
   if dissect then
@@ -1626,12 +1627,13 @@ end
 -- Messages
 jnx_jnxbonds_pts_itch_v1_2.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 jnx_jnxbonds_pts_itch_v1_2.messages.dispatch = {
   [0] = jnx_jnxbonds_pts_itch_v1_2.heartbeat.dissect,
   [65535] = jnx_jnxbonds_pts_itch_v1_2.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 jnx_jnxbonds_pts_itch_v1_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = jnx_jnxbonds_pts_itch_v1_2.messages.dispatch[message_count]
   if dissect then

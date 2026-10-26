@@ -560,7 +560,7 @@ blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.schema_id.size = 1
 -- Display: Schema Id
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.schema_id.display = function(value)
   if value == 2 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 2"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -1756,7 +1756,7 @@ end
 -- Payload
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.payload.dispatch = {
   [1] = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.instrument_directory_message.dissect,
   [2] = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.reg_sho_restriction_message.dissect,
@@ -1773,6 +1773,7 @@ blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.payload.dispatch = {
   [100] = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.snapshot_complete_message.dissect,
 }
 
+-- Dissect: Payload
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.payload.dispatch[template_id]
   if dissect then
@@ -2037,13 +2038,14 @@ end
 -- Sequenced Messages
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_messages = {}
 
--- Dissect: Sequenced Messages
+-- Dispatch: Sequenced Messages
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dispatch = {
   [0] = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.heartbeat.dissect,
   [1] = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.session_shutdown.dissect,
   [2] = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect,
 }
 
+-- Dissect: Sequenced Messages
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dispatch[message_type]
   if dissect then

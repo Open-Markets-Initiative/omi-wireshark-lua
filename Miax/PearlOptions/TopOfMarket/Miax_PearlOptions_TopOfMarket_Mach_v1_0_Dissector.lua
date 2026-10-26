@@ -2644,7 +2644,7 @@ end
 -- Data
 miax_pearloptions_topofmarket_mach_v1_0.data = {}
 
--- Dissect: Data
+-- Dispatch: Data
 miax_pearloptions_topofmarket_mach_v1_0.data.dispatch = {
   ["1"] = miax_pearloptions_topofmarket_mach_v1_0.system_time_message.dissect,
   ["P"] = miax_pearloptions_topofmarket_mach_v1_0.series_update_message.dissect,
@@ -2660,6 +2660,7 @@ miax_pearloptions_topofmarket_mach_v1_0.data.dispatch = {
   ["H"] = miax_pearloptions_topofmarket_mach_v1_0.underlying_trading_status_notification.dissect,
 }
 
+-- Dissect: Data
 miax_pearloptions_topofmarket_mach_v1_0.data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = miax_pearloptions_topofmarket_mach_v1_0.data.dispatch[message_type]
   if dissect then
@@ -2725,7 +2726,7 @@ end
 -- Payload
 miax_pearloptions_topofmarket_mach_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 miax_pearloptions_topofmarket_mach_v1_0.payload.dispatch = {
   [3] = miax_pearloptions_topofmarket_mach_v1_0.application_message.dissect,
   [0] = miax_pearloptions_topofmarket_mach_v1_0.heartbeat.dissect,
@@ -2733,6 +2734,7 @@ miax_pearloptions_topofmarket_mach_v1_0.payload.dispatch = {
   [2] = miax_pearloptions_topofmarket_mach_v1_0.end_of_session.dissect,
 }
 
+-- Dissect: Payload
 miax_pearloptions_topofmarket_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = miax_pearloptions_topofmarket_mach_v1_0.payload.dispatch[packet_type]
   if dissect then

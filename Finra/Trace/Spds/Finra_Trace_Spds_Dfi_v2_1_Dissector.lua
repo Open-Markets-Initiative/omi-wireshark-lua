@@ -2086,7 +2086,7 @@ end
 -- Control Message Payload
 finra_trace_spds_dfi_v2_1.control_message_payload = {}
 
--- Dissect: Control Message Payload
+-- Dispatch: Control Message Payload
 finra_trace_spds_dfi_v2_1.control_message_payload.dispatch = {
   ["I"] = finra_trace_spds_dfi_v2_1.start_of_day_message.dissect,
   ["J"] = finra_trace_spds_dfi_v2_1.end_of_day_message.dissect,
@@ -2096,6 +2096,7 @@ finra_trace_spds_dfi_v2_1.control_message_payload.dispatch = {
   ["Z"] = finra_trace_spds_dfi_v2_1.end_of_transmissions_message.dissect,
 }
 
+-- Dissect: Control Message Payload
 finra_trace_spds_dfi_v2_1.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   local dissect = finra_trace_spds_dfi_v2_1.control_message_payload.dispatch[control_message_type]
   if dissect then
@@ -2546,7 +2547,7 @@ end
 -- Administrative Message Payload
 finra_trace_spds_dfi_v2_1.administrative_message_payload = {}
 
--- Dissect: Administrative Message Payload
+-- Dispatch: Administrative Message Payload
 finra_trace_spds_dfi_v2_1.administrative_message_payload.dispatch = {
   ["E"] = finra_trace_spds_dfi_v2_1.daily_trade_summary_message.dissect,
   ["F"] = finra_trace_spds_dfi_v2_1.mbs_daily_trade_summary_message.dissect,
@@ -2554,6 +2555,7 @@ finra_trace_spds_dfi_v2_1.administrative_message_payload.dispatch = {
   ["A"] = finra_trace_spds_dfi_v2_1.general_administrative_message.dissect,
 }
 
+-- Dissect: Administrative Message Payload
 finra_trace_spds_dfi_v2_1.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   local dissect = finra_trace_spds_dfi_v2_1.administrative_message_payload.dispatch[administrative_message_type]
   if dissect then
@@ -3791,7 +3793,7 @@ end
 -- Trade Message Payload
 finra_trace_spds_dfi_v2_1.trade_message_payload = {}
 
--- Dissect: Trade Message Payload
+-- Dispatch: Trade Message Payload
 finra_trace_spds_dfi_v2_1.trade_message_payload.dispatch = {
   ["M"] = finra_trace_spds_dfi_v2_1.trade_report_message.dissect,
   ["P"] = finra_trace_spds_dfi_v2_1.mbs_trade_report_message.dissect,
@@ -3801,6 +3803,7 @@ finra_trace_spds_dfi_v2_1.trade_message_payload.dispatch = {
   ["R"] = finra_trace_spds_dfi_v2_1.mbs_trade_correction_message.dissect,
 }
 
+-- Dissect: Trade Message Payload
 finra_trace_spds_dfi_v2_1.trade_message_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
   local dissect = finra_trace_spds_dfi_v2_1.trade_message_payload.dispatch[trade_message_type]
   if dissect then
@@ -3866,13 +3869,14 @@ end
 -- Payload
 finra_trace_spds_dfi_v2_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 finra_trace_spds_dfi_v2_1.payload.dispatch = {
   ["T"] = finra_trace_spds_dfi_v2_1.trade_message.dissect,
   ["A"] = finra_trace_spds_dfi_v2_1.administrative_message.dissect,
   ["C"] = finra_trace_spds_dfi_v2_1.control_message.dissect,
 }
 
+-- Dissect: Payload
 finra_trace_spds_dfi_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = finra_trace_spds_dfi_v2_1.payload.dispatch[message_category]
   if dissect then

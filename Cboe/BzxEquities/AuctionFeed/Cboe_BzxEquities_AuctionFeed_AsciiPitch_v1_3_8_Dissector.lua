@@ -1288,7 +1288,7 @@ end
 -- Sequenced Message
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message.dispatch = {
   ["I"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_update_message.dissect,
   ["3"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_update_message.dissect,
@@ -1296,6 +1296,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message.dispatch = {
   ["4"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_summary_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -1532,7 +1533,7 @@ end
 -- Payload
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload.dispatch = {
   ["+"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.debug_packet.dissect,
   ["A"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.login_accepted_packet.dissect,
@@ -1542,6 +1543,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload.dispatch = {
   ["U"] = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.unsequenced_data_packet.dissect,
 }
 
+-- Dissect: Payload
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.payload.dispatch[packet_type]
   if dissect then

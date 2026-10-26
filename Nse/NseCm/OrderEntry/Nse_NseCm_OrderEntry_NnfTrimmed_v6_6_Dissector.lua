@@ -2396,7 +2396,7 @@ end
 -- Message Payload
 nse_nsecm_orderentry_nnftrimmed_v6_6.message_payload = {}
 
--- Dissect: Message Payload
+-- Dispatch: Message Payload
 nse_nsecm_orderentry_nnftrimmed_v6_6.message_payload.dispatch = {
   [20000] = nse_nsecm_orderentry_nnftrimmed_v6_6.order_entry_request_trimmed_message.dissect,
   [20400] = nse_nsecm_orderentry_nnftrimmed_v6_6.order_entry_request_trimmed_message.dissect,
@@ -2417,6 +2417,7 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.message_payload.dispatch = {
   [20405] = nse_nsecm_orderentry_nnftrimmed_v6_6.quick_acknowledgement_message.dissect,
 }
 
+-- Dissect: Message Payload
 nse_nsecm_orderentry_nnftrimmed_v6_6.message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
   local dissect = nse_nsecm_orderentry_nnftrimmed_v6_6.message_payload.dispatch[transaction_code]
   if dissect then

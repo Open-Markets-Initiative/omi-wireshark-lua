@@ -6067,7 +6067,7 @@ end
 -- Exchange Message
 cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message = {}
 
--- Dissect: Exchange Message
+-- Dispatch: Exchange Message
 cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message.dispatch = {
   [501] = cboe_cfefutures_binaryorderentry_boe3_v1_0.login_response_message.dissect,
   [502] = cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_complete.dissect,
@@ -6097,6 +6097,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message.dispatch = {
   [1522] = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.dissect,
 }
 
+-- Dissect: Exchange Message
 cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
   local dissect = cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message.dispatch[exchange_message_type]
   if dissect then
@@ -7017,7 +7018,7 @@ end
 -- Firm Message
 cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message = {}
 
--- Dissect: Firm Message
+-- Dispatch: Firm Message
 cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message.dispatch = {
   [1] = cboe_cfefutures_binaryorderentry_boe3_v1_0.login_request_message.dissect,
   [2] = cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_request.dissect,
@@ -7031,6 +7032,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message.dispatch = {
   [1007] = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.dissect,
 }
 
+-- Dissect: Firm Message
 cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
   local dissect = cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message.dispatch[firm_message_type]
   if dissect then

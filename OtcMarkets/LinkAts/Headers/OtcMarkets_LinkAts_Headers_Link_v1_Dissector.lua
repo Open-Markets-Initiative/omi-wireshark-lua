@@ -386,11 +386,12 @@ end
 -- Message Block
 otcmarkets_linkats_headers_link_v1.message_block = {}
 
--- Dissect: Message Block
+-- Dispatch: Message Block
 otcmarkets_linkats_headers_link_v1.message_block.dispatch = {
   [1] = otcmarkets_linkats_headers_link_v1.heartbeat_packet.dissect,
 }
 
+-- Dissect: Message Block
 otcmarkets_linkats_headers_link_v1.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
   local dissect = otcmarkets_linkats_headers_link_v1.message_block.dispatch[bit.band(packet_flag, 0x01)]
   if dissect then

@@ -2010,12 +2010,13 @@ end
 -- Underlying Value Message Message Payload
 siac_opra_input_obi_v5_0_i.underlying_value_message_message_payload = {}
 
--- Dissect: Underlying Value Message Message Payload
+-- Dispatch: Underlying Value Message Message Payload
 siac_opra_input_obi_v5_0_i.underlying_value_message_message_payload.dispatch = {
   [" "] = siac_opra_input_obi_v5_0_i.underlying_value_last_sale_message.dissect,
   ["I"] = siac_opra_input_obi_v5_0_i.underlying_value_bid_and_offer_message.dissect,
 }
 
+-- Dissect: Underlying Value Message Message Payload
 siac_opra_input_obi_v5_0_i.underlying_value_message_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_message_type)
   local dissect = siac_opra_input_obi_v5_0_i.underlying_value_message_message_payload.dispatch[underlying_value_message_message_type]
   if dissect then
@@ -2281,7 +2282,7 @@ end
 -- Sequence Number Status Message Payload
 siac_opra_input_obi_v5_0_i.sequence_number_status_message_payload = {}
 
--- Dissect: Sequence Number Status Message Payload
+-- Dispatch: Sequence Number Status Message Payload
 siac_opra_input_obi_v5_0_i.sequence_number_status_message_payload.dispatch = {
   ["L"] = siac_opra_input_obi_v5_0_i.block_sequence_number_status_inquiry_request_message.dissect,
   ["M"] = siac_opra_input_obi_v5_0_i.block_sequence_number_status_response_message.dissect,
@@ -2289,6 +2290,7 @@ siac_opra_input_obi_v5_0_i.sequence_number_status_message_payload.dispatch = {
   ["S"] = siac_opra_input_obi_v5_0_i.message_count_status_response_message.dissect,
 }
 
+-- Dissect: Sequence Number Status Message Payload
 siac_opra_input_obi_v5_0_i.sequence_number_status_message_payload.dissect = function(buffer, offset, packet, parent, sequence_number_status_message_type)
   local dissect = siac_opra_input_obi_v5_0_i.sequence_number_status_message_payload.dispatch[sequence_number_status_message_type]
   if dissect then
@@ -2531,11 +2533,12 @@ end
 -- Administrative Message Payload
 siac_opra_input_obi_v5_0_i.administrative_message_payload = {}
 
--- Dissect: Administrative Message Payload
+-- Dispatch: Administrative Message Payload
 siac_opra_input_obi_v5_0_i.administrative_message_payload.dispatch = {
   [" "] = siac_opra_input_obi_v5_0_i.administrative_message.dissect,
 }
 
+-- Dissect: Administrative Message Payload
 siac_opra_input_obi_v5_0_i.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   local dissect = siac_opra_input_obi_v5_0_i.administrative_message_payload.dispatch[administrative_message_type]
   if dissect then
@@ -3049,11 +3052,12 @@ end
 -- Equity And Index End Of Day Summary Message Payload
 siac_opra_input_obi_v5_0_i.equity_and_index_end_of_day_summary_message_payload = {}
 
--- Dissect: Equity And Index End Of Day Summary Message Payload
+-- Dispatch: Equity And Index End Of Day Summary Message Payload
 siac_opra_input_obi_v5_0_i.equity_and_index_end_of_day_summary_message_payload.dispatch = {
   [" "] = siac_opra_input_obi_v5_0_i.equity_and_index_end_of_day_summary_message.dissect,
 }
 
+-- Dissect: Equity And Index End Of Day Summary Message Payload
 siac_opra_input_obi_v5_0_i.equity_and_index_end_of_day_summary_message_payload.dissect = function(buffer, offset, packet, parent, equity_and_index_end_of_day_summary_message_type)
   local dissect = siac_opra_input_obi_v5_0_i.equity_and_index_end_of_day_summary_message_payload.dispatch[equity_and_index_end_of_day_summary_message_type]
   if dissect then
@@ -3269,7 +3273,7 @@ end
 -- Payload
 siac_opra_input_obi_v5_0_i.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 siac_opra_input_obi_v5_0_i.payload.dispatch = {
   ["a"] = siac_opra_input_obi_v5_0_i.equity_and_index_last_sale_category.dissect,
   ["f"] = siac_opra_input_obi_v5_0_i.equity_and_index_end_of_day_summary_category.dissect,
@@ -3281,6 +3285,7 @@ siac_opra_input_obi_v5_0_i.payload.dispatch = {
   ["Y"] = siac_opra_input_obi_v5_0_i.underlying_value_message_category.dissect,
 }
 
+-- Dissect: Payload
 siac_opra_input_obi_v5_0_i.payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = siac_opra_input_obi_v5_0_i.payload.dispatch[message_category]
   if dissect then

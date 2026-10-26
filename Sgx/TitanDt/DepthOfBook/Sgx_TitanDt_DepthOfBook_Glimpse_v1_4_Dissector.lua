@@ -2185,7 +2185,7 @@ end
 -- Sequenced Message
 sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message.dispatch = {
   ["T"] = sgx_titandt_depthofbook_glimpse_v1_4.seconds_message.dissect,
   ["R"] = sgx_titandt_depthofbook_glimpse_v1_4.order_book_directory_message.dissect,
@@ -2196,6 +2196,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message.dispatch = {
   ["G"] = sgx_titandt_depthofbook_glimpse_v1_4.end_of_snapshot_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2441,7 +2442,7 @@ end
 -- Server Payload
 sgx_titandt_depthofbook_glimpse_v1_4.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 sgx_titandt_depthofbook_glimpse_v1_4.server_payload.dispatch = {
   ["+"] = sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.dissect,
   ["A"] = sgx_titandt_depthofbook_glimpse_v1_4.login_accepted_packet.dissect,
@@ -2451,6 +2452,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.server_payload.dispatch = {
   ["Z"] = sgx_titandt_depthofbook_glimpse_v1_4.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 sgx_titandt_depthofbook_glimpse_v1_4.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = sgx_titandt_depthofbook_glimpse_v1_4.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2766,7 +2768,7 @@ end
 -- Client Payload
 sgx_titandt_depthofbook_glimpse_v1_4.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 sgx_titandt_depthofbook_glimpse_v1_4.client_payload.dispatch = {
   ["+"] = sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.dissect,
   ["L"] = sgx_titandt_depthofbook_glimpse_v1_4.login_request_packet.dissect,
@@ -2775,6 +2777,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.client_payload.dispatch = {
   ["O"] = sgx_titandt_depthofbook_glimpse_v1_4.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 sgx_titandt_depthofbook_glimpse_v1_4.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = sgx_titandt_depthofbook_glimpse_v1_4.client_payload.dispatch[client_packet_type]
   if dissect then

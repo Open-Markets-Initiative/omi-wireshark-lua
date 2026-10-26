@@ -14543,7 +14543,7 @@ end
 -- Payload
 koscom_mdcsrealtime_derivativesa_exture_v2_018.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 koscom_mdcsrealtime_derivativesa_exture_v2_018.payload.dispatch = {
   ["I2000"] = koscom_mdcsrealtime_derivativesa_exture_v2_018.polling_data_message.dissect,
   ["B601F"] = koscom_mdcsrealtime_derivativesa_exture_v2_018.derivatives_quote_five_levels_message.dissect,
@@ -14887,6 +14887,7 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.payload.dispatch = {
   ["HA06F"] = koscom_mdcsrealtime_derivativesa_exture_v2_018.daily_disclosed_rfr_message.dissect,
 }
 
+-- Dissect: Payload
 koscom_mdcsrealtime_derivativesa_exture_v2_018.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   local dissect = koscom_mdcsrealtime_derivativesa_exture_v2_018.payload.dispatch[tr_code]
   if dissect then

@@ -2806,12 +2806,13 @@ end
 -- Underlying Value Message Payload
 siac_opra_output_obi_v6_1.underlying_value_message_payload = {}
 
--- Dissect: Underlying Value Message Payload
+-- Dispatch: Underlying Value Message Payload
 siac_opra_output_obi_v6_1.underlying_value_message_payload.dispatch = {
   [" "] = siac_opra_output_obi_v6_1.underlying_value_last_sale_message.dissect,
   ["I"] = siac_opra_output_obi_v6_1.underlying_value_bid_and_offer_message.dissect,
 }
 
+-- Dissect: Underlying Value Message Payload
 siac_opra_output_obi_v6_1.underlying_value_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
   local dissect = siac_opra_output_obi_v6_1.underlying_value_message_payload.dispatch[underlying_value_message_type]
   if dissect then
@@ -3092,11 +3093,12 @@ end
 -- Administrative Message Payload
 siac_opra_output_obi_v6_1.administrative_message_payload = {}
 
--- Dissect: Administrative Message Payload
+-- Dispatch: Administrative Message Payload
 siac_opra_output_obi_v6_1.administrative_message_payload.dispatch = {
   [" "] = siac_opra_output_obi_v6_1.administrative_message.dissect,
 }
 
+-- Dissect: Administrative Message Payload
 siac_opra_output_obi_v6_1.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   local dissect = siac_opra_output_obi_v6_1.administrative_message_payload.dispatch[administrative_message_type]
   if dissect then
@@ -3905,11 +3907,12 @@ end
 -- Equity And Index End Of Day Summary Message Payload
 siac_opra_output_obi_v6_1.equity_and_index_end_of_day_summary_message_payload = {}
 
--- Dissect: Equity And Index End Of Day Summary Message Payload
+-- Dispatch: Equity And Index End Of Day Summary Message Payload
 siac_opra_output_obi_v6_1.equity_and_index_end_of_day_summary_message_payload.dispatch = {
   [" "] = siac_opra_output_obi_v6_1.equity_and_index_end_of_day_summary_message.dissect,
 }
 
+-- Dissect: Equity And Index End Of Day Summary Message Payload
 siac_opra_output_obi_v6_1.equity_and_index_end_of_day_summary_message_payload.dissect = function(buffer, offset, packet, parent, equity_and_index_end_of_day_summary_message_type)
   local dissect = siac_opra_output_obi_v6_1.equity_and_index_end_of_day_summary_message_payload.dispatch[equity_and_index_end_of_day_summary_message_type]
   if dissect then
@@ -4047,11 +4050,12 @@ end
 -- Open Interest Message Payload
 siac_opra_output_obi_v6_1.open_interest_message_payload = {}
 
--- Dissect: Open Interest Message Payload
+-- Dispatch: Open Interest Message Payload
 siac_opra_output_obi_v6_1.open_interest_message_payload.dispatch = {
   [" "] = siac_opra_output_obi_v6_1.open_interest_message.dissect,
 }
 
+-- Dissect: Open Interest Message Payload
 siac_opra_output_obi_v6_1.open_interest_message_payload.dissect = function(buffer, offset, packet, parent, open_interest_message_type)
   local dissect = siac_opra_output_obi_v6_1.open_interest_message_payload.dispatch[open_interest_message_type]
   if dissect then
@@ -4271,7 +4275,7 @@ end
 -- Payload
 siac_opra_output_obi_v6_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 siac_opra_output_obi_v6_1.payload.dispatch = {
   ["a"] = siac_opra_output_obi_v6_1.equity_and_index_last_sale_category.dissect,
   ["d"] = siac_opra_output_obi_v6_1.open_interest_category.dissect,
@@ -4283,6 +4287,7 @@ siac_opra_output_obi_v6_1.payload.dispatch = {
   ["Y"] = siac_opra_output_obi_v6_1.underlying_value_category.dissect,
 }
 
+-- Dissect: Payload
 siac_opra_output_obi_v6_1.payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = siac_opra_output_obi_v6_1.payload.dispatch[message_category]
   if dissect then

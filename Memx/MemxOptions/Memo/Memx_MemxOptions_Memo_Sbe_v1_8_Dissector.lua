@@ -2924,7 +2924,7 @@ memx_memxoptions_memo_sbe_v1_8.schema_id.size = 1
 -- Display: Schema Id
 memx_memxoptions_memo_sbe_v1_8.schema_id.display = function(value)
   if value == 9 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 9"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -6297,7 +6297,7 @@ end
 -- Server Payload
 memx_memxoptions_memo_sbe_v1_8.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 memx_memxoptions_memo_sbe_v1_8.server_payload.dispatch = {
   [11] = memx_memxoptions_memo_sbe_v1_8.execution_report_new_message.dissect,
   [12] = memx_memxoptions_memo_sbe_v1_8.execution_report_bulk_quote_pending_new_message.dissect,
@@ -6324,6 +6324,7 @@ memx_memxoptions_memo_sbe_v1_8.server_payload.dispatch = {
   [36] = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockout_accepted_message.dissect,
 }
 
+-- Dissect: Server Payload
 memx_memxoptions_memo_sbe_v1_8.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = memx_memxoptions_memo_sbe_v1_8.server_payload.dispatch[template_id]
   if dissect then
@@ -6861,7 +6862,7 @@ end
 -- Server Data
 memx_memxoptions_memo_sbe_v1_8.server_data = {}
 
--- Dissect: Server Data
+-- Dispatch: Server Data
 memx_memxoptions_memo_sbe_v1_8.server_data.dispatch = {
   [1] = memx_memxoptions_memo_sbe_v1_8.login_accepted_message.dissect,
   [2] = memx_memxoptions_memo_sbe_v1_8.login_rejected_message.dissect,
@@ -6875,6 +6876,7 @@ memx_memxoptions_memo_sbe_v1_8.server_data.dispatch = {
   [11] = memx_memxoptions_memo_sbe_v1_8.sequenced_message.dissect,
 }
 
+-- Dissect: Server Data
 memx_memxoptions_memo_sbe_v1_8.server_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxoptions_memo_sbe_v1_8.server_data.dispatch[message_type]
   if dissect then
@@ -8267,7 +8269,7 @@ end
 -- Client Payload
 memx_memxoptions_memo_sbe_v1_8.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 memx_memxoptions_memo_sbe_v1_8.client_payload.dispatch = {
   [1] = memx_memxoptions_memo_sbe_v1_8.new_order_single_message.dissect,
   [2] = memx_memxoptions_memo_sbe_v1_8.short_two_sided_bulk_quote_message.dissect,
@@ -8283,6 +8285,7 @@ memx_memxoptions_memo_sbe_v1_8.client_payload.dispatch = {
   [10] = memx_memxoptions_memo_sbe_v1_8.allocation_instruction_message.dissect,
 }
 
+-- Dissect: Client Payload
 memx_memxoptions_memo_sbe_v1_8.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = memx_memxoptions_memo_sbe_v1_8.client_payload.dispatch[template_id]
   if dissect then
@@ -8572,7 +8575,7 @@ end
 -- Client Data
 memx_memxoptions_memo_sbe_v1_8.client_data = {}
 
--- Dissect: Client Data
+-- Dispatch: Client Data
 memx_memxoptions_memo_sbe_v1_8.client_data.dispatch = {
   [100] = memx_memxoptions_memo_sbe_v1_8.login_request_message.dissect,
   [101] = memx_memxoptions_memo_sbe_v1_8.replay_request_message.dissect,
@@ -8581,6 +8584,7 @@ memx_memxoptions_memo_sbe_v1_8.client_data.dispatch = {
   [104] = memx_memxoptions_memo_sbe_v1_8.unsequenced_message.dissect,
 }
 
+-- Dissect: Client Data
 memx_memxoptions_memo_sbe_v1_8.client_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = memx_memxoptions_memo_sbe_v1_8.client_data.dispatch[message_type]
   if dissect then

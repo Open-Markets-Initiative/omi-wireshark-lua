@@ -827,11 +827,12 @@ end
 -- Messages
 cboe_gaprequestproxy_pitch_v1.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_gaprequestproxy_pitch_v1.messages.dispatch = {
   [0] = cboe_gaprequestproxy_pitch_v1.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_gaprequestproxy_pitch_v1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_gaprequestproxy_pitch_v1.messages.dispatch[message_count]
   if dissect then

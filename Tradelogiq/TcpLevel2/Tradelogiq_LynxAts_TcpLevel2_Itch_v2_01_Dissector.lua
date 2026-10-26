@@ -2685,7 +2685,7 @@ end
 -- Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.payload.dispatch = {
   ["S"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.system_event_message.dissect,
   ["R"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.stock_directory_message.dissect,
@@ -2703,6 +2703,7 @@ tradelogiq_lynxats_tcplevel2_itch_v2_01.payload.dispatch = {
   ["M"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.trade_amend_message.dissect,
 }
 
+-- Dissect: Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tradelogiq_lynxats_tcplevel2_itch_v2_01.payload.dispatch[message_type]
   if dissect then
@@ -2970,7 +2971,7 @@ end
 -- Server Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.server_payload.dispatch = {
   ["A"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.login_accepted_packet.dissect,
   ["J"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.login_rejected_packet.dissect,
@@ -2978,6 +2979,7 @@ tradelogiq_lynxats_tcplevel2_itch_v2_01.server_payload.dispatch = {
   ["S"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.sequenced_data_packet.dissect,
 }
 
+-- Dissect: Server Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = tradelogiq_lynxats_tcplevel2_itch_v2_01.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3284,7 +3286,7 @@ end
 -- Client Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.client_payload.dispatch = {
   ["L"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.login_request_packet.dissect,
   ["U"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.unsequenced_data_packet.dissect,
@@ -3292,6 +3294,7 @@ tradelogiq_lynxats_tcplevel2_itch_v2_01.client_payload.dispatch = {
   ["O"] = tradelogiq_lynxats_tcplevel2_itch_v2_01.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 tradelogiq_lynxats_tcplevel2_itch_v2_01.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = tradelogiq_lynxats_tcplevel2_itch_v2_01.client_payload.dispatch[client_packet_type]
   if dissect then

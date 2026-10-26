@@ -2751,7 +2751,7 @@ end
 -- Payload
 asx_asxsecurities_trade_itch_v3_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 asx_asxsecurities_trade_itch_v3_1.payload.dispatch = {
   ["T"] = asx_asxsecurities_trade_itch_v3_1.seconds_message.dissect,
   ["R"] = asx_asxsecurities_trade_itch_v3_1.order_book_directory_message.dissect,
@@ -2769,6 +2769,7 @@ asx_asxsecurities_trade_itch_v3_1.payload.dispatch = {
   ["Z"] = asx_asxsecurities_trade_itch_v3_1.equilibrium_price_update_message.dissect,
 }
 
+-- Dissect: Payload
 asx_asxsecurities_trade_itch_v3_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = asx_asxsecurities_trade_itch_v3_1.payload.dispatch[message_type]
   if dissect then
@@ -2927,12 +2928,13 @@ end
 -- Messages
 asx_asxsecurities_trade_itch_v3_1.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 asx_asxsecurities_trade_itch_v3_1.messages.dispatch = {
   [0] = asx_asxsecurities_trade_itch_v3_1.heartbeat.dissect,
   [65535] = asx_asxsecurities_trade_itch_v3_1.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 asx_asxsecurities_trade_itch_v3_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = asx_asxsecurities_trade_itch_v3_1.messages.dispatch[message_count]
   if dissect then

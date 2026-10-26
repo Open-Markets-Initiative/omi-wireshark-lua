@@ -20838,7 +20838,7 @@ end
 -- Server Payload
 eurex_t7_xti_fbe_v8_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 eurex_t7_xti_fbe_v8_0.server_payload.dispatch = {
   [10414] = eurex_t7_xti_fbe_v8_0.best_quote_execution_report.dissect,
   [10413] = eurex_t7_xti_fbe_v8_0.best_quote_response.dissect,
@@ -20923,6 +20923,7 @@ eurex_t7_xti_fbe_v8_0.server_payload.dispatch = {
   [10814] = eurex_t7_xti_fbe_v8_0.xetra_en_light_status_broadcast.dissect,
 }
 
+-- Dissect: Server Payload
 eurex_t7_xti_fbe_v8_0.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = eurex_t7_xti_fbe_v8_0.server_payload.dispatch[template_id]
   if dissect then
@@ -24796,7 +24797,7 @@ end
 -- Client Payload
 eurex_t7_xti_fbe_v8_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 eurex_t7_xti_fbe_v8_0.client_payload.dispatch = {
   [10603] = eurex_t7_xti_fbe_v8_0.approve_tes_trade_request.dissect,
   [10118] = eurex_t7_xti_fbe_v8_0.cross_request.dissect,
@@ -24838,6 +24839,7 @@ eurex_t7_xti_fbe_v8_0.client_payload.dispatch = {
   [10801] = eurex_t7_xti_fbe_v8_0.xetra_en_light_update_negotiation_request.dissect,
 }
 
+-- Dissect: Client Payload
 eurex_t7_xti_fbe_v8_0.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = eurex_t7_xti_fbe_v8_0.client_payload.dispatch[template_id]
   if dissect then

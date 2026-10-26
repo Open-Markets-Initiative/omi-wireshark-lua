@@ -2092,11 +2092,12 @@ end
 -- Messages
 cboe_bzxoptions_complexauction_pitch_v2_2_41.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_bzxoptions_complexauction_pitch_v2_2_41.messages.dispatch = {
   [0] = cboe_bzxoptions_complexauction_pitch_v2_2_41.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_bzxoptions_complexauction_pitch_v2_2_41.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_bzxoptions_complexauction_pitch_v2_2_41.messages.dispatch[message_count]
   if dissect then

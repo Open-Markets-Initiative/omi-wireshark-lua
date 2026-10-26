@@ -4159,7 +4159,7 @@ end
 -- Order Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.order_payload = {}
 
--- Dissect: Order Payload
+-- Dispatch: Order Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.order_payload.dispatch = {
   [102] = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.ping_message.dissect,
   [202] = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.pong_message.dissect,
@@ -4193,6 +4193,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_6.order_payload.dispatch = {
   [253] = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.event_resend_reject_message.dissect,
 }
 
+-- Dissect: Order Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.order_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.order_payload.dispatch[template_id]
   if dissect then
@@ -4592,7 +4593,7 @@ end
 -- Session Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.session_payload = {}
 
--- Dissect: Session Payload
+-- Dispatch: Session Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.session_payload.dispatch = {
   [100] = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.logon_message.dissect,
   [200] = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.logon_conf_message.dissect,
@@ -4604,6 +4605,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_6.session_payload.dispatch = {
   [202] = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.gap_fill_message.dissect,
 }
 
+-- Dissect: Session Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.session_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.session_payload.dispatch[template_id]
   if dissect then
@@ -4667,12 +4669,13 @@ end
 -- Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.payload.dispatch = {
   [1100] = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.session_message.dissect,
   [1101] = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.order_message.dissect,
 }
 
+-- Dissect: Payload
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.payload.dissect = function(buffer, offset, packet, parent, schema_id)
   local dissect = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.payload.dispatch[schema_id]
   if dissect then

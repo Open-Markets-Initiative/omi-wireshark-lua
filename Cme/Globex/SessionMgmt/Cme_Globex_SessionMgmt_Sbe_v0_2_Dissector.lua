@@ -661,7 +661,7 @@ cme_globex_sessionmgmt_sbe_v0_2.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_sessionmgmt_sbe_v0_2.schema_id.display = function(value)
   if value == 2 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 2"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -968,7 +968,7 @@ cme_globex_sessionmgmt_sbe_v0_2.version.size = 2
 -- Display: Version
 cme_globex_sessionmgmt_sbe_v0_2.version.display = function(value)
   if value == 0 then
-    return "Version: Version"
+    return "Version: Version FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"
@@ -1521,7 +1521,7 @@ end
 -- Server Payload
 cme_globex_sessionmgmt_sbe_v0_2.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 cme_globex_sessionmgmt_sbe_v0_2.server_payload.dispatch = {
   [201] = cme_globex_sessionmgmt_sbe_v0_2.negotiation_reject.dissect,
   [202] = cme_globex_sessionmgmt_sbe_v0_2.negotiation_response.dissect,
@@ -1530,6 +1530,7 @@ cme_globex_sessionmgmt_sbe_v0_2.server_payload.dispatch = {
   [207] = cme_globex_sessionmgmt_sbe_v0_2.request_reject.dissect,
 }
 
+-- Dissect: Server Payload
 cme_globex_sessionmgmt_sbe_v0_2.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_sessionmgmt_sbe_v0_2.server_payload.dispatch[template_id]
   if dissect then
@@ -2718,7 +2719,7 @@ end
 -- Client Payload
 cme_globex_sessionmgmt_sbe_v0_2.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 cme_globex_sessionmgmt_sbe_v0_2.client_payload.dispatch = {
   [200] = cme_globex_sessionmgmt_sbe_v0_2.negotiate.dissect,
   [203] = cme_globex_sessionmgmt_sbe_v0_2.terminate.dissect,
@@ -2728,6 +2729,7 @@ cme_globex_sessionmgmt_sbe_v0_2.client_payload.dispatch = {
   [210] = cme_globex_sessionmgmt_sbe_v0_2.subscriber_heartbeat.dissect,
 }
 
+-- Dissect: Client Payload
 cme_globex_sessionmgmt_sbe_v0_2.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_sessionmgmt_sbe_v0_2.client_payload.dispatch[template_id]
   if dissect then

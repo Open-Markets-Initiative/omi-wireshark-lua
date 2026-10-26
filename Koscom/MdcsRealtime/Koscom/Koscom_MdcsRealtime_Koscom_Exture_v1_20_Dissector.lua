@@ -9425,7 +9425,7 @@ end
 -- Payload
 koscom_mdcsrealtime_koscom_exture_v1_20.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 koscom_mdcsrealtime_koscom_exture_v1_20.payload.dispatch = {
   ["A6013"] = koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_issue_closing_message.dissect,
   ["A7013"] = koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_market_operation_message.dissect,
@@ -9465,6 +9465,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.payload.dispatch = {
   ["CC000"] = koscom_mdcsrealtime_koscom_exture_v1_20.loan_transaction_available_quantity_message.dissect,
 }
 
+-- Dissect: Payload
 koscom_mdcsrealtime_koscom_exture_v1_20.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   local dissect = koscom_mdcsrealtime_koscom_exture_v1_20.payload.dispatch[tr_code]
   if dissect then

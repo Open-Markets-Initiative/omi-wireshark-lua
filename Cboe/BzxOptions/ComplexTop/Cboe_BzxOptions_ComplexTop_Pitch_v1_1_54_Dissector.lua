@@ -2841,11 +2841,12 @@ end
 -- Messages
 cboe_bzxoptions_complextop_pitch_v1_1_54.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_bzxoptions_complextop_pitch_v1_1_54.messages.dispatch = {
   [0] = cboe_bzxoptions_complextop_pitch_v1_1_54.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_bzxoptions_complextop_pitch_v1_1_54.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_bzxoptions_complextop_pitch_v1_1_54.messages.dispatch[message_count]
   if dissect then

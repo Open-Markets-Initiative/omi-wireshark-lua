@@ -657,7 +657,7 @@ end
 -- Server Payload
 txse_txseequities_framing_tcp_v1_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 txse_txseequities_framing_tcp_v1_0.server_payload.dispatch = {
   [48] = txse_txseequities_framing_tcp_v1_0.debug_message.dissect,
   [52] = txse_txseequities_framing_tcp_v1_0.end_of_session_message.dissect,
@@ -665,6 +665,7 @@ txse_txseequities_framing_tcp_v1_0.server_payload.dispatch = {
   [50] = txse_txseequities_framing_tcp_v1_0.tcp_sequenced_message.dissect,
 }
 
+-- Dissect: Server Payload
 txse_txseequities_framing_tcp_v1_0.server_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = txse_txseequities_framing_tcp_v1_0.server_payload.dispatch[packet_type]
   if dissect then
@@ -936,12 +937,13 @@ end
 -- Client Payload
 txse_txseequities_framing_tcp_v1_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 txse_txseequities_framing_tcp_v1_0.client_payload.dispatch = {
   [53] = txse_txseequities_framing_tcp_v1_0.logon_request_packet.dissect,
   [54] = txse_txseequities_framing_tcp_v1_0.tcp_unsequenced_message.dissect,
 }
 
+-- Dissect: Client Payload
 txse_txseequities_framing_tcp_v1_0.client_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = txse_txseequities_framing_tcp_v1_0.client_payload.dispatch[packet_type]
   if dissect then

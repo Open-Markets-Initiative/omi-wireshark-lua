@@ -3595,7 +3595,7 @@ end
 -- Payload
 nyse_amexequities_imbalancesfeed_pillar_v2_2_n.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_amexequities_imbalancesfeed_pillar_v2_2_n.payload.dispatch = {
   [1] = nyse_amexequities_imbalancesfeed_pillar_v2_2_n.sequence_number_reset_message.dissect,
   [2] = nyse_amexequities_imbalancesfeed_pillar_v2_2_n.source_time_reference_message.dissect,
@@ -3612,6 +3612,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_n.payload.dispatch = {
   [105] = nyse_amexequities_imbalancesfeed_pillar_v2_2_n.imbalance_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_amexequities_imbalancesfeed_pillar_v2_2_n.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_amexequities_imbalancesfeed_pillar_v2_2_n.payload.dispatch[message_type]
   if dissect then
@@ -3753,11 +3754,12 @@ end
 -- Messages
 nyse_amexequities_imbalancesfeed_pillar_v2_2_n.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_amexequities_imbalancesfeed_pillar_v2_2_n.messages.dispatch = {
   [1] = nyse_amexequities_imbalancesfeed_pillar_v2_2_n.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_amexequities_imbalancesfeed_pillar_v2_2_n.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_amexequities_imbalancesfeed_pillar_v2_2_n.messages.dispatch[delivery_flag]
   if dissect then

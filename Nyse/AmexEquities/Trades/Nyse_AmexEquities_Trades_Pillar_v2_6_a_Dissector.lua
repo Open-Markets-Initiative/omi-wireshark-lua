@@ -4124,7 +4124,7 @@ end
 -- Payload
 nyse_amexequities_trades_pillar_v2_6_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_amexequities_trades_pillar_v2_6_a.payload.dispatch = {
   [1] = nyse_amexequities_trades_pillar_v2_6_a.sequence_number_reset_message.dissect,
   [2] = nyse_amexequities_trades_pillar_v2_6_a.source_time_reference_message.dissect,
@@ -4149,6 +4149,7 @@ nyse_amexequities_trades_pillar_v2_6_a.payload.dispatch = {
   [214] = nyse_amexequities_trades_pillar_v2_6_a.trf_fractional_prior_day_trade_cancel_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_amexequities_trades_pillar_v2_6_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_amexequities_trades_pillar_v2_6_a.payload.dispatch[message_type]
   if dissect then
@@ -4290,11 +4291,12 @@ end
 -- Messages
 nyse_amexequities_trades_pillar_v2_6_a.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_amexequities_trades_pillar_v2_6_a.messages.dispatch = {
   [1] = nyse_amexequities_trades_pillar_v2_6_a.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_amexequities_trades_pillar_v2_6_a.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_amexequities_trades_pillar_v2_6_a.messages.dispatch[delivery_flag]
   if dissect then

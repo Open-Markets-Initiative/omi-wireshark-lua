@@ -8515,11 +8515,12 @@ end
 -- Replay Request Payload
 gpw_wse_replayfulldepth_wats_v1_7_6_20.replay_request_payload = {}
 
--- Dissect: Replay Request Payload
+-- Dispatch: Replay Request Payload
 gpw_wse_replayfulldepth_wats_v1_7_6_20.replay_request_payload.dispatch = {
   [1] = gpw_wse_replayfulldepth_wats_v1_7_6_20.replay_request.dissect,
 }
 
+-- Dissect: Replay Request Payload
 gpw_wse_replayfulldepth_wats_v1_7_6_20.replay_request_payload.dissect = function(buffer, offset, packet, parent, replay_message_type)
   local dissect = gpw_wse_replayfulldepth_wats_v1_7_6_20.replay_request_payload.dispatch[replay_message_type]
   if dissect then
@@ -12381,7 +12382,7 @@ end
 -- Payload
 gpw_wse_replayfulldepth_wats_v1_7_6_20.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_wse_replayfulldepth_wats_v1_7_6_20.payload.dispatch = {
   [33] = gpw_wse_replayfulldepth_wats_v1_7_6_20.week_plan.dissect,
   [35] = gpw_wse_replayfulldepth_wats_v1_7_6_20.calendar_exception.dissect,
@@ -12421,6 +12422,7 @@ gpw_wse_replayfulldepth_wats_v1_7_6_20.payload.dispatch = {
   [410] = gpw_wse_replayfulldepth_wats_v1_7_6_20.order_book_event.dissect,
 }
 
+-- Dissect: Payload
 gpw_wse_replayfulldepth_wats_v1_7_6_20.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_wse_replayfulldepth_wats_v1_7_6_20.payload.dispatch[message_type]
   if dissect then

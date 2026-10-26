@@ -672,11 +672,12 @@ end
 -- Server Payload
 nyse_texasequities_depthfeedrequest_pillar_v1_7.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nyse_texasequities_depthfeedrequest_pillar_v1_7.server_payload.dispatch = {
   [11] = nyse_texasequities_depthfeedrequest_pillar_v1_7.request_response_message.dissect,
 }
 
+-- Dissect: Server Payload
 nyse_texasequities_depthfeedrequest_pillar_v1_7.server_payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_texasequities_depthfeedrequest_pillar_v1_7.server_payload.dispatch[message_type]
   if dissect then
@@ -1136,7 +1137,7 @@ end
 -- Client Payload
 nyse_texasequities_depthfeedrequest_pillar_v1_7.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nyse_texasequities_depthfeedrequest_pillar_v1_7.client_payload.dispatch = {
   [10] = nyse_texasequities_depthfeedrequest_pillar_v1_7.retransmission_request_message.dissect,
   [12] = nyse_texasequities_depthfeedrequest_pillar_v1_7.heartbeat_response_message.dissect,
@@ -1144,6 +1145,7 @@ nyse_texasequities_depthfeedrequest_pillar_v1_7.client_payload.dispatch = {
   [15] = nyse_texasequities_depthfeedrequest_pillar_v1_7.refresh_request_message.dissect,
 }
 
+-- Dissect: Client Payload
 nyse_texasequities_depthfeedrequest_pillar_v1_7.client_payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_texasequities_depthfeedrequest_pillar_v1_7.client_payload.dispatch[message_type]
   if dissect then

@@ -919,7 +919,7 @@ end
 -- Payload
 bruceats_bruceequities_bestbidandoffer_itch_v3_3.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 bruceats_bruceequities_bestbidandoffer_itch_v3_3.payload.dispatch = {
   ["S"] = bruceats_bruceequities_bestbidandoffer_itch_v3_3.system_event_message.dissect,
   ["R"] = bruceats_bruceequities_bestbidandoffer_itch_v3_3.stock_directory_message.dissect,
@@ -928,6 +928,7 @@ bruceats_bruceequities_bestbidandoffer_itch_v3_3.payload.dispatch = {
   ["Q"] = bruceats_bruceequities_bestbidandoffer_itch_v3_3.quotation_message.dissect,
 }
 
+-- Dissect: Payload
 bruceats_bruceequities_bestbidandoffer_itch_v3_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = bruceats_bruceequities_bestbidandoffer_itch_v3_3.payload.dispatch[message_type]
   if dissect then
@@ -1086,12 +1087,13 @@ end
 -- Messages
 bruceats_bruceequities_bestbidandoffer_itch_v3_3.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 bruceats_bruceequities_bestbidandoffer_itch_v3_3.messages.dispatch = {
   [0] = bruceats_bruceequities_bestbidandoffer_itch_v3_3.heartbeat.dissect,
   [65535] = bruceats_bruceequities_bestbidandoffer_itch_v3_3.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 bruceats_bruceequities_bestbidandoffer_itch_v3_3.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = bruceats_bruceequities_bestbidandoffer_itch_v3_3.messages.dispatch[message_count]
   if dissect then

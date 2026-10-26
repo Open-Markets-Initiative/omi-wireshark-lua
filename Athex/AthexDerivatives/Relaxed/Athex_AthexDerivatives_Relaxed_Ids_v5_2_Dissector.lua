@@ -2357,12 +2357,13 @@ end
 -- Message Text
 athex_athexderivatives_relaxed_ids_v5_2.message_text = {}
 
--- Dissect: Message Text
+-- Dispatch: Message Text
 athex_athexderivatives_relaxed_ids_v5_2.message_text.dispatch = {
   ["U"] = athex_athexderivatives_relaxed_ids_v5_2.apa_post_trade_message.dissect,
   ["V"] = athex_athexderivatives_relaxed_ids_v5_2.apa_pre_trade_message.dissect,
 }
 
+-- Dissect: Message Text
 athex_athexderivatives_relaxed_ids_v5_2.message_text.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = athex_athexderivatives_relaxed_ids_v5_2.message_text.dispatch[message_category]
   if dissect then

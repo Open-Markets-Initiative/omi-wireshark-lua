@@ -2561,11 +2561,12 @@ end
 -- Messages
 cboe_c2options_multicasttop_spin_v1_2_64.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_c2options_multicasttop_spin_v1_2_64.messages.dispatch = {
   [0] = cboe_c2options_multicasttop_spin_v1_2_64.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_c2options_multicasttop_spin_v1_2_64.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_c2options_multicasttop_spin_v1_2_64.messages.dispatch[message_count]
   if dissect then

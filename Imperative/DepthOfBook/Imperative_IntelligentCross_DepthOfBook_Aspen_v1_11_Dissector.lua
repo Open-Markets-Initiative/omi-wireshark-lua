@@ -1333,7 +1333,7 @@ end
 -- Payload
 imperative_intelligentcross_depthofbook_aspen_v1_11.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 imperative_intelligentcross_depthofbook_aspen_v1_11.payload.dispatch = {
   ["A"] = imperative_intelligentcross_depthofbook_aspen_v1_11.market_event_message.dissect,
   ["B"] = imperative_intelligentcross_depthofbook_aspen_v1_11.symbol_information_message.dissect,
@@ -1347,6 +1347,7 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.payload.dispatch = {
   ["M"] = imperative_intelligentcross_depthofbook_aspen_v1_11.trade_break_message.dissect,
 }
 
+-- Dissect: Payload
 imperative_intelligentcross_depthofbook_aspen_v1_11.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = imperative_intelligentcross_depthofbook_aspen_v1_11.payload.dispatch[message_type]
   if dissect then

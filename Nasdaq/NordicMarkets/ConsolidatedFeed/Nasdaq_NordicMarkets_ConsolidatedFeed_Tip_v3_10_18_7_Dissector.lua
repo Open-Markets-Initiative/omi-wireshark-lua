@@ -26216,7 +26216,7 @@ end
 -- Server Payload
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.server_payload.dispatch = {
   ["+"] = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.debug_packet.dissect,
   ["A"] = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.login_accepted_packet.dissect,
@@ -26226,6 +26226,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.server_payload.dispatch = {
   ["Z"] = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -26539,7 +26540,7 @@ end
 -- Client Payload
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.client_payload.dispatch = {
   ["+"] = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.debug_packet.dissect,
   ["L"] = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.login_request_packet.dissect,
@@ -26548,6 +26549,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.client_payload.dispatch = {
   ["O"] = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.client_payload.dispatch[client_packet_type]
   if dissect then

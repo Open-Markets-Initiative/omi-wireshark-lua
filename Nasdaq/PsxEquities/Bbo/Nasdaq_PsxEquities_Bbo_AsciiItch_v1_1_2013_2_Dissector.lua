@@ -1176,7 +1176,7 @@ end
 -- Payload
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload.dispatch = {
   ["S"] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.system_event_message.dissect,
   ["R"] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.stock_directory_message.dissect,
@@ -1185,6 +1185,7 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload.dispatch = {
   ["Q"] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.quotation_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.payload.dispatch[message_type]
   if dissect then
@@ -1312,11 +1313,12 @@ end
 -- Message Body
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_body.dispatch = {
   [0] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.end_of_session.dissect,
 }
 
+-- Dissect: Message Body
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_body.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message_body.dispatch[message_length]
   if dissect then
@@ -1412,11 +1414,12 @@ end
 -- Messages
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages.dispatch = {
   [0] = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages.dispatch[message_count]
   if dissect then

@@ -644,11 +644,12 @@ end
 -- Response Payload
 nse_nsecom_snapshot_binary_v7_0.response_payload = {}
 
--- Dissect: Response Payload
+-- Dispatch: Response Payload
 nse_nsecom_snapshot_binary_v7_0.response_payload.dispatch = {
   ["B"] = nse_nsecom_snapshot_binary_v7_0.order_book_snapshot_recovery_response_message.dissect,
 }
 
+-- Dissect: Response Payload
 nse_nsecom_snapshot_binary_v7_0.response_payload.dissect = function(buffer, offset, packet, parent, response_message_type)
   local dissect = nse_nsecom_snapshot_binary_v7_0.response_payload.dispatch[response_message_type]
   if dissect then
@@ -833,11 +834,12 @@ end
 -- Client Payload
 nse_nsecom_snapshot_binary_v7_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nse_nsecom_snapshot_binary_v7_0.client_payload.dispatch = {
   ["O"] = nse_nsecom_snapshot_binary_v7_0.order_book_snapshot_recovery_request_message.dissect,
 }
 
+-- Dissect: Client Payload
 nse_nsecom_snapshot_binary_v7_0.client_payload.dissect = function(buffer, offset, packet, parent, client_message_type)
   local dissect = nse_nsecom_snapshot_binary_v7_0.client_payload.dispatch[client_message_type]
   if dissect then
@@ -1043,12 +1045,13 @@ end
 -- Payload
 nse_nsecom_snapshot_binary_v7_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nse_nsecom_snapshot_binary_v7_0.payload.dispatch = {
   ["N"] = nse_nsecom_snapshot_binary_v7_0.new_order_message.dissect,
   ["G"] = nse_nsecom_snapshot_binary_v7_0.new_spread_order_message.dissect,
 }
 
+-- Dissect: Payload
 nse_nsecom_snapshot_binary_v7_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nse_nsecom_snapshot_binary_v7_0.payload.dispatch[message_type]
   if dissect then

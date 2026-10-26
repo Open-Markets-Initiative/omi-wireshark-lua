@@ -1738,7 +1738,7 @@ end
 -- Sequenced Message
 biva_bivaequities_orderentry_ouch_v1_05.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 biva_bivaequities_orderentry_ouch_v1_05.sequenced_message.dispatch = {
   ["S"] = biva_bivaequities_orderentry_ouch_v1_05.system_event_message.dissect,
   ["A"] = biva_bivaequities_orderentry_ouch_v1_05.accepted_message.dissect,
@@ -1749,6 +1749,7 @@ biva_bivaequities_orderentry_ouch_v1_05.sequenced_message.dispatch = {
   ["J"] = biva_bivaequities_orderentry_ouch_v1_05.rejected_order_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 biva_bivaequities_orderentry_ouch_v1_05.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = biva_bivaequities_orderentry_ouch_v1_05.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -1994,7 +1995,7 @@ end
 -- Server Payload
 biva_bivaequities_orderentry_ouch_v1_05.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 biva_bivaequities_orderentry_ouch_v1_05.server_payload.dispatch = {
   ["+"] = biva_bivaequities_orderentry_ouch_v1_05.debug_packet.dissect,
   ["A"] = biva_bivaequities_orderentry_ouch_v1_05.login_accepted_packet.dissect,
@@ -2004,6 +2005,7 @@ biva_bivaequities_orderentry_ouch_v1_05.server_payload.dispatch = {
   ["Z"] = biva_bivaequities_orderentry_ouch_v1_05.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 biva_bivaequities_orderentry_ouch_v1_05.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = biva_bivaequities_orderentry_ouch_v1_05.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2374,13 +2376,14 @@ end
 -- Unsequenced Message
 biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message.dispatch = {
   ["O"] = biva_bivaequities_orderentry_ouch_v1_05.enter_order_message.dissect,
   ["U"] = biva_bivaequities_orderentry_ouch_v1_05.replace_order_message.dissect,
   ["X"] = biva_bivaequities_orderentry_ouch_v1_05.cancel_order_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = biva_bivaequities_orderentry_ouch_v1_05.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -2498,7 +2501,7 @@ end
 -- Client Payload
 biva_bivaequities_orderentry_ouch_v1_05.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 biva_bivaequities_orderentry_ouch_v1_05.client_payload.dispatch = {
   ["+"] = biva_bivaequities_orderentry_ouch_v1_05.debug_packet.dissect,
   ["L"] = biva_bivaequities_orderentry_ouch_v1_05.login_request_packet.dissect,
@@ -2507,6 +2510,7 @@ biva_bivaequities_orderentry_ouch_v1_05.client_payload.dispatch = {
   ["O"] = biva_bivaequities_orderentry_ouch_v1_05.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 biva_bivaequities_orderentry_ouch_v1_05.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = biva_bivaequities_orderentry_ouch_v1_05.client_payload.dispatch[client_packet_type]
   if dissect then

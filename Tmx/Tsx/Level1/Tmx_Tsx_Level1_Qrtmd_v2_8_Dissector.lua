@@ -3588,7 +3588,7 @@ end
 -- Message Body
 tmx_tsx_level1_qrtmd_v2_8.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 tmx_tsx_level1_qrtmd_v2_8.message_body.dispatch = {
   ["A"] = tmx_tsx_level1_qrtmd_v2_8.trade_message.dissect,
   ["B"] = tmx_tsx_level1_qrtmd_v2_8.symbol_status_message.dissect,
@@ -3606,6 +3606,7 @@ tmx_tsx_level1_qrtmd_v2_8.message_body.dispatch = {
   ["X"] = tmx_tsx_level1_qrtmd_v2_8.trade_correction_message.dissect,
 }
 
+-- Dissect: Message Body
 tmx_tsx_level1_qrtmd_v2_8.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tmx_tsx_level1_qrtmd_v2_8.message_body.dispatch[message_type]
   if dissect then

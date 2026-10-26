@@ -1763,7 +1763,7 @@ end
 -- Data
 miax_pearlequities_depthofmarket_mach_v1_3_a.data = {}
 
--- Dissect: Data
+-- Dispatch: Data
 miax_pearlequities_depthofmarket_mach_v1_3_a.data.dispatch = {
   [49] = miax_pearlequities_depthofmarket_mach_v1_3_a.system_time_message.dissect,
   [1] = miax_pearlequities_depthofmarket_mach_v1_3_a.symbol_update_message.dissect,
@@ -1778,6 +1778,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.data.dispatch = {
   [11] = miax_pearlequities_depthofmarket_mach_v1_3_a.trade_cancel_message.dissect,
 }
 
+-- Dissect: Data
 miax_pearlequities_depthofmarket_mach_v1_3_a.data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = miax_pearlequities_depthofmarket_mach_v1_3_a.data.dispatch[message_type]
   if dissect then
@@ -1894,7 +1895,7 @@ end
 -- Payload
 miax_pearlequities_depthofmarket_mach_v1_3_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dispatch = {
   [0] = miax_pearlequities_depthofmarket_mach_v1_3_a.heartbeat.dissect,
   [1] = miax_pearlequities_depthofmarket_mach_v1_3_a.start_of_session.dissect,
@@ -1902,6 +1903,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dispatch = {
   [3] = miax_pearlequities_depthofmarket_mach_v1_3_a.application_message.dissect,
 }
 
+-- Dissect: Payload
 miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, mach_packet_type)
   local dissect = miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dispatch[mach_packet_type]
   if dissect then

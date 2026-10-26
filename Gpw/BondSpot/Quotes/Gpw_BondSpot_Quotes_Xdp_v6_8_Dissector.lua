@@ -924,11 +924,12 @@ end
 -- Payload
 gpw_bondspot_quotes_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_bondspot_quotes_xdp_v6_8.payload.dispatch = {
   [140] = gpw_bondspot_quotes_xdp_v6_8.quotes_and_bbo_5_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_bondspot_quotes_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_bondspot_quotes_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

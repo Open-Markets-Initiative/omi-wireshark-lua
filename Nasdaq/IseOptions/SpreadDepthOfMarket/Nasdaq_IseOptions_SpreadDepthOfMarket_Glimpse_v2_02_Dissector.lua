@@ -1794,7 +1794,7 @@ end
 -- Sequenced Message
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.sequenced_message.dispatch = {
   ["S"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.system_event_message.dissect,
   ["N"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.complex_strategy_directory_message.dissect,
@@ -1804,6 +1804,7 @@ nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.sequenced_message.dispatch =
   ["M"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.snapshot_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2049,7 +2050,7 @@ end
 -- Server Payload
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.server_payload.dispatch = {
   ["+"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.debug_packet.dissect,
   ["A"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.login_accepted_packet.dissect,
@@ -2059,6 +2060,7 @@ nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.server_payload.dispatch = {
   ["Z"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2372,7 +2374,7 @@ end
 -- Client Payload
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.client_payload.dispatch = {
   ["+"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.debug_packet.dissect,
   ["L"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.login_request_packet.dissect,
@@ -2381,6 +2383,7 @@ nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.client_payload.dispatch = {
   ["O"] = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.client_payload.dispatch[client_packet_type]
   if dissect then

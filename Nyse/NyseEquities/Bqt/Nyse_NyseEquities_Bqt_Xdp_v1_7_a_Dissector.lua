@@ -4317,7 +4317,7 @@ end
 -- Payload
 nyse_nyseequities_bqt_xdp_v1_7_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nyseequities_bqt_xdp_v1_7_a.payload.dispatch = {
   [1] = nyse_nyseequities_bqt_xdp_v1_7_a.sequence_number_reset_message.dissect,
   [3] = nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_message.dissect,
@@ -4340,6 +4340,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.payload.dispatch = {
   [240] = nyse_nyseequities_bqt_xdp_v1_7_a.consolidated_volume_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_nyseequities_bqt_xdp_v1_7_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nyseequities_bqt_xdp_v1_7_a.payload.dispatch[message_type]
   if dissect then

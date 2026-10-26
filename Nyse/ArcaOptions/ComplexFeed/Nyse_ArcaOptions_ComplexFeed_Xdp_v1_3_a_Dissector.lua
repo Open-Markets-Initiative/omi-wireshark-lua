@@ -2085,7 +2085,7 @@ end
 -- Payload
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.payload.dispatch = {
   [423] = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_quote_message.dissect,
   [425] = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_trade_message.dissect,
@@ -2099,6 +2099,7 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.payload.dispatch = {
   [1] = nyse_arcaoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_arcaoptions_complexfeed_xdp_v1_3_a.payload.dispatch[message_type]
   if dissect then

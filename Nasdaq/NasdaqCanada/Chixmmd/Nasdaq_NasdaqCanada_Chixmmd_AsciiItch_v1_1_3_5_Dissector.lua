@@ -1854,7 +1854,7 @@ end
 -- Payload
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload.dispatch = {
   ["A"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.add_order_message.dissect,
   ["a"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.long_form_add_order_message.dissect,
@@ -1869,6 +1869,7 @@ nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload.dispatch = {
   ["H"] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.stock_status_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.payload.dispatch[message_type]
   if dissect then
@@ -2031,11 +2032,12 @@ end
 -- Messages
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.messages.dispatch = {
   [0] = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.messages.dispatch[message_count]
   if dissect then

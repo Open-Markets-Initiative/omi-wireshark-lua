@@ -2976,12 +2976,13 @@ end
 -- Future Block
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.future_block = {}
 
--- Dissect: Future Block
+-- Dispatch: Future Block
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.future_block.dispatch = {
   [0] = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.standard.dissect,
   [1] = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.variance.dissect,
 }
 
+-- Dissect: Future Block
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.future_block.dissect = function(buffer, offset, packet, parent, futures_flags)
   local dissect = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.future_block.dispatch[futures_flags]
   if dissect then
@@ -3481,11 +3482,12 @@ end
 -- Messages
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.messages.dispatch = {
   [0] = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.messages.dispatch[message_count]
   if dissect then

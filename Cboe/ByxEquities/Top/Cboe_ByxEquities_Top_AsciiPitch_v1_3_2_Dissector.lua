@@ -2198,7 +2198,7 @@ end
 -- Payload
 cboe_byxequities_top_asciipitch_v1_3_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cboe_byxequities_top_asciipitch_v1_3_2.payload.dispatch = {
   ["L"] = cboe_byxequities_top_asciipitch_v1_3_2.logon_message.dissect,
   ["J"] = cboe_byxequities_top_asciipitch_v1_3_2.logon_rejected_message.dissect,
@@ -2224,6 +2224,7 @@ cboe_byxequities_top_asciipitch_v1_3_2.payload.dispatch = {
   ["t"] = cboe_byxequities_top_asciipitch_v1_3_2.trading_status_message.dissect,
 }
 
+-- Dissect: Payload
 cboe_byxequities_top_asciipitch_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = cboe_byxequities_top_asciipitch_v1_3_2.payload.dispatch[message_type]
   if dissect then

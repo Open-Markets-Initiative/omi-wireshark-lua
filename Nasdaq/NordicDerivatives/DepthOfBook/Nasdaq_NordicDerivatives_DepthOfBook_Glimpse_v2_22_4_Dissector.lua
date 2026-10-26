@@ -2355,7 +2355,7 @@ end
 -- Sequenced Message
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.sequenced_message.dispatch = {
   ["T"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.seconds_message.dissect,
   ["R"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.order_book_directory.dissect,
@@ -2367,6 +2367,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.sequenced_message.dispatch 
   ["G"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.end_of_snapshot_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2612,7 +2613,7 @@ end
 -- Server Payload
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.server_payload.dispatch = {
   ["+"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.debug_packet.dissect,
   ["A"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.login_accepted_packet.dissect,
@@ -2622,6 +2623,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.server_payload.dispatch = {
   ["Z"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2937,7 +2939,7 @@ end
 -- Client Payload
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.client_payload.dispatch = {
   ["+"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.debug_packet.dissect,
   ["L"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.login_request_packet.dissect,
@@ -2946,6 +2948,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.client_payload.dispatch = {
   ["O"] = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.client_payload.dispatch[client_packet_type]
   if dissect then

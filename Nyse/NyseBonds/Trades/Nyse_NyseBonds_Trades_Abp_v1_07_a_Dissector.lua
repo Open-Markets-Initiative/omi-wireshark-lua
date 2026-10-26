@@ -1435,7 +1435,7 @@ end
 -- Client Data
 nyse_nysebonds_trades_abp_v1_07_a.client_data = {}
 
--- Dissect: Client Data
+-- Dispatch: Client Data
 nyse_nysebonds_trades_abp_v1_07_a.client_data.dispatch = {
   ["L"] = nyse_nysebonds_trades_abp_v1_07_a.login_message.dissect,
   ["O"] = nyse_nysebonds_trades_abp_v1_07_a.logoff_message.dissect,
@@ -1443,6 +1443,7 @@ nyse_nysebonds_trades_abp_v1_07_a.client_data.dispatch = {
   ["T"] = nyse_nysebonds_trades_abp_v1_07_a.test_request_message.dissect,
 }
 
+-- Dissect: Client Data
 nyse_nysebonds_trades_abp_v1_07_a.client_data.dissect = function(buffer, offset, packet, parent, client_message_type)
   local dissect = nyse_nysebonds_trades_abp_v1_07_a.client_data.dispatch[client_message_type]
   if dissect then
@@ -1932,7 +1933,7 @@ end
 -- Payload
 nyse_nysebonds_trades_abp_v1_07_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nysebonds_trades_abp_v1_07_a.payload.dispatch = {
   ["Q"] = nyse_nysebonds_trades_abp_v1_07_a.login_accepted_message.dissect,
   ["R"] = nyse_nysebonds_trades_abp_v1_07_a.login_rejected_message.dissect,
@@ -1943,6 +1944,7 @@ nyse_nysebonds_trades_abp_v1_07_a.payload.dispatch = {
   ["Z"] = nyse_nysebonds_trades_abp_v1_07_a.nyse_bond_closing_price_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_nysebonds_trades_abp_v1_07_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nysebonds_trades_abp_v1_07_a.payload.dispatch[message_type]
   if dissect then

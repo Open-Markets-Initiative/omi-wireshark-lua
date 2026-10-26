@@ -579,7 +579,7 @@ cme_brokertec_ustreasury_sbe_v10_1.schema_id.size = 2
 -- Display: Schema Id
 cme_brokertec_ustreasury_sbe_v10_1.schema_id.display = function(value)
   if value == 10 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 10"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -911,7 +911,7 @@ cme_brokertec_ustreasury_sbe_v10_1.version.size = 2
 -- Display: Version
 cme_brokertec_ustreasury_sbe_v10_1.version.display = function(value)
   if value == 1 then
-    return "Version: Version"
+    return "Version: Version FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"
@@ -1312,12 +1312,13 @@ end
 -- Payload
 cme_brokertec_ustreasury_sbe_v10_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cme_brokertec_ustreasury_sbe_v10_1.payload.dispatch = {
   [405] = cme_brokertec_ustreasury_sbe_v10_1.md_incremental_refresh_btec.dissect,
   [411] = cme_brokertec_ustreasury_sbe_v10_1.admin_heartbeat.dissect,
 }
 
+-- Dissect: Payload
 cme_brokertec_ustreasury_sbe_v10_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_brokertec_ustreasury_sbe_v10_1.payload.dispatch[template_id]
   if dissect then

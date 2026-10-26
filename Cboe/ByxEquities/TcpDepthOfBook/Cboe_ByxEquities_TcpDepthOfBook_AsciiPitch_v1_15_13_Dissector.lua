@@ -2434,7 +2434,7 @@ end
 -- Sequenced Message
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message.dispatch = {
   ["s"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.symbol_clear_message.dissect,
   ["A"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.add_order_short_message.dissect,
@@ -2454,6 +2454,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message.dispatch =
   ["R"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.retail_price_improvement_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2690,7 +2691,7 @@ end
 -- Payload
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload.dispatch = {
   ["+"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.debug_packet.dissect,
   ["A"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.login_accepted_packet.dissect,
@@ -2700,6 +2701,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload.dispatch = {
   ["U"] = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.unsequenced_data_packet.dissect,
 }
 
+-- Dissect: Payload
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.payload.dispatch[packet_type]
   if dissect then

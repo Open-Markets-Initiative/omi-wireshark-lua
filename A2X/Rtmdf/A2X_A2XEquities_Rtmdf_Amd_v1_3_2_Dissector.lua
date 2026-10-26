@@ -1511,7 +1511,7 @@ end
 -- Payload
 a2x_a2xequities_rtmdf_amd_v1_3_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 a2x_a2xequities_rtmdf_amd_v1_3_2.payload.dispatch = {
   [1] = a2x_a2xequities_rtmdf_amd_v1_3_2.heartbeat_message.dissect,
   [2] = a2x_a2xequities_rtmdf_amd_v1_3_2.order_add_message.dissect,
@@ -1526,6 +1526,7 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.payload.dispatch = {
   [16] = a2x_a2xequities_rtmdf_amd_v1_3_2.market_at_close.dissect,
 }
 
+-- Dissect: Payload
 a2x_a2xequities_rtmdf_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = a2x_a2xequities_rtmdf_amd_v1_3_2.payload.dispatch[msg_type]
   if dissect then

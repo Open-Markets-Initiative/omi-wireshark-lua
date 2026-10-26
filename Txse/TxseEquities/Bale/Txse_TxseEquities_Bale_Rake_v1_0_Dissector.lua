@@ -2082,7 +2082,7 @@ end
 -- Payload
 txse_txseequities_bale_rake_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 txse_txseequities_bale_rake_v1_0.payload.dispatch = {
   [105] = txse_txseequities_bale_rake_v1_0.trading_session_status_message.dissect,
   [115] = txse_txseequities_bale_rake_v1_0.define_symbol_message.dissect,
@@ -2094,6 +2094,7 @@ txse_txseequities_bale_rake_v1_0.payload.dispatch = {
   [110] = txse_txseequities_bale_rake_v1_0.auction_print_message.dissect,
 }
 
+-- Dissect: Payload
 txse_txseequities_bale_rake_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = txse_txseequities_bale_rake_v1_0.payload.dispatch[message_type]
   if dissect then

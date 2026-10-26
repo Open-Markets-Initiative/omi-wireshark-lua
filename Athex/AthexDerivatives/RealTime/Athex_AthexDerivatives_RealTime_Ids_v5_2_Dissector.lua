@@ -4089,7 +4089,7 @@ end
 -- Control Message Text
 athex_athexderivatives_realtime_ids_v5_2.control_message_text = {}
 
--- Dissect: Control Message Text
+-- Dispatch: Control Message Text
 athex_athexderivatives_realtime_ids_v5_2.control_message_text.dispatch = {
   ["A"] = athex_athexderivatives_realtime_ids_v5_2.start_of_day_control_message.dissect,
   ["F"] = athex_athexderivatives_realtime_ids_v5_2.administrative_message.dissect,
@@ -4097,6 +4097,7 @@ athex_athexderivatives_realtime_ids_v5_2.control_message_text.dispatch = {
   ["T"] = athex_athexderivatives_realtime_ids_v5_2.line_verification_control_message.dissect,
 }
 
+-- Dissect: Control Message Text
 athex_athexderivatives_realtime_ids_v5_2.control_message_text.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = athex_athexderivatives_realtime_ids_v5_2.control_message_text.dispatch[message_type]
   if dissect then
@@ -4162,7 +4163,7 @@ end
 -- Message Text
 athex_athexderivatives_realtime_ids_v5_2.message_text = {}
 
--- Dissect: Message Text
+-- Dispatch: Message Text
 athex_athexderivatives_realtime_ids_v5_2.message_text.dispatch = {
   ["K"] = athex_athexderivatives_realtime_ids_v5_2.control_message.dissect,
   ["A"] = athex_athexderivatives_realtime_ids_v5_2.trade_message.dissect,
@@ -4180,6 +4181,7 @@ athex_athexderivatives_realtime_ids_v5_2.message_text.dispatch = {
   ["S"] = athex_athexderivatives_realtime_ids_v5_2.exchange_notifications_message.dissect,
 }
 
+-- Dissect: Message Text
 athex_athexderivatives_realtime_ids_v5_2.message_text.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = athex_athexderivatives_realtime_ids_v5_2.message_text.dispatch[message_category]
   if dissect then

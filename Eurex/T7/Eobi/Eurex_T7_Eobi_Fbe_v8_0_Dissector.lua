@@ -5071,7 +5071,7 @@ end
 -- Payload
 eurex_t7_eobi_fbe_v8_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 eurex_t7_eobi_fbe_v8_0.payload.dispatch = {
   [13400] = eurex_t7_eobi_fbe_v8_0.add_complex_instrument.dissect,
   [13500] = eurex_t7_eobi_fbe_v8_0.auction_bbo.dissect,
@@ -5098,6 +5098,7 @@ eurex_t7_eobi_fbe_v8_0.payload.dispatch = {
   [13200] = eurex_t7_eobi_fbe_v8_0.trade_reversal.dissect,
 }
 
+-- Dissect: Payload
 eurex_t7_eobi_fbe_v8_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = eurex_t7_eobi_fbe_v8_0.payload.dispatch[template_id]
   if dissect then

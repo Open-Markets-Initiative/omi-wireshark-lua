@@ -3492,7 +3492,7 @@ cme_globex_streamlined_sbe_v5_9.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_streamlined_sbe_v5_9.schema_id.display = function(value)
   if value == 5 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 5"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -4987,7 +4987,7 @@ cme_globex_streamlined_sbe_v5_9.version.size = 2
 -- Display: Version
 cme_globex_streamlined_sbe_v5_9.version.display = function(value)
   if value == 9 then
-    return "Version: Version"
+    return "Version: Version FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"
@@ -12742,7 +12742,7 @@ end
 -- Payload
 cme_globex_streamlined_sbe_v5_9.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cme_globex_streamlined_sbe_v5_9.payload.dispatch = {
   [312] = cme_globex_streamlined_sbe_v5_9.admin_heartbeat.dissect,
   [315] = cme_globex_streamlined_sbe_v5_9.admin_login.dissect,
@@ -12762,6 +12762,7 @@ cme_globex_streamlined_sbe_v5_9.payload.dispatch = {
   [366] = cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_366.dissect,
 }
 
+-- Dissect: Payload
 cme_globex_streamlined_sbe_v5_9.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_streamlined_sbe_v5_9.payload.dispatch[template_id]
   if dissect then

@@ -476,7 +476,7 @@ okx_okxdigital_marketdata_sbe_v1_0.schema_id.size = 2
 -- Display: Schema Id
 okx_okxdigital_marketdata_sbe_v1_0.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -1984,7 +1984,7 @@ end
 -- Payload
 okx_okxdigital_marketdata_sbe_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 okx_okxdigital_marketdata_sbe_v1_0.payload.dispatch = {
   [1000] = okx_okxdigital_marketdata_sbe_v1_0.bbo_tbt_channel_event_message.dissect,
   [1001] = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message.dissect,
@@ -1995,6 +1995,7 @@ okx_okxdigital_marketdata_sbe_v1_0.payload.dispatch = {
   [1006] = okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message.dissect,
 }
 
+-- Dissect: Payload
 okx_okxdigital_marketdata_sbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = okx_okxdigital_marketdata_sbe_v1_0.payload.dispatch[template_id]
   if dissect then

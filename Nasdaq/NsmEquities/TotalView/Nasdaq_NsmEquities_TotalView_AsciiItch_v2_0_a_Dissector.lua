@@ -1463,7 +1463,7 @@ end
 -- Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload.dispatch = {
   ["S"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.system_event_message.dissect,
   ["A"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.add_order_message.dissect,
@@ -1474,6 +1474,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload.dispatch = {
   ["H"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halt_status_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.payload.dispatch[message_type]
   if dissect then
@@ -1601,11 +1602,12 @@ end
 -- Message Body
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_body.dispatch = {
   [0] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.end_of_session.dissect,
 }
 
+-- Dissect: Message Body
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_body.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.message_body.dispatch[message_length]
   if dissect then
@@ -1701,11 +1703,12 @@ end
 -- Messages
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.messages.dispatch = {
   [0] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.messages.dispatch[message_count]
   if dissect then
@@ -1814,7 +1817,7 @@ end
 -- Sequenced Message
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message.dispatch = {
   ["S"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.system_event_message.dissect,
   ["A"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.add_order_message.dissect,
@@ -1825,6 +1828,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message.dispatch = {
   ["H"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.stock_halt_status_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_message.dispatch[message_type]
   if dissect then
@@ -2070,7 +2074,7 @@ end
 -- Server Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.debug_packet.dissect,
   ["A"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.login_accepted_packet.dissect,
@@ -2078,6 +2082,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload.dispatch = {
   ["S"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.sequenced_data_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2340,13 +2345,14 @@ end
 -- Client Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.debug_packet.dissect,
   ["L"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.login_request_packet.dissect,
   ["U"] = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.unsequenced_data_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nsmequities_totalview_asciiitch_v2_0_a.client_payload.dispatch[client_packet_type]
   if dissect then

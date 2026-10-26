@@ -2651,7 +2651,7 @@ end
 -- Payload
 nasdaq_nomoptions_bono_itch_v3_3.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nomoptions_bono_itch_v3_3.payload.dispatch = {
   ["T"] = nasdaq_nomoptions_bono_itch_v3_3.timestamp_message.dissect,
   ["S"] = nasdaq_nomoptions_bono_itch_v3_3.system_event_message.dissect,
@@ -2668,6 +2668,7 @@ nasdaq_nomoptions_bono_itch_v3_3.payload.dispatch = {
   ["X"] = nasdaq_nomoptions_bono_itch_v3_3.broken_trade_report_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nomoptions_bono_itch_v3_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nomoptions_bono_itch_v3_3.payload.dispatch[message_type]
   if dissect then
@@ -2826,12 +2827,13 @@ end
 -- Messages
 nasdaq_nomoptions_bono_itch_v3_3.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nomoptions_bono_itch_v3_3.messages.dispatch = {
   [0] = nasdaq_nomoptions_bono_itch_v3_3.heartbeat.dissect,
   [65535] = nasdaq_nomoptions_bono_itch_v3_3.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nomoptions_bono_itch_v3_3.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nomoptions_bono_itch_v3_3.messages.dispatch[message_count]
   if dissect then
@@ -3012,7 +3014,7 @@ end
 -- Sequenced Message
 nasdaq_nomoptions_bono_itch_v3_3.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nomoptions_bono_itch_v3_3.sequenced_message.dispatch = {
   ["T"] = nasdaq_nomoptions_bono_itch_v3_3.timestamp_message.dissect,
   ["S"] = nasdaq_nomoptions_bono_itch_v3_3.system_event_message.dissect,
@@ -3030,6 +3032,7 @@ nasdaq_nomoptions_bono_itch_v3_3.sequenced_message.dispatch = {
   ["M"] = nasdaq_nomoptions_bono_itch_v3_3.end_of_replay_sequence_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nomoptions_bono_itch_v3_3.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_nomoptions_bono_itch_v3_3.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -3275,7 +3278,7 @@ end
 -- Server Payload
 nasdaq_nomoptions_bono_itch_v3_3.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nomoptions_bono_itch_v3_3.server_payload.dispatch = {
   ["+"] = nasdaq_nomoptions_bono_itch_v3_3.debug_packet.dissect,
   ["A"] = nasdaq_nomoptions_bono_itch_v3_3.login_accepted_packet.dissect,
@@ -3285,6 +3288,7 @@ nasdaq_nomoptions_bono_itch_v3_3.server_payload.dispatch = {
   ["Z"] = nasdaq_nomoptions_bono_itch_v3_3.end_of_session_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nomoptions_bono_itch_v3_3.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nomoptions_bono_itch_v3_3.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3600,7 +3604,7 @@ end
 -- Client Payload
 nasdaq_nomoptions_bono_itch_v3_3.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nomoptions_bono_itch_v3_3.client_payload.dispatch = {
   ["+"] = nasdaq_nomoptions_bono_itch_v3_3.debug_packet.dissect,
   ["L"] = nasdaq_nomoptions_bono_itch_v3_3.login_request_packet.dissect,
@@ -3609,6 +3613,7 @@ nasdaq_nomoptions_bono_itch_v3_3.client_payload.dispatch = {
   ["O"] = nasdaq_nomoptions_bono_itch_v3_3.logout_request_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nomoptions_bono_itch_v3_3.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nomoptions_bono_itch_v3_3.client_payload.dispatch[client_packet_type]
   if dissect then

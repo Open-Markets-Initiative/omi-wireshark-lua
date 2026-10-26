@@ -3225,7 +3225,7 @@ end
 -- Payload
 coinbase_deribit_marketdataapi_sbe_v0_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 coinbase_deribit_marketdataapi_sbe_v0_1.payload.dispatch = {
   [10] = coinbase_deribit_marketdataapi_sbe_v0_1.instrument_message.dissect,
   [12] = coinbase_deribit_marketdataapi_sbe_v0_1.trading_status_update_message.dissect,
@@ -3247,6 +3247,7 @@ coinbase_deribit_marketdataapi_sbe_v0_1.payload.dispatch = {
   [202] = coinbase_deribit_marketdataapi_sbe_v0_1.retransmit_reject_message.dissect,
 }
 
+-- Dissect: Payload
 coinbase_deribit_marketdataapi_sbe_v0_1.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = coinbase_deribit_marketdataapi_sbe_v0_1.payload.dispatch[template_id]
   if dissect then
@@ -3458,11 +3459,12 @@ end
 -- Md Messages
 coinbase_deribit_marketdataapi_sbe_v0_1.md_messages = {}
 
--- Dissect: Md Messages
+-- Dispatch: Md Messages
 coinbase_deribit_marketdataapi_sbe_v0_1.md_messages.dispatch = {
   [0] = coinbase_deribit_marketdataapi_sbe_v0_1.empty_packet.dissect,
 }
 
+-- Dissect: Md Messages
 coinbase_deribit_marketdataapi_sbe_v0_1.md_messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = coinbase_deribit_marketdataapi_sbe_v0_1.md_messages.dispatch[message_count]
   if dissect then

@@ -3786,7 +3786,7 @@ end
 -- Control Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.control_message_payload = {}
 
--- Dissect: Control Message Payload
+-- Dispatch: Control Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.control_message_payload.dispatch = {
   ["I"] = nasdaq_uqdf_output_utp_v3_0_c.start_of_day_message.dissect,
   ["J"] = nasdaq_uqdf_output_utp_v3_0_c.end_of_day_message.dissect,
@@ -3796,6 +3796,7 @@ nasdaq_uqdf_output_utp_v3_0_c.control_message_payload.dispatch = {
   ["P"] = nasdaq_uqdf_output_utp_v3_0_c.quote_wipe_out_message.dissect,
 }
 
+-- Dissect: Control Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   local dissect = nasdaq_uqdf_output_utp_v3_0_c.control_message_payload.dispatch[control_message_type]
   if dissect then
@@ -4710,7 +4711,7 @@ end
 -- Administrative Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.administrative_message_payload = {}
 
--- Dissect: Administrative Message Payload
+-- Dispatch: Administrative Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.administrative_message_payload.dispatch = {
   ["A"] = nasdaq_uqdf_output_utp_v3_0_c.general_administrative_message.dissect,
   ["H"] = nasdaq_uqdf_output_utp_v3_0_c.cross_sro_trading_action_message.dissect,
@@ -4724,6 +4725,7 @@ nasdaq_uqdf_output_utp_v3_0_c.administrative_message_payload.dispatch = {
   ["R"] = nasdaq_uqdf_output_utp_v3_0_c.session_close_recap_message.dissect,
 }
 
+-- Dissect: Administrative Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   local dissect = nasdaq_uqdf_output_utp_v3_0_c.administrative_message_payload.dispatch[administrative_message_type]
   if dissect then
@@ -6730,7 +6732,7 @@ end
 -- Quote Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.quote_message_payload = {}
 
--- Dissect: Quote Message Payload
+-- Dispatch: Quote Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.quote_message_payload.dispatch = {
   ["E"] = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_shortform_message.dissect,
   ["F"] = nasdaq_uqdf_output_utp_v3_0_c.utp_quote_longform_message.dissect,
@@ -6741,6 +6743,7 @@ nasdaq_uqdf_output_utp_v3_0_c.quote_message_payload.dispatch = {
   ["B"] = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message.dissect,
 }
 
+-- Dissect: Quote Message Payload
 nasdaq_uqdf_output_utp_v3_0_c.quote_message_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
   local dissect = nasdaq_uqdf_output_utp_v3_0_c.quote_message_payload.dispatch[quote_message_type]
   if dissect then
@@ -6806,13 +6809,14 @@ end
 -- Category Payload
 nasdaq_uqdf_output_utp_v3_0_c.category_payload = {}
 
--- Dissect: Category Payload
+-- Dispatch: Category Payload
 nasdaq_uqdf_output_utp_v3_0_c.category_payload.dispatch = {
   ["Q"] = nasdaq_uqdf_output_utp_v3_0_c.quote_message.dissect,
   ["A"] = nasdaq_uqdf_output_utp_v3_0_c.administrative_message.dissect,
   ["C"] = nasdaq_uqdf_output_utp_v3_0_c.control_message.dissect,
 }
 
+-- Dissect: Category Payload
 nasdaq_uqdf_output_utp_v3_0_c.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = nasdaq_uqdf_output_utp_v3_0_c.category_payload.dispatch[message_category]
   if dissect then
@@ -6973,12 +6977,13 @@ end
 -- Messages
 nasdaq_uqdf_output_utp_v3_0_c.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_uqdf_output_utp_v3_0_c.messages.dispatch = {
   [0] = nasdaq_uqdf_output_utp_v3_0_c.heartbeat.dissect,
   [65535] = nasdaq_uqdf_output_utp_v3_0_c.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_uqdf_output_utp_v3_0_c.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_uqdf_output_utp_v3_0_c.messages.dispatch[message_count]
   if dissect then

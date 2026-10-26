@@ -2496,7 +2496,7 @@ end
 -- Sequenced Message
 nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message.dispatch = {
   ["S"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.system_event_message.dissect,
   ["A"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.accepted_message.dissect,
@@ -2515,6 +2515,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message.dispatch = {
   ["N"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_trade_now_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_nsmequities_orders_ouch_v4_2_2018.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2760,7 +2761,7 @@ end
 -- Server Payload
 nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.debug_packet.dissect,
   ["A"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.login_accepted_packet.dissect,
@@ -2770,6 +2771,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload.dispatch = {
   ["Z"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nsmequities_orders_ouch_v4_2_2018.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3260,7 +3262,7 @@ end
 -- Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message.dispatch = {
   ["O"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.enter_order_message.dissect,
   ["U"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.replace_order_message.dissect,
@@ -3269,6 +3271,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message.dispatch = {
   ["N"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.trade_now_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = nasdaq_nsmequities_orders_ouch_v4_2_2018.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -3386,7 +3389,7 @@ end
 -- Client Payload
 nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.debug_packet.dissect,
   ["L"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.login_request_packet.dissect,
@@ -3395,6 +3398,7 @@ nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload.dispatch = {
   ["O"] = nasdaq_nsmequities_orders_ouch_v4_2_2018.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nsmequities_orders_ouch_v4_2_2018.client_payload.dispatch[client_packet_type]
   if dissect then

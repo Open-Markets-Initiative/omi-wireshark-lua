@@ -2099,7 +2099,7 @@ end
 -- Sequenced Message
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.sequenced_message.dispatch = {
   ["A"] = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.add_order_message.dissect,
   ["a"] = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_form_add_order_message.dissect,
@@ -2114,6 +2114,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.sequenced_message.dispatch = {
   ["H"] = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.stock_status_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.sequenced_message.dispatch[message_type]
   if dissect then
@@ -2367,7 +2368,7 @@ end
 -- Server Payload
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.server_payload.dispatch = {
   ["+"] = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.debug_packet.dissect,
   ["A"] = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.login_accepted_packet.dissect,
@@ -2375,6 +2376,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.server_payload.dispatch = {
   ["S"] = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.sequenced_data_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2588,12 +2590,13 @@ end
 -- Client Payload
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.client_payload.dispatch = {
   ["+"] = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.debug_packet.dissect,
   ["L"] = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.login_request_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.client_payload.dispatch[client_packet_type]
   if dissect then

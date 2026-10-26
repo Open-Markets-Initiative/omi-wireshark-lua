@@ -318,7 +318,7 @@ end
 -- Payload
 miax_onyxfutures_headeronly_mach_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 miax_onyxfutures_headeronly_mach_v1_0.payload.dispatch = {
   [3] = miax_onyxfutures_headeronly_mach_v1_0.application_message.dissect,
   [0] = miax_onyxfutures_headeronly_mach_v1_0.heartbeat.dissect,
@@ -326,6 +326,7 @@ miax_onyxfutures_headeronly_mach_v1_0.payload.dispatch = {
   [2] = miax_onyxfutures_headeronly_mach_v1_0.end_of_session.dissect,
 }
 
+-- Dissect: Payload
 miax_onyxfutures_headeronly_mach_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = miax_onyxfutures_headeronly_mach_v1_0.payload.dispatch[packet_type]
   if dissect then

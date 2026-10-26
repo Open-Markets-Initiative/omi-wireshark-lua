@@ -359,11 +359,12 @@ end
 -- Messages
 cboe_pitch_sequencedunitheader_udp_v1_0.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_pitch_sequencedunitheader_udp_v1_0.messages.dispatch = {
   [0] = cboe_pitch_sequencedunitheader_udp_v1_0.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_pitch_sequencedunitheader_udp_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_pitch_sequencedunitheader_udp_v1_0.messages.dispatch[message_count]
   if dissect then

@@ -8926,7 +8926,7 @@ end
 -- Payload
 ice_icefutures_mdf_impact_v1_1_24.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 ice_icefutures_mdf_impact_v1_1_24.payload.dispatch = {
   ["C"] = ice_icefutures_mdf_impact_v1_1_24.market_snapshot_message.dissect,
   ["G"] = ice_icefutures_mdf_impact_v1_1_24.trade_message.dissect,
@@ -8967,6 +8967,7 @@ ice_icefutures_mdf_impact_v1_1_24.payload.dispatch = {
   ["W"] = ice_icefutures_mdf_impact_v1_1_24.old_style_options_trade_and_market_stats_message.dissect,
 }
 
+-- Dissect: Payload
 ice_icefutures_mdf_impact_v1_1_24.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = ice_icefutures_mdf_impact_v1_1_24.payload.dispatch[message_type]
   if dissect then
@@ -9108,11 +9109,12 @@ end
 -- Messages
 ice_icefutures_mdf_impact_v1_1_24.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 ice_icefutures_mdf_impact_v1_1_24.messages.dispatch = {
   [0] = ice_icefutures_mdf_impact_v1_1_24.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 ice_icefutures_mdf_impact_v1_1_24.messages.dissect = function(buffer, offset, packet, parent, number_of_msgs)
   local dissect = ice_icefutures_mdf_impact_v1_1_24.messages.dispatch[number_of_msgs]
   if dissect then

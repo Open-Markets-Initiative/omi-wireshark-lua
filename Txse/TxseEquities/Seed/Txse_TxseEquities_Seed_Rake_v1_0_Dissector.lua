@@ -9000,7 +9000,7 @@ end
 -- Sequenced Message
 txse_txseequities_seed_rake_v1_0.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 txse_txseequities_seed_rake_v1_0.sequenced_message.dispatch = {
   [105] = txse_txseequities_seed_rake_v1_0.trading_session_status_message.dissect,
   [115] = txse_txseequities_seed_rake_v1_0.define_symbol_message.dissect,
@@ -9023,6 +9023,7 @@ txse_txseequities_seed_rake_v1_0.sequenced_message.dispatch = {
   [81] = txse_txseequities_seed_rake_v1_0.mass_cancel_result_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 txse_txseequities_seed_rake_v1_0.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = txse_txseequities_seed_rake_v1_0.sequenced_message.dispatch[message_type]
   if dissect then
@@ -9220,7 +9221,7 @@ end
 -- Server Payload
 txse_txseequities_seed_rake_v1_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 txse_txseequities_seed_rake_v1_0.server_payload.dispatch = {
   [48] = txse_txseequities_seed_rake_v1_0.debug_message.dissect,
   [52] = txse_txseequities_seed_rake_v1_0.end_of_session_message.dissect,
@@ -9228,6 +9229,7 @@ txse_txseequities_seed_rake_v1_0.server_payload.dispatch = {
   [50] = txse_txseequities_seed_rake_v1_0.tcp_sequenced_message.dissect,
 }
 
+-- Dissect: Server Payload
 txse_txseequities_seed_rake_v1_0.server_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = txse_txseequities_seed_rake_v1_0.server_payload.dispatch[packet_type]
   if dissect then
@@ -10990,7 +10992,7 @@ end
 -- Unsequenced Message
 txse_txseequities_seed_rake_v1_0.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 txse_txseequities_seed_rake_v1_0.unsequenced_message.dispatch = {
   [76] = txse_txseequities_seed_rake_v1_0.limit_order_message.dissect,
   [65] = txse_txseequities_seed_rake_v1_0.market_order_message.dissect,
@@ -11000,6 +11002,7 @@ txse_txseequities_seed_rake_v1_0.unsequenced_message.dispatch = {
   [86] = txse_txseequities_seed_rake_v1_0.mass_cancel_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 txse_txseequities_seed_rake_v1_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = txse_txseequities_seed_rake_v1_0.unsequenced_message.dispatch[message_type]
   if dissect then
@@ -11117,12 +11120,13 @@ end
 -- Client Payload
 txse_txseequities_seed_rake_v1_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 txse_txseequities_seed_rake_v1_0.client_payload.dispatch = {
   [53] = txse_txseequities_seed_rake_v1_0.logon_request_packet.dissect,
   [54] = txse_txseequities_seed_rake_v1_0.tcp_unsequenced_message.dissect,
 }
 
+-- Dissect: Client Payload
 txse_txseequities_seed_rake_v1_0.client_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = txse_txseequities_seed_rake_v1_0.client_payload.dispatch[packet_type]
   if dissect then

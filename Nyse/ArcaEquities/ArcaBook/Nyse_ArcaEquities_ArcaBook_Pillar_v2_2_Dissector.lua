@@ -1564,7 +1564,7 @@ end
 -- Payload
 nyse_arcaequities_arcabook_pillar_v2_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_arcaequities_arcabook_pillar_v2_2.payload.dispatch = {
   [100] = nyse_arcaequities_arcabook_pillar_v2_2.add_order_message.dissect,
   [101] = nyse_arcaequities_arcabook_pillar_v2_2.modify_order_message.dissect,
@@ -1576,6 +1576,7 @@ nyse_arcaequities_arcabook_pillar_v2_2.payload.dispatch = {
   [108] = nyse_arcaequities_arcabook_pillar_v2_2.attributed_add_order_refresh_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_arcaequities_arcabook_pillar_v2_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_arcaequities_arcabook_pillar_v2_2.payload.dispatch[message_type]
   if dissect then
@@ -1717,11 +1718,12 @@ end
 -- Messages
 nyse_arcaequities_arcabook_pillar_v2_2.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_arcaequities_arcabook_pillar_v2_2.messages.dispatch = {
   [1] = nyse_arcaequities_arcabook_pillar_v2_2.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_arcaequities_arcabook_pillar_v2_2.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_arcaequities_arcabook_pillar_v2_2.messages.dispatch[delivery_flag]
   if dissect then

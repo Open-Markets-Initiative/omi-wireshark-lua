@@ -4212,7 +4212,7 @@ end
 -- Quote Message Payload
 siac_cqs_output_cta_v2_10_a.quote_message_payload = {}
 
--- Dissect: Quote Message Payload
+-- Dispatch: Quote Message Payload
 siac_cqs_output_cta_v2_10_a.quote_message_payload.dispatch = {
   ["A"] = siac_cqs_output_cta_v2_10_a.auction_status_message.dissect,
   ["L"] = siac_cqs_output_cta_v2_10_a.long_quote_message.dissect,
@@ -4220,6 +4220,7 @@ siac_cqs_output_cta_v2_10_a.quote_message_payload.dispatch = {
   ["S"] = siac_cqs_output_cta_v2_10_a.special_long_quote_message.dissect,
 }
 
+-- Dissect: Quote Message Payload
 siac_cqs_output_cta_v2_10_a.quote_message_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
   local dissect = siac_cqs_output_cta_v2_10_a.quote_message_payload.dispatch[quote_message_type]
   if dissect then
@@ -4421,12 +4422,13 @@ end
 -- Market Status Message Payload
 siac_cqs_output_cta_v2_10_a.market_status_message_payload = {}
 
--- Dissect: Market Status Message Payload
+-- Dispatch: Market Status Message Payload
 siac_cqs_output_cta_v2_10_a.market_status_message_payload.dispatch = {
   ["K"] = siac_cqs_output_cta_v2_10_a.market_wide_circuit_breaker_decline_level_status_message.dissect,
   ["L"] = siac_cqs_output_cta_v2_10_a.market_wide_circuit_breaker_status_message.dissect,
 }
 
+-- Dissect: Market Status Message Payload
 siac_cqs_output_cta_v2_10_a.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
   local dissect = siac_cqs_output_cta_v2_10_a.market_status_message_payload.dispatch[market_status_message_type]
   if dissect then
@@ -4884,7 +4886,7 @@ end
 -- Control Message Payload
 siac_cqs_output_cta_v2_10_a.control_message_payload = {}
 
--- Dissect: Control Message Payload
+-- Dispatch: Control Message Payload
 siac_cqs_output_cta_v2_10_a.control_message_payload.dispatch = {
   ["A"] = siac_cqs_output_cta_v2_10_a.start_of_day_message.dissect,
   ["C"] = siac_cqs_output_cta_v2_10_a.finra_close_message.dissect,
@@ -4895,6 +4897,7 @@ siac_cqs_output_cta_v2_10_a.control_message_payload.dispatch = {
   ["Z"] = siac_cqs_output_cta_v2_10_a.end_of_day_message.dissect,
 }
 
+-- Dissect: Control Message Payload
 siac_cqs_output_cta_v2_10_a.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   local dissect = siac_cqs_output_cta_v2_10_a.control_message_payload.dispatch[control_message_type]
   if dissect then
@@ -5088,11 +5091,12 @@ end
 -- Administrative Message Payload
 siac_cqs_output_cta_v2_10_a.administrative_message_payload = {}
 
--- Dissect: Administrative Message Payload
+-- Dispatch: Administrative Message Payload
 siac_cqs_output_cta_v2_10_a.administrative_message_payload.dispatch = {
   ["S"] = siac_cqs_output_cta_v2_10_a.symbol_reference_data_message.dissect,
 }
 
+-- Dissect: Administrative Message Payload
 siac_cqs_output_cta_v2_10_a.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   local dissect = siac_cqs_output_cta_v2_10_a.administrative_message_payload.dispatch[administrative_message_type]
   if dissect then
@@ -5158,7 +5162,7 @@ end
 -- Category Payload
 siac_cqs_output_cta_v2_10_a.category_payload = {}
 
--- Dissect: Category Payload
+-- Dispatch: Category Payload
 siac_cqs_output_cta_v2_10_a.category_payload.dispatch = {
   ["A"] = siac_cqs_output_cta_v2_10_a.administrative_message.dissect,
   ["C"] = siac_cqs_output_cta_v2_10_a.control_message.dissect,
@@ -5166,6 +5170,7 @@ siac_cqs_output_cta_v2_10_a.category_payload.dispatch = {
   ["Q"] = siac_cqs_output_cta_v2_10_a.quote_message.dissect,
 }
 
+-- Dissect: Category Payload
 siac_cqs_output_cta_v2_10_a.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = siac_cqs_output_cta_v2_10_a.category_payload.dispatch[message_category]
   if dissect then

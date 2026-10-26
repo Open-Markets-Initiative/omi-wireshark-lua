@@ -3560,7 +3560,7 @@ end
 -- Payload
 nasdaq_nordicequities_totalview_itch_v3_04_5.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nordicequities_totalview_itch_v3_04_5.payload.dispatch = {
   ["S"] = nasdaq_nordicequities_totalview_itch_v3_04_5.system_event_message.dissect,
   ["H"] = nasdaq_nordicequities_totalview_itch_v3_04_5.order_book_trading_action_message.dissect,
@@ -3581,6 +3581,7 @@ nasdaq_nordicequities_totalview_itch_v3_04_5.payload.dispatch = {
   ["K"] = nasdaq_nordicequities_totalview_itch_v3_04_5.execution_summary_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nordicequities_totalview_itch_v3_04_5.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nordicequities_totalview_itch_v3_04_5.payload.dispatch[message_type]
   if dissect then
@@ -3739,12 +3740,13 @@ end
 -- Messages
 nasdaq_nordicequities_totalview_itch_v3_04_5.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nordicequities_totalview_itch_v3_04_5.messages.dispatch = {
   [0] = nasdaq_nordicequities_totalview_itch_v3_04_5.heartbeat.dissect,
   [65535] = nasdaq_nordicequities_totalview_itch_v3_04_5.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nordicequities_totalview_itch_v3_04_5.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nordicequities_totalview_itch_v3_04_5.messages.dispatch[message_count]
   if dissect then

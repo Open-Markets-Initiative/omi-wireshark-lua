@@ -9830,12 +9830,13 @@ end
 -- Cancellation Confirmation Body
 nse_nsefo_orderentry_nnf_v9_50.cancellation_confirmation_body = {}
 
--- Dissect: Cancellation Confirmation Body
+-- Dispatch: Cancellation Confirmation Body
 nse_nsefo_orderentry_nnf_v9_50.cancellation_confirmation_body.dispatch = {
   [316] = nse_nsefo_orderentry_nnf_v9_50.order_entry_body.dissect,
   [480] = nse_nsefo_orderentry_nnf_v9_50.spread_order_body.dissect,
 }
 
+-- Dissect: Cancellation Confirmation Body
 nse_nsefo_orderentry_nnf_v9_50.cancellation_confirmation_body.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nse_nsefo_orderentry_nnf_v9_50.cancellation_confirmation_body.dispatch[message_length]
   if dissect then
@@ -10932,7 +10933,7 @@ end
 -- Spread Report Body
 nse_nsefo_orderentry_nnf_v9_50.spread_report_body = {}
 
--- Dissect: Spread Report Body
+-- Dispatch: Spread Report Body
 nse_nsefo_orderentry_nnf_v9_50.spread_report_body.dispatch = {
   ["H"] = nse_nsefo_orderentry_nnf_v9_50.spread_report_header_body.dissect,
   ["X"] = nse_nsefo_orderentry_nnf_v9_50.spread_report_header_body.dissect,
@@ -10945,6 +10946,7 @@ nse_nsefo_orderentry_nnf_v9_50.spread_report_body.dispatch = {
   ["N"] = nse_nsefo_orderentry_nnf_v9_50.report_trailer_body.dissect,
 }
 
+-- Dissect: Spread Report Body
 nse_nsefo_orderentry_nnf_v9_50.spread_report_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nse_nsefo_orderentry_nnf_v9_50.spread_report_body.dispatch[message_type]
   if dissect then
@@ -11686,7 +11688,7 @@ end
 -- Report Body
 nse_nsefo_orderentry_nnf_v9_50.report_body = {}
 
--- Dissect: Report Body
+-- Dispatch: Report Body
 nse_nsefo_orderentry_nnf_v9_50.report_body.dispatch = {
   ["H"] = nse_nsefo_orderentry_nnf_v9_50.report_header_body.dissect,
   ["X"] = nse_nsefo_orderentry_nnf_v9_50.report_header_body.dissect,
@@ -11699,6 +11701,7 @@ nse_nsefo_orderentry_nnf_v9_50.report_body.dispatch = {
   ["N"] = nse_nsefo_orderentry_nnf_v9_50.report_trailer_body.dissect,
 }
 
+-- Dissect: Report Body
 nse_nsefo_orderentry_nnf_v9_50.report_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nse_nsefo_orderentry_nnf_v9_50.report_body.dispatch[message_type]
   if dissect then
@@ -12744,12 +12747,13 @@ end
 -- Cryptographic Payload
 nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload = {}
 
--- Dissect: Cryptographic Payload
+-- Dispatch: Cryptographic Payload
 nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.dispatch = {
   [124] = nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.dissect,
   [136] = nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.dissect,
 }
 
+-- Dissect: Cryptographic Payload
 nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.dispatch[message_length]
   if dissect then
@@ -13481,7 +13485,7 @@ end
 -- Server Message Payload
 nse_nsefo_orderentry_nnf_v9_50.server_message_payload = {}
 
--- Dissect: Server Message Payload
+-- Dispatch: Server Message Payload
 nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dispatch = {
   [2301] = nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.dissect,
   [2321] = nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.dissect,
@@ -13523,6 +13527,7 @@ nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dispatch = {
   [2075] = nse_nsefo_orderentry_nnf_v9_50.order_cancellation_confirmation_message.dissect,
 }
 
+-- Dissect: Server Message Payload
 nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
   local dissect = nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dispatch[transaction_code]
   if dissect then
@@ -15169,7 +15174,7 @@ end
 -- Client Message Payload
 nse_nsefo_orderentry_nnf_v9_50.client_message_payload = {}
 
--- Dissect: Client Message Payload
+-- Dispatch: Client Message Payload
 nse_nsefo_orderentry_nnf_v9_50.client_message_payload.dispatch = {
   [2300] = nse_nsefo_orderentry_nnf_v9_50.sign_on_request_in_message.dissect,
   [1600] = nse_nsefo_orderentry_nnf_v9_50.system_information_in_message.dissect,
@@ -15231,6 +15236,7 @@ nse_nsefo_orderentry_nnf_v9_50.client_message_payload.dispatch = {
   [5427] = nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.dissect,
 }
 
+-- Dissect: Client Message Payload
 nse_nsefo_orderentry_nnf_v9_50.client_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
   local dissect = nse_nsefo_orderentry_nnf_v9_50.client_message_payload.dispatch[transaction_code]
   if dissect then

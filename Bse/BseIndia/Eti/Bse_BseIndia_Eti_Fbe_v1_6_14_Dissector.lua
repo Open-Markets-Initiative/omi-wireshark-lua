@@ -15394,7 +15394,7 @@ end
 -- Server Payload
 bse_bseindia_eti_fbe_v1_6_14.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 bse_bseindia_eti_fbe_v1_6_14.server_payload.dispatch = {
   [10032] = bse_bseindia_eti_fbe_v1_6_14.broadcast_error_notification.dissect,
   [10391] = bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_response.dissect,
@@ -15449,6 +15449,7 @@ bse_bseindia_eti_fbe_v1_6_14.server_payload.dispatch = {
   [10043] = bse_bseindia_eti_fbe_v1_6_14.user_password_change_response.dissect,
 }
 
+-- Dissect: Server Payload
 bse_bseindia_eti_fbe_v1_6_14.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = bse_bseindia_eti_fbe_v1_6_14.server_payload.dispatch[template_id]
   if dissect then
@@ -18255,7 +18256,7 @@ end
 -- Client Payload
 bse_bseindia_eti_fbe_v1_6_14.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 bse_bseindia_eti_fbe_v1_6_14.client_payload.dispatch = {
   [10390] = bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_request.dissect,
   [10120] = bse_bseindia_eti_fbe_v1_6_14.delete_all_order_request.dissect,
@@ -18286,6 +18287,7 @@ bse_bseindia_eti_fbe_v1_6_14.client_payload.dispatch = {
   [10996] = bse_bseindia_eti_fbe_v1_6_14.user_password_change_request.dissect,
 }
 
+-- Dissect: Client Payload
 bse_bseindia_eti_fbe_v1_6_14.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = bse_bseindia_eti_fbe_v1_6_14.client_payload.dispatch[template_id]
   if dissect then

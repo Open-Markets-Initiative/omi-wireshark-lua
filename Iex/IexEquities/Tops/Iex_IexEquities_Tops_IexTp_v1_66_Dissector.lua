@@ -2212,7 +2212,7 @@ end
 -- Message Data
 iex_iexequities_tops_iextp_v1_66.message_data = {}
 
--- Dissect: Message Data
+-- Dispatch: Message Data
 iex_iexequities_tops_iextp_v1_66.message_data.dispatch = {
   ["S"] = iex_iexequities_tops_iextp_v1_66.system_event_message.dissect,
   ["D"] = iex_iexequities_tops_iextp_v1_66.security_directory_message.dissect,
@@ -2227,6 +2227,7 @@ iex_iexequities_tops_iextp_v1_66.message_data.dispatch = {
   ["A"] = iex_iexequities_tops_iextp_v1_66.auction_information_message.dissect,
 }
 
+-- Dissect: Message Data
 iex_iexequities_tops_iextp_v1_66.message_data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = iex_iexequities_tops_iextp_v1_66.message_data.dispatch[message_type]
   if dissect then
@@ -2368,11 +2369,12 @@ end
 -- Messages
 iex_iexequities_tops_iextp_v1_66.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 iex_iexequities_tops_iextp_v1_66.messages.dispatch = {
   [0] = iex_iexequities_tops_iextp_v1_66.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 iex_iexequities_tops_iextp_v1_66.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = iex_iexequities_tops_iextp_v1_66.messages.dispatch[message_count]
   if dissect then

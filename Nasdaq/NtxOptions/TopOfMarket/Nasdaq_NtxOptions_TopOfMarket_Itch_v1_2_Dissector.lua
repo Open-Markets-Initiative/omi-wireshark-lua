@@ -2163,7 +2163,7 @@ end
 -- Payload
 nasdaq_ntxoptions_topofmarket_itch_v1_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_ntxoptions_topofmarket_itch_v1_2.payload.dispatch = {
   ["T"] = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_message.dissect,
   ["S"] = nasdaq_ntxoptions_topofmarket_itch_v1_2.system_event_message.dissect,
@@ -2180,6 +2180,7 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.payload.dispatch = {
   ["X"] = nasdaq_ntxoptions_topofmarket_itch_v1_2.broken_trade_report_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_ntxoptions_topofmarket_itch_v1_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_ntxoptions_topofmarket_itch_v1_2.payload.dispatch[message_type]
   if dissect then
@@ -2338,12 +2339,13 @@ end
 -- Messages
 nasdaq_ntxoptions_topofmarket_itch_v1_2.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_ntxoptions_topofmarket_itch_v1_2.messages.dispatch = {
   [0] = nasdaq_ntxoptions_topofmarket_itch_v1_2.heartbeat.dissect,
   [65535] = nasdaq_ntxoptions_topofmarket_itch_v1_2.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_ntxoptions_topofmarket_itch_v1_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_ntxoptions_topofmarket_itch_v1_2.messages.dispatch[message_count]
   if dissect then

@@ -889,11 +889,12 @@ end
 -- Messages
 cboe_cboeeurope_latencyfeed_pitch_v1_4.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_cboeeurope_latencyfeed_pitch_v1_4.messages.dispatch = {
   [0] = cboe_cboeeurope_latencyfeed_pitch_v1_4.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_cboeeurope_latencyfeed_pitch_v1_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_cboeeurope_latencyfeed_pitch_v1_4.messages.dispatch[message_count]
   if dissect then

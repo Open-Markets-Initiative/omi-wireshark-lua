@@ -2795,7 +2795,7 @@ end
 -- Snapshot Message Payload
 siac_cqs_snapshot_cta_v2_1.snapshot_message_payload = {}
 
--- Dissect: Snapshot Message Payload
+-- Dispatch: Snapshot Message Payload
 siac_cqs_snapshot_cta_v2_1.snapshot_message_payload.dispatch = {
   ["T"] = siac_cqs_snapshot_cta_v2_1.line_integrity_message.dissect,
   ["S"] = siac_cqs_snapshot_cta_v2_1.symbol_reference_data_message.dissect,
@@ -2805,6 +2805,7 @@ siac_cqs_snapshot_cta_v2_1.snapshot_message_payload.dispatch = {
   ["F"] = siac_cqs_snapshot_cta_v2_1.finra_snapshot_message.dissect,
 }
 
+-- Dissect: Snapshot Message Payload
 siac_cqs_snapshot_cta_v2_1.snapshot_message_payload.dissect = function(buffer, offset, packet, parent, snapshot_message_type)
   local dissect = siac_cqs_snapshot_cta_v2_1.snapshot_message_payload.dispatch[snapshot_message_type]
   if dissect then
@@ -2870,11 +2871,12 @@ end
 -- Category Payload
 siac_cqs_snapshot_cta_v2_1.category_payload = {}
 
--- Dissect: Category Payload
+-- Dispatch: Category Payload
 siac_cqs_snapshot_cta_v2_1.category_payload.dispatch = {
   ["R"] = siac_cqs_snapshot_cta_v2_1.snapshot_message.dissect,
 }
 
+-- Dissect: Category Payload
 siac_cqs_snapshot_cta_v2_1.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = siac_cqs_snapshot_cta_v2_1.category_payload.dispatch[message_category]
   if dissect then

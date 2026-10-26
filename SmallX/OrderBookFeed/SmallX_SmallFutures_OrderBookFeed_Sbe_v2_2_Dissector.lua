@@ -1950,7 +1950,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.schema_id.size = 2
 -- Display: Schema Id
 smallx_smallfutures_orderbookfeed_sbe_v2_2.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -5278,7 +5278,7 @@ end
 -- Payload
 smallx_smallfutures_orderbookfeed_sbe_v2_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 smallx_smallfutures_orderbookfeed_sbe_v2_2.payload.dispatch = {
   [3] = smallx_smallfutures_orderbookfeed_sbe_v2_2.instrument_trading_status_incremental_message.dissect,
   [4] = smallx_smallfutures_orderbookfeed_sbe_v2_2.trades_incremental_message.dissect,
@@ -5295,6 +5295,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.payload.dispatch = {
   [17] = smallx_smallfutures_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_message.dissect,
 }
 
+-- Dissect: Payload
 smallx_smallfutures_orderbookfeed_sbe_v2_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = smallx_smallfutures_orderbookfeed_sbe_v2_2.payload.dispatch[template_id]
   if dissect then

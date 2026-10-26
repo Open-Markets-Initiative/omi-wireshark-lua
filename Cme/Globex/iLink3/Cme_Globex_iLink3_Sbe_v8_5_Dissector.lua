@@ -1496,7 +1496,11 @@ cme_globex_ilink3_sbe_v8_5.encoding_type.size = 2
 
 -- Display: Encoding Type
 cme_globex_ilink3_sbe_v8_5.encoding_type.display = function(value)
-  return "Encoding Type: "..value
+  if value == 51966 then
+    return "Encoding Type: Cme Sbe Message"
+  end
+
+  return "Encoding Type: Unknown("..value..")"
 end
 
 -- Dissect: Encoding Type
@@ -5725,7 +5729,7 @@ cme_globex_ilink3_sbe_v8_5.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_ilink3_sbe_v8_5.schema_id.display = function(value)
   if value == 8 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 8"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -7327,7 +7331,7 @@ cme_globex_ilink3_sbe_v8_5.version.size = 2
 -- Display: Version
 cme_globex_ilink3_sbe_v8_5.version.display = function(value)
   if value == 5 then
-    return "Version: Version"
+    return "Version: Version FIX5.0"
   end
 
   return "Version: Unknown("..value..")"
@@ -14115,7 +14119,7 @@ end
 -- Server Payload
 cme_globex_ilink3_sbe_v8_5.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 cme_globex_ilink3_sbe_v8_5.server_payload.dispatch = {
   [501] = cme_globex_ilink3_sbe_v8_5.negotiation_response.dissect,
   [502] = cme_globex_ilink3_sbe_v8_5.negotiation_reject.dissect,
@@ -14150,6 +14154,7 @@ cme_globex_ilink3_sbe_v8_5.server_payload.dispatch = {
   [563] = cme_globex_ilink3_sbe_v8_5.quote_cancel_ack.dissect,
 }
 
+-- Dissect: Server Payload
 cme_globex_ilink3_sbe_v8_5.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_ilink3_sbe_v8_5.server_payload.dispatch[template_id]
   if dissect then
@@ -14231,7 +14236,7 @@ cme_globex_ilink3_sbe_v8_5.simple_open_framing_header.fields = function(buffer, 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = cme_globex_ilink3_sbe_v8_5.message_length.dissect(buffer, index, packet, parent)
 
-  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer Static
   index, encoding_type = cme_globex_ilink3_sbe_v8_5.encoding_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -16901,7 +16906,7 @@ end
 -- Client Payload
 cme_globex_ilink3_sbe_v8_5.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 cme_globex_ilink3_sbe_v8_5.client_payload.dispatch = {
   [500] = cme_globex_ilink3_sbe_v8_5.negotiate.dissect,
   [503] = cme_globex_ilink3_sbe_v8_5.establish.dissect,
@@ -16924,6 +16929,7 @@ cme_globex_ilink3_sbe_v8_5.client_payload.dispatch = {
   [560] = cme_globex_ilink3_sbe_v8_5.security_definition_request.dissect,
 }
 
+-- Dissect: Client Payload
 cme_globex_ilink3_sbe_v8_5.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_ilink3_sbe_v8_5.client_payload.dispatch[template_id]
   if dissect then
@@ -17425,6 +17431,23 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Encoding Type Field
+cme_globex_ilink3_sbe_v8_5.encoding_type.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 2 + 2 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(2, 2):le_uint()
+
+  if value == 51966 then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Schema Id Field
 cme_globex_ilink3_sbe_v8_5.schema_id.client_packet_verify = function(buffer)
   -- Too short to carry the field: not this protocol
@@ -17453,6 +17476,23 @@ cme_globex_ilink3_sbe_v8_5.version.client_packet_verify = function(buffer)
   local value = buffer(10, 2):le_uint()
 
   if value == 5 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Encoding Type Field
+cme_globex_ilink3_sbe_v8_5.encoding_type.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 2 + 2 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(2, 2):le_uint()
+
+  if value == 51966 then
     return true
   end
 
@@ -17498,6 +17538,9 @@ local function omi_cme_globex_ilink3_sbe_v8_5_tcp_initiator_heuristic(buffer, pa
   -- Verify packet length
   if not cme_globex_ilink3_sbe_v8_5.client_packet.requiredsize(buffer) then return false end
 
+  -- Verify Encoding Type
+  if not cme_globex_ilink3_sbe_v8_5.encoding_type.client_packet_verify(buffer) then return false end
+
   -- Verify Schema Id
   if not cme_globex_ilink3_sbe_v8_5.schema_id.client_packet_verify(buffer) then return false end
 
@@ -17518,6 +17561,9 @@ end
 local function omi_cme_globex_ilink3_sbe_v8_5_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cme_globex_ilink3_sbe_v8_5.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify Encoding Type
+  if not cme_globex_ilink3_sbe_v8_5.encoding_type.server_packet_verify(buffer) then return false end
 
   -- Verify Schema Id
   if not cme_globex_ilink3_sbe_v8_5.schema_id.server_packet_verify(buffer) then return false end

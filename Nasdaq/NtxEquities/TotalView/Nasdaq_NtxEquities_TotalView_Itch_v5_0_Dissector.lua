@@ -3870,7 +3870,7 @@ end
 -- Payload
 nasdaq_ntxequities_totalview_itch_v5_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_ntxequities_totalview_itch_v5_0.payload.dispatch = {
   ["S"] = nasdaq_ntxequities_totalview_itch_v5_0.system_event_message.dissect,
   ["R"] = nasdaq_ntxequities_totalview_itch_v5_0.stock_directory_message.dissect,
@@ -3895,6 +3895,7 @@ nasdaq_ntxequities_totalview_itch_v5_0.payload.dispatch = {
   ["N"] = nasdaq_ntxequities_totalview_itch_v5_0.retail_interest_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_ntxequities_totalview_itch_v5_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_ntxequities_totalview_itch_v5_0.payload.dispatch[message_type]
   if dissect then
@@ -4053,12 +4054,13 @@ end
 -- Messages
 nasdaq_ntxequities_totalview_itch_v5_0.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_ntxequities_totalview_itch_v5_0.messages.dispatch = {
   [0] = nasdaq_ntxequities_totalview_itch_v5_0.heartbeat.dissect,
   [65535] = nasdaq_ntxequities_totalview_itch_v5_0.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_ntxequities_totalview_itch_v5_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_ntxequities_totalview_itch_v5_0.messages.dispatch[message_count]
   if dissect then

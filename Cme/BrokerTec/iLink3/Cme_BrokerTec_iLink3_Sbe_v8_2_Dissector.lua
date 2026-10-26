@@ -1465,7 +1465,11 @@ cme_brokertec_ilink3_sbe_v8_2.encoding_type.size = 2
 
 -- Display: Encoding Type
 cme_brokertec_ilink3_sbe_v8_2.encoding_type.display = function(value)
-  return "Encoding Type: "..value
+  if value == 51966 then
+    return "Encoding Type: Cme Sbe Message"
+  end
+
+  return "Encoding Type: Unknown("..value..")"
 end
 
 -- Dissect: Encoding Type
@@ -5620,7 +5624,7 @@ cme_brokertec_ilink3_sbe_v8_2.schema_id.size = 2
 -- Display: Schema Id
 cme_brokertec_ilink3_sbe_v8_2.schema_id.display = function(value)
   if value == 8 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 8"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -7222,7 +7226,7 @@ cme_brokertec_ilink3_sbe_v8_2.version.size = 2
 -- Display: Version
 cme_brokertec_ilink3_sbe_v8_2.version.display = function(value)
   if value == 2 then
-    return "Version: Version"
+    return "Version: Version FIX5.0"
   end
 
   return "Version: Unknown("..value..")"
@@ -13950,7 +13954,7 @@ end
 -- Server Payload
 cme_brokertec_ilink3_sbe_v8_2.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 cme_brokertec_ilink3_sbe_v8_2.server_payload.dispatch = {
   [501] = cme_brokertec_ilink3_sbe_v8_2.negotiation_response.dissect,
   [502] = cme_brokertec_ilink3_sbe_v8_2.negotiation_reject.dissect,
@@ -13985,6 +13989,7 @@ cme_brokertec_ilink3_sbe_v8_2.server_payload.dispatch = {
   [561] = cme_brokertec_ilink3_sbe_v8_2.security_definition_response.dissect,
 }
 
+-- Dissect: Server Payload
 cme_brokertec_ilink3_sbe_v8_2.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_brokertec_ilink3_sbe_v8_2.server_payload.dispatch[template_id]
   if dissect then
@@ -14066,7 +14071,7 @@ cme_brokertec_ilink3_sbe_v8_2.simple_open_framing_header.fields = function(buffe
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = cme_brokertec_ilink3_sbe_v8_2.message_length.dissect(buffer, index, packet, parent)
 
-  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer
+  -- Encoding Type: 2 Byte Unsigned Fixed Width Integer Static
   index, encoding_type = cme_brokertec_ilink3_sbe_v8_2.encoding_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -16720,7 +16725,7 @@ end
 -- Client Payload
 cme_brokertec_ilink3_sbe_v8_2.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 cme_brokertec_ilink3_sbe_v8_2.client_payload.dispatch = {
   [500] = cme_brokertec_ilink3_sbe_v8_2.negotiate.dissect,
   [503] = cme_brokertec_ilink3_sbe_v8_2.establish.dissect,
@@ -16743,6 +16748,7 @@ cme_brokertec_ilink3_sbe_v8_2.client_payload.dispatch = {
   [560] = cme_brokertec_ilink3_sbe_v8_2.security_definition_request.dissect,
 }
 
+-- Dissect: Client Payload
 cme_brokertec_ilink3_sbe_v8_2.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_brokertec_ilink3_sbe_v8_2.client_payload.dispatch[template_id]
   if dissect then
@@ -17244,6 +17250,23 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Encoding Type Field
+cme_brokertec_ilink3_sbe_v8_2.encoding_type.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 2 + 2 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(2, 2):le_uint()
+
+  if value == 51966 then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Schema Id Field
 cme_brokertec_ilink3_sbe_v8_2.schema_id.client_packet_verify = function(buffer)
   -- Too short to carry the field: not this protocol
@@ -17272,6 +17295,23 @@ cme_brokertec_ilink3_sbe_v8_2.version.client_packet_verify = function(buffer)
   local value = buffer(10, 2):le_uint()
 
   if value == 2 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Encoding Type Field
+cme_brokertec_ilink3_sbe_v8_2.encoding_type.server_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 2 + 2 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(2, 2):le_uint()
+
+  if value == 51966 then
     return true
   end
 
@@ -17317,6 +17357,9 @@ local function omi_cme_brokertec_ilink3_sbe_v8_2_tcp_initiator_heuristic(buffer,
   -- Verify packet length
   if not cme_brokertec_ilink3_sbe_v8_2.client_packet.requiredsize(buffer) then return false end
 
+  -- Verify Encoding Type
+  if not cme_brokertec_ilink3_sbe_v8_2.encoding_type.client_packet_verify(buffer) then return false end
+
   -- Verify Schema Id
   if not cme_brokertec_ilink3_sbe_v8_2.schema_id.client_packet_verify(buffer) then return false end
 
@@ -17337,6 +17380,9 @@ end
 local function omi_cme_brokertec_ilink3_sbe_v8_2_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cme_brokertec_ilink3_sbe_v8_2.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify Encoding Type
+  if not cme_brokertec_ilink3_sbe_v8_2.encoding_type.server_packet_verify(buffer) then return false end
 
   -- Verify Schema Id
   if not cme_brokertec_ilink3_sbe_v8_2.schema_id.server_packet_verify(buffer) then return false end

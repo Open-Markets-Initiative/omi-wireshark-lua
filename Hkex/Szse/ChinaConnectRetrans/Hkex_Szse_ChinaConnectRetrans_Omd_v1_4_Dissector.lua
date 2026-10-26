@@ -1997,7 +1997,7 @@ end
 -- Payload
 hkex_szse_chinaconnectretrans_omd_v1_4.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 hkex_szse_chinaconnectretrans_omd_v1_4.payload.dispatch = {
   [100] = hkex_szse_chinaconnectretrans_omd_v1_4.sequence_reset_message.dissect,
   [105] = hkex_szse_chinaconnectretrans_omd_v1_4.disaster_recovery_signal_message.dissect,
@@ -2012,6 +2012,7 @@ hkex_szse_chinaconnectretrans_omd_v1_4.payload.dispatch = {
   [655] = hkex_szse_chinaconnectretrans_omd_v1_4.top_of_book_message.dissect,
 }
 
+-- Dissect: Payload
 hkex_szse_chinaconnectretrans_omd_v1_4.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = hkex_szse_chinaconnectretrans_omd_v1_4.payload.dispatch[msg_type]
   if dissect then

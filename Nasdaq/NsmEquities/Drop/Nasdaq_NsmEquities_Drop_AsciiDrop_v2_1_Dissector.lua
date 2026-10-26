@@ -1573,7 +1573,7 @@ end
 -- Message
 nasdaq_nsmequities_drop_asciidrop_v2_1.message = {}
 
--- Dissect: Message
+-- Dispatch: Message
 nasdaq_nsmequities_drop_asciidrop_v2_1.message.dispatch = {
   ["A"] = nasdaq_nsmequities_drop_asciidrop_v2_1.new_order_accepted_message.dissect,
   ["E"] = nasdaq_nsmequities_drop_asciidrop_v2_1.existing_order_executed_message.dissect,
@@ -1583,6 +1583,7 @@ nasdaq_nsmequities_drop_asciidrop_v2_1.message.dispatch = {
   ["Y"] = nasdaq_nsmequities_drop_asciidrop_v2_1.existing_order_cancelled_aiq_message.dissect,
 }
 
+-- Dissect: Message
 nasdaq_nsmequities_drop_asciidrop_v2_1.message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_drop_asciidrop_v2_1.message.dispatch[message_type]
   if dissect then

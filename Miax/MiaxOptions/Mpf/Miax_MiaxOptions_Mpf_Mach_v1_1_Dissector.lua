@@ -1797,7 +1797,7 @@ end
 -- Data
 miax_miaxoptions_mpf_mach_v1_1.data = {}
 
--- Dissect: Data
+-- Dispatch: Data
 miax_miaxoptions_mpf_mach_v1_1.data.dispatch = {
   ["1"] = miax_miaxoptions_mpf_mach_v1_1.system_time_message.dissect,
   ["s"] = miax_miaxoptions_mpf_mach_v1_1.symbol_definition_message.dissect,
@@ -1805,6 +1805,7 @@ miax_miaxoptions_mpf_mach_v1_1.data.dispatch = {
   ["Z"] = miax_miaxoptions_mpf_mach_v1_1.synthetic_future_value_message.dissect,
 }
 
+-- Dissect: Data
 miax_miaxoptions_mpf_mach_v1_1.data.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = miax_miaxoptions_mpf_mach_v1_1.data.dispatch[message_type]
   if dissect then
@@ -1956,13 +1957,14 @@ end
 -- Unsequenced Message
 miax_miaxoptions_mpf_mach_v1_1.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 miax_miaxoptions_mpf_mach_v1_1.unsequenced_message.dispatch = {
   ["R"] = miax_miaxoptions_mpf_mach_v1_1.refresh_request_message.dissect,
   ["r"] = miax_miaxoptions_mpf_mach_v1_1.refresh_response_message.dissect,
   ["E"] = miax_miaxoptions_mpf_mach_v1_1.end_of_refresh_notification_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 miax_miaxoptions_mpf_mach_v1_1.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = miax_miaxoptions_mpf_mach_v1_1.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -2087,7 +2089,7 @@ end
 -- Sesm Payload
 miax_miaxoptions_mpf_mach_v1_1.sesm_payload = {}
 
--- Dissect: Sesm Payload
+-- Dispatch: Sesm Payload
 miax_miaxoptions_mpf_mach_v1_1.sesm_payload.dispatch = {
   ["s"] = miax_miaxoptions_mpf_mach_v1_1.sequenced_data_packet.dissect,
   ["U"] = miax_miaxoptions_mpf_mach_v1_1.unsequenced_data_packet.dissect,
@@ -2103,6 +2105,7 @@ miax_miaxoptions_mpf_mach_v1_1.sesm_payload.dispatch = {
   ["T"] = miax_miaxoptions_mpf_mach_v1_1.test_packet.dissect,
 }
 
+-- Dissect: Sesm Payload
 miax_miaxoptions_mpf_mach_v1_1.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   local dissect = miax_miaxoptions_mpf_mach_v1_1.sesm_payload.dispatch[sesm_packet_type]
   if dissect then
@@ -2322,7 +2325,7 @@ end
 -- Payload
 miax_miaxoptions_mpf_mach_v1_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 miax_miaxoptions_mpf_mach_v1_1.payload.dispatch = {
   [0] = miax_miaxoptions_mpf_mach_v1_1.heartbeat.dissect,
   [1] = miax_miaxoptions_mpf_mach_v1_1.start_of_session.dissect,
@@ -2330,6 +2333,7 @@ miax_miaxoptions_mpf_mach_v1_1.payload.dispatch = {
   [3] = miax_miaxoptions_mpf_mach_v1_1.application_message.dissect,
 }
 
+-- Dissect: Payload
 miax_miaxoptions_mpf_mach_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = miax_miaxoptions_mpf_mach_v1_1.payload.dispatch[packet_type]
   if dissect then

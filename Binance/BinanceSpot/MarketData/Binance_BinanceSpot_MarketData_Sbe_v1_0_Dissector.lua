@@ -606,7 +606,7 @@ binance_binancespot_marketdata_sbe_v1_0.schema_id.size = 2
 -- Display: Schema Id
 binance_binancespot_marketdata_sbe_v1_0.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -2057,7 +2057,7 @@ end
 -- Payload
 binance_binancespot_marketdata_sbe_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 binance_binancespot_marketdata_sbe_v1_0.payload.dispatch = {
   [10000] = binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message.dissect,
   [10001] = binance_binancespot_marketdata_sbe_v1_0.best_bid_ask_stream_event_message.dissect,
@@ -2065,6 +2065,7 @@ binance_binancespot_marketdata_sbe_v1_0.payload.dispatch = {
   [10003] = binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message.dissect,
 }
 
+-- Dissect: Payload
 binance_binancespot_marketdata_sbe_v1_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = binance_binancespot_marketdata_sbe_v1_0.payload.dispatch[template_id]
   if dissect then

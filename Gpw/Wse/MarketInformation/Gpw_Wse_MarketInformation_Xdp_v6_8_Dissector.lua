@@ -7245,7 +7245,7 @@ end
 -- Body Message
 gpw_wse_marketinformation_xdp_v6_8.body_message = {}
 
--- Dissect: Body Message
+-- Dispatch: Body Message
 gpw_wse_marketinformation_xdp_v6_8.body_message.dispatch = {
   ["02"] = gpw_wse_marketinformation_xdp_v6_8.treasury_bond_futures_data.dissect,
   ["03"] = gpw_wse_marketinformation_xdp_v6_8.kid.dissect,
@@ -7253,6 +7253,7 @@ gpw_wse_marketinformation_xdp_v6_8.body_message.dispatch = {
   ["05"] = gpw_wse_marketinformation_xdp_v6_8.market_conditions.dissect,
 }
 
+-- Dissect: Body Message
 gpw_wse_marketinformation_xdp_v6_8.body_message.dissect = function(buffer, offset, packet, parent, internal_msg_type)
   local dissect = gpw_wse_marketinformation_xdp_v6_8.body_message.dispatch[internal_msg_type]
   if dissect then
@@ -8958,7 +8959,7 @@ end
 -- Payload
 gpw_wse_marketinformation_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_wse_marketinformation_xdp_v6_8.payload.dispatch = {
   [516] = gpw_wse_marketinformation_xdp_v6_8.class_state_change_message.dissect,
   [523] = gpw_wse_marketinformation_xdp_v6_8.mail_message.dissect,
@@ -8975,6 +8976,7 @@ gpw_wse_marketinformation_xdp_v6_8.payload.dispatch = {
   [595] = gpw_wse_marketinformation_xdp_v6_8.open_position_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_wse_marketinformation_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_wse_marketinformation_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

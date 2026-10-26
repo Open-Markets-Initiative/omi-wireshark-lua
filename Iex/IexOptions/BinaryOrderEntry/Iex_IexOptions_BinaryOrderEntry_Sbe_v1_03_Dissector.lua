@@ -7506,7 +7506,7 @@ end
 -- Server Business Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload = {}
 
--- Dissect: Server Business Payload
+-- Dispatch: Server Business Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload.dispatch = {
   [101] = iex_iexoptions_binaryorderentry_sbe_v1_03.order_ack_message.dissect,
   [102] = iex_iexoptions_binaryorderentry_sbe_v1_03.unsolicited_modify_ack_message.dissect,
@@ -7529,6 +7529,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload.dispatch = {
   [157] = iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control_alert_message.dissect,
 }
 
+-- Dissect: Server Business Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_payload.dispatch[template_id]
   if dissect then
@@ -8021,7 +8022,7 @@ end
 -- Server Session Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload = {}
 
--- Dissect: Server Session Payload
+-- Dispatch: Server Session Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload.dispatch = {
   [2] = iex_iexoptions_binaryorderentry_sbe_v1_03.login_response_message.dissect,
   [3] = iex_iexoptions_binaryorderentry_sbe_v1_03.gateway_heartbeat_message.dissect,
@@ -8031,6 +8032,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload.dispatch = {
   [11] = iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_leave_response_message.dissect,
 }
 
+-- Dissect: Server Session Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_payload.dispatch[template_id]
   if dissect then
@@ -8094,12 +8096,13 @@ end
 -- Server Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_payload.dispatch = {
   [20000] = iex_iexoptions_binaryorderentry_sbe_v1_03.server_session_message.dissect,
   [20001] = iex_iexoptions_binaryorderentry_sbe_v1_03.server_business_message.dissect,
 }
 
+-- Dissect: Server Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.server_payload.dissect = function(buffer, offset, packet, parent, schema_id)
   local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.server_payload.dispatch[schema_id]
   if dissect then
@@ -9205,7 +9208,7 @@ end
 -- Client Business Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload = {}
 
--- Dissect: Client Business Payload
+-- Dispatch: Client Business Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload.dispatch = {
   [1] = iex_iexoptions_binaryorderentry_sbe_v1_03.new_order_single_message.dissect,
   [2] = iex_iexoptions_binaryorderentry_sbe_v1_03.order_cancel_replace_request_message.dissect,
@@ -9217,6 +9220,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload.dispatch = {
   [52] = iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action_request_message.dissect,
 }
 
+-- Dissect: Client Business Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_payload.dispatch[template_id]
   if dissect then
@@ -9446,7 +9450,7 @@ end
 -- Client Session Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload = {}
 
--- Dissect: Client Session Payload
+-- Dispatch: Client Session Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload.dispatch = {
   [1] = iex_iexoptions_binaryorderentry_sbe_v1_03.login_request_message.dissect,
   [4] = iex_iexoptions_binaryorderentry_sbe_v1_03.client_heartbeat_message.dissect,
@@ -9456,6 +9460,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload.dispatch = {
   [10] = iex_iexoptions_binaryorderentry_sbe_v1_03.subsession_leave_message.dissect,
 }
 
+-- Dissect: Client Session Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_payload.dispatch[template_id]
   if dissect then
@@ -9519,12 +9524,13 @@ end
 -- Client Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_payload.dispatch = {
   [20000] = iex_iexoptions_binaryorderentry_sbe_v1_03.client_session_message.dissect,
   [20001] = iex_iexoptions_binaryorderentry_sbe_v1_03.client_business_message.dissect,
 }
 
+-- Dissect: Client Payload
 iex_iexoptions_binaryorderentry_sbe_v1_03.client_payload.dissect = function(buffer, offset, packet, parent, schema_id)
   local dissect = iex_iexoptions_binaryorderentry_sbe_v1_03.client_payload.dispatch[schema_id]
   if dissect then

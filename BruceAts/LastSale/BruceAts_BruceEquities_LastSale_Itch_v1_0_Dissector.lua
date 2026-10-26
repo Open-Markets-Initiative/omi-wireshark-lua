@@ -947,7 +947,7 @@ end
 -- Payload
 bruceats_bruceequities_lastsale_itch_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 bruceats_bruceequities_lastsale_itch_v1_0.payload.dispatch = {
   ["S"] = bruceats_bruceequities_lastsale_itch_v1_0.system_event_message.dissect,
   ["R"] = bruceats_bruceequities_lastsale_itch_v1_0.stock_directory.dissect,
@@ -957,6 +957,7 @@ bruceats_bruceequities_lastsale_itch_v1_0.payload.dispatch = {
   ["X"] = bruceats_bruceequities_lastsale_itch_v1_0.trade_cancel_message.dissect,
 }
 
+-- Dissect: Payload
 bruceats_bruceequities_lastsale_itch_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = bruceats_bruceequities_lastsale_itch_v1_0.payload.dispatch[message_type]
   if dissect then
@@ -1115,12 +1116,13 @@ end
 -- Messages
 bruceats_bruceequities_lastsale_itch_v1_0.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 bruceats_bruceequities_lastsale_itch_v1_0.messages.dispatch = {
   [0] = bruceats_bruceequities_lastsale_itch_v1_0.heartbeat.dissect,
   [65535] = bruceats_bruceequities_lastsale_itch_v1_0.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 bruceats_bruceequities_lastsale_itch_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = bruceats_bruceequities_lastsale_itch_v1_0.messages.dispatch[message_count]
   if dissect then

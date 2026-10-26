@@ -4742,7 +4742,7 @@ end
 -- Payload
 nyse_nyseequities_integratedfeed_xdp_v2_3_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nyseequities_integratedfeed_xdp_v2_3_a.payload.dispatch = {
   [1] = nyse_nyseequities_integratedfeed_xdp_v2_3_a.sequence_number_reset_message.dissect,
   [2] = nyse_nyseequities_integratedfeed_xdp_v2_3_a.source_time_reference_message.dissect,
@@ -4771,6 +4771,7 @@ nyse_nyseequities_integratedfeed_xdp_v2_3_a.payload.dispatch = {
   [223] = nyse_nyseequities_integratedfeed_xdp_v2_3_a.stock_summary_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_nyseequities_integratedfeed_xdp_v2_3_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nyseequities_integratedfeed_xdp_v2_3_a.payload.dispatch[message_type]
   if dissect then

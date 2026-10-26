@@ -2805,7 +2805,7 @@ end
 -- Payload
 nasdaq_psxequities_lastsale_itch_v2_1_2018.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_psxequities_lastsale_itch_v2_1_2018.payload.dispatch = {
   ["S"] = nasdaq_psxequities_lastsale_itch_v2_1_2018.system_event_message.dissect,
   ["T"] = nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_report_message.dissect,
@@ -2822,6 +2822,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.payload.dispatch = {
   ["h"] = nasdaq_psxequities_lastsale_itch_v2_1_2018.operational_halt_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_psxequities_lastsale_itch_v2_1_2018.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_psxequities_lastsale_itch_v2_1_2018.payload.dispatch[message_type]
   if dissect then
@@ -2988,12 +2989,13 @@ end
 -- Messages
 nasdaq_psxequities_lastsale_itch_v2_1_2018.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_psxequities_lastsale_itch_v2_1_2018.messages.dispatch = {
   [0] = nasdaq_psxequities_lastsale_itch_v2_1_2018.heartbeat.dissect,
   [65535] = nasdaq_psxequities_lastsale_itch_v2_1_2018.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_psxequities_lastsale_itch_v2_1_2018.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_psxequities_lastsale_itch_v2_1_2018.messages.dispatch[message_count]
   if dissect then

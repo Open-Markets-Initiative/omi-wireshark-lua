@@ -9217,7 +9217,7 @@ end
 -- Variable Field
 ice_icefutures_mdf_impact_v1_1_51.variable_field = {}
 
--- Dissect: Variable Field
+-- Dispatch: Variable Field
 ice_icefutures_mdf_impact_v1_1_51.variable_field.dispatch = {
   [1] = ice_icefutures_mdf_impact_v1_1_51.alt_price.dissect,
   [2] = ice_icefutures_mdf_impact_v1_1_51.alt_high_price.dissect,
@@ -9232,6 +9232,7 @@ ice_icefutures_mdf_impact_v1_1_51.variable_field.dispatch = {
   [22] = ice_icefutures_mdf_impact_v1_1_51.seconds_to_end_tpl_hold.dissect,
 }
 
+-- Dissect: Variable Field
 ice_icefutures_mdf_impact_v1_1_51.variable_field.dissect = function(buffer, offset, packet, parent, special_field_id)
   local dissect = ice_icefutures_mdf_impact_v1_1_51.variable_field.dispatch[special_field_id]
   if dissect then
@@ -11345,7 +11346,7 @@ end
 -- Payload
 ice_icefutures_mdf_impact_v1_1_51.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 ice_icefutures_mdf_impact_v1_1_51.payload.dispatch = {
   ["C"] = ice_icefutures_mdf_impact_v1_1_51.market_snapshot_message.dissect,
   ["G"] = ice_icefutures_mdf_impact_v1_1_51.trade_message.dissect,
@@ -11387,6 +11388,7 @@ ice_icefutures_mdf_impact_v1_1_51.payload.dispatch = {
   ["k"] = ice_icefutures_mdf_impact_v1_1_51.rfq_message.dissect,
 }
 
+-- Dissect: Payload
 ice_icefutures_mdf_impact_v1_1_51.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = ice_icefutures_mdf_impact_v1_1_51.payload.dispatch[message_type]
   if dissect then

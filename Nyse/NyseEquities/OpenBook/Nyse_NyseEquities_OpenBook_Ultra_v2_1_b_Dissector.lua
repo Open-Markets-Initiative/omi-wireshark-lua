@@ -2307,7 +2307,7 @@ end
 -- Payload
 nyse_nyseequities_openbook_ultra_v2_1_b.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nyseequities_openbook_ultra_v2_1_b.payload.dispatch = {
   [35] = nyse_nyseequities_openbook_ultra_v2_1_b.symbol_index_mapping_response_messages.dissect,
   [1] = nyse_nyseequities_openbook_ultra_v2_1_b.sequence_number_reset_message.dissect,
@@ -2324,6 +2324,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.payload.dispatch = {
   [231] = nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_messages.dissect,
 }
 
+-- Dissect: Payload
 nyse_nyseequities_openbook_ultra_v2_1_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nyseequities_openbook_ultra_v2_1_b.payload.dispatch[message_type]
   if dissect then

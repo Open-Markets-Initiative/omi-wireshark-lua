@@ -1339,7 +1339,7 @@ iex_iexoptions_marketdata_sbe_v1_04.schema_id.size = 2
 -- Display: Schema Id
 iex_iexoptions_marketdata_sbe_v1_04.schema_id.display = function(value)
   if value == 10000 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 10000"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -3654,7 +3654,7 @@ end
 -- Payload
 iex_iexoptions_marketdata_sbe_v1_04.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 iex_iexoptions_marketdata_sbe_v1_04.payload.dispatch = {
   [1] = iex_iexoptions_marketdata_sbe_v1_04.underlying_ref_data_message.dissect,
   [2] = iex_iexoptions_marketdata_sbe_v1_04.symbol_mapping_message.dissect,
@@ -3687,6 +3687,7 @@ iex_iexoptions_marketdata_sbe_v1_04.payload.dispatch = {
   [601] = iex_iexoptions_marketdata_sbe_v1_04.snapshot_header_message.dissect,
 }
 
+-- Dissect: Payload
 iex_iexoptions_marketdata_sbe_v1_04.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = iex_iexoptions_marketdata_sbe_v1_04.payload.dispatch[template_id]
   if dissect then

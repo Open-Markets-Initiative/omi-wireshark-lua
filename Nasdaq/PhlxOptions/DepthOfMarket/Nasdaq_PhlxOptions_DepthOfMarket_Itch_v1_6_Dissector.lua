@@ -3515,7 +3515,7 @@ end
 -- Payload
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.payload.dispatch = {
   ["T"] = nasdaq_phlxoptions_depthofmarket_itch_v1_6.seconds_message.dissect,
   ["S"] = nasdaq_phlxoptions_depthofmarket_itch_v1_6.system_event_message.dissect,
@@ -3546,6 +3546,7 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_6.payload.dispatch = {
   ["I"] = nasdaq_phlxoptions_depthofmarket_itch_v1_6.auction_notification_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_phlxoptions_depthofmarket_itch_v1_6.payload.dispatch[message_type]
   if dissect then
@@ -3704,12 +3705,13 @@ end
 -- Messages
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.messages.dispatch = {
   [0] = nasdaq_phlxoptions_depthofmarket_itch_v1_6.heartbeat.dissect,
   [65535] = nasdaq_phlxoptions_depthofmarket_itch_v1_6.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_phlxoptions_depthofmarket_itch_v1_6.messages.dispatch[message_count]
   if dissect then

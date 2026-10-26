@@ -3564,11 +3564,12 @@ end
 -- Messages
 cboe_cfefutures_multicasttop_pitch_v1_2_20.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_cfefutures_multicasttop_pitch_v1_2_20.messages.dispatch = {
   [0] = cboe_cfefutures_multicasttop_pitch_v1_2_20.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_cfefutures_multicasttop_pitch_v1_2_20.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_cfefutures_multicasttop_pitch_v1_2_20.messages.dispatch[message_count]
   if dissect then

@@ -1826,7 +1826,7 @@ end
 -- Payload
 aquis_aquisequities_realtime_amd_v4_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 aquis_aquisequities_realtime_amd_v4_0.payload.dispatch = {
   [2] = aquis_aquisequities_realtime_amd_v4_0.order_add.dissect,
   [3] = aquis_aquisequities_realtime_amd_v4_0.order_cancel.dissect,
@@ -1840,6 +1840,7 @@ aquis_aquisequities_realtime_amd_v4_0.payload.dispatch = {
   [16] = aquis_aquisequities_realtime_amd_v4_0.ma_c_update_message.dissect,
 }
 
+-- Dissect: Payload
 aquis_aquisequities_realtime_amd_v4_0.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = aquis_aquisequities_realtime_amd_v4_0.payload.dispatch[msg_type]
   if dissect then

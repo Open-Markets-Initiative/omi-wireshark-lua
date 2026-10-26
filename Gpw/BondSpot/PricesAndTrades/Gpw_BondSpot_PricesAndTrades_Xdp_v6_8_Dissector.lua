@@ -1704,12 +1704,13 @@ end
 -- Payload
 gpw_bondspot_pricesandtrades_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_bondspot_pricesandtrades_xdp_v6_8.payload.dispatch = {
   [240] = gpw_bondspot_pricesandtrades_xdp_v6_8.trade_full_information_message.dissect,
   [241] = gpw_bondspot_pricesandtrades_xdp_v6_8.price_update_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_bondspot_pricesandtrades_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_bondspot_pricesandtrades_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

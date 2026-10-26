@@ -5798,7 +5798,7 @@ end
 -- Exchange Message
 cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message = {}
 
--- Dissect: Exchange Message
+-- Dispatch: Exchange Message
 cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message.dispatch = {
   [501] = cboe_neoequities_orderentry_boe3_v1_0_19.login_response_message.dissect,
   [502] = cboe_neoequities_orderentry_boe3_v1_0_19.replay_complete.dissect,
@@ -5817,6 +5817,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message.dispatch = {
   [6512] = cboe_neoequities_orderentry_boe3_v1_0_19.trade_cancel_correct_ca_equities_v_1.dissect,
 }
 
+-- Dissect: Exchange Message
 cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message.dissect = function(buffer, offset, packet, parent, exchange_message_type)
   local dissect = cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message.dispatch[exchange_message_type]
   if dissect then
@@ -6953,7 +6954,7 @@ end
 -- Firm Message
 cboe_neoequities_orderentry_boe3_v1_0_19.firm_message = {}
 
--- Dissect: Firm Message
+-- Dispatch: Firm Message
 cboe_neoequities_orderentry_boe3_v1_0_19.firm_message.dispatch = {
   [1] = cboe_neoequities_orderentry_boe3_v1_0_19.login_request_message.dissect,
   [2] = cboe_neoequities_orderentry_boe3_v1_0_19.logout_request.dissect,
@@ -6966,6 +6967,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.firm_message.dispatch = {
   [6005] = cboe_neoequities_orderentry_boe3_v1_0_19.new_order_cross_ca_equities_v_2.dissect,
 }
 
+-- Dissect: Firm Message
 cboe_neoequities_orderentry_boe3_v1_0_19.firm_message.dissect = function(buffer, offset, packet, parent, firm_message_type)
   local dissect = cboe_neoequities_orderentry_boe3_v1_0_19.firm_message.dispatch[firm_message_type]
   if dissect then

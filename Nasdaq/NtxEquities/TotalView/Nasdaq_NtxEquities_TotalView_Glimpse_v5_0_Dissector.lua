@@ -2119,7 +2119,7 @@ end
 -- Sequenced Message
 nasdaq_ntxequities_totalview_glimpse_v5_0.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_ntxequities_totalview_glimpse_v5_0.sequenced_message.dispatch = {
   ["S"] = nasdaq_ntxequities_totalview_glimpse_v5_0.system_event_message.dissect,
   ["A"] = nasdaq_ntxequities_totalview_glimpse_v5_0.add_order_message.dissect,
@@ -2132,6 +2132,7 @@ nasdaq_ntxequities_totalview_glimpse_v5_0.sequenced_message.dispatch = {
   ["h"] = nasdaq_ntxequities_totalview_glimpse_v5_0.operational_halt_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_ntxequities_totalview_glimpse_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_ntxequities_totalview_glimpse_v5_0.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2377,7 +2378,7 @@ end
 -- Server Payload
 nasdaq_ntxequities_totalview_glimpse_v5_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_ntxequities_totalview_glimpse_v5_0.server_payload.dispatch = {
   ["+"] = nasdaq_ntxequities_totalview_glimpse_v5_0.debug_packet.dissect,
   ["A"] = nasdaq_ntxequities_totalview_glimpse_v5_0.login_accepted_packet.dissect,
@@ -2387,6 +2388,7 @@ nasdaq_ntxequities_totalview_glimpse_v5_0.server_payload.dispatch = {
   ["Z"] = nasdaq_ntxequities_totalview_glimpse_v5_0.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_ntxequities_totalview_glimpse_v5_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_ntxequities_totalview_glimpse_v5_0.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2700,7 +2702,7 @@ end
 -- Client Payload
 nasdaq_ntxequities_totalview_glimpse_v5_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_ntxequities_totalview_glimpse_v5_0.client_payload.dispatch = {
   ["+"] = nasdaq_ntxequities_totalview_glimpse_v5_0.debug_packet.dissect,
   ["L"] = nasdaq_ntxequities_totalview_glimpse_v5_0.login_request_packet.dissect,
@@ -2709,6 +2711,7 @@ nasdaq_ntxequities_totalview_glimpse_v5_0.client_payload.dispatch = {
   ["O"] = nasdaq_ntxequities_totalview_glimpse_v5_0.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_ntxequities_totalview_glimpse_v5_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_ntxequities_totalview_glimpse_v5_0.client_payload.dispatch[client_packet_type]
   if dissect then

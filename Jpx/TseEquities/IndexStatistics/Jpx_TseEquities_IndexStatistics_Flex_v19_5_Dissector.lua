@@ -6281,7 +6281,7 @@ end
 -- Payload
 jpx_tseequities_indexstatistics_flex_v19_5.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 jpx_tseequities_indexstatistics_flex_v19_5.payload.dispatch = {
   ["MV"] = jpx_tseequities_indexstatistics_flex_v19_5.market_value_message.dissect,
   ["YS"] = jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_message.dissect,
@@ -6304,6 +6304,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.payload.dispatch = {
   ["LC"] = jpx_tseequities_indexstatistics_flex_v19_5.control_message.dissect,
 }
 
+-- Dissect: Payload
 jpx_tseequities_indexstatistics_flex_v19_5.payload.dissect = function(buffer, offset, packet, parent, tag_id)
   local dissect = jpx_tseequities_indexstatistics_flex_v19_5.payload.dispatch[tag_id]
   if dissect then
@@ -6539,7 +6540,7 @@ end
 -- Message Type Medium Classification
 jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification = {}
 
--- Dissect: Message Type Medium Classification
+-- Dispatch: Message Type Medium Classification
 jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification.dispatch = {
   ["1"] = jpx_tseequities_indexstatistics_flex_v19_5.issue_realtime_medium_classification.dissect,
   ["2"] = jpx_tseequities_indexstatistics_flex_v19_5.statistics_medium_classification.dissect,
@@ -6548,6 +6549,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification.di
   ["9"] = jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.dissect,
 }
 
+-- Dissect: Message Type Medium Classification
 jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification.dissect = function(buffer, offset, packet, parent, message_type_large_classification)
   local dissect = jpx_tseequities_indexstatistics_flex_v19_5.message_type_medium_classification.dispatch[message_type_large_classification]
   if dissect then
@@ -6866,8 +6868,8 @@ udp_table:add_for_decode_as(omi_jpx_tseequities_indexstatistics_flex_v19_5)
 --   Version: 19.5
 --   Date: Friday, September 25, 2026
 --   Specification: 03_FLEX Connection Specification Index Statistics group DS.19.0.pdf
---   Specification: 01_FLEX Connection Specification Common Items DS.19.5.pdf
 --   Specification: 03_Attachment_01_List of Index Type_20260309.pdf
+--   Specification: 01_FLEX Connection Specification Common Items DS.19.5.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -3150,11 +3150,12 @@ end
 -- Enable Order Entry Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_value = {}
 
--- Dissect: Enable Order Entry Response Optional Value
+-- Dispatch: Enable Order Entry Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Enable Order Entry Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_value.dissect = function(buffer, offset, packet, parent, enable_order_entry_response_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_optional_value.dispatch[enable_order_entry_response_optional_field]
   if dissect then
@@ -3282,11 +3283,12 @@ end
 -- Disable Order Entry Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_value = {}
 
--- Dissect: Disable Order Entry Response Optional Value
+-- Dispatch: Disable Order Entry Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Disable Order Entry Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_value.dissect = function(buffer, offset, packet, parent, disable_order_entry_response_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_optional_value.dispatch[disable_order_entry_response_optional_field]
   if dissect then
@@ -3414,13 +3416,14 @@ end
 -- Mass Cancel Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_value = {}
 
--- Dissect: Mass Cancel Response Optional Value
+-- Dispatch: Mass Cancel Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_value.dispatch = {
   [27] = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect,
   [24] = nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect,
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Mass Cancel Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_value.dissect = function(buffer, offset, packet, parent, mass_cancel_response_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_optional_value.dispatch[mass_cancel_response_optional_field]
   if dissect then
@@ -3551,11 +3554,12 @@ end
 -- Account Query Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value = {}
 
--- Dissect: Account Query Response Optional Value
+-- Dispatch: Account Query Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Account Query Response Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value.dissect = function(buffer, offset, packet, parent, account_query_response_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value.dispatch[account_query_response_optional_field]
   if dissect then
@@ -3686,7 +3690,7 @@ end
 -- Order Restated Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value = {}
 
--- Dissect: Order Restated Optional Value
+-- Dispatch: Order Restated Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dispatch = {
   [22] = nasdaq_nsmequities_orders_ouch_v5_0.display_quantity.dissect,
   [23] = nasdaq_nsmequities_orders_ouch_v5_0.display_price.dissect,
@@ -3694,6 +3698,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Order Restated Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dissect = function(buffer, offset, packet, parent, order_restated_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dispatch[order_restated_optional_field]
   if dissect then
@@ -3821,13 +3826,14 @@ end
 -- Order Modified Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value = {}
 
--- Dissect: Order Modified Optional Value
+-- Dispatch: Order Modified Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
   [25] = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect,
   [26] = nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect,
 }
 
+-- Dissect: Order Modified Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value.dissect = function(buffer, offset, packet, parent, order_modified_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value.dispatch[order_modified_optional_field]
   if dissect then
@@ -3964,11 +3970,12 @@ end
 -- Order Priority Update Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value = {}
 
--- Dissect: Order Priority Update Optional Value
+-- Dispatch: Order Priority Update Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Order Priority Update Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value.dissect = function(buffer, offset, packet, parent, order_priority_update_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value.dispatch[order_priority_update_optional_field]
   if dissect then
@@ -4108,11 +4115,12 @@ end
 -- Cancel Reject Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value = {}
 
--- Dissect: Cancel Reject Optional Value
+-- Dispatch: Cancel Reject Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Cancel Reject Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value.dissect = function(buffer, offset, packet, parent, cancel_reject_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value.dispatch[cancel_reject_optional_field]
   if dissect then
@@ -4243,11 +4251,12 @@ end
 -- Cancel Pending Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value = {}
 
--- Dissect: Cancel Pending Optional Value
+-- Dispatch: Cancel Pending Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Cancel Pending Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value.dissect = function(buffer, offset, packet, parent, cancel_pending_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value.dispatch[cancel_pending_optional_field]
   if dissect then
@@ -4378,11 +4387,12 @@ end
 -- Rejected Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value = {}
 
--- Dissect: Rejected Order Optional Value
+-- Dispatch: Rejected Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Rejected Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value.dissect = function(buffer, offset, packet, parent, rejected_order_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value.dispatch[rejected_order_optional_field]
   if dissect then
@@ -4519,11 +4529,12 @@ end
 -- Broken Trade Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value = {}
 
--- Dissect: Broken Trade Optional Value
+-- Dispatch: Broken Trade Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Broken Trade Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value.dissect = function(buffer, offset, packet, parent, broken_trade_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value.dispatch[broken_trade_optional_field]
   if dissect then
@@ -4663,11 +4674,12 @@ end
 -- Order Executed Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value = {}
 
--- Dissect: Order Executed Optional Value
+-- Dispatch: Order Executed Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Order Executed Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dissect = function(buffer, offset, packet, parent, order_executed_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dispatch[order_executed_optional_field]
   if dissect then
@@ -4804,11 +4816,12 @@ end
 -- Aiq Canceled Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value = {}
 
--- Dissect: Aiq Canceled Optional Value
+-- Dispatch: Aiq Canceled Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Aiq Canceled Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value.dissect = function(buffer, offset, packet, parent, aiq_canceled_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value.dispatch[aiq_canceled_optional_field]
   if dissect then
@@ -4957,11 +4970,12 @@ end
 -- Canceled Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value = {}
 
--- Dissect: Canceled Message Optional Value
+-- Dispatch: Canceled Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Canceled Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value.dissect = function(buffer, offset, packet, parent, canceled_message_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value.dispatch[canceled_message_optional_field]
   if dissect then
@@ -5098,7 +5112,7 @@ end
 -- Replaced Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value = {}
 
--- Dissect: Replaced Message Optional Value
+-- Dispatch: Replaced Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dispatch = {
   [2] = nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect,
   [3] = nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect,
@@ -5114,6 +5128,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dispatch = {
   [30] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect,
 }
 
+-- Dissect: Replaced Message Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dissect = function(buffer, offset, packet, parent, replaced_message_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dispatch[replaced_message_optional_field]
   if dissect then
@@ -5277,7 +5292,7 @@ end
 -- Order Accepted Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value = {}
 
--- Dissect: Order Accepted Optional Value
+-- Dispatch: Order Accepted Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dispatch = {
   [2] = nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect,
   [3] = nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect,
@@ -5302,6 +5317,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dispatch = {
   [30] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect,
 }
 
+-- Dissect: Order Accepted Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect = function(buffer, offset, packet, parent, order_accepted_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dispatch[order_accepted_optional_field]
   if dissect then
@@ -5506,7 +5522,7 @@ end
 -- Sequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dispatch = {
   ["S"] = nasdaq_nsmequities_orders_ouch_v5_0.system_event_message.dissect,
   ["A"] = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.dissect,
@@ -5527,6 +5543,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dispatch = {
   ["K"] = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -5772,7 +5789,7 @@ end
 -- Server Payload
 nasdaq_nsmequities_orders_ouch_v5_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nsmequities_orders_ouch_v5_0.server_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.dissect,
   ["A"] = nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.dissect,
@@ -5782,6 +5799,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.server_payload.dispatch = {
   ["Z"] = nasdaq_nsmequities_orders_ouch_v5_0.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nsmequities_orders_ouch_v5_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -5984,11 +6002,12 @@ end
 -- Enable Order Entry Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_value = {}
 
--- Dissect: Enable Order Entry Request Optional Value
+-- Dispatch: Enable Order Entry Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Enable Order Entry Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_value.dissect = function(buffer, offset, packet, parent, enable_order_entry_request_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_optional_value.dispatch[enable_order_entry_request_optional_field]
   if dissect then
@@ -6113,11 +6132,12 @@ end
 -- Disable Order Entry Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_value = {}
 
--- Dissect: Disable Order Entry Request Optional Value
+-- Dispatch: Disable Order Entry Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Disable Order Entry Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_value.dissect = function(buffer, offset, packet, parent, disable_order_entry_request_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_optional_value.dispatch[disable_order_entry_request_optional_field]
   if dissect then
@@ -6242,13 +6262,14 @@ end
 -- Mass Cancel Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_value = {}
 
--- Dissect: Mass Cancel Request Optional Value
+-- Dispatch: Mass Cancel Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_value.dispatch = {
   [27] = nasdaq_nsmequities_orders_ouch_v5_0.side.dissect,
   [24] = nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect,
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Mass Cancel Request Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_value.dissect = function(buffer, offset, packet, parent, mass_cancel_request_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_optional_value.dispatch[mass_cancel_request_optional_field]
   if dissect then
@@ -6376,11 +6397,12 @@ end
 -- Account Query Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value = {}
 
--- Dissect: Account Query Optional Value
+-- Dispatch: Account Query Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Account Query Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value.dissect = function(buffer, offset, packet, parent, account_query_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_value.dispatch[account_query_optional_field]
   if dissect then
@@ -6505,13 +6527,14 @@ end
 -- Modify Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value = {}
 
--- Dissect: Modify Order Optional Value
+-- Dispatch: Modify Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
   [25] = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect,
   [26] = nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect,
 }
 
+-- Dissect: Modify Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value.dissect = function(buffer, offset, packet, parent, modify_order_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value.dispatch[modify_order_optional_field]
   if dissect then
@@ -6645,11 +6668,12 @@ end
 -- Cancel Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value = {}
 
--- Dissect: Cancel Order Optional Value
+-- Dispatch: Cancel Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value.dispatch = {
   [28] = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect,
 }
 
+-- Dissect: Cancel Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value.dissect = function(buffer, offset, packet, parent, cancel_order_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value.dispatch[cancel_order_optional_field]
   if dissect then
@@ -6780,7 +6804,7 @@ end
 -- Replace Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value = {}
 
--- Dissect: Replace Order Optional Value
+-- Dispatch: Replace Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dispatch = {
   [3] = nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect,
   [5] = nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect,
@@ -6802,6 +6826,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dispatch = {
   [30] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect,
 }
 
+-- Dissect: Replace Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dissect = function(buffer, offset, packet, parent, replace_order_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dispatch[replace_order_optional_field]
   if dissect then
@@ -6944,7 +6969,7 @@ end
 -- Enter Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value = {}
 
--- Dissect: Enter Order Optional Value
+-- Dispatch: Enter Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dispatch = {
   [2] = nasdaq_nsmequities_orders_ouch_v5_0.firm.dissect,
   [3] = nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect,
@@ -6968,6 +6993,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dispatch = {
   [30] = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect,
 }
 
+-- Dissect: Enter Order Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dissect = function(buffer, offset, packet, parent, enter_order_optional_field)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dispatch[enter_order_optional_field]
   if dissect then
@@ -7119,7 +7145,7 @@ end
 -- Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dispatch = {
   ["O"] = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.dissect,
   ["U"] = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.dissect,
@@ -7131,6 +7157,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dispatch = {
   ["E"] = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -7248,7 +7275,7 @@ end
 -- Client Payload
 nasdaq_nsmequities_orders_ouch_v5_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nsmequities_orders_ouch_v5_0.client_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.dissect,
   ["L"] = nasdaq_nsmequities_orders_ouch_v5_0.login_request_packet.dissect,
@@ -7257,6 +7284,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.client_payload.dispatch = {
   ["O"] = nasdaq_nsmequities_orders_ouch_v5_0.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nsmequities_orders_ouch_v5_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nsmequities_orders_ouch_v5_0.client_payload.dispatch[client_packet_type]
   if dissect then

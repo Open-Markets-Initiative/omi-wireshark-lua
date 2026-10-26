@@ -6929,7 +6929,7 @@ end
 -- Payload
 gpw_bondspot_marketinformation_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_bondspot_marketinformation_xdp_v6_8.payload.dispatch = {
   [516] = gpw_bondspot_marketinformation_xdp_v6_8.class_state_change_message.dissect,
   [523] = gpw_bondspot_marketinformation_xdp_v6_8.mail_message.dissect,
@@ -6941,6 +6941,7 @@ gpw_bondspot_marketinformation_xdp_v6_8.payload.dispatch = {
   [561] = gpw_bondspot_marketinformation_xdp_v6_8.session_summary_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_bondspot_marketinformation_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_bondspot_marketinformation_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

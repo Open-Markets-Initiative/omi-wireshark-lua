@@ -2695,7 +2695,7 @@ end
 -- Sequenced Message
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_message.dispatch = {
   ["S"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.system_event_message.dissect,
   ["R"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.derivative_directory_message.dissect,
@@ -2709,6 +2709,7 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_message.dispatch = {
   ["A"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.best_bid_or_ask_update_long_form_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2954,7 +2955,7 @@ end
 -- Server Payload
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.server_payload.dispatch = {
   ["+"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_packet.dissect,
   ["A"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.login_accepted_packet.dissect,
@@ -2964,6 +2965,7 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.server_payload.dispatch = {
   ["Z"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3277,7 +3279,7 @@ end
 -- Client Payload
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.client_payload.dispatch = {
   ["+"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_packet.dissect,
   ["L"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.login_request_packet.dissect,
@@ -3286,6 +3288,7 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.client_payload.dispatch = {
   ["O"] = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.client_payload.dispatch[client_packet_type]
   if dissect then

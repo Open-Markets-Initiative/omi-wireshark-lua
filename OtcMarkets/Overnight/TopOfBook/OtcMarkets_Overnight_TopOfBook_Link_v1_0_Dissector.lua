@@ -1676,7 +1676,7 @@ end
 -- Payload
 otcmarkets_overnight_topofbook_link_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 otcmarkets_overnight_topofbook_link_v1_0.payload.dispatch = {
   [11] = otcmarkets_overnight_topofbook_link_v1_0.start_of_spin_message.dissect,
   [12] = otcmarkets_overnight_topofbook_link_v1_0.end_of_spin_message.dissect,
@@ -1687,6 +1687,7 @@ otcmarkets_overnight_topofbook_link_v1_0.payload.dispatch = {
   [74] = otcmarkets_overnight_topofbook_link_v1_0.system_recovery_event_message.dissect,
 }
 
+-- Dissect: Payload
 otcmarkets_overnight_topofbook_link_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = otcmarkets_overnight_topofbook_link_v1_0.payload.dispatch[message_type]
   if dissect then
@@ -1822,11 +1823,12 @@ end
 -- Message Block
 otcmarkets_overnight_topofbook_link_v1_0.message_block = {}
 
--- Dissect: Message Block
+-- Dispatch: Message Block
 otcmarkets_overnight_topofbook_link_v1_0.message_block.dispatch = {
   [1] = otcmarkets_overnight_topofbook_link_v1_0.heartbeat_packet.dissect,
 }
 
+-- Dissect: Message Block
 otcmarkets_overnight_topofbook_link_v1_0.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
   local dissect = otcmarkets_overnight_topofbook_link_v1_0.message_block.dispatch[bit.band(packet_flag, 0x01)]
   if dissect then

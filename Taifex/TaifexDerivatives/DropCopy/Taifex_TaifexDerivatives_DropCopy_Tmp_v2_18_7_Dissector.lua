@@ -3282,7 +3282,7 @@ end
 -- Sym Flexproductx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx = {}
 
--- Dissect: Sym Flexproductx
+-- Dispatch: Sym Flexproductx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx.dispatch = {
   [1] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symbolnumx.dissect,
   [2] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltxtx.dissect,
@@ -3290,6 +3290,7 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx.dispatch = {
   [4] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.multilegtxt.dissect,
 }
 
+-- Dissect: Sym Flexproductx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx.dissect = function(buffer, offset, packet, parent, msg_type_ext)
   local dissect = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_flexproductx.dispatch[msg_type_ext]
   if dissect then
@@ -3801,12 +3802,13 @@ end
 -- Sym Longsymbolx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_longsymbolx = {}
 
--- Dissect: Sym Longsymbolx
+-- Dispatch: Sym Longsymbolx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_longsymbolx.dispatch = {
   [3] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.longsymbolnum.dissect,
   [4] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.longsymboltext.dissect,
 }
 
+-- Dissect: Sym Longsymbolx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_longsymbolx.dissect = function(buffer, offset, packet, parent, symboltype)
   local dissect = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_longsymbolx.dispatch[symboltype]
   if dissect then
@@ -4126,12 +4128,13 @@ end
 -- Sym Symbolx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_symbolx = {}
 
--- Dissect: Sym Symbolx
+-- Dispatch: Sym Symbolx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_symbolx.dispatch = {
   [1] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symbolnum.dissect,
   [2] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.symboltext.dissect,
 }
 
+-- Dissect: Sym Symbolx
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_symbolx.dissect = function(buffer, offset, packet, parent, symboltype)
   local dissect = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.sym_symbolx.dispatch[symboltype]
   if dissect then
@@ -4846,7 +4849,7 @@ end
 -- Payload
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload.dispatch = {
   [10] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.wake_up_call_message.dissect,
   [20] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.wake_up_call_confirmed_message.dissect,
@@ -4870,6 +4873,7 @@ taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload.dispatch = {
   [216] = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.flex_drop_copy_initiate_operation_confirmed_message.dissect,
 }
 
+-- Dissect: Payload
 taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = taifex_taifexderivatives_dropcopy_tmp_v2_18_7.payload.dispatch[message_type]
   if dissect then

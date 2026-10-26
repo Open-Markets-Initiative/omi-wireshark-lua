@@ -3943,7 +3943,7 @@ end
 -- Udp Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.udp_payload = {}
 
--- Dissect: Udp Payload
+-- Dispatch: Udp Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.udp_payload.dispatch = {
   ["S"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.system_event_message.dissect,
   ["R"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.derivative_directory_message.dissect,
@@ -3966,6 +3966,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.udp_payload.dispatch = {
   ["I"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.net_order_imbalance_message.dissect,
 }
 
+-- Dissect: Udp Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_ntxoptions_depthofmarket_itch_v2_2.udp_payload.dispatch[message_type]
   if dissect then
@@ -4124,12 +4125,13 @@ end
 -- Messages
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.messages.dispatch = {
   [0] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.heartbeat.dissect,
   [65535] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_ntxoptions_depthofmarket_itch_v2_2.messages.dispatch[message_count]
   if dissect then
@@ -4302,7 +4304,7 @@ end
 -- Sequenced Message
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.sequenced_message.dispatch = {
   ["S"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.system_event_message.dissect,
   ["R"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.derivative_directory_message.dissect,
@@ -4326,6 +4328,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.sequenced_message.dispatch = {
   ["M"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_replay_sequence_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_ntxoptions_depthofmarket_itch_v2_2.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -4571,7 +4574,7 @@ end
 -- Server Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_payload.dispatch = {
   ["+"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.dissect,
   ["A"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_accepted_packet.dissect,
@@ -4581,6 +4584,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_payload.dispatch = {
   ["Z"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_session_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -4894,7 +4898,7 @@ end
 -- Client Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_payload.dispatch = {
   ["+"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.dissect,
   ["L"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.login_request_packet.dissect,
@@ -4903,6 +4907,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_payload.dispatch = {
   ["O"] = nasdaq_ntxoptions_depthofmarket_itch_v2_2.logout_request_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_payload.dispatch[client_packet_type]
   if dissect then

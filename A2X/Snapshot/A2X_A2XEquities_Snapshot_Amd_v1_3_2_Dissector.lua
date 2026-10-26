@@ -767,7 +767,7 @@ end
 -- Payload
 a2x_a2xequities_snapshot_amd_v1_3_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 a2x_a2xequities_snapshot_amd_v1_3_2.payload.dispatch = {
   [1] = a2x_a2xequities_snapshot_amd_v1_3_2.heartbeat_message.dissect,
   [10] = a2x_a2xequities_snapshot_amd_v1_3_2.snapshot_start_message.dissect,
@@ -776,6 +776,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.payload.dispatch = {
   [18] = a2x_a2xequities_snapshot_amd_v1_3_2.market_at_close_book_entry_message.dissect,
 }
 
+-- Dissect: Payload
 a2x_a2xequities_snapshot_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = a2x_a2xequities_snapshot_amd_v1_3_2.payload.dispatch[msg_type]
   if dissect then

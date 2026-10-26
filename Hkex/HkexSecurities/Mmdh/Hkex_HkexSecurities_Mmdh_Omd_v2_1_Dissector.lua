@@ -7284,7 +7284,7 @@ end
 -- Payload
 hkex_hkexsecurities_mmdh_omd_v2_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 hkex_hkexsecurities_mmdh_omd_v2_1.payload.dispatch = {
   [33] = hkex_hkexsecurities_mmdh_omd_v2_1.add_odd_lot_order_message.dissect,
   [53] = hkex_hkexsecurities_mmdh_omd_v2_1.aggregate_order_book_update_message.dissect,
@@ -7320,6 +7320,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.payload.dispatch = {
   [23] = hkex_hkexsecurities_mmdh_omd_v2_1.vcm_trigger_message.dissect,
 }
 
+-- Dissect: Payload
 hkex_hkexsecurities_mmdh_omd_v2_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = hkex_hkexsecurities_mmdh_omd_v2_1.payload.dispatch[msg_type]
   if dissect then

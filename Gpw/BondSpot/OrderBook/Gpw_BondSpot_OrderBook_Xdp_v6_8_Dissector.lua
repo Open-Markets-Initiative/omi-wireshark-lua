@@ -1023,11 +1023,12 @@ end
 -- Payload
 gpw_bondspot_orderbook_xdp_v6_8.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 gpw_bondspot_orderbook_xdp_v6_8.payload.dispatch = {
   [230] = gpw_bondspot_orderbook_xdp_v6_8.order_update_market_sheet_message.dissect,
 }
 
+-- Dissect: Payload
 gpw_bondspot_orderbook_xdp_v6_8.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = gpw_bondspot_orderbook_xdp_v6_8.payload.dispatch[message_type]
   if dissect then

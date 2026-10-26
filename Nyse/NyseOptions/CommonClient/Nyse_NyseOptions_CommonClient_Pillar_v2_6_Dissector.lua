@@ -447,11 +447,12 @@ end
 -- Messages
 nyse_nyseoptions_commonclient_pillar_v2_6.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_nyseoptions_commonclient_pillar_v2_6.messages.dispatch = {
   [1] = nyse_nyseoptions_commonclient_pillar_v2_6.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_nyseoptions_commonclient_pillar_v2_6.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_nyseoptions_commonclient_pillar_v2_6.messages.dispatch[delivery_flag]
   if dissect then

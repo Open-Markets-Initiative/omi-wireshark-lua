@@ -3365,7 +3365,7 @@ end
 -- Business Message
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.business_message = {}
 
--- Dissect: Business Message
+-- Dispatch: Business Message
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.business_message.dispatch = {
   ["J"] = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.symbol_status_message.dissect,
   ["s"] = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.trade_report_message.dissect,
@@ -3375,6 +3375,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.business_message.dispatch = {
   ["w"] = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.quote_message.dissect,
 }
 
+-- Dissect: Business Message
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.business_message.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.business_message.dispatch[msg_type]
   if dissect then

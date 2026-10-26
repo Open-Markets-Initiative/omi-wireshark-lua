@@ -1956,7 +1956,7 @@ end
 -- Sequenced Message
 asx_asxsecurities_trade_ouch_v2_0.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 asx_asxsecurities_trade_ouch_v2_0.sequenced_message.dispatch = {
   ["A"] = asx_asxsecurities_trade_ouch_v2_0.order_accepted_message.dissect,
   ["J"] = asx_asxsecurities_trade_ouch_v2_0.order_rejected_message.dissect,
@@ -1965,6 +1965,7 @@ asx_asxsecurities_trade_ouch_v2_0.sequenced_message.dispatch = {
   ["E"] = asx_asxsecurities_trade_ouch_v2_0.order_executed_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 asx_asxsecurities_trade_ouch_v2_0.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = asx_asxsecurities_trade_ouch_v2_0.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -2210,7 +2211,7 @@ end
 -- Server Payload
 asx_asxsecurities_trade_ouch_v2_0.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 asx_asxsecurities_trade_ouch_v2_0.server_payload.dispatch = {
   ["+"] = asx_asxsecurities_trade_ouch_v2_0.debug_packet.dissect,
   ["A"] = asx_asxsecurities_trade_ouch_v2_0.login_accepted_packet.dissect,
@@ -2220,6 +2221,7 @@ asx_asxsecurities_trade_ouch_v2_0.server_payload.dispatch = {
   ["Z"] = asx_asxsecurities_trade_ouch_v2_0.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 asx_asxsecurities_trade_ouch_v2_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = asx_asxsecurities_trade_ouch_v2_0.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -2730,7 +2732,7 @@ end
 -- Unsequenced Message
 asx_asxsecurities_trade_ouch_v2_0.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 asx_asxsecurities_trade_ouch_v2_0.unsequenced_message.dispatch = {
   ["O"] = asx_asxsecurities_trade_ouch_v2_0.enter_order_message.dissect,
   ["U"] = asx_asxsecurities_trade_ouch_v2_0.replace_order_message.dissect,
@@ -2738,6 +2740,7 @@ asx_asxsecurities_trade_ouch_v2_0.unsequenced_message.dispatch = {
   ["Y"] = asx_asxsecurities_trade_ouch_v2_0.cancel_by_order_id_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 asx_asxsecurities_trade_ouch_v2_0.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = asx_asxsecurities_trade_ouch_v2_0.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -2855,7 +2858,7 @@ end
 -- Client Payload
 asx_asxsecurities_trade_ouch_v2_0.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 asx_asxsecurities_trade_ouch_v2_0.client_payload.dispatch = {
   ["+"] = asx_asxsecurities_trade_ouch_v2_0.debug_packet.dissect,
   ["L"] = asx_asxsecurities_trade_ouch_v2_0.login_request_packet.dissect,
@@ -2864,6 +2867,7 @@ asx_asxsecurities_trade_ouch_v2_0.client_payload.dispatch = {
   ["O"] = asx_asxsecurities_trade_ouch_v2_0.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 asx_asxsecurities_trade_ouch_v2_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = asx_asxsecurities_trade_ouch_v2_0.client_payload.dispatch[client_packet_type]
   if dissect then

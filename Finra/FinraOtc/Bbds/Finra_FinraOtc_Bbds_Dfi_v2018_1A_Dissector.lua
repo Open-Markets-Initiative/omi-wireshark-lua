@@ -1883,7 +1883,7 @@ end
 -- Control Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.control_message_payload = {}
 
--- Dissect: Control Message Payload
+-- Dispatch: Control Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dispatch = {
   ["I"] = finra_finraotc_bbds_dfi_v2018_1a.start_of_day_message.dissect,
   ["J"] = finra_finraotc_bbds_dfi_v2018_1a.end_of_day_message.dissect,
@@ -1896,6 +1896,7 @@ finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dispatch = {
   ["X"] = finra_finraotc_bbds_dfi_v2018_1a.end_of_trade_reporting_message.dissect,
 }
 
+-- Dissect: Control Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   local dissect = finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dispatch[control_message_type]
   if dissect then
@@ -2131,12 +2132,13 @@ end
 -- Administrative Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload = {}
 
--- Dissect: Administrative Message Payload
+-- Dispatch: Administrative Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.dispatch = {
   ["A"] = finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.dissect,
   ["H"] = finra_finraotc_bbds_dfi_v2018_1a.trading_action_message.dissect,
 }
 
+-- Dissect: Administrative Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   local dissect = finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.dispatch[administrative_message_type]
   if dissect then
@@ -2407,11 +2409,12 @@ end
 -- Quotation Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload = {}
 
--- Dissect: Quotation Message Payload
+-- Dispatch: Quotation Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.dispatch = {
   ["1"] = finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.dissect,
 }
 
+-- Dissect: Quotation Message Payload
 finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.dissect = function(buffer, offset, packet, parent, quotation_message_type)
   local dissect = finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.dispatch[quotation_message_type]
   if dissect then
@@ -2477,13 +2480,14 @@ end
 -- Payload
 finra_finraotc_bbds_dfi_v2018_1a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 finra_finraotc_bbds_dfi_v2018_1a.payload.dispatch = {
   ["Q"] = finra_finraotc_bbds_dfi_v2018_1a.quotation_message.dissect,
   ["A"] = finra_finraotc_bbds_dfi_v2018_1a.administrative_message.dissect,
   ["C"] = finra_finraotc_bbds_dfi_v2018_1a.control_message.dissect,
 }
 
+-- Dissect: Payload
 finra_finraotc_bbds_dfi_v2018_1a.payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = finra_finraotc_bbds_dfi_v2018_1a.payload.dispatch[message_category]
   if dissect then

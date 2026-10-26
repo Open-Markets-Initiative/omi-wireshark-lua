@@ -3360,7 +3360,7 @@ end
 -- Payload
 nasdaq_psxequities_totalview_itch_v5_0_2018.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_psxequities_totalview_itch_v5_0_2018.payload.dispatch = {
   ["S"] = nasdaq_psxequities_totalview_itch_v5_0_2018.system_event_message.dissect,
   ["R"] = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_directory_message.dissect,
@@ -3384,6 +3384,7 @@ nasdaq_psxequities_totalview_itch_v5_0_2018.payload.dispatch = {
   ["I"] = nasdaq_psxequities_totalview_itch_v5_0_2018.net_order_imbalance_indicator_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_psxequities_totalview_itch_v5_0_2018.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_psxequities_totalview_itch_v5_0_2018.payload.dispatch[message_type]
   if dissect then
@@ -3542,12 +3543,13 @@ end
 -- Messages
 nasdaq_psxequities_totalview_itch_v5_0_2018.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_psxequities_totalview_itch_v5_0_2018.messages.dispatch = {
   [0] = nasdaq_psxequities_totalview_itch_v5_0_2018.heartbeat.dissect,
   [65535] = nasdaq_psxequities_totalview_itch_v5_0_2018.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_psxequities_totalview_itch_v5_0_2018.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_psxequities_totalview_itch_v5_0_2018.messages.dispatch[message_count]
   if dissect then

@@ -3471,7 +3471,7 @@ end
 -- Payload
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.payload.dispatch = {
   ["I2000"] = koscom_mdcsrealtime_indexproduct2_exture_v1_39.polling_data_message.dissect,
   ["IA000"] = koscom_mdcsrealtime_indexproduct2_exture_v1_39.krx_index_message.dissect,
@@ -3483,6 +3483,7 @@ koscom_mdcsrealtime_indexproduct2_exture_v1_39.payload.dispatch = {
   ["IG000"] = koscom_mdcsrealtime_indexproduct2_exture_v1_39.bond_index_krx_message.dissect,
 }
 
+-- Dissect: Payload
 koscom_mdcsrealtime_indexproduct2_exture_v1_39.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   local dissect = koscom_mdcsrealtime_indexproduct2_exture_v1_39.payload.dispatch[tr_code]
   if dissect then

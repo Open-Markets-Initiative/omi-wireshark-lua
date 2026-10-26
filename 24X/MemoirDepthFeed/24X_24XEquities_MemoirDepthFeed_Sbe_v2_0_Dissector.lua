@@ -1563,7 +1563,7 @@ n24x_24xequities_memoirdepthfeed_sbe_v2_0.schema_id.size = 1
 -- Display: Schema Id
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.schema_id.display = function(value)
   if value == 2 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 2"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -3196,7 +3196,7 @@ end
 -- Payload
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.payload.dispatch = {
   [1] = n24x_24xequities_memoirdepthfeed_sbe_v2_0.instrument_directory_message.dissect,
   [2] = n24x_24xequities_memoirdepthfeed_sbe_v2_0.reg_sho_restriction_message.dissect,
@@ -3217,6 +3217,7 @@ n24x_24xequities_memoirdepthfeed_sbe_v2_0.payload.dispatch = {
   [100] = n24x_24xequities_memoirdepthfeed_sbe_v2_0.snapshot_complete_message.dissect,
 }
 
+-- Dissect: Payload
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = n24x_24xequities_memoirdepthfeed_sbe_v2_0.payload.dispatch[template_id]
   if dissect then
@@ -3475,13 +3476,14 @@ end
 -- Sequenced Messages
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.sequenced_messages = {}
 
--- Dissect: Sequenced Messages
+-- Dispatch: Sequenced Messages
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.sequenced_messages.dispatch = {
   [0] = n24x_24xequities_memoirdepthfeed_sbe_v2_0.heartbeat.dissect,
   [1] = n24x_24xequities_memoirdepthfeed_sbe_v2_0.session_shutdown.dissect,
   [2] = n24x_24xequities_memoirdepthfeed_sbe_v2_0.sequenced_message.dissect,
 }
 
+-- Dissect: Sequenced Messages
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = n24x_24xequities_memoirdepthfeed_sbe_v2_0.sequenced_messages.dispatch[message_type]
   if dissect then

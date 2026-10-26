@@ -2148,11 +2148,12 @@ end
 -- Messages
 cboe_edgxoptions_complex_spin_v2_1_61.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_edgxoptions_complex_spin_v2_1_61.messages.dispatch = {
   [0] = cboe_edgxoptions_complex_spin_v2_1_61.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_edgxoptions_complex_spin_v2_1_61.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_edgxoptions_complex_spin_v2_1_61.messages.dispatch[message_count]
   if dissect then

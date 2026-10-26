@@ -6241,7 +6241,7 @@ end
 -- Payload
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload.dispatch = {
   [1] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.logon_message.dissect,
   [2] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.logout_message.dissect,
@@ -6276,6 +6276,7 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload.dispatch = {
   [300491] = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transaction_tick_data_of_bid_quotation_message.dissect,
 }
 
+-- Dissect: Payload
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload.dispatch[msg_type]
   if dissect then

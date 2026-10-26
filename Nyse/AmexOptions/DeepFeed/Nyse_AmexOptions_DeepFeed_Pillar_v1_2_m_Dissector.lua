@@ -6213,7 +6213,7 @@ end
 -- Payload
 nyse_amexoptions_deepfeed_pillar_v1_2_m.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_amexoptions_deepfeed_pillar_v1_2_m.payload.dispatch = {
   [1] = nyse_amexoptions_deepfeed_pillar_v1_2_m.sequence_number_reset_message.dissect,
   [2] = nyse_amexoptions_deepfeed_pillar_v1_2_m.source_time_reference_message.dissect,
@@ -6244,6 +6244,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_m.payload.dispatch = {
   [323] = nyse_amexoptions_deepfeed_pillar_v1_2_m.options_outright_series_summary_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_amexoptions_deepfeed_pillar_v1_2_m.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_amexoptions_deepfeed_pillar_v1_2_m.payload.dispatch[message_type]
   if dissect then
@@ -6385,11 +6386,12 @@ end
 -- Messages
 nyse_amexoptions_deepfeed_pillar_v1_2_m.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_amexoptions_deepfeed_pillar_v1_2_m.messages.dispatch = {
   [1] = nyse_amexoptions_deepfeed_pillar_v1_2_m.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_amexoptions_deepfeed_pillar_v1_2_m.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_amexoptions_deepfeed_pillar_v1_2_m.messages.dispatch[delivery_flag]
   if dissect then

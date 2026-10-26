@@ -3385,7 +3385,7 @@ end
 -- Payload
 nyse_arcaequities_depthfeedretransmission_pillar_v1_6.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_arcaequities_depthfeedretransmission_pillar_v1_6.payload.dispatch = {
   [1] = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.sequence_number_reset_message.dissect,
   [3] = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol_index_mapping_message.dissect,
@@ -3396,6 +3396,7 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.payload.dispatch = {
   [105] = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.imbalance_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_arcaequities_depthfeedretransmission_pillar_v1_6.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.payload.dispatch[message_type]
   if dissect then
@@ -3537,11 +3538,12 @@ end
 -- Messages
 nyse_arcaequities_depthfeedretransmission_pillar_v1_6.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_arcaequities_depthfeedretransmission_pillar_v1_6.messages.dispatch = {
   [1] = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_arcaequities_depthfeedretransmission_pillar_v1_6.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.messages.dispatch[delivery_flag]
   if dissect then

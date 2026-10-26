@@ -5317,12 +5317,13 @@ end
 -- Turnover Payload
 nse_nsefo_broadcast_nnfbcast_v9_50.turnover_payload = {}
 
--- Dissect: Turnover Payload
+-- Dispatch: Turnover Payload
 nse_nsefo_broadcast_nnfbcast_v9_50.turnover_payload.dispatch = {
   [98] = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_limit_exceeded_body.dissect,
   [320] = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_vct_messages_body.dissect,
 }
 
+-- Dissect: Turnover Payload
 nse_nsefo_broadcast_nnfbcast_v9_50.turnover_payload.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_payload.dispatch[message_length]
   if dissect then
@@ -8904,7 +8905,7 @@ end
 -- Message Payload
 nse_nsefo_broadcast_nnfbcast_v9_50.message_payload = {}
 
--- Dissect: Message Payload
+-- Dispatch: Message Payload
 nse_nsefo_broadcast_nnfbcast_v9_50.message_payload.dispatch = {
   [6501] = nse_nsefo_broadcast_nnfbcast_v9_50.broadcast_journal_vct_message.dissect,
   [6013] = nse_nsefo_broadcast_nnfbcast_v9_50.security_open_price_message.dissect,
@@ -8931,6 +8932,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.message_payload.dispatch = {
   [9011] = nse_nsefo_broadcast_nnfbcast_v9_50.turnover_exceeded_message.dissect,
 }
 
+-- Dissect: Message Payload
 nse_nsefo_broadcast_nnfbcast_v9_50.message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
   local dissect = nse_nsefo_broadcast_nnfbcast_v9_50.message_payload.dispatch[transaction_code]
   if dissect then

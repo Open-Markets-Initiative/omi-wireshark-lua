@@ -2075,7 +2075,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.schema_id.size = 2
 -- Display: Schema Id
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.schema_id.display = function(value)
   if value == 1201 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 1201"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -4113,7 +4113,7 @@ end
 -- Payload
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.payload.dispatch = {
   [10] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.outright_instrument_definition_message.dissect,
   [11] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.spread_instrument_definition_message.dissect,
@@ -4137,6 +4137,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.payload.dispatch = {
   [202] = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.retransmit_reject_message.dissect,
 }
 
+-- Dissect: Payload
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.payload.dispatch[template_id]
   if dissect then

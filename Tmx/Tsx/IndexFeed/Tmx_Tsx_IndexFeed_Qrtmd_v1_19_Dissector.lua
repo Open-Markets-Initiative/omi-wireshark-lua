@@ -1176,12 +1176,13 @@ end
 -- Message Body
 tmx_tsx_indexfeed_qrtmd_v1_19.message_body = {}
 
--- Dissect: Message Body
+-- Dispatch: Message Body
 tmx_tsx_indexfeed_qrtmd_v1_19.message_body.dispatch = {
   ["K"] = tmx_tsx_indexfeed_qrtmd_v1_19.s_and_p_tsx_official_index_level_message.dissect,
   ["PA"] = tmx_tsx_indexfeed_qrtmd_v1_19.beginning_of_index_summary_message.dissect,
 }
 
+-- Dissect: Message Body
 tmx_tsx_indexfeed_qrtmd_v1_19.message_body.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = tmx_tsx_indexfeed_qrtmd_v1_19.message_body.dispatch[message_type]
   if dissect then

@@ -3557,7 +3557,7 @@ end
 -- Sequenced Message
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message.dispatch = {
   ["T"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_message.dissect,
   ["S"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.system_event_message.dissect,
@@ -3580,6 +3580,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message.dispatch = {
   ["Z"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.index_value_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -3825,7 +3826,7 @@ end
 -- Server Payload
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload.dispatch = {
   ["+"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.dissect,
   ["A"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_accepted_packet.dissect,
@@ -3835,6 +3836,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload.dispatch = {
   ["Z"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -4150,7 +4152,7 @@ end
 -- Client Payload
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload.dispatch = {
   ["+"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.dissect,
   ["L"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_request_packet.dissect,
@@ -4159,6 +4161,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload.dispatch = {
   ["O"] = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_payload.dispatch[client_packet_type]
   if dissect then

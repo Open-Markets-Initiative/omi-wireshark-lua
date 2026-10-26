@@ -3495,7 +3495,7 @@ end
 -- Unsequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dispatch = {
   ["N1"] = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.dissect,
   ["NR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect,
@@ -3509,6 +3509,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dispatch = {
   ["SR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -4214,7 +4215,7 @@ end
 -- Sequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dispatch = {
   ["NR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.dissect,
   ["MR"] = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.dissect,
@@ -4230,6 +4231,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dispatch = {
   ["CN"] = miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.dissect,
 }
 
+-- Dissect: Sequenced Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -4298,7 +4300,7 @@ end
 -- Sesm Payload
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload = {}
 
--- Dissect: Sesm Payload
+-- Dispatch: Sesm Payload
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dispatch = {
   ["S"] = miax_onyxfutures_expressinterface_fei_v1_0_c.sequenced_data_packet.dissect,
   ["U"] = miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.dissect,
@@ -4313,6 +4315,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dispatch = {
   ["1"] = miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat.dissect,
 }
 
+-- Dissect: Sesm Payload
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dissect = function(buffer, offset, packet, parent, sesm_packet_type)
   local dissect = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dispatch[sesm_packet_type]
   if dissect then

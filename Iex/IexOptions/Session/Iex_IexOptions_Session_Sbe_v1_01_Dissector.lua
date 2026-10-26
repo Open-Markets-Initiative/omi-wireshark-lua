@@ -1141,7 +1141,7 @@ end
 -- Server Session Payload
 iex_iexoptions_session_sbe_v1_01.server_session_payload = {}
 
--- Dissect: Server Session Payload
+-- Dispatch: Server Session Payload
 iex_iexoptions_session_sbe_v1_01.server_session_payload.dispatch = {
   [2] = iex_iexoptions_session_sbe_v1_01.login_response_message.dissect,
   [3] = iex_iexoptions_session_sbe_v1_01.gateway_heartbeat_message.dissect,
@@ -1151,6 +1151,7 @@ iex_iexoptions_session_sbe_v1_01.server_session_payload.dispatch = {
   [11] = iex_iexoptions_session_sbe_v1_01.subsession_leave_response_message.dissect,
 }
 
+-- Dissect: Server Session Payload
 iex_iexoptions_session_sbe_v1_01.server_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = iex_iexoptions_session_sbe_v1_01.server_session_payload.dispatch[template_id]
   if dissect then
@@ -1214,11 +1215,12 @@ end
 -- Server Payload
 iex_iexoptions_session_sbe_v1_01.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 iex_iexoptions_session_sbe_v1_01.server_payload.dispatch = {
   [20000] = iex_iexoptions_session_sbe_v1_01.server_session_message.dissect,
 }
 
+-- Dissect: Server Payload
 iex_iexoptions_session_sbe_v1_01.server_payload.dissect = function(buffer, offset, packet, parent, schema_id)
   local dissect = iex_iexoptions_session_sbe_v1_01.server_payload.dispatch[schema_id]
   if dissect then
@@ -1556,7 +1558,7 @@ end
 -- Client Session Payload
 iex_iexoptions_session_sbe_v1_01.client_session_payload = {}
 
--- Dissect: Client Session Payload
+-- Dispatch: Client Session Payload
 iex_iexoptions_session_sbe_v1_01.client_session_payload.dispatch = {
   [1] = iex_iexoptions_session_sbe_v1_01.login_request_message.dissect,
   [4] = iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.dissect,
@@ -1566,6 +1568,7 @@ iex_iexoptions_session_sbe_v1_01.client_session_payload.dispatch = {
   [10] = iex_iexoptions_session_sbe_v1_01.subsession_leave_message.dissect,
 }
 
+-- Dissect: Client Session Payload
 iex_iexoptions_session_sbe_v1_01.client_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = iex_iexoptions_session_sbe_v1_01.client_session_payload.dispatch[template_id]
   if dissect then
@@ -1629,11 +1632,12 @@ end
 -- Client Payload
 iex_iexoptions_session_sbe_v1_01.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 iex_iexoptions_session_sbe_v1_01.client_payload.dispatch = {
   [20000] = iex_iexoptions_session_sbe_v1_01.client_session_message.dissect,
 }
 
+-- Dissect: Client Payload
 iex_iexoptions_session_sbe_v1_01.client_payload.dissect = function(buffer, offset, packet, parent, schema_id)
   local dissect = iex_iexoptions_session_sbe_v1_01.client_payload.dispatch[schema_id]
   if dissect then

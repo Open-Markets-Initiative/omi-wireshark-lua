@@ -3602,7 +3602,7 @@ end
 -- Udp Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_payload = {}
 
--- Dissect: Udp Payload
+-- Dispatch: Udp Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_payload.dispatch = {
   ["S"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.system_event_message.dissect,
   ["m"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.derivative_directory_message.dissect,
@@ -3625,6 +3625,7 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_payload.dispatch = {
   ["O"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.net_order_imbalance_message.dissect,
 }
 
+-- Dissect: Udp Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_payload.dispatch[message_type]
   if dissect then
@@ -3783,12 +3784,13 @@ end
 -- Messages
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.messages.dispatch = {
   [0] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.heartbeat.dissect,
   [65535] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.messages.dispatch[message_count]
   if dissect then
@@ -3961,7 +3963,7 @@ end
 -- Sequenced Message
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequenced_message.dispatch = {
   ["S"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.system_event_message.dissect,
   ["m"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.derivative_directory_message.dissect,
@@ -3985,6 +3987,7 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequenced_message.dispatch = {
   ["M"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.end_of_replay_sequence_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -4230,7 +4233,7 @@ end
 -- Server Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.server_payload.dispatch = {
   ["+"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.debug_packet.dissect,
   ["A"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.login_accepted_packet.dissect,
@@ -4240,6 +4243,7 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.server_payload.dispatch = {
   ["Z"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.end_of_session_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -4553,7 +4557,7 @@ end
 -- Client Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.client_payload.dispatch = {
   ["+"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.debug_packet.dissect,
   ["L"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.login_request_packet.dissect,
@@ -4562,6 +4566,7 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.client_payload.dispatch = {
   ["O"] = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.logout_request_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.client_payload.dispatch[client_packet_type]
   if dissect then

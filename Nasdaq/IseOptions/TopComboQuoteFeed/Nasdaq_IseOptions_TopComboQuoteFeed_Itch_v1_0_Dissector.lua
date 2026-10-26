@@ -2298,7 +2298,7 @@ end
 -- Payload
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload.dispatch = {
   ["S"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.dissect,
   ["R"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message.dissect,
@@ -2310,6 +2310,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload.dispatch = {
   ["t"] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.payload.dispatch[message_type]
   if dissect then
@@ -2468,12 +2469,13 @@ end
 -- Messages
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dispatch = {
   [0] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.heartbeat.dissect,
   [65535] = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.messages.dispatch[message_count]
   if dissect then

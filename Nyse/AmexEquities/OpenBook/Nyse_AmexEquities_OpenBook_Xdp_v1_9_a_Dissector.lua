@@ -1582,7 +1582,7 @@ end
 -- Payload
 nyse_amexequities_openbook_xdp_v1_9_a.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_amexequities_openbook_xdp_v1_9_a.payload.dispatch = {
   [100] = nyse_amexequities_openbook_xdp_v1_9_a.add_order_message.dissect,
   [107] = nyse_amexequities_openbook_xdp_v1_9_a.attributed_add_order_message.dissect,
@@ -1594,6 +1594,7 @@ nyse_amexequities_openbook_xdp_v1_9_a.payload.dispatch = {
   [105] = nyse_amexequities_openbook_xdp_v1_9_a.imbalance_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_amexequities_openbook_xdp_v1_9_a.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_amexequities_openbook_xdp_v1_9_a.payload.dispatch[message_type]
   if dissect then

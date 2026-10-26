@@ -434,13 +434,14 @@ end
 -- Payload
 aquis_aquisequities_replay_amd_v4_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 aquis_aquisequities_replay_amd_v4_1.payload.dispatch = {
   [13] = aquis_aquisequities_replay_amd_v4_1.login_message.dissect,
   [14] = aquis_aquisequities_replay_amd_v4_1.replay_request_message.dissect,
   [15] = aquis_aquisequities_replay_amd_v4_1.replay_response_message.dissect,
 }
 
+-- Dissect: Payload
 aquis_aquisequities_replay_amd_v4_1.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = aquis_aquisequities_replay_amd_v4_1.payload.dispatch[msg_type]
   if dissect then

@@ -825,11 +825,12 @@ end
 -- Datagram Body
 tmx_tsx_globalfx_gfx_v1_0.datagram_body = {}
 
--- Dissect: Datagram Body
+-- Dispatch: Datagram Body
 tmx_tsx_globalfx_gfx_v1_0.datagram_body.dispatch = {
   ["#"] = tmx_tsx_globalfx_gfx_v1_0.reference_price_fx_spot.dissect,
 }
 
+-- Dissect: Datagram Body
 tmx_tsx_globalfx_gfx_v1_0.datagram_body.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = tmx_tsx_globalfx_gfx_v1_0.datagram_body.dispatch[msg_type]
   if dissect then

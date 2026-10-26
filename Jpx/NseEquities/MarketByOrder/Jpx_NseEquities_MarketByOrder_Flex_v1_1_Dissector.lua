@@ -1768,7 +1768,7 @@ end
 -- Tcp Payload
 jpx_nseequities_marketbyorder_flex_v1_1.tcp_payload = {}
 
--- Dissect: Tcp Payload
+-- Dispatch: Tcp Payload
 jpx_nseequities_marketbyorder_flex_v1_1.tcp_payload.dispatch = {
   ["R"] = jpx_nseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.dissect,
   ["L"] = jpx_nseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.dissect,
@@ -1778,6 +1778,7 @@ jpx_nseequities_marketbyorder_flex_v1_1.tcp_payload.dispatch = {
   ["G"] = jpx_nseequities_marketbyorder_flex_v1_1.end_of_message_message.dissect,
 }
 
+-- Dissect: Tcp Payload
 jpx_nseequities_marketbyorder_flex_v1_1.tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   local dissect = jpx_nseequities_marketbyorder_flex_v1_1.tcp_payload.dispatch[packet_type]
   if dissect then
@@ -2353,7 +2354,7 @@ end
 -- Payload
 jpx_nseequities_marketbyorder_flex_v1_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 jpx_nseequities_marketbyorder_flex_v1_1.payload.dispatch = {
   ["T"] = jpx_nseequities_marketbyorder_flex_v1_1.seconds_timestamp_message.dissect,
   ["O"] = jpx_nseequities_marketbyorder_flex_v1_1.trading_status_message.dissect,
@@ -2366,6 +2367,7 @@ jpx_nseequities_marketbyorder_flex_v1_1.payload.dispatch = {
   ["L"] = jpx_nseequities_marketbyorder_flex_v1_1.communication_control_message.dissect,
 }
 
+-- Dissect: Payload
 jpx_nseequities_marketbyorder_flex_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = jpx_nseequities_marketbyorder_flex_v1_1.payload.dispatch[message_type]
   if dissect then

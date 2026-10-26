@@ -1856,13 +1856,14 @@ end
 -- Payload
 jpx_tseequities_tostnet_flex_v19_5.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 jpx_tseequities_tostnet_flex_v19_5.payload.dispatch = {
   ["TI"] = jpx_tseequities_tostnet_flex_v19_5.tostnet_byissue_information_message.dissect,
   ["TM"] = jpx_tseequities_tostnet_flex_v19_5.tostnet_market_information_message.dissect,
   ["LC"] = jpx_tseequities_tostnet_flex_v19_5.control_message.dissect,
 }
 
+-- Dissect: Payload
 jpx_tseequities_tostnet_flex_v19_5.payload.dissect = function(buffer, offset, packet, parent, tag_id)
   local dissect = jpx_tseequities_tostnet_flex_v19_5.payload.dispatch[tag_id]
   if dissect then
@@ -2098,7 +2099,7 @@ end
 -- Message Type Medium Classification
 jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification = {}
 
--- Dissect: Message Type Medium Classification
+-- Dispatch: Message Type Medium Classification
 jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification.dispatch = {
   ["1"] = jpx_tseequities_tostnet_flex_v19_5.issue_realtime_medium_classification.dissect,
   ["2"] = jpx_tseequities_tostnet_flex_v19_5.statistics_medium_classification.dissect,
@@ -2107,6 +2108,7 @@ jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification.dispatch =
   ["9"] = jpx_tseequities_tostnet_flex_v19_5.control_medium_classification.dissect,
 }
 
+-- Dissect: Message Type Medium Classification
 jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification.dissect = function(buffer, offset, packet, parent, message_type_large_classification)
   local dissect = jpx_tseequities_tostnet_flex_v19_5.message_type_medium_classification.dispatch[message_type_large_classification]
   if dissect then

@@ -877,7 +877,7 @@ cme_globex_settlements_sbe_v7_0.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_settlements_sbe_v7_0.schema_id.display = function(value)
   if value == 7 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: 7"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -1323,7 +1323,7 @@ cme_globex_settlements_sbe_v7_0.version.size = 2
 -- Display: Version
 cme_globex_settlements_sbe_v7_0.version.display = function(value)
   if value == 0 then
-    return "Version: Version"
+    return "Version: Version FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"
@@ -2566,7 +2566,7 @@ end
 -- Payload
 cme_globex_settlements_sbe_v7_0.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 cme_globex_settlements_sbe_v7_0.payload.dispatch = {
   [401] = cme_globex_settlements_sbe_v7_0.md_incremental_refresh_settle.dissect,
   [402] = cme_globex_settlements_sbe_v7_0.md_incremental_refresh_voi.dissect,
@@ -2574,6 +2574,7 @@ cme_globex_settlements_sbe_v7_0.payload.dispatch = {
   [407] = cme_globex_settlements_sbe_v7_0.admin_heartbeat.dissect,
 }
 
+-- Dissect: Payload
 cme_globex_settlements_sbe_v7_0.payload.dissect = function(buffer, offset, packet, parent, template_id)
   local dissect = cme_globex_settlements_sbe_v7_0.payload.dispatch[template_id]
   if dissect then

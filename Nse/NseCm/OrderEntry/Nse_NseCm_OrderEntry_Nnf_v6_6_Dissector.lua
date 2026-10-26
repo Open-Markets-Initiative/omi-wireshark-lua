@@ -8158,12 +8158,13 @@ end
 -- Cryptographic Payload
 nse_nsecm_orderentry_nnf_v6_6.cryptographic_payload = {}
 
--- Dissect: Cryptographic Payload
+-- Dispatch: Cryptographic Payload
 nse_nsecm_orderentry_nnf_v6_6.cryptographic_payload.dispatch = {
   [124] = nse_nsecm_orderentry_nnf_v6_6.existing_encryption_tail.dissect,
   [136] = nse_nsecm_orderentry_nnf_v6_6.new_encryption_tail.dissect,
 }
 
+-- Dissect: Cryptographic Payload
 nse_nsecm_orderentry_nnf_v6_6.cryptographic_payload.dissect = function(buffer, offset, packet, parent, message_length)
   local dissect = nse_nsecm_orderentry_nnf_v6_6.cryptographic_payload.dispatch[message_length]
   if dissect then
@@ -8719,7 +8720,7 @@ end
 -- Server Message Payload
 nse_nsecm_orderentry_nnf_v6_6.server_message_payload = {}
 
--- Dissect: Server Message Payload
+-- Dispatch: Server Message Payload
 nse_nsecm_orderentry_nnf_v6_6.server_message_payload.dispatch = {
   [18017] = nse_nsecm_orderentry_nnf_v6_6.auction_inquiry_response_message.dissect,
   [5717] = nse_nsecm_orderentry_nnf_v6_6.branch_order_value_limit_update_out_message.dissect,
@@ -8772,6 +8773,7 @@ nse_nsecm_orderentry_nnf_v6_6.server_message_payload.dispatch = {
   [7304] = nse_nsecm_orderentry_nnf_v6_6.update_local_database_data_message.dissect,
 }
 
+-- Dissect: Server Message Payload
 nse_nsecm_orderentry_nnf_v6_6.server_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
   local dissect = nse_nsecm_orderentry_nnf_v6_6.server_message_payload.dispatch[transaction_code]
   if dissect then
@@ -10073,7 +10075,7 @@ end
 -- Client Message Payload
 nse_nsecm_orderentry_nnf_v6_6.client_message_payload = {}
 
--- Dissect: Client Message Payload
+-- Dispatch: Client Message Payload
 nse_nsecm_orderentry_nnf_v6_6.client_message_payload.dispatch = {
   [5716] = nse_nsecm_orderentry_nnf_v6_6.branch_order_value_limit_update_in_message.dissect,
   [5790] = nse_nsecm_orderentry_nnf_v6_6.cancel_on_logout_status_request_message.dissect,
@@ -10099,6 +10101,7 @@ nse_nsecm_orderentry_nnf_v6_6.client_message_payload.dispatch = {
   [1600] = nse_nsecm_orderentry_nnf_v6_6.system_information_request_message.dissect,
 }
 
+-- Dissect: Client Message Payload
 nse_nsecm_orderentry_nnf_v6_6.client_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
   local dissect = nse_nsecm_orderentry_nnf_v6_6.client_message_payload.dispatch[transaction_code]
   if dissect then

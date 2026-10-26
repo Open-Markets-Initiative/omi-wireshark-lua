@@ -12685,7 +12685,7 @@ end
 -- Payload
 nextrade_nextrade_stockcommon_nxtascii_v2_12.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nextrade_nextrade_stockcommon_nxtascii_v2_12.payload.dispatch = {
   ["I2500"] = nextrade_nextrade_stockcommon_nxtascii_v2_12.polling_data_message.dissect,
   ["B651S"] = nextrade_nextrade_stockcommon_nxtascii_v2_12.securities_quote_10_level_message.dissect,
@@ -12739,6 +12739,7 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.payload.dispatch = {
   ["E351Q"] = nextrade_nextrade_stockcommon_nxtascii_v2_12.trading_activity_by_session_per_an_issue_message.dissect,
 }
 
+-- Dissect: Payload
 nextrade_nextrade_stockcommon_nxtascii_v2_12.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   local dissect = nextrade_nextrade_stockcommon_nxtascii_v2_12.payload.dispatch[tr_code]
   if dissect then

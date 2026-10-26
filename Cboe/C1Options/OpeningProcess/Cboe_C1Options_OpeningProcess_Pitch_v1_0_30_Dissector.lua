@@ -1802,11 +1802,12 @@ end
 -- Messages
 cboe_c1options_openingprocess_pitch_v1_0_30.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_c1options_openingprocess_pitch_v1_0_30.messages.dispatch = {
   [0] = cboe_c1options_openingprocess_pitch_v1_0_30.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_c1options_openingprocess_pitch_v1_0_30.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_c1options_openingprocess_pitch_v1_0_30.messages.dispatch[message_count]
   if dissect then

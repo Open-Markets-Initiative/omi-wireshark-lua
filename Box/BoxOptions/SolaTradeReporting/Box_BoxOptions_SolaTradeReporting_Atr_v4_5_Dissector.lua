@@ -2777,7 +2777,7 @@ end
 -- Server Message
 box_boxoptions_solatradereporting_atr_v4_5.server_message = {}
 
--- Dissect: Server Message
+-- Dispatch: Server Message
 box_boxoptions_solatradereporting_atr_v4_5.server_message.dispatch = {
   ["00"] = box_boxoptions_solatradereporting_atr_v4_5.start_of_day.dissect,
   ["02"] = box_boxoptions_solatradereporting_atr_v4_5.circuit_assurance.dissect,
@@ -2794,6 +2794,7 @@ box_boxoptions_solatradereporting_atr_v4_5.server_message.dispatch = {
   ["99"] = box_boxoptions_solatradereporting_atr_v4_5.error_message.dissect,
 }
 
+-- Dissect: Server Message
 box_boxoptions_solatradereporting_atr_v4_5.server_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = box_boxoptions_solatradereporting_atr_v4_5.server_message.dispatch[message_type]
   if dissect then
@@ -3537,7 +3538,7 @@ end
 -- Client Message
 box_boxoptions_solatradereporting_atr_v4_5.client_message = {}
 
--- Dissect: Client Message
+-- Dispatch: Client Message
 box_boxoptions_solatradereporting_atr_v4_5.client_message.dispatch = {
   ["01"] = box_boxoptions_solatradereporting_atr_v4_5.start_of_day_acknowledgement.dissect,
   ["03"] = box_boxoptions_solatradereporting_atr_v4_5.circuit_response.dissect,
@@ -3551,6 +3552,7 @@ box_boxoptions_solatradereporting_atr_v4_5.client_message.dispatch = {
   ["54"] = box_boxoptions_solatradereporting_atr_v4_5.delete_give_up.dissect,
 }
 
+-- Dissect: Client Message
 box_boxoptions_solatradereporting_atr_v4_5.client_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = box_boxoptions_solatradereporting_atr_v4_5.client_message.dispatch[message_type]
   if dissect then

@@ -1791,7 +1791,7 @@ end
 -- Payload
 biva_bivaequities_news_itch_v1_12.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 biva_bivaequities_news_itch_v1_12.payload.dispatch = {
   ["T"] = biva_bivaequities_news_itch_v1_12.time_stamp_seconds_message.dissect,
   ["S"] = biva_bivaequities_news_itch_v1_12.system_event_message.dissect,
@@ -1803,6 +1803,7 @@ biva_bivaequities_news_itch_v1_12.payload.dispatch = {
   ["N"] = biva_bivaequities_news_itch_v1_12.news_message.dissect,
 }
 
+-- Dissect: Payload
 biva_bivaequities_news_itch_v1_12.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = biva_bivaequities_news_itch_v1_12.payload.dispatch[message_type]
   if dissect then
@@ -1961,12 +1962,13 @@ end
 -- Messages
 biva_bivaequities_news_itch_v1_12.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 biva_bivaequities_news_itch_v1_12.messages.dispatch = {
   [0] = biva_bivaequities_news_itch_v1_12.heartbeat.dissect,
   [65535] = biva_bivaequities_news_itch_v1_12.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 biva_bivaequities_news_itch_v1_12.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = biva_bivaequities_news_itch_v1_12.messages.dispatch[message_count]
   if dissect then

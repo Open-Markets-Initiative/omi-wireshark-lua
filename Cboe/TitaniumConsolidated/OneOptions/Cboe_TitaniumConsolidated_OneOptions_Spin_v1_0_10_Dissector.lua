@@ -1362,11 +1362,12 @@ end
 -- Messages
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dispatch = {
   [0] = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dispatch[message_count]
   if dissect then

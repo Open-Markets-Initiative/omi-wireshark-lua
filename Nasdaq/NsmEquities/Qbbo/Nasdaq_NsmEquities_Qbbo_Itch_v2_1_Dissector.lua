@@ -2072,7 +2072,7 @@ end
 -- Payload
 nasdaq_nsmequities_qbbo_itch_v2_1.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nasdaq_nsmequities_qbbo_itch_v2_1.payload.dispatch = {
   ["S"] = nasdaq_nsmequities_qbbo_itch_v2_1.system_event_message.dissect,
   ["R"] = nasdaq_nsmequities_qbbo_itch_v2_1.stock_directory_message.dissect,
@@ -2086,6 +2086,7 @@ nasdaq_nsmequities_qbbo_itch_v2_1.payload.dispatch = {
   ["K"] = nasdaq_nsmequities_qbbo_itch_v2_1.ipo_quoting_period_update_message.dissect,
 }
 
+-- Dissect: Payload
 nasdaq_nsmequities_qbbo_itch_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_qbbo_itch_v2_1.payload.dispatch[message_type]
   if dissect then
@@ -2244,12 +2245,13 @@ end
 -- Messages
 nasdaq_nsmequities_qbbo_itch_v2_1.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nasdaq_nsmequities_qbbo_itch_v2_1.messages.dispatch = {
   [0] = nasdaq_nsmequities_qbbo_itch_v2_1.heartbeat.dissect,
   [65535] = nasdaq_nsmequities_qbbo_itch_v2_1.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 nasdaq_nsmequities_qbbo_itch_v2_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = nasdaq_nsmequities_qbbo_itch_v2_1.messages.dispatch[message_count]
   if dissect then

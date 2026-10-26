@@ -4684,7 +4684,7 @@ end
 -- Payload
 hkex_hkexderivatives_fulltickretrans_omd_v2_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 hkex_hkexderivatives_fulltickretrans_omd_v2_2.payload.dispatch = {
   [330] = hkex_hkexderivatives_fulltickretrans_omd_v2_2.add_order.dissect,
   [337] = hkex_hkexderivatives_fulltickretrans_omd_v2_2.aggregate_implied_order.dissect,
@@ -4714,6 +4714,7 @@ hkex_hkexderivatives_fulltickretrans_omd_v2_2.payload.dispatch = {
   [356] = hkex_hkexderivatives_fulltickretrans_omd_v2_2.trade_amendment_message.dissect,
 }
 
+-- Dissect: Payload
 hkex_hkexderivatives_fulltickretrans_omd_v2_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = hkex_hkexderivatives_fulltickretrans_omd_v2_2.payload.dispatch[msg_type]
   if dissect then

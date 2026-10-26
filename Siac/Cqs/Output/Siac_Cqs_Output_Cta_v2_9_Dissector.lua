@@ -3862,7 +3862,7 @@ end
 -- Quote Message Payload
 siac_cqs_output_cta_v2_9.quote_message_payload = {}
 
--- Dissect: Quote Message Payload
+-- Dispatch: Quote Message Payload
 siac_cqs_output_cta_v2_9.quote_message_payload.dispatch = {
   ["A"] = siac_cqs_output_cta_v2_9.auction_status_message.dissect,
   ["L"] = siac_cqs_output_cta_v2_9.long_quote_message.dissect,
@@ -3870,6 +3870,7 @@ siac_cqs_output_cta_v2_9.quote_message_payload.dispatch = {
   ["S"] = siac_cqs_output_cta_v2_9.special_long_quote_message.dissect,
 }
 
+-- Dissect: Quote Message Payload
 siac_cqs_output_cta_v2_9.quote_message_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
   local dissect = siac_cqs_output_cta_v2_9.quote_message_payload.dispatch[quote_message_type]
   if dissect then
@@ -4071,12 +4072,13 @@ end
 -- Market Status Message Payload
 siac_cqs_output_cta_v2_9.market_status_message_payload = {}
 
--- Dissect: Market Status Message Payload
+-- Dispatch: Market Status Message Payload
 siac_cqs_output_cta_v2_9.market_status_message_payload.dispatch = {
   ["K"] = siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_decline_level_status_message.dissect,
   ["L"] = siac_cqs_output_cta_v2_9.market_wide_circuit_breaker_status_message.dissect,
 }
 
+-- Dissect: Market Status Message Payload
 siac_cqs_output_cta_v2_9.market_status_message_payload.dissect = function(buffer, offset, packet, parent, market_status_message_type)
   local dissect = siac_cqs_output_cta_v2_9.market_status_message_payload.dispatch[market_status_message_type]
   if dissect then
@@ -4534,7 +4536,7 @@ end
 -- Control Message Payload
 siac_cqs_output_cta_v2_9.control_message_payload = {}
 
--- Dissect: Control Message Payload
+-- Dispatch: Control Message Payload
 siac_cqs_output_cta_v2_9.control_message_payload.dispatch = {
   ["A"] = siac_cqs_output_cta_v2_9.start_of_day_message.dissect,
   ["C"] = siac_cqs_output_cta_v2_9.finra_close_message.dissect,
@@ -4545,6 +4547,7 @@ siac_cqs_output_cta_v2_9.control_message_payload.dispatch = {
   ["Z"] = siac_cqs_output_cta_v2_9.end_of_day_message.dissect,
 }
 
+-- Dissect: Control Message Payload
 siac_cqs_output_cta_v2_9.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   local dissect = siac_cqs_output_cta_v2_9.control_message_payload.dispatch[control_message_type]
   if dissect then
@@ -4610,13 +4613,14 @@ end
 -- Category Payload
 siac_cqs_output_cta_v2_9.category_payload = {}
 
--- Dissect: Category Payload
+-- Dispatch: Category Payload
 siac_cqs_output_cta_v2_9.category_payload.dispatch = {
   ["C"] = siac_cqs_output_cta_v2_9.control_message.dissect,
   ["M"] = siac_cqs_output_cta_v2_9.market_status_message.dissect,
   ["Q"] = siac_cqs_output_cta_v2_9.quote_message.dissect,
 }
 
+-- Dissect: Category Payload
 siac_cqs_output_cta_v2_9.category_payload.dissect = function(buffer, offset, packet, parent, message_category)
   local dissect = siac_cqs_output_cta_v2_9.category_payload.dispatch[message_category]
   if dissect then

@@ -1268,12 +1268,13 @@ end
 -- Adap Update
 cboe_bzxequities_summarydepth_csdp_v1_0_4.adap_update = {}
 
--- Dissect: Adap Update
+-- Dispatch: Adap Update
 cboe_bzxequities_summarydepth_csdp_v1_0_4.adap_update.dispatch = {
   [10] = cboe_bzxequities_summarydepth_csdp_v1_0_4.short_update_adap_block.dissect,
   [18] = cboe_bzxequities_summarydepth_csdp_v1_0_4.long_update_adap_block.dissect,
 }
 
+-- Dissect: Adap Update
 cboe_bzxequities_summarydepth_csdp_v1_0_4.adap_update.dissect = function(buffer, offset, packet, parent, adap_block_size)
   local dissect = cboe_bzxequities_summarydepth_csdp_v1_0_4.adap_update.dispatch[adap_block_size]
   if dissect then
@@ -1743,11 +1744,12 @@ end
 -- Messages
 cboe_bzxequities_summarydepth_csdp_v1_0_4.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_bzxequities_summarydepth_csdp_v1_0_4.messages.dispatch = {
   [0] = cboe_bzxequities_summarydepth_csdp_v1_0_4.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_bzxequities_summarydepth_csdp_v1_0_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_bzxequities_summarydepth_csdp_v1_0_4.messages.dispatch[message_count]
   if dissect then

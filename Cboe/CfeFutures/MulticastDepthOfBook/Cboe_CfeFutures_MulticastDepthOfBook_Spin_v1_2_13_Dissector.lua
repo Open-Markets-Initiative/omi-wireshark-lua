@@ -3035,11 +3035,12 @@ end
 -- Messages
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.messages.dispatch = {
   [0] = cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.messages.dispatch[message_count]
   if dissect then

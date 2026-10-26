@@ -3284,11 +3284,12 @@ end
 -- Messages
 cboe_cxeequities_multicastdepthofbook_pitch_v6_7.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 cboe_cxeequities_multicastdepthofbook_pitch_v6_7.messages.dispatch = {
   [0] = cboe_cxeequities_multicastdepthofbook_pitch_v6_7.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 cboe_cxeequities_multicastdepthofbook_pitch_v6_7.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = cboe_cxeequities_multicastdepthofbook_pitch_v6_7.messages.dispatch[message_count]
   if dissect then

@@ -1754,7 +1754,7 @@ end
 -- Payload
 lme_lmeselect_referenceprices_lmesource_v4_18.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 lme_lmeselect_referenceprices_lmesource_v4_18.payload.dispatch = {
   [100] = lme_lmeselect_referenceprices_lmesource_v4_18.sequence_reset_message.dissect,
   [401] = lme_lmeselect_referenceprices_lmesource_v4_18.reference_price_message.dissect,
@@ -1763,6 +1763,7 @@ lme_lmeselect_referenceprices_lmesource_v4_18.payload.dispatch = {
   [404] = lme_lmeselect_referenceprices_lmesource_v4_18.reference_volatility_price_message.dissect,
 }
 
+-- Dissect: Payload
 lme_lmeselect_referenceprices_lmesource_v4_18.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   local dissect = lme_lmeselect_referenceprices_lmesource_v4_18.payload.dispatch[msg_type]
   if dissect then

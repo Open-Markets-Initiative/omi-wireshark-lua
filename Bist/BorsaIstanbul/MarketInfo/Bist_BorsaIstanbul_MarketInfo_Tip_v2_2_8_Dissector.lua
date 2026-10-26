@@ -11348,7 +11348,7 @@ end
 -- Server Payload
 bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload.dispatch = {
   ["+"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.debug_packet.dissect,
   ["A"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.login_accepted_packet.dissect,
@@ -11358,6 +11358,7 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload.dispatch = {
   ["Z"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = bist_borsaistanbul_marketinfo_tip_v2_2_8.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -11671,7 +11672,7 @@ end
 -- Client Payload
 bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload.dispatch = {
   ["+"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.debug_packet.dissect,
   ["L"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.login_request_packet.dissect,
@@ -11680,6 +11681,7 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload.dispatch = {
   ["O"] = bist_borsaistanbul_marketinfo_tip_v2_2_8.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = bist_borsaistanbul_marketinfo_tip_v2_2_8.client_payload.dispatch[client_packet_type]
   if dissect then

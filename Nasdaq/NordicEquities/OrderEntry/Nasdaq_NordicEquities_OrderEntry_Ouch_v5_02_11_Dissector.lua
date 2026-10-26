@@ -4550,7 +4550,7 @@ end
 -- Value Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.value_payload = {}
 
--- Dissect: Value Payload
+-- Dispatch: Value Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.value_payload.dispatch = {
   [1] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.clearing_account.dissect,
   [2] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.clearing_account_type.dissect,
@@ -4588,6 +4588,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.value_payload.dispatch = {
   [34] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.firm_up_id.dissect,
 }
 
+-- Dissect: Value Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.value_payload.dissect = function(buffer, offset, packet, parent, tag)
   local dissect = nasdaq_nordicequities_orderentry_ouch_v5_02_11.value_payload.dispatch[tag]
   if dissect then
@@ -5461,7 +5462,7 @@ end
 -- Sequenced Message
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.sequenced_message.dispatch = {
   ["S"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.system_event_message.dissect,
   ["A"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.order_accepted_message.dissect,
@@ -5482,6 +5483,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.sequenced_message.dispatch = {
   ["D"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.stream_status_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
   local dissect = nasdaq_nordicequities_orderentry_ouch_v5_02_11.sequenced_message.dispatch[sequenced_message_type]
   if dissect then
@@ -5727,7 +5729,7 @@ end
 -- Server Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.server_payload.dispatch = {
   ["+"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.debug_packet.dissect,
   ["A"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.login_accepted_packet.dissect,
@@ -5737,6 +5739,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.server_payload.dispatch = {
   ["Z"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.end_of_session.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nordicequities_orderentry_ouch_v5_02_11.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -6237,7 +6240,7 @@ end
 -- Unsequenced Message
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.unsequenced_message = {}
 
--- Dissect: Unsequenced Message
+-- Dispatch: Unsequenced Message
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.unsequenced_message.dispatch = {
   ["O"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.enter_order_message.dissect,
   ["U"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.replace_order_message.dissect,
@@ -6246,6 +6249,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.unsequenced_message.dispatch = {
   ["M"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.mmi_notification_request_message.dissect,
 }
 
+-- Dissect: Unsequenced Message
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
   local dissect = nasdaq_nordicequities_orderentry_ouch_v5_02_11.unsequenced_message.dispatch[unsequenced_message_type]
   if dissect then
@@ -6363,7 +6367,7 @@ end
 -- Client Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.client_payload.dispatch = {
   ["+"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.debug_packet.dissect,
   ["L"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.login_request_packet.dissect,
@@ -6372,6 +6376,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.client_payload.dispatch = {
   ["O"] = nasdaq_nordicequities_orderentry_ouch_v5_02_11.logout_request.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nordicequities_orderentry_ouch_v5_02_11.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nordicequities_orderentry_ouch_v5_02_11.client_payload.dispatch[client_packet_type]
   if dissect then

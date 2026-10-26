@@ -1540,7 +1540,7 @@ end
 -- Payload
 odx_odxequities_pts_itch_v2_2.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 odx_odxequities_pts_itch_v2_2.payload.dispatch = {
   ["T"] = odx_odxequities_pts_itch_v2_2.seconds_message.dissect,
   ["S"] = odx_odxequities_pts_itch_v2_2.system_event_message.dissect,
@@ -1554,6 +1554,7 @@ odx_odxequities_pts_itch_v2_2.payload.dispatch = {
   ["U"] = odx_odxequities_pts_itch_v2_2.order_replaced_message.dissect,
 }
 
+-- Dissect: Payload
 odx_odxequities_pts_itch_v2_2.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = odx_odxequities_pts_itch_v2_2.payload.dispatch[message_type]
   if dissect then
@@ -1712,12 +1713,13 @@ end
 -- Messages
 odx_odxequities_pts_itch_v2_2.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 odx_odxequities_pts_itch_v2_2.messages.dispatch = {
   [0] = odx_odxequities_pts_itch_v2_2.heartbeat.dissect,
   [65535] = odx_odxequities_pts_itch_v2_2.end_of_session.dissect,
 }
 
+-- Dissect: Messages
 odx_odxequities_pts_itch_v2_2.messages.dissect = function(buffer, offset, packet, parent, message_count)
   local dissect = odx_odxequities_pts_itch_v2_2.messages.dispatch[message_count]
   if dissect then

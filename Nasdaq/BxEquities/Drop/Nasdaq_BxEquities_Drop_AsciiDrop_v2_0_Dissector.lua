@@ -1148,7 +1148,7 @@ end
 -- Message
 nasdaq_bxequities_drop_asciidrop_v2_0.message = {}
 
--- Dissect: Message
+-- Dispatch: Message
 nasdaq_bxequities_drop_asciidrop_v2_0.message.dispatch = {
   ["A"] = nasdaq_bxequities_drop_asciidrop_v2_0.new_order_accepted_message.dissect,
   ["E"] = nasdaq_bxequities_drop_asciidrop_v2_0.existing_order_executed_message.dissect,
@@ -1156,6 +1156,7 @@ nasdaq_bxequities_drop_asciidrop_v2_0.message.dispatch = {
   ["B"] = nasdaq_bxequities_drop_asciidrop_v2_0.previous_execution_broken_message.dissect,
 }
 
+-- Dissect: Message
 nasdaq_bxequities_drop_asciidrop_v2_0.message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_bxequities_drop_asciidrop_v2_0.message.dispatch[message_type]
   if dissect then

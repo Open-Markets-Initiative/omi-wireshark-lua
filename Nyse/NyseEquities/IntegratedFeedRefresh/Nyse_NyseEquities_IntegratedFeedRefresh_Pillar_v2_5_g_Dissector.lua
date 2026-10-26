@@ -3435,7 +3435,7 @@ end
 -- Payload
 nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.payload = {}
 
--- Dissect: Payload
+-- Dispatch: Payload
 nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.payload.dispatch = {
   [1] = nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.sequence_number_reset_message.dissect,
   [2] = nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.source_time_reference_message.dissect,
@@ -3446,6 +3446,7 @@ nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.payload.dispatch = {
   [106] = nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.add_order_refresh_message.dissect,
 }
 
+-- Dissect: Payload
 nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.payload.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.payload.dispatch[message_type]
   if dissect then
@@ -3587,11 +3588,12 @@ end
 -- Messages
 nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.messages = {}
 
--- Dissect: Messages
+-- Dispatch: Messages
 nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.messages.dispatch = {
   [1] = nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.heartbeat.dissect,
 }
 
+-- Dissect: Messages
 nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
   local dissect = nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.messages.dispatch[delivery_flag]
   if dissect then

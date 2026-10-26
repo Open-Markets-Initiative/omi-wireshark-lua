@@ -2601,7 +2601,7 @@ end
 -- Sequenced Message
 nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message = {}
 
--- Dissect: Sequenced Message
+-- Dispatch: Sequenced Message
 nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message.dispatch = {
   ["A"] = nasdaq_nsmequities_drop_asciidrop_v2_3.new_order_accepted_message.dissect,
   ["E"] = nasdaq_nsmequities_drop_asciidrop_v2_3.existing_order_executed_message.dissect,
@@ -2613,6 +2613,7 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message.dispatch = {
   ["C"] = nasdaq_nsmequities_drop_asciidrop_v2_3.trade_correction_message.dissect,
 }
 
+-- Dissect: Sequenced Message
 nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message.dissect = function(buffer, offset, packet, parent, message_type)
   local dissect = nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_message.dispatch[message_type]
   if dissect then
@@ -2862,7 +2863,7 @@ end
 -- Server Payload
 nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload = {}
 
--- Dissect: Server Payload
+-- Dispatch: Server Payload
 nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_drop_asciidrop_v2_3.debug_packet.dissect,
   ["A"] = nasdaq_nsmequities_drop_asciidrop_v2_3.login_accepted_packet.dissect,
@@ -2870,6 +2871,7 @@ nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload.dispatch = {
   ["S"] = nasdaq_nsmequities_drop_asciidrop_v2_3.sequenced_data_packet.dissect,
 }
 
+-- Dissect: Server Payload
 nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   local dissect = nasdaq_nsmequities_drop_asciidrop_v2_3.server_payload.dispatch[server_packet_type]
   if dissect then
@@ -3132,13 +3134,14 @@ end
 -- Client Payload
 nasdaq_nsmequities_drop_asciidrop_v2_3.client_payload = {}
 
--- Dissect: Client Payload
+-- Dispatch: Client Payload
 nasdaq_nsmequities_drop_asciidrop_v2_3.client_payload.dispatch = {
   ["+"] = nasdaq_nsmequities_drop_asciidrop_v2_3.debug_packet.dissect,
   ["L"] = nasdaq_nsmequities_drop_asciidrop_v2_3.login_request_packet.dissect,
   ["U"] = nasdaq_nsmequities_drop_asciidrop_v2_3.unsequenced_data_packet.dissect,
 }
 
+-- Dissect: Client Payload
 nasdaq_nsmequities_drop_asciidrop_v2_3.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   local dissect = nasdaq_nsmequities_drop_asciidrop_v2_3.client_payload.dispatch[client_packet_type]
   if dissect then
