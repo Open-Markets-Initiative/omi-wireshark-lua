@@ -75,7 +75,7 @@
 
 | Division | [Protocol][Omi.Nse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [NseCm][NseCm.Exchange] | [Broadcast][Nse.NseCm.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [6.6][Nse.NseCm.Broadcast.NnfBcast.v6.6.Dissector] | 8/3/2026 | 9312 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Nse.NseCm.Broadcast.NnfBcast.v6.6.Pdf] - [url][Nse.NseCm.Broadcast.NnfBcast.v6.6.Url] |
+| [NseCm][NseCm.Exchange] | [Broadcast][Nse.NseCm.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [6.6][Nse.NseCm.Broadcast.NnfBcast.v6.6.Dissector] | 8/3/2026 | 9415 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Nse.NseCm.Broadcast.NnfBcast.v6.6.Pdf] - [url][Nse.NseCm.Broadcast.NnfBcast.v6.6.Url] |
 | [NseFo][NseFo.Exchange] | [Broadcast][Nse.NseFo.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [9.50][Nse.NseFo.Broadcast.NnfBcast.v9.50.Dissector] | 7/27/2026 | 9445 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Nse.NseFo.Broadcast.NnfBcast.v9.50.Pdf] - [url][Nse.NseFo.Broadcast.NnfBcast.v9.50.Url] |
 
 

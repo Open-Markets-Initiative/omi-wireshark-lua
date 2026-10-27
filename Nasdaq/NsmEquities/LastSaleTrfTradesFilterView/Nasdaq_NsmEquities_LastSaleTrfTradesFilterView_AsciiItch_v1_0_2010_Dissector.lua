@@ -91,7 +91,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
+-- Hours behind UTC (America/New_York) for midnight calculation
 nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.utc_offset_hours = 5
 
 
@@ -116,7 +116,7 @@ omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.prefs.sho
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (America/New_York) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_lastsaletrftradesfilterview_asciiitch_v1_0_2010.prefs_changed()
